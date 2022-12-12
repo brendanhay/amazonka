@@ -4,7 +4,7 @@ import qualified Control.Comonad as Comonad
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.Map.Strict as Map
 import qualified Data.Set as Set
 import qualified Data.Text as Text
 import Gen.Prelude
@@ -20,19 +20,19 @@ cofree x = go
 attach ::
   (Traversable t, HasId a, Monoid b) =>
   (a -> b -> c) ->
-  HashMap Id b ->
+  Map Id b ->
   Cofree t a ->
   Cofree t c
 attach ctor m = fmap go
   where
-    go x = ctor x . fromMaybe mempty $ HashMap.lookup (identifier x) m
+    go x = ctor x . fromMaybe mempty $ Map.lookup (identifier x) m
 
 -- | Allows the new annotation to be memoised separately
 -- from the pre-existing annotation.
 annotate ::
   (Traversable t, MonadState s m, HasId a, Show b) =>
   (a -> b -> c) ->
-  Lens' s (HashMap Id b) ->
+  Lens' s (Map Id b) ->
   (Cofree t a -> m b) ->
   Cofree t a ->
   m (Cofree t c)
@@ -42,15 +42,15 @@ annotate ctor l f = sequenceA . Comonad.extend go
 
 memoise ::
   (MonadState s m, HasId a, Show b) =>
-  Lens' s (HashMap Id b) ->
+  Lens' s (Map Id b) ->
   (a -> m b) ->
   a ->
   m b
-memoise l f x = Lens.uses l (HashMap.lookup n) >>= maybe go return
+memoise l f x = Lens.uses l (Map.lookup n) >>= maybe go pure
   where
     go = do
       r <- f x
-      l %= HashMap.insert n r
+      l %= Map.insert n r
       pure r
 
     n = identifier x
@@ -58,7 +58,7 @@ memoise l f x = Lens.uses l (HashMap.lookup n) >>= maybe go return
 -- | Memoise the set of shapes constructed so far. Because we don't
 -- return 'Ptr' unless we see an 'Id' for the second time in a
 -- traversal, this is safe.
-type MemoE = StateT (HashMap Id (Shape Id)) (Either String)
+type MemoE = StateT (Map Id (Shape Id)) (Either String)
 
 runMemoE :: MemoE a -> Either String a
 runMemoE = flip State.evalStateT mempty
@@ -73,20 +73,20 @@ runMemoE = flip State.evalStateT mempty
 elaborate ::
   forall a.
   Show a =>
-  HashMap Id (ShapeF a) ->
-  Either String (HashMap Id (Shape Id))
-elaborate m = runMemoE $ HashMap.traverseWithKey (shape mempty) m
+  Map Id (ShapeF a) ->
+  Either String (Map Id (Shape Id))
+elaborate m = runMemoE $ Map.traverseWithKey (shape mempty) m
   where
     shape :: Set Id -> Id -> ShapeF a -> MemoE (Shape Id)
     shape seen n s
       | n `elem` seen = pure $! n :< Ptr (s ^. info) (pointerTo n s)
       | otherwise = do
-        ms <- State.gets (HashMap.lookup n)
+        ms <- State.gets (Map.lookup n)
         case ms of
           Just x -> pure x
           Nothing -> do
             x <- (n :<) <$> Lens.traverseOf references (ref (Set.insert n seen)) s
-            State.modify' (HashMap.insert n x)
+            State.modify' (Map.insert n x)
             pure x
 
     ref :: Set Id -> RefF a -> MemoE (RefF (Shape Id))
@@ -96,7 +96,7 @@ elaborate m = runMemoE $ HashMap.traverseWithKey (shape mempty) m
       pure $ r & refAnn .~ s
 
     findShape :: Id -> MemoE (ShapeF a)
-    findShape n = case HashMap.lookup n m of
+    findShape n = case Map.lookup n m of
       Nothing ->
         Except.throwError $
           unwords

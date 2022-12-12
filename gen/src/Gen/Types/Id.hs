@@ -29,7 +29,7 @@ import qualified Control.Comonad as Comonad
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
 import qualified Data.Char as Char
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.Map.Strict as Map
 import qualified Data.Text as Text
 import Gen.Prelude
 import Gen.Text
@@ -73,11 +73,11 @@ mkId t = Id t (format t)
 format :: Text -> Text
 format = upperHead . Text.dropWhile (not . Char.isAlpha)
 
-partial :: Show a => Id -> HashMap Id a -> String
+partial :: Show a => Id -> Map Id a -> String
 partial p m =
   let text = Text.take 3 (memberId p)
-      matches = HashMap.filterWithKey (const . Text.isPrefixOf text . memberId) m
-   in fromString (show (HashMap.toList matches))
+      matches = Map.filterWithKey (const . Text.isPrefixOf text . memberId) m
+   in fromString (show (Map.toList matches))
 
 representation :: Lens' Id Text
 representation =

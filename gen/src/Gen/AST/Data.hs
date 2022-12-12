@@ -12,7 +12,7 @@ import qualified Control.Lens as Lens
 import qualified Control.Monad.Trans.State as State
 import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.Char as Char
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.Map.Strict as Map
 import qualified Data.List as List
 import qualified Data.Set as Set
 import qualified Data.Text as Text
@@ -46,8 +46,8 @@ operationData cfg m o = do
 
   yis' <- renderInsts p yn (responseInsts ys)
   xis' <-
-    maybe id (HashMap.insert "AWSPager") mpage
-      . HashMap.insert "AWSRequest" cls
+    maybe id (Map.insert "AWSPager") mpage
+      . Map.insert "AWSRequest" cls
       <$> renderInsts p xn xis
 
   pure
@@ -126,9 +126,9 @@ sumData ::
   Protocol ->
   Solved ->
   Info ->
-  HashMap Id Text ->
+  Map Id Text ->
   Either String SData
-sumData p s i vs = Sum s <$> mk <*> fmap HashMap.keys insts
+sumData p s i vs = Sum s <$> mk <*> fmap Map.keys insts
   where
     mk =
       Sum' (typeId n) (i ^. infoDocumentation)
@@ -327,8 +327,8 @@ prodData m s st = (,fields) <$> mk
 
     n = s ^. annId
 
-renderInsts :: Protocol -> Id -> [Inst] -> Either String (HashMap Text Text.Lazy.Text)
-renderInsts p n = fmap HashMap.fromList . traverse go
+renderInsts :: Protocol -> Id -> [Inst] -> Either String (Map Text Text.Lazy.Text)
+renderInsts p n = fmap Map.fromList . traverse go
   where
     go i = (instToText i,) <$> pp Print (instanceD p n i)
 
@@ -354,12 +354,12 @@ serviceData m r =
 waiterData ::
   HasMetadata a Identity =>
   a ->
-  HashMap Id (Operation Identity Ref b) ->
+  Map Id (Operation Identity Ref b) ->
   Id ->
   Waiter Id ->
   Either String WData
 waiterData m os n w = do
-  o <- note (missingErr key (HashMap.map _opName os)) $ HashMap.lookup key os
+  o <- note (missingErr key (_opName <$> os)) $ Map.lookup key os
   wf <- waiterFields m o w
   c <-
     Fun' (smartCtorId n) help
@@ -458,7 +458,7 @@ notation m = go
     field' :: Id -> Shape Solved -> Either String Field
     field' n = \case
       a :< Struct st ->
-        note (missingErr n (identifier a) (HashMap.keys (st ^. members)))
+        note (missingErr n (identifier a) (Map.keys (st ^. members)))
           . List.find ((n ==) . _fieldId)
           $ mkFields m a st
       _ -> Left (descendErr n)

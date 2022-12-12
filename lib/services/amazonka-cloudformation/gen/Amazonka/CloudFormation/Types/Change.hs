@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChange' smart constructor.
 data Change = Change'
-  { -- | The type of entity that CloudFormation changes. Currently, the only
-    -- entity type is @Resource@.
-    type' :: Prelude.Maybe ChangeType,
-    -- | Is either @null@, if no hooks invoke for the resource, or contains the
+  { -- | Is either @null@, if no hooks invoke for the resource, or contains the
     -- number of hooks that will invoke for the resource.
     hookInvocationCount :: Prelude.Maybe Prelude.Natural,
     -- | A @ResourceChange@ structure that describes the resource and action that
     -- CloudFormation will perform.
-    resourceChange :: Prelude.Maybe ResourceChange
+    resourceChange :: Prelude.Maybe ResourceChange,
+    -- | The type of entity that CloudFormation changes. Currently, the only
+    -- entity type is @Resource@.
+    type' :: Prelude.Maybe ChangeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,27 +51,22 @@ data Change = Change'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'change_type' - The type of entity that CloudFormation changes. Currently, the only
--- entity type is @Resource@.
---
 -- 'hookInvocationCount', 'change_hookInvocationCount' - Is either @null@, if no hooks invoke for the resource, or contains the
 -- number of hooks that will invoke for the resource.
 --
 -- 'resourceChange', 'change_resourceChange' - A @ResourceChange@ structure that describes the resource and action that
 -- CloudFormation will perform.
+--
+-- 'type'', 'change_type' - The type of entity that CloudFormation changes. Currently, the only
+-- entity type is @Resource@.
 newChange ::
   Change
 newChange =
   Change'
-    { type' = Prelude.Nothing,
-      hookInvocationCount = Prelude.Nothing,
-      resourceChange = Prelude.Nothing
+    { hookInvocationCount = Prelude.Nothing,
+      resourceChange = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of entity that CloudFormation changes. Currently, the only
--- entity type is @Resource@.
-change_type :: Lens.Lens' Change (Prelude.Maybe ChangeType)
-change_type = Lens.lens (\Change' {type'} -> type') (\s@Change' {} a -> s {type' = a} :: Change)
 
 -- | Is either @null@, if no hooks invoke for the resource, or contains the
 -- number of hooks that will invoke for the resource.
@@ -83,21 +78,26 @@ change_hookInvocationCount = Lens.lens (\Change' {hookInvocationCount} -> hookIn
 change_resourceChange :: Lens.Lens' Change (Prelude.Maybe ResourceChange)
 change_resourceChange = Lens.lens (\Change' {resourceChange} -> resourceChange) (\s@Change' {} a -> s {resourceChange = a} :: Change)
 
+-- | The type of entity that CloudFormation changes. Currently, the only
+-- entity type is @Resource@.
+change_type :: Lens.Lens' Change (Prelude.Maybe ChangeType)
+change_type = Lens.lens (\Change' {type'} -> type') (\s@Change' {} a -> s {type' = a} :: Change)
+
 instance Data.FromXML Change where
   parseXML x =
     Change'
-      Prelude.<$> (x Data..@? "Type")
-      Prelude.<*> (x Data..@? "HookInvocationCount")
+      Prelude.<$> (x Data..@? "HookInvocationCount")
       Prelude.<*> (x Data..@? "ResourceChange")
+      Prelude.<*> (x Data..@? "Type")
 
 instance Prelude.Hashable Change where
   hashWithSalt _salt Change' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` hookInvocationCount
+    _salt `Prelude.hashWithSalt` hookInvocationCount
       `Prelude.hashWithSalt` resourceChange
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Change where
   rnf Change' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf hookInvocationCount
+    Prelude.rnf hookInvocationCount
       `Prelude.seq` Prelude.rnf resourceChange
+      `Prelude.seq` Prelude.rnf type'

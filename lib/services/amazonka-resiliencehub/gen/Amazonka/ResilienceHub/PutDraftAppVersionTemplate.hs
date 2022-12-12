@@ -36,8 +36,8 @@ module Amazonka.ResilienceHub.PutDraftAppVersionTemplate
     newPutDraftAppVersionTemplateResponse,
 
     -- * Response Lenses
-    putDraftAppVersionTemplateResponse_appVersion,
     putDraftAppVersionTemplateResponse_appArn,
+    putDraftAppVersionTemplateResponse_appVersion,
     putDraftAppVersionTemplateResponse_httpStatus,
   )
 where
@@ -114,8 +114,8 @@ instance Core.AWSRequest PutDraftAppVersionTemplate where
     Response.receiveJSON
       ( \s h x ->
           PutDraftAppVersionTemplateResponse'
-            Prelude.<$> (x Data..?> "appVersion")
-            Prelude.<*> (x Data..?> "appArn")
+            Prelude.<$> (x Data..?> "appArn")
+            Prelude.<*> (x Data..?> "appVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,14 +159,14 @@ instance Data.ToQuery PutDraftAppVersionTemplate where
 
 -- | /See:/ 'newPutDraftAppVersionTemplateResponse' smart constructor.
 data PutDraftAppVersionTemplateResponse = PutDraftAppVersionTemplateResponse'
-  { -- | The version of the application.
-    appVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
+  { -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
     appArn :: Prelude.Maybe Prelude.Text,
+    -- | The version of the application.
+    appVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,13 +180,13 @@ data PutDraftAppVersionTemplateResponse = PutDraftAppVersionTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appVersion', 'putDraftAppVersionTemplateResponse_appVersion' - The version of the application.
---
 -- 'appArn', 'putDraftAppVersionTemplateResponse_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
+--
+-- 'appVersion', 'putDraftAppVersionTemplateResponse_appVersion' - The version of the application.
 --
 -- 'httpStatus', 'putDraftAppVersionTemplateResponse_httpStatus' - The response's http status code.
 newPutDraftAppVersionTemplateResponse ::
@@ -195,15 +195,11 @@ newPutDraftAppVersionTemplateResponse ::
   PutDraftAppVersionTemplateResponse
 newPutDraftAppVersionTemplateResponse pHttpStatus_ =
   PutDraftAppVersionTemplateResponse'
-    { appVersion =
+    { appArn =
         Prelude.Nothing,
-      appArn = Prelude.Nothing,
+      appVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The version of the application.
-putDraftAppVersionTemplateResponse_appVersion :: Lens.Lens' PutDraftAppVersionTemplateResponse (Prelude.Maybe Prelude.Text)
-putDraftAppVersionTemplateResponse_appVersion = Lens.lens (\PutDraftAppVersionTemplateResponse' {appVersion} -> appVersion) (\s@PutDraftAppVersionTemplateResponse' {} a -> s {appVersion = a} :: PutDraftAppVersionTemplateResponse)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -212,6 +208,10 @@ putDraftAppVersionTemplateResponse_appVersion = Lens.lens (\PutDraftAppVersionTe
 -- in the /AWS General Reference/.
 putDraftAppVersionTemplateResponse_appArn :: Lens.Lens' PutDraftAppVersionTemplateResponse (Prelude.Maybe Prelude.Text)
 putDraftAppVersionTemplateResponse_appArn = Lens.lens (\PutDraftAppVersionTemplateResponse' {appArn} -> appArn) (\s@PutDraftAppVersionTemplateResponse' {} a -> s {appArn = a} :: PutDraftAppVersionTemplateResponse)
+
+-- | The version of the application.
+putDraftAppVersionTemplateResponse_appVersion :: Lens.Lens' PutDraftAppVersionTemplateResponse (Prelude.Maybe Prelude.Text)
+putDraftAppVersionTemplateResponse_appVersion = Lens.lens (\PutDraftAppVersionTemplateResponse' {appVersion} -> appVersion) (\s@PutDraftAppVersionTemplateResponse' {} a -> s {appVersion = a} :: PutDraftAppVersionTemplateResponse)
 
 -- | The response's http status code.
 putDraftAppVersionTemplateResponse_httpStatus :: Lens.Lens' PutDraftAppVersionTemplateResponse Prelude.Int
@@ -222,6 +222,6 @@ instance
     PutDraftAppVersionTemplateResponse
   where
   rnf PutDraftAppVersionTemplateResponse' {..} =
-    Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf appArn
+    Prelude.rnf appArn
+      `Prelude.seq` Prelude.rnf appVersion
       `Prelude.seq` Prelude.rnf httpStatus

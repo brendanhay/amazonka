@@ -27,8 +27,8 @@ module Amazonka.IoTSiteWise.UpdateDashboard
     newUpdateDashboard,
 
     -- * Request Lenses
-    updateDashboard_dashboardDescription,
     updateDashboard_clientToken,
+    updateDashboard_dashboardDescription,
     updateDashboard_dashboardId,
     updateDashboard_dashboardName,
     updateDashboard_dashboardDefinition,
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDashboard' smart constructor.
 data UpdateDashboard = UpdateDashboard'
-  { -- | A new description for the dashboard.
-    dashboardDescription :: Prelude.Maybe Prelude.Text,
-    -- | A unique case-sensitive identifier that you can provide to ensure the
+  { -- | A unique case-sensitive identifier that you can provide to ensure the
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A new description for the dashboard.
+    dashboardDescription :: Prelude.Maybe Prelude.Text,
     -- | The ID of the dashboard to update.
     dashboardId :: Prelude.Text,
     -- | A new friendly name for the dashboard.
@@ -78,11 +78,11 @@ data UpdateDashboard = UpdateDashboard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dashboardDescription', 'updateDashboard_dashboardDescription' - A new description for the dashboard.
---
 -- 'clientToken', 'updateDashboard_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
+--
+-- 'dashboardDescription', 'updateDashboard_dashboardDescription' - A new description for the dashboard.
 --
 -- 'dashboardId', 'updateDashboard_dashboardId' - The ID of the dashboard to update.
 --
@@ -105,23 +105,22 @@ newUpdateDashboard
   pDashboardName_
   pDashboardDefinition_ =
     UpdateDashboard'
-      { dashboardDescription =
-          Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        dashboardDescription = Prelude.Nothing,
         dashboardId = pDashboardId_,
         dashboardName = pDashboardName_,
         dashboardDefinition = pDashboardDefinition_
       }
-
--- | A new description for the dashboard.
-updateDashboard_dashboardDescription :: Lens.Lens' UpdateDashboard (Prelude.Maybe Prelude.Text)
-updateDashboard_dashboardDescription = Lens.lens (\UpdateDashboard' {dashboardDescription} -> dashboardDescription) (\s@UpdateDashboard' {} a -> s {dashboardDescription = a} :: UpdateDashboard)
 
 -- | A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 updateDashboard_clientToken :: Lens.Lens' UpdateDashboard (Prelude.Maybe Prelude.Text)
 updateDashboard_clientToken = Lens.lens (\UpdateDashboard' {clientToken} -> clientToken) (\s@UpdateDashboard' {} a -> s {clientToken = a} :: UpdateDashboard)
+
+-- | A new description for the dashboard.
+updateDashboard_dashboardDescription :: Lens.Lens' UpdateDashboard (Prelude.Maybe Prelude.Text)
+updateDashboard_dashboardDescription = Lens.lens (\UpdateDashboard' {dashboardDescription} -> dashboardDescription) (\s@UpdateDashboard' {} a -> s {dashboardDescription = a} :: UpdateDashboard)
 
 -- | The ID of the dashboard to update.
 updateDashboard_dashboardId :: Lens.Lens' UpdateDashboard Prelude.Text
@@ -153,16 +152,16 @@ instance Core.AWSRequest UpdateDashboard where
 
 instance Prelude.Hashable UpdateDashboard where
   hashWithSalt _salt UpdateDashboard' {..} =
-    _salt `Prelude.hashWithSalt` dashboardDescription
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` dashboardDescription
       `Prelude.hashWithSalt` dashboardId
       `Prelude.hashWithSalt` dashboardName
       `Prelude.hashWithSalt` dashboardDefinition
 
 instance Prelude.NFData UpdateDashboard where
   rnf UpdateDashboard' {..} =
-    Prelude.rnf dashboardDescription
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf dashboardDescription
       `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf dashboardName
       `Prelude.seq` Prelude.rnf dashboardDefinition
@@ -182,9 +181,9 @@ instance Data.ToJSON UpdateDashboard where
   toJSON UpdateDashboard' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("dashboardDescription" Data..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("dashboardDescription" Data..=)
               Prelude.<$> dashboardDescription,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("dashboardName" Data..= dashboardName),
             Prelude.Just
               ("dashboardDefinition" Data..= dashboardDefinition)

@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMFAOptionType' smart constructor.
 data MFAOptionType = MFAOptionType'
-  { -- | The delivery medium to send the MFA code. You can use this parameter to
-    -- set only the @SMS@ delivery medium value.
-    deliveryMedium :: Prelude.Maybe DeliveryMediumType,
-    -- | The attribute name of the MFA option type. The only valid value is
+  { -- | The attribute name of the MFA option type. The only valid value is
     -- @phone_number@.
-    attributeName :: Prelude.Maybe Prelude.Text
+    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | The delivery medium to send the MFA code. You can use this parameter to
+    -- set only the @SMS@ delivery medium value.
+    deliveryMedium :: Prelude.Maybe DeliveryMediumType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,28 +48,28 @@ data MFAOptionType = MFAOptionType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deliveryMedium', 'mfaOptionType_deliveryMedium' - The delivery medium to send the MFA code. You can use this parameter to
--- set only the @SMS@ delivery medium value.
---
 -- 'attributeName', 'mfaOptionType_attributeName' - The attribute name of the MFA option type. The only valid value is
 -- @phone_number@.
+--
+-- 'deliveryMedium', 'mfaOptionType_deliveryMedium' - The delivery medium to send the MFA code. You can use this parameter to
+-- set only the @SMS@ delivery medium value.
 newMFAOptionType ::
   MFAOptionType
 newMFAOptionType =
   MFAOptionType'
-    { deliveryMedium = Prelude.Nothing,
-      attributeName = Prelude.Nothing
+    { attributeName = Prelude.Nothing,
+      deliveryMedium = Prelude.Nothing
     }
-
--- | The delivery medium to send the MFA code. You can use this parameter to
--- set only the @SMS@ delivery medium value.
-mfaOptionType_deliveryMedium :: Lens.Lens' MFAOptionType (Prelude.Maybe DeliveryMediumType)
-mfaOptionType_deliveryMedium = Lens.lens (\MFAOptionType' {deliveryMedium} -> deliveryMedium) (\s@MFAOptionType' {} a -> s {deliveryMedium = a} :: MFAOptionType)
 
 -- | The attribute name of the MFA option type. The only valid value is
 -- @phone_number@.
 mfaOptionType_attributeName :: Lens.Lens' MFAOptionType (Prelude.Maybe Prelude.Text)
 mfaOptionType_attributeName = Lens.lens (\MFAOptionType' {attributeName} -> attributeName) (\s@MFAOptionType' {} a -> s {attributeName = a} :: MFAOptionType)
+
+-- | The delivery medium to send the MFA code. You can use this parameter to
+-- set only the @SMS@ delivery medium value.
+mfaOptionType_deliveryMedium :: Lens.Lens' MFAOptionType (Prelude.Maybe DeliveryMediumType)
+mfaOptionType_deliveryMedium = Lens.lens (\MFAOptionType' {deliveryMedium} -> deliveryMedium) (\s@MFAOptionType' {} a -> s {deliveryMedium = a} :: MFAOptionType)
 
 instance Data.FromJSON MFAOptionType where
   parseJSON =
@@ -77,26 +77,26 @@ instance Data.FromJSON MFAOptionType where
       "MFAOptionType"
       ( \x ->
           MFAOptionType'
-            Prelude.<$> (x Data..:? "DeliveryMedium")
-            Prelude.<*> (x Data..:? "AttributeName")
+            Prelude.<$> (x Data..:? "AttributeName")
+            Prelude.<*> (x Data..:? "DeliveryMedium")
       )
 
 instance Prelude.Hashable MFAOptionType where
   hashWithSalt _salt MFAOptionType' {..} =
-    _salt `Prelude.hashWithSalt` deliveryMedium
-      `Prelude.hashWithSalt` attributeName
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` deliveryMedium
 
 instance Prelude.NFData MFAOptionType where
   rnf MFAOptionType' {..} =
-    Prelude.rnf deliveryMedium
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf deliveryMedium
 
 instance Data.ToJSON MFAOptionType where
   toJSON MFAOptionType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeliveryMedium" Data..=)
-              Prelude.<$> deliveryMedium,
-            ("AttributeName" Data..=) Prelude.<$> attributeName
+          [ ("AttributeName" Data..=) Prelude.<$> attributeName,
+            ("DeliveryMedium" Data..=)
+              Prelude.<$> deliveryMedium
           ]
       )

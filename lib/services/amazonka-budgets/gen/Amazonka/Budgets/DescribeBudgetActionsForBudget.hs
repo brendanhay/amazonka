@@ -29,8 +29,8 @@ module Amazonka.Budgets.DescribeBudgetActionsForBudget
     newDescribeBudgetActionsForBudget,
 
     -- * Request Lenses
-    describeBudgetActionsForBudget_nextToken,
     describeBudgetActionsForBudget_maxResults,
+    describeBudgetActionsForBudget_nextToken,
     describeBudgetActionsForBudget_accountId,
     describeBudgetActionsForBudget_budgetName,
 
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeBudgetActionsForBudget' smart constructor.
 data DescribeBudgetActionsForBudget = DescribeBudgetActionsForBudget'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     accountId :: Prelude.Text,
     budgetName :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data DescribeBudgetActionsForBudget = DescribeBudgetActionsForBudget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeBudgetActionsForBudget_nextToken' - Undocumented member.
---
 -- 'maxResults', 'describeBudgetActionsForBudget_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeBudgetActionsForBudget_nextToken' - Undocumented member.
 --
 -- 'accountId', 'describeBudgetActionsForBudget_accountId' - Undocumented member.
 --
@@ -87,20 +87,20 @@ newDescribeBudgetActionsForBudget
   pAccountId_
   pBudgetName_ =
     DescribeBudgetActionsForBudget'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_
       }
 
 -- | Undocumented member.
-describeBudgetActionsForBudget_nextToken :: Lens.Lens' DescribeBudgetActionsForBudget (Prelude.Maybe Prelude.Text)
-describeBudgetActionsForBudget_nextToken = Lens.lens (\DescribeBudgetActionsForBudget' {nextToken} -> nextToken) (\s@DescribeBudgetActionsForBudget' {} a -> s {nextToken = a} :: DescribeBudgetActionsForBudget)
-
--- | Undocumented member.
 describeBudgetActionsForBudget_maxResults :: Lens.Lens' DescribeBudgetActionsForBudget (Prelude.Maybe Prelude.Natural)
 describeBudgetActionsForBudget_maxResults = Lens.lens (\DescribeBudgetActionsForBudget' {maxResults} -> maxResults) (\s@DescribeBudgetActionsForBudget' {} a -> s {maxResults = a} :: DescribeBudgetActionsForBudget)
+
+-- | Undocumented member.
+describeBudgetActionsForBudget_nextToken :: Lens.Lens' DescribeBudgetActionsForBudget (Prelude.Maybe Prelude.Text)
+describeBudgetActionsForBudget_nextToken = Lens.lens (\DescribeBudgetActionsForBudget' {nextToken} -> nextToken) (\s@DescribeBudgetActionsForBudget' {} a -> s {nextToken = a} :: DescribeBudgetActionsForBudget)
 
 -- | Undocumented member.
 describeBudgetActionsForBudget_accountId :: Lens.Lens' DescribeBudgetActionsForBudget Prelude.Text
@@ -156,8 +156,8 @@ instance
   hashWithSalt
     _salt
     DescribeBudgetActionsForBudget' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` budgetName
 
@@ -166,8 +166,8 @@ instance
     DescribeBudgetActionsForBudget
   where
   rnf DescribeBudgetActionsForBudget' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf budgetName
 
@@ -193,8 +193,8 @@ instance Data.ToJSON DescribeBudgetActionsForBudget where
   toJSON DescribeBudgetActionsForBudget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("AccountId" Data..= accountId),
             Prelude.Just ("BudgetName" Data..= budgetName)
           ]

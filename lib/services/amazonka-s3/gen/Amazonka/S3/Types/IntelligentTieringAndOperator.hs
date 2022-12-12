@@ -31,12 +31,12 @@ import Amazonka.S3.Types.Tag
 --
 -- /See:/ 'newIntelligentTieringAndOperator' smart constructor.
 data IntelligentTieringAndOperator = IntelligentTieringAndOperator'
-  { -- | All of these tags must exist in the object\'s tag set in order for the
-    -- configuration to apply.
-    tags :: Prelude.Maybe [Tag],
-    -- | An object key name prefix that identifies the subset of objects to which
+  { -- | An object key name prefix that identifies the subset of objects to which
     -- the configuration applies.
-    prefix :: Prelude.Maybe Prelude.Text
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | All of these tags must exist in the object\'s tag set in order for the
+    -- configuration to apply.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,54 +48,54 @@ data IntelligentTieringAndOperator = IntelligentTieringAndOperator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'intelligentTieringAndOperator_tags' - All of these tags must exist in the object\'s tag set in order for the
--- configuration to apply.
---
 -- 'prefix', 'intelligentTieringAndOperator_prefix' - An object key name prefix that identifies the subset of objects to which
 -- the configuration applies.
+--
+-- 'tags', 'intelligentTieringAndOperator_tags' - All of these tags must exist in the object\'s tag set in order for the
+-- configuration to apply.
 newIntelligentTieringAndOperator ::
   IntelligentTieringAndOperator
 newIntelligentTieringAndOperator =
   IntelligentTieringAndOperator'
-    { tags =
+    { prefix =
         Prelude.Nothing,
-      prefix = Prelude.Nothing
+      tags = Prelude.Nothing
     }
-
--- | All of these tags must exist in the object\'s tag set in order for the
--- configuration to apply.
-intelligentTieringAndOperator_tags :: Lens.Lens' IntelligentTieringAndOperator (Prelude.Maybe [Tag])
-intelligentTieringAndOperator_tags = Lens.lens (\IntelligentTieringAndOperator' {tags} -> tags) (\s@IntelligentTieringAndOperator' {} a -> s {tags = a} :: IntelligentTieringAndOperator) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object key name prefix that identifies the subset of objects to which
 -- the configuration applies.
 intelligentTieringAndOperator_prefix :: Lens.Lens' IntelligentTieringAndOperator (Prelude.Maybe Prelude.Text)
 intelligentTieringAndOperator_prefix = Lens.lens (\IntelligentTieringAndOperator' {prefix} -> prefix) (\s@IntelligentTieringAndOperator' {} a -> s {prefix = a} :: IntelligentTieringAndOperator)
 
+-- | All of these tags must exist in the object\'s tag set in order for the
+-- configuration to apply.
+intelligentTieringAndOperator_tags :: Lens.Lens' IntelligentTieringAndOperator (Prelude.Maybe [Tag])
+intelligentTieringAndOperator_tags = Lens.lens (\IntelligentTieringAndOperator' {tags} -> tags) (\s@IntelligentTieringAndOperator' {} a -> s {tags = a} :: IntelligentTieringAndOperator) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromXML IntelligentTieringAndOperator where
   parseXML x =
     IntelligentTieringAndOperator'
-      Prelude.<$> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+      Prelude.<$> (x Data..@? "Prefix")
+      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Data..@? "Prefix")
 
 instance
   Prelude.Hashable
     IntelligentTieringAndOperator
   where
   hashWithSalt _salt IntelligentTieringAndOperator' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` prefix
+    _salt `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData IntelligentTieringAndOperator where
   rnf IntelligentTieringAndOperator' {..} =
-    Prelude.rnf tags `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToXML IntelligentTieringAndOperator where
   toXML IntelligentTieringAndOperator' {..} =
     Prelude.mconcat
-      [ "Tag"
-          Data.@= Data.toXML (Data.toXMLList "Tag" Prelude.<$> tags),
-        "Prefix" Data.@= prefix
+      [ "Prefix" Data.@= prefix,
+        "Tag"
+          Data.@= Data.toXML (Data.toXMLList "Tag" Prelude.<$> tags)
       ]

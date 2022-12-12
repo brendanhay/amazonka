@@ -46,8 +46,8 @@ module Amazonka.SupportApp.CreateSlackChannelConfiguration
 
     -- * Request Lenses
     createSlackChannelConfiguration_channelName,
-    createSlackChannelConfiguration_notifyOnCreateOrReopenCase,
     createSlackChannelConfiguration_notifyOnAddCorrespondenceToCase,
+    createSlackChannelConfiguration_notifyOnCreateOrReopenCase,
     createSlackChannelConfiguration_notifyOnResolveCase,
     createSlackChannelConfiguration_channelId,
     createSlackChannelConfiguration_channelRoleArn,
@@ -76,12 +76,12 @@ data CreateSlackChannelConfiguration = CreateSlackChannelConfiguration'
   { -- | The name of the Slack channel that you configure for the Amazon Web
     -- Services Support App.
     channelName :: Prelude.Maybe Prelude.Text,
-    -- | Whether you want to get notified when a support case is created or
-    -- reopened.
-    notifyOnCreateOrReopenCase :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to get notified when a support case has a new
     -- correspondence.
     notifyOnAddCorrespondenceToCase :: Prelude.Maybe Prelude.Bool,
+    -- | Whether you want to get notified when a support case is created or
+    -- reopened.
+    notifyOnCreateOrReopenCase :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to get notified when a support case is resolved.
     notifyOnResolveCase :: Prelude.Maybe Prelude.Bool,
     -- | The channel ID in Slack. This ID identifies a channel within a Slack
@@ -132,11 +132,11 @@ data CreateSlackChannelConfiguration = CreateSlackChannelConfiguration'
 -- 'channelName', 'createSlackChannelConfiguration_channelName' - The name of the Slack channel that you configure for the Amazon Web
 -- Services Support App.
 --
--- 'notifyOnCreateOrReopenCase', 'createSlackChannelConfiguration_notifyOnCreateOrReopenCase' - Whether you want to get notified when a support case is created or
--- reopened.
---
 -- 'notifyOnAddCorrespondenceToCase', 'createSlackChannelConfiguration_notifyOnAddCorrespondenceToCase' - Whether you want to get notified when a support case has a new
 -- correspondence.
+--
+-- 'notifyOnCreateOrReopenCase', 'createSlackChannelConfiguration_notifyOnCreateOrReopenCase' - Whether you want to get notified when a support case is created or
+-- reopened.
 --
 -- 'notifyOnResolveCase', 'createSlackChannelConfiguration_notifyOnResolveCase' - Whether you want to get notified when a support case is resolved.
 --
@@ -191,9 +191,9 @@ newCreateSlackChannelConfiguration
     CreateSlackChannelConfiguration'
       { channelName =
           Prelude.Nothing,
-        notifyOnCreateOrReopenCase =
-          Prelude.Nothing,
         notifyOnAddCorrespondenceToCase =
+          Prelude.Nothing,
+        notifyOnCreateOrReopenCase =
           Prelude.Nothing,
         notifyOnResolveCase = Prelude.Nothing,
         channelId = pChannelId_,
@@ -208,15 +208,15 @@ newCreateSlackChannelConfiguration
 createSlackChannelConfiguration_channelName :: Lens.Lens' CreateSlackChannelConfiguration (Prelude.Maybe Prelude.Text)
 createSlackChannelConfiguration_channelName = Lens.lens (\CreateSlackChannelConfiguration' {channelName} -> channelName) (\s@CreateSlackChannelConfiguration' {} a -> s {channelName = a} :: CreateSlackChannelConfiguration)
 
--- | Whether you want to get notified when a support case is created or
--- reopened.
-createSlackChannelConfiguration_notifyOnCreateOrReopenCase :: Lens.Lens' CreateSlackChannelConfiguration (Prelude.Maybe Prelude.Bool)
-createSlackChannelConfiguration_notifyOnCreateOrReopenCase = Lens.lens (\CreateSlackChannelConfiguration' {notifyOnCreateOrReopenCase} -> notifyOnCreateOrReopenCase) (\s@CreateSlackChannelConfiguration' {} a -> s {notifyOnCreateOrReopenCase = a} :: CreateSlackChannelConfiguration)
-
 -- | Whether you want to get notified when a support case has a new
 -- correspondence.
 createSlackChannelConfiguration_notifyOnAddCorrespondenceToCase :: Lens.Lens' CreateSlackChannelConfiguration (Prelude.Maybe Prelude.Bool)
 createSlackChannelConfiguration_notifyOnAddCorrespondenceToCase = Lens.lens (\CreateSlackChannelConfiguration' {notifyOnAddCorrespondenceToCase} -> notifyOnAddCorrespondenceToCase) (\s@CreateSlackChannelConfiguration' {} a -> s {notifyOnAddCorrespondenceToCase = a} :: CreateSlackChannelConfiguration)
+
+-- | Whether you want to get notified when a support case is created or
+-- reopened.
+createSlackChannelConfiguration_notifyOnCreateOrReopenCase :: Lens.Lens' CreateSlackChannelConfiguration (Prelude.Maybe Prelude.Bool)
+createSlackChannelConfiguration_notifyOnCreateOrReopenCase = Lens.lens (\CreateSlackChannelConfiguration' {notifyOnCreateOrReopenCase} -> notifyOnCreateOrReopenCase) (\s@CreateSlackChannelConfiguration' {} a -> s {notifyOnCreateOrReopenCase = a} :: CreateSlackChannelConfiguration)
 
 -- | Whether you want to get notified when a support case is resolved.
 createSlackChannelConfiguration_notifyOnResolveCase :: Lens.Lens' CreateSlackChannelConfiguration (Prelude.Maybe Prelude.Bool)
@@ -288,8 +288,8 @@ instance
     _salt
     CreateSlackChannelConfiguration' {..} =
       _salt `Prelude.hashWithSalt` channelName
-        `Prelude.hashWithSalt` notifyOnCreateOrReopenCase
         `Prelude.hashWithSalt` notifyOnAddCorrespondenceToCase
+        `Prelude.hashWithSalt` notifyOnCreateOrReopenCase
         `Prelude.hashWithSalt` notifyOnResolveCase
         `Prelude.hashWithSalt` channelId
         `Prelude.hashWithSalt` channelRoleArn
@@ -302,8 +302,8 @@ instance
   where
   rnf CreateSlackChannelConfiguration' {..} =
     Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf notifyOnCreateOrReopenCase
       `Prelude.seq` Prelude.rnf notifyOnAddCorrespondenceToCase
+      `Prelude.seq` Prelude.rnf notifyOnCreateOrReopenCase
       `Prelude.seq` Prelude.rnf notifyOnResolveCase
       `Prelude.seq` Prelude.rnf channelId
       `Prelude.seq` Prelude.rnf channelRoleArn
@@ -329,10 +329,10 @@ instance Data.ToJSON CreateSlackChannelConfiguration where
     Data.object
       ( Prelude.catMaybes
           [ ("channelName" Data..=) Prelude.<$> channelName,
-            ("notifyOnCreateOrReopenCase" Data..=)
-              Prelude.<$> notifyOnCreateOrReopenCase,
             ("notifyOnAddCorrespondenceToCase" Data..=)
               Prelude.<$> notifyOnAddCorrespondenceToCase,
+            ("notifyOnCreateOrReopenCase" Data..=)
+              Prelude.<$> notifyOnCreateOrReopenCase,
             ("notifyOnResolveCase" Data..=)
               Prelude.<$> notifyOnResolveCase,
             Prelude.Just ("channelId" Data..= channelId),

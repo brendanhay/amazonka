@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventBus' smart constructor.
 data EventBus = EventBus'
-  { -- | The permissions policy of the event bus, describing which other Amazon
-    -- Web Services accounts can write events to this event bus.
-    policy :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the event bus.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the event bus.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the event bus.
-    arn :: Prelude.Maybe Prelude.Text
+    -- | The permissions policy of the event bus, describing which other Amazon
+    -- Web Services accounts can write events to this event bus.
+    policy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,33 +51,33 @@ data EventBus = EventBus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policy', 'eventBus_policy' - The permissions policy of the event bus, describing which other Amazon
--- Web Services accounts can write events to this event bus.
+-- 'arn', 'eventBus_arn' - The ARN of the event bus.
 --
 -- 'name', 'eventBus_name' - The name of the event bus.
 --
--- 'arn', 'eventBus_arn' - The ARN of the event bus.
+-- 'policy', 'eventBus_policy' - The permissions policy of the event bus, describing which other Amazon
+-- Web Services accounts can write events to this event bus.
 newEventBus ::
   EventBus
 newEventBus =
   EventBus'
-    { policy = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      arn = Prelude.Nothing
+      policy = Prelude.Nothing
     }
 
--- | The permissions policy of the event bus, describing which other Amazon
--- Web Services accounts can write events to this event bus.
-eventBus_policy :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
-eventBus_policy = Lens.lens (\EventBus' {policy} -> policy) (\s@EventBus' {} a -> s {policy = a} :: EventBus)
+-- | The ARN of the event bus.
+eventBus_arn :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
+eventBus_arn = Lens.lens (\EventBus' {arn} -> arn) (\s@EventBus' {} a -> s {arn = a} :: EventBus)
 
 -- | The name of the event bus.
 eventBus_name :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
 eventBus_name = Lens.lens (\EventBus' {name} -> name) (\s@EventBus' {} a -> s {name = a} :: EventBus)
 
--- | The ARN of the event bus.
-eventBus_arn :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
-eventBus_arn = Lens.lens (\EventBus' {arn} -> arn) (\s@EventBus' {} a -> s {arn = a} :: EventBus)
+-- | The permissions policy of the event bus, describing which other Amazon
+-- Web Services accounts can write events to this event bus.
+eventBus_policy :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
+eventBus_policy = Lens.lens (\EventBus' {policy} -> policy) (\s@EventBus' {} a -> s {policy = a} :: EventBus)
 
 instance Data.FromJSON EventBus where
   parseJSON =
@@ -85,19 +85,19 @@ instance Data.FromJSON EventBus where
       "EventBus"
       ( \x ->
           EventBus'
-            Prelude.<$> (x Data..:? "Policy")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Policy")
       )
 
 instance Prelude.Hashable EventBus where
   hashWithSalt _salt EventBus' {..} =
-    _salt `Prelude.hashWithSalt` policy
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData EventBus where
   rnf EventBus' {..} =
-    Prelude.rnf policy
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf policy

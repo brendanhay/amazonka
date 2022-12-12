@@ -29,8 +29,8 @@ module Amazonka.ManagedBlockChain.ListProposals
     newListProposals,
 
     -- * Request Lenses
-    listProposals_nextToken,
     listProposals_maxResults,
+    listProposals_nextToken,
     listProposals_networkId,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProposals' smart constructor.
 data ListProposals = ListProposals'
-  { -- | The pagination token that indicates the next set of results to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of proposals to return.
+  { -- | The maximum number of proposals to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that indicates the next set of results to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the network.
     networkId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data ListProposals = ListProposals'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProposals_nextToken' - The pagination token that indicates the next set of results to retrieve.
---
 -- 'maxResults', 'listProposals_maxResults' - The maximum number of proposals to return.
+--
+-- 'nextToken', 'listProposals_nextToken' - The pagination token that indicates the next set of results to retrieve.
 --
 -- 'networkId', 'listProposals_networkId' - The unique identifier of the network.
 newListProposals ::
@@ -82,18 +82,18 @@ newListProposals ::
   ListProposals
 newListProposals pNetworkId_ =
   ListProposals'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       networkId = pNetworkId_
     }
-
--- | The pagination token that indicates the next set of results to retrieve.
-listProposals_nextToken :: Lens.Lens' ListProposals (Prelude.Maybe Prelude.Text)
-listProposals_nextToken = Lens.lens (\ListProposals' {nextToken} -> nextToken) (\s@ListProposals' {} a -> s {nextToken = a} :: ListProposals)
 
 -- | The maximum number of proposals to return.
 listProposals_maxResults :: Lens.Lens' ListProposals (Prelude.Maybe Prelude.Natural)
 listProposals_maxResults = Lens.lens (\ListProposals' {maxResults} -> maxResults) (\s@ListProposals' {} a -> s {maxResults = a} :: ListProposals)
+
+-- | The pagination token that indicates the next set of results to retrieve.
+listProposals_nextToken :: Lens.Lens' ListProposals (Prelude.Maybe Prelude.Text)
+listProposals_nextToken = Lens.lens (\ListProposals' {nextToken} -> nextToken) (\s@ListProposals' {} a -> s {nextToken = a} :: ListProposals)
 
 -- | The unique identifier of the network.
 listProposals_networkId :: Lens.Lens' ListProposals Prelude.Text
@@ -116,14 +116,14 @@ instance Core.AWSRequest ListProposals where
 
 instance Prelude.Hashable ListProposals where
   hashWithSalt _salt ListProposals' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` networkId
 
 instance Prelude.NFData ListProposals where
   rnf ListProposals' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf networkId
 
 instance Data.ToHeaders ListProposals where
@@ -145,8 +145,8 @@ instance Data.ToPath ListProposals where
 instance Data.ToQuery ListProposals where
   toQuery ListProposals' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProposalsResponse' smart constructor.

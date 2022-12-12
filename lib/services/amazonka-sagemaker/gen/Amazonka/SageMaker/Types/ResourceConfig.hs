@@ -31,7 +31,14 @@ import Amazonka.SageMaker.Types.TrainingInstanceType
 --
 -- /See:/ 'newResourceConfig' smart constructor.
 data ResourceConfig = ResourceConfig'
-  { -- | The duration of time in seconds to retain configured resources in a warm
+  { -- | The number of ML compute instances to use. For distributed training,
+    -- provide a value greater than 1.
+    instanceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The configuration of a heterogeneous cluster in JSON format.
+    instanceGroups :: Prelude.Maybe [InstanceGroup],
+    -- | The ML compute instance type.
+    instanceType :: Prelude.Maybe TrainingInstanceType,
+    -- | The duration of time in seconds to retain configured resources in a warm
     -- pool for subsequent training jobs.
     keepAlivePeriodInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Web Services KMS key that SageMaker uses to encrypt data on
@@ -59,13 +66,6 @@ data ResourceConfig = ResourceConfig'
     --
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The ML compute instance type.
-    instanceType :: Prelude.Maybe TrainingInstanceType,
-    -- | The number of ML compute instances to use. For distributed training,
-    -- provide a value greater than 1.
-    instanceCount :: Prelude.Maybe Prelude.Natural,
-    -- | The configuration of a heterogeneous cluster in JSON format.
-    instanceGroups :: Prelude.Maybe [InstanceGroup],
     -- | The size of the ML storage volume that you want to provision.
     --
     -- ML storage volumes store model artifacts and incremental states.
@@ -106,6 +106,13 @@ data ResourceConfig = ResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceCount', 'resourceConfig_instanceCount' - The number of ML compute instances to use. For distributed training,
+-- provide a value greater than 1.
+--
+-- 'instanceGroups', 'resourceConfig_instanceGroups' - The configuration of a heterogeneous cluster in JSON format.
+--
+-- 'instanceType', 'resourceConfig_instanceType' - The ML compute instance type.
+--
 -- 'keepAlivePeriodInSeconds', 'resourceConfig_keepAlivePeriodInSeconds' - The duration of time in seconds to retain configured resources in a warm
 -- pool for subsequent training jobs.
 --
@@ -133,13 +140,6 @@ data ResourceConfig = ResourceConfig'
 -- -   \/\/ Amazon Resource Name (ARN) of a KMS Key
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
---
--- 'instanceType', 'resourceConfig_instanceType' - The ML compute instance type.
---
--- 'instanceCount', 'resourceConfig_instanceCount' - The number of ML compute instances to use. For distributed training,
--- provide a value greater than 1.
---
--- 'instanceGroups', 'resourceConfig_instanceGroups' - The configuration of a heterogeneous cluster in JSON format.
 --
 -- 'volumeSizeInGB', 'resourceConfig_volumeSizeInGB' - The size of the ML storage volume that you want to provision.
 --
@@ -175,14 +175,26 @@ newResourceConfig ::
   ResourceConfig
 newResourceConfig pVolumeSizeInGB_ =
   ResourceConfig'
-    { keepAlivePeriodInSeconds =
-        Prelude.Nothing,
-      volumeKmsKeyId = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      instanceCount = Prelude.Nothing,
+    { instanceCount = Prelude.Nothing,
       instanceGroups = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      keepAlivePeriodInSeconds = Prelude.Nothing,
+      volumeKmsKeyId = Prelude.Nothing,
       volumeSizeInGB = pVolumeSizeInGB_
     }
+
+-- | The number of ML compute instances to use. For distributed training,
+-- provide a value greater than 1.
+resourceConfig_instanceCount :: Lens.Lens' ResourceConfig (Prelude.Maybe Prelude.Natural)
+resourceConfig_instanceCount = Lens.lens (\ResourceConfig' {instanceCount} -> instanceCount) (\s@ResourceConfig' {} a -> s {instanceCount = a} :: ResourceConfig)
+
+-- | The configuration of a heterogeneous cluster in JSON format.
+resourceConfig_instanceGroups :: Lens.Lens' ResourceConfig (Prelude.Maybe [InstanceGroup])
+resourceConfig_instanceGroups = Lens.lens (\ResourceConfig' {instanceGroups} -> instanceGroups) (\s@ResourceConfig' {} a -> s {instanceGroups = a} :: ResourceConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ML compute instance type.
+resourceConfig_instanceType :: Lens.Lens' ResourceConfig (Prelude.Maybe TrainingInstanceType)
+resourceConfig_instanceType = Lens.lens (\ResourceConfig' {instanceType} -> instanceType) (\s@ResourceConfig' {} a -> s {instanceType = a} :: ResourceConfig)
 
 -- | The duration of time in seconds to retain configured resources in a warm
 -- pool for subsequent training jobs.
@@ -215,19 +227,6 @@ resourceConfig_keepAlivePeriodInSeconds = Lens.lens (\ResourceConfig' {keepAlive
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 resourceConfig_volumeKmsKeyId :: Lens.Lens' ResourceConfig (Prelude.Maybe Prelude.Text)
 resourceConfig_volumeKmsKeyId = Lens.lens (\ResourceConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@ResourceConfig' {} a -> s {volumeKmsKeyId = a} :: ResourceConfig)
-
--- | The ML compute instance type.
-resourceConfig_instanceType :: Lens.Lens' ResourceConfig (Prelude.Maybe TrainingInstanceType)
-resourceConfig_instanceType = Lens.lens (\ResourceConfig' {instanceType} -> instanceType) (\s@ResourceConfig' {} a -> s {instanceType = a} :: ResourceConfig)
-
--- | The number of ML compute instances to use. For distributed training,
--- provide a value greater than 1.
-resourceConfig_instanceCount :: Lens.Lens' ResourceConfig (Prelude.Maybe Prelude.Natural)
-resourceConfig_instanceCount = Lens.lens (\ResourceConfig' {instanceCount} -> instanceCount) (\s@ResourceConfig' {} a -> s {instanceCount = a} :: ResourceConfig)
-
--- | The configuration of a heterogeneous cluster in JSON format.
-resourceConfig_instanceGroups :: Lens.Lens' ResourceConfig (Prelude.Maybe [InstanceGroup])
-resourceConfig_instanceGroups = Lens.lens (\ResourceConfig' {instanceGroups} -> instanceGroups) (\s@ResourceConfig' {} a -> s {instanceGroups = a} :: ResourceConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The size of the ML storage volume that you want to provision.
 --
@@ -266,45 +265,44 @@ instance Data.FromJSON ResourceConfig where
       "ResourceConfig"
       ( \x ->
           ResourceConfig'
-            Prelude.<$> (x Data..:? "KeepAlivePeriodInSeconds")
-            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Data..:? "InstanceType")
-            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<$> (x Data..:? "InstanceCount")
             Prelude.<*> (x Data..:? "InstanceGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "KeepAlivePeriodInSeconds")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
             Prelude.<*> (x Data..: "VolumeSizeInGB")
       )
 
 instance Prelude.Hashable ResourceConfig where
   hashWithSalt _salt ResourceConfig' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` instanceGroups
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` keepAlivePeriodInSeconds
       `Prelude.hashWithSalt` volumeKmsKeyId
-      `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` instanceCount
-      `Prelude.hashWithSalt` instanceGroups
       `Prelude.hashWithSalt` volumeSizeInGB
 
 instance Prelude.NFData ResourceConfig where
   rnf ResourceConfig' {..} =
-    Prelude.rnf keepAlivePeriodInSeconds
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instanceCount
+    Prelude.rnf instanceCount
       `Prelude.seq` Prelude.rnf instanceGroups
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf keepAlivePeriodInSeconds
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
       `Prelude.seq` Prelude.rnf volumeSizeInGB
 
 instance Data.ToJSON ResourceConfig where
   toJSON ResourceConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KeepAlivePeriodInSeconds" Data..=)
+          [ ("InstanceCount" Data..=) Prelude.<$> instanceCount,
+            ("InstanceGroups" Data..=)
+              Prelude.<$> instanceGroups,
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("KeepAlivePeriodInSeconds" Data..=)
               Prelude.<$> keepAlivePeriodInSeconds,
             ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            ("InstanceType" Data..=) Prelude.<$> instanceType,
-            ("InstanceCount" Data..=) Prelude.<$> instanceCount,
-            ("InstanceGroups" Data..=)
-              Prelude.<$> instanceGroups,
             Prelude.Just
               ("VolumeSizeInGB" Data..= volumeSizeInGB)
           ]

@@ -39,15 +39,15 @@ module Amazonka.LexV2Models.UpdateBot
     newUpdateBotResponse,
 
     -- * Response Lenses
-    updateBotResponse_roleArn,
-    updateBotResponse_creationDateTime,
-    updateBotResponse_description,
-    updateBotResponse_idleSessionTTLInSeconds,
     updateBotResponse_botId,
     updateBotResponse_botName,
-    updateBotResponse_dataPrivacy,
     updateBotResponse_botStatus,
+    updateBotResponse_creationDateTime,
+    updateBotResponse_dataPrivacy,
+    updateBotResponse_description,
+    updateBotResponse_idleSessionTTLInSeconds,
     updateBotResponse_lastUpdatedDateTime,
+    updateBotResponse_roleArn,
     updateBotResponse_httpStatus,
   )
 where
@@ -194,15 +194,15 @@ instance Core.AWSRequest UpdateBot where
     Response.receiveJSON
       ( \s h x ->
           UpdateBotResponse'
-            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "dataPrivacy")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "botName")
-            Prelude.<*> (x Data..?> "dataPrivacy")
-            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "roleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -259,28 +259,28 @@ instance Data.ToQuery UpdateBot where
 
 -- | /See:/ 'newUpdateBotResponse' smart constructor.
 data UpdateBotResponse = UpdateBotResponse'
-  { -- | The Amazon Resource Name (ARN) of the IAM role used by the bot after the
-    -- update.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp of the date and time that the bot was created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The description of the bot after the update.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The session timeout, in seconds, for the bot after the update.
-    idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The unique identifier of the bot that was updated.
+  { -- | The unique identifier of the bot that was updated.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The name of the bot after the update.
     botName :: Prelude.Maybe Prelude.Text,
-    -- | The data privacy settings for the bot after the update.
-    dataPrivacy :: Prelude.Maybe DataPrivacy,
     -- | Shows the current status of the bot. The bot is first in the @Creating@
     -- status. Once the bot is read for use, it changes to the @Available@
     -- status. After the bot is created, you can use the @DRAFT@ version of the
     -- bot.
     botStatus :: Prelude.Maybe BotStatus,
+    -- | A timestamp of the date and time that the bot was created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The data privacy settings for the bot after the update.
+    dataPrivacy :: Prelude.Maybe DataPrivacy,
+    -- | The description of the bot after the update.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The session timeout, in seconds, for the bot after the update.
+    idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A timestamp of the date and time that the bot was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the IAM role used by the bot after the
+    -- update.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -294,27 +294,27 @@ data UpdateBotResponse = UpdateBotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateBotResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM role used by the bot after the
--- update.
---
--- 'creationDateTime', 'updateBotResponse_creationDateTime' - A timestamp of the date and time that the bot was created.
---
--- 'description', 'updateBotResponse_description' - The description of the bot after the update.
---
--- 'idleSessionTTLInSeconds', 'updateBotResponse_idleSessionTTLInSeconds' - The session timeout, in seconds, for the bot after the update.
---
 -- 'botId', 'updateBotResponse_botId' - The unique identifier of the bot that was updated.
 --
 -- 'botName', 'updateBotResponse_botName' - The name of the bot after the update.
---
--- 'dataPrivacy', 'updateBotResponse_dataPrivacy' - The data privacy settings for the bot after the update.
 --
 -- 'botStatus', 'updateBotResponse_botStatus' - Shows the current status of the bot. The bot is first in the @Creating@
 -- status. Once the bot is read for use, it changes to the @Available@
 -- status. After the bot is created, you can use the @DRAFT@ version of the
 -- bot.
 --
+-- 'creationDateTime', 'updateBotResponse_creationDateTime' - A timestamp of the date and time that the bot was created.
+--
+-- 'dataPrivacy', 'updateBotResponse_dataPrivacy' - The data privacy settings for the bot after the update.
+--
+-- 'description', 'updateBotResponse_description' - The description of the bot after the update.
+--
+-- 'idleSessionTTLInSeconds', 'updateBotResponse_idleSessionTTLInSeconds' - The session timeout, in seconds, for the bot after the update.
+--
 -- 'lastUpdatedDateTime', 'updateBotResponse_lastUpdatedDateTime' - A timestamp of the date and time that the bot was last updated.
+--
+-- 'roleArn', 'updateBotResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM role used by the bot after the
+-- update.
 --
 -- 'httpStatus', 'updateBotResponse_httpStatus' - The response's http status code.
 newUpdateBotResponse ::
@@ -323,34 +323,17 @@ newUpdateBotResponse ::
   UpdateBotResponse
 newUpdateBotResponse pHttpStatus_ =
   UpdateBotResponse'
-    { roleArn = Prelude.Nothing,
+    { botId = Prelude.Nothing,
+      botName = Prelude.Nothing,
+      botStatus = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      dataPrivacy = Prelude.Nothing,
       description = Prelude.Nothing,
       idleSessionTTLInSeconds = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      botName = Prelude.Nothing,
-      dataPrivacy = Prelude.Nothing,
-      botStatus = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the IAM role used by the bot after the
--- update.
-updateBotResponse_roleArn :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Text)
-updateBotResponse_roleArn = Lens.lens (\UpdateBotResponse' {roleArn} -> roleArn) (\s@UpdateBotResponse' {} a -> s {roleArn = a} :: UpdateBotResponse)
-
--- | A timestamp of the date and time that the bot was created.
-updateBotResponse_creationDateTime :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotResponse_creationDateTime = Lens.lens (\UpdateBotResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotResponse' {} a -> s {creationDateTime = a} :: UpdateBotResponse) Prelude.. Lens.mapping Data._Time
-
--- | The description of the bot after the update.
-updateBotResponse_description :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Text)
-updateBotResponse_description = Lens.lens (\UpdateBotResponse' {description} -> description) (\s@UpdateBotResponse' {} a -> s {description = a} :: UpdateBotResponse)
-
--- | The session timeout, in seconds, for the bot after the update.
-updateBotResponse_idleSessionTTLInSeconds :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Natural)
-updateBotResponse_idleSessionTTLInSeconds = Lens.lens (\UpdateBotResponse' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@UpdateBotResponse' {} a -> s {idleSessionTTLInSeconds = a} :: UpdateBotResponse)
 
 -- | The unique identifier of the bot that was updated.
 updateBotResponse_botId :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Text)
@@ -360,10 +343,6 @@ updateBotResponse_botId = Lens.lens (\UpdateBotResponse' {botId} -> botId) (\s@U
 updateBotResponse_botName :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Text)
 updateBotResponse_botName = Lens.lens (\UpdateBotResponse' {botName} -> botName) (\s@UpdateBotResponse' {} a -> s {botName = a} :: UpdateBotResponse)
 
--- | The data privacy settings for the bot after the update.
-updateBotResponse_dataPrivacy :: Lens.Lens' UpdateBotResponse (Prelude.Maybe DataPrivacy)
-updateBotResponse_dataPrivacy = Lens.lens (\UpdateBotResponse' {dataPrivacy} -> dataPrivacy) (\s@UpdateBotResponse' {} a -> s {dataPrivacy = a} :: UpdateBotResponse)
-
 -- | Shows the current status of the bot. The bot is first in the @Creating@
 -- status. Once the bot is read for use, it changes to the @Available@
 -- status. After the bot is created, you can use the @DRAFT@ version of the
@@ -371,9 +350,30 @@ updateBotResponse_dataPrivacy = Lens.lens (\UpdateBotResponse' {dataPrivacy} -> 
 updateBotResponse_botStatus :: Lens.Lens' UpdateBotResponse (Prelude.Maybe BotStatus)
 updateBotResponse_botStatus = Lens.lens (\UpdateBotResponse' {botStatus} -> botStatus) (\s@UpdateBotResponse' {} a -> s {botStatus = a} :: UpdateBotResponse)
 
+-- | A timestamp of the date and time that the bot was created.
+updateBotResponse_creationDateTime :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.UTCTime)
+updateBotResponse_creationDateTime = Lens.lens (\UpdateBotResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotResponse' {} a -> s {creationDateTime = a} :: UpdateBotResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The data privacy settings for the bot after the update.
+updateBotResponse_dataPrivacy :: Lens.Lens' UpdateBotResponse (Prelude.Maybe DataPrivacy)
+updateBotResponse_dataPrivacy = Lens.lens (\UpdateBotResponse' {dataPrivacy} -> dataPrivacy) (\s@UpdateBotResponse' {} a -> s {dataPrivacy = a} :: UpdateBotResponse)
+
+-- | The description of the bot after the update.
+updateBotResponse_description :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Text)
+updateBotResponse_description = Lens.lens (\UpdateBotResponse' {description} -> description) (\s@UpdateBotResponse' {} a -> s {description = a} :: UpdateBotResponse)
+
+-- | The session timeout, in seconds, for the bot after the update.
+updateBotResponse_idleSessionTTLInSeconds :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Natural)
+updateBotResponse_idleSessionTTLInSeconds = Lens.lens (\UpdateBotResponse' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@UpdateBotResponse' {} a -> s {idleSessionTTLInSeconds = a} :: UpdateBotResponse)
+
 -- | A timestamp of the date and time that the bot was last updated.
 updateBotResponse_lastUpdatedDateTime :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.UTCTime)
 updateBotResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the IAM role used by the bot after the
+-- update.
+updateBotResponse_roleArn :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Text)
+updateBotResponse_roleArn = Lens.lens (\UpdateBotResponse' {roleArn} -> roleArn) (\s@UpdateBotResponse' {} a -> s {roleArn = a} :: UpdateBotResponse)
 
 -- | The response's http status code.
 updateBotResponse_httpStatus :: Lens.Lens' UpdateBotResponse Prelude.Int
@@ -381,13 +381,13 @@ updateBotResponse_httpStatus = Lens.lens (\UpdateBotResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UpdateBotResponse where
   rnf UpdateBotResponse' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf botStatus
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf dataPrivacy
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf dataPrivacy
-      `Prelude.seq` Prelude.rnf botStatus
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus

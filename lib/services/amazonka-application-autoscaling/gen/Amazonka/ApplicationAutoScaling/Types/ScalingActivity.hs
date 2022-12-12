@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScalingActivity' smart constructor.
 data ScalingActivity = ScalingActivity'
-  { -- | The Unix timestamp for when the scaling activity ended.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | The details about the scaling activity.
+  { -- | The details about the scaling activity.
     details :: Prelude.Maybe Prelude.Text,
+    -- | The Unix timestamp for when the scaling activity ended.
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | A simple message about the current status of the scaling activity.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the scaling activity.
@@ -196,9 +196,9 @@ data ScalingActivity = ScalingActivity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endTime', 'scalingActivity_endTime' - The Unix timestamp for when the scaling activity ended.
---
 -- 'details', 'scalingActivity_details' - The details about the scaling activity.
+--
+-- 'endTime', 'scalingActivity_endTime' - The Unix timestamp for when the scaling activity ended.
 --
 -- 'statusMessage', 'scalingActivity_statusMessage' - A simple message about the current status of the scaling activity.
 --
@@ -377,8 +377,8 @@ newScalingActivity
   pStartTime_
   pStatusCode_ =
     ScalingActivity'
-      { endTime = Prelude.Nothing,
-        details = Prelude.Nothing,
+      { details = Prelude.Nothing,
+        endTime = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         activityId = pActivityId_,
         serviceNamespace = pServiceNamespace_,
@@ -390,13 +390,13 @@ newScalingActivity
         statusCode = pStatusCode_
       }
 
--- | The Unix timestamp for when the scaling activity ended.
-scalingActivity_endTime :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.UTCTime)
-scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s@ScalingActivity' {} a -> s {endTime = a} :: ScalingActivity) Prelude.. Lens.mapping Data._Time
-
 -- | The details about the scaling activity.
 scalingActivity_details :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
 scalingActivity_details = Lens.lens (\ScalingActivity' {details} -> details) (\s@ScalingActivity' {} a -> s {details = a} :: ScalingActivity)
+
+-- | The Unix timestamp for when the scaling activity ended.
+scalingActivity_endTime :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.UTCTime)
+scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s@ScalingActivity' {} a -> s {endTime = a} :: ScalingActivity) Prelude.. Lens.mapping Data._Time
 
 -- | A simple message about the current status of the scaling activity.
 scalingActivity_statusMessage :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
@@ -572,8 +572,8 @@ instance Data.FromJSON ScalingActivity where
       "ScalingActivity"
       ( \x ->
           ScalingActivity'
-            Prelude.<$> (x Data..:? "EndTime")
-            Prelude.<*> (x Data..:? "Details")
+            Prelude.<$> (x Data..:? "Details")
+            Prelude.<*> (x Data..:? "EndTime")
             Prelude.<*> (x Data..:? "StatusMessage")
             Prelude.<*> (x Data..: "ActivityId")
             Prelude.<*> (x Data..: "ServiceNamespace")
@@ -587,8 +587,8 @@ instance Data.FromJSON ScalingActivity where
 
 instance Prelude.Hashable ScalingActivity where
   hashWithSalt _salt ScalingActivity' {..} =
-    _salt `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` details
+    _salt `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` activityId
       `Prelude.hashWithSalt` serviceNamespace
@@ -601,8 +601,8 @@ instance Prelude.Hashable ScalingActivity where
 
 instance Prelude.NFData ScalingActivity where
   rnf ScalingActivity' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf activityId
       `Prelude.seq` Prelude.rnf serviceNamespace

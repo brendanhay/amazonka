@@ -33,8 +33,8 @@ module Amazonka.Shield.DescribeDRTAccess
     newDescribeDRTAccessResponse,
 
     -- * Response Lenses
-    describeDRTAccessResponse_roleArn,
     describeDRTAccessResponse_logBucketList,
+    describeDRTAccessResponse_roleArn,
     describeDRTAccessResponse_httpStatus,
   )
 where
@@ -71,8 +71,8 @@ instance Core.AWSRequest DescribeDRTAccess where
     Response.receiveJSON
       ( \s h x ->
           DescribeDRTAccessResponse'
-            Prelude.<$> (x Data..?> "RoleArn")
-            Prelude.<*> (x Data..?> "LogBucketList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "LogBucketList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,11 +109,11 @@ instance Data.ToQuery DescribeDRTAccess where
 
 -- | /See:/ 'newDescribeDRTAccessResponse' smart constructor.
 data DescribeDRTAccessResponse = DescribeDRTAccessResponse'
-  { -- | The Amazon Resource Name (ARN) of the role the SRT used to access your
+  { -- | The list of Amazon S3 buckets accessed by the SRT.
+    logBucketList :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) of the role the SRT used to access your
     -- Amazon Web Services account.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The list of Amazon S3 buckets accessed by the SRT.
-    logBucketList :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -127,10 +127,10 @@ data DescribeDRTAccessResponse = DescribeDRTAccessResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'logBucketList', 'describeDRTAccessResponse_logBucketList' - The list of Amazon S3 buckets accessed by the SRT.
+--
 -- 'roleArn', 'describeDRTAccessResponse_roleArn' - The Amazon Resource Name (ARN) of the role the SRT used to access your
 -- Amazon Web Services account.
---
--- 'logBucketList', 'describeDRTAccessResponse_logBucketList' - The list of Amazon S3 buckets accessed by the SRT.
 --
 -- 'httpStatus', 'describeDRTAccessResponse_httpStatus' - The response's http status code.
 newDescribeDRTAccessResponse ::
@@ -139,20 +139,20 @@ newDescribeDRTAccessResponse ::
   DescribeDRTAccessResponse
 newDescribeDRTAccessResponse pHttpStatus_ =
   DescribeDRTAccessResponse'
-    { roleArn =
+    { logBucketList =
         Prelude.Nothing,
-      logBucketList = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of Amazon S3 buckets accessed by the SRT.
+describeDRTAccessResponse_logBucketList :: Lens.Lens' DescribeDRTAccessResponse (Prelude.Maybe [Prelude.Text])
+describeDRTAccessResponse_logBucketList = Lens.lens (\DescribeDRTAccessResponse' {logBucketList} -> logBucketList) (\s@DescribeDRTAccessResponse' {} a -> s {logBucketList = a} :: DescribeDRTAccessResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the role the SRT used to access your
 -- Amazon Web Services account.
 describeDRTAccessResponse_roleArn :: Lens.Lens' DescribeDRTAccessResponse (Prelude.Maybe Prelude.Text)
 describeDRTAccessResponse_roleArn = Lens.lens (\DescribeDRTAccessResponse' {roleArn} -> roleArn) (\s@DescribeDRTAccessResponse' {} a -> s {roleArn = a} :: DescribeDRTAccessResponse)
-
--- | The list of Amazon S3 buckets accessed by the SRT.
-describeDRTAccessResponse_logBucketList :: Lens.Lens' DescribeDRTAccessResponse (Prelude.Maybe [Prelude.Text])
-describeDRTAccessResponse_logBucketList = Lens.lens (\DescribeDRTAccessResponse' {logBucketList} -> logBucketList) (\s@DescribeDRTAccessResponse' {} a -> s {logBucketList = a} :: DescribeDRTAccessResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDRTAccessResponse_httpStatus :: Lens.Lens' DescribeDRTAccessResponse Prelude.Int
@@ -160,6 +160,6 @@ describeDRTAccessResponse_httpStatus = Lens.lens (\DescribeDRTAccessResponse' {h
 
 instance Prelude.NFData DescribeDRTAccessResponse where
   rnf DescribeDRTAccessResponse' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf logBucketList
+    Prelude.rnf logBucketList
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus

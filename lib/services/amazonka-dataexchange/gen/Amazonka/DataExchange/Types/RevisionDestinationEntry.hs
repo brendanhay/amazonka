@@ -32,7 +32,8 @@ data RevisionDestinationEntry = RevisionDestinationEntry'
     -- assets in the revision. For more information about key patterns, see
     -- <https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns Key patterns when exporting revisions>.
     keyPattern :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket that is the destination for the assets in the revision.
+    -- | The Amazon S3 bucket that is the destination for the assets in the
+    -- revision.
     bucket :: Prelude.Text,
     -- | The unique identifier for the revision.
     revisionId :: Prelude.Text
@@ -51,7 +52,8 @@ data RevisionDestinationEntry = RevisionDestinationEntry'
 -- assets in the revision. For more information about key patterns, see
 -- <https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns Key patterns when exporting revisions>.
 --
--- 'bucket', 'revisionDestinationEntry_bucket' - The S3 bucket that is the destination for the assets in the revision.
+-- 'bucket', 'revisionDestinationEntry_bucket' - The Amazon S3 bucket that is the destination for the assets in the
+-- revision.
 --
 -- 'revisionId', 'revisionDestinationEntry_revisionId' - The unique identifier for the revision.
 newRevisionDestinationEntry ::
@@ -74,7 +76,8 @@ newRevisionDestinationEntry pBucket_ pRevisionId_ =
 revisionDestinationEntry_keyPattern :: Lens.Lens' RevisionDestinationEntry (Prelude.Maybe Prelude.Text)
 revisionDestinationEntry_keyPattern = Lens.lens (\RevisionDestinationEntry' {keyPattern} -> keyPattern) (\s@RevisionDestinationEntry' {} a -> s {keyPattern = a} :: RevisionDestinationEntry)
 
--- | The S3 bucket that is the destination for the assets in the revision.
+-- | The Amazon S3 bucket that is the destination for the assets in the
+-- revision.
 revisionDestinationEntry_bucket :: Lens.Lens' RevisionDestinationEntry Prelude.Text
 revisionDestinationEntry_bucket = Lens.lens (\RevisionDestinationEntry' {bucket} -> bucket) (\s@RevisionDestinationEntry' {} a -> s {bucket = a} :: RevisionDestinationEntry)
 

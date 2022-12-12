@@ -29,8 +29,8 @@ module Amazonka.Greengrass.ListResourceDefinitionVersions
     newListResourceDefinitionVersions,
 
     -- * Request Lenses
-    listResourceDefinitionVersions_nextToken,
     listResourceDefinitionVersions_maxResults,
+    listResourceDefinitionVersions_nextToken,
     listResourceDefinitionVersions_resourceDefinitionId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceDefinitionVersions' smart constructor.
 data ListResourceDefinitionVersions = ListResourceDefinitionVersions'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The ID of the resource definition.
     resourceDefinitionId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data ListResourceDefinitionVersions = ListResourceDefinitionVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listResourceDefinitionVersions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listResourceDefinitionVersions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'maxResults', 'listResourceDefinitionVersions_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'resourceDefinitionId', 'listResourceDefinitionVersions_resourceDefinitionId' - The ID of the resource definition.
 newListResourceDefinitionVersions ::
@@ -85,21 +85,21 @@ newListResourceDefinitionVersions ::
 newListResourceDefinitionVersions
   pResourceDefinitionId_ =
     ListResourceDefinitionVersions'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         resourceDefinitionId =
           pResourceDefinitionId_
       }
+
+-- | The maximum number of results to be returned per request.
+listResourceDefinitionVersions_maxResults :: Lens.Lens' ListResourceDefinitionVersions (Prelude.Maybe Prelude.Text)
+listResourceDefinitionVersions_maxResults = Lens.lens (\ListResourceDefinitionVersions' {maxResults} -> maxResults) (\s@ListResourceDefinitionVersions' {} a -> s {maxResults = a} :: ListResourceDefinitionVersions)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listResourceDefinitionVersions_nextToken :: Lens.Lens' ListResourceDefinitionVersions (Prelude.Maybe Prelude.Text)
 listResourceDefinitionVersions_nextToken = Lens.lens (\ListResourceDefinitionVersions' {nextToken} -> nextToken) (\s@ListResourceDefinitionVersions' {} a -> s {nextToken = a} :: ListResourceDefinitionVersions)
-
--- | The maximum number of results to be returned per request.
-listResourceDefinitionVersions_maxResults :: Lens.Lens' ListResourceDefinitionVersions (Prelude.Maybe Prelude.Text)
-listResourceDefinitionVersions_maxResults = Lens.lens (\ListResourceDefinitionVersions' {maxResults} -> maxResults) (\s@ListResourceDefinitionVersions' {} a -> s {maxResults = a} :: ListResourceDefinitionVersions)
 
 -- | The ID of the resource definition.
 listResourceDefinitionVersions_resourceDefinitionId :: Lens.Lens' ListResourceDefinitionVersions Prelude.Text
@@ -152,8 +152,8 @@ instance
   hashWithSalt
     _salt
     ListResourceDefinitionVersions' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` resourceDefinitionId
 
 instance
@@ -161,8 +161,8 @@ instance
     ListResourceDefinitionVersions
   where
   rnf ListResourceDefinitionVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceDefinitionId
 
 instance
@@ -190,8 +190,8 @@ instance Data.ToPath ListResourceDefinitionVersions where
 instance Data.ToQuery ListResourceDefinitionVersions where
   toQuery ListResourceDefinitionVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListResourceDefinitionVersionsResponse' smart constructor.

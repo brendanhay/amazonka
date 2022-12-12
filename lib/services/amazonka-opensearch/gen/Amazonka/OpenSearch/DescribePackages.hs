@@ -29,9 +29,9 @@ module Amazonka.OpenSearch.DescribePackages
     newDescribePackages,
 
     -- * Request Lenses
-    describePackages_nextToken,
     describePackages_filters,
     describePackages_maxResults,
+    describePackages_nextToken,
 
     -- * Destructuring the Response
     DescribePackagesResponse (..),
@@ -56,17 +56,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribePackages' smart constructor.
 data DescribePackages = DescribePackages'
-  { -- | If your initial @DescribePackageFilters@ operation returns a
-    -- @nextToken@, you can include the returned @nextToken@ in subsequent
-    -- @DescribePackageFilters@ operations, which returns results in the next
-    -- page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Only returns packages that match the @DescribePackagesFilterList@
+  { -- | Only returns packages that match the @DescribePackagesFilterList@
     -- values.
     filters :: Prelude.Maybe [DescribePackagesFilter],
     -- | An optional parameter that specifies the maximum number of results to
     -- return. You can use @nextToken@ to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If your initial @DescribePackageFilters@ operation returns a
+    -- @nextToken@, you can include the returned @nextToken@ in subsequent
+    -- @DescribePackageFilters@ operations, which returns results in the next
+    -- page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,31 +78,24 @@ data DescribePackages = DescribePackages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describePackages_nextToken' - If your initial @DescribePackageFilters@ operation returns a
--- @nextToken@, you can include the returned @nextToken@ in subsequent
--- @DescribePackageFilters@ operations, which returns results in the next
--- page.
---
 -- 'filters', 'describePackages_filters' - Only returns packages that match the @DescribePackagesFilterList@
 -- values.
 --
 -- 'maxResults', 'describePackages_maxResults' - An optional parameter that specifies the maximum number of results to
 -- return. You can use @nextToken@ to get the next page of results.
+--
+-- 'nextToken', 'describePackages_nextToken' - If your initial @DescribePackageFilters@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribePackageFilters@ operations, which returns results in the next
+-- page.
 newDescribePackages ::
   DescribePackages
 newDescribePackages =
   DescribePackages'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | If your initial @DescribePackageFilters@ operation returns a
--- @nextToken@, you can include the returned @nextToken@ in subsequent
--- @DescribePackageFilters@ operations, which returns results in the next
--- page.
-describePackages_nextToken :: Lens.Lens' DescribePackages (Prelude.Maybe Prelude.Text)
-describePackages_nextToken = Lens.lens (\DescribePackages' {nextToken} -> nextToken) (\s@DescribePackages' {} a -> s {nextToken = a} :: DescribePackages)
 
 -- | Only returns packages that match the @DescribePackagesFilterList@
 -- values.
@@ -113,6 +106,13 @@ describePackages_filters = Lens.lens (\DescribePackages' {filters} -> filters) (
 -- return. You can use @nextToken@ to get the next page of results.
 describePackages_maxResults :: Lens.Lens' DescribePackages (Prelude.Maybe Prelude.Int)
 describePackages_maxResults = Lens.lens (\DescribePackages' {maxResults} -> maxResults) (\s@DescribePackages' {} a -> s {maxResults = a} :: DescribePackages)
+
+-- | If your initial @DescribePackageFilters@ operation returns a
+-- @nextToken@, you can include the returned @nextToken@ in subsequent
+-- @DescribePackageFilters@ operations, which returns results in the next
+-- page.
+describePackages_nextToken :: Lens.Lens' DescribePackages (Prelude.Maybe Prelude.Text)
+describePackages_nextToken = Lens.lens (\DescribePackages' {nextToken} -> nextToken) (\s@DescribePackages' {} a -> s {nextToken = a} :: DescribePackages)
 
 instance Core.AWSRequest DescribePackages where
   type
@@ -133,15 +133,15 @@ instance Core.AWSRequest DescribePackages where
 
 instance Prelude.Hashable DescribePackages where
   hashWithSalt _salt DescribePackages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribePackages where
   rnf DescribePackages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribePackages where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,9 +150,9 @@ instance Data.ToJSON DescribePackages where
   toJSON DescribePackages' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

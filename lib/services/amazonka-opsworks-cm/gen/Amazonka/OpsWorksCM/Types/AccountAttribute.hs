@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountAttribute' smart constructor.
 data AccountAttribute = AccountAttribute'
-  { -- | The attribute name. The following are supported attribute names.
+  { -- | The maximum allowed value.
+    maximum :: Prelude.Maybe Prelude.Int,
+    -- | The attribute name. The following are supported attribute names.
     --
     -- -   /ServerLimit:/ The number of current servers\/maximum number of
     --     servers allowed. By default, you can have a maximum of 10 servers.
@@ -39,9 +41,7 @@ data AccountAttribute = AccountAttribute'
     name :: Prelude.Maybe Prelude.Text,
     -- | The current usage, such as the current number of servers that are
     -- associated with the account.
-    used :: Prelude.Maybe Prelude.Int,
-    -- | The maximum allowed value.
-    maximum :: Prelude.Maybe Prelude.Int
+    used :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,8 @@ data AccountAttribute = AccountAttribute'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maximum', 'accountAttribute_maximum' - The maximum allowed value.
 --
 -- 'name', 'accountAttribute_name' - The attribute name. The following are supported attribute names.
 --
@@ -64,16 +66,18 @@ data AccountAttribute = AccountAttribute'
 --
 -- 'used', 'accountAttribute_used' - The current usage, such as the current number of servers that are
 -- associated with the account.
---
--- 'maximum', 'accountAttribute_maximum' - The maximum allowed value.
 newAccountAttribute ::
   AccountAttribute
 newAccountAttribute =
   AccountAttribute'
-    { name = Prelude.Nothing,
-      used = Prelude.Nothing,
-      maximum = Prelude.Nothing
+    { maximum = Prelude.Nothing,
+      name = Prelude.Nothing,
+      used = Prelude.Nothing
     }
+
+-- | The maximum allowed value.
+accountAttribute_maximum :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Int)
+accountAttribute_maximum = Lens.lens (\AccountAttribute' {maximum} -> maximum) (\s@AccountAttribute' {} a -> s {maximum = a} :: AccountAttribute)
 
 -- | The attribute name. The following are supported attribute names.
 --
@@ -91,29 +95,25 @@ accountAttribute_name = Lens.lens (\AccountAttribute' {name} -> name) (\s@Accoun
 accountAttribute_used :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Int)
 accountAttribute_used = Lens.lens (\AccountAttribute' {used} -> used) (\s@AccountAttribute' {} a -> s {used = a} :: AccountAttribute)
 
--- | The maximum allowed value.
-accountAttribute_maximum :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Int)
-accountAttribute_maximum = Lens.lens (\AccountAttribute' {maximum} -> maximum) (\s@AccountAttribute' {} a -> s {maximum = a} :: AccountAttribute)
-
 instance Data.FromJSON AccountAttribute where
   parseJSON =
     Data.withObject
       "AccountAttribute"
       ( \x ->
           AccountAttribute'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Maximum")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Used")
-            Prelude.<*> (x Data..:? "Maximum")
       )
 
 instance Prelude.Hashable AccountAttribute where
   hashWithSalt _salt AccountAttribute' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` used
-      `Prelude.hashWithSalt` maximum
 
 instance Prelude.NFData AccountAttribute where
   rnf AccountAttribute' {..} =
-    Prelude.rnf name
+    Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf used
-      `Prelude.seq` Prelude.rnf maximum

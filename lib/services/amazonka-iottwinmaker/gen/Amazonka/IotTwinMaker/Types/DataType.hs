@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataType' smart constructor.
 data DataType = DataType'
-  { -- | The nested type in the data type.
+  { -- | The allowed values for this data type.
+    allowedValues :: Prelude.Maybe [DataValue],
+    -- | The nested type in the data type.
     nestedType :: Prelude.Maybe DataType,
     -- | A relationship that associates a component with another component.
     relationship :: Prelude.Maybe Relationship,
     -- | The unit of measure used in this data type.
     unitOfMeasure :: Prelude.Maybe Prelude.Text,
-    -- | The allowed values for this data type.
-    allowedValues :: Prelude.Maybe [DataValue],
     -- | The underlying type of the data type.
     type' :: Type
   }
@@ -52,13 +52,13 @@ data DataType = DataType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allowedValues', 'dataType_allowedValues' - The allowed values for this data type.
+--
 -- 'nestedType', 'dataType_nestedType' - The nested type in the data type.
 --
 -- 'relationship', 'dataType_relationship' - A relationship that associates a component with another component.
 --
 -- 'unitOfMeasure', 'dataType_unitOfMeasure' - The unit of measure used in this data type.
---
--- 'allowedValues', 'dataType_allowedValues' - The allowed values for this data type.
 --
 -- 'type'', 'dataType_type' - The underlying type of the data type.
 newDataType ::
@@ -67,12 +67,16 @@ newDataType ::
   DataType
 newDataType pType_ =
   DataType'
-    { nestedType = Prelude.Nothing,
+    { allowedValues = Prelude.Nothing,
+      nestedType = Prelude.Nothing,
       relationship = Prelude.Nothing,
       unitOfMeasure = Prelude.Nothing,
-      allowedValues = Prelude.Nothing,
       type' = pType_
     }
+
+-- | The allowed values for this data type.
+dataType_allowedValues :: Lens.Lens' DataType (Prelude.Maybe [DataValue])
+dataType_allowedValues = Lens.lens (\DataType' {allowedValues} -> allowedValues) (\s@DataType' {} a -> s {allowedValues = a} :: DataType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The nested type in the data type.
 dataType_nestedType :: Lens.Lens' DataType (Prelude.Maybe DataType)
@@ -86,10 +90,6 @@ dataType_relationship = Lens.lens (\DataType' {relationship} -> relationship) (\
 dataType_unitOfMeasure :: Lens.Lens' DataType (Prelude.Maybe Prelude.Text)
 dataType_unitOfMeasure = Lens.lens (\DataType' {unitOfMeasure} -> unitOfMeasure) (\s@DataType' {} a -> s {unitOfMeasure = a} :: DataType)
 
--- | The allowed values for this data type.
-dataType_allowedValues :: Lens.Lens' DataType (Prelude.Maybe [DataValue])
-dataType_allowedValues = Lens.lens (\DataType' {allowedValues} -> allowedValues) (\s@DataType' {} a -> s {allowedValues = a} :: DataType) Prelude.. Lens.mapping Lens.coerced
-
 -- | The underlying type of the data type.
 dataType_type :: Lens.Lens' DataType Type
 dataType_type = Lens.lens (\DataType' {type'} -> type') (\s@DataType' {} a -> s {type' = a} :: DataType)
@@ -100,37 +100,37 @@ instance Data.FromJSON DataType where
       "DataType"
       ( \x ->
           DataType'
-            Prelude.<$> (x Data..:? "nestedType")
+            Prelude.<$> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "nestedType")
             Prelude.<*> (x Data..:? "relationship")
             Prelude.<*> (x Data..:? "unitOfMeasure")
-            Prelude.<*> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable DataType where
   hashWithSalt _salt DataType' {..} =
-    _salt `Prelude.hashWithSalt` nestedType
+    _salt `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` nestedType
       `Prelude.hashWithSalt` relationship
       `Prelude.hashWithSalt` unitOfMeasure
-      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DataType where
   rnf DataType' {..} =
-    Prelude.rnf nestedType
+    Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf nestedType
       `Prelude.seq` Prelude.rnf relationship
       `Prelude.seq` Prelude.rnf unitOfMeasure
-      `Prelude.seq` Prelude.rnf allowedValues
       `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON DataType where
   toJSON DataType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nestedType" Data..=) Prelude.<$> nestedType,
+          [ ("allowedValues" Data..=) Prelude.<$> allowedValues,
+            ("nestedType" Data..=) Prelude.<$> nestedType,
             ("relationship" Data..=) Prelude.<$> relationship,
             ("unitOfMeasure" Data..=) Prelude.<$> unitOfMeasure,
-            ("allowedValues" Data..=) Prelude.<$> allowedValues,
             Prelude.Just ("type" Data..= type')
           ]
       )

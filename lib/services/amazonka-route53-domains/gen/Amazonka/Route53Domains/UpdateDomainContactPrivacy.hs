@@ -52,9 +52,9 @@ module Amazonka.Route53Domains.UpdateDomainContactPrivacy
     newUpdateDomainContactPrivacy,
 
     -- * Request Lenses
+    updateDomainContactPrivacy_adminPrivacy,
     updateDomainContactPrivacy_registrantPrivacy,
     updateDomainContactPrivacy_techPrivacy,
-    updateDomainContactPrivacy_adminPrivacy,
     updateDomainContactPrivacy_domainName,
 
     -- * Destructuring the Response
@@ -84,6 +84,16 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
     -- information either for Amazon Registrar (for .com, .net, and .org
     -- domains) or for our registrar associate, Gandi (for all other TLDs). If
     -- you specify @false@, WHOIS queries return the information that you
+    -- entered for the admin contact.
+    --
+    -- You must specify the same privacy setting for the administrative,
+    -- registrant, and technical contacts.
+    adminPrivacy :: Prelude.Maybe Prelude.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If
+    -- you specify @true@, WHOIS (\"who is\") queries return contact
+    -- information either for Amazon Registrar (for .com, .net, and .org
+    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
+    -- you specify @false@, WHOIS queries return the information that you
     -- entered for the registrant contact (domain owner).
     --
     -- You must specify the same privacy setting for the administrative,
@@ -99,16 +109,6 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
     -- You must specify the same privacy setting for the administrative,
     -- registrant, and technical contacts.
     techPrivacy :: Prelude.Maybe Prelude.Bool,
-    -- | Whether you want to conceal contact information from WHOIS queries. If
-    -- you specify @true@, WHOIS (\"who is\") queries return contact
-    -- information either for Amazon Registrar (for .com, .net, and .org
-    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
-    -- you specify @false@, WHOIS queries return the information that you
-    -- entered for the admin contact.
-    --
-    -- You must specify the same privacy setting for the administrative,
-    -- registrant, and technical contacts.
-    adminPrivacy :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain that you want to update the privacy setting for.
     domainName :: Prelude.Text
   }
@@ -121,6 +121,16 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'adminPrivacy', 'updateDomainContactPrivacy_adminPrivacy' - Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the admin contact.
+--
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
 --
 -- 'registrantPrivacy', 'updateDomainContactPrivacy_registrantPrivacy' - Whether you want to conceal contact information from WHOIS queries. If
 -- you specify @true@, WHOIS (\"who is\") queries return contact
@@ -142,7 +152,21 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
 -- You must specify the same privacy setting for the administrative,
 -- registrant, and technical contacts.
 --
--- 'adminPrivacy', 'updateDomainContactPrivacy_adminPrivacy' - Whether you want to conceal contact information from WHOIS queries. If
+-- 'domainName', 'updateDomainContactPrivacy_domainName' - The name of the domain that you want to update the privacy setting for.
+newUpdateDomainContactPrivacy ::
+  -- | 'domainName'
+  Prelude.Text ->
+  UpdateDomainContactPrivacy
+newUpdateDomainContactPrivacy pDomainName_ =
+  UpdateDomainContactPrivacy'
+    { adminPrivacy =
+        Prelude.Nothing,
+      registrantPrivacy = Prelude.Nothing,
+      techPrivacy = Prelude.Nothing,
+      domainName = pDomainName_
+    }
+
+-- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify @true@, WHOIS (\"who is\") queries return contact
 -- information either for Amazon Registrar (for .com, .net, and .org
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
@@ -151,20 +175,8 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
 --
 -- You must specify the same privacy setting for the administrative,
 -- registrant, and technical contacts.
---
--- 'domainName', 'updateDomainContactPrivacy_domainName' - The name of the domain that you want to update the privacy setting for.
-newUpdateDomainContactPrivacy ::
-  -- | 'domainName'
-  Prelude.Text ->
-  UpdateDomainContactPrivacy
-newUpdateDomainContactPrivacy pDomainName_ =
-  UpdateDomainContactPrivacy'
-    { registrantPrivacy =
-        Prelude.Nothing,
-      techPrivacy = Prelude.Nothing,
-      adminPrivacy = Prelude.Nothing,
-      domainName = pDomainName_
-    }
+updateDomainContactPrivacy_adminPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Prelude.Maybe Prelude.Bool)
+updateDomainContactPrivacy_adminPrivacy = Lens.lens (\UpdateDomainContactPrivacy' {adminPrivacy} -> adminPrivacy) (\s@UpdateDomainContactPrivacy' {} a -> s {adminPrivacy = a} :: UpdateDomainContactPrivacy)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify @true@, WHOIS (\"who is\") queries return contact
@@ -190,18 +202,6 @@ updateDomainContactPrivacy_registrantPrivacy = Lens.lens (\UpdateDomainContactPr
 updateDomainContactPrivacy_techPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Prelude.Maybe Prelude.Bool)
 updateDomainContactPrivacy_techPrivacy = Lens.lens (\UpdateDomainContactPrivacy' {techPrivacy} -> techPrivacy) (\s@UpdateDomainContactPrivacy' {} a -> s {techPrivacy = a} :: UpdateDomainContactPrivacy)
 
--- | Whether you want to conceal contact information from WHOIS queries. If
--- you specify @true@, WHOIS (\"who is\") queries return contact
--- information either for Amazon Registrar (for .com, .net, and .org
--- domains) or for our registrar associate, Gandi (for all other TLDs). If
--- you specify @false@, WHOIS queries return the information that you
--- entered for the admin contact.
---
--- You must specify the same privacy setting for the administrative,
--- registrant, and technical contacts.
-updateDomainContactPrivacy_adminPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Prelude.Maybe Prelude.Bool)
-updateDomainContactPrivacy_adminPrivacy = Lens.lens (\UpdateDomainContactPrivacy' {adminPrivacy} -> adminPrivacy) (\s@UpdateDomainContactPrivacy' {} a -> s {adminPrivacy = a} :: UpdateDomainContactPrivacy)
-
 -- | The name of the domain that you want to update the privacy setting for.
 updateDomainContactPrivacy_domainName :: Lens.Lens' UpdateDomainContactPrivacy Prelude.Text
 updateDomainContactPrivacy_domainName = Lens.lens (\UpdateDomainContactPrivacy' {domainName} -> domainName) (\s@UpdateDomainContactPrivacy' {} a -> s {domainName = a} :: UpdateDomainContactPrivacy)
@@ -222,16 +222,16 @@ instance Core.AWSRequest UpdateDomainContactPrivacy where
 
 instance Prelude.Hashable UpdateDomainContactPrivacy where
   hashWithSalt _salt UpdateDomainContactPrivacy' {..} =
-    _salt `Prelude.hashWithSalt` registrantPrivacy
+    _salt `Prelude.hashWithSalt` adminPrivacy
+      `Prelude.hashWithSalt` registrantPrivacy
       `Prelude.hashWithSalt` techPrivacy
-      `Prelude.hashWithSalt` adminPrivacy
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData UpdateDomainContactPrivacy where
   rnf UpdateDomainContactPrivacy' {..} =
-    Prelude.rnf registrantPrivacy
+    Prelude.rnf adminPrivacy
+      `Prelude.seq` Prelude.rnf registrantPrivacy
       `Prelude.seq` Prelude.rnf techPrivacy
-      `Prelude.seq` Prelude.rnf adminPrivacy
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDomainContactPrivacy where
@@ -253,10 +253,10 @@ instance Data.ToJSON UpdateDomainContactPrivacy where
   toJSON UpdateDomainContactPrivacy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RegistrantPrivacy" Data..=)
+          [ ("AdminPrivacy" Data..=) Prelude.<$> adminPrivacy,
+            ("RegistrantPrivacy" Data..=)
               Prelude.<$> registrantPrivacy,
             ("TechPrivacy" Data..=) Prelude.<$> techPrivacy,
-            ("AdminPrivacy" Data..=) Prelude.<$> adminPrivacy,
             Prelude.Just ("DomainName" Data..= domainName)
           ]
       )

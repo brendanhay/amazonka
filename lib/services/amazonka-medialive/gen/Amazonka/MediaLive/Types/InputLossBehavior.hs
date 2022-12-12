@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputLossBehavior' smart constructor.
 data InputLossBehavior = InputLossBehavior'
-  { -- | When input loss image type is \"slate\" these fields specify the
+  { -- | Documentation update needed
+    blackFrameMsec :: Prelude.Maybe Prelude.Natural,
+    -- | When input loss image type is \"color\" this field specifies the color
+    -- to use. Value: 6 hex characters representing the values of RGB.
+    inputLossImageColor :: Prelude.Maybe Prelude.Text,
+    -- | When input loss image type is \"slate\" these fields specify the
     -- parameters for accessing the slate.
     inputLossImageSlate :: Prelude.Maybe InputLocation,
     -- | Indicates whether to substitute a solid color or a slate into the output
     -- after input loss exceeds blackFrameMsec.
     inputLossImageType :: Prelude.Maybe InputLossImageType,
-    -- | Documentation update needed
-    blackFrameMsec :: Prelude.Maybe Prelude.Natural,
-    -- | When input loss image type is \"color\" this field specifies the color
-    -- to use. Value: 6 hex characters representing the values of RGB.
-    inputLossImageColor :: Prelude.Maybe Prelude.Text,
     -- | Documentation update needed
     repeatFrameMsec :: Prelude.Maybe Prelude.Natural
   }
@@ -54,29 +54,38 @@ data InputLossBehavior = InputLossBehavior'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'blackFrameMsec', 'inputLossBehavior_blackFrameMsec' - Documentation update needed
+--
+-- 'inputLossImageColor', 'inputLossBehavior_inputLossImageColor' - When input loss image type is \"color\" this field specifies the color
+-- to use. Value: 6 hex characters representing the values of RGB.
+--
 -- 'inputLossImageSlate', 'inputLossBehavior_inputLossImageSlate' - When input loss image type is \"slate\" these fields specify the
 -- parameters for accessing the slate.
 --
 -- 'inputLossImageType', 'inputLossBehavior_inputLossImageType' - Indicates whether to substitute a solid color or a slate into the output
 -- after input loss exceeds blackFrameMsec.
 --
--- 'blackFrameMsec', 'inputLossBehavior_blackFrameMsec' - Documentation update needed
---
--- 'inputLossImageColor', 'inputLossBehavior_inputLossImageColor' - When input loss image type is \"color\" this field specifies the color
--- to use. Value: 6 hex characters representing the values of RGB.
---
 -- 'repeatFrameMsec', 'inputLossBehavior_repeatFrameMsec' - Documentation update needed
 newInputLossBehavior ::
   InputLossBehavior
 newInputLossBehavior =
   InputLossBehavior'
-    { inputLossImageSlate =
+    { blackFrameMsec =
         Prelude.Nothing,
-      inputLossImageType = Prelude.Nothing,
-      blackFrameMsec = Prelude.Nothing,
       inputLossImageColor = Prelude.Nothing,
+      inputLossImageSlate = Prelude.Nothing,
+      inputLossImageType = Prelude.Nothing,
       repeatFrameMsec = Prelude.Nothing
     }
+
+-- | Documentation update needed
+inputLossBehavior_blackFrameMsec :: Lens.Lens' InputLossBehavior (Prelude.Maybe Prelude.Natural)
+inputLossBehavior_blackFrameMsec = Lens.lens (\InputLossBehavior' {blackFrameMsec} -> blackFrameMsec) (\s@InputLossBehavior' {} a -> s {blackFrameMsec = a} :: InputLossBehavior)
+
+-- | When input loss image type is \"color\" this field specifies the color
+-- to use. Value: 6 hex characters representing the values of RGB.
+inputLossBehavior_inputLossImageColor :: Lens.Lens' InputLossBehavior (Prelude.Maybe Prelude.Text)
+inputLossBehavior_inputLossImageColor = Lens.lens (\InputLossBehavior' {inputLossImageColor} -> inputLossImageColor) (\s@InputLossBehavior' {} a -> s {inputLossImageColor = a} :: InputLossBehavior)
 
 -- | When input loss image type is \"slate\" these fields specify the
 -- parameters for accessing the slate.
@@ -89,15 +98,6 @@ inputLossBehavior_inputLossImageType :: Lens.Lens' InputLossBehavior (Prelude.Ma
 inputLossBehavior_inputLossImageType = Lens.lens (\InputLossBehavior' {inputLossImageType} -> inputLossImageType) (\s@InputLossBehavior' {} a -> s {inputLossImageType = a} :: InputLossBehavior)
 
 -- | Documentation update needed
-inputLossBehavior_blackFrameMsec :: Lens.Lens' InputLossBehavior (Prelude.Maybe Prelude.Natural)
-inputLossBehavior_blackFrameMsec = Lens.lens (\InputLossBehavior' {blackFrameMsec} -> blackFrameMsec) (\s@InputLossBehavior' {} a -> s {blackFrameMsec = a} :: InputLossBehavior)
-
--- | When input loss image type is \"color\" this field specifies the color
--- to use. Value: 6 hex characters representing the values of RGB.
-inputLossBehavior_inputLossImageColor :: Lens.Lens' InputLossBehavior (Prelude.Maybe Prelude.Text)
-inputLossBehavior_inputLossImageColor = Lens.lens (\InputLossBehavior' {inputLossImageColor} -> inputLossImageColor) (\s@InputLossBehavior' {} a -> s {inputLossImageColor = a} :: InputLossBehavior)
-
--- | Documentation update needed
 inputLossBehavior_repeatFrameMsec :: Lens.Lens' InputLossBehavior (Prelude.Maybe Prelude.Natural)
 inputLossBehavior_repeatFrameMsec = Lens.lens (\InputLossBehavior' {repeatFrameMsec} -> repeatFrameMsec) (\s@InputLossBehavior' {} a -> s {repeatFrameMsec = a} :: InputLossBehavior)
 
@@ -107,41 +107,41 @@ instance Data.FromJSON InputLossBehavior where
       "InputLossBehavior"
       ( \x ->
           InputLossBehavior'
-            Prelude.<$> (x Data..:? "inputLossImageSlate")
-            Prelude.<*> (x Data..:? "inputLossImageType")
-            Prelude.<*> (x Data..:? "blackFrameMsec")
+            Prelude.<$> (x Data..:? "blackFrameMsec")
             Prelude.<*> (x Data..:? "inputLossImageColor")
+            Prelude.<*> (x Data..:? "inputLossImageSlate")
+            Prelude.<*> (x Data..:? "inputLossImageType")
             Prelude.<*> (x Data..:? "repeatFrameMsec")
       )
 
 instance Prelude.Hashable InputLossBehavior where
   hashWithSalt _salt InputLossBehavior' {..} =
-    _salt `Prelude.hashWithSalt` inputLossImageSlate
-      `Prelude.hashWithSalt` inputLossImageType
-      `Prelude.hashWithSalt` blackFrameMsec
+    _salt `Prelude.hashWithSalt` blackFrameMsec
       `Prelude.hashWithSalt` inputLossImageColor
+      `Prelude.hashWithSalt` inputLossImageSlate
+      `Prelude.hashWithSalt` inputLossImageType
       `Prelude.hashWithSalt` repeatFrameMsec
 
 instance Prelude.NFData InputLossBehavior where
   rnf InputLossBehavior' {..} =
-    Prelude.rnf inputLossImageSlate
-      `Prelude.seq` Prelude.rnf inputLossImageType
-      `Prelude.seq` Prelude.rnf blackFrameMsec
+    Prelude.rnf blackFrameMsec
       `Prelude.seq` Prelude.rnf inputLossImageColor
+      `Prelude.seq` Prelude.rnf inputLossImageSlate
+      `Prelude.seq` Prelude.rnf inputLossImageType
       `Prelude.seq` Prelude.rnf repeatFrameMsec
 
 instance Data.ToJSON InputLossBehavior where
   toJSON InputLossBehavior' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("inputLossImageSlate" Data..=)
-              Prelude.<$> inputLossImageSlate,
-            ("inputLossImageType" Data..=)
-              Prelude.<$> inputLossImageType,
-            ("blackFrameMsec" Data..=)
+          [ ("blackFrameMsec" Data..=)
               Prelude.<$> blackFrameMsec,
             ("inputLossImageColor" Data..=)
               Prelude.<$> inputLossImageColor,
+            ("inputLossImageSlate" Data..=)
+              Prelude.<$> inputLossImageSlate,
+            ("inputLossImageType" Data..=)
+              Prelude.<$> inputLossImageType,
             ("repeatFrameMsec" Data..=)
               Prelude.<$> repeatFrameMsec
           ]

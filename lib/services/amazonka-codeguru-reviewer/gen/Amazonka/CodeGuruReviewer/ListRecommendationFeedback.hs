@@ -30,9 +30,9 @@ module Amazonka.CodeGuruReviewer.ListRecommendationFeedback
     newListRecommendationFeedback,
 
     -- * Request Lenses
+    listRecommendationFeedback_maxResults,
     listRecommendationFeedback_nextToken,
     listRecommendationFeedback_recommendationIds,
-    listRecommendationFeedback_maxResults,
     listRecommendationFeedback_userIds,
     listRecommendationFeedback_codeReviewArn,
 
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecommendationFeedback' smart constructor.
 data ListRecommendationFeedback = ListRecommendationFeedback'
-  { -- | If @nextToken@ is returned, there are more results available. The value
+  { -- | The maximum number of results that are returned per call. The default is
+    -- 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If @nextToken@ is returned, there are more results available. The value
     -- of @nextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Used to query the recommendation feedback for a given recommendation.
     recommendationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The maximum number of results that are returned per call. The default is
-    -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An Amazon Web Services user\'s account ID or Amazon Resource Name (ARN).
     -- Use this ID to query the recommendation feedback for a code review from
     -- that user.
@@ -92,15 +92,15 @@ data ListRecommendationFeedback = ListRecommendationFeedback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRecommendationFeedback_maxResults' - The maximum number of results that are returned per call. The default is
+-- 100.
+--
 -- 'nextToken', 'listRecommendationFeedback_nextToken' - If @nextToken@ is returned, there are more results available. The value
 -- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
 --
 -- 'recommendationIds', 'listRecommendationFeedback_recommendationIds' - Used to query the recommendation feedback for a given recommendation.
---
--- 'maxResults', 'listRecommendationFeedback_maxResults' - The maximum number of results that are returned per call. The default is
--- 100.
 --
 -- 'userIds', 'listRecommendationFeedback_userIds' - An Amazon Web Services user\'s account ID or Amazon Resource Name (ARN).
 -- Use this ID to query the recommendation feedback for a code review from
@@ -121,13 +121,18 @@ newListRecommendationFeedback ::
   ListRecommendationFeedback
 newListRecommendationFeedback pCodeReviewArn_ =
   ListRecommendationFeedback'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       recommendationIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       userIds = Prelude.Nothing,
       codeReviewArn = pCodeReviewArn_
     }
+
+-- | The maximum number of results that are returned per call. The default is
+-- 100.
+listRecommendationFeedback_maxResults :: Lens.Lens' ListRecommendationFeedback (Prelude.Maybe Prelude.Natural)
+listRecommendationFeedback_maxResults = Lens.lens (\ListRecommendationFeedback' {maxResults} -> maxResults) (\s@ListRecommendationFeedback' {} a -> s {maxResults = a} :: ListRecommendationFeedback)
 
 -- | If @nextToken@ is returned, there are more results available. The value
 -- of @nextToken@ is a unique pagination token for each page. Make the call
@@ -139,11 +144,6 @@ listRecommendationFeedback_nextToken = Lens.lens (\ListRecommendationFeedback' {
 -- | Used to query the recommendation feedback for a given recommendation.
 listRecommendationFeedback_recommendationIds :: Lens.Lens' ListRecommendationFeedback (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listRecommendationFeedback_recommendationIds = Lens.lens (\ListRecommendationFeedback' {recommendationIds} -> recommendationIds) (\s@ListRecommendationFeedback' {} a -> s {recommendationIds = a} :: ListRecommendationFeedback) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results that are returned per call. The default is
--- 100.
-listRecommendationFeedback_maxResults :: Lens.Lens' ListRecommendationFeedback (Prelude.Maybe Prelude.Natural)
-listRecommendationFeedback_maxResults = Lens.lens (\ListRecommendationFeedback' {maxResults} -> maxResults) (\s@ListRecommendationFeedback' {} a -> s {maxResults = a} :: ListRecommendationFeedback)
 
 -- | An Amazon Web Services user\'s account ID or Amazon Resource Name (ARN).
 -- Use this ID to query the recommendation feedback for a code review from
@@ -182,17 +182,17 @@ instance Core.AWSRequest ListRecommendationFeedback where
 
 instance Prelude.Hashable ListRecommendationFeedback where
   hashWithSalt _salt ListRecommendationFeedback' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` recommendationIds
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` userIds
       `Prelude.hashWithSalt` codeReviewArn
 
 instance Prelude.NFData ListRecommendationFeedback where
   rnf ListRecommendationFeedback' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf userIds
       `Prelude.seq` Prelude.rnf codeReviewArn
 
@@ -218,13 +218,13 @@ instance Data.ToPath ListRecommendationFeedback where
 instance Data.ToQuery ListRecommendationFeedback where
   toQuery ListRecommendationFeedback' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "RecommendationIds"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> recommendationIds
             ),
-        "MaxResults" Data.=: maxResults,
         "UserIds"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> userIds)

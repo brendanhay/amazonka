@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputSummary' smart constructor.
 data InputSummary = InputSummary'
-  { -- | The name of the input.
-    inputName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the input.
-    status :: Prelude.Maybe InputStatus,
-    -- | The time the input was created.
+  { -- | The time the input was created.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The last time the input was updated.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the input.
+    inputArn :: Prelude.Maybe Prelude.Text,
     -- | A brief description of the input.
     inputDescription :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the input.
-    inputArn :: Prelude.Maybe Prelude.Text
+    -- | The name of the input.
+    inputName :: Prelude.Maybe Prelude.Text,
+    -- | The last time the input was updated.
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the input.
+    status :: Prelude.Maybe InputStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,52 +52,52 @@ data InputSummary = InputSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputName', 'inputSummary_inputName' - The name of the input.
---
--- 'status', 'inputSummary_status' - The status of the input.
---
 -- 'creationTime', 'inputSummary_creationTime' - The time the input was created.
 --
--- 'lastUpdateTime', 'inputSummary_lastUpdateTime' - The last time the input was updated.
+-- 'inputArn', 'inputSummary_inputArn' - The ARN of the input.
 --
 -- 'inputDescription', 'inputSummary_inputDescription' - A brief description of the input.
 --
--- 'inputArn', 'inputSummary_inputArn' - The ARN of the input.
+-- 'inputName', 'inputSummary_inputName' - The name of the input.
+--
+-- 'lastUpdateTime', 'inputSummary_lastUpdateTime' - The last time the input was updated.
+--
+-- 'status', 'inputSummary_status' - The status of the input.
 newInputSummary ::
   InputSummary
 newInputSummary =
   InputSummary'
-    { inputName = Prelude.Nothing,
-      status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      inputArn = Prelude.Nothing,
       inputDescription = Prelude.Nothing,
-      inputArn = Prelude.Nothing
+      inputName = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The name of the input.
-inputSummary_inputName :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.Text)
-inputSummary_inputName = Lens.lens (\InputSummary' {inputName} -> inputName) (\s@InputSummary' {} a -> s {inputName = a} :: InputSummary)
-
--- | The status of the input.
-inputSummary_status :: Lens.Lens' InputSummary (Prelude.Maybe InputStatus)
-inputSummary_status = Lens.lens (\InputSummary' {status} -> status) (\s@InputSummary' {} a -> s {status = a} :: InputSummary)
 
 -- | The time the input was created.
 inputSummary_creationTime :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.UTCTime)
 inputSummary_creationTime = Lens.lens (\InputSummary' {creationTime} -> creationTime) (\s@InputSummary' {} a -> s {creationTime = a} :: InputSummary) Prelude.. Lens.mapping Data._Time
 
--- | The last time the input was updated.
-inputSummary_lastUpdateTime :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.UTCTime)
-inputSummary_lastUpdateTime = Lens.lens (\InputSummary' {lastUpdateTime} -> lastUpdateTime) (\s@InputSummary' {} a -> s {lastUpdateTime = a} :: InputSummary) Prelude.. Lens.mapping Data._Time
+-- | The ARN of the input.
+inputSummary_inputArn :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.Text)
+inputSummary_inputArn = Lens.lens (\InputSummary' {inputArn} -> inputArn) (\s@InputSummary' {} a -> s {inputArn = a} :: InputSummary)
 
 -- | A brief description of the input.
 inputSummary_inputDescription :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.Text)
 inputSummary_inputDescription = Lens.lens (\InputSummary' {inputDescription} -> inputDescription) (\s@InputSummary' {} a -> s {inputDescription = a} :: InputSummary)
 
--- | The ARN of the input.
-inputSummary_inputArn :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.Text)
-inputSummary_inputArn = Lens.lens (\InputSummary' {inputArn} -> inputArn) (\s@InputSummary' {} a -> s {inputArn = a} :: InputSummary)
+-- | The name of the input.
+inputSummary_inputName :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.Text)
+inputSummary_inputName = Lens.lens (\InputSummary' {inputName} -> inputName) (\s@InputSummary' {} a -> s {inputName = a} :: InputSummary)
+
+-- | The last time the input was updated.
+inputSummary_lastUpdateTime :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.UTCTime)
+inputSummary_lastUpdateTime = Lens.lens (\InputSummary' {lastUpdateTime} -> lastUpdateTime) (\s@InputSummary' {} a -> s {lastUpdateTime = a} :: InputSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The status of the input.
+inputSummary_status :: Lens.Lens' InputSummary (Prelude.Maybe InputStatus)
+inputSummary_status = Lens.lens (\InputSummary' {status} -> status) (\s@InputSummary' {} a -> s {status = a} :: InputSummary)
 
 instance Data.FromJSON InputSummary where
   parseJSON =
@@ -105,28 +105,28 @@ instance Data.FromJSON InputSummary where
       "InputSummary"
       ( \x ->
           InputSummary'
-            Prelude.<$> (x Data..:? "inputName")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "creationTime")
-            Prelude.<*> (x Data..:? "lastUpdateTime")
-            Prelude.<*> (x Data..:? "inputDescription")
+            Prelude.<$> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "inputArn")
+            Prelude.<*> (x Data..:? "inputDescription")
+            Prelude.<*> (x Data..:? "inputName")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable InputSummary where
   hashWithSalt _salt InputSummary' {..} =
-    _salt `Prelude.hashWithSalt` inputName
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` lastUpdateTime
-      `Prelude.hashWithSalt` inputDescription
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` inputArn
+      `Prelude.hashWithSalt` inputDescription
+      `Prelude.hashWithSalt` inputName
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData InputSummary where
   rnf InputSummary' {..} =
-    Prelude.rnf inputName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf inputDescription
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf inputArn
+      `Prelude.seq` Prelude.rnf inputDescription
+      `Prelude.seq` Prelude.rnf inputName
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf status

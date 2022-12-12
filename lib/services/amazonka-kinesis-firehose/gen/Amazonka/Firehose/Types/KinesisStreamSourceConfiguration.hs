@@ -34,7 +34,7 @@ data KinesisStreamSourceConfiguration = KinesisStreamSourceConfiguration'
     kinesisStreamARN :: Prelude.Text,
     -- | The ARN of the role that provides access to the source Kinesis data
     -- stream. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM) ARN Format>.
     roleARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,7 +52,7 @@ data KinesisStreamSourceConfiguration = KinesisStreamSourceConfiguration'
 --
 -- 'roleARN', 'kinesisStreamSourceConfiguration_roleARN' - The ARN of the role that provides access to the source Kinesis data
 -- stream. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM) ARN Format>.
 newKinesisStreamSourceConfiguration ::
   -- | 'kinesisStreamARN'
   Prelude.Text ->
@@ -75,7 +75,7 @@ kinesisStreamSourceConfiguration_kinesisStreamARN = Lens.lens (\KinesisStreamSou
 
 -- | The ARN of the role that provides access to the source Kinesis data
 -- stream. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM) ARN Format>.
 kinesisStreamSourceConfiguration_roleARN :: Lens.Lens' KinesisStreamSourceConfiguration Prelude.Text
 kinesisStreamSourceConfiguration_roleARN = Lens.lens (\KinesisStreamSourceConfiguration' {roleARN} -> roleARN) (\s@KinesisStreamSourceConfiguration' {} a -> s {roleARN = a} :: KinesisStreamSourceConfiguration)
 

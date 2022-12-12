@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReadinessCheckOutput' smart constructor.
 data ReadinessCheckOutput = ReadinessCheckOutput'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Name of a readiness check.
+  { -- | Name of a readiness check.
     readinessCheckName :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) associated with a readiness check.
     readinessCheckArn :: Prelude.Text,
     -- | Name of the resource set to be checked.
@@ -46,9 +46,9 @@ data ReadinessCheckOutput = ReadinessCheckOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'readinessCheckOutput_tags' - Undocumented member.
---
 -- 'readinessCheckName', 'readinessCheckOutput_readinessCheckName' - Name of a readiness check.
+--
+-- 'tags', 'readinessCheckOutput_tags' - Undocumented member.
 --
 -- 'readinessCheckArn', 'readinessCheckOutput_readinessCheckArn' - The Amazon Resource Name (ARN) associated with a readiness check.
 --
@@ -63,19 +63,20 @@ newReadinessCheckOutput
   pReadinessCheckArn_
   pResourceSet_ =
     ReadinessCheckOutput'
-      { tags = Prelude.Nothing,
-        readinessCheckName = Prelude.Nothing,
+      { readinessCheckName =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         readinessCheckArn = pReadinessCheckArn_,
         resourceSet = pResourceSet_
       }
 
--- | Undocumented member.
-readinessCheckOutput_tags :: Lens.Lens' ReadinessCheckOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-readinessCheckOutput_tags = Lens.lens (\ReadinessCheckOutput' {tags} -> tags) (\s@ReadinessCheckOutput' {} a -> s {tags = a} :: ReadinessCheckOutput) Prelude.. Lens.mapping Lens.coerced
-
 -- | Name of a readiness check.
 readinessCheckOutput_readinessCheckName :: Lens.Lens' ReadinessCheckOutput (Prelude.Maybe Prelude.Text)
 readinessCheckOutput_readinessCheckName = Lens.lens (\ReadinessCheckOutput' {readinessCheckName} -> readinessCheckName) (\s@ReadinessCheckOutput' {} a -> s {readinessCheckName = a} :: ReadinessCheckOutput)
+
+-- | Undocumented member.
+readinessCheckOutput_tags :: Lens.Lens' ReadinessCheckOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+readinessCheckOutput_tags = Lens.lens (\ReadinessCheckOutput' {tags} -> tags) (\s@ReadinessCheckOutput' {} a -> s {tags = a} :: ReadinessCheckOutput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) associated with a readiness check.
 readinessCheckOutput_readinessCheckArn :: Lens.Lens' ReadinessCheckOutput Prelude.Text
@@ -91,22 +92,22 @@ instance Data.FromJSON ReadinessCheckOutput where
       "ReadinessCheckOutput"
       ( \x ->
           ReadinessCheckOutput'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "readinessCheckName")
+            Prelude.<$> (x Data..:? "readinessCheckName")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "readinessCheckArn")
             Prelude.<*> (x Data..: "resourceSet")
       )
 
 instance Prelude.Hashable ReadinessCheckOutput where
   hashWithSalt _salt ReadinessCheckOutput' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` readinessCheckName
+    _salt `Prelude.hashWithSalt` readinessCheckName
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` readinessCheckArn
       `Prelude.hashWithSalt` resourceSet
 
 instance Prelude.NFData ReadinessCheckOutput where
   rnf ReadinessCheckOutput' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf readinessCheckName
+    Prelude.rnf readinessCheckName
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf readinessCheckArn
       `Prelude.seq` Prelude.rnf resourceSet

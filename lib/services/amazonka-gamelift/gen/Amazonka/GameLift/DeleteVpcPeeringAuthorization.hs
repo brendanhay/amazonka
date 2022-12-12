@@ -21,14 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels a pending VPC peering authorization for the specified VPC. If
--- you need to delete an existing VPC peering connection, call
--- DeleteVpcPeeringConnection.
+-- you need to delete an existing VPC peering connection, use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html DeleteVpcPeeringConnection>.
 --
 -- __Related actions__
 --
--- CreateVpcPeeringAuthorization | DescribeVpcPeeringAuthorizations |
--- DeleteVpcPeeringAuthorization | CreateVpcPeeringConnection |
--- DescribeVpcPeeringConnections | DeleteVpcPeeringConnection |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DeleteVpcPeeringAuthorization
   ( -- * Creating a Request
@@ -56,9 +53,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDeleteVpcPeeringAuthorization' smart constructor.
+-- | /See:/ 'newDeleteVpcPeeringAuthorization' smart constructor.
 data DeleteVpcPeeringAuthorization = DeleteVpcPeeringAuthorization'
   { -- | A unique identifier for the Amazon Web Services account that you use to
     -- manage your GameLift fleet. You can find your Account ID in the Amazon

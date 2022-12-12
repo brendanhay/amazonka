@@ -44,8 +44,8 @@ module Amazonka.IAM.ListPolicyVersions
     newListPolicyVersionsResponse,
 
     -- * Response Lenses
-    listPolicyVersionsResponse_marker,
     listPolicyVersionsResponse_isTruncated,
+    listPolicyVersionsResponse_marker,
     listPolicyVersionsResponse_versions,
     listPolicyVersionsResponse_httpStatus,
   )
@@ -187,8 +187,8 @@ instance Core.AWSRequest ListPolicyVersions where
       "ListPolicyVersionsResult"
       ( \s h x ->
           ListPolicyVersionsResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> ( x Data..@? "Versions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -229,11 +229,7 @@ instance Data.ToQuery ListPolicyVersions where
 --
 -- /See:/ 'newListPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-  { -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A flag that indicates whether there are more items to return. If your
+  { -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -241,6 +237,10 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | A list of policy versions.
     --
     -- For more information about managed policy versions, see
@@ -260,10 +260,6 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listPolicyVersionsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
---
 -- 'isTruncated', 'listPolicyVersionsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -271,6 +267,10 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
+--
+-- 'marker', 'listPolicyVersionsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
 -- 'versions', 'listPolicyVersionsResponse_versions' - A list of policy versions.
 --
@@ -285,18 +285,12 @@ newListPolicyVersionsResponse ::
   ListPolicyVersionsResponse
 newListPolicyVersionsResponse pHttpStatus_ =
   ListPolicyVersionsResponse'
-    { marker =
+    { isTruncated =
         Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
       versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listPolicyVersionsResponse_marker :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe Prelude.Text)
-listPolicyVersionsResponse_marker = Lens.lens (\ListPolicyVersionsResponse' {marker} -> marker) (\s@ListPolicyVersionsResponse' {} a -> s {marker = a} :: ListPolicyVersionsResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -307,6 +301,12 @@ listPolicyVersionsResponse_marker = Lens.lens (\ListPolicyVersionsResponse' {mar
 -- results.
 listPolicyVersionsResponse_isTruncated :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe Prelude.Bool)
 listPolicyVersionsResponse_isTruncated = Lens.lens (\ListPolicyVersionsResponse' {isTruncated} -> isTruncated) (\s@ListPolicyVersionsResponse' {} a -> s {isTruncated = a} :: ListPolicyVersionsResponse)
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listPolicyVersionsResponse_marker :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe Prelude.Text)
+listPolicyVersionsResponse_marker = Lens.lens (\ListPolicyVersionsResponse' {marker} -> marker) (\s@ListPolicyVersionsResponse' {} a -> s {marker = a} :: ListPolicyVersionsResponse)
 
 -- | A list of policy versions.
 --
@@ -322,7 +322,7 @@ listPolicyVersionsResponse_httpStatus = Lens.lens (\ListPolicyVersionsResponse' 
 
 instance Prelude.NFData ListPolicyVersionsResponse where
   rnf ListPolicyVersionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf isTruncated
+    Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

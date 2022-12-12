@@ -38,20 +38,20 @@ module Amazonka.MigrationHubConfig
     -- * Errors
     -- $errors
 
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
     -- ** DryRunOperation
     _DryRunOperation,
+
+    -- ** InternalServerError
+    _InternalServerError,
 
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
-
-    -- ** InternalServerError
-    _InternalServerError,
 
     -- ** ThrottlingException
     _ThrottlingException,

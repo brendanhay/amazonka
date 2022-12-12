@@ -35,11 +35,11 @@ module Amazonka.S3.PutObjectRetention
     newPutObjectRetention,
 
     -- * Request Lenses
+    putObjectRetention_bypassGovernanceRetention,
     putObjectRetention_checksumAlgorithm,
     putObjectRetention_contentMD5,
     putObjectRetention_expectedBucketOwner,
     putObjectRetention_requestPayer,
-    putObjectRetention_bypassGovernanceRetention,
     putObjectRetention_retention,
     putObjectRetention_versionId,
     putObjectRetention_bucket,
@@ -65,7 +65,10 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutObjectRetention' smart constructor.
 data PutObjectRetention = PutObjectRetention'
-  { -- | Indicates the algorithm used to create the checksum for the object when
+  { -- | Indicates whether this action should bypass Governance-mode
+    -- restrictions.
+    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates the algorithm used to create the checksum for the object when
     -- using the SDK. This header will not provide any additional functionality
     -- if not using the SDK. When sending this header, there must be a
     -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
@@ -88,9 +91,6 @@ data PutObjectRetention = PutObjectRetention'
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
-    -- | Indicates whether this action should bypass Governance-mode
-    -- restrictions.
-    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
     -- | The container element for the Object Retention configuration.
     retention :: Prelude.Maybe ObjectLockRetention,
     -- | The version ID for the object that you want to apply this Object
@@ -122,6 +122,9 @@ data PutObjectRetention = PutObjectRetention'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bypassGovernanceRetention', 'putObjectRetention_bypassGovernanceRetention' - Indicates whether this action should bypass Governance-mode
+-- restrictions.
+--
 -- 'checksumAlgorithm', 'putObjectRetention_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
 -- using the SDK. This header will not provide any additional functionality
 -- if not using the SDK. When sending this header, there must be a
@@ -145,9 +148,6 @@ data PutObjectRetention = PutObjectRetention'
 -- @403 Forbidden@ (access denied).
 --
 -- 'requestPayer', 'putObjectRetention_requestPayer' - Undocumented member.
---
--- 'bypassGovernanceRetention', 'putObjectRetention_bypassGovernanceRetention' - Indicates whether this action should bypass Governance-mode
--- restrictions.
 --
 -- 'retention', 'putObjectRetention_retention' - The container element for the Object Retention configuration.
 --
@@ -176,17 +176,22 @@ newPutObjectRetention ::
   PutObjectRetention
 newPutObjectRetention pBucket_ pKey_ =
   PutObjectRetention'
-    { checksumAlgorithm =
+    { bypassGovernanceRetention =
         Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
       contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
-      bypassGovernanceRetention = Prelude.Nothing,
       retention = Prelude.Nothing,
       versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
+
+-- | Indicates whether this action should bypass Governance-mode
+-- restrictions.
+putObjectRetention_bypassGovernanceRetention :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Bool)
+putObjectRetention_bypassGovernanceRetention = Lens.lens (\PutObjectRetention' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@PutObjectRetention' {} a -> s {bypassGovernanceRetention = a} :: PutObjectRetention)
 
 -- | Indicates the algorithm used to create the checksum for the object when
 -- using the SDK. This header will not provide any additional functionality
@@ -219,11 +224,6 @@ putObjectRetention_expectedBucketOwner = Lens.lens (\PutObjectRetention' {expect
 -- | Undocumented member.
 putObjectRetention_requestPayer :: Lens.Lens' PutObjectRetention (Prelude.Maybe RequestPayer)
 putObjectRetention_requestPayer = Lens.lens (\PutObjectRetention' {requestPayer} -> requestPayer) (\s@PutObjectRetention' {} a -> s {requestPayer = a} :: PutObjectRetention)
-
--- | Indicates whether this action should bypass Governance-mode
--- restrictions.
-putObjectRetention_bypassGovernanceRetention :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Bool)
-putObjectRetention_bypassGovernanceRetention = Lens.lens (\PutObjectRetention' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@PutObjectRetention' {} a -> s {bypassGovernanceRetention = a} :: PutObjectRetention)
 
 -- | The container element for the Object Retention configuration.
 putObjectRetention_retention :: Lens.Lens' PutObjectRetention (Prelude.Maybe ObjectLockRetention)
@@ -270,11 +270,12 @@ instance Core.AWSRequest PutObjectRetention where
 
 instance Prelude.Hashable PutObjectRetention where
   hashWithSalt _salt PutObjectRetention' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` bypassGovernanceRetention
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` bypassGovernanceRetention
       `Prelude.hashWithSalt` retention
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
@@ -282,11 +283,11 @@ instance Prelude.Hashable PutObjectRetention where
 
 instance Prelude.NFData PutObjectRetention where
   rnf PutObjectRetention' {..} =
-    Prelude.rnf checksumAlgorithm
+    Prelude.rnf bypassGovernanceRetention
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf bypassGovernanceRetention
       `Prelude.seq` Prelude.rnf retention
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
@@ -301,14 +302,14 @@ instance Data.ToElement PutObjectRetention where
 instance Data.ToHeaders PutObjectRetention where
   toHeaders PutObjectRetention' {..} =
     Prelude.mconcat
-      [ "x-amz-sdk-checksum-algorithm"
+      [ "x-amz-bypass-governance-retention"
+          Data.=# bypassGovernanceRetention,
+        "x-amz-sdk-checksum-algorithm"
           Data.=# checksumAlgorithm,
         "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
           Data.=# expectedBucketOwner,
-        "x-amz-request-payer" Data.=# requestPayer,
-        "x-amz-bypass-governance-retention"
-          Data.=# bypassGovernanceRetention
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
 instance Data.ToPath PutObjectRetention where

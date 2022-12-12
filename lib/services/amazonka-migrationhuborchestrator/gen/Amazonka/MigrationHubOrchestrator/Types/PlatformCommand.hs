@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlatformCommand' smart constructor.
 data PlatformCommand = PlatformCommand'
-  { -- | Command for Windows.
-    windows :: Prelude.Maybe Prelude.Text,
-    -- | Command for Linux.
-    linux :: Prelude.Maybe Prelude.Text
+  { -- | Command for Linux.
+    linux :: Prelude.Maybe Prelude.Text,
+    -- | Command for Windows.
+    windows :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data PlatformCommand = PlatformCommand'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windows', 'platformCommand_windows' - Command for Windows.
---
 -- 'linux', 'platformCommand_linux' - Command for Linux.
+--
+-- 'windows', 'platformCommand_windows' - Command for Windows.
 newPlatformCommand ::
   PlatformCommand
 newPlatformCommand =
   PlatformCommand'
-    { windows = Prelude.Nothing,
-      linux = Prelude.Nothing
+    { linux = Prelude.Nothing,
+      windows = Prelude.Nothing
     }
-
--- | Command for Windows.
-platformCommand_windows :: Lens.Lens' PlatformCommand (Prelude.Maybe Prelude.Text)
-platformCommand_windows = Lens.lens (\PlatformCommand' {windows} -> windows) (\s@PlatformCommand' {} a -> s {windows = a} :: PlatformCommand)
 
 -- | Command for Linux.
 platformCommand_linux :: Lens.Lens' PlatformCommand (Prelude.Maybe Prelude.Text)
 platformCommand_linux = Lens.lens (\PlatformCommand' {linux} -> linux) (\s@PlatformCommand' {} a -> s {linux = a} :: PlatformCommand)
+
+-- | Command for Windows.
+platformCommand_windows :: Lens.Lens' PlatformCommand (Prelude.Maybe Prelude.Text)
+platformCommand_windows = Lens.lens (\PlatformCommand' {windows} -> windows) (\s@PlatformCommand' {} a -> s {windows = a} :: PlatformCommand)
 
 instance Data.FromJSON PlatformCommand where
   parseJSON =
@@ -68,24 +68,24 @@ instance Data.FromJSON PlatformCommand where
       "PlatformCommand"
       ( \x ->
           PlatformCommand'
-            Prelude.<$> (x Data..:? "windows")
-            Prelude.<*> (x Data..:? "linux")
+            Prelude.<$> (x Data..:? "linux")
+            Prelude.<*> (x Data..:? "windows")
       )
 
 instance Prelude.Hashable PlatformCommand where
   hashWithSalt _salt PlatformCommand' {..} =
-    _salt `Prelude.hashWithSalt` windows
-      `Prelude.hashWithSalt` linux
+    _salt `Prelude.hashWithSalt` linux
+      `Prelude.hashWithSalt` windows
 
 instance Prelude.NFData PlatformCommand where
   rnf PlatformCommand' {..} =
-    Prelude.rnf windows `Prelude.seq` Prelude.rnf linux
+    Prelude.rnf linux `Prelude.seq` Prelude.rnf windows
 
 instance Data.ToJSON PlatformCommand where
   toJSON PlatformCommand' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("windows" Data..=) Prelude.<$> windows,
-            ("linux" Data..=) Prelude.<$> linux
+          [ ("linux" Data..=) Prelude.<$> linux,
+            ("windows" Data..=) Prelude.<$> windows
           ]
       )

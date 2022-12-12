@@ -27,11 +27,11 @@ module Amazonka.Glue.GetUnfilteredPartitionsMetadata
     newGetUnfilteredPartitionsMetadata,
 
     -- * Request Lenses
-    getUnfilteredPartitionsMetadata_nextToken,
     getUnfilteredPartitionsMetadata_auditContext,
     getUnfilteredPartitionsMetadata_expression,
-    getUnfilteredPartitionsMetadata_segment,
     getUnfilteredPartitionsMetadata_maxResults,
+    getUnfilteredPartitionsMetadata_nextToken,
+    getUnfilteredPartitionsMetadata_segment,
     getUnfilteredPartitionsMetadata_catalogId,
     getUnfilteredPartitionsMetadata_databaseName,
     getUnfilteredPartitionsMetadata_tableName,
@@ -58,11 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetUnfilteredPartitionsMetadata' smart constructor.
 data GetUnfilteredPartitionsMetadata = GetUnfilteredPartitionsMetadata'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    auditContext :: Prelude.Maybe AuditContext,
+  { auditContext :: Prelude.Maybe AuditContext,
     expression :: Prelude.Maybe Prelude.Text,
-    segment :: Prelude.Maybe Segment,
     maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
+    segment :: Prelude.Maybe Segment,
     catalogId :: Prelude.Text,
     databaseName :: Prelude.Text,
     tableName :: Prelude.Text,
@@ -78,15 +78,15 @@ data GetUnfilteredPartitionsMetadata = GetUnfilteredPartitionsMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getUnfilteredPartitionsMetadata_nextToken' - Undocumented member.
---
 -- 'auditContext', 'getUnfilteredPartitionsMetadata_auditContext' - Undocumented member.
 --
 -- 'expression', 'getUnfilteredPartitionsMetadata_expression' - Undocumented member.
 --
--- 'segment', 'getUnfilteredPartitionsMetadata_segment' - Undocumented member.
---
 -- 'maxResults', 'getUnfilteredPartitionsMetadata_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'getUnfilteredPartitionsMetadata_nextToken' - Undocumented member.
+--
+-- 'segment', 'getUnfilteredPartitionsMetadata_segment' - Undocumented member.
 --
 -- 'catalogId', 'getUnfilteredPartitionsMetadata_catalogId' - Undocumented member.
 --
@@ -111,12 +111,12 @@ newGetUnfilteredPartitionsMetadata
   pTableName_
   pSupportedPermissionTypes_ =
     GetUnfilteredPartitionsMetadata'
-      { nextToken =
+      { auditContext =
           Prelude.Nothing,
-        auditContext = Prelude.Nothing,
         expression = Prelude.Nothing,
-        segment = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        segment = Prelude.Nothing,
         catalogId = pCatalogId_,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
@@ -124,10 +124,6 @@ newGetUnfilteredPartitionsMetadata
           Lens.coerced
             Lens.# pSupportedPermissionTypes_
       }
-
--- | Undocumented member.
-getUnfilteredPartitionsMetadata_nextToken :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe Prelude.Text)
-getUnfilteredPartitionsMetadata_nextToken = Lens.lens (\GetUnfilteredPartitionsMetadata' {nextToken} -> nextToken) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {nextToken = a} :: GetUnfilteredPartitionsMetadata)
 
 -- | Undocumented member.
 getUnfilteredPartitionsMetadata_auditContext :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe AuditContext)
@@ -138,12 +134,16 @@ getUnfilteredPartitionsMetadata_expression :: Lens.Lens' GetUnfilteredPartitions
 getUnfilteredPartitionsMetadata_expression = Lens.lens (\GetUnfilteredPartitionsMetadata' {expression} -> expression) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {expression = a} :: GetUnfilteredPartitionsMetadata)
 
 -- | Undocumented member.
-getUnfilteredPartitionsMetadata_segment :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe Segment)
-getUnfilteredPartitionsMetadata_segment = Lens.lens (\GetUnfilteredPartitionsMetadata' {segment} -> segment) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {segment = a} :: GetUnfilteredPartitionsMetadata)
-
--- | Undocumented member.
 getUnfilteredPartitionsMetadata_maxResults :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe Prelude.Natural)
 getUnfilteredPartitionsMetadata_maxResults = Lens.lens (\GetUnfilteredPartitionsMetadata' {maxResults} -> maxResults) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {maxResults = a} :: GetUnfilteredPartitionsMetadata)
+
+-- | Undocumented member.
+getUnfilteredPartitionsMetadata_nextToken :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe Prelude.Text)
+getUnfilteredPartitionsMetadata_nextToken = Lens.lens (\GetUnfilteredPartitionsMetadata' {nextToken} -> nextToken) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {nextToken = a} :: GetUnfilteredPartitionsMetadata)
+
+-- | Undocumented member.
+getUnfilteredPartitionsMetadata_segment :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe Segment)
+getUnfilteredPartitionsMetadata_segment = Lens.lens (\GetUnfilteredPartitionsMetadata' {segment} -> segment) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {segment = a} :: GetUnfilteredPartitionsMetadata)
 
 -- | Undocumented member.
 getUnfilteredPartitionsMetadata_catalogId :: Lens.Lens' GetUnfilteredPartitionsMetadata Prelude.Text
@@ -188,11 +188,11 @@ instance
   hashWithSalt
     _salt
     GetUnfilteredPartitionsMetadata' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` auditContext
+      _salt `Prelude.hashWithSalt` auditContext
         `Prelude.hashWithSalt` expression
-        `Prelude.hashWithSalt` segment
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` segment
         `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` databaseName
         `Prelude.hashWithSalt` tableName
@@ -203,11 +203,11 @@ instance
     GetUnfilteredPartitionsMetadata
   where
   rnf GetUnfilteredPartitionsMetadata' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf auditContext
+    Prelude.rnf auditContext
       `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf segment
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf segment
       `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
@@ -235,11 +235,11 @@ instance Data.ToJSON GetUnfilteredPartitionsMetadata where
   toJSON GetUnfilteredPartitionsMetadata' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("AuditContext" Data..=) Prelude.<$> auditContext,
+          [ ("AuditContext" Data..=) Prelude.<$> auditContext,
             ("Expression" Data..=) Prelude.<$> expression,
-            ("Segment" Data..=) Prelude.<$> segment,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Segment" Data..=) Prelude.<$> segment,
             Prelude.Just ("CatalogId" Data..= catalogId),
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("TableName" Data..= tableName),

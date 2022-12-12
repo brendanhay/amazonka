@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpsertRedshiftTargetOptions' smart constructor.
 data UpsertRedshiftTargetOptions = UpsertRedshiftTargetOptions'
-  { -- | The physical location of the Redshift table.
+  { -- | The name of the connection to use to write to Redshift.
+    connectionName :: Prelude.Maybe Prelude.Text,
+    -- | The physical location of the Redshift table.
     tableLocation :: Prelude.Maybe Prelude.Text,
     -- | The keys used to determine whether to perform an update or insert.
-    upsertKeys :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the connection to use to write to Redshift.
-    connectionName :: Prelude.Maybe Prelude.Text
+    upsertKeys :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,24 @@ data UpsertRedshiftTargetOptions = UpsertRedshiftTargetOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionName', 'upsertRedshiftTargetOptions_connectionName' - The name of the connection to use to write to Redshift.
+--
 -- 'tableLocation', 'upsertRedshiftTargetOptions_tableLocation' - The physical location of the Redshift table.
 --
 -- 'upsertKeys', 'upsertRedshiftTargetOptions_upsertKeys' - The keys used to determine whether to perform an update or insert.
---
--- 'connectionName', 'upsertRedshiftTargetOptions_connectionName' - The name of the connection to use to write to Redshift.
 newUpsertRedshiftTargetOptions ::
   UpsertRedshiftTargetOptions
 newUpsertRedshiftTargetOptions =
   UpsertRedshiftTargetOptions'
-    { tableLocation =
+    { connectionName =
         Prelude.Nothing,
-      upsertKeys = Prelude.Nothing,
-      connectionName = Prelude.Nothing
+      tableLocation = Prelude.Nothing,
+      upsertKeys = Prelude.Nothing
     }
+
+-- | The name of the connection to use to write to Redshift.
+upsertRedshiftTargetOptions_connectionName :: Lens.Lens' UpsertRedshiftTargetOptions (Prelude.Maybe Prelude.Text)
+upsertRedshiftTargetOptions_connectionName = Lens.lens (\UpsertRedshiftTargetOptions' {connectionName} -> connectionName) (\s@UpsertRedshiftTargetOptions' {} a -> s {connectionName = a} :: UpsertRedshiftTargetOptions)
 
 -- | The physical location of the Redshift table.
 upsertRedshiftTargetOptions_tableLocation :: Lens.Lens' UpsertRedshiftTargetOptions (Prelude.Maybe Prelude.Text)
@@ -69,40 +73,36 @@ upsertRedshiftTargetOptions_tableLocation = Lens.lens (\UpsertRedshiftTargetOpti
 upsertRedshiftTargetOptions_upsertKeys :: Lens.Lens' UpsertRedshiftTargetOptions (Prelude.Maybe [Prelude.Text])
 upsertRedshiftTargetOptions_upsertKeys = Lens.lens (\UpsertRedshiftTargetOptions' {upsertKeys} -> upsertKeys) (\s@UpsertRedshiftTargetOptions' {} a -> s {upsertKeys = a} :: UpsertRedshiftTargetOptions) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the connection to use to write to Redshift.
-upsertRedshiftTargetOptions_connectionName :: Lens.Lens' UpsertRedshiftTargetOptions (Prelude.Maybe Prelude.Text)
-upsertRedshiftTargetOptions_connectionName = Lens.lens (\UpsertRedshiftTargetOptions' {connectionName} -> connectionName) (\s@UpsertRedshiftTargetOptions' {} a -> s {connectionName = a} :: UpsertRedshiftTargetOptions)
-
 instance Data.FromJSON UpsertRedshiftTargetOptions where
   parseJSON =
     Data.withObject
       "UpsertRedshiftTargetOptions"
       ( \x ->
           UpsertRedshiftTargetOptions'
-            Prelude.<$> (x Data..:? "TableLocation")
+            Prelude.<$> (x Data..:? "ConnectionName")
+            Prelude.<*> (x Data..:? "TableLocation")
             Prelude.<*> (x Data..:? "UpsertKeys" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ConnectionName")
       )
 
 instance Prelude.Hashable UpsertRedshiftTargetOptions where
   hashWithSalt _salt UpsertRedshiftTargetOptions' {..} =
-    _salt `Prelude.hashWithSalt` tableLocation
+    _salt `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` tableLocation
       `Prelude.hashWithSalt` upsertKeys
-      `Prelude.hashWithSalt` connectionName
 
 instance Prelude.NFData UpsertRedshiftTargetOptions where
   rnf UpsertRedshiftTargetOptions' {..} =
-    Prelude.rnf tableLocation
+    Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf tableLocation
       `Prelude.seq` Prelude.rnf upsertKeys
-      `Prelude.seq` Prelude.rnf connectionName
 
 instance Data.ToJSON UpsertRedshiftTargetOptions where
   toJSON UpsertRedshiftTargetOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TableLocation" Data..=) Prelude.<$> tableLocation,
-            ("UpsertKeys" Data..=) Prelude.<$> upsertKeys,
-            ("ConnectionName" Data..=)
-              Prelude.<$> connectionName
+          [ ("ConnectionName" Data..=)
+              Prelude.<$> connectionName,
+            ("TableLocation" Data..=) Prelude.<$> tableLocation,
+            ("UpsertKeys" Data..=) Prelude.<$> upsertKeys
           ]
       )

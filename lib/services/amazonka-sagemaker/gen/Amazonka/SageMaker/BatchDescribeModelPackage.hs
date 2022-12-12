@@ -34,8 +34,8 @@ module Amazonka.SageMaker.BatchDescribeModelPackage
     newBatchDescribeModelPackageResponse,
 
     -- * Response Lenses
-    batchDescribeModelPackageResponse_modelPackageSummaries,
     batchDescribeModelPackageResponse_batchDescribeModelPackageErrorMap,
+    batchDescribeModelPackageResponse_modelPackageSummaries,
     batchDescribeModelPackageResponse_httpStatus,
   )
 where
@@ -88,10 +88,10 @@ instance Core.AWSRequest BatchDescribeModelPackage where
     Response.receiveJSON
       ( \s h x ->
           BatchDescribeModelPackageResponse'
-            Prelude.<$> ( x Data..?> "ModelPackageSummaries"
+            Prelude.<$> ( x Data..?> "BatchDescribeModelPackageErrorMap"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "BatchDescribeModelPackageErrorMap"
+            Prelude.<*> ( x Data..?> "ModelPackageSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -137,11 +137,11 @@ instance Data.ToQuery BatchDescribeModelPackage where
 
 -- | /See:/ 'newBatchDescribeModelPackageResponse' smart constructor.
 data BatchDescribeModelPackageResponse = BatchDescribeModelPackageResponse'
-  { -- | The summaries for the model package versions
-    modelPackageSummaries :: Prelude.Maybe (Prelude.HashMap Prelude.Text BatchDescribeModelPackageSummary),
-    -- | A map of the resource and BatchDescribeModelPackageError objects
+  { -- | A map of the resource and BatchDescribeModelPackageError objects
     -- reporting the error associated with describing the model package.
     batchDescribeModelPackageErrorMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text BatchDescribeModelPackageError),
+    -- | The summaries for the model package versions
+    modelPackageSummaries :: Prelude.Maybe (Prelude.HashMap Prelude.Text BatchDescribeModelPackageSummary),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,10 +155,10 @@ data BatchDescribeModelPackageResponse = BatchDescribeModelPackageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelPackageSummaries', 'batchDescribeModelPackageResponse_modelPackageSummaries' - The summaries for the model package versions
---
 -- 'batchDescribeModelPackageErrorMap', 'batchDescribeModelPackageResponse_batchDescribeModelPackageErrorMap' - A map of the resource and BatchDescribeModelPackageError objects
 -- reporting the error associated with describing the model package.
+--
+-- 'modelPackageSummaries', 'batchDescribeModelPackageResponse_modelPackageSummaries' - The summaries for the model package versions
 --
 -- 'httpStatus', 'batchDescribeModelPackageResponse_httpStatus' - The response's http status code.
 newBatchDescribeModelPackageResponse ::
@@ -167,21 +167,20 @@ newBatchDescribeModelPackageResponse ::
   BatchDescribeModelPackageResponse
 newBatchDescribeModelPackageResponse pHttpStatus_ =
   BatchDescribeModelPackageResponse'
-    { modelPackageSummaries =
+    { batchDescribeModelPackageErrorMap =
         Prelude.Nothing,
-      batchDescribeModelPackageErrorMap =
-        Prelude.Nothing,
+      modelPackageSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The summaries for the model package versions
-batchDescribeModelPackageResponse_modelPackageSummaries :: Lens.Lens' BatchDescribeModelPackageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text BatchDescribeModelPackageSummary))
-batchDescribeModelPackageResponse_modelPackageSummaries = Lens.lens (\BatchDescribeModelPackageResponse' {modelPackageSummaries} -> modelPackageSummaries) (\s@BatchDescribeModelPackageResponse' {} a -> s {modelPackageSummaries = a} :: BatchDescribeModelPackageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of the resource and BatchDescribeModelPackageError objects
 -- reporting the error associated with describing the model package.
 batchDescribeModelPackageResponse_batchDescribeModelPackageErrorMap :: Lens.Lens' BatchDescribeModelPackageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text BatchDescribeModelPackageError))
 batchDescribeModelPackageResponse_batchDescribeModelPackageErrorMap = Lens.lens (\BatchDescribeModelPackageResponse' {batchDescribeModelPackageErrorMap} -> batchDescribeModelPackageErrorMap) (\s@BatchDescribeModelPackageResponse' {} a -> s {batchDescribeModelPackageErrorMap = a} :: BatchDescribeModelPackageResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The summaries for the model package versions
+batchDescribeModelPackageResponse_modelPackageSummaries :: Lens.Lens' BatchDescribeModelPackageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text BatchDescribeModelPackageSummary))
+batchDescribeModelPackageResponse_modelPackageSummaries = Lens.lens (\BatchDescribeModelPackageResponse' {modelPackageSummaries} -> modelPackageSummaries) (\s@BatchDescribeModelPackageResponse' {} a -> s {modelPackageSummaries = a} :: BatchDescribeModelPackageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDescribeModelPackageResponse_httpStatus :: Lens.Lens' BatchDescribeModelPackageResponse Prelude.Int
@@ -192,6 +191,6 @@ instance
     BatchDescribeModelPackageResponse
   where
   rnf BatchDescribeModelPackageResponse' {..} =
-    Prelude.rnf modelPackageSummaries
-      `Prelude.seq` Prelude.rnf batchDescribeModelPackageErrorMap
+    Prelude.rnf batchDescribeModelPackageErrorMap
+      `Prelude.seq` Prelude.rnf modelPackageSummaries
       `Prelude.seq` Prelude.rnf httpStatus

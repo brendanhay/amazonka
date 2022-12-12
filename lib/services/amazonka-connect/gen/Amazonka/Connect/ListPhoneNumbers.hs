@@ -43,10 +43,10 @@ module Amazonka.Connect.ListPhoneNumbers
     newListPhoneNumbers,
 
     -- * Request Lenses
-    listPhoneNumbers_nextToken,
     listPhoneNumbers_maxResults,
-    listPhoneNumbers_phoneNumberTypes,
+    listPhoneNumbers_nextToken,
     listPhoneNumbers_phoneNumberCountryCodes,
+    listPhoneNumbers_phoneNumberTypes,
     listPhoneNumbers_instanceId,
 
     -- * Destructuring the Response
@@ -70,17 +70,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPhoneNumbers' smart constructor.
 data ListPhoneNumbers = ListPhoneNumbers'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page. The default MaxResult
-    -- size is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The type of phone number.
-    phoneNumberTypes :: Prelude.Maybe [PhoneNumberType],
     -- | The ISO country code.
     phoneNumberCountryCodes :: Prelude.Maybe [PhoneNumberCountryCode],
+    -- | The type of phone number.
+    phoneNumberTypes :: Prelude.Maybe [PhoneNumberType],
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -95,16 +95,16 @@ data ListPhoneNumbers = ListPhoneNumbers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPhoneNumbers_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+--
 -- 'nextToken', 'listPhoneNumbers_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listPhoneNumbers_maxResults' - The maximum number of results to return per page. The default MaxResult
--- size is 100.
+-- 'phoneNumberCountryCodes', 'listPhoneNumbers_phoneNumberCountryCodes' - The ISO country code.
 --
 -- 'phoneNumberTypes', 'listPhoneNumbers_phoneNumberTypes' - The type of phone number.
---
--- 'phoneNumberCountryCodes', 'listPhoneNumbers_phoneNumberCountryCodes' - The ISO country code.
 --
 -- 'instanceId', 'listPhoneNumbers_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -114,12 +114,17 @@ newListPhoneNumbers ::
   ListPhoneNumbers
 newListPhoneNumbers pInstanceId_ =
   ListPhoneNumbers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      phoneNumberTypes = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       phoneNumberCountryCodes = Prelude.Nothing,
+      phoneNumberTypes = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+listPhoneNumbers_maxResults :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Natural)
+listPhoneNumbers_maxResults = Lens.lens (\ListPhoneNumbers' {maxResults} -> maxResults) (\s@ListPhoneNumbers' {} a -> s {maxResults = a} :: ListPhoneNumbers)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -127,18 +132,13 @@ newListPhoneNumbers pInstanceId_ =
 listPhoneNumbers_nextToken :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Text)
 listPhoneNumbers_nextToken = Lens.lens (\ListPhoneNumbers' {nextToken} -> nextToken) (\s@ListPhoneNumbers' {} a -> s {nextToken = a} :: ListPhoneNumbers)
 
--- | The maximum number of results to return per page. The default MaxResult
--- size is 100.
-listPhoneNumbers_maxResults :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Natural)
-listPhoneNumbers_maxResults = Lens.lens (\ListPhoneNumbers' {maxResults} -> maxResults) (\s@ListPhoneNumbers' {} a -> s {maxResults = a} :: ListPhoneNumbers)
+-- | The ISO country code.
+listPhoneNumbers_phoneNumberCountryCodes :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe [PhoneNumberCountryCode])
+listPhoneNumbers_phoneNumberCountryCodes = Lens.lens (\ListPhoneNumbers' {phoneNumberCountryCodes} -> phoneNumberCountryCodes) (\s@ListPhoneNumbers' {} a -> s {phoneNumberCountryCodes = a} :: ListPhoneNumbers) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of phone number.
 listPhoneNumbers_phoneNumberTypes :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe [PhoneNumberType])
 listPhoneNumbers_phoneNumberTypes = Lens.lens (\ListPhoneNumbers' {phoneNumberTypes} -> phoneNumberTypes) (\s@ListPhoneNumbers' {} a -> s {phoneNumberTypes = a} :: ListPhoneNumbers) Prelude.. Lens.mapping Lens.coerced
-
--- | The ISO country code.
-listPhoneNumbers_phoneNumberCountryCodes :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe [PhoneNumberCountryCode])
-listPhoneNumbers_phoneNumberCountryCodes = Lens.lens (\ListPhoneNumbers' {phoneNumberCountryCodes} -> phoneNumberCountryCodes) (\s@ListPhoneNumbers' {} a -> s {phoneNumberCountryCodes = a} :: ListPhoneNumbers) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -186,18 +186,18 @@ instance Core.AWSRequest ListPhoneNumbers where
 
 instance Prelude.Hashable ListPhoneNumbers where
   hashWithSalt _salt ListPhoneNumbers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` phoneNumberTypes
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` phoneNumberCountryCodes
+      `Prelude.hashWithSalt` phoneNumberTypes
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListPhoneNumbers where
   rnf ListPhoneNumbers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf phoneNumberTypes
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf phoneNumberCountryCodes
+      `Prelude.seq` Prelude.rnf phoneNumberTypes
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ListPhoneNumbers where
@@ -219,17 +219,17 @@ instance Data.ToPath ListPhoneNumbers where
 instance Data.ToQuery ListPhoneNumbers where
   toQuery ListPhoneNumbers' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
-        "phoneNumberTypes"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "member"
-                Prelude.<$> phoneNumberTypes
-            ),
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "phoneNumberCountryCodes"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> phoneNumberCountryCodes
+            ),
+        "phoneNumberTypes"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
+                Prelude.<$> phoneNumberTypes
             )
       ]
 

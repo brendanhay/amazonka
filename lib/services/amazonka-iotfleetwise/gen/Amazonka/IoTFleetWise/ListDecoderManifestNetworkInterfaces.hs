@@ -32,8 +32,8 @@ module Amazonka.IoTFleetWise.ListDecoderManifestNetworkInterfaces
     newListDecoderManifestNetworkInterfaces,
 
     -- * Request Lenses
-    listDecoderManifestNetworkInterfaces_nextToken,
     listDecoderManifestNetworkInterfaces_maxResults,
+    listDecoderManifestNetworkInterfaces_nextToken,
     listDecoderManifestNetworkInterfaces_name,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.IoTFleetWise.ListDecoderManifestNetworkInterfaces
     newListDecoderManifestNetworkInterfacesResponse,
 
     -- * Response Lenses
-    listDecoderManifestNetworkInterfacesResponse_nextToken,
     listDecoderManifestNetworkInterfacesResponse_networkInterfaces,
+    listDecoderManifestNetworkInterfacesResponse_nextToken,
     listDecoderManifestNetworkInterfacesResponse_httpStatus,
   )
 where
@@ -57,7 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDecoderManifestNetworkInterfaces' smart constructor.
 data ListDecoderManifestNetworkInterfaces = ListDecoderManifestNetworkInterfaces'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
@@ -65,8 +67,6 @@ data ListDecoderManifestNetworkInterfaces = ListDecoderManifestNetworkInterfaces
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the decoder manifest to list information about.
     name :: Prelude.Text
   }
@@ -80,6 +80,8 @@ data ListDecoderManifestNetworkInterfaces = ListDecoderManifestNetworkInterfaces
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDecoderManifestNetworkInterfaces_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
+--
 -- 'nextToken', 'listDecoderManifestNetworkInterfaces_nextToken' - A pagination token for the next set of results.
 --
 -- If the results of a search are large, only a portion of the results are
@@ -88,8 +90,6 @@ data ListDecoderManifestNetworkInterfaces = ListDecoderManifestNetworkInterfaces
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
 --
--- 'maxResults', 'listDecoderManifestNetworkInterfaces_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
---
 -- 'name', 'listDecoderManifestNetworkInterfaces_name' - The name of the decoder manifest to list information about.
 newListDecoderManifestNetworkInterfaces ::
   -- | 'name'
@@ -97,11 +97,15 @@ newListDecoderManifestNetworkInterfaces ::
   ListDecoderManifestNetworkInterfaces
 newListDecoderManifestNetworkInterfaces pName_ =
   ListDecoderManifestNetworkInterfaces'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+listDecoderManifestNetworkInterfaces_maxResults :: Lens.Lens' ListDecoderManifestNetworkInterfaces (Prelude.Maybe Prelude.Natural)
+listDecoderManifestNetworkInterfaces_maxResults = Lens.lens (\ListDecoderManifestNetworkInterfaces' {maxResults} -> maxResults) (\s@ListDecoderManifestNetworkInterfaces' {} a -> s {maxResults = a} :: ListDecoderManifestNetworkInterfaces)
 
 -- | A pagination token for the next set of results.
 --
@@ -112,10 +116,6 @@ newListDecoderManifestNetworkInterfaces pName_ =
 -- returned, the response does not contain a pagination token value.
 listDecoderManifestNetworkInterfaces_nextToken :: Lens.Lens' ListDecoderManifestNetworkInterfaces (Prelude.Maybe Prelude.Text)
 listDecoderManifestNetworkInterfaces_nextToken = Lens.lens (\ListDecoderManifestNetworkInterfaces' {nextToken} -> nextToken) (\s@ListDecoderManifestNetworkInterfaces' {} a -> s {nextToken = a} :: ListDecoderManifestNetworkInterfaces)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-listDecoderManifestNetworkInterfaces_maxResults :: Lens.Lens' ListDecoderManifestNetworkInterfaces (Prelude.Maybe Prelude.Natural)
-listDecoderManifestNetworkInterfaces_maxResults = Lens.lens (\ListDecoderManifestNetworkInterfaces' {maxResults} -> maxResults) (\s@ListDecoderManifestNetworkInterfaces' {} a -> s {maxResults = a} :: ListDecoderManifestNetworkInterfaces)
 
 -- | The name of the decoder manifest to list information about.
 listDecoderManifestNetworkInterfaces_name :: Lens.Lens' ListDecoderManifestNetworkInterfaces Prelude.Text
@@ -160,8 +160,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDecoderManifestNetworkInterfacesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> (x Data..?> "networkInterfaces")
+            Prelude.<$> (x Data..?> "networkInterfaces")
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,8 +172,8 @@ instance
   hashWithSalt
     _salt
     ListDecoderManifestNetworkInterfaces' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` name
 
 instance
@@ -181,8 +181,8 @@ instance
     ListDecoderManifestNetworkInterfaces
   where
   rnf ListDecoderManifestNetworkInterfaces' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance
@@ -210,8 +210,8 @@ instance
   toJSON ListDecoderManifestNetworkInterfaces' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("name" Data..= name)
           ]
       )
@@ -230,11 +230,11 @@ instance
 
 -- | /See:/ 'newListDecoderManifestNetworkInterfacesResponse' smart constructor.
 data ListDecoderManifestNetworkInterfacesResponse = ListDecoderManifestNetworkInterfacesResponse'
-  { -- | The token to retrieve the next set of results, or @null@ if there are no
+  { -- | A list of information about network interfaces.
+    networkInterfaces :: Prelude.Maybe (Prelude.NonEmpty NetworkInterface),
+    -- | The token to retrieve the next set of results, or @null@ if there are no
     -- more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of information about network interfaces.
-    networkInterfaces :: Prelude.Maybe (Prelude.NonEmpty NetworkInterface),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -248,10 +248,10 @@ data ListDecoderManifestNetworkInterfacesResponse = ListDecoderManifestNetworkIn
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkInterfaces', 'listDecoderManifestNetworkInterfacesResponse_networkInterfaces' - A list of information about network interfaces.
+--
 -- 'nextToken', 'listDecoderManifestNetworkInterfacesResponse_nextToken' - The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
---
--- 'networkInterfaces', 'listDecoderManifestNetworkInterfacesResponse_networkInterfaces' - A list of information about network interfaces.
 --
 -- 'httpStatus', 'listDecoderManifestNetworkInterfacesResponse_httpStatus' - The response's http status code.
 newListDecoderManifestNetworkInterfacesResponse ::
@@ -261,21 +261,20 @@ newListDecoderManifestNetworkInterfacesResponse ::
 newListDecoderManifestNetworkInterfacesResponse
   pHttpStatus_ =
     ListDecoderManifestNetworkInterfacesResponse'
-      { nextToken =
+      { networkInterfaces =
           Prelude.Nothing,
-        networkInterfaces =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | A list of information about network interfaces.
+listDecoderManifestNetworkInterfacesResponse_networkInterfaces :: Lens.Lens' ListDecoderManifestNetworkInterfacesResponse (Prelude.Maybe (Prelude.NonEmpty NetworkInterface))
+listDecoderManifestNetworkInterfacesResponse_networkInterfaces = Lens.lens (\ListDecoderManifestNetworkInterfacesResponse' {networkInterfaces} -> networkInterfaces) (\s@ListDecoderManifestNetworkInterfacesResponse' {} a -> s {networkInterfaces = a} :: ListDecoderManifestNetworkInterfacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
 listDecoderManifestNetworkInterfacesResponse_nextToken :: Lens.Lens' ListDecoderManifestNetworkInterfacesResponse (Prelude.Maybe Prelude.Text)
 listDecoderManifestNetworkInterfacesResponse_nextToken = Lens.lens (\ListDecoderManifestNetworkInterfacesResponse' {nextToken} -> nextToken) (\s@ListDecoderManifestNetworkInterfacesResponse' {} a -> s {nextToken = a} :: ListDecoderManifestNetworkInterfacesResponse)
-
--- | A list of information about network interfaces.
-listDecoderManifestNetworkInterfacesResponse_networkInterfaces :: Lens.Lens' ListDecoderManifestNetworkInterfacesResponse (Prelude.Maybe (Prelude.NonEmpty NetworkInterface))
-listDecoderManifestNetworkInterfacesResponse_networkInterfaces = Lens.lens (\ListDecoderManifestNetworkInterfacesResponse' {networkInterfaces} -> networkInterfaces) (\s@ListDecoderManifestNetworkInterfacesResponse' {} a -> s {networkInterfaces = a} :: ListDecoderManifestNetworkInterfacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDecoderManifestNetworkInterfacesResponse_httpStatus :: Lens.Lens' ListDecoderManifestNetworkInterfacesResponse Prelude.Int
@@ -286,6 +285,6 @@ instance
     ListDecoderManifestNetworkInterfacesResponse
   where
   rnf ListDecoderManifestNetworkInterfacesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkInterfaces
+    Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

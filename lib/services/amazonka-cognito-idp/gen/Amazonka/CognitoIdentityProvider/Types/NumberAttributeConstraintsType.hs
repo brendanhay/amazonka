@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNumberAttributeConstraintsType' smart constructor.
 data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
-  { -- | The minimum value of an attribute that is of the number data type.
-    minValue :: Prelude.Maybe Prelude.Text,
-    -- | The maximum value of an attribute that is of the number data type.
-    maxValue :: Prelude.Maybe Prelude.Text
+  { -- | The maximum value of an attribute that is of the number data type.
+    maxValue :: Prelude.Maybe Prelude.Text,
+    -- | The minimum value of an attribute that is of the number data type.
+    minValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minValue', 'numberAttributeConstraintsType_minValue' - The minimum value of an attribute that is of the number data type.
---
 -- 'maxValue', 'numberAttributeConstraintsType_maxValue' - The maximum value of an attribute that is of the number data type.
+--
+-- 'minValue', 'numberAttributeConstraintsType_minValue' - The minimum value of an attribute that is of the number data type.
 newNumberAttributeConstraintsType ::
   NumberAttributeConstraintsType
 newNumberAttributeConstraintsType =
   NumberAttributeConstraintsType'
-    { minValue =
+    { maxValue =
         Prelude.Nothing,
-      maxValue = Prelude.Nothing
+      minValue = Prelude.Nothing
     }
-
--- | The minimum value of an attribute that is of the number data type.
-numberAttributeConstraintsType_minValue :: Lens.Lens' NumberAttributeConstraintsType (Prelude.Maybe Prelude.Text)
-numberAttributeConstraintsType_minValue = Lens.lens (\NumberAttributeConstraintsType' {minValue} -> minValue) (\s@NumberAttributeConstraintsType' {} a -> s {minValue = a} :: NumberAttributeConstraintsType)
 
 -- | The maximum value of an attribute that is of the number data type.
 numberAttributeConstraintsType_maxValue :: Lens.Lens' NumberAttributeConstraintsType (Prelude.Maybe Prelude.Text)
 numberAttributeConstraintsType_maxValue = Lens.lens (\NumberAttributeConstraintsType' {maxValue} -> maxValue) (\s@NumberAttributeConstraintsType' {} a -> s {maxValue = a} :: NumberAttributeConstraintsType)
+
+-- | The minimum value of an attribute that is of the number data type.
+numberAttributeConstraintsType_minValue :: Lens.Lens' NumberAttributeConstraintsType (Prelude.Maybe Prelude.Text)
+numberAttributeConstraintsType_minValue = Lens.lens (\NumberAttributeConstraintsType' {minValue} -> minValue) (\s@NumberAttributeConstraintsType' {} a -> s {minValue = a} :: NumberAttributeConstraintsType)
 
 instance Data.FromJSON NumberAttributeConstraintsType where
   parseJSON =
@@ -70,8 +70,8 @@ instance Data.FromJSON NumberAttributeConstraintsType where
       "NumberAttributeConstraintsType"
       ( \x ->
           NumberAttributeConstraintsType'
-            Prelude.<$> (x Data..:? "MinValue")
-            Prelude.<*> (x Data..:? "MaxValue")
+            Prelude.<$> (x Data..:? "MaxValue")
+            Prelude.<*> (x Data..:? "MinValue")
       )
 
 instance
@@ -81,22 +81,22 @@ instance
   hashWithSalt
     _salt
     NumberAttributeConstraintsType' {..} =
-      _salt `Prelude.hashWithSalt` minValue
-        `Prelude.hashWithSalt` maxValue
+      _salt `Prelude.hashWithSalt` maxValue
+        `Prelude.hashWithSalt` minValue
 
 instance
   Prelude.NFData
     NumberAttributeConstraintsType
   where
   rnf NumberAttributeConstraintsType' {..} =
-    Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf maxValue
+    Prelude.rnf maxValue
+      `Prelude.seq` Prelude.rnf minValue
 
 instance Data.ToJSON NumberAttributeConstraintsType where
   toJSON NumberAttributeConstraintsType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MinValue" Data..=) Prelude.<$> minValue,
-            ("MaxValue" Data..=) Prelude.<$> maxValue
+          [ ("MaxValue" Data..=) Prelude.<$> maxValue,
+            ("MinValue" Data..=) Prelude.<$> minValue
           ]
       )

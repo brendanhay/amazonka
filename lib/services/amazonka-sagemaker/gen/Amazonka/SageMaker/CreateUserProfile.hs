@@ -35,10 +35,10 @@ module Amazonka.SageMaker.CreateUserProfile
     newCreateUserProfile,
 
     -- * Request Lenses
-    createUserProfile_tags,
-    createUserProfile_singleSignOnUserValue,
-    createUserProfile_userSettings,
     createUserProfile_singleSignOnUserIdentifier,
+    createUserProfile_singleSignOnUserValue,
+    createUserProfile_tags,
+    createUserProfile_userSettings,
     createUserProfile_domainId,
     createUserProfile_userProfileName,
 
@@ -62,26 +62,26 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-  { -- | Each tag consists of a key and an optional value. Tag keys must be
-    -- unique per resource.
-    --
-    -- Tags that you specify for the User Profile are also added to all Apps
-    -- that the User Profile launches.
-    tags :: Prelude.Maybe [Tag],
+  { -- | A specifier for the type of value specified in SingleSignOnUserValue.
+    -- Currently, the only supported value is \"UserName\". If the Domain\'s
+    -- AuthMode is IAM Identity Center, this field is required. If the
+    -- Domain\'s AuthMode is not IAM Identity Center, this field cannot be
+    -- specified.
+    singleSignOnUserIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The username of the associated Amazon Web Services Single Sign-On User
     -- for this UserProfile. If the Domain\'s AuthMode is IAM Identity Center,
     -- this field is required, and must match a valid username of a user in
     -- your directory. If the Domain\'s AuthMode is not IAM Identity Center,
     -- this field cannot be specified.
     singleSignOnUserValue :: Prelude.Maybe Prelude.Text,
+    -- | Each tag consists of a key and an optional value. Tag keys must be
+    -- unique per resource.
+    --
+    -- Tags that you specify for the User Profile are also added to all Apps
+    -- that the User Profile launches.
+    tags :: Prelude.Maybe [Tag],
     -- | A collection of settings.
     userSettings :: Prelude.Maybe UserSettings,
-    -- | A specifier for the type of value specified in SingleSignOnUserValue.
-    -- Currently, the only supported value is \"UserName\". If the Domain\'s
-    -- AuthMode is IAM Identity Center, this field is required. If the
-    -- Domain\'s AuthMode is not IAM Identity Center, this field cannot be
-    -- specified.
-    singleSignOnUserIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The ID of the associated Domain.
     domainId :: Prelude.Text,
     -- | A name for the UserProfile. This value is not case sensitive.
@@ -97,11 +97,11 @@ data CreateUserProfile = CreateUserProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createUserProfile_tags' - Each tag consists of a key and an optional value. Tag keys must be
--- unique per resource.
---
--- Tags that you specify for the User Profile are also added to all Apps
--- that the User Profile launches.
+-- 'singleSignOnUserIdentifier', 'createUserProfile_singleSignOnUserIdentifier' - A specifier for the type of value specified in SingleSignOnUserValue.
+-- Currently, the only supported value is \"UserName\". If the Domain\'s
+-- AuthMode is IAM Identity Center, this field is required. If the
+-- Domain\'s AuthMode is not IAM Identity Center, this field cannot be
+-- specified.
 --
 -- 'singleSignOnUserValue', 'createUserProfile_singleSignOnUserValue' - The username of the associated Amazon Web Services Single Sign-On User
 -- for this UserProfile. If the Domain\'s AuthMode is IAM Identity Center,
@@ -109,13 +109,13 @@ data CreateUserProfile = CreateUserProfile'
 -- your directory. If the Domain\'s AuthMode is not IAM Identity Center,
 -- this field cannot be specified.
 --
--- 'userSettings', 'createUserProfile_userSettings' - A collection of settings.
+-- 'tags', 'createUserProfile_tags' - Each tag consists of a key and an optional value. Tag keys must be
+-- unique per resource.
 --
--- 'singleSignOnUserIdentifier', 'createUserProfile_singleSignOnUserIdentifier' - A specifier for the type of value specified in SingleSignOnUserValue.
--- Currently, the only supported value is \"UserName\". If the Domain\'s
--- AuthMode is IAM Identity Center, this field is required. If the
--- Domain\'s AuthMode is not IAM Identity Center, this field cannot be
--- specified.
+-- Tags that you specify for the User Profile are also added to all Apps
+-- that the User Profile launches.
+--
+-- 'userSettings', 'createUserProfile_userSettings' - A collection of settings.
 --
 -- 'domainId', 'createUserProfile_domainId' - The ID of the associated Domain.
 --
@@ -128,21 +128,22 @@ newCreateUserProfile ::
   CreateUserProfile
 newCreateUserProfile pDomainId_ pUserProfileName_ =
   CreateUserProfile'
-    { tags = Prelude.Nothing,
+    { singleSignOnUserIdentifier =
+        Prelude.Nothing,
       singleSignOnUserValue = Prelude.Nothing,
+      tags = Prelude.Nothing,
       userSettings = Prelude.Nothing,
-      singleSignOnUserIdentifier = Prelude.Nothing,
       domainId = pDomainId_,
       userProfileName = pUserProfileName_
     }
 
--- | Each tag consists of a key and an optional value. Tag keys must be
--- unique per resource.
---
--- Tags that you specify for the User Profile are also added to all Apps
--- that the User Profile launches.
-createUserProfile_tags :: Lens.Lens' CreateUserProfile (Prelude.Maybe [Tag])
-createUserProfile_tags = Lens.lens (\CreateUserProfile' {tags} -> tags) (\s@CreateUserProfile' {} a -> s {tags = a} :: CreateUserProfile) Prelude.. Lens.mapping Lens.coerced
+-- | A specifier for the type of value specified in SingleSignOnUserValue.
+-- Currently, the only supported value is \"UserName\". If the Domain\'s
+-- AuthMode is IAM Identity Center, this field is required. If the
+-- Domain\'s AuthMode is not IAM Identity Center, this field cannot be
+-- specified.
+createUserProfile_singleSignOnUserIdentifier :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
+createUserProfile_singleSignOnUserIdentifier = Lens.lens (\CreateUserProfile' {singleSignOnUserIdentifier} -> singleSignOnUserIdentifier) (\s@CreateUserProfile' {} a -> s {singleSignOnUserIdentifier = a} :: CreateUserProfile)
 
 -- | The username of the associated Amazon Web Services Single Sign-On User
 -- for this UserProfile. If the Domain\'s AuthMode is IAM Identity Center,
@@ -152,17 +153,17 @@ createUserProfile_tags = Lens.lens (\CreateUserProfile' {tags} -> tags) (\s@Crea
 createUserProfile_singleSignOnUserValue :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
 createUserProfile_singleSignOnUserValue = Lens.lens (\CreateUserProfile' {singleSignOnUserValue} -> singleSignOnUserValue) (\s@CreateUserProfile' {} a -> s {singleSignOnUserValue = a} :: CreateUserProfile)
 
+-- | Each tag consists of a key and an optional value. Tag keys must be
+-- unique per resource.
+--
+-- Tags that you specify for the User Profile are also added to all Apps
+-- that the User Profile launches.
+createUserProfile_tags :: Lens.Lens' CreateUserProfile (Prelude.Maybe [Tag])
+createUserProfile_tags = Lens.lens (\CreateUserProfile' {tags} -> tags) (\s@CreateUserProfile' {} a -> s {tags = a} :: CreateUserProfile) Prelude.. Lens.mapping Lens.coerced
+
 -- | A collection of settings.
 createUserProfile_userSettings :: Lens.Lens' CreateUserProfile (Prelude.Maybe UserSettings)
 createUserProfile_userSettings = Lens.lens (\CreateUserProfile' {userSettings} -> userSettings) (\s@CreateUserProfile' {} a -> s {userSettings = a} :: CreateUserProfile)
-
--- | A specifier for the type of value specified in SingleSignOnUserValue.
--- Currently, the only supported value is \"UserName\". If the Domain\'s
--- AuthMode is IAM Identity Center, this field is required. If the
--- Domain\'s AuthMode is not IAM Identity Center, this field cannot be
--- specified.
-createUserProfile_singleSignOnUserIdentifier :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
-createUserProfile_singleSignOnUserIdentifier = Lens.lens (\CreateUserProfile' {singleSignOnUserIdentifier} -> singleSignOnUserIdentifier) (\s@CreateUserProfile' {} a -> s {singleSignOnUserIdentifier = a} :: CreateUserProfile)
 
 -- | The ID of the associated Domain.
 createUserProfile_domainId :: Lens.Lens' CreateUserProfile Prelude.Text
@@ -188,19 +189,20 @@ instance Core.AWSRequest CreateUserProfile where
 
 instance Prelude.Hashable CreateUserProfile where
   hashWithSalt _salt CreateUserProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` singleSignOnUserValue
-      `Prelude.hashWithSalt` userSettings
+    _salt
       `Prelude.hashWithSalt` singleSignOnUserIdentifier
+      `Prelude.hashWithSalt` singleSignOnUserValue
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userSettings
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` userProfileName
 
 instance Prelude.NFData CreateUserProfile where
   rnf CreateUserProfile' {..} =
-    Prelude.rnf tags
+    Prelude.rnf singleSignOnUserIdentifier
       `Prelude.seq` Prelude.rnf singleSignOnUserValue
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf singleSignOnUserIdentifier
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf userProfileName
 
@@ -223,12 +225,12 @@ instance Data.ToJSON CreateUserProfile where
   toJSON CreateUserProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("SingleSignOnUserIdentifier" Data..=)
+              Prelude.<$> singleSignOnUserIdentifier,
             ("SingleSignOnUserValue" Data..=)
               Prelude.<$> singleSignOnUserValue,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("UserSettings" Data..=) Prelude.<$> userSettings,
-            ("SingleSignOnUserIdentifier" Data..=)
-              Prelude.<$> singleSignOnUserIdentifier,
             Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
               ("UserProfileName" Data..= userProfileName)

@@ -35,14 +35,14 @@ module Amazonka.CustomerProfiles.GetWorkflow
     newGetWorkflowResponse,
 
     -- * Response Lenses
-    getWorkflowResponse_workflowId,
-    getWorkflowResponse_lastUpdatedAt,
-    getWorkflowResponse_status,
-    getWorkflowResponse_metrics,
-    getWorkflowResponse_workflowType,
-    getWorkflowResponse_startDate,
     getWorkflowResponse_attributes,
     getWorkflowResponse_errorDescription,
+    getWorkflowResponse_lastUpdatedAt,
+    getWorkflowResponse_metrics,
+    getWorkflowResponse_startDate,
+    getWorkflowResponse_status,
+    getWorkflowResponse_workflowId,
+    getWorkflowResponse_workflowType,
     getWorkflowResponse_httpStatus,
   )
 where
@@ -103,14 +103,14 @@ instance Core.AWSRequest GetWorkflow where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowResponse'
-            Prelude.<$> (x Data..?> "WorkflowId")
-            Prelude.<*> (x Data..?> "LastUpdatedAt")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "Metrics")
-            Prelude.<*> (x Data..?> "WorkflowType")
-            Prelude.<*> (x Data..?> "StartDate")
-            Prelude.<*> (x Data..?> "Attributes")
+            Prelude.<$> (x Data..?> "Attributes")
             Prelude.<*> (x Data..?> "ErrorDescription")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "Metrics")
+            Prelude.<*> (x Data..?> "StartDate")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "WorkflowId")
+            Prelude.<*> (x Data..?> "WorkflowType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,22 +149,22 @@ instance Data.ToQuery GetWorkflow where
 
 -- | /See:/ 'newGetWorkflowResponse' smart constructor.
 data GetWorkflowResponse = GetWorkflowResponse'
-  { -- | Unique identifier for the workflow.
-    workflowId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp that represents when workflow execution last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | Status of workflow execution.
-    status :: Prelude.Maybe Status,
-    -- | Workflow specific execution metrics.
-    metrics :: Prelude.Maybe WorkflowMetrics,
-    -- | The type of workflow. The only supported value is APPFLOW_INTEGRATION.
-    workflowType :: Prelude.Maybe WorkflowType,
-    -- | The timestamp that represents when workflow execution started.
-    startDate :: Prelude.Maybe Data.POSIX,
-    -- | Attributes provided for workflow execution.
+  { -- | Attributes provided for workflow execution.
     attributes :: Prelude.Maybe WorkflowAttributes,
     -- | Workflow error messages during execution (if any).
     errorDescription :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp that represents when workflow execution last updated.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    -- | Workflow specific execution metrics.
+    metrics :: Prelude.Maybe WorkflowMetrics,
+    -- | The timestamp that represents when workflow execution started.
+    startDate :: Prelude.Maybe Data.POSIX,
+    -- | Status of workflow execution.
+    status :: Prelude.Maybe Status,
+    -- | Unique identifier for the workflow.
+    workflowId :: Prelude.Maybe Prelude.Text,
+    -- | The type of workflow. The only supported value is APPFLOW_INTEGRATION.
+    workflowType :: Prelude.Maybe WorkflowType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,21 +178,21 @@ data GetWorkflowResponse = GetWorkflowResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workflowId', 'getWorkflowResponse_workflowId' - Unique identifier for the workflow.
---
--- 'lastUpdatedAt', 'getWorkflowResponse_lastUpdatedAt' - The timestamp that represents when workflow execution last updated.
---
--- 'status', 'getWorkflowResponse_status' - Status of workflow execution.
---
--- 'metrics', 'getWorkflowResponse_metrics' - Workflow specific execution metrics.
---
--- 'workflowType', 'getWorkflowResponse_workflowType' - The type of workflow. The only supported value is APPFLOW_INTEGRATION.
---
--- 'startDate', 'getWorkflowResponse_startDate' - The timestamp that represents when workflow execution started.
---
 -- 'attributes', 'getWorkflowResponse_attributes' - Attributes provided for workflow execution.
 --
 -- 'errorDescription', 'getWorkflowResponse_errorDescription' - Workflow error messages during execution (if any).
+--
+-- 'lastUpdatedAt', 'getWorkflowResponse_lastUpdatedAt' - The timestamp that represents when workflow execution last updated.
+--
+-- 'metrics', 'getWorkflowResponse_metrics' - Workflow specific execution metrics.
+--
+-- 'startDate', 'getWorkflowResponse_startDate' - The timestamp that represents when workflow execution started.
+--
+-- 'status', 'getWorkflowResponse_status' - Status of workflow execution.
+--
+-- 'workflowId', 'getWorkflowResponse_workflowId' - Unique identifier for the workflow.
+--
+-- 'workflowType', 'getWorkflowResponse_workflowType' - The type of workflow. The only supported value is APPFLOW_INTEGRATION.
 --
 -- 'httpStatus', 'getWorkflowResponse_httpStatus' - The response's http status code.
 newGetWorkflowResponse ::
@@ -201,40 +201,16 @@ newGetWorkflowResponse ::
   GetWorkflowResponse
 newGetWorkflowResponse pHttpStatus_ =
   GetWorkflowResponse'
-    { workflowId = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      status = Prelude.Nothing,
-      metrics = Prelude.Nothing,
-      workflowType = Prelude.Nothing,
-      startDate = Prelude.Nothing,
-      attributes = Prelude.Nothing,
+    { attributes = Prelude.Nothing,
       errorDescription = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      metrics = Prelude.Nothing,
+      startDate = Prelude.Nothing,
+      status = Prelude.Nothing,
+      workflowId = Prelude.Nothing,
+      workflowType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Unique identifier for the workflow.
-getWorkflowResponse_workflowId :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
-getWorkflowResponse_workflowId = Lens.lens (\GetWorkflowResponse' {workflowId} -> workflowId) (\s@GetWorkflowResponse' {} a -> s {workflowId = a} :: GetWorkflowResponse)
-
--- | The timestamp that represents when workflow execution last updated.
-getWorkflowResponse_lastUpdatedAt :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_lastUpdatedAt = Lens.lens (\GetWorkflowResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetWorkflowResponse' {} a -> s {lastUpdatedAt = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
-
--- | Status of workflow execution.
-getWorkflowResponse_status :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Status)
-getWorkflowResponse_status = Lens.lens (\GetWorkflowResponse' {status} -> status) (\s@GetWorkflowResponse' {} a -> s {status = a} :: GetWorkflowResponse)
-
--- | Workflow specific execution metrics.
-getWorkflowResponse_metrics :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe WorkflowMetrics)
-getWorkflowResponse_metrics = Lens.lens (\GetWorkflowResponse' {metrics} -> metrics) (\s@GetWorkflowResponse' {} a -> s {metrics = a} :: GetWorkflowResponse)
-
--- | The type of workflow. The only supported value is APPFLOW_INTEGRATION.
-getWorkflowResponse_workflowType :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe WorkflowType)
-getWorkflowResponse_workflowType = Lens.lens (\GetWorkflowResponse' {workflowType} -> workflowType) (\s@GetWorkflowResponse' {} a -> s {workflowType = a} :: GetWorkflowResponse)
-
--- | The timestamp that represents when workflow execution started.
-getWorkflowResponse_startDate :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_startDate = Lens.lens (\GetWorkflowResponse' {startDate} -> startDate) (\s@GetWorkflowResponse' {} a -> s {startDate = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Attributes provided for workflow execution.
 getWorkflowResponse_attributes :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe WorkflowAttributes)
@@ -244,18 +220,42 @@ getWorkflowResponse_attributes = Lens.lens (\GetWorkflowResponse' {attributes} -
 getWorkflowResponse_errorDescription :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
 getWorkflowResponse_errorDescription = Lens.lens (\GetWorkflowResponse' {errorDescription} -> errorDescription) (\s@GetWorkflowResponse' {} a -> s {errorDescription = a} :: GetWorkflowResponse)
 
+-- | The timestamp that represents when workflow execution last updated.
+getWorkflowResponse_lastUpdatedAt :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
+getWorkflowResponse_lastUpdatedAt = Lens.lens (\GetWorkflowResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetWorkflowResponse' {} a -> s {lastUpdatedAt = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Workflow specific execution metrics.
+getWorkflowResponse_metrics :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe WorkflowMetrics)
+getWorkflowResponse_metrics = Lens.lens (\GetWorkflowResponse' {metrics} -> metrics) (\s@GetWorkflowResponse' {} a -> s {metrics = a} :: GetWorkflowResponse)
+
+-- | The timestamp that represents when workflow execution started.
+getWorkflowResponse_startDate :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
+getWorkflowResponse_startDate = Lens.lens (\GetWorkflowResponse' {startDate} -> startDate) (\s@GetWorkflowResponse' {} a -> s {startDate = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Status of workflow execution.
+getWorkflowResponse_status :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Status)
+getWorkflowResponse_status = Lens.lens (\GetWorkflowResponse' {status} -> status) (\s@GetWorkflowResponse' {} a -> s {status = a} :: GetWorkflowResponse)
+
+-- | Unique identifier for the workflow.
+getWorkflowResponse_workflowId :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
+getWorkflowResponse_workflowId = Lens.lens (\GetWorkflowResponse' {workflowId} -> workflowId) (\s@GetWorkflowResponse' {} a -> s {workflowId = a} :: GetWorkflowResponse)
+
+-- | The type of workflow. The only supported value is APPFLOW_INTEGRATION.
+getWorkflowResponse_workflowType :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe WorkflowType)
+getWorkflowResponse_workflowType = Lens.lens (\GetWorkflowResponse' {workflowType} -> workflowType) (\s@GetWorkflowResponse' {} a -> s {workflowType = a} :: GetWorkflowResponse)
+
 -- | The response's http status code.
 getWorkflowResponse_httpStatus :: Lens.Lens' GetWorkflowResponse Prelude.Int
 getWorkflowResponse_httpStatus = Lens.lens (\GetWorkflowResponse' {httpStatus} -> httpStatus) (\s@GetWorkflowResponse' {} a -> s {httpStatus = a} :: GetWorkflowResponse)
 
 instance Prelude.NFData GetWorkflowResponse where
   rnf GetWorkflowResponse' {..} =
-    Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf errorDescription
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf workflowType
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,6 +27,80 @@ import Amazonka.MachineLearning.Lens
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 
+-- | Polls 'Amazonka.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newBatchPredictionAvailable :: Core.Wait DescribeBatchPredictions
+newBatchPredictionAvailable =
+  Core.Wait
+    { Core.name = "BatchPredictionAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
+        [ Core.matchAll
+            "COMPLETED"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeBatchPredictionsResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. batchPrediction_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeBatchPredictionsResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. batchPrediction_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.MachineLearning.DescribeDataSources' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newDataSourceAvailable :: Core.Wait DescribeDataSources
+newDataSourceAvailable =
+  Core.Wait
+    { Core.name = "DataSourceAvailable",
+      Core.attempts = 60,
+      Core.delay = 30,
+      Core.acceptors =
+        [ Core.matchAll
+            "COMPLETED"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDataSourcesResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dataSource_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDataSourcesResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dataSource_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newEvaluationAvailable :: Core.Wait DescribeEvaluations
 newEvaluationAvailable =
@@ -95,80 +169,6 @@ newMLModelAvailable =
                     )
                 )
                 Prelude.. mLModel_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.MachineLearning.DescribeDataSources' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newDataSourceAvailable :: Core.Wait DescribeDataSources
-newDataSourceAvailable =
-  Core.Wait
-    { Core.name = "DataSourceAvailable",
-      Core.attempts = 60,
-      Core.delay = 30,
-      Core.acceptors =
-        [ Core.matchAll
-            "COMPLETED"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDataSourcesResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dataSource_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "FAILED"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDataSourcesResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dataSource_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newBatchPredictionAvailable :: Core.Wait DescribeBatchPredictions
-newBatchPredictionAvailable =
-  Core.Wait
-    { Core.name = "BatchPredictionAvailable",
-      Core.attempts = 60,
-      Core.delay = 30,
-      Core.acceptors =
-        [ Core.matchAll
-            "COMPLETED"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeBatchPredictionsResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. batchPrediction_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "FAILED"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeBatchPredictionsResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. batchPrediction_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )

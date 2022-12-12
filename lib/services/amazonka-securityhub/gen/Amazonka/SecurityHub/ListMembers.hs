@@ -33,17 +33,17 @@ module Amazonka.SecurityHub.ListMembers
     newListMembers,
 
     -- * Request Lenses
+    listMembers_maxResults,
     listMembers_nextToken,
     listMembers_onlyAssociated,
-    listMembers_maxResults,
 
     -- * Destructuring the Response
     ListMembersResponse (..),
     newListMembersResponse,
 
     -- * Response Lenses
-    listMembersResponse_nextToken,
     listMembersResponse_members,
+    listMembersResponse_nextToken,
     listMembersResponse_httpStatus,
   )
 where
@@ -58,7 +58,9 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newListMembers' smart constructor.
 data ListMembers = ListMembers'
-  { -- | The token that is required for pagination. On your first call to the
+  { -- | The maximum number of items to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that is required for pagination. On your first call to the
     -- @ListMembers@ operation, set the value of this parameter to @NULL@.
     --
     -- For subsequent calls to the operation, to continue listing data, set the
@@ -75,9 +77,7 @@ data ListMembers = ListMembers'
     --
     -- If @OnlyAssociated@ is set to @FALSE@, the response includes all
     -- existing member accounts.
-    onlyAssociated :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of items to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    onlyAssociated :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,6 +88,8 @@ data ListMembers = ListMembers'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'listMembers_maxResults' - The maximum number of items to return in the response.
 --
 -- 'nextToken', 'listMembers_nextToken' - The token that is required for pagination. On your first call to the
 -- @ListMembers@ operation, set the value of this parameter to @NULL@.
@@ -106,16 +108,18 @@ data ListMembers = ListMembers'
 --
 -- If @OnlyAssociated@ is set to @FALSE@, the response includes all
 -- existing member accounts.
---
--- 'maxResults', 'listMembers_maxResults' - The maximum number of items to return in the response.
 newListMembers ::
   ListMembers
 newListMembers =
   ListMembers'
-    { nextToken = Prelude.Nothing,
-      onlyAssociated = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      onlyAssociated = Prelude.Nothing
     }
+
+-- | The maximum number of items to return in the response.
+listMembers_maxResults :: Lens.Lens' ListMembers (Prelude.Maybe Prelude.Natural)
+listMembers_maxResults = Lens.lens (\ListMembers' {maxResults} -> maxResults) (\s@ListMembers' {} a -> s {maxResults = a} :: ListMembers)
 
 -- | The token that is required for pagination. On your first call to the
 -- @ListMembers@ operation, set the value of this parameter to @NULL@.
@@ -138,10 +142,6 @@ listMembers_nextToken = Lens.lens (\ListMembers' {nextToken} -> nextToken) (\s@L
 -- existing member accounts.
 listMembers_onlyAssociated :: Lens.Lens' ListMembers (Prelude.Maybe Prelude.Bool)
 listMembers_onlyAssociated = Lens.lens (\ListMembers' {onlyAssociated} -> onlyAssociated) (\s@ListMembers' {} a -> s {onlyAssociated = a} :: ListMembers)
-
--- | The maximum number of items to return in the response.
-listMembers_maxResults :: Lens.Lens' ListMembers (Prelude.Maybe Prelude.Natural)
-listMembers_maxResults = Lens.lens (\ListMembers' {maxResults} -> maxResults) (\s@ListMembers' {} a -> s {maxResults = a} :: ListMembers)
 
 instance Core.AWSPager ListMembers where
   page rq rs
@@ -170,22 +170,22 @@ instance Core.AWSRequest ListMembers where
     Response.receiveJSON
       ( \s h x ->
           ListMembersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Members" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Members" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMembers where
   hashWithSalt _salt ListMembers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` onlyAssociated
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListMembers where
   rnf ListMembers' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf onlyAssociated
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListMembers where
   toHeaders =
@@ -204,17 +204,17 @@ instance Data.ToPath ListMembers where
 instance Data.ToQuery ListMembers where
   toQuery ListMembers' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "OnlyAssociated" Data.=: onlyAssociated,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
+        "OnlyAssociated" Data.=: onlyAssociated
       ]
 
 -- | /See:/ 'newListMembersResponse' smart constructor.
 data ListMembersResponse = ListMembersResponse'
-  { -- | The pagination token to use to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Member details returned by the operation.
+  { -- | Member details returned by the operation.
     members :: Prelude.Maybe [Member],
+    -- | The pagination token to use to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,9 +228,9 @@ data ListMembersResponse = ListMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMembersResponse_nextToken' - The pagination token to use to request the next page of results.
---
 -- 'members', 'listMembersResponse_members' - Member details returned by the operation.
+--
+-- 'nextToken', 'listMembersResponse_nextToken' - The pagination token to use to request the next page of results.
 --
 -- 'httpStatus', 'listMembersResponse_httpStatus' - The response's http status code.
 newListMembersResponse ::
@@ -239,18 +239,18 @@ newListMembersResponse ::
   ListMembersResponse
 newListMembersResponse pHttpStatus_ =
   ListMembersResponse'
-    { nextToken = Prelude.Nothing,
-      members = Prelude.Nothing,
+    { members = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token to use to request the next page of results.
-listMembersResponse_nextToken :: Lens.Lens' ListMembersResponse (Prelude.Maybe Prelude.Text)
-listMembersResponse_nextToken = Lens.lens (\ListMembersResponse' {nextToken} -> nextToken) (\s@ListMembersResponse' {} a -> s {nextToken = a} :: ListMembersResponse)
 
 -- | Member details returned by the operation.
 listMembersResponse_members :: Lens.Lens' ListMembersResponse (Prelude.Maybe [Member])
 listMembersResponse_members = Lens.lens (\ListMembersResponse' {members} -> members) (\s@ListMembersResponse' {} a -> s {members = a} :: ListMembersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token to use to request the next page of results.
+listMembersResponse_nextToken :: Lens.Lens' ListMembersResponse (Prelude.Maybe Prelude.Text)
+listMembersResponse_nextToken = Lens.lens (\ListMembersResponse' {nextToken} -> nextToken) (\s@ListMembersResponse' {} a -> s {nextToken = a} :: ListMembersResponse)
 
 -- | The response's http status code.
 listMembersResponse_httpStatus :: Lens.Lens' ListMembersResponse Prelude.Int
@@ -258,6 +258,6 @@ listMembersResponse_httpStatus = Lens.lens (\ListMembersResponse' {httpStatus} -
 
 instance Prelude.NFData ListMembersResponse where
   rnf ListMembersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf members
+    Prelude.rnf members
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

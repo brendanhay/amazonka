@@ -57,6 +57,7 @@ library
     Amazonka.RDS.CopyDBParameterGroup
     Amazonka.RDS.CopyDBSnapshot
     Amazonka.RDS.CopyOptionGroup
+    Amazonka.RDS.CreateBlueGreenDeployment
     Amazonka.RDS.CreateCustomDBEngineVersion
     Amazonka.RDS.CreateDBCluster
     Amazonka.RDS.CreateDBClusterEndpoint
@@ -73,6 +74,7 @@ library
     Amazonka.RDS.CreateEventSubscription
     Amazonka.RDS.CreateGlobalCluster
     Amazonka.RDS.CreateOptionGroup
+    Amazonka.RDS.DeleteBlueGreenDeployment
     Amazonka.RDS.DeleteCustomDBEngineVersion
     Amazonka.RDS.DeleteDBCluster
     Amazonka.RDS.DeleteDBClusterEndpoint
@@ -91,6 +93,7 @@ library
     Amazonka.RDS.DeleteOptionGroup
     Amazonka.RDS.DeregisterDBProxyTargets
     Amazonka.RDS.DescribeAccountAttributes
+    Amazonka.RDS.DescribeBlueGreenDeployments
     Amazonka.RDS.DescribeCertificates
     Amazonka.RDS.DescribeDBClusterBacktracks
     Amazonka.RDS.DescribeDBClusterEndpoints
@@ -181,6 +184,7 @@ library
     Amazonka.RDS.StopDBCluster
     Amazonka.RDS.StopDBInstance
     Amazonka.RDS.StopDBInstanceAutomatedBackupsReplication
+    Amazonka.RDS.SwitchoverBlueGreenDeployment
     Amazonka.RDS.SwitchoverReadReplica
     Amazonka.RDS.Types
     Amazonka.RDS.Types.AccountQuota
@@ -193,6 +197,8 @@ library
     Amazonka.RDS.Types.AutomationMode
     Amazonka.RDS.Types.AvailabilityZone
     Amazonka.RDS.Types.AvailableProcessorFeature
+    Amazonka.RDS.Types.BlueGreenDeployment
+    Amazonka.RDS.Types.BlueGreenDeploymentTask
     Amazonka.RDS.Types.Certificate
     Amazonka.RDS.Types.CharacterSet
     Amazonka.RDS.Types.CloudwatchLogsExportConfiguration
@@ -282,6 +288,7 @@ library
     Amazonka.RDS.Types.SourceRegion
     Amazonka.RDS.Types.SourceType
     Amazonka.RDS.Types.Subnet
+    Amazonka.RDS.Types.SwitchoverDetail
     Amazonka.RDS.Types.Tag
     Amazonka.RDS.Types.TargetHealth
     Amazonka.RDS.Types.TargetHealthReason

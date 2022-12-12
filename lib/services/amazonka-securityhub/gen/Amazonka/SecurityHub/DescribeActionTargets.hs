@@ -30,9 +30,9 @@ module Amazonka.SecurityHub.DescribeActionTargets
     newDescribeActionTargets,
 
     -- * Request Lenses
-    describeActionTargets_nextToken,
     describeActionTargets_actionTargetArns,
     describeActionTargets_maxResults,
+    describeActionTargets_nextToken,
 
     -- * Destructuring the Response
     DescribeActionTargetsResponse (..),
@@ -55,19 +55,19 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newDescribeActionTargets' smart constructor.
 data DescribeActionTargets = DescribeActionTargets'
-  { -- | The token that is required for pagination. On your first call to the
+  { -- | A list of custom action target ARNs for the custom action targets to
+    -- retrieve.
+    actionTargetArns :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that is required for pagination. On your first call to the
     -- @DescribeActionTargets@ operation, set the value of this parameter to
     -- @NULL@.
     --
     -- For subsequent calls to the operation, to continue listing data, set the
     -- value of this parameter to the value returned from the previous
     -- response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of custom action target ARNs for the custom action targets to
-    -- retrieve.
-    actionTargetArns :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +79,11 @@ data DescribeActionTargets = DescribeActionTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actionTargetArns', 'describeActionTargets_actionTargetArns' - A list of custom action target ARNs for the custom action targets to
+-- retrieve.
+--
+-- 'maxResults', 'describeActionTargets_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'describeActionTargets_nextToken' - The token that is required for pagination. On your first call to the
 -- @DescribeActionTargets@ operation, set the value of this parameter to
 -- @NULL@.
@@ -86,19 +91,24 @@ data DescribeActionTargets = DescribeActionTargets'
 -- For subsequent calls to the operation, to continue listing data, set the
 -- value of this parameter to the value returned from the previous
 -- response.
---
--- 'actionTargetArns', 'describeActionTargets_actionTargetArns' - A list of custom action target ARNs for the custom action targets to
--- retrieve.
---
--- 'maxResults', 'describeActionTargets_maxResults' - The maximum number of results to return.
 newDescribeActionTargets ::
   DescribeActionTargets
 newDescribeActionTargets =
   DescribeActionTargets'
-    { nextToken = Prelude.Nothing,
-      actionTargetArns = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { actionTargetArns =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | A list of custom action target ARNs for the custom action targets to
+-- retrieve.
+describeActionTargets_actionTargetArns :: Lens.Lens' DescribeActionTargets (Prelude.Maybe [Prelude.Text])
+describeActionTargets_actionTargetArns = Lens.lens (\DescribeActionTargets' {actionTargetArns} -> actionTargetArns) (\s@DescribeActionTargets' {} a -> s {actionTargetArns = a} :: DescribeActionTargets) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return.
+describeActionTargets_maxResults :: Lens.Lens' DescribeActionTargets (Prelude.Maybe Prelude.Natural)
+describeActionTargets_maxResults = Lens.lens (\DescribeActionTargets' {maxResults} -> maxResults) (\s@DescribeActionTargets' {} a -> s {maxResults = a} :: DescribeActionTargets)
 
 -- | The token that is required for pagination. On your first call to the
 -- @DescribeActionTargets@ operation, set the value of this parameter to
@@ -109,15 +119,6 @@ newDescribeActionTargets =
 -- response.
 describeActionTargets_nextToken :: Lens.Lens' DescribeActionTargets (Prelude.Maybe Prelude.Text)
 describeActionTargets_nextToken = Lens.lens (\DescribeActionTargets' {nextToken} -> nextToken) (\s@DescribeActionTargets' {} a -> s {nextToken = a} :: DescribeActionTargets)
-
--- | A list of custom action target ARNs for the custom action targets to
--- retrieve.
-describeActionTargets_actionTargetArns :: Lens.Lens' DescribeActionTargets (Prelude.Maybe [Prelude.Text])
-describeActionTargets_actionTargetArns = Lens.lens (\DescribeActionTargets' {actionTargetArns} -> actionTargetArns) (\s@DescribeActionTargets' {} a -> s {actionTargetArns = a} :: DescribeActionTargets) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return.
-describeActionTargets_maxResults :: Lens.Lens' DescribeActionTargets (Prelude.Maybe Prelude.Natural)
-describeActionTargets_maxResults = Lens.lens (\DescribeActionTargets' {maxResults} -> maxResults) (\s@DescribeActionTargets' {} a -> s {maxResults = a} :: DescribeActionTargets)
 
 instance Core.AWSPager DescribeActionTargets where
   page rq rs
@@ -157,15 +158,15 @@ instance Core.AWSRequest DescribeActionTargets where
 
 instance Prelude.Hashable DescribeActionTargets where
   hashWithSalt _salt DescribeActionTargets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` actionTargetArns
+    _salt `Prelude.hashWithSalt` actionTargetArns
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeActionTargets where
   rnf DescribeActionTargets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf actionTargetArns
+    Prelude.rnf actionTargetArns
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeActionTargets where
   toHeaders =
@@ -182,10 +183,10 @@ instance Data.ToJSON DescribeActionTargets where
   toJSON DescribeActionTargets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ActionTargetArns" Data..=)
+          [ ("ActionTargetArns" Data..=)
               Prelude.<$> actionTargetArns,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

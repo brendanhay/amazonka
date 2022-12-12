@@ -29,10 +29,10 @@ module Amazonka.EMRServerless.ListJobRuns
     newListJobRuns,
 
     -- * Request Lenses
-    listJobRuns_nextToken,
-    listJobRuns_maxResults,
     listJobRuns_createdAtAfter,
     listJobRuns_createdAtBefore,
+    listJobRuns_maxResults,
+    listJobRuns_nextToken,
     listJobRuns_states,
     listJobRuns_applicationId,
 
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJobRuns' smart constructor.
 data ListJobRuns = ListJobRuns'
-  { -- | The token for the next set of job run results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of job runs that can be listed.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The lower bound of the option to filter by creation date and time.
+  { -- | The lower bound of the option to filter by creation date and time.
     createdAtAfter :: Prelude.Maybe Data.POSIX,
     -- | The upper bound of the option to filter by creation date and time.
     createdAtBefore :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of job runs that can be listed.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of job run results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An optional filter for job run states. Note that if this filter contains
     -- multiple states, the resulting list will be grouped by the state.
     states :: Prelude.Maybe [JobRunState],
@@ -81,13 +81,13 @@ data ListJobRuns = ListJobRuns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listJobRuns_nextToken' - The token for the next set of job run results.
---
--- 'maxResults', 'listJobRuns_maxResults' - The maximum number of job runs that can be listed.
---
 -- 'createdAtAfter', 'listJobRuns_createdAtAfter' - The lower bound of the option to filter by creation date and time.
 --
 -- 'createdAtBefore', 'listJobRuns_createdAtBefore' - The upper bound of the option to filter by creation date and time.
+--
+-- 'maxResults', 'listJobRuns_maxResults' - The maximum number of job runs that can be listed.
+--
+-- 'nextToken', 'listJobRuns_nextToken' - The token for the next set of job run results.
 --
 -- 'states', 'listJobRuns_states' - An optional filter for job run states. Note that if this filter contains
 -- multiple states, the resulting list will be grouped by the state.
@@ -99,21 +99,13 @@ newListJobRuns ::
   ListJobRuns
 newListJobRuns pApplicationId_ =
   ListJobRuns'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      createdAtAfter = Prelude.Nothing,
+    { createdAtAfter = Prelude.Nothing,
       createdAtBefore = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       states = Prelude.Nothing,
       applicationId = pApplicationId_
     }
-
--- | The token for the next set of job run results.
-listJobRuns_nextToken :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Text)
-listJobRuns_nextToken = Lens.lens (\ListJobRuns' {nextToken} -> nextToken) (\s@ListJobRuns' {} a -> s {nextToken = a} :: ListJobRuns)
-
--- | The maximum number of job runs that can be listed.
-listJobRuns_maxResults :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Natural)
-listJobRuns_maxResults = Lens.lens (\ListJobRuns' {maxResults} -> maxResults) (\s@ListJobRuns' {} a -> s {maxResults = a} :: ListJobRuns)
 
 -- | The lower bound of the option to filter by creation date and time.
 listJobRuns_createdAtAfter :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.UTCTime)
@@ -122,6 +114,14 @@ listJobRuns_createdAtAfter = Lens.lens (\ListJobRuns' {createdAtAfter} -> create
 -- | The upper bound of the option to filter by creation date and time.
 listJobRuns_createdAtBefore :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.UTCTime)
 listJobRuns_createdAtBefore = Lens.lens (\ListJobRuns' {createdAtBefore} -> createdAtBefore) (\s@ListJobRuns' {} a -> s {createdAtBefore = a} :: ListJobRuns) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of job runs that can be listed.
+listJobRuns_maxResults :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Natural)
+listJobRuns_maxResults = Lens.lens (\ListJobRuns' {maxResults} -> maxResults) (\s@ListJobRuns' {} a -> s {maxResults = a} :: ListJobRuns)
+
+-- | The token for the next set of job run results.
+listJobRuns_nextToken :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Text)
+listJobRuns_nextToken = Lens.lens (\ListJobRuns' {nextToken} -> nextToken) (\s@ListJobRuns' {} a -> s {nextToken = a} :: ListJobRuns)
 
 -- | An optional filter for job run states. Note that if this filter contains
 -- multiple states, the resulting list will be grouped by the state.
@@ -163,19 +163,19 @@ instance Core.AWSRequest ListJobRuns where
 
 instance Prelude.Hashable ListJobRuns where
   hashWithSalt _salt ListJobRuns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` createdAtAfter
+    _salt `Prelude.hashWithSalt` createdAtAfter
       `Prelude.hashWithSalt` createdAtBefore
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` states
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListJobRuns where
   rnf ListJobRuns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf createdAtAfter
+    Prelude.rnf createdAtAfter
       `Prelude.seq` Prelude.rnf createdAtBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf applicationId
 
@@ -201,10 +201,10 @@ instance Data.ToPath ListJobRuns where
 instance Data.ToQuery ListJobRuns where
   toQuery ListJobRuns' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
-        "createdAtAfter" Data.=: createdAtAfter,
+      [ "createdAtAfter" Data.=: createdAtAfter,
         "createdAtBefore" Data.=: createdAtBefore,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "states"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> states)

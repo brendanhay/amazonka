@@ -29,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEc2InstanceMetadataOptions' smart constructor.
 data AwsEc2InstanceMetadataOptions = AwsEc2InstanceMetadataOptions'
-  { -- | The desired HTTP PUT response hop limit for instance metadata requests.
+  { -- | Enables or disables the HTTP metadata endpoint on the instance.
+    httpEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | Enables or disables the IPv6 endpoint for the instance metadata service.
+    httpProtocolIpv6 :: Prelude.Maybe Prelude.Text,
+    -- | The desired HTTP PUT response hop limit for instance metadata requests.
     -- The larger the number, the further instance metadata requests can
     -- travel.
     httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
     -- | The state of token usage for your instance metadata requests.
     httpTokens :: Prelude.Maybe Prelude.Text,
-    -- | Enables or disables the HTTP metadata endpoint on the instance.
-    httpEndpoint :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to allow access to instance tags from the instance
     -- metadata.
-    instanceMetadataTags :: Prelude.Maybe Prelude.Text,
-    -- | Enables or disables the IPv6 endpoint for the instance metadata service.
-    httpProtocolIpv6 :: Prelude.Maybe Prelude.Text
+    instanceMetadataTags :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,29 +53,37 @@ data AwsEc2InstanceMetadataOptions = AwsEc2InstanceMetadataOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'httpEndpoint', 'awsEc2InstanceMetadataOptions_httpEndpoint' - Enables or disables the HTTP metadata endpoint on the instance.
+--
+-- 'httpProtocolIpv6', 'awsEc2InstanceMetadataOptions_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
+--
 -- 'httpPutResponseHopLimit', 'awsEc2InstanceMetadataOptions_httpPutResponseHopLimit' - The desired HTTP PUT response hop limit for instance metadata requests.
 -- The larger the number, the further instance metadata requests can
 -- travel.
 --
 -- 'httpTokens', 'awsEc2InstanceMetadataOptions_httpTokens' - The state of token usage for your instance metadata requests.
 --
--- 'httpEndpoint', 'awsEc2InstanceMetadataOptions_httpEndpoint' - Enables or disables the HTTP metadata endpoint on the instance.
---
 -- 'instanceMetadataTags', 'awsEc2InstanceMetadataOptions_instanceMetadataTags' - Specifies whether to allow access to instance tags from the instance
 -- metadata.
---
--- 'httpProtocolIpv6', 'awsEc2InstanceMetadataOptions_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
 newAwsEc2InstanceMetadataOptions ::
   AwsEc2InstanceMetadataOptions
 newAwsEc2InstanceMetadataOptions =
   AwsEc2InstanceMetadataOptions'
-    { httpPutResponseHopLimit =
+    { httpEndpoint =
         Prelude.Nothing,
+      httpProtocolIpv6 = Prelude.Nothing,
+      httpPutResponseHopLimit = Prelude.Nothing,
       httpTokens = Prelude.Nothing,
-      httpEndpoint = Prelude.Nothing,
-      instanceMetadataTags = Prelude.Nothing,
-      httpProtocolIpv6 = Prelude.Nothing
+      instanceMetadataTags = Prelude.Nothing
     }
+
+-- | Enables or disables the HTTP metadata endpoint on the instance.
+awsEc2InstanceMetadataOptions_httpEndpoint :: Lens.Lens' AwsEc2InstanceMetadataOptions (Prelude.Maybe Prelude.Text)
+awsEc2InstanceMetadataOptions_httpEndpoint = Lens.lens (\AwsEc2InstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@AwsEc2InstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: AwsEc2InstanceMetadataOptions)
+
+-- | Enables or disables the IPv6 endpoint for the instance metadata service.
+awsEc2InstanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' AwsEc2InstanceMetadataOptions (Prelude.Maybe Prelude.Text)
+awsEc2InstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\AwsEc2InstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@AwsEc2InstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: AwsEc2InstanceMetadataOptions)
 
 -- | The desired HTTP PUT response hop limit for instance metadata requests.
 -- The larger the number, the further instance metadata requests can
@@ -87,18 +95,10 @@ awsEc2InstanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\AwsEc2Instan
 awsEc2InstanceMetadataOptions_httpTokens :: Lens.Lens' AwsEc2InstanceMetadataOptions (Prelude.Maybe Prelude.Text)
 awsEc2InstanceMetadataOptions_httpTokens = Lens.lens (\AwsEc2InstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@AwsEc2InstanceMetadataOptions' {} a -> s {httpTokens = a} :: AwsEc2InstanceMetadataOptions)
 
--- | Enables or disables the HTTP metadata endpoint on the instance.
-awsEc2InstanceMetadataOptions_httpEndpoint :: Lens.Lens' AwsEc2InstanceMetadataOptions (Prelude.Maybe Prelude.Text)
-awsEc2InstanceMetadataOptions_httpEndpoint = Lens.lens (\AwsEc2InstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@AwsEc2InstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: AwsEc2InstanceMetadataOptions)
-
 -- | Specifies whether to allow access to instance tags from the instance
 -- metadata.
 awsEc2InstanceMetadataOptions_instanceMetadataTags :: Lens.Lens' AwsEc2InstanceMetadataOptions (Prelude.Maybe Prelude.Text)
 awsEc2InstanceMetadataOptions_instanceMetadataTags = Lens.lens (\AwsEc2InstanceMetadataOptions' {instanceMetadataTags} -> instanceMetadataTags) (\s@AwsEc2InstanceMetadataOptions' {} a -> s {instanceMetadataTags = a} :: AwsEc2InstanceMetadataOptions)
-
--- | Enables or disables the IPv6 endpoint for the instance metadata service.
-awsEc2InstanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' AwsEc2InstanceMetadataOptions (Prelude.Maybe Prelude.Text)
-awsEc2InstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\AwsEc2InstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@AwsEc2InstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: AwsEc2InstanceMetadataOptions)
 
 instance Data.FromJSON AwsEc2InstanceMetadataOptions where
   parseJSON =
@@ -106,11 +106,11 @@ instance Data.FromJSON AwsEc2InstanceMetadataOptions where
       "AwsEc2InstanceMetadataOptions"
       ( \x ->
           AwsEc2InstanceMetadataOptions'
-            Prelude.<$> (x Data..:? "HttpPutResponseHopLimit")
-            Prelude.<*> (x Data..:? "HttpTokens")
-            Prelude.<*> (x Data..:? "HttpEndpoint")
-            Prelude.<*> (x Data..:? "InstanceMetadataTags")
+            Prelude.<$> (x Data..:? "HttpEndpoint")
             Prelude.<*> (x Data..:? "HttpProtocolIpv6")
+            Prelude.<*> (x Data..:? "HttpPutResponseHopLimit")
+            Prelude.<*> (x Data..:? "HttpTokens")
+            Prelude.<*> (x Data..:? "InstanceMetadataTags")
       )
 
 instance
@@ -118,32 +118,31 @@ instance
     AwsEc2InstanceMetadataOptions
   where
   hashWithSalt _salt AwsEc2InstanceMetadataOptions' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` httpEndpoint
+      `Prelude.hashWithSalt` httpProtocolIpv6
       `Prelude.hashWithSalt` httpPutResponseHopLimit
       `Prelude.hashWithSalt` httpTokens
-      `Prelude.hashWithSalt` httpEndpoint
       `Prelude.hashWithSalt` instanceMetadataTags
-      `Prelude.hashWithSalt` httpProtocolIpv6
 
 instance Prelude.NFData AwsEc2InstanceMetadataOptions where
   rnf AwsEc2InstanceMetadataOptions' {..} =
-    Prelude.rnf httpPutResponseHopLimit
-      `Prelude.seq` Prelude.rnf httpTokens
-      `Prelude.seq` Prelude.rnf httpEndpoint
-      `Prelude.seq` Prelude.rnf instanceMetadataTags
+    Prelude.rnf httpEndpoint
       `Prelude.seq` Prelude.rnf httpProtocolIpv6
+      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
+      `Prelude.seq` Prelude.rnf httpTokens
+      `Prelude.seq` Prelude.rnf instanceMetadataTags
 
 instance Data.ToJSON AwsEc2InstanceMetadataOptions where
   toJSON AwsEc2InstanceMetadataOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("HttpPutResponseHopLimit" Data..=)
+          [ ("HttpEndpoint" Data..=) Prelude.<$> httpEndpoint,
+            ("HttpProtocolIpv6" Data..=)
+              Prelude.<$> httpProtocolIpv6,
+            ("HttpPutResponseHopLimit" Data..=)
               Prelude.<$> httpPutResponseHopLimit,
             ("HttpTokens" Data..=) Prelude.<$> httpTokens,
-            ("HttpEndpoint" Data..=) Prelude.<$> httpEndpoint,
             ("InstanceMetadataTags" Data..=)
-              Prelude.<$> instanceMetadataTags,
-            ("HttpProtocolIpv6" Data..=)
-              Prelude.<$> httpProtocolIpv6
+              Prelude.<$> instanceMetadataTags
           ]
       )

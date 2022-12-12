@@ -42,12 +42,12 @@ module Amazonka.LexV2Models.CreateBotVersion
     newCreateBotVersionResponse,
 
     -- * Response Lenses
-    createBotVersionResponse_botVersionLocaleSpecification,
-    createBotVersionResponse_botVersion,
-    createBotVersionResponse_creationDateTime,
-    createBotVersionResponse_description,
     createBotVersionResponse_botId,
     createBotVersionResponse_botStatus,
+    createBotVersionResponse_botVersion,
+    createBotVersionResponse_botVersionLocaleSpecification,
+    createBotVersionResponse_creationDateTime,
+    createBotVersionResponse_description,
     createBotVersionResponse_httpStatus,
   )
 where
@@ -129,14 +129,14 @@ instance Core.AWSRequest CreateBotVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateBotVersionResponse'
-            Prelude.<$> ( x Data..?> "botVersionLocaleSpecification"
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> ( x Data..?> "botVersionLocaleSpecification"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "creationDateTime")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,21 +185,21 @@ instance Data.ToQuery CreateBotVersion where
 
 -- | /See:/ 'newCreateBotVersionResponse' smart constructor.
 data CreateBotVersionResponse = CreateBotVersionResponse'
-  { -- | The source versions used for each locale in the new version.
-    botVersionLocaleSpecification :: Prelude.Maybe (Prelude.HashMap Prelude.Text BotVersionLocaleDetails),
-    -- | The version number assigned to the version.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp of the date and time that the version was created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The description of the version specified in the request.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The bot identifier specified in the request.
+  { -- | The bot identifier specified in the request.
     botId :: Prelude.Maybe Prelude.Text,
     -- | When you send a request to create or update a bot, Amazon Lex sets the
     -- status response element to @Creating@. After Amazon Lex builds the bot,
     -- it sets status to @Available@. If Amazon Lex can\'t build the bot, it
     -- sets status to @Failed@.
     botStatus :: Prelude.Maybe BotStatus,
+    -- | The version number assigned to the version.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | The source versions used for each locale in the new version.
+    botVersionLocaleSpecification :: Prelude.Maybe (Prelude.HashMap Prelude.Text BotVersionLocaleDetails),
+    -- | A timestamp of the date and time that the version was created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The description of the version specified in the request.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,20 +213,20 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botVersionLocaleSpecification', 'createBotVersionResponse_botVersionLocaleSpecification' - The source versions used for each locale in the new version.
---
--- 'botVersion', 'createBotVersionResponse_botVersion' - The version number assigned to the version.
---
--- 'creationDateTime', 'createBotVersionResponse_creationDateTime' - A timestamp of the date and time that the version was created.
---
--- 'description', 'createBotVersionResponse_description' - The description of the version specified in the request.
---
 -- 'botId', 'createBotVersionResponse_botId' - The bot identifier specified in the request.
 --
 -- 'botStatus', 'createBotVersionResponse_botStatus' - When you send a request to create or update a bot, Amazon Lex sets the
 -- status response element to @Creating@. After Amazon Lex builds the bot,
 -- it sets status to @Available@. If Amazon Lex can\'t build the bot, it
 -- sets status to @Failed@.
+--
+-- 'botVersion', 'createBotVersionResponse_botVersion' - The version number assigned to the version.
+--
+-- 'botVersionLocaleSpecification', 'createBotVersionResponse_botVersionLocaleSpecification' - The source versions used for each locale in the new version.
+--
+-- 'creationDateTime', 'createBotVersionResponse_creationDateTime' - A timestamp of the date and time that the version was created.
+--
+-- 'description', 'createBotVersionResponse_description' - The description of the version specified in the request.
 --
 -- 'httpStatus', 'createBotVersionResponse_httpStatus' - The response's http status code.
 newCreateBotVersionResponse ::
@@ -235,31 +235,14 @@ newCreateBotVersionResponse ::
   CreateBotVersionResponse
 newCreateBotVersionResponse pHttpStatus_ =
   CreateBotVersionResponse'
-    { botVersionLocaleSpecification =
-        Prelude.Nothing,
+    { botId = Prelude.Nothing,
+      botStatus = Prelude.Nothing,
       botVersion = Prelude.Nothing,
+      botVersionLocaleSpecification = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
       description = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      botStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The source versions used for each locale in the new version.
-createBotVersionResponse_botVersionLocaleSpecification :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text BotVersionLocaleDetails))
-createBotVersionResponse_botVersionLocaleSpecification = Lens.lens (\CreateBotVersionResponse' {botVersionLocaleSpecification} -> botVersionLocaleSpecification) (\s@CreateBotVersionResponse' {} a -> s {botVersionLocaleSpecification = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The version number assigned to the version.
-createBotVersionResponse_botVersion :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
-createBotVersionResponse_botVersion = Lens.lens (\CreateBotVersionResponse' {botVersion} -> botVersion) (\s@CreateBotVersionResponse' {} a -> s {botVersion = a} :: CreateBotVersionResponse)
-
--- | A timestamp of the date and time that the version was created.
-createBotVersionResponse_creationDateTime :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
-createBotVersionResponse_creationDateTime = Lens.lens (\CreateBotVersionResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotVersionResponse' {} a -> s {creationDateTime = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Data._Time
-
--- | The description of the version specified in the request.
-createBotVersionResponse_description :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
-createBotVersionResponse_description = Lens.lens (\CreateBotVersionResponse' {description} -> description) (\s@CreateBotVersionResponse' {} a -> s {description = a} :: CreateBotVersionResponse)
 
 -- | The bot identifier specified in the request.
 createBotVersionResponse_botId :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
@@ -272,16 +255,32 @@ createBotVersionResponse_botId = Lens.lens (\CreateBotVersionResponse' {botId} -
 createBotVersionResponse_botStatus :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe BotStatus)
 createBotVersionResponse_botStatus = Lens.lens (\CreateBotVersionResponse' {botStatus} -> botStatus) (\s@CreateBotVersionResponse' {} a -> s {botStatus = a} :: CreateBotVersionResponse)
 
+-- | The version number assigned to the version.
+createBotVersionResponse_botVersion :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
+createBotVersionResponse_botVersion = Lens.lens (\CreateBotVersionResponse' {botVersion} -> botVersion) (\s@CreateBotVersionResponse' {} a -> s {botVersion = a} :: CreateBotVersionResponse)
+
+-- | The source versions used for each locale in the new version.
+createBotVersionResponse_botVersionLocaleSpecification :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text BotVersionLocaleDetails))
+createBotVersionResponse_botVersionLocaleSpecification = Lens.lens (\CreateBotVersionResponse' {botVersionLocaleSpecification} -> botVersionLocaleSpecification) (\s@CreateBotVersionResponse' {} a -> s {botVersionLocaleSpecification = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A timestamp of the date and time that the version was created.
+createBotVersionResponse_creationDateTime :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
+createBotVersionResponse_creationDateTime = Lens.lens (\CreateBotVersionResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotVersionResponse' {} a -> s {creationDateTime = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The description of the version specified in the request.
+createBotVersionResponse_description :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
+createBotVersionResponse_description = Lens.lens (\CreateBotVersionResponse' {description} -> description) (\s@CreateBotVersionResponse' {} a -> s {description = a} :: CreateBotVersionResponse)
+
 -- | The response's http status code.
 createBotVersionResponse_httpStatus :: Lens.Lens' CreateBotVersionResponse Prelude.Int
 createBotVersionResponse_httpStatus = Lens.lens (\CreateBotVersionResponse' {httpStatus} -> httpStatus) (\s@CreateBotVersionResponse' {} a -> s {httpStatus = a} :: CreateBotVersionResponse)
 
 instance Prelude.NFData CreateBotVersionResponse where
   rnf CreateBotVersionResponse' {..} =
-    Prelude.rnf botVersionLocaleSpecification
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botStatus
       `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf botVersionLocaleSpecification
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botStatus
       `Prelude.seq` Prelude.rnf httpStatus

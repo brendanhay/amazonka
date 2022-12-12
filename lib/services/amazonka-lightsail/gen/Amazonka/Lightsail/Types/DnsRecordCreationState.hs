@@ -42,9 +42,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDnsRecordCreationState' smart constructor.
 data DnsRecordCreationState = DnsRecordCreationState'
-  { -- | The message that describes the reason for the status code.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The status code for the automated DNS record creation.
+  { -- | The status code for the automated DNS record creation.
     --
     -- Following are the possible values:
     --
@@ -54,7 +52,9 @@ data DnsRecordCreationState = DnsRecordCreationState'
     -- -   @STARTED@ - The automatic DNS record creation has started.
     --
     -- -   @FAILED@ - The validation records failed to be added to the domain.
-    code :: Prelude.Maybe DnsRecordCreationStateCode
+    code :: Prelude.Maybe DnsRecordCreationStateCode,
+    -- | The message that describes the reason for the status code.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,8 +66,6 @@ data DnsRecordCreationState = DnsRecordCreationState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'dnsRecordCreationState_message' - The message that describes the reason for the status code.
---
 -- 'code', 'dnsRecordCreationState_code' - The status code for the automated DNS record creation.
 --
 -- Following are the possible values:
@@ -78,17 +76,15 @@ data DnsRecordCreationState = DnsRecordCreationState'
 -- -   @STARTED@ - The automatic DNS record creation has started.
 --
 -- -   @FAILED@ - The validation records failed to be added to the domain.
+--
+-- 'message', 'dnsRecordCreationState_message' - The message that describes the reason for the status code.
 newDnsRecordCreationState ::
   DnsRecordCreationState
 newDnsRecordCreationState =
   DnsRecordCreationState'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The message that describes the reason for the status code.
-dnsRecordCreationState_message :: Lens.Lens' DnsRecordCreationState (Prelude.Maybe Prelude.Text)
-dnsRecordCreationState_message = Lens.lens (\DnsRecordCreationState' {message} -> message) (\s@DnsRecordCreationState' {} a -> s {message = a} :: DnsRecordCreationState)
 
 -- | The status code for the automated DNS record creation.
 --
@@ -103,21 +99,25 @@ dnsRecordCreationState_message = Lens.lens (\DnsRecordCreationState' {message} -
 dnsRecordCreationState_code :: Lens.Lens' DnsRecordCreationState (Prelude.Maybe DnsRecordCreationStateCode)
 dnsRecordCreationState_code = Lens.lens (\DnsRecordCreationState' {code} -> code) (\s@DnsRecordCreationState' {} a -> s {code = a} :: DnsRecordCreationState)
 
+-- | The message that describes the reason for the status code.
+dnsRecordCreationState_message :: Lens.Lens' DnsRecordCreationState (Prelude.Maybe Prelude.Text)
+dnsRecordCreationState_message = Lens.lens (\DnsRecordCreationState' {message} -> message) (\s@DnsRecordCreationState' {} a -> s {message = a} :: DnsRecordCreationState)
+
 instance Data.FromJSON DnsRecordCreationState where
   parseJSON =
     Data.withObject
       "DnsRecordCreationState"
       ( \x ->
           DnsRecordCreationState'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable DnsRecordCreationState where
   hashWithSalt _salt DnsRecordCreationState' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData DnsRecordCreationState where
   rnf DnsRecordCreationState' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

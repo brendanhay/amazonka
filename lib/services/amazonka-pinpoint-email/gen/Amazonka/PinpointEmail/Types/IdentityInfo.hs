@@ -29,14 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentityInfo' smart constructor.
 data IdentityInfo = IdentityInfo'
-  { -- | Indicates whether or not you can send email from the identity.
-    --
-    -- In Amazon Pinpoint, an identity is an email address or domain that you
-    -- send email from. Before you can send email from an identity, you have to
-    -- demostrate that you own the identity, and that you authorize Amazon
-    -- Pinpoint to send email from that identity.
-    sendingEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The address or domain of the identity.
+  { -- | The address or domain of the identity.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | The email identity type. The identity type can be one of the following:
     --
@@ -45,7 +38,14 @@ data IdentityInfo = IdentityInfo'
     -- -   @DOMAIN@ – The identity is a domain.
     --
     -- -   @MANAGED_DOMAIN@ – The identity is a domain that is managed by AWS.
-    identityType :: Prelude.Maybe IdentityType
+    identityType :: Prelude.Maybe IdentityType,
+    -- | Indicates whether or not you can send email from the identity.
+    --
+    -- In Amazon Pinpoint, an identity is an email address or domain that you
+    -- send email from. Before you can send email from an identity, you have to
+    -- demostrate that you own the identity, and that you authorize Amazon
+    -- Pinpoint to send email from that identity.
+    sendingEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,13 +57,6 @@ data IdentityInfo = IdentityInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sendingEnabled', 'identityInfo_sendingEnabled' - Indicates whether or not you can send email from the identity.
---
--- In Amazon Pinpoint, an identity is an email address or domain that you
--- send email from. Before you can send email from an identity, you have to
--- demostrate that you own the identity, and that you authorize Amazon
--- Pinpoint to send email from that identity.
---
 -- 'identityName', 'identityInfo_identityName' - The address or domain of the identity.
 --
 -- 'identityType', 'identityInfo_identityType' - The email identity type. The identity type can be one of the following:
@@ -73,23 +66,21 @@ data IdentityInfo = IdentityInfo'
 -- -   @DOMAIN@ – The identity is a domain.
 --
 -- -   @MANAGED_DOMAIN@ – The identity is a domain that is managed by AWS.
-newIdentityInfo ::
-  IdentityInfo
-newIdentityInfo =
-  IdentityInfo'
-    { sendingEnabled = Prelude.Nothing,
-      identityName = Prelude.Nothing,
-      identityType = Prelude.Nothing
-    }
-
--- | Indicates whether or not you can send email from the identity.
+--
+-- 'sendingEnabled', 'identityInfo_sendingEnabled' - Indicates whether or not you can send email from the identity.
 --
 -- In Amazon Pinpoint, an identity is an email address or domain that you
 -- send email from. Before you can send email from an identity, you have to
 -- demostrate that you own the identity, and that you authorize Amazon
 -- Pinpoint to send email from that identity.
-identityInfo_sendingEnabled :: Lens.Lens' IdentityInfo (Prelude.Maybe Prelude.Bool)
-identityInfo_sendingEnabled = Lens.lens (\IdentityInfo' {sendingEnabled} -> sendingEnabled) (\s@IdentityInfo' {} a -> s {sendingEnabled = a} :: IdentityInfo)
+newIdentityInfo ::
+  IdentityInfo
+newIdentityInfo =
+  IdentityInfo'
+    { identityName = Prelude.Nothing,
+      identityType = Prelude.Nothing,
+      sendingEnabled = Prelude.Nothing
+    }
 
 -- | The address or domain of the identity.
 identityInfo_identityName :: Lens.Lens' IdentityInfo (Prelude.Maybe Prelude.Text)
@@ -105,25 +96,34 @@ identityInfo_identityName = Lens.lens (\IdentityInfo' {identityName} -> identity
 identityInfo_identityType :: Lens.Lens' IdentityInfo (Prelude.Maybe IdentityType)
 identityInfo_identityType = Lens.lens (\IdentityInfo' {identityType} -> identityType) (\s@IdentityInfo' {} a -> s {identityType = a} :: IdentityInfo)
 
+-- | Indicates whether or not you can send email from the identity.
+--
+-- In Amazon Pinpoint, an identity is an email address or domain that you
+-- send email from. Before you can send email from an identity, you have to
+-- demostrate that you own the identity, and that you authorize Amazon
+-- Pinpoint to send email from that identity.
+identityInfo_sendingEnabled :: Lens.Lens' IdentityInfo (Prelude.Maybe Prelude.Bool)
+identityInfo_sendingEnabled = Lens.lens (\IdentityInfo' {sendingEnabled} -> sendingEnabled) (\s@IdentityInfo' {} a -> s {sendingEnabled = a} :: IdentityInfo)
+
 instance Data.FromJSON IdentityInfo where
   parseJSON =
     Data.withObject
       "IdentityInfo"
       ( \x ->
           IdentityInfo'
-            Prelude.<$> (x Data..:? "SendingEnabled")
-            Prelude.<*> (x Data..:? "IdentityName")
+            Prelude.<$> (x Data..:? "IdentityName")
             Prelude.<*> (x Data..:? "IdentityType")
+            Prelude.<*> (x Data..:? "SendingEnabled")
       )
 
 instance Prelude.Hashable IdentityInfo where
   hashWithSalt _salt IdentityInfo' {..} =
-    _salt `Prelude.hashWithSalt` sendingEnabled
-      `Prelude.hashWithSalt` identityName
+    _salt `Prelude.hashWithSalt` identityName
       `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` sendingEnabled
 
 instance Prelude.NFData IdentityInfo where
   rnf IdentityInfo' {..} =
-    Prelude.rnf sendingEnabled
-      `Prelude.seq` Prelude.rnf identityName
+    Prelude.rnf identityName
       `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf sendingEnabled

@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApacheKafkaClusterDescription' smart constructor.
 data ApacheKafkaClusterDescription = ApacheKafkaClusterDescription'
-  { -- | Details of an Amazon VPC which has network connectivity to the Apache
+  { -- | The bootstrap servers of the cluster.
+    bootstrapServers :: Prelude.Maybe Prelude.Text,
+    -- | Details of an Amazon VPC which has network connectivity to the Apache
     -- Kafka cluster.
-    vpc :: Prelude.Maybe VpcDescription,
-    -- | The bootstrap servers of the cluster.
-    bootstrapServers :: Prelude.Maybe Prelude.Text
+    vpc :: Prelude.Maybe VpcDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data ApacheKafkaClusterDescription = ApacheKafkaClusterDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bootstrapServers', 'apacheKafkaClusterDescription_bootstrapServers' - The bootstrap servers of the cluster.
+--
 -- 'vpc', 'apacheKafkaClusterDescription_vpc' - Details of an Amazon VPC which has network connectivity to the Apache
 -- Kafka cluster.
---
--- 'bootstrapServers', 'apacheKafkaClusterDescription_bootstrapServers' - The bootstrap servers of the cluster.
 newApacheKafkaClusterDescription ::
   ApacheKafkaClusterDescription
 newApacheKafkaClusterDescription =
   ApacheKafkaClusterDescription'
-    { vpc =
+    { bootstrapServers =
         Prelude.Nothing,
-      bootstrapServers = Prelude.Nothing
+      vpc = Prelude.Nothing
     }
+
+-- | The bootstrap servers of the cluster.
+apacheKafkaClusterDescription_bootstrapServers :: Lens.Lens' ApacheKafkaClusterDescription (Prelude.Maybe Prelude.Text)
+apacheKafkaClusterDescription_bootstrapServers = Lens.lens (\ApacheKafkaClusterDescription' {bootstrapServers} -> bootstrapServers) (\s@ApacheKafkaClusterDescription' {} a -> s {bootstrapServers = a} :: ApacheKafkaClusterDescription)
 
 -- | Details of an Amazon VPC which has network connectivity to the Apache
 -- Kafka cluster.
 apacheKafkaClusterDescription_vpc :: Lens.Lens' ApacheKafkaClusterDescription (Prelude.Maybe VpcDescription)
 apacheKafkaClusterDescription_vpc = Lens.lens (\ApacheKafkaClusterDescription' {vpc} -> vpc) (\s@ApacheKafkaClusterDescription' {} a -> s {vpc = a} :: ApacheKafkaClusterDescription)
-
--- | The bootstrap servers of the cluster.
-apacheKafkaClusterDescription_bootstrapServers :: Lens.Lens' ApacheKafkaClusterDescription (Prelude.Maybe Prelude.Text)
-apacheKafkaClusterDescription_bootstrapServers = Lens.lens (\ApacheKafkaClusterDescription' {bootstrapServers} -> bootstrapServers) (\s@ApacheKafkaClusterDescription' {} a -> s {bootstrapServers = a} :: ApacheKafkaClusterDescription)
 
 instance Data.FromJSON ApacheKafkaClusterDescription where
   parseJSON =
@@ -74,8 +74,8 @@ instance Data.FromJSON ApacheKafkaClusterDescription where
       "ApacheKafkaClusterDescription"
       ( \x ->
           ApacheKafkaClusterDescription'
-            Prelude.<$> (x Data..:? "vpc")
-            Prelude.<*> (x Data..:? "bootstrapServers")
+            Prelude.<$> (x Data..:? "bootstrapServers")
+            Prelude.<*> (x Data..:? "vpc")
       )
 
 instance
@@ -83,10 +83,10 @@ instance
     ApacheKafkaClusterDescription
   where
   hashWithSalt _salt ApacheKafkaClusterDescription' {..} =
-    _salt `Prelude.hashWithSalt` vpc
-      `Prelude.hashWithSalt` bootstrapServers
+    _salt `Prelude.hashWithSalt` bootstrapServers
+      `Prelude.hashWithSalt` vpc
 
 instance Prelude.NFData ApacheKafkaClusterDescription where
   rnf ApacheKafkaClusterDescription' {..} =
-    Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf bootstrapServers
+    Prelude.rnf bootstrapServers
+      `Prelude.seq` Prelude.rnf vpc

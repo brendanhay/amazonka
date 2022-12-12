@@ -37,10 +37,10 @@ module Amazonka.AmplifyBackend.DeleteBackendStorage
     newDeleteBackendStorageResponse,
 
     -- * Response Lenses
-    deleteBackendStorageResponse_jobId,
-    deleteBackendStorageResponse_status,
     deleteBackendStorageResponse_appId,
     deleteBackendStorageResponse_backendEnvironmentName,
+    deleteBackendStorageResponse_jobId,
+    deleteBackendStorageResponse_status,
     deleteBackendStorageResponse_httpStatus,
   )
 where
@@ -131,10 +131,10 @@ instance Core.AWSRequest DeleteBackendStorage where
     Response.receiveJSON
       ( \s h x ->
           DeleteBackendStorageResponse'
-            Prelude.<$> (x Data..?> "jobId")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "appId")
+            Prelude.<$> (x Data..?> "appId")
             Prelude.<*> (x Data..?> "backendEnvironmentName")
+            Prelude.<*> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,14 +187,14 @@ instance Data.ToQuery DeleteBackendStorage where
 
 -- | /See:/ 'newDeleteBackendStorageResponse' smart constructor.
 data DeleteBackendStorageResponse = DeleteBackendStorageResponse'
-  { -- | The ID for the job.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the request.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The app ID.
+  { -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The name of the backend environment.
     backendEnvironmentName :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the job.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the request.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,13 +208,13 @@ data DeleteBackendStorageResponse = DeleteBackendStorageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'deleteBackendStorageResponse_jobId' - The ID for the job.
---
--- 'status', 'deleteBackendStorageResponse_status' - The current status of the request.
---
 -- 'appId', 'deleteBackendStorageResponse_appId' - The app ID.
 --
 -- 'backendEnvironmentName', 'deleteBackendStorageResponse_backendEnvironmentName' - The name of the backend environment.
+--
+-- 'jobId', 'deleteBackendStorageResponse_jobId' - The ID for the job.
+--
+-- 'status', 'deleteBackendStorageResponse_status' - The current status of the request.
 --
 -- 'httpStatus', 'deleteBackendStorageResponse_httpStatus' - The response's http status code.
 newDeleteBackendStorageResponse ::
@@ -223,21 +223,13 @@ newDeleteBackendStorageResponse ::
   DeleteBackendStorageResponse
 newDeleteBackendStorageResponse pHttpStatus_ =
   DeleteBackendStorageResponse'
-    { jobId =
+    { appId =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      appId = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID for the job.
-deleteBackendStorageResponse_jobId :: Lens.Lens' DeleteBackendStorageResponse (Prelude.Maybe Prelude.Text)
-deleteBackendStorageResponse_jobId = Lens.lens (\DeleteBackendStorageResponse' {jobId} -> jobId) (\s@DeleteBackendStorageResponse' {} a -> s {jobId = a} :: DeleteBackendStorageResponse)
-
--- | The current status of the request.
-deleteBackendStorageResponse_status :: Lens.Lens' DeleteBackendStorageResponse (Prelude.Maybe Prelude.Text)
-deleteBackendStorageResponse_status = Lens.lens (\DeleteBackendStorageResponse' {status} -> status) (\s@DeleteBackendStorageResponse' {} a -> s {status = a} :: DeleteBackendStorageResponse)
 
 -- | The app ID.
 deleteBackendStorageResponse_appId :: Lens.Lens' DeleteBackendStorageResponse (Prelude.Maybe Prelude.Text)
@@ -247,14 +239,22 @@ deleteBackendStorageResponse_appId = Lens.lens (\DeleteBackendStorageResponse' {
 deleteBackendStorageResponse_backendEnvironmentName :: Lens.Lens' DeleteBackendStorageResponse (Prelude.Maybe Prelude.Text)
 deleteBackendStorageResponse_backendEnvironmentName = Lens.lens (\DeleteBackendStorageResponse' {backendEnvironmentName} -> backendEnvironmentName) (\s@DeleteBackendStorageResponse' {} a -> s {backendEnvironmentName = a} :: DeleteBackendStorageResponse)
 
+-- | The ID for the job.
+deleteBackendStorageResponse_jobId :: Lens.Lens' DeleteBackendStorageResponse (Prelude.Maybe Prelude.Text)
+deleteBackendStorageResponse_jobId = Lens.lens (\DeleteBackendStorageResponse' {jobId} -> jobId) (\s@DeleteBackendStorageResponse' {} a -> s {jobId = a} :: DeleteBackendStorageResponse)
+
+-- | The current status of the request.
+deleteBackendStorageResponse_status :: Lens.Lens' DeleteBackendStorageResponse (Prelude.Maybe Prelude.Text)
+deleteBackendStorageResponse_status = Lens.lens (\DeleteBackendStorageResponse' {status} -> status) (\s@DeleteBackendStorageResponse' {} a -> s {status = a} :: DeleteBackendStorageResponse)
+
 -- | The response's http status code.
 deleteBackendStorageResponse_httpStatus :: Lens.Lens' DeleteBackendStorageResponse Prelude.Int
 deleteBackendStorageResponse_httpStatus = Lens.lens (\DeleteBackendStorageResponse' {httpStatus} -> httpStatus) (\s@DeleteBackendStorageResponse' {} a -> s {httpStatus = a} :: DeleteBackendStorageResponse)
 
 instance Prelude.NFData DeleteBackendStorageResponse where
   rnf DeleteBackendStorageResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

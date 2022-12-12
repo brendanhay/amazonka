@@ -26,11 +26,11 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC security groups and subnets that are attached to a Lambda
 -- function. For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html Configuring a Lambda function to access resources in a VPC>.
 --
 -- /See:/ 'newVpcConfig' smart constructor.
 data VpcConfig = VpcConfig'
-  { -- | A list of VPC security groups IDs.
+  { -- | A list of VPC security group IDs.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | A list of VPC subnet IDs.
     subnetIds :: Prelude.Maybe [Prelude.Text]
@@ -45,7 +45,7 @@ data VpcConfig = VpcConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'vpcConfig_securityGroupIds' - A list of VPC security groups IDs.
+-- 'securityGroupIds', 'vpcConfig_securityGroupIds' - A list of VPC security group IDs.
 --
 -- 'subnetIds', 'vpcConfig_subnetIds' - A list of VPC subnet IDs.
 newVpcConfig ::
@@ -56,7 +56,7 @@ newVpcConfig =
       subnetIds = Prelude.Nothing
     }
 
--- | A list of VPC security groups IDs.
+-- | A list of VPC security group IDs.
 vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Prelude.Maybe [Prelude.Text])
 vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Prelude.. Lens.mapping Lens.coerced
 

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelFlowSummary' smart constructor.
 data ChannelFlowSummary = ChannelFlowSummary'
-  { -- | The name of the channel flow.
+  { -- | The ARN of the channel flow.
+    channelFlowArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the channel flow.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Information about the processor Lambda functions.
-    processors :: Prelude.Maybe (Prelude.NonEmpty Processor),
-    -- | The ARN of the channel flow.
-    channelFlowArn :: Prelude.Maybe Prelude.Text
+    processors :: Prelude.Maybe (Prelude.NonEmpty Processor)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,24 @@ data ChannelFlowSummary = ChannelFlowSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channelFlowArn', 'channelFlowSummary_channelFlowArn' - The ARN of the channel flow.
+--
 -- 'name', 'channelFlowSummary_name' - The name of the channel flow.
 --
 -- 'processors', 'channelFlowSummary_processors' - Information about the processor Lambda functions.
---
--- 'channelFlowArn', 'channelFlowSummary_channelFlowArn' - The ARN of the channel flow.
 newChannelFlowSummary ::
   ChannelFlowSummary
 newChannelFlowSummary =
   ChannelFlowSummary'
-    { name = Prelude.Nothing,
-      processors = Prelude.Nothing,
-      channelFlowArn = Prelude.Nothing
+    { channelFlowArn =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      processors = Prelude.Nothing
     }
+
+-- | The ARN of the channel flow.
+channelFlowSummary_channelFlowArn :: Lens.Lens' ChannelFlowSummary (Prelude.Maybe Prelude.Text)
+channelFlowSummary_channelFlowArn = Lens.lens (\ChannelFlowSummary' {channelFlowArn} -> channelFlowArn) (\s@ChannelFlowSummary' {} a -> s {channelFlowArn = a} :: ChannelFlowSummary)
 
 -- | The name of the channel flow.
 channelFlowSummary_name :: Lens.Lens' ChannelFlowSummary (Prelude.Maybe Prelude.Text)
@@ -68,29 +73,25 @@ channelFlowSummary_name = Lens.lens (\ChannelFlowSummary' {name} -> name) (\s@Ch
 channelFlowSummary_processors :: Lens.Lens' ChannelFlowSummary (Prelude.Maybe (Prelude.NonEmpty Processor))
 channelFlowSummary_processors = Lens.lens (\ChannelFlowSummary' {processors} -> processors) (\s@ChannelFlowSummary' {} a -> s {processors = a} :: ChannelFlowSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the channel flow.
-channelFlowSummary_channelFlowArn :: Lens.Lens' ChannelFlowSummary (Prelude.Maybe Prelude.Text)
-channelFlowSummary_channelFlowArn = Lens.lens (\ChannelFlowSummary' {channelFlowArn} -> channelFlowArn) (\s@ChannelFlowSummary' {} a -> s {channelFlowArn = a} :: ChannelFlowSummary)
-
 instance Data.FromJSON ChannelFlowSummary where
   parseJSON =
     Data.withObject
       "ChannelFlowSummary"
       ( \x ->
           ChannelFlowSummary'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "ChannelFlowArn")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Processors")
-            Prelude.<*> (x Data..:? "ChannelFlowArn")
       )
 
 instance Prelude.Hashable ChannelFlowSummary where
   hashWithSalt _salt ChannelFlowSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` channelFlowArn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` processors
-      `Prelude.hashWithSalt` channelFlowArn
 
 instance Prelude.NFData ChannelFlowSummary where
   rnf ChannelFlowSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf channelFlowArn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf processors
-      `Prelude.seq` Prelude.rnf channelFlowArn

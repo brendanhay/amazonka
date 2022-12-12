@@ -27,8 +27,8 @@ module Amazonka.Proton.UpdateEnvironmentTemplateVersion
     newUpdateEnvironmentTemplateVersion,
 
     -- * Request Lenses
-    updateEnvironmentTemplateVersion_status,
     updateEnvironmentTemplateVersion_description,
+    updateEnvironmentTemplateVersion_status,
     updateEnvironmentTemplateVersion_majorVersion,
     updateEnvironmentTemplateVersion_minorVersion,
     updateEnvironmentTemplateVersion_templateName,
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironmentTemplateVersion' smart constructor.
 data UpdateEnvironmentTemplateVersion = UpdateEnvironmentTemplateVersion'
-  { -- | The status of the environment template minor version to update.
-    status :: Prelude.Maybe TemplateVersionStatus,
-    -- | A description of environment template version to update.
+  { -- | A description of environment template version to update.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The status of the environment template minor version to update.
+    status :: Prelude.Maybe TemplateVersionStatus,
     -- | To update a major version of an environment template, include
     -- @major Version@.
     majorVersion :: Prelude.Text,
@@ -76,9 +76,9 @@ data UpdateEnvironmentTemplateVersion = UpdateEnvironmentTemplateVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'updateEnvironmentTemplateVersion_status' - The status of the environment template minor version to update.
---
 -- 'description', 'updateEnvironmentTemplateVersion_description' - A description of environment template version to update.
+--
+-- 'status', 'updateEnvironmentTemplateVersion_status' - The status of the environment template minor version to update.
 --
 -- 'majorVersion', 'updateEnvironmentTemplateVersion_majorVersion' - To update a major version of an environment template, include
 -- @major Version@.
@@ -100,21 +100,21 @@ newUpdateEnvironmentTemplateVersion
   pMinorVersion_
   pTemplateName_ =
     UpdateEnvironmentTemplateVersion'
-      { status =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        status = Prelude.Nothing,
         majorVersion = pMajorVersion_,
         minorVersion = pMinorVersion_,
         templateName = pTemplateName_
       }
 
--- | The status of the environment template minor version to update.
-updateEnvironmentTemplateVersion_status :: Lens.Lens' UpdateEnvironmentTemplateVersion (Prelude.Maybe TemplateVersionStatus)
-updateEnvironmentTemplateVersion_status = Lens.lens (\UpdateEnvironmentTemplateVersion' {status} -> status) (\s@UpdateEnvironmentTemplateVersion' {} a -> s {status = a} :: UpdateEnvironmentTemplateVersion)
-
 -- | A description of environment template version to update.
 updateEnvironmentTemplateVersion_description :: Lens.Lens' UpdateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
 updateEnvironmentTemplateVersion_description = Lens.lens (\UpdateEnvironmentTemplateVersion' {description} -> description) (\s@UpdateEnvironmentTemplateVersion' {} a -> s {description = a} :: UpdateEnvironmentTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The status of the environment template minor version to update.
+updateEnvironmentTemplateVersion_status :: Lens.Lens' UpdateEnvironmentTemplateVersion (Prelude.Maybe TemplateVersionStatus)
+updateEnvironmentTemplateVersion_status = Lens.lens (\UpdateEnvironmentTemplateVersion' {status} -> status) (\s@UpdateEnvironmentTemplateVersion' {} a -> s {status = a} :: UpdateEnvironmentTemplateVersion)
 
 -- | To update a major version of an environment template, include
 -- @major Version@.
@@ -154,8 +154,8 @@ instance
   hashWithSalt
     _salt
     UpdateEnvironmentTemplateVersion' {..} =
-      _salt `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` description
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` majorVersion
         `Prelude.hashWithSalt` minorVersion
         `Prelude.hashWithSalt` templateName
@@ -165,8 +165,8 @@ instance
     UpdateEnvironmentTemplateVersion
   where
   rnf UpdateEnvironmentTemplateVersion' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf majorVersion
       `Prelude.seq` Prelude.rnf minorVersion
       `Prelude.seq` Prelude.rnf templateName
@@ -193,8 +193,8 @@ instance Data.ToJSON UpdateEnvironmentTemplateVersion where
   toJSON UpdateEnvironmentTemplateVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("status" Data..=) Prelude.<$> status,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("status" Data..=) Prelude.<$> status,
             Prelude.Just ("majorVersion" Data..= majorVersion),
             Prelude.Just ("minorVersion" Data..= minorVersion),
             Prelude.Just ("templateName" Data..= templateName)

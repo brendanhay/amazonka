@@ -30,8 +30,8 @@ module Amazonka.MediaTailor.ListAlerts
     newListAlerts,
 
     -- * Request Lenses
-    listAlerts_nextToken,
     listAlerts_maxResults,
+    listAlerts_nextToken,
     listAlerts_resourceArn,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAlerts' smart constructor.
 data ListAlerts = ListAlerts'
-  { -- | Pagination token returned by the list request when results exceed the
-    -- maximum allowed. Use the token to fetch the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of alerts that you want MediaTailor to return in
+  { -- | The maximum number of alerts that you want MediaTailor to return in
     -- response to the current request. If there are more than @MaxResults@
     -- alerts, use the value of @NextToken@ in the response to get the next
     -- page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Text
   }
@@ -76,13 +76,13 @@ data ListAlerts = ListAlerts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAlerts_nextToken' - Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
---
 -- 'maxResults', 'listAlerts_maxResults' - The maximum number of alerts that you want MediaTailor to return in
 -- response to the current request. If there are more than @MaxResults@
 -- alerts, use the value of @NextToken@ in the response to get the next
 -- page of results.
+--
+-- 'nextToken', 'listAlerts_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
 -- 'resourceArn', 'listAlerts_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 newListAlerts ::
@@ -91,15 +91,10 @@ newListAlerts ::
   ListAlerts
 newListAlerts pResourceArn_ =
   ListAlerts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
-
--- | Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
-listAlerts_nextToken :: Lens.Lens' ListAlerts (Prelude.Maybe Prelude.Text)
-listAlerts_nextToken = Lens.lens (\ListAlerts' {nextToken} -> nextToken) (\s@ListAlerts' {} a -> s {nextToken = a} :: ListAlerts)
 
 -- | The maximum number of alerts that you want MediaTailor to return in
 -- response to the current request. If there are more than @MaxResults@
@@ -107,6 +102,11 @@ listAlerts_nextToken = Lens.lens (\ListAlerts' {nextToken} -> nextToken) (\s@Lis
 -- page of results.
 listAlerts_maxResults :: Lens.Lens' ListAlerts (Prelude.Maybe Prelude.Natural)
 listAlerts_maxResults = Lens.lens (\ListAlerts' {maxResults} -> maxResults) (\s@ListAlerts' {} a -> s {maxResults = a} :: ListAlerts)
+
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
+listAlerts_nextToken :: Lens.Lens' ListAlerts (Prelude.Maybe Prelude.Text)
+listAlerts_nextToken = Lens.lens (\ListAlerts' {nextToken} -> nextToken) (\s@ListAlerts' {} a -> s {nextToken = a} :: ListAlerts)
 
 -- | The Amazon Resource Name (ARN) of the resource.
 listAlerts_resourceArn :: Lens.Lens' ListAlerts Prelude.Text
@@ -146,14 +146,14 @@ instance Core.AWSRequest ListAlerts where
 
 instance Prelude.Hashable ListAlerts where
   hashWithSalt _salt ListAlerts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListAlerts where
   rnf ListAlerts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders ListAlerts where
@@ -173,8 +173,8 @@ instance Data.ToPath ListAlerts where
 instance Data.ToQuery ListAlerts where
   toQuery ListAlerts' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "resourceArn" Data.=: resourceArn
       ]
 

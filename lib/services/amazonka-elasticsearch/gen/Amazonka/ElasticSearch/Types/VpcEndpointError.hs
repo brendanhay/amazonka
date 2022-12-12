@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcEndpointError' smart constructor.
 data VpcEndpointError = VpcEndpointError'
-  { -- | A message describing the error.
+  { -- | The code associated with the error.
+    errorCode :: Prelude.Maybe VpcEndpointErrorCode,
+    -- | A message describing the error.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the endpoint.
-    vpcEndpointId :: Prelude.Maybe Prelude.Text,
-    -- | The code associated with the error.
-    errorCode :: Prelude.Maybe VpcEndpointErrorCode
+    vpcEndpointId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,19 +47,23 @@ data VpcEndpointError = VpcEndpointError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'vpcEndpointError_errorCode' - The code associated with the error.
+--
 -- 'errorMessage', 'vpcEndpointError_errorMessage' - A message describing the error.
 --
 -- 'vpcEndpointId', 'vpcEndpointError_vpcEndpointId' - The unique identifier of the endpoint.
---
--- 'errorCode', 'vpcEndpointError_errorCode' - The code associated with the error.
 newVpcEndpointError ::
   VpcEndpointError
 newVpcEndpointError =
   VpcEndpointError'
-    { errorMessage = Prelude.Nothing,
-      vpcEndpointId = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      vpcEndpointId = Prelude.Nothing
     }
+
+-- | The code associated with the error.
+vpcEndpointError_errorCode :: Lens.Lens' VpcEndpointError (Prelude.Maybe VpcEndpointErrorCode)
+vpcEndpointError_errorCode = Lens.lens (\VpcEndpointError' {errorCode} -> errorCode) (\s@VpcEndpointError' {} a -> s {errorCode = a} :: VpcEndpointError)
 
 -- | A message describing the error.
 vpcEndpointError_errorMessage :: Lens.Lens' VpcEndpointError (Prelude.Maybe Prelude.Text)
@@ -69,29 +73,25 @@ vpcEndpointError_errorMessage = Lens.lens (\VpcEndpointError' {errorMessage} -> 
 vpcEndpointError_vpcEndpointId :: Lens.Lens' VpcEndpointError (Prelude.Maybe Prelude.Text)
 vpcEndpointError_vpcEndpointId = Lens.lens (\VpcEndpointError' {vpcEndpointId} -> vpcEndpointId) (\s@VpcEndpointError' {} a -> s {vpcEndpointId = a} :: VpcEndpointError)
 
--- | The code associated with the error.
-vpcEndpointError_errorCode :: Lens.Lens' VpcEndpointError (Prelude.Maybe VpcEndpointErrorCode)
-vpcEndpointError_errorCode = Lens.lens (\VpcEndpointError' {errorCode} -> errorCode) (\s@VpcEndpointError' {} a -> s {errorCode = a} :: VpcEndpointError)
-
 instance Data.FromJSON VpcEndpointError where
   parseJSON =
     Data.withObject
       "VpcEndpointError"
       ( \x ->
           VpcEndpointError'
-            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "VpcEndpointId")
-            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable VpcEndpointError where
   hashWithSalt _salt VpcEndpointError' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` vpcEndpointId
-      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData VpcEndpointError where
   rnf VpcEndpointError' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf errorCode

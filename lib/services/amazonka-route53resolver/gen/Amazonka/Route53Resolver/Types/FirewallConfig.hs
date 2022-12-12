@@ -30,12 +30,7 @@ import Amazonka.Route53Resolver.Types.FirewallFailOpenStatus
 --
 -- /See:/ 'newFirewallConfig' smart constructor.
 data FirewallConfig = FirewallConfig'
-  { -- | The ID of the VPC that this firewall configuration applies to.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID of the owner of the VPC that this
-    -- firewall configuration applies to.
-    ownerId :: Prelude.Maybe Prelude.Text,
-    -- | Determines how DNS Firewall operates during failures, for example when
+  { -- | Determines how DNS Firewall operates during failures, for example when
     -- all traffic that is sent to DNS Firewall fails to receive a reply.
     --
     -- -   By default, fail open is disabled, which means the failure mode is
@@ -51,7 +46,12 @@ data FirewallConfig = FirewallConfig'
     -- Firewall rule group association.
     firewallFailOpen :: Prelude.Maybe FirewallFailOpenStatus,
     -- | The ID of the firewall configuration.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account ID of the owner of the VPC that this
+    -- firewall configuration applies to.
+    ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the VPC that this firewall configuration applies to.
+    resourceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,11 +62,6 @@ data FirewallConfig = FirewallConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'resourceId', 'firewallConfig_resourceId' - The ID of the VPC that this firewall configuration applies to.
---
--- 'ownerId', 'firewallConfig_ownerId' - The Amazon Web Services account ID of the owner of the VPC that this
--- firewall configuration applies to.
 --
 -- 'firewallFailOpen', 'firewallConfig_firewallFailOpen' - Determines how DNS Firewall operates during failures, for example when
 -- all traffic that is sent to DNS Firewall fails to receive a reply.
@@ -84,24 +79,20 @@ data FirewallConfig = FirewallConfig'
 -- Firewall rule group association.
 --
 -- 'id', 'firewallConfig_id' - The ID of the firewall configuration.
+--
+-- 'ownerId', 'firewallConfig_ownerId' - The Amazon Web Services account ID of the owner of the VPC that this
+-- firewall configuration applies to.
+--
+-- 'resourceId', 'firewallConfig_resourceId' - The ID of the VPC that this firewall configuration applies to.
 newFirewallConfig ::
   FirewallConfig
 newFirewallConfig =
   FirewallConfig'
-    { resourceId = Prelude.Nothing,
+    { firewallFailOpen = Prelude.Nothing,
+      id = Prelude.Nothing,
       ownerId = Prelude.Nothing,
-      firewallFailOpen = Prelude.Nothing,
-      id = Prelude.Nothing
+      resourceId = Prelude.Nothing
     }
-
--- | The ID of the VPC that this firewall configuration applies to.
-firewallConfig_resourceId :: Lens.Lens' FirewallConfig (Prelude.Maybe Prelude.Text)
-firewallConfig_resourceId = Lens.lens (\FirewallConfig' {resourceId} -> resourceId) (\s@FirewallConfig' {} a -> s {resourceId = a} :: FirewallConfig)
-
--- | The Amazon Web Services account ID of the owner of the VPC that this
--- firewall configuration applies to.
-firewallConfig_ownerId :: Lens.Lens' FirewallConfig (Prelude.Maybe Prelude.Text)
-firewallConfig_ownerId = Lens.lens (\FirewallConfig' {ownerId} -> ownerId) (\s@FirewallConfig' {} a -> s {ownerId = a} :: FirewallConfig)
 
 -- | Determines how DNS Firewall operates during failures, for example when
 -- all traffic that is sent to DNS Firewall fails to receive a reply.
@@ -124,28 +115,37 @@ firewallConfig_firewallFailOpen = Lens.lens (\FirewallConfig' {firewallFailOpen}
 firewallConfig_id :: Lens.Lens' FirewallConfig (Prelude.Maybe Prelude.Text)
 firewallConfig_id = Lens.lens (\FirewallConfig' {id} -> id) (\s@FirewallConfig' {} a -> s {id = a} :: FirewallConfig)
 
+-- | The Amazon Web Services account ID of the owner of the VPC that this
+-- firewall configuration applies to.
+firewallConfig_ownerId :: Lens.Lens' FirewallConfig (Prelude.Maybe Prelude.Text)
+firewallConfig_ownerId = Lens.lens (\FirewallConfig' {ownerId} -> ownerId) (\s@FirewallConfig' {} a -> s {ownerId = a} :: FirewallConfig)
+
+-- | The ID of the VPC that this firewall configuration applies to.
+firewallConfig_resourceId :: Lens.Lens' FirewallConfig (Prelude.Maybe Prelude.Text)
+firewallConfig_resourceId = Lens.lens (\FirewallConfig' {resourceId} -> resourceId) (\s@FirewallConfig' {} a -> s {resourceId = a} :: FirewallConfig)
+
 instance Data.FromJSON FirewallConfig where
   parseJSON =
     Data.withObject
       "FirewallConfig"
       ( \x ->
           FirewallConfig'
-            Prelude.<$> (x Data..:? "ResourceId")
-            Prelude.<*> (x Data..:? "OwnerId")
-            Prelude.<*> (x Data..:? "FirewallFailOpen")
+            Prelude.<$> (x Data..:? "FirewallFailOpen")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "ResourceId")
       )
 
 instance Prelude.Hashable FirewallConfig where
   hashWithSalt _salt FirewallConfig' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` ownerId
-      `Prelude.hashWithSalt` firewallFailOpen
+    _salt `Prelude.hashWithSalt` firewallFailOpen
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData FirewallConfig where
   rnf FirewallConfig' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf firewallFailOpen
+    Prelude.rnf firewallFailOpen
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf resourceId

@@ -29,23 +29,31 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStaticImageActivateScheduleActionSettings' smart constructor.
 data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActionSettings'
-  { -- | Applies only if a duration is specified. The time in milliseconds for
+  { -- | The duration in milliseconds for the image to remain on the video. If
+    -- omitted or set to 0 the duration is unlimited and the image will remain
+    -- until it is explicitly deactivated.
+    duration :: Prelude.Maybe Prelude.Natural,
+    -- | The time in milliseconds for the image to fade in. The fade-in starts at
+    -- the start time of the overlay. Default is 0 (no fade-in).
+    fadeIn :: Prelude.Maybe Prelude.Natural,
+    -- | Applies only if a duration is specified. The time in milliseconds for
     -- the image to fade out. The fade-out starts when the duration time is
     -- hit, so it effectively extends the duration. Default is 0 (no fade-out).
     fadeOut :: Prelude.Maybe Prelude.Natural,
+    -- | The height of the image when inserted into the video, in pixels. The
+    -- overlay will be scaled up or down to the specified height. Leave blank
+    -- to use the native height of the overlay.
+    height :: Prelude.Maybe Prelude.Natural,
     -- | Placement of the left edge of the overlay relative to the left edge of
     -- the video frame, in pixels. 0 (the default) is the left edge of the
     -- frame. If the placement causes the overlay to extend beyond the right
     -- edge of the underlying video, then the overlay is cropped on the right.
     imageX :: Prelude.Maybe Prelude.Natural,
-    -- | The width of the image when inserted into the video, in pixels. The
-    -- overlay will be scaled up or down to the specified width. Leave blank to
-    -- use the native width of the overlay.
-    width :: Prelude.Maybe Prelude.Natural,
-    -- | The duration in milliseconds for the image to remain on the video. If
-    -- omitted or set to 0 the duration is unlimited and the image will remain
-    -- until it is explicitly deactivated.
-    duration :: Prelude.Maybe Prelude.Natural,
+    -- | Placement of the top edge of the overlay relative to the top edge of the
+    -- video frame, in pixels. 0 (the default) is the top edge of the frame. If
+    -- the placement causes the overlay to extend beyond the bottom edge of the
+    -- underlying video, then the overlay is cropped on the bottom.
+    imageY :: Prelude.Maybe Prelude.Natural,
     -- | The number of the layer, 0 to 7. There are 8 layers that can be overlaid
     -- on the video, each layer with a different image. The layers are in Z
     -- order, which means that overlays with higher values of layer are
@@ -54,18 +62,10 @@ data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActi
     -- | Opacity of image where 0 is transparent and 100 is fully opaque. Default
     -- is 100.
     opacity :: Prelude.Maybe Prelude.Natural,
-    -- | The height of the image when inserted into the video, in pixels. The
-    -- overlay will be scaled up or down to the specified height. Leave blank
-    -- to use the native height of the overlay.
-    height :: Prelude.Maybe Prelude.Natural,
-    -- | The time in milliseconds for the image to fade in. The fade-in starts at
-    -- the start time of the overlay. Default is 0 (no fade-in).
-    fadeIn :: Prelude.Maybe Prelude.Natural,
-    -- | Placement of the top edge of the overlay relative to the top edge of the
-    -- video frame, in pixels. 0 (the default) is the top edge of the frame. If
-    -- the placement causes the overlay to extend beyond the bottom edge of the
-    -- underlying video, then the overlay is cropped on the bottom.
-    imageY :: Prelude.Maybe Prelude.Natural,
+    -- | The width of the image when inserted into the video, in pixels. The
+    -- overlay will be scaled up or down to the specified width. Leave blank to
+    -- use the native width of the overlay.
+    width :: Prelude.Maybe Prelude.Natural,
     -- | The location and filename of the image file to overlay on the video. The
     -- file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in
     -- pixels) than the input video.
@@ -81,22 +81,30 @@ data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'duration', 'staticImageActivateScheduleActionSettings_duration' - The duration in milliseconds for the image to remain on the video. If
+-- omitted or set to 0 the duration is unlimited and the image will remain
+-- until it is explicitly deactivated.
+--
+-- 'fadeIn', 'staticImageActivateScheduleActionSettings_fadeIn' - The time in milliseconds for the image to fade in. The fade-in starts at
+-- the start time of the overlay. Default is 0 (no fade-in).
+--
 -- 'fadeOut', 'staticImageActivateScheduleActionSettings_fadeOut' - Applies only if a duration is specified. The time in milliseconds for
 -- the image to fade out. The fade-out starts when the duration time is
 -- hit, so it effectively extends the duration. Default is 0 (no fade-out).
+--
+-- 'height', 'staticImageActivateScheduleActionSettings_height' - The height of the image when inserted into the video, in pixels. The
+-- overlay will be scaled up or down to the specified height. Leave blank
+-- to use the native height of the overlay.
 --
 -- 'imageX', 'staticImageActivateScheduleActionSettings_imageX' - Placement of the left edge of the overlay relative to the left edge of
 -- the video frame, in pixels. 0 (the default) is the left edge of the
 -- frame. If the placement causes the overlay to extend beyond the right
 -- edge of the underlying video, then the overlay is cropped on the right.
 --
--- 'width', 'staticImageActivateScheduleActionSettings_width' - The width of the image when inserted into the video, in pixels. The
--- overlay will be scaled up or down to the specified width. Leave blank to
--- use the native width of the overlay.
---
--- 'duration', 'staticImageActivateScheduleActionSettings_duration' - The duration in milliseconds for the image to remain on the video. If
--- omitted or set to 0 the duration is unlimited and the image will remain
--- until it is explicitly deactivated.
+-- 'imageY', 'staticImageActivateScheduleActionSettings_imageY' - Placement of the top edge of the overlay relative to the top edge of the
+-- video frame, in pixels. 0 (the default) is the top edge of the frame. If
+-- the placement causes the overlay to extend beyond the bottom edge of the
+-- underlying video, then the overlay is cropped on the bottom.
 --
 -- 'layer', 'staticImageActivateScheduleActionSettings_layer' - The number of the layer, 0 to 7. There are 8 layers that can be overlaid
 -- on the video, each layer with a different image. The layers are in Z
@@ -106,17 +114,9 @@ data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActi
 -- 'opacity', 'staticImageActivateScheduleActionSettings_opacity' - Opacity of image where 0 is transparent and 100 is fully opaque. Default
 -- is 100.
 --
--- 'height', 'staticImageActivateScheduleActionSettings_height' - The height of the image when inserted into the video, in pixels. The
--- overlay will be scaled up or down to the specified height. Leave blank
--- to use the native height of the overlay.
---
--- 'fadeIn', 'staticImageActivateScheduleActionSettings_fadeIn' - The time in milliseconds for the image to fade in. The fade-in starts at
--- the start time of the overlay. Default is 0 (no fade-in).
---
--- 'imageY', 'staticImageActivateScheduleActionSettings_imageY' - Placement of the top edge of the overlay relative to the top edge of the
--- video frame, in pixels. 0 (the default) is the top edge of the frame. If
--- the placement causes the overlay to extend beyond the bottom edge of the
--- underlying video, then the overlay is cropped on the bottom.
+-- 'width', 'staticImageActivateScheduleActionSettings_width' - The width of the image when inserted into the video, in pixels. The
+-- overlay will be scaled up or down to the specified width. Leave blank to
+-- use the native width of the overlay.
 --
 -- 'image', 'staticImageActivateScheduleActionSettings_image' - The location and filename of the image file to overlay on the video. The
 -- file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in
@@ -127,24 +127,41 @@ newStaticImageActivateScheduleActionSettings ::
   StaticImageActivateScheduleActionSettings
 newStaticImageActivateScheduleActionSettings pImage_ =
   StaticImageActivateScheduleActionSettings'
-    { fadeOut =
+    { duration =
         Prelude.Nothing,
+      fadeIn = Prelude.Nothing,
+      fadeOut = Prelude.Nothing,
+      height = Prelude.Nothing,
       imageX = Prelude.Nothing,
-      width = Prelude.Nothing,
-      duration = Prelude.Nothing,
+      imageY = Prelude.Nothing,
       layer = Prelude.Nothing,
       opacity = Prelude.Nothing,
-      height = Prelude.Nothing,
-      fadeIn = Prelude.Nothing,
-      imageY = Prelude.Nothing,
+      width = Prelude.Nothing,
       image = pImage_
     }
+
+-- | The duration in milliseconds for the image to remain on the video. If
+-- omitted or set to 0 the duration is unlimited and the image will remain
+-- until it is explicitly deactivated.
+staticImageActivateScheduleActionSettings_duration :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
+staticImageActivateScheduleActionSettings_duration = Lens.lens (\StaticImageActivateScheduleActionSettings' {duration} -> duration) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {duration = a} :: StaticImageActivateScheduleActionSettings)
+
+-- | The time in milliseconds for the image to fade in. The fade-in starts at
+-- the start time of the overlay. Default is 0 (no fade-in).
+staticImageActivateScheduleActionSettings_fadeIn :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
+staticImageActivateScheduleActionSettings_fadeIn = Lens.lens (\StaticImageActivateScheduleActionSettings' {fadeIn} -> fadeIn) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {fadeIn = a} :: StaticImageActivateScheduleActionSettings)
 
 -- | Applies only if a duration is specified. The time in milliseconds for
 -- the image to fade out. The fade-out starts when the duration time is
 -- hit, so it effectively extends the duration. Default is 0 (no fade-out).
 staticImageActivateScheduleActionSettings_fadeOut :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
 staticImageActivateScheduleActionSettings_fadeOut = Lens.lens (\StaticImageActivateScheduleActionSettings' {fadeOut} -> fadeOut) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {fadeOut = a} :: StaticImageActivateScheduleActionSettings)
+
+-- | The height of the image when inserted into the video, in pixels. The
+-- overlay will be scaled up or down to the specified height. Leave blank
+-- to use the native height of the overlay.
+staticImageActivateScheduleActionSettings_height :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
+staticImageActivateScheduleActionSettings_height = Lens.lens (\StaticImageActivateScheduleActionSettings' {height} -> height) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {height = a} :: StaticImageActivateScheduleActionSettings)
 
 -- | Placement of the left edge of the overlay relative to the left edge of
 -- the video frame, in pixels. 0 (the default) is the left edge of the
@@ -153,17 +170,12 @@ staticImageActivateScheduleActionSettings_fadeOut = Lens.lens (\StaticImageActiv
 staticImageActivateScheduleActionSettings_imageX :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
 staticImageActivateScheduleActionSettings_imageX = Lens.lens (\StaticImageActivateScheduleActionSettings' {imageX} -> imageX) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {imageX = a} :: StaticImageActivateScheduleActionSettings)
 
--- | The width of the image when inserted into the video, in pixels. The
--- overlay will be scaled up or down to the specified width. Leave blank to
--- use the native width of the overlay.
-staticImageActivateScheduleActionSettings_width :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
-staticImageActivateScheduleActionSettings_width = Lens.lens (\StaticImageActivateScheduleActionSettings' {width} -> width) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {width = a} :: StaticImageActivateScheduleActionSettings)
-
--- | The duration in milliseconds for the image to remain on the video. If
--- omitted or set to 0 the duration is unlimited and the image will remain
--- until it is explicitly deactivated.
-staticImageActivateScheduleActionSettings_duration :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
-staticImageActivateScheduleActionSettings_duration = Lens.lens (\StaticImageActivateScheduleActionSettings' {duration} -> duration) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {duration = a} :: StaticImageActivateScheduleActionSettings)
+-- | Placement of the top edge of the overlay relative to the top edge of the
+-- video frame, in pixels. 0 (the default) is the top edge of the frame. If
+-- the placement causes the overlay to extend beyond the bottom edge of the
+-- underlying video, then the overlay is cropped on the bottom.
+staticImageActivateScheduleActionSettings_imageY :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
+staticImageActivateScheduleActionSettings_imageY = Lens.lens (\StaticImageActivateScheduleActionSettings' {imageY} -> imageY) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {imageY = a} :: StaticImageActivateScheduleActionSettings)
 
 -- | The number of the layer, 0 to 7. There are 8 layers that can be overlaid
 -- on the video, each layer with a different image. The layers are in Z
@@ -177,23 +189,11 @@ staticImageActivateScheduleActionSettings_layer = Lens.lens (\StaticImageActivat
 staticImageActivateScheduleActionSettings_opacity :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
 staticImageActivateScheduleActionSettings_opacity = Lens.lens (\StaticImageActivateScheduleActionSettings' {opacity} -> opacity) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {opacity = a} :: StaticImageActivateScheduleActionSettings)
 
--- | The height of the image when inserted into the video, in pixels. The
--- overlay will be scaled up or down to the specified height. Leave blank
--- to use the native height of the overlay.
-staticImageActivateScheduleActionSettings_height :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
-staticImageActivateScheduleActionSettings_height = Lens.lens (\StaticImageActivateScheduleActionSettings' {height} -> height) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {height = a} :: StaticImageActivateScheduleActionSettings)
-
--- | The time in milliseconds for the image to fade in. The fade-in starts at
--- the start time of the overlay. Default is 0 (no fade-in).
-staticImageActivateScheduleActionSettings_fadeIn :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
-staticImageActivateScheduleActionSettings_fadeIn = Lens.lens (\StaticImageActivateScheduleActionSettings' {fadeIn} -> fadeIn) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {fadeIn = a} :: StaticImageActivateScheduleActionSettings)
-
--- | Placement of the top edge of the overlay relative to the top edge of the
--- video frame, in pixels. 0 (the default) is the top edge of the frame. If
--- the placement causes the overlay to extend beyond the bottom edge of the
--- underlying video, then the overlay is cropped on the bottom.
-staticImageActivateScheduleActionSettings_imageY :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
-staticImageActivateScheduleActionSettings_imageY = Lens.lens (\StaticImageActivateScheduleActionSettings' {imageY} -> imageY) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {imageY = a} :: StaticImageActivateScheduleActionSettings)
+-- | The width of the image when inserted into the video, in pixels. The
+-- overlay will be scaled up or down to the specified width. Leave blank to
+-- use the native width of the overlay.
+staticImageActivateScheduleActionSettings_width :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
+staticImageActivateScheduleActionSettings_width = Lens.lens (\StaticImageActivateScheduleActionSettings' {width} -> width) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {width = a} :: StaticImageActivateScheduleActionSettings)
 
 -- | The location and filename of the image file to overlay on the video. The
 -- file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in
@@ -210,15 +210,15 @@ instance
       "StaticImageActivateScheduleActionSettings"
       ( \x ->
           StaticImageActivateScheduleActionSettings'
-            Prelude.<$> (x Data..:? "fadeOut")
+            Prelude.<$> (x Data..:? "duration")
+              Prelude.<*> (x Data..:? "fadeIn")
+              Prelude.<*> (x Data..:? "fadeOut")
+              Prelude.<*> (x Data..:? "height")
               Prelude.<*> (x Data..:? "imageX")
-              Prelude.<*> (x Data..:? "width")
-              Prelude.<*> (x Data..:? "duration")
+              Prelude.<*> (x Data..:? "imageY")
               Prelude.<*> (x Data..:? "layer")
               Prelude.<*> (x Data..:? "opacity")
-              Prelude.<*> (x Data..:? "height")
-              Prelude.<*> (x Data..:? "fadeIn")
-              Prelude.<*> (x Data..:? "imageY")
+              Prelude.<*> (x Data..:? "width")
               Prelude.<*> (x Data..: "image")
       )
 
@@ -229,15 +229,15 @@ instance
   hashWithSalt
     _salt
     StaticImageActivateScheduleActionSettings' {..} =
-      _salt `Prelude.hashWithSalt` fadeOut
+      _salt `Prelude.hashWithSalt` duration
+        `Prelude.hashWithSalt` fadeIn
+        `Prelude.hashWithSalt` fadeOut
+        `Prelude.hashWithSalt` height
         `Prelude.hashWithSalt` imageX
-        `Prelude.hashWithSalt` width
-        `Prelude.hashWithSalt` duration
+        `Prelude.hashWithSalt` imageY
         `Prelude.hashWithSalt` layer
         `Prelude.hashWithSalt` opacity
-        `Prelude.hashWithSalt` height
-        `Prelude.hashWithSalt` fadeIn
-        `Prelude.hashWithSalt` imageY
+        `Prelude.hashWithSalt` width
         `Prelude.hashWithSalt` image
 
 instance
@@ -245,15 +245,15 @@ instance
     StaticImageActivateScheduleActionSettings
   where
   rnf StaticImageActivateScheduleActionSettings' {..} =
-    Prelude.rnf fadeOut
+    Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf fadeIn
+      `Prelude.seq` Prelude.rnf fadeOut
+      `Prelude.seq` Prelude.rnf height
       `Prelude.seq` Prelude.rnf imageX
-      `Prelude.seq` Prelude.rnf width
-      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf imageY
       `Prelude.seq` Prelude.rnf layer
       `Prelude.seq` Prelude.rnf opacity
-      `Prelude.seq` Prelude.rnf height
-      `Prelude.seq` Prelude.rnf fadeIn
-      `Prelude.seq` Prelude.rnf imageY
+      `Prelude.seq` Prelude.rnf width
       `Prelude.seq` Prelude.rnf image
 
 instance
@@ -263,15 +263,15 @@ instance
   toJSON StaticImageActivateScheduleActionSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("fadeOut" Data..=) Prelude.<$> fadeOut,
+          [ ("duration" Data..=) Prelude.<$> duration,
+            ("fadeIn" Data..=) Prelude.<$> fadeIn,
+            ("fadeOut" Data..=) Prelude.<$> fadeOut,
+            ("height" Data..=) Prelude.<$> height,
             ("imageX" Data..=) Prelude.<$> imageX,
-            ("width" Data..=) Prelude.<$> width,
-            ("duration" Data..=) Prelude.<$> duration,
+            ("imageY" Data..=) Prelude.<$> imageY,
             ("layer" Data..=) Prelude.<$> layer,
             ("opacity" Data..=) Prelude.<$> opacity,
-            ("height" Data..=) Prelude.<$> height,
-            ("fadeIn" Data..=) Prelude.<$> fadeIn,
-            ("imageY" Data..=) Prelude.<$> imageY,
+            ("width" Data..=) Prelude.<$> width,
             Prelude.Just ("image" Data..= image)
           ]
       )

@@ -28,19 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'
-  { -- | Indicates the type of opt-in request that has been received for the
-    -- resource.
-    optInStatus :: Prelude.Maybe Prelude.Text,
-    -- | A description providing more detail about the maintenance action.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The effective date when the pending maintenance action is applied to the
-    -- resource. This date takes into account opt-in requests received from the
-    -- ApplyPendingMaintenanceAction API, the @AutoAppliedAfterDate@, and the
-    -- @ForcedApplyDate@. This value is blank if an opt-in request has not been
-    -- received and nothing has been specified as @AutoAppliedAfterDate@ or
-    -- @ForcedApplyDate@.
-    currentApplyDate :: Prelude.Maybe Data.ISO8601,
-    -- | The type of pending maintenance action that is available for the
+  { -- | The type of pending maintenance action that is available for the
     -- resource.
     action :: Prelude.Maybe Prelude.Text,
     -- | The date of the maintenance window when the action is applied. The
@@ -48,11 +36,23 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
     -- maintenance window after this date. If this date is specified, any
     -- @next-maintenance@ opt-in requests are ignored.
     autoAppliedAfterDate :: Prelude.Maybe Data.ISO8601,
+    -- | The effective date when the pending maintenance action is applied to the
+    -- resource. This date takes into account opt-in requests received from the
+    -- ApplyPendingMaintenanceAction API, the @AutoAppliedAfterDate@, and the
+    -- @ForcedApplyDate@. This value is blank if an opt-in request has not been
+    -- received and nothing has been specified as @AutoAppliedAfterDate@ or
+    -- @ForcedApplyDate@.
+    currentApplyDate :: Prelude.Maybe Data.ISO8601,
+    -- | A description providing more detail about the maintenance action.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The date when the maintenance action is automatically applied. The
     -- maintenance action is applied to the resource on this date regardless of
     -- the maintenance window for the resource. If this date is specified, any
     -- @immediate@ opt-in requests are ignored.
-    forcedApplyDate :: Prelude.Maybe Data.ISO8601
+    forcedApplyDate :: Prelude.Maybe Data.ISO8601,
+    -- | Indicates the type of opt-in request that has been received for the
+    -- resource.
+    optInStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,18 +64,6 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'optInStatus', 'pendingMaintenanceAction_optInStatus' - Indicates the type of opt-in request that has been received for the
--- resource.
---
--- 'description', 'pendingMaintenanceAction_description' - A description providing more detail about the maintenance action.
---
--- 'currentApplyDate', 'pendingMaintenanceAction_currentApplyDate' - The effective date when the pending maintenance action is applied to the
--- resource. This date takes into account opt-in requests received from the
--- ApplyPendingMaintenanceAction API, the @AutoAppliedAfterDate@, and the
--- @ForcedApplyDate@. This value is blank if an opt-in request has not been
--- received and nothing has been specified as @AutoAppliedAfterDate@ or
--- @ForcedApplyDate@.
---
 -- 'action', 'pendingMaintenanceAction_action' - The type of pending maintenance action that is available for the
 -- resource.
 --
@@ -84,40 +72,33 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
 -- maintenance window after this date. If this date is specified, any
 -- @next-maintenance@ opt-in requests are ignored.
 --
--- 'forcedApplyDate', 'pendingMaintenanceAction_forcedApplyDate' - The date when the maintenance action is automatically applied. The
--- maintenance action is applied to the resource on this date regardless of
--- the maintenance window for the resource. If this date is specified, any
--- @immediate@ opt-in requests are ignored.
-newPendingMaintenanceAction ::
-  PendingMaintenanceAction
-newPendingMaintenanceAction =
-  PendingMaintenanceAction'
-    { optInStatus =
-        Prelude.Nothing,
-      description = Prelude.Nothing,
-      currentApplyDate = Prelude.Nothing,
-      action = Prelude.Nothing,
-      autoAppliedAfterDate = Prelude.Nothing,
-      forcedApplyDate = Prelude.Nothing
-    }
-
--- | Indicates the type of opt-in request that has been received for the
--- resource.
-pendingMaintenanceAction_optInStatus :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
-pendingMaintenanceAction_optInStatus = Lens.lens (\PendingMaintenanceAction' {optInStatus} -> optInStatus) (\s@PendingMaintenanceAction' {} a -> s {optInStatus = a} :: PendingMaintenanceAction)
-
--- | A description providing more detail about the maintenance action.
-pendingMaintenanceAction_description :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
-pendingMaintenanceAction_description = Lens.lens (\PendingMaintenanceAction' {description} -> description) (\s@PendingMaintenanceAction' {} a -> s {description = a} :: PendingMaintenanceAction)
-
--- | The effective date when the pending maintenance action is applied to the
+-- 'currentApplyDate', 'pendingMaintenanceAction_currentApplyDate' - The effective date when the pending maintenance action is applied to the
 -- resource. This date takes into account opt-in requests received from the
 -- ApplyPendingMaintenanceAction API, the @AutoAppliedAfterDate@, and the
 -- @ForcedApplyDate@. This value is blank if an opt-in request has not been
 -- received and nothing has been specified as @AutoAppliedAfterDate@ or
 -- @ForcedApplyDate@.
-pendingMaintenanceAction_currentApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
-pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Data._Time
+--
+-- 'description', 'pendingMaintenanceAction_description' - A description providing more detail about the maintenance action.
+--
+-- 'forcedApplyDate', 'pendingMaintenanceAction_forcedApplyDate' - The date when the maintenance action is automatically applied. The
+-- maintenance action is applied to the resource on this date regardless of
+-- the maintenance window for the resource. If this date is specified, any
+-- @immediate@ opt-in requests are ignored.
+--
+-- 'optInStatus', 'pendingMaintenanceAction_optInStatus' - Indicates the type of opt-in request that has been received for the
+-- resource.
+newPendingMaintenanceAction ::
+  PendingMaintenanceAction
+newPendingMaintenanceAction =
+  PendingMaintenanceAction'
+    { action = Prelude.Nothing,
+      autoAppliedAfterDate = Prelude.Nothing,
+      currentApplyDate = Prelude.Nothing,
+      description = Prelude.Nothing,
+      forcedApplyDate = Prelude.Nothing,
+      optInStatus = Prelude.Nothing
+    }
 
 -- | The type of pending maintenance action that is available for the
 -- resource.
@@ -131,6 +112,19 @@ pendingMaintenanceAction_action = Lens.lens (\PendingMaintenanceAction' {action}
 pendingMaintenanceAction_autoAppliedAfterDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
 pendingMaintenanceAction_autoAppliedAfterDate = Lens.lens (\PendingMaintenanceAction' {autoAppliedAfterDate} -> autoAppliedAfterDate) (\s@PendingMaintenanceAction' {} a -> s {autoAppliedAfterDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Data._Time
 
+-- | The effective date when the pending maintenance action is applied to the
+-- resource. This date takes into account opt-in requests received from the
+-- ApplyPendingMaintenanceAction API, the @AutoAppliedAfterDate@, and the
+-- @ForcedApplyDate@. This value is blank if an opt-in request has not been
+-- received and nothing has been specified as @AutoAppliedAfterDate@ or
+-- @ForcedApplyDate@.
+pendingMaintenanceAction_currentApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
+pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Data._Time
+
+-- | A description providing more detail about the maintenance action.
+pendingMaintenanceAction_description :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
+pendingMaintenanceAction_description = Lens.lens (\PendingMaintenanceAction' {description} -> description) (\s@PendingMaintenanceAction' {} a -> s {description = a} :: PendingMaintenanceAction)
+
 -- | The date when the maintenance action is automatically applied. The
 -- maintenance action is applied to the resource on this date regardless of
 -- the maintenance window for the resource. If this date is specified, any
@@ -138,30 +132,35 @@ pendingMaintenanceAction_autoAppliedAfterDate = Lens.lens (\PendingMaintenanceAc
 pendingMaintenanceAction_forcedApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
 pendingMaintenanceAction_forcedApplyDate = Lens.lens (\PendingMaintenanceAction' {forcedApplyDate} -> forcedApplyDate) (\s@PendingMaintenanceAction' {} a -> s {forcedApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Data._Time
 
+-- | Indicates the type of opt-in request that has been received for the
+-- resource.
+pendingMaintenanceAction_optInStatus :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
+pendingMaintenanceAction_optInStatus = Lens.lens (\PendingMaintenanceAction' {optInStatus} -> optInStatus) (\s@PendingMaintenanceAction' {} a -> s {optInStatus = a} :: PendingMaintenanceAction)
+
 instance Data.FromXML PendingMaintenanceAction where
   parseXML x =
     PendingMaintenanceAction'
-      Prelude.<$> (x Data..@? "OptInStatus")
-      Prelude.<*> (x Data..@? "Description")
-      Prelude.<*> (x Data..@? "CurrentApplyDate")
-      Prelude.<*> (x Data..@? "Action")
+      Prelude.<$> (x Data..@? "Action")
       Prelude.<*> (x Data..@? "AutoAppliedAfterDate")
+      Prelude.<*> (x Data..@? "CurrentApplyDate")
+      Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "ForcedApplyDate")
+      Prelude.<*> (x Data..@? "OptInStatus")
 
 instance Prelude.Hashable PendingMaintenanceAction where
   hashWithSalt _salt PendingMaintenanceAction' {..} =
-    _salt `Prelude.hashWithSalt` optInStatus
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` currentApplyDate
-      `Prelude.hashWithSalt` action
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` autoAppliedAfterDate
+      `Prelude.hashWithSalt` currentApplyDate
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` forcedApplyDate
+      `Prelude.hashWithSalt` optInStatus
 
 instance Prelude.NFData PendingMaintenanceAction where
   rnf PendingMaintenanceAction' {..} =
-    Prelude.rnf optInStatus
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf currentApplyDate
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf autoAppliedAfterDate
+      `Prelude.seq` Prelude.rnf currentApplyDate
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf forcedApplyDate
+      `Prelude.seq` Prelude.rnf optInStatus

@@ -27,8 +27,8 @@ module Amazonka.Transfer.CreateProfile
     newCreateProfile,
 
     -- * Request Lenses
-    createProfile_tags,
     createProfile_certificateIds,
+    createProfile_tags,
     createProfile_as2Id,
     createProfile_profileType,
 
@@ -52,11 +52,11 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newCreateProfile' smart constructor.
 data CreateProfile = CreateProfile'
-  { -- | Key-value pairs that can be used to group and search for AS2 profiles.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | An array of identifiers for the imported certificates. You use this
+  { -- | An array of identifiers for the imported certificates. You use this
     -- identifier for working with profiles and partner profiles.
     certificateIds :: Prelude.Maybe [Prelude.Text],
+    -- | Key-value pairs that can be used to group and search for AS2 profiles.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The @As2Id@ is the /AS2-name/, as defined in the
     -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
     -- transfers, this is the @AS2-From@ header for the AS2 messages sent from
@@ -84,10 +84,10 @@ data CreateProfile = CreateProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProfile_tags' - Key-value pairs that can be used to group and search for AS2 profiles.
---
 -- 'certificateIds', 'createProfile_certificateIds' - An array of identifiers for the imported certificates. You use this
 -- identifier for working with profiles and partner profiles.
+--
+-- 'tags', 'createProfile_tags' - Key-value pairs that can be used to group and search for AS2 profiles.
 --
 -- 'as2Id', 'createProfile_as2Id' - The @As2Id@ is the /AS2-name/, as defined in the
 -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
@@ -112,20 +112,20 @@ newCreateProfile ::
   CreateProfile
 newCreateProfile pAs2Id_ pProfileType_ =
   CreateProfile'
-    { tags = Prelude.Nothing,
-      certificateIds = Prelude.Nothing,
+    { certificateIds = Prelude.Nothing,
+      tags = Prelude.Nothing,
       as2Id = pAs2Id_,
       profileType = pProfileType_
     }
-
--- | Key-value pairs that can be used to group and search for AS2 profiles.
-createProfile_tags :: Lens.Lens' CreateProfile (Prelude.Maybe (Prelude.NonEmpty Tag))
-createProfile_tags = Lens.lens (\CreateProfile' {tags} -> tags) (\s@CreateProfile' {} a -> s {tags = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of identifiers for the imported certificates. You use this
 -- identifier for working with profiles and partner profiles.
 createProfile_certificateIds :: Lens.Lens' CreateProfile (Prelude.Maybe [Prelude.Text])
 createProfile_certificateIds = Lens.lens (\CreateProfile' {certificateIds} -> certificateIds) (\s@CreateProfile' {} a -> s {certificateIds = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
+
+-- | Key-value pairs that can be used to group and search for AS2 profiles.
+createProfile_tags :: Lens.Lens' CreateProfile (Prelude.Maybe (Prelude.NonEmpty Tag))
+createProfile_tags = Lens.lens (\CreateProfile' {tags} -> tags) (\s@CreateProfile' {} a -> s {tags = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @As2Id@ is the /AS2-name/, as defined in the
 -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
@@ -163,15 +163,15 @@ instance Core.AWSRequest CreateProfile where
 
 instance Prelude.Hashable CreateProfile where
   hashWithSalt _salt CreateProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` certificateIds
+    _salt `Prelude.hashWithSalt` certificateIds
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` as2Id
       `Prelude.hashWithSalt` profileType
 
 instance Prelude.NFData CreateProfile where
   rnf CreateProfile' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf certificateIds
+    Prelude.rnf certificateIds
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf as2Id
       `Prelude.seq` Prelude.rnf profileType
 
@@ -194,9 +194,9 @@ instance Data.ToJSON CreateProfile where
   toJSON CreateProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("CertificateIds" Data..=)
+          [ ("CertificateIds" Data..=)
               Prelude.<$> certificateIds,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("As2Id" Data..= as2Id),
             Prelude.Just ("ProfileType" Data..= profileType)
           ]

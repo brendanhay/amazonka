@@ -18,11 +18,15 @@ module Amazonka.Athena.Types
     defaultService,
 
     -- * Errors
-    _MetadataException,
     _InternalServerException,
-    _ResourceNotFoundException,
-    _TooManyRequestsException,
     _InvalidRequestException,
+    _MetadataException,
+    _ResourceNotFoundException,
+    _SessionAlreadyExistsException,
+    _TooManyRequestsException,
+
+    -- * CalculationExecutionState
+    CalculationExecutionState (..),
 
     -- * ColumnNullable
     ColumnNullable (..),
@@ -33,11 +37,23 @@ module Amazonka.Athena.Types
     -- * EncryptionOption
     EncryptionOption (..),
 
+    -- * ExecutorState
+    ExecutorState (..),
+
+    -- * ExecutorType
+    ExecutorType (..),
+
+    -- * NotebookType
+    NotebookType (..),
+
     -- * QueryExecutionState
     QueryExecutionState (..),
 
     -- * S3AclOption
     S3AclOption (..),
+
+    -- * SessionState
+    SessionState (..),
 
     -- * StatementType
     StatementType (..),
@@ -50,34 +66,79 @@ module Amazonka.Athena.Types
     newAclConfiguration,
     aclConfiguration_s3AclOption,
 
+    -- * ApplicationDPUSizes
+    ApplicationDPUSizes (..),
+    newApplicationDPUSizes,
+    applicationDPUSizes_applicationRuntimeId,
+    applicationDPUSizes_supportedDPUSizes,
+
     -- * AthenaError
     AthenaError (..),
     newAthenaError,
-    athenaError_retryable,
     athenaError_errorCategory,
     athenaError_errorMessage,
     athenaError_errorType,
+    athenaError_retryable,
+
+    -- * CalculationConfiguration
+    CalculationConfiguration (..),
+    newCalculationConfiguration,
+    calculationConfiguration_codeBlock,
+
+    -- * CalculationResult
+    CalculationResult (..),
+    newCalculationResult,
+    calculationResult_resultS3Uri,
+    calculationResult_resultType,
+    calculationResult_stdErrorS3Uri,
+    calculationResult_stdOutS3Uri,
+
+    -- * CalculationStatistics
+    CalculationStatistics (..),
+    newCalculationStatistics,
+    calculationStatistics_dpuExecutionInMillis,
+    calculationStatistics_progress,
+
+    -- * CalculationStatus
+    CalculationStatus (..),
+    newCalculationStatus,
+    calculationStatus_completionDateTime,
+    calculationStatus_state,
+    calculationStatus_stateChangeReason,
+    calculationStatus_submissionDateTime,
+
+    -- * CalculationSummary
+    CalculationSummary (..),
+    newCalculationSummary,
+    calculationSummary_calculationExecutionId,
+    calculationSummary_description,
+    calculationSummary_status,
 
     -- * Column
     Column (..),
     newColumn,
-    column_type,
     column_comment,
+    column_type,
     column_name,
 
     -- * ColumnInfo
     ColumnInfo (..),
     newColumnInfo,
-    columnInfo_tableName,
+    columnInfo_caseSensitive,
     columnInfo_catalogName,
     columnInfo_label,
-    columnInfo_caseSensitive,
-    columnInfo_schemaName,
     columnInfo_nullable,
     columnInfo_precision,
     columnInfo_scale,
+    columnInfo_schemaName,
+    columnInfo_tableName,
     columnInfo_name,
     columnInfo_type,
+
+    -- * CustomerContentEncryptionConfiguration
+    CustomerContentEncryptionConfiguration (..),
+    newCustomerContentEncryptionConfiguration,
+    customerContentEncryptionConfiguration_kmsKey,
 
     -- * DataCatalog
     DataCatalog (..),
@@ -90,8 +151,8 @@ module Amazonka.Athena.Types
     -- * DataCatalogSummary
     DataCatalogSummary (..),
     newDataCatalogSummary,
-    dataCatalogSummary_type,
     dataCatalogSummary_catalogName,
+    dataCatalogSummary_type,
 
     -- * Database
     Database (..),
@@ -111,30 +172,69 @@ module Amazonka.Athena.Types
     encryptionConfiguration_kmsKey,
     encryptionConfiguration_encryptionOption,
 
+    -- * EngineConfiguration
+    EngineConfiguration (..),
+    newEngineConfiguration,
+    engineConfiguration_additionalConfigs,
+    engineConfiguration_coordinatorDpuSize,
+    engineConfiguration_defaultExecutorDpuSize,
+    engineConfiguration_maxConcurrentDpus,
+
     -- * EngineVersion
     EngineVersion (..),
     newEngineVersion,
-    engineVersion_selectedEngineVersion,
     engineVersion_effectiveEngineVersion,
+    engineVersion_selectedEngineVersion,
+
+    -- * ExecutorsSummary
+    ExecutorsSummary (..),
+    newExecutorsSummary,
+    executorsSummary_executorSize,
+    executorsSummary_executorState,
+    executorsSummary_executorType,
+    executorsSummary_startDateTime,
+    executorsSummary_terminationDateTime,
+    executorsSummary_executorId,
+
+    -- * FilterDefinition
+    FilterDefinition (..),
+    newFilterDefinition,
+    filterDefinition_name,
 
     -- * NamedQuery
     NamedQuery (..),
     newNamedQuery,
-    namedQuery_workGroup,
     namedQuery_description,
     namedQuery_namedQueryId,
+    namedQuery_workGroup,
     namedQuery_name,
     namedQuery_database,
     namedQuery_queryString,
 
+    -- * NotebookMetadata
+    NotebookMetadata (..),
+    newNotebookMetadata,
+    notebookMetadata_creationTime,
+    notebookMetadata_lastModifiedTime,
+    notebookMetadata_name,
+    notebookMetadata_notebookId,
+    notebookMetadata_type,
+    notebookMetadata_workGroup,
+
+    -- * NotebookSessionSummary
+    NotebookSessionSummary (..),
+    newNotebookSessionSummary,
+    notebookSessionSummary_creationTime,
+    notebookSessionSummary_sessionId,
+
     -- * PreparedStatement
     PreparedStatement (..),
     newPreparedStatement,
-    preparedStatement_workGroupName,
     preparedStatement_description,
     preparedStatement_lastModifiedTime,
     preparedStatement_queryStatement,
     preparedStatement_statementName,
+    preparedStatement_workGroupName,
 
     -- * PreparedStatementSummary
     PreparedStatementSummary (..),
@@ -145,17 +245,17 @@ module Amazonka.Athena.Types
     -- * QueryExecution
     QueryExecution (..),
     newQueryExecution,
-    queryExecution_resultReuseConfiguration,
-    queryExecution_queryExecutionId,
-    queryExecution_statistics,
-    queryExecution_statementType,
-    queryExecution_workGroup,
-    queryExecution_status,
-    queryExecution_resultConfiguration,
+    queryExecution_engineVersion,
+    queryExecution_executionParameters,
     queryExecution_query,
     queryExecution_queryExecutionContext,
-    queryExecution_executionParameters,
-    queryExecution_engineVersion,
+    queryExecution_queryExecutionId,
+    queryExecution_resultConfiguration,
+    queryExecution_resultReuseConfiguration,
+    queryExecution_statementType,
+    queryExecution_statistics,
+    queryExecution_status,
+    queryExecution_workGroup,
 
     -- * QueryExecutionContext
     QueryExecutionContext (..),
@@ -166,88 +266,88 @@ module Amazonka.Athena.Types
     -- * QueryExecutionStatistics
     QueryExecutionStatistics (..),
     newQueryExecutionStatistics,
+    queryExecutionStatistics_dataManifestLocation,
     queryExecutionStatistics_dataScannedInBytes,
+    queryExecutionStatistics_engineExecutionTimeInMillis,
+    queryExecutionStatistics_queryPlanningTimeInMillis,
     queryExecutionStatistics_queryQueueTimeInMillis,
     queryExecutionStatistics_resultReuseInformation,
     queryExecutionStatistics_serviceProcessingTimeInMillis,
-    queryExecutionStatistics_dataManifestLocation,
     queryExecutionStatistics_totalExecutionTimeInMillis,
-    queryExecutionStatistics_engineExecutionTimeInMillis,
-    queryExecutionStatistics_queryPlanningTimeInMillis,
 
     -- * QueryExecutionStatus
     QueryExecutionStatus (..),
     newQueryExecutionStatus,
-    queryExecutionStatus_stateChangeReason,
-    queryExecutionStatus_submissionDateTime,
-    queryExecutionStatus_state,
     queryExecutionStatus_athenaError,
     queryExecutionStatus_completionDateTime,
+    queryExecutionStatus_state,
+    queryExecutionStatus_stateChangeReason,
+    queryExecutionStatus_submissionDateTime,
 
     -- * QueryRuntimeStatistics
     QueryRuntimeStatistics (..),
     newQueryRuntimeStatistics,
+    queryRuntimeStatistics_outputStage,
     queryRuntimeStatistics_rows,
     queryRuntimeStatistics_timeline,
-    queryRuntimeStatistics_outputStage,
 
     -- * QueryRuntimeStatisticsRows
     QueryRuntimeStatisticsRows (..),
     newQueryRuntimeStatisticsRows,
     queryRuntimeStatisticsRows_inputBytes,
-    queryRuntimeStatisticsRows_outputBytes,
     queryRuntimeStatisticsRows_inputRows,
+    queryRuntimeStatisticsRows_outputBytes,
     queryRuntimeStatisticsRows_outputRows,
 
     -- * QueryRuntimeStatisticsTimeline
     QueryRuntimeStatisticsTimeline (..),
     newQueryRuntimeStatisticsTimeline,
+    queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis,
+    queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis,
     queryRuntimeStatisticsTimeline_queryQueueTimeInMillis,
     queryRuntimeStatisticsTimeline_serviceProcessingTimeInMillis,
     queryRuntimeStatisticsTimeline_totalExecutionTimeInMillis,
-    queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis,
-    queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis,
 
     -- * QueryStage
     QueryStage (..),
     newQueryStage,
-    queryStage_inputBytes,
-    queryStage_outputBytes,
-    queryStage_inputRows,
-    queryStage_queryStagePlan,
-    queryStage_state,
     queryStage_executionTime,
-    queryStage_subStages,
-    queryStage_stageId,
+    queryStage_inputBytes,
+    queryStage_inputRows,
+    queryStage_outputBytes,
     queryStage_outputRows,
+    queryStage_queryStagePlan,
+    queryStage_stageId,
+    queryStage_state,
+    queryStage_subStages,
 
     -- * QueryStagePlanNode
     QueryStagePlanNode (..),
     newQueryStagePlanNode,
-    queryStagePlanNode_name,
-    queryStagePlanNode_remoteSources,
     queryStagePlanNode_children,
     queryStagePlanNode_identifier,
+    queryStagePlanNode_name,
+    queryStagePlanNode_remoteSources,
 
     -- * ResultConfiguration
     ResultConfiguration (..),
     newResultConfiguration,
     resultConfiguration_aclConfiguration,
+    resultConfiguration_encryptionConfiguration,
     resultConfiguration_expectedBucketOwner,
     resultConfiguration_outputLocation,
-    resultConfiguration_encryptionConfiguration,
 
     -- * ResultConfigurationUpdates
     ResultConfigurationUpdates (..),
     newResultConfigurationUpdates,
     resultConfigurationUpdates_aclConfiguration,
-    resultConfigurationUpdates_removeEncryptionConfiguration,
+    resultConfigurationUpdates_encryptionConfiguration,
     resultConfigurationUpdates_expectedBucketOwner,
-    resultConfigurationUpdates_removeAclConfiguration,
     resultConfigurationUpdates_outputLocation,
+    resultConfigurationUpdates_removeAclConfiguration,
+    resultConfigurationUpdates_removeEncryptionConfiguration,
     resultConfigurationUpdates_removeExpectedBucketOwner,
     resultConfigurationUpdates_removeOutputLocation,
-    resultConfigurationUpdates_encryptionConfiguration,
 
     -- * ResultReuseByAgeConfiguration
     ResultReuseByAgeConfiguration (..),
@@ -268,8 +368,8 @@ module Amazonka.Athena.Types
     -- * ResultSet
     ResultSet (..),
     newResultSet,
-    resultSet_rows,
     resultSet_resultSetMetadata,
+    resultSet_rows,
 
     -- * ResultSetMetadata
     ResultSetMetadata (..),
@@ -281,15 +381,47 @@ module Amazonka.Athena.Types
     newRow,
     row_data,
 
+    -- * SessionConfiguration
+    SessionConfiguration (..),
+    newSessionConfiguration,
+    sessionConfiguration_encryptionConfiguration,
+    sessionConfiguration_executionRole,
+    sessionConfiguration_idleTimeoutSeconds,
+    sessionConfiguration_workingDirectory,
+
+    -- * SessionStatistics
+    SessionStatistics (..),
+    newSessionStatistics,
+    sessionStatistics_dpuExecutionInMillis,
+
+    -- * SessionStatus
+    SessionStatus (..),
+    newSessionStatus,
+    sessionStatus_endDateTime,
+    sessionStatus_idleSinceDateTime,
+    sessionStatus_lastModifiedDateTime,
+    sessionStatus_startDateTime,
+    sessionStatus_state,
+    sessionStatus_stateChangeReason,
+
+    -- * SessionSummary
+    SessionSummary (..),
+    newSessionSummary,
+    sessionSummary_description,
+    sessionSummary_engineVersion,
+    sessionSummary_notebookVersion,
+    sessionSummary_sessionId,
+    sessionSummary_status,
+
     -- * TableMetadata
     TableMetadata (..),
     newTableMetadata,
     tableMetadata_columns,
+    tableMetadata_createTime,
     tableMetadata_lastAccessTime,
+    tableMetadata_parameters,
     tableMetadata_partitionKeys,
     tableMetadata_tableType,
-    tableMetadata_createTime,
-    tableMetadata_parameters,
     tableMetadata_name,
 
     -- * Tag
@@ -301,70 +433,85 @@ module Amazonka.Athena.Types
     -- * UnprocessedNamedQueryId
     UnprocessedNamedQueryId (..),
     newUnprocessedNamedQueryId,
-    unprocessedNamedQueryId_errorMessage,
     unprocessedNamedQueryId_errorCode,
+    unprocessedNamedQueryId_errorMessage,
     unprocessedNamedQueryId_namedQueryId,
 
     -- * UnprocessedPreparedStatementName
     UnprocessedPreparedStatementName (..),
     newUnprocessedPreparedStatementName,
-    unprocessedPreparedStatementName_errorMessage,
     unprocessedPreparedStatementName_errorCode,
+    unprocessedPreparedStatementName_errorMessage,
     unprocessedPreparedStatementName_statementName,
 
     -- * UnprocessedQueryExecutionId
     UnprocessedQueryExecutionId (..),
     newUnprocessedQueryExecutionId,
-    unprocessedQueryExecutionId_queryExecutionId,
-    unprocessedQueryExecutionId_errorMessage,
     unprocessedQueryExecutionId_errorCode,
+    unprocessedQueryExecutionId_errorMessage,
+    unprocessedQueryExecutionId_queryExecutionId,
 
     -- * WorkGroup
     WorkGroup (..),
     newWorkGroup,
     workGroup_configuration,
-    workGroup_state,
-    workGroup_description,
     workGroup_creationTime,
+    workGroup_description,
+    workGroup_state,
     workGroup_name,
 
     -- * WorkGroupConfiguration
     WorkGroupConfiguration (..),
     newWorkGroupConfiguration,
-    workGroupConfiguration_publishCloudWatchMetricsEnabled,
-    workGroupConfiguration_enforceWorkGroupConfiguration,
-    workGroupConfiguration_resultConfiguration,
+    workGroupConfiguration_additionalConfiguration,
     workGroupConfiguration_bytesScannedCutoffPerQuery,
-    workGroupConfiguration_requesterPaysEnabled,
+    workGroupConfiguration_customerContentEncryptionConfiguration,
+    workGroupConfiguration_enforceWorkGroupConfiguration,
     workGroupConfiguration_engineVersion,
+    workGroupConfiguration_executionRole,
+    workGroupConfiguration_publishCloudWatchMetricsEnabled,
+    workGroupConfiguration_requesterPaysEnabled,
+    workGroupConfiguration_resultConfiguration,
 
     -- * WorkGroupConfigurationUpdates
     WorkGroupConfigurationUpdates (..),
     newWorkGroupConfigurationUpdates,
-    workGroupConfigurationUpdates_resultConfigurationUpdates,
-    workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled,
-    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
-    workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery,
+    workGroupConfigurationUpdates_additionalConfiguration,
     workGroupConfigurationUpdates_bytesScannedCutoffPerQuery,
-    workGroupConfigurationUpdates_requesterPaysEnabled,
+    workGroupConfigurationUpdates_customerContentEncryptionConfiguration,
+    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
     workGroupConfigurationUpdates_engineVersion,
+    workGroupConfigurationUpdates_executionRole,
+    workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled,
+    workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery,
+    workGroupConfigurationUpdates_removeCustomerContentEncryptionConfiguration,
+    workGroupConfigurationUpdates_requesterPaysEnabled,
+    workGroupConfigurationUpdates_resultConfigurationUpdates,
 
     -- * WorkGroupSummary
     WorkGroupSummary (..),
     newWorkGroupSummary,
+    workGroupSummary_creationTime,
+    workGroupSummary_description,
+    workGroupSummary_engineVersion,
     workGroupSummary_name,
     workGroupSummary_state,
-    workGroupSummary_description,
-    workGroupSummary_creationTime,
-    workGroupSummary_engineVersion,
   )
 where
 
 import Amazonka.Athena.Types.AclConfiguration
+import Amazonka.Athena.Types.ApplicationDPUSizes
 import Amazonka.Athena.Types.AthenaError
+import Amazonka.Athena.Types.CalculationConfiguration
+import Amazonka.Athena.Types.CalculationExecutionState
+import Amazonka.Athena.Types.CalculationResult
+import Amazonka.Athena.Types.CalculationStatistics
+import Amazonka.Athena.Types.CalculationStatus
+import Amazonka.Athena.Types.CalculationSummary
 import Amazonka.Athena.Types.Column
 import Amazonka.Athena.Types.ColumnInfo
 import Amazonka.Athena.Types.ColumnNullable
+import Amazonka.Athena.Types.CustomerContentEncryptionConfiguration
 import Amazonka.Athena.Types.DataCatalog
 import Amazonka.Athena.Types.DataCatalogSummary
 import Amazonka.Athena.Types.DataCatalogType
@@ -372,8 +519,16 @@ import Amazonka.Athena.Types.Database
 import Amazonka.Athena.Types.Datum
 import Amazonka.Athena.Types.EncryptionConfiguration
 import Amazonka.Athena.Types.EncryptionOption
+import Amazonka.Athena.Types.EngineConfiguration
 import Amazonka.Athena.Types.EngineVersion
+import Amazonka.Athena.Types.ExecutorState
+import Amazonka.Athena.Types.ExecutorType
+import Amazonka.Athena.Types.ExecutorsSummary
+import Amazonka.Athena.Types.FilterDefinition
 import Amazonka.Athena.Types.NamedQuery
+import Amazonka.Athena.Types.NotebookMetadata
+import Amazonka.Athena.Types.NotebookSessionSummary
+import Amazonka.Athena.Types.NotebookType
 import Amazonka.Athena.Types.PreparedStatement
 import Amazonka.Athena.Types.PreparedStatementSummary
 import Amazonka.Athena.Types.QueryExecution
@@ -395,6 +550,11 @@ import Amazonka.Athena.Types.ResultSet
 import Amazonka.Athena.Types.ResultSetMetadata
 import Amazonka.Athena.Types.Row
 import Amazonka.Athena.Types.S3AclOption
+import Amazonka.Athena.Types.SessionConfiguration
+import Amazonka.Athena.Types.SessionState
+import Amazonka.Athena.Types.SessionStatistics
+import Amazonka.Athena.Types.SessionStatus
+import Amazonka.Athena.Types.SessionSummary
 import Amazonka.Athena.Types.StatementType
 import Amazonka.Athena.Types.TableMetadata
 import Amazonka.Athena.Types.Tag
@@ -436,28 +596,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -465,13 +619,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -479,7 +637,25 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Indicates a platform issue, which may be due to a transient condition or
+-- outage.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+
+-- | Indicates that something is wrong with the input to the request. For
+-- example, a required parameter may be missing or out of range.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
 
 -- | An exception that Athena received when it called a custom metastore.
 -- Occurs if the error is not caused by user input
@@ -493,14 +669,6 @@ _MetadataException =
     defaultService
     "MetadataException"
 
--- | Indicates a platform issue, which may be due to a transient condition or
--- outage.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-
 -- | A resource, such as a workgroup, was not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -508,17 +676,16 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
 
+-- | The specified session already exists.
+_SessionAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SessionAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "SessionAlreadyExistsException"
+
 -- | Indicates that the request was throttled.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
     "TooManyRequestsException"
-
--- | Indicates that something is wrong with the input to the request. For
--- example, a required parameter may be missing or out of range.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"

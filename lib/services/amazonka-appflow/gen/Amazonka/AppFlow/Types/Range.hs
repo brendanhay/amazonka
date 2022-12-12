@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRange' smart constructor.
 data Range = Range'
-  { -- | Minimum value supported by the field.
-    minimum :: Prelude.Maybe Prelude.Double,
-    -- | Maximum value supported by the field.
-    maximum :: Prelude.Maybe Prelude.Double
+  { -- | Maximum value supported by the field.
+    maximum :: Prelude.Maybe Prelude.Double,
+    -- | Minimum value supported by the field.
+    minimum :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Range = Range'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minimum', 'range_minimum' - Minimum value supported by the field.
---
 -- 'maximum', 'range_maximum' - Maximum value supported by the field.
+--
+-- 'minimum', 'range_minimum' - Minimum value supported by the field.
 newRange ::
   Range
 newRange =
   Range'
-    { minimum = Prelude.Nothing,
-      maximum = Prelude.Nothing
+    { maximum = Prelude.Nothing,
+      minimum = Prelude.Nothing
     }
-
--- | Minimum value supported by the field.
-range_minimum :: Lens.Lens' Range (Prelude.Maybe Prelude.Double)
-range_minimum = Lens.lens (\Range' {minimum} -> minimum) (\s@Range' {} a -> s {minimum = a} :: Range)
 
 -- | Maximum value supported by the field.
 range_maximum :: Lens.Lens' Range (Prelude.Maybe Prelude.Double)
 range_maximum = Lens.lens (\Range' {maximum} -> maximum) (\s@Range' {} a -> s {maximum = a} :: Range)
+
+-- | Minimum value supported by the field.
+range_minimum :: Lens.Lens' Range (Prelude.Maybe Prelude.Double)
+range_minimum = Lens.lens (\Range' {minimum} -> minimum) (\s@Range' {} a -> s {minimum = a} :: Range)
 
 instance Data.FromJSON Range where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON Range where
       "Range"
       ( \x ->
           Range'
-            Prelude.<$> (x Data..:? "minimum")
-            Prelude.<*> (x Data..:? "maximum")
+            Prelude.<$> (x Data..:? "maximum")
+            Prelude.<*> (x Data..:? "minimum")
       )
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =
-    _salt `Prelude.hashWithSalt` minimum
-      `Prelude.hashWithSalt` maximum
+    _salt `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` minimum
 
 instance Prelude.NFData Range where
   rnf Range' {..} =
-    Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf maximum
+    Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf minimum

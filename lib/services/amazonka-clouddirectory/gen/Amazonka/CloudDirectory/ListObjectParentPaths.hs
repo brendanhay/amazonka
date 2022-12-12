@@ -40,8 +40,8 @@ module Amazonka.CloudDirectory.ListObjectParentPaths
     newListObjectParentPaths,
 
     -- * Request Lenses
-    listObjectParentPaths_nextToken,
     listObjectParentPaths_maxResults,
+    listObjectParentPaths_nextToken,
     listObjectParentPaths_directoryArn,
     listObjectParentPaths_objectReference,
 
@@ -66,11 +66,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListObjectParentPaths' smart constructor.
 data ListObjectParentPaths = ListObjectParentPaths'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to be retrieved in a single call. This is an
+  { -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the directory to which the parent path applies.
     directoryArn :: Prelude.Text,
     -- | The reference that identifies the object whose parent paths are listed.
@@ -86,10 +86,10 @@ data ListObjectParentPaths = ListObjectParentPaths'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listObjectParentPaths_nextToken' - The pagination token.
---
 -- 'maxResults', 'listObjectParentPaths_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
+--
+-- 'nextToken', 'listObjectParentPaths_nextToken' - The pagination token.
 --
 -- 'directoryArn', 'listObjectParentPaths_directoryArn' - The ARN of the directory to which the parent path applies.
 --
@@ -104,20 +104,21 @@ newListObjectParentPaths
   pDirectoryArn_
   pObjectReference_ =
     ListObjectParentPaths'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults =
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
-
--- | The pagination token.
-listObjectParentPaths_nextToken :: Lens.Lens' ListObjectParentPaths (Prelude.Maybe Prelude.Text)
-listObjectParentPaths_nextToken = Lens.lens (\ListObjectParentPaths' {nextToken} -> nextToken) (\s@ListObjectParentPaths' {} a -> s {nextToken = a} :: ListObjectParentPaths)
 
 -- | The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
 listObjectParentPaths_maxResults :: Lens.Lens' ListObjectParentPaths (Prelude.Maybe Prelude.Natural)
 listObjectParentPaths_maxResults = Lens.lens (\ListObjectParentPaths' {maxResults} -> maxResults) (\s@ListObjectParentPaths' {} a -> s {maxResults = a} :: ListObjectParentPaths)
+
+-- | The pagination token.
+listObjectParentPaths_nextToken :: Lens.Lens' ListObjectParentPaths (Prelude.Maybe Prelude.Text)
+listObjectParentPaths_nextToken = Lens.lens (\ListObjectParentPaths' {nextToken} -> nextToken) (\s@ListObjectParentPaths' {} a -> s {nextToken = a} :: ListObjectParentPaths)
 
 -- | The ARN of the directory to which the parent path applies.
 listObjectParentPaths_directoryArn :: Lens.Lens' ListObjectParentPaths Prelude.Text
@@ -168,15 +169,15 @@ instance Core.AWSRequest ListObjectParentPaths where
 
 instance Prelude.Hashable ListObjectParentPaths where
   hashWithSalt _salt ListObjectParentPaths' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData ListObjectParentPaths where
   rnf ListObjectParentPaths' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
@@ -189,8 +190,8 @@ instance Data.ToJSON ListObjectParentPaths where
   toJSON ListObjectParentPaths' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ObjectReference" Data..= objectReference)
           ]

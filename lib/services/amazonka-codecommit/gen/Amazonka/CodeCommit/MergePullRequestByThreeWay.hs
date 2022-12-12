@@ -30,14 +30,14 @@ module Amazonka.CodeCommit.MergePullRequestByThreeWay
     newMergePullRequestByThreeWay,
 
     -- * Request Lenses
-    mergePullRequestByThreeWay_keepEmptyFolders,
-    mergePullRequestByThreeWay_conflictResolution,
-    mergePullRequestByThreeWay_email,
-    mergePullRequestByThreeWay_sourceCommitId,
     mergePullRequestByThreeWay_authorName,
     mergePullRequestByThreeWay_commitMessage,
-    mergePullRequestByThreeWay_conflictResolutionStrategy,
     mergePullRequestByThreeWay_conflictDetailLevel,
+    mergePullRequestByThreeWay_conflictResolution,
+    mergePullRequestByThreeWay_conflictResolutionStrategy,
+    mergePullRequestByThreeWay_email,
+    mergePullRequestByThreeWay_keepEmptyFolders,
+    mergePullRequestByThreeWay_sourceCommitId,
     mergePullRequestByThreeWay_pullRequestId,
     mergePullRequestByThreeWay_repositoryName,
 
@@ -61,37 +61,37 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newMergePullRequestByThreeWay' smart constructor.
 data MergePullRequestByThreeWay = MergePullRequestByThreeWay'
-  { -- | If the commit contains deletions, whether to keep a folder or folder
-    -- structure if the changes leave the folders empty. If true, a .gitkeep
-    -- file is created for empty folders. The default is false.
-    keepEmptyFolders :: Prelude.Maybe Prelude.Bool,
-    -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
-    -- use when resolving conflicts during a merge.
-    conflictResolution :: Prelude.Maybe ConflictResolution,
-    -- | The email address of the person merging the branches. This information
-    -- is used in the commit information for the merge.
-    email :: Prelude.Maybe Prelude.Text,
-    -- | The full commit ID of the original or updated commit in the pull request
-    -- source branch. Pass this value if you want an exception thrown if the
-    -- current commit ID of the tip of the source branch does not match this
-    -- commit ID.
-    sourceCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the author who created the commit. This information is used
+  { -- | The name of the author who created the commit. This information is used
     -- as both the author and committer for the commit.
     authorName :: Prelude.Maybe Prelude.Text,
     -- | The commit message to include in the commit information for the merge.
     commitMessage :: Prelude.Maybe Prelude.Text,
-    -- | Specifies which branch to use when resolving conflicts, or whether to
-    -- attempt automatically merging two versions of a file. The default is
-    -- NONE, which requires any conflicts to be resolved manually before the
-    -- merge operation is successful.
-    conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
     -- | The level of conflict detail to use. If unspecified, the default
     -- FILE_LEVEL is used, which returns a not-mergeable result if the same
     -- file has differences in both branches. If LINE_LEVEL is specified, a
     -- conflict is considered not mergeable if the same file in both branches
     -- has differences on the same line.
     conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
+    -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
+    -- use when resolving conflicts during a merge.
+    conflictResolution :: Prelude.Maybe ConflictResolution,
+    -- | Specifies which branch to use when resolving conflicts, or whether to
+    -- attempt automatically merging two versions of a file. The default is
+    -- NONE, which requires any conflicts to be resolved manually before the
+    -- merge operation is successful.
+    conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
+    -- | The email address of the person merging the branches. This information
+    -- is used in the commit information for the merge.
+    email :: Prelude.Maybe Prelude.Text,
+    -- | If the commit contains deletions, whether to keep a folder or folder
+    -- structure if the changes leave the folders empty. If true, a .gitkeep
+    -- file is created for empty folders. The default is false.
+    keepEmptyFolders :: Prelude.Maybe Prelude.Bool,
+    -- | The full commit ID of the original or updated commit in the pull request
+    -- source branch. Pass this value if you want an exception thrown if the
+    -- current commit ID of the tip of the source branch does not match this
+    -- commit ID.
+    sourceCommitId :: Prelude.Maybe Prelude.Text,
     -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
     pullRequestId :: Prelude.Text,
@@ -108,36 +108,36 @@ data MergePullRequestByThreeWay = MergePullRequestByThreeWay'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keepEmptyFolders', 'mergePullRequestByThreeWay_keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder
--- structure if the changes leave the folders empty. If true, a .gitkeep
--- file is created for empty folders. The default is false.
---
--- 'conflictResolution', 'mergePullRequestByThreeWay_conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to
--- use when resolving conflicts during a merge.
---
--- 'email', 'mergePullRequestByThreeWay_email' - The email address of the person merging the branches. This information
--- is used in the commit information for the merge.
---
--- 'sourceCommitId', 'mergePullRequestByThreeWay_sourceCommitId' - The full commit ID of the original or updated commit in the pull request
--- source branch. Pass this value if you want an exception thrown if the
--- current commit ID of the tip of the source branch does not match this
--- commit ID.
---
 -- 'authorName', 'mergePullRequestByThreeWay_authorName' - The name of the author who created the commit. This information is used
 -- as both the author and committer for the commit.
 --
 -- 'commitMessage', 'mergePullRequestByThreeWay_commitMessage' - The commit message to include in the commit information for the merge.
---
--- 'conflictResolutionStrategy', 'mergePullRequestByThreeWay_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
--- attempt automatically merging two versions of a file. The default is
--- NONE, which requires any conflicts to be resolved manually before the
--- merge operation is successful.
 --
 -- 'conflictDetailLevel', 'mergePullRequestByThreeWay_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default
 -- FILE_LEVEL is used, which returns a not-mergeable result if the same
 -- file has differences in both branches. If LINE_LEVEL is specified, a
 -- conflict is considered not mergeable if the same file in both branches
 -- has differences on the same line.
+--
+-- 'conflictResolution', 'mergePullRequestByThreeWay_conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to
+-- use when resolving conflicts during a merge.
+--
+-- 'conflictResolutionStrategy', 'mergePullRequestByThreeWay_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
+-- attempt automatically merging two versions of a file. The default is
+-- NONE, which requires any conflicts to be resolved manually before the
+-- merge operation is successful.
+--
+-- 'email', 'mergePullRequestByThreeWay_email' - The email address of the person merging the branches. This information
+-- is used in the commit information for the merge.
+--
+-- 'keepEmptyFolders', 'mergePullRequestByThreeWay_keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder
+-- structure if the changes leave the folders empty. If true, a .gitkeep
+-- file is created for empty folders. The default is false.
+--
+-- 'sourceCommitId', 'mergePullRequestByThreeWay_sourceCommitId' - The full commit ID of the original or updated commit in the pull request
+-- source branch. Pass this value if you want an exception thrown if the
+-- current commit ID of the tip of the source branch does not match this
+-- commit ID.
 --
 -- 'pullRequestId', 'mergePullRequestByThreeWay_pullRequestId' - The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -153,41 +153,18 @@ newMergePullRequestByThreeWay
   pPullRequestId_
   pRepositoryName_ =
     MergePullRequestByThreeWay'
-      { keepEmptyFolders =
+      { authorName =
           Prelude.Nothing,
-        conflictResolution = Prelude.Nothing,
-        email = Prelude.Nothing,
-        sourceCommitId = Prelude.Nothing,
-        authorName = Prelude.Nothing,
         commitMessage = Prelude.Nothing,
-        conflictResolutionStrategy = Prelude.Nothing,
         conflictDetailLevel = Prelude.Nothing,
+        conflictResolution = Prelude.Nothing,
+        conflictResolutionStrategy = Prelude.Nothing,
+        email = Prelude.Nothing,
+        keepEmptyFolders = Prelude.Nothing,
+        sourceCommitId = Prelude.Nothing,
         pullRequestId = pPullRequestId_,
         repositoryName = pRepositoryName_
       }
-
--- | If the commit contains deletions, whether to keep a folder or folder
--- structure if the changes leave the folders empty. If true, a .gitkeep
--- file is created for empty folders. The default is false.
-mergePullRequestByThreeWay_keepEmptyFolders :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe Prelude.Bool)
-mergePullRequestByThreeWay_keepEmptyFolders = Lens.lens (\MergePullRequestByThreeWay' {keepEmptyFolders} -> keepEmptyFolders) (\s@MergePullRequestByThreeWay' {} a -> s {keepEmptyFolders = a} :: MergePullRequestByThreeWay)
-
--- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
--- use when resolving conflicts during a merge.
-mergePullRequestByThreeWay_conflictResolution :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe ConflictResolution)
-mergePullRequestByThreeWay_conflictResolution = Lens.lens (\MergePullRequestByThreeWay' {conflictResolution} -> conflictResolution) (\s@MergePullRequestByThreeWay' {} a -> s {conflictResolution = a} :: MergePullRequestByThreeWay)
-
--- | The email address of the person merging the branches. This information
--- is used in the commit information for the merge.
-mergePullRequestByThreeWay_email :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe Prelude.Text)
-mergePullRequestByThreeWay_email = Lens.lens (\MergePullRequestByThreeWay' {email} -> email) (\s@MergePullRequestByThreeWay' {} a -> s {email = a} :: MergePullRequestByThreeWay)
-
--- | The full commit ID of the original or updated commit in the pull request
--- source branch. Pass this value if you want an exception thrown if the
--- current commit ID of the tip of the source branch does not match this
--- commit ID.
-mergePullRequestByThreeWay_sourceCommitId :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe Prelude.Text)
-mergePullRequestByThreeWay_sourceCommitId = Lens.lens (\MergePullRequestByThreeWay' {sourceCommitId} -> sourceCommitId) (\s@MergePullRequestByThreeWay' {} a -> s {sourceCommitId = a} :: MergePullRequestByThreeWay)
 
 -- | The name of the author who created the commit. This information is used
 -- as both the author and committer for the commit.
@@ -198,13 +175,6 @@ mergePullRequestByThreeWay_authorName = Lens.lens (\MergePullRequestByThreeWay' 
 mergePullRequestByThreeWay_commitMessage :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe Prelude.Text)
 mergePullRequestByThreeWay_commitMessage = Lens.lens (\MergePullRequestByThreeWay' {commitMessage} -> commitMessage) (\s@MergePullRequestByThreeWay' {} a -> s {commitMessage = a} :: MergePullRequestByThreeWay)
 
--- | Specifies which branch to use when resolving conflicts, or whether to
--- attempt automatically merging two versions of a file. The default is
--- NONE, which requires any conflicts to be resolved manually before the
--- merge operation is successful.
-mergePullRequestByThreeWay_conflictResolutionStrategy :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
-mergePullRequestByThreeWay_conflictResolutionStrategy = Lens.lens (\MergePullRequestByThreeWay' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@MergePullRequestByThreeWay' {} a -> s {conflictResolutionStrategy = a} :: MergePullRequestByThreeWay)
-
 -- | The level of conflict detail to use. If unspecified, the default
 -- FILE_LEVEL is used, which returns a not-mergeable result if the same
 -- file has differences in both branches. If LINE_LEVEL is specified, a
@@ -212,6 +182,36 @@ mergePullRequestByThreeWay_conflictResolutionStrategy = Lens.lens (\MergePullReq
 -- has differences on the same line.
 mergePullRequestByThreeWay_conflictDetailLevel :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe ConflictDetailLevelTypeEnum)
 mergePullRequestByThreeWay_conflictDetailLevel = Lens.lens (\MergePullRequestByThreeWay' {conflictDetailLevel} -> conflictDetailLevel) (\s@MergePullRequestByThreeWay' {} a -> s {conflictDetailLevel = a} :: MergePullRequestByThreeWay)
+
+-- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
+-- use when resolving conflicts during a merge.
+mergePullRequestByThreeWay_conflictResolution :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe ConflictResolution)
+mergePullRequestByThreeWay_conflictResolution = Lens.lens (\MergePullRequestByThreeWay' {conflictResolution} -> conflictResolution) (\s@MergePullRequestByThreeWay' {} a -> s {conflictResolution = a} :: MergePullRequestByThreeWay)
+
+-- | Specifies which branch to use when resolving conflicts, or whether to
+-- attempt automatically merging two versions of a file. The default is
+-- NONE, which requires any conflicts to be resolved manually before the
+-- merge operation is successful.
+mergePullRequestByThreeWay_conflictResolutionStrategy :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
+mergePullRequestByThreeWay_conflictResolutionStrategy = Lens.lens (\MergePullRequestByThreeWay' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@MergePullRequestByThreeWay' {} a -> s {conflictResolutionStrategy = a} :: MergePullRequestByThreeWay)
+
+-- | The email address of the person merging the branches. This information
+-- is used in the commit information for the merge.
+mergePullRequestByThreeWay_email :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe Prelude.Text)
+mergePullRequestByThreeWay_email = Lens.lens (\MergePullRequestByThreeWay' {email} -> email) (\s@MergePullRequestByThreeWay' {} a -> s {email = a} :: MergePullRequestByThreeWay)
+
+-- | If the commit contains deletions, whether to keep a folder or folder
+-- structure if the changes leave the folders empty. If true, a .gitkeep
+-- file is created for empty folders. The default is false.
+mergePullRequestByThreeWay_keepEmptyFolders :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe Prelude.Bool)
+mergePullRequestByThreeWay_keepEmptyFolders = Lens.lens (\MergePullRequestByThreeWay' {keepEmptyFolders} -> keepEmptyFolders) (\s@MergePullRequestByThreeWay' {} a -> s {keepEmptyFolders = a} :: MergePullRequestByThreeWay)
+
+-- | The full commit ID of the original or updated commit in the pull request
+-- source branch. Pass this value if you want an exception thrown if the
+-- current commit ID of the tip of the source branch does not match this
+-- commit ID.
+mergePullRequestByThreeWay_sourceCommitId :: Lens.Lens' MergePullRequestByThreeWay (Prelude.Maybe Prelude.Text)
+mergePullRequestByThreeWay_sourceCommitId = Lens.lens (\MergePullRequestByThreeWay' {sourceCommitId} -> sourceCommitId) (\s@MergePullRequestByThreeWay' {} a -> s {sourceCommitId = a} :: MergePullRequestByThreeWay)
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -238,27 +238,27 @@ instance Core.AWSRequest MergePullRequestByThreeWay where
 
 instance Prelude.Hashable MergePullRequestByThreeWay where
   hashWithSalt _salt MergePullRequestByThreeWay' {..} =
-    _salt `Prelude.hashWithSalt` keepEmptyFolders
-      `Prelude.hashWithSalt` conflictResolution
-      `Prelude.hashWithSalt` email
-      `Prelude.hashWithSalt` sourceCommitId
-      `Prelude.hashWithSalt` authorName
+    _salt `Prelude.hashWithSalt` authorName
       `Prelude.hashWithSalt` commitMessage
-      `Prelude.hashWithSalt` conflictResolutionStrategy
       `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` conflictResolution
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` keepEmptyFolders
+      `Prelude.hashWithSalt` sourceCommitId
       `Prelude.hashWithSalt` pullRequestId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData MergePullRequestByThreeWay where
   rnf MergePullRequestByThreeWay' {..} =
-    Prelude.rnf keepEmptyFolders
-      `Prelude.seq` Prelude.rnf conflictResolution
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf sourceCommitId
-      `Prelude.seq` Prelude.rnf authorName
+    Prelude.rnf authorName
       `Prelude.seq` Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
       `Prelude.seq` Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf conflictResolution
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf keepEmptyFolders
+      `Prelude.seq` Prelude.rnf sourceCommitId
       `Prelude.seq` Prelude.rnf pullRequestId
       `Prelude.seq` Prelude.rnf repositoryName
 
@@ -281,19 +281,19 @@ instance Data.ToJSON MergePullRequestByThreeWay where
   toJSON MergePullRequestByThreeWay' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("keepEmptyFolders" Data..=)
-              Prelude.<$> keepEmptyFolders,
-            ("conflictResolution" Data..=)
-              Prelude.<$> conflictResolution,
-            ("email" Data..=) Prelude.<$> email,
-            ("sourceCommitId" Data..=)
-              Prelude.<$> sourceCommitId,
-            ("authorName" Data..=) Prelude.<$> authorName,
+          [ ("authorName" Data..=) Prelude.<$> authorName,
             ("commitMessage" Data..=) Prelude.<$> commitMessage,
-            ("conflictResolutionStrategy" Data..=)
-              Prelude.<$> conflictResolutionStrategy,
             ("conflictDetailLevel" Data..=)
               Prelude.<$> conflictDetailLevel,
+            ("conflictResolution" Data..=)
+              Prelude.<$> conflictResolution,
+            ("conflictResolutionStrategy" Data..=)
+              Prelude.<$> conflictResolutionStrategy,
+            ("email" Data..=) Prelude.<$> email,
+            ("keepEmptyFolders" Data..=)
+              Prelude.<$> keepEmptyFolders,
+            ("sourceCommitId" Data..=)
+              Prelude.<$> sourceCommitId,
             Prelude.Just ("pullRequestId" Data..= pullRequestId),
             Prelude.Just
               ("repositoryName" Data..= repositoryName)

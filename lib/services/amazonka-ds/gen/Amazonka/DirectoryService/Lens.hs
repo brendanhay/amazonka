@@ -42,9 +42,9 @@ module Amazonka.DirectoryService.Lens
     cancelSchemaExtensionResponse_httpStatus,
 
     -- ** ConnectDirectory
-    connectDirectory_tags,
     connectDirectory_description,
     connectDirectory_shortName,
+    connectDirectory_tags,
     connectDirectory_name,
     connectDirectory_password,
     connectDirectory_size,
@@ -75,10 +75,10 @@ module Amazonka.DirectoryService.Lens
     createConditionalForwarderResponse_httpStatus,
 
     -- ** CreateDirectory
-    createDirectory_tags,
-    createDirectory_vpcSettings,
     createDirectory_description,
     createDirectory_shortName,
+    createDirectory_tags,
+    createDirectory_vpcSettings,
     createDirectory_name,
     createDirectory_password,
     createDirectory_size,
@@ -91,10 +91,10 @@ module Amazonka.DirectoryService.Lens
     createLogSubscriptionResponse_httpStatus,
 
     -- ** CreateMicrosoftAD
-    createMicrosoftAD_tags,
-    createMicrosoftAD_edition,
     createMicrosoftAD_description,
+    createMicrosoftAD_edition,
     createMicrosoftAD_shortName,
+    createMicrosoftAD_tags,
     createMicrosoftAD_name,
     createMicrosoftAD_password,
     createMicrosoftAD_vpcSettings,
@@ -108,9 +108,9 @@ module Amazonka.DirectoryService.Lens
     createSnapshotResponse_httpStatus,
 
     -- ** CreateTrust
-    createTrust_trustType,
-    createTrust_selectiveAuth,
     createTrust_conditionalForwarderIpAddrs,
+    createTrust_selectiveAuth,
+    createTrust_trustType,
     createTrust_directoryId,
     createTrust_remoteDomainName,
     createTrust_trustPassword,
@@ -160,12 +160,12 @@ module Amazonka.DirectoryService.Lens
     describeCertificateResponse_httpStatus,
 
     -- ** DescribeClientAuthenticationSettings
+    describeClientAuthenticationSettings_limit,
     describeClientAuthenticationSettings_nextToken,
     describeClientAuthenticationSettings_type,
-    describeClientAuthenticationSettings_limit,
     describeClientAuthenticationSettings_directoryId,
-    describeClientAuthenticationSettingsResponse_nextToken,
     describeClientAuthenticationSettingsResponse_clientAuthenticationSettingsInfo,
+    describeClientAuthenticationSettingsResponse_nextToken,
     describeClientAuthenticationSettingsResponse_httpStatus,
 
     -- ** DescribeConditionalForwarders
@@ -175,20 +175,20 @@ module Amazonka.DirectoryService.Lens
     describeConditionalForwardersResponse_httpStatus,
 
     -- ** DescribeDirectories
-    describeDirectories_nextToken,
     describeDirectories_directoryIds,
     describeDirectories_limit,
-    describeDirectoriesResponse_nextToken,
+    describeDirectories_nextToken,
     describeDirectoriesResponse_directoryDescriptions,
+    describeDirectoriesResponse_nextToken,
     describeDirectoriesResponse_httpStatus,
 
     -- ** DescribeDomainControllers
-    describeDomainControllers_nextToken,
-    describeDomainControllers_limit,
     describeDomainControllers_domainControllerIds,
+    describeDomainControllers_limit,
+    describeDomainControllers_nextToken,
     describeDomainControllers_directoryId,
-    describeDomainControllersResponse_nextToken,
     describeDomainControllersResponse_domainControllers,
+    describeDomainControllersResponse_nextToken,
     describeDomainControllersResponse_httpStatus,
 
     -- ** DescribeEventTopics
@@ -198,9 +198,9 @@ module Amazonka.DirectoryService.Lens
     describeEventTopicsResponse_httpStatus,
 
     -- ** DescribeLDAPSSettings
+    describeLDAPSSettings_limit,
     describeLDAPSSettings_nextToken,
     describeLDAPSSettings_type,
-    describeLDAPSSettings_limit,
     describeLDAPSSettings_directoryId,
     describeLDAPSSettingsResponse_lDAPSSettingsInfo,
     describeLDAPSSettingsResponse_nextToken,
@@ -224,8 +224,8 @@ module Amazonka.DirectoryService.Lens
     describeSettingsResponse_httpStatus,
 
     -- ** DescribeSharedDirectories
-    describeSharedDirectories_nextToken,
     describeSharedDirectories_limit,
+    describeSharedDirectories_nextToken,
     describeSharedDirectories_sharedDirectoryIds,
     describeSharedDirectories_ownerDirectoryId,
     describeSharedDirectoriesResponse_nextToken,
@@ -234,18 +234,18 @@ module Amazonka.DirectoryService.Lens
 
     -- ** DescribeSnapshots
     describeSnapshots_directoryId,
+    describeSnapshots_limit,
     describeSnapshots_nextToken,
     describeSnapshots_snapshotIds,
-    describeSnapshots_limit,
     describeSnapshotsResponse_nextToken,
     describeSnapshotsResponse_snapshots,
     describeSnapshotsResponse_httpStatus,
 
     -- ** DescribeTrusts
     describeTrusts_directoryId,
+    describeTrusts_limit,
     describeTrusts_nextToken,
     describeTrusts_trustIds,
-    describeTrusts_limit,
     describeTrustsResponse_nextToken,
     describeTrustsResponse_trusts,
     describeTrustsResponse_httpStatus,
@@ -310,48 +310,48 @@ module Amazonka.DirectoryService.Lens
     getSnapshotLimitsResponse_httpStatus,
 
     -- ** ListCertificates
-    listCertificates_nextToken,
     listCertificates_limit,
+    listCertificates_nextToken,
     listCertificates_directoryId,
-    listCertificatesResponse_nextToken,
     listCertificatesResponse_certificatesInfo,
+    listCertificatesResponse_nextToken,
     listCertificatesResponse_httpStatus,
 
     -- ** ListIpRoutes
-    listIpRoutes_nextToken,
     listIpRoutes_limit,
+    listIpRoutes_nextToken,
     listIpRoutes_directoryId,
-    listIpRoutesResponse_nextToken,
     listIpRoutesResponse_ipRoutesInfo,
+    listIpRoutesResponse_nextToken,
     listIpRoutesResponse_httpStatus,
 
     -- ** ListLogSubscriptions
     listLogSubscriptions_directoryId,
-    listLogSubscriptions_nextToken,
     listLogSubscriptions_limit,
-    listLogSubscriptionsResponse_nextToken,
+    listLogSubscriptions_nextToken,
     listLogSubscriptionsResponse_logSubscriptions,
+    listLogSubscriptionsResponse_nextToken,
     listLogSubscriptionsResponse_httpStatus,
 
     -- ** ListSchemaExtensions
-    listSchemaExtensions_nextToken,
     listSchemaExtensions_limit,
+    listSchemaExtensions_nextToken,
     listSchemaExtensions_directoryId,
     listSchemaExtensionsResponse_nextToken,
     listSchemaExtensionsResponse_schemaExtensionsInfo,
     listSchemaExtensionsResponse_httpStatus,
 
     -- ** ListTagsForResource
-    listTagsForResource_nextToken,
     listTagsForResource_limit,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceId,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** RegisterCertificate
-    registerCertificate_type,
     registerCertificate_clientCertAuthSettings,
+    registerCertificate_type,
     registerCertificate_directoryId,
     registerCertificate_certificateData,
     registerCertificateResponse_certificateId,
@@ -445,8 +445,8 @@ module Amazonka.DirectoryService.Lens
     -- ** UpdateTrust
     updateTrust_selectiveAuth,
     updateTrust_trustId,
-    updateTrustResponse_trustId,
     updateTrustResponse_requestId,
+    updateTrustResponse_trustId,
     updateTrustResponse_httpStatus,
 
     -- ** VerifyTrust
@@ -461,39 +461,39 @@ module Amazonka.DirectoryService.Lens
     attribute_value,
 
     -- ** Certificate
-    certificate_type,
+    certificate_certificateId,
+    certificate_clientCertAuthSettings,
+    certificate_commonName,
+    certificate_expiryDateTime,
     certificate_registeredDateTime,
     certificate_state,
-    certificate_certificateId,
-    certificate_commonName,
     certificate_stateReason,
-    certificate_clientCertAuthSettings,
-    certificate_expiryDateTime,
+    certificate_type,
 
     -- ** CertificateInfo
-    certificateInfo_type,
-    certificateInfo_state,
     certificateInfo_certificateId,
     certificateInfo_commonName,
     certificateInfo_expiryDateTime,
+    certificateInfo_state,
+    certificateInfo_type,
 
     -- ** ClientAuthenticationSettingInfo
-    clientAuthenticationSettingInfo_type,
-    clientAuthenticationSettingInfo_status,
     clientAuthenticationSettingInfo_lastUpdatedDateTime,
+    clientAuthenticationSettingInfo_status,
+    clientAuthenticationSettingInfo_type,
 
     -- ** ClientCertAuthSettings
     clientCertAuthSettings_oCSPUrl,
 
     -- ** Computer
     computer_computerAttributes,
-    computer_computerName,
     computer_computerId,
+    computer_computerName,
 
     -- ** ConditionalForwarder
+    conditionalForwarder_dnsIpAddrs,
     conditionalForwarder_remoteDomainName,
     conditionalForwarder_replicationScope,
-    conditionalForwarder_dnsIpAddrs,
 
     -- ** DirectoryConnectSettings
     directoryConnectSettings_vpcId,
@@ -502,51 +502,51 @@ module Amazonka.DirectoryService.Lens
     directoryConnectSettings_customerUserName,
 
     -- ** DirectoryConnectSettingsDescription
-    directoryConnectSettingsDescription_connectIps,
     directoryConnectSettingsDescription_availabilityZones,
-    directoryConnectSettingsDescription_securityGroupId,
+    directoryConnectSettingsDescription_connectIps,
     directoryConnectSettingsDescription_customerUserName,
-    directoryConnectSettingsDescription_vpcId,
+    directoryConnectSettingsDescription_securityGroupId,
     directoryConnectSettingsDescription_subnetIds,
+    directoryConnectSettingsDescription_vpcId,
 
     -- ** DirectoryDescription
+    directoryDescription_accessUrl,
     directoryDescription_alias,
+    directoryDescription_connectSettings,
+    directoryDescription_description,
+    directoryDescription_desiredNumberOfDomainControllers,
     directoryDescription_directoryId,
-    directoryDescription_name,
-    directoryDescription_regionsInfo,
-    directoryDescription_type,
-    directoryDescription_shareNotes,
+    directoryDescription_dnsIpAddrs,
+    directoryDescription_edition,
     directoryDescription_launchTime,
-    directoryDescription_shareStatus,
-    directoryDescription_radiusStatus,
-    directoryDescription_shareMethod,
-    directoryDescription_size,
-    directoryDescription_vpcSettings,
+    directoryDescription_name,
     directoryDescription_osVersion,
     directoryDescription_ownerDirectoryDescription,
-    directoryDescription_edition,
-    directoryDescription_description,
-    directoryDescription_ssoEnabled,
-    directoryDescription_accessUrl,
     directoryDescription_radiusSettings,
-    directoryDescription_stage,
-    directoryDescription_desiredNumberOfDomainControllers,
-    directoryDescription_connectSettings,
-    directoryDescription_stageReason,
-    directoryDescription_stageLastUpdatedDateTime,
-    directoryDescription_dnsIpAddrs,
+    directoryDescription_radiusStatus,
+    directoryDescription_regionsInfo,
+    directoryDescription_shareMethod,
+    directoryDescription_shareNotes,
+    directoryDescription_shareStatus,
     directoryDescription_shortName,
+    directoryDescription_size,
+    directoryDescription_ssoEnabled,
+    directoryDescription_stage,
+    directoryDescription_stageLastUpdatedDateTime,
+    directoryDescription_stageReason,
+    directoryDescription_type,
+    directoryDescription_vpcSettings,
 
     -- ** DirectoryLimits
+    directoryLimits_cloudOnlyDirectoriesCurrentCount,
+    directoryLimits_cloudOnlyDirectoriesLimit,
     directoryLimits_cloudOnlyDirectoriesLimitReached,
-    directoryLimits_cloudOnlyMicrosoftADLimitReached,
     directoryLimits_cloudOnlyMicrosoftADCurrentCount,
     directoryLimits_cloudOnlyMicrosoftADLimit,
-    directoryLimits_connectedDirectoriesLimitReached,
-    directoryLimits_connectedDirectoriesLimit,
+    directoryLimits_cloudOnlyMicrosoftADLimitReached,
     directoryLimits_connectedDirectoriesCurrentCount,
-    directoryLimits_cloudOnlyDirectoriesLimit,
-    directoryLimits_cloudOnlyDirectoriesCurrentCount,
+    directoryLimits_connectedDirectoriesLimit,
+    directoryLimits_connectedDirectoriesLimitReached,
 
     -- ** DirectoryVpcSettings
     directoryVpcSettings_vpcId,
@@ -555,155 +555,155 @@ module Amazonka.DirectoryService.Lens
     -- ** DirectoryVpcSettingsDescription
     directoryVpcSettingsDescription_availabilityZones,
     directoryVpcSettingsDescription_securityGroupId,
-    directoryVpcSettingsDescription_vpcId,
     directoryVpcSettingsDescription_subnetIds,
+    directoryVpcSettingsDescription_vpcId,
 
     -- ** DomainController
-    domainController_statusLastUpdatedDateTime,
-    domainController_directoryId,
-    domainController_domainControllerId,
-    domainController_dnsIpAddr,
-    domainController_launchTime,
-    domainController_subnetId,
-    domainController_statusReason,
-    domainController_status,
     domainController_availabilityZone,
+    domainController_directoryId,
+    domainController_dnsIpAddr,
+    domainController_domainControllerId,
+    domainController_launchTime,
+    domainController_status,
+    domainController_statusLastUpdatedDateTime,
+    domainController_statusReason,
+    domainController_subnetId,
     domainController_vpcId,
 
     -- ** EventTopic
-    eventTopic_directoryId,
     eventTopic_createdDateTime,
-    eventTopic_topicArn,
+    eventTopic_directoryId,
     eventTopic_status,
+    eventTopic_topicArn,
     eventTopic_topicName,
 
     -- ** IpRoute
-    ipRoute_description,
     ipRoute_cidrIp,
+    ipRoute_description,
 
     -- ** IpRouteInfo
-    ipRouteInfo_ipRouteStatusMsg,
-    ipRouteInfo_directoryId,
-    ipRouteInfo_description,
-    ipRouteInfo_cidrIp,
     ipRouteInfo_addedDateTime,
+    ipRouteInfo_cidrIp,
+    ipRouteInfo_description,
+    ipRouteInfo_directoryId,
+    ipRouteInfo_ipRouteStatusMsg,
     ipRouteInfo_ipRouteStatusReason,
 
     -- ** LDAPSSettingInfo
-    lDAPSSettingInfo_lDAPSStatusReason,
     lDAPSSettingInfo_lDAPSStatus,
+    lDAPSSettingInfo_lDAPSStatusReason,
     lDAPSSettingInfo_lastUpdatedDateTime,
 
     -- ** LogSubscription
     logSubscription_directoryId,
-    logSubscription_subscriptionCreatedDateTime,
     logSubscription_logGroupName,
+    logSubscription_subscriptionCreatedDateTime,
 
     -- ** OSUpdateSettings
     oSUpdateSettings_oSVersion,
 
     -- ** OwnerDirectoryDescription
+    ownerDirectoryDescription_accountId,
     ownerDirectoryDescription_directoryId,
+    ownerDirectoryDescription_dnsIpAddrs,
+    ownerDirectoryDescription_radiusSettings,
     ownerDirectoryDescription_radiusStatus,
     ownerDirectoryDescription_vpcSettings,
-    ownerDirectoryDescription_radiusSettings,
-    ownerDirectoryDescription_accountId,
-    ownerDirectoryDescription_dnsIpAddrs,
 
     -- ** RadiusSettings
-    radiusSettings_displayLabel,
     radiusSettings_authenticationProtocol,
-    radiusSettings_radiusServers,
-    radiusSettings_radiusRetries,
+    radiusSettings_displayLabel,
     radiusSettings_radiusPort,
+    radiusSettings_radiusRetries,
+    radiusSettings_radiusServers,
+    radiusSettings_radiusTimeout,
     radiusSettings_sharedSecret,
     radiusSettings_useSameUsername,
-    radiusSettings_radiusTimeout,
 
     -- ** RegionDescription
-    regionDescription_statusLastUpdatedDateTime,
+    regionDescription_desiredNumberOfDomainControllers,
     regionDescription_directoryId,
+    regionDescription_lastUpdatedDateTime,
     regionDescription_launchTime,
-    regionDescription_vpcSettings,
-    regionDescription_status,
     regionDescription_regionName,
     regionDescription_regionType,
-    regionDescription_desiredNumberOfDomainControllers,
-    regionDescription_lastUpdatedDateTime,
+    regionDescription_status,
+    regionDescription_statusLastUpdatedDateTime,
+    regionDescription_vpcSettings,
 
     -- ** RegionsInfo
-    regionsInfo_primaryRegion,
     regionsInfo_additionalRegions,
+    regionsInfo_primaryRegion,
 
     -- ** SchemaExtensionInfo
-    schemaExtensionInfo_directoryId,
-    schemaExtensionInfo_schemaExtensionId,
-    schemaExtensionInfo_startDateTime,
-    schemaExtensionInfo_schemaExtensionStatus,
     schemaExtensionInfo_description,
-    schemaExtensionInfo_schemaExtensionStatusReason,
+    schemaExtensionInfo_directoryId,
     schemaExtensionInfo_endDateTime,
+    schemaExtensionInfo_schemaExtensionId,
+    schemaExtensionInfo_schemaExtensionStatus,
+    schemaExtensionInfo_schemaExtensionStatusReason,
+    schemaExtensionInfo_startDateTime,
 
     -- ** Setting
     setting_name,
     setting_value,
 
     -- ** SettingEntry
-    settingEntry_requestDetailedStatus,
-    settingEntry_name,
-    settingEntry_type,
-    settingEntry_requestStatusMessage,
-    settingEntry_appliedValue,
-    settingEntry_requestedValue,
-    settingEntry_requestStatus,
     settingEntry_allowedValues,
-    settingEntry_lastUpdatedDateTime,
+    settingEntry_appliedValue,
     settingEntry_lastRequestedDateTime,
+    settingEntry_lastUpdatedDateTime,
+    settingEntry_name,
+    settingEntry_requestDetailedStatus,
+    settingEntry_requestStatus,
+    settingEntry_requestStatusMessage,
+    settingEntry_requestedValue,
+    settingEntry_type,
 
     -- ** ShareTarget
     shareTarget_id,
     shareTarget_type,
 
     -- ** SharedDirectory
+    sharedDirectory_createdDateTime,
+    sharedDirectory_lastUpdatedDateTime,
+    sharedDirectory_ownerAccountId,
+    sharedDirectory_ownerDirectoryId,
+    sharedDirectory_shareMethod,
     sharedDirectory_shareNotes,
     sharedDirectory_shareStatus,
-    sharedDirectory_shareMethod,
-    sharedDirectory_createdDateTime,
-    sharedDirectory_ownerDirectoryId,
-    sharedDirectory_ownerAccountId,
     sharedDirectory_sharedAccountId,
     sharedDirectory_sharedDirectoryId,
-    sharedDirectory_lastUpdatedDateTime,
 
     -- ** Snapshot
     snapshot_directoryId,
     snapshot_name,
-    snapshot_type,
     snapshot_snapshotId,
-    snapshot_status,
     snapshot_startTime,
+    snapshot_status,
+    snapshot_type,
 
     -- ** SnapshotLimits
-    snapshotLimits_manualSnapshotsLimitReached,
     snapshotLimits_manualSnapshotsCurrentCount,
     snapshotLimits_manualSnapshotsLimit,
+    snapshotLimits_manualSnapshotsLimitReached,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** Trust
+    trust_createdDateTime,
     trust_directoryId,
+    trust_lastUpdatedDateTime,
     trust_remoteDomainName,
-    trust_trustType,
+    trust_selectiveAuth,
+    trust_stateLastUpdatedDateTime,
+    trust_trustDirection,
     trust_trustId,
     trust_trustState,
-    trust_createdDateTime,
-    trust_selectiveAuth,
     trust_trustStateReason,
-    trust_trustDirection,
-    trust_stateLastUpdatedDateTime,
-    trust_lastUpdatedDateTime,
+    trust_trustType,
 
     -- ** UnshareTarget
     unshareTarget_id,
@@ -711,13 +711,13 @@ module Amazonka.DirectoryService.Lens
 
     -- ** UpdateInfoEntry
     updateInfoEntry_initiatedBy,
-    updateInfoEntry_previousValue,
-    updateInfoEntry_statusReason,
-    updateInfoEntry_status,
-    updateInfoEntry_region,
-    updateInfoEntry_newValue,
-    updateInfoEntry_startTime,
     updateInfoEntry_lastUpdatedDateTime,
+    updateInfoEntry_newValue,
+    updateInfoEntry_previousValue,
+    updateInfoEntry_region,
+    updateInfoEntry_startTime,
+    updateInfoEntry_status,
+    updateInfoEntry_statusReason,
 
     -- ** UpdateValue
     updateValue_oSUpdateSettings,

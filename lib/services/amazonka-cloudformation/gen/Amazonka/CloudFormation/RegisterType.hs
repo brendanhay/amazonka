@@ -58,10 +58,10 @@ module Amazonka.CloudFormation.RegisterType
     newRegisterType,
 
     -- * Request Lenses
-    registerType_type,
     registerType_clientRequestToken,
     registerType_executionRoleArn,
     registerType_loggingConfig,
+    registerType_type,
     registerType_typeName,
     registerType_schemaHandlerPackage,
 
@@ -85,9 +85,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterType' smart constructor.
 data RegisterType = RegisterType'
-  { -- | The kind of extension.
-    type' :: Prelude.Maybe RegistryType,
-    -- | A unique identifier that acts as an idempotency key for this
+  { -- | A unique identifier that acts as an idempotency key for this
     -- registration request. Specifying a client request token prevents
     -- CloudFormation from generating more than one version of an extension
     -- from the same registration request, even if the request is submitted
@@ -115,6 +113,8 @@ data RegisterType = RegisterType'
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies logging configuration information for an extension.
     loggingConfig :: Prelude.Maybe LoggingConfig,
+    -- | The kind of extension.
+    type' :: Prelude.Maybe RegistryType,
     -- | The name of the extension being registered.
     --
     -- We suggest that extension names adhere to the following patterns:
@@ -166,8 +166,6 @@ data RegisterType = RegisterType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'registerType_type' - The kind of extension.
---
 -- 'clientRequestToken', 'registerType_clientRequestToken' - A unique identifier that acts as an idempotency key for this
 -- registration request. Specifying a client request token prevents
 -- CloudFormation from generating more than one version of an extension
@@ -195,6 +193,8 @@ data RegisterType = RegisterType'
 -- resource type with the appropriate credentials.
 --
 -- 'loggingConfig', 'registerType_loggingConfig' - Specifies logging configuration information for an extension.
+--
+-- 'type'', 'registerType_type' - The kind of extension.
 --
 -- 'typeName', 'registerType_typeName' - The name of the extension being registered.
 --
@@ -243,17 +243,13 @@ newRegisterType ::
   RegisterType
 newRegisterType pTypeName_ pSchemaHandlerPackage_ =
   RegisterType'
-    { type' = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken = Prelude.Nothing,
       executionRoleArn = Prelude.Nothing,
       loggingConfig = Prelude.Nothing,
+      type' = Prelude.Nothing,
       typeName = pTypeName_,
       schemaHandlerPackage = pSchemaHandlerPackage_
     }
-
--- | The kind of extension.
-registerType_type :: Lens.Lens' RegisterType (Prelude.Maybe RegistryType)
-registerType_type = Lens.lens (\RegisterType' {type'} -> type') (\s@RegisterType' {} a -> s {type' = a} :: RegisterType)
 
 -- | A unique identifier that acts as an idempotency key for this
 -- registration request. Specifying a client request token prevents
@@ -288,6 +284,10 @@ registerType_executionRoleArn = Lens.lens (\RegisterType' {executionRoleArn} -> 
 -- | Specifies logging configuration information for an extension.
 registerType_loggingConfig :: Lens.Lens' RegisterType (Prelude.Maybe LoggingConfig)
 registerType_loggingConfig = Lens.lens (\RegisterType' {loggingConfig} -> loggingConfig) (\s@RegisterType' {} a -> s {loggingConfig = a} :: RegisterType)
+
+-- | The kind of extension.
+registerType_type :: Lens.Lens' RegisterType (Prelude.Maybe RegistryType)
+registerType_type = Lens.lens (\RegisterType' {type'} -> type') (\s@RegisterType' {} a -> s {type' = a} :: RegisterType)
 
 -- | The name of the extension being registered.
 --
@@ -348,19 +348,19 @@ instance Core.AWSRequest RegisterType where
 
 instance Prelude.Hashable RegisterType where
   hashWithSalt _salt RegisterType' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` loggingConfig
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` schemaHandlerPackage
 
 instance Prelude.NFData RegisterType where
   rnf RegisterType' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf loggingConfig
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf schemaHandlerPackage
 
@@ -377,10 +377,10 @@ instance Data.ToQuery RegisterType where
           Data.=: ("RegisterType" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Data.=: type',
         "ClientRequestToken" Data.=: clientRequestToken,
         "ExecutionRoleArn" Data.=: executionRoleArn,
         "LoggingConfig" Data.=: loggingConfig,
+        "Type" Data.=: type',
         "TypeName" Data.=: typeName,
         "SchemaHandlerPackage" Data.=: schemaHandlerPackage
       ]

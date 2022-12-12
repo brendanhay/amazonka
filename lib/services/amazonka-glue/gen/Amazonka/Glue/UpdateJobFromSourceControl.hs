@@ -32,15 +32,15 @@ module Amazonka.Glue.UpdateJobFromSourceControl
     newUpdateJobFromSourceControl,
 
     -- * Request Lenses
-    updateJobFromSourceControl_repositoryOwner,
-    updateJobFromSourceControl_commitId,
+    updateJobFromSourceControl_authStrategy,
+    updateJobFromSourceControl_authToken,
     updateJobFromSourceControl_branchName,
+    updateJobFromSourceControl_commitId,
     updateJobFromSourceControl_folder,
     updateJobFromSourceControl_jobName,
-    updateJobFromSourceControl_repositoryName,
-    updateJobFromSourceControl_authToken,
     updateJobFromSourceControl_provider,
-    updateJobFromSourceControl_authStrategy,
+    updateJobFromSourceControl_repositoryName,
+    updateJobFromSourceControl_repositoryOwner,
 
     -- * Destructuring the Response
     UpdateJobFromSourceControlResponse (..),
@@ -62,26 +62,26 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateJobFromSourceControl' smart constructor.
 data UpdateJobFromSourceControl = UpdateJobFromSourceControl'
-  { -- | The owner of the remote repository that contains the job artifacts.
-    repositoryOwner :: Prelude.Maybe Prelude.Text,
-    -- | A commit ID for a commit in the remote repository.
-    commitId :: Prelude.Maybe Prelude.Text,
+  { -- | The type of authentication, which can be an authentication token stored
+    -- in Amazon Web Services Secrets Manager, or a personal access token.
+    authStrategy :: Prelude.Maybe SourceControlAuthStrategy,
+    -- | The value of the authorization token.
+    authToken :: Prelude.Maybe Prelude.Text,
     -- | An optional branch in the remote repository.
     branchName :: Prelude.Maybe Prelude.Text,
+    -- | A commit ID for a commit in the remote repository.
+    commitId :: Prelude.Maybe Prelude.Text,
     -- | An optional folder in the remote repository.
     folder :: Prelude.Maybe Prelude.Text,
     -- | The name of the Glue job to be synchronized to or from the remote
     -- repository.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the remote repository that contains the job artifacts.
-    repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The value of the authorization token.
-    authToken :: Prelude.Maybe Prelude.Text,
     -- | The provider for the remote repository.
     provider :: Prelude.Maybe SourceControlProvider,
-    -- | The type of authentication, which can be an authentication token stored
-    -- in Amazon Web Services Secrets Manager, or a personal access token.
-    authStrategy :: Prelude.Maybe SourceControlAuthStrategy
+    -- | The name of the remote repository that contains the job artifacts.
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The owner of the remote repository that contains the job artifacts.
+    repositoryOwner :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,52 +93,57 @@ data UpdateJobFromSourceControl = UpdateJobFromSourceControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repositoryOwner', 'updateJobFromSourceControl_repositoryOwner' - The owner of the remote repository that contains the job artifacts.
+-- 'authStrategy', 'updateJobFromSourceControl_authStrategy' - The type of authentication, which can be an authentication token stored
+-- in Amazon Web Services Secrets Manager, or a personal access token.
 --
--- 'commitId', 'updateJobFromSourceControl_commitId' - A commit ID for a commit in the remote repository.
+-- 'authToken', 'updateJobFromSourceControl_authToken' - The value of the authorization token.
 --
 -- 'branchName', 'updateJobFromSourceControl_branchName' - An optional branch in the remote repository.
+--
+-- 'commitId', 'updateJobFromSourceControl_commitId' - A commit ID for a commit in the remote repository.
 --
 -- 'folder', 'updateJobFromSourceControl_folder' - An optional folder in the remote repository.
 --
 -- 'jobName', 'updateJobFromSourceControl_jobName' - The name of the Glue job to be synchronized to or from the remote
 -- repository.
 --
--- 'repositoryName', 'updateJobFromSourceControl_repositoryName' - The name of the remote repository that contains the job artifacts.
---
--- 'authToken', 'updateJobFromSourceControl_authToken' - The value of the authorization token.
---
 -- 'provider', 'updateJobFromSourceControl_provider' - The provider for the remote repository.
 --
--- 'authStrategy', 'updateJobFromSourceControl_authStrategy' - The type of authentication, which can be an authentication token stored
--- in Amazon Web Services Secrets Manager, or a personal access token.
+-- 'repositoryName', 'updateJobFromSourceControl_repositoryName' - The name of the remote repository that contains the job artifacts.
+--
+-- 'repositoryOwner', 'updateJobFromSourceControl_repositoryOwner' - The owner of the remote repository that contains the job artifacts.
 newUpdateJobFromSourceControl ::
   UpdateJobFromSourceControl
 newUpdateJobFromSourceControl =
   UpdateJobFromSourceControl'
-    { repositoryOwner =
+    { authStrategy =
         Prelude.Nothing,
-      commitId = Prelude.Nothing,
+      authToken = Prelude.Nothing,
       branchName = Prelude.Nothing,
+      commitId = Prelude.Nothing,
       folder = Prelude.Nothing,
       jobName = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
-      authToken = Prelude.Nothing,
       provider = Prelude.Nothing,
-      authStrategy = Prelude.Nothing
+      repositoryName = Prelude.Nothing,
+      repositoryOwner = Prelude.Nothing
     }
 
--- | The owner of the remote repository that contains the job artifacts.
-updateJobFromSourceControl_repositoryOwner :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
-updateJobFromSourceControl_repositoryOwner = Lens.lens (\UpdateJobFromSourceControl' {repositoryOwner} -> repositoryOwner) (\s@UpdateJobFromSourceControl' {} a -> s {repositoryOwner = a} :: UpdateJobFromSourceControl)
+-- | The type of authentication, which can be an authentication token stored
+-- in Amazon Web Services Secrets Manager, or a personal access token.
+updateJobFromSourceControl_authStrategy :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe SourceControlAuthStrategy)
+updateJobFromSourceControl_authStrategy = Lens.lens (\UpdateJobFromSourceControl' {authStrategy} -> authStrategy) (\s@UpdateJobFromSourceControl' {} a -> s {authStrategy = a} :: UpdateJobFromSourceControl)
 
--- | A commit ID for a commit in the remote repository.
-updateJobFromSourceControl_commitId :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
-updateJobFromSourceControl_commitId = Lens.lens (\UpdateJobFromSourceControl' {commitId} -> commitId) (\s@UpdateJobFromSourceControl' {} a -> s {commitId = a} :: UpdateJobFromSourceControl)
+-- | The value of the authorization token.
+updateJobFromSourceControl_authToken :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
+updateJobFromSourceControl_authToken = Lens.lens (\UpdateJobFromSourceControl' {authToken} -> authToken) (\s@UpdateJobFromSourceControl' {} a -> s {authToken = a} :: UpdateJobFromSourceControl)
 
 -- | An optional branch in the remote repository.
 updateJobFromSourceControl_branchName :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
 updateJobFromSourceControl_branchName = Lens.lens (\UpdateJobFromSourceControl' {branchName} -> branchName) (\s@UpdateJobFromSourceControl' {} a -> s {branchName = a} :: UpdateJobFromSourceControl)
+
+-- | A commit ID for a commit in the remote repository.
+updateJobFromSourceControl_commitId :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
+updateJobFromSourceControl_commitId = Lens.lens (\UpdateJobFromSourceControl' {commitId} -> commitId) (\s@UpdateJobFromSourceControl' {} a -> s {commitId = a} :: UpdateJobFromSourceControl)
 
 -- | An optional folder in the remote repository.
 updateJobFromSourceControl_folder :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
@@ -149,22 +154,17 @@ updateJobFromSourceControl_folder = Lens.lens (\UpdateJobFromSourceControl' {fol
 updateJobFromSourceControl_jobName :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
 updateJobFromSourceControl_jobName = Lens.lens (\UpdateJobFromSourceControl' {jobName} -> jobName) (\s@UpdateJobFromSourceControl' {} a -> s {jobName = a} :: UpdateJobFromSourceControl)
 
--- | The name of the remote repository that contains the job artifacts.
-updateJobFromSourceControl_repositoryName :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
-updateJobFromSourceControl_repositoryName = Lens.lens (\UpdateJobFromSourceControl' {repositoryName} -> repositoryName) (\s@UpdateJobFromSourceControl' {} a -> s {repositoryName = a} :: UpdateJobFromSourceControl)
-
--- | The value of the authorization token.
-updateJobFromSourceControl_authToken :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
-updateJobFromSourceControl_authToken = Lens.lens (\UpdateJobFromSourceControl' {authToken} -> authToken) (\s@UpdateJobFromSourceControl' {} a -> s {authToken = a} :: UpdateJobFromSourceControl)
-
 -- | The provider for the remote repository.
 updateJobFromSourceControl_provider :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe SourceControlProvider)
 updateJobFromSourceControl_provider = Lens.lens (\UpdateJobFromSourceControl' {provider} -> provider) (\s@UpdateJobFromSourceControl' {} a -> s {provider = a} :: UpdateJobFromSourceControl)
 
--- | The type of authentication, which can be an authentication token stored
--- in Amazon Web Services Secrets Manager, or a personal access token.
-updateJobFromSourceControl_authStrategy :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe SourceControlAuthStrategy)
-updateJobFromSourceControl_authStrategy = Lens.lens (\UpdateJobFromSourceControl' {authStrategy} -> authStrategy) (\s@UpdateJobFromSourceControl' {} a -> s {authStrategy = a} :: UpdateJobFromSourceControl)
+-- | The name of the remote repository that contains the job artifacts.
+updateJobFromSourceControl_repositoryName :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
+updateJobFromSourceControl_repositoryName = Lens.lens (\UpdateJobFromSourceControl' {repositoryName} -> repositoryName) (\s@UpdateJobFromSourceControl' {} a -> s {repositoryName = a} :: UpdateJobFromSourceControl)
+
+-- | The owner of the remote repository that contains the job artifacts.
+updateJobFromSourceControl_repositoryOwner :: Lens.Lens' UpdateJobFromSourceControl (Prelude.Maybe Prelude.Text)
+updateJobFromSourceControl_repositoryOwner = Lens.lens (\UpdateJobFromSourceControl' {repositoryOwner} -> repositoryOwner) (\s@UpdateJobFromSourceControl' {} a -> s {repositoryOwner = a} :: UpdateJobFromSourceControl)
 
 instance Core.AWSRequest UpdateJobFromSourceControl where
   type
@@ -182,27 +182,27 @@ instance Core.AWSRequest UpdateJobFromSourceControl where
 
 instance Prelude.Hashable UpdateJobFromSourceControl where
   hashWithSalt _salt UpdateJobFromSourceControl' {..} =
-    _salt `Prelude.hashWithSalt` repositoryOwner
-      `Prelude.hashWithSalt` commitId
+    _salt `Prelude.hashWithSalt` authStrategy
+      `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` commitId
       `Prelude.hashWithSalt` folder
       `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` repositoryName
-      `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` provider
-      `Prelude.hashWithSalt` authStrategy
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` repositoryOwner
 
 instance Prelude.NFData UpdateJobFromSourceControl where
   rnf UpdateJobFromSourceControl' {..} =
-    Prelude.rnf repositoryOwner
-      `Prelude.seq` Prelude.rnf commitId
+    Prelude.rnf authStrategy
+      `Prelude.seq` Prelude.rnf authToken
       `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf commitId
       `Prelude.seq` Prelude.rnf folder
       `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf authToken
       `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf authStrategy
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf repositoryOwner
 
 instance Data.ToHeaders UpdateJobFromSourceControl where
   toHeaders =
@@ -223,17 +223,17 @@ instance Data.ToJSON UpdateJobFromSourceControl where
   toJSON UpdateJobFromSourceControl' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RepositoryOwner" Data..=)
-              Prelude.<$> repositoryOwner,
-            ("CommitId" Data..=) Prelude.<$> commitId,
+          [ ("AuthStrategy" Data..=) Prelude.<$> authStrategy,
+            ("AuthToken" Data..=) Prelude.<$> authToken,
             ("BranchName" Data..=) Prelude.<$> branchName,
+            ("CommitId" Data..=) Prelude.<$> commitId,
             ("Folder" Data..=) Prelude.<$> folder,
             ("JobName" Data..=) Prelude.<$> jobName,
+            ("Provider" Data..=) Prelude.<$> provider,
             ("RepositoryName" Data..=)
               Prelude.<$> repositoryName,
-            ("AuthToken" Data..=) Prelude.<$> authToken,
-            ("Provider" Data..=) Prelude.<$> provider,
-            ("AuthStrategy" Data..=) Prelude.<$> authStrategy
+            ("RepositoryOwner" Data..=)
+              Prelude.<$> repositoryOwner
           ]
       )
 

@@ -27,8 +27,8 @@ module Amazonka.CodeGuruReviewer.ListRecommendations
     newListRecommendations,
 
     -- * Request Lenses
-    listRecommendations_nextToken,
     listRecommendations_maxResults,
+    listRecommendations_nextToken,
     listRecommendations_codeReviewArn,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.CodeGuruReviewer.ListRecommendations
     newListRecommendationsResponse,
 
     -- * Response Lenses
-    listRecommendationsResponse_recommendationSummaries,
     listRecommendationsResponse_nextToken,
+    listRecommendationsResponse_recommendationSummaries,
     listRecommendationsResponse_httpStatus,
   )
 where
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecommendations' smart constructor.
 data ListRecommendations = ListRecommendations'
-  { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that are returned per call. The default is
+  { -- | The maximum number of results that are returned per call. The default is
     -- 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
     -- object.
@@ -72,10 +72,10 @@ data ListRecommendations = ListRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecommendations_nextToken' - Pagination token.
---
 -- 'maxResults', 'listRecommendations_maxResults' - The maximum number of results that are returned per call. The default is
 -- 100.
+--
+-- 'nextToken', 'listRecommendations_nextToken' - Pagination token.
 --
 -- 'codeReviewArn', 'listRecommendations_codeReviewArn' - The Amazon Resource Name (ARN) of the
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
@@ -86,19 +86,19 @@ newListRecommendations ::
   ListRecommendations
 newListRecommendations pCodeReviewArn_ =
   ListRecommendations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       codeReviewArn = pCodeReviewArn_
     }
-
--- | Pagination token.
-listRecommendations_nextToken :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
-listRecommendations_nextToken = Lens.lens (\ListRecommendations' {nextToken} -> nextToken) (\s@ListRecommendations' {} a -> s {nextToken = a} :: ListRecommendations)
 
 -- | The maximum number of results that are returned per call. The default is
 -- 100.
 listRecommendations_maxResults :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Natural)
 listRecommendations_maxResults = Lens.lens (\ListRecommendations' {maxResults} -> maxResults) (\s@ListRecommendations' {} a -> s {maxResults = a} :: ListRecommendations)
+
+-- | Pagination token.
+listRecommendations_nextToken :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
+listRecommendations_nextToken = Lens.lens (\ListRecommendations' {nextToken} -> nextToken) (\s@ListRecommendations' {} a -> s {nextToken = a} :: ListRecommendations)
 
 -- | The Amazon Resource Name (ARN) of the
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
@@ -116,23 +116,23 @@ instance Core.AWSRequest ListRecommendations where
     Response.receiveJSON
       ( \s h x ->
           ListRecommendationsResponse'
-            Prelude.<$> ( x Data..?> "RecommendationSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "RecommendationSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRecommendations where
   hashWithSalt _salt ListRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` codeReviewArn
 
 instance Prelude.NFData ListRecommendations where
   rnf ListRecommendations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf codeReviewArn
 
 instance Data.ToHeaders ListRecommendations where
@@ -157,16 +157,16 @@ instance Data.ToPath ListRecommendations where
 instance Data.ToQuery ListRecommendations where
   toQuery ListRecommendations' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRecommendationsResponse' smart constructor.
 data ListRecommendationsResponse = ListRecommendationsResponse'
-  { -- | List of recommendations for the requested code review.
-    recommendationSummaries :: Prelude.Maybe [RecommendationSummary],
-    -- | Pagination token.
+  { -- | Pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of recommendations for the requested code review.
+    recommendationSummaries :: Prelude.Maybe [RecommendationSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,9 +180,9 @@ data ListRecommendationsResponse = ListRecommendationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationSummaries', 'listRecommendationsResponse_recommendationSummaries' - List of recommendations for the requested code review.
---
 -- 'nextToken', 'listRecommendationsResponse_nextToken' - Pagination token.
+--
+-- 'recommendationSummaries', 'listRecommendationsResponse_recommendationSummaries' - List of recommendations for the requested code review.
 --
 -- 'httpStatus', 'listRecommendationsResponse_httpStatus' - The response's http status code.
 newListRecommendationsResponse ::
@@ -191,19 +191,19 @@ newListRecommendationsResponse ::
   ListRecommendationsResponse
 newListRecommendationsResponse pHttpStatus_ =
   ListRecommendationsResponse'
-    { recommendationSummaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      recommendationSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of recommendations for the requested code review.
-listRecommendationsResponse_recommendationSummaries :: Lens.Lens' ListRecommendationsResponse (Prelude.Maybe [RecommendationSummary])
-listRecommendationsResponse_recommendationSummaries = Lens.lens (\ListRecommendationsResponse' {recommendationSummaries} -> recommendationSummaries) (\s@ListRecommendationsResponse' {} a -> s {recommendationSummaries = a} :: ListRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Pagination token.
 listRecommendationsResponse_nextToken :: Lens.Lens' ListRecommendationsResponse (Prelude.Maybe Prelude.Text)
 listRecommendationsResponse_nextToken = Lens.lens (\ListRecommendationsResponse' {nextToken} -> nextToken) (\s@ListRecommendationsResponse' {} a -> s {nextToken = a} :: ListRecommendationsResponse)
+
+-- | List of recommendations for the requested code review.
+listRecommendationsResponse_recommendationSummaries :: Lens.Lens' ListRecommendationsResponse (Prelude.Maybe [RecommendationSummary])
+listRecommendationsResponse_recommendationSummaries = Lens.lens (\ListRecommendationsResponse' {recommendationSummaries} -> recommendationSummaries) (\s@ListRecommendationsResponse' {} a -> s {recommendationSummaries = a} :: ListRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRecommendationsResponse_httpStatus :: Lens.Lens' ListRecommendationsResponse Prelude.Int
@@ -211,6 +211,6 @@ listRecommendationsResponse_httpStatus = Lens.lens (\ListRecommendationsResponse
 
 instance Prelude.NFData ListRecommendationsResponse where
   rnf ListRecommendationsResponse' {..} =
-    Prelude.rnf recommendationSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recommendationSummaries
       `Prelude.seq` Prelude.rnf httpStatus

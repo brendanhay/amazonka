@@ -35,7 +35,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCostEstimationResourceCollectionFilter' smart constructor.
 data CostEstimationResourceCollectionFilter = CostEstimationResourceCollectionFilter'
-  { -- | The Amazon Web Services tags used to filter the resource collection that
+  { -- | An object that specifies the CloudFormation stack that defines the
+    -- Amazon Web Services resources used to create a monthly estimate for
+    -- DevOps Guru.
+    cloudFormation :: Prelude.Maybe CloudFormationCostEstimationResourceCollectionFilter,
+    -- | The Amazon Web Services tags used to filter the resource collection that
     -- is used for a cost estimate.
     --
     -- Tags help you identify and organize your Amazon Web Services resources.
@@ -69,11 +73,7 @@ data CostEstimationResourceCollectionFilter = CostEstimationResourceCollectionFi
     -- act as two different /keys/. Possible /key/\//value/ pairs in your
     -- application might be @Devops-Guru-production-application\/RDS@ or
     -- @Devops-Guru-production-application\/containers@.
-    tags :: Prelude.Maybe [TagCostEstimationResourceCollectionFilter],
-    -- | An object that specifies the CloudFormation stack that defines the
-    -- Amazon Web Services resources used to create a monthly estimate for
-    -- DevOps Guru.
-    cloudFormation :: Prelude.Maybe CloudFormationCostEstimationResourceCollectionFilter
+    tags :: Prelude.Maybe [TagCostEstimationResourceCollectionFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,6 +84,10 @@ data CostEstimationResourceCollectionFilter = CostEstimationResourceCollectionFi
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'cloudFormation', 'costEstimationResourceCollectionFilter_cloudFormation' - An object that specifies the CloudFormation stack that defines the
+-- Amazon Web Services resources used to create a monthly estimate for
+-- DevOps Guru.
 --
 -- 'tags', 'costEstimationResourceCollectionFilter_tags' - The Amazon Web Services tags used to filter the resource collection that
 -- is used for a cost estimate.
@@ -119,18 +123,20 @@ data CostEstimationResourceCollectionFilter = CostEstimationResourceCollectionFi
 -- act as two different /keys/. Possible /key/\//value/ pairs in your
 -- application might be @Devops-Guru-production-application\/RDS@ or
 -- @Devops-Guru-production-application\/containers@.
---
--- 'cloudFormation', 'costEstimationResourceCollectionFilter_cloudFormation' - An object that specifies the CloudFormation stack that defines the
--- Amazon Web Services resources used to create a monthly estimate for
--- DevOps Guru.
 newCostEstimationResourceCollectionFilter ::
   CostEstimationResourceCollectionFilter
 newCostEstimationResourceCollectionFilter =
   CostEstimationResourceCollectionFilter'
-    { tags =
+    { cloudFormation =
         Prelude.Nothing,
-      cloudFormation = Prelude.Nothing
+      tags = Prelude.Nothing
     }
+
+-- | An object that specifies the CloudFormation stack that defines the
+-- Amazon Web Services resources used to create a monthly estimate for
+-- DevOps Guru.
+costEstimationResourceCollectionFilter_cloudFormation :: Lens.Lens' CostEstimationResourceCollectionFilter (Prelude.Maybe CloudFormationCostEstimationResourceCollectionFilter)
+costEstimationResourceCollectionFilter_cloudFormation = Lens.lens (\CostEstimationResourceCollectionFilter' {cloudFormation} -> cloudFormation) (\s@CostEstimationResourceCollectionFilter' {} a -> s {cloudFormation = a} :: CostEstimationResourceCollectionFilter)
 
 -- | The Amazon Web Services tags used to filter the resource collection that
 -- is used for a cost estimate.
@@ -169,12 +175,6 @@ newCostEstimationResourceCollectionFilter =
 costEstimationResourceCollectionFilter_tags :: Lens.Lens' CostEstimationResourceCollectionFilter (Prelude.Maybe [TagCostEstimationResourceCollectionFilter])
 costEstimationResourceCollectionFilter_tags = Lens.lens (\CostEstimationResourceCollectionFilter' {tags} -> tags) (\s@CostEstimationResourceCollectionFilter' {} a -> s {tags = a} :: CostEstimationResourceCollectionFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that specifies the CloudFormation stack that defines the
--- Amazon Web Services resources used to create a monthly estimate for
--- DevOps Guru.
-costEstimationResourceCollectionFilter_cloudFormation :: Lens.Lens' CostEstimationResourceCollectionFilter (Prelude.Maybe CloudFormationCostEstimationResourceCollectionFilter)
-costEstimationResourceCollectionFilter_cloudFormation = Lens.lens (\CostEstimationResourceCollectionFilter' {cloudFormation} -> cloudFormation) (\s@CostEstimationResourceCollectionFilter' {} a -> s {cloudFormation = a} :: CostEstimationResourceCollectionFilter)
-
 instance
   Data.FromJSON
     CostEstimationResourceCollectionFilter
@@ -184,8 +184,8 @@ instance
       "CostEstimationResourceCollectionFilter"
       ( \x ->
           CostEstimationResourceCollectionFilter'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CloudFormation")
+            Prelude.<$> (x Data..:? "CloudFormation")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance
@@ -195,16 +195,16 @@ instance
   hashWithSalt
     _salt
     CostEstimationResourceCollectionFilter' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` cloudFormation
+      _salt `Prelude.hashWithSalt` cloudFormation
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     CostEstimationResourceCollectionFilter
   where
   rnf CostEstimationResourceCollectionFilter' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cloudFormation
+    Prelude.rnf cloudFormation
+      `Prelude.seq` Prelude.rnf tags
 
 instance
   Data.ToJSON
@@ -213,8 +213,8 @@ instance
   toJSON CostEstimationResourceCollectionFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("CloudFormation" Data..=)
-              Prelude.<$> cloudFormation
+          [ ("CloudFormation" Data..=)
+              Prelude.<$> cloudFormation,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )

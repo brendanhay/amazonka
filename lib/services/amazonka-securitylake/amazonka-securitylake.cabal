@@ -1,0 +1,134 @@
+cabal-version:      2.2
+name:               amazonka-securitylake
+version:            2.0
+synopsis:           Amazon Security Lake SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2022 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-05-10@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.SecurityLake.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.SecurityLake" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-securitylake
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.SecurityLake
+    Amazonka.SecurityLake.CreateAwsLogSource
+    Amazonka.SecurityLake.CreateCustomLogSource
+    Amazonka.SecurityLake.CreateDatalake
+    Amazonka.SecurityLake.CreateDatalakeAutoEnable
+    Amazonka.SecurityLake.CreateDatalakeDelegatedAdmin
+    Amazonka.SecurityLake.CreateDatalakeExceptionsSubscription
+    Amazonka.SecurityLake.CreateSubscriber
+    Amazonka.SecurityLake.CreateSubscriptionNotificationConfiguration
+    Amazonka.SecurityLake.DeleteAwsLogSource
+    Amazonka.SecurityLake.DeleteCustomLogSource
+    Amazonka.SecurityLake.DeleteDatalake
+    Amazonka.SecurityLake.DeleteDatalakeAutoEnable
+    Amazonka.SecurityLake.DeleteDatalakeDelegatedAdmin
+    Amazonka.SecurityLake.DeleteDatalakeExceptionsSubscription
+    Amazonka.SecurityLake.DeleteSubscriber
+    Amazonka.SecurityLake.DeleteSubscriptionNotificationConfiguration
+    Amazonka.SecurityLake.GetDatalake
+    Amazonka.SecurityLake.GetDatalakeAutoEnable
+    Amazonka.SecurityLake.GetDatalakeExceptionsExpiry
+    Amazonka.SecurityLake.GetDatalakeExceptionsSubscription
+    Amazonka.SecurityLake.GetDatalakeStatus
+    Amazonka.SecurityLake.GetSubscriber
+    Amazonka.SecurityLake.Lens
+    Amazonka.SecurityLake.ListDatalakeExceptions
+    Amazonka.SecurityLake.ListLogSources
+    Amazonka.SecurityLake.ListSubscribers
+    Amazonka.SecurityLake.Types
+    Amazonka.SecurityLake.Types.AccessType
+    Amazonka.SecurityLake.Types.AccountSources
+    Amazonka.SecurityLake.Types.AutoEnableNewRegionConfiguration
+    Amazonka.SecurityLake.Types.AwsLogSourceType
+    Amazonka.SecurityLake.Types.Dimension
+    Amazonka.SecurityLake.Types.EndpointProtocol
+    Amazonka.SecurityLake.Types.Failures
+    Amazonka.SecurityLake.Types.FailuresResponse
+    Amazonka.SecurityLake.Types.HttpsMethod
+    Amazonka.SecurityLake.Types.LakeConfigurationRequest
+    Amazonka.SecurityLake.Types.LakeConfigurationResponse
+    Amazonka.SecurityLake.Types.LogsStatus
+    Amazonka.SecurityLake.Types.OcsfEventClass
+    Amazonka.SecurityLake.Types.ProtocolAndNotificationEndpoint
+    Amazonka.SecurityLake.Types.Region
+    Amazonka.SecurityLake.Types.RetentionSetting
+    Amazonka.SecurityLake.Types.SettingsStatus
+    Amazonka.SecurityLake.Types.SourceStatus
+    Amazonka.SecurityLake.Types.SourceType
+    Amazonka.SecurityLake.Types.StorageClass
+    Amazonka.SecurityLake.Types.SubscriberResource
+    Amazonka.SecurityLake.Types.SubscriptionProtocolType
+    Amazonka.SecurityLake.Types.SubscriptionStatus
+    Amazonka.SecurityLake.UpdateDatalake
+    Amazonka.SecurityLake.UpdateDatalakeExceptionsExpiry
+    Amazonka.SecurityLake.UpdateDatalakeExceptionsSubscription
+    Amazonka.SecurityLake.UpdateSubscriber
+    Amazonka.SecurityLake.UpdateSubscriptionNotificationConfiguration
+    Amazonka.SecurityLake.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-securitylake-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.SecurityLake
+    Test.Amazonka.SecurityLake
+    Test.Amazonka.SecurityLake.Internal
+
+  build-depends:
+    , amazonka-core          >=2.0 && <2.1
+    , amazonka-securitylake
+    , amazonka-test          >=2.0 && <2.1
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

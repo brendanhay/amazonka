@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInsightsAccessScopeContent' smart constructor.
 data NetworkInsightsAccessScopeContent = NetworkInsightsAccessScopeContent'
-  { -- | The ID of the Network Access Scope.
-    networkInsightsAccessScopeId :: Prelude.Maybe Prelude.Text,
-    -- | The paths to exclude.
+  { -- | The paths to exclude.
     excludePaths :: Prelude.Maybe [AccessScopePath],
     -- | The paths to match.
-    matchPaths :: Prelude.Maybe [AccessScopePath]
+    matchPaths :: Prelude.Maybe [AccessScopePath],
+    -- | The ID of the Network Access Scope.
+    networkInsightsAccessScopeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,21 @@ data NetworkInsightsAccessScopeContent = NetworkInsightsAccessScopeContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkInsightsAccessScopeId', 'networkInsightsAccessScopeContent_networkInsightsAccessScopeId' - The ID of the Network Access Scope.
---
 -- 'excludePaths', 'networkInsightsAccessScopeContent_excludePaths' - The paths to exclude.
 --
 -- 'matchPaths', 'networkInsightsAccessScopeContent_matchPaths' - The paths to match.
+--
+-- 'networkInsightsAccessScopeId', 'networkInsightsAccessScopeContent_networkInsightsAccessScopeId' - The ID of the Network Access Scope.
 newNetworkInsightsAccessScopeContent ::
   NetworkInsightsAccessScopeContent
 newNetworkInsightsAccessScopeContent =
   NetworkInsightsAccessScopeContent'
-    { networkInsightsAccessScopeId =
+    { excludePaths =
         Prelude.Nothing,
-      excludePaths = Prelude.Nothing,
-      matchPaths = Prelude.Nothing
+      matchPaths = Prelude.Nothing,
+      networkInsightsAccessScopeId =
+        Prelude.Nothing
     }
-
--- | The ID of the Network Access Scope.
-networkInsightsAccessScopeContent_networkInsightsAccessScopeId :: Lens.Lens' NetworkInsightsAccessScopeContent (Prelude.Maybe Prelude.Text)
-networkInsightsAccessScopeContent_networkInsightsAccessScopeId = Lens.lens (\NetworkInsightsAccessScopeContent' {networkInsightsAccessScopeId} -> networkInsightsAccessScopeId) (\s@NetworkInsightsAccessScopeContent' {} a -> s {networkInsightsAccessScopeId = a} :: NetworkInsightsAccessScopeContent)
 
 -- | The paths to exclude.
 networkInsightsAccessScopeContent_excludePaths :: Lens.Lens' NetworkInsightsAccessScopeContent (Prelude.Maybe [AccessScopePath])
@@ -74,19 +71,23 @@ networkInsightsAccessScopeContent_excludePaths = Lens.lens (\NetworkInsightsAcce
 networkInsightsAccessScopeContent_matchPaths :: Lens.Lens' NetworkInsightsAccessScopeContent (Prelude.Maybe [AccessScopePath])
 networkInsightsAccessScopeContent_matchPaths = Lens.lens (\NetworkInsightsAccessScopeContent' {matchPaths} -> matchPaths) (\s@NetworkInsightsAccessScopeContent' {} a -> s {matchPaths = a} :: NetworkInsightsAccessScopeContent) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ID of the Network Access Scope.
+networkInsightsAccessScopeContent_networkInsightsAccessScopeId :: Lens.Lens' NetworkInsightsAccessScopeContent (Prelude.Maybe Prelude.Text)
+networkInsightsAccessScopeContent_networkInsightsAccessScopeId = Lens.lens (\NetworkInsightsAccessScopeContent' {networkInsightsAccessScopeId} -> networkInsightsAccessScopeId) (\s@NetworkInsightsAccessScopeContent' {} a -> s {networkInsightsAccessScopeId = a} :: NetworkInsightsAccessScopeContent)
+
 instance
   Data.FromXML
     NetworkInsightsAccessScopeContent
   where
   parseXML x =
     NetworkInsightsAccessScopeContent'
-      Prelude.<$> (x Data..@? "networkInsightsAccessScopeId")
-      Prelude.<*> ( x Data..@? "excludePathSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "excludePathSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x Data..@? "matchPathSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
+      Prelude.<*> (x Data..@? "networkInsightsAccessScopeId")
 
 instance
   Prelude.Hashable
@@ -95,16 +96,15 @@ instance
   hashWithSalt
     _salt
     NetworkInsightsAccessScopeContent' {..} =
-      _salt
-        `Prelude.hashWithSalt` networkInsightsAccessScopeId
-        `Prelude.hashWithSalt` excludePaths
+      _salt `Prelude.hashWithSalt` excludePaths
         `Prelude.hashWithSalt` matchPaths
+        `Prelude.hashWithSalt` networkInsightsAccessScopeId
 
 instance
   Prelude.NFData
     NetworkInsightsAccessScopeContent
   where
   rnf NetworkInsightsAccessScopeContent' {..} =
-    Prelude.rnf networkInsightsAccessScopeId
-      `Prelude.seq` Prelude.rnf excludePaths
+    Prelude.rnf excludePaths
       `Prelude.seq` Prelude.rnf matchPaths
+      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeId

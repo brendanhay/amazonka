@@ -29,9 +29,9 @@ import Amazonka.WellArchitected.Types.ShareResourceType
 --
 -- /See:/ 'newShareInvitation' smart constructor.
 data ShareInvitation = ShareInvitation'
-  { -- | The ARN for the lens.
+  { lensAlias :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the lens.
     lensArn :: Prelude.Maybe Prelude.Text,
-    lensAlias :: Prelude.Maybe Prelude.Text,
     -- | The ID assigned to the share invitation.
     shareInvitationId :: Prelude.Maybe Prelude.Text,
     -- | The resource type of the share invitation.
@@ -48,9 +48,9 @@ data ShareInvitation = ShareInvitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lensArn', 'shareInvitation_lensArn' - The ARN for the lens.
---
 -- 'lensAlias', 'shareInvitation_lensAlias' - Undocumented member.
+--
+-- 'lensArn', 'shareInvitation_lensArn' - The ARN for the lens.
 --
 -- 'shareInvitationId', 'shareInvitation_shareInvitationId' - The ID assigned to the share invitation.
 --
@@ -61,20 +61,20 @@ newShareInvitation ::
   ShareInvitation
 newShareInvitation =
   ShareInvitation'
-    { lensArn = Prelude.Nothing,
-      lensAlias = Prelude.Nothing,
+    { lensAlias = Prelude.Nothing,
+      lensArn = Prelude.Nothing,
       shareInvitationId = Prelude.Nothing,
       shareResourceType = Prelude.Nothing,
       workloadId = Prelude.Nothing
     }
 
--- | The ARN for the lens.
-shareInvitation_lensArn :: Lens.Lens' ShareInvitation (Prelude.Maybe Prelude.Text)
-shareInvitation_lensArn = Lens.lens (\ShareInvitation' {lensArn} -> lensArn) (\s@ShareInvitation' {} a -> s {lensArn = a} :: ShareInvitation)
-
 -- | Undocumented member.
 shareInvitation_lensAlias :: Lens.Lens' ShareInvitation (Prelude.Maybe Prelude.Text)
 shareInvitation_lensAlias = Lens.lens (\ShareInvitation' {lensAlias} -> lensAlias) (\s@ShareInvitation' {} a -> s {lensAlias = a} :: ShareInvitation)
+
+-- | The ARN for the lens.
+shareInvitation_lensArn :: Lens.Lens' ShareInvitation (Prelude.Maybe Prelude.Text)
+shareInvitation_lensArn = Lens.lens (\ShareInvitation' {lensArn} -> lensArn) (\s@ShareInvitation' {} a -> s {lensArn = a} :: ShareInvitation)
 
 -- | The ID assigned to the share invitation.
 shareInvitation_shareInvitationId :: Lens.Lens' ShareInvitation (Prelude.Maybe Prelude.Text)
@@ -94,8 +94,8 @@ instance Data.FromJSON ShareInvitation where
       "ShareInvitation"
       ( \x ->
           ShareInvitation'
-            Prelude.<$> (x Data..:? "LensArn")
-            Prelude.<*> (x Data..:? "LensAlias")
+            Prelude.<$> (x Data..:? "LensAlias")
+            Prelude.<*> (x Data..:? "LensArn")
             Prelude.<*> (x Data..:? "ShareInvitationId")
             Prelude.<*> (x Data..:? "ShareResourceType")
             Prelude.<*> (x Data..:? "WorkloadId")
@@ -103,16 +103,16 @@ instance Data.FromJSON ShareInvitation where
 
 instance Prelude.Hashable ShareInvitation where
   hashWithSalt _salt ShareInvitation' {..} =
-    _salt `Prelude.hashWithSalt` lensArn
-      `Prelude.hashWithSalt` lensAlias
+    _salt `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` shareInvitationId
       `Prelude.hashWithSalt` shareResourceType
       `Prelude.hashWithSalt` workloadId
 
 instance Prelude.NFData ShareInvitation where
   rnf ShareInvitation' {..} =
-    Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf shareInvitationId
       `Prelude.seq` Prelude.rnf shareResourceType
       `Prelude.seq` Prelude.rnf workloadId

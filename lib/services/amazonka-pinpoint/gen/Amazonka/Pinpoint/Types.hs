@@ -18,13 +18,13 @@ module Amazonka.Pinpoint.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
-    _InternalServerErrorException,
-    _ForbiddenException,
-    _ConflictException,
-    _MethodNotAllowedException,
-    _PayloadTooLargeException,
     _BadRequestException,
+    _ConflictException,
+    _ForbiddenException,
+    _InternalServerErrorException,
+    _MethodNotAllowedException,
+    _NotFoundException,
+    _PayloadTooLargeException,
     _TooManyRequestsException,
 
     -- * Action
@@ -115,179 +115,179 @@ module Amazonka.Pinpoint.Types
     -- * ADMChannelResponse
     ADMChannelResponse (..),
     newADMChannelResponse,
-    aDMChannelResponse_lastModifiedDate,
+    aDMChannelResponse_applicationId,
     aDMChannelResponse_creationDate,
+    aDMChannelResponse_enabled,
     aDMChannelResponse_hasCredential,
     aDMChannelResponse_id,
-    aDMChannelResponse_enabled,
-    aDMChannelResponse_lastModifiedBy,
     aDMChannelResponse_isArchived,
-    aDMChannelResponse_applicationId,
+    aDMChannelResponse_lastModifiedBy,
+    aDMChannelResponse_lastModifiedDate,
     aDMChannelResponse_version,
     aDMChannelResponse_platform,
 
     -- * ADMMessage
     ADMMessage (..),
     newADMMessage,
-    aDMMessage_expiresAfter,
-    aDMMessage_md5,
-    aDMMessage_iconReference,
-    aDMMessage_body,
-    aDMMessage_imageUrl,
-    aDMMessage_url,
-    aDMMessage_substitutions,
-    aDMMessage_rawContent,
-    aDMMessage_sound,
-    aDMMessage_silentPush,
-    aDMMessage_consolidationKey,
-    aDMMessage_imageIconUrl,
-    aDMMessage_title,
     aDMMessage_action,
+    aDMMessage_body,
+    aDMMessage_consolidationKey,
     aDMMessage_data,
+    aDMMessage_expiresAfter,
+    aDMMessage_iconReference,
+    aDMMessage_imageIconUrl,
+    aDMMessage_imageUrl,
+    aDMMessage_md5,
+    aDMMessage_rawContent,
+    aDMMessage_silentPush,
     aDMMessage_smallImageIconUrl,
+    aDMMessage_sound,
+    aDMMessage_substitutions,
+    aDMMessage_title,
+    aDMMessage_url,
 
     -- * APNSChannelRequest
     APNSChannelRequest (..),
     newAPNSChannelRequest,
+    aPNSChannelRequest_bundleId,
+    aPNSChannelRequest_certificate,
+    aPNSChannelRequest_defaultAuthenticationMethod,
+    aPNSChannelRequest_enabled,
     aPNSChannelRequest_privateKey,
     aPNSChannelRequest_teamId,
-    aPNSChannelRequest_tokenKeyId,
-    aPNSChannelRequest_certificate,
-    aPNSChannelRequest_enabled,
     aPNSChannelRequest_tokenKey,
-    aPNSChannelRequest_bundleId,
-    aPNSChannelRequest_defaultAuthenticationMethod,
+    aPNSChannelRequest_tokenKeyId,
 
     -- * APNSChannelResponse
     APNSChannelResponse (..),
     newAPNSChannelResponse,
-    aPNSChannelResponse_lastModifiedDate,
-    aPNSChannelResponse_hasTokenKey,
-    aPNSChannelResponse_creationDate,
-    aPNSChannelResponse_hasCredential,
-    aPNSChannelResponse_id,
-    aPNSChannelResponse_enabled,
-    aPNSChannelResponse_defaultAuthenticationMethod,
-    aPNSChannelResponse_lastModifiedBy,
-    aPNSChannelResponse_isArchived,
     aPNSChannelResponse_applicationId,
+    aPNSChannelResponse_creationDate,
+    aPNSChannelResponse_defaultAuthenticationMethod,
+    aPNSChannelResponse_enabled,
+    aPNSChannelResponse_hasCredential,
+    aPNSChannelResponse_hasTokenKey,
+    aPNSChannelResponse_id,
+    aPNSChannelResponse_isArchived,
+    aPNSChannelResponse_lastModifiedBy,
+    aPNSChannelResponse_lastModifiedDate,
     aPNSChannelResponse_version,
     aPNSChannelResponse_platform,
 
     -- * APNSMessage
     APNSMessage (..),
     newAPNSMessage,
-    aPNSMessage_collapseId,
-    aPNSMessage_timeToLive,
-    aPNSMessage_threadId,
-    aPNSMessage_body,
-    aPNSMessage_url,
-    aPNSMessage_substitutions,
-    aPNSMessage_rawContent,
-    aPNSMessage_sound,
-    aPNSMessage_silentPush,
     aPNSMessage_aPNSPushType,
-    aPNSMessage_badge,
-    aPNSMessage_title,
-    aPNSMessage_priority,
-    aPNSMessage_mediaUrl,
-    aPNSMessage_category,
     aPNSMessage_action,
+    aPNSMessage_badge,
+    aPNSMessage_body,
+    aPNSMessage_category,
+    aPNSMessage_collapseId,
     aPNSMessage_data,
+    aPNSMessage_mediaUrl,
     aPNSMessage_preferredAuthenticationMethod,
+    aPNSMessage_priority,
+    aPNSMessage_rawContent,
+    aPNSMessage_silentPush,
+    aPNSMessage_sound,
+    aPNSMessage_substitutions,
+    aPNSMessage_threadId,
+    aPNSMessage_timeToLive,
+    aPNSMessage_title,
+    aPNSMessage_url,
 
     -- * APNSPushNotificationTemplate
     APNSPushNotificationTemplate (..),
     newAPNSPushNotificationTemplate,
+    aPNSPushNotificationTemplate_action,
     aPNSPushNotificationTemplate_body,
-    aPNSPushNotificationTemplate_url,
+    aPNSPushNotificationTemplate_mediaUrl,
     aPNSPushNotificationTemplate_rawContent,
     aPNSPushNotificationTemplate_sound,
     aPNSPushNotificationTemplate_title,
-    aPNSPushNotificationTemplate_mediaUrl,
-    aPNSPushNotificationTemplate_action,
+    aPNSPushNotificationTemplate_url,
 
     -- * APNSSandboxChannelRequest
     APNSSandboxChannelRequest (..),
     newAPNSSandboxChannelRequest,
+    aPNSSandboxChannelRequest_bundleId,
+    aPNSSandboxChannelRequest_certificate,
+    aPNSSandboxChannelRequest_defaultAuthenticationMethod,
+    aPNSSandboxChannelRequest_enabled,
     aPNSSandboxChannelRequest_privateKey,
     aPNSSandboxChannelRequest_teamId,
-    aPNSSandboxChannelRequest_tokenKeyId,
-    aPNSSandboxChannelRequest_certificate,
-    aPNSSandboxChannelRequest_enabled,
     aPNSSandboxChannelRequest_tokenKey,
-    aPNSSandboxChannelRequest_bundleId,
-    aPNSSandboxChannelRequest_defaultAuthenticationMethod,
+    aPNSSandboxChannelRequest_tokenKeyId,
 
     -- * APNSSandboxChannelResponse
     APNSSandboxChannelResponse (..),
     newAPNSSandboxChannelResponse,
-    aPNSSandboxChannelResponse_lastModifiedDate,
-    aPNSSandboxChannelResponse_hasTokenKey,
-    aPNSSandboxChannelResponse_creationDate,
-    aPNSSandboxChannelResponse_hasCredential,
-    aPNSSandboxChannelResponse_id,
-    aPNSSandboxChannelResponse_enabled,
-    aPNSSandboxChannelResponse_defaultAuthenticationMethod,
-    aPNSSandboxChannelResponse_lastModifiedBy,
-    aPNSSandboxChannelResponse_isArchived,
     aPNSSandboxChannelResponse_applicationId,
+    aPNSSandboxChannelResponse_creationDate,
+    aPNSSandboxChannelResponse_defaultAuthenticationMethod,
+    aPNSSandboxChannelResponse_enabled,
+    aPNSSandboxChannelResponse_hasCredential,
+    aPNSSandboxChannelResponse_hasTokenKey,
+    aPNSSandboxChannelResponse_id,
+    aPNSSandboxChannelResponse_isArchived,
+    aPNSSandboxChannelResponse_lastModifiedBy,
+    aPNSSandboxChannelResponse_lastModifiedDate,
     aPNSSandboxChannelResponse_version,
     aPNSSandboxChannelResponse_platform,
 
     -- * APNSVoipChannelRequest
     APNSVoipChannelRequest (..),
     newAPNSVoipChannelRequest,
+    aPNSVoipChannelRequest_bundleId,
+    aPNSVoipChannelRequest_certificate,
+    aPNSVoipChannelRequest_defaultAuthenticationMethod,
+    aPNSVoipChannelRequest_enabled,
     aPNSVoipChannelRequest_privateKey,
     aPNSVoipChannelRequest_teamId,
-    aPNSVoipChannelRequest_tokenKeyId,
-    aPNSVoipChannelRequest_certificate,
-    aPNSVoipChannelRequest_enabled,
     aPNSVoipChannelRequest_tokenKey,
-    aPNSVoipChannelRequest_bundleId,
-    aPNSVoipChannelRequest_defaultAuthenticationMethod,
+    aPNSVoipChannelRequest_tokenKeyId,
 
     -- * APNSVoipChannelResponse
     APNSVoipChannelResponse (..),
     newAPNSVoipChannelResponse,
-    aPNSVoipChannelResponse_lastModifiedDate,
-    aPNSVoipChannelResponse_hasTokenKey,
-    aPNSVoipChannelResponse_creationDate,
-    aPNSVoipChannelResponse_hasCredential,
-    aPNSVoipChannelResponse_id,
-    aPNSVoipChannelResponse_enabled,
-    aPNSVoipChannelResponse_defaultAuthenticationMethod,
-    aPNSVoipChannelResponse_lastModifiedBy,
-    aPNSVoipChannelResponse_isArchived,
     aPNSVoipChannelResponse_applicationId,
+    aPNSVoipChannelResponse_creationDate,
+    aPNSVoipChannelResponse_defaultAuthenticationMethod,
+    aPNSVoipChannelResponse_enabled,
+    aPNSVoipChannelResponse_hasCredential,
+    aPNSVoipChannelResponse_hasTokenKey,
+    aPNSVoipChannelResponse_id,
+    aPNSVoipChannelResponse_isArchived,
+    aPNSVoipChannelResponse_lastModifiedBy,
+    aPNSVoipChannelResponse_lastModifiedDate,
     aPNSVoipChannelResponse_version,
     aPNSVoipChannelResponse_platform,
 
     -- * APNSVoipSandboxChannelRequest
     APNSVoipSandboxChannelRequest (..),
     newAPNSVoipSandboxChannelRequest,
+    aPNSVoipSandboxChannelRequest_bundleId,
+    aPNSVoipSandboxChannelRequest_certificate,
+    aPNSVoipSandboxChannelRequest_defaultAuthenticationMethod,
+    aPNSVoipSandboxChannelRequest_enabled,
     aPNSVoipSandboxChannelRequest_privateKey,
     aPNSVoipSandboxChannelRequest_teamId,
-    aPNSVoipSandboxChannelRequest_tokenKeyId,
-    aPNSVoipSandboxChannelRequest_certificate,
-    aPNSVoipSandboxChannelRequest_enabled,
     aPNSVoipSandboxChannelRequest_tokenKey,
-    aPNSVoipSandboxChannelRequest_bundleId,
-    aPNSVoipSandboxChannelRequest_defaultAuthenticationMethod,
+    aPNSVoipSandboxChannelRequest_tokenKeyId,
 
     -- * APNSVoipSandboxChannelResponse
     APNSVoipSandboxChannelResponse (..),
     newAPNSVoipSandboxChannelResponse,
-    aPNSVoipSandboxChannelResponse_lastModifiedDate,
-    aPNSVoipSandboxChannelResponse_hasTokenKey,
-    aPNSVoipSandboxChannelResponse_creationDate,
-    aPNSVoipSandboxChannelResponse_hasCredential,
-    aPNSVoipSandboxChannelResponse_id,
-    aPNSVoipSandboxChannelResponse_enabled,
-    aPNSVoipSandboxChannelResponse_defaultAuthenticationMethod,
-    aPNSVoipSandboxChannelResponse_lastModifiedBy,
-    aPNSVoipSandboxChannelResponse_isArchived,
     aPNSVoipSandboxChannelResponse_applicationId,
+    aPNSVoipSandboxChannelResponse_creationDate,
+    aPNSVoipSandboxChannelResponse_defaultAuthenticationMethod,
+    aPNSVoipSandboxChannelResponse_enabled,
+    aPNSVoipSandboxChannelResponse_hasCredential,
+    aPNSVoipSandboxChannelResponse_hasTokenKey,
+    aPNSVoipSandboxChannelResponse_id,
+    aPNSVoipSandboxChannelResponse_isArchived,
+    aPNSVoipSandboxChannelResponse_lastModifiedBy,
+    aPNSVoipSandboxChannelResponse_lastModifiedDate,
     aPNSVoipSandboxChannelResponse_version,
     aPNSVoipSandboxChannelResponse_platform,
 
@@ -300,31 +300,31 @@ module Amazonka.Pinpoint.Types
     -- * Activity
     Activity (..),
     newActivity,
-    activity_sms,
-    activity_multiCondition,
-    activity_email,
-    activity_push,
-    activity_description,
-    activity_wait,
-    activity_randomSplit,
-    activity_contactCenter,
     activity_custom,
     activity_conditionalSplit,
+    activity_contactCenter,
+    activity_description,
+    activity_email,
     activity_holdout,
+    activity_multiCondition,
+    activity_push,
+    activity_randomSplit,
+    activity_sms,
+    activity_wait,
 
     -- * ActivityResponse
     ActivityResponse (..),
     newActivityResponse,
-    activityResponse_timezonesCompletedCount,
-    activityResponse_successfulEndpointCount,
-    activityResponse_scheduledStart,
-    activityResponse_treatmentId,
-    activityResponse_start,
-    activityResponse_state,
-    activityResponse_timezonesTotalCount,
     activityResponse_end,
     activityResponse_result,
+    activityResponse_scheduledStart,
+    activityResponse_start,
+    activityResponse_state,
+    activityResponse_successfulEndpointCount,
+    activityResponse_timezonesCompletedCount,
+    activityResponse_timezonesTotalCount,
     activityResponse_totalEndpointCount,
+    activityResponse_treatmentId,
     activityResponse_campaignId,
     activityResponse_id,
     activityResponse_applicationId,
@@ -332,25 +332,25 @@ module Amazonka.Pinpoint.Types
     -- * AddressConfiguration
     AddressConfiguration (..),
     newAddressConfiguration,
-    addressConfiguration_context,
-    addressConfiguration_substitutions,
-    addressConfiguration_titleOverride,
-    addressConfiguration_rawContent,
     addressConfiguration_bodyOverride,
     addressConfiguration_channelType,
+    addressConfiguration_context,
+    addressConfiguration_rawContent,
+    addressConfiguration_substitutions,
+    addressConfiguration_titleOverride,
 
     -- * AndroidPushNotificationTemplate
     AndroidPushNotificationTemplate (..),
     newAndroidPushNotificationTemplate,
-    androidPushNotificationTemplate_body,
-    androidPushNotificationTemplate_imageUrl,
-    androidPushNotificationTemplate_url,
-    androidPushNotificationTemplate_rawContent,
-    androidPushNotificationTemplate_sound,
-    androidPushNotificationTemplate_imageIconUrl,
-    androidPushNotificationTemplate_title,
     androidPushNotificationTemplate_action,
+    androidPushNotificationTemplate_body,
+    androidPushNotificationTemplate_imageIconUrl,
+    androidPushNotificationTemplate_imageUrl,
+    androidPushNotificationTemplate_rawContent,
     androidPushNotificationTemplate_smallImageIconUrl,
+    androidPushNotificationTemplate_sound,
+    androidPushNotificationTemplate_title,
+    androidPushNotificationTemplate_url,
 
     -- * ApplicationDateRangeKpiResponse
     ApplicationDateRangeKpiResponse (..),
@@ -365,8 +365,8 @@ module Amazonka.Pinpoint.Types
     -- * ApplicationResponse
     ApplicationResponse (..),
     newApplicationResponse,
-    applicationResponse_tags,
     applicationResponse_creationDate,
+    applicationResponse_tags,
     applicationResponse_id,
     applicationResponse_arn,
     applicationResponse_name,
@@ -374,17 +374,17 @@ module Amazonka.Pinpoint.Types
     -- * ApplicationSettingsResource
     ApplicationSettingsResource (..),
     newApplicationSettingsResource,
+    applicationSettingsResource_campaignHook,
     applicationSettingsResource_lastModifiedDate,
     applicationSettingsResource_limits,
     applicationSettingsResource_quietTime,
-    applicationSettingsResource_campaignHook,
     applicationSettingsResource_applicationId,
 
     -- * ApplicationsResponse
     ApplicationsResponse (..),
     newApplicationsResponse,
-    applicationsResponse_nextToken,
     applicationsResponse_item,
+    applicationsResponse_nextToken,
 
     -- * AttributeDimension
     AttributeDimension (..),
@@ -409,14 +409,14 @@ module Amazonka.Pinpoint.Types
     -- * BaiduChannelResponse
     BaiduChannelResponse (..),
     newBaiduChannelResponse,
-    baiduChannelResponse_lastModifiedDate,
+    baiduChannelResponse_applicationId,
     baiduChannelResponse_creationDate,
+    baiduChannelResponse_enabled,
     baiduChannelResponse_hasCredential,
     baiduChannelResponse_id,
-    baiduChannelResponse_enabled,
-    baiduChannelResponse_lastModifiedBy,
     baiduChannelResponse_isArchived,
-    baiduChannelResponse_applicationId,
+    baiduChannelResponse_lastModifiedBy,
+    baiduChannelResponse_lastModifiedDate,
     baiduChannelResponse_version,
     baiduChannelResponse_credential,
     baiduChannelResponse_platform,
@@ -424,20 +424,20 @@ module Amazonka.Pinpoint.Types
     -- * BaiduMessage
     BaiduMessage (..),
     newBaiduMessage,
-    baiduMessage_timeToLive,
-    baiduMessage_iconReference,
-    baiduMessage_body,
-    baiduMessage_imageUrl,
-    baiduMessage_url,
-    baiduMessage_substitutions,
-    baiduMessage_rawContent,
-    baiduMessage_sound,
-    baiduMessage_silentPush,
-    baiduMessage_imageIconUrl,
-    baiduMessage_title,
     baiduMessage_action,
+    baiduMessage_body,
     baiduMessage_data,
+    baiduMessage_iconReference,
+    baiduMessage_imageIconUrl,
+    baiduMessage_imageUrl,
+    baiduMessage_rawContent,
+    baiduMessage_silentPush,
     baiduMessage_smallImageIconUrl,
+    baiduMessage_sound,
+    baiduMessage_substitutions,
+    baiduMessage_timeToLive,
+    baiduMessage_title,
+    baiduMessage_url,
 
     -- * BaseKpiResult
     BaseKpiResult (..),
@@ -463,10 +463,10 @@ module Amazonka.Pinpoint.Types
     -- * CampaignEmailMessage
     CampaignEmailMessage (..),
     newCampaignEmailMessage,
-    campaignEmailMessage_fromAddress,
     campaignEmailMessage_body,
-    campaignEmailMessage_title,
+    campaignEmailMessage_fromAddress,
     campaignEmailMessage_htmlBody,
+    campaignEmailMessage_title,
 
     -- * CampaignEventFilter
     CampaignEventFilter (..),
@@ -478,47 +478,47 @@ module Amazonka.Pinpoint.Types
     CampaignHook (..),
     newCampaignHook,
     campaignHook_lambdaFunctionName,
-    campaignHook_webUrl,
     campaignHook_mode,
+    campaignHook_webUrl,
 
     -- * CampaignInAppMessage
     CampaignInAppMessage (..),
     newCampaignInAppMessage,
-    campaignInAppMessage_customConfig,
     campaignInAppMessage_body,
-    campaignInAppMessage_layout,
     campaignInAppMessage_content,
+    campaignInAppMessage_customConfig,
+    campaignInAppMessage_layout,
 
     -- * CampaignLimits
     CampaignLimits (..),
     newCampaignLimits,
+    campaignLimits_daily,
     campaignLimits_maximumDuration,
-    campaignLimits_total,
     campaignLimits_messagesPerSecond,
     campaignLimits_session,
-    campaignLimits_daily,
+    campaignLimits_total,
 
     -- * CampaignResponse
     CampaignResponse (..),
     newCampaignResponse,
-    campaignResponse_tags,
-    campaignResponse_schedule,
-    campaignResponse_customDeliveryConfiguration,
-    campaignResponse_name,
-    campaignResponse_hook,
-    campaignResponse_limits,
-    campaignResponse_treatmentName,
-    campaignResponse_holdoutPercent,
-    campaignResponse_state,
     campaignResponse_additionalTreatments,
-    campaignResponse_messageConfiguration,
-    campaignResponse_description,
-    campaignResponse_treatmentDescription,
-    campaignResponse_priority,
-    campaignResponse_templateConfiguration,
-    campaignResponse_isPaused,
-    campaignResponse_version,
+    campaignResponse_customDeliveryConfiguration,
     campaignResponse_defaultState,
+    campaignResponse_description,
+    campaignResponse_holdoutPercent,
+    campaignResponse_hook,
+    campaignResponse_isPaused,
+    campaignResponse_limits,
+    campaignResponse_messageConfiguration,
+    campaignResponse_name,
+    campaignResponse_priority,
+    campaignResponse_schedule,
+    campaignResponse_state,
+    campaignResponse_templateConfiguration,
+    campaignResponse_treatmentDescription,
+    campaignResponse_treatmentName,
+    campaignResponse_version,
+    campaignResponse_tags,
     campaignResponse_lastModifiedDate,
     campaignResponse_creationDate,
     campaignResponse_segmentId,
@@ -530,12 +530,12 @@ module Amazonka.Pinpoint.Types
     -- * CampaignSmsMessage
     CampaignSmsMessage (..),
     newCampaignSmsMessage,
+    campaignSmsMessage_body,
     campaignSmsMessage_entityId,
     campaignSmsMessage_messageType,
-    campaignSmsMessage_senderId,
-    campaignSmsMessage_body,
-    campaignSmsMessage_templateId,
     campaignSmsMessage_originationNumber,
+    campaignSmsMessage_senderId,
+    campaignSmsMessage_templateId,
 
     -- * CampaignState
     CampaignState (..),
@@ -551,14 +551,14 @@ module Amazonka.Pinpoint.Types
     -- * ChannelResponse
     ChannelResponse (..),
     newChannelResponse,
-    channelResponse_lastModifiedDate,
+    channelResponse_applicationId,
     channelResponse_creationDate,
+    channelResponse_enabled,
     channelResponse_hasCredential,
     channelResponse_id,
-    channelResponse_enabled,
-    channelResponse_lastModifiedBy,
     channelResponse_isArchived,
-    channelResponse_applicationId,
+    channelResponse_lastModifiedBy,
+    channelResponse_lastModifiedDate,
     channelResponse_version,
 
     -- * ChannelsResponse
@@ -569,18 +569,18 @@ module Amazonka.Pinpoint.Types
     -- * ClosedDays
     ClosedDays (..),
     newClosedDays,
-    closedDays_sms,
-    closedDays_email,
-    closedDays_voice,
-    closedDays_push,
     closedDays_custom,
+    closedDays_email,
+    closedDays_push,
+    closedDays_sms,
+    closedDays_voice,
 
     -- * ClosedDaysRule
     ClosedDaysRule (..),
     newClosedDaysRule,
+    closedDaysRule_endDateTime,
     closedDaysRule_name,
     closedDaysRule_startDateTime,
-    closedDaysRule_endDateTime,
 
     -- * Condition
     Condition (..),
@@ -592,8 +592,8 @@ module Amazonka.Pinpoint.Types
     ConditionalSplitActivity (..),
     newConditionalSplitActivity,
     conditionalSplitActivity_condition,
-    conditionalSplitActivity_falseActivity,
     conditionalSplitActivity_evaluationWaitTime,
+    conditionalSplitActivity_falseActivity,
     conditionalSplitActivity_trueActivity,
 
     -- * ContactCenterActivity
@@ -610,12 +610,12 @@ module Amazonka.Pinpoint.Types
     -- * CreateRecommenderConfiguration
     CreateRecommenderConfiguration (..),
     newCreateRecommenderConfiguration,
-    createRecommenderConfiguration_name,
-    createRecommenderConfiguration_recommendationTransformerUri,
-    createRecommenderConfiguration_description,
-    createRecommenderConfiguration_recommendationsDisplayName,
-    createRecommenderConfiguration_recommendationProviderIdType,
     createRecommenderConfiguration_attributes,
+    createRecommenderConfiguration_description,
+    createRecommenderConfiguration_name,
+    createRecommenderConfiguration_recommendationProviderIdType,
+    createRecommenderConfiguration_recommendationTransformerUri,
+    createRecommenderConfiguration_recommendationsDisplayName,
     createRecommenderConfiguration_recommendationsPerMessage,
     createRecommenderConfiguration_recommendationProviderUri,
     createRecommenderConfiguration_recommendationProviderRoleArn,
@@ -623,9 +623,9 @@ module Amazonka.Pinpoint.Types
     -- * CreateTemplateMessageBody
     CreateTemplateMessageBody (..),
     newCreateTemplateMessageBody,
+    createTemplateMessageBody_arn,
     createTemplateMessageBody_message,
     createTemplateMessageBody_requestID,
-    createTemplateMessageBody_arn,
 
     -- * CustomDeliveryConfiguration
     CustomDeliveryConfiguration (..),
@@ -636,20 +636,20 @@ module Amazonka.Pinpoint.Types
     -- * CustomMessageActivity
     CustomMessageActivity (..),
     newCustomMessageActivity,
-    customMessageActivity_endpointTypes,
-    customMessageActivity_templateName,
-    customMessageActivity_nextActivity,
-    customMessageActivity_templateVersion,
     customMessageActivity_deliveryUri,
+    customMessageActivity_endpointTypes,
     customMessageActivity_messageConfig,
+    customMessageActivity_nextActivity,
+    customMessageActivity_templateName,
+    customMessageActivity_templateVersion,
 
     -- * DefaultButtonConfiguration
     DefaultButtonConfiguration (..),
     newDefaultButtonConfiguration,
-    defaultButtonConfiguration_link,
-    defaultButtonConfiguration_textColor,
     defaultButtonConfiguration_backgroundColor,
     defaultButtonConfiguration_borderRadius,
+    defaultButtonConfiguration_link,
+    defaultButtonConfiguration_textColor,
     defaultButtonConfiguration_buttonAction,
     defaultButtonConfiguration_text,
 
@@ -662,106 +662,106 @@ module Amazonka.Pinpoint.Types
     -- * DefaultPushNotificationMessage
     DefaultPushNotificationMessage (..),
     newDefaultPushNotificationMessage,
-    defaultPushNotificationMessage_body,
-    defaultPushNotificationMessage_url,
-    defaultPushNotificationMessage_substitutions,
-    defaultPushNotificationMessage_silentPush,
-    defaultPushNotificationMessage_title,
     defaultPushNotificationMessage_action,
+    defaultPushNotificationMessage_body,
     defaultPushNotificationMessage_data,
+    defaultPushNotificationMessage_silentPush,
+    defaultPushNotificationMessage_substitutions,
+    defaultPushNotificationMessage_title,
+    defaultPushNotificationMessage_url,
 
     -- * DefaultPushNotificationTemplate
     DefaultPushNotificationTemplate (..),
     newDefaultPushNotificationTemplate,
+    defaultPushNotificationTemplate_action,
     defaultPushNotificationTemplate_body,
-    defaultPushNotificationTemplate_url,
     defaultPushNotificationTemplate_sound,
     defaultPushNotificationTemplate_title,
-    defaultPushNotificationTemplate_action,
+    defaultPushNotificationTemplate_url,
 
     -- * DirectMessageConfiguration
     DirectMessageConfiguration (..),
     newDirectMessageConfiguration,
     directMessageConfiguration_aDMMessage,
-    directMessageConfiguration_sMSMessage,
-    directMessageConfiguration_voiceMessage,
-    directMessageConfiguration_defaultMessage,
     directMessageConfiguration_aPNSMessage,
-    directMessageConfiguration_gCMMessage,
+    directMessageConfiguration_baiduMessage,
+    directMessageConfiguration_defaultMessage,
     directMessageConfiguration_defaultPushNotificationMessage,
     directMessageConfiguration_emailMessage,
-    directMessageConfiguration_baiduMessage,
+    directMessageConfiguration_gCMMessage,
+    directMessageConfiguration_sMSMessage,
+    directMessageConfiguration_voiceMessage,
 
     -- * EmailChannelRequest
     EmailChannelRequest (..),
     newEmailChannelRequest,
-    emailChannelRequest_roleArn,
-    emailChannelRequest_enabled,
     emailChannelRequest_configurationSet,
+    emailChannelRequest_enabled,
+    emailChannelRequest_roleArn,
     emailChannelRequest_fromAddress,
     emailChannelRequest_identity,
 
     -- * EmailChannelResponse
     EmailChannelResponse (..),
     newEmailChannelResponse,
-    emailChannelResponse_roleArn,
-    emailChannelResponse_fromAddress,
-    emailChannelResponse_lastModifiedDate,
-    emailChannelResponse_messagesPerSecond,
+    emailChannelResponse_applicationId,
+    emailChannelResponse_configurationSet,
     emailChannelResponse_creationDate,
+    emailChannelResponse_enabled,
+    emailChannelResponse_fromAddress,
     emailChannelResponse_hasCredential,
     emailChannelResponse_id,
-    emailChannelResponse_enabled,
     emailChannelResponse_identity,
-    emailChannelResponse_configurationSet,
-    emailChannelResponse_lastModifiedBy,
     emailChannelResponse_isArchived,
-    emailChannelResponse_applicationId,
+    emailChannelResponse_lastModifiedBy,
+    emailChannelResponse_lastModifiedDate,
+    emailChannelResponse_messagesPerSecond,
+    emailChannelResponse_roleArn,
     emailChannelResponse_version,
     emailChannelResponse_platform,
 
     -- * EmailMessage
     EmailMessage (..),
     newEmailMessage,
-    emailMessage_feedbackForwardingAddress,
-    emailMessage_replyToAddresses,
-    emailMessage_fromAddress,
-    emailMessage_simpleEmail,
     emailMessage_body,
-    emailMessage_substitutions,
+    emailMessage_feedbackForwardingAddress,
+    emailMessage_fromAddress,
     emailMessage_rawEmail,
+    emailMessage_replyToAddresses,
+    emailMessage_simpleEmail,
+    emailMessage_substitutions,
 
     -- * EmailMessageActivity
     EmailMessageActivity (..),
     newEmailMessageActivity,
-    emailMessageActivity_templateName,
-    emailMessageActivity_nextActivity,
-    emailMessageActivity_templateVersion,
     emailMessageActivity_messageConfig,
+    emailMessageActivity_nextActivity,
+    emailMessageActivity_templateName,
+    emailMessageActivity_templateVersion,
 
     -- * EmailTemplateRequest
     EmailTemplateRequest (..),
     newEmailTemplateRequest,
-    emailTemplateRequest_tags,
-    emailTemplateRequest_recommenderId,
     emailTemplateRequest_defaultSubstitutions,
-    emailTemplateRequest_textPart,
-    emailTemplateRequest_subject,
     emailTemplateRequest_htmlPart,
+    emailTemplateRequest_recommenderId,
+    emailTemplateRequest_subject,
     emailTemplateRequest_templateDescription,
+    emailTemplateRequest_textPart,
+    emailTemplateRequest_tags,
 
     -- * EmailTemplateResponse
     EmailTemplateResponse (..),
     newEmailTemplateResponse,
-    emailTemplateResponse_tags,
     emailTemplateResponse_arn,
-    emailTemplateResponse_recommenderId,
     emailTemplateResponse_defaultSubstitutions,
-    emailTemplateResponse_textPart,
-    emailTemplateResponse_subject,
     emailTemplateResponse_htmlPart,
+    emailTemplateResponse_recommenderId,
+    emailTemplateResponse_subject,
     emailTemplateResponse_templateDescription,
+    emailTemplateResponse_textPart,
     emailTemplateResponse_version,
+    emailTemplateResponse_tags,
     emailTemplateResponse_lastModifiedDate,
     emailTemplateResponse_creationDate,
     emailTemplateResponse_templateName,
@@ -770,18 +770,18 @@ module Amazonka.Pinpoint.Types
     -- * EndpointBatchItem
     EndpointBatchItem (..),
     newEndpointBatchItem,
+    endpointBatchItem_address,
+    endpointBatchItem_attributes,
+    endpointBatchItem_channelType,
     endpointBatchItem_demographic,
-    endpointBatchItem_user,
-    endpointBatchItem_requestId,
-    endpointBatchItem_metrics,
+    endpointBatchItem_effectiveDate,
+    endpointBatchItem_endpointStatus,
     endpointBatchItem_id,
     endpointBatchItem_location,
+    endpointBatchItem_metrics,
     endpointBatchItem_optOut,
-    endpointBatchItem_address,
-    endpointBatchItem_effectiveDate,
-    endpointBatchItem_attributes,
-    endpointBatchItem_endpointStatus,
-    endpointBatchItem_channelType,
+    endpointBatchItem_requestId,
+    endpointBatchItem_user,
 
     -- * EndpointBatchRequest
     EndpointBatchRequest (..),
@@ -791,14 +791,14 @@ module Amazonka.Pinpoint.Types
     -- * EndpointDemographic
     EndpointDemographic (..),
     newEndpointDemographic,
-    endpointDemographic_model,
+    endpointDemographic_appVersion,
     endpointDemographic_locale,
-    endpointDemographic_timezone,
+    endpointDemographic_make,
+    endpointDemographic_model,
     endpointDemographic_modelVersion,
     endpointDemographic_platform,
-    endpointDemographic_make,
-    endpointDemographic_appVersion,
     endpointDemographic_platformVersion,
+    endpointDemographic_timezone,
 
     -- * EndpointItemResponse
     EndpointItemResponse (..),
@@ -809,65 +809,65 @@ module Amazonka.Pinpoint.Types
     -- * EndpointLocation
     EndpointLocation (..),
     newEndpointLocation,
+    endpointLocation_city,
+    endpointLocation_country,
+    endpointLocation_latitude,
     endpointLocation_longitude,
     endpointLocation_postalCode,
-    endpointLocation_country,
     endpointLocation_region,
-    endpointLocation_city,
-    endpointLocation_latitude,
 
     -- * EndpointMessageResult
     EndpointMessageResult (..),
     newEndpointMessageResult,
-    endpointMessageResult_updatedToken,
-    endpointMessageResult_messageId,
     endpointMessageResult_address,
+    endpointMessageResult_messageId,
     endpointMessageResult_statusMessage,
+    endpointMessageResult_updatedToken,
     endpointMessageResult_deliveryStatus,
     endpointMessageResult_statusCode,
 
     -- * EndpointRequest
     EndpointRequest (..),
     newEndpointRequest,
-    endpointRequest_demographic,
-    endpointRequest_user,
-    endpointRequest_requestId,
-    endpointRequest_metrics,
-    endpointRequest_location,
-    endpointRequest_optOut,
     endpointRequest_address,
-    endpointRequest_effectiveDate,
     endpointRequest_attributes,
-    endpointRequest_endpointStatus,
     endpointRequest_channelType,
+    endpointRequest_demographic,
+    endpointRequest_effectiveDate,
+    endpointRequest_endpointStatus,
+    endpointRequest_location,
+    endpointRequest_metrics,
+    endpointRequest_optOut,
+    endpointRequest_requestId,
+    endpointRequest_user,
 
     -- * EndpointResponse
     EndpointResponse (..),
     newEndpointResponse,
-    endpointResponse_demographic,
+    endpointResponse_address,
+    endpointResponse_applicationId,
+    endpointResponse_attributes,
+    endpointResponse_channelType,
     endpointResponse_cohortId,
-    endpointResponse_user,
-    endpointResponse_requestId,
     endpointResponse_creationDate,
-    endpointResponse_metrics,
+    endpointResponse_demographic,
+    endpointResponse_effectiveDate,
+    endpointResponse_endpointStatus,
     endpointResponse_id,
     endpointResponse_location,
+    endpointResponse_metrics,
     endpointResponse_optOut,
-    endpointResponse_address,
-    endpointResponse_effectiveDate,
-    endpointResponse_attributes,
-    endpointResponse_applicationId,
-    endpointResponse_endpointStatus,
-    endpointResponse_channelType,
+    endpointResponse_requestId,
+    endpointResponse_user,
 
     -- * EndpointSendConfiguration
     EndpointSendConfiguration (..),
     newEndpointSendConfiguration,
+    endpointSendConfiguration_bodyOverride,
     endpointSendConfiguration_context,
+    endpointSendConfiguration_rawContent,
     endpointSendConfiguration_substitutions,
     endpointSendConfiguration_titleOverride,
-    endpointSendConfiguration_rawContent,
-    endpointSendConfiguration_bodyOverride,
 
     -- * EndpointUser
     EndpointUser (..),
@@ -883,14 +883,14 @@ module Amazonka.Pinpoint.Types
     -- * Event
     Event (..),
     newEvent,
-    event_appTitle,
-    event_clientSdkVersion,
-    event_session,
     event_appPackageName,
-    event_metrics,
+    event_appTitle,
     event_appVersionCode,
-    event_sdkName,
     event_attributes,
+    event_clientSdkVersion,
+    event_metrics,
+    event_sdkName,
+    event_session,
     event_eventType,
     event_timestamp,
 
@@ -903,9 +903,9 @@ module Amazonka.Pinpoint.Types
     -- * EventDimensions
     EventDimensions (..),
     newEventDimensions,
+    eventDimensions_attributes,
     eventDimensions_eventType,
     eventDimensions_metrics,
-    eventDimensions_attributes,
 
     -- * EventFilter
     EventFilter (..),
@@ -928,8 +928,8 @@ module Amazonka.Pinpoint.Types
     -- * EventStream
     EventStream (..),
     newEventStream,
-    eventStream_lastModifiedDate,
     eventStream_externalId,
+    eventStream_lastModifiedDate,
     eventStream_lastUpdatedBy,
     eventStream_applicationId,
     eventStream_roleArn,
@@ -954,29 +954,29 @@ module Amazonka.Pinpoint.Types
     -- * ExportJobRequest
     ExportJobRequest (..),
     newExportJobRequest,
-    exportJobRequest_segmentVersion,
     exportJobRequest_segmentId,
+    exportJobRequest_segmentVersion,
     exportJobRequest_s3UrlPrefix,
     exportJobRequest_roleArn,
 
     -- * ExportJobResource
     ExportJobResource (..),
     newExportJobResource,
-    exportJobResource_segmentVersion,
     exportJobResource_segmentId,
+    exportJobResource_segmentVersion,
     exportJobResource_s3UrlPrefix,
     exportJobResource_roleArn,
 
     -- * ExportJobResponse
     ExportJobResponse (..),
     newExportJobResponse,
-    exportJobResponse_failedPieces,
     exportJobResponse_completedPieces,
-    exportJobResponse_totalPieces,
     exportJobResponse_completionDate,
-    exportJobResponse_totalProcessed,
+    exportJobResponse_failedPieces,
     exportJobResponse_failures,
     exportJobResponse_totalFailures,
+    exportJobResponse_totalPieces,
+    exportJobResponse_totalProcessed,
     exportJobResponse_jobStatus,
     exportJobResponse_creationDate,
     exportJobResponse_type,
@@ -999,14 +999,14 @@ module Amazonka.Pinpoint.Types
     -- * GCMChannelResponse
     GCMChannelResponse (..),
     newGCMChannelResponse,
-    gCMChannelResponse_lastModifiedDate,
+    gCMChannelResponse_applicationId,
     gCMChannelResponse_creationDate,
+    gCMChannelResponse_enabled,
     gCMChannelResponse_hasCredential,
     gCMChannelResponse_id,
-    gCMChannelResponse_enabled,
-    gCMChannelResponse_lastModifiedBy,
     gCMChannelResponse_isArchived,
-    gCMChannelResponse_applicationId,
+    gCMChannelResponse_lastModifiedBy,
+    gCMChannelResponse_lastModifiedDate,
     gCMChannelResponse_version,
     gCMChannelResponse_credential,
     gCMChannelResponse_platform,
@@ -1014,23 +1014,23 @@ module Amazonka.Pinpoint.Types
     -- * GCMMessage
     GCMMessage (..),
     newGCMMessage,
-    gCMMessage_timeToLive,
-    gCMMessage_collapseKey,
-    gCMMessage_iconReference,
-    gCMMessage_body,
-    gCMMessage_imageUrl,
-    gCMMessage_url,
-    gCMMessage_substitutions,
-    gCMMessage_rawContent,
-    gCMMessage_sound,
-    gCMMessage_silentPush,
-    gCMMessage_imageIconUrl,
-    gCMMessage_title,
-    gCMMessage_priority,
     gCMMessage_action,
-    gCMMessage_restrictedPackageName,
+    gCMMessage_body,
+    gCMMessage_collapseKey,
     gCMMessage_data,
+    gCMMessage_iconReference,
+    gCMMessage_imageIconUrl,
+    gCMMessage_imageUrl,
+    gCMMessage_priority,
+    gCMMessage_rawContent,
+    gCMMessage_restrictedPackageName,
+    gCMMessage_silentPush,
     gCMMessage_smallImageIconUrl,
+    gCMMessage_sound,
+    gCMMessage_substitutions,
+    gCMMessage_timeToLive,
+    gCMMessage_title,
+    gCMMessage_url,
 
     -- * GPSCoordinates
     GPSCoordinates (..),
@@ -1054,10 +1054,10 @@ module Amazonka.Pinpoint.Types
     ImportJobRequest (..),
     newImportJobRequest,
     importJobRequest_defineSegment,
-    importJobRequest_segmentId,
     importJobRequest_externalId,
-    importJobRequest_segmentName,
     importJobRequest_registerEndpoints,
+    importJobRequest_segmentId,
+    importJobRequest_segmentName,
     importJobRequest_format,
     importJobRequest_s3Url,
     importJobRequest_roleArn,
@@ -1066,10 +1066,10 @@ module Amazonka.Pinpoint.Types
     ImportJobResource (..),
     newImportJobResource,
     importJobResource_defineSegment,
-    importJobResource_segmentId,
     importJobResource_externalId,
-    importJobResource_segmentName,
     importJobResource_registerEndpoints,
+    importJobResource_segmentId,
+    importJobResource_segmentName,
     importJobResource_format,
     importJobResource_s3Url,
     importJobResource_roleArn,
@@ -1077,13 +1077,13 @@ module Amazonka.Pinpoint.Types
     -- * ImportJobResponse
     ImportJobResponse (..),
     newImportJobResponse,
-    importJobResponse_failedPieces,
     importJobResponse_completedPieces,
-    importJobResponse_totalPieces,
     importJobResponse_completionDate,
-    importJobResponse_totalProcessed,
+    importJobResponse_failedPieces,
     importJobResponse_failures,
     importJobResponse_totalFailures,
+    importJobResponse_totalPieces,
+    importJobResponse_totalProcessed,
     importJobResponse_jobStatus,
     importJobResponse_creationDate,
     importJobResponse_type,
@@ -1100,16 +1100,16 @@ module Amazonka.Pinpoint.Types
     -- * InAppCampaignSchedule
     InAppCampaignSchedule (..),
     newInAppCampaignSchedule,
-    inAppCampaignSchedule_eventFilter,
     inAppCampaignSchedule_endDate,
+    inAppCampaignSchedule_eventFilter,
     inAppCampaignSchedule_quietTime,
 
     -- * InAppMessage
     InAppMessage (..),
     newInAppMessage,
+    inAppMessage_content,
     inAppMessage_customConfig,
     inAppMessage_layout,
-    inAppMessage_content,
 
     -- * InAppMessageBodyConfig
     InAppMessageBodyConfig (..),
@@ -1121,32 +1121,32 @@ module Amazonka.Pinpoint.Types
     -- * InAppMessageButton
     InAppMessageButton (..),
     newInAppMessageButton,
-    inAppMessageButton_web,
-    inAppMessageButton_ios,
     inAppMessageButton_android,
     inAppMessageButton_defaultConfig,
+    inAppMessageButton_ios,
+    inAppMessageButton_web,
 
     -- * InAppMessageCampaign
     InAppMessageCampaign (..),
     newInAppMessageCampaign,
+    inAppMessageCampaign_campaignId,
+    inAppMessageCampaign_dailyCap,
+    inAppMessageCampaign_inAppMessage,
+    inAppMessageCampaign_priority,
     inAppMessageCampaign_schedule,
     inAppMessageCampaign_sessionCap,
-    inAppMessageCampaign_campaignId,
-    inAppMessageCampaign_treatmentId,
-    inAppMessageCampaign_inAppMessage,
     inAppMessageCampaign_totalCap,
-    inAppMessageCampaign_priority,
-    inAppMessageCampaign_dailyCap,
+    inAppMessageCampaign_treatmentId,
 
     -- * InAppMessageContent
     InAppMessageContent (..),
     newInAppMessageContent,
-    inAppMessageContent_bodyConfig,
-    inAppMessageContent_secondaryBtn,
-    inAppMessageContent_imageUrl,
-    inAppMessageContent_headerConfig,
     inAppMessageContent_backgroundColor,
+    inAppMessageContent_bodyConfig,
+    inAppMessageContent_headerConfig,
+    inAppMessageContent_imageUrl,
     inAppMessageContent_primaryBtn,
+    inAppMessageContent_secondaryBtn,
 
     -- * InAppMessageHeaderConfig
     InAppMessageHeaderConfig (..),
@@ -1163,22 +1163,22 @@ module Amazonka.Pinpoint.Types
     -- * InAppTemplateRequest
     InAppTemplateRequest (..),
     newInAppTemplateRequest,
-    inAppTemplateRequest_customConfig,
-    inAppTemplateRequest_tags,
-    inAppTemplateRequest_layout,
     inAppTemplateRequest_content,
+    inAppTemplateRequest_customConfig,
+    inAppTemplateRequest_layout,
     inAppTemplateRequest_templateDescription,
+    inAppTemplateRequest_tags,
 
     -- * InAppTemplateResponse
     InAppTemplateResponse (..),
     newInAppTemplateResponse,
-    inAppTemplateResponse_customConfig,
-    inAppTemplateResponse_tags,
     inAppTemplateResponse_arn,
-    inAppTemplateResponse_layout,
     inAppTemplateResponse_content,
+    inAppTemplateResponse_customConfig,
+    inAppTemplateResponse_layout,
     inAppTemplateResponse_templateDescription,
     inAppTemplateResponse_version,
+    inAppTemplateResponse_tags,
     inAppTemplateResponse_lastModifiedDate,
     inAppTemplateResponse_creationDate,
     inAppTemplateResponse_templateName,
@@ -1187,14 +1187,14 @@ module Amazonka.Pinpoint.Types
     -- * ItemResponse
     ItemResponse (..),
     newItemResponse,
-    itemResponse_eventsItemResponse,
     itemResponse_endpointItemResponse,
+    itemResponse_eventsItemResponse,
 
     -- * JourneyChannelSettings
     JourneyChannelSettings (..),
     newJourneyChannelSettings,
-    journeyChannelSettings_connectCampaignExecutionRoleArn,
     journeyChannelSettings_connectCampaignArn,
+    journeyChannelSettings_connectCampaignExecutionRoleArn,
 
     -- * JourneyCustomMessage
     JourneyCustomMessage (..),
@@ -1238,10 +1238,10 @@ module Amazonka.Pinpoint.Types
     -- * JourneyLimits
     JourneyLimits (..),
     newJourneyLimits,
-    journeyLimits_endpointReentryInterval,
-    journeyLimits_messagesPerSecond,
     journeyLimits_dailyCap,
     journeyLimits_endpointReentryCap,
+    journeyLimits_endpointReentryInterval,
+    journeyLimits_messagesPerSecond,
 
     -- * JourneyPushMessage
     JourneyPushMessage (..),
@@ -1251,24 +1251,24 @@ module Amazonka.Pinpoint.Types
     -- * JourneyResponse
     JourneyResponse (..),
     newJourneyResponse,
-    journeyResponse_tags,
-    journeyResponse_schedule,
     journeyResponse_activities,
-    journeyResponse_lastModifiedDate,
-    journeyResponse_refreshOnSegmentUpdate,
-    journeyResponse_limits,
-    journeyResponse_startCondition,
-    journeyResponse_startActivity,
-    journeyResponse_state,
+    journeyResponse_closedDays,
     journeyResponse_creationDate,
-    journeyResponse_refreshFrequency,
+    journeyResponse_journeyChannelSettings,
+    journeyResponse_lastModifiedDate,
+    journeyResponse_limits,
     journeyResponse_localTime,
     journeyResponse_openHours,
     journeyResponse_quietTime,
+    journeyResponse_refreshFrequency,
+    journeyResponse_refreshOnSegmentUpdate,
+    journeyResponse_schedule,
     journeyResponse_sendingSchedule,
+    journeyResponse_startActivity,
+    journeyResponse_startCondition,
+    journeyResponse_state,
     journeyResponse_waitForQuietTime,
-    journeyResponse_closedDays,
-    journeyResponse_journeyChannelSettings,
+    journeyResponse_tags,
     journeyResponse_name,
     journeyResponse_id,
     journeyResponse_applicationId,
@@ -1278,16 +1278,16 @@ module Amazonka.Pinpoint.Types
     newJourneySMSMessage,
     journeySMSMessage_entityId,
     journeySMSMessage_messageType,
+    journeySMSMessage_originationNumber,
     journeySMSMessage_senderId,
     journeySMSMessage_templateId,
-    journeySMSMessage_originationNumber,
 
     -- * JourneySchedule
     JourneySchedule (..),
     newJourneySchedule,
-    journeySchedule_timezone,
     journeySchedule_endTime,
     journeySchedule_startTime,
+    journeySchedule_timezone,
 
     -- * JourneyStateRequest
     JourneyStateRequest (..),
@@ -1309,18 +1309,18 @@ module Amazonka.Pinpoint.Types
     -- * Message
     Message (..),
     newMessage,
-    message_timeToLive,
-    message_jsonBody,
+    message_action,
     message_body,
-    message_imageUrl,
-    message_url,
+    message_imageIconUrl,
     message_imageSmallIconUrl,
+    message_imageUrl,
+    message_jsonBody,
+    message_mediaUrl,
     message_rawContent,
     message_silentPush,
-    message_imageIconUrl,
+    message_timeToLive,
     message_title,
-    message_mediaUrl,
-    message_action,
+    message_url,
 
     -- * MessageBody
     MessageBody (..),
@@ -1332,21 +1332,21 @@ module Amazonka.Pinpoint.Types
     MessageConfiguration (..),
     newMessageConfiguration,
     messageConfiguration_aDMMessage,
-    messageConfiguration_sMSMessage,
-    messageConfiguration_inAppMessage,
-    messageConfiguration_defaultMessage,
     messageConfiguration_aPNSMessage,
-    messageConfiguration_customMessage,
-    messageConfiguration_gCMMessage,
-    messageConfiguration_emailMessage,
     messageConfiguration_baiduMessage,
+    messageConfiguration_customMessage,
+    messageConfiguration_defaultMessage,
+    messageConfiguration_emailMessage,
+    messageConfiguration_gCMMessage,
+    messageConfiguration_inAppMessage,
+    messageConfiguration_sMSMessage,
 
     -- * MessageRequest
     MessageRequest (..),
     newMessageRequest,
+    messageRequest_addresses,
     messageRequest_context,
     messageRequest_endpoints,
-    messageRequest_addresses,
     messageRequest_templateConfiguration,
     messageRequest_traceId,
     messageRequest_messageConfiguration,
@@ -1354,17 +1354,17 @@ module Amazonka.Pinpoint.Types
     -- * MessageResponse
     MessageResponse (..),
     newMessageResponse,
-    messageResponse_requestId,
     messageResponse_endpointResult,
+    messageResponse_requestId,
     messageResponse_result,
     messageResponse_applicationId,
 
     -- * MessageResult
     MessageResult (..),
     newMessageResult,
-    messageResult_updatedToken,
     messageResult_messageId,
     messageResult_statusMessage,
+    messageResult_updatedToken,
     messageResult_deliveryStatus,
     messageResult_statusCode,
 
@@ -1377,8 +1377,8 @@ module Amazonka.Pinpoint.Types
     -- * MultiConditionalBranch
     MultiConditionalBranch (..),
     newMultiConditionalBranch,
-    multiConditionalBranch_nextActivity,
     multiConditionalBranch_condition,
+    multiConditionalBranch_nextActivity,
 
     -- * MultiConditionalSplitActivity
     MultiConditionalSplitActivity (..),
@@ -1396,29 +1396,29 @@ module Amazonka.Pinpoint.Types
     -- * NumberValidateResponse
     NumberValidateResponse (..),
     newNumberValidateResponse,
-    numberValidateResponse_zipCode,
-    numberValidateResponse_phoneTypeCode,
-    numberValidateResponse_country,
-    numberValidateResponse_timezone,
-    numberValidateResponse_cleansedPhoneNumberE164,
-    numberValidateResponse_county,
     numberValidateResponse_carrier,
-    numberValidateResponse_cleansedPhoneNumberNational,
-    numberValidateResponse_originalPhoneNumber,
-    numberValidateResponse_originalCountryCodeIso2,
-    numberValidateResponse_phoneType,
     numberValidateResponse_city,
-    numberValidateResponse_countryCodeNumeric,
+    numberValidateResponse_cleansedPhoneNumberE164,
+    numberValidateResponse_cleansedPhoneNumberNational,
+    numberValidateResponse_country,
     numberValidateResponse_countryCodeIso2,
+    numberValidateResponse_countryCodeNumeric,
+    numberValidateResponse_county,
+    numberValidateResponse_originalCountryCodeIso2,
+    numberValidateResponse_originalPhoneNumber,
+    numberValidateResponse_phoneType,
+    numberValidateResponse_phoneTypeCode,
+    numberValidateResponse_timezone,
+    numberValidateResponse_zipCode,
 
     -- * OpenHours
     OpenHours (..),
     newOpenHours,
-    openHours_sms,
-    openHours_email,
-    openHours_voice,
-    openHours_push,
     openHours_custom,
+    openHours_email,
+    openHours_push,
+    openHours_sms,
+    openHours_voice,
 
     -- * OpenHoursRule
     OpenHoursRule (..),
@@ -1435,53 +1435,53 @@ module Amazonka.Pinpoint.Types
     -- * PublicEndpoint
     PublicEndpoint (..),
     newPublicEndpoint,
-    publicEndpoint_demographic,
-    publicEndpoint_user,
-    publicEndpoint_requestId,
-    publicEndpoint_metrics,
-    publicEndpoint_location,
-    publicEndpoint_optOut,
     publicEndpoint_address,
-    publicEndpoint_effectiveDate,
     publicEndpoint_attributes,
-    publicEndpoint_endpointStatus,
     publicEndpoint_channelType,
+    publicEndpoint_demographic,
+    publicEndpoint_effectiveDate,
+    publicEndpoint_endpointStatus,
+    publicEndpoint_location,
+    publicEndpoint_metrics,
+    publicEndpoint_optOut,
+    publicEndpoint_requestId,
+    publicEndpoint_user,
 
     -- * PushMessageActivity
     PushMessageActivity (..),
     newPushMessageActivity,
-    pushMessageActivity_templateName,
-    pushMessageActivity_nextActivity,
-    pushMessageActivity_templateVersion,
     pushMessageActivity_messageConfig,
+    pushMessageActivity_nextActivity,
+    pushMessageActivity_templateName,
+    pushMessageActivity_templateVersion,
 
     -- * PushNotificationTemplateRequest
     PushNotificationTemplateRequest (..),
     newPushNotificationTemplateRequest,
-    pushNotificationTemplateRequest_tags,
     pushNotificationTemplateRequest_adm,
     pushNotificationTemplateRequest_apns,
-    pushNotificationTemplateRequest_default,
-    pushNotificationTemplateRequest_recommenderId,
-    pushNotificationTemplateRequest_defaultSubstitutions,
     pushNotificationTemplateRequest_baidu,
-    pushNotificationTemplateRequest_templateDescription,
+    pushNotificationTemplateRequest_default,
+    pushNotificationTemplateRequest_defaultSubstitutions,
     pushNotificationTemplateRequest_gcm,
+    pushNotificationTemplateRequest_recommenderId,
+    pushNotificationTemplateRequest_templateDescription,
+    pushNotificationTemplateRequest_tags,
 
     -- * PushNotificationTemplateResponse
     PushNotificationTemplateResponse (..),
     newPushNotificationTemplateResponse,
-    pushNotificationTemplateResponse_tags,
     pushNotificationTemplateResponse_adm,
     pushNotificationTemplateResponse_apns,
-    pushNotificationTemplateResponse_default,
     pushNotificationTemplateResponse_arn,
-    pushNotificationTemplateResponse_recommenderId,
-    pushNotificationTemplateResponse_defaultSubstitutions,
     pushNotificationTemplateResponse_baidu,
+    pushNotificationTemplateResponse_default,
+    pushNotificationTemplateResponse_defaultSubstitutions,
+    pushNotificationTemplateResponse_gcm,
+    pushNotificationTemplateResponse_recommenderId,
     pushNotificationTemplateResponse_templateDescription,
     pushNotificationTemplateResponse_version,
-    pushNotificationTemplateResponse_gcm,
+    pushNotificationTemplateResponse_tags,
     pushNotificationTemplateResponse_lastModifiedDate,
     pushNotificationTemplateResponse_creationDate,
     pushNotificationTemplateResponse_templateType,
@@ -1490,8 +1490,8 @@ module Amazonka.Pinpoint.Types
     -- * QuietTime
     QuietTime (..),
     newQuietTime,
-    quietTime_start,
     quietTime_end,
+    quietTime_start,
 
     -- * RandomSplitActivity
     RandomSplitActivity (..),
@@ -1518,12 +1518,12 @@ module Amazonka.Pinpoint.Types
     -- * RecommenderConfigurationResponse
     RecommenderConfigurationResponse (..),
     newRecommenderConfigurationResponse,
-    recommenderConfigurationResponse_name,
-    recommenderConfigurationResponse_recommendationTransformerUri,
-    recommenderConfigurationResponse_description,
-    recommenderConfigurationResponse_recommendationsDisplayName,
-    recommenderConfigurationResponse_recommendationProviderIdType,
     recommenderConfigurationResponse_attributes,
+    recommenderConfigurationResponse_description,
+    recommenderConfigurationResponse_name,
+    recommenderConfigurationResponse_recommendationProviderIdType,
+    recommenderConfigurationResponse_recommendationTransformerUri,
+    recommenderConfigurationResponse_recommendationsDisplayName,
     recommenderConfigurationResponse_recommendationsPerMessage,
     recommenderConfigurationResponse_recommendationProviderUri,
     recommenderConfigurationResponse_lastModifiedDate,
@@ -1547,68 +1547,68 @@ module Amazonka.Pinpoint.Types
     -- * SMSChannelRequest
     SMSChannelRequest (..),
     newSMSChannelRequest,
-    sMSChannelRequest_senderId,
     sMSChannelRequest_enabled,
+    sMSChannelRequest_senderId,
     sMSChannelRequest_shortCode,
 
     -- * SMSChannelResponse
     SMSChannelResponse (..),
     newSMSChannelResponse,
-    sMSChannelResponse_lastModifiedDate,
-    sMSChannelResponse_senderId,
+    sMSChannelResponse_applicationId,
     sMSChannelResponse_creationDate,
+    sMSChannelResponse_enabled,
     sMSChannelResponse_hasCredential,
     sMSChannelResponse_id,
-    sMSChannelResponse_enabled,
-    sMSChannelResponse_shortCode,
-    sMSChannelResponse_promotionalMessagesPerSecond,
-    sMSChannelResponse_lastModifiedBy,
     sMSChannelResponse_isArchived,
-    sMSChannelResponse_applicationId,
-    sMSChannelResponse_version,
+    sMSChannelResponse_lastModifiedBy,
+    sMSChannelResponse_lastModifiedDate,
+    sMSChannelResponse_promotionalMessagesPerSecond,
+    sMSChannelResponse_senderId,
+    sMSChannelResponse_shortCode,
     sMSChannelResponse_transactionalMessagesPerSecond,
+    sMSChannelResponse_version,
     sMSChannelResponse_platform,
 
     -- * SMSMessage
     SMSMessage (..),
     newSMSMessage,
-    sMSMessage_entityId,
-    sMSMessage_messageType,
-    sMSMessage_senderId,
     sMSMessage_body,
-    sMSMessage_substitutions,
-    sMSMessage_templateId,
-    sMSMessage_originationNumber,
+    sMSMessage_entityId,
     sMSMessage_keyword,
     sMSMessage_mediaUrl,
+    sMSMessage_messageType,
+    sMSMessage_originationNumber,
+    sMSMessage_senderId,
+    sMSMessage_substitutions,
+    sMSMessage_templateId,
 
     -- * SMSMessageActivity
     SMSMessageActivity (..),
     newSMSMessageActivity,
-    sMSMessageActivity_templateName,
-    sMSMessageActivity_nextActivity,
-    sMSMessageActivity_templateVersion,
     sMSMessageActivity_messageConfig,
+    sMSMessageActivity_nextActivity,
+    sMSMessageActivity_templateName,
+    sMSMessageActivity_templateVersion,
 
     -- * SMSTemplateRequest
     SMSTemplateRequest (..),
     newSMSTemplateRequest,
-    sMSTemplateRequest_tags,
     sMSTemplateRequest_body,
-    sMSTemplateRequest_recommenderId,
     sMSTemplateRequest_defaultSubstitutions,
+    sMSTemplateRequest_recommenderId,
     sMSTemplateRequest_templateDescription,
+    sMSTemplateRequest_tags,
 
     -- * SMSTemplateResponse
     SMSTemplateResponse (..),
     newSMSTemplateResponse,
-    sMSTemplateResponse_tags,
     sMSTemplateResponse_arn,
     sMSTemplateResponse_body,
-    sMSTemplateResponse_recommenderId,
     sMSTemplateResponse_defaultSubstitutions,
+    sMSTemplateResponse_recommenderId,
     sMSTemplateResponse_templateDescription,
     sMSTemplateResponse_version,
+    sMSTemplateResponse_tags,
     sMSTemplateResponse_lastModifiedDate,
     sMSTemplateResponse_creationDate,
     sMSTemplateResponse_templateName,
@@ -1617,12 +1617,12 @@ module Amazonka.Pinpoint.Types
     -- * Schedule
     Schedule (..),
     newSchedule,
-    schedule_eventFilter,
-    schedule_timezone,
-    schedule_frequency,
     schedule_endTime,
-    schedule_quietTime,
+    schedule_eventFilter,
+    schedule_frequency,
     schedule_isLocalTime,
+    schedule_quietTime,
+    schedule_timezone,
     schedule_startTime,
 
     -- * SegmentBehaviors
@@ -1638,36 +1638,36 @@ module Amazonka.Pinpoint.Types
     -- * SegmentDemographics
     SegmentDemographics (..),
     newSegmentDemographics,
-    segmentDemographics_model,
-    segmentDemographics_channel,
-    segmentDemographics_platform,
-    segmentDemographics_make,
     segmentDemographics_appVersion,
+    segmentDemographics_channel,
     segmentDemographics_deviceType,
+    segmentDemographics_make,
+    segmentDemographics_model,
+    segmentDemographics_platform,
 
     -- * SegmentDimensions
     SegmentDimensions (..),
     newSegmentDimensions,
-    segmentDimensions_demographic,
-    segmentDimensions_metrics,
-    segmentDimensions_userAttributes,
-    segmentDimensions_location,
     segmentDimensions_attributes,
     segmentDimensions_behavior,
+    segmentDimensions_demographic,
+    segmentDimensions_location,
+    segmentDimensions_metrics,
+    segmentDimensions_userAttributes,
 
     -- * SegmentGroup
     SegmentGroup (..),
     newSegmentGroup,
-    segmentGroup_type,
     segmentGroup_dimensions,
-    segmentGroup_sourceType,
     segmentGroup_sourceSegments,
+    segmentGroup_sourceType,
+    segmentGroup_type,
 
     -- * SegmentGroupList
     SegmentGroupList (..),
     newSegmentGroupList,
-    segmentGroupList_include,
     segmentGroupList_groups,
+    segmentGroupList_include,
 
     -- * SegmentImportResource
     SegmentImportResource (..),
@@ -1694,13 +1694,13 @@ module Amazonka.Pinpoint.Types
     -- * SegmentResponse
     SegmentResponse (..),
     newSegmentResponse,
-    segmentResponse_tags,
-    segmentResponse_name,
-    segmentResponse_lastModifiedDate,
-    segmentResponse_importDefinition,
     segmentResponse_dimensions,
+    segmentResponse_importDefinition,
+    segmentResponse_lastModifiedDate,
+    segmentResponse_name,
     segmentResponse_segmentGroups,
     segmentResponse_version,
+    segmentResponse_tags,
     segmentResponse_segmentType,
     segmentResponse_creationDate,
     segmentResponse_id,
@@ -1716,12 +1716,12 @@ module Amazonka.Pinpoint.Types
     -- * SendOTPMessageRequestParameters
     SendOTPMessageRequestParameters (..),
     newSendOTPMessageRequestParameters,
-    sendOTPMessageRequestParameters_entityId,
-    sendOTPMessageRequestParameters_templateId,
     sendOTPMessageRequestParameters_allowedAttempts,
     sendOTPMessageRequestParameters_codeLength,
-    sendOTPMessageRequestParameters_validityPeriod,
+    sendOTPMessageRequestParameters_entityId,
     sendOTPMessageRequestParameters_language,
+    sendOTPMessageRequestParameters_templateId,
+    sendOTPMessageRequestParameters_validityPeriod,
     sendOTPMessageRequestParameters_brandName,
     sendOTPMessageRequestParameters_referenceId,
     sendOTPMessageRequestParameters_channel,
@@ -1761,29 +1761,29 @@ module Amazonka.Pinpoint.Types
     -- * SimpleCondition
     SimpleCondition (..),
     newSimpleCondition,
-    simpleCondition_segmentCondition,
     simpleCondition_eventCondition,
+    simpleCondition_segmentCondition,
     simpleCondition_segmentDimensions,
 
     -- * SimpleEmail
     SimpleEmail (..),
     newSimpleEmail,
-    simpleEmail_textPart,
-    simpleEmail_subject,
     simpleEmail_htmlPart,
+    simpleEmail_subject,
+    simpleEmail_textPart,
 
     -- * SimpleEmailPart
     SimpleEmailPart (..),
     newSimpleEmailPart,
-    simpleEmailPart_data,
     simpleEmailPart_charset,
+    simpleEmailPart_data,
 
     -- * StartCondition
     StartCondition (..),
     newStartCondition,
+    startCondition_description,
     startCondition_eventStartCondition,
     startCondition_segmentStartCondition,
-    startCondition_description,
 
     -- * TagsModel
     TagsModel (..),
@@ -1805,25 +1805,25 @@ module Amazonka.Pinpoint.Types
     TemplateConfiguration (..),
     newTemplateConfiguration,
     templateConfiguration_emailTemplate,
+    templateConfiguration_pushTemplate,
     templateConfiguration_sMSTemplate,
     templateConfiguration_voiceTemplate,
-    templateConfiguration_pushTemplate,
 
     -- * TemplateCreateMessageBody
     TemplateCreateMessageBody (..),
     newTemplateCreateMessageBody,
+    templateCreateMessageBody_arn,
     templateCreateMessageBody_message,
     templateCreateMessageBody_requestID,
-    templateCreateMessageBody_arn,
 
     -- * TemplateResponse
     TemplateResponse (..),
     newTemplateResponse,
-    templateResponse_tags,
     templateResponse_arn,
     templateResponse_defaultSubstitutions,
     templateResponse_templateDescription,
     templateResponse_version,
+    templateResponse_tags,
     templateResponse_lastModifiedDate,
     templateResponse_creationDate,
     templateResponse_templateName,
@@ -1857,13 +1857,13 @@ module Amazonka.Pinpoint.Types
     -- * TreatmentResource
     TreatmentResource (..),
     newTreatmentResource,
-    treatmentResource_schedule,
     treatmentResource_customDeliveryConfiguration,
-    treatmentResource_treatmentName,
-    treatmentResource_state,
     treatmentResource_messageConfiguration,
-    treatmentResource_treatmentDescription,
+    treatmentResource_schedule,
+    treatmentResource_state,
     treatmentResource_templateConfiguration,
+    treatmentResource_treatmentDescription,
+    treatmentResource_treatmentName,
     treatmentResource_id,
     treatmentResource_sizePercent,
 
@@ -1875,12 +1875,12 @@ module Amazonka.Pinpoint.Types
     -- * UpdateRecommenderConfiguration
     UpdateRecommenderConfiguration (..),
     newUpdateRecommenderConfiguration,
-    updateRecommenderConfiguration_name,
-    updateRecommenderConfiguration_recommendationTransformerUri,
-    updateRecommenderConfiguration_description,
-    updateRecommenderConfiguration_recommendationsDisplayName,
-    updateRecommenderConfiguration_recommendationProviderIdType,
     updateRecommenderConfiguration_attributes,
+    updateRecommenderConfiguration_description,
+    updateRecommenderConfiguration_name,
+    updateRecommenderConfiguration_recommendationProviderIdType,
+    updateRecommenderConfiguration_recommendationTransformerUri,
+    updateRecommenderConfiguration_recommendationsDisplayName,
     updateRecommenderConfiguration_recommendationsPerMessage,
     updateRecommenderConfiguration_recommendationProviderUri,
     updateRecommenderConfiguration_recommendationProviderRoleArn,
@@ -1905,47 +1905,47 @@ module Amazonka.Pinpoint.Types
     -- * VoiceChannelResponse
     VoiceChannelResponse (..),
     newVoiceChannelResponse,
-    voiceChannelResponse_lastModifiedDate,
+    voiceChannelResponse_applicationId,
     voiceChannelResponse_creationDate,
+    voiceChannelResponse_enabled,
     voiceChannelResponse_hasCredential,
     voiceChannelResponse_id,
-    voiceChannelResponse_enabled,
-    voiceChannelResponse_lastModifiedBy,
     voiceChannelResponse_isArchived,
-    voiceChannelResponse_applicationId,
+    voiceChannelResponse_lastModifiedBy,
+    voiceChannelResponse_lastModifiedDate,
     voiceChannelResponse_version,
     voiceChannelResponse_platform,
 
     -- * VoiceMessage
     VoiceMessage (..),
     newVoiceMessage,
-    voiceMessage_voiceId,
     voiceMessage_body,
-    voiceMessage_substitutions,
-    voiceMessage_originationNumber,
     voiceMessage_languageCode,
+    voiceMessage_originationNumber,
+    voiceMessage_substitutions,
+    voiceMessage_voiceId,
 
     -- * VoiceTemplateRequest
     VoiceTemplateRequest (..),
     newVoiceTemplateRequest,
-    voiceTemplateRequest_tags,
-    voiceTemplateRequest_voiceId,
     voiceTemplateRequest_body,
     voiceTemplateRequest_defaultSubstitutions,
     voiceTemplateRequest_languageCode,
     voiceTemplateRequest_templateDescription,
+    voiceTemplateRequest_voiceId,
+    voiceTemplateRequest_tags,
 
     -- * VoiceTemplateResponse
     VoiceTemplateResponse (..),
     newVoiceTemplateResponse,
-    voiceTemplateResponse_tags,
-    voiceTemplateResponse_voiceId,
     voiceTemplateResponse_arn,
     voiceTemplateResponse_body,
     voiceTemplateResponse_defaultSubstitutions,
     voiceTemplateResponse_languageCode,
     voiceTemplateResponse_templateDescription,
     voiceTemplateResponse_version,
+    voiceTemplateResponse_voiceId,
+    voiceTemplateResponse_tags,
     voiceTemplateResponse_lastModifiedDate,
     voiceTemplateResponse_creationDate,
     voiceTemplateResponse_templateName,
@@ -1966,32 +1966,32 @@ module Amazonka.Pinpoint.Types
     -- * WriteApplicationSettingsRequest
     WriteApplicationSettingsRequest (..),
     newWriteApplicationSettingsRequest,
-    writeApplicationSettingsRequest_limits,
-    writeApplicationSettingsRequest_eventTaggingEnabled,
-    writeApplicationSettingsRequest_cloudWatchMetricsEnabled,
-    writeApplicationSettingsRequest_quietTime,
     writeApplicationSettingsRequest_campaignHook,
+    writeApplicationSettingsRequest_cloudWatchMetricsEnabled,
+    writeApplicationSettingsRequest_eventTaggingEnabled,
+    writeApplicationSettingsRequest_limits,
+    writeApplicationSettingsRequest_quietTime,
 
     -- * WriteCampaignRequest
     WriteCampaignRequest (..),
     newWriteCampaignRequest,
-    writeCampaignRequest_tags,
-    writeCampaignRequest_schedule,
-    writeCampaignRequest_customDeliveryConfiguration,
-    writeCampaignRequest_name,
-    writeCampaignRequest_hook,
-    writeCampaignRequest_segmentVersion,
-    writeCampaignRequest_limits,
-    writeCampaignRequest_treatmentName,
-    writeCampaignRequest_holdoutPercent,
-    writeCampaignRequest_segmentId,
     writeCampaignRequest_additionalTreatments,
-    writeCampaignRequest_messageConfiguration,
+    writeCampaignRequest_customDeliveryConfiguration,
     writeCampaignRequest_description,
-    writeCampaignRequest_treatmentDescription,
-    writeCampaignRequest_priority,
-    writeCampaignRequest_templateConfiguration,
+    writeCampaignRequest_holdoutPercent,
+    writeCampaignRequest_hook,
     writeCampaignRequest_isPaused,
+    writeCampaignRequest_limits,
+    writeCampaignRequest_messageConfiguration,
+    writeCampaignRequest_name,
+    writeCampaignRequest_priority,
+    writeCampaignRequest_schedule,
+    writeCampaignRequest_segmentId,
+    writeCampaignRequest_segmentVersion,
+    writeCampaignRequest_templateConfiguration,
+    writeCampaignRequest_treatmentDescription,
+    writeCampaignRequest_treatmentName,
+    writeCampaignRequest_tags,
 
     -- * WriteEventStream
     WriteEventStream (..),
@@ -2002,42 +2002,42 @@ module Amazonka.Pinpoint.Types
     -- * WriteJourneyRequest
     WriteJourneyRequest (..),
     newWriteJourneyRequest,
-    writeJourneyRequest_schedule,
     writeJourneyRequest_activities,
-    writeJourneyRequest_lastModifiedDate,
-    writeJourneyRequest_refreshOnSegmentUpdate,
-    writeJourneyRequest_limits,
-    writeJourneyRequest_startCondition,
-    writeJourneyRequest_startActivity,
-    writeJourneyRequest_state,
+    writeJourneyRequest_closedDays,
     writeJourneyRequest_creationDate,
-    writeJourneyRequest_refreshFrequency,
+    writeJourneyRequest_journeyChannelSettings,
+    writeJourneyRequest_lastModifiedDate,
+    writeJourneyRequest_limits,
     writeJourneyRequest_localTime,
     writeJourneyRequest_openHours,
     writeJourneyRequest_quietTime,
+    writeJourneyRequest_refreshFrequency,
+    writeJourneyRequest_refreshOnSegmentUpdate,
+    writeJourneyRequest_schedule,
     writeJourneyRequest_sendingSchedule,
+    writeJourneyRequest_startActivity,
+    writeJourneyRequest_startCondition,
+    writeJourneyRequest_state,
     writeJourneyRequest_waitForQuietTime,
-    writeJourneyRequest_closedDays,
-    writeJourneyRequest_journeyChannelSettings,
     writeJourneyRequest_name,
 
     -- * WriteSegmentRequest
     WriteSegmentRequest (..),
     newWriteSegmentRequest,
-    writeSegmentRequest_tags,
-    writeSegmentRequest_name,
     writeSegmentRequest_dimensions,
+    writeSegmentRequest_name,
     writeSegmentRequest_segmentGroups,
+    writeSegmentRequest_tags,
 
     -- * WriteTreatmentResource
     WriteTreatmentResource (..),
     newWriteTreatmentResource,
-    writeTreatmentResource_schedule,
     writeTreatmentResource_customDeliveryConfiguration,
-    writeTreatmentResource_treatmentName,
     writeTreatmentResource_messageConfiguration,
-    writeTreatmentResource_treatmentDescription,
+    writeTreatmentResource_schedule,
     writeTreatmentResource_templateConfiguration,
+    writeTreatmentResource_treatmentDescription,
+    writeTreatmentResource_treatmentName,
     writeTreatmentResource_sizePercent,
   )
 where
@@ -2300,28 +2300,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -2329,13 +2323,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -2343,31 +2341,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Provides information about an API request or response.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | Provides information about an API request or response.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
-
--- | Provides information about an API request or response.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
 
 -- | Provides information about an API request or response.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2378,6 +2362,22 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Provides information about an API request or response.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
+
+-- | Provides information about an API request or response.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500
+
+-- | Provides information about an API request or response.
 _MethodNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MethodNotAllowedException =
   Core._MatchServiceError
@@ -2386,20 +2386,20 @@ _MethodNotAllowedException =
     Prelude.. Core.hasStatus 405
 
 -- | Provides information about an API request or response.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | Provides information about an API request or response.
 _PayloadTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PayloadTooLargeException =
   Core._MatchServiceError
     defaultService
     "PayloadTooLargeException"
     Prelude.. Core.hasStatus 413
-
--- | Provides information about an API request or response.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | Provides information about an API request or response.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

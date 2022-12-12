@@ -19,11 +19,11 @@ module Amazonka.RDSData.Types
 
     -- * Errors
     _AccessDeniedException,
-    _NotFoundException,
-    _InternalServerErrorException,
-    _ForbiddenException,
-    _ServiceUnavailableError,
     _BadRequestException,
+    _ForbiddenException,
+    _InternalServerErrorException,
+    _NotFoundException,
+    _ServiceUnavailableError,
     _StatementTimeoutException,
 
     -- * DecimalReturnType
@@ -41,40 +41,40 @@ module Amazonka.RDSData.Types
     -- * ArrayValue
     ArrayValue (..),
     newArrayValue,
-    arrayValue_stringValues,
-    arrayValue_booleanValues,
-    arrayValue_longValues,
-    arrayValue_doubleValues,
     arrayValue_arrayValues,
+    arrayValue_booleanValues,
+    arrayValue_doubleValues,
+    arrayValue_longValues,
+    arrayValue_stringValues,
 
     -- * ColumnMetadata
     ColumnMetadata (..),
     newColumnMetadata,
-    columnMetadata_tableName,
-    columnMetadata_name,
-    columnMetadata_type,
-    columnMetadata_label,
-    columnMetadata_schemaName,
-    columnMetadata_nullable,
-    columnMetadata_isCaseSensitive,
-    columnMetadata_typeName,
     columnMetadata_arrayBaseColumnType,
-    columnMetadata_precision,
-    columnMetadata_scale,
     columnMetadata_isAutoIncrement,
+    columnMetadata_isCaseSensitive,
     columnMetadata_isCurrency,
     columnMetadata_isSigned,
+    columnMetadata_label,
+    columnMetadata_name,
+    columnMetadata_nullable,
+    columnMetadata_precision,
+    columnMetadata_scale,
+    columnMetadata_schemaName,
+    columnMetadata_tableName,
+    columnMetadata_type,
+    columnMetadata_typeName,
 
     -- * Field
     Field (..),
     newField,
-    field_doubleValue,
-    field_booleanValue,
-    field_isNull,
-    field_stringValue,
-    field_longValue,
-    field_blobValue,
     field_arrayValue,
+    field_blobValue,
+    field_booleanValue,
+    field_doubleValue,
+    field_isNull,
+    field_longValue,
+    field_stringValue,
 
     -- * ResultSetOptions
     ResultSetOptions (..),
@@ -136,28 +136,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -165,13 +159,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -179,6 +177,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -189,22 +189,13 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | The @resourceArn@, @secretArn@, or @transactionId@ value can\'t be
--- found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
+-- | There is an error in the call or in a SQL statement.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | An internal error occurred.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
 
 -- | There are insufficient privileges to make the call.
 _ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -214,6 +205,23 @@ _ForbiddenException =
     "ForbiddenException"
     Prelude.. Core.hasStatus 403
 
+-- | An internal error occurred.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500
+
+-- | The @resourceArn@, @secretArn@, or @transactionId@ value can\'t be
+-- found.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
 -- | The service specified by the @resourceArn@ parameter is not available.
 _ServiceUnavailableError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableError =
@@ -221,14 +229,6 @@ _ServiceUnavailableError =
     defaultService
     "ServiceUnavailableError"
     Prelude.. Core.hasStatus 503
-
--- | There is an error in the call or in a SQL statement.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | The execution of the SQL statement timed out.
 _StatementTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

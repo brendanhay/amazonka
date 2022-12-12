@@ -37,16 +37,16 @@ data CalculateRouteTruckModeOptions = CalculateRouteTruckModeOptions'
     --
     -- Valid Values: @false@ | @true@
     avoidFerries :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the truck\'s dimension specifications including length,
-    -- height, width, and unit of measurement. Used to avoid roads that can\'t
-    -- support the truck\'s dimensions.
-    dimensions :: Prelude.Maybe TruckDimensions,
     -- | Avoids tolls when calculating routes.
     --
     -- Default Value: @false@
     --
     -- Valid Values: @false@ | @true@
     avoidTolls :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the truck\'s dimension specifications including length,
+    -- height, width, and unit of measurement. Used to avoid roads that can\'t
+    -- support the truck\'s dimensions.
+    dimensions :: Prelude.Maybe TruckDimensions,
     -- | Specifies the truck\'s weight specifications including total weight and
     -- unit of measurement. Used to avoid roads that can\'t support the
     -- truck\'s weight.
@@ -68,15 +68,15 @@ data CalculateRouteTruckModeOptions = CalculateRouteTruckModeOptions'
 --
 -- Valid Values: @false@ | @true@
 --
--- 'dimensions', 'calculateRouteTruckModeOptions_dimensions' - Specifies the truck\'s dimension specifications including length,
--- height, width, and unit of measurement. Used to avoid roads that can\'t
--- support the truck\'s dimensions.
---
 -- 'avoidTolls', 'calculateRouteTruckModeOptions_avoidTolls' - Avoids tolls when calculating routes.
 --
 -- Default Value: @false@
 --
 -- Valid Values: @false@ | @true@
+--
+-- 'dimensions', 'calculateRouteTruckModeOptions_dimensions' - Specifies the truck\'s dimension specifications including length,
+-- height, width, and unit of measurement. Used to avoid roads that can\'t
+-- support the truck\'s dimensions.
 --
 -- 'weight', 'calculateRouteTruckModeOptions_weight' - Specifies the truck\'s weight specifications including total weight and
 -- unit of measurement. Used to avoid roads that can\'t support the
@@ -87,8 +87,8 @@ newCalculateRouteTruckModeOptions =
   CalculateRouteTruckModeOptions'
     { avoidFerries =
         Prelude.Nothing,
-      dimensions = Prelude.Nothing,
       avoidTolls = Prelude.Nothing,
+      dimensions = Prelude.Nothing,
       weight = Prelude.Nothing
     }
 
@@ -100,12 +100,6 @@ newCalculateRouteTruckModeOptions =
 calculateRouteTruckModeOptions_avoidFerries :: Lens.Lens' CalculateRouteTruckModeOptions (Prelude.Maybe Prelude.Bool)
 calculateRouteTruckModeOptions_avoidFerries = Lens.lens (\CalculateRouteTruckModeOptions' {avoidFerries} -> avoidFerries) (\s@CalculateRouteTruckModeOptions' {} a -> s {avoidFerries = a} :: CalculateRouteTruckModeOptions)
 
--- | Specifies the truck\'s dimension specifications including length,
--- height, width, and unit of measurement. Used to avoid roads that can\'t
--- support the truck\'s dimensions.
-calculateRouteTruckModeOptions_dimensions :: Lens.Lens' CalculateRouteTruckModeOptions (Prelude.Maybe TruckDimensions)
-calculateRouteTruckModeOptions_dimensions = Lens.lens (\CalculateRouteTruckModeOptions' {dimensions} -> dimensions) (\s@CalculateRouteTruckModeOptions' {} a -> s {dimensions = a} :: CalculateRouteTruckModeOptions)
-
 -- | Avoids tolls when calculating routes.
 --
 -- Default Value: @false@
@@ -113,6 +107,12 @@ calculateRouteTruckModeOptions_dimensions = Lens.lens (\CalculateRouteTruckModeO
 -- Valid Values: @false@ | @true@
 calculateRouteTruckModeOptions_avoidTolls :: Lens.Lens' CalculateRouteTruckModeOptions (Prelude.Maybe Prelude.Bool)
 calculateRouteTruckModeOptions_avoidTolls = Lens.lens (\CalculateRouteTruckModeOptions' {avoidTolls} -> avoidTolls) (\s@CalculateRouteTruckModeOptions' {} a -> s {avoidTolls = a} :: CalculateRouteTruckModeOptions)
+
+-- | Specifies the truck\'s dimension specifications including length,
+-- height, width, and unit of measurement. Used to avoid roads that can\'t
+-- support the truck\'s dimensions.
+calculateRouteTruckModeOptions_dimensions :: Lens.Lens' CalculateRouteTruckModeOptions (Prelude.Maybe TruckDimensions)
+calculateRouteTruckModeOptions_dimensions = Lens.lens (\CalculateRouteTruckModeOptions' {dimensions} -> dimensions) (\s@CalculateRouteTruckModeOptions' {} a -> s {dimensions = a} :: CalculateRouteTruckModeOptions)
 
 -- | Specifies the truck\'s weight specifications including total weight and
 -- unit of measurement. Used to avoid roads that can\'t support the
@@ -128,8 +128,8 @@ instance
     _salt
     CalculateRouteTruckModeOptions' {..} =
       _salt `Prelude.hashWithSalt` avoidFerries
-        `Prelude.hashWithSalt` dimensions
         `Prelude.hashWithSalt` avoidTolls
+        `Prelude.hashWithSalt` dimensions
         `Prelude.hashWithSalt` weight
 
 instance
@@ -138,8 +138,8 @@ instance
   where
   rnf CalculateRouteTruckModeOptions' {..} =
     Prelude.rnf avoidFerries
-      `Prelude.seq` Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf avoidTolls
+      `Prelude.seq` Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf weight
 
 instance Data.ToJSON CalculateRouteTruckModeOptions where
@@ -147,8 +147,8 @@ instance Data.ToJSON CalculateRouteTruckModeOptions where
     Data.object
       ( Prelude.catMaybes
           [ ("AvoidFerries" Data..=) Prelude.<$> avoidFerries,
-            ("Dimensions" Data..=) Prelude.<$> dimensions,
             ("AvoidTolls" Data..=) Prelude.<$> avoidTolls,
+            ("Dimensions" Data..=) Prelude.<$> dimensions,
             ("Weight" Data..=) Prelude.<$> weight
           ]
       )

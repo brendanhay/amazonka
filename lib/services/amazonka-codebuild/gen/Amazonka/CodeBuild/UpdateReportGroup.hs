@@ -27,8 +27,8 @@ module Amazonka.CodeBuild.UpdateReportGroup
     newUpdateReportGroup,
 
     -- * Request Lenses
-    updateReportGroup_tags,
     updateReportGroup_exportConfig,
+    updateReportGroup_tags,
     updateReportGroup_arn,
 
     -- * Destructuring the Response
@@ -51,18 +51,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateReportGroup' smart constructor.
 data UpdateReportGroup = UpdateReportGroup'
-  { -- | An updated list of tag key and value pairs associated with this report
-    -- group.
-    --
-    -- These tags are available for use by Amazon Web Services services that
-    -- support CodeBuild report group tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | Used to specify an updated export type. Valid values are:
+  { -- | Used to specify an updated export type. Valid values are:
     --
     -- -   @S3@: The report results are exported to an S3 bucket.
     --
     -- -   @NO_EXPORT@: The report results are not exported.
     exportConfig :: Prelude.Maybe ReportExportConfig,
+    -- | An updated list of tag key and value pairs associated with this report
+    -- group.
+    --
+    -- These tags are available for use by Amazon Web Services services that
+    -- support CodeBuild report group tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The ARN of the report group to update.
     arn :: Prelude.Text
   }
@@ -76,17 +76,17 @@ data UpdateReportGroup = UpdateReportGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateReportGroup_tags' - An updated list of tag key and value pairs associated with this report
--- group.
---
--- These tags are available for use by Amazon Web Services services that
--- support CodeBuild report group tags.
---
 -- 'exportConfig', 'updateReportGroup_exportConfig' - Used to specify an updated export type. Valid values are:
 --
 -- -   @S3@: The report results are exported to an S3 bucket.
 --
 -- -   @NO_EXPORT@: The report results are not exported.
+--
+-- 'tags', 'updateReportGroup_tags' - An updated list of tag key and value pairs associated with this report
+-- group.
+--
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
 --
 -- 'arn', 'updateReportGroup_arn' - The ARN of the report group to update.
 newUpdateReportGroup ::
@@ -95,18 +95,10 @@ newUpdateReportGroup ::
   UpdateReportGroup
 newUpdateReportGroup pArn_ =
   UpdateReportGroup'
-    { tags = Prelude.Nothing,
-      exportConfig = Prelude.Nothing,
+    { exportConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
       arn = pArn_
     }
-
--- | An updated list of tag key and value pairs associated with this report
--- group.
---
--- These tags are available for use by Amazon Web Services services that
--- support CodeBuild report group tags.
-updateReportGroup_tags :: Lens.Lens' UpdateReportGroup (Prelude.Maybe [Tag])
-updateReportGroup_tags = Lens.lens (\UpdateReportGroup' {tags} -> tags) (\s@UpdateReportGroup' {} a -> s {tags = a} :: UpdateReportGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Used to specify an updated export type. Valid values are:
 --
@@ -115,6 +107,14 @@ updateReportGroup_tags = Lens.lens (\UpdateReportGroup' {tags} -> tags) (\s@Upda
 -- -   @NO_EXPORT@: The report results are not exported.
 updateReportGroup_exportConfig :: Lens.Lens' UpdateReportGroup (Prelude.Maybe ReportExportConfig)
 updateReportGroup_exportConfig = Lens.lens (\UpdateReportGroup' {exportConfig} -> exportConfig) (\s@UpdateReportGroup' {} a -> s {exportConfig = a} :: UpdateReportGroup)
+
+-- | An updated list of tag key and value pairs associated with this report
+-- group.
+--
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
+updateReportGroup_tags :: Lens.Lens' UpdateReportGroup (Prelude.Maybe [Tag])
+updateReportGroup_tags = Lens.lens (\UpdateReportGroup' {tags} -> tags) (\s@UpdateReportGroup' {} a -> s {tags = a} :: UpdateReportGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the report group to update.
 updateReportGroup_arn :: Lens.Lens' UpdateReportGroup Prelude.Text
@@ -136,14 +136,14 @@ instance Core.AWSRequest UpdateReportGroup where
 
 instance Prelude.Hashable UpdateReportGroup where
   hashWithSalt _salt UpdateReportGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` exportConfig
+    _salt `Prelude.hashWithSalt` exportConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateReportGroup where
   rnf UpdateReportGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf exportConfig
+    Prelude.rnf exportConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
 
 instance Data.ToHeaders UpdateReportGroup where
@@ -165,8 +165,8 @@ instance Data.ToJSON UpdateReportGroup where
   toJSON UpdateReportGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("exportConfig" Data..=) Prelude.<$> exportConfig,
+          [ ("exportConfig" Data..=) Prelude.<$> exportConfig,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("arn" Data..= arn)
           ]
       )

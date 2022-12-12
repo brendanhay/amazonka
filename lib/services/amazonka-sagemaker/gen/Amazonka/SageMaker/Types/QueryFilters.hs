@@ -31,27 +31,27 @@ import Amazonka.SageMaker.Types.LineageType
 -- /See:/ 'newQueryFilters' smart constructor.
 data QueryFilters = QueryFilters'
   { -- | Filter the lineage entities connected to the @StartArn@(s) after the
-    -- last modified date.
-    modifiedAfter :: Prelude.Maybe Data.POSIX,
-    -- | Filter the lineage entities connected to the @StartArn@(s) by a set if
-    -- property key value pairs. If multiple pairs are provided, an entity is
-    -- included in the results if it matches any of the provided pairs.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- create date.
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | Filter the lineage entities connected to the @StartArn@(s) by created
     -- date.
     createdBefore :: Prelude.Maybe Data.POSIX,
-    -- | Filter the lineage entities connected to the @StartArn@ by type. For
-    -- example: @DataSet@, @Model@, @Endpoint@, or @ModelDeployment@.
-    types :: Prelude.Maybe [Prelude.Text],
     -- | Filter the lineage entities connected to the @StartArn@(s) by the type
     -- of the lineage entity.
     lineageTypes :: Prelude.Maybe [LineageType],
     -- | Filter the lineage entities connected to the @StartArn@(s) after the
-    -- create date.
-    createdAfter :: Prelude.Maybe Data.POSIX,
+    -- last modified date.
+    modifiedAfter :: Prelude.Maybe Data.POSIX,
     -- | Filter the lineage entities connected to the @StartArn@(s) before the
     -- last modified date.
-    modifiedBefore :: Prelude.Maybe Data.POSIX
+    modifiedBefore :: Prelude.Maybe Data.POSIX,
+    -- | Filter the lineage entities connected to the @StartArn@(s) by a set if
+    -- property key value pairs. If multiple pairs are provided, an entity is
+    -- included in the results if it matches any of the provided pairs.
+    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Filter the lineage entities connected to the @StartArn@ by type. For
+    -- example: @DataSet@, @Model@, @Endpoint@, or @ModelDeployment@.
+    types :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,60 +63,49 @@ data QueryFilters = QueryFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAfter', 'queryFilters_createdAfter' - Filter the lineage entities connected to the @StartArn@(s) after the
+-- create date.
+--
+-- 'createdBefore', 'queryFilters_createdBefore' - Filter the lineage entities connected to the @StartArn@(s) by created
+-- date.
+--
+-- 'lineageTypes', 'queryFilters_lineageTypes' - Filter the lineage entities connected to the @StartArn@(s) by the type
+-- of the lineage entity.
+--
 -- 'modifiedAfter', 'queryFilters_modifiedAfter' - Filter the lineage entities connected to the @StartArn@(s) after the
+-- last modified date.
+--
+-- 'modifiedBefore', 'queryFilters_modifiedBefore' - Filter the lineage entities connected to the @StartArn@(s) before the
 -- last modified date.
 --
 -- 'properties', 'queryFilters_properties' - Filter the lineage entities connected to the @StartArn@(s) by a set if
 -- property key value pairs. If multiple pairs are provided, an entity is
 -- included in the results if it matches any of the provided pairs.
 --
--- 'createdBefore', 'queryFilters_createdBefore' - Filter the lineage entities connected to the @StartArn@(s) by created
--- date.
---
 -- 'types', 'queryFilters_types' - Filter the lineage entities connected to the @StartArn@ by type. For
 -- example: @DataSet@, @Model@, @Endpoint@, or @ModelDeployment@.
---
--- 'lineageTypes', 'queryFilters_lineageTypes' - Filter the lineage entities connected to the @StartArn@(s) by the type
--- of the lineage entity.
---
--- 'createdAfter', 'queryFilters_createdAfter' - Filter the lineage entities connected to the @StartArn@(s) after the
--- create date.
---
--- 'modifiedBefore', 'queryFilters_modifiedBefore' - Filter the lineage entities connected to the @StartArn@(s) before the
--- last modified date.
 newQueryFilters ::
   QueryFilters
 newQueryFilters =
   QueryFilters'
-    { modifiedAfter = Prelude.Nothing,
-      properties = Prelude.Nothing,
+    { createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
-      types = Prelude.Nothing,
       lineageTypes = Prelude.Nothing,
-      createdAfter = Prelude.Nothing,
-      modifiedBefore = Prelude.Nothing
+      modifiedAfter = Prelude.Nothing,
+      modifiedBefore = Prelude.Nothing,
+      properties = Prelude.Nothing,
+      types = Prelude.Nothing
     }
 
 -- | Filter the lineage entities connected to the @StartArn@(s) after the
--- last modified date.
-queryFilters_modifiedAfter :: Lens.Lens' QueryFilters (Prelude.Maybe Prelude.UTCTime)
-queryFilters_modifiedAfter = Lens.lens (\QueryFilters' {modifiedAfter} -> modifiedAfter) (\s@QueryFilters' {} a -> s {modifiedAfter = a} :: QueryFilters) Prelude.. Lens.mapping Data._Time
-
--- | Filter the lineage entities connected to the @StartArn@(s) by a set if
--- property key value pairs. If multiple pairs are provided, an entity is
--- included in the results if it matches any of the provided pairs.
-queryFilters_properties :: Lens.Lens' QueryFilters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-queryFilters_properties = Lens.lens (\QueryFilters' {properties} -> properties) (\s@QueryFilters' {} a -> s {properties = a} :: QueryFilters) Prelude.. Lens.mapping Lens.coerced
+-- create date.
+queryFilters_createdAfter :: Lens.Lens' QueryFilters (Prelude.Maybe Prelude.UTCTime)
+queryFilters_createdAfter = Lens.lens (\QueryFilters' {createdAfter} -> createdAfter) (\s@QueryFilters' {} a -> s {createdAfter = a} :: QueryFilters) Prelude.. Lens.mapping Data._Time
 
 -- | Filter the lineage entities connected to the @StartArn@(s) by created
 -- date.
 queryFilters_createdBefore :: Lens.Lens' QueryFilters (Prelude.Maybe Prelude.UTCTime)
 queryFilters_createdBefore = Lens.lens (\QueryFilters' {createdBefore} -> createdBefore) (\s@QueryFilters' {} a -> s {createdBefore = a} :: QueryFilters) Prelude.. Lens.mapping Data._Time
-
--- | Filter the lineage entities connected to the @StartArn@ by type. For
--- example: @DataSet@, @Model@, @Endpoint@, or @ModelDeployment@.
-queryFilters_types :: Lens.Lens' QueryFilters (Prelude.Maybe [Prelude.Text])
-queryFilters_types = Lens.lens (\QueryFilters' {types} -> types) (\s@QueryFilters' {} a -> s {types = a} :: QueryFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filter the lineage entities connected to the @StartArn@(s) by the type
 -- of the lineage entity.
@@ -124,46 +113,57 @@ queryFilters_lineageTypes :: Lens.Lens' QueryFilters (Prelude.Maybe [LineageType
 queryFilters_lineageTypes = Lens.lens (\QueryFilters' {lineageTypes} -> lineageTypes) (\s@QueryFilters' {} a -> s {lineageTypes = a} :: QueryFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filter the lineage entities connected to the @StartArn@(s) after the
--- create date.
-queryFilters_createdAfter :: Lens.Lens' QueryFilters (Prelude.Maybe Prelude.UTCTime)
-queryFilters_createdAfter = Lens.lens (\QueryFilters' {createdAfter} -> createdAfter) (\s@QueryFilters' {} a -> s {createdAfter = a} :: QueryFilters) Prelude.. Lens.mapping Data._Time
+-- last modified date.
+queryFilters_modifiedAfter :: Lens.Lens' QueryFilters (Prelude.Maybe Prelude.UTCTime)
+queryFilters_modifiedAfter = Lens.lens (\QueryFilters' {modifiedAfter} -> modifiedAfter) (\s@QueryFilters' {} a -> s {modifiedAfter = a} :: QueryFilters) Prelude.. Lens.mapping Data._Time
 
 -- | Filter the lineage entities connected to the @StartArn@(s) before the
 -- last modified date.
 queryFilters_modifiedBefore :: Lens.Lens' QueryFilters (Prelude.Maybe Prelude.UTCTime)
 queryFilters_modifiedBefore = Lens.lens (\QueryFilters' {modifiedBefore} -> modifiedBefore) (\s@QueryFilters' {} a -> s {modifiedBefore = a} :: QueryFilters) Prelude.. Lens.mapping Data._Time
 
+-- | Filter the lineage entities connected to the @StartArn@(s) by a set if
+-- property key value pairs. If multiple pairs are provided, an entity is
+-- included in the results if it matches any of the provided pairs.
+queryFilters_properties :: Lens.Lens' QueryFilters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+queryFilters_properties = Lens.lens (\QueryFilters' {properties} -> properties) (\s@QueryFilters' {} a -> s {properties = a} :: QueryFilters) Prelude.. Lens.mapping Lens.coerced
+
+-- | Filter the lineage entities connected to the @StartArn@ by type. For
+-- example: @DataSet@, @Model@, @Endpoint@, or @ModelDeployment@.
+queryFilters_types :: Lens.Lens' QueryFilters (Prelude.Maybe [Prelude.Text])
+queryFilters_types = Lens.lens (\QueryFilters' {types} -> types) (\s@QueryFilters' {} a -> s {types = a} :: QueryFilters) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable QueryFilters where
   hashWithSalt _salt QueryFilters' {..} =
-    _salt `Prelude.hashWithSalt` modifiedAfter
-      `Prelude.hashWithSalt` properties
+    _salt `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
-      `Prelude.hashWithSalt` types
       `Prelude.hashWithSalt` lineageTypes
-      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` modifiedAfter
       `Prelude.hashWithSalt` modifiedBefore
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` types
 
 instance Prelude.NFData QueryFilters where
   rnf QueryFilters' {..} =
-    Prelude.rnf modifiedAfter
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf types
       `Prelude.seq` Prelude.rnf lineageTypes
-      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf modifiedAfter
       `Prelude.seq` Prelude.rnf modifiedBefore
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf types
 
 instance Data.ToJSON QueryFilters where
   toJSON QueryFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ModifiedAfter" Data..=) Prelude.<$> modifiedAfter,
-            ("Properties" Data..=) Prelude.<$> properties,
+          [ ("CreatedAfter" Data..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
-            ("Types" Data..=) Prelude.<$> types,
             ("LineageTypes" Data..=) Prelude.<$> lineageTypes,
-            ("CreatedAfter" Data..=) Prelude.<$> createdAfter,
+            ("ModifiedAfter" Data..=) Prelude.<$> modifiedAfter,
             ("ModifiedBefore" Data..=)
-              Prelude.<$> modifiedBefore
+              Prelude.<$> modifiedBefore,
+            ("Properties" Data..=) Prelude.<$> properties,
+            ("Types" Data..=) Prelude.<$> types
           ]
       )

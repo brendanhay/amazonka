@@ -22,17 +22,17 @@ module Amazonka.FinSpaceData
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ThrottlingException
     _ThrottlingException,

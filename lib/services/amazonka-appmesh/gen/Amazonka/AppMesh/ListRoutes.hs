@@ -29,9 +29,9 @@ module Amazonka.AppMesh.ListRoutes
     newListRoutes,
 
     -- * Request Lenses
-    listRoutes_nextToken,
-    listRoutes_meshOwner,
     listRoutes_limit,
+    listRoutes_meshOwner,
+    listRoutes_nextToken,
     listRoutes_meshName,
     listRoutes_virtualRouterName,
 
@@ -58,17 +58,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListRoutes' smart constructor.
 data ListRoutes = ListRoutes'
-  { -- | The @nextToken@ value returned from a previous paginated @ListRoutes@
-    -- request where @limit@ was used and the results exceeded the value of
-    -- that parameter. Pagination continues from the end of the previous
-    -- results that returned the @nextToken@ value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
-    -- account ID is not your own, then it\'s the ID of the account that shared
-    -- the mesh with your account. For more information about mesh sharing, see
-    -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
-    meshOwner :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results returned by @ListRoutes@ in paginated
+  { -- | The maximum number of results returned by @ListRoutes@ in paginated
     -- output. When you use this parameter, @ListRoutes@ returns only @limit@
     -- results in a single page along with a @nextToken@ response element. You
     -- can see the remaining results of the initial request by sending another
@@ -76,6 +66,16 @@ data ListRoutes = ListRoutes'
     -- be between 1 and 100. If you don\'t use this parameter, @ListRoutes@
     -- returns up to 100 results and a @nextToken@ value if applicable.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
+    -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+    meshOwner :: Prelude.Maybe Prelude.Text,
+    -- | The @nextToken@ value returned from a previous paginated @ListRoutes@
+    -- request where @limit@ was used and the results exceeded the value of
+    -- that parameter. Pagination continues from the end of the previous
+    -- results that returned the @nextToken@ value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh to list routes in.
     meshName :: Prelude.Text,
     -- | The name of the virtual router to list routes in.
@@ -91,16 +91,6 @@ data ListRoutes = ListRoutes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRoutes_nextToken' - The @nextToken@ value returned from a previous paginated @ListRoutes@
--- request where @limit@ was used and the results exceeded the value of
--- that parameter. Pagination continues from the end of the previous
--- results that returned the @nextToken@ value.
---
--- 'meshOwner', 'listRoutes_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
--- account ID is not your own, then it\'s the ID of the account that shared
--- the mesh with your account. For more information about mesh sharing, see
--- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
---
 -- 'limit', 'listRoutes_limit' - The maximum number of results returned by @ListRoutes@ in paginated
 -- output. When you use this parameter, @ListRoutes@ returns only @limit@
 -- results in a single page along with a @nextToken@ response element. You
@@ -108,6 +98,16 @@ data ListRoutes = ListRoutes'
 -- @ListRoutes@ request with the returned @nextToken@ value. This value can
 -- be between 1 and 100. If you don\'t use this parameter, @ListRoutes@
 -- returns up to 100 results and a @nextToken@ value if applicable.
+--
+-- 'meshOwner', 'listRoutes_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+--
+-- 'nextToken', 'listRoutes_nextToken' - The @nextToken@ value returned from a previous paginated @ListRoutes@
+-- request where @limit@ was used and the results exceeded the value of
+-- that parameter. Pagination continues from the end of the previous
+-- results that returned the @nextToken@ value.
 --
 -- 'meshName', 'listRoutes_meshName' - The name of the service mesh to list routes in.
 --
@@ -120,26 +120,12 @@ newListRoutes ::
   ListRoutes
 newListRoutes pMeshName_ pVirtualRouterName_ =
   ListRoutes'
-    { nextToken = Prelude.Nothing,
+    { limit = Prelude.Nothing,
       meshOwner = Prelude.Nothing,
-      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       meshName = pMeshName_,
       virtualRouterName = pVirtualRouterName_
     }
-
--- | The @nextToken@ value returned from a previous paginated @ListRoutes@
--- request where @limit@ was used and the results exceeded the value of
--- that parameter. Pagination continues from the end of the previous
--- results that returned the @nextToken@ value.
-listRoutes_nextToken :: Lens.Lens' ListRoutes (Prelude.Maybe Prelude.Text)
-listRoutes_nextToken = Lens.lens (\ListRoutes' {nextToken} -> nextToken) (\s@ListRoutes' {} a -> s {nextToken = a} :: ListRoutes)
-
--- | The Amazon Web Services IAM account ID of the service mesh owner. If the
--- account ID is not your own, then it\'s the ID of the account that shared
--- the mesh with your account. For more information about mesh sharing, see
--- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
-listRoutes_meshOwner :: Lens.Lens' ListRoutes (Prelude.Maybe Prelude.Text)
-listRoutes_meshOwner = Lens.lens (\ListRoutes' {meshOwner} -> meshOwner) (\s@ListRoutes' {} a -> s {meshOwner = a} :: ListRoutes)
 
 -- | The maximum number of results returned by @ListRoutes@ in paginated
 -- output. When you use this parameter, @ListRoutes@ returns only @limit@
@@ -150,6 +136,20 @@ listRoutes_meshOwner = Lens.lens (\ListRoutes' {meshOwner} -> meshOwner) (\s@Lis
 -- returns up to 100 results and a @nextToken@ value if applicable.
 listRoutes_limit :: Lens.Lens' ListRoutes (Prelude.Maybe Prelude.Natural)
 listRoutes_limit = Lens.lens (\ListRoutes' {limit} -> limit) (\s@ListRoutes' {} a -> s {limit = a} :: ListRoutes)
+
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+listRoutes_meshOwner :: Lens.Lens' ListRoutes (Prelude.Maybe Prelude.Text)
+listRoutes_meshOwner = Lens.lens (\ListRoutes' {meshOwner} -> meshOwner) (\s@ListRoutes' {} a -> s {meshOwner = a} :: ListRoutes)
+
+-- | The @nextToken@ value returned from a previous paginated @ListRoutes@
+-- request where @limit@ was used and the results exceeded the value of
+-- that parameter. Pagination continues from the end of the previous
+-- results that returned the @nextToken@ value.
+listRoutes_nextToken :: Lens.Lens' ListRoutes (Prelude.Maybe Prelude.Text)
+listRoutes_nextToken = Lens.lens (\ListRoutes' {nextToken} -> nextToken) (\s@ListRoutes' {} a -> s {nextToken = a} :: ListRoutes)
 
 -- | The name of the service mesh to list routes in.
 listRoutes_meshName :: Lens.Lens' ListRoutes Prelude.Text
@@ -190,17 +190,17 @@ instance Core.AWSRequest ListRoutes where
 
 instance Prelude.Hashable ListRoutes where
   hashWithSalt _salt ListRoutes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` meshOwner
-      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualRouterName
 
 instance Prelude.NFData ListRoutes where
   rnf ListRoutes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf limit
       `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf virtualRouterName
 
@@ -228,9 +228,9 @@ instance Data.ToPath ListRoutes where
 instance Data.ToQuery ListRoutes where
   toQuery ListRoutes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "limit" Data.=: limit,
         "meshOwner" Data.=: meshOwner,
-        "limit" Data.=: limit
+        "nextToken" Data.=: nextToken
       ]
 
 -- |

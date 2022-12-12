@@ -34,16 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAggregateComplianceByConfigRule' smart constructor.
 data AggregateComplianceByConfigRule = AggregateComplianceByConfigRule'
-  { -- | The name of the Config rule.
-    configRuleName :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account ID of the source account.
+  { -- | The 12-digit account ID of the source account.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The source region from where the data is aggregated.
     awsRegion :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an Amazon Web Services resource or Config rule is
     -- compliant and provides the number of contributors that affect the
     -- compliance.
-    compliance :: Prelude.Maybe Compliance
+    compliance :: Prelude.Maybe Compliance,
+    -- | The name of the Config rule.
+    configRuleName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,8 +55,6 @@ data AggregateComplianceByConfigRule = AggregateComplianceByConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleName', 'aggregateComplianceByConfigRule_configRuleName' - The name of the Config rule.
---
 -- 'accountId', 'aggregateComplianceByConfigRule_accountId' - The 12-digit account ID of the source account.
 --
 -- 'awsRegion', 'aggregateComplianceByConfigRule_awsRegion' - The source region from where the data is aggregated.
@@ -64,20 +62,18 @@ data AggregateComplianceByConfigRule = AggregateComplianceByConfigRule'
 -- 'compliance', 'aggregateComplianceByConfigRule_compliance' - Indicates whether an Amazon Web Services resource or Config rule is
 -- compliant and provides the number of contributors that affect the
 -- compliance.
+--
+-- 'configRuleName', 'aggregateComplianceByConfigRule_configRuleName' - The name of the Config rule.
 newAggregateComplianceByConfigRule ::
   AggregateComplianceByConfigRule
 newAggregateComplianceByConfigRule =
   AggregateComplianceByConfigRule'
-    { configRuleName =
+    { accountId =
         Prelude.Nothing,
-      accountId = Prelude.Nothing,
       awsRegion = Prelude.Nothing,
-      compliance = Prelude.Nothing
+      compliance = Prelude.Nothing,
+      configRuleName = Prelude.Nothing
     }
-
--- | The name of the Config rule.
-aggregateComplianceByConfigRule_configRuleName :: Lens.Lens' AggregateComplianceByConfigRule (Prelude.Maybe Prelude.Text)
-aggregateComplianceByConfigRule_configRuleName = Lens.lens (\AggregateComplianceByConfigRule' {configRuleName} -> configRuleName) (\s@AggregateComplianceByConfigRule' {} a -> s {configRuleName = a} :: AggregateComplianceByConfigRule)
 
 -- | The 12-digit account ID of the source account.
 aggregateComplianceByConfigRule_accountId :: Lens.Lens' AggregateComplianceByConfigRule (Prelude.Maybe Prelude.Text)
@@ -93,6 +89,10 @@ aggregateComplianceByConfigRule_awsRegion = Lens.lens (\AggregateComplianceByCon
 aggregateComplianceByConfigRule_compliance :: Lens.Lens' AggregateComplianceByConfigRule (Prelude.Maybe Compliance)
 aggregateComplianceByConfigRule_compliance = Lens.lens (\AggregateComplianceByConfigRule' {compliance} -> compliance) (\s@AggregateComplianceByConfigRule' {} a -> s {compliance = a} :: AggregateComplianceByConfigRule)
 
+-- | The name of the Config rule.
+aggregateComplianceByConfigRule_configRuleName :: Lens.Lens' AggregateComplianceByConfigRule (Prelude.Maybe Prelude.Text)
+aggregateComplianceByConfigRule_configRuleName = Lens.lens (\AggregateComplianceByConfigRule' {configRuleName} -> configRuleName) (\s@AggregateComplianceByConfigRule' {} a -> s {configRuleName = a} :: AggregateComplianceByConfigRule)
+
 instance
   Data.FromJSON
     AggregateComplianceByConfigRule
@@ -102,10 +102,10 @@ instance
       "AggregateComplianceByConfigRule"
       ( \x ->
           AggregateComplianceByConfigRule'
-            Prelude.<$> (x Data..:? "ConfigRuleName")
-            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<$> (x Data..:? "AccountId")
             Prelude.<*> (x Data..:? "AwsRegion")
             Prelude.<*> (x Data..:? "Compliance")
+            Prelude.<*> (x Data..:? "ConfigRuleName")
       )
 
 instance
@@ -115,17 +115,17 @@ instance
   hashWithSalt
     _salt
     AggregateComplianceByConfigRule' {..} =
-      _salt `Prelude.hashWithSalt` configRuleName
-        `Prelude.hashWithSalt` accountId
+      _salt `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` awsRegion
         `Prelude.hashWithSalt` compliance
+        `Prelude.hashWithSalt` configRuleName
 
 instance
   Prelude.NFData
     AggregateComplianceByConfigRule
   where
   rnf AggregateComplianceByConfigRule' {..} =
-    Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf awsRegion
       `Prelude.seq` Prelude.rnf compliance
+      `Prelude.seq` Prelude.rnf configRuleName

@@ -39,14 +39,14 @@ import Amazonka.QuickSight.Types.TemplateVersion
 --
 -- /See:/ 'newTemplate' smart constructor.
 data Template = Template'
-  { -- | The display name of the template.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the template.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Time when this was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the template.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | Time when this was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The display name of the template.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID for the template. This is unique per Amazon Web Services Region
     -- for each Amazon Web Services account.
     templateId :: Prelude.Maybe Prelude.Text,
@@ -63,13 +63,13 @@ data Template = Template'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'template_name' - The display name of the template.
+-- 'arn', 'template_arn' - The Amazon Resource Name (ARN) of the template.
 --
 -- 'createdTime', 'template_createdTime' - Time when this was created.
 --
--- 'arn', 'template_arn' - The Amazon Resource Name (ARN) of the template.
---
 -- 'lastUpdatedTime', 'template_lastUpdatedTime' - Time when this was last updated.
+--
+-- 'name', 'template_name' - The display name of the template.
 --
 -- 'templateId', 'template_templateId' - The ID for the template. This is unique per Amazon Web Services Region
 -- for each Amazon Web Services account.
@@ -79,29 +79,29 @@ newTemplate ::
   Template
 newTemplate =
   Template'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
       templateId = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The display name of the template.
-template_name :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
-template_name = Lens.lens (\Template' {name} -> name) (\s@Template' {} a -> s {name = a} :: Template)
-
--- | Time when this was created.
-template_createdTime :: Lens.Lens' Template (Prelude.Maybe Prelude.UTCTime)
-template_createdTime = Lens.lens (\Template' {createdTime} -> createdTime) (\s@Template' {} a -> s {createdTime = a} :: Template) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the template.
 template_arn :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
 template_arn = Lens.lens (\Template' {arn} -> arn) (\s@Template' {} a -> s {arn = a} :: Template)
 
+-- | Time when this was created.
+template_createdTime :: Lens.Lens' Template (Prelude.Maybe Prelude.UTCTime)
+template_createdTime = Lens.lens (\Template' {createdTime} -> createdTime) (\s@Template' {} a -> s {createdTime = a} :: Template) Prelude.. Lens.mapping Data._Time
+
 -- | Time when this was last updated.
 template_lastUpdatedTime :: Lens.Lens' Template (Prelude.Maybe Prelude.UTCTime)
 template_lastUpdatedTime = Lens.lens (\Template' {lastUpdatedTime} -> lastUpdatedTime) (\s@Template' {} a -> s {lastUpdatedTime = a} :: Template) Prelude.. Lens.mapping Data._Time
+
+-- | The display name of the template.
+template_name :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
+template_name = Lens.lens (\Template' {name} -> name) (\s@Template' {} a -> s {name = a} :: Template)
 
 -- | The ID for the template. This is unique per Amazon Web Services Region
 -- for each Amazon Web Services account.
@@ -118,28 +118,28 @@ instance Data.FromJSON Template where
       "Template"
       ( \x ->
           Template'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "TemplateId")
             Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Template where
   hashWithSalt _salt Template' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` templateId
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData Template where
   rnf Template' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf version

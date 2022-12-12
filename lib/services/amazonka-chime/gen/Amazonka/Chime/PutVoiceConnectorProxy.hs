@@ -28,8 +28,8 @@ module Amazonka.Chime.PutVoiceConnectorProxy
     newPutVoiceConnectorProxy,
 
     -- * Request Lenses
-    putVoiceConnectorProxy_fallBackPhoneNumber,
     putVoiceConnectorProxy_disabled,
+    putVoiceConnectorProxy_fallBackPhoneNumber,
     putVoiceConnectorProxy_defaultSessionExpiryMinutes,
     putVoiceConnectorProxy_phoneNumberPoolCountries,
     putVoiceConnectorProxy_voiceConnectorId,
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutVoiceConnectorProxy' smart constructor.
 data PutVoiceConnectorProxy = PutVoiceConnectorProxy'
-  { -- | The phone number to route calls to after a proxy session expires.
-    fallBackPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | When true, stops proxy sessions from being created on the specified
+  { -- | When true, stops proxy sessions from being created on the specified
     -- Amazon Chime Voice Connector.
     disabled :: Prelude.Maybe Prelude.Bool,
+    -- | The phone number to route calls to after a proxy session expires.
+    fallBackPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The default number of minutes allowed for proxy sessions.
     defaultSessionExpiryMinutes :: Prelude.Int,
     -- | The countries for proxy phone numbers to be selected from.
@@ -76,10 +76,10 @@ data PutVoiceConnectorProxy = PutVoiceConnectorProxy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fallBackPhoneNumber', 'putVoiceConnectorProxy_fallBackPhoneNumber' - The phone number to route calls to after a proxy session expires.
---
 -- 'disabled', 'putVoiceConnectorProxy_disabled' - When true, stops proxy sessions from being created on the specified
 -- Amazon Chime Voice Connector.
+--
+-- 'fallBackPhoneNumber', 'putVoiceConnectorProxy_fallBackPhoneNumber' - The phone number to route calls to after a proxy session expires.
 --
 -- 'defaultSessionExpiryMinutes', 'putVoiceConnectorProxy_defaultSessionExpiryMinutes' - The default number of minutes allowed for proxy sessions.
 --
@@ -99,9 +99,8 @@ newPutVoiceConnectorProxy
   pPhoneNumberPoolCountries_
   pVoiceConnectorId_ =
     PutVoiceConnectorProxy'
-      { fallBackPhoneNumber =
-          Prelude.Nothing,
-        disabled = Prelude.Nothing,
+      { disabled = Prelude.Nothing,
+        fallBackPhoneNumber = Prelude.Nothing,
         defaultSessionExpiryMinutes =
           pDefaultSessionExpiryMinutes_,
         phoneNumberPoolCountries =
@@ -109,14 +108,14 @@ newPutVoiceConnectorProxy
         voiceConnectorId = pVoiceConnectorId_
       }
 
--- | The phone number to route calls to after a proxy session expires.
-putVoiceConnectorProxy_fallBackPhoneNumber :: Lens.Lens' PutVoiceConnectorProxy (Prelude.Maybe Prelude.Text)
-putVoiceConnectorProxy_fallBackPhoneNumber = Lens.lens (\PutVoiceConnectorProxy' {fallBackPhoneNumber} -> fallBackPhoneNumber) (\s@PutVoiceConnectorProxy' {} a -> s {fallBackPhoneNumber = a} :: PutVoiceConnectorProxy) Prelude.. Lens.mapping Data._Sensitive
-
 -- | When true, stops proxy sessions from being created on the specified
 -- Amazon Chime Voice Connector.
 putVoiceConnectorProxy_disabled :: Lens.Lens' PutVoiceConnectorProxy (Prelude.Maybe Prelude.Bool)
 putVoiceConnectorProxy_disabled = Lens.lens (\PutVoiceConnectorProxy' {disabled} -> disabled) (\s@PutVoiceConnectorProxy' {} a -> s {disabled = a} :: PutVoiceConnectorProxy)
+
+-- | The phone number to route calls to after a proxy session expires.
+putVoiceConnectorProxy_fallBackPhoneNumber :: Lens.Lens' PutVoiceConnectorProxy (Prelude.Maybe Prelude.Text)
+putVoiceConnectorProxy_fallBackPhoneNumber = Lens.lens (\PutVoiceConnectorProxy' {fallBackPhoneNumber} -> fallBackPhoneNumber) (\s@PutVoiceConnectorProxy' {} a -> s {fallBackPhoneNumber = a} :: PutVoiceConnectorProxy) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The default number of minutes allowed for proxy sessions.
 putVoiceConnectorProxy_defaultSessionExpiryMinutes :: Lens.Lens' PutVoiceConnectorProxy Prelude.Int
@@ -146,16 +145,16 @@ instance Core.AWSRequest PutVoiceConnectorProxy where
 
 instance Prelude.Hashable PutVoiceConnectorProxy where
   hashWithSalt _salt PutVoiceConnectorProxy' {..} =
-    _salt `Prelude.hashWithSalt` fallBackPhoneNumber
-      `Prelude.hashWithSalt` disabled
+    _salt `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` fallBackPhoneNumber
       `Prelude.hashWithSalt` defaultSessionExpiryMinutes
       `Prelude.hashWithSalt` phoneNumberPoolCountries
       `Prelude.hashWithSalt` voiceConnectorId
 
 instance Prelude.NFData PutVoiceConnectorProxy where
   rnf PutVoiceConnectorProxy' {..} =
-    Prelude.rnf fallBackPhoneNumber
-      `Prelude.seq` Prelude.rnf disabled
+    Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf fallBackPhoneNumber
       `Prelude.seq` Prelude.rnf defaultSessionExpiryMinutes
       `Prelude.seq` Prelude.rnf phoneNumberPoolCountries
       `Prelude.seq` Prelude.rnf voiceConnectorId
@@ -167,9 +166,9 @@ instance Data.ToJSON PutVoiceConnectorProxy where
   toJSON PutVoiceConnectorProxy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FallBackPhoneNumber" Data..=)
+          [ ("Disabled" Data..=) Prelude.<$> disabled,
+            ("FallBackPhoneNumber" Data..=)
               Prelude.<$> fallBackPhoneNumber,
-            ("Disabled" Data..=) Prelude.<$> disabled,
             Prelude.Just
               ( "DefaultSessionExpiryMinutes"
                   Data..= defaultSessionExpiryMinutes

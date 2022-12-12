@@ -27,8 +27,8 @@ module Amazonka.AutoScalingPlans.Lens
     deleteScalingPlanResponse_httpStatus,
 
     -- ** DescribeScalingPlanResources
-    describeScalingPlanResources_nextToken,
     describeScalingPlanResources_maxResults,
+    describeScalingPlanResources_nextToken,
     describeScalingPlanResources_scalingPlanName,
     describeScalingPlanResources_scalingPlanVersion,
     describeScalingPlanResourcesResponse_nextToken,
@@ -36,11 +36,11 @@ module Amazonka.AutoScalingPlans.Lens
     describeScalingPlanResourcesResponse_httpStatus,
 
     -- ** DescribeScalingPlans
-    describeScalingPlans_nextToken,
-    describeScalingPlans_scalingPlanVersion,
     describeScalingPlans_applicationSources,
     describeScalingPlans_maxResults,
+    describeScalingPlans_nextToken,
     describeScalingPlans_scalingPlanNames,
+    describeScalingPlans_scalingPlanVersion,
     describeScalingPlansResponse_nextToken,
     describeScalingPlansResponse_scalingPlans,
     describeScalingPlansResponse_httpStatus,
@@ -58,8 +58,8 @@ module Amazonka.AutoScalingPlans.Lens
     getScalingPlanResourceForecastDataResponse_datapoints,
 
     -- ** UpdateScalingPlan
-    updateScalingPlan_scalingInstructions,
     updateScalingPlan_applicationSource,
+    updateScalingPlan_scalingInstructions,
     updateScalingPlan_scalingPlanName,
     updateScalingPlan_scalingPlanVersion,
     updateScalingPlanResponse_httpStatus,
@@ -101,14 +101,14 @@ module Amazonka.AutoScalingPlans.Lens
     predefinedScalingMetricSpecification_predefinedScalingMetricType,
 
     -- ** ScalingInstruction
-    scalingInstruction_scalingPolicyUpdateBehavior,
-    scalingInstruction_predefinedLoadMetricSpecification,
     scalingInstruction_customizedLoadMetricSpecification,
+    scalingInstruction_disableDynamicScaling,
+    scalingInstruction_predefinedLoadMetricSpecification,
     scalingInstruction_predictiveScalingMaxCapacityBehavior,
     scalingInstruction_predictiveScalingMaxCapacityBuffer,
-    scalingInstruction_scheduledActionBufferTime,
     scalingInstruction_predictiveScalingMode,
-    scalingInstruction_disableDynamicScaling,
+    scalingInstruction_scalingPolicyUpdateBehavior,
+    scalingInstruction_scheduledActionBufferTime,
     scalingInstruction_serviceNamespace,
     scalingInstruction_resourceId,
     scalingInstruction_scalableDimension,
@@ -117,9 +117,9 @@ module Amazonka.AutoScalingPlans.Lens
     scalingInstruction_targetTrackingConfigurations,
 
     -- ** ScalingPlan
-    scalingPlan_statusStartTime,
     scalingPlan_creationTime,
     scalingPlan_statusMessage,
+    scalingPlan_statusStartTime,
     scalingPlan_scalingPlanName,
     scalingPlan_scalingPlanVersion,
     scalingPlan_applicationSource,
@@ -127,8 +127,8 @@ module Amazonka.AutoScalingPlans.Lens
     scalingPlan_statusCode,
 
     -- ** ScalingPlanResource
-    scalingPlanResource_scalingStatusMessage,
     scalingPlanResource_scalingPolicies,
+    scalingPlanResource_scalingStatusMessage,
     scalingPlanResource_scalingPlanName,
     scalingPlanResource_scalingPlanVersion,
     scalingPlanResource_serviceNamespace,
@@ -146,12 +146,12 @@ module Amazonka.AutoScalingPlans.Lens
     tagFilter_values,
 
     -- ** TargetTrackingConfiguration
-    targetTrackingConfiguration_disableScaleIn,
     targetTrackingConfiguration_customizedScalingMetricSpecification,
+    targetTrackingConfiguration_disableScaleIn,
     targetTrackingConfiguration_estimatedInstanceWarmup,
+    targetTrackingConfiguration_predefinedScalingMetricSpecification,
     targetTrackingConfiguration_scaleInCooldown,
     targetTrackingConfiguration_scaleOutCooldown,
-    targetTrackingConfiguration_predefinedScalingMetricSpecification,
     targetTrackingConfiguration_targetValue,
   )
 where

@@ -29,8 +29,8 @@ module Amazonka.Transfer.ListWorkflows
     newListWorkflows,
 
     -- * Request Lenses
-    listWorkflows_nextToken,
     listWorkflows_maxResults,
+    listWorkflows_nextToken,
 
     -- * Destructuring the Response
     ListWorkflowsResponse (..),
@@ -53,12 +53,12 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListWorkflows' smart constructor.
 data ListWorkflows = ListWorkflows'
-  { -- | @ListWorkflows@ returns the @NextToken@ parameter in the output. You can
+  { -- | Specifies the maximum number of workflows to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | @ListWorkflows@ returns the @NextToken@ parameter in the output. You can
     -- then pass the @NextToken@ parameter in a subsequent command to continue
     -- listing additional workflows.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of workflows to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListWorkflows = ListWorkflows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listWorkflows_maxResults' - Specifies the maximum number of workflows to return.
+--
 -- 'nextToken', 'listWorkflows_nextToken' - @ListWorkflows@ returns the @NextToken@ parameter in the output. You can
 -- then pass the @NextToken@ parameter in a subsequent command to continue
 -- listing additional workflows.
---
--- 'maxResults', 'listWorkflows_maxResults' - Specifies the maximum number of workflows to return.
 newListWorkflows ::
   ListWorkflows
 newListWorkflows =
   ListWorkflows'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Specifies the maximum number of workflows to return.
+listWorkflows_maxResults :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Natural)
+listWorkflows_maxResults = Lens.lens (\ListWorkflows' {maxResults} -> maxResults) (\s@ListWorkflows' {} a -> s {maxResults = a} :: ListWorkflows)
 
 -- | @ListWorkflows@ returns the @NextToken@ parameter in the output. You can
 -- then pass the @NextToken@ parameter in a subsequent command to continue
 -- listing additional workflows.
 listWorkflows_nextToken :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Text)
 listWorkflows_nextToken = Lens.lens (\ListWorkflows' {nextToken} -> nextToken) (\s@ListWorkflows' {} a -> s {nextToken = a} :: ListWorkflows)
-
--- | Specifies the maximum number of workflows to return.
-listWorkflows_maxResults :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Natural)
-listWorkflows_maxResults = Lens.lens (\ListWorkflows' {maxResults} -> maxResults) (\s@ListWorkflows' {} a -> s {maxResults = a} :: ListWorkflows)
 
 instance Core.AWSPager ListWorkflows where
   page rq rs
@@ -127,13 +127,13 @@ instance Core.AWSRequest ListWorkflows where
 
 instance Prelude.Hashable ListWorkflows where
   hashWithSalt _salt ListWorkflows' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkflows where
   rnf ListWorkflows' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkflows where
   toHeaders =
@@ -154,8 +154,8 @@ instance Data.ToJSON ListWorkflows where
   toJSON ListWorkflows' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

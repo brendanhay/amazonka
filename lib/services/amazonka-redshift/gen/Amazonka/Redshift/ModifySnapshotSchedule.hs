@@ -36,13 +36,13 @@ module Amazonka.Redshift.ModifySnapshotSchedule
     newSnapshotSchedule,
 
     -- * Response Lenses
-    snapshotSchedule_tags,
-    snapshotSchedule_scheduleDescription,
-    snapshotSchedule_associatedClusters,
-    snapshotSchedule_scheduleIdentifier,
-    snapshotSchedule_nextInvocations,
     snapshotSchedule_associatedClusterCount,
+    snapshotSchedule_associatedClusters,
+    snapshotSchedule_nextInvocations,
     snapshotSchedule_scheduleDefinitions,
+    snapshotSchedule_scheduleDescription,
+    snapshotSchedule_scheduleIdentifier,
+    snapshotSchedule_tags,
   )
 where
 

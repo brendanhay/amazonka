@@ -33,17 +33,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperiencesSummary' smart constructor.
 data ExperiencesSummary = ExperiencesSummary'
-  { -- | The name of your Amazon Kendra experience.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The processing status of your Amazon Kendra experience.
-    status :: Prelude.Maybe ExperienceStatus,
+  { -- | The date-time your Amazon Kendra experience was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The endpoint URLs for your Amazon Kendra experiences. The URLs are
     -- unique and fully hosted by Amazon Web Services.
     endpoints :: Prelude.Maybe (Prelude.NonEmpty ExperienceEndpoint),
     -- | The identifier of your Amazon Kendra experience.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date-time your Amazon Kendra experience was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The name of your Amazon Kendra experience.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The processing status of your Amazon Kendra experience.
+    status :: Prelude.Maybe ExperienceStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,34 +55,30 @@ data ExperiencesSummary = ExperiencesSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'experiencesSummary_name' - The name of your Amazon Kendra experience.
---
--- 'status', 'experiencesSummary_status' - The processing status of your Amazon Kendra experience.
+-- 'createdAt', 'experiencesSummary_createdAt' - The date-time your Amazon Kendra experience was created.
 --
 -- 'endpoints', 'experiencesSummary_endpoints' - The endpoint URLs for your Amazon Kendra experiences. The URLs are
 -- unique and fully hosted by Amazon Web Services.
 --
 -- 'id', 'experiencesSummary_id' - The identifier of your Amazon Kendra experience.
 --
--- 'createdAt', 'experiencesSummary_createdAt' - The date-time your Amazon Kendra experience was created.
+-- 'name', 'experiencesSummary_name' - The name of your Amazon Kendra experience.
+--
+-- 'status', 'experiencesSummary_status' - The processing status of your Amazon Kendra experience.
 newExperiencesSummary ::
   ExperiencesSummary
 newExperiencesSummary =
   ExperiencesSummary'
-    { name = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
       endpoints = Prelude.Nothing,
       id = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
--- | The name of your Amazon Kendra experience.
-experiencesSummary_name :: Lens.Lens' ExperiencesSummary (Prelude.Maybe Prelude.Text)
-experiencesSummary_name = Lens.lens (\ExperiencesSummary' {name} -> name) (\s@ExperiencesSummary' {} a -> s {name = a} :: ExperiencesSummary)
-
--- | The processing status of your Amazon Kendra experience.
-experiencesSummary_status :: Lens.Lens' ExperiencesSummary (Prelude.Maybe ExperienceStatus)
-experiencesSummary_status = Lens.lens (\ExperiencesSummary' {status} -> status) (\s@ExperiencesSummary' {} a -> s {status = a} :: ExperiencesSummary)
+-- | The date-time your Amazon Kendra experience was created.
+experiencesSummary_createdAt :: Lens.Lens' ExperiencesSummary (Prelude.Maybe Prelude.UTCTime)
+experiencesSummary_createdAt = Lens.lens (\ExperiencesSummary' {createdAt} -> createdAt) (\s@ExperiencesSummary' {} a -> s {createdAt = a} :: ExperiencesSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The endpoint URLs for your Amazon Kendra experiences. The URLs are
 -- unique and fully hosted by Amazon Web Services.
@@ -93,9 +89,13 @@ experiencesSummary_endpoints = Lens.lens (\ExperiencesSummary' {endpoints} -> en
 experiencesSummary_id :: Lens.Lens' ExperiencesSummary (Prelude.Maybe Prelude.Text)
 experiencesSummary_id = Lens.lens (\ExperiencesSummary' {id} -> id) (\s@ExperiencesSummary' {} a -> s {id = a} :: ExperiencesSummary)
 
--- | The date-time your Amazon Kendra experience was created.
-experiencesSummary_createdAt :: Lens.Lens' ExperiencesSummary (Prelude.Maybe Prelude.UTCTime)
-experiencesSummary_createdAt = Lens.lens (\ExperiencesSummary' {createdAt} -> createdAt) (\s@ExperiencesSummary' {} a -> s {createdAt = a} :: ExperiencesSummary) Prelude.. Lens.mapping Data._Time
+-- | The name of your Amazon Kendra experience.
+experiencesSummary_name :: Lens.Lens' ExperiencesSummary (Prelude.Maybe Prelude.Text)
+experiencesSummary_name = Lens.lens (\ExperiencesSummary' {name} -> name) (\s@ExperiencesSummary' {} a -> s {name = a} :: ExperiencesSummary)
+
+-- | The processing status of your Amazon Kendra experience.
+experiencesSummary_status :: Lens.Lens' ExperiencesSummary (Prelude.Maybe ExperienceStatus)
+experiencesSummary_status = Lens.lens (\ExperiencesSummary' {status} -> status) (\s@ExperiencesSummary' {} a -> s {status = a} :: ExperiencesSummary)
 
 instance Data.FromJSON ExperiencesSummary where
   parseJSON =
@@ -103,25 +103,25 @@ instance Data.FromJSON ExperiencesSummary where
       "ExperiencesSummary"
       ( \x ->
           ExperiencesSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "CreatedAt")
             Prelude.<*> (x Data..:? "Endpoints")
             Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ExperiencesSummary where
   hashWithSalt _salt ExperiencesSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ExperiencesSummary where
   rnf ExperiencesSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf endpoints
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status

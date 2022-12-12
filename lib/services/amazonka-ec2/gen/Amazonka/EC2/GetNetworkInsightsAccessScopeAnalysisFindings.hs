@@ -27,9 +27,9 @@ module Amazonka.EC2.GetNetworkInsightsAccessScopeAnalysisFindings
     newGetNetworkInsightsAccessScopeAnalysisFindings,
 
     -- * Request Lenses
-    getNetworkInsightsAccessScopeAnalysisFindings_nextToken,
     getNetworkInsightsAccessScopeAnalysisFindings_dryRun,
     getNetworkInsightsAccessScopeAnalysisFindings_maxResults,
+    getNetworkInsightsAccessScopeAnalysisFindings_nextToken,
     getNetworkInsightsAccessScopeAnalysisFindings_networkInsightsAccessScopeAnalysisId,
 
     -- * Destructuring the Response
@@ -37,10 +37,10 @@ module Amazonka.EC2.GetNetworkInsightsAccessScopeAnalysisFindings
     newGetNetworkInsightsAccessScopeAnalysisFindingsResponse,
 
     -- * Response Lenses
-    getNetworkInsightsAccessScopeAnalysisFindingsResponse_networkInsightsAccessScopeAnalysisId,
-    getNetworkInsightsAccessScopeAnalysisFindingsResponse_nextToken,
     getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisFindings,
     getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisStatus,
+    getNetworkInsightsAccessScopeAnalysisFindingsResponse_networkInsightsAccessScopeAnalysisId,
+    getNetworkInsightsAccessScopeAnalysisFindingsResponse_nextToken,
     getNetworkInsightsAccessScopeAnalysisFindingsResponse_httpStatus,
   )
 where
@@ -55,9 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetNetworkInsightsAccessScopeAnalysisFindings' smart constructor.
 data GetNetworkInsightsAccessScopeAnalysisFindings = GetNetworkInsightsAccessScopeAnalysisFindings'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -66,6 +64,8 @@ data GetNetworkInsightsAccessScopeAnalysisFindings = GetNetworkInsightsAccessSco
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Network Access Scope analysis.
     networkInsightsAccessScopeAnalysisId :: Prelude.Text
   }
@@ -79,8 +79,6 @@ data GetNetworkInsightsAccessScopeAnalysisFindings = GetNetworkInsightsAccessSco
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getNetworkInsightsAccessScopeAnalysisFindings_nextToken' - The token for the next page of results.
---
 -- 'dryRun', 'getNetworkInsightsAccessScopeAnalysisFindings_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -90,6 +88,8 @@ data GetNetworkInsightsAccessScopeAnalysisFindings = GetNetworkInsightsAccessSco
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 --
+-- 'nextToken', 'getNetworkInsightsAccessScopeAnalysisFindings_nextToken' - The token for the next page of results.
+--
 -- 'networkInsightsAccessScopeAnalysisId', 'getNetworkInsightsAccessScopeAnalysisFindings_networkInsightsAccessScopeAnalysisId' - The ID of the Network Access Scope analysis.
 newGetNetworkInsightsAccessScopeAnalysisFindings ::
   -- | 'networkInsightsAccessScopeAnalysisId'
@@ -98,17 +98,13 @@ newGetNetworkInsightsAccessScopeAnalysisFindings ::
 newGetNetworkInsightsAccessScopeAnalysisFindings
   pNetworkInsightsAccessScopeAnalysisId_ =
     GetNetworkInsightsAccessScopeAnalysisFindings'
-      { nextToken =
+      { dryRun =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         networkInsightsAccessScopeAnalysisId =
           pNetworkInsightsAccessScopeAnalysisId_
       }
-
--- | The token for the next page of results.
-getNetworkInsightsAccessScopeAnalysisFindings_nextToken :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindings (Prelude.Maybe Prelude.Text)
-getNetworkInsightsAccessScopeAnalysisFindings_nextToken = Lens.lens (\GetNetworkInsightsAccessScopeAnalysisFindings' {nextToken} -> nextToken) (\s@GetNetworkInsightsAccessScopeAnalysisFindings' {} a -> s {nextToken = a} :: GetNetworkInsightsAccessScopeAnalysisFindings)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -122,6 +118,10 @@ getNetworkInsightsAccessScopeAnalysisFindings_dryRun = Lens.lens (\GetNetworkIns
 -- value.
 getNetworkInsightsAccessScopeAnalysisFindings_maxResults :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindings (Prelude.Maybe Prelude.Natural)
 getNetworkInsightsAccessScopeAnalysisFindings_maxResults = Lens.lens (\GetNetworkInsightsAccessScopeAnalysisFindings' {maxResults} -> maxResults) (\s@GetNetworkInsightsAccessScopeAnalysisFindings' {} a -> s {maxResults = a} :: GetNetworkInsightsAccessScopeAnalysisFindings)
+
+-- | The token for the next page of results.
+getNetworkInsightsAccessScopeAnalysisFindings_nextToken :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindings (Prelude.Maybe Prelude.Text)
+getNetworkInsightsAccessScopeAnalysisFindings_nextToken = Lens.lens (\GetNetworkInsightsAccessScopeAnalysisFindings' {nextToken} -> nextToken) (\s@GetNetworkInsightsAccessScopeAnalysisFindings' {} a -> s {nextToken = a} :: GetNetworkInsightsAccessScopeAnalysisFindings)
 
 -- | The ID of the Network Access Scope analysis.
 getNetworkInsightsAccessScopeAnalysisFindings_networkInsightsAccessScopeAnalysisId :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindings Prelude.Text
@@ -141,13 +141,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetNetworkInsightsAccessScopeAnalysisFindingsResponse'
-            Prelude.<$> (x Data..@? "networkInsightsAccessScopeAnalysisId")
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "analysisFindingSet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
+            Prelude.<$> ( x Data..@? "analysisFindingSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
               Prelude.<*> (x Data..@? "analysisStatus")
+              Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisId")
+              Prelude.<*> (x Data..@? "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,9 +158,9 @@ instance
   hashWithSalt
     _salt
     GetNetworkInsightsAccessScopeAnalysisFindings' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` dryRun
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` networkInsightsAccessScopeAnalysisId
 
 instance
@@ -169,9 +169,9 @@ instance
   where
   rnf
     GetNetworkInsightsAccessScopeAnalysisFindings' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf dryRun
+      Prelude.rnf dryRun
         `Prelude.seq` Prelude.rnf maxResults
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisId
 
 instance
@@ -199,24 +199,24 @@ instance
                     ),
           "Version"
             Data.=: ("2016-11-15" :: Prelude.ByteString),
-          "NextToken" Data.=: nextToken,
           "DryRun" Data.=: dryRun,
           "MaxResults" Data.=: maxResults,
+          "NextToken" Data.=: nextToken,
           "NetworkInsightsAccessScopeAnalysisId"
             Data.=: networkInsightsAccessScopeAnalysisId
         ]
 
 -- | /See:/ 'newGetNetworkInsightsAccessScopeAnalysisFindingsResponse' smart constructor.
 data GetNetworkInsightsAccessScopeAnalysisFindingsResponse = GetNetworkInsightsAccessScopeAnalysisFindingsResponse'
-  { -- | The ID of the Network Access Scope analysis.
+  { -- | The findings associated with Network Access Scope Analysis.
+    analysisFindings :: Prelude.Maybe [AccessScopeAnalysisFinding],
+    -- | The status of Network Access Scope Analysis.
+    analysisStatus :: Prelude.Maybe AnalysisStatus,
+    -- | The ID of the Network Access Scope analysis.
     networkInsightsAccessScopeAnalysisId :: Prelude.Maybe Prelude.Text,
     -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The findings associated with Network Access Scope Analysis.
-    analysisFindings :: Prelude.Maybe [AccessScopeAnalysisFinding],
-    -- | The status of Network Access Scope Analysis.
-    analysisStatus :: Prelude.Maybe AnalysisStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,14 +230,14 @@ data GetNetworkInsightsAccessScopeAnalysisFindingsResponse = GetNetworkInsightsA
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'analysisFindings', 'getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisFindings' - The findings associated with Network Access Scope Analysis.
+--
+-- 'analysisStatus', 'getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisStatus' - The status of Network Access Scope Analysis.
+--
 -- 'networkInsightsAccessScopeAnalysisId', 'getNetworkInsightsAccessScopeAnalysisFindingsResponse_networkInsightsAccessScopeAnalysisId' - The ID of the Network Access Scope analysis.
 --
 -- 'nextToken', 'getNetworkInsightsAccessScopeAnalysisFindingsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'analysisFindings', 'getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisFindings' - The findings associated with Network Access Scope Analysis.
---
--- 'analysisStatus', 'getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisStatus' - The status of Network Access Scope Analysis.
 --
 -- 'httpStatus', 'getNetworkInsightsAccessScopeAnalysisFindingsResponse_httpStatus' - The response's http status code.
 newGetNetworkInsightsAccessScopeAnalysisFindingsResponse ::
@@ -247,17 +247,25 @@ newGetNetworkInsightsAccessScopeAnalysisFindingsResponse ::
 newGetNetworkInsightsAccessScopeAnalysisFindingsResponse
   pHttpStatus_ =
     GetNetworkInsightsAccessScopeAnalysisFindingsResponse'
-      { networkInsightsAccessScopeAnalysisId =
-          Prelude.Nothing,
-        nextToken =
-          Prelude.Nothing,
-        analysisFindings =
+      { analysisFindings =
           Prelude.Nothing,
         analysisStatus =
+          Prelude.Nothing,
+        networkInsightsAccessScopeAnalysisId =
+          Prelude.Nothing,
+        nextToken =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
+
+-- | The findings associated with Network Access Scope Analysis.
+getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisFindings :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindingsResponse (Prelude.Maybe [AccessScopeAnalysisFinding])
+getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisFindings = Lens.lens (\GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {analysisFindings} -> analysisFindings) (\s@GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {} a -> s {analysisFindings = a} :: GetNetworkInsightsAccessScopeAnalysisFindingsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of Network Access Scope Analysis.
+getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisStatus :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindingsResponse (Prelude.Maybe AnalysisStatus)
+getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisStatus = Lens.lens (\GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {analysisStatus} -> analysisStatus) (\s@GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {} a -> s {analysisStatus = a} :: GetNetworkInsightsAccessScopeAnalysisFindingsResponse)
 
 -- | The ID of the Network Access Scope analysis.
 getNetworkInsightsAccessScopeAnalysisFindingsResponse_networkInsightsAccessScopeAnalysisId :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindingsResponse (Prelude.Maybe Prelude.Text)
@@ -267,14 +275,6 @@ getNetworkInsightsAccessScopeAnalysisFindingsResponse_networkInsightsAccessScope
 -- @null@ when there are no more results to return.
 getNetworkInsightsAccessScopeAnalysisFindingsResponse_nextToken :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindingsResponse (Prelude.Maybe Prelude.Text)
 getNetworkInsightsAccessScopeAnalysisFindingsResponse_nextToken = Lens.lens (\GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {nextToken} -> nextToken) (\s@GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {} a -> s {nextToken = a} :: GetNetworkInsightsAccessScopeAnalysisFindingsResponse)
-
--- | The findings associated with Network Access Scope Analysis.
-getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisFindings :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindingsResponse (Prelude.Maybe [AccessScopeAnalysisFinding])
-getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisFindings = Lens.lens (\GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {analysisFindings} -> analysisFindings) (\s@GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {} a -> s {analysisFindings = a} :: GetNetworkInsightsAccessScopeAnalysisFindingsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The status of Network Access Scope Analysis.
-getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisStatus :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindingsResponse (Prelude.Maybe AnalysisStatus)
-getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisStatus = Lens.lens (\GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {analysisStatus} -> analysisStatus) (\s@GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {} a -> s {analysisStatus = a} :: GetNetworkInsightsAccessScopeAnalysisFindingsResponse)
 
 -- | The response's http status code.
 getNetworkInsightsAccessScopeAnalysisFindingsResponse_httpStatus :: Lens.Lens' GetNetworkInsightsAccessScopeAnalysisFindingsResponse Prelude.Int
@@ -286,8 +286,8 @@ instance
   where
   rnf
     GetNetworkInsightsAccessScopeAnalysisFindingsResponse' {..} =
-      Prelude.rnf networkInsightsAccessScopeAnalysisId
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf analysisFindings
+      Prelude.rnf analysisFindings
         `Prelude.seq` Prelude.rnf analysisStatus
+        `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisId
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

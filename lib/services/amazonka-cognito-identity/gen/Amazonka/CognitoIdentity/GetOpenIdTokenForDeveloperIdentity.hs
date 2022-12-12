@@ -43,9 +43,9 @@ module Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     newGetOpenIdTokenForDeveloperIdentity,
 
     -- * Request Lenses
-    getOpenIdTokenForDeveloperIdentity_tokenDuration,
-    getOpenIdTokenForDeveloperIdentity_principalTags,
     getOpenIdTokenForDeveloperIdentity_identityId,
+    getOpenIdTokenForDeveloperIdentity_principalTags,
+    getOpenIdTokenForDeveloperIdentity_tokenDuration,
     getOpenIdTokenForDeveloperIdentity_identityPoolId,
     getOpenIdTokenForDeveloperIdentity_logins,
 
@@ -72,7 +72,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetOpenIdTokenForDeveloperIdentity' smart constructor.
 data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
-  { -- | The expiration time of the token, in seconds. You can specify a custom
+  { -- | A unique identifier in the format REGION:GUID.
+    identityId :: Prelude.Maybe Prelude.Text,
+    -- | Use this operation to configure attribute mappings for custom providers.
+    principalTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The expiration time of the token, in seconds. You can specify a custom
     -- expiration time for the token so that you can cache it. If you don\'t
     -- provide an expiration time, the token is valid for 15 minutes. You can
     -- exchange the token with Amazon STS for temporary AWS credentials, which
@@ -85,10 +89,6 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
     -- Please provide for a small grace period, usually no more than 5 minutes,
     -- to account for clock skew.
     tokenDuration :: Prelude.Maybe Prelude.Natural,
-    -- | Use this operation to configure attribute mappings for custom providers.
-    principalTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
     -- | An identity pool ID in the format REGION:GUID.
     identityPoolId :: Prelude.Text,
     -- | A set of optional name-value pairs that map provider names to provider
@@ -113,6 +113,10 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'identityId', 'getOpenIdTokenForDeveloperIdentity_identityId' - A unique identifier in the format REGION:GUID.
+--
+-- 'principalTags', 'getOpenIdTokenForDeveloperIdentity_principalTags' - Use this operation to configure attribute mappings for custom providers.
+--
 -- 'tokenDuration', 'getOpenIdTokenForDeveloperIdentity_tokenDuration' - The expiration time of the token, in seconds. You can specify a custom
 -- expiration time for the token so that you can cache it. If you don\'t
 -- provide an expiration time, the token is valid for 15 minutes. You can
@@ -125,10 +129,6 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
 --
 -- Please provide for a small grace period, usually no more than 5 minutes,
 -- to account for clock skew.
---
--- 'principalTags', 'getOpenIdTokenForDeveloperIdentity_principalTags' - Use this operation to configure attribute mappings for custom providers.
---
--- 'identityId', 'getOpenIdTokenForDeveloperIdentity_identityId' - A unique identifier in the format REGION:GUID.
 --
 -- 'identityPoolId', 'getOpenIdTokenForDeveloperIdentity_identityPoolId' - An identity pool ID in the format REGION:GUID.
 --
@@ -149,13 +149,21 @@ newGetOpenIdTokenForDeveloperIdentity ::
 newGetOpenIdTokenForDeveloperIdentity
   pIdentityPoolId_ =
     GetOpenIdTokenForDeveloperIdentity'
-      { tokenDuration =
+      { identityId =
           Prelude.Nothing,
         principalTags = Prelude.Nothing,
-        identityId = Prelude.Nothing,
+        tokenDuration = Prelude.Nothing,
         identityPoolId = pIdentityPoolId_,
         logins = Prelude.mempty
       }
+
+-- | A unique identifier in the format REGION:GUID.
+getOpenIdTokenForDeveloperIdentity_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe Prelude.Text)
+getOpenIdTokenForDeveloperIdentity_identityId = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {identityId} -> identityId) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentity)
+
+-- | Use this operation to configure attribute mappings for custom providers.
+getOpenIdTokenForDeveloperIdentity_principalTags :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getOpenIdTokenForDeveloperIdentity_principalTags = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {principalTags} -> principalTags) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {principalTags = a} :: GetOpenIdTokenForDeveloperIdentity) Prelude.. Lens.mapping Lens.coerced
 
 -- | The expiration time of the token, in seconds. You can specify a custom
 -- expiration time for the token so that you can cache it. If you don\'t
@@ -171,14 +179,6 @@ newGetOpenIdTokenForDeveloperIdentity
 -- to account for clock skew.
 getOpenIdTokenForDeveloperIdentity_tokenDuration :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe Prelude.Natural)
 getOpenIdTokenForDeveloperIdentity_tokenDuration = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {tokenDuration} -> tokenDuration) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {tokenDuration = a} :: GetOpenIdTokenForDeveloperIdentity)
-
--- | Use this operation to configure attribute mappings for custom providers.
-getOpenIdTokenForDeveloperIdentity_principalTags :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getOpenIdTokenForDeveloperIdentity_principalTags = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {principalTags} -> principalTags) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {principalTags = a} :: GetOpenIdTokenForDeveloperIdentity) Prelude.. Lens.mapping Lens.coerced
-
--- | A unique identifier in the format REGION:GUID.
-getOpenIdTokenForDeveloperIdentity_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe Prelude.Text)
-getOpenIdTokenForDeveloperIdentity_identityId = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {identityId} -> identityId) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentity)
 
 -- | An identity pool ID in the format REGION:GUID.
 getOpenIdTokenForDeveloperIdentity_identityPoolId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity Prelude.Text
@@ -222,9 +222,9 @@ instance
   hashWithSalt
     _salt
     GetOpenIdTokenForDeveloperIdentity' {..} =
-      _salt `Prelude.hashWithSalt` tokenDuration
+      _salt `Prelude.hashWithSalt` identityId
         `Prelude.hashWithSalt` principalTags
-        `Prelude.hashWithSalt` identityId
+        `Prelude.hashWithSalt` tokenDuration
         `Prelude.hashWithSalt` identityPoolId
         `Prelude.hashWithSalt` logins
 
@@ -233,9 +233,9 @@ instance
     GetOpenIdTokenForDeveloperIdentity
   where
   rnf GetOpenIdTokenForDeveloperIdentity' {..} =
-    Prelude.rnf tokenDuration
+    Prelude.rnf identityId
       `Prelude.seq` Prelude.rnf principalTags
-      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf tokenDuration
       `Prelude.seq` Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf logins
 
@@ -264,9 +264,9 @@ instance
   toJSON GetOpenIdTokenForDeveloperIdentity' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TokenDuration" Data..=) Prelude.<$> tokenDuration,
+          [ ("IdentityId" Data..=) Prelude.<$> identityId,
             ("PrincipalTags" Data..=) Prelude.<$> principalTags,
-            ("IdentityId" Data..=) Prelude.<$> identityId,
+            ("TokenDuration" Data..=) Prelude.<$> tokenDuration,
             Prelude.Just
               ("IdentityPoolId" Data..= identityPoolId),
             Prelude.Just ("Logins" Data..= logins)

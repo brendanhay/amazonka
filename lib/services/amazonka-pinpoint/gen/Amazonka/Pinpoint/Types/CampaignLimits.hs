@@ -30,14 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCampaignLimits' smart constructor.
 data CampaignLimits = CampaignLimits'
-  { -- | The maximum amount of time, in seconds, that a campaign can attempt to
+  { -- | The maximum number of messages that a campaign can send to a single
+    -- endpoint during a 24-hour period. For an application, this value
+    -- specifies the default limit for the number of messages that campaigns
+    -- and journeys can send to a single endpoint during a 24-hour period. The
+    -- maximum value is 100.
+    daily :: Prelude.Maybe Prelude.Int,
+    -- | The maximum amount of time, in seconds, that a campaign can attempt to
     -- deliver a message after the scheduled start time for the campaign. The
     -- minimum value is 60 seconds.
     maximumDuration :: Prelude.Maybe Prelude.Int,
-    -- | The maximum number of messages that a campaign can send to a single
-    -- endpoint during the course of the campaign. If a campaign recurs, this
-    -- setting applies to all runs of the campaign. The maximum value is 100.
-    total :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of messages that a campaign can send each second. For
     -- an application, this value specifies the default limit for the number of
     -- messages that campaigns can send each second. The minimum value is 50.
@@ -47,11 +49,9 @@ data CampaignLimits = CampaignLimits'
     -- session.
     session :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of messages that a campaign can send to a single
-    -- endpoint during a 24-hour period. For an application, this value
-    -- specifies the default limit for the number of messages that campaigns
-    -- and journeys can send to a single endpoint during a 24-hour period. The
-    -- maximum value is 100.
-    daily :: Prelude.Maybe Prelude.Int
+    -- endpoint during the course of the campaign. If a campaign recurs, this
+    -- setting applies to all runs of the campaign. The maximum value is 100.
+    total :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,13 +63,15 @@ data CampaignLimits = CampaignLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'daily', 'campaignLimits_daily' - The maximum number of messages that a campaign can send to a single
+-- endpoint during a 24-hour period. For an application, this value
+-- specifies the default limit for the number of messages that campaigns
+-- and journeys can send to a single endpoint during a 24-hour period. The
+-- maximum value is 100.
+--
 -- 'maximumDuration', 'campaignLimits_maximumDuration' - The maximum amount of time, in seconds, that a campaign can attempt to
 -- deliver a message after the scheduled start time for the campaign. The
 -- minimum value is 60 seconds.
---
--- 'total', 'campaignLimits_total' - The maximum number of messages that a campaign can send to a single
--- endpoint during the course of the campaign. If a campaign recurs, this
--- setting applies to all runs of the campaign. The maximum value is 100.
 --
 -- 'messagesPerSecond', 'campaignLimits_messagesPerSecond' - The maximum number of messages that a campaign can send each second. For
 -- an application, this value specifies the default limit for the number of
@@ -79,33 +81,33 @@ data CampaignLimits = CampaignLimits'
 -- 'session', 'campaignLimits_session' - The maximum total number of messages that the campaign can send per user
 -- session.
 --
--- 'daily', 'campaignLimits_daily' - The maximum number of messages that a campaign can send to a single
--- endpoint during a 24-hour period. For an application, this value
--- specifies the default limit for the number of messages that campaigns
--- and journeys can send to a single endpoint during a 24-hour period. The
--- maximum value is 100.
+-- 'total', 'campaignLimits_total' - The maximum number of messages that a campaign can send to a single
+-- endpoint during the course of the campaign. If a campaign recurs, this
+-- setting applies to all runs of the campaign. The maximum value is 100.
 newCampaignLimits ::
   CampaignLimits
 newCampaignLimits =
   CampaignLimits'
-    { maximumDuration = Prelude.Nothing,
-      total = Prelude.Nothing,
+    { daily = Prelude.Nothing,
+      maximumDuration = Prelude.Nothing,
       messagesPerSecond = Prelude.Nothing,
       session = Prelude.Nothing,
-      daily = Prelude.Nothing
+      total = Prelude.Nothing
     }
+
+-- | The maximum number of messages that a campaign can send to a single
+-- endpoint during a 24-hour period. For an application, this value
+-- specifies the default limit for the number of messages that campaigns
+-- and journeys can send to a single endpoint during a 24-hour period. The
+-- maximum value is 100.
+campaignLimits_daily :: Lens.Lens' CampaignLimits (Prelude.Maybe Prelude.Int)
+campaignLimits_daily = Lens.lens (\CampaignLimits' {daily} -> daily) (\s@CampaignLimits' {} a -> s {daily = a} :: CampaignLimits)
 
 -- | The maximum amount of time, in seconds, that a campaign can attempt to
 -- deliver a message after the scheduled start time for the campaign. The
 -- minimum value is 60 seconds.
 campaignLimits_maximumDuration :: Lens.Lens' CampaignLimits (Prelude.Maybe Prelude.Int)
 campaignLimits_maximumDuration = Lens.lens (\CampaignLimits' {maximumDuration} -> maximumDuration) (\s@CampaignLimits' {} a -> s {maximumDuration = a} :: CampaignLimits)
-
--- | The maximum number of messages that a campaign can send to a single
--- endpoint during the course of the campaign. If a campaign recurs, this
--- setting applies to all runs of the campaign. The maximum value is 100.
-campaignLimits_total :: Lens.Lens' CampaignLimits (Prelude.Maybe Prelude.Int)
-campaignLimits_total = Lens.lens (\CampaignLimits' {total} -> total) (\s@CampaignLimits' {} a -> s {total = a} :: CampaignLimits)
 
 -- | The maximum number of messages that a campaign can send each second. For
 -- an application, this value specifies the default limit for the number of
@@ -120,12 +122,10 @@ campaignLimits_session :: Lens.Lens' CampaignLimits (Prelude.Maybe Prelude.Int)
 campaignLimits_session = Lens.lens (\CampaignLimits' {session} -> session) (\s@CampaignLimits' {} a -> s {session = a} :: CampaignLimits)
 
 -- | The maximum number of messages that a campaign can send to a single
--- endpoint during a 24-hour period. For an application, this value
--- specifies the default limit for the number of messages that campaigns
--- and journeys can send to a single endpoint during a 24-hour period. The
--- maximum value is 100.
-campaignLimits_daily :: Lens.Lens' CampaignLimits (Prelude.Maybe Prelude.Int)
-campaignLimits_daily = Lens.lens (\CampaignLimits' {daily} -> daily) (\s@CampaignLimits' {} a -> s {daily = a} :: CampaignLimits)
+-- endpoint during the course of the campaign. If a campaign recurs, this
+-- setting applies to all runs of the campaign. The maximum value is 100.
+campaignLimits_total :: Lens.Lens' CampaignLimits (Prelude.Maybe Prelude.Int)
+campaignLimits_total = Lens.lens (\CampaignLimits' {total} -> total) (\s@CampaignLimits' {} a -> s {total = a} :: CampaignLimits)
 
 instance Data.FromJSON CampaignLimits where
   parseJSON =
@@ -133,39 +133,39 @@ instance Data.FromJSON CampaignLimits where
       "CampaignLimits"
       ( \x ->
           CampaignLimits'
-            Prelude.<$> (x Data..:? "MaximumDuration")
-            Prelude.<*> (x Data..:? "Total")
+            Prelude.<$> (x Data..:? "Daily")
+            Prelude.<*> (x Data..:? "MaximumDuration")
             Prelude.<*> (x Data..:? "MessagesPerSecond")
             Prelude.<*> (x Data..:? "Session")
-            Prelude.<*> (x Data..:? "Daily")
+            Prelude.<*> (x Data..:? "Total")
       )
 
 instance Prelude.Hashable CampaignLimits where
   hashWithSalt _salt CampaignLimits' {..} =
-    _salt `Prelude.hashWithSalt` maximumDuration
-      `Prelude.hashWithSalt` total
+    _salt `Prelude.hashWithSalt` daily
+      `Prelude.hashWithSalt` maximumDuration
       `Prelude.hashWithSalt` messagesPerSecond
       `Prelude.hashWithSalt` session
-      `Prelude.hashWithSalt` daily
+      `Prelude.hashWithSalt` total
 
 instance Prelude.NFData CampaignLimits where
   rnf CampaignLimits' {..} =
-    Prelude.rnf maximumDuration
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf daily
+      `Prelude.seq` Prelude.rnf maximumDuration
       `Prelude.seq` Prelude.rnf messagesPerSecond
       `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf daily
+      `Prelude.seq` Prelude.rnf total
 
 instance Data.ToJSON CampaignLimits where
   toJSON CampaignLimits' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaximumDuration" Data..=)
+          [ ("Daily" Data..=) Prelude.<$> daily,
+            ("MaximumDuration" Data..=)
               Prelude.<$> maximumDuration,
-            ("Total" Data..=) Prelude.<$> total,
             ("MessagesPerSecond" Data..=)
               Prelude.<$> messagesPerSecond,
             ("Session" Data..=) Prelude.<$> session,
-            ("Daily" Data..=) Prelude.<$> daily
+            ("Total" Data..=) Prelude.<$> total
           ]
       )

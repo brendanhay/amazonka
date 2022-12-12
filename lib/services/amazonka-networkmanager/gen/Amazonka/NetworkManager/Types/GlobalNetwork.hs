@@ -32,18 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGlobalNetwork' smart constructor.
 data GlobalNetwork = GlobalNetwork'
-  { -- | The ID of the global network.
-    globalNetworkId :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the global network.
-    tags :: Prelude.Maybe [Tag],
-    -- | The state of the global network.
-    state :: Prelude.Maybe GlobalNetworkState,
+  { -- | The date and time that the global network was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The description of the global network.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the global network.
     globalNetworkArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the global network was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The ID of the global network.
+    globalNetworkId :: Prelude.Maybe Prelude.Text,
+    -- | The state of the global network.
+    state :: Prelude.Maybe GlobalNetworkState,
+    -- | The tags for the global network.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,40 +55,32 @@ data GlobalNetwork = GlobalNetwork'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalNetworkId', 'globalNetwork_globalNetworkId' - The ID of the global network.
---
--- 'tags', 'globalNetwork_tags' - The tags for the global network.
---
--- 'state', 'globalNetwork_state' - The state of the global network.
+-- 'createdAt', 'globalNetwork_createdAt' - The date and time that the global network was created.
 --
 -- 'description', 'globalNetwork_description' - The description of the global network.
 --
 -- 'globalNetworkArn', 'globalNetwork_globalNetworkArn' - The Amazon Resource Name (ARN) of the global network.
 --
--- 'createdAt', 'globalNetwork_createdAt' - The date and time that the global network was created.
+-- 'globalNetworkId', 'globalNetwork_globalNetworkId' - The ID of the global network.
+--
+-- 'state', 'globalNetwork_state' - The state of the global network.
+--
+-- 'tags', 'globalNetwork_tags' - The tags for the global network.
 newGlobalNetwork ::
   GlobalNetwork
 newGlobalNetwork =
   GlobalNetwork'
-    { globalNetworkId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
       globalNetworkArn = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      globalNetworkId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
--- | The ID of the global network.
-globalNetwork_globalNetworkId :: Lens.Lens' GlobalNetwork (Prelude.Maybe Prelude.Text)
-globalNetwork_globalNetworkId = Lens.lens (\GlobalNetwork' {globalNetworkId} -> globalNetworkId) (\s@GlobalNetwork' {} a -> s {globalNetworkId = a} :: GlobalNetwork)
-
--- | The tags for the global network.
-globalNetwork_tags :: Lens.Lens' GlobalNetwork (Prelude.Maybe [Tag])
-globalNetwork_tags = Lens.lens (\GlobalNetwork' {tags} -> tags) (\s@GlobalNetwork' {} a -> s {tags = a} :: GlobalNetwork) Prelude.. Lens.mapping Lens.coerced
-
--- | The state of the global network.
-globalNetwork_state :: Lens.Lens' GlobalNetwork (Prelude.Maybe GlobalNetworkState)
-globalNetwork_state = Lens.lens (\GlobalNetwork' {state} -> state) (\s@GlobalNetwork' {} a -> s {state = a} :: GlobalNetwork)
+-- | The date and time that the global network was created.
+globalNetwork_createdAt :: Lens.Lens' GlobalNetwork (Prelude.Maybe Prelude.UTCTime)
+globalNetwork_createdAt = Lens.lens (\GlobalNetwork' {createdAt} -> createdAt) (\s@GlobalNetwork' {} a -> s {createdAt = a} :: GlobalNetwork) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the global network.
 globalNetwork_description :: Lens.Lens' GlobalNetwork (Prelude.Maybe Prelude.Text)
@@ -98,9 +90,17 @@ globalNetwork_description = Lens.lens (\GlobalNetwork' {description} -> descript
 globalNetwork_globalNetworkArn :: Lens.Lens' GlobalNetwork (Prelude.Maybe Prelude.Text)
 globalNetwork_globalNetworkArn = Lens.lens (\GlobalNetwork' {globalNetworkArn} -> globalNetworkArn) (\s@GlobalNetwork' {} a -> s {globalNetworkArn = a} :: GlobalNetwork)
 
--- | The date and time that the global network was created.
-globalNetwork_createdAt :: Lens.Lens' GlobalNetwork (Prelude.Maybe Prelude.UTCTime)
-globalNetwork_createdAt = Lens.lens (\GlobalNetwork' {createdAt} -> createdAt) (\s@GlobalNetwork' {} a -> s {createdAt = a} :: GlobalNetwork) Prelude.. Lens.mapping Data._Time
+-- | The ID of the global network.
+globalNetwork_globalNetworkId :: Lens.Lens' GlobalNetwork (Prelude.Maybe Prelude.Text)
+globalNetwork_globalNetworkId = Lens.lens (\GlobalNetwork' {globalNetworkId} -> globalNetworkId) (\s@GlobalNetwork' {} a -> s {globalNetworkId = a} :: GlobalNetwork)
+
+-- | The state of the global network.
+globalNetwork_state :: Lens.Lens' GlobalNetwork (Prelude.Maybe GlobalNetworkState)
+globalNetwork_state = Lens.lens (\GlobalNetwork' {state} -> state) (\s@GlobalNetwork' {} a -> s {state = a} :: GlobalNetwork)
+
+-- | The tags for the global network.
+globalNetwork_tags :: Lens.Lens' GlobalNetwork (Prelude.Maybe [Tag])
+globalNetwork_tags = Lens.lens (\GlobalNetwork' {tags} -> tags) (\s@GlobalNetwork' {} a -> s {tags = a} :: GlobalNetwork) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON GlobalNetwork where
   parseJSON =
@@ -108,28 +108,28 @@ instance Data.FromJSON GlobalNetwork where
       "GlobalNetwork"
       ( \x ->
           GlobalNetwork'
-            Prelude.<$> (x Data..:? "GlobalNetworkId")
-            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "State")
+            Prelude.<$> (x Data..:? "CreatedAt")
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "GlobalNetworkArn")
-            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable GlobalNetwork where
   hashWithSalt _salt GlobalNetwork' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` globalNetworkArn
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData GlobalNetwork where
   rnf GlobalNetwork' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf globalNetworkArn
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags

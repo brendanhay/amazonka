@@ -36,9 +36,9 @@ module Amazonka.QuickSight.CancelIngestion
     newCancelIngestionResponse,
 
     -- * Response Lenses
-    cancelIngestionResponse_requestId,
     cancelIngestionResponse_arn,
     cancelIngestionResponse_ingestionId,
+    cancelIngestionResponse_requestId,
     cancelIngestionResponse_status,
   )
 where
@@ -115,9 +115,9 @@ instance Core.AWSRequest CancelIngestion where
     Response.receiveJSON
       ( \s h x ->
           CancelIngestionResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "IngestionId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,12 +160,12 @@ instance Data.ToQuery CancelIngestion where
 
 -- | /See:/ 'newCancelIngestionResponse' smart constructor.
 data CancelIngestionResponse = CancelIngestionResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the data ingestion.
+  { -- | The Amazon Resource Name (ARN) for the data ingestion.
     arn :: Prelude.Maybe Prelude.Text,
     -- | An ID for the ingestion.
     ingestionId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -179,11 +179,11 @@ data CancelIngestionResponse = CancelIngestionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'cancelIngestionResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'cancelIngestionResponse_arn' - The Amazon Resource Name (ARN) for the data ingestion.
 --
 -- 'ingestionId', 'cancelIngestionResponse_ingestionId' - An ID for the ingestion.
+--
+-- 'requestId', 'cancelIngestionResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'cancelIngestionResponse_status' - The HTTP status of the request.
 newCancelIngestionResponse ::
@@ -192,16 +192,11 @@ newCancelIngestionResponse ::
   CancelIngestionResponse
 newCancelIngestionResponse pStatus_ =
   CancelIngestionResponse'
-    { requestId =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       ingestionId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-cancelIngestionResponse_requestId :: Lens.Lens' CancelIngestionResponse (Prelude.Maybe Prelude.Text)
-cancelIngestionResponse_requestId = Lens.lens (\CancelIngestionResponse' {requestId} -> requestId) (\s@CancelIngestionResponse' {} a -> s {requestId = a} :: CancelIngestionResponse)
 
 -- | The Amazon Resource Name (ARN) for the data ingestion.
 cancelIngestionResponse_arn :: Lens.Lens' CancelIngestionResponse (Prelude.Maybe Prelude.Text)
@@ -211,13 +206,17 @@ cancelIngestionResponse_arn = Lens.lens (\CancelIngestionResponse' {arn} -> arn)
 cancelIngestionResponse_ingestionId :: Lens.Lens' CancelIngestionResponse (Prelude.Maybe Prelude.Text)
 cancelIngestionResponse_ingestionId = Lens.lens (\CancelIngestionResponse' {ingestionId} -> ingestionId) (\s@CancelIngestionResponse' {} a -> s {ingestionId = a} :: CancelIngestionResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+cancelIngestionResponse_requestId :: Lens.Lens' CancelIngestionResponse (Prelude.Maybe Prelude.Text)
+cancelIngestionResponse_requestId = Lens.lens (\CancelIngestionResponse' {requestId} -> requestId) (\s@CancelIngestionResponse' {} a -> s {requestId = a} :: CancelIngestionResponse)
+
 -- | The HTTP status of the request.
 cancelIngestionResponse_status :: Lens.Lens' CancelIngestionResponse Prelude.Int
 cancelIngestionResponse_status = Lens.lens (\CancelIngestionResponse' {status} -> status) (\s@CancelIngestionResponse' {} a -> s {status = a} :: CancelIngestionResponse)
 
 instance Prelude.NFData CancelIngestionResponse where
   rnf CancelIngestionResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

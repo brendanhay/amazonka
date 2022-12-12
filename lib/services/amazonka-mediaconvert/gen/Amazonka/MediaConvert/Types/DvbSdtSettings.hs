@@ -33,10 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDvbSdtSettings' smart constructor.
 data DvbSdtSettings = DvbSdtSettings'
-  { -- | The number of milliseconds between instances of this table in the output
-    -- transport stream.
-    sdtInterval :: Prelude.Maybe Prelude.Natural,
-    -- | Selects method of inserting SDT information into output stream. \"Follow
+  { -- | Selects method of inserting SDT information into output stream. \"Follow
     -- input SDT\" copies SDT information from input stream to output stream.
     -- \"Follow input SDT if present\" copies SDT information from input stream
     -- to output stream if SDT information is present in the input, otherwise
@@ -44,12 +41,15 @@ data DvbSdtSettings = DvbSdtSettings'
     -- means user will enter the SDT information. \"No SDT\" means output
     -- stream will not contain SDT information.
     outputSdt :: Prelude.Maybe OutputSdt,
-    -- | The service provider name placed in the service_descriptor in the
-    -- Service Description Table. Maximum length is 256 characters.
-    serviceProviderName :: Prelude.Maybe Prelude.Text,
+    -- | The number of milliseconds between instances of this table in the output
+    -- transport stream.
+    sdtInterval :: Prelude.Maybe Prelude.Natural,
     -- | The service name placed in the service_descriptor in the Service
     -- Description Table. Maximum length is 256 characters.
-    serviceName :: Prelude.Maybe Prelude.Text
+    serviceName :: Prelude.Maybe Prelude.Text,
+    -- | The service provider name placed in the service_descriptor in the
+    -- Service Description Table. Maximum length is 256 characters.
+    serviceProviderName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,9 +61,6 @@ data DvbSdtSettings = DvbSdtSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sdtInterval', 'dvbSdtSettings_sdtInterval' - The number of milliseconds between instances of this table in the output
--- transport stream.
---
 -- 'outputSdt', 'dvbSdtSettings_outputSdt' - Selects method of inserting SDT information into output stream. \"Follow
 -- input SDT\" copies SDT information from input stream to output stream.
 -- \"Follow input SDT if present\" copies SDT information from input stream
@@ -72,25 +69,23 @@ data DvbSdtSettings = DvbSdtSettings'
 -- means user will enter the SDT information. \"No SDT\" means output
 -- stream will not contain SDT information.
 --
--- 'serviceProviderName', 'dvbSdtSettings_serviceProviderName' - The service provider name placed in the service_descriptor in the
--- Service Description Table. Maximum length is 256 characters.
+-- 'sdtInterval', 'dvbSdtSettings_sdtInterval' - The number of milliseconds between instances of this table in the output
+-- transport stream.
 --
 -- 'serviceName', 'dvbSdtSettings_serviceName' - The service name placed in the service_descriptor in the Service
 -- Description Table. Maximum length is 256 characters.
+--
+-- 'serviceProviderName', 'dvbSdtSettings_serviceProviderName' - The service provider name placed in the service_descriptor in the
+-- Service Description Table. Maximum length is 256 characters.
 newDvbSdtSettings ::
   DvbSdtSettings
 newDvbSdtSettings =
   DvbSdtSettings'
-    { sdtInterval = Prelude.Nothing,
-      outputSdt = Prelude.Nothing,
-      serviceProviderName = Prelude.Nothing,
-      serviceName = Prelude.Nothing
+    { outputSdt = Prelude.Nothing,
+      sdtInterval = Prelude.Nothing,
+      serviceName = Prelude.Nothing,
+      serviceProviderName = Prelude.Nothing
     }
-
--- | The number of milliseconds between instances of this table in the output
--- transport stream.
-dvbSdtSettings_sdtInterval :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Natural)
-dvbSdtSettings_sdtInterval = Lens.lens (\DvbSdtSettings' {sdtInterval} -> sdtInterval) (\s@DvbSdtSettings' {} a -> s {sdtInterval = a} :: DvbSdtSettings)
 
 -- | Selects method of inserting SDT information into output stream. \"Follow
 -- input SDT\" copies SDT information from input stream to output stream.
@@ -102,15 +97,20 @@ dvbSdtSettings_sdtInterval = Lens.lens (\DvbSdtSettings' {sdtInterval} -> sdtInt
 dvbSdtSettings_outputSdt :: Lens.Lens' DvbSdtSettings (Prelude.Maybe OutputSdt)
 dvbSdtSettings_outputSdt = Lens.lens (\DvbSdtSettings' {outputSdt} -> outputSdt) (\s@DvbSdtSettings' {} a -> s {outputSdt = a} :: DvbSdtSettings)
 
--- | The service provider name placed in the service_descriptor in the
--- Service Description Table. Maximum length is 256 characters.
-dvbSdtSettings_serviceProviderName :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Text)
-dvbSdtSettings_serviceProviderName = Lens.lens (\DvbSdtSettings' {serviceProviderName} -> serviceProviderName) (\s@DvbSdtSettings' {} a -> s {serviceProviderName = a} :: DvbSdtSettings)
+-- | The number of milliseconds between instances of this table in the output
+-- transport stream.
+dvbSdtSettings_sdtInterval :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Natural)
+dvbSdtSettings_sdtInterval = Lens.lens (\DvbSdtSettings' {sdtInterval} -> sdtInterval) (\s@DvbSdtSettings' {} a -> s {sdtInterval = a} :: DvbSdtSettings)
 
 -- | The service name placed in the service_descriptor in the Service
 -- Description Table. Maximum length is 256 characters.
 dvbSdtSettings_serviceName :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Text)
 dvbSdtSettings_serviceName = Lens.lens (\DvbSdtSettings' {serviceName} -> serviceName) (\s@DvbSdtSettings' {} a -> s {serviceName = a} :: DvbSdtSettings)
+
+-- | The service provider name placed in the service_descriptor in the
+-- Service Description Table. Maximum length is 256 characters.
+dvbSdtSettings_serviceProviderName :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Text)
+dvbSdtSettings_serviceProviderName = Lens.lens (\DvbSdtSettings' {serviceProviderName} -> serviceProviderName) (\s@DvbSdtSettings' {} a -> s {serviceProviderName = a} :: DvbSdtSettings)
 
 instance Data.FromJSON DvbSdtSettings where
   parseJSON =
@@ -118,34 +118,34 @@ instance Data.FromJSON DvbSdtSettings where
       "DvbSdtSettings"
       ( \x ->
           DvbSdtSettings'
-            Prelude.<$> (x Data..:? "sdtInterval")
-            Prelude.<*> (x Data..:? "outputSdt")
-            Prelude.<*> (x Data..:? "serviceProviderName")
+            Prelude.<$> (x Data..:? "outputSdt")
+            Prelude.<*> (x Data..:? "sdtInterval")
             Prelude.<*> (x Data..:? "serviceName")
+            Prelude.<*> (x Data..:? "serviceProviderName")
       )
 
 instance Prelude.Hashable DvbSdtSettings where
   hashWithSalt _salt DvbSdtSettings' {..} =
-    _salt `Prelude.hashWithSalt` sdtInterval
-      `Prelude.hashWithSalt` outputSdt
-      `Prelude.hashWithSalt` serviceProviderName
+    _salt `Prelude.hashWithSalt` outputSdt
+      `Prelude.hashWithSalt` sdtInterval
       `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` serviceProviderName
 
 instance Prelude.NFData DvbSdtSettings where
   rnf DvbSdtSettings' {..} =
-    Prelude.rnf sdtInterval
-      `Prelude.seq` Prelude.rnf outputSdt
-      `Prelude.seq` Prelude.rnf serviceProviderName
+    Prelude.rnf outputSdt
+      `Prelude.seq` Prelude.rnf sdtInterval
       `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceProviderName
 
 instance Data.ToJSON DvbSdtSettings where
   toJSON DvbSdtSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sdtInterval" Data..=) Prelude.<$> sdtInterval,
-            ("outputSdt" Data..=) Prelude.<$> outputSdt,
+          [ ("outputSdt" Data..=) Prelude.<$> outputSdt,
+            ("sdtInterval" Data..=) Prelude.<$> sdtInterval,
+            ("serviceName" Data..=) Prelude.<$> serviceName,
             ("serviceProviderName" Data..=)
-              Prelude.<$> serviceProviderName,
-            ("serviceName" Data..=) Prelude.<$> serviceName
+              Prelude.<$> serviceProviderName
           ]
       )

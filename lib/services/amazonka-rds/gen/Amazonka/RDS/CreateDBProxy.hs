@@ -27,11 +27,11 @@ module Amazonka.RDS.CreateDBProxy
     newCreateDBProxy,
 
     -- * Request Lenses
-    createDBProxy_tags,
-    createDBProxy_vpcSecurityGroupIds,
-    createDBProxy_requireTLS,
     createDBProxy_debugLogging,
     createDBProxy_idleClientTimeout,
+    createDBProxy_requireTLS,
+    createDBProxy_tags,
+    createDBProxy_vpcSecurityGroupIds,
     createDBProxy_dbProxyName,
     createDBProxy_engineFamily,
     createDBProxy_auth,
@@ -58,16 +58,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDBProxy' smart constructor.
 data CreateDBProxy = CreateDBProxy'
-  { -- | An optional set of key-value pairs to associate arbitrary data of your
-    -- choosing with the proxy.
-    tags :: Prelude.Maybe [Tag],
-    -- | One or more VPC security group IDs to associate with the new proxy.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | A Boolean parameter that specifies whether Transport Layer Security
-    -- (TLS) encryption is required for connections to the proxy. By enabling
-    -- this setting, you can enforce encrypted TLS connections to the proxy.
-    requireTLS :: Prelude.Maybe Prelude.Bool,
-    -- | Whether the proxy includes detailed information about SQL statements in
+  { -- | Whether the proxy includes detailed information about SQL statements in
     -- its logs. This information helps you to debug issues involving SQL
     -- behavior or the performance and scalability of the proxy connections.
     -- The debug information includes the text of SQL statements that you
@@ -79,6 +70,15 @@ data CreateDBProxy = CreateDBProxy'
     -- before the proxy disconnects it. You can set this value higher or lower
     -- than the connection timeout limit for the associated database.
     idleClientTimeout :: Prelude.Maybe Prelude.Int,
+    -- | A Boolean parameter that specifies whether Transport Layer Security
+    -- (TLS) encryption is required for connections to the proxy. By enabling
+    -- this setting, you can enforce encrypted TLS connections to the proxy.
+    requireTLS :: Prelude.Maybe Prelude.Bool,
+    -- | An optional set of key-value pairs to associate arbitrary data of your
+    -- choosing with the proxy.
+    tags :: Prelude.Maybe [Tag],
+    -- | One or more VPC security group IDs to associate with the new proxy.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The identifier for the proxy. This name must be unique for all proxies
     -- owned by your Amazon Web Services account in the specified Amazon Web
     -- Services Region. An identifier must begin with a letter and must contain
@@ -110,15 +110,6 @@ data CreateDBProxy = CreateDBProxy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDBProxy_tags' - An optional set of key-value pairs to associate arbitrary data of your
--- choosing with the proxy.
---
--- 'vpcSecurityGroupIds', 'createDBProxy_vpcSecurityGroupIds' - One or more VPC security group IDs to associate with the new proxy.
---
--- 'requireTLS', 'createDBProxy_requireTLS' - A Boolean parameter that specifies whether Transport Layer Security
--- (TLS) encryption is required for connections to the proxy. By enabling
--- this setting, you can enforce encrypted TLS connections to the proxy.
---
 -- 'debugLogging', 'createDBProxy_debugLogging' - Whether the proxy includes detailed information about SQL statements in
 -- its logs. This information helps you to debug issues involving SQL
 -- behavior or the performance and scalability of the proxy connections.
@@ -130,6 +121,15 @@ data CreateDBProxy = CreateDBProxy'
 -- 'idleClientTimeout', 'createDBProxy_idleClientTimeout' - The number of seconds that a connection to the proxy can be inactive
 -- before the proxy disconnects it. You can set this value higher or lower
 -- than the connection timeout limit for the associated database.
+--
+-- 'requireTLS', 'createDBProxy_requireTLS' - A Boolean parameter that specifies whether Transport Layer Security
+-- (TLS) encryption is required for connections to the proxy. By enabling
+-- this setting, you can enforce encrypted TLS connections to the proxy.
+--
+-- 'tags', 'createDBProxy_tags' - An optional set of key-value pairs to associate arbitrary data of your
+-- choosing with the proxy.
+--
+-- 'vpcSecurityGroupIds', 'createDBProxy_vpcSecurityGroupIds' - One or more VPC security group IDs to associate with the new proxy.
 --
 -- 'dbProxyName', 'createDBProxy_dbProxyName' - The identifier for the proxy. This name must be unique for all proxies
 -- owned by your Amazon Web Services account in the specified Amazon Web
@@ -163,32 +163,17 @@ newCreateDBProxy
   pEngineFamily_
   pRoleArn_ =
     CreateDBProxy'
-      { tags = Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
-        requireTLS = Prelude.Nothing,
-        debugLogging = Prelude.Nothing,
+      { debugLogging = Prelude.Nothing,
         idleClientTimeout = Prelude.Nothing,
+        requireTLS = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
         dbProxyName = pDBProxyName_,
         engineFamily = pEngineFamily_,
         auth = Prelude.mempty,
         roleArn = pRoleArn_,
         vpcSubnetIds = Prelude.mempty
       }
-
--- | An optional set of key-value pairs to associate arbitrary data of your
--- choosing with the proxy.
-createDBProxy_tags :: Lens.Lens' CreateDBProxy (Prelude.Maybe [Tag])
-createDBProxy_tags = Lens.lens (\CreateDBProxy' {tags} -> tags) (\s@CreateDBProxy' {} a -> s {tags = a} :: CreateDBProxy) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more VPC security group IDs to associate with the new proxy.
-createDBProxy_vpcSecurityGroupIds :: Lens.Lens' CreateDBProxy (Prelude.Maybe [Prelude.Text])
-createDBProxy_vpcSecurityGroupIds = Lens.lens (\CreateDBProxy' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBProxy' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBProxy) Prelude.. Lens.mapping Lens.coerced
-
--- | A Boolean parameter that specifies whether Transport Layer Security
--- (TLS) encryption is required for connections to the proxy. By enabling
--- this setting, you can enforce encrypted TLS connections to the proxy.
-createDBProxy_requireTLS :: Lens.Lens' CreateDBProxy (Prelude.Maybe Prelude.Bool)
-createDBProxy_requireTLS = Lens.lens (\CreateDBProxy' {requireTLS} -> requireTLS) (\s@CreateDBProxy' {} a -> s {requireTLS = a} :: CreateDBProxy)
 
 -- | Whether the proxy includes detailed information about SQL statements in
 -- its logs. This information helps you to debug issues involving SQL
@@ -205,6 +190,21 @@ createDBProxy_debugLogging = Lens.lens (\CreateDBProxy' {debugLogging} -> debugL
 -- than the connection timeout limit for the associated database.
 createDBProxy_idleClientTimeout :: Lens.Lens' CreateDBProxy (Prelude.Maybe Prelude.Int)
 createDBProxy_idleClientTimeout = Lens.lens (\CreateDBProxy' {idleClientTimeout} -> idleClientTimeout) (\s@CreateDBProxy' {} a -> s {idleClientTimeout = a} :: CreateDBProxy)
+
+-- | A Boolean parameter that specifies whether Transport Layer Security
+-- (TLS) encryption is required for connections to the proxy. By enabling
+-- this setting, you can enforce encrypted TLS connections to the proxy.
+createDBProxy_requireTLS :: Lens.Lens' CreateDBProxy (Prelude.Maybe Prelude.Bool)
+createDBProxy_requireTLS = Lens.lens (\CreateDBProxy' {requireTLS} -> requireTLS) (\s@CreateDBProxy' {} a -> s {requireTLS = a} :: CreateDBProxy)
+
+-- | An optional set of key-value pairs to associate arbitrary data of your
+-- choosing with the proxy.
+createDBProxy_tags :: Lens.Lens' CreateDBProxy (Prelude.Maybe [Tag])
+createDBProxy_tags = Lens.lens (\CreateDBProxy' {tags} -> tags) (\s@CreateDBProxy' {} a -> s {tags = a} :: CreateDBProxy) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more VPC security group IDs to associate with the new proxy.
+createDBProxy_vpcSecurityGroupIds :: Lens.Lens' CreateDBProxy (Prelude.Maybe [Prelude.Text])
+createDBProxy_vpcSecurityGroupIds = Lens.lens (\CreateDBProxy' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBProxy' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBProxy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for the proxy. This name must be unique for all proxies
 -- owned by your Amazon Web Services account in the specified Amazon Web
@@ -253,11 +253,11 @@ instance Core.AWSRequest CreateDBProxy where
 
 instance Prelude.Hashable CreateDBProxy where
   hashWithSalt _salt CreateDBProxy' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` vpcSecurityGroupIds
-      `Prelude.hashWithSalt` requireTLS
-      `Prelude.hashWithSalt` debugLogging
+    _salt `Prelude.hashWithSalt` debugLogging
       `Prelude.hashWithSalt` idleClientTimeout
+      `Prelude.hashWithSalt` requireTLS
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbProxyName
       `Prelude.hashWithSalt` engineFamily
       `Prelude.hashWithSalt` auth
@@ -266,11 +266,11 @@ instance Prelude.Hashable CreateDBProxy where
 
 instance Prelude.NFData CreateDBProxy where
   rnf CreateDBProxy' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf requireTLS
-      `Prelude.seq` Prelude.rnf debugLogging
+    Prelude.rnf debugLogging
       `Prelude.seq` Prelude.rnf idleClientTimeout
+      `Prelude.seq` Prelude.rnf requireTLS
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbProxyName
       `Prelude.seq` Prelude.rnf engineFamily
       `Prelude.seq` Prelude.rnf auth
@@ -290,6 +290,9 @@ instance Data.ToQuery CreateDBProxy where
           Data.=: ("CreateDBProxy" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DebugLogging" Data.=: debugLogging,
+        "IdleClientTimeout" Data.=: idleClientTimeout,
+        "RequireTLS" Data.=: requireTLS,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "Tag" Prelude.<$> tags),
@@ -298,9 +301,6 @@ instance Data.ToQuery CreateDBProxy where
             ( Data.toQueryList "member"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "RequireTLS" Data.=: requireTLS,
-        "DebugLogging" Data.=: debugLogging,
-        "IdleClientTimeout" Data.=: idleClientTimeout,
         "DBProxyName" Data.=: dbProxyName,
         "EngineFamily" Data.=: engineFamily,
         "Auth" Data.=: Data.toQueryList "member" auth,

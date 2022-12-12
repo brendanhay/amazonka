@@ -30,18 +30,18 @@ module Amazonka.SSMSAP.ListDatabases
     newListDatabases,
 
     -- * Request Lenses
-    listDatabases_nextToken,
-    listDatabases_maxResults,
-    listDatabases_componentId,
     listDatabases_applicationId,
+    listDatabases_componentId,
+    listDatabases_maxResults,
+    listDatabases_nextToken,
 
     -- * Destructuring the Response
     ListDatabasesResponse (..),
     newListDatabasesResponse,
 
     -- * Response Lenses
-    listDatabasesResponse_nextToken,
     listDatabasesResponse_databases,
+    listDatabasesResponse_nextToken,
     listDatabasesResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newListDatabases' smart constructor.
 data ListDatabases = ListDatabases'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { applicationId :: Prelude.Maybe Prelude.Text,
     componentId :: Prelude.Maybe Prelude.Text,
-    applicationId :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,38 +71,38 @@ data ListDatabases = ListDatabases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDatabases_nextToken' -
---
--- 'maxResults', 'listDatabases_maxResults' -
+-- 'applicationId', 'listDatabases_applicationId' -
 --
 -- 'componentId', 'listDatabases_componentId' -
 --
--- 'applicationId', 'listDatabases_applicationId' -
+-- 'maxResults', 'listDatabases_maxResults' -
+--
+-- 'nextToken', 'listDatabases_nextToken' -
 newListDatabases ::
   ListDatabases
 newListDatabases =
   ListDatabases'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { applicationId = Prelude.Nothing,
       componentId = Prelude.Nothing,
-      applicationId = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- |
-listDatabases_nextToken :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
-listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (\s@ListDatabases' {} a -> s {nextToken = a} :: ListDatabases)
-
--- |
-listDatabases_maxResults :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Natural)
-listDatabases_maxResults = Lens.lens (\ListDatabases' {maxResults} -> maxResults) (\s@ListDatabases' {} a -> s {maxResults = a} :: ListDatabases)
+listDatabases_applicationId :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
+listDatabases_applicationId = Lens.lens (\ListDatabases' {applicationId} -> applicationId) (\s@ListDatabases' {} a -> s {applicationId = a} :: ListDatabases)
 
 -- |
 listDatabases_componentId :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_componentId = Lens.lens (\ListDatabases' {componentId} -> componentId) (\s@ListDatabases' {} a -> s {componentId = a} :: ListDatabases)
 
 -- |
-listDatabases_applicationId :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
-listDatabases_applicationId = Lens.lens (\ListDatabases' {applicationId} -> applicationId) (\s@ListDatabases' {} a -> s {applicationId = a} :: ListDatabases)
+listDatabases_maxResults :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Natural)
+listDatabases_maxResults = Lens.lens (\ListDatabases' {maxResults} -> maxResults) (\s@ListDatabases' {} a -> s {maxResults = a} :: ListDatabases)
+
+-- |
+listDatabases_nextToken :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
+listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (\s@ListDatabases' {} a -> s {nextToken = a} :: ListDatabases)
 
 instance Core.AWSPager ListDatabases where
   page rq rs
@@ -133,24 +133,24 @@ instance Core.AWSRequest ListDatabases where
     Response.receiveJSON
       ( \s h x ->
           ListDatabasesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Databases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Databases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDatabases where
   hashWithSalt _salt ListDatabases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
-      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDatabases where
   rnf ListDatabases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf componentId
-      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDatabases where
   toHeaders =
@@ -167,10 +167,10 @@ instance Data.ToJSON ListDatabases where
   toJSON ListDatabases' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("ApplicationId" Data..=) Prelude.<$> applicationId,
             ("ComponentId" Data..=) Prelude.<$> componentId,
-            ("ApplicationId" Data..=) Prelude.<$> applicationId
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -182,8 +182,8 @@ instance Data.ToQuery ListDatabases where
 
 -- | /See:/ 'newListDatabasesResponse' smart constructor.
 data ListDatabasesResponse = ListDatabasesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    databases :: Prelude.Maybe [DatabaseSummary],
+  { databases :: Prelude.Maybe [DatabaseSummary],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,9 +197,9 @@ data ListDatabasesResponse = ListDatabasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDatabasesResponse_nextToken' -
---
 -- 'databases', 'listDatabasesResponse_databases' -
+--
+-- 'nextToken', 'listDatabasesResponse_nextToken' -
 --
 -- 'httpStatus', 'listDatabasesResponse_httpStatus' - The response's http status code.
 newListDatabasesResponse ::
@@ -208,18 +208,18 @@ newListDatabasesResponse ::
   ListDatabasesResponse
 newListDatabasesResponse pHttpStatus_ =
   ListDatabasesResponse'
-    { nextToken = Prelude.Nothing,
-      databases = Prelude.Nothing,
+    { databases = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-listDatabasesResponse_nextToken :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe Prelude.Text)
-listDatabasesResponse_nextToken = Lens.lens (\ListDatabasesResponse' {nextToken} -> nextToken) (\s@ListDatabasesResponse' {} a -> s {nextToken = a} :: ListDatabasesResponse)
-
--- |
 listDatabasesResponse_databases :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe [DatabaseSummary])
 listDatabasesResponse_databases = Lens.lens (\ListDatabasesResponse' {databases} -> databases) (\s@ListDatabasesResponse' {} a -> s {databases = a} :: ListDatabasesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- |
+listDatabasesResponse_nextToken :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe Prelude.Text)
+listDatabasesResponse_nextToken = Lens.lens (\ListDatabasesResponse' {nextToken} -> nextToken) (\s@ListDatabasesResponse' {} a -> s {nextToken = a} :: ListDatabasesResponse)
 
 -- | The response's http status code.
 listDatabasesResponse_httpStatus :: Lens.Lens' ListDatabasesResponse Prelude.Int
@@ -227,6 +227,6 @@ listDatabasesResponse_httpStatus = Lens.lens (\ListDatabasesResponse' {httpStatu
 
 instance Prelude.NFData ListDatabasesResponse where
   rnf ListDatabasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf databases
+    Prelude.rnf databases
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

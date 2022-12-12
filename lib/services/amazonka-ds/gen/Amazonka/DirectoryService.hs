@@ -36,74 +36,14 @@ module Amazonka.DirectoryService
     -- * Errors
     -- $errors
 
-    -- ** EntityAlreadyExistsException
-    _EntityAlreadyExistsException,
-
-    -- ** ClientException
-    _ClientException,
-
-    -- ** CertificateAlreadyExistsException
-    _CertificateAlreadyExistsException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
-    -- ** InvalidLDAPSStatusException
-    _InvalidLDAPSStatusException,
-
-    -- ** OrganizationsException
-    _OrganizationsException,
-
-    -- ** InvalidCertificateException
-    _InvalidCertificateException,
-
-    -- ** InsufficientPermissionsException
-    _InsufficientPermissionsException,
-
-    -- ** IpRouteLimitExceededException
-    _IpRouteLimitExceededException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ShareLimitExceededException
-    _ShareLimitExceededException,
+    -- ** AuthenticationFailedException
+    _AuthenticationFailedException,
 
-    -- ** EntityDoesNotExistException
-    _EntityDoesNotExistException,
-
-    -- ** UnsupportedSettingsException
-    _UnsupportedSettingsException,
-
-    -- ** InvalidPasswordException
-    _InvalidPasswordException,
-
-    -- ** NoAvailableCertificateException
-    _NoAvailableCertificateException,
-
-    -- ** RegionLimitExceededException
-    _RegionLimitExceededException,
-
-    -- ** DirectoryLimitExceededException
-    _DirectoryLimitExceededException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** DirectoryInDesiredStateException
-    _DirectoryInDesiredStateException,
-
-    -- ** InvalidClientAuthStatusException
-    _InvalidClientAuthStatusException,
-
-    -- ** CertificateLimitExceededException
-    _CertificateLimitExceededException,
-
-    -- ** DomainControllerLimitExceededException
-    _DomainControllerLimitExceededException,
-
-    -- ** TagLimitExceededException
-    _TagLimitExceededException,
+    -- ** CertificateAlreadyExistsException
+    _CertificateAlreadyExistsException,
 
     -- ** CertificateDoesNotExistException
     _CertificateDoesNotExistException,
@@ -111,41 +51,101 @@ module Amazonka.DirectoryService
     -- ** CertificateInUseException
     _CertificateInUseException,
 
-    -- ** InvalidTargetException
-    _InvalidTargetException,
+    -- ** CertificateLimitExceededException
+    _CertificateLimitExceededException,
 
-    -- ** ServiceException
-    _ServiceException,
-
-    -- ** SnapshotLimitExceededException
-    _SnapshotLimitExceededException,
-
-    -- ** DirectoryNotSharedException
-    _DirectoryNotSharedException,
-
-    -- ** DirectoryDoesNotExistException
-    _DirectoryDoesNotExistException,
-
-    -- ** DirectoryAlreadySharedException
-    _DirectoryAlreadySharedException,
-
-    -- ** UserDoesNotExistException
-    _UserDoesNotExistException,
-
-    -- ** DirectoryUnavailableException
-    _DirectoryUnavailableException,
-
-    -- ** AuthenticationFailedException
-    _AuthenticationFailedException,
+    -- ** ClientException
+    _ClientException,
 
     -- ** DirectoryAlreadyInRegionException
     _DirectoryAlreadyInRegionException,
 
+    -- ** DirectoryAlreadySharedException
+    _DirectoryAlreadySharedException,
+
+    -- ** DirectoryDoesNotExistException
+    _DirectoryDoesNotExistException,
+
+    -- ** DirectoryInDesiredStateException
+    _DirectoryInDesiredStateException,
+
+    -- ** DirectoryLimitExceededException
+    _DirectoryLimitExceededException,
+
+    -- ** DirectoryNotSharedException
+    _DirectoryNotSharedException,
+
+    -- ** DirectoryUnavailableException
+    _DirectoryUnavailableException,
+
+    -- ** DomainControllerLimitExceededException
+    _DomainControllerLimitExceededException,
+
+    -- ** EntityAlreadyExistsException
+    _EntityAlreadyExistsException,
+
+    -- ** EntityDoesNotExistException
+    _EntityDoesNotExistException,
+
     -- ** IncompatibleSettingsException
     _IncompatibleSettingsException,
 
+    -- ** InsufficientPermissionsException
+    _InsufficientPermissionsException,
+
+    -- ** InvalidCertificateException
+    _InvalidCertificateException,
+
+    -- ** InvalidClientAuthStatusException
+    _InvalidClientAuthStatusException,
+
+    -- ** InvalidLDAPSStatusException
+    _InvalidLDAPSStatusException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
+
+    -- ** InvalidTargetException
+    _InvalidTargetException,
+
+    -- ** IpRouteLimitExceededException
+    _IpRouteLimitExceededException,
+
+    -- ** NoAvailableCertificateException
+    _NoAvailableCertificateException,
+
+    -- ** OrganizationsException
+    _OrganizationsException,
+
+    -- ** RegionLimitExceededException
+    _RegionLimitExceededException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** ShareLimitExceededException
+    _ShareLimitExceededException,
+
+    -- ** SnapshotLimitExceededException
+    _SnapshotLimitExceededException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** UnsupportedSettingsException
+    _UnsupportedSettingsException,
+
+    -- ** UserDoesNotExistException
+    _UserDoesNotExistException,
 
     -- * Waiters
     -- $waiters

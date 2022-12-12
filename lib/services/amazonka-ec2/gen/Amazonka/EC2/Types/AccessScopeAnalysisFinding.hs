@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 data AccessScopeAnalysisFinding = AccessScopeAnalysisFinding'
   { -- | The finding components.
     findingComponents :: Prelude.Maybe [PathComponent],
+    -- | The ID of the finding.
+    findingId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Network Access Scope analysis.
     networkInsightsAccessScopeAnalysisId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Network Access Scope.
-    networkInsightsAccessScopeId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the finding.
-    findingId :: Prelude.Maybe Prelude.Text
+    networkInsightsAccessScopeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,26 +51,30 @@ data AccessScopeAnalysisFinding = AccessScopeAnalysisFinding'
 --
 -- 'findingComponents', 'accessScopeAnalysisFinding_findingComponents' - The finding components.
 --
+-- 'findingId', 'accessScopeAnalysisFinding_findingId' - The ID of the finding.
+--
 -- 'networkInsightsAccessScopeAnalysisId', 'accessScopeAnalysisFinding_networkInsightsAccessScopeAnalysisId' - The ID of the Network Access Scope analysis.
 --
 -- 'networkInsightsAccessScopeId', 'accessScopeAnalysisFinding_networkInsightsAccessScopeId' - The ID of the Network Access Scope.
---
--- 'findingId', 'accessScopeAnalysisFinding_findingId' - The ID of the finding.
 newAccessScopeAnalysisFinding ::
   AccessScopeAnalysisFinding
 newAccessScopeAnalysisFinding =
   AccessScopeAnalysisFinding'
     { findingComponents =
         Prelude.Nothing,
+      findingId = Prelude.Nothing,
       networkInsightsAccessScopeAnalysisId =
         Prelude.Nothing,
-      networkInsightsAccessScopeId = Prelude.Nothing,
-      findingId = Prelude.Nothing
+      networkInsightsAccessScopeId = Prelude.Nothing
     }
 
 -- | The finding components.
 accessScopeAnalysisFinding_findingComponents :: Lens.Lens' AccessScopeAnalysisFinding (Prelude.Maybe [PathComponent])
 accessScopeAnalysisFinding_findingComponents = Lens.lens (\AccessScopeAnalysisFinding' {findingComponents} -> findingComponents) (\s@AccessScopeAnalysisFinding' {} a -> s {findingComponents = a} :: AccessScopeAnalysisFinding) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the finding.
+accessScopeAnalysisFinding_findingId :: Lens.Lens' AccessScopeAnalysisFinding (Prelude.Maybe Prelude.Text)
+accessScopeAnalysisFinding_findingId = Lens.lens (\AccessScopeAnalysisFinding' {findingId} -> findingId) (\s@AccessScopeAnalysisFinding' {} a -> s {findingId = a} :: AccessScopeAnalysisFinding)
 
 -- | The ID of the Network Access Scope analysis.
 accessScopeAnalysisFinding_networkInsightsAccessScopeAnalysisId :: Lens.Lens' AccessScopeAnalysisFinding (Prelude.Maybe Prelude.Text)
@@ -80,10 +84,6 @@ accessScopeAnalysisFinding_networkInsightsAccessScopeAnalysisId = Lens.lens (\Ac
 accessScopeAnalysisFinding_networkInsightsAccessScopeId :: Lens.Lens' AccessScopeAnalysisFinding (Prelude.Maybe Prelude.Text)
 accessScopeAnalysisFinding_networkInsightsAccessScopeId = Lens.lens (\AccessScopeAnalysisFinding' {networkInsightsAccessScopeId} -> networkInsightsAccessScopeId) (\s@AccessScopeAnalysisFinding' {} a -> s {networkInsightsAccessScopeId = a} :: AccessScopeAnalysisFinding)
 
--- | The ID of the finding.
-accessScopeAnalysisFinding_findingId :: Lens.Lens' AccessScopeAnalysisFinding (Prelude.Maybe Prelude.Text)
-accessScopeAnalysisFinding_findingId = Lens.lens (\AccessScopeAnalysisFinding' {findingId} -> findingId) (\s@AccessScopeAnalysisFinding' {} a -> s {findingId = a} :: AccessScopeAnalysisFinding)
-
 instance Data.FromXML AccessScopeAnalysisFinding where
   parseXML x =
     AccessScopeAnalysisFinding'
@@ -91,20 +91,20 @@ instance Data.FromXML AccessScopeAnalysisFinding where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
+      Prelude.<*> (x Data..@? "findingId")
       Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisId")
       Prelude.<*> (x Data..@? "networkInsightsAccessScopeId")
-      Prelude.<*> (x Data..@? "findingId")
 
 instance Prelude.Hashable AccessScopeAnalysisFinding where
   hashWithSalt _salt AccessScopeAnalysisFinding' {..} =
     _salt `Prelude.hashWithSalt` findingComponents
+      `Prelude.hashWithSalt` findingId
       `Prelude.hashWithSalt` networkInsightsAccessScopeAnalysisId
       `Prelude.hashWithSalt` networkInsightsAccessScopeId
-      `Prelude.hashWithSalt` findingId
 
 instance Prelude.NFData AccessScopeAnalysisFinding where
   rnf AccessScopeAnalysisFinding' {..} =
     Prelude.rnf findingComponents
+      `Prelude.seq` Prelude.rnf findingId
       `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisId
       `Prelude.seq` Prelude.rnf networkInsightsAccessScopeId
-      `Prelude.seq` Prelude.rnf findingId

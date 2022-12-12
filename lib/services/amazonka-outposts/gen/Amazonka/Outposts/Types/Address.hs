@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 data Address = Address'
   { -- | The second line of the address.
     addressLine2 :: Prelude.Maybe Prelude.Text,
+    -- | The third line of the address.
+    addressLine3 :: Prelude.Maybe Prelude.Text,
     -- | The name of the contact.
     contactName :: Prelude.Maybe Prelude.Text,
     -- | The phone number of the contact.
     contactPhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The district or county for the address.
     districtOrCounty :: Prelude.Maybe Prelude.Text,
-    -- | The third line of the address.
-    addressLine3 :: Prelude.Maybe Prelude.Text,
     -- | The municipality for the address.
     municipality :: Prelude.Maybe Prelude.Text,
     -- | The first line of the address.
@@ -63,13 +63,13 @@ data Address = Address'
 --
 -- 'addressLine2', 'address_addressLine2' - The second line of the address.
 --
+-- 'addressLine3', 'address_addressLine3' - The third line of the address.
+--
 -- 'contactName', 'address_contactName' - The name of the contact.
 --
 -- 'contactPhoneNumber', 'address_contactPhoneNumber' - The phone number of the contact.
 --
 -- 'districtOrCounty', 'address_districtOrCounty' - The district or county for the address.
---
--- 'addressLine3', 'address_addressLine3' - The third line of the address.
 --
 -- 'municipality', 'address_municipality' - The municipality for the address.
 --
@@ -102,10 +102,10 @@ newAddress
   pCountryCode_ =
     Address'
       { addressLine2 = Prelude.Nothing,
+        addressLine3 = Prelude.Nothing,
         contactName = Prelude.Nothing,
         contactPhoneNumber = Prelude.Nothing,
         districtOrCounty = Prelude.Nothing,
-        addressLine3 = Prelude.Nothing,
         municipality = Prelude.Nothing,
         addressLine1 = pAddressLine1_,
         city = pCity_,
@@ -118,6 +118,10 @@ newAddress
 address_addressLine2 :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_addressLine2 = Lens.lens (\Address' {addressLine2} -> addressLine2) (\s@Address' {} a -> s {addressLine2 = a} :: Address)
 
+-- | The third line of the address.
+address_addressLine3 :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
+address_addressLine3 = Lens.lens (\Address' {addressLine3} -> addressLine3) (\s@Address' {} a -> s {addressLine3 = a} :: Address)
+
 -- | The name of the contact.
 address_contactName :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_contactName = Lens.lens (\Address' {contactName} -> contactName) (\s@Address' {} a -> s {contactName = a} :: Address)
@@ -129,10 +133,6 @@ address_contactPhoneNumber = Lens.lens (\Address' {contactPhoneNumber} -> contac
 -- | The district or county for the address.
 address_districtOrCounty :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_districtOrCounty = Lens.lens (\Address' {districtOrCounty} -> districtOrCounty) (\s@Address' {} a -> s {districtOrCounty = a} :: Address)
-
--- | The third line of the address.
-address_addressLine3 :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_addressLine3 = Lens.lens (\Address' {addressLine3} -> addressLine3) (\s@Address' {} a -> s {addressLine3 = a} :: Address)
 
 -- | The municipality for the address.
 address_municipality :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
@@ -165,10 +165,10 @@ instance Data.FromJSON Address where
       ( \x ->
           Address'
             Prelude.<$> (x Data..:? "AddressLine2")
+            Prelude.<*> (x Data..:? "AddressLine3")
             Prelude.<*> (x Data..:? "ContactName")
             Prelude.<*> (x Data..:? "ContactPhoneNumber")
             Prelude.<*> (x Data..:? "DistrictOrCounty")
-            Prelude.<*> (x Data..:? "AddressLine3")
             Prelude.<*> (x Data..:? "Municipality")
             Prelude.<*> (x Data..: "AddressLine1")
             Prelude.<*> (x Data..: "City")
@@ -180,10 +180,10 @@ instance Data.FromJSON Address where
 instance Prelude.Hashable Address where
   hashWithSalt _salt Address' {..} =
     _salt `Prelude.hashWithSalt` addressLine2
+      `Prelude.hashWithSalt` addressLine3
       `Prelude.hashWithSalt` contactName
       `Prelude.hashWithSalt` contactPhoneNumber
       `Prelude.hashWithSalt` districtOrCounty
-      `Prelude.hashWithSalt` addressLine3
       `Prelude.hashWithSalt` municipality
       `Prelude.hashWithSalt` addressLine1
       `Prelude.hashWithSalt` city
@@ -194,10 +194,10 @@ instance Prelude.Hashable Address where
 instance Prelude.NFData Address where
   rnf Address' {..} =
     Prelude.rnf addressLine2
+      `Prelude.seq` Prelude.rnf addressLine3
       `Prelude.seq` Prelude.rnf contactName
       `Prelude.seq` Prelude.rnf contactPhoneNumber
       `Prelude.seq` Prelude.rnf districtOrCounty
-      `Prelude.seq` Prelude.rnf addressLine3
       `Prelude.seq` Prelude.rnf municipality
       `Prelude.seq` Prelude.rnf addressLine1
       `Prelude.seq` Prelude.rnf city
@@ -210,12 +210,12 @@ instance Data.ToJSON Address where
     Data.object
       ( Prelude.catMaybes
           [ ("AddressLine2" Data..=) Prelude.<$> addressLine2,
+            ("AddressLine3" Data..=) Prelude.<$> addressLine3,
             ("ContactName" Data..=) Prelude.<$> contactName,
             ("ContactPhoneNumber" Data..=)
               Prelude.<$> contactPhoneNumber,
             ("DistrictOrCounty" Data..=)
               Prelude.<$> districtOrCounty,
-            ("AddressLine3" Data..=) Prelude.<$> addressLine3,
             ("Municipality" Data..=) Prelude.<$> municipality,
             Prelude.Just ("AddressLine1" Data..= addressLine1),
             Prelude.Just ("City" Data..= city),

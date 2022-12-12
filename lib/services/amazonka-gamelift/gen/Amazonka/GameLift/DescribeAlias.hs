@@ -29,8 +29,6 @@
 --
 -- __Related actions__
 --
--- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
--- ResolveAlias |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DescribeAlias
   ( -- * Creating a Request
@@ -58,9 +56,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDescribeAlias' smart constructor.
+-- | /See:/ 'newDescribeAlias' smart constructor.
 data DescribeAlias = DescribeAlias'
   { -- | The unique identifier for the fleet alias that you want to retrieve. You
     -- can use either the alias ID or ARN value.
@@ -137,9 +133,7 @@ instance Data.ToPath DescribeAlias where
 instance Data.ToQuery DescribeAlias where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDescribeAliasResponse' smart constructor.
+-- | /See:/ 'newDescribeAliasResponse' smart constructor.
 data DescribeAliasResponse = DescribeAliasResponse'
   { -- | The requested alias resource.
     alias :: Prelude.Maybe Alias,

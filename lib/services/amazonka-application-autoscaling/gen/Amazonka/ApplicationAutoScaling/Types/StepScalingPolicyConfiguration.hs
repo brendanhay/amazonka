@@ -32,10 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStepScalingPolicyConfiguration' smart constructor.
 data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
-  { -- | The aggregation type for the CloudWatch metrics. Valid values are
-    -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
-    -- the value is treated as @Average@.
-    metricAggregationType :: Prelude.Maybe MetricAggregationType,
+  { -- | Specifies how the @ScalingAdjustment@ value in a
+    -- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
+    -- is interpreted (for example, an absolute number or a percentage). The
+    -- valid values are @ChangeInCapacity@, @ExactCapacity@, and
+    -- @PercentChangeInCapacity@.
+    --
+    -- @AdjustmentType@ is required if you are adding a new step scaling policy
+    -- configuration.
+    adjustmentType :: Prelude.Maybe AdjustmentType,
     -- | The amount of time, in seconds, to wait for a previous scaling activity
     -- to take effect.
     --
@@ -95,21 +100,10 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     --
     -- -   Amazon MSK broker storage
     cooldown :: Prelude.Maybe Prelude.Int,
-    -- | Specifies how the @ScalingAdjustment@ value in a
-    -- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
-    -- is interpreted (for example, an absolute number or a percentage). The
-    -- valid values are @ChangeInCapacity@, @ExactCapacity@, and
-    -- @PercentChangeInCapacity@.
-    --
-    -- @AdjustmentType@ is required if you are adding a new step scaling policy
-    -- configuration.
-    adjustmentType :: Prelude.Maybe AdjustmentType,
-    -- | A set of adjustments that enable you to scale based on the size of the
-    -- alarm breach.
-    --
-    -- At least one step adjustment is required if you are adding a new step
-    -- scaling policy configuration.
-    stepAdjustments :: Prelude.Maybe [StepAdjustment],
+    -- | The aggregation type for the CloudWatch metrics. Valid values are
+    -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+    -- the value is treated as @Average@.
+    metricAggregationType :: Prelude.Maybe MetricAggregationType,
     -- | The minimum value to scale by when the adjustment type is
     -- @PercentChangeInCapacity@. For example, suppose that you create a step
     -- scaling policy to scale out an Amazon ECS service by 25 percent and you
@@ -117,7 +111,13 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     -- the scaling policy is performed, 25 percent of 4 is 1. However, because
     -- you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling
     -- scales out the service by 2 tasks.
-    minAdjustmentMagnitude :: Prelude.Maybe Prelude.Int
+    minAdjustmentMagnitude :: Prelude.Maybe Prelude.Int,
+    -- | A set of adjustments that enable you to scale based on the size of the
+    -- alarm breach.
+    --
+    -- At least one step adjustment is required if you are adding a new step
+    -- scaling policy configuration.
+    stepAdjustments :: Prelude.Maybe [StepAdjustment]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -129,9 +129,14 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricAggregationType', 'stepScalingPolicyConfiguration_metricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are
--- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
--- the value is treated as @Average@.
+-- 'adjustmentType', 'stepScalingPolicyConfiguration_adjustmentType' - Specifies how the @ScalingAdjustment@ value in a
+-- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
+-- is interpreted (for example, an absolute number or a percentage). The
+-- valid values are @ChangeInCapacity@, @ExactCapacity@, and
+-- @PercentChangeInCapacity@.
+--
+-- @AdjustmentType@ is required if you are adding a new step scaling policy
+-- configuration.
 --
 -- 'cooldown', 'stepScalingPolicyConfiguration_cooldown' - The amount of time, in seconds, to wait for a previous scaling activity
 -- to take effect.
@@ -192,20 +197,9 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 --
 -- -   Amazon MSK broker storage
 --
--- 'adjustmentType', 'stepScalingPolicyConfiguration_adjustmentType' - Specifies how the @ScalingAdjustment@ value in a
--- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
--- is interpreted (for example, an absolute number or a percentage). The
--- valid values are @ChangeInCapacity@, @ExactCapacity@, and
--- @PercentChangeInCapacity@.
---
--- @AdjustmentType@ is required if you are adding a new step scaling policy
--- configuration.
---
--- 'stepAdjustments', 'stepScalingPolicyConfiguration_stepAdjustments' - A set of adjustments that enable you to scale based on the size of the
--- alarm breach.
---
--- At least one step adjustment is required if you are adding a new step
--- scaling policy configuration.
+-- 'metricAggregationType', 'stepScalingPolicyConfiguration_metricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are
+-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+-- the value is treated as @Average@.
 --
 -- 'minAdjustmentMagnitude', 'stepScalingPolicyConfiguration_minAdjustmentMagnitude' - The minimum value to scale by when the adjustment type is
 -- @PercentChangeInCapacity@. For example, suppose that you create a step
@@ -214,23 +208,34 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 -- the scaling policy is performed, 25 percent of 4 is 1. However, because
 -- you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling
 -- scales out the service by 2 tasks.
+--
+-- 'stepAdjustments', 'stepScalingPolicyConfiguration_stepAdjustments' - A set of adjustments that enable you to scale based on the size of the
+-- alarm breach.
+--
+-- At least one step adjustment is required if you are adding a new step
+-- scaling policy configuration.
 newStepScalingPolicyConfiguration ::
   StepScalingPolicyConfiguration
 newStepScalingPolicyConfiguration =
   StepScalingPolicyConfiguration'
-    { metricAggregationType =
+    { adjustmentType =
         Prelude.Nothing,
       cooldown = Prelude.Nothing,
-      adjustmentType = Prelude.Nothing,
-      stepAdjustments = Prelude.Nothing,
-      minAdjustmentMagnitude = Prelude.Nothing
+      metricAggregationType = Prelude.Nothing,
+      minAdjustmentMagnitude = Prelude.Nothing,
+      stepAdjustments = Prelude.Nothing
     }
 
--- | The aggregation type for the CloudWatch metrics. Valid values are
--- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
--- the value is treated as @Average@.
-stepScalingPolicyConfiguration_metricAggregationType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe MetricAggregationType)
-stepScalingPolicyConfiguration_metricAggregationType = Lens.lens (\StepScalingPolicyConfiguration' {metricAggregationType} -> metricAggregationType) (\s@StepScalingPolicyConfiguration' {} a -> s {metricAggregationType = a} :: StepScalingPolicyConfiguration)
+-- | Specifies how the @ScalingAdjustment@ value in a
+-- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
+-- is interpreted (for example, an absolute number or a percentage). The
+-- valid values are @ChangeInCapacity@, @ExactCapacity@, and
+-- @PercentChangeInCapacity@.
+--
+-- @AdjustmentType@ is required if you are adding a new step scaling policy
+-- configuration.
+stepScalingPolicyConfiguration_adjustmentType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe AdjustmentType)
+stepScalingPolicyConfiguration_adjustmentType = Lens.lens (\StepScalingPolicyConfiguration' {adjustmentType} -> adjustmentType) (\s@StepScalingPolicyConfiguration' {} a -> s {adjustmentType = a} :: StepScalingPolicyConfiguration)
 
 -- | The amount of time, in seconds, to wait for a previous scaling activity
 -- to take effect.
@@ -293,24 +298,11 @@ stepScalingPolicyConfiguration_metricAggregationType = Lens.lens (\StepScalingPo
 stepScalingPolicyConfiguration_cooldown :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
 stepScalingPolicyConfiguration_cooldown = Lens.lens (\StepScalingPolicyConfiguration' {cooldown} -> cooldown) (\s@StepScalingPolicyConfiguration' {} a -> s {cooldown = a} :: StepScalingPolicyConfiguration)
 
--- | Specifies how the @ScalingAdjustment@ value in a
--- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
--- is interpreted (for example, an absolute number or a percentage). The
--- valid values are @ChangeInCapacity@, @ExactCapacity@, and
--- @PercentChangeInCapacity@.
---
--- @AdjustmentType@ is required if you are adding a new step scaling policy
--- configuration.
-stepScalingPolicyConfiguration_adjustmentType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe AdjustmentType)
-stepScalingPolicyConfiguration_adjustmentType = Lens.lens (\StepScalingPolicyConfiguration' {adjustmentType} -> adjustmentType) (\s@StepScalingPolicyConfiguration' {} a -> s {adjustmentType = a} :: StepScalingPolicyConfiguration)
-
--- | A set of adjustments that enable you to scale based on the size of the
--- alarm breach.
---
--- At least one step adjustment is required if you are adding a new step
--- scaling policy configuration.
-stepScalingPolicyConfiguration_stepAdjustments :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe [StepAdjustment])
-stepScalingPolicyConfiguration_stepAdjustments = Lens.lens (\StepScalingPolicyConfiguration' {stepAdjustments} -> stepAdjustments) (\s@StepScalingPolicyConfiguration' {} a -> s {stepAdjustments = a} :: StepScalingPolicyConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- | The aggregation type for the CloudWatch metrics. Valid values are
+-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+-- the value is treated as @Average@.
+stepScalingPolicyConfiguration_metricAggregationType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe MetricAggregationType)
+stepScalingPolicyConfiguration_metricAggregationType = Lens.lens (\StepScalingPolicyConfiguration' {metricAggregationType} -> metricAggregationType) (\s@StepScalingPolicyConfiguration' {} a -> s {metricAggregationType = a} :: StepScalingPolicyConfiguration)
 
 -- | The minimum value to scale by when the adjustment type is
 -- @PercentChangeInCapacity@. For example, suppose that you create a step
@@ -322,19 +314,27 @@ stepScalingPolicyConfiguration_stepAdjustments = Lens.lens (\StepScalingPolicyCo
 stepScalingPolicyConfiguration_minAdjustmentMagnitude :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
 stepScalingPolicyConfiguration_minAdjustmentMagnitude = Lens.lens (\StepScalingPolicyConfiguration' {minAdjustmentMagnitude} -> minAdjustmentMagnitude) (\s@StepScalingPolicyConfiguration' {} a -> s {minAdjustmentMagnitude = a} :: StepScalingPolicyConfiguration)
 
+-- | A set of adjustments that enable you to scale based on the size of the
+-- alarm breach.
+--
+-- At least one step adjustment is required if you are adding a new step
+-- scaling policy configuration.
+stepScalingPolicyConfiguration_stepAdjustments :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe [StepAdjustment])
+stepScalingPolicyConfiguration_stepAdjustments = Lens.lens (\StepScalingPolicyConfiguration' {stepAdjustments} -> stepAdjustments) (\s@StepScalingPolicyConfiguration' {} a -> s {stepAdjustments = a} :: StepScalingPolicyConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON StepScalingPolicyConfiguration where
   parseJSON =
     Data.withObject
       "StepScalingPolicyConfiguration"
       ( \x ->
           StepScalingPolicyConfiguration'
-            Prelude.<$> (x Data..:? "MetricAggregationType")
+            Prelude.<$> (x Data..:? "AdjustmentType")
             Prelude.<*> (x Data..:? "Cooldown")
-            Prelude.<*> (x Data..:? "AdjustmentType")
+            Prelude.<*> (x Data..:? "MetricAggregationType")
+            Prelude.<*> (x Data..:? "MinAdjustmentMagnitude")
             Prelude.<*> ( x Data..:? "StepAdjustments"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "MinAdjustmentMagnitude")
       )
 
 instance
@@ -344,35 +344,35 @@ instance
   hashWithSalt
     _salt
     StepScalingPolicyConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` metricAggregationType
+      _salt `Prelude.hashWithSalt` adjustmentType
         `Prelude.hashWithSalt` cooldown
-        `Prelude.hashWithSalt` adjustmentType
-        `Prelude.hashWithSalt` stepAdjustments
+        `Prelude.hashWithSalt` metricAggregationType
         `Prelude.hashWithSalt` minAdjustmentMagnitude
+        `Prelude.hashWithSalt` stepAdjustments
 
 instance
   Prelude.NFData
     StepScalingPolicyConfiguration
   where
   rnf StepScalingPolicyConfiguration' {..} =
-    Prelude.rnf metricAggregationType
+    Prelude.rnf adjustmentType
       `Prelude.seq` Prelude.rnf cooldown
-      `Prelude.seq` Prelude.rnf adjustmentType
-      `Prelude.seq` Prelude.rnf stepAdjustments
+      `Prelude.seq` Prelude.rnf metricAggregationType
       `Prelude.seq` Prelude.rnf minAdjustmentMagnitude
+      `Prelude.seq` Prelude.rnf stepAdjustments
 
 instance Data.ToJSON StepScalingPolicyConfiguration where
   toJSON StepScalingPolicyConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MetricAggregationType" Data..=)
-              Prelude.<$> metricAggregationType,
-            ("Cooldown" Data..=) Prelude.<$> cooldown,
-            ("AdjustmentType" Data..=)
+          [ ("AdjustmentType" Data..=)
               Prelude.<$> adjustmentType,
-            ("StepAdjustments" Data..=)
-              Prelude.<$> stepAdjustments,
+            ("Cooldown" Data..=) Prelude.<$> cooldown,
+            ("MetricAggregationType" Data..=)
+              Prelude.<$> metricAggregationType,
             ("MinAdjustmentMagnitude" Data..=)
-              Prelude.<$> minAdjustmentMagnitude
+              Prelude.<$> minAdjustmentMagnitude,
+            ("StepAdjustments" Data..=)
+              Prelude.<$> stepAdjustments
           ]
       )

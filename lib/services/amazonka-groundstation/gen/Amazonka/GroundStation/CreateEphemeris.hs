@@ -27,12 +27,12 @@ module Amazonka.GroundStation.CreateEphemeris
     newCreateEphemeris,
 
     -- * Request Lenses
-    createEphemeris_tags,
-    createEphemeris_expirationTime,
     createEphemeris_enabled,
+    createEphemeris_ephemeris,
+    createEphemeris_expirationTime,
     createEphemeris_kmsKeyArn,
     createEphemeris_priority,
-    createEphemeris_ephemeris,
+    createEphemeris_tags,
     createEphemeris_name,
     createEphemeris_satelliteId,
 
@@ -55,16 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEphemeris' smart constructor.
 data CreateEphemeris = CreateEphemeris'
-  { -- | Tags assigned to an ephemeris.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An overall expiration time for the ephemeris in UTC, after which it will
-    -- become @EXPIRED@.
-    expirationTime :: Prelude.Maybe Data.POSIX,
-    -- | Whether to set the ephemeris status to @ENABLED@ after validation.
+  { -- | Whether to set the ephemeris status to @ENABLED@ after validation.
     --
     -- Setting this to false will set the ephemeris status to @DISABLED@ after
     -- validation.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Ephemeris data.
+    ephemeris :: Prelude.Maybe EphemerisData,
+    -- | An overall expiration time for the ephemeris in UTC, after which it will
+    -- become @EXPIRED@.
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of a KMS key used to encrypt the ephemeris in Ground Station.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | Customer-provided priority score to establish the order in which
@@ -75,8 +75,8 @@ data CreateEphemeris = CreateEphemeris'
     --
     -- Priority must be 1 or greater
     priority :: Prelude.Maybe Prelude.Natural,
-    -- | Ephemeris data.
-    ephemeris :: Prelude.Maybe EphemerisData,
+    -- | Tags assigned to an ephemeris.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A name string associated with the ephemeris. Used as a human-readable
     -- identifier for the ephemeris.
     name :: Prelude.Text,
@@ -93,15 +93,15 @@ data CreateEphemeris = CreateEphemeris'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEphemeris_tags' - Tags assigned to an ephemeris.
---
--- 'expirationTime', 'createEphemeris_expirationTime' - An overall expiration time for the ephemeris in UTC, after which it will
--- become @EXPIRED@.
---
 -- 'enabled', 'createEphemeris_enabled' - Whether to set the ephemeris status to @ENABLED@ after validation.
 --
 -- Setting this to false will set the ephemeris status to @DISABLED@ after
 -- validation.
+--
+-- 'ephemeris', 'createEphemeris_ephemeris' - Ephemeris data.
+--
+-- 'expirationTime', 'createEphemeris_expirationTime' - An overall expiration time for the ephemeris in UTC, after which it will
+-- become @EXPIRED@.
 --
 -- 'kmsKeyArn', 'createEphemeris_kmsKeyArn' - The ARN of a KMS key used to encrypt the ephemeris in Ground Station.
 --
@@ -113,7 +113,7 @@ data CreateEphemeris = CreateEphemeris'
 --
 -- Priority must be 1 or greater
 --
--- 'ephemeris', 'createEphemeris_ephemeris' - Ephemeris data.
+-- 'tags', 'createEphemeris_tags' - Tags assigned to an ephemeris.
 --
 -- 'name', 'createEphemeris_name' - A name string associated with the ephemeris. Used as a human-readable
 -- identifier for the ephemeris.
@@ -127,24 +127,15 @@ newCreateEphemeris ::
   CreateEphemeris
 newCreateEphemeris pName_ pSatelliteId_ =
   CreateEphemeris'
-    { tags = Prelude.Nothing,
+    { enabled = Prelude.Nothing,
+      ephemeris = Prelude.Nothing,
       expirationTime = Prelude.Nothing,
-      enabled = Prelude.Nothing,
       kmsKeyArn = Prelude.Nothing,
       priority = Prelude.Nothing,
-      ephemeris = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       satelliteId = pSatelliteId_
     }
-
--- | Tags assigned to an ephemeris.
-createEphemeris_tags :: Lens.Lens' CreateEphemeris (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createEphemeris_tags = Lens.lens (\CreateEphemeris' {tags} -> tags) (\s@CreateEphemeris' {} a -> s {tags = a} :: CreateEphemeris) Prelude.. Lens.mapping Lens.coerced
-
--- | An overall expiration time for the ephemeris in UTC, after which it will
--- become @EXPIRED@.
-createEphemeris_expirationTime :: Lens.Lens' CreateEphemeris (Prelude.Maybe Prelude.UTCTime)
-createEphemeris_expirationTime = Lens.lens (\CreateEphemeris' {expirationTime} -> expirationTime) (\s@CreateEphemeris' {} a -> s {expirationTime = a} :: CreateEphemeris) Prelude.. Lens.mapping Data._Time
 
 -- | Whether to set the ephemeris status to @ENABLED@ after validation.
 --
@@ -152,6 +143,15 @@ createEphemeris_expirationTime = Lens.lens (\CreateEphemeris' {expirationTime} -
 -- validation.
 createEphemeris_enabled :: Lens.Lens' CreateEphemeris (Prelude.Maybe Prelude.Bool)
 createEphemeris_enabled = Lens.lens (\CreateEphemeris' {enabled} -> enabled) (\s@CreateEphemeris' {} a -> s {enabled = a} :: CreateEphemeris)
+
+-- | Ephemeris data.
+createEphemeris_ephemeris :: Lens.Lens' CreateEphemeris (Prelude.Maybe EphemerisData)
+createEphemeris_ephemeris = Lens.lens (\CreateEphemeris' {ephemeris} -> ephemeris) (\s@CreateEphemeris' {} a -> s {ephemeris = a} :: CreateEphemeris)
+
+-- | An overall expiration time for the ephemeris in UTC, after which it will
+-- become @EXPIRED@.
+createEphemeris_expirationTime :: Lens.Lens' CreateEphemeris (Prelude.Maybe Prelude.UTCTime)
+createEphemeris_expirationTime = Lens.lens (\CreateEphemeris' {expirationTime} -> expirationTime) (\s@CreateEphemeris' {} a -> s {expirationTime = a} :: CreateEphemeris) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of a KMS key used to encrypt the ephemeris in Ground Station.
 createEphemeris_kmsKeyArn :: Lens.Lens' CreateEphemeris (Prelude.Maybe Prelude.Text)
@@ -167,9 +167,9 @@ createEphemeris_kmsKeyArn = Lens.lens (\CreateEphemeris' {kmsKeyArn} -> kmsKeyAr
 createEphemeris_priority :: Lens.Lens' CreateEphemeris (Prelude.Maybe Prelude.Natural)
 createEphemeris_priority = Lens.lens (\CreateEphemeris' {priority} -> priority) (\s@CreateEphemeris' {} a -> s {priority = a} :: CreateEphemeris)
 
--- | Ephemeris data.
-createEphemeris_ephemeris :: Lens.Lens' CreateEphemeris (Prelude.Maybe EphemerisData)
-createEphemeris_ephemeris = Lens.lens (\CreateEphemeris' {ephemeris} -> ephemeris) (\s@CreateEphemeris' {} a -> s {ephemeris = a} :: CreateEphemeris)
+-- | Tags assigned to an ephemeris.
+createEphemeris_tags :: Lens.Lens' CreateEphemeris (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createEphemeris_tags = Lens.lens (\CreateEphemeris' {tags} -> tags) (\s@CreateEphemeris' {} a -> s {tags = a} :: CreateEphemeris) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name string associated with the ephemeris. Used as a human-readable
 -- identifier for the ephemeris.
@@ -192,23 +192,23 @@ instance Core.AWSRequest CreateEphemeris where
 
 instance Prelude.Hashable CreateEphemeris where
   hashWithSalt _salt CreateEphemeris' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` ephemeris
       `Prelude.hashWithSalt` expirationTime
-      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` ephemeris
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` satelliteId
 
 instance Prelude.NFData CreateEphemeris where
   rnf CreateEphemeris' {..} =
-    Prelude.rnf tags
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf ephemeris
       `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf ephemeris
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf satelliteId
 
@@ -227,13 +227,13 @@ instance Data.ToJSON CreateEphemeris where
   toJSON CreateEphemeris' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("enabled" Data..=) Prelude.<$> enabled,
+            ("ephemeris" Data..=) Prelude.<$> ephemeris,
             ("expirationTime" Data..=)
               Prelude.<$> expirationTime,
-            ("enabled" Data..=) Prelude.<$> enabled,
             ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
             ("priority" Data..=) Prelude.<$> priority,
-            ("ephemeris" Data..=) Prelude.<$> ephemeris,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("satelliteId" Data..= satelliteId)
           ]

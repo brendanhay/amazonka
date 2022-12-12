@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTopicRuleDestinationConfiguration' smart constructor.
 data TopicRuleDestinationConfiguration = TopicRuleDestinationConfiguration'
-  { -- | Configuration of the virtual private cloud (VPC) connection.
-    vpcConfiguration :: Prelude.Maybe VpcDestinationConfiguration,
-    -- | Configuration of the HTTP URL.
-    httpUrlConfiguration :: Prelude.Maybe HttpUrlDestinationConfiguration
+  { -- | Configuration of the HTTP URL.
+    httpUrlConfiguration :: Prelude.Maybe HttpUrlDestinationConfiguration,
+    -- | Configuration of the virtual private cloud (VPC) connection.
+    vpcConfiguration :: Prelude.Maybe VpcDestinationConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data TopicRuleDestinationConfiguration = TopicRuleDestinationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfiguration', 'topicRuleDestinationConfiguration_vpcConfiguration' - Configuration of the virtual private cloud (VPC) connection.
---
 -- 'httpUrlConfiguration', 'topicRuleDestinationConfiguration_httpUrlConfiguration' - Configuration of the HTTP URL.
+--
+-- 'vpcConfiguration', 'topicRuleDestinationConfiguration_vpcConfiguration' - Configuration of the virtual private cloud (VPC) connection.
 newTopicRuleDestinationConfiguration ::
   TopicRuleDestinationConfiguration
 newTopicRuleDestinationConfiguration =
   TopicRuleDestinationConfiguration'
-    { vpcConfiguration =
+    { httpUrlConfiguration =
         Prelude.Nothing,
-      httpUrlConfiguration = Prelude.Nothing
+      vpcConfiguration = Prelude.Nothing
     }
-
--- | Configuration of the virtual private cloud (VPC) connection.
-topicRuleDestinationConfiguration_vpcConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Prelude.Maybe VpcDestinationConfiguration)
-topicRuleDestinationConfiguration_vpcConfiguration = Lens.lens (\TopicRuleDestinationConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@TopicRuleDestinationConfiguration' {} a -> s {vpcConfiguration = a} :: TopicRuleDestinationConfiguration)
 
 -- | Configuration of the HTTP URL.
 topicRuleDestinationConfiguration_httpUrlConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Prelude.Maybe HttpUrlDestinationConfiguration)
 topicRuleDestinationConfiguration_httpUrlConfiguration = Lens.lens (\TopicRuleDestinationConfiguration' {httpUrlConfiguration} -> httpUrlConfiguration) (\s@TopicRuleDestinationConfiguration' {} a -> s {httpUrlConfiguration = a} :: TopicRuleDestinationConfiguration)
+
+-- | Configuration of the virtual private cloud (VPC) connection.
+topicRuleDestinationConfiguration_vpcConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Prelude.Maybe VpcDestinationConfiguration)
+topicRuleDestinationConfiguration_vpcConfiguration = Lens.lens (\TopicRuleDestinationConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@TopicRuleDestinationConfiguration' {} a -> s {vpcConfiguration = a} :: TopicRuleDestinationConfiguration)
 
 instance
   Prelude.Hashable
@@ -72,16 +72,16 @@ instance
   hashWithSalt
     _salt
     TopicRuleDestinationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` vpcConfiguration
-        `Prelude.hashWithSalt` httpUrlConfiguration
+      _salt `Prelude.hashWithSalt` httpUrlConfiguration
+        `Prelude.hashWithSalt` vpcConfiguration
 
 instance
   Prelude.NFData
     TopicRuleDestinationConfiguration
   where
   rnf TopicRuleDestinationConfiguration' {..} =
-    Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf httpUrlConfiguration
+    Prelude.rnf httpUrlConfiguration
+      `Prelude.seq` Prelude.rnf vpcConfiguration
 
 instance
   Data.ToJSON
@@ -90,9 +90,9 @@ instance
   toJSON TopicRuleDestinationConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("vpcConfiguration" Data..=)
-              Prelude.<$> vpcConfiguration,
-            ("httpUrlConfiguration" Data..=)
-              Prelude.<$> httpUrlConfiguration
+          [ ("httpUrlConfiguration" Data..=)
+              Prelude.<$> httpUrlConfiguration,
+            ("vpcConfiguration" Data..=)
+              Prelude.<$> vpcConfiguration
           ]
       )

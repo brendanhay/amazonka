@@ -41,8 +41,8 @@ module Amazonka.SNS.ListSMSSandboxPhoneNumbers
     newListSMSSandboxPhoneNumbers,
 
     -- * Request Lenses
-    listSMSSandboxPhoneNumbers_nextToken,
     listSMSSandboxPhoneNumbers_maxResults,
+    listSMSSandboxPhoneNumbers_nextToken,
 
     -- * Destructuring the Response
     ListSMSSandboxPhoneNumbersResponse (..),
@@ -65,11 +65,11 @@ import Amazonka.SNS.Types
 
 -- | /See:/ 'newListSMSSandboxPhoneNumbers' smart constructor.
 data ListSMSSandboxPhoneNumbers = ListSMSSandboxPhoneNumbers'
-  { -- | Token that the previous @ListSMSSandboxPhoneNumbersInput@ request
+  { -- | The maximum number of phone numbers to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Token that the previous @ListSMSSandboxPhoneNumbersInput@ request
     -- returns.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of phone numbers to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,27 +81,27 @@ data ListSMSSandboxPhoneNumbers = ListSMSSandboxPhoneNumbers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSMSSandboxPhoneNumbers_maxResults' - The maximum number of phone numbers to return.
+--
 -- 'nextToken', 'listSMSSandboxPhoneNumbers_nextToken' - Token that the previous @ListSMSSandboxPhoneNumbersInput@ request
 -- returns.
---
--- 'maxResults', 'listSMSSandboxPhoneNumbers_maxResults' - The maximum number of phone numbers to return.
 newListSMSSandboxPhoneNumbers ::
   ListSMSSandboxPhoneNumbers
 newListSMSSandboxPhoneNumbers =
   ListSMSSandboxPhoneNumbers'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of phone numbers to return.
+listSMSSandboxPhoneNumbers_maxResults :: Lens.Lens' ListSMSSandboxPhoneNumbers (Prelude.Maybe Prelude.Natural)
+listSMSSandboxPhoneNumbers_maxResults = Lens.lens (\ListSMSSandboxPhoneNumbers' {maxResults} -> maxResults) (\s@ListSMSSandboxPhoneNumbers' {} a -> s {maxResults = a} :: ListSMSSandboxPhoneNumbers)
 
 -- | Token that the previous @ListSMSSandboxPhoneNumbersInput@ request
 -- returns.
 listSMSSandboxPhoneNumbers_nextToken :: Lens.Lens' ListSMSSandboxPhoneNumbers (Prelude.Maybe Prelude.Text)
 listSMSSandboxPhoneNumbers_nextToken = Lens.lens (\ListSMSSandboxPhoneNumbers' {nextToken} -> nextToken) (\s@ListSMSSandboxPhoneNumbers' {} a -> s {nextToken = a} :: ListSMSSandboxPhoneNumbers)
-
--- | The maximum number of phone numbers to return.
-listSMSSandboxPhoneNumbers_maxResults :: Lens.Lens' ListSMSSandboxPhoneNumbers (Prelude.Maybe Prelude.Natural)
-listSMSSandboxPhoneNumbers_maxResults = Lens.lens (\ListSMSSandboxPhoneNumbers' {maxResults} -> maxResults) (\s@ListSMSSandboxPhoneNumbers' {} a -> s {maxResults = a} :: ListSMSSandboxPhoneNumbers)
 
 instance Core.AWSPager ListSMSSandboxPhoneNumbers where
   page rq rs
@@ -144,13 +144,13 @@ instance Core.AWSRequest ListSMSSandboxPhoneNumbers where
 
 instance Prelude.Hashable ListSMSSandboxPhoneNumbers where
   hashWithSalt _salt ListSMSSandboxPhoneNumbers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSMSSandboxPhoneNumbers where
   rnf ListSMSSandboxPhoneNumbers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSMSSandboxPhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,8 +165,8 @@ instance Data.ToQuery ListSMSSandboxPhoneNumbers where
           Data.=: ("ListSMSSandboxPhoneNumbers" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSMSSandboxPhoneNumbersResponse' smart constructor.

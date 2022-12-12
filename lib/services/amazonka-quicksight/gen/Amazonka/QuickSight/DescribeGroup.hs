@@ -37,8 +37,8 @@ module Amazonka.QuickSight.DescribeGroup
     newDescribeGroupResponse,
 
     -- * Response Lenses
-    describeGroupResponse_requestId,
     describeGroupResponse_group,
+    describeGroupResponse_requestId,
     describeGroupResponse_status,
   )
 where
@@ -121,8 +121,8 @@ instance Core.AWSRequest DescribeGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Group")
+            Prelude.<$> (x Data..?> "Group")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,10 +165,10 @@ instance Data.ToQuery DescribeGroup where
 
 -- | /See:/ 'newDescribeGroupResponse' smart constructor.
 data DescribeGroupResponse = DescribeGroupResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group.
+  { -- | The name of the group.
     group' :: Prelude.Maybe Group,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -182,9 +182,9 @@ data DescribeGroupResponse = DescribeGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeGroupResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'group'', 'describeGroupResponse_group' - The name of the group.
+--
+-- 'requestId', 'describeGroupResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeGroupResponse_status' - The HTTP status of the request.
 newDescribeGroupResponse ::
@@ -193,18 +193,18 @@ newDescribeGroupResponse ::
   DescribeGroupResponse
 newDescribeGroupResponse pStatus_ =
   DescribeGroupResponse'
-    { requestId = Prelude.Nothing,
-      group' = Prelude.Nothing,
+    { group' = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeGroupResponse_requestId :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
-describeGroupResponse_requestId = Lens.lens (\DescribeGroupResponse' {requestId} -> requestId) (\s@DescribeGroupResponse' {} a -> s {requestId = a} :: DescribeGroupResponse)
 
 -- | The name of the group.
 describeGroupResponse_group :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Group)
 describeGroupResponse_group = Lens.lens (\DescribeGroupResponse' {group'} -> group') (\s@DescribeGroupResponse' {} a -> s {group' = a} :: DescribeGroupResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+describeGroupResponse_requestId :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
+describeGroupResponse_requestId = Lens.lens (\DescribeGroupResponse' {requestId} -> requestId) (\s@DescribeGroupResponse' {} a -> s {requestId = a} :: DescribeGroupResponse)
 
 -- | The HTTP status of the request.
 describeGroupResponse_status :: Lens.Lens' DescribeGroupResponse Prelude.Int
@@ -212,6 +212,6 @@ describeGroupResponse_status = Lens.lens (\DescribeGroupResponse' {status} -> st
 
 instance Prelude.NFData DescribeGroupResponse where
   rnf DescribeGroupResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf group'
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -29,10 +29,10 @@ import Amazonka.SecurityHub.Types.SortOrder
 --
 -- /See:/ 'newSortCriterion' smart constructor.
 data SortCriterion = SortCriterion'
-  { -- | The order used to sort findings.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The finding attribute used to sort findings.
-    field :: Prelude.Maybe Prelude.Text
+  { -- | The finding attribute used to sort findings.
+    field :: Prelude.Maybe Prelude.Text,
+    -- | The order used to sort findings.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,40 +44,40 @@ data SortCriterion = SortCriterion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'sortCriterion_sortOrder' - The order used to sort findings.
---
 -- 'field', 'sortCriterion_field' - The finding attribute used to sort findings.
+--
+-- 'sortOrder', 'sortCriterion_sortOrder' - The order used to sort findings.
 newSortCriterion ::
   SortCriterion
 newSortCriterion =
   SortCriterion'
-    { sortOrder = Prelude.Nothing,
-      field = Prelude.Nothing
+    { field = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
-
--- | The order used to sort findings.
-sortCriterion_sortOrder :: Lens.Lens' SortCriterion (Prelude.Maybe SortOrder)
-sortCriterion_sortOrder = Lens.lens (\SortCriterion' {sortOrder} -> sortOrder) (\s@SortCriterion' {} a -> s {sortOrder = a} :: SortCriterion)
 
 -- | The finding attribute used to sort findings.
 sortCriterion_field :: Lens.Lens' SortCriterion (Prelude.Maybe Prelude.Text)
 sortCriterion_field = Lens.lens (\SortCriterion' {field} -> field) (\s@SortCriterion' {} a -> s {field = a} :: SortCriterion)
 
+-- | The order used to sort findings.
+sortCriterion_sortOrder :: Lens.Lens' SortCriterion (Prelude.Maybe SortOrder)
+sortCriterion_sortOrder = Lens.lens (\SortCriterion' {sortOrder} -> sortOrder) (\s@SortCriterion' {} a -> s {sortOrder = a} :: SortCriterion)
+
 instance Prelude.Hashable SortCriterion where
   hashWithSalt _salt SortCriterion' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` field
+    _salt `Prelude.hashWithSalt` field
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData SortCriterion where
   rnf SortCriterion' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf field
+    Prelude.rnf field
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToJSON SortCriterion where
   toJSON SortCriterion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("Field" Data..=) Prelude.<$> field
+          [ ("Field" Data..=) Prelude.<$> field,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )

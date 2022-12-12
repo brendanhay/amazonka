@@ -84,9 +84,9 @@ module Amazonka.CloudWatch.GetMetricStatistics
     newGetMetricStatistics,
 
     -- * Request Lenses
-    getMetricStatistics_statistics,
     getMetricStatistics_dimensions,
     getMetricStatistics_extendedStatistics,
+    getMetricStatistics_statistics,
     getMetricStatistics_unit,
     getMetricStatistics_namespace,
     getMetricStatistics_metricName,
@@ -115,11 +115,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMetricStatistics' smart constructor.
 data GetMetricStatistics = GetMetricStatistics'
-  { -- | The metric statistics, other than percentile. For percentile statistics,
-    -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
-    -- specify either @Statistics@ or @ExtendedStatistics@, but not both.
-    statistics :: Prelude.Maybe (Prelude.NonEmpty Statistic),
-    -- | The dimensions. If the metric contains multiple dimensions, you must
+  { -- | The dimensions. If the metric contains multiple dimensions, you must
     -- include a value for each dimension. CloudWatch treats each unique
     -- combination of dimensions as a separate metric. If a specific
     -- combination of dimensions was not published, you can\'t retrieve
@@ -137,6 +133,10 @@ data GetMetricStatistics = GetMetricStatistics'
     -- available for metrics when any of the metric values are negative
     -- numbers.
     extendedStatistics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The metric statistics, other than percentile. For percentile statistics,
+    -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
+    -- specify either @Statistics@ or @ExtendedStatistics@, but not both.
+    statistics :: Prelude.Maybe (Prelude.NonEmpty Statistic),
     -- | The unit for a given metric. If you omit @Unit@, all data that was
     -- collected with any unit is returned, along with the corresponding units
     -- that were specified when the data was reported to CloudWatch. If you
@@ -217,10 +217,6 @@ data GetMetricStatistics = GetMetricStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statistics', 'getMetricStatistics_statistics' - The metric statistics, other than percentile. For percentile statistics,
--- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
--- specify either @Statistics@ or @ExtendedStatistics@, but not both.
---
 -- 'dimensions', 'getMetricStatistics_dimensions' - The dimensions. If the metric contains multiple dimensions, you must
 -- include a value for each dimension. CloudWatch treats each unique
 -- combination of dimensions as a separate metric. If a specific
@@ -238,6 +234,10 @@ data GetMetricStatistics = GetMetricStatistics'
 -- @ExtendedStatistics@, but not both. Percentile statistics are not
 -- available for metrics when any of the metric values are negative
 -- numbers.
+--
+-- 'statistics', 'getMetricStatistics_statistics' - The metric statistics, other than percentile. For percentile statistics,
+-- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
+-- specify either @Statistics@ or @ExtendedStatistics@, but not both.
 --
 -- 'unit', 'getMetricStatistics_unit' - The unit for a given metric. If you omit @Unit@, all data that was
 -- collected with any unit is returned, along with the corresponding units
@@ -326,9 +326,9 @@ newGetMetricStatistics
   pEndTime_
   pPeriod_ =
     GetMetricStatistics'
-      { statistics = Prelude.Nothing,
-        dimensions = Prelude.Nothing,
+      { dimensions = Prelude.Nothing,
         extendedStatistics = Prelude.Nothing,
+        statistics = Prelude.Nothing,
         unit = Prelude.Nothing,
         namespace = pNamespace_,
         metricName = pMetricName_,
@@ -336,12 +336,6 @@ newGetMetricStatistics
         endTime = Data._Time Lens.# pEndTime_,
         period = pPeriod_
       }
-
--- | The metric statistics, other than percentile. For percentile statistics,
--- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
--- specify either @Statistics@ or @ExtendedStatistics@, but not both.
-getMetricStatistics_statistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Statistic))
-getMetricStatistics_statistics = Lens.lens (\GetMetricStatistics' {statistics} -> statistics) (\s@GetMetricStatistics' {} a -> s {statistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The dimensions. If the metric contains multiple dimensions, you must
 -- include a value for each dimension. CloudWatch treats each unique
@@ -364,6 +358,12 @@ getMetricStatistics_dimensions = Lens.lens (\GetMetricStatistics' {dimensions} -
 -- numbers.
 getMetricStatistics_extendedStatistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getMetricStatistics_extendedStatistics = Lens.lens (\GetMetricStatistics' {extendedStatistics} -> extendedStatistics) (\s@GetMetricStatistics' {} a -> s {extendedStatistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens.coerced
+
+-- | The metric statistics, other than percentile. For percentile statistics,
+-- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
+-- specify either @Statistics@ or @ExtendedStatistics@, but not both.
+getMetricStatistics_statistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Statistic))
+getMetricStatistics_statistics = Lens.lens (\GetMetricStatistics' {statistics} -> statistics) (\s@GetMetricStatistics' {} a -> s {statistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unit for a given metric. If you omit @Unit@, all data that was
 -- collected with any unit is returned, along with the corresponding units
@@ -466,9 +466,9 @@ instance Core.AWSRequest GetMetricStatistics where
 
 instance Prelude.Hashable GetMetricStatistics where
   hashWithSalt _salt GetMetricStatistics' {..} =
-    _salt `Prelude.hashWithSalt` statistics
-      `Prelude.hashWithSalt` dimensions
+    _salt `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` extendedStatistics
+      `Prelude.hashWithSalt` statistics
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` metricName
@@ -478,9 +478,9 @@ instance Prelude.Hashable GetMetricStatistics where
 
 instance Prelude.NFData GetMetricStatistics where
   rnf GetMetricStatistics' {..} =
-    Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf dimensions
+    Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf extendedStatistics
+      `Prelude.seq` Prelude.rnf statistics
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf metricName
@@ -501,9 +501,6 @@ instance Data.ToQuery GetMetricStatistics where
           Data.=: ("GetMetricStatistics" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-08-01" :: Prelude.ByteString),
-        "Statistics"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> statistics),
         "Dimensions"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> dimensions),
@@ -512,6 +509,9 @@ instance Data.ToQuery GetMetricStatistics where
             ( Data.toQueryList "member"
                 Prelude.<$> extendedStatistics
             ),
+        "Statistics"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> statistics),
         "Unit" Data.=: unit,
         "Namespace" Data.=: namespace,
         "MetricName" Data.=: metricName,

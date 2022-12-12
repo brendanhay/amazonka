@@ -29,11 +29,11 @@ import Amazonka.Redshift.Internal
 --
 -- /See:/ 'newAuthenticationProfile' smart constructor.
 data AuthenticationProfile = AuthenticationProfile'
-  { -- | The name of the authentication profile.
-    authenticationProfileName :: Prelude.Maybe Prelude.Text,
-    -- | The content of the authentication profile in JSON format. The maximum
+  { -- | The content of the authentication profile in JSON format. The maximum
     -- length of the JSON string is determined by a quota for your account.
-    authenticationProfileContent :: Prelude.Maybe Prelude.Text
+    authenticationProfileContent :: Prelude.Maybe Prelude.Text,
+    -- | The name of the authentication profile.
+    authenticationProfileName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,41 +45,41 @@ data AuthenticationProfile = AuthenticationProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationProfileName', 'authenticationProfile_authenticationProfileName' - The name of the authentication profile.
---
 -- 'authenticationProfileContent', 'authenticationProfile_authenticationProfileContent' - The content of the authentication profile in JSON format. The maximum
 -- length of the JSON string is determined by a quota for your account.
+--
+-- 'authenticationProfileName', 'authenticationProfile_authenticationProfileName' - The name of the authentication profile.
 newAuthenticationProfile ::
   AuthenticationProfile
 newAuthenticationProfile =
   AuthenticationProfile'
-    { authenticationProfileName =
+    { authenticationProfileContent =
         Prelude.Nothing,
-      authenticationProfileContent = Prelude.Nothing
+      authenticationProfileName = Prelude.Nothing
     }
-
--- | The name of the authentication profile.
-authenticationProfile_authenticationProfileName :: Lens.Lens' AuthenticationProfile (Prelude.Maybe Prelude.Text)
-authenticationProfile_authenticationProfileName = Lens.lens (\AuthenticationProfile' {authenticationProfileName} -> authenticationProfileName) (\s@AuthenticationProfile' {} a -> s {authenticationProfileName = a} :: AuthenticationProfile)
 
 -- | The content of the authentication profile in JSON format. The maximum
 -- length of the JSON string is determined by a quota for your account.
 authenticationProfile_authenticationProfileContent :: Lens.Lens' AuthenticationProfile (Prelude.Maybe Prelude.Text)
 authenticationProfile_authenticationProfileContent = Lens.lens (\AuthenticationProfile' {authenticationProfileContent} -> authenticationProfileContent) (\s@AuthenticationProfile' {} a -> s {authenticationProfileContent = a} :: AuthenticationProfile)
 
+-- | The name of the authentication profile.
+authenticationProfile_authenticationProfileName :: Lens.Lens' AuthenticationProfile (Prelude.Maybe Prelude.Text)
+authenticationProfile_authenticationProfileName = Lens.lens (\AuthenticationProfile' {authenticationProfileName} -> authenticationProfileName) (\s@AuthenticationProfile' {} a -> s {authenticationProfileName = a} :: AuthenticationProfile)
+
 instance Data.FromXML AuthenticationProfile where
   parseXML x =
     AuthenticationProfile'
-      Prelude.<$> (x Data..@? "AuthenticationProfileName")
-      Prelude.<*> (x Data..@? "AuthenticationProfileContent")
+      Prelude.<$> (x Data..@? "AuthenticationProfileContent")
+      Prelude.<*> (x Data..@? "AuthenticationProfileName")
 
 instance Prelude.Hashable AuthenticationProfile where
   hashWithSalt _salt AuthenticationProfile' {..} =
     _salt
-      `Prelude.hashWithSalt` authenticationProfileName
       `Prelude.hashWithSalt` authenticationProfileContent
+      `Prelude.hashWithSalt` authenticationProfileName
 
 instance Prelude.NFData AuthenticationProfile where
   rnf AuthenticationProfile' {..} =
-    Prelude.rnf authenticationProfileName
-      `Prelude.seq` Prelude.rnf authenticationProfileContent
+    Prelude.rnf authenticationProfileContent
+      `Prelude.seq` Prelude.rnf authenticationProfileName

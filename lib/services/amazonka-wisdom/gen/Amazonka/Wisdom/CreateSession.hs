@@ -29,9 +29,9 @@ module Amazonka.Wisdom.CreateSession
     newCreateSession,
 
     -- * Request Lenses
-    createSession_tags,
     createSession_clientToken,
     createSession_description,
+    createSession_tags,
     createSession_assistantId,
     createSession_name,
 
@@ -55,13 +55,13 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newCreateSession' smart constructor.
 data CreateSession = CreateSession'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
     -- URLs cannot contain the ARN.
     assistantId :: Prelude.Text,
@@ -78,12 +78,12 @@ data CreateSession = CreateSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSession_tags' - The tags used to organize, track, or control access for this resource.
---
 -- 'clientToken', 'createSession_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
 -- 'description', 'createSession_description' - The description.
+--
+-- 'tags', 'createSession_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'assistantId', 'createSession_assistantId' - The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -97,16 +97,12 @@ newCreateSession ::
   CreateSession
 newCreateSession pAssistantId_ pName_ =
   CreateSession'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       assistantId = pAssistantId_,
       name = pName_
     }
-
--- | The tags used to organize, track, or control access for this resource.
-createSession_tags :: Lens.Lens' CreateSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSession_tags = Lens.lens (\CreateSession' {tags} -> tags) (\s@CreateSession' {} a -> s {tags = a} :: CreateSession) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -116,6 +112,10 @@ createSession_clientToken = Lens.lens (\CreateSession' {clientToken} -> clientTo
 -- | The description.
 createSession_description :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Text)
 createSession_description = Lens.lens (\CreateSession' {description} -> description) (\s@CreateSession' {} a -> s {description = a} :: CreateSession)
+
+-- | The tags used to organize, track, or control access for this resource.
+createSession_tags :: Lens.Lens' CreateSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSession_tags = Lens.lens (\CreateSession' {tags} -> tags) (\s@CreateSession' {} a -> s {tags = a} :: CreateSession) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -142,17 +142,17 @@ instance Core.AWSRequest CreateSession where
 
 instance Prelude.Hashable CreateSession where
   hashWithSalt _salt CreateSession' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateSession where
   rnf CreateSession' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf name
 
@@ -171,9 +171,9 @@ instance Data.ToJSON CreateSession where
   toJSON CreateSession' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name)
           ]
       )

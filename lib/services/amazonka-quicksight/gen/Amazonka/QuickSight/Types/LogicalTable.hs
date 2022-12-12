@@ -41,7 +41,7 @@ data LogicalTable = LogicalTable'
     -- | Source of this logical table.
     source :: LogicalTableSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LogicalTable' with all optional fields omitted.

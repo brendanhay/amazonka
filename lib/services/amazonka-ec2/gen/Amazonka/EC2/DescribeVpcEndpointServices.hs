@@ -37,11 +37,11 @@ module Amazonka.EC2.DescribeVpcEndpointServices
     newDescribeVpcEndpointServices,
 
     -- * Request Lenses
-    describeVpcEndpointServices_nextToken,
-    describeVpcEndpointServices_filters,
     describeVpcEndpointServices_dryRun,
-    describeVpcEndpointServices_serviceNames,
+    describeVpcEndpointServices_filters,
     describeVpcEndpointServices_maxResults,
+    describeVpcEndpointServices_nextToken,
+    describeVpcEndpointServices_serviceNames,
 
     -- * Destructuring the Response
     DescribeVpcEndpointServicesResponse (..),
@@ -67,14 +67,20 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeVpcEndpointServices' smart constructor.
 data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a prior call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
+    --
+    -- -   @owner@ - The ID or alias of the Amazon Web Services account that
+    --     owns the service.
     --
     -- -   @service-name@ - The name of the service.
     --
-    -- -   @service-type@ - The type of service (@Interface@ | @Gateway@).
+    -- -   @service-type@ - The type of service (@Interface@ | @Gateway@ |
+    --     @GatewayLoadBalancer@).
     --
     -- -   @supported-ip-address-types@ - The IP address type (@ipv4@ |
     --     @ipv6@).
@@ -89,20 +95,18 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more service names.
-    serviceNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of items to return for this request. The request
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     --
     -- Constraint: If the value is greater than 1,000, we return only 1,000
     -- items.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a prior call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more service names.
+    serviceNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,14 +118,20 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeVpcEndpointServices_nextToken' - The token for the next set of items to return. (You received this token
--- from a prior call.)
+-- 'dryRun', 'describeVpcEndpointServices_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeVpcEndpointServices_filters' - One or more filters.
 --
+-- -   @owner@ - The ID or alias of the Amazon Web Services account that
+--     owns the service.
+--
 -- -   @service-name@ - The name of the service.
 --
--- -   @service-type@ - The type of service (@Interface@ | @Gateway@).
+-- -   @service-type@ - The type of service (@Interface@ | @Gateway@ |
+--     @GatewayLoadBalancer@).
 --
 -- -   @supported-ip-address-types@ - The IP address type (@ipv4@ |
 --     @ipv6@).
@@ -136,41 +146,45 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 --
--- 'dryRun', 'describeVpcEndpointServices_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'serviceNames', 'describeVpcEndpointServices_serviceNames' - One or more service names.
---
 -- 'maxResults', 'describeVpcEndpointServices_maxResults' - The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
 -- Constraint: If the value is greater than 1,000, we return only 1,000
 -- items.
+--
+-- 'nextToken', 'describeVpcEndpointServices_nextToken' - The token for the next set of items to return. (You received this token
+-- from a prior call.)
+--
+-- 'serviceNames', 'describeVpcEndpointServices_serviceNames' - One or more service names.
 newDescribeVpcEndpointServices ::
   DescribeVpcEndpointServices
 newDescribeVpcEndpointServices =
   DescribeVpcEndpointServices'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      serviceNames = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      serviceNames = Prelude.Nothing
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a prior call.)
-describeVpcEndpointServices_nextToken :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Text)
-describeVpcEndpointServices_nextToken = Lens.lens (\DescribeVpcEndpointServices' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServices' {} a -> s {nextToken = a} :: DescribeVpcEndpointServices)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeVpcEndpointServices_dryRun :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Bool)
+describeVpcEndpointServices_dryRun = Lens.lens (\DescribeVpcEndpointServices' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServices' {} a -> s {dryRun = a} :: DescribeVpcEndpointServices)
 
 -- | One or more filters.
 --
+-- -   @owner@ - The ID or alias of the Amazon Web Services account that
+--     owns the service.
+--
 -- -   @service-name@ - The name of the service.
 --
--- -   @service-type@ - The type of service (@Interface@ | @Gateway@).
+-- -   @service-type@ - The type of service (@Interface@ | @Gateway@ |
+--     @GatewayLoadBalancer@).
 --
 -- -   @supported-ip-address-types@ - The IP address type (@ipv4@ |
 --     @ipv6@).
@@ -187,17 +201,6 @@ describeVpcEndpointServices_nextToken = Lens.lens (\DescribeVpcEndpointServices'
 describeVpcEndpointServices_filters :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe [Filter])
 describeVpcEndpointServices_filters = Lens.lens (\DescribeVpcEndpointServices' {filters} -> filters) (\s@DescribeVpcEndpointServices' {} a -> s {filters = a} :: DescribeVpcEndpointServices) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeVpcEndpointServices_dryRun :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Bool)
-describeVpcEndpointServices_dryRun = Lens.lens (\DescribeVpcEndpointServices' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServices' {} a -> s {dryRun = a} :: DescribeVpcEndpointServices)
-
--- | One or more service names.
-describeVpcEndpointServices_serviceNames :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe [Prelude.Text])
-describeVpcEndpointServices_serviceNames = Lens.lens (\DescribeVpcEndpointServices' {serviceNames} -> serviceNames) (\s@DescribeVpcEndpointServices' {} a -> s {serviceNames = a} :: DescribeVpcEndpointServices) Prelude.. Lens.mapping Lens.coerced
-
 -- | The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
@@ -206,6 +209,15 @@ describeVpcEndpointServices_serviceNames = Lens.lens (\DescribeVpcEndpointServic
 -- items.
 describeVpcEndpointServices_maxResults :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Int)
 describeVpcEndpointServices_maxResults = Lens.lens (\DescribeVpcEndpointServices' {maxResults} -> maxResults) (\s@DescribeVpcEndpointServices' {} a -> s {maxResults = a} :: DescribeVpcEndpointServices)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a prior call.)
+describeVpcEndpointServices_nextToken :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Text)
+describeVpcEndpointServices_nextToken = Lens.lens (\DescribeVpcEndpointServices' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServices' {} a -> s {nextToken = a} :: DescribeVpcEndpointServices)
+
+-- | One or more service names.
+describeVpcEndpointServices_serviceNames :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe [Prelude.Text])
+describeVpcEndpointServices_serviceNames = Lens.lens (\DescribeVpcEndpointServices' {serviceNames} -> serviceNames) (\s@DescribeVpcEndpointServices' {} a -> s {serviceNames = a} :: DescribeVpcEndpointServices) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeVpcEndpointServices where
   page rq rs
@@ -258,19 +270,19 @@ instance Core.AWSRequest DescribeVpcEndpointServices where
 
 instance Prelude.Hashable DescribeVpcEndpointServices where
   hashWithSalt _salt DescribeVpcEndpointServices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` serviceNames
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` serviceNames
 
 instance Prelude.NFData DescribeVpcEndpointServices where
   rnf DescribeVpcEndpointServices' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf serviceNames
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf serviceNames
 
 instance Data.ToHeaders DescribeVpcEndpointServices where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,15 +299,15 @@ instance Data.ToQuery DescribeVpcEndpointServices where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         Data.toQuery
           ( Data.toQueryList "ServiceName"
               Prelude.<$> serviceNames
-          ),
-        "MaxResults" Data.=: maxResults
+          )
       ]
 
 -- | Contains the output of DescribeVpcEndpointServices.

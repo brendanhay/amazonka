@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateWirelessGatewayTaskCreate' smart constructor.
 data UpdateWirelessGatewayTaskCreate = UpdateWirelessGatewayTaskCreate'
-  { -- | The IAM role used to read data from the S3 bucket.
-    updateDataRole :: Prelude.Maybe Prelude.Text,
-    -- | The properties that relate to the LoRaWAN wireless gateway.
+  { -- | The properties that relate to the LoRaWAN wireless gateway.
     loRaWAN :: Prelude.Maybe LoRaWANUpdateGatewayTaskCreate,
+    -- | The IAM role used to read data from the S3 bucket.
+    updateDataRole :: Prelude.Maybe Prelude.Text,
     -- | The link to the S3 bucket.
     updateDataSource :: Prelude.Maybe Prelude.Text
   }
@@ -46,28 +46,28 @@ data UpdateWirelessGatewayTaskCreate = UpdateWirelessGatewayTaskCreate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateDataRole', 'updateWirelessGatewayTaskCreate_updateDataRole' - The IAM role used to read data from the S3 bucket.
---
 -- 'loRaWAN', 'updateWirelessGatewayTaskCreate_loRaWAN' - The properties that relate to the LoRaWAN wireless gateway.
+--
+-- 'updateDataRole', 'updateWirelessGatewayTaskCreate_updateDataRole' - The IAM role used to read data from the S3 bucket.
 --
 -- 'updateDataSource', 'updateWirelessGatewayTaskCreate_updateDataSource' - The link to the S3 bucket.
 newUpdateWirelessGatewayTaskCreate ::
   UpdateWirelessGatewayTaskCreate
 newUpdateWirelessGatewayTaskCreate =
   UpdateWirelessGatewayTaskCreate'
-    { updateDataRole =
+    { loRaWAN =
         Prelude.Nothing,
-      loRaWAN = Prelude.Nothing,
+      updateDataRole = Prelude.Nothing,
       updateDataSource = Prelude.Nothing
     }
-
--- | The IAM role used to read data from the S3 bucket.
-updateWirelessGatewayTaskCreate_updateDataRole :: Lens.Lens' UpdateWirelessGatewayTaskCreate (Prelude.Maybe Prelude.Text)
-updateWirelessGatewayTaskCreate_updateDataRole = Lens.lens (\UpdateWirelessGatewayTaskCreate' {updateDataRole} -> updateDataRole) (\s@UpdateWirelessGatewayTaskCreate' {} a -> s {updateDataRole = a} :: UpdateWirelessGatewayTaskCreate)
 
 -- | The properties that relate to the LoRaWAN wireless gateway.
 updateWirelessGatewayTaskCreate_loRaWAN :: Lens.Lens' UpdateWirelessGatewayTaskCreate (Prelude.Maybe LoRaWANUpdateGatewayTaskCreate)
 updateWirelessGatewayTaskCreate_loRaWAN = Lens.lens (\UpdateWirelessGatewayTaskCreate' {loRaWAN} -> loRaWAN) (\s@UpdateWirelessGatewayTaskCreate' {} a -> s {loRaWAN = a} :: UpdateWirelessGatewayTaskCreate)
+
+-- | The IAM role used to read data from the S3 bucket.
+updateWirelessGatewayTaskCreate_updateDataRole :: Lens.Lens' UpdateWirelessGatewayTaskCreate (Prelude.Maybe Prelude.Text)
+updateWirelessGatewayTaskCreate_updateDataRole = Lens.lens (\UpdateWirelessGatewayTaskCreate' {updateDataRole} -> updateDataRole) (\s@UpdateWirelessGatewayTaskCreate' {} a -> s {updateDataRole = a} :: UpdateWirelessGatewayTaskCreate)
 
 -- | The link to the S3 bucket.
 updateWirelessGatewayTaskCreate_updateDataSource :: Lens.Lens' UpdateWirelessGatewayTaskCreate (Prelude.Maybe Prelude.Text)
@@ -82,8 +82,8 @@ instance
       "UpdateWirelessGatewayTaskCreate"
       ( \x ->
           UpdateWirelessGatewayTaskCreate'
-            Prelude.<$> (x Data..:? "UpdateDataRole")
-            Prelude.<*> (x Data..:? "LoRaWAN")
+            Prelude.<$> (x Data..:? "LoRaWAN")
+            Prelude.<*> (x Data..:? "UpdateDataRole")
             Prelude.<*> (x Data..:? "UpdateDataSource")
       )
 
@@ -94,8 +94,8 @@ instance
   hashWithSalt
     _salt
     UpdateWirelessGatewayTaskCreate' {..} =
-      _salt `Prelude.hashWithSalt` updateDataRole
-        `Prelude.hashWithSalt` loRaWAN
+      _salt `Prelude.hashWithSalt` loRaWAN
+        `Prelude.hashWithSalt` updateDataRole
         `Prelude.hashWithSalt` updateDataSource
 
 instance
@@ -103,17 +103,17 @@ instance
     UpdateWirelessGatewayTaskCreate
   where
   rnf UpdateWirelessGatewayTaskCreate' {..} =
-    Prelude.rnf updateDataRole
-      `Prelude.seq` Prelude.rnf loRaWAN
+    Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf updateDataRole
       `Prelude.seq` Prelude.rnf updateDataSource
 
 instance Data.ToJSON UpdateWirelessGatewayTaskCreate where
   toJSON UpdateWirelessGatewayTaskCreate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UpdateDataRole" Data..=)
+          [ ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("UpdateDataRole" Data..=)
               Prelude.<$> updateDataRole,
-            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
             ("UpdateDataSource" Data..=)
               Prelude.<$> updateDataSource
           ]

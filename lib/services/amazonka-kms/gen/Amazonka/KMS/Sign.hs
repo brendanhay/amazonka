@@ -86,8 +86,8 @@ module Amazonka.KMS.Sign
     newSign,
 
     -- * Request Lenses
-    sign_messageType,
     sign_grantTokens,
+    sign_messageType,
     sign_keyId,
     sign_message,
     sign_signingAlgorithm,
@@ -97,9 +97,9 @@ module Amazonka.KMS.Sign
     newSignResponse,
 
     -- * Response Lenses
+    signResponse_keyId,
     signResponse_signature,
     signResponse_signingAlgorithm,
-    signResponse_keyId,
     signResponse_httpStatus,
   )
 where
@@ -114,11 +114,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSign' smart constructor.
 data Sign = Sign'
-  { -- | Tells KMS whether the value of the @Message@ parameter is a message or
-    -- message digest. The default value, RAW, indicates a message. To indicate
-    -- a message digest, enter @DIGEST@.
-    messageType :: Prelude.Maybe MessageType,
-    -- | A list of grant tokens.
+  { -- | A list of grant tokens.
     --
     -- Use a grant token when your permission to call this operation comes from
     -- a new grant that has not yet achieved /eventual consistency/. For more
@@ -128,6 +124,10 @@ data Sign = Sign'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
     -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
+    -- | Tells KMS whether the value of the @Message@ parameter is a message or
+    -- message digest. The default value, RAW, indicates a message. To indicate
+    -- a message digest, enter @DIGEST@.
+    messageType :: Prelude.Maybe MessageType,
     -- | Identifies an asymmetric KMS key. KMS uses the private key in the
     -- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
     -- key must be @SIGN_VERIFY@. To find the @KeyUsage@ of a KMS key, use the
@@ -174,10 +174,6 @@ data Sign = Sign'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageType', 'sign_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
---
 -- 'grantTokens', 'sign_grantTokens' - A list of grant tokens.
 --
 -- Use a grant token when your permission to call this operation comes from
@@ -187,6 +183,10 @@ data Sign = Sign'
 -- and
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
+--
+-- 'messageType', 'sign_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
 --
 -- 'keyId', 'sign_keyId' - Identifies an asymmetric KMS key. KMS uses the private key in the
 -- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
@@ -236,20 +236,14 @@ newSign ::
   Sign
 newSign pKeyId_ pMessage_ pSigningAlgorithm_ =
   Sign'
-    { messageType = Prelude.Nothing,
-      grantTokens = Prelude.Nothing,
+    { grantTokens = Prelude.Nothing,
+      messageType = Prelude.Nothing,
       keyId = pKeyId_,
       message =
         Data._Sensitive Prelude.. Data._Base64
           Lens.# pMessage_,
       signingAlgorithm = pSigningAlgorithm_
     }
-
--- | Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
-sign_messageType :: Lens.Lens' Sign (Prelude.Maybe MessageType)
-sign_messageType = Lens.lens (\Sign' {messageType} -> messageType) (\s@Sign' {} a -> s {messageType = a} :: Sign)
 
 -- | A list of grant tokens.
 --
@@ -262,6 +256,12 @@ sign_messageType = Lens.lens (\Sign' {messageType} -> messageType) (\s@Sign' {} 
 -- in the /Key Management Service Developer Guide/.
 sign_grantTokens :: Lens.Lens' Sign (Prelude.Maybe [Prelude.Text])
 sign_grantTokens = Lens.lens (\Sign' {grantTokens} -> grantTokens) (\s@Sign' {} a -> s {grantTokens = a} :: Sign) Prelude.. Lens.mapping Lens.coerced
+
+-- | Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
+sign_messageType :: Lens.Lens' Sign (Prelude.Maybe MessageType)
+sign_messageType = Lens.lens (\Sign' {messageType} -> messageType) (\s@Sign' {} a -> s {messageType = a} :: Sign)
 
 -- | Identifies an asymmetric KMS key. KMS uses the private key in the
 -- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
@@ -316,24 +316,24 @@ instance Core.AWSRequest Sign where
     Response.receiveJSON
       ( \s h x ->
           SignResponse'
-            Prelude.<$> (x Data..?> "Signature")
+            Prelude.<$> (x Data..?> "KeyId")
+            Prelude.<*> (x Data..?> "Signature")
             Prelude.<*> (x Data..?> "SigningAlgorithm")
-            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable Sign where
   hashWithSalt _salt Sign' {..} =
-    _salt `Prelude.hashWithSalt` messageType
-      `Prelude.hashWithSalt` grantTokens
+    _salt `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` signingAlgorithm
 
 instance Prelude.NFData Sign where
   rnf Sign' {..} =
-    Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf grantTokens
+    Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf messageType
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf signingAlgorithm
@@ -355,8 +355,8 @@ instance Data.ToJSON Sign where
   toJSON Sign' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MessageType" Data..=) Prelude.<$> messageType,
-            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+          [ ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            ("MessageType" Data..=) Prelude.<$> messageType,
             Prelude.Just ("KeyId" Data..= keyId),
             Prelude.Just ("Message" Data..= message),
             Prelude.Just
@@ -372,7 +372,11 @@ instance Data.ToQuery Sign where
 
 -- | /See:/ 'newSignResponse' smart constructor.
 data SignResponse = SignResponse'
-  { -- | The cryptographic signature that was generated for the message.
+  { -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+    -- of the asymmetric KMS key that was used to sign the message.
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The cryptographic signature that was generated for the message.
     --
     -- -   When used with the supported RSA signing algorithms, the encoding of
     --     this value is defined by
@@ -390,10 +394,6 @@ data SignResponse = SignResponse'
     signature :: Prelude.Maybe Data.Base64,
     -- | The signing algorithm that was used to sign the message.
     signingAlgorithm :: Prelude.Maybe SigningAlgorithmSpec,
-    -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the asymmetric KMS key that was used to sign the message.
-    keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -406,6 +406,10 @@ data SignResponse = SignResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'keyId', 'signResponse_keyId' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the asymmetric KMS key that was used to sign the message.
 --
 -- 'signature', 'signResponse_signature' - The cryptographic signature that was generated for the message.
 --
@@ -429,10 +433,6 @@ data SignResponse = SignResponse'
 --
 -- 'signingAlgorithm', 'signResponse_signingAlgorithm' - The signing algorithm that was used to sign the message.
 --
--- 'keyId', 'signResponse_keyId' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the asymmetric KMS key that was used to sign the message.
---
 -- 'httpStatus', 'signResponse_httpStatus' - The response's http status code.
 newSignResponse ::
   -- | 'httpStatus'
@@ -440,11 +440,17 @@ newSignResponse ::
   SignResponse
 newSignResponse pHttpStatus_ =
   SignResponse'
-    { signature = Prelude.Nothing,
+    { keyId = Prelude.Nothing,
+      signature = Prelude.Nothing,
       signingAlgorithm = Prelude.Nothing,
-      keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the asymmetric KMS key that was used to sign the message.
+signResponse_keyId :: Lens.Lens' SignResponse (Prelude.Maybe Prelude.Text)
+signResponse_keyId = Lens.lens (\SignResponse' {keyId} -> keyId) (\s@SignResponse' {} a -> s {keyId = a} :: SignResponse)
 
 -- | The cryptographic signature that was generated for the message.
 --
@@ -472,19 +478,13 @@ signResponse_signature = Lens.lens (\SignResponse' {signature} -> signature) (\s
 signResponse_signingAlgorithm :: Lens.Lens' SignResponse (Prelude.Maybe SigningAlgorithmSpec)
 signResponse_signingAlgorithm = Lens.lens (\SignResponse' {signingAlgorithm} -> signingAlgorithm) (\s@SignResponse' {} a -> s {signingAlgorithm = a} :: SignResponse)
 
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the asymmetric KMS key that was used to sign the message.
-signResponse_keyId :: Lens.Lens' SignResponse (Prelude.Maybe Prelude.Text)
-signResponse_keyId = Lens.lens (\SignResponse' {keyId} -> keyId) (\s@SignResponse' {} a -> s {keyId = a} :: SignResponse)
-
 -- | The response's http status code.
 signResponse_httpStatus :: Lens.Lens' SignResponse Prelude.Int
 signResponse_httpStatus = Lens.lens (\SignResponse' {httpStatus} -> httpStatus) (\s@SignResponse' {} a -> s {httpStatus = a} :: SignResponse)
 
 instance Prelude.NFData SignResponse where
   rnf SignResponse' {..} =
-    Prelude.rnf signature
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf signature
       `Prelude.seq` Prelude.rnf signingAlgorithm
-      `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf httpStatus

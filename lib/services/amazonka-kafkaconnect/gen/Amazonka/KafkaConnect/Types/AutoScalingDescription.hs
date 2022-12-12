@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingDescription' smart constructor.
 data AutoScalingDescription = AutoScalingDescription'
-  { -- | The number of microcontroller units (MCUs) allocated to each connector
+  { -- | The maximum number of workers allocated to the connector.
+    maxWorkerCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of microcontroller units (MCUs) allocated to each connector
     -- worker. The valid values are 1,2,4,8.
     mcuCount :: Prelude.Maybe Prelude.Int,
     -- | The minimum number of workers allocated to the connector.
     minWorkerCount :: Prelude.Maybe Prelude.Int,
-    -- | The maximum number of workers allocated to the connector.
-    maxWorkerCount :: Prelude.Maybe Prelude.Int,
-    -- | The sacle-out policy for the connector.>
-    scaleOutPolicy :: Prelude.Maybe ScaleOutPolicyDescription,
     -- | The sacle-in policy for the connector.
-    scaleInPolicy :: Prelude.Maybe ScaleInPolicyDescription
+    scaleInPolicy :: Prelude.Maybe ScaleInPolicyDescription,
+    -- | The sacle-out policy for the connector.>
+    scaleOutPolicy :: Prelude.Maybe ScaleOutPolicyDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,26 +52,31 @@ data AutoScalingDescription = AutoScalingDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxWorkerCount', 'autoScalingDescription_maxWorkerCount' - The maximum number of workers allocated to the connector.
+--
 -- 'mcuCount', 'autoScalingDescription_mcuCount' - The number of microcontroller units (MCUs) allocated to each connector
 -- worker. The valid values are 1,2,4,8.
 --
 -- 'minWorkerCount', 'autoScalingDescription_minWorkerCount' - The minimum number of workers allocated to the connector.
 --
--- 'maxWorkerCount', 'autoScalingDescription_maxWorkerCount' - The maximum number of workers allocated to the connector.
+-- 'scaleInPolicy', 'autoScalingDescription_scaleInPolicy' - The sacle-in policy for the connector.
 --
 -- 'scaleOutPolicy', 'autoScalingDescription_scaleOutPolicy' - The sacle-out policy for the connector.>
---
--- 'scaleInPolicy', 'autoScalingDescription_scaleInPolicy' - The sacle-in policy for the connector.
 newAutoScalingDescription ::
   AutoScalingDescription
 newAutoScalingDescription =
   AutoScalingDescription'
-    { mcuCount = Prelude.Nothing,
+    { maxWorkerCount =
+        Prelude.Nothing,
+      mcuCount = Prelude.Nothing,
       minWorkerCount = Prelude.Nothing,
-      maxWorkerCount = Prelude.Nothing,
-      scaleOutPolicy = Prelude.Nothing,
-      scaleInPolicy = Prelude.Nothing
+      scaleInPolicy = Prelude.Nothing,
+      scaleOutPolicy = Prelude.Nothing
     }
+
+-- | The maximum number of workers allocated to the connector.
+autoScalingDescription_maxWorkerCount :: Lens.Lens' AutoScalingDescription (Prelude.Maybe Prelude.Int)
+autoScalingDescription_maxWorkerCount = Lens.lens (\AutoScalingDescription' {maxWorkerCount} -> maxWorkerCount) (\s@AutoScalingDescription' {} a -> s {maxWorkerCount = a} :: AutoScalingDescription)
 
 -- | The number of microcontroller units (MCUs) allocated to each connector
 -- worker. The valid values are 1,2,4,8.
@@ -82,17 +87,13 @@ autoScalingDescription_mcuCount = Lens.lens (\AutoScalingDescription' {mcuCount}
 autoScalingDescription_minWorkerCount :: Lens.Lens' AutoScalingDescription (Prelude.Maybe Prelude.Int)
 autoScalingDescription_minWorkerCount = Lens.lens (\AutoScalingDescription' {minWorkerCount} -> minWorkerCount) (\s@AutoScalingDescription' {} a -> s {minWorkerCount = a} :: AutoScalingDescription)
 
--- | The maximum number of workers allocated to the connector.
-autoScalingDescription_maxWorkerCount :: Lens.Lens' AutoScalingDescription (Prelude.Maybe Prelude.Int)
-autoScalingDescription_maxWorkerCount = Lens.lens (\AutoScalingDescription' {maxWorkerCount} -> maxWorkerCount) (\s@AutoScalingDescription' {} a -> s {maxWorkerCount = a} :: AutoScalingDescription)
+-- | The sacle-in policy for the connector.
+autoScalingDescription_scaleInPolicy :: Lens.Lens' AutoScalingDescription (Prelude.Maybe ScaleInPolicyDescription)
+autoScalingDescription_scaleInPolicy = Lens.lens (\AutoScalingDescription' {scaleInPolicy} -> scaleInPolicy) (\s@AutoScalingDescription' {} a -> s {scaleInPolicy = a} :: AutoScalingDescription)
 
 -- | The sacle-out policy for the connector.>
 autoScalingDescription_scaleOutPolicy :: Lens.Lens' AutoScalingDescription (Prelude.Maybe ScaleOutPolicyDescription)
 autoScalingDescription_scaleOutPolicy = Lens.lens (\AutoScalingDescription' {scaleOutPolicy} -> scaleOutPolicy) (\s@AutoScalingDescription' {} a -> s {scaleOutPolicy = a} :: AutoScalingDescription)
-
--- | The sacle-in policy for the connector.
-autoScalingDescription_scaleInPolicy :: Lens.Lens' AutoScalingDescription (Prelude.Maybe ScaleInPolicyDescription)
-autoScalingDescription_scaleInPolicy = Lens.lens (\AutoScalingDescription' {scaleInPolicy} -> scaleInPolicy) (\s@AutoScalingDescription' {} a -> s {scaleInPolicy = a} :: AutoScalingDescription)
 
 instance Data.FromJSON AutoScalingDescription where
   parseJSON =
@@ -100,25 +101,25 @@ instance Data.FromJSON AutoScalingDescription where
       "AutoScalingDescription"
       ( \x ->
           AutoScalingDescription'
-            Prelude.<$> (x Data..:? "mcuCount")
+            Prelude.<$> (x Data..:? "maxWorkerCount")
+            Prelude.<*> (x Data..:? "mcuCount")
             Prelude.<*> (x Data..:? "minWorkerCount")
-            Prelude.<*> (x Data..:? "maxWorkerCount")
-            Prelude.<*> (x Data..:? "scaleOutPolicy")
             Prelude.<*> (x Data..:? "scaleInPolicy")
+            Prelude.<*> (x Data..:? "scaleOutPolicy")
       )
 
 instance Prelude.Hashable AutoScalingDescription where
   hashWithSalt _salt AutoScalingDescription' {..} =
-    _salt `Prelude.hashWithSalt` mcuCount
+    _salt `Prelude.hashWithSalt` maxWorkerCount
+      `Prelude.hashWithSalt` mcuCount
       `Prelude.hashWithSalt` minWorkerCount
-      `Prelude.hashWithSalt` maxWorkerCount
-      `Prelude.hashWithSalt` scaleOutPolicy
       `Prelude.hashWithSalt` scaleInPolicy
+      `Prelude.hashWithSalt` scaleOutPolicy
 
 instance Prelude.NFData AutoScalingDescription where
   rnf AutoScalingDescription' {..} =
-    Prelude.rnf mcuCount
+    Prelude.rnf maxWorkerCount
+      `Prelude.seq` Prelude.rnf mcuCount
       `Prelude.seq` Prelude.rnf minWorkerCount
-      `Prelude.seq` Prelude.rnf maxWorkerCount
-      `Prelude.seq` Prelude.rnf scaleOutPolicy
       `Prelude.seq` Prelude.rnf scaleInPolicy
+      `Prelude.seq` Prelude.rnf scaleOutPolicy

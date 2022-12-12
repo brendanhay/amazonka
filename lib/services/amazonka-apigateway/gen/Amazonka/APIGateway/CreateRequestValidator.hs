@@ -27,8 +27,8 @@ module Amazonka.APIGateway.CreateRequestValidator
     newCreateRequestValidator,
 
     -- * Request Lenses
-    createRequestValidator_validateRequestBody,
     createRequestValidator_name,
+    createRequestValidator_validateRequestBody,
     createRequestValidator_validateRequestParameters,
     createRequestValidator_restApiId,
 
@@ -37,10 +37,10 @@ module Amazonka.APIGateway.CreateRequestValidator
     newRequestValidator,
 
     -- * Response Lenses
-    requestValidator_validateRequestBody,
-    requestValidator_name,
-    requestValidator_validateRequestParameters,
     requestValidator_id,
+    requestValidator_name,
+    requestValidator_validateRequestBody,
+    requestValidator_validateRequestParameters,
   )
 where
 
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateRequestValidator' smart constructor.
 data CreateRequestValidator = CreateRequestValidator'
-  { -- | A Boolean flag to indicate whether to validate request body according to
+  { -- | The name of the to-be-created RequestValidator.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean flag to indicate whether to validate request body according to
     -- the configured model schema for the method (@true@) or not (@false@).
     validateRequestBody :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the to-be-created RequestValidator.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A Boolean flag to indicate whether to validate request parameters,
     -- @true@, or not @false@.
     validateRequestParameters :: Prelude.Maybe Prelude.Bool,
@@ -77,10 +77,10 @@ data CreateRequestValidator = CreateRequestValidator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createRequestValidator_name' - The name of the to-be-created RequestValidator.
+--
 -- 'validateRequestBody', 'createRequestValidator_validateRequestBody' - A Boolean flag to indicate whether to validate request body according to
 -- the configured model schema for the method (@true@) or not (@false@).
---
--- 'name', 'createRequestValidator_name' - The name of the to-be-created RequestValidator.
 --
 -- 'validateRequestParameters', 'createRequestValidator_validateRequestParameters' - A Boolean flag to indicate whether to validate request parameters,
 -- @true@, or not @false@.
@@ -92,21 +92,20 @@ newCreateRequestValidator ::
   CreateRequestValidator
 newCreateRequestValidator pRestApiId_ =
   CreateRequestValidator'
-    { validateRequestBody =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      validateRequestBody = Prelude.Nothing,
       validateRequestParameters = Prelude.Nothing,
       restApiId = pRestApiId_
     }
+
+-- | The name of the to-be-created RequestValidator.
+createRequestValidator_name :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Text)
+createRequestValidator_name = Lens.lens (\CreateRequestValidator' {name} -> name) (\s@CreateRequestValidator' {} a -> s {name = a} :: CreateRequestValidator)
 
 -- | A Boolean flag to indicate whether to validate request body according to
 -- the configured model schema for the method (@true@) or not (@false@).
 createRequestValidator_validateRequestBody :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Bool)
 createRequestValidator_validateRequestBody = Lens.lens (\CreateRequestValidator' {validateRequestBody} -> validateRequestBody) (\s@CreateRequestValidator' {} a -> s {validateRequestBody = a} :: CreateRequestValidator)
-
--- | The name of the to-be-created RequestValidator.
-createRequestValidator_name :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Text)
-createRequestValidator_name = Lens.lens (\CreateRequestValidator' {name} -> name) (\s@CreateRequestValidator' {} a -> s {name = a} :: CreateRequestValidator)
 
 -- | A Boolean flag to indicate whether to validate request parameters,
 -- @true@, or not @false@.
@@ -129,15 +128,15 @@ instance Core.AWSRequest CreateRequestValidator where
 
 instance Prelude.Hashable CreateRequestValidator where
   hashWithSalt _salt CreateRequestValidator' {..} =
-    _salt `Prelude.hashWithSalt` validateRequestBody
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` validateRequestBody
       `Prelude.hashWithSalt` validateRequestParameters
       `Prelude.hashWithSalt` restApiId
 
 instance Prelude.NFData CreateRequestValidator where
   rnf CreateRequestValidator' {..} =
-    Prelude.rnf validateRequestBody
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf validateRequestBody
       `Prelude.seq` Prelude.rnf validateRequestParameters
       `Prelude.seq` Prelude.rnf restApiId
 
@@ -154,9 +153,9 @@ instance Data.ToJSON CreateRequestValidator where
   toJSON CreateRequestValidator' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("validateRequestBody" Data..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("validateRequestBody" Data..=)
               Prelude.<$> validateRequestBody,
-            ("name" Data..=) Prelude.<$> name,
             ("validateRequestParameters" Data..=)
               Prelude.<$> validateRequestParameters
           ]

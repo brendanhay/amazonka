@@ -79,26 +79,26 @@ module Amazonka.ApplicationAutoScaling
     -- * Errors
     -- $errors
 
-    -- ** ObjectNotFoundException
-    _ObjectNotFoundException,
-
     -- ** ConcurrentUpdateException
     _ConcurrentUpdateException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** ValidationException
-    _ValidationException,
+    -- ** FailedResourceAccessException
+    _FailedResourceAccessException,
 
     -- ** InternalServiceException
     _InternalServiceException,
 
-    -- ** FailedResourceAccessException
-    _FailedResourceAccessException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

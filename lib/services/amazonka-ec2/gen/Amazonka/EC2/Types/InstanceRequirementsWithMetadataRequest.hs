@@ -37,12 +37,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceRequirementsWithMetadataRequest' smart constructor.
 data InstanceRequirementsWithMetadataRequest = InstanceRequirementsWithMetadataRequest'
-  { -- | The attributes for the instance types. When you specify instance
+  { -- | The architecture type.
+    architectureTypes :: Prelude.Maybe [ArchitectureType],
+    -- | The attributes for the instance types. When you specify instance
     -- attributes, Amazon EC2 will identify instance types with those
     -- attributes.
     instanceRequirements :: Prelude.Maybe InstanceRequirementsRequest,
-    -- | The architecture type.
-    architectureTypes :: Prelude.Maybe [ArchitectureType],
     -- | The virtualization type.
     virtualizationTypes :: Prelude.Maybe [VirtualizationType]
   }
@@ -56,34 +56,34 @@ data InstanceRequirementsWithMetadataRequest = InstanceRequirementsWithMetadataR
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'architectureTypes', 'instanceRequirementsWithMetadataRequest_architectureTypes' - The architecture type.
+--
 -- 'instanceRequirements', 'instanceRequirementsWithMetadataRequest_instanceRequirements' - The attributes for the instance types. When you specify instance
 -- attributes, Amazon EC2 will identify instance types with those
 -- attributes.
---
--- 'architectureTypes', 'instanceRequirementsWithMetadataRequest_architectureTypes' - The architecture type.
 --
 -- 'virtualizationTypes', 'instanceRequirementsWithMetadataRequest_virtualizationTypes' - The virtualization type.
 newInstanceRequirementsWithMetadataRequest ::
   InstanceRequirementsWithMetadataRequest
 newInstanceRequirementsWithMetadataRequest =
   InstanceRequirementsWithMetadataRequest'
-    { instanceRequirements =
+    { architectureTypes =
         Prelude.Nothing,
-      architectureTypes =
+      instanceRequirements =
         Prelude.Nothing,
       virtualizationTypes =
         Prelude.Nothing
     }
+
+-- | The architecture type.
+instanceRequirementsWithMetadataRequest_architectureTypes :: Lens.Lens' InstanceRequirementsWithMetadataRequest (Prelude.Maybe [ArchitectureType])
+instanceRequirementsWithMetadataRequest_architectureTypes = Lens.lens (\InstanceRequirementsWithMetadataRequest' {architectureTypes} -> architectureTypes) (\s@InstanceRequirementsWithMetadataRequest' {} a -> s {architectureTypes = a} :: InstanceRequirementsWithMetadataRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The attributes for the instance types. When you specify instance
 -- attributes, Amazon EC2 will identify instance types with those
 -- attributes.
 instanceRequirementsWithMetadataRequest_instanceRequirements :: Lens.Lens' InstanceRequirementsWithMetadataRequest (Prelude.Maybe InstanceRequirementsRequest)
 instanceRequirementsWithMetadataRequest_instanceRequirements = Lens.lens (\InstanceRequirementsWithMetadataRequest' {instanceRequirements} -> instanceRequirements) (\s@InstanceRequirementsWithMetadataRequest' {} a -> s {instanceRequirements = a} :: InstanceRequirementsWithMetadataRequest)
-
--- | The architecture type.
-instanceRequirementsWithMetadataRequest_architectureTypes :: Lens.Lens' InstanceRequirementsWithMetadataRequest (Prelude.Maybe [ArchitectureType])
-instanceRequirementsWithMetadataRequest_architectureTypes = Lens.lens (\InstanceRequirementsWithMetadataRequest' {architectureTypes} -> architectureTypes) (\s@InstanceRequirementsWithMetadataRequest' {} a -> s {architectureTypes = a} :: InstanceRequirementsWithMetadataRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The virtualization type.
 instanceRequirementsWithMetadataRequest_virtualizationTypes :: Lens.Lens' InstanceRequirementsWithMetadataRequest (Prelude.Maybe [VirtualizationType])
@@ -96,8 +96,8 @@ instance
   hashWithSalt
     _salt
     InstanceRequirementsWithMetadataRequest' {..} =
-      _salt `Prelude.hashWithSalt` instanceRequirements
-        `Prelude.hashWithSalt` architectureTypes
+      _salt `Prelude.hashWithSalt` architectureTypes
+        `Prelude.hashWithSalt` instanceRequirements
         `Prelude.hashWithSalt` virtualizationTypes
 
 instance
@@ -105,8 +105,8 @@ instance
     InstanceRequirementsWithMetadataRequest
   where
   rnf InstanceRequirementsWithMetadataRequest' {..} =
-    Prelude.rnf instanceRequirements
-      `Prelude.seq` Prelude.rnf architectureTypes
+    Prelude.rnf architectureTypes
+      `Prelude.seq` Prelude.rnf instanceRequirements
       `Prelude.seq` Prelude.rnf virtualizationTypes
 
 instance
@@ -115,11 +115,11 @@ instance
   where
   toQuery InstanceRequirementsWithMetadataRequest' {..} =
     Prelude.mconcat
-      [ "InstanceRequirements" Data.=: instanceRequirements,
-        Data.toQuery
+      [ Data.toQuery
           ( Data.toQueryList "ArchitectureType"
               Prelude.<$> architectureTypes
           ),
+        "InstanceRequirements" Data.=: instanceRequirements,
         Data.toQuery
           ( Data.toQueryList "VirtualizationType"
               Prelude.<$> virtualizationTypes

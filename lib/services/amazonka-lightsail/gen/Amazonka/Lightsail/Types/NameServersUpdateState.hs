@@ -34,9 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNameServersUpdateState' smart constructor.
 data NameServersUpdateState = NameServersUpdateState'
-  { -- | The message that describes the reason for the status code.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The status code for the name servers update.
+  { -- | The status code for the name servers update.
     --
     -- Following are the possible values:
     --
@@ -47,7 +45,9 @@ data NameServersUpdateState = NameServersUpdateState'
     -- -   @FAILED@ - The name server record update failed.
     --
     -- -   @STARTED@ - The automatic name server record update started.
-    code :: Prelude.Maybe NameServersUpdateStateCode
+    code :: Prelude.Maybe NameServersUpdateStateCode,
+    -- | The message that describes the reason for the status code.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,8 +58,6 @@ data NameServersUpdateState = NameServersUpdateState'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'message', 'nameServersUpdateState_message' - The message that describes the reason for the status code.
 --
 -- 'code', 'nameServersUpdateState_code' - The status code for the name servers update.
 --
@@ -72,17 +70,15 @@ data NameServersUpdateState = NameServersUpdateState'
 -- -   @FAILED@ - The name server record update failed.
 --
 -- -   @STARTED@ - The automatic name server record update started.
+--
+-- 'message', 'nameServersUpdateState_message' - The message that describes the reason for the status code.
 newNameServersUpdateState ::
   NameServersUpdateState
 newNameServersUpdateState =
   NameServersUpdateState'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The message that describes the reason for the status code.
-nameServersUpdateState_message :: Lens.Lens' NameServersUpdateState (Prelude.Maybe Prelude.Text)
-nameServersUpdateState_message = Lens.lens (\NameServersUpdateState' {message} -> message) (\s@NameServersUpdateState' {} a -> s {message = a} :: NameServersUpdateState)
 
 -- | The status code for the name servers update.
 --
@@ -98,21 +94,25 @@ nameServersUpdateState_message = Lens.lens (\NameServersUpdateState' {message} -
 nameServersUpdateState_code :: Lens.Lens' NameServersUpdateState (Prelude.Maybe NameServersUpdateStateCode)
 nameServersUpdateState_code = Lens.lens (\NameServersUpdateState' {code} -> code) (\s@NameServersUpdateState' {} a -> s {code = a} :: NameServersUpdateState)
 
+-- | The message that describes the reason for the status code.
+nameServersUpdateState_message :: Lens.Lens' NameServersUpdateState (Prelude.Maybe Prelude.Text)
+nameServersUpdateState_message = Lens.lens (\NameServersUpdateState' {message} -> message) (\s@NameServersUpdateState' {} a -> s {message = a} :: NameServersUpdateState)
+
 instance Data.FromJSON NameServersUpdateState where
   parseJSON =
     Data.withObject
       "NameServersUpdateState"
       ( \x ->
           NameServersUpdateState'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable NameServersUpdateState where
   hashWithSalt _salt NameServersUpdateState' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData NameServersUpdateState where
   rnf NameServersUpdateState' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

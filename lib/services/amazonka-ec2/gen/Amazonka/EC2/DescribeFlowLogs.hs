@@ -33,19 +33,19 @@ module Amazonka.EC2.DescribeFlowLogs
     newDescribeFlowLogs,
 
     -- * Request Lenses
-    describeFlowLogs_nextToken,
-    describeFlowLogs_flowLogIds,
     describeFlowLogs_dryRun,
     describeFlowLogs_filter,
+    describeFlowLogs_flowLogIds,
     describeFlowLogs_maxResults,
+    describeFlowLogs_nextToken,
 
     -- * Destructuring the Response
     DescribeFlowLogsResponse (..),
     newDescribeFlowLogsResponse,
 
     -- * Response Lenses
-    describeFlowLogsResponse_nextToken,
     describeFlowLogsResponse_flowLogs,
+    describeFlowLogsResponse_nextToken,
     describeFlowLogsResponse_httpStatus,
   )
 where
@@ -60,13 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more flow log IDs.
-    --
-    -- Constraint: Maximum of 1000 flow log IDs.
-    flowLogIds :: Prelude.Maybe [Prelude.Text],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -97,10 +91,16 @@ data DescribeFlowLogs = DescribeFlowLogs'
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
     filter' :: Prelude.Maybe [Filter],
+    -- | One or more flow log IDs.
+    --
+    -- Constraint: Maximum of 1000 flow log IDs.
+    flowLogIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,12 +111,6 @@ data DescribeFlowLogs = DescribeFlowLogs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeFlowLogs_nextToken' - The token for the next page of results.
---
--- 'flowLogIds', 'describeFlowLogs_flowLogIds' - One or more flow log IDs.
---
--- Constraint: Maximum of 1000 flow log IDs.
 --
 -- 'dryRun', 'describeFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -149,29 +143,25 @@ data DescribeFlowLogs = DescribeFlowLogs'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 --
+-- 'flowLogIds', 'describeFlowLogs_flowLogIds' - One or more flow log IDs.
+--
+-- Constraint: Maximum of 1000 flow log IDs.
+--
 -- 'maxResults', 'describeFlowLogs_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'describeFlowLogs_nextToken' - The token for the next page of results.
 newDescribeFlowLogs ::
   DescribeFlowLogs
 newDescribeFlowLogs =
   DescribeFlowLogs'
-    { nextToken = Prelude.Nothing,
-      flowLogIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      flowLogIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeFlowLogs_nextToken :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Text)
-describeFlowLogs_nextToken = Lens.lens (\DescribeFlowLogs' {nextToken} -> nextToken) (\s@DescribeFlowLogs' {} a -> s {nextToken = a} :: DescribeFlowLogs)
-
--- | One or more flow log IDs.
---
--- Constraint: Maximum of 1000 flow log IDs.
-describeFlowLogs_flowLogIds :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe [Prelude.Text])
-describeFlowLogs_flowLogIds = Lens.lens (\DescribeFlowLogs' {flowLogIds} -> flowLogIds) (\s@DescribeFlowLogs' {} a -> s {flowLogIds = a} :: DescribeFlowLogs) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -208,11 +198,21 @@ describeFlowLogs_dryRun = Lens.lens (\DescribeFlowLogs' {dryRun} -> dryRun) (\s@
 describeFlowLogs_filter :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe [Filter])
 describeFlowLogs_filter = Lens.lens (\DescribeFlowLogs' {filter'} -> filter') (\s@DescribeFlowLogs' {} a -> s {filter' = a} :: DescribeFlowLogs) Prelude.. Lens.mapping Lens.coerced
 
+-- | One or more flow log IDs.
+--
+-- Constraint: Maximum of 1000 flow log IDs.
+describeFlowLogs_flowLogIds :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe [Prelude.Text])
+describeFlowLogs_flowLogIds = Lens.lens (\DescribeFlowLogs' {flowLogIds} -> flowLogIds) (\s@DescribeFlowLogs' {} a -> s {flowLogIds = a} :: DescribeFlowLogs) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 describeFlowLogs_maxResults :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Int)
 describeFlowLogs_maxResults = Lens.lens (\DescribeFlowLogs' {maxResults} -> maxResults) (\s@DescribeFlowLogs' {} a -> s {maxResults = a} :: DescribeFlowLogs)
+
+-- | The token for the next page of results.
+describeFlowLogs_nextToken :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Text)
+describeFlowLogs_nextToken = Lens.lens (\DescribeFlowLogs' {nextToken} -> nextToken) (\s@DescribeFlowLogs' {} a -> s {nextToken = a} :: DescribeFlowLogs)
 
 instance Core.AWSPager DescribeFlowLogs where
   page rq rs
@@ -246,28 +246,28 @@ instance Core.AWSRequest DescribeFlowLogs where
     Response.receiveXML
       ( \s h x ->
           DescribeFlowLogsResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "flowLogSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "flowLogSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeFlowLogs where
   hashWithSalt _salt DescribeFlowLogs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` flowLogIds
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` flowLogIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeFlowLogs where
   rnf DescribeFlowLogs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf flowLogIds
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf flowLogIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,24 +282,24 @@ instance Data.ToQuery DescribeFlowLogs where
           Data.=: ("DescribeFlowLogs" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filter'),
         Data.toQuery
           ( Data.toQueryList "FlowLogId"
               Prelude.<$> flowLogIds
           ),
-        "DryRun" Data.=: dryRun,
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filter'),
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the flow logs.
+    flowLogs :: Prelude.Maybe [FlowLog],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the flow logs.
-    flowLogs :: Prelude.Maybe [FlowLog],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -313,10 +313,10 @@ data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'flowLogs', 'describeFlowLogsResponse_flowLogs' - Information about the flow logs.
+--
 -- 'nextToken', 'describeFlowLogsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'flowLogs', 'describeFlowLogsResponse_flowLogs' - Information about the flow logs.
 --
 -- 'httpStatus', 'describeFlowLogsResponse_httpStatus' - The response's http status code.
 newDescribeFlowLogsResponse ::
@@ -325,20 +325,20 @@ newDescribeFlowLogsResponse ::
   DescribeFlowLogsResponse
 newDescribeFlowLogsResponse pHttpStatus_ =
   DescribeFlowLogsResponse'
-    { nextToken =
+    { flowLogs =
         Prelude.Nothing,
-      flowLogs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the flow logs.
+describeFlowLogsResponse_flowLogs :: Lens.Lens' DescribeFlowLogsResponse (Prelude.Maybe [FlowLog])
+describeFlowLogsResponse_flowLogs = Lens.lens (\DescribeFlowLogsResponse' {flowLogs} -> flowLogs) (\s@DescribeFlowLogsResponse' {} a -> s {flowLogs = a} :: DescribeFlowLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeFlowLogsResponse_nextToken :: Lens.Lens' DescribeFlowLogsResponse (Prelude.Maybe Prelude.Text)
 describeFlowLogsResponse_nextToken = Lens.lens (\DescribeFlowLogsResponse' {nextToken} -> nextToken) (\s@DescribeFlowLogsResponse' {} a -> s {nextToken = a} :: DescribeFlowLogsResponse)
-
--- | Information about the flow logs.
-describeFlowLogsResponse_flowLogs :: Lens.Lens' DescribeFlowLogsResponse (Prelude.Maybe [FlowLog])
-describeFlowLogsResponse_flowLogs = Lens.lens (\DescribeFlowLogsResponse' {flowLogs} -> flowLogs) (\s@DescribeFlowLogsResponse' {} a -> s {flowLogs = a} :: DescribeFlowLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFlowLogsResponse_httpStatus :: Lens.Lens' DescribeFlowLogsResponse Prelude.Int
@@ -346,6 +346,6 @@ describeFlowLogsResponse_httpStatus = Lens.lens (\DescribeFlowLogsResponse' {htt
 
 instance Prelude.NFData DescribeFlowLogsResponse where
   rnf DescribeFlowLogsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf flowLogs
+    Prelude.rnf flowLogs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

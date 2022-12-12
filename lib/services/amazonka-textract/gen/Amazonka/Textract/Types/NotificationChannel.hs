@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic to which
 -- Amazon Textract publishes the completion status of an asynchronous
--- document operation, such as StartDocumentTextDetection.
+-- document operation.
 --
 -- /See:/ 'newNotificationChannel' smart constructor.
 data NotificationChannel = NotificationChannel'

@@ -30,13 +30,13 @@ module Amazonka.RAM.ListResources
     newListResources,
 
     -- * Request Lenses
-    listResources_principal,
-    listResources_resourceType,
-    listResources_nextToken,
-    listResources_resourceRegionScope,
     listResources_maxResults,
-    listResources_resourceShareArns,
+    listResources_nextToken,
+    listResources_principal,
     listResources_resourceArns,
+    listResources_resourceRegionScope,
+    listResources_resourceShareArns,
+    listResources_resourceType,
     listResources_resourceOwner,
 
     -- * Destructuring the Response
@@ -60,20 +60,30 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResources' smart constructor.
 data ListResources = ListResources'
-  { -- | Specifies that you want to list only the resource shares that are
-    -- associated with the specified principal.
-    principal :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that you want to list only the resource shares that include
-    -- resources of the specified resource type.
-    --
-    -- For valid values, query the ListResourceTypes operation.
-    resourceType :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies the total number of results that you want included on each
+    -- page of the response. If you do not include this parameter, it defaults
+    -- to a value that is specific to the operation. If additional items exist
+    -- beyond the number you specify, the @NextToken@ response element is
+    -- returned with a value (not null). Include the specified value as the
+    -- @NextToken@ request parameter in the next call to the operation to get
+    -- the next part of the results. Note that the service might return fewer
+    -- results than the maximum even when there are more results available. You
+    -- should check @NextToken@ after every operation to ensure that you
+    -- receive all of the results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies that you want to receive the next page of results. Valid only
     -- if you received a @NextToken@ response in the previous request. If you
     -- did, it indicates that more output is available. Set this parameter to
     -- the value provided by the previous call\'s @NextToken@ response to
     -- request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that you want to list only the resource shares that are
+    -- associated with the specified principal.
+    principal :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that you want to list only the resource shares that include
+    -- resources with the specified
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
+    resourceArns :: Prelude.Maybe [Prelude.Text],
     -- | Specifies that you want the results to include only resources that have
     -- the specified scope.
     --
@@ -88,25 +98,15 @@ data ListResources = ListResources'
     --
     -- The default value is @ALL@.
     resourceRegionScope :: Prelude.Maybe ResourceRegionScopeFilter,
-    -- | Specifies the total number of results that you want included on each
-    -- page of the response. If you do not include this parameter, it defaults
-    -- to a value that is specific to the operation. If additional items exist
-    -- beyond the number you specify, the @NextToken@ response element is
-    -- returned with a value (not null). Include the specified value as the
-    -- @NextToken@ request parameter in the next call to the operation to get
-    -- the next part of the results. Note that the service might return fewer
-    -- results than the maximum even when there are more results available. You
-    -- should check @NextToken@ after every operation to ensure that you
-    -- receive all of the results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies that you want to list only resources in the resource shares
     -- identified by the specified
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
     resourceShareArns :: Prelude.Maybe [Prelude.Text],
     -- | Specifies that you want to list only the resource shares that include
-    -- resources with the specified
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    resourceArns :: Prelude.Maybe [Prelude.Text],
+    -- resources of the specified resource type.
+    --
+    -- For valid values, query the ListResourceTypes operation.
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | Specifies that you want to list only the resource shares that match the
     -- following:
     --
@@ -126,19 +126,29 @@ data ListResources = ListResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'listResources_principal' - Specifies that you want to list only the resource shares that are
--- associated with the specified principal.
---
--- 'resourceType', 'listResources_resourceType' - Specifies that you want to list only the resource shares that include
--- resources of the specified resource type.
---
--- For valid values, query the ListResourceTypes operation.
+-- 'maxResults', 'listResources_maxResults' - Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 --
 -- 'nextToken', 'listResources_nextToken' - Specifies that you want to receive the next page of results. Valid only
 -- if you received a @NextToken@ response in the previous request. If you
 -- did, it indicates that more output is available. Set this parameter to
 -- the value provided by the previous call\'s @NextToken@ response to
 -- request the next page of results.
+--
+-- 'principal', 'listResources_principal' - Specifies that you want to list only the resource shares that are
+-- associated with the specified principal.
+--
+-- 'resourceArns', 'listResources_resourceArns' - Specifies that you want to list only the resource shares that include
+-- resources with the specified
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
 --
 -- 'resourceRegionScope', 'listResources_resourceRegionScope' - Specifies that you want the results to include only resources that have
 -- the specified scope.
@@ -154,24 +164,14 @@ data ListResources = ListResources'
 --
 -- The default value is @ALL@.
 --
--- 'maxResults', 'listResources_maxResults' - Specifies the total number of results that you want included on each
--- page of the response. If you do not include this parameter, it defaults
--- to a value that is specific to the operation. If additional items exist
--- beyond the number you specify, the @NextToken@ response element is
--- returned with a value (not null). Include the specified value as the
--- @NextToken@ request parameter in the next call to the operation to get
--- the next part of the results. Note that the service might return fewer
--- results than the maximum even when there are more results available. You
--- should check @NextToken@ after every operation to ensure that you
--- receive all of the results.
---
 -- 'resourceShareArns', 'listResources_resourceShareArns' - Specifies that you want to list only resources in the resource shares
 -- identified by the specified
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
 --
--- 'resourceArns', 'listResources_resourceArns' - Specifies that you want to list only the resource shares that include
--- resources with the specified
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
+-- 'resourceType', 'listResources_resourceType' - Specifies that you want to list only the resource shares that include
+-- resources of the specified resource type.
+--
+-- For valid values, query the ListResourceTypes operation.
 --
 -- 'resourceOwner', 'listResources_resourceOwner' - Specifies that you want to list only the resource shares that match the
 -- following:
@@ -186,27 +186,28 @@ newListResources ::
   ListResources
 newListResources pResourceOwner_ =
   ListResources'
-    { principal = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      resourceRegionScope = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      resourceShareArns = Prelude.Nothing,
+      principal = Prelude.Nothing,
       resourceArns = Prelude.Nothing,
+      resourceRegionScope = Prelude.Nothing,
+      resourceShareArns = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       resourceOwner = pResourceOwner_
     }
 
--- | Specifies that you want to list only the resource shares that are
--- associated with the specified principal.
-listResources_principal :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
-listResources_principal = Lens.lens (\ListResources' {principal} -> principal) (\s@ListResources' {} a -> s {principal = a} :: ListResources)
-
--- | Specifies that you want to list only the resource shares that include
--- resources of the specified resource type.
---
--- For valid values, query the ListResourceTypes operation.
-listResources_resourceType :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
-listResources_resourceType = Lens.lens (\ListResources' {resourceType} -> resourceType) (\s@ListResources' {} a -> s {resourceType = a} :: ListResources)
+-- | Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
+listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
+listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
 
 -- | Specifies that you want to receive the next page of results. Valid only
 -- if you received a @NextToken@ response in the previous request. If you
@@ -215,6 +216,17 @@ listResources_resourceType = Lens.lens (\ListResources' {resourceType} -> resour
 -- request the next page of results.
 listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
 listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
+
+-- | Specifies that you want to list only the resource shares that are
+-- associated with the specified principal.
+listResources_principal :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
+listResources_principal = Lens.lens (\ListResources' {principal} -> principal) (\s@ListResources' {} a -> s {principal = a} :: ListResources)
+
+-- | Specifies that you want to list only the resource shares that include
+-- resources with the specified
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
+listResources_resourceArns :: Lens.Lens' ListResources (Prelude.Maybe [Prelude.Text])
+listResources_resourceArns = Lens.lens (\ListResources' {resourceArns} -> resourceArns) (\s@ListResources' {} a -> s {resourceArns = a} :: ListResources) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies that you want the results to include only resources that have
 -- the specified scope.
@@ -232,19 +244,6 @@ listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (
 listResources_resourceRegionScope :: Lens.Lens' ListResources (Prelude.Maybe ResourceRegionScopeFilter)
 listResources_resourceRegionScope = Lens.lens (\ListResources' {resourceRegionScope} -> resourceRegionScope) (\s@ListResources' {} a -> s {resourceRegionScope = a} :: ListResources)
 
--- | Specifies the total number of results that you want included on each
--- page of the response. If you do not include this parameter, it defaults
--- to a value that is specific to the operation. If additional items exist
--- beyond the number you specify, the @NextToken@ response element is
--- returned with a value (not null). Include the specified value as the
--- @NextToken@ request parameter in the next call to the operation to get
--- the next part of the results. Note that the service might return fewer
--- results than the maximum even when there are more results available. You
--- should check @NextToken@ after every operation to ensure that you
--- receive all of the results.
-listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
-listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
-
 -- | Specifies that you want to list only resources in the resource shares
 -- identified by the specified
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
@@ -252,10 +251,11 @@ listResources_resourceShareArns :: Lens.Lens' ListResources (Prelude.Maybe [Prel
 listResources_resourceShareArns = Lens.lens (\ListResources' {resourceShareArns} -> resourceShareArns) (\s@ListResources' {} a -> s {resourceShareArns = a} :: ListResources) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies that you want to list only the resource shares that include
--- resources with the specified
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-listResources_resourceArns :: Lens.Lens' ListResources (Prelude.Maybe [Prelude.Text])
-listResources_resourceArns = Lens.lens (\ListResources' {resourceArns} -> resourceArns) (\s@ListResources' {} a -> s {resourceArns = a} :: ListResources) Prelude.. Lens.mapping Lens.coerced
+-- resources of the specified resource type.
+--
+-- For valid values, query the ListResourceTypes operation.
+listResources_resourceType :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
+listResources_resourceType = Lens.lens (\ListResources' {resourceType} -> resourceType) (\s@ListResources' {} a -> s {resourceType = a} :: ListResources)
 
 -- | Specifies that you want to list only the resource shares that match the
 -- following:
@@ -303,24 +303,24 @@ instance Core.AWSRequest ListResources where
 
 instance Prelude.Hashable ListResources where
   hashWithSalt _salt ListResources' {..} =
-    _salt `Prelude.hashWithSalt` principal
-      `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` resourceRegionScope
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` resourceShareArns
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resourceArns
+      `Prelude.hashWithSalt` resourceRegionScope
+      `Prelude.hashWithSalt` resourceShareArns
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceOwner
 
 instance Prelude.NFData ListResources where
   rnf ListResources' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceRegionScope
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf resourceShareArns
+      `Prelude.seq` Prelude.rnf principal
       `Prelude.seq` Prelude.rnf resourceArns
+      `Prelude.seq` Prelude.rnf resourceRegionScope
+      `Prelude.seq` Prelude.rnf resourceShareArns
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resourceOwner
 
 instance Data.ToHeaders ListResources where
@@ -338,15 +338,15 @@ instance Data.ToJSON ListResources where
   toJSON ListResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("principal" Data..=) Prelude.<$> principal,
-            ("resourceType" Data..=) Prelude.<$> resourceType,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("principal" Data..=) Prelude.<$> principal,
+            ("resourceArns" Data..=) Prelude.<$> resourceArns,
             ("resourceRegionScope" Data..=)
               Prelude.<$> resourceRegionScope,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("resourceShareArns" Data..=)
               Prelude.<$> resourceShareArns,
-            ("resourceArns" Data..=) Prelude.<$> resourceArns,
+            ("resourceType" Data..=) Prelude.<$> resourceType,
             Prelude.Just
               ("resourceOwner" Data..= resourceOwner)
           ]

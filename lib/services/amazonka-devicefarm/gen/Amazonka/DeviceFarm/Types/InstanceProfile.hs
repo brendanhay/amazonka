@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceProfile' smart constructor.
 data InstanceProfile = InstanceProfile'
-  { -- | The name of the instance profile.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the instance profile.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The description of the instance profile.
+    description :: Prelude.Maybe Prelude.Text,
     -- | An array of strings containing the list of app packages that should not
     -- be cleaned up from the device after a test run completes.
     --
     -- The list of packages is considered only if you set @packageCleanup@ to
     -- @true@.
     excludeAppPackagesFromCleanup :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the instance profile.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the instance profile.
+    name :: Prelude.Maybe Prelude.Text,
     -- | When set to @true@, Device Farm removes app packages after a test run.
     -- The default value is @false@ for private devices.
     packageCleanup :: Prelude.Maybe Prelude.Bool,
@@ -57,7 +57,9 @@ data InstanceProfile = InstanceProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'instanceProfile_name' - The name of the instance profile.
+-- 'arn', 'instanceProfile_arn' - The Amazon Resource Name (ARN) of the instance profile.
+--
+-- 'description', 'instanceProfile_description' - The description of the instance profile.
 --
 -- 'excludeAppPackagesFromCleanup', 'instanceProfile_excludeAppPackagesFromCleanup' - An array of strings containing the list of app packages that should not
 -- be cleaned up from the device after a test run completes.
@@ -65,9 +67,7 @@ data InstanceProfile = InstanceProfile'
 -- The list of packages is considered only if you set @packageCleanup@ to
 -- @true@.
 --
--- 'arn', 'instanceProfile_arn' - The Amazon Resource Name (ARN) of the instance profile.
---
--- 'description', 'instanceProfile_description' - The description of the instance profile.
+-- 'name', 'instanceProfile_name' - The name of the instance profile.
 --
 -- 'packageCleanup', 'instanceProfile_packageCleanup' - When set to @true@, Device Farm removes app packages after a test run.
 -- The default value is @false@ for private devices.
@@ -78,17 +78,21 @@ newInstanceProfile ::
   InstanceProfile
 newInstanceProfile =
   InstanceProfile'
-    { name = Prelude.Nothing,
-      excludeAppPackagesFromCleanup = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       description = Prelude.Nothing,
+      excludeAppPackagesFromCleanup = Prelude.Nothing,
+      name = Prelude.Nothing,
       packageCleanup = Prelude.Nothing,
       rebootAfterUse = Prelude.Nothing
     }
 
--- | The name of the instance profile.
-instanceProfile_name :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Text)
-instanceProfile_name = Lens.lens (\InstanceProfile' {name} -> name) (\s@InstanceProfile' {} a -> s {name = a} :: InstanceProfile)
+-- | The Amazon Resource Name (ARN) of the instance profile.
+instanceProfile_arn :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Text)
+instanceProfile_arn = Lens.lens (\InstanceProfile' {arn} -> arn) (\s@InstanceProfile' {} a -> s {arn = a} :: InstanceProfile)
+
+-- | The description of the instance profile.
+instanceProfile_description :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Text)
+instanceProfile_description = Lens.lens (\InstanceProfile' {description} -> description) (\s@InstanceProfile' {} a -> s {description = a} :: InstanceProfile)
 
 -- | An array of strings containing the list of app packages that should not
 -- be cleaned up from the device after a test run completes.
@@ -98,13 +102,9 @@ instanceProfile_name = Lens.lens (\InstanceProfile' {name} -> name) (\s@Instance
 instanceProfile_excludeAppPackagesFromCleanup :: Lens.Lens' InstanceProfile (Prelude.Maybe [Prelude.Text])
 instanceProfile_excludeAppPackagesFromCleanup = Lens.lens (\InstanceProfile' {excludeAppPackagesFromCleanup} -> excludeAppPackagesFromCleanup) (\s@InstanceProfile' {} a -> s {excludeAppPackagesFromCleanup = a} :: InstanceProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the instance profile.
-instanceProfile_arn :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Text)
-instanceProfile_arn = Lens.lens (\InstanceProfile' {arn} -> arn) (\s@InstanceProfile' {} a -> s {arn = a} :: InstanceProfile)
-
--- | The description of the instance profile.
-instanceProfile_description :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Text)
-instanceProfile_description = Lens.lens (\InstanceProfile' {description} -> description) (\s@InstanceProfile' {} a -> s {description = a} :: InstanceProfile)
+-- | The name of the instance profile.
+instanceProfile_name :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Text)
+instanceProfile_name = Lens.lens (\InstanceProfile' {name} -> name) (\s@InstanceProfile' {} a -> s {name = a} :: InstanceProfile)
 
 -- | When set to @true@, Device Farm removes app packages after a test run.
 -- The default value is @false@ for private devices.
@@ -122,30 +122,30 @@ instance Data.FromJSON InstanceProfile where
       "InstanceProfile"
       ( \x ->
           InstanceProfile'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
             Prelude.<*> ( x Data..:? "excludeAppPackagesFromCleanup"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "packageCleanup")
             Prelude.<*> (x Data..:? "rebootAfterUse")
       )
 
 instance Prelude.Hashable InstanceProfile where
   hashWithSalt _salt InstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` excludeAppPackagesFromCleanup
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` excludeAppPackagesFromCleanup
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` packageCleanup
       `Prelude.hashWithSalt` rebootAfterUse
 
 instance Prelude.NFData InstanceProfile where
   rnf InstanceProfile' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf excludeAppPackagesFromCleanup
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf excludeAppPackagesFromCleanup
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf packageCleanup
       `Prelude.seq` Prelude.rnf rebootAfterUse

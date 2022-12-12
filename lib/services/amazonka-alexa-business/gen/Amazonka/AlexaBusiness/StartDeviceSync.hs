@@ -43,8 +43,8 @@ module Amazonka.AlexaBusiness.StartDeviceSync
     newStartDeviceSync,
 
     -- * Request Lenses
-    startDeviceSync_roomArn,
     startDeviceSync_deviceArn,
+    startDeviceSync_roomArn,
     startDeviceSync_features,
 
     -- * Destructuring the Response
@@ -66,11 +66,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartDeviceSync' smart constructor.
 data StartDeviceSync = StartDeviceSync'
-  { -- | The ARN of the room with which the device to sync is associated.
+  { -- | The ARN of the device to sync. Required.
+    deviceArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the room with which the device to sync is associated.
     -- Required.
     roomArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the device to sync. Required.
-    deviceArn :: Prelude.Maybe Prelude.Text,
     -- | Request structure to start the device sync. Required.
     features :: [Feature]
   }
@@ -84,29 +84,29 @@ data StartDeviceSync = StartDeviceSync'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceArn', 'startDeviceSync_deviceArn' - The ARN of the device to sync. Required.
+--
 -- 'roomArn', 'startDeviceSync_roomArn' - The ARN of the room with which the device to sync is associated.
 -- Required.
---
--- 'deviceArn', 'startDeviceSync_deviceArn' - The ARN of the device to sync. Required.
 --
 -- 'features', 'startDeviceSync_features' - Request structure to start the device sync. Required.
 newStartDeviceSync ::
   StartDeviceSync
 newStartDeviceSync =
   StartDeviceSync'
-    { roomArn = Prelude.Nothing,
-      deviceArn = Prelude.Nothing,
+    { deviceArn = Prelude.Nothing,
+      roomArn = Prelude.Nothing,
       features = Prelude.mempty
     }
+
+-- | The ARN of the device to sync. Required.
+startDeviceSync_deviceArn :: Lens.Lens' StartDeviceSync (Prelude.Maybe Prelude.Text)
+startDeviceSync_deviceArn = Lens.lens (\StartDeviceSync' {deviceArn} -> deviceArn) (\s@StartDeviceSync' {} a -> s {deviceArn = a} :: StartDeviceSync)
 
 -- | The ARN of the room with which the device to sync is associated.
 -- Required.
 startDeviceSync_roomArn :: Lens.Lens' StartDeviceSync (Prelude.Maybe Prelude.Text)
 startDeviceSync_roomArn = Lens.lens (\StartDeviceSync' {roomArn} -> roomArn) (\s@StartDeviceSync' {} a -> s {roomArn = a} :: StartDeviceSync)
-
--- | The ARN of the device to sync. Required.
-startDeviceSync_deviceArn :: Lens.Lens' StartDeviceSync (Prelude.Maybe Prelude.Text)
-startDeviceSync_deviceArn = Lens.lens (\StartDeviceSync' {deviceArn} -> deviceArn) (\s@StartDeviceSync' {} a -> s {deviceArn = a} :: StartDeviceSync)
 
 -- | Request structure to start the device sync. Required.
 startDeviceSync_features :: Lens.Lens' StartDeviceSync [Feature]
@@ -127,14 +127,14 @@ instance Core.AWSRequest StartDeviceSync where
 
 instance Prelude.Hashable StartDeviceSync where
   hashWithSalt _salt StartDeviceSync' {..} =
-    _salt `Prelude.hashWithSalt` roomArn
-      `Prelude.hashWithSalt` deviceArn
+    _salt `Prelude.hashWithSalt` deviceArn
+      `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` features
 
 instance Prelude.NFData StartDeviceSync where
   rnf StartDeviceSync' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf deviceArn
+    Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf roomArn
       `Prelude.seq` Prelude.rnf features
 
 instance Data.ToHeaders StartDeviceSync where
@@ -156,8 +156,8 @@ instance Data.ToJSON StartDeviceSync where
   toJSON StartDeviceSync' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoomArn" Data..=) Prelude.<$> roomArn,
-            ("DeviceArn" Data..=) Prelude.<$> deviceArn,
+          [ ("DeviceArn" Data..=) Prelude.<$> deviceArn,
+            ("RoomArn" Data..=) Prelude.<$> roomArn,
             Prelude.Just ("Features" Data..= features)
           ]
       )

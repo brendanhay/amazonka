@@ -93,14 +93,23 @@ import Test.Tasty
 --         , requestRetryDataReplication $
 --             newRetryDataReplication
 --
+--         , requestReverseReplication $
+--             newReverseReplication
+--
 --         , requestStartFailbackLaunch $
 --             newStartFailbackLaunch
 --
 --         , requestStartRecovery $
 --             newStartRecovery
 --
+--         , requestStartReplication $
+--             newStartReplication
+--
 --         , requestStopFailback $
 --             newStopFailback
+--
+--         , requestStopReplication $
+--             newStopReplication
 --
 --         , requestTagResource $
 --             newTagResource
@@ -192,14 +201,23 @@ import Test.Tasty
 --         , responseRetryDataReplication $
 --             newSourceServer
 --
+--         , responseReverseReplication $
+--             newReverseReplicationResponse
+--
 --         , responseStartFailbackLaunch $
 --             newStartFailbackLaunchResponse
 --
 --         , responseStartRecovery $
 --             newStartRecoveryResponse
 --
+--         , responseStartReplication $
+--             newStartReplicationResponse
+--
 --         , responseStopFailback $
 --             newStopFailbackResponse
+--
+--         , responseStopReplication $
+--             newStopReplicationResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -359,6 +377,12 @@ requestRetryDataReplication =
     "RetryDataReplication"
     "fixture/RetryDataReplication.yaml"
 
+requestReverseReplication :: ReverseReplication -> TestTree
+requestReverseReplication =
+  req
+    "ReverseReplication"
+    "fixture/ReverseReplication.yaml"
+
 requestStartFailbackLaunch :: StartFailbackLaunch -> TestTree
 requestStartFailbackLaunch =
   req
@@ -371,11 +395,23 @@ requestStartRecovery =
     "StartRecovery"
     "fixture/StartRecovery.yaml"
 
+requestStartReplication :: StartReplication -> TestTree
+requestStartReplication =
+  req
+    "StartReplication"
+    "fixture/StartReplication.yaml"
+
 requestStopFailback :: StopFailback -> TestTree
 requestStopFailback =
   req
     "StopFailback"
     "fixture/StopFailback.yaml"
+
+requestStopReplication :: StopReplication -> TestTree
+requestStopReplication =
+  req
+    "StopReplication"
+    "fixture/StopReplication.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -597,6 +633,14 @@ responseRetryDataReplication =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RetryDataReplication)
 
+responseReverseReplication :: ReverseReplicationResponse -> TestTree
+responseReverseReplication =
+  res
+    "ReverseReplicationResponse"
+    "fixture/ReverseReplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ReverseReplication)
+
 responseStartFailbackLaunch :: StartFailbackLaunchResponse -> TestTree
 responseStartFailbackLaunch =
   res
@@ -613,6 +657,14 @@ responseStartRecovery =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartRecovery)
 
+responseStartReplication :: StartReplicationResponse -> TestTree
+responseStartReplication =
+  res
+    "StartReplicationResponse"
+    "fixture/StartReplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartReplication)
+
 responseStopFailback :: StopFailbackResponse -> TestTree
 responseStopFailback =
   res
@@ -620,6 +672,14 @@ responseStopFailback =
     "fixture/StopFailbackResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopFailback)
+
+responseStopReplication :: StopReplicationResponse -> TestTree
+responseStopReplication =
+  res
+    "StopReplicationResponse"
+    "fixture/StopReplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopReplication)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

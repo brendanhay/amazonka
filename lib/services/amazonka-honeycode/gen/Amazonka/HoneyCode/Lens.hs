@@ -63,8 +63,8 @@ module Amazonka.HoneyCode.Lens
     describeTableDataImportJobResponse_jobMetadata,
 
     -- ** GetScreenData
-    getScreenData_nextToken,
     getScreenData_maxResults,
+    getScreenData_nextToken,
     getScreenData_variables,
     getScreenData_workbookId,
     getScreenData_appId,
@@ -95,9 +95,9 @@ module Amazonka.HoneyCode.Lens
     listTableColumnsResponse_tableColumns,
 
     -- ** ListTableRows
+    listTableRows_maxResults,
     listTableRows_nextToken,
     listTableRows_rowIds,
-    listTableRows_maxResults,
     listTableRows_workbookId,
     listTableRows_tableId,
     listTableRowsResponse_nextToken,
@@ -108,8 +108,8 @@ module Amazonka.HoneyCode.Lens
     listTableRowsResponse_workbookCursor,
 
     -- ** ListTables
-    listTables_nextToken,
     listTables_maxResults,
+    listTables_nextToken,
     listTables_workbookId,
     listTablesResponse_nextToken,
     listTablesResponse_workbookCursor,
@@ -122,8 +122,8 @@ module Amazonka.HoneyCode.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** QueryTableRows
-    queryTableRows_nextToken,
     queryTableRows_maxResults,
+    queryTableRows_nextToken,
     queryTableRows_workbookId,
     queryTableRows_tableId,
     queryTableRows_filterFormula,
@@ -159,13 +159,13 @@ module Amazonka.HoneyCode.Lens
     -- ** Cell
     cell_format,
     cell_formattedValue,
-    cell_formula,
     cell_formattedValues,
+    cell_formula,
     cell_rawValue,
 
     -- ** CellInput
-    cellInput_facts,
     cellInput_fact,
+    cellInput_facts,
 
     -- ** ColumnMetadata
     columnMetadata_name,
@@ -181,9 +181,9 @@ module Amazonka.HoneyCode.Lens
     dataItem_rawValue,
 
     -- ** DelimitedTextImportOptions
+    delimitedTextImportOptions_dataCharacterEncoding,
     delimitedTextImportOptions_hasHeaderRow,
     delimitedTextImportOptions_ignoreEmptyRows,
-    delimitedTextImportOptions_dataCharacterEncoding,
     delimitedTextImportOptions_delimiter,
 
     -- ** DestinationOptions
@@ -208,8 +208,8 @@ module Amazonka.HoneyCode.Lens
     importJobSubmitter_userArn,
 
     -- ** ImportOptions
-    importOptions_destinationOptions,
     importOptions_delimitedTextOptions,
+    importOptions_destinationOptions,
 
     -- ** ResultRow
     resultRow_rowId,
@@ -223,13 +223,13 @@ module Amazonka.HoneyCode.Lens
     sourceDataColumnProperties_columnIndex,
 
     -- ** Table
-    table_tableName,
     table_tableId,
+    table_tableName,
 
     -- ** TableColumn
     tableColumn_format,
-    tableColumn_tableColumnName,
     tableColumn_tableColumnId,
+    tableColumn_tableColumnName,
 
     -- ** TableDataImportJobMetadata
     tableDataImportJobMetadata_submitter,

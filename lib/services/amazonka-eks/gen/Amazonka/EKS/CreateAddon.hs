@@ -33,11 +33,12 @@ module Amazonka.EKS.CreateAddon
     newCreateAddon,
 
     -- * Request Lenses
-    createAddon_tags,
-    createAddon_clientRequestToken,
     createAddon_addonVersion,
-    createAddon_serviceAccountRoleArn,
+    createAddon_clientRequestToken,
+    createAddon_configurationValues,
     createAddon_resolveConflicts,
+    createAddon_serviceAccountRoleArn,
+    createAddon_tags,
     createAddon_clusterName,
     createAddon_addonName,
 
@@ -61,31 +62,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAddon' smart constructor.
 data CreateAddon = CreateAddon'
-  { -- | The metadata to apply to the cluster to assist with categorization and
-    -- organization. Each tag consists of a key and an optional value. You
-    -- define both.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The version of the add-on. The version must match one of the versions
+  { -- | The version of the add-on. The version must match one of the versions
     -- returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
     -- .
     addonVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
-    -- add-on\'s service account. The role must be assigned the IAM permissions
-    -- required by the add-on. If you don\'t specify an existing IAM role, then
-    -- the add-on uses the permissions assigned to the node IAM role. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
-    -- in the /Amazon EKS User Guide/.
-    --
-    -- To specify an existing IAM role, you must have an IAM OpenID Connect
-    -- (OIDC) provider created for your cluster. For more information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
-    -- in the /Amazon EKS User Guide/.
-    serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The set of configuration values for the add-on being created. Whatever
+    -- values provided here are validated against the schema from
+    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
+    -- .
+    configurationValues :: Prelude.Maybe Prelude.Text,
     -- | How to resolve field value conflicts for an Amazon EKS add-on. Conflicts
     -- are handled based on the value you choose:
     --
@@ -107,6 +96,23 @@ data CreateAddon = CreateAddon'
     -- EKS sets all values to default values, regardless of the option that you
     -- specify.
     resolveConflicts :: Prelude.Maybe ResolveConflicts,
+    -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
+    -- add-on\'s service account. The role must be assigned the IAM permissions
+    -- required by the add-on. If you don\'t specify an existing IAM role, then
+    -- the add-on uses the permissions assigned to the node IAM role. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
+    -- in the /Amazon EKS User Guide/.
+    --
+    -- To specify an existing IAM role, you must have an IAM OpenID Connect
+    -- (OIDC) provider created for your cluster. For more information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
+    -- in the /Amazon EKS User Guide/.
+    serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The metadata to apply to the cluster to assist with categorization and
+    -- organization. Each tag consists of a key and an optional value. You
+    -- define both.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the cluster to create the add-on for.
     clusterName :: Prelude.Text,
     -- | The name of the add-on. The name must match one of the names returned by
@@ -124,30 +130,18 @@ data CreateAddon = CreateAddon'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAddon_tags' - The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value. You
--- define both.
---
--- 'clientRequestToken', 'createAddon_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
---
 -- 'addonVersion', 'createAddon_addonVersion' - The version of the add-on. The version must match one of the versions
 -- returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
 -- .
 --
--- 'serviceAccountRoleArn', 'createAddon_serviceAccountRoleArn' - The Amazon Resource Name (ARN) of an existing IAM role to bind to the
--- add-on\'s service account. The role must be assigned the IAM permissions
--- required by the add-on. If you don\'t specify an existing IAM role, then
--- the add-on uses the permissions assigned to the node IAM role. For more
--- information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
--- in the /Amazon EKS User Guide/.
+-- 'clientRequestToken', 'createAddon_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
 --
--- To specify an existing IAM role, you must have an IAM OpenID Connect
--- (OIDC) provider created for your cluster. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
--- in the /Amazon EKS User Guide/.
+-- 'configurationValues', 'createAddon_configurationValues' - The set of configuration values for the add-on being created. Whatever
+-- values provided here are validated against the schema from
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
+-- .
 --
 -- 'resolveConflicts', 'createAddon_resolveConflicts' - How to resolve field value conflicts for an Amazon EKS add-on. Conflicts
 -- are handled based on the value you choose:
@@ -170,6 +164,23 @@ data CreateAddon = CreateAddon'
 -- EKS sets all values to default values, regardless of the option that you
 -- specify.
 --
+-- 'serviceAccountRoleArn', 'createAddon_serviceAccountRoleArn' - The Amazon Resource Name (ARN) of an existing IAM role to bind to the
+-- add-on\'s service account. The role must be assigned the IAM permissions
+-- required by the add-on. If you don\'t specify an existing IAM role, then
+-- the add-on uses the permissions assigned to the node IAM role. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
+-- in the /Amazon EKS User Guide/.
+--
+-- To specify an existing IAM role, you must have an IAM OpenID Connect
+-- (OIDC) provider created for your cluster. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
+-- in the /Amazon EKS User Guide/.
+--
+-- 'tags', 'createAddon_tags' - The metadata to apply to the cluster to assist with categorization and
+-- organization. Each tag consists of a key and an optional value. You
+-- define both.
+--
 -- 'clusterName', 'createAddon_clusterName' - The name of the cluster to create the add-on for.
 --
 -- 'addonName', 'createAddon_addonName' - The name of the add-on. The name must match one of the names returned by
@@ -183,25 +194,15 @@ newCreateAddon ::
   CreateAddon
 newCreateAddon pClusterName_ pAddonName_ =
   CreateAddon'
-    { tags = Prelude.Nothing,
+    { addonVersion = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      addonVersion = Prelude.Nothing,
-      serviceAccountRoleArn = Prelude.Nothing,
+      configurationValues = Prelude.Nothing,
       resolveConflicts = Prelude.Nothing,
+      serviceAccountRoleArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
       clusterName = pClusterName_,
       addonName = pAddonName_
     }
-
--- | The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value. You
--- define both.
-createAddon_tags :: Lens.Lens' CreateAddon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} a -> s {tags = a} :: CreateAddon) Prelude.. Lens.mapping Lens.coerced
-
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-createAddon_clientRequestToken :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
-createAddon_clientRequestToken = Lens.lens (\CreateAddon' {clientRequestToken} -> clientRequestToken) (\s@CreateAddon' {} a -> s {clientRequestToken = a} :: CreateAddon)
 
 -- | The version of the add-on. The version must match one of the versions
 -- returned by
@@ -210,20 +211,17 @@ createAddon_clientRequestToken = Lens.lens (\CreateAddon' {clientRequestToken} -
 createAddon_addonVersion :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
 createAddon_addonVersion = Lens.lens (\CreateAddon' {addonVersion} -> addonVersion) (\s@CreateAddon' {} a -> s {addonVersion = a} :: CreateAddon)
 
--- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
--- add-on\'s service account. The role must be assigned the IAM permissions
--- required by the add-on. If you don\'t specify an existing IAM role, then
--- the add-on uses the permissions assigned to the node IAM role. For more
--- information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
--- in the /Amazon EKS User Guide/.
---
--- To specify an existing IAM role, you must have an IAM OpenID Connect
--- (OIDC) provider created for your cluster. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
--- in the /Amazon EKS User Guide/.
-createAddon_serviceAccountRoleArn :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
-createAddon_serviceAccountRoleArn = Lens.lens (\CreateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@CreateAddon' {} a -> s {serviceAccountRoleArn = a} :: CreateAddon)
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+createAddon_clientRequestToken :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
+createAddon_clientRequestToken = Lens.lens (\CreateAddon' {clientRequestToken} -> clientRequestToken) (\s@CreateAddon' {} a -> s {clientRequestToken = a} :: CreateAddon)
+
+-- | The set of configuration values for the add-on being created. Whatever
+-- values provided here are validated against the schema from
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
+-- .
+createAddon_configurationValues :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
+createAddon_configurationValues = Lens.lens (\CreateAddon' {configurationValues} -> configurationValues) (\s@CreateAddon' {} a -> s {configurationValues = a} :: CreateAddon)
 
 -- | How to resolve field value conflicts for an Amazon EKS add-on. Conflicts
 -- are handled based on the value you choose:
@@ -247,6 +245,27 @@ createAddon_serviceAccountRoleArn = Lens.lens (\CreateAddon' {serviceAccountRole
 -- specify.
 createAddon_resolveConflicts :: Lens.Lens' CreateAddon (Prelude.Maybe ResolveConflicts)
 createAddon_resolveConflicts = Lens.lens (\CreateAddon' {resolveConflicts} -> resolveConflicts) (\s@CreateAddon' {} a -> s {resolveConflicts = a} :: CreateAddon)
+
+-- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
+-- add-on\'s service account. The role must be assigned the IAM permissions
+-- required by the add-on. If you don\'t specify an existing IAM role, then
+-- the add-on uses the permissions assigned to the node IAM role. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
+-- in the /Amazon EKS User Guide/.
+--
+-- To specify an existing IAM role, you must have an IAM OpenID Connect
+-- (OIDC) provider created for your cluster. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
+-- in the /Amazon EKS User Guide/.
+createAddon_serviceAccountRoleArn :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
+createAddon_serviceAccountRoleArn = Lens.lens (\CreateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@CreateAddon' {} a -> s {serviceAccountRoleArn = a} :: CreateAddon)
+
+-- | The metadata to apply to the cluster to assist with categorization and
+-- organization. Each tag consists of a key and an optional value. You
+-- define both.
+createAddon_tags :: Lens.Lens' CreateAddon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} a -> s {tags = a} :: CreateAddon) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster to create the add-on for.
 createAddon_clusterName :: Lens.Lens' CreateAddon Prelude.Text
@@ -272,21 +291,23 @@ instance Core.AWSRequest CreateAddon where
 
 instance Prelude.Hashable CreateAddon where
   hashWithSalt _salt CreateAddon' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` addonVersion
       `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` addonVersion
-      `Prelude.hashWithSalt` serviceAccountRoleArn
+      `Prelude.hashWithSalt` configurationValues
       `Prelude.hashWithSalt` resolveConflicts
+      `Prelude.hashWithSalt` serviceAccountRoleArn
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` addonName
 
 instance Prelude.NFData CreateAddon where
   rnf CreateAddon' {..} =
-    Prelude.rnf tags
+    Prelude.rnf addonVersion
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf addonVersion
-      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
+      `Prelude.seq` Prelude.rnf configurationValues
       `Prelude.seq` Prelude.rnf resolveConflicts
+      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf addonName
 
@@ -305,14 +326,16 @@ instance Data.ToJSON CreateAddon where
   toJSON CreateAddon' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("addonVersion" Data..=) Prelude.<$> addonVersion,
             ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("addonVersion" Data..=) Prelude.<$> addonVersion,
-            ("serviceAccountRoleArn" Data..=)
-              Prelude.<$> serviceAccountRoleArn,
+            ("configurationValues" Data..=)
+              Prelude.<$> configurationValues,
             ("resolveConflicts" Data..=)
               Prelude.<$> resolveConflicts,
+            ("serviceAccountRoleArn" Data..=)
+              Prelude.<$> serviceAccountRoleArn,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("addonName" Data..= addonName)
           ]
       )

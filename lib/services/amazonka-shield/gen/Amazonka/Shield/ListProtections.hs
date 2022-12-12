@@ -31,9 +31,9 @@ module Amazonka.Shield.ListProtections
     newListProtections,
 
     -- * Request Lenses
-    listProtections_nextToken,
-    listProtections_maxResults,
     listProtections_inclusionFilters,
+    listProtections_maxResults,
+    listProtections_nextToken,
 
     -- * Destructuring the Response
     ListProtectionsResponse (..),
@@ -56,7 +56,22 @@ import Amazonka.Shield.Types
 
 -- | /See:/ 'newListProtections' smart constructor.
 data ListProtections = ListProtections'
-  { -- | When you request a list of objects from Shield Advanced, if the response
+  { -- | Narrows the set of protections that the call retrieves. You can retrieve
+    -- a single protection by providing its name or the ARN (Amazon Resource
+    -- Name) of its protected resource. You can also retrieve all protections
+    -- for a specific resource type. You can provide up to one criteria per
+    -- filter type. Shield Advanced returns protections that exactly match all
+    -- of the filter criteria that you provide.
+    inclusionFilters :: Prelude.Maybe InclusionProtectionFilters,
+    -- | The greatest number of objects that you want Shield Advanced to return
+    -- to the list request. Shield Advanced might return fewer objects than you
+    -- indicate in this setting, even if more objects are available. If there
+    -- are more objects remaining, Shield Advanced will always also return a
+    -- @NextToken@ value in the response.
+    --
+    -- The default setting is 20.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you request a list of objects from Shield Advanced, if the response
     -- does not include all of the remaining available objects, Shield Advanced
     -- includes a @NextToken@ value in the response. You can retrieve the next
     -- batch of objects by requesting the list again and providing the token
@@ -71,22 +86,7 @@ data ListProtections = ListProtections'
     -- to you, the response will include a @NextToken@ value.
     --
     -- On your first call to a list operation, leave this setting empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The greatest number of objects that you want Shield Advanced to return
-    -- to the list request. Shield Advanced might return fewer objects than you
-    -- indicate in this setting, even if more objects are available. If there
-    -- are more objects remaining, Shield Advanced will always also return a
-    -- @NextToken@ value in the response.
-    --
-    -- The default setting is 20.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Narrows the set of protections that the call retrieves. You can retrieve
-    -- a single protection by providing its name or the ARN (Amazon Resource
-    -- Name) of its protected resource. You can also retrieve all protections
-    -- for a specific resource type. You can provide up to one criteria per
-    -- filter type. Shield Advanced returns protections that exactly match all
-    -- of the filter criteria that you provide.
-    inclusionFilters :: Prelude.Maybe InclusionProtectionFilters
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,6 +97,21 @@ data ListProtections = ListProtections'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'inclusionFilters', 'listProtections_inclusionFilters' - Narrows the set of protections that the call retrieves. You can retrieve
+-- a single protection by providing its name or the ARN (Amazon Resource
+-- Name) of its protected resource. You can also retrieve all protections
+-- for a specific resource type. You can provide up to one criteria per
+-- filter type. Shield Advanced returns protections that exactly match all
+-- of the filter criteria that you provide.
+--
+-- 'maxResults', 'listProtections_maxResults' - The greatest number of objects that you want Shield Advanced to return
+-- to the list request. Shield Advanced might return fewer objects than you
+-- indicate in this setting, even if more objects are available. If there
+-- are more objects remaining, Shield Advanced will always also return a
+-- @NextToken@ value in the response.
+--
+-- The default setting is 20.
 --
 -- 'nextToken', 'listProtections_nextToken' - When you request a list of objects from Shield Advanced, if the response
 -- does not include all of the remaining available objects, Shield Advanced
@@ -113,29 +128,34 @@ data ListProtections = ListProtections'
 -- to you, the response will include a @NextToken@ value.
 --
 -- On your first call to a list operation, leave this setting empty.
---
--- 'maxResults', 'listProtections_maxResults' - The greatest number of objects that you want Shield Advanced to return
+newListProtections ::
+  ListProtections
+newListProtections =
+  ListProtections'
+    { inclusionFilters =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
+
+-- | Narrows the set of protections that the call retrieves. You can retrieve
+-- a single protection by providing its name or the ARN (Amazon Resource
+-- Name) of its protected resource. You can also retrieve all protections
+-- for a specific resource type. You can provide up to one criteria per
+-- filter type. Shield Advanced returns protections that exactly match all
+-- of the filter criteria that you provide.
+listProtections_inclusionFilters :: Lens.Lens' ListProtections (Prelude.Maybe InclusionProtectionFilters)
+listProtections_inclusionFilters = Lens.lens (\ListProtections' {inclusionFilters} -> inclusionFilters) (\s@ListProtections' {} a -> s {inclusionFilters = a} :: ListProtections)
+
+-- | The greatest number of objects that you want Shield Advanced to return
 -- to the list request. Shield Advanced might return fewer objects than you
 -- indicate in this setting, even if more objects are available. If there
 -- are more objects remaining, Shield Advanced will always also return a
 -- @NextToken@ value in the response.
 --
 -- The default setting is 20.
---
--- 'inclusionFilters', 'listProtections_inclusionFilters' - Narrows the set of protections that the call retrieves. You can retrieve
--- a single protection by providing its name or the ARN (Amazon Resource
--- Name) of its protected resource. You can also retrieve all protections
--- for a specific resource type. You can provide up to one criteria per
--- filter type. Shield Advanced returns protections that exactly match all
--- of the filter criteria that you provide.
-newListProtections ::
-  ListProtections
-newListProtections =
-  ListProtections'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      inclusionFilters = Prelude.Nothing
-    }
+listProtections_maxResults :: Lens.Lens' ListProtections (Prelude.Maybe Prelude.Natural)
+listProtections_maxResults = Lens.lens (\ListProtections' {maxResults} -> maxResults) (\s@ListProtections' {} a -> s {maxResults = a} :: ListProtections)
 
 -- | When you request a list of objects from Shield Advanced, if the response
 -- does not include all of the remaining available objects, Shield Advanced
@@ -154,25 +174,6 @@ newListProtections =
 -- On your first call to a list operation, leave this setting empty.
 listProtections_nextToken :: Lens.Lens' ListProtections (Prelude.Maybe Prelude.Text)
 listProtections_nextToken = Lens.lens (\ListProtections' {nextToken} -> nextToken) (\s@ListProtections' {} a -> s {nextToken = a} :: ListProtections)
-
--- | The greatest number of objects that you want Shield Advanced to return
--- to the list request. Shield Advanced might return fewer objects than you
--- indicate in this setting, even if more objects are available. If there
--- are more objects remaining, Shield Advanced will always also return a
--- @NextToken@ value in the response.
---
--- The default setting is 20.
-listProtections_maxResults :: Lens.Lens' ListProtections (Prelude.Maybe Prelude.Natural)
-listProtections_maxResults = Lens.lens (\ListProtections' {maxResults} -> maxResults) (\s@ListProtections' {} a -> s {maxResults = a} :: ListProtections)
-
--- | Narrows the set of protections that the call retrieves. You can retrieve
--- a single protection by providing its name or the ARN (Amazon Resource
--- Name) of its protected resource. You can also retrieve all protections
--- for a specific resource type. You can provide up to one criteria per
--- filter type. Shield Advanced returns protections that exactly match all
--- of the filter criteria that you provide.
-listProtections_inclusionFilters :: Lens.Lens' ListProtections (Prelude.Maybe InclusionProtectionFilters)
-listProtections_inclusionFilters = Lens.lens (\ListProtections' {inclusionFilters} -> inclusionFilters) (\s@ListProtections' {} a -> s {inclusionFilters = a} :: ListProtections)
 
 instance Core.AWSPager ListProtections where
   page rq rs
@@ -213,15 +214,15 @@ instance Core.AWSRequest ListProtections where
 
 instance Prelude.Hashable ListProtections where
   hashWithSalt _salt ListProtections' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` inclusionFilters
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` inclusionFilters
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProtections where
   rnf ListProtections' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf inclusionFilters
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf inclusionFilters
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProtections where
   toHeaders =
@@ -242,10 +243,10 @@ instance Data.ToJSON ListProtections where
   toJSON ListProtections' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("InclusionFilters" Data..=)
+              Prelude.<$> inclusionFilters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("InclusionFilters" Data..=)
-              Prelude.<$> inclusionFilters
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

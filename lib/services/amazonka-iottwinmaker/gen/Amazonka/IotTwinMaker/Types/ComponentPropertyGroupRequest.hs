@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentPropertyGroupRequest' smart constructor.
 data ComponentPropertyGroupRequest = ComponentPropertyGroupRequest'
-  { -- | The update type.
-    updateType :: Prelude.Maybe PropertyGroupUpdateType,
+  { -- | The group type.
+    groupType :: Prelude.Maybe GroupType,
     -- | The property names.
     propertyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The group type.
-    groupType :: Prelude.Maybe GroupType
+    -- | The update type.
+    updateType :: Prelude.Maybe PropertyGroupUpdateType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,54 +47,54 @@ data ComponentPropertyGroupRequest = ComponentPropertyGroupRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateType', 'componentPropertyGroupRequest_updateType' - The update type.
+-- 'groupType', 'componentPropertyGroupRequest_groupType' - The group type.
 --
 -- 'propertyNames', 'componentPropertyGroupRequest_propertyNames' - The property names.
 --
--- 'groupType', 'componentPropertyGroupRequest_groupType' - The group type.
+-- 'updateType', 'componentPropertyGroupRequest_updateType' - The update type.
 newComponentPropertyGroupRequest ::
   ComponentPropertyGroupRequest
 newComponentPropertyGroupRequest =
   ComponentPropertyGroupRequest'
-    { updateType =
+    { groupType =
         Prelude.Nothing,
       propertyNames = Prelude.Nothing,
-      groupType = Prelude.Nothing
+      updateType = Prelude.Nothing
     }
 
--- | The update type.
-componentPropertyGroupRequest_updateType :: Lens.Lens' ComponentPropertyGroupRequest (Prelude.Maybe PropertyGroupUpdateType)
-componentPropertyGroupRequest_updateType = Lens.lens (\ComponentPropertyGroupRequest' {updateType} -> updateType) (\s@ComponentPropertyGroupRequest' {} a -> s {updateType = a} :: ComponentPropertyGroupRequest)
+-- | The group type.
+componentPropertyGroupRequest_groupType :: Lens.Lens' ComponentPropertyGroupRequest (Prelude.Maybe GroupType)
+componentPropertyGroupRequest_groupType = Lens.lens (\ComponentPropertyGroupRequest' {groupType} -> groupType) (\s@ComponentPropertyGroupRequest' {} a -> s {groupType = a} :: ComponentPropertyGroupRequest)
 
 -- | The property names.
 componentPropertyGroupRequest_propertyNames :: Lens.Lens' ComponentPropertyGroupRequest (Prelude.Maybe [Prelude.Text])
 componentPropertyGroupRequest_propertyNames = Lens.lens (\ComponentPropertyGroupRequest' {propertyNames} -> propertyNames) (\s@ComponentPropertyGroupRequest' {} a -> s {propertyNames = a} :: ComponentPropertyGroupRequest) Prelude.. Lens.mapping Lens.coerced
 
--- | The group type.
-componentPropertyGroupRequest_groupType :: Lens.Lens' ComponentPropertyGroupRequest (Prelude.Maybe GroupType)
-componentPropertyGroupRequest_groupType = Lens.lens (\ComponentPropertyGroupRequest' {groupType} -> groupType) (\s@ComponentPropertyGroupRequest' {} a -> s {groupType = a} :: ComponentPropertyGroupRequest)
+-- | The update type.
+componentPropertyGroupRequest_updateType :: Lens.Lens' ComponentPropertyGroupRequest (Prelude.Maybe PropertyGroupUpdateType)
+componentPropertyGroupRequest_updateType = Lens.lens (\ComponentPropertyGroupRequest' {updateType} -> updateType) (\s@ComponentPropertyGroupRequest' {} a -> s {updateType = a} :: ComponentPropertyGroupRequest)
 
 instance
   Prelude.Hashable
     ComponentPropertyGroupRequest
   where
   hashWithSalt _salt ComponentPropertyGroupRequest' {..} =
-    _salt `Prelude.hashWithSalt` updateType
+    _salt `Prelude.hashWithSalt` groupType
       `Prelude.hashWithSalt` propertyNames
-      `Prelude.hashWithSalt` groupType
+      `Prelude.hashWithSalt` updateType
 
 instance Prelude.NFData ComponentPropertyGroupRequest where
   rnf ComponentPropertyGroupRequest' {..} =
-    Prelude.rnf updateType
+    Prelude.rnf groupType
       `Prelude.seq` Prelude.rnf propertyNames
-      `Prelude.seq` Prelude.rnf groupType
+      `Prelude.seq` Prelude.rnf updateType
 
 instance Data.ToJSON ComponentPropertyGroupRequest where
   toJSON ComponentPropertyGroupRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("updateType" Data..=) Prelude.<$> updateType,
+          [ ("groupType" Data..=) Prelude.<$> groupType,
             ("propertyNames" Data..=) Prelude.<$> propertyNames,
-            ("groupType" Data..=) Prelude.<$> groupType
+            ("updateType" Data..=) Prelude.<$> updateType
           ]
       )

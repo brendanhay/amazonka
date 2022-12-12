@@ -33,8 +33,8 @@ module Amazonka.Rum.ListRumMetricsDestinations
     newListRumMetricsDestinations,
 
     -- * Request Lenses
-    listRumMetricsDestinations_nextToken,
     listRumMetricsDestinations_maxResults,
+    listRumMetricsDestinations_nextToken,
     listRumMetricsDestinations_appMonitorName,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.Rum.ListRumMetricsDestinations
     newListRumMetricsDestinationsResponse,
 
     -- * Response Lenses
-    listRumMetricsDestinationsResponse_nextToken,
     listRumMetricsDestinationsResponse_destinations,
+    listRumMetricsDestinationsResponse_nextToken,
     listRumMetricsDestinationsResponse_httpStatus,
   )
 where
@@ -58,15 +58,15 @@ import Amazonka.Rum.Types
 
 -- | /See:/ 'newListRumMetricsDestinations' smart constructor.
 data ListRumMetricsDestinations = ListRumMetricsDestinations'
-  { -- | Use the token returned by the previous operation to request the next
-    -- page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in one operation. The default is
+  { -- | The maximum number of results to return in one operation. The default is
     -- 50. The maximum that you can specify is 100.
     --
     -- To retrieve the remaining results, make another call with the returned
     -- @NextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Use the token returned by the previous operation to request the next
+    -- page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the app monitor associated with the destinations that you
     -- want to retrieve.
     appMonitorName :: Prelude.Text
@@ -81,14 +81,14 @@ data ListRumMetricsDestinations = ListRumMetricsDestinations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRumMetricsDestinations_nextToken' - Use the token returned by the previous operation to request the next
--- page of results.
---
 -- 'maxResults', 'listRumMetricsDestinations_maxResults' - The maximum number of results to return in one operation. The default is
 -- 50. The maximum that you can specify is 100.
 --
 -- To retrieve the remaining results, make another call with the returned
 -- @NextToken@ value.
+--
+-- 'nextToken', 'listRumMetricsDestinations_nextToken' - Use the token returned by the previous operation to request the next
+-- page of results.
 --
 -- 'appMonitorName', 'listRumMetricsDestinations_appMonitorName' - The name of the app monitor associated with the destinations that you
 -- want to retrieve.
@@ -98,16 +98,11 @@ newListRumMetricsDestinations ::
   ListRumMetricsDestinations
 newListRumMetricsDestinations pAppMonitorName_ =
   ListRumMetricsDestinations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appMonitorName = pAppMonitorName_
     }
-
--- | Use the token returned by the previous operation to request the next
--- page of results.
-listRumMetricsDestinations_nextToken :: Lens.Lens' ListRumMetricsDestinations (Prelude.Maybe Prelude.Text)
-listRumMetricsDestinations_nextToken = Lens.lens (\ListRumMetricsDestinations' {nextToken} -> nextToken) (\s@ListRumMetricsDestinations' {} a -> s {nextToken = a} :: ListRumMetricsDestinations)
 
 -- | The maximum number of results to return in one operation. The default is
 -- 50. The maximum that you can specify is 100.
@@ -116,6 +111,11 @@ listRumMetricsDestinations_nextToken = Lens.lens (\ListRumMetricsDestinations' {
 -- @NextToken@ value.
 listRumMetricsDestinations_maxResults :: Lens.Lens' ListRumMetricsDestinations (Prelude.Maybe Prelude.Natural)
 listRumMetricsDestinations_maxResults = Lens.lens (\ListRumMetricsDestinations' {maxResults} -> maxResults) (\s@ListRumMetricsDestinations' {} a -> s {maxResults = a} :: ListRumMetricsDestinations)
+
+-- | Use the token returned by the previous operation to request the next
+-- page of results.
+listRumMetricsDestinations_nextToken :: Lens.Lens' ListRumMetricsDestinations (Prelude.Maybe Prelude.Text)
+listRumMetricsDestinations_nextToken = Lens.lens (\ListRumMetricsDestinations' {nextToken} -> nextToken) (\s@ListRumMetricsDestinations' {} a -> s {nextToken = a} :: ListRumMetricsDestinations)
 
 -- | The name of the app monitor associated with the destinations that you
 -- want to retrieve.
@@ -154,21 +154,21 @@ instance Core.AWSRequest ListRumMetricsDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListRumMetricsDestinationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Destinations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRumMetricsDestinations where
   hashWithSalt _salt ListRumMetricsDestinations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appMonitorName
 
 instance Prelude.NFData ListRumMetricsDestinations where
   rnf ListRumMetricsDestinations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appMonitorName
 
 instance Data.ToHeaders ListRumMetricsDestinations where
@@ -193,18 +193,18 @@ instance Data.ToPath ListRumMetricsDestinations where
 instance Data.ToQuery ListRumMetricsDestinations where
   toQuery ListRumMetricsDestinations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRumMetricsDestinationsResponse' smart constructor.
 data ListRumMetricsDestinationsResponse = ListRumMetricsDestinationsResponse'
-  { -- | A token that you can use in a subsequent operation to retrieve the next
-    -- set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of CloudWatch RUM extended metrics destinations associated with
+  { -- | The list of CloudWatch RUM extended metrics destinations associated with
     -- the app monitor that you specified.
     destinations :: Prelude.Maybe [MetricDestinationSummary],
+    -- | A token that you can use in a subsequent operation to retrieve the next
+    -- set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,11 +218,11 @@ data ListRumMetricsDestinationsResponse = ListRumMetricsDestinationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRumMetricsDestinationsResponse_nextToken' - A token that you can use in a subsequent operation to retrieve the next
--- set of results.
---
 -- 'destinations', 'listRumMetricsDestinationsResponse_destinations' - The list of CloudWatch RUM extended metrics destinations associated with
 -- the app monitor that you specified.
+--
+-- 'nextToken', 'listRumMetricsDestinationsResponse_nextToken' - A token that you can use in a subsequent operation to retrieve the next
+-- set of results.
 --
 -- 'httpStatus', 'listRumMetricsDestinationsResponse_httpStatus' - The response's http status code.
 newListRumMetricsDestinationsResponse ::
@@ -231,21 +231,21 @@ newListRumMetricsDestinationsResponse ::
   ListRumMetricsDestinationsResponse
 newListRumMetricsDestinationsResponse pHttpStatus_ =
   ListRumMetricsDestinationsResponse'
-    { nextToken =
+    { destinations =
         Prelude.Nothing,
-      destinations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that you can use in a subsequent operation to retrieve the next
--- set of results.
-listRumMetricsDestinationsResponse_nextToken :: Lens.Lens' ListRumMetricsDestinationsResponse (Prelude.Maybe Prelude.Text)
-listRumMetricsDestinationsResponse_nextToken = Lens.lens (\ListRumMetricsDestinationsResponse' {nextToken} -> nextToken) (\s@ListRumMetricsDestinationsResponse' {} a -> s {nextToken = a} :: ListRumMetricsDestinationsResponse)
 
 -- | The list of CloudWatch RUM extended metrics destinations associated with
 -- the app monitor that you specified.
 listRumMetricsDestinationsResponse_destinations :: Lens.Lens' ListRumMetricsDestinationsResponse (Prelude.Maybe [MetricDestinationSummary])
 listRumMetricsDestinationsResponse_destinations = Lens.lens (\ListRumMetricsDestinationsResponse' {destinations} -> destinations) (\s@ListRumMetricsDestinationsResponse' {} a -> s {destinations = a} :: ListRumMetricsDestinationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token that you can use in a subsequent operation to retrieve the next
+-- set of results.
+listRumMetricsDestinationsResponse_nextToken :: Lens.Lens' ListRumMetricsDestinationsResponse (Prelude.Maybe Prelude.Text)
+listRumMetricsDestinationsResponse_nextToken = Lens.lens (\ListRumMetricsDestinationsResponse' {nextToken} -> nextToken) (\s@ListRumMetricsDestinationsResponse' {} a -> s {nextToken = a} :: ListRumMetricsDestinationsResponse)
 
 -- | The response's http status code.
 listRumMetricsDestinationsResponse_httpStatus :: Lens.Lens' ListRumMetricsDestinationsResponse Prelude.Int
@@ -256,6 +256,6 @@ instance
     ListRumMetricsDestinationsResponse
   where
   rnf ListRumMetricsDestinationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf destinations
+    Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

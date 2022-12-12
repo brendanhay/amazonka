@@ -27,17 +27,17 @@ module Amazonka.DynamoDB.ListImports
     newListImports,
 
     -- * Request Lenses
-    listImports_tableArn,
     listImports_nextToken,
     listImports_pageSize,
+    listImports_tableArn,
 
     -- * Destructuring the Response
     ListImportsResponse (..),
     newListImportsResponse,
 
     -- * Response Lenses
-    listImportsResponse_nextToken,
     listImportsResponse_importSummaryList,
+    listImportsResponse_nextToken,
     listImportsResponse_httpStatus,
   )
 where
@@ -52,15 +52,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListImports' smart constructor.
 data ListImports = ListImports'
-  { -- | The Amazon Resource Name (ARN) associated with the table that was
-    -- imported to.
-    tableArn :: Prelude.Maybe Prelude.Text,
-    -- | An optional string that, if supplied, must be copied from the output of
+  { -- | An optional string that, if supplied, must be copied from the output of
     -- a previous call to @ListImports@. When provided in this manner, the API
     -- fetches the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of @ImportSummary @objects returned in a single page.
-    pageSize :: Prelude.Maybe Prelude.Natural
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) associated with the table that was
+    -- imported to.
+    tableArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,27 +72,22 @@ data ListImports = ListImports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableArn', 'listImports_tableArn' - The Amazon Resource Name (ARN) associated with the table that was
--- imported to.
---
 -- 'nextToken', 'listImports_nextToken' - An optional string that, if supplied, must be copied from the output of
 -- a previous call to @ListImports@. When provided in this manner, the API
 -- fetches the next page of results.
 --
 -- 'pageSize', 'listImports_pageSize' - The number of @ImportSummary @objects returned in a single page.
+--
+-- 'tableArn', 'listImports_tableArn' - The Amazon Resource Name (ARN) associated with the table that was
+-- imported to.
 newListImports ::
   ListImports
 newListImports =
   ListImports'
-    { tableArn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      pageSize = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      tableArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) associated with the table that was
--- imported to.
-listImports_tableArn :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Text)
-listImports_tableArn = Lens.lens (\ListImports' {tableArn} -> tableArn) (\s@ListImports' {} a -> s {tableArn = a} :: ListImports)
 
 -- | An optional string that, if supplied, must be copied from the output of
 -- a previous call to @ListImports@. When provided in this manner, the API
@@ -104,6 +99,11 @@ listImports_nextToken = Lens.lens (\ListImports' {nextToken} -> nextToken) (\s@L
 listImports_pageSize :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Natural)
 listImports_pageSize = Lens.lens (\ListImports' {pageSize} -> pageSize) (\s@ListImports' {} a -> s {pageSize = a} :: ListImports)
 
+-- | The Amazon Resource Name (ARN) associated with the table that was
+-- imported to.
+listImports_tableArn :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Text)
+listImports_tableArn = Lens.lens (\ListImports' {tableArn} -> tableArn) (\s@ListImports' {} a -> s {tableArn = a} :: ListImports)
+
 instance Core.AWSRequest ListImports where
   type AWSResponse ListImports = ListImportsResponse
   request overrides =
@@ -112,24 +112,24 @@ instance Core.AWSRequest ListImports where
     Response.receiveJSON
       ( \s h x ->
           ListImportsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ImportSummaryList"
+            Prelude.<$> ( x Data..?> "ImportSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListImports where
   hashWithSalt _salt ListImports' {..} =
-    _salt `Prelude.hashWithSalt` tableArn
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` tableArn
 
 instance Prelude.NFData ListImports where
   rnf ListImports' {..} =
-    Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf tableArn
 
 instance Data.ToHeaders ListImports where
   toHeaders =
@@ -150,9 +150,9 @@ instance Data.ToJSON ListImports where
   toJSON ListImports' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TableArn" Data..=) Prelude.<$> tableArn,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("PageSize" Data..=) Prelude.<$> pageSize
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("TableArn" Data..=) Prelude.<$> tableArn
           ]
       )
 
@@ -164,12 +164,12 @@ instance Data.ToQuery ListImports where
 
 -- | /See:/ 'newListImportsResponse' smart constructor.
 data ListImportsResponse = ListImportsResponse'
-  { -- | If this value is returned, there are additional results to be displayed.
+  { -- | A list of @ImportSummary@ objects.
+    importSummaryList :: Prelude.Maybe [ImportSummary],
+    -- | If this value is returned, there are additional results to be displayed.
     -- To retrieve them, call @ListImports@ again, with @NextToken@ set to this
     -- value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ImportSummary@ objects.
-    importSummaryList :: Prelude.Maybe [ImportSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,11 +183,11 @@ data ListImportsResponse = ListImportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'importSummaryList', 'listImportsResponse_importSummaryList' - A list of @ImportSummary@ objects.
+--
 -- 'nextToken', 'listImportsResponse_nextToken' - If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call @ListImports@ again, with @NextToken@ set to this
 -- value.
---
--- 'importSummaryList', 'listImportsResponse_importSummaryList' - A list of @ImportSummary@ objects.
 --
 -- 'httpStatus', 'listImportsResponse_httpStatus' - The response's http status code.
 newListImportsResponse ::
@@ -196,10 +196,15 @@ newListImportsResponse ::
   ListImportsResponse
 newListImportsResponse pHttpStatus_ =
   ListImportsResponse'
-    { nextToken = Prelude.Nothing,
-      importSummaryList = Prelude.Nothing,
+    { importSummaryList =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @ImportSummary@ objects.
+listImportsResponse_importSummaryList :: Lens.Lens' ListImportsResponse (Prelude.Maybe [ImportSummary])
+listImportsResponse_importSummaryList = Lens.lens (\ListImportsResponse' {importSummaryList} -> importSummaryList) (\s@ListImportsResponse' {} a -> s {importSummaryList = a} :: ListImportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call @ListImports@ again, with @NextToken@ set to this
@@ -207,16 +212,12 @@ newListImportsResponse pHttpStatus_ =
 listImportsResponse_nextToken :: Lens.Lens' ListImportsResponse (Prelude.Maybe Prelude.Text)
 listImportsResponse_nextToken = Lens.lens (\ListImportsResponse' {nextToken} -> nextToken) (\s@ListImportsResponse' {} a -> s {nextToken = a} :: ListImportsResponse)
 
--- | A list of @ImportSummary@ objects.
-listImportsResponse_importSummaryList :: Lens.Lens' ListImportsResponse (Prelude.Maybe [ImportSummary])
-listImportsResponse_importSummaryList = Lens.lens (\ListImportsResponse' {importSummaryList} -> importSummaryList) (\s@ListImportsResponse' {} a -> s {importSummaryList = a} :: ListImportsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listImportsResponse_httpStatus :: Lens.Lens' ListImportsResponse Prelude.Int
 listImportsResponse_httpStatus = Lens.lens (\ListImportsResponse' {httpStatus} -> httpStatus) (\s@ListImportsResponse' {} a -> s {httpStatus = a} :: ListImportsResponse)
 
 instance Prelude.NFData ListImportsResponse where
   rnf ListImportsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf importSummaryList
+    Prelude.rnf importSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

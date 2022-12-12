@@ -42,8 +42,8 @@ module Amazonka.CloudControl.Lens
     getResource_typeVersionId,
     getResource_typeName,
     getResource_identifier,
-    getResourceResponse_typeName,
     getResourceResponse_resourceDescription,
+    getResourceResponse_typeName,
     getResourceResponse_httpStatus,
 
     -- ** GetResourceRequestStatus
@@ -52,18 +52,18 @@ module Amazonka.CloudControl.Lens
     getResourceRequestStatusResponse_httpStatus,
 
     -- ** ListResourceRequests
-    listResourceRequests_nextToken,
     listResourceRequests_maxResults,
+    listResourceRequests_nextToken,
     listResourceRequests_resourceRequestStatusFilter,
     listResourceRequestsResponse_nextToken,
     listResourceRequestsResponse_resourceRequestStatusSummaries,
     listResourceRequestsResponse_httpStatus,
 
     -- ** ListResources
-    listResources_resourceModel,
-    listResources_nextToken,
-    listResources_roleArn,
     listResources_maxResults,
+    listResources_nextToken,
+    listResources_resourceModel,
+    listResources_roleArn,
     listResources_typeVersionId,
     listResources_typeName,
     listResourcesResponse_nextToken,
@@ -84,24 +84,24 @@ module Amazonka.CloudControl.Lens
     -- * Types
 
     -- ** ProgressEvent
-    progressEvent_retryAfter,
-    progressEvent_resourceModel,
-    progressEvent_operationStatus,
-    progressEvent_typeName,
-    progressEvent_requestToken,
-    progressEvent_identifier,
     progressEvent_errorCode,
     progressEvent_eventTime,
-    progressEvent_statusMessage,
+    progressEvent_identifier,
     progressEvent_operation,
+    progressEvent_operationStatus,
+    progressEvent_requestToken,
+    progressEvent_resourceModel,
+    progressEvent_retryAfter,
+    progressEvent_statusMessage,
+    progressEvent_typeName,
 
     -- ** ResourceDescription
-    resourceDescription_properties,
     resourceDescription_identifier,
+    resourceDescription_properties,
 
     -- ** ResourceRequestStatusFilter
-    resourceRequestStatusFilter_operations,
     resourceRequestStatusFilter_operationStatuses,
+    resourceRequestStatusFilter_operations,
   )
 where
 

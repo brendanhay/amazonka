@@ -37,12 +37,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
-  { -- | An array that contains the email addresses of the \"CC\" (carbon copy)
-    -- recipients for the email.
-    ccAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | An array that contains the email addresses of the \"BCC\" (blind carbon
+  { -- | An array that contains the email addresses of the \"BCC\" (blind carbon
     -- copy) recipients for the email.
     bccAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | An array that contains the email addresses of the \"CC\" (carbon copy)
+    -- recipients for the email.
+    ccAddresses :: Prelude.Maybe [Prelude.Text],
     -- | An array that contains the email addresses of the \"To\" recipients for
     -- the email.
     toAddresses :: Prelude.Maybe [Prelude.Text]
@@ -57,11 +57,11 @@ data Destination = Destination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ccAddresses', 'destination_ccAddresses' - An array that contains the email addresses of the \"CC\" (carbon copy)
--- recipients for the email.
---
 -- 'bccAddresses', 'destination_bccAddresses' - An array that contains the email addresses of the \"BCC\" (blind carbon
 -- copy) recipients for the email.
+--
+-- 'ccAddresses', 'destination_ccAddresses' - An array that contains the email addresses of the \"CC\" (carbon copy)
+-- recipients for the email.
 --
 -- 'toAddresses', 'destination_toAddresses' - An array that contains the email addresses of the \"To\" recipients for
 -- the email.
@@ -69,20 +69,20 @@ newDestination ::
   Destination
 newDestination =
   Destination'
-    { ccAddresses = Prelude.Nothing,
-      bccAddresses = Prelude.Nothing,
+    { bccAddresses = Prelude.Nothing,
+      ccAddresses = Prelude.Nothing,
       toAddresses = Prelude.Nothing
     }
-
--- | An array that contains the email addresses of the \"CC\" (carbon copy)
--- recipients for the email.
-destination_ccAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
-destination_ccAddresses = Lens.lens (\Destination' {ccAddresses} -> ccAddresses) (\s@Destination' {} a -> s {ccAddresses = a} :: Destination) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array that contains the email addresses of the \"BCC\" (blind carbon
 -- copy) recipients for the email.
 destination_bccAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
 destination_bccAddresses = Lens.lens (\Destination' {bccAddresses} -> bccAddresses) (\s@Destination' {} a -> s {bccAddresses = a} :: Destination) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array that contains the email addresses of the \"CC\" (carbon copy)
+-- recipients for the email.
+destination_ccAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
+destination_ccAddresses = Lens.lens (\Destination' {ccAddresses} -> ccAddresses) (\s@Destination' {} a -> s {ccAddresses = a} :: Destination) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array that contains the email addresses of the \"To\" recipients for
 -- the email.
@@ -91,22 +91,22 @@ destination_toAddresses = Lens.lens (\Destination' {toAddresses} -> toAddresses)
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt `Prelude.hashWithSalt` ccAddresses
-      `Prelude.hashWithSalt` bccAddresses
+    _salt `Prelude.hashWithSalt` bccAddresses
+      `Prelude.hashWithSalt` ccAddresses
       `Prelude.hashWithSalt` toAddresses
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf ccAddresses
-      `Prelude.seq` Prelude.rnf bccAddresses
+    Prelude.rnf bccAddresses
+      `Prelude.seq` Prelude.rnf ccAddresses
       `Prelude.seq` Prelude.rnf toAddresses
 
 instance Data.ToJSON Destination where
   toJSON Destination' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CcAddresses" Data..=) Prelude.<$> ccAddresses,
-            ("BccAddresses" Data..=) Prelude.<$> bccAddresses,
+          [ ("BccAddresses" Data..=) Prelude.<$> bccAddresses,
+            ("CcAddresses" Data..=) Prelude.<$> ccAddresses,
             ("ToAddresses" Data..=) Prelude.<$> toAddresses
           ]
       )

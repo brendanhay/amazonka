@@ -29,8 +29,8 @@ module Amazonka.Schemas.SearchSchemas
     newSearchSchemas,
 
     -- * Request Lenses
-    searchSchemas_nextToken,
     searchSchemas_limit,
+    searchSchemas_nextToken,
     searchSchemas_registryName,
     searchSchemas_keywords,
 
@@ -55,11 +55,11 @@ import Amazonka.Schemas.Types
 
 -- | /See:/ 'newSearchSchemas' smart constructor.
 data SearchSchemas = SearchSchemas'
-  { -- | The token that specifies the next page of results to return. To request
+  { limit :: Prelude.Maybe Prelude.Int,
+    -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
-    limit :: Prelude.Maybe Prelude.Int,
     -- | The name of the registry.
     registryName :: Prelude.Text,
     -- | Specifying this limits the results to only schemas that include the
@@ -76,11 +76,11 @@ data SearchSchemas = SearchSchemas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'searchSchemas_limit' - Undocumented member.
+--
 -- 'nextToken', 'searchSchemas_nextToken' - The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
---
--- 'limit', 'searchSchemas_limit' - Undocumented member.
 --
 -- 'registryName', 'searchSchemas_registryName' - The name of the registry.
 --
@@ -94,21 +94,21 @@ newSearchSchemas ::
   SearchSchemas
 newSearchSchemas pRegistryName_ pKeywords_ =
   SearchSchemas'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       registryName = pRegistryName_,
       keywords = pKeywords_
     }
+
+-- | Undocumented member.
+searchSchemas_limit :: Lens.Lens' SearchSchemas (Prelude.Maybe Prelude.Int)
+searchSchemas_limit = Lens.lens (\SearchSchemas' {limit} -> limit) (\s@SearchSchemas' {} a -> s {limit = a} :: SearchSchemas)
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
 searchSchemas_nextToken :: Lens.Lens' SearchSchemas (Prelude.Maybe Prelude.Text)
 searchSchemas_nextToken = Lens.lens (\SearchSchemas' {nextToken} -> nextToken) (\s@SearchSchemas' {} a -> s {nextToken = a} :: SearchSchemas)
-
--- | Undocumented member.
-searchSchemas_limit :: Lens.Lens' SearchSchemas (Prelude.Maybe Prelude.Int)
-searchSchemas_limit = Lens.lens (\SearchSchemas' {limit} -> limit) (\s@SearchSchemas' {} a -> s {limit = a} :: SearchSchemas)
 
 -- | The name of the registry.
 searchSchemas_registryName :: Lens.Lens' SearchSchemas Prelude.Text
@@ -155,15 +155,15 @@ instance Core.AWSRequest SearchSchemas where
 
 instance Prelude.Hashable SearchSchemas where
   hashWithSalt _salt SearchSchemas' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` keywords
 
 instance Prelude.NFData SearchSchemas where
   rnf SearchSchemas' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf keywords
 
@@ -189,8 +189,8 @@ instance Data.ToPath SearchSchemas where
 instance Data.ToQuery SearchSchemas where
   toQuery SearchSchemas' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "limit" Data.=: limit,
+      [ "limit" Data.=: limit,
+        "nextToken" Data.=: nextToken,
         "keywords" Data.=: keywords
       ]
 

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCancelCapacityReservationFleetError' smart constructor.
 data CancelCapacityReservationFleetError = CancelCapacityReservationFleetError'
-  { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | The error code.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The error message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data CancelCapacityReservationFleetError = CancelCapacityReservationFleetError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'cancelCapacityReservationFleetError_message' - The error message.
---
 -- 'code', 'cancelCapacityReservationFleetError_code' - The error code.
+--
+-- 'message', 'cancelCapacityReservationFleetError_message' - The error message.
 newCancelCapacityReservationFleetError ::
   CancelCapacityReservationFleetError
 newCancelCapacityReservationFleetError =
   CancelCapacityReservationFleetError'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The error message.
-cancelCapacityReservationFleetError_message :: Lens.Lens' CancelCapacityReservationFleetError (Prelude.Maybe Prelude.Text)
-cancelCapacityReservationFleetError_message = Lens.lens (\CancelCapacityReservationFleetError' {message} -> message) (\s@CancelCapacityReservationFleetError' {} a -> s {message = a} :: CancelCapacityReservationFleetError)
 
 -- | The error code.
 cancelCapacityReservationFleetError_code :: Lens.Lens' CancelCapacityReservationFleetError (Prelude.Maybe Prelude.Text)
 cancelCapacityReservationFleetError_code = Lens.lens (\CancelCapacityReservationFleetError' {code} -> code) (\s@CancelCapacityReservationFleetError' {} a -> s {code = a} :: CancelCapacityReservationFleetError)
+
+-- | The error message.
+cancelCapacityReservationFleetError_message :: Lens.Lens' CancelCapacityReservationFleetError (Prelude.Maybe Prelude.Text)
+cancelCapacityReservationFleetError_message = Lens.lens (\CancelCapacityReservationFleetError' {message} -> message) (\s@CancelCapacityReservationFleetError' {} a -> s {message = a} :: CancelCapacityReservationFleetError)
 
 instance
   Data.FromXML
@@ -70,8 +70,8 @@ instance
   where
   parseXML x =
     CancelCapacityReservationFleetError'
-      Prelude.<$> (x Data..@? "message")
-      Prelude.<*> (x Data..@? "code")
+      Prelude.<$> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "message")
 
 instance
   Prelude.Hashable
@@ -80,12 +80,12 @@ instance
   hashWithSalt
     _salt
     CancelCapacityReservationFleetError' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` code
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     CancelCapacityReservationFleetError
   where
   rnf CancelCapacityReservationFleetError' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

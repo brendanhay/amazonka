@@ -34,8 +34,8 @@ module Amazonka.IoTFleetWise.GetSignalCatalog
     newGetSignalCatalogResponse,
 
     -- * Response Lenses
-    getSignalCatalogResponse_nodeCounts,
     getSignalCatalogResponse_description,
+    getSignalCatalogResponse_nodeCounts,
     getSignalCatalogResponse_httpStatus,
     getSignalCatalogResponse_name,
     getSignalCatalogResponse_arn,
@@ -89,8 +89,8 @@ instance Core.AWSRequest GetSignalCatalog where
     Response.receiveJSON
       ( \s h x ->
           GetSignalCatalogResponse'
-            Prelude.<$> (x Data..?> "nodeCounts")
-            Prelude.<*> (x Data..?> "description")
+            Prelude.<$> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "nodeCounts")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "arn")
@@ -135,10 +135,10 @@ instance Data.ToQuery GetSignalCatalog where
 
 -- | /See:/ 'newGetSignalCatalogResponse' smart constructor.
 data GetSignalCatalogResponse = GetSignalCatalogResponse'
-  { -- | The total number of network nodes specified in a signal catalog.
-    nodeCounts :: Prelude.Maybe NodeCounts,
-    -- | A brief description of the signal catalog.
+  { -- | A brief description of the signal catalog.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The total number of network nodes specified in a signal catalog.
+    nodeCounts :: Prelude.Maybe NodeCounts,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the signal catalog.
@@ -161,9 +161,9 @@ data GetSignalCatalogResponse = GetSignalCatalogResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeCounts', 'getSignalCatalogResponse_nodeCounts' - The total number of network nodes specified in a signal catalog.
---
 -- 'description', 'getSignalCatalogResponse_description' - A brief description of the signal catalog.
+--
+-- 'nodeCounts', 'getSignalCatalogResponse_nodeCounts' - The total number of network nodes specified in a signal catalog.
 --
 -- 'httpStatus', 'getSignalCatalogResponse_httpStatus' - The response's http status code.
 --
@@ -194,9 +194,9 @@ newGetSignalCatalogResponse
   pCreationTime_
   pLastModificationTime_ =
     GetSignalCatalogResponse'
-      { nodeCounts =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        nodeCounts = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         name = pName_,
         arn = pArn_,
@@ -205,13 +205,13 @@ newGetSignalCatalogResponse
           Data._Time Lens.# pLastModificationTime_
       }
 
--- | The total number of network nodes specified in a signal catalog.
-getSignalCatalogResponse_nodeCounts :: Lens.Lens' GetSignalCatalogResponse (Prelude.Maybe NodeCounts)
-getSignalCatalogResponse_nodeCounts = Lens.lens (\GetSignalCatalogResponse' {nodeCounts} -> nodeCounts) (\s@GetSignalCatalogResponse' {} a -> s {nodeCounts = a} :: GetSignalCatalogResponse)
-
 -- | A brief description of the signal catalog.
 getSignalCatalogResponse_description :: Lens.Lens' GetSignalCatalogResponse (Prelude.Maybe Prelude.Text)
 getSignalCatalogResponse_description = Lens.lens (\GetSignalCatalogResponse' {description} -> description) (\s@GetSignalCatalogResponse' {} a -> s {description = a} :: GetSignalCatalogResponse)
+
+-- | The total number of network nodes specified in a signal catalog.
+getSignalCatalogResponse_nodeCounts :: Lens.Lens' GetSignalCatalogResponse (Prelude.Maybe NodeCounts)
+getSignalCatalogResponse_nodeCounts = Lens.lens (\GetSignalCatalogResponse' {nodeCounts} -> nodeCounts) (\s@GetSignalCatalogResponse' {} a -> s {nodeCounts = a} :: GetSignalCatalogResponse)
 
 -- | The response's http status code.
 getSignalCatalogResponse_httpStatus :: Lens.Lens' GetSignalCatalogResponse Prelude.Int
@@ -236,8 +236,8 @@ getSignalCatalogResponse_lastModificationTime = Lens.lens (\GetSignalCatalogResp
 
 instance Prelude.NFData GetSignalCatalogResponse where
   rnf GetSignalCatalogResponse' {..} =
-    Prelude.rnf nodeCounts
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf nodeCounts
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn

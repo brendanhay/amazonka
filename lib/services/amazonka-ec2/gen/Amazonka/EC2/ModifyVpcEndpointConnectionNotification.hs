@@ -30,8 +30,8 @@ module Amazonka.EC2.ModifyVpcEndpointConnectionNotification
 
     -- * Request Lenses
     modifyVpcEndpointConnectionNotification_connectionEvents,
-    modifyVpcEndpointConnectionNotification_dryRun,
     modifyVpcEndpointConnectionNotification_connectionNotificationArn,
+    modifyVpcEndpointConnectionNotification_dryRun,
     modifyVpcEndpointConnectionNotification_connectionNotificationId,
 
     -- * Destructuring the Response
@@ -57,13 +57,13 @@ data ModifyVpcEndpointConnectionNotification = ModifyVpcEndpointConnectionNotifi
   { -- | One or more events for the endpoint. Valid values are @Accept@,
     -- @Connect@, @Delete@, and @Reject@.
     connectionEvents :: Prelude.Maybe [Prelude.Text],
+    -- | The ARN for the SNS topic for the notification.
+    connectionNotificationArn :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN for the SNS topic for the notification.
-    connectionNotificationArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the notification.
     connectionNotificationId :: Prelude.Text
   }
@@ -80,12 +80,12 @@ data ModifyVpcEndpointConnectionNotification = ModifyVpcEndpointConnectionNotifi
 -- 'connectionEvents', 'modifyVpcEndpointConnectionNotification_connectionEvents' - One or more events for the endpoint. Valid values are @Accept@,
 -- @Connect@, @Delete@, and @Reject@.
 --
+-- 'connectionNotificationArn', 'modifyVpcEndpointConnectionNotification_connectionNotificationArn' - The ARN for the SNS topic for the notification.
+--
 -- 'dryRun', 'modifyVpcEndpointConnectionNotification_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'connectionNotificationArn', 'modifyVpcEndpointConnectionNotification_connectionNotificationArn' - The ARN for the SNS topic for the notification.
 --
 -- 'connectionNotificationId', 'modifyVpcEndpointConnectionNotification_connectionNotificationId' - The ID of the notification.
 newModifyVpcEndpointConnectionNotification ::
@@ -97,9 +97,9 @@ newModifyVpcEndpointConnectionNotification
     ModifyVpcEndpointConnectionNotification'
       { connectionEvents =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         connectionNotificationArn =
           Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         connectionNotificationId =
           pConnectionNotificationId_
       }
@@ -109,16 +109,16 @@ newModifyVpcEndpointConnectionNotification
 modifyVpcEndpointConnectionNotification_connectionEvents :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpointConnectionNotification_connectionEvents = Lens.lens (\ModifyVpcEndpointConnectionNotification' {connectionEvents} -> connectionEvents) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {connectionEvents = a} :: ModifyVpcEndpointConnectionNotification) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ARN for the SNS topic for the notification.
+modifyVpcEndpointConnectionNotification_connectionNotificationArn :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Text)
+modifyVpcEndpointConnectionNotification_connectionNotificationArn = Lens.lens (\ModifyVpcEndpointConnectionNotification' {connectionNotificationArn} -> connectionNotificationArn) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {connectionNotificationArn = a} :: ModifyVpcEndpointConnectionNotification)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyVpcEndpointConnectionNotification_dryRun :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointConnectionNotification_dryRun = Lens.lens (\ModifyVpcEndpointConnectionNotification' {dryRun} -> dryRun) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {dryRun = a} :: ModifyVpcEndpointConnectionNotification)
-
--- | The ARN for the SNS topic for the notification.
-modifyVpcEndpointConnectionNotification_connectionNotificationArn :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Text)
-modifyVpcEndpointConnectionNotification_connectionNotificationArn = Lens.lens (\ModifyVpcEndpointConnectionNotification' {connectionNotificationArn} -> connectionNotificationArn) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {connectionNotificationArn = a} :: ModifyVpcEndpointConnectionNotification)
 
 -- | The ID of the notification.
 modifyVpcEndpointConnectionNotification_connectionNotificationId :: Lens.Lens' ModifyVpcEndpointConnectionNotification Prelude.Text
@@ -150,8 +150,8 @@ instance
     _salt
     ModifyVpcEndpointConnectionNotification' {..} =
       _salt `Prelude.hashWithSalt` connectionEvents
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` connectionNotificationArn
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` connectionNotificationId
 
 instance
@@ -160,8 +160,8 @@ instance
   where
   rnf ModifyVpcEndpointConnectionNotification' {..} =
     Prelude.rnf connectionEvents
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf connectionNotificationArn
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf connectionNotificationId
 
 instance
@@ -192,9 +192,9 @@ instance
           ( Data.toQueryList "ConnectionEvents"
               Prelude.<$> connectionEvents
           ),
-        "DryRun" Data.=: dryRun,
         "ConnectionNotificationArn"
           Data.=: connectionNotificationArn,
+        "DryRun" Data.=: dryRun,
         "ConnectionNotificationId"
           Data.=: connectionNotificationId
       ]

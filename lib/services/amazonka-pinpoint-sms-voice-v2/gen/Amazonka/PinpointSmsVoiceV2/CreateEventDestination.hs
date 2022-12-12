@@ -39,8 +39,8 @@ module Amazonka.PinpointSmsVoiceV2.CreateEventDestination
     -- * Request Lenses
     createEventDestination_clientToken,
     createEventDestination_cloudWatchLogsDestination,
-    createEventDestination_snsDestination,
     createEventDestination_kinesisFirehoseDestination,
+    createEventDestination_snsDestination,
     createEventDestination_configurationSetName,
     createEventDestination_eventDestinationName,
     createEventDestination_matchingEventTypes,
@@ -50,9 +50,9 @@ module Amazonka.PinpointSmsVoiceV2.CreateEventDestination
     newCreateEventDestinationResponse,
 
     -- * Response Lenses
+    createEventDestinationResponse_configurationSetArn,
     createEventDestinationResponse_configurationSetName,
     createEventDestinationResponse_eventDestination,
-    createEventDestinationResponse_configurationSetArn,
     createEventDestinationResponse_httpStatus,
   )
 where
@@ -75,11 +75,11 @@ data CreateEventDestination = CreateEventDestination'
     -- logging to Amazon CloudWatch logs.
     cloudWatchLogsDestination :: Prelude.Maybe CloudWatchLogsDestination,
     -- | An object that contains information about an event destination for
-    -- logging to Amazon SNS.
-    snsDestination :: Prelude.Maybe SnsDestination,
-    -- | An object that contains information about an event destination for
     -- logging to Amazon Kinesis Data Firehose.
     kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination,
+    -- | An object that contains information about an event destination for
+    -- logging to Amazon SNS.
+    snsDestination :: Prelude.Maybe SnsDestination,
     -- | Either the name of the configuration set or the configuration set ARN to
     -- apply event logging to. The ConfigurateSetName and ConfigurationSetArn
     -- can be found using the DescribeConfigurationSets action.
@@ -107,11 +107,11 @@ data CreateEventDestination = CreateEventDestination'
 -- 'cloudWatchLogsDestination', 'createEventDestination_cloudWatchLogsDestination' - An object that contains information about an event destination for
 -- logging to Amazon CloudWatch logs.
 --
--- 'snsDestination', 'createEventDestination_snsDestination' - An object that contains information about an event destination for
--- logging to Amazon SNS.
---
 -- 'kinesisFirehoseDestination', 'createEventDestination_kinesisFirehoseDestination' - An object that contains information about an event destination for
 -- logging to Amazon Kinesis Data Firehose.
+--
+-- 'snsDestination', 'createEventDestination_snsDestination' - An object that contains information about an event destination for
+-- logging to Amazon SNS.
 --
 -- 'configurationSetName', 'createEventDestination_configurationSetName' - Either the name of the configuration set or the configuration set ARN to
 -- apply event logging to. The ConfigurateSetName and ConfigurationSetArn
@@ -137,8 +137,8 @@ newCreateEventDestination
       { clientToken =
           Prelude.Nothing,
         cloudWatchLogsDestination = Prelude.Nothing,
-        snsDestination = Prelude.Nothing,
         kinesisFirehoseDestination = Prelude.Nothing,
+        snsDestination = Prelude.Nothing,
         configurationSetName = pConfigurationSetName_,
         eventDestinationName = pEventDestinationName_,
         matchingEventTypes =
@@ -157,14 +157,14 @@ createEventDestination_cloudWatchLogsDestination :: Lens.Lens' CreateEventDestin
 createEventDestination_cloudWatchLogsDestination = Lens.lens (\CreateEventDestination' {cloudWatchLogsDestination} -> cloudWatchLogsDestination) (\s@CreateEventDestination' {} a -> s {cloudWatchLogsDestination = a} :: CreateEventDestination)
 
 -- | An object that contains information about an event destination for
--- logging to Amazon SNS.
-createEventDestination_snsDestination :: Lens.Lens' CreateEventDestination (Prelude.Maybe SnsDestination)
-createEventDestination_snsDestination = Lens.lens (\CreateEventDestination' {snsDestination} -> snsDestination) (\s@CreateEventDestination' {} a -> s {snsDestination = a} :: CreateEventDestination)
-
--- | An object that contains information about an event destination for
 -- logging to Amazon Kinesis Data Firehose.
 createEventDestination_kinesisFirehoseDestination :: Lens.Lens' CreateEventDestination (Prelude.Maybe KinesisFirehoseDestination)
 createEventDestination_kinesisFirehoseDestination = Lens.lens (\CreateEventDestination' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@CreateEventDestination' {} a -> s {kinesisFirehoseDestination = a} :: CreateEventDestination)
+
+-- | An object that contains information about an event destination for
+-- logging to Amazon SNS.
+createEventDestination_snsDestination :: Lens.Lens' CreateEventDestination (Prelude.Maybe SnsDestination)
+createEventDestination_snsDestination = Lens.lens (\CreateEventDestination' {snsDestination} -> snsDestination) (\s@CreateEventDestination' {} a -> s {snsDestination = a} :: CreateEventDestination)
 
 -- | Either the name of the configuration set or the configuration set ARN to
 -- apply event logging to. The ConfigurateSetName and ConfigurationSetArn
@@ -191,9 +191,9 @@ instance Core.AWSRequest CreateEventDestination where
     Response.receiveJSON
       ( \s h x ->
           CreateEventDestinationResponse'
-            Prelude.<$> (x Data..?> "ConfigurationSetName")
+            Prelude.<$> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
             Prelude.<*> (x Data..?> "EventDestination")
-            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,8 +201,8 @@ instance Prelude.Hashable CreateEventDestination where
   hashWithSalt _salt CreateEventDestination' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` cloudWatchLogsDestination
-      `Prelude.hashWithSalt` snsDestination
       `Prelude.hashWithSalt` kinesisFirehoseDestination
+      `Prelude.hashWithSalt` snsDestination
       `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` eventDestinationName
       `Prelude.hashWithSalt` matchingEventTypes
@@ -211,8 +211,8 @@ instance Prelude.NFData CreateEventDestination where
   rnf CreateEventDestination' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf cloudWatchLogsDestination
-      `Prelude.seq` Prelude.rnf snsDestination
       `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
+      `Prelude.seq` Prelude.rnf snsDestination
       `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf eventDestinationName
       `Prelude.seq` Prelude.rnf matchingEventTypes
@@ -239,10 +239,10 @@ instance Data.ToJSON CreateEventDestination where
           [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("CloudWatchLogsDestination" Data..=)
               Prelude.<$> cloudWatchLogsDestination,
-            ("SnsDestination" Data..=)
-              Prelude.<$> snsDestination,
             ("KinesisFirehoseDestination" Data..=)
               Prelude.<$> kinesisFirehoseDestination,
+            ("SnsDestination" Data..=)
+              Prelude.<$> snsDestination,
             Prelude.Just
               ( "ConfigurationSetName"
                   Data..= configurationSetName
@@ -264,12 +264,12 @@ instance Data.ToQuery CreateEventDestination where
 
 -- | /See:/ 'newCreateEventDestinationResponse' smart constructor.
 data CreateEventDestinationResponse = CreateEventDestinationResponse'
-  { -- | The name of the configuration set.
+  { -- | The ARN of the configuration set.
+    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration set.
     configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The details of the destination where events are logged.
     eventDestination :: Prelude.Maybe EventDestination,
-    -- | The ARN of the configuration set.
-    configurationSetArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -283,11 +283,11 @@ data CreateEventDestinationResponse = CreateEventDestinationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configurationSetArn', 'createEventDestinationResponse_configurationSetArn' - The ARN of the configuration set.
+--
 -- 'configurationSetName', 'createEventDestinationResponse_configurationSetName' - The name of the configuration set.
 --
 -- 'eventDestination', 'createEventDestinationResponse_eventDestination' - The details of the destination where events are logged.
---
--- 'configurationSetArn', 'createEventDestinationResponse_configurationSetArn' - The ARN of the configuration set.
 --
 -- 'httpStatus', 'createEventDestinationResponse_httpStatus' - The response's http status code.
 newCreateEventDestinationResponse ::
@@ -296,12 +296,16 @@ newCreateEventDestinationResponse ::
   CreateEventDestinationResponse
 newCreateEventDestinationResponse pHttpStatus_ =
   CreateEventDestinationResponse'
-    { configurationSetName =
+    { configurationSetArn =
         Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
       eventDestination = Prelude.Nothing,
-      configurationSetArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the configuration set.
+createEventDestinationResponse_configurationSetArn :: Lens.Lens' CreateEventDestinationResponse (Prelude.Maybe Prelude.Text)
+createEventDestinationResponse_configurationSetArn = Lens.lens (\CreateEventDestinationResponse' {configurationSetArn} -> configurationSetArn) (\s@CreateEventDestinationResponse' {} a -> s {configurationSetArn = a} :: CreateEventDestinationResponse)
 
 -- | The name of the configuration set.
 createEventDestinationResponse_configurationSetName :: Lens.Lens' CreateEventDestinationResponse (Prelude.Maybe Prelude.Text)
@@ -310,10 +314,6 @@ createEventDestinationResponse_configurationSetName = Lens.lens (\CreateEventDes
 -- | The details of the destination where events are logged.
 createEventDestinationResponse_eventDestination :: Lens.Lens' CreateEventDestinationResponse (Prelude.Maybe EventDestination)
 createEventDestinationResponse_eventDestination = Lens.lens (\CreateEventDestinationResponse' {eventDestination} -> eventDestination) (\s@CreateEventDestinationResponse' {} a -> s {eventDestination = a} :: CreateEventDestinationResponse)
-
--- | The ARN of the configuration set.
-createEventDestinationResponse_configurationSetArn :: Lens.Lens' CreateEventDestinationResponse (Prelude.Maybe Prelude.Text)
-createEventDestinationResponse_configurationSetArn = Lens.lens (\CreateEventDestinationResponse' {configurationSetArn} -> configurationSetArn) (\s@CreateEventDestinationResponse' {} a -> s {configurationSetArn = a} :: CreateEventDestinationResponse)
 
 -- | The response's http status code.
 createEventDestinationResponse_httpStatus :: Lens.Lens' CreateEventDestinationResponse Prelude.Int
@@ -324,7 +324,7 @@ instance
     CreateEventDestinationResponse
   where
   rnf CreateEventDestinationResponse' {..} =
-    Prelude.rnf configurationSetName
+    Prelude.rnf configurationSetArn
+      `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf eventDestination
-      `Prelude.seq` Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf httpStatus

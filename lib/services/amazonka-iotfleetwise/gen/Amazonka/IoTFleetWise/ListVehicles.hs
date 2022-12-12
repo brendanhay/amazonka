@@ -32,9 +32,9 @@ module Amazonka.IoTFleetWise.ListVehicles
     newListVehicles,
 
     -- * Request Lenses
-    listVehicles_nextToken,
-    listVehicles_modelManifestArn,
     listVehicles_maxResults,
+    listVehicles_modelManifestArn,
+    listVehicles_nextToken,
 
     -- * Destructuring the Response
     ListVehiclesResponse (..),
@@ -57,20 +57,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVehicles' smart constructor.
 data ListVehicles = ListVehicles'
-  { -- | A pagination token for the next set of results.
+  { -- | The maximum number of items to return, between 1 and 100, inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of a vehicle model (model manifest). You
+    -- can use this optional parameter to list only the vehicles created from a
+    -- certain vehicle model.
+    modelManifestArn :: Prelude.Maybe Prelude.Text,
+    -- | A pagination token for the next set of results.
     --
     -- If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next set of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a vehicle model (model manifest). You
-    -- can use this optional parameter to list only the vehicles created from a
-    -- certain vehicle model.
-    modelManifestArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return, between 1 and 100, inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,6 +82,12 @@ data ListVehicles = ListVehicles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listVehicles_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
+--
+-- 'modelManifestArn', 'listVehicles_modelManifestArn' - The Amazon Resource Name (ARN) of a vehicle model (model manifest). You
+-- can use this optional parameter to list only the vehicles created from a
+-- certain vehicle model.
+--
 -- 'nextToken', 'listVehicles_nextToken' - A pagination token for the next set of results.
 --
 -- If the results of a search are large, only a portion of the results are
@@ -89,20 +95,24 @@ data ListVehicles = ListVehicles'
 -- response. To retrieve the next set of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'modelManifestArn', 'listVehicles_modelManifestArn' - The Amazon Resource Name (ARN) of a vehicle model (model manifest). You
--- can use this optional parameter to list only the vehicles created from a
--- certain vehicle model.
---
--- 'maxResults', 'listVehicles_maxResults' - The maximum number of items to return, between 1 and 100, inclusive.
 newListVehicles ::
   ListVehicles
 newListVehicles =
   ListVehicles'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       modelManifestArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to return, between 1 and 100, inclusive.
+listVehicles_maxResults :: Lens.Lens' ListVehicles (Prelude.Maybe Prelude.Natural)
+listVehicles_maxResults = Lens.lens (\ListVehicles' {maxResults} -> maxResults) (\s@ListVehicles' {} a -> s {maxResults = a} :: ListVehicles)
+
+-- | The Amazon Resource Name (ARN) of a vehicle model (model manifest). You
+-- can use this optional parameter to list only the vehicles created from a
+-- certain vehicle model.
+listVehicles_modelManifestArn :: Lens.Lens' ListVehicles (Prelude.Maybe Prelude.Text)
+listVehicles_modelManifestArn = Lens.lens (\ListVehicles' {modelManifestArn} -> modelManifestArn) (\s@ListVehicles' {} a -> s {modelManifestArn = a} :: ListVehicles)
 
 -- | A pagination token for the next set of results.
 --
@@ -113,16 +123,6 @@ newListVehicles =
 -- returned, the response does not contain a pagination token value.
 listVehicles_nextToken :: Lens.Lens' ListVehicles (Prelude.Maybe Prelude.Text)
 listVehicles_nextToken = Lens.lens (\ListVehicles' {nextToken} -> nextToken) (\s@ListVehicles' {} a -> s {nextToken = a} :: ListVehicles)
-
--- | The Amazon Resource Name (ARN) of a vehicle model (model manifest). You
--- can use this optional parameter to list only the vehicles created from a
--- certain vehicle model.
-listVehicles_modelManifestArn :: Lens.Lens' ListVehicles (Prelude.Maybe Prelude.Text)
-listVehicles_modelManifestArn = Lens.lens (\ListVehicles' {modelManifestArn} -> modelManifestArn) (\s@ListVehicles' {} a -> s {modelManifestArn = a} :: ListVehicles)
-
--- | The maximum number of items to return, between 1 and 100, inclusive.
-listVehicles_maxResults :: Lens.Lens' ListVehicles (Prelude.Maybe Prelude.Natural)
-listVehicles_maxResults = Lens.lens (\ListVehicles' {maxResults} -> maxResults) (\s@ListVehicles' {} a -> s {maxResults = a} :: ListVehicles)
 
 instance Core.AWSPager ListVehicles where
   page rq rs
@@ -161,15 +161,15 @@ instance Core.AWSRequest ListVehicles where
 
 instance Prelude.Hashable ListVehicles where
   hashWithSalt _salt ListVehicles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelManifestArn
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVehicles where
   rnf ListVehicles' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVehicles where
   toHeaders =
@@ -190,10 +190,10 @@ instance Data.ToJSON ListVehicles where
   toJSON ListVehicles' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("modelManifestArn" Data..=)
               Prelude.<$> modelManifestArn,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -34,12 +34,8 @@ data ChannelSummary = ChannelSummary'
     channelName :: Prelude.Maybe Prelude.Text,
     -- | Where channel data is stored.
     channelStorage :: Prelude.Maybe ChannelStorageSummary,
-    -- | The status of the channel.
-    status :: Prelude.Maybe ChannelStatus,
     -- | When the channel was created.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The last time the channel was updated.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The last time when a new message arrived in the channel.
     --
     -- IoT Analytics updates this value at most once per minute for one
@@ -47,7 +43,11 @@ data ChannelSummary = ChannelSummary'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Prelude.Maybe Data.POSIX
+    lastMessageArrivalTime :: Prelude.Maybe Data.POSIX,
+    -- | The last time the channel was updated.
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the channel.
+    status :: Prelude.Maybe ChannelStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,11 +63,7 @@ data ChannelSummary = ChannelSummary'
 --
 -- 'channelStorage', 'channelSummary_channelStorage' - Where channel data is stored.
 --
--- 'status', 'channelSummary_status' - The status of the channel.
---
 -- 'creationTime', 'channelSummary_creationTime' - When the channel was created.
---
--- 'lastUpdateTime', 'channelSummary_lastUpdateTime' - The last time the channel was updated.
 --
 -- 'lastMessageArrivalTime', 'channelSummary_lastMessageArrivalTime' - The last time when a new message arrived in the channel.
 --
@@ -76,16 +72,20 @@ data ChannelSummary = ChannelSummary'
 --
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
+--
+-- 'lastUpdateTime', 'channelSummary_lastUpdateTime' - The last time the channel was updated.
+--
+-- 'status', 'channelSummary_status' - The status of the channel.
 newChannelSummary ::
   ChannelSummary
 newChannelSummary =
   ChannelSummary'
     { channelName = Prelude.Nothing,
       channelStorage = Prelude.Nothing,
-      status = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      lastMessageArrivalTime = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing,
-      lastMessageArrivalTime = Prelude.Nothing
+      status = Prelude.Nothing
     }
 
 -- | The name of the channel.
@@ -96,17 +96,9 @@ channelSummary_channelName = Lens.lens (\ChannelSummary' {channelName} -> channe
 channelSummary_channelStorage :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStorageSummary)
 channelSummary_channelStorage = Lens.lens (\ChannelSummary' {channelStorage} -> channelStorage) (\s@ChannelSummary' {} a -> s {channelStorage = a} :: ChannelSummary)
 
--- | The status of the channel.
-channelSummary_status :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStatus)
-channelSummary_status = Lens.lens (\ChannelSummary' {status} -> status) (\s@ChannelSummary' {} a -> s {status = a} :: ChannelSummary)
-
 -- | When the channel was created.
 channelSummary_creationTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
 channelSummary_creationTime = Lens.lens (\ChannelSummary' {creationTime} -> creationTime) (\s@ChannelSummary' {} a -> s {creationTime = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Time
-
--- | The last time the channel was updated.
-channelSummary_lastUpdateTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
-channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ChannelSummary' {} a -> s {lastUpdateTime = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The last time when a new message arrived in the channel.
 --
@@ -118,6 +110,14 @@ channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> 
 channelSummary_lastMessageArrivalTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
 channelSummary_lastMessageArrivalTime = Lens.lens (\ChannelSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@ChannelSummary' {} a -> s {lastMessageArrivalTime = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Time
 
+-- | The last time the channel was updated.
+channelSummary_lastUpdateTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
+channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ChannelSummary' {} a -> s {lastUpdateTime = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The status of the channel.
+channelSummary_status :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStatus)
+channelSummary_status = Lens.lens (\ChannelSummary' {status} -> status) (\s@ChannelSummary' {} a -> s {status = a} :: ChannelSummary)
+
 instance Data.FromJSON ChannelSummary where
   parseJSON =
     Data.withObject
@@ -126,26 +126,26 @@ instance Data.FromJSON ChannelSummary where
           ChannelSummary'
             Prelude.<$> (x Data..:? "channelName")
             Prelude.<*> (x Data..:? "channelStorage")
-            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "creationTime")
-            Prelude.<*> (x Data..:? "lastUpdateTime")
             Prelude.<*> (x Data..:? "lastMessageArrivalTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable ChannelSummary where
   hashWithSalt _salt ChannelSummary' {..} =
     _salt `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` channelStorage
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` lastMessageArrivalTime
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ChannelSummary where
   rnf ChannelSummary' {..} =
     Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf channelStorage
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
       `Prelude.seq` Prelude.rnf lastMessageArrivalTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf status

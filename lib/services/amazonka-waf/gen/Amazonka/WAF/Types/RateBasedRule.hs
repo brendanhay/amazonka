@@ -53,16 +53,16 @@ import Amazonka.WAF.Types.RateKey
 --
 -- /See:/ 'newRateBasedRule' smart constructor.
 data RateBasedRule = RateBasedRule'
-  { -- | A friendly name or description for a @RateBasedRule@. You can\'t change
-    -- the name of a @RateBasedRule@ after you create it.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A friendly name or description for the metrics for a @RateBasedRule@.
+  { -- | A friendly name or description for the metrics for a @RateBasedRule@.
     -- The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
     -- maximum length 128 and minimum length one. It can\'t contain whitespace
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change the name of the metric after you
     -- create the @RateBasedRule@.
     metricName :: Prelude.Maybe Prelude.Text,
+    -- | A friendly name or description for a @RateBasedRule@. You can\'t change
+    -- the name of a @RateBasedRule@ after you create it.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a @RateBasedRule@. You use @RuleId@ to get more
     -- information about a @RateBasedRule@ (see GetRateBasedRule), update a
     -- @RateBasedRule@ (see UpdateRateBasedRule), insert a @RateBasedRule@ into
@@ -96,15 +96,15 @@ data RateBasedRule = RateBasedRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'rateBasedRule_name' - A friendly name or description for a @RateBasedRule@. You can\'t change
--- the name of a @RateBasedRule@ after you create it.
---
 -- 'metricName', 'rateBasedRule_metricName' - A friendly name or description for the metrics for a @RateBasedRule@.
 -- The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
 -- maximum length 128 and minimum length one. It can\'t contain whitespace
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change the name of the metric after you
 -- create the @RateBasedRule@.
+--
+-- 'name', 'rateBasedRule_name' - A friendly name or description for a @RateBasedRule@. You can\'t change
+-- the name of a @RateBasedRule@ after you create it.
 --
 -- 'ruleId', 'rateBasedRule_ruleId' - A unique identifier for a @RateBasedRule@. You use @RuleId@ to get more
 -- information about a @RateBasedRule@ (see GetRateBasedRule), update a
@@ -137,18 +137,13 @@ newRateBasedRule ::
   RateBasedRule
 newRateBasedRule pRuleId_ pRateKey_ pRateLimit_ =
   RateBasedRule'
-    { name = Prelude.Nothing,
-      metricName = Prelude.Nothing,
+    { metricName = Prelude.Nothing,
+      name = Prelude.Nothing,
       ruleId = pRuleId_,
       matchPredicates = Prelude.mempty,
       rateKey = pRateKey_,
       rateLimit = pRateLimit_
     }
-
--- | A friendly name or description for a @RateBasedRule@. You can\'t change
--- the name of a @RateBasedRule@ after you create it.
-rateBasedRule_name :: Lens.Lens' RateBasedRule (Prelude.Maybe Prelude.Text)
-rateBasedRule_name = Lens.lens (\RateBasedRule' {name} -> name) (\s@RateBasedRule' {} a -> s {name = a} :: RateBasedRule)
 
 -- | A friendly name or description for the metrics for a @RateBasedRule@.
 -- The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
@@ -158,6 +153,11 @@ rateBasedRule_name = Lens.lens (\RateBasedRule' {name} -> name) (\s@RateBasedRul
 -- create the @RateBasedRule@.
 rateBasedRule_metricName :: Lens.Lens' RateBasedRule (Prelude.Maybe Prelude.Text)
 rateBasedRule_metricName = Lens.lens (\RateBasedRule' {metricName} -> metricName) (\s@RateBasedRule' {} a -> s {metricName = a} :: RateBasedRule)
+
+-- | A friendly name or description for a @RateBasedRule@. You can\'t change
+-- the name of a @RateBasedRule@ after you create it.
+rateBasedRule_name :: Lens.Lens' RateBasedRule (Prelude.Maybe Prelude.Text)
+rateBasedRule_name = Lens.lens (\RateBasedRule' {name} -> name) (\s@RateBasedRule' {} a -> s {name = a} :: RateBasedRule)
 
 -- | A unique identifier for a @RateBasedRule@. You use @RuleId@ to get more
 -- information about a @RateBasedRule@ (see GetRateBasedRule), update a
@@ -195,8 +195,8 @@ instance Data.FromJSON RateBasedRule where
       "RateBasedRule"
       ( \x ->
           RateBasedRule'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<$> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..: "RuleId")
             Prelude.<*> ( x Data..:? "MatchPredicates"
                             Data..!= Prelude.mempty
@@ -207,8 +207,8 @@ instance Data.FromJSON RateBasedRule where
 
 instance Prelude.Hashable RateBasedRule where
   hashWithSalt _salt RateBasedRule' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` metricName
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` matchPredicates
       `Prelude.hashWithSalt` rateKey
@@ -216,8 +216,8 @@ instance Prelude.Hashable RateBasedRule where
 
 instance Prelude.NFData RateBasedRule where
   rnf RateBasedRule' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ruleId
       `Prelude.seq` Prelude.rnf matchPredicates
       `Prelude.seq` Prelude.rnf rateKey

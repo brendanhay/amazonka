@@ -33,8 +33,8 @@ module Amazonka.ImportExport.ListJobs
     newListJobs,
 
     -- * Request Lenses
-    listJobs_marker,
     listJobs_aPIVersion,
+    listJobs_marker,
     listJobs_maxJobs,
 
     -- * Destructuring the Response
@@ -60,8 +60,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { marker :: Prelude.Maybe Prelude.Text,
-    aPIVersion :: Prelude.Maybe Prelude.Text,
+  { aPIVersion :: Prelude.Maybe Prelude.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     maxJobs :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,27 +74,27 @@ data ListJobs = ListJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listJobs_marker' - Undocumented member.
---
 -- 'aPIVersion', 'listJobs_aPIVersion' - Undocumented member.
+--
+-- 'marker', 'listJobs_marker' - Undocumented member.
 --
 -- 'maxJobs', 'listJobs_maxJobs' - Undocumented member.
 newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { marker = Prelude.Nothing,
-      aPIVersion = Prelude.Nothing,
+    { aPIVersion = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxJobs = Prelude.Nothing
     }
 
 -- | Undocumented member.
-listJobs_marker :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_marker = Lens.lens (\ListJobs' {marker} -> marker) (\s@ListJobs' {} a -> s {marker = a} :: ListJobs)
-
--- | Undocumented member.
 listJobs_aPIVersion :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_aPIVersion = Lens.lens (\ListJobs' {aPIVersion} -> aPIVersion) (\s@ListJobs' {} a -> s {aPIVersion = a} :: ListJobs)
+
+-- | Undocumented member.
+listJobs_marker :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_marker = Lens.lens (\ListJobs' {marker} -> marker) (\s@ListJobs' {} a -> s {marker = a} :: ListJobs)
 
 -- | Undocumented member.
 listJobs_maxJobs :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Int)
@@ -141,14 +141,14 @@ instance Core.AWSRequest ListJobs where
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` aPIVersion
+    _salt `Prelude.hashWithSalt` aPIVersion
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxJobs
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf aPIVersion
+    Prelude.rnf aPIVersion
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxJobs
 
 instance Data.ToHeaders ListJobs where
@@ -164,8 +164,8 @@ instance Data.ToQuery ListJobs where
         "Action" Data.=: ("ListJobs" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-06-01" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
         "APIVersion" Data.=: aPIVersion,
+        "Marker" Data.=: marker,
         "MaxJobs" Data.=: maxJobs
       ]
 

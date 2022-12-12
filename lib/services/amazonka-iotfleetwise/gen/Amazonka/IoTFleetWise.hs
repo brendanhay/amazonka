@@ -31,29 +31,29 @@ module Amazonka.IoTFleetWise
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** DecoderManifestValidationException
     _DecoderManifestValidationException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** InvalidNodeException
+    _InvalidNodeException,
+
     -- ** InvalidSignalsException
     _InvalidSignalsException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** InvalidNodeException
-    _InvalidNodeException,
 
     -- ** ValidationException
     _ValidationException,

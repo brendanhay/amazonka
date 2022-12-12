@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectionCredentials' smart constructor.
 data ConnectionCredentials = ConnectionCredentials'
-  { -- | The expiration of the token.
+  { -- | The connection token.
+    connectionToken :: Prelude.Maybe Prelude.Text,
+    -- | The expiration of the token.
     --
     -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
     -- example, 2019-11-08T02:41:28.172Z.
-    expiry :: Prelude.Maybe Prelude.Text,
-    -- | The connection token.
-    connectionToken :: Prelude.Maybe Prelude.Text
+    expiry :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,24 @@ data ConnectionCredentials = ConnectionCredentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionToken', 'connectionCredentials_connectionToken' - The connection token.
+--
 -- 'expiry', 'connectionCredentials_expiry' - The expiration of the token.
 --
 -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
 -- example, 2019-11-08T02:41:28.172Z.
---
--- 'connectionToken', 'connectionCredentials_connectionToken' - The connection token.
 newConnectionCredentials ::
   ConnectionCredentials
 newConnectionCredentials =
   ConnectionCredentials'
-    { expiry = Prelude.Nothing,
-      connectionToken = Prelude.Nothing
+    { connectionToken =
+        Prelude.Nothing,
+      expiry = Prelude.Nothing
     }
+
+-- | The connection token.
+connectionCredentials_connectionToken :: Lens.Lens' ConnectionCredentials (Prelude.Maybe Prelude.Text)
+connectionCredentials_connectionToken = Lens.lens (\ConnectionCredentials' {connectionToken} -> connectionToken) (\s@ConnectionCredentials' {} a -> s {connectionToken = a} :: ConnectionCredentials)
 
 -- | The expiration of the token.
 --
@@ -67,26 +72,22 @@ newConnectionCredentials =
 connectionCredentials_expiry :: Lens.Lens' ConnectionCredentials (Prelude.Maybe Prelude.Text)
 connectionCredentials_expiry = Lens.lens (\ConnectionCredentials' {expiry} -> expiry) (\s@ConnectionCredentials' {} a -> s {expiry = a} :: ConnectionCredentials)
 
--- | The connection token.
-connectionCredentials_connectionToken :: Lens.Lens' ConnectionCredentials (Prelude.Maybe Prelude.Text)
-connectionCredentials_connectionToken = Lens.lens (\ConnectionCredentials' {connectionToken} -> connectionToken) (\s@ConnectionCredentials' {} a -> s {connectionToken = a} :: ConnectionCredentials)
-
 instance Data.FromJSON ConnectionCredentials where
   parseJSON =
     Data.withObject
       "ConnectionCredentials"
       ( \x ->
           ConnectionCredentials'
-            Prelude.<$> (x Data..:? "Expiry")
-            Prelude.<*> (x Data..:? "ConnectionToken")
+            Prelude.<$> (x Data..:? "ConnectionToken")
+            Prelude.<*> (x Data..:? "Expiry")
       )
 
 instance Prelude.Hashable ConnectionCredentials where
   hashWithSalt _salt ConnectionCredentials' {..} =
-    _salt `Prelude.hashWithSalt` expiry
-      `Prelude.hashWithSalt` connectionToken
+    _salt `Prelude.hashWithSalt` connectionToken
+      `Prelude.hashWithSalt` expiry
 
 instance Prelude.NFData ConnectionCredentials where
   rnf ConnectionCredentials' {..} =
-    Prelude.rnf expiry
-      `Prelude.seq` Prelude.rnf connectionToken
+    Prelude.rnf connectionToken
+      `Prelude.seq` Prelude.rnf expiry

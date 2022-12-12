@@ -28,12 +28,12 @@ module Amazonka.HealthLake.ListFHIRExportJobs
     newListFHIRExportJobs,
 
     -- * Request Lenses
-    listFHIRExportJobs_nextToken,
-    listFHIRExportJobs_jobStatus,
     listFHIRExportJobs_jobName,
-    listFHIRExportJobs_submittedBefore,
-    listFHIRExportJobs_submittedAfter,
+    listFHIRExportJobs_jobStatus,
     listFHIRExportJobs_maxResults,
+    listFHIRExportJobs_nextToken,
+    listFHIRExportJobs_submittedAfter,
+    listFHIRExportJobs_submittedBefore,
     listFHIRExportJobs_datastoreId,
 
     -- * Destructuring the Response
@@ -57,24 +57,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFHIRExportJobs' smart constructor.
 data ListFHIRExportJobs = ListFHIRExportJobs'
-  { -- | A pagination token used to identify the next page of results to return
-    -- for a ListFHIRExportJobs query.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | This parameter limits the response to the export job with the specified
+    -- job name.
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | This parameter limits the response to the export jobs with the specified
     -- job status.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | This parameter limits the response to the export job with the specified
-    -- job name.
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | This parameter limits the response to FHIR export jobs submitted before
-    -- a user specified date.
-    submittedBefore :: Prelude.Maybe Data.POSIX,
-    -- | This parameter limits the response to FHIR export jobs submitted after a
-    -- user specified date.
-    submittedAfter :: Prelude.Maybe Data.POSIX,
     -- | This parameter limits the number of results returned for a
     -- ListFHIRExportJobs to a maximum quantity specified by the user.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token used to identify the next page of results to return
+    -- for a ListFHIRExportJobs query.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | This parameter limits the response to FHIR export jobs submitted after a
+    -- user specified date.
+    submittedAfter :: Prelude.Maybe Data.POSIX,
+    -- | This parameter limits the response to FHIR export jobs submitted before
+    -- a user specified date.
+    submittedBefore :: Prelude.Maybe Data.POSIX,
     -- | This parameter limits the response to the export job with the specified
     -- Data Store ID.
     datastoreId :: Prelude.Text
@@ -89,23 +89,23 @@ data ListFHIRExportJobs = ListFHIRExportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFHIRExportJobs_nextToken' - A pagination token used to identify the next page of results to return
--- for a ListFHIRExportJobs query.
+-- 'jobName', 'listFHIRExportJobs_jobName' - This parameter limits the response to the export job with the specified
+-- job name.
 --
 -- 'jobStatus', 'listFHIRExportJobs_jobStatus' - This parameter limits the response to the export jobs with the specified
 -- job status.
 --
--- 'jobName', 'listFHIRExportJobs_jobName' - This parameter limits the response to the export job with the specified
--- job name.
+-- 'maxResults', 'listFHIRExportJobs_maxResults' - This parameter limits the number of results returned for a
+-- ListFHIRExportJobs to a maximum quantity specified by the user.
 --
--- 'submittedBefore', 'listFHIRExportJobs_submittedBefore' - This parameter limits the response to FHIR export jobs submitted before
--- a user specified date.
+-- 'nextToken', 'listFHIRExportJobs_nextToken' - A pagination token used to identify the next page of results to return
+-- for a ListFHIRExportJobs query.
 --
 -- 'submittedAfter', 'listFHIRExportJobs_submittedAfter' - This parameter limits the response to FHIR export jobs submitted after a
 -- user specified date.
 --
--- 'maxResults', 'listFHIRExportJobs_maxResults' - This parameter limits the number of results returned for a
--- ListFHIRExportJobs to a maximum quantity specified by the user.
+-- 'submittedBefore', 'listFHIRExportJobs_submittedBefore' - This parameter limits the response to FHIR export jobs submitted before
+-- a user specified date.
 --
 -- 'datastoreId', 'listFHIRExportJobs_datastoreId' - This parameter limits the response to the export job with the specified
 -- Data Store ID.
@@ -115,44 +115,44 @@ newListFHIRExportJobs ::
   ListFHIRExportJobs
 newListFHIRExportJobs pDatastoreId_ =
   ListFHIRExportJobs'
-    { nextToken = Prelude.Nothing,
+    { jobName = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
-      jobName = Prelude.Nothing,
-      submittedBefore = Prelude.Nothing,
-      submittedAfter = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      submittedAfter = Prelude.Nothing,
+      submittedBefore = Prelude.Nothing,
       datastoreId = pDatastoreId_
     }
-
--- | A pagination token used to identify the next page of results to return
--- for a ListFHIRExportJobs query.
-listFHIRExportJobs_nextToken :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.Text)
-listFHIRExportJobs_nextToken = Lens.lens (\ListFHIRExportJobs' {nextToken} -> nextToken) (\s@ListFHIRExportJobs' {} a -> s {nextToken = a} :: ListFHIRExportJobs)
-
--- | This parameter limits the response to the export jobs with the specified
--- job status.
-listFHIRExportJobs_jobStatus :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe JobStatus)
-listFHIRExportJobs_jobStatus = Lens.lens (\ListFHIRExportJobs' {jobStatus} -> jobStatus) (\s@ListFHIRExportJobs' {} a -> s {jobStatus = a} :: ListFHIRExportJobs)
 
 -- | This parameter limits the response to the export job with the specified
 -- job name.
 listFHIRExportJobs_jobName :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.Text)
 listFHIRExportJobs_jobName = Lens.lens (\ListFHIRExportJobs' {jobName} -> jobName) (\s@ListFHIRExportJobs' {} a -> s {jobName = a} :: ListFHIRExportJobs)
 
--- | This parameter limits the response to FHIR export jobs submitted before
--- a user specified date.
-listFHIRExportJobs_submittedBefore :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.UTCTime)
-listFHIRExportJobs_submittedBefore = Lens.lens (\ListFHIRExportJobs' {submittedBefore} -> submittedBefore) (\s@ListFHIRExportJobs' {} a -> s {submittedBefore = a} :: ListFHIRExportJobs) Prelude.. Lens.mapping Data._Time
+-- | This parameter limits the response to the export jobs with the specified
+-- job status.
+listFHIRExportJobs_jobStatus :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe JobStatus)
+listFHIRExportJobs_jobStatus = Lens.lens (\ListFHIRExportJobs' {jobStatus} -> jobStatus) (\s@ListFHIRExportJobs' {} a -> s {jobStatus = a} :: ListFHIRExportJobs)
+
+-- | This parameter limits the number of results returned for a
+-- ListFHIRExportJobs to a maximum quantity specified by the user.
+listFHIRExportJobs_maxResults :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.Natural)
+listFHIRExportJobs_maxResults = Lens.lens (\ListFHIRExportJobs' {maxResults} -> maxResults) (\s@ListFHIRExportJobs' {} a -> s {maxResults = a} :: ListFHIRExportJobs)
+
+-- | A pagination token used to identify the next page of results to return
+-- for a ListFHIRExportJobs query.
+listFHIRExportJobs_nextToken :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.Text)
+listFHIRExportJobs_nextToken = Lens.lens (\ListFHIRExportJobs' {nextToken} -> nextToken) (\s@ListFHIRExportJobs' {} a -> s {nextToken = a} :: ListFHIRExportJobs)
 
 -- | This parameter limits the response to FHIR export jobs submitted after a
 -- user specified date.
 listFHIRExportJobs_submittedAfter :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.UTCTime)
 listFHIRExportJobs_submittedAfter = Lens.lens (\ListFHIRExportJobs' {submittedAfter} -> submittedAfter) (\s@ListFHIRExportJobs' {} a -> s {submittedAfter = a} :: ListFHIRExportJobs) Prelude.. Lens.mapping Data._Time
 
--- | This parameter limits the number of results returned for a
--- ListFHIRExportJobs to a maximum quantity specified by the user.
-listFHIRExportJobs_maxResults :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.Natural)
-listFHIRExportJobs_maxResults = Lens.lens (\ListFHIRExportJobs' {maxResults} -> maxResults) (\s@ListFHIRExportJobs' {} a -> s {maxResults = a} :: ListFHIRExportJobs)
+-- | This parameter limits the response to FHIR export jobs submitted before
+-- a user specified date.
+listFHIRExportJobs_submittedBefore :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.UTCTime)
+listFHIRExportJobs_submittedBefore = Lens.lens (\ListFHIRExportJobs' {submittedBefore} -> submittedBefore) (\s@ListFHIRExportJobs' {} a -> s {submittedBefore = a} :: ListFHIRExportJobs) Prelude.. Lens.mapping Data._Time
 
 -- | This parameter limits the response to the export job with the specified
 -- Data Store ID.
@@ -178,22 +178,22 @@ instance Core.AWSRequest ListFHIRExportJobs where
 
 instance Prelude.Hashable ListFHIRExportJobs where
   hashWithSalt _salt ListFHIRExportJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobStatus
-      `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` submittedBefore
-      `Prelude.hashWithSalt` submittedAfter
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` submittedAfter
+      `Prelude.hashWithSalt` submittedBefore
       `Prelude.hashWithSalt` datastoreId
 
 instance Prelude.NFData ListFHIRExportJobs where
   rnf ListFHIRExportJobs' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf submittedBefore
-      `Prelude.seq` Prelude.rnf submittedAfter
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf submittedAfter
+      `Prelude.seq` Prelude.rnf submittedBefore
       `Prelude.seq` Prelude.rnf datastoreId
 
 instance Data.ToHeaders ListFHIRExportJobs where
@@ -215,14 +215,14 @@ instance Data.ToJSON ListFHIRExportJobs where
   toJSON ListFHIRExportJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("JobName" Data..=) Prelude.<$> jobName,
             ("JobStatus" Data..=) Prelude.<$> jobStatus,
-            ("JobName" Data..=) Prelude.<$> jobName,
-            ("SubmittedBefore" Data..=)
-              Prelude.<$> submittedBefore,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SubmittedAfter" Data..=)
               Prelude.<$> submittedAfter,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("SubmittedBefore" Data..=)
+              Prelude.<$> submittedBefore,
             Prelude.Just ("DatastoreId" Data..= datastoreId)
           ]
       )

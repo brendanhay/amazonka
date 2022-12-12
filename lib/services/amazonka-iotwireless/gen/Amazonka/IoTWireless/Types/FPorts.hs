@@ -22,6 +22,7 @@ module Amazonka.IoTWireless.Types.FPorts where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.IoTWireless.Types.ApplicationConfig
 import Amazonka.IoTWireless.Types.Positioning
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFPorts' smart constructor.
 data FPorts = FPorts'
-  { clockSync :: Prelude.Maybe Prelude.Natural,
+  { -- | Optional LoRaWAN application information, which can be used for
+    -- geolocation.
+    applications :: Prelude.Maybe [ApplicationConfig],
+    clockSync :: Prelude.Maybe Prelude.Natural,
     fuota :: Prelude.Maybe Prelude.Natural,
     multicast :: Prelude.Maybe Prelude.Natural,
     -- | FPort values for the GNSS, stream, and ClockSync functions of the
@@ -46,6 +50,9 @@ data FPorts = FPorts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applications', 'fPorts_applications' - Optional LoRaWAN application information, which can be used for
+-- geolocation.
+--
 -- 'clockSync', 'fPorts_clockSync' - Undocumented member.
 --
 -- 'fuota', 'fPorts_fuota' - Undocumented member.
@@ -58,11 +65,17 @@ newFPorts ::
   FPorts
 newFPorts =
   FPorts'
-    { clockSync = Prelude.Nothing,
+    { applications = Prelude.Nothing,
+      clockSync = Prelude.Nothing,
       fuota = Prelude.Nothing,
       multicast = Prelude.Nothing,
       positioning = Prelude.Nothing
     }
+
+-- | Optional LoRaWAN application information, which can be used for
+-- geolocation.
+fPorts_applications :: Lens.Lens' FPorts (Prelude.Maybe [ApplicationConfig])
+fPorts_applications = Lens.lens (\FPorts' {applications} -> applications) (\s@FPorts' {} a -> s {applications = a} :: FPorts) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 fPorts_clockSync :: Lens.Lens' FPorts (Prelude.Maybe Prelude.Natural)
@@ -87,7 +100,8 @@ instance Data.FromJSON FPorts where
       "FPorts"
       ( \x ->
           FPorts'
-            Prelude.<$> (x Data..:? "ClockSync")
+            Prelude.<$> (x Data..:? "Applications" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClockSync")
             Prelude.<*> (x Data..:? "Fuota")
             Prelude.<*> (x Data..:? "Multicast")
             Prelude.<*> (x Data..:? "Positioning")
@@ -95,14 +109,16 @@ instance Data.FromJSON FPorts where
 
 instance Prelude.Hashable FPorts where
   hashWithSalt _salt FPorts' {..} =
-    _salt `Prelude.hashWithSalt` clockSync
+    _salt `Prelude.hashWithSalt` applications
+      `Prelude.hashWithSalt` clockSync
       `Prelude.hashWithSalt` fuota
       `Prelude.hashWithSalt` multicast
       `Prelude.hashWithSalt` positioning
 
 instance Prelude.NFData FPorts where
   rnf FPorts' {..} =
-    Prelude.rnf clockSync
+    Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf clockSync
       `Prelude.seq` Prelude.rnf fuota
       `Prelude.seq` Prelude.rnf multicast
       `Prelude.seq` Prelude.rnf positioning
@@ -111,7 +127,8 @@ instance Data.ToJSON FPorts where
   toJSON FPorts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ClockSync" Data..=) Prelude.<$> clockSync,
+          [ ("Applications" Data..=) Prelude.<$> applications,
+            ("ClockSync" Data..=) Prelude.<$> clockSync,
             ("Fuota" Data..=) Prelude.<$> fuota,
             ("Multicast" Data..=) Prelude.<$> multicast,
             ("Positioning" Data..=) Prelude.<$> positioning

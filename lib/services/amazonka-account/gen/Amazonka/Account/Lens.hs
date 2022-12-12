@@ -44,18 +44,18 @@ module Amazonka.Account.Lens
     -- * Types
 
     -- ** AlternateContact
-    alternateContact_name,
     alternateContact_alternateContactType,
-    alternateContact_title,
-    alternateContact_phoneNumber,
     alternateContact_emailAddress,
+    alternateContact_name,
+    alternateContact_phoneNumber,
+    alternateContact_title,
 
     -- ** ContactInformation
-    contactInformation_companyName,
     contactInformation_addressLine2,
+    contactInformation_addressLine3,
+    contactInformation_companyName,
     contactInformation_districtOrCounty,
     contactInformation_stateOrRegion,
-    contactInformation_addressLine3,
     contactInformation_websiteUrl,
     contactInformation_addressLine1,
     contactInformation_city,

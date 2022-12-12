@@ -34,21 +34,21 @@ module Amazonka.IoT.ListDetectMitigationActionsExecutions
     newListDetectMitigationActionsExecutions,
 
     -- * Request Lenses
-    listDetectMitigationActionsExecutions_nextToken,
-    listDetectMitigationActionsExecutions_thingName,
-    listDetectMitigationActionsExecutions_violationId,
-    listDetectMitigationActionsExecutions_taskId,
     listDetectMitigationActionsExecutions_endTime,
     listDetectMitigationActionsExecutions_maxResults,
+    listDetectMitigationActionsExecutions_nextToken,
     listDetectMitigationActionsExecutions_startTime,
+    listDetectMitigationActionsExecutions_taskId,
+    listDetectMitigationActionsExecutions_thingName,
+    listDetectMitigationActionsExecutions_violationId,
 
     -- * Destructuring the Response
     ListDetectMitigationActionsExecutionsResponse (..),
     newListDetectMitigationActionsExecutionsResponse,
 
     -- * Response Lenses
-    listDetectMitigationActionsExecutionsResponse_nextToken,
     listDetectMitigationActionsExecutionsResponse_actionsExecutions,
+    listDetectMitigationActionsExecutionsResponse_nextToken,
     listDetectMitigationActionsExecutionsResponse_httpStatus,
   )
 where
@@ -63,23 +63,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDetectMitigationActionsExecutions' smart constructor.
 data ListDetectMitigationActionsExecutions = ListDetectMitigationActionsExecutions'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the thing whose mitigation actions are listed.
-    thingName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the violation.
-    violationId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the task.
-    taskId :: Prelude.Maybe Prelude.Text,
-    -- | The end of the time period for which ML Detect mitigation actions
+  { -- | The end of the time period for which ML Detect mitigation actions
     -- executions are returned.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of results to return at one time. The default is 25.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter to limit results to those found after the specified time. You
     -- must specify either the startTime and endTime or the taskId, but not
     -- both.
-    startTime :: Prelude.Maybe Data.POSIX
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier of the task.
+    taskId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the thing whose mitigation actions are listed.
+    thingName :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the violation.
+    violationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,51 +91,35 @@ data ListDetectMitigationActionsExecutions = ListDetectMitigationActionsExecutio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDetectMitigationActionsExecutions_nextToken' - The token for the next set of results.
---
--- 'thingName', 'listDetectMitigationActionsExecutions_thingName' - The name of the thing whose mitigation actions are listed.
---
--- 'violationId', 'listDetectMitigationActionsExecutions_violationId' - The unique identifier of the violation.
---
--- 'taskId', 'listDetectMitigationActionsExecutions_taskId' - The unique identifier of the task.
---
 -- 'endTime', 'listDetectMitigationActionsExecutions_endTime' - The end of the time period for which ML Detect mitigation actions
 -- executions are returned.
 --
 -- 'maxResults', 'listDetectMitigationActionsExecutions_maxResults' - The maximum number of results to return at one time. The default is 25.
 --
+-- 'nextToken', 'listDetectMitigationActionsExecutions_nextToken' - The token for the next set of results.
+--
 -- 'startTime', 'listDetectMitigationActionsExecutions_startTime' - A filter to limit results to those found after the specified time. You
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
+--
+-- 'taskId', 'listDetectMitigationActionsExecutions_taskId' - The unique identifier of the task.
+--
+-- 'thingName', 'listDetectMitigationActionsExecutions_thingName' - The name of the thing whose mitigation actions are listed.
+--
+-- 'violationId', 'listDetectMitigationActionsExecutions_violationId' - The unique identifier of the violation.
 newListDetectMitigationActionsExecutions ::
   ListDetectMitigationActionsExecutions
 newListDetectMitigationActionsExecutions =
   ListDetectMitigationActionsExecutions'
-    { nextToken =
+    { endTime =
         Prelude.Nothing,
-      thingName = Prelude.Nothing,
-      violationId = Prelude.Nothing,
-      taskId = Prelude.Nothing,
-      endTime = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      taskId = Prelude.Nothing,
+      thingName = Prelude.Nothing,
+      violationId = Prelude.Nothing
     }
-
--- | The token for the next set of results.
-listDetectMitigationActionsExecutions_nextToken :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Text)
-listDetectMitigationActionsExecutions_nextToken = Lens.lens (\ListDetectMitigationActionsExecutions' {nextToken} -> nextToken) (\s@ListDetectMitigationActionsExecutions' {} a -> s {nextToken = a} :: ListDetectMitigationActionsExecutions)
-
--- | The name of the thing whose mitigation actions are listed.
-listDetectMitigationActionsExecutions_thingName :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Text)
-listDetectMitigationActionsExecutions_thingName = Lens.lens (\ListDetectMitigationActionsExecutions' {thingName} -> thingName) (\s@ListDetectMitigationActionsExecutions' {} a -> s {thingName = a} :: ListDetectMitigationActionsExecutions)
-
--- | The unique identifier of the violation.
-listDetectMitigationActionsExecutions_violationId :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Text)
-listDetectMitigationActionsExecutions_violationId = Lens.lens (\ListDetectMitigationActionsExecutions' {violationId} -> violationId) (\s@ListDetectMitigationActionsExecutions' {} a -> s {violationId = a} :: ListDetectMitigationActionsExecutions)
-
--- | The unique identifier of the task.
-listDetectMitigationActionsExecutions_taskId :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Text)
-listDetectMitigationActionsExecutions_taskId = Lens.lens (\ListDetectMitigationActionsExecutions' {taskId} -> taskId) (\s@ListDetectMitigationActionsExecutions' {} a -> s {taskId = a} :: ListDetectMitigationActionsExecutions)
 
 -- | The end of the time period for which ML Detect mitigation actions
 -- executions are returned.
@@ -146,11 +130,27 @@ listDetectMitigationActionsExecutions_endTime = Lens.lens (\ListDetectMitigation
 listDetectMitigationActionsExecutions_maxResults :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Natural)
 listDetectMitigationActionsExecutions_maxResults = Lens.lens (\ListDetectMitigationActionsExecutions' {maxResults} -> maxResults) (\s@ListDetectMitigationActionsExecutions' {} a -> s {maxResults = a} :: ListDetectMitigationActionsExecutions)
 
+-- | The token for the next set of results.
+listDetectMitigationActionsExecutions_nextToken :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Text)
+listDetectMitigationActionsExecutions_nextToken = Lens.lens (\ListDetectMitigationActionsExecutions' {nextToken} -> nextToken) (\s@ListDetectMitigationActionsExecutions' {} a -> s {nextToken = a} :: ListDetectMitigationActionsExecutions)
+
 -- | A filter to limit results to those found after the specified time. You
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
 listDetectMitigationActionsExecutions_startTime :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.UTCTime)
 listDetectMitigationActionsExecutions_startTime = Lens.lens (\ListDetectMitigationActionsExecutions' {startTime} -> startTime) (\s@ListDetectMitigationActionsExecutions' {} a -> s {startTime = a} :: ListDetectMitigationActionsExecutions) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier of the task.
+listDetectMitigationActionsExecutions_taskId :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Text)
+listDetectMitigationActionsExecutions_taskId = Lens.lens (\ListDetectMitigationActionsExecutions' {taskId} -> taskId) (\s@ListDetectMitigationActionsExecutions' {} a -> s {taskId = a} :: ListDetectMitigationActionsExecutions)
+
+-- | The name of the thing whose mitigation actions are listed.
+listDetectMitigationActionsExecutions_thingName :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Text)
+listDetectMitigationActionsExecutions_thingName = Lens.lens (\ListDetectMitigationActionsExecutions' {thingName} -> thingName) (\s@ListDetectMitigationActionsExecutions' {} a -> s {thingName = a} :: ListDetectMitigationActionsExecutions)
+
+-- | The unique identifier of the violation.
+listDetectMitigationActionsExecutions_violationId :: Lens.Lens' ListDetectMitigationActionsExecutions (Prelude.Maybe Prelude.Text)
+listDetectMitigationActionsExecutions_violationId = Lens.lens (\ListDetectMitigationActionsExecutions' {violationId} -> violationId) (\s@ListDetectMitigationActionsExecutions' {} a -> s {violationId = a} :: ListDetectMitigationActionsExecutions)
 
 instance
   Core.AWSPager
@@ -191,10 +191,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDetectMitigationActionsExecutionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> ( x Data..?> "actionsExecutions"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "actionsExecutions"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,26 +205,26 @@ instance
   hashWithSalt
     _salt
     ListDetectMitigationActionsExecutions' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` taskId
         `Prelude.hashWithSalt` thingName
         `Prelude.hashWithSalt` violationId
-        `Prelude.hashWithSalt` taskId
-        `Prelude.hashWithSalt` endTime
-        `Prelude.hashWithSalt` maxResults
-        `Prelude.hashWithSalt` startTime
 
 instance
   Prelude.NFData
     ListDetectMitigationActionsExecutions
   where
   rnf ListDetectMitigationActionsExecutions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf taskId
       `Prelude.seq` Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf violationId
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf startTime
 
 instance
   Data.ToHeaders
@@ -246,22 +246,22 @@ instance
   where
   toQuery ListDetectMitigationActionsExecutions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "thingName" Data.=: thingName,
-        "violationId" Data.=: violationId,
-        "taskId" Data.=: taskId,
-        "endTime" Data.=: endTime,
+      [ "endTime" Data.=: endTime,
         "maxResults" Data.=: maxResults,
-        "startTime" Data.=: startTime
+        "nextToken" Data.=: nextToken,
+        "startTime" Data.=: startTime,
+        "taskId" Data.=: taskId,
+        "thingName" Data.=: thingName,
+        "violationId" Data.=: violationId
       ]
 
 -- | /See:/ 'newListDetectMitigationActionsExecutionsResponse' smart constructor.
 data ListDetectMitigationActionsExecutionsResponse = ListDetectMitigationActionsExecutionsResponse'
-  { -- | A token that can be used to retrieve the next set of results, or @null@
+  { -- | List of actions executions.
+    actionsExecutions :: Prelude.Maybe [DetectMitigationActionExecution],
+    -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of actions executions.
-    actionsExecutions :: Prelude.Maybe [DetectMitigationActionExecution],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,10 +275,10 @@ data ListDetectMitigationActionsExecutionsResponse = ListDetectMitigationActions
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actionsExecutions', 'listDetectMitigationActionsExecutionsResponse_actionsExecutions' - List of actions executions.
+--
 -- 'nextToken', 'listDetectMitigationActionsExecutionsResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
---
--- 'actionsExecutions', 'listDetectMitigationActionsExecutionsResponse_actionsExecutions' - List of actions executions.
 --
 -- 'httpStatus', 'listDetectMitigationActionsExecutionsResponse_httpStatus' - The response's http status code.
 newListDetectMitigationActionsExecutionsResponse ::
@@ -288,21 +288,20 @@ newListDetectMitigationActionsExecutionsResponse ::
 newListDetectMitigationActionsExecutionsResponse
   pHttpStatus_ =
     ListDetectMitigationActionsExecutionsResponse'
-      { nextToken =
+      { actionsExecutions =
           Prelude.Nothing,
-        actionsExecutions =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | List of actions executions.
+listDetectMitigationActionsExecutionsResponse_actionsExecutions :: Lens.Lens' ListDetectMitigationActionsExecutionsResponse (Prelude.Maybe [DetectMitigationActionExecution])
+listDetectMitigationActionsExecutionsResponse_actionsExecutions = Lens.lens (\ListDetectMitigationActionsExecutionsResponse' {actionsExecutions} -> actionsExecutions) (\s@ListDetectMitigationActionsExecutionsResponse' {} a -> s {actionsExecutions = a} :: ListDetectMitigationActionsExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
 listDetectMitigationActionsExecutionsResponse_nextToken :: Lens.Lens' ListDetectMitigationActionsExecutionsResponse (Prelude.Maybe Prelude.Text)
 listDetectMitigationActionsExecutionsResponse_nextToken = Lens.lens (\ListDetectMitigationActionsExecutionsResponse' {nextToken} -> nextToken) (\s@ListDetectMitigationActionsExecutionsResponse' {} a -> s {nextToken = a} :: ListDetectMitigationActionsExecutionsResponse)
-
--- | List of actions executions.
-listDetectMitigationActionsExecutionsResponse_actionsExecutions :: Lens.Lens' ListDetectMitigationActionsExecutionsResponse (Prelude.Maybe [DetectMitigationActionExecution])
-listDetectMitigationActionsExecutionsResponse_actionsExecutions = Lens.lens (\ListDetectMitigationActionsExecutionsResponse' {actionsExecutions} -> actionsExecutions) (\s@ListDetectMitigationActionsExecutionsResponse' {} a -> s {actionsExecutions = a} :: ListDetectMitigationActionsExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDetectMitigationActionsExecutionsResponse_httpStatus :: Lens.Lens' ListDetectMitigationActionsExecutionsResponse Prelude.Int
@@ -314,6 +313,6 @@ instance
   where
   rnf
     ListDetectMitigationActionsExecutionsResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf actionsExecutions
+      Prelude.rnf actionsExecutions
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

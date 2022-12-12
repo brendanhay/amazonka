@@ -23,12 +23,12 @@ module Amazonka.MigrationHubConfig.Lens
 
     -- ** DescribeHomeRegionControls
     describeHomeRegionControls_controlId,
+    describeHomeRegionControls_homeRegion,
+    describeHomeRegionControls_maxResults,
     describeHomeRegionControls_nextToken,
     describeHomeRegionControls_target,
-    describeHomeRegionControls_maxResults,
-    describeHomeRegionControls_homeRegion,
-    describeHomeRegionControlsResponse_nextToken,
     describeHomeRegionControlsResponse_homeRegionControls,
+    describeHomeRegionControlsResponse_nextToken,
     describeHomeRegionControlsResponse_httpStatus,
 
     -- ** GetHomeRegion
@@ -39,9 +39,9 @@ module Amazonka.MigrationHubConfig.Lens
 
     -- ** HomeRegionControl
     homeRegionControl_controlId,
+    homeRegionControl_homeRegion,
     homeRegionControl_requestedTime,
     homeRegionControl_target,
-    homeRegionControl_homeRegion,
 
     -- ** Target
     target_id,

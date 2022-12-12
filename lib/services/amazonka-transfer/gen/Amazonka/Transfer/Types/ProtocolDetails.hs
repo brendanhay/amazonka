@@ -65,6 +65,28 @@ data ProtocolDetails = ProtocolDetails'
     -- WinSCP do support it. If you are using other clients, check to see if
     -- your client supports the @PassiveIp=0.0.0.0@ response.
     passiveIp :: Prelude.Maybe Prelude.Text,
+    -- | Use the @SetStatOption@ to ignore the error that is generated when the
+    -- client attempts to use @SETSTAT@ on a file you are uploading to an S3
+    -- bucket.
+    --
+    -- Some SFTP file transfer clients can attempt to change the attributes of
+    -- remote files, including timestamp and permissions, using commands, such
+    -- as @SETSTAT@ when uploading the file. However, these commands are not
+    -- compatible with object storage systems, such as Amazon S3. Due to this
+    -- incompatibility, file uploads from these clients can result in errors
+    -- even when the file is otherwise successfully uploaded.
+    --
+    -- Set the value to @ENABLE_NO_OP@ to have the Transfer Family server
+    -- ignore the @SETSTAT@ command, and upload files without needing to make
+    -- any changes to your SFTP client. While the @SetStatOption@
+    -- @ENABLE_NO_OP@ setting ignores the error, it does generate a log entry
+    -- in Amazon CloudWatch Logs, so you can determine when the client is
+    -- making a @SETSTAT@ call.
+    --
+    -- If you want to preserve the original timestamp for your file, and modify
+    -- other file attributes using @SETSTAT@, you can use Amazon EFS as backend
+    -- storage with Transfer Family.
+    setStatOption :: Prelude.Maybe SetStatOption,
     -- | A property used with Transfer Family servers that use the FTPS protocol.
     -- TLS Session Resumption provides a mechanism to resume or share a
     -- negotiated secret key between the control and data connection for an
@@ -93,29 +115,7 @@ data ProtocolDetails = ProtocolDetails'
     --     connections from FTPS clients that don\'t perform the protocol
     --     negotiation. To determine whether or not you can use the @ENFORCED@
     --     value, you need to test your clients.
-    tlsSessionResumptionMode :: Prelude.Maybe TlsSessionResumptionMode,
-    -- | Use the @SetStatOption@ to ignore the error that is generated when the
-    -- client attempts to use @SETSTAT@ on a file you are uploading to an S3
-    -- bucket.
-    --
-    -- Some SFTP file transfer clients can attempt to change the attributes of
-    -- remote files, including timestamp and permissions, using commands, such
-    -- as @SETSTAT@ when uploading the file. However, these commands are not
-    -- compatible with object storage systems, such as Amazon S3. Due to this
-    -- incompatibility, file uploads from these clients can result in errors
-    -- even when the file is otherwise successfully uploaded.
-    --
-    -- Set the value to @ENABLE_NO_OP@ to have the Transfer Family server
-    -- ignore the @SETSTAT@ command, and upload files without needing to make
-    -- any changes to your SFTP client. While the @SetStatOption@
-    -- @ENABLE_NO_OP@ setting ignores the error, it does generate a log entry
-    -- in Amazon CloudWatch Logs, so you can determine when the client is
-    -- making a @SETSTAT@ call.
-    --
-    -- If you want to preserve the original timestamp for your file, and modify
-    -- other file attributes using @SETSTAT@, you can use Amazon EFS as backend
-    -- storage with Transfer Family.
-    setStatOption :: Prelude.Maybe SetStatOption
+    tlsSessionResumptionMode :: Prelude.Maybe TlsSessionResumptionMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -161,6 +161,28 @@ data ProtocolDetails = ProtocolDetails'
 -- WinSCP do support it. If you are using other clients, check to see if
 -- your client supports the @PassiveIp=0.0.0.0@ response.
 --
+-- 'setStatOption', 'protocolDetails_setStatOption' - Use the @SetStatOption@ to ignore the error that is generated when the
+-- client attempts to use @SETSTAT@ on a file you are uploading to an S3
+-- bucket.
+--
+-- Some SFTP file transfer clients can attempt to change the attributes of
+-- remote files, including timestamp and permissions, using commands, such
+-- as @SETSTAT@ when uploading the file. However, these commands are not
+-- compatible with object storage systems, such as Amazon S3. Due to this
+-- incompatibility, file uploads from these clients can result in errors
+-- even when the file is otherwise successfully uploaded.
+--
+-- Set the value to @ENABLE_NO_OP@ to have the Transfer Family server
+-- ignore the @SETSTAT@ command, and upload files without needing to make
+-- any changes to your SFTP client. While the @SetStatOption@
+-- @ENABLE_NO_OP@ setting ignores the error, it does generate a log entry
+-- in Amazon CloudWatch Logs, so you can determine when the client is
+-- making a @SETSTAT@ call.
+--
+-- If you want to preserve the original timestamp for your file, and modify
+-- other file attributes using @SETSTAT@, you can use Amazon EFS as backend
+-- storage with Transfer Family.
+--
 -- 'tlsSessionResumptionMode', 'protocolDetails_tlsSessionResumptionMode' - A property used with Transfer Family servers that use the FTPS protocol.
 -- TLS Session Resumption provides a mechanism to resume or share a
 -- negotiated secret key between the control and data connection for an
@@ -189,36 +211,14 @@ data ProtocolDetails = ProtocolDetails'
 --     connections from FTPS clients that don\'t perform the protocol
 --     negotiation. To determine whether or not you can use the @ENFORCED@
 --     value, you need to test your clients.
---
--- 'setStatOption', 'protocolDetails_setStatOption' - Use the @SetStatOption@ to ignore the error that is generated when the
--- client attempts to use @SETSTAT@ on a file you are uploading to an S3
--- bucket.
---
--- Some SFTP file transfer clients can attempt to change the attributes of
--- remote files, including timestamp and permissions, using commands, such
--- as @SETSTAT@ when uploading the file. However, these commands are not
--- compatible with object storage systems, such as Amazon S3. Due to this
--- incompatibility, file uploads from these clients can result in errors
--- even when the file is otherwise successfully uploaded.
---
--- Set the value to @ENABLE_NO_OP@ to have the Transfer Family server
--- ignore the @SETSTAT@ command, and upload files without needing to make
--- any changes to your SFTP client. While the @SetStatOption@
--- @ENABLE_NO_OP@ setting ignores the error, it does generate a log entry
--- in Amazon CloudWatch Logs, so you can determine when the client is
--- making a @SETSTAT@ call.
---
--- If you want to preserve the original timestamp for your file, and modify
--- other file attributes using @SETSTAT@, you can use Amazon EFS as backend
--- storage with Transfer Family.
 newProtocolDetails ::
   ProtocolDetails
 newProtocolDetails =
   ProtocolDetails'
     { as2Transports = Prelude.Nothing,
       passiveIp = Prelude.Nothing,
-      tlsSessionResumptionMode = Prelude.Nothing,
-      setStatOption = Prelude.Nothing
+      setStatOption = Prelude.Nothing,
+      tlsSessionResumptionMode = Prelude.Nothing
     }
 
 -- | Indicates the transport method for the AS2 messages. Currently, only
@@ -259,6 +259,30 @@ protocolDetails_as2Transports = Lens.lens (\ProtocolDetails' {as2Transports} -> 
 protocolDetails_passiveIp :: Lens.Lens' ProtocolDetails (Prelude.Maybe Prelude.Text)
 protocolDetails_passiveIp = Lens.lens (\ProtocolDetails' {passiveIp} -> passiveIp) (\s@ProtocolDetails' {} a -> s {passiveIp = a} :: ProtocolDetails)
 
+-- | Use the @SetStatOption@ to ignore the error that is generated when the
+-- client attempts to use @SETSTAT@ on a file you are uploading to an S3
+-- bucket.
+--
+-- Some SFTP file transfer clients can attempt to change the attributes of
+-- remote files, including timestamp and permissions, using commands, such
+-- as @SETSTAT@ when uploading the file. However, these commands are not
+-- compatible with object storage systems, such as Amazon S3. Due to this
+-- incompatibility, file uploads from these clients can result in errors
+-- even when the file is otherwise successfully uploaded.
+--
+-- Set the value to @ENABLE_NO_OP@ to have the Transfer Family server
+-- ignore the @SETSTAT@ command, and upload files without needing to make
+-- any changes to your SFTP client. While the @SetStatOption@
+-- @ENABLE_NO_OP@ setting ignores the error, it does generate a log entry
+-- in Amazon CloudWatch Logs, so you can determine when the client is
+-- making a @SETSTAT@ call.
+--
+-- If you want to preserve the original timestamp for your file, and modify
+-- other file attributes using @SETSTAT@, you can use Amazon EFS as backend
+-- storage with Transfer Family.
+protocolDetails_setStatOption :: Lens.Lens' ProtocolDetails (Prelude.Maybe SetStatOption)
+protocolDetails_setStatOption = Lens.lens (\ProtocolDetails' {setStatOption} -> setStatOption) (\s@ProtocolDetails' {} a -> s {setStatOption = a} :: ProtocolDetails)
+
 -- | A property used with Transfer Family servers that use the FTPS protocol.
 -- TLS Session Resumption provides a mechanism to resume or share a
 -- negotiated secret key between the control and data connection for an
@@ -290,30 +314,6 @@ protocolDetails_passiveIp = Lens.lens (\ProtocolDetails' {passiveIp} -> passiveI
 protocolDetails_tlsSessionResumptionMode :: Lens.Lens' ProtocolDetails (Prelude.Maybe TlsSessionResumptionMode)
 protocolDetails_tlsSessionResumptionMode = Lens.lens (\ProtocolDetails' {tlsSessionResumptionMode} -> tlsSessionResumptionMode) (\s@ProtocolDetails' {} a -> s {tlsSessionResumptionMode = a} :: ProtocolDetails)
 
--- | Use the @SetStatOption@ to ignore the error that is generated when the
--- client attempts to use @SETSTAT@ on a file you are uploading to an S3
--- bucket.
---
--- Some SFTP file transfer clients can attempt to change the attributes of
--- remote files, including timestamp and permissions, using commands, such
--- as @SETSTAT@ when uploading the file. However, these commands are not
--- compatible with object storage systems, such as Amazon S3. Due to this
--- incompatibility, file uploads from these clients can result in errors
--- even when the file is otherwise successfully uploaded.
---
--- Set the value to @ENABLE_NO_OP@ to have the Transfer Family server
--- ignore the @SETSTAT@ command, and upload files without needing to make
--- any changes to your SFTP client. While the @SetStatOption@
--- @ENABLE_NO_OP@ setting ignores the error, it does generate a log entry
--- in Amazon CloudWatch Logs, so you can determine when the client is
--- making a @SETSTAT@ call.
---
--- If you want to preserve the original timestamp for your file, and modify
--- other file attributes using @SETSTAT@, you can use Amazon EFS as backend
--- storage with Transfer Family.
-protocolDetails_setStatOption :: Lens.Lens' ProtocolDetails (Prelude.Maybe SetStatOption)
-protocolDetails_setStatOption = Lens.lens (\ProtocolDetails' {setStatOption} -> setStatOption) (\s@ProtocolDetails' {} a -> s {setStatOption = a} :: ProtocolDetails)
-
 instance Data.FromJSON ProtocolDetails where
   parseJSON =
     Data.withObject
@@ -322,23 +322,23 @@ instance Data.FromJSON ProtocolDetails where
           ProtocolDetails'
             Prelude.<$> (x Data..:? "As2Transports")
             Prelude.<*> (x Data..:? "PassiveIp")
-            Prelude.<*> (x Data..:? "TlsSessionResumptionMode")
             Prelude.<*> (x Data..:? "SetStatOption")
+            Prelude.<*> (x Data..:? "TlsSessionResumptionMode")
       )
 
 instance Prelude.Hashable ProtocolDetails where
   hashWithSalt _salt ProtocolDetails' {..} =
     _salt `Prelude.hashWithSalt` as2Transports
       `Prelude.hashWithSalt` passiveIp
-      `Prelude.hashWithSalt` tlsSessionResumptionMode
       `Prelude.hashWithSalt` setStatOption
+      `Prelude.hashWithSalt` tlsSessionResumptionMode
 
 instance Prelude.NFData ProtocolDetails where
   rnf ProtocolDetails' {..} =
     Prelude.rnf as2Transports
       `Prelude.seq` Prelude.rnf passiveIp
-      `Prelude.seq` Prelude.rnf tlsSessionResumptionMode
       `Prelude.seq` Prelude.rnf setStatOption
+      `Prelude.seq` Prelude.rnf tlsSessionResumptionMode
 
 instance Data.ToJSON ProtocolDetails where
   toJSON ProtocolDetails' {..} =
@@ -346,8 +346,8 @@ instance Data.ToJSON ProtocolDetails where
       ( Prelude.catMaybes
           [ ("As2Transports" Data..=) Prelude.<$> as2Transports,
             ("PassiveIp" Data..=) Prelude.<$> passiveIp,
+            ("SetStatOption" Data..=) Prelude.<$> setStatOption,
             ("TlsSessionResumptionMode" Data..=)
-              Prelude.<$> tlsSessionResumptionMode,
-            ("SetStatOption" Data..=) Prelude.<$> setStatOption
+              Prelude.<$> tlsSessionResumptionMode
           ]
       )

@@ -34,19 +34,19 @@ module Amazonka.SageMaker.DescribeAction
     newDescribeActionResponse,
 
     -- * Response Lenses
+    describeActionResponse_actionArn,
     describeActionResponse_actionName,
     describeActionResponse_actionType,
+    describeActionResponse_createdBy,
+    describeActionResponse_creationTime,
+    describeActionResponse_description,
+    describeActionResponse_lastModifiedBy,
+    describeActionResponse_lastModifiedTime,
+    describeActionResponse_lineageGroupArn,
     describeActionResponse_metadataProperties,
     describeActionResponse_properties,
-    describeActionResponse_status,
-    describeActionResponse_description,
-    describeActionResponse_lastModifiedTime,
     describeActionResponse_source,
-    describeActionResponse_actionArn,
-    describeActionResponse_lineageGroupArn,
-    describeActionResponse_creationTime,
-    describeActionResponse_lastModifiedBy,
-    describeActionResponse_createdBy,
+    describeActionResponse_status,
     describeActionResponse_httpStatus,
   )
 where
@@ -96,19 +96,19 @@ instance Core.AWSRequest DescribeAction where
     Response.receiveJSON
       ( \s h x ->
           DescribeActionResponse'
-            Prelude.<$> (x Data..?> "ActionName")
+            Prelude.<$> (x Data..?> "ActionArn")
+            Prelude.<*> (x Data..?> "ActionName")
             Prelude.<*> (x Data..?> "ActionType")
+            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LineageGroupArn")
             Prelude.<*> (x Data..?> "MetadataProperties")
             Prelude.<*> (x Data..?> "Properties" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "Source")
-            Prelude.<*> (x Data..?> "ActionArn")
-            Prelude.<*> (x Data..?> "LineageGroupArn")
-            Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "LastModifiedBy")
-            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,29 +147,29 @@ instance Data.ToQuery DescribeAction where
 
 -- | /See:/ 'newDescribeActionResponse' smart constructor.
 data DescribeActionResponse = DescribeActionResponse'
-  { -- | The name of the action.
+  { -- | The Amazon Resource Name (ARN) of the action.
+    actionArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the action.
     actionName :: Prelude.Maybe Prelude.Text,
     -- | The type of the action.
     actionType :: Prelude.Maybe Prelude.Text,
+    createdBy :: Prelude.Maybe UserContext,
+    -- | When the action was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The description of the action.
+    description :: Prelude.Maybe Prelude.Text,
+    lastModifiedBy :: Prelude.Maybe UserContext,
+    -- | When the action was last modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the lineage group.
+    lineageGroupArn :: Prelude.Maybe Prelude.Text,
     metadataProperties :: Prelude.Maybe MetadataProperties,
     -- | A list of the action\'s properties.
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The status of the action.
-    status :: Prelude.Maybe ActionStatus,
-    -- | The description of the action.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | When the action was last modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The source of the action.
     source :: Prelude.Maybe ActionSource,
-    -- | The Amazon Resource Name (ARN) of the action.
-    actionArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the lineage group.
-    lineageGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | When the action was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    lastModifiedBy :: Prelude.Maybe UserContext,
-    createdBy :: Prelude.Maybe UserContext,
+    -- | The status of the action.
+    status :: Prelude.Maybe ActionStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,31 +183,31 @@ data DescribeActionResponse = DescribeActionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actionArn', 'describeActionResponse_actionArn' - The Amazon Resource Name (ARN) of the action.
+--
 -- 'actionName', 'describeActionResponse_actionName' - The name of the action.
 --
 -- 'actionType', 'describeActionResponse_actionType' - The type of the action.
+--
+-- 'createdBy', 'describeActionResponse_createdBy' - Undocumented member.
+--
+-- 'creationTime', 'describeActionResponse_creationTime' - When the action was created.
+--
+-- 'description', 'describeActionResponse_description' - The description of the action.
+--
+-- 'lastModifiedBy', 'describeActionResponse_lastModifiedBy' - Undocumented member.
+--
+-- 'lastModifiedTime', 'describeActionResponse_lastModifiedTime' - When the action was last modified.
+--
+-- 'lineageGroupArn', 'describeActionResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
 --
 -- 'metadataProperties', 'describeActionResponse_metadataProperties' - Undocumented member.
 --
 -- 'properties', 'describeActionResponse_properties' - A list of the action\'s properties.
 --
--- 'status', 'describeActionResponse_status' - The status of the action.
---
--- 'description', 'describeActionResponse_description' - The description of the action.
---
--- 'lastModifiedTime', 'describeActionResponse_lastModifiedTime' - When the action was last modified.
---
 -- 'source', 'describeActionResponse_source' - The source of the action.
 --
--- 'actionArn', 'describeActionResponse_actionArn' - The Amazon Resource Name (ARN) of the action.
---
--- 'lineageGroupArn', 'describeActionResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
---
--- 'creationTime', 'describeActionResponse_creationTime' - When the action was created.
---
--- 'lastModifiedBy', 'describeActionResponse_lastModifiedBy' - Undocumented member.
---
--- 'createdBy', 'describeActionResponse_createdBy' - Undocumented member.
+-- 'status', 'describeActionResponse_status' - The status of the action.
 --
 -- 'httpStatus', 'describeActionResponse_httpStatus' - The response's http status code.
 newDescribeActionResponse ::
@@ -216,22 +216,26 @@ newDescribeActionResponse ::
   DescribeActionResponse
 newDescribeActionResponse pHttpStatus_ =
   DescribeActionResponse'
-    { actionName =
+    { actionArn =
         Prelude.Nothing,
+      actionName = Prelude.Nothing,
       actionType = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      description = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      lineageGroupArn = Prelude.Nothing,
       metadataProperties = Prelude.Nothing,
       properties = Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       source = Prelude.Nothing,
-      actionArn = Prelude.Nothing,
-      lineageGroupArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the action.
+describeActionResponse_actionArn :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.Text)
+describeActionResponse_actionArn = Lens.lens (\DescribeActionResponse' {actionArn} -> actionArn) (\s@DescribeActionResponse' {} a -> s {actionArn = a} :: DescribeActionResponse)
 
 -- | The name of the action.
 describeActionResponse_actionName :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.Text)
@@ -242,6 +246,30 @@ describeActionResponse_actionType :: Lens.Lens' DescribeActionResponse (Prelude.
 describeActionResponse_actionType = Lens.lens (\DescribeActionResponse' {actionType} -> actionType) (\s@DescribeActionResponse' {} a -> s {actionType = a} :: DescribeActionResponse)
 
 -- | Undocumented member.
+describeActionResponse_createdBy :: Lens.Lens' DescribeActionResponse (Prelude.Maybe UserContext)
+describeActionResponse_createdBy = Lens.lens (\DescribeActionResponse' {createdBy} -> createdBy) (\s@DescribeActionResponse' {} a -> s {createdBy = a} :: DescribeActionResponse)
+
+-- | When the action was created.
+describeActionResponse_creationTime :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.UTCTime)
+describeActionResponse_creationTime = Lens.lens (\DescribeActionResponse' {creationTime} -> creationTime) (\s@DescribeActionResponse' {} a -> s {creationTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The description of the action.
+describeActionResponse_description :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.Text)
+describeActionResponse_description = Lens.lens (\DescribeActionResponse' {description} -> description) (\s@DescribeActionResponse' {} a -> s {description = a} :: DescribeActionResponse)
+
+-- | Undocumented member.
+describeActionResponse_lastModifiedBy :: Lens.Lens' DescribeActionResponse (Prelude.Maybe UserContext)
+describeActionResponse_lastModifiedBy = Lens.lens (\DescribeActionResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeActionResponse' {} a -> s {lastModifiedBy = a} :: DescribeActionResponse)
+
+-- | When the action was last modified.
+describeActionResponse_lastModifiedTime :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.UTCTime)
+describeActionResponse_lastModifiedTime = Lens.lens (\DescribeActionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeActionResponse' {} a -> s {lastModifiedTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the lineage group.
+describeActionResponse_lineageGroupArn :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.Text)
+describeActionResponse_lineageGroupArn = Lens.lens (\DescribeActionResponse' {lineageGroupArn} -> lineageGroupArn) (\s@DescribeActionResponse' {} a -> s {lineageGroupArn = a} :: DescribeActionResponse)
+
+-- | Undocumented member.
 describeActionResponse_metadataProperties :: Lens.Lens' DescribeActionResponse (Prelude.Maybe MetadataProperties)
 describeActionResponse_metadataProperties = Lens.lens (\DescribeActionResponse' {metadataProperties} -> metadataProperties) (\s@DescribeActionResponse' {} a -> s {metadataProperties = a} :: DescribeActionResponse)
 
@@ -249,41 +277,13 @@ describeActionResponse_metadataProperties = Lens.lens (\DescribeActionResponse' 
 describeActionResponse_properties :: Lens.Lens' DescribeActionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeActionResponse_properties = Lens.lens (\DescribeActionResponse' {properties} -> properties) (\s@DescribeActionResponse' {} a -> s {properties = a} :: DescribeActionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The status of the action.
-describeActionResponse_status :: Lens.Lens' DescribeActionResponse (Prelude.Maybe ActionStatus)
-describeActionResponse_status = Lens.lens (\DescribeActionResponse' {status} -> status) (\s@DescribeActionResponse' {} a -> s {status = a} :: DescribeActionResponse)
-
--- | The description of the action.
-describeActionResponse_description :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.Text)
-describeActionResponse_description = Lens.lens (\DescribeActionResponse' {description} -> description) (\s@DescribeActionResponse' {} a -> s {description = a} :: DescribeActionResponse)
-
--- | When the action was last modified.
-describeActionResponse_lastModifiedTime :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeActionResponse_lastModifiedTime = Lens.lens (\DescribeActionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeActionResponse' {} a -> s {lastModifiedTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The source of the action.
 describeActionResponse_source :: Lens.Lens' DescribeActionResponse (Prelude.Maybe ActionSource)
 describeActionResponse_source = Lens.lens (\DescribeActionResponse' {source} -> source) (\s@DescribeActionResponse' {} a -> s {source = a} :: DescribeActionResponse)
 
--- | The Amazon Resource Name (ARN) of the action.
-describeActionResponse_actionArn :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.Text)
-describeActionResponse_actionArn = Lens.lens (\DescribeActionResponse' {actionArn} -> actionArn) (\s@DescribeActionResponse' {} a -> s {actionArn = a} :: DescribeActionResponse)
-
--- | The Amazon Resource Name (ARN) of the lineage group.
-describeActionResponse_lineageGroupArn :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.Text)
-describeActionResponse_lineageGroupArn = Lens.lens (\DescribeActionResponse' {lineageGroupArn} -> lineageGroupArn) (\s@DescribeActionResponse' {} a -> s {lineageGroupArn = a} :: DescribeActionResponse)
-
--- | When the action was created.
-describeActionResponse_creationTime :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeActionResponse_creationTime = Lens.lens (\DescribeActionResponse' {creationTime} -> creationTime) (\s@DescribeActionResponse' {} a -> s {creationTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Data._Time
-
--- | Undocumented member.
-describeActionResponse_lastModifiedBy :: Lens.Lens' DescribeActionResponse (Prelude.Maybe UserContext)
-describeActionResponse_lastModifiedBy = Lens.lens (\DescribeActionResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeActionResponse' {} a -> s {lastModifiedBy = a} :: DescribeActionResponse)
-
--- | Undocumented member.
-describeActionResponse_createdBy :: Lens.Lens' DescribeActionResponse (Prelude.Maybe UserContext)
-describeActionResponse_createdBy = Lens.lens (\DescribeActionResponse' {createdBy} -> createdBy) (\s@DescribeActionResponse' {} a -> s {createdBy = a} :: DescribeActionResponse)
+-- | The status of the action.
+describeActionResponse_status :: Lens.Lens' DescribeActionResponse (Prelude.Maybe ActionStatus)
+describeActionResponse_status = Lens.lens (\DescribeActionResponse' {status} -> status) (\s@DescribeActionResponse' {} a -> s {status = a} :: DescribeActionResponse)
 
 -- | The response's http status code.
 describeActionResponse_httpStatus :: Lens.Lens' DescribeActionResponse Prelude.Int
@@ -291,17 +291,17 @@ describeActionResponse_httpStatus = Lens.lens (\DescribeActionResponse' {httpSta
 
 instance Prelude.NFData DescribeActionResponse where
   rnf DescribeActionResponse' {..} =
-    Prelude.rnf actionName
+    Prelude.rnf actionArn
+      `Prelude.seq` Prelude.rnf actionName
       `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf lineageGroupArn
       `Prelude.seq` Prelude.rnf metadataProperties
       `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf actionArn
-      `Prelude.seq` Prelude.rnf lineageGroupArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSocketAddress' smart constructor.
 data SocketAddress = SocketAddress'
-  { -- | The port for the socket address.
-    port :: Prelude.Maybe Prelude.Natural,
-    -- | The IP address for the socket address.
-    ipAddress :: Prelude.Maybe Prelude.Text
+  { -- | The IP address for the socket address.
+    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | The port for the socket address.
+    port :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data SocketAddress = SocketAddress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'socketAddress_port' - The port for the socket address.
---
 -- 'ipAddress', 'socketAddress_ipAddress' - The IP address for the socket address.
+--
+-- 'port', 'socketAddress_port' - The port for the socket address.
 newSocketAddress ::
   SocketAddress
 newSocketAddress =
   SocketAddress'
-    { port = Prelude.Nothing,
-      ipAddress = Prelude.Nothing
+    { ipAddress = Prelude.Nothing,
+      port = Prelude.Nothing
     }
-
--- | The port for the socket address.
-socketAddress_port :: Lens.Lens' SocketAddress (Prelude.Maybe Prelude.Natural)
-socketAddress_port = Lens.lens (\SocketAddress' {port} -> port) (\s@SocketAddress' {} a -> s {port = a} :: SocketAddress)
 
 -- | The IP address for the socket address.
 socketAddress_ipAddress :: Lens.Lens' SocketAddress (Prelude.Maybe Prelude.Text)
 socketAddress_ipAddress = Lens.lens (\SocketAddress' {ipAddress} -> ipAddress) (\s@SocketAddress' {} a -> s {ipAddress = a} :: SocketAddress)
+
+-- | The port for the socket address.
+socketAddress_port :: Lens.Lens' SocketAddress (Prelude.Maybe Prelude.Natural)
+socketAddress_port = Lens.lens (\SocketAddress' {port} -> port) (\s@SocketAddress' {} a -> s {port = a} :: SocketAddress)
 
 instance Data.FromJSON SocketAddress where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON SocketAddress where
       "SocketAddress"
       ( \x ->
           SocketAddress'
-            Prelude.<$> (x Data..:? "Port")
-            Prelude.<*> (x Data..:? "IpAddress")
+            Prelude.<$> (x Data..:? "IpAddress")
+            Prelude.<*> (x Data..:? "Port")
       )
 
 instance Prelude.Hashable SocketAddress where
   hashWithSalt _salt SocketAddress' {..} =
-    _salt `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` ipAddress
+    _salt `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData SocketAddress where
   rnf SocketAddress' {..} =
-    Prelude.rnf port
-      `Prelude.seq` Prelude.rnf ipAddress
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf port

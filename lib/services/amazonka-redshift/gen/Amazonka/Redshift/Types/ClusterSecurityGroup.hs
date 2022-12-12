@@ -32,9 +32,7 @@ import Amazonka.Redshift.Types.Tag
 --
 -- /See:/ 'newClusterSecurityGroup' smart constructor.
 data ClusterSecurityGroup = ClusterSecurityGroup'
-  { -- | The list of tags for the cluster security group.
-    tags :: Prelude.Maybe [Tag],
-    -- | The name of the cluster security group to which the operation was
+  { -- | The name of the cluster security group to which the operation was
     -- applied.
     clusterSecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | A description of the security group.
@@ -44,7 +42,9 @@ data ClusterSecurityGroup = ClusterSecurityGroup'
     eC2SecurityGroups :: Prelude.Maybe [EC2SecurityGroup],
     -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters
     -- associated with this cluster security group.
-    iPRanges :: Prelude.Maybe [IPRange]
+    iPRanges :: Prelude.Maybe [IPRange],
+    -- | The list of tags for the cluster security group.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,8 +56,6 @@ data ClusterSecurityGroup = ClusterSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'clusterSecurityGroup_tags' - The list of tags for the cluster security group.
---
 -- 'clusterSecurityGroupName', 'clusterSecurityGroup_clusterSecurityGroupName' - The name of the cluster security group to which the operation was
 -- applied.
 --
@@ -68,20 +66,19 @@ data ClusterSecurityGroup = ClusterSecurityGroup'
 --
 -- 'iPRanges', 'clusterSecurityGroup_iPRanges' - A list of IP ranges (CIDR blocks) that are permitted to access clusters
 -- associated with this cluster security group.
+--
+-- 'tags', 'clusterSecurityGroup_tags' - The list of tags for the cluster security group.
 newClusterSecurityGroup ::
   ClusterSecurityGroup
 newClusterSecurityGroup =
   ClusterSecurityGroup'
-    { tags = Prelude.Nothing,
-      clusterSecurityGroupName = Prelude.Nothing,
+    { clusterSecurityGroupName =
+        Prelude.Nothing,
       description = Prelude.Nothing,
       eC2SecurityGroups = Prelude.Nothing,
-      iPRanges = Prelude.Nothing
+      iPRanges = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The list of tags for the cluster security group.
-clusterSecurityGroup_tags :: Lens.Lens' ClusterSecurityGroup (Prelude.Maybe [Tag])
-clusterSecurityGroup_tags = Lens.lens (\ClusterSecurityGroup' {tags} -> tags) (\s@ClusterSecurityGroup' {} a -> s {tags = a} :: ClusterSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster security group to which the operation was
 -- applied.
@@ -102,13 +99,14 @@ clusterSecurityGroup_eC2SecurityGroups = Lens.lens (\ClusterSecurityGroup' {eC2S
 clusterSecurityGroup_iPRanges :: Lens.Lens' ClusterSecurityGroup (Prelude.Maybe [IPRange])
 clusterSecurityGroup_iPRanges = Lens.lens (\ClusterSecurityGroup' {iPRanges} -> iPRanges) (\s@ClusterSecurityGroup' {} a -> s {iPRanges = a} :: ClusterSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | The list of tags for the cluster security group.
+clusterSecurityGroup_tags :: Lens.Lens' ClusterSecurityGroup (Prelude.Maybe [Tag])
+clusterSecurityGroup_tags = Lens.lens (\ClusterSecurityGroup' {tags} -> tags) (\s@ClusterSecurityGroup' {} a -> s {tags = a} :: ClusterSecurityGroup) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromXML ClusterSecurityGroup where
   parseXML x =
     ClusterSecurityGroup'
-      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
-                  )
-      Prelude.<*> (x Data..@? "ClusterSecurityGroupName")
+      Prelude.<$> (x Data..@? "ClusterSecurityGroupName")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> ( x Data..@? "EC2SecurityGroups"
                       Core..!@ Prelude.mempty
@@ -117,19 +115,23 @@ instance Data.FromXML ClusterSecurityGroup where
       Prelude.<*> ( x Data..@? "IPRanges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "IPRange")
                   )
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
+                  )
 
 instance Prelude.Hashable ClusterSecurityGroup where
   hashWithSalt _salt ClusterSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` clusterSecurityGroupName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eC2SecurityGroups
       `Prelude.hashWithSalt` iPRanges
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ClusterSecurityGroup where
   rnf ClusterSecurityGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterSecurityGroupName
+    Prelude.rnf clusterSecurityGroupName
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf eC2SecurityGroups
       `Prelude.seq` Prelude.rnf iPRanges
+      `Prelude.seq` Prelude.rnf tags

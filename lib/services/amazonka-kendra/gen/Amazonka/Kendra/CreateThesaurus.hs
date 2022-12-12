@@ -31,9 +31,9 @@ module Amazonka.Kendra.CreateThesaurus
     newCreateThesaurus,
 
     -- * Request Lenses
-    createThesaurus_tags,
     createThesaurus_clientToken,
     createThesaurus_description,
+    createThesaurus_tags,
     createThesaurus_indexId,
     createThesaurus_name,
     createThesaurus_roleArn,
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateThesaurus' smart constructor.
 data CreateThesaurus = CreateThesaurus'
-  { -- | A list of key-value pairs that identify the thesaurus. You can use the
-    -- tags to identify and organize your resources and to control access to
-    -- resources.
-    tags :: Prelude.Maybe [Tag],
-    -- | A token that you provide to identify the request to create a thesaurus.
+  { -- | A token that you provide to identify the request to create a thesaurus.
     -- Multiple calls to the @CreateThesaurus@ API with the same client token
     -- will create only one thesaurus.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description for the thesaurus.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A list of key-value pairs that identify the thesaurus. You can use the
+    -- tags to identify and organize your resources and to control access to
+    -- resources.
+    tags :: Prelude.Maybe [Tag],
     -- | The identifier of the index for the thesaurus.
     indexId :: Prelude.Text,
     -- | A name for the thesaurus.
@@ -89,15 +89,15 @@ data CreateThesaurus = CreateThesaurus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createThesaurus_tags' - A list of key-value pairs that identify the thesaurus. You can use the
--- tags to identify and organize your resources and to control access to
--- resources.
---
 -- 'clientToken', 'createThesaurus_clientToken' - A token that you provide to identify the request to create a thesaurus.
 -- Multiple calls to the @CreateThesaurus@ API with the same client token
 -- will create only one thesaurus.
 --
 -- 'description', 'createThesaurus_description' - A description for the thesaurus.
+--
+-- 'tags', 'createThesaurus_tags' - A list of key-value pairs that identify the thesaurus. You can use the
+-- tags to identify and organize your resources and to control access to
+-- resources.
 --
 -- 'indexId', 'createThesaurus_indexId' - The identifier of the index for the thesaurus.
 --
@@ -123,20 +123,14 @@ newCreateThesaurus
   pRoleArn_
   pSourceS3Path_ =
     CreateThesaurus'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         indexId = pIndexId_,
         name = pName_,
         roleArn = pRoleArn_,
         sourceS3Path = pSourceS3Path_
       }
-
--- | A list of key-value pairs that identify the thesaurus. You can use the
--- tags to identify and organize your resources and to control access to
--- resources.
-createThesaurus_tags :: Lens.Lens' CreateThesaurus (Prelude.Maybe [Tag])
-createThesaurus_tags = Lens.lens (\CreateThesaurus' {tags} -> tags) (\s@CreateThesaurus' {} a -> s {tags = a} :: CreateThesaurus) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that you provide to identify the request to create a thesaurus.
 -- Multiple calls to the @CreateThesaurus@ API with the same client token
@@ -147,6 +141,12 @@ createThesaurus_clientToken = Lens.lens (\CreateThesaurus' {clientToken} -> clie
 -- | A description for the thesaurus.
 createThesaurus_description :: Lens.Lens' CreateThesaurus (Prelude.Maybe Prelude.Text)
 createThesaurus_description = Lens.lens (\CreateThesaurus' {description} -> description) (\s@CreateThesaurus' {} a -> s {description = a} :: CreateThesaurus)
+
+-- | A list of key-value pairs that identify the thesaurus. You can use the
+-- tags to identify and organize your resources and to control access to
+-- resources.
+createThesaurus_tags :: Lens.Lens' CreateThesaurus (Prelude.Maybe [Tag])
+createThesaurus_tags = Lens.lens (\CreateThesaurus' {tags} -> tags) (\s@CreateThesaurus' {} a -> s {tags = a} :: CreateThesaurus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the index for the thesaurus.
 createThesaurus_indexId :: Lens.Lens' CreateThesaurus Prelude.Text
@@ -181,9 +181,9 @@ instance Core.AWSRequest CreateThesaurus where
 
 instance Prelude.Hashable CreateThesaurus where
   hashWithSalt _salt CreateThesaurus' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
@@ -191,9 +191,9 @@ instance Prelude.Hashable CreateThesaurus where
 
 instance Prelude.NFData CreateThesaurus where
   rnf CreateThesaurus' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
@@ -218,9 +218,9 @@ instance Data.ToJSON CreateThesaurus where
   toJSON CreateThesaurus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("RoleArn" Data..= roleArn),
@@ -236,7 +236,7 @@ instance Data.ToQuery CreateThesaurus where
 
 -- | /See:/ 'newCreateThesaurusResponse' smart constructor.
 data CreateThesaurusResponse = CreateThesaurusResponse'
-  { -- | The unique identifier of the thesaurus.
+  { -- | The identifier of the thesaurus.
     id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -251,7 +251,7 @@ data CreateThesaurusResponse = CreateThesaurusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'createThesaurusResponse_id' - The unique identifier of the thesaurus.
+-- 'id', 'createThesaurusResponse_id' - The identifier of the thesaurus.
 --
 -- 'httpStatus', 'createThesaurusResponse_httpStatus' - The response's http status code.
 newCreateThesaurusResponse ::
@@ -264,7 +264,7 @@ newCreateThesaurusResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The unique identifier of the thesaurus.
+-- | The identifier of the thesaurus.
 createThesaurusResponse_id :: Lens.Lens' CreateThesaurusResponse (Prelude.Maybe Prelude.Text)
 createThesaurusResponse_id = Lens.lens (\CreateThesaurusResponse' {id} -> id) (\s@CreateThesaurusResponse' {} a -> s {id = a} :: CreateThesaurusResponse)
 

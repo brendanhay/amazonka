@@ -31,10 +31,10 @@ module Amazonka.EC2.DescribeTransitGatewayRouteTables
     newDescribeTransitGatewayRouteTables,
 
     -- * Request Lenses
-    describeTransitGatewayRouteTables_nextToken,
-    describeTransitGatewayRouteTables_filters,
     describeTransitGatewayRouteTables_dryRun,
+    describeTransitGatewayRouteTables_filters,
     describeTransitGatewayRouteTables_maxResults,
+    describeTransitGatewayRouteTables_nextToken,
     describeTransitGatewayRouteTables_transitGatewayRouteTableIds,
 
     -- * Destructuring the Response
@@ -58,8 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTransitGatewayRouteTables' smart constructor.
 data DescribeTransitGatewayRouteTables = DescribeTransitGatewayRouteTables'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters. The possible values are:
     --
     -- -   @default-association-route-table@ - Indicates whether this is the
@@ -78,15 +81,12 @@ data DescribeTransitGatewayRouteTables = DescribeTransitGatewayRouteTables'
     -- -   @transit-gateway-route-table-id@ - The ID of the transit gateway
     --     route table.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the transit gateway route tables.
     transitGatewayRouteTableIds :: Prelude.Maybe [Prelude.Text]
   }
@@ -100,7 +100,10 @@ data DescribeTransitGatewayRouteTables = DescribeTransitGatewayRouteTables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeTransitGatewayRouteTables_nextToken' - The token for the next page of results.
+-- 'dryRun', 'describeTransitGatewayRouteTables_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeTransitGatewayRouteTables_filters' - One or more filters. The possible values are:
 --
@@ -120,32 +123,32 @@ data DescribeTransitGatewayRouteTables = DescribeTransitGatewayRouteTables'
 -- -   @transit-gateway-route-table-id@ - The ID of the transit gateway
 --     route table.
 --
--- 'dryRun', 'describeTransitGatewayRouteTables_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeTransitGatewayRouteTables_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'describeTransitGatewayRouteTables_nextToken' - The token for the next page of results.
 --
 -- 'transitGatewayRouteTableIds', 'describeTransitGatewayRouteTables_transitGatewayRouteTableIds' - The IDs of the transit gateway route tables.
 newDescribeTransitGatewayRouteTables ::
   DescribeTransitGatewayRouteTables
 newDescribeTransitGatewayRouteTables =
   DescribeTransitGatewayRouteTables'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       transitGatewayRouteTableIds =
         Prelude.Nothing
     }
 
--- | The token for the next page of results.
-describeTransitGatewayRouteTables_nextToken :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe Prelude.Text)
-describeTransitGatewayRouteTables_nextToken = Lens.lens (\DescribeTransitGatewayRouteTables' {nextToken} -> nextToken) (\s@DescribeTransitGatewayRouteTables' {} a -> s {nextToken = a} :: DescribeTransitGatewayRouteTables)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeTransitGatewayRouteTables_dryRun :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe Prelude.Bool)
+describeTransitGatewayRouteTables_dryRun = Lens.lens (\DescribeTransitGatewayRouteTables' {dryRun} -> dryRun) (\s@DescribeTransitGatewayRouteTables' {} a -> s {dryRun = a} :: DescribeTransitGatewayRouteTables)
 
 -- | One or more filters. The possible values are:
 --
@@ -167,18 +170,15 @@ describeTransitGatewayRouteTables_nextToken = Lens.lens (\DescribeTransitGateway
 describeTransitGatewayRouteTables_filters :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe [Filter])
 describeTransitGatewayRouteTables_filters = Lens.lens (\DescribeTransitGatewayRouteTables' {filters} -> filters) (\s@DescribeTransitGatewayRouteTables' {} a -> s {filters = a} :: DescribeTransitGatewayRouteTables) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeTransitGatewayRouteTables_dryRun :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe Prelude.Bool)
-describeTransitGatewayRouteTables_dryRun = Lens.lens (\DescribeTransitGatewayRouteTables' {dryRun} -> dryRun) (\s@DescribeTransitGatewayRouteTables' {} a -> s {dryRun = a} :: DescribeTransitGatewayRouteTables)
-
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 describeTransitGatewayRouteTables_maxResults :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe Prelude.Natural)
 describeTransitGatewayRouteTables_maxResults = Lens.lens (\DescribeTransitGatewayRouteTables' {maxResults} -> maxResults) (\s@DescribeTransitGatewayRouteTables' {} a -> s {maxResults = a} :: DescribeTransitGatewayRouteTables)
+
+-- | The token for the next page of results.
+describeTransitGatewayRouteTables_nextToken :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe Prelude.Text)
+describeTransitGatewayRouteTables_nextToken = Lens.lens (\DescribeTransitGatewayRouteTables' {nextToken} -> nextToken) (\s@DescribeTransitGatewayRouteTables' {} a -> s {nextToken = a} :: DescribeTransitGatewayRouteTables)
 
 -- | The IDs of the transit gateway route tables.
 describeTransitGatewayRouteTables_transitGatewayRouteTableIds :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe [Prelude.Text])
@@ -237,10 +237,10 @@ instance
   hashWithSalt
     _salt
     DescribeTransitGatewayRouteTables' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` transitGatewayRouteTableIds
 
 instance
@@ -248,10 +248,10 @@ instance
     DescribeTransitGatewayRouteTables
   where
   rnf DescribeTransitGatewayRouteTables' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableIds
 
 instance
@@ -278,11 +278,11 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         Data.toQuery
           ( Data.toQueryList "TransitGatewayRouteTableIds"
               Prelude.<$> transitGatewayRouteTableIds

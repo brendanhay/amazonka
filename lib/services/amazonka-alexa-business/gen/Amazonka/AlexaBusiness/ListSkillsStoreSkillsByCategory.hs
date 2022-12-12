@@ -29,8 +29,8 @@ module Amazonka.AlexaBusiness.ListSkillsStoreSkillsByCategory
     newListSkillsStoreSkillsByCategory,
 
     -- * Request Lenses
-    listSkillsStoreSkillsByCategory_nextToken,
     listSkillsStoreSkillsByCategory_maxResults,
+    listSkillsStoreSkillsByCategory_nextToken,
     listSkillsStoreSkillsByCategory_categoryId,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSkillsStoreSkillsByCategory' smart constructor.
 data ListSkillsStoreSkillsByCategory = ListSkillsStoreSkillsByCategory'
-  { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of skills returned per paginated calls.
+  { -- | The maximum number of skills returned per paginated calls.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The tokens used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The category ID for which the skills are being retrieved from the skill
     -- store.
     categoryId :: Prelude.Natural
@@ -72,9 +72,9 @@ data ListSkillsStoreSkillsByCategory = ListSkillsStoreSkillsByCategory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSkillsStoreSkillsByCategory_nextToken' - The tokens used for pagination.
---
 -- 'maxResults', 'listSkillsStoreSkillsByCategory_maxResults' - The maximum number of skills returned per paginated calls.
+--
+-- 'nextToken', 'listSkillsStoreSkillsByCategory_nextToken' - The tokens used for pagination.
 --
 -- 'categoryId', 'listSkillsStoreSkillsByCategory_categoryId' - The category ID for which the skills are being retrieved from the skill
 -- store.
@@ -84,19 +84,19 @@ newListSkillsStoreSkillsByCategory ::
   ListSkillsStoreSkillsByCategory
 newListSkillsStoreSkillsByCategory pCategoryId_ =
   ListSkillsStoreSkillsByCategory'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       categoryId = pCategoryId_
     }
-
--- | The tokens used for pagination.
-listSkillsStoreSkillsByCategory_nextToken :: Lens.Lens' ListSkillsStoreSkillsByCategory (Prelude.Maybe Prelude.Text)
-listSkillsStoreSkillsByCategory_nextToken = Lens.lens (\ListSkillsStoreSkillsByCategory' {nextToken} -> nextToken) (\s@ListSkillsStoreSkillsByCategory' {} a -> s {nextToken = a} :: ListSkillsStoreSkillsByCategory)
 
 -- | The maximum number of skills returned per paginated calls.
 listSkillsStoreSkillsByCategory_maxResults :: Lens.Lens' ListSkillsStoreSkillsByCategory (Prelude.Maybe Prelude.Natural)
 listSkillsStoreSkillsByCategory_maxResults = Lens.lens (\ListSkillsStoreSkillsByCategory' {maxResults} -> maxResults) (\s@ListSkillsStoreSkillsByCategory' {} a -> s {maxResults = a} :: ListSkillsStoreSkillsByCategory)
+
+-- | The tokens used for pagination.
+listSkillsStoreSkillsByCategory_nextToken :: Lens.Lens' ListSkillsStoreSkillsByCategory (Prelude.Maybe Prelude.Text)
+listSkillsStoreSkillsByCategory_nextToken = Lens.lens (\ListSkillsStoreSkillsByCategory' {nextToken} -> nextToken) (\s@ListSkillsStoreSkillsByCategory' {} a -> s {nextToken = a} :: ListSkillsStoreSkillsByCategory)
 
 -- | The category ID for which the skills are being retrieved from the skill
 -- store.
@@ -155,8 +155,8 @@ instance
   hashWithSalt
     _salt
     ListSkillsStoreSkillsByCategory' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` categoryId
 
 instance
@@ -164,8 +164,8 @@ instance
     ListSkillsStoreSkillsByCategory
   where
   rnf ListSkillsStoreSkillsByCategory' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf categoryId
 
 instance
@@ -190,8 +190,8 @@ instance Data.ToJSON ListSkillsStoreSkillsByCategory where
   toJSON ListSkillsStoreSkillsByCategory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("CategoryId" Data..= categoryId)
           ]
       )

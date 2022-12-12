@@ -36,11 +36,11 @@ module Amazonka.ServiceCatalog.DescribePortfolioShareStatus
     newDescribePortfolioShareStatusResponse,
 
     -- * Response Lenses
+    describePortfolioShareStatusResponse_organizationNodeValue,
     describePortfolioShareStatusResponse_portfolioId,
+    describePortfolioShareStatusResponse_portfolioShareToken,
     describePortfolioShareStatusResponse_shareDetails,
     describePortfolioShareStatusResponse_status,
-    describePortfolioShareStatusResponse_portfolioShareToken,
-    describePortfolioShareStatusResponse_organizationNodeValue,
     describePortfolioShareStatusResponse_httpStatus,
   )
 where
@@ -96,11 +96,11 @@ instance Core.AWSRequest DescribePortfolioShareStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribePortfolioShareStatusResponse'
-            Prelude.<$> (x Data..?> "PortfolioId")
+            Prelude.<$> (x Data..?> "OrganizationNodeValue")
+            Prelude.<*> (x Data..?> "PortfolioId")
+            Prelude.<*> (x Data..?> "PortfolioShareToken")
             Prelude.<*> (x Data..?> "ShareDetails")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "PortfolioShareToken")
-            Prelude.<*> (x Data..?> "OrganizationNodeValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,18 +147,18 @@ instance Data.ToQuery DescribePortfolioShareStatus where
 
 -- | /See:/ 'newDescribePortfolioShareStatusResponse' smart constructor.
 data DescribePortfolioShareStatusResponse = DescribePortfolioShareStatusResponse'
-  { -- | The portfolio identifier.
+  { -- | Organization node identifier. It can be either account id,
+    -- organizational unit id or organization id.
+    organizationNodeValue :: Prelude.Maybe Prelude.Text,
+    -- | The portfolio identifier.
     portfolioId :: Prelude.Maybe Prelude.Text,
+    -- | The token for the portfolio share operation. For example,
+    -- @share-6v24abcdefghi@.
+    portfolioShareToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the portfolio share operation.
     shareDetails :: Prelude.Maybe ShareDetails,
     -- | Status of the portfolio share operation.
     status :: Prelude.Maybe ShareStatus,
-    -- | The token for the portfolio share operation. For example,
-    -- @share-6v24abcdefghi@.
-    portfolioShareToken :: Prelude.Maybe Prelude.Text,
-    -- | Organization node identifier. It can be either account id,
-    -- organizational unit id or organization id.
-    organizationNodeValue :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,17 +172,17 @@ data DescribePortfolioShareStatusResponse = DescribePortfolioShareStatusResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'organizationNodeValue', 'describePortfolioShareStatusResponse_organizationNodeValue' - Organization node identifier. It can be either account id,
+-- organizational unit id or organization id.
+--
 -- 'portfolioId', 'describePortfolioShareStatusResponse_portfolioId' - The portfolio identifier.
---
--- 'shareDetails', 'describePortfolioShareStatusResponse_shareDetails' - Information about the portfolio share operation.
---
--- 'status', 'describePortfolioShareStatusResponse_status' - Status of the portfolio share operation.
 --
 -- 'portfolioShareToken', 'describePortfolioShareStatusResponse_portfolioShareToken' - The token for the portfolio share operation. For example,
 -- @share-6v24abcdefghi@.
 --
--- 'organizationNodeValue', 'describePortfolioShareStatusResponse_organizationNodeValue' - Organization node identifier. It can be either account id,
--- organizational unit id or organization id.
+-- 'shareDetails', 'describePortfolioShareStatusResponse_shareDetails' - Information about the portfolio share operation.
+--
+-- 'status', 'describePortfolioShareStatusResponse_status' - Status of the portfolio share operation.
 --
 -- 'httpStatus', 'describePortfolioShareStatusResponse_httpStatus' - The response's http status code.
 newDescribePortfolioShareStatusResponse ::
@@ -191,19 +191,28 @@ newDescribePortfolioShareStatusResponse ::
   DescribePortfolioShareStatusResponse
 newDescribePortfolioShareStatusResponse pHttpStatus_ =
   DescribePortfolioShareStatusResponse'
-    { portfolioId =
+    { organizationNodeValue =
         Prelude.Nothing,
+      portfolioId = Prelude.Nothing,
+      portfolioShareToken = Prelude.Nothing,
       shareDetails = Prelude.Nothing,
       status = Prelude.Nothing,
-      portfolioShareToken = Prelude.Nothing,
-      organizationNodeValue =
-        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Organization node identifier. It can be either account id,
+-- organizational unit id or organization id.
+describePortfolioShareStatusResponse_organizationNodeValue :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe Prelude.Text)
+describePortfolioShareStatusResponse_organizationNodeValue = Lens.lens (\DescribePortfolioShareStatusResponse' {organizationNodeValue} -> organizationNodeValue) (\s@DescribePortfolioShareStatusResponse' {} a -> s {organizationNodeValue = a} :: DescribePortfolioShareStatusResponse)
 
 -- | The portfolio identifier.
 describePortfolioShareStatusResponse_portfolioId :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe Prelude.Text)
 describePortfolioShareStatusResponse_portfolioId = Lens.lens (\DescribePortfolioShareStatusResponse' {portfolioId} -> portfolioId) (\s@DescribePortfolioShareStatusResponse' {} a -> s {portfolioId = a} :: DescribePortfolioShareStatusResponse)
+
+-- | The token for the portfolio share operation. For example,
+-- @share-6v24abcdefghi@.
+describePortfolioShareStatusResponse_portfolioShareToken :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe Prelude.Text)
+describePortfolioShareStatusResponse_portfolioShareToken = Lens.lens (\DescribePortfolioShareStatusResponse' {portfolioShareToken} -> portfolioShareToken) (\s@DescribePortfolioShareStatusResponse' {} a -> s {portfolioShareToken = a} :: DescribePortfolioShareStatusResponse)
 
 -- | Information about the portfolio share operation.
 describePortfolioShareStatusResponse_shareDetails :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe ShareDetails)
@@ -212,16 +221,6 @@ describePortfolioShareStatusResponse_shareDetails = Lens.lens (\DescribePortfoli
 -- | Status of the portfolio share operation.
 describePortfolioShareStatusResponse_status :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe ShareStatus)
 describePortfolioShareStatusResponse_status = Lens.lens (\DescribePortfolioShareStatusResponse' {status} -> status) (\s@DescribePortfolioShareStatusResponse' {} a -> s {status = a} :: DescribePortfolioShareStatusResponse)
-
--- | The token for the portfolio share operation. For example,
--- @share-6v24abcdefghi@.
-describePortfolioShareStatusResponse_portfolioShareToken :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe Prelude.Text)
-describePortfolioShareStatusResponse_portfolioShareToken = Lens.lens (\DescribePortfolioShareStatusResponse' {portfolioShareToken} -> portfolioShareToken) (\s@DescribePortfolioShareStatusResponse' {} a -> s {portfolioShareToken = a} :: DescribePortfolioShareStatusResponse)
-
--- | Organization node identifier. It can be either account id,
--- organizational unit id or organization id.
-describePortfolioShareStatusResponse_organizationNodeValue :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe Prelude.Text)
-describePortfolioShareStatusResponse_organizationNodeValue = Lens.lens (\DescribePortfolioShareStatusResponse' {organizationNodeValue} -> organizationNodeValue) (\s@DescribePortfolioShareStatusResponse' {} a -> s {organizationNodeValue = a} :: DescribePortfolioShareStatusResponse)
 
 -- | The response's http status code.
 describePortfolioShareStatusResponse_httpStatus :: Lens.Lens' DescribePortfolioShareStatusResponse Prelude.Int
@@ -232,9 +231,9 @@ instance
     DescribePortfolioShareStatusResponse
   where
   rnf DescribePortfolioShareStatusResponse' {..} =
-    Prelude.rnf portfolioId
+    Prelude.rnf organizationNodeValue
+      `Prelude.seq` Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf portfolioShareToken
       `Prelude.seq` Prelude.rnf shareDetails
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf portfolioShareToken
-      `Prelude.seq` Prelude.rnf organizationNodeValue
       `Prelude.seq` Prelude.rnf httpStatus

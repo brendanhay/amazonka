@@ -41,6 +41,9 @@ data CrossRegionCopyRule = CrossRegionCopyRule'
     -- | Indicates whether to copy all user-defined tags from the source snapshot
     -- or AMI to the cross-Region copy.
     copyTags :: Prelude.Maybe Prelude.Bool,
+    -- | __[AMI policies only]__ The AMI deprecation rule for cross-Region AMI
+    -- copies created by the rule.
+    deprecateRule :: Prelude.Maybe CrossRegionCopyDeprecateRule,
     -- | The retention rule that indicates how long the cross-Region snapshot or
     -- AMI copies are to be retained in the destination Region.
     retainRule :: Prelude.Maybe CrossRegionCopyRetainRule,
@@ -56,9 +59,6 @@ data CrossRegionCopyRule = CrossRegionCopyRule'
     -- For policies created before the __Target__ parameter was introduced,
     -- this parameter indicates the target Region for snapshot copies.
     targetRegion :: Prelude.Maybe Prelude.Text,
-    -- | __[AMI policies only]__ The AMI deprecation rule for cross-Region AMI
-    -- copies created by the rule.
-    deprecateRule :: Prelude.Maybe CrossRegionCopyDeprecateRule,
     -- | To encrypt a copy of an unencrypted snapshot if encryption by default is
     -- not enabled, enable encryption using this parameter. Copies of encrypted
     -- snapshots are encrypted, even if this parameter is false or if
@@ -82,6 +82,9 @@ data CrossRegionCopyRule = CrossRegionCopyRule'
 -- 'copyTags', 'crossRegionCopyRule_copyTags' - Indicates whether to copy all user-defined tags from the source snapshot
 -- or AMI to the cross-Region copy.
 --
+-- 'deprecateRule', 'crossRegionCopyRule_deprecateRule' - __[AMI policies only]__ The AMI deprecation rule for cross-Region AMI
+-- copies created by the rule.
+--
 -- 'retainRule', 'crossRegionCopyRule_retainRule' - The retention rule that indicates how long the cross-Region snapshot or
 -- AMI copies are to be retained in the destination Region.
 --
@@ -97,9 +100,6 @@ data CrossRegionCopyRule = CrossRegionCopyRule'
 -- For policies created before the __Target__ parameter was introduced,
 -- this parameter indicates the target Region for snapshot copies.
 --
--- 'deprecateRule', 'crossRegionCopyRule_deprecateRule' - __[AMI policies only]__ The AMI deprecation rule for cross-Region AMI
--- copies created by the rule.
---
 -- 'encrypted', 'crossRegionCopyRule_encrypted' - To encrypt a copy of an unencrypted snapshot if encryption by default is
 -- not enabled, enable encryption using this parameter. Copies of encrypted
 -- snapshots are encrypted, even if this parameter is false or if
@@ -112,10 +112,10 @@ newCrossRegionCopyRule pEncrypted_ =
   CrossRegionCopyRule'
     { cmkArn = Prelude.Nothing,
       copyTags = Prelude.Nothing,
+      deprecateRule = Prelude.Nothing,
       retainRule = Prelude.Nothing,
       target = Prelude.Nothing,
       targetRegion = Prelude.Nothing,
-      deprecateRule = Prelude.Nothing,
       encrypted = pEncrypted_
     }
 
@@ -129,6 +129,11 @@ crossRegionCopyRule_cmkArn = Lens.lens (\CrossRegionCopyRule' {cmkArn} -> cmkArn
 -- or AMI to the cross-Region copy.
 crossRegionCopyRule_copyTags :: Lens.Lens' CrossRegionCopyRule (Prelude.Maybe Prelude.Bool)
 crossRegionCopyRule_copyTags = Lens.lens (\CrossRegionCopyRule' {copyTags} -> copyTags) (\s@CrossRegionCopyRule' {} a -> s {copyTags = a} :: CrossRegionCopyRule)
+
+-- | __[AMI policies only]__ The AMI deprecation rule for cross-Region AMI
+-- copies created by the rule.
+crossRegionCopyRule_deprecateRule :: Lens.Lens' CrossRegionCopyRule (Prelude.Maybe CrossRegionCopyDeprecateRule)
+crossRegionCopyRule_deprecateRule = Lens.lens (\CrossRegionCopyRule' {deprecateRule} -> deprecateRule) (\s@CrossRegionCopyRule' {} a -> s {deprecateRule = a} :: CrossRegionCopyRule)
 
 -- | The retention rule that indicates how long the cross-Region snapshot or
 -- AMI copies are to be retained in the destination Region.
@@ -151,11 +156,6 @@ crossRegionCopyRule_target = Lens.lens (\CrossRegionCopyRule' {target} -> target
 crossRegionCopyRule_targetRegion :: Lens.Lens' CrossRegionCopyRule (Prelude.Maybe Prelude.Text)
 crossRegionCopyRule_targetRegion = Lens.lens (\CrossRegionCopyRule' {targetRegion} -> targetRegion) (\s@CrossRegionCopyRule' {} a -> s {targetRegion = a} :: CrossRegionCopyRule)
 
--- | __[AMI policies only]__ The AMI deprecation rule for cross-Region AMI
--- copies created by the rule.
-crossRegionCopyRule_deprecateRule :: Lens.Lens' CrossRegionCopyRule (Prelude.Maybe CrossRegionCopyDeprecateRule)
-crossRegionCopyRule_deprecateRule = Lens.lens (\CrossRegionCopyRule' {deprecateRule} -> deprecateRule) (\s@CrossRegionCopyRule' {} a -> s {deprecateRule = a} :: CrossRegionCopyRule)
-
 -- | To encrypt a copy of an unencrypted snapshot if encryption by default is
 -- not enabled, enable encryption using this parameter. Copies of encrypted
 -- snapshots are encrypted, even if this parameter is false or if
@@ -171,10 +171,10 @@ instance Data.FromJSON CrossRegionCopyRule where
           CrossRegionCopyRule'
             Prelude.<$> (x Data..:? "CmkArn")
             Prelude.<*> (x Data..:? "CopyTags")
+            Prelude.<*> (x Data..:? "DeprecateRule")
             Prelude.<*> (x Data..:? "RetainRule")
             Prelude.<*> (x Data..:? "Target")
             Prelude.<*> (x Data..:? "TargetRegion")
-            Prelude.<*> (x Data..:? "DeprecateRule")
             Prelude.<*> (x Data..: "Encrypted")
       )
 
@@ -182,20 +182,20 @@ instance Prelude.Hashable CrossRegionCopyRule where
   hashWithSalt _salt CrossRegionCopyRule' {..} =
     _salt `Prelude.hashWithSalt` cmkArn
       `Prelude.hashWithSalt` copyTags
+      `Prelude.hashWithSalt` deprecateRule
       `Prelude.hashWithSalt` retainRule
       `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` targetRegion
-      `Prelude.hashWithSalt` deprecateRule
       `Prelude.hashWithSalt` encrypted
 
 instance Prelude.NFData CrossRegionCopyRule where
   rnf CrossRegionCopyRule' {..} =
     Prelude.rnf cmkArn
       `Prelude.seq` Prelude.rnf copyTags
+      `Prelude.seq` Prelude.rnf deprecateRule
       `Prelude.seq` Prelude.rnf retainRule
       `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf targetRegion
-      `Prelude.seq` Prelude.rnf deprecateRule
       `Prelude.seq` Prelude.rnf encrypted
 
 instance Data.ToJSON CrossRegionCopyRule where
@@ -204,10 +204,10 @@ instance Data.ToJSON CrossRegionCopyRule where
       ( Prelude.catMaybes
           [ ("CmkArn" Data..=) Prelude.<$> cmkArn,
             ("CopyTags" Data..=) Prelude.<$> copyTags,
+            ("DeprecateRule" Data..=) Prelude.<$> deprecateRule,
             ("RetainRule" Data..=) Prelude.<$> retainRule,
             ("Target" Data..=) Prelude.<$> target,
             ("TargetRegion" Data..=) Prelude.<$> targetRegion,
-            ("DeprecateRule" Data..=) Prelude.<$> deprecateRule,
             Prelude.Just ("Encrypted" Data..= encrypted)
           ]
       )

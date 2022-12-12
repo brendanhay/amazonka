@@ -31,7 +31,21 @@ import Amazonka.SQS.Types.MessageSystemAttributeValue
 --
 -- /See:/ 'newSendMessageBatchRequestEntry' smart constructor.
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
-  { -- | This parameter applies only to FIFO (first-in-first-out) queues.
+  { -- | The length of time, in seconds, for which a specific message is delayed.
+    -- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
+    -- @DelaySeconds@ value become available for processing after the delay
+    -- period is finished. If you don\'t specify a value, the default value for
+    -- the queue is applied.
+    --
+    -- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
+    -- can set this parameter only on a queue level.
+    delaySeconds :: Prelude.Maybe Prelude.Int,
+    -- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
+    -- in the /Amazon SQS Developer Guide/.
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
+    -- | This parameter applies only to FIFO (first-in-first-out) queues.
     --
     -- The token used for deduplication of messages within a 5-minute minimum
     -- deduplication interval. If a message with a particular
@@ -115,20 +129,6 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
     -- @MessageGroupId@ is required for FIFO queues. You can\'t use it for
     -- Standard queues.
     messageGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The length of time, in seconds, for which a specific message is delayed.
-    -- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
-    -- @DelaySeconds@ value become available for processing after the delay
-    -- period is finished. If you don\'t specify a value, the default value for
-    -- the queue is applied.
-    --
-    -- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
-    -- can set this parameter only on a queue level.
-    delaySeconds :: Prelude.Maybe Prelude.Int,
-    -- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
-    -- in the /Amazon SQS Developer Guide/.
-    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | The message system attribute to send Each message system attribute
     -- consists of a @Name@, @Type@, and @Value@.
     --
@@ -159,6 +159,20 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'delaySeconds', 'sendMessageBatchRequestEntry_delaySeconds' - The length of time, in seconds, for which a specific message is delayed.
+-- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
+-- @DelaySeconds@ value become available for processing after the delay
+-- period is finished. If you don\'t specify a value, the default value for
+-- the queue is applied.
+--
+-- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
+-- can set this parameter only on a queue level.
+--
+-- 'messageAttributes', 'sendMessageBatchRequestEntry_messageAttributes' - Each message attribute consists of a @Name@, @Type@, and @Value@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
+-- in the /Amazon SQS Developer Guide/.
 --
 -- 'messageDeduplicationId', 'sendMessageBatchRequestEntry_messageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) queues.
 --
@@ -244,20 +258,6 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
 -- @MessageGroupId@ is required for FIFO queues. You can\'t use it for
 -- Standard queues.
 --
--- 'delaySeconds', 'sendMessageBatchRequestEntry_delaySeconds' - The length of time, in seconds, for which a specific message is delayed.
--- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
--- @DelaySeconds@ value become available for processing after the delay
--- period is finished. If you don\'t specify a value, the default value for
--- the queue is applied.
---
--- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
--- can set this parameter only on a queue level.
---
--- 'messageAttributes', 'sendMessageBatchRequestEntry_messageAttributes' - Each message attribute consists of a @Name@, @Type@, and @Value@. For
--- more information, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
--- in the /Amazon SQS Developer Guide/.
---
 -- 'messageSystemAttributes', 'sendMessageBatchRequestEntry_messageSystemAttributes' - The message system attribute to send Each message system attribute
 -- consists of a @Name@, @Type@, and @Value@.
 --
@@ -285,15 +285,33 @@ newSendMessageBatchRequestEntry ::
   SendMessageBatchRequestEntry
 newSendMessageBatchRequestEntry pId_ pMessageBody_ =
   SendMessageBatchRequestEntry'
-    { messageDeduplicationId =
+    { delaySeconds =
         Prelude.Nothing,
-      messageGroupId = Prelude.Nothing,
-      delaySeconds = Prelude.Nothing,
       messageAttributes = Prelude.Nothing,
+      messageDeduplicationId = Prelude.Nothing,
+      messageGroupId = Prelude.Nothing,
       messageSystemAttributes = Prelude.Nothing,
       id = pId_,
       messageBody = pMessageBody_
     }
+
+-- | The length of time, in seconds, for which a specific message is delayed.
+-- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
+-- @DelaySeconds@ value become available for processing after the delay
+-- period is finished. If you don\'t specify a value, the default value for
+-- the queue is applied.
+--
+-- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
+-- can set this parameter only on a queue level.
+sendMessageBatchRequestEntry_delaySeconds :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Int)
+sendMessageBatchRequestEntry_delaySeconds = Lens.lens (\SendMessageBatchRequestEntry' {delaySeconds} -> delaySeconds) (\s@SendMessageBatchRequestEntry' {} a -> s {delaySeconds = a} :: SendMessageBatchRequestEntry)
+
+-- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
+-- in the /Amazon SQS Developer Guide/.
+sendMessageBatchRequestEntry_messageAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+sendMessageBatchRequestEntry_messageAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageAttributes} -> messageAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageAttributes = a} :: SendMessageBatchRequestEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter applies only to FIFO (first-in-first-out) queues.
 --
@@ -383,24 +401,6 @@ sendMessageBatchRequestEntry_messageDeduplicationId = Lens.lens (\SendMessageBat
 sendMessageBatchRequestEntry_messageGroupId :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Text)
 sendMessageBatchRequestEntry_messageGroupId = Lens.lens (\SendMessageBatchRequestEntry' {messageGroupId} -> messageGroupId) (\s@SendMessageBatchRequestEntry' {} a -> s {messageGroupId = a} :: SendMessageBatchRequestEntry)
 
--- | The length of time, in seconds, for which a specific message is delayed.
--- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
--- @DelaySeconds@ value become available for processing after the delay
--- period is finished. If you don\'t specify a value, the default value for
--- the queue is applied.
---
--- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
--- can set this parameter only on a queue level.
-sendMessageBatchRequestEntry_delaySeconds :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Int)
-sendMessageBatchRequestEntry_delaySeconds = Lens.lens (\SendMessageBatchRequestEntry' {delaySeconds} -> delaySeconds) (\s@SendMessageBatchRequestEntry' {} a -> s {delaySeconds = a} :: SendMessageBatchRequestEntry)
-
--- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
--- more information, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
--- in the /Amazon SQS Developer Guide/.
-sendMessageBatchRequestEntry_messageAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
-sendMessageBatchRequestEntry_messageAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageAttributes} -> messageAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageAttributes = a} :: SendMessageBatchRequestEntry) Prelude.. Lens.mapping Lens.coerced
-
 -- | The message system attribute to send Each message system attribute
 -- consists of a @Name@, @Type@, and @Value@.
 --
@@ -432,20 +432,20 @@ instance
     SendMessageBatchRequestEntry
   where
   hashWithSalt _salt SendMessageBatchRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` messageDeduplicationId
-      `Prelude.hashWithSalt` messageGroupId
-      `Prelude.hashWithSalt` delaySeconds
+    _salt `Prelude.hashWithSalt` delaySeconds
       `Prelude.hashWithSalt` messageAttributes
+      `Prelude.hashWithSalt` messageDeduplicationId
+      `Prelude.hashWithSalt` messageGroupId
       `Prelude.hashWithSalt` messageSystemAttributes
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` messageBody
 
 instance Prelude.NFData SendMessageBatchRequestEntry where
   rnf SendMessageBatchRequestEntry' {..} =
-    Prelude.rnf messageDeduplicationId
-      `Prelude.seq` Prelude.rnf messageGroupId
-      `Prelude.seq` Prelude.rnf delaySeconds
+    Prelude.rnf delaySeconds
       `Prelude.seq` Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf messageDeduplicationId
+      `Prelude.seq` Prelude.rnf messageGroupId
       `Prelude.seq` Prelude.rnf messageSystemAttributes
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf messageBody
@@ -453,14 +453,14 @@ instance Prelude.NFData SendMessageBatchRequestEntry where
 instance Data.ToQuery SendMessageBatchRequestEntry where
   toQuery SendMessageBatchRequestEntry' {..} =
     Prelude.mconcat
-      [ "MessageDeduplicationId"
-          Data.=: messageDeduplicationId,
-        "MessageGroupId" Data.=: messageGroupId,
-        "DelaySeconds" Data.=: delaySeconds,
+      [ "DelaySeconds" Data.=: delaySeconds,
         Data.toQuery
           ( Data.toQueryMap "MessageAttribute" "Name" "Value"
               Prelude.<$> messageAttributes
           ),
+        "MessageDeduplicationId"
+          Data.=: messageDeduplicationId,
+        "MessageGroupId" Data.=: messageGroupId,
         Data.toQuery
           ( Data.toQueryMap
               "MessageSystemAttribute"

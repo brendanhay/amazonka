@@ -34,15 +34,15 @@ module Amazonka.IoTWireless.GetFuotaTask
     newGetFuotaTaskResponse,
 
     -- * Response Lenses
-    getFuotaTaskResponse_name,
-    getFuotaTaskResponse_loRaWAN,
     getFuotaTaskResponse_arn,
-    getFuotaTaskResponse_status,
-    getFuotaTaskResponse_id,
-    getFuotaTaskResponse_description,
-    getFuotaTaskResponse_firmwareUpdateRole,
-    getFuotaTaskResponse_firmwareUpdateImage,
     getFuotaTaskResponse_createdAt,
+    getFuotaTaskResponse_description,
+    getFuotaTaskResponse_firmwareUpdateImage,
+    getFuotaTaskResponse_firmwareUpdateRole,
+    getFuotaTaskResponse_id,
+    getFuotaTaskResponse_loRaWAN,
+    getFuotaTaskResponse_name,
+    getFuotaTaskResponse_status,
     getFuotaTaskResponse_httpStatus,
   )
 where
@@ -88,15 +88,15 @@ instance Core.AWSRequest GetFuotaTask where
     Response.receiveJSON
       ( \s h x ->
           GetFuotaTaskResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "LoRaWAN")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "Id")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "FirmwareUpdateRole")
-            Prelude.<*> (x Data..?> "FirmwareUpdateImage")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "FirmwareUpdateImage")
+            Prelude.<*> (x Data..?> "FirmwareUpdateRole")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "LoRaWAN")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,15 +119,15 @@ instance Data.ToQuery GetFuotaTask where
 
 -- | /See:/ 'newGetFuotaTaskResponse' smart constructor.
 data GetFuotaTaskResponse = GetFuotaTaskResponse'
-  { name :: Prelude.Maybe Prelude.Text,
-    loRaWAN :: Prelude.Maybe LoRaWANFuotaTaskGetInfo,
-    arn :: Prelude.Maybe Prelude.Text,
-    status :: Prelude.Maybe FuotaTaskStatus,
-    id :: Prelude.Maybe Prelude.Text,
-    description :: Prelude.Maybe Prelude.Text,
-    firmwareUpdateRole :: Prelude.Maybe Prelude.Text,
-    firmwareUpdateImage :: Prelude.Maybe Prelude.Text,
+  { arn :: Prelude.Maybe Prelude.Text,
     createdAt :: Prelude.Maybe Data.POSIX,
+    description :: Prelude.Maybe Prelude.Text,
+    firmwareUpdateImage :: Prelude.Maybe Prelude.Text,
+    firmwareUpdateRole :: Prelude.Maybe Prelude.Text,
+    id :: Prelude.Maybe Prelude.Text,
+    loRaWAN :: Prelude.Maybe LoRaWANFuotaTaskGetInfo,
+    name :: Prelude.Maybe Prelude.Text,
+    status :: Prelude.Maybe FuotaTaskStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,23 +141,23 @@ data GetFuotaTaskResponse = GetFuotaTaskResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getFuotaTaskResponse_name' - Undocumented member.
---
--- 'loRaWAN', 'getFuotaTaskResponse_loRaWAN' - Undocumented member.
---
 -- 'arn', 'getFuotaTaskResponse_arn' - Undocumented member.
 --
--- 'status', 'getFuotaTaskResponse_status' - Undocumented member.
---
--- 'id', 'getFuotaTaskResponse_id' - Undocumented member.
+-- 'createdAt', 'getFuotaTaskResponse_createdAt' - Undocumented member.
 --
 -- 'description', 'getFuotaTaskResponse_description' - Undocumented member.
 --
--- 'firmwareUpdateRole', 'getFuotaTaskResponse_firmwareUpdateRole' - Undocumented member.
---
 -- 'firmwareUpdateImage', 'getFuotaTaskResponse_firmwareUpdateImage' - Undocumented member.
 --
--- 'createdAt', 'getFuotaTaskResponse_createdAt' - Undocumented member.
+-- 'firmwareUpdateRole', 'getFuotaTaskResponse_firmwareUpdateRole' - Undocumented member.
+--
+-- 'id', 'getFuotaTaskResponse_id' - Undocumented member.
+--
+-- 'loRaWAN', 'getFuotaTaskResponse_loRaWAN' - Undocumented member.
+--
+-- 'name', 'getFuotaTaskResponse_name' - Undocumented member.
+--
+-- 'status', 'getFuotaTaskResponse_status' - Undocumented member.
 --
 -- 'httpStatus', 'getFuotaTaskResponse_httpStatus' - The response's http status code.
 newGetFuotaTaskResponse ::
@@ -166,53 +166,53 @@ newGetFuotaTaskResponse ::
   GetFuotaTaskResponse
 newGetFuotaTaskResponse pHttpStatus_ =
   GetFuotaTaskResponse'
-    { name = Prelude.Nothing,
-      loRaWAN = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      firmwareUpdateRole = Prelude.Nothing,
-      firmwareUpdateImage = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      description = Prelude.Nothing,
+      firmwareUpdateImage = Prelude.Nothing,
+      firmwareUpdateRole = Prelude.Nothing,
+      id = Prelude.Nothing,
+      loRaWAN = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-getFuotaTaskResponse_name :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
-getFuotaTaskResponse_name = Lens.lens (\GetFuotaTaskResponse' {name} -> name) (\s@GetFuotaTaskResponse' {} a -> s {name = a} :: GetFuotaTaskResponse)
-
--- | Undocumented member.
-getFuotaTaskResponse_loRaWAN :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe LoRaWANFuotaTaskGetInfo)
-getFuotaTaskResponse_loRaWAN = Lens.lens (\GetFuotaTaskResponse' {loRaWAN} -> loRaWAN) (\s@GetFuotaTaskResponse' {} a -> s {loRaWAN = a} :: GetFuotaTaskResponse)
 
 -- | Undocumented member.
 getFuotaTaskResponse_arn :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
 getFuotaTaskResponse_arn = Lens.lens (\GetFuotaTaskResponse' {arn} -> arn) (\s@GetFuotaTaskResponse' {} a -> s {arn = a} :: GetFuotaTaskResponse)
 
 -- | Undocumented member.
-getFuotaTaskResponse_status :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe FuotaTaskStatus)
-getFuotaTaskResponse_status = Lens.lens (\GetFuotaTaskResponse' {status} -> status) (\s@GetFuotaTaskResponse' {} a -> s {status = a} :: GetFuotaTaskResponse)
-
--- | Undocumented member.
-getFuotaTaskResponse_id :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
-getFuotaTaskResponse_id = Lens.lens (\GetFuotaTaskResponse' {id} -> id) (\s@GetFuotaTaskResponse' {} a -> s {id = a} :: GetFuotaTaskResponse)
+getFuotaTaskResponse_createdAt :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.UTCTime)
+getFuotaTaskResponse_createdAt = Lens.lens (\GetFuotaTaskResponse' {createdAt} -> createdAt) (\s@GetFuotaTaskResponse' {} a -> s {createdAt = a} :: GetFuotaTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 getFuotaTaskResponse_description :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
 getFuotaTaskResponse_description = Lens.lens (\GetFuotaTaskResponse' {description} -> description) (\s@GetFuotaTaskResponse' {} a -> s {description = a} :: GetFuotaTaskResponse)
 
 -- | Undocumented member.
-getFuotaTaskResponse_firmwareUpdateRole :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
-getFuotaTaskResponse_firmwareUpdateRole = Lens.lens (\GetFuotaTaskResponse' {firmwareUpdateRole} -> firmwareUpdateRole) (\s@GetFuotaTaskResponse' {} a -> s {firmwareUpdateRole = a} :: GetFuotaTaskResponse)
-
--- | Undocumented member.
 getFuotaTaskResponse_firmwareUpdateImage :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
 getFuotaTaskResponse_firmwareUpdateImage = Lens.lens (\GetFuotaTaskResponse' {firmwareUpdateImage} -> firmwareUpdateImage) (\s@GetFuotaTaskResponse' {} a -> s {firmwareUpdateImage = a} :: GetFuotaTaskResponse)
 
 -- | Undocumented member.
-getFuotaTaskResponse_createdAt :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getFuotaTaskResponse_createdAt = Lens.lens (\GetFuotaTaskResponse' {createdAt} -> createdAt) (\s@GetFuotaTaskResponse' {} a -> s {createdAt = a} :: GetFuotaTaskResponse) Prelude.. Lens.mapping Data._Time
+getFuotaTaskResponse_firmwareUpdateRole :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
+getFuotaTaskResponse_firmwareUpdateRole = Lens.lens (\GetFuotaTaskResponse' {firmwareUpdateRole} -> firmwareUpdateRole) (\s@GetFuotaTaskResponse' {} a -> s {firmwareUpdateRole = a} :: GetFuotaTaskResponse)
+
+-- | Undocumented member.
+getFuotaTaskResponse_id :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
+getFuotaTaskResponse_id = Lens.lens (\GetFuotaTaskResponse' {id} -> id) (\s@GetFuotaTaskResponse' {} a -> s {id = a} :: GetFuotaTaskResponse)
+
+-- | Undocumented member.
+getFuotaTaskResponse_loRaWAN :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe LoRaWANFuotaTaskGetInfo)
+getFuotaTaskResponse_loRaWAN = Lens.lens (\GetFuotaTaskResponse' {loRaWAN} -> loRaWAN) (\s@GetFuotaTaskResponse' {} a -> s {loRaWAN = a} :: GetFuotaTaskResponse)
+
+-- | Undocumented member.
+getFuotaTaskResponse_name :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
+getFuotaTaskResponse_name = Lens.lens (\GetFuotaTaskResponse' {name} -> name) (\s@GetFuotaTaskResponse' {} a -> s {name = a} :: GetFuotaTaskResponse)
+
+-- | Undocumented member.
+getFuotaTaskResponse_status :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe FuotaTaskStatus)
+getFuotaTaskResponse_status = Lens.lens (\GetFuotaTaskResponse' {status} -> status) (\s@GetFuotaTaskResponse' {} a -> s {status = a} :: GetFuotaTaskResponse)
 
 -- | The response's http status code.
 getFuotaTaskResponse_httpStatus :: Lens.Lens' GetFuotaTaskResponse Prelude.Int
@@ -220,13 +220,13 @@ getFuotaTaskResponse_httpStatus = Lens.lens (\GetFuotaTaskResponse' {httpStatus}
 
 instance Prelude.NFData GetFuotaTaskResponse where
   rnf GetFuotaTaskResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firmwareUpdateRole
-      `Prelude.seq` Prelude.rnf firmwareUpdateImage
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf firmwareUpdateImage
+      `Prelude.seq` Prelude.rnf firmwareUpdateRole
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

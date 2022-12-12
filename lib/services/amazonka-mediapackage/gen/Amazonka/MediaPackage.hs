@@ -19,23 +19,23 @@ module Amazonka.MediaPackage
     -- * Errors
     -- $errors
 
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
     -- ** NotFoundException
     _NotFoundException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- ** UnprocessableEntityException
     _UnprocessableEntityException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters

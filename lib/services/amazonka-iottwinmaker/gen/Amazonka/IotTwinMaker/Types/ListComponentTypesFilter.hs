@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListComponentTypesFilter' smart constructor.
 data ListComponentTypesFilter = ListComponentTypesFilter'
-  { -- | A Boolean value that specifies whether the component types in the list
+  { -- | The component type that the component types in the list extend.
+    extendsFrom :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that specifies whether the component types in the list
     -- are abstract.
     isAbstract :: Prelude.Maybe Prelude.Bool,
     -- | The namespace to which the component types in the list belong.
-    namespace :: Prelude.Maybe Prelude.Text,
-    -- | The component type that the component types in the list extend.
-    extendsFrom :: Prelude.Maybe Prelude.Text
+    namespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,25 @@ data ListComponentTypesFilter = ListComponentTypesFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'extendsFrom', 'listComponentTypesFilter_extendsFrom' - The component type that the component types in the list extend.
+--
 -- 'isAbstract', 'listComponentTypesFilter_isAbstract' - A Boolean value that specifies whether the component types in the list
 -- are abstract.
 --
 -- 'namespace', 'listComponentTypesFilter_namespace' - The namespace to which the component types in the list belong.
---
--- 'extendsFrom', 'listComponentTypesFilter_extendsFrom' - The component type that the component types in the list extend.
 newListComponentTypesFilter ::
   ListComponentTypesFilter
 newListComponentTypesFilter =
   ListComponentTypesFilter'
-    { isAbstract =
+    { extendsFrom =
         Prelude.Nothing,
-      namespace = Prelude.Nothing,
-      extendsFrom = Prelude.Nothing
+      isAbstract = Prelude.Nothing,
+      namespace = Prelude.Nothing
     }
+
+-- | The component type that the component types in the list extend.
+listComponentTypesFilter_extendsFrom :: Lens.Lens' ListComponentTypesFilter (Prelude.Maybe Prelude.Text)
+listComponentTypesFilter_extendsFrom = Lens.lens (\ListComponentTypesFilter' {extendsFrom} -> extendsFrom) (\s@ListComponentTypesFilter' {} a -> s {extendsFrom = a} :: ListComponentTypesFilter)
 
 -- | A Boolean value that specifies whether the component types in the list
 -- are abstract.
@@ -73,28 +77,24 @@ listComponentTypesFilter_isAbstract = Lens.lens (\ListComponentTypesFilter' {isA
 listComponentTypesFilter_namespace :: Lens.Lens' ListComponentTypesFilter (Prelude.Maybe Prelude.Text)
 listComponentTypesFilter_namespace = Lens.lens (\ListComponentTypesFilter' {namespace} -> namespace) (\s@ListComponentTypesFilter' {} a -> s {namespace = a} :: ListComponentTypesFilter)
 
--- | The component type that the component types in the list extend.
-listComponentTypesFilter_extendsFrom :: Lens.Lens' ListComponentTypesFilter (Prelude.Maybe Prelude.Text)
-listComponentTypesFilter_extendsFrom = Lens.lens (\ListComponentTypesFilter' {extendsFrom} -> extendsFrom) (\s@ListComponentTypesFilter' {} a -> s {extendsFrom = a} :: ListComponentTypesFilter)
-
 instance Prelude.Hashable ListComponentTypesFilter where
   hashWithSalt _salt ListComponentTypesFilter' {..} =
-    _salt `Prelude.hashWithSalt` isAbstract
+    _salt `Prelude.hashWithSalt` extendsFrom
+      `Prelude.hashWithSalt` isAbstract
       `Prelude.hashWithSalt` namespace
-      `Prelude.hashWithSalt` extendsFrom
 
 instance Prelude.NFData ListComponentTypesFilter where
   rnf ListComponentTypesFilter' {..} =
-    Prelude.rnf isAbstract
+    Prelude.rnf extendsFrom
+      `Prelude.seq` Prelude.rnf isAbstract
       `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf extendsFrom
 
 instance Data.ToJSON ListComponentTypesFilter where
   toJSON ListComponentTypesFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("isAbstract" Data..=) Prelude.<$> isAbstract,
-            ("namespace" Data..=) Prelude.<$> namespace,
-            ("extendsFrom" Data..=) Prelude.<$> extendsFrom
+          [ ("extendsFrom" Data..=) Prelude.<$> extendsFrom,
+            ("isAbstract" Data..=) Prelude.<$> isAbstract,
+            ("namespace" Data..=) Prelude.<$> namespace
           ]
       )

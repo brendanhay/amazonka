@@ -117,9 +117,9 @@ module Amazonka.DataSync.Types
     -- * AgentListEntry
     AgentListEntry (..),
     newAgentListEntry,
+    agentListEntry_agentArn,
     agentListEntry_name,
     agentListEntry_status,
-    agentListEntry_agentArn,
 
     -- * Ec2Config
     Ec2Config (..),
@@ -136,8 +136,8 @@ module Amazonka.DataSync.Types
     -- * FsxProtocol
     FsxProtocol (..),
     newFsxProtocol,
-    fsxProtocol_smb,
     fsxProtocol_nfs,
+    fsxProtocol_smb,
 
     -- * FsxProtocolNfs
     FsxProtocolNfs (..),
@@ -184,29 +184,29 @@ module Amazonka.DataSync.Types
     -- * Options
     Options (..),
     newOptions,
-    options_objectTags,
+    options_atime,
+    options_bytesPerSecond,
     options_gid,
     options_logLevel,
-    options_taskQueueing,
-    options_preserveDevices,
-    options_overwriteMode,
     options_mtime,
+    options_objectTags,
+    options_overwriteMode,
+    options_posixPermissions,
+    options_preserveDeletedFiles,
+    options_preserveDevices,
+    options_securityDescriptorCopyFlags,
+    options_taskQueueing,
     options_transferMode,
     options_uid,
     options_verifyMode,
-    options_preserveDeletedFiles,
-    options_atime,
-    options_posixPermissions,
-    options_securityDescriptorCopyFlags,
-    options_bytesPerSecond,
 
     -- * PrivateLinkConfig
     PrivateLinkConfig (..),
     newPrivateLinkConfig,
-    privateLinkConfig_subnetArns,
     privateLinkConfig_privateLinkEndpoint,
-    privateLinkConfig_vpcEndpointId,
     privateLinkConfig_securityGroupArns,
+    privateLinkConfig_subnetArns,
+    privateLinkConfig_vpcEndpointId,
 
     -- * QopConfiguration
     QopConfiguration (..),
@@ -239,15 +239,15 @@ module Amazonka.DataSync.Types
     -- * TaskExecutionResultDetail
     TaskExecutionResultDetail (..),
     newTaskExecutionResultDetail,
+    taskExecutionResultDetail_errorCode,
+    taskExecutionResultDetail_errorDetail,
+    taskExecutionResultDetail_prepareDuration,
     taskExecutionResultDetail_prepareStatus,
     taskExecutionResultDetail_totalDuration,
-    taskExecutionResultDetail_transferStatus,
-    taskExecutionResultDetail_verifyStatus,
     taskExecutionResultDetail_transferDuration,
-    taskExecutionResultDetail_prepareDuration,
-    taskExecutionResultDetail_errorCode,
+    taskExecutionResultDetail_transferStatus,
     taskExecutionResultDetail_verifyDuration,
-    taskExecutionResultDetail_errorDetail,
+    taskExecutionResultDetail_verifyStatus,
 
     -- * TaskFilter
     TaskFilter (..),
@@ -260,8 +260,8 @@ module Amazonka.DataSync.Types
     TaskListEntry (..),
     newTaskListEntry,
     taskListEntry_name,
-    taskListEntry_taskArn,
     taskListEntry_status,
+    taskListEntry_taskArn,
 
     -- * TaskSchedule
     TaskSchedule (..),
@@ -353,28 +353,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -382,13 +376,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -396,6 +394,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | This exception is thrown when an error occurs in the DataSync service.

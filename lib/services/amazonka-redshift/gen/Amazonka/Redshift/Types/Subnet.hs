@@ -30,11 +30,11 @@ import Amazonka.Redshift.Types.AvailabilityZone
 --
 -- /See:/ 'newSubnet' smart constructor.
 data Subnet = Subnet'
-  { -- | The identifier of the subnet.
+  { subnetAvailabilityZone :: Prelude.Maybe AvailabilityZone,
+    -- | The identifier of the subnet.
     subnetIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The status of the subnet.
-    subnetStatus :: Prelude.Maybe Prelude.Text,
-    subnetAvailabilityZone :: Prelude.Maybe AvailabilityZone
+    subnetStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data Subnet = Subnet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subnetAvailabilityZone', 'subnet_subnetAvailabilityZone' -
+--
 -- 'subnetIdentifier', 'subnet_subnetIdentifier' - The identifier of the subnet.
 --
 -- 'subnetStatus', 'subnet_subnetStatus' - The status of the subnet.
---
--- 'subnetAvailabilityZone', 'subnet_subnetAvailabilityZone' -
 newSubnet ::
   Subnet
 newSubnet =
   Subnet'
-    { subnetIdentifier = Prelude.Nothing,
-      subnetStatus = Prelude.Nothing,
-      subnetAvailabilityZone = Prelude.Nothing
+    { subnetAvailabilityZone = Prelude.Nothing,
+      subnetIdentifier = Prelude.Nothing,
+      subnetStatus = Prelude.Nothing
     }
+
+-- |
+subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
+subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
 
 -- | The identifier of the subnet.
 subnet_subnetIdentifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
@@ -68,25 +72,21 @@ subnet_subnetIdentifier = Lens.lens (\Subnet' {subnetIdentifier} -> subnetIdenti
 subnet_subnetStatus :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetStatus = Lens.lens (\Subnet' {subnetStatus} -> subnetStatus) (\s@Subnet' {} a -> s {subnetStatus = a} :: Subnet)
 
--- |
-subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
-subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
-
 instance Data.FromXML Subnet where
   parseXML x =
     Subnet'
-      Prelude.<$> (x Data..@? "SubnetIdentifier")
+      Prelude.<$> (x Data..@? "SubnetAvailabilityZone")
+      Prelude.<*> (x Data..@? "SubnetIdentifier")
       Prelude.<*> (x Data..@? "SubnetStatus")
-      Prelude.<*> (x Data..@? "SubnetAvailabilityZone")
 
 instance Prelude.Hashable Subnet where
   hashWithSalt _salt Subnet' {..} =
-    _salt `Prelude.hashWithSalt` subnetIdentifier
+    _salt `Prelude.hashWithSalt` subnetAvailabilityZone
+      `Prelude.hashWithSalt` subnetIdentifier
       `Prelude.hashWithSalt` subnetStatus
-      `Prelude.hashWithSalt` subnetAvailabilityZone
 
 instance Prelude.NFData Subnet where
   rnf Subnet' {..} =
-    Prelude.rnf subnetIdentifier
+    Prelude.rnf subnetAvailabilityZone
+      `Prelude.seq` Prelude.rnf subnetIdentifier
       `Prelude.seq` Prelude.rnf subnetStatus
-      `Prelude.seq` Prelude.rnf subnetAvailabilityZone

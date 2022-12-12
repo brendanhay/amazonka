@@ -28,21 +28,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSendOTPMessageRequestParameters' smart constructor.
 data SendOTPMessageRequestParameters = SendOTPMessageRequestParameters'
-  { -- | A unique Entity ID received from DLT after entity registration is
-    -- approved.
-    entityId :: Prelude.Maybe Prelude.Text,
-    -- | A unique Template ID received from DLT after entity registration is
-    -- approved.
-    templateId :: Prelude.Maybe Prelude.Text,
-    -- | The attempts allowed to validate an OTP.
+  { -- | The attempts allowed to validate an OTP.
     allowedAttempts :: Prelude.Maybe Prelude.Int,
     -- | The number of characters in the generated OTP.
     codeLength :: Prelude.Maybe Prelude.Int,
-    -- | The time in minutes before the OTP is no longer valid.
-    validityPeriod :: Prelude.Maybe Prelude.Int,
+    -- | A unique Entity ID received from DLT after entity registration is
+    -- approved.
+    entityId :: Prelude.Maybe Prelude.Text,
     -- | The language to be used for the outgoing message body containing the
     -- OTP.
     language :: Prelude.Maybe Prelude.Text,
+    -- | A unique Template ID received from DLT after entity registration is
+    -- approved.
+    templateId :: Prelude.Maybe Prelude.Text,
+    -- | The time in minutes before the OTP is no longer valid.
+    validityPeriod :: Prelude.Maybe Prelude.Int,
     -- | The brand name that will be substituted into the OTP message body.
     -- Should be owned by calling AWS account.
     brandName :: Prelude.Text,
@@ -66,20 +66,20 @@ data SendOTPMessageRequestParameters = SendOTPMessageRequestParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entityId', 'sendOTPMessageRequestParameters_entityId' - A unique Entity ID received from DLT after entity registration is
--- approved.
---
--- 'templateId', 'sendOTPMessageRequestParameters_templateId' - A unique Template ID received from DLT after entity registration is
--- approved.
---
 -- 'allowedAttempts', 'sendOTPMessageRequestParameters_allowedAttempts' - The attempts allowed to validate an OTP.
 --
 -- 'codeLength', 'sendOTPMessageRequestParameters_codeLength' - The number of characters in the generated OTP.
 --
--- 'validityPeriod', 'sendOTPMessageRequestParameters_validityPeriod' - The time in minutes before the OTP is no longer valid.
+-- 'entityId', 'sendOTPMessageRequestParameters_entityId' - A unique Entity ID received from DLT after entity registration is
+-- approved.
 --
 -- 'language', 'sendOTPMessageRequestParameters_language' - The language to be used for the outgoing message body containing the
 -- OTP.
+--
+-- 'templateId', 'sendOTPMessageRequestParameters_templateId' - A unique Template ID received from DLT after entity registration is
+-- approved.
+--
+-- 'validityPeriod', 'sendOTPMessageRequestParameters_validityPeriod' - The time in minutes before the OTP is no longer valid.
 --
 -- 'brandName', 'sendOTPMessageRequestParameters_brandName' - The brand name that will be substituted into the OTP message body.
 -- Should be owned by calling AWS account.
@@ -111,13 +111,13 @@ newSendOTPMessageRequestParameters
   pDestinationIdentity_
   pOriginationIdentity_ =
     SendOTPMessageRequestParameters'
-      { entityId =
+      { allowedAttempts =
           Prelude.Nothing,
-        templateId = Prelude.Nothing,
-        allowedAttempts = Prelude.Nothing,
         codeLength = Prelude.Nothing,
-        validityPeriod = Prelude.Nothing,
+        entityId = Prelude.Nothing,
         language = Prelude.Nothing,
+        templateId = Prelude.Nothing,
+        validityPeriod = Prelude.Nothing,
         brandName = pBrandName_,
         referenceId = pReferenceId_,
         channel = pChannel_,
@@ -127,16 +127,6 @@ newSendOTPMessageRequestParameters
           pOriginationIdentity_
       }
 
--- | A unique Entity ID received from DLT after entity registration is
--- approved.
-sendOTPMessageRequestParameters_entityId :: Lens.Lens' SendOTPMessageRequestParameters (Prelude.Maybe Prelude.Text)
-sendOTPMessageRequestParameters_entityId = Lens.lens (\SendOTPMessageRequestParameters' {entityId} -> entityId) (\s@SendOTPMessageRequestParameters' {} a -> s {entityId = a} :: SendOTPMessageRequestParameters)
-
--- | A unique Template ID received from DLT after entity registration is
--- approved.
-sendOTPMessageRequestParameters_templateId :: Lens.Lens' SendOTPMessageRequestParameters (Prelude.Maybe Prelude.Text)
-sendOTPMessageRequestParameters_templateId = Lens.lens (\SendOTPMessageRequestParameters' {templateId} -> templateId) (\s@SendOTPMessageRequestParameters' {} a -> s {templateId = a} :: SendOTPMessageRequestParameters)
-
 -- | The attempts allowed to validate an OTP.
 sendOTPMessageRequestParameters_allowedAttempts :: Lens.Lens' SendOTPMessageRequestParameters (Prelude.Maybe Prelude.Int)
 sendOTPMessageRequestParameters_allowedAttempts = Lens.lens (\SendOTPMessageRequestParameters' {allowedAttempts} -> allowedAttempts) (\s@SendOTPMessageRequestParameters' {} a -> s {allowedAttempts = a} :: SendOTPMessageRequestParameters)
@@ -145,14 +135,24 @@ sendOTPMessageRequestParameters_allowedAttempts = Lens.lens (\SendOTPMessageRequ
 sendOTPMessageRequestParameters_codeLength :: Lens.Lens' SendOTPMessageRequestParameters (Prelude.Maybe Prelude.Int)
 sendOTPMessageRequestParameters_codeLength = Lens.lens (\SendOTPMessageRequestParameters' {codeLength} -> codeLength) (\s@SendOTPMessageRequestParameters' {} a -> s {codeLength = a} :: SendOTPMessageRequestParameters)
 
--- | The time in minutes before the OTP is no longer valid.
-sendOTPMessageRequestParameters_validityPeriod :: Lens.Lens' SendOTPMessageRequestParameters (Prelude.Maybe Prelude.Int)
-sendOTPMessageRequestParameters_validityPeriod = Lens.lens (\SendOTPMessageRequestParameters' {validityPeriod} -> validityPeriod) (\s@SendOTPMessageRequestParameters' {} a -> s {validityPeriod = a} :: SendOTPMessageRequestParameters)
+-- | A unique Entity ID received from DLT after entity registration is
+-- approved.
+sendOTPMessageRequestParameters_entityId :: Lens.Lens' SendOTPMessageRequestParameters (Prelude.Maybe Prelude.Text)
+sendOTPMessageRequestParameters_entityId = Lens.lens (\SendOTPMessageRequestParameters' {entityId} -> entityId) (\s@SendOTPMessageRequestParameters' {} a -> s {entityId = a} :: SendOTPMessageRequestParameters)
 
 -- | The language to be used for the outgoing message body containing the
 -- OTP.
 sendOTPMessageRequestParameters_language :: Lens.Lens' SendOTPMessageRequestParameters (Prelude.Maybe Prelude.Text)
 sendOTPMessageRequestParameters_language = Lens.lens (\SendOTPMessageRequestParameters' {language} -> language) (\s@SendOTPMessageRequestParameters' {} a -> s {language = a} :: SendOTPMessageRequestParameters)
+
+-- | A unique Template ID received from DLT after entity registration is
+-- approved.
+sendOTPMessageRequestParameters_templateId :: Lens.Lens' SendOTPMessageRequestParameters (Prelude.Maybe Prelude.Text)
+sendOTPMessageRequestParameters_templateId = Lens.lens (\SendOTPMessageRequestParameters' {templateId} -> templateId) (\s@SendOTPMessageRequestParameters' {} a -> s {templateId = a} :: SendOTPMessageRequestParameters)
+
+-- | The time in minutes before the OTP is no longer valid.
+sendOTPMessageRequestParameters_validityPeriod :: Lens.Lens' SendOTPMessageRequestParameters (Prelude.Maybe Prelude.Int)
+sendOTPMessageRequestParameters_validityPeriod = Lens.lens (\SendOTPMessageRequestParameters' {validityPeriod} -> validityPeriod) (\s@SendOTPMessageRequestParameters' {} a -> s {validityPeriod = a} :: SendOTPMessageRequestParameters)
 
 -- | The brand name that will be substituted into the OTP message body.
 -- Should be owned by calling AWS account.
@@ -183,12 +183,12 @@ instance
   hashWithSalt
     _salt
     SendOTPMessageRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` entityId
-        `Prelude.hashWithSalt` templateId
-        `Prelude.hashWithSalt` allowedAttempts
+      _salt `Prelude.hashWithSalt` allowedAttempts
         `Prelude.hashWithSalt` codeLength
-        `Prelude.hashWithSalt` validityPeriod
+        `Prelude.hashWithSalt` entityId
         `Prelude.hashWithSalt` language
+        `Prelude.hashWithSalt` templateId
+        `Prelude.hashWithSalt` validityPeriod
         `Prelude.hashWithSalt` brandName
         `Prelude.hashWithSalt` referenceId
         `Prelude.hashWithSalt` channel
@@ -200,12 +200,12 @@ instance
     SendOTPMessageRequestParameters
   where
   rnf SendOTPMessageRequestParameters' {..} =
-    Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf allowedAttempts
+    Prelude.rnf allowedAttempts
       `Prelude.seq` Prelude.rnf codeLength
-      `Prelude.seq` Prelude.rnf validityPeriod
+      `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf validityPeriod
       `Prelude.seq` Prelude.rnf brandName
       `Prelude.seq` Prelude.rnf referenceId
       `Prelude.seq` Prelude.rnf channel
@@ -216,14 +216,14 @@ instance Data.ToJSON SendOTPMessageRequestParameters where
   toJSON SendOTPMessageRequestParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EntityId" Data..=) Prelude.<$> entityId,
-            ("TemplateId" Data..=) Prelude.<$> templateId,
-            ("AllowedAttempts" Data..=)
+          [ ("AllowedAttempts" Data..=)
               Prelude.<$> allowedAttempts,
             ("CodeLength" Data..=) Prelude.<$> codeLength,
+            ("EntityId" Data..=) Prelude.<$> entityId,
+            ("Language" Data..=) Prelude.<$> language,
+            ("TemplateId" Data..=) Prelude.<$> templateId,
             ("ValidityPeriod" Data..=)
               Prelude.<$> validityPeriod,
-            ("Language" Data..=) Prelude.<$> language,
             Prelude.Just ("BrandName" Data..= brandName),
             Prelude.Just ("ReferenceId" Data..= referenceId),
             Prelude.Just ("Channel" Data..= channel),

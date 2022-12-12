@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendation' smart constructor.
 data Recommendation = Recommendation'
-  { -- | The URL address to the CVE remediation recommendations.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The recommended course of action to remediate the finding.
-    text :: Prelude.Maybe Prelude.Text
+  { -- | The recommended course of action to remediate the finding.
+    text :: Prelude.Maybe Prelude.Text,
+    -- | The URL address to the CVE remediation recommendations.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Recommendation = Recommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'recommendation_url' - The URL address to the CVE remediation recommendations.
---
 -- 'text', 'recommendation_text' - The recommended course of action to remediate the finding.
+--
+-- 'url', 'recommendation_url' - The URL address to the CVE remediation recommendations.
 newRecommendation ::
   Recommendation
 newRecommendation =
   Recommendation'
-    { url = Prelude.Nothing,
-      text = Prelude.Nothing
+    { text = Prelude.Nothing,
+      url = Prelude.Nothing
     }
-
--- | The URL address to the CVE remediation recommendations.
-recommendation_url :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
-recommendation_url = Lens.lens (\Recommendation' {url} -> url) (\s@Recommendation' {} a -> s {url = a} :: Recommendation)
 
 -- | The recommended course of action to remediate the finding.
 recommendation_text :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
 recommendation_text = Lens.lens (\Recommendation' {text} -> text) (\s@Recommendation' {} a -> s {text = a} :: Recommendation)
+
+-- | The URL address to the CVE remediation recommendations.
+recommendation_url :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
+recommendation_url = Lens.lens (\Recommendation' {url} -> url) (\s@Recommendation' {} a -> s {url = a} :: Recommendation)
 
 instance Data.FromJSON Recommendation where
   parseJSON =
@@ -68,14 +68,14 @@ instance Data.FromJSON Recommendation where
       "Recommendation"
       ( \x ->
           Recommendation'
-            Prelude.<$> (x Data..:? "url") Prelude.<*> (x Data..:? "text")
+            Prelude.<$> (x Data..:? "text") Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable Recommendation where
   hashWithSalt _salt Recommendation' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` text
+    _salt `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Recommendation where
   rnf Recommendation' {..} =
-    Prelude.rnf url `Prelude.seq` Prelude.rnf text
+    Prelude.rnf text `Prelude.seq` Prelude.rnf url

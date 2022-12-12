@@ -31,6 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 data ChapInfo = ChapInfo'
   { -- | The iSCSI initiator that connects to the target.
     initiatorName :: Prelude.Maybe Prelude.Text,
+    -- | The secret key that the initiator (for example, the Windows client) must
+    -- provide to participate in mutual CHAP with the target.
+    secretToAuthenticateInitiator :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The secret key that the target must provide to participate in mutual
     -- CHAP with the initiator (e.g., Windows client).
     secretToAuthenticateTarget :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -38,10 +41,7 @@ data ChapInfo = ChapInfo'
     --
     -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
     -- hyphens (-).
-    targetARN :: Prelude.Maybe Prelude.Text,
-    -- | The secret key that the initiator (for example, the Windows client) must
-    -- provide to participate in mutual CHAP with the target.
-    secretToAuthenticateInitiator :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    targetARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,9 @@ data ChapInfo = ChapInfo'
 --
 -- 'initiatorName', 'chapInfo_initiatorName' - The iSCSI initiator that connects to the target.
 --
+-- 'secretToAuthenticateInitiator', 'chapInfo_secretToAuthenticateInitiator' - The secret key that the initiator (for example, the Windows client) must
+-- provide to participate in mutual CHAP with the target.
+--
 -- 'secretToAuthenticateTarget', 'chapInfo_secretToAuthenticateTarget' - The secret key that the target must provide to participate in mutual
 -- CHAP with the initiator (e.g., Windows client).
 --
@@ -62,22 +65,24 @@ data ChapInfo = ChapInfo'
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
 -- hyphens (-).
---
--- 'secretToAuthenticateInitiator', 'chapInfo_secretToAuthenticateInitiator' - The secret key that the initiator (for example, the Windows client) must
--- provide to participate in mutual CHAP with the target.
 newChapInfo ::
   ChapInfo
 newChapInfo =
   ChapInfo'
     { initiatorName = Prelude.Nothing,
+      secretToAuthenticateInitiator = Prelude.Nothing,
       secretToAuthenticateTarget = Prelude.Nothing,
-      targetARN = Prelude.Nothing,
-      secretToAuthenticateInitiator = Prelude.Nothing
+      targetARN = Prelude.Nothing
     }
 
 -- | The iSCSI initiator that connects to the target.
 chapInfo_initiatorName :: Lens.Lens' ChapInfo (Prelude.Maybe Prelude.Text)
 chapInfo_initiatorName = Lens.lens (\ChapInfo' {initiatorName} -> initiatorName) (\s@ChapInfo' {} a -> s {initiatorName = a} :: ChapInfo)
+
+-- | The secret key that the initiator (for example, the Windows client) must
+-- provide to participate in mutual CHAP with the target.
+chapInfo_secretToAuthenticateInitiator :: Lens.Lens' ChapInfo (Prelude.Maybe Prelude.Text)
+chapInfo_secretToAuthenticateInitiator = Lens.lens (\ChapInfo' {secretToAuthenticateInitiator} -> secretToAuthenticateInitiator) (\s@ChapInfo' {} a -> s {secretToAuthenticateInitiator = a} :: ChapInfo) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The secret key that the target must provide to participate in mutual
 -- CHAP with the initiator (e.g., Windows client).
@@ -91,11 +96,6 @@ chapInfo_secretToAuthenticateTarget = Lens.lens (\ChapInfo' {secretToAuthenticat
 chapInfo_targetARN :: Lens.Lens' ChapInfo (Prelude.Maybe Prelude.Text)
 chapInfo_targetARN = Lens.lens (\ChapInfo' {targetARN} -> targetARN) (\s@ChapInfo' {} a -> s {targetARN = a} :: ChapInfo)
 
--- | The secret key that the initiator (for example, the Windows client) must
--- provide to participate in mutual CHAP with the target.
-chapInfo_secretToAuthenticateInitiator :: Lens.Lens' ChapInfo (Prelude.Maybe Prelude.Text)
-chapInfo_secretToAuthenticateInitiator = Lens.lens (\ChapInfo' {secretToAuthenticateInitiator} -> secretToAuthenticateInitiator) (\s@ChapInfo' {} a -> s {secretToAuthenticateInitiator = a} :: ChapInfo) Prelude.. Lens.mapping Data._Sensitive
-
 instance Data.FromJSON ChapInfo where
   parseJSON =
     Data.withObject
@@ -103,21 +103,21 @@ instance Data.FromJSON ChapInfo where
       ( \x ->
           ChapInfo'
             Prelude.<$> (x Data..:? "InitiatorName")
+            Prelude.<*> (x Data..:? "SecretToAuthenticateInitiator")
             Prelude.<*> (x Data..:? "SecretToAuthenticateTarget")
             Prelude.<*> (x Data..:? "TargetARN")
-            Prelude.<*> (x Data..:? "SecretToAuthenticateInitiator")
       )
 
 instance Prelude.Hashable ChapInfo where
   hashWithSalt _salt ChapInfo' {..} =
     _salt `Prelude.hashWithSalt` initiatorName
+      `Prelude.hashWithSalt` secretToAuthenticateInitiator
       `Prelude.hashWithSalt` secretToAuthenticateTarget
       `Prelude.hashWithSalt` targetARN
-      `Prelude.hashWithSalt` secretToAuthenticateInitiator
 
 instance Prelude.NFData ChapInfo where
   rnf ChapInfo' {..} =
     Prelude.rnf initiatorName
+      `Prelude.seq` Prelude.rnf secretToAuthenticateInitiator
       `Prelude.seq` Prelude.rnf secretToAuthenticateTarget
       `Prelude.seq` Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf secretToAuthenticateInitiator

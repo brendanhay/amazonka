@@ -32,18 +32,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageByAccount' smart constructor.
 data UsageByAccount = UsageByAccount'
-  { -- | The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
-    -- for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing
-    -- S3 objects to detect sensitive data.
-    type' :: Prelude.Maybe UsageType,
-    -- | The current value for the quota that corresponds to the metric specified
-    -- by the type field.
-    serviceLimit :: Prelude.Maybe ServiceLimit,
-    -- | The type of currency that the value for the metric (estimatedCost) is
+  { -- | The type of currency that the value for the metric (estimatedCost) is
     -- reported in.
     currency :: Prelude.Maybe Currency,
     -- | The estimated value for the metric.
-    estimatedCost :: Prelude.Maybe Prelude.Text
+    estimatedCost :: Prelude.Maybe Prelude.Text,
+    -- | The current value for the quota that corresponds to the metric specified
+    -- by the type field.
+    serviceLimit :: Prelude.Maybe ServiceLimit,
+    -- | The name of the metric. Possible values are:
+    -- AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated
+    -- sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze
+    -- S3 objects for automated sensitive data discovery;
+    -- DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and,
+    -- SENSITIVE_DATA_DISCOVERY, to run classification jobs.
+    type' :: Prelude.Maybe UsageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,37 +58,29 @@ data UsageByAccount = UsageByAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'usageByAccount_type' - The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
--- for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing
--- S3 objects to detect sensitive data.
---
--- 'serviceLimit', 'usageByAccount_serviceLimit' - The current value for the quota that corresponds to the metric specified
--- by the type field.
---
 -- 'currency', 'usageByAccount_currency' - The type of currency that the value for the metric (estimatedCost) is
 -- reported in.
 --
 -- 'estimatedCost', 'usageByAccount_estimatedCost' - The estimated value for the metric.
+--
+-- 'serviceLimit', 'usageByAccount_serviceLimit' - The current value for the quota that corresponds to the metric specified
+-- by the type field.
+--
+-- 'type'', 'usageByAccount_type' - The name of the metric. Possible values are:
+-- AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated
+-- sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze
+-- S3 objects for automated sensitive data discovery;
+-- DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and,
+-- SENSITIVE_DATA_DISCOVERY, to run classification jobs.
 newUsageByAccount ::
   UsageByAccount
 newUsageByAccount =
   UsageByAccount'
-    { type' = Prelude.Nothing,
+    { currency = Prelude.Nothing,
+      estimatedCost = Prelude.Nothing,
       serviceLimit = Prelude.Nothing,
-      currency = Prelude.Nothing,
-      estimatedCost = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
--- for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing
--- S3 objects to detect sensitive data.
-usageByAccount_type :: Lens.Lens' UsageByAccount (Prelude.Maybe UsageType)
-usageByAccount_type = Lens.lens (\UsageByAccount' {type'} -> type') (\s@UsageByAccount' {} a -> s {type' = a} :: UsageByAccount)
-
--- | The current value for the quota that corresponds to the metric specified
--- by the type field.
-usageByAccount_serviceLimit :: Lens.Lens' UsageByAccount (Prelude.Maybe ServiceLimit)
-usageByAccount_serviceLimit = Lens.lens (\UsageByAccount' {serviceLimit} -> serviceLimit) (\s@UsageByAccount' {} a -> s {serviceLimit = a} :: UsageByAccount)
 
 -- | The type of currency that the value for the metric (estimatedCost) is
 -- reported in.
@@ -96,28 +91,42 @@ usageByAccount_currency = Lens.lens (\UsageByAccount' {currency} -> currency) (\
 usageByAccount_estimatedCost :: Lens.Lens' UsageByAccount (Prelude.Maybe Prelude.Text)
 usageByAccount_estimatedCost = Lens.lens (\UsageByAccount' {estimatedCost} -> estimatedCost) (\s@UsageByAccount' {} a -> s {estimatedCost = a} :: UsageByAccount)
 
+-- | The current value for the quota that corresponds to the metric specified
+-- by the type field.
+usageByAccount_serviceLimit :: Lens.Lens' UsageByAccount (Prelude.Maybe ServiceLimit)
+usageByAccount_serviceLimit = Lens.lens (\UsageByAccount' {serviceLimit} -> serviceLimit) (\s@UsageByAccount' {} a -> s {serviceLimit = a} :: UsageByAccount)
+
+-- | The name of the metric. Possible values are:
+-- AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated
+-- sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze
+-- S3 objects for automated sensitive data discovery;
+-- DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and,
+-- SENSITIVE_DATA_DISCOVERY, to run classification jobs.
+usageByAccount_type :: Lens.Lens' UsageByAccount (Prelude.Maybe UsageType)
+usageByAccount_type = Lens.lens (\UsageByAccount' {type'} -> type') (\s@UsageByAccount' {} a -> s {type' = a} :: UsageByAccount)
+
 instance Data.FromJSON UsageByAccount where
   parseJSON =
     Data.withObject
       "UsageByAccount"
       ( \x ->
           UsageByAccount'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "serviceLimit")
-            Prelude.<*> (x Data..:? "currency")
+            Prelude.<$> (x Data..:? "currency")
             Prelude.<*> (x Data..:? "estimatedCost")
+            Prelude.<*> (x Data..:? "serviceLimit")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable UsageByAccount where
   hashWithSalt _salt UsageByAccount' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` serviceLimit
-      `Prelude.hashWithSalt` currency
+    _salt `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` estimatedCost
+      `Prelude.hashWithSalt` serviceLimit
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData UsageByAccount where
   rnf UsageByAccount' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf serviceLimit
-      `Prelude.seq` Prelude.rnf currency
+    Prelude.rnf currency
       `Prelude.seq` Prelude.rnf estimatedCost
+      `Prelude.seq` Prelude.rnf serviceLimit
+      `Prelude.seq` Prelude.rnf type'

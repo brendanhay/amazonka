@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBotVersionSummary' smart constructor.
 data BotVersionSummary = BotVersionSummary'
-  { -- | The numeric version of the bot, or @DRAFT@ to indicate that this is the
+  { -- | The name of the bot associated with the version.
+    botName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the bot. When the status is available, the version of the
+    -- bot is ready for use.
+    botStatus :: Prelude.Maybe BotStatus,
+    -- | The numeric version of the bot, or @DRAFT@ to indicate that this is the
     -- version of the bot that can be updated..
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the version was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the version.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the bot associated with the version.
-    botName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the bot. When the status is available, the version of the
-    -- bot is ready for use.
-    botStatus :: Prelude.Maybe BotStatus
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,27 +54,36 @@ data BotVersionSummary = BotVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botName', 'botVersionSummary_botName' - The name of the bot associated with the version.
+--
+-- 'botStatus', 'botVersionSummary_botStatus' - The status of the bot. When the status is available, the version of the
+-- bot is ready for use.
+--
 -- 'botVersion', 'botVersionSummary_botVersion' - The numeric version of the bot, or @DRAFT@ to indicate that this is the
 -- version of the bot that can be updated..
 --
 -- 'creationDateTime', 'botVersionSummary_creationDateTime' - A timestamp of the date and time that the version was created.
 --
 -- 'description', 'botVersionSummary_description' - The description of the version.
---
--- 'botName', 'botVersionSummary_botName' - The name of the bot associated with the version.
---
--- 'botStatus', 'botVersionSummary_botStatus' - The status of the bot. When the status is available, the version of the
--- bot is ready for use.
 newBotVersionSummary ::
   BotVersionSummary
 newBotVersionSummary =
   BotVersionSummary'
-    { botVersion = Prelude.Nothing,
+    { botName = Prelude.Nothing,
+      botStatus = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      description = Prelude.Nothing,
-      botName = Prelude.Nothing,
-      botStatus = Prelude.Nothing
+      description = Prelude.Nothing
     }
+
+-- | The name of the bot associated with the version.
+botVersionSummary_botName :: Lens.Lens' BotVersionSummary (Prelude.Maybe Prelude.Text)
+botVersionSummary_botName = Lens.lens (\BotVersionSummary' {botName} -> botName) (\s@BotVersionSummary' {} a -> s {botName = a} :: BotVersionSummary)
+
+-- | The status of the bot. When the status is available, the version of the
+-- bot is ready for use.
+botVersionSummary_botStatus :: Lens.Lens' BotVersionSummary (Prelude.Maybe BotStatus)
+botVersionSummary_botStatus = Lens.lens (\BotVersionSummary' {botStatus} -> botStatus) (\s@BotVersionSummary' {} a -> s {botStatus = a} :: BotVersionSummary)
 
 -- | The numeric version of the bot, or @DRAFT@ to indicate that this is the
 -- version of the bot that can be updated..
@@ -89,40 +98,31 @@ botVersionSummary_creationDateTime = Lens.lens (\BotVersionSummary' {creationDat
 botVersionSummary_description :: Lens.Lens' BotVersionSummary (Prelude.Maybe Prelude.Text)
 botVersionSummary_description = Lens.lens (\BotVersionSummary' {description} -> description) (\s@BotVersionSummary' {} a -> s {description = a} :: BotVersionSummary)
 
--- | The name of the bot associated with the version.
-botVersionSummary_botName :: Lens.Lens' BotVersionSummary (Prelude.Maybe Prelude.Text)
-botVersionSummary_botName = Lens.lens (\BotVersionSummary' {botName} -> botName) (\s@BotVersionSummary' {} a -> s {botName = a} :: BotVersionSummary)
-
--- | The status of the bot. When the status is available, the version of the
--- bot is ready for use.
-botVersionSummary_botStatus :: Lens.Lens' BotVersionSummary (Prelude.Maybe BotStatus)
-botVersionSummary_botStatus = Lens.lens (\BotVersionSummary' {botStatus} -> botStatus) (\s@BotVersionSummary' {} a -> s {botStatus = a} :: BotVersionSummary)
-
 instance Data.FromJSON BotVersionSummary where
   parseJSON =
     Data.withObject
       "BotVersionSummary"
       ( \x ->
           BotVersionSummary'
-            Prelude.<$> (x Data..:? "botVersion")
+            Prelude.<$> (x Data..:? "botName")
+            Prelude.<*> (x Data..:? "botStatus")
+            Prelude.<*> (x Data..:? "botVersion")
             Prelude.<*> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "botName")
-            Prelude.<*> (x Data..:? "botStatus")
       )
 
 instance Prelude.Hashable BotVersionSummary where
   hashWithSalt _salt BotVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` botVersion
+    _salt `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` botStatus
+      `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` botName
-      `Prelude.hashWithSalt` botStatus
 
 instance Prelude.NFData BotVersionSummary where
   rnf BotVersionSummary' {..} =
-    Prelude.rnf botVersion
+    Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf botStatus
+      `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botStatus

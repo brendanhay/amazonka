@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageTagDetail' smart constructor.
 data ImageTagDetail = ImageTagDetail'
-  { -- | The tag associated with the image.
-    imageTag :: Prelude.Maybe Prelude.Text,
+  { -- | The time stamp indicating when the image tag was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | An object that describes the details of an image.
     imageDetail :: Prelude.Maybe ReferencedImageDetail,
-    -- | The time stamp indicating when the image tag was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The tag associated with the image.
+    imageTag :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,31 @@ data ImageTagDetail = ImageTagDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageTag', 'imageTagDetail_imageTag' - The tag associated with the image.
+-- 'createdAt', 'imageTagDetail_createdAt' - The time stamp indicating when the image tag was created.
 --
 -- 'imageDetail', 'imageTagDetail_imageDetail' - An object that describes the details of an image.
 --
--- 'createdAt', 'imageTagDetail_createdAt' - The time stamp indicating when the image tag was created.
+-- 'imageTag', 'imageTagDetail_imageTag' - The tag associated with the image.
 newImageTagDetail ::
   ImageTagDetail
 newImageTagDetail =
   ImageTagDetail'
-    { imageTag = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
       imageDetail = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      imageTag = Prelude.Nothing
     }
 
--- | The tag associated with the image.
-imageTagDetail_imageTag :: Lens.Lens' ImageTagDetail (Prelude.Maybe Prelude.Text)
-imageTagDetail_imageTag = Lens.lens (\ImageTagDetail' {imageTag} -> imageTag) (\s@ImageTagDetail' {} a -> s {imageTag = a} :: ImageTagDetail)
+-- | The time stamp indicating when the image tag was created.
+imageTagDetail_createdAt :: Lens.Lens' ImageTagDetail (Prelude.Maybe Prelude.UTCTime)
+imageTagDetail_createdAt = Lens.lens (\ImageTagDetail' {createdAt} -> createdAt) (\s@ImageTagDetail' {} a -> s {createdAt = a} :: ImageTagDetail) Prelude.. Lens.mapping Data._Time
 
 -- | An object that describes the details of an image.
 imageTagDetail_imageDetail :: Lens.Lens' ImageTagDetail (Prelude.Maybe ReferencedImageDetail)
 imageTagDetail_imageDetail = Lens.lens (\ImageTagDetail' {imageDetail} -> imageDetail) (\s@ImageTagDetail' {} a -> s {imageDetail = a} :: ImageTagDetail)
 
--- | The time stamp indicating when the image tag was created.
-imageTagDetail_createdAt :: Lens.Lens' ImageTagDetail (Prelude.Maybe Prelude.UTCTime)
-imageTagDetail_createdAt = Lens.lens (\ImageTagDetail' {createdAt} -> createdAt) (\s@ImageTagDetail' {} a -> s {createdAt = a} :: ImageTagDetail) Prelude.. Lens.mapping Data._Time
+-- | The tag associated with the image.
+imageTagDetail_imageTag :: Lens.Lens' ImageTagDetail (Prelude.Maybe Prelude.Text)
+imageTagDetail_imageTag = Lens.lens (\ImageTagDetail' {imageTag} -> imageTag) (\s@ImageTagDetail' {} a -> s {imageTag = a} :: ImageTagDetail)
 
 instance Data.FromJSON ImageTagDetail where
   parseJSON =
@@ -78,19 +78,19 @@ instance Data.FromJSON ImageTagDetail where
       "ImageTagDetail"
       ( \x ->
           ImageTagDetail'
-            Prelude.<$> (x Data..:? "imageTag")
+            Prelude.<$> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "imageDetail")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "imageTag")
       )
 
 instance Prelude.Hashable ImageTagDetail where
   hashWithSalt _salt ImageTagDetail' {..} =
-    _salt `Prelude.hashWithSalt` imageTag
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` imageDetail
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` imageTag
 
 instance Prelude.NFData ImageTagDetail where
   rnf ImageTagDetail' {..} =
-    Prelude.rnf imageTag
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf imageDetail
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf imageTag

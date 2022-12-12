@@ -38,19 +38,19 @@ module Amazonka.ImageBuilder.ListComponents
     newListComponents,
 
     -- * Request Lenses
-    listComponents_nextToken,
     listComponents_byName,
     listComponents_filters,
-    listComponents_owner,
     listComponents_maxResults,
+    listComponents_nextToken,
+    listComponents_owner,
 
     -- * Destructuring the Response
     ListComponentsResponse (..),
     newListComponentsResponse,
 
     -- * Response Lenses
-    listComponentsResponse_nextToken,
     listComponentsResponse_componentVersionList,
+    listComponentsResponse_nextToken,
     listComponentsResponse_requestId,
     listComponentsResponse_httpStatus,
   )
@@ -66,10 +66,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListComponents' smart constructor.
 data ListComponents = ListComponents'
-  { -- | A token to specify where to start paginating. This is the NextToken from
-    -- a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns the list of component build versions for the specified name.
+  { -- | Returns the list of component build versions for the specified name.
     byName :: Prelude.Maybe Prelude.Bool,
     -- | Use the following filters to streamline results:
     --
@@ -85,14 +82,17 @@ data ListComponents = ListComponents'
     --
     -- -   @version@
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
+    -- | The maximum items to return in a request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to specify where to start paginating. This is the NextToken from
+    -- a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The owner defines which components you want to list. By default, this
     -- request will only show components owned by your account. You can use
     -- this field to specify if you want to view components owned by yourself,
     -- by Amazon, or those components that have been shared with you by other
     -- customers.
-    owner :: Prelude.Maybe Ownership,
-    -- | The maximum items to return in a request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    owner :: Prelude.Maybe Ownership
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,9 +103,6 @@ data ListComponents = ListComponents'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listComponents_nextToken' - A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
 --
 -- 'byName', 'listComponents_byName' - Returns the list of component build versions for the specified name.
 --
@@ -123,28 +120,26 @@ data ListComponents = ListComponents'
 --
 -- -   @version@
 --
+-- 'maxResults', 'listComponents_maxResults' - The maximum items to return in a request.
+--
+-- 'nextToken', 'listComponents_nextToken' - A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+--
 -- 'owner', 'listComponents_owner' - The owner defines which components you want to list. By default, this
 -- request will only show components owned by your account. You can use
 -- this field to specify if you want to view components owned by yourself,
 -- by Amazon, or those components that have been shared with you by other
 -- customers.
---
--- 'maxResults', 'listComponents_maxResults' - The maximum items to return in a request.
 newListComponents ::
   ListComponents
 newListComponents =
   ListComponents'
-    { nextToken = Prelude.Nothing,
-      byName = Prelude.Nothing,
+    { byName = Prelude.Nothing,
       filters = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      owner = Prelude.Nothing
     }
-
--- | A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
-listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
-listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
 -- | Returns the list of component build versions for the specified name.
 listComponents_byName :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Bool)
@@ -166,6 +161,15 @@ listComponents_byName = Lens.lens (\ListComponents' {byName} -> byName) (\s@List
 listComponents_filters :: Lens.Lens' ListComponents (Prelude.Maybe (Prelude.NonEmpty Filter))
 listComponents_filters = Lens.lens (\ListComponents' {filters} -> filters) (\s@ListComponents' {} a -> s {filters = a} :: ListComponents) Prelude.. Lens.mapping Lens.coerced
 
+-- | The maximum items to return in a request.
+listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
+listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
+
+-- | A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
+listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
+
 -- | The owner defines which components you want to list. By default, this
 -- request will only show components owned by your account. You can use
 -- this field to specify if you want to view components owned by yourself,
@@ -173,10 +177,6 @@ listComponents_filters = Lens.lens (\ListComponents' {filters} -> filters) (\s@L
 -- customers.
 listComponents_owner :: Lens.Lens' ListComponents (Prelude.Maybe Ownership)
 listComponents_owner = Lens.lens (\ListComponents' {owner} -> owner) (\s@ListComponents' {} a -> s {owner = a} :: ListComponents)
-
--- | The maximum items to return in a request.
-listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
-listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
 
 instance Core.AWSRequest ListComponents where
   type
@@ -188,29 +188,29 @@ instance Core.AWSRequest ListComponents where
     Response.receiveJSON
       ( \s h x ->
           ListComponentsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "componentVersionList"
+            Prelude.<$> ( x Data..?> "componentVersionList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` byName
+    _salt `Prelude.hashWithSalt` byName
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` owner
 
 instance Prelude.NFData ListComponents where
   rnf ListComponents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf byName
+    Prelude.rnf byName
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf owner
 
 instance Data.ToHeaders ListComponents where
   toHeaders =
@@ -227,11 +227,11 @@ instance Data.ToJSON ListComponents where
   toJSON ListComponents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("byName" Data..=) Prelude.<$> byName,
+          [ ("byName" Data..=) Prelude.<$> byName,
             ("filters" Data..=) Prelude.<$> filters,
-            ("owner" Data..=) Prelude.<$> owner,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("owner" Data..=) Prelude.<$> owner
           ]
       )
 
@@ -243,17 +243,17 @@ instance Data.ToQuery ListComponents where
 
 -- | /See:/ 'newListComponentsResponse' smart constructor.
 data ListComponentsResponse = ListComponentsResponse'
-  { -- | The next token used for paginated responses. When this is not empty,
-    -- there are additional elements that the service has not included in this
-    -- request. Use this token with the next request to retrieve additional
-    -- objects.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of component semantic versions.
+  { -- | The list of component semantic versions.
     --
     -- The semantic version has four nodes:
     -- \<major>.\<minor>.\<patch>\/\<build>. You can assign values for the
     -- first three, and can filter on all of them.
     componentVersionList :: Prelude.Maybe [ComponentVersion],
+    -- | The next token used for paginated responses. When this is not empty,
+    -- there are additional elements that the service has not included in this
+    -- request. Use this token with the next request to retrieve additional
+    -- objects.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -269,16 +269,16 @@ data ListComponentsResponse = ListComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComponentsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
---
 -- 'componentVersionList', 'listComponentsResponse_componentVersionList' - The list of component semantic versions.
 --
 -- The semantic version has four nodes:
 -- \<major>.\<minor>.\<patch>\/\<build>. You can assign values for the
 -- first three, and can filter on all of them.
+--
+-- 'nextToken', 'listComponentsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
+-- there are additional elements that the service has not included in this
+-- request. Use this token with the next request to retrieve additional
+-- objects.
 --
 -- 'requestId', 'listComponentsResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -289,19 +289,12 @@ newListComponentsResponse ::
   ListComponentsResponse
 newListComponentsResponse pHttpStatus_ =
   ListComponentsResponse'
-    { nextToken =
+    { componentVersionList =
         Prelude.Nothing,
-      componentVersionList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
-listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
-listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
 
 -- | The list of component semantic versions.
 --
@@ -310,6 +303,13 @@ listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToke
 -- first three, and can filter on all of them.
 listComponentsResponse_componentVersionList :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [ComponentVersion])
 listComponentsResponse_componentVersionList = Lens.lens (\ListComponentsResponse' {componentVersionList} -> componentVersionList) (\s@ListComponentsResponse' {} a -> s {componentVersionList = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The next token used for paginated responses. When this is not empty,
+-- there are additional elements that the service has not included in this
+-- request. Use this token with the next request to retrieve additional
+-- objects.
+listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
+listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
 
 -- | The request ID that uniquely identifies this request.
 listComponentsResponse_requestId :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
@@ -321,7 +321,7 @@ listComponentsResponse_httpStatus = Lens.lens (\ListComponentsResponse' {httpSta
 
 instance Prelude.NFData ListComponentsResponse where
   rnf ListComponentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf componentVersionList
+    Prelude.rnf componentVersionList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -34,9 +34,9 @@ module Amazonka.Lightsail.DownloadDefaultKeyPair
     newDownloadDefaultKeyPairResponse,
 
     -- * Response Lenses
-    downloadDefaultKeyPairResponse_publicKeyBase64,
-    downloadDefaultKeyPairResponse_privateKeyBase64,
     downloadDefaultKeyPairResponse_createdAt,
+    downloadDefaultKeyPairResponse_privateKeyBase64,
+    downloadDefaultKeyPairResponse_publicKeyBase64,
     downloadDefaultKeyPairResponse_httpStatus,
   )
 where
@@ -73,9 +73,9 @@ instance Core.AWSRequest DownloadDefaultKeyPair where
     Response.receiveJSON
       ( \s h x ->
           DownloadDefaultKeyPairResponse'
-            Prelude.<$> (x Data..?> "publicKeyBase64")
+            Prelude.<$> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "privateKeyBase64")
-            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "publicKeyBase64")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,12 +112,12 @@ instance Data.ToQuery DownloadDefaultKeyPair where
 
 -- | /See:/ 'newDownloadDefaultKeyPairResponse' smart constructor.
 data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
-  { -- | A base64-encoded public key of the @ssh-rsa@ type.
-    publicKeyBase64 :: Prelude.Maybe Prelude.Text,
+  { -- | The timestamp when the default key pair was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | A base64-encoded RSA private key.
     privateKeyBase64 :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the default key pair was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | A base64-encoded public key of the @ssh-rsa@ type.
+    publicKeyBase64 :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -131,11 +131,11 @@ data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'publicKeyBase64', 'downloadDefaultKeyPairResponse_publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
+-- 'createdAt', 'downloadDefaultKeyPairResponse_createdAt' - The timestamp when the default key pair was created.
 --
 -- 'privateKeyBase64', 'downloadDefaultKeyPairResponse_privateKeyBase64' - A base64-encoded RSA private key.
 --
--- 'createdAt', 'downloadDefaultKeyPairResponse_createdAt' - The timestamp when the default key pair was created.
+-- 'publicKeyBase64', 'downloadDefaultKeyPairResponse_publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
 --
 -- 'httpStatus', 'downloadDefaultKeyPairResponse_httpStatus' - The response's http status code.
 newDownloadDefaultKeyPairResponse ::
@@ -144,24 +144,24 @@ newDownloadDefaultKeyPairResponse ::
   DownloadDefaultKeyPairResponse
 newDownloadDefaultKeyPairResponse pHttpStatus_ =
   DownloadDefaultKeyPairResponse'
-    { publicKeyBase64 =
+    { createdAt =
         Prelude.Nothing,
       privateKeyBase64 = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      publicKeyBase64 = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A base64-encoded public key of the @ssh-rsa@ type.
-downloadDefaultKeyPairResponse_publicKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.Text)
-downloadDefaultKeyPairResponse_publicKeyBase64 = Lens.lens (\DownloadDefaultKeyPairResponse' {publicKeyBase64} -> publicKeyBase64) (\s@DownloadDefaultKeyPairResponse' {} a -> s {publicKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
+-- | The timestamp when the default key pair was created.
+downloadDefaultKeyPairResponse_createdAt :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.UTCTime)
+downloadDefaultKeyPairResponse_createdAt = Lens.lens (\DownloadDefaultKeyPairResponse' {createdAt} -> createdAt) (\s@DownloadDefaultKeyPairResponse' {} a -> s {createdAt = a} :: DownloadDefaultKeyPairResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A base64-encoded RSA private key.
 downloadDefaultKeyPairResponse_privateKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.Text)
 downloadDefaultKeyPairResponse_privateKeyBase64 = Lens.lens (\DownloadDefaultKeyPairResponse' {privateKeyBase64} -> privateKeyBase64) (\s@DownloadDefaultKeyPairResponse' {} a -> s {privateKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
 
--- | The timestamp when the default key pair was created.
-downloadDefaultKeyPairResponse_createdAt :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.UTCTime)
-downloadDefaultKeyPairResponse_createdAt = Lens.lens (\DownloadDefaultKeyPairResponse' {createdAt} -> createdAt) (\s@DownloadDefaultKeyPairResponse' {} a -> s {createdAt = a} :: DownloadDefaultKeyPairResponse) Prelude.. Lens.mapping Data._Time
+-- | A base64-encoded public key of the @ssh-rsa@ type.
+downloadDefaultKeyPairResponse_publicKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.Text)
+downloadDefaultKeyPairResponse_publicKeyBase64 = Lens.lens (\DownloadDefaultKeyPairResponse' {publicKeyBase64} -> publicKeyBase64) (\s@DownloadDefaultKeyPairResponse' {} a -> s {publicKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
 
 -- | The response's http status code.
 downloadDefaultKeyPairResponse_httpStatus :: Lens.Lens' DownloadDefaultKeyPairResponse Prelude.Int
@@ -172,7 +172,7 @@ instance
     DownloadDefaultKeyPairResponse
   where
   rnf DownloadDefaultKeyPairResponse' {..} =
-    Prelude.rnf publicKeyBase64
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf privateKeyBase64
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf publicKeyBase64
       `Prelude.seq` Prelude.rnf httpStatus

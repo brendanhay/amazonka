@@ -63,26 +63,26 @@ module Amazonka.Cloud9
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConcurrentAccessException
     _ConcurrentAccessException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,

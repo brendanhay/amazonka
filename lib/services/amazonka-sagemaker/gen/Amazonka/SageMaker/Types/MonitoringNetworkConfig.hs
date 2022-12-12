@@ -29,15 +29,15 @@ import Amazonka.SageMaker.Types.VpcConfig
 --
 -- /See:/ 'newMonitoringNetworkConfig' smart constructor.
 data MonitoringNetworkConfig = MonitoringNetworkConfig'
-  { vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | Whether to allow inbound and outbound network calls to and from the
-    -- containers used for the monitoring job.
-    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
-    -- | Whether to encrypt all communications between the instances used for the
+  { -- | Whether to encrypt all communications between the instances used for the
     -- monitoring jobs. Choose @True@ to encrypt communications. Encryption
     -- provides greater security for distributed jobs, but the processing might
     -- take longer.
-    enableInterContainerTrafficEncryption :: Prelude.Maybe Prelude.Bool
+    enableInterContainerTrafficEncryption :: Prelude.Maybe Prelude.Bool,
+    -- | Whether to allow inbound and outbound network calls to and from the
+    -- containers used for the monitoring job.
+    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
+    vpcConfig :: Prelude.Maybe VpcConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,34 +49,24 @@ data MonitoringNetworkConfig = MonitoringNetworkConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'monitoringNetworkConfig_vpcConfig' - Undocumented member.
---
--- 'enableNetworkIsolation', 'monitoringNetworkConfig_enableNetworkIsolation' - Whether to allow inbound and outbound network calls to and from the
--- containers used for the monitoring job.
---
 -- 'enableInterContainerTrafficEncryption', 'monitoringNetworkConfig_enableInterContainerTrafficEncryption' - Whether to encrypt all communications between the instances used for the
 -- monitoring jobs. Choose @True@ to encrypt communications. Encryption
 -- provides greater security for distributed jobs, but the processing might
 -- take longer.
+--
+-- 'enableNetworkIsolation', 'monitoringNetworkConfig_enableNetworkIsolation' - Whether to allow inbound and outbound network calls to and from the
+-- containers used for the monitoring job.
+--
+-- 'vpcConfig', 'monitoringNetworkConfig_vpcConfig' - Undocumented member.
 newMonitoringNetworkConfig ::
   MonitoringNetworkConfig
 newMonitoringNetworkConfig =
   MonitoringNetworkConfig'
-    { vpcConfig =
+    { enableInterContainerTrafficEncryption =
         Prelude.Nothing,
       enableNetworkIsolation = Prelude.Nothing,
-      enableInterContainerTrafficEncryption =
-        Prelude.Nothing
+      vpcConfig = Prelude.Nothing
     }
-
--- | Undocumented member.
-monitoringNetworkConfig_vpcConfig :: Lens.Lens' MonitoringNetworkConfig (Prelude.Maybe VpcConfig)
-monitoringNetworkConfig_vpcConfig = Lens.lens (\MonitoringNetworkConfig' {vpcConfig} -> vpcConfig) (\s@MonitoringNetworkConfig' {} a -> s {vpcConfig = a} :: MonitoringNetworkConfig)
-
--- | Whether to allow inbound and outbound network calls to and from the
--- containers used for the monitoring job.
-monitoringNetworkConfig_enableNetworkIsolation :: Lens.Lens' MonitoringNetworkConfig (Prelude.Maybe Prelude.Bool)
-monitoringNetworkConfig_enableNetworkIsolation = Lens.lens (\MonitoringNetworkConfig' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@MonitoringNetworkConfig' {} a -> s {enableNetworkIsolation = a} :: MonitoringNetworkConfig)
 
 -- | Whether to encrypt all communications between the instances used for the
 -- monitoring jobs. Choose @True@ to encrypt communications. Encryption
@@ -85,37 +75,47 @@ monitoringNetworkConfig_enableNetworkIsolation = Lens.lens (\MonitoringNetworkCo
 monitoringNetworkConfig_enableInterContainerTrafficEncryption :: Lens.Lens' MonitoringNetworkConfig (Prelude.Maybe Prelude.Bool)
 monitoringNetworkConfig_enableInterContainerTrafficEncryption = Lens.lens (\MonitoringNetworkConfig' {enableInterContainerTrafficEncryption} -> enableInterContainerTrafficEncryption) (\s@MonitoringNetworkConfig' {} a -> s {enableInterContainerTrafficEncryption = a} :: MonitoringNetworkConfig)
 
+-- | Whether to allow inbound and outbound network calls to and from the
+-- containers used for the monitoring job.
+monitoringNetworkConfig_enableNetworkIsolation :: Lens.Lens' MonitoringNetworkConfig (Prelude.Maybe Prelude.Bool)
+monitoringNetworkConfig_enableNetworkIsolation = Lens.lens (\MonitoringNetworkConfig' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@MonitoringNetworkConfig' {} a -> s {enableNetworkIsolation = a} :: MonitoringNetworkConfig)
+
+-- | Undocumented member.
+monitoringNetworkConfig_vpcConfig :: Lens.Lens' MonitoringNetworkConfig (Prelude.Maybe VpcConfig)
+monitoringNetworkConfig_vpcConfig = Lens.lens (\MonitoringNetworkConfig' {vpcConfig} -> vpcConfig) (\s@MonitoringNetworkConfig' {} a -> s {vpcConfig = a} :: MonitoringNetworkConfig)
+
 instance Data.FromJSON MonitoringNetworkConfig where
   parseJSON =
     Data.withObject
       "MonitoringNetworkConfig"
       ( \x ->
           MonitoringNetworkConfig'
-            Prelude.<$> (x Data..:? "VpcConfig")
+            Prelude.<$> (x Data..:? "EnableInterContainerTrafficEncryption")
             Prelude.<*> (x Data..:? "EnableNetworkIsolation")
-            Prelude.<*> (x Data..:? "EnableInterContainerTrafficEncryption")
+            Prelude.<*> (x Data..:? "VpcConfig")
       )
 
 instance Prelude.Hashable MonitoringNetworkConfig where
   hashWithSalt _salt MonitoringNetworkConfig' {..} =
-    _salt `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` enableNetworkIsolation
+    _salt
       `Prelude.hashWithSalt` enableInterContainerTrafficEncryption
+      `Prelude.hashWithSalt` enableNetworkIsolation
+      `Prelude.hashWithSalt` vpcConfig
 
 instance Prelude.NFData MonitoringNetworkConfig where
   rnf MonitoringNetworkConfig' {..} =
-    Prelude.rnf vpcConfig
+    Prelude.rnf enableInterContainerTrafficEncryption
       `Prelude.seq` Prelude.rnf enableNetworkIsolation
-      `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
+      `Prelude.seq` Prelude.rnf vpcConfig
 
 instance Data.ToJSON MonitoringNetworkConfig where
   toJSON MonitoringNetworkConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+          [ ("EnableInterContainerTrafficEncryption" Data..=)
+              Prelude.<$> enableInterContainerTrafficEncryption,
             ("EnableNetworkIsolation" Data..=)
               Prelude.<$> enableNetworkIsolation,
-            ("EnableInterContainerTrafficEncryption" Data..=)
-              Prelude.<$> enableInterContainerTrafficEncryption
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig
           ]
       )

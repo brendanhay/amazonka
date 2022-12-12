@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsElbAppCookieStickinessPolicy' smart constructor.
 data AwsElbAppCookieStickinessPolicy = AwsElbAppCookieStickinessPolicy'
-  { -- | The mnemonic name for the policy being created. The name must be unique
+  { -- | The name of the application cookie used for stickiness.
+    cookieName :: Prelude.Maybe Prelude.Text,
+    -- | The mnemonic name for the policy being created. The name must be unique
     -- within the set of policies for the load balancer.
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the application cookie used for stickiness.
-    cookieName :: Prelude.Maybe Prelude.Text
+    policyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data AwsElbAppCookieStickinessPolicy = AwsElbAppCookieStickinessPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cookieName', 'awsElbAppCookieStickinessPolicy_cookieName' - The name of the application cookie used for stickiness.
+--
 -- 'policyName', 'awsElbAppCookieStickinessPolicy_policyName' - The mnemonic name for the policy being created. The name must be unique
 -- within the set of policies for the load balancer.
---
--- 'cookieName', 'awsElbAppCookieStickinessPolicy_cookieName' - The name of the application cookie used for stickiness.
 newAwsElbAppCookieStickinessPolicy ::
   AwsElbAppCookieStickinessPolicy
 newAwsElbAppCookieStickinessPolicy =
   AwsElbAppCookieStickinessPolicy'
-    { policyName =
+    { cookieName =
         Prelude.Nothing,
-      cookieName = Prelude.Nothing
+      policyName = Prelude.Nothing
     }
+
+-- | The name of the application cookie used for stickiness.
+awsElbAppCookieStickinessPolicy_cookieName :: Lens.Lens' AwsElbAppCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
+awsElbAppCookieStickinessPolicy_cookieName = Lens.lens (\AwsElbAppCookieStickinessPolicy' {cookieName} -> cookieName) (\s@AwsElbAppCookieStickinessPolicy' {} a -> s {cookieName = a} :: AwsElbAppCookieStickinessPolicy)
 
 -- | The mnemonic name for the policy being created. The name must be unique
 -- within the set of policies for the load balancer.
 awsElbAppCookieStickinessPolicy_policyName :: Lens.Lens' AwsElbAppCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
 awsElbAppCookieStickinessPolicy_policyName = Lens.lens (\AwsElbAppCookieStickinessPolicy' {policyName} -> policyName) (\s@AwsElbAppCookieStickinessPolicy' {} a -> s {policyName = a} :: AwsElbAppCookieStickinessPolicy)
-
--- | The name of the application cookie used for stickiness.
-awsElbAppCookieStickinessPolicy_cookieName :: Lens.Lens' AwsElbAppCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
-awsElbAppCookieStickinessPolicy_cookieName = Lens.lens (\AwsElbAppCookieStickinessPolicy' {cookieName} -> cookieName) (\s@AwsElbAppCookieStickinessPolicy' {} a -> s {cookieName = a} :: AwsElbAppCookieStickinessPolicy)
 
 instance
   Data.FromJSON
@@ -76,8 +76,8 @@ instance
       "AwsElbAppCookieStickinessPolicy"
       ( \x ->
           AwsElbAppCookieStickinessPolicy'
-            Prelude.<$> (x Data..:? "PolicyName")
-            Prelude.<*> (x Data..:? "CookieName")
+            Prelude.<$> (x Data..:? "CookieName")
+            Prelude.<*> (x Data..:? "PolicyName")
       )
 
 instance
@@ -87,22 +87,22 @@ instance
   hashWithSalt
     _salt
     AwsElbAppCookieStickinessPolicy' {..} =
-      _salt `Prelude.hashWithSalt` policyName
-        `Prelude.hashWithSalt` cookieName
+      _salt `Prelude.hashWithSalt` cookieName
+        `Prelude.hashWithSalt` policyName
 
 instance
   Prelude.NFData
     AwsElbAppCookieStickinessPolicy
   where
   rnf AwsElbAppCookieStickinessPolicy' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf cookieName
+    Prelude.rnf cookieName
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Data.ToJSON AwsElbAppCookieStickinessPolicy where
   toJSON AwsElbAppCookieStickinessPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PolicyName" Data..=) Prelude.<$> policyName,
-            ("CookieName" Data..=) Prelude.<$> cookieName
+          [ ("CookieName" Data..=) Prelude.<$> cookieName,
+            ("PolicyName" Data..=) Prelude.<$> policyName
           ]
       )

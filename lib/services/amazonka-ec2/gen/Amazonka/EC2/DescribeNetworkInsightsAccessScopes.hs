@@ -29,19 +29,19 @@ module Amazonka.EC2.DescribeNetworkInsightsAccessScopes
     newDescribeNetworkInsightsAccessScopes,
 
     -- * Request Lenses
-    describeNetworkInsightsAccessScopes_nextToken,
-    describeNetworkInsightsAccessScopes_filters,
     describeNetworkInsightsAccessScopes_dryRun,
-    describeNetworkInsightsAccessScopes_networkInsightsAccessScopeIds,
+    describeNetworkInsightsAccessScopes_filters,
     describeNetworkInsightsAccessScopes_maxResults,
+    describeNetworkInsightsAccessScopes_networkInsightsAccessScopeIds,
+    describeNetworkInsightsAccessScopes_nextToken,
 
     -- * Destructuring the Response
     DescribeNetworkInsightsAccessScopesResponse (..),
     newDescribeNetworkInsightsAccessScopesResponse,
 
     -- * Response Lenses
-    describeNetworkInsightsAccessScopesResponse_nextToken,
     describeNetworkInsightsAccessScopesResponse_networkInsightsAccessScopes,
+    describeNetworkInsightsAccessScopesResponse_nextToken,
     describeNetworkInsightsAccessScopesResponse_httpStatus,
   )
 where
@@ -56,21 +56,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeNetworkInsightsAccessScopes' smart constructor.
 data DescribeNetworkInsightsAccessScopes = DescribeNetworkInsightsAccessScopes'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | There are no supported filters.
-    filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IDs of the Network Access Scopes.
-    networkInsightsAccessScopeIds :: Prelude.Maybe [Prelude.Text],
+    -- | There are no supported filters.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The IDs of the Network Access Scopes.
+    networkInsightsAccessScopeIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,40 +82,32 @@ data DescribeNetworkInsightsAccessScopes = DescribeNetworkInsightsAccessScopes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeNetworkInsightsAccessScopes_nextToken' - The token for the next page of results.
---
--- 'filters', 'describeNetworkInsightsAccessScopes_filters' - There are no supported filters.
---
 -- 'dryRun', 'describeNetworkInsightsAccessScopes_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'networkInsightsAccessScopeIds', 'describeNetworkInsightsAccessScopes_networkInsightsAccessScopeIds' - The IDs of the Network Access Scopes.
+-- 'filters', 'describeNetworkInsightsAccessScopes_filters' - There are no supported filters.
 --
 -- 'maxResults', 'describeNetworkInsightsAccessScopes_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'networkInsightsAccessScopeIds', 'describeNetworkInsightsAccessScopes_networkInsightsAccessScopeIds' - The IDs of the Network Access Scopes.
+--
+-- 'nextToken', 'describeNetworkInsightsAccessScopes_nextToken' - The token for the next page of results.
 newDescribeNetworkInsightsAccessScopes ::
   DescribeNetworkInsightsAccessScopes
 newDescribeNetworkInsightsAccessScopes =
   DescribeNetworkInsightsAccessScopes'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       networkInsightsAccessScopeIds =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeNetworkInsightsAccessScopes_nextToken :: Lens.Lens' DescribeNetworkInsightsAccessScopes (Prelude.Maybe Prelude.Text)
-describeNetworkInsightsAccessScopes_nextToken = Lens.lens (\DescribeNetworkInsightsAccessScopes' {nextToken} -> nextToken) (\s@DescribeNetworkInsightsAccessScopes' {} a -> s {nextToken = a} :: DescribeNetworkInsightsAccessScopes)
-
--- | There are no supported filters.
-describeNetworkInsightsAccessScopes_filters :: Lens.Lens' DescribeNetworkInsightsAccessScopes (Prelude.Maybe [Filter])
-describeNetworkInsightsAccessScopes_filters = Lens.lens (\DescribeNetworkInsightsAccessScopes' {filters} -> filters) (\s@DescribeNetworkInsightsAccessScopes' {} a -> s {filters = a} :: DescribeNetworkInsightsAccessScopes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -124,15 +116,23 @@ describeNetworkInsightsAccessScopes_filters = Lens.lens (\DescribeNetworkInsight
 describeNetworkInsightsAccessScopes_dryRun :: Lens.Lens' DescribeNetworkInsightsAccessScopes (Prelude.Maybe Prelude.Bool)
 describeNetworkInsightsAccessScopes_dryRun = Lens.lens (\DescribeNetworkInsightsAccessScopes' {dryRun} -> dryRun) (\s@DescribeNetworkInsightsAccessScopes' {} a -> s {dryRun = a} :: DescribeNetworkInsightsAccessScopes)
 
--- | The IDs of the Network Access Scopes.
-describeNetworkInsightsAccessScopes_networkInsightsAccessScopeIds :: Lens.Lens' DescribeNetworkInsightsAccessScopes (Prelude.Maybe [Prelude.Text])
-describeNetworkInsightsAccessScopes_networkInsightsAccessScopeIds = Lens.lens (\DescribeNetworkInsightsAccessScopes' {networkInsightsAccessScopeIds} -> networkInsightsAccessScopeIds) (\s@DescribeNetworkInsightsAccessScopes' {} a -> s {networkInsightsAccessScopeIds = a} :: DescribeNetworkInsightsAccessScopes) Prelude.. Lens.mapping Lens.coerced
+-- | There are no supported filters.
+describeNetworkInsightsAccessScopes_filters :: Lens.Lens' DescribeNetworkInsightsAccessScopes (Prelude.Maybe [Filter])
+describeNetworkInsightsAccessScopes_filters = Lens.lens (\DescribeNetworkInsightsAccessScopes' {filters} -> filters) (\s@DescribeNetworkInsightsAccessScopes' {} a -> s {filters = a} :: DescribeNetworkInsightsAccessScopes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 describeNetworkInsightsAccessScopes_maxResults :: Lens.Lens' DescribeNetworkInsightsAccessScopes (Prelude.Maybe Prelude.Natural)
 describeNetworkInsightsAccessScopes_maxResults = Lens.lens (\DescribeNetworkInsightsAccessScopes' {maxResults} -> maxResults) (\s@DescribeNetworkInsightsAccessScopes' {} a -> s {maxResults = a} :: DescribeNetworkInsightsAccessScopes)
+
+-- | The IDs of the Network Access Scopes.
+describeNetworkInsightsAccessScopes_networkInsightsAccessScopeIds :: Lens.Lens' DescribeNetworkInsightsAccessScopes (Prelude.Maybe [Prelude.Text])
+describeNetworkInsightsAccessScopes_networkInsightsAccessScopeIds = Lens.lens (\DescribeNetworkInsightsAccessScopes' {networkInsightsAccessScopeIds} -> networkInsightsAccessScopeIds) (\s@DescribeNetworkInsightsAccessScopes' {} a -> s {networkInsightsAccessScopeIds = a} :: DescribeNetworkInsightsAccessScopes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+describeNetworkInsightsAccessScopes_nextToken :: Lens.Lens' DescribeNetworkInsightsAccessScopes (Prelude.Maybe Prelude.Text)
+describeNetworkInsightsAccessScopes_nextToken = Lens.lens (\DescribeNetworkInsightsAccessScopes' {nextToken} -> nextToken) (\s@DescribeNetworkInsightsAccessScopes' {} a -> s {nextToken = a} :: DescribeNetworkInsightsAccessScopes)
 
 instance
   Core.AWSPager
@@ -172,11 +172,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInsightsAccessScopesResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "networkInsightsAccessScopeSet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
+            Prelude.<$> ( x Data..@? "networkInsightsAccessScopeSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+              Prelude.<*> (x Data..@? "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,22 +187,22 @@ instance
   hashWithSalt
     _salt
     DescribeNetworkInsightsAccessScopes' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` dryRun
-        `Prelude.hashWithSalt` networkInsightsAccessScopeIds
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` networkInsightsAccessScopeIds
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeNetworkInsightsAccessScopes
   where
   rnf DescribeNetworkInsightsAccessScopes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -228,24 +228,24 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
         Data.toQuery
           ( Data.toQueryList "NetworkInsightsAccessScopeId"
               Prelude.<$> networkInsightsAccessScopeIds
           ),
-        "MaxResults" Data.=: maxResults
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeNetworkInsightsAccessScopesResponse' smart constructor.
 data DescribeNetworkInsightsAccessScopesResponse = DescribeNetworkInsightsAccessScopesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The Network Access Scopes.
+    networkInsightsAccessScopes :: Prelude.Maybe [NetworkInsightsAccessScope],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Network Access Scopes.
-    networkInsightsAccessScopes :: Prelude.Maybe [NetworkInsightsAccessScope],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -259,10 +259,10 @@ data DescribeNetworkInsightsAccessScopesResponse = DescribeNetworkInsightsAccess
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkInsightsAccessScopes', 'describeNetworkInsightsAccessScopesResponse_networkInsightsAccessScopes' - The Network Access Scopes.
+--
 -- 'nextToken', 'describeNetworkInsightsAccessScopesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'networkInsightsAccessScopes', 'describeNetworkInsightsAccessScopesResponse_networkInsightsAccessScopes' - The Network Access Scopes.
 --
 -- 'httpStatus', 'describeNetworkInsightsAccessScopesResponse_httpStatus' - The response's http status code.
 newDescribeNetworkInsightsAccessScopesResponse ::
@@ -272,21 +272,20 @@ newDescribeNetworkInsightsAccessScopesResponse ::
 newDescribeNetworkInsightsAccessScopesResponse
   pHttpStatus_ =
     DescribeNetworkInsightsAccessScopesResponse'
-      { nextToken =
+      { networkInsightsAccessScopes =
           Prelude.Nothing,
-        networkInsightsAccessScopes =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The Network Access Scopes.
+describeNetworkInsightsAccessScopesResponse_networkInsightsAccessScopes :: Lens.Lens' DescribeNetworkInsightsAccessScopesResponse (Prelude.Maybe [NetworkInsightsAccessScope])
+describeNetworkInsightsAccessScopesResponse_networkInsightsAccessScopes = Lens.lens (\DescribeNetworkInsightsAccessScopesResponse' {networkInsightsAccessScopes} -> networkInsightsAccessScopes) (\s@DescribeNetworkInsightsAccessScopesResponse' {} a -> s {networkInsightsAccessScopes = a} :: DescribeNetworkInsightsAccessScopesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeNetworkInsightsAccessScopesResponse_nextToken :: Lens.Lens' DescribeNetworkInsightsAccessScopesResponse (Prelude.Maybe Prelude.Text)
 describeNetworkInsightsAccessScopesResponse_nextToken = Lens.lens (\DescribeNetworkInsightsAccessScopesResponse' {nextToken} -> nextToken) (\s@DescribeNetworkInsightsAccessScopesResponse' {} a -> s {nextToken = a} :: DescribeNetworkInsightsAccessScopesResponse)
-
--- | The Network Access Scopes.
-describeNetworkInsightsAccessScopesResponse_networkInsightsAccessScopes :: Lens.Lens' DescribeNetworkInsightsAccessScopesResponse (Prelude.Maybe [NetworkInsightsAccessScope])
-describeNetworkInsightsAccessScopesResponse_networkInsightsAccessScopes = Lens.lens (\DescribeNetworkInsightsAccessScopesResponse' {networkInsightsAccessScopes} -> networkInsightsAccessScopes) (\s@DescribeNetworkInsightsAccessScopesResponse' {} a -> s {networkInsightsAccessScopes = a} :: DescribeNetworkInsightsAccessScopesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNetworkInsightsAccessScopesResponse_httpStatus :: Lens.Lens' DescribeNetworkInsightsAccessScopesResponse Prelude.Int
@@ -297,6 +296,6 @@ instance
     DescribeNetworkInsightsAccessScopesResponse
   where
   rnf DescribeNetworkInsightsAccessScopesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopes
+    Prelude.rnf networkInsightsAccessScopes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

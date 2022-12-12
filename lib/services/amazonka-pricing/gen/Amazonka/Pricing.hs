@@ -51,14 +51,14 @@ module Amazonka.Pricing
     -- ** InternalErrorException
     _InternalErrorException,
 
-    -- ** NotFoundException
-    _NotFoundException,
-
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- * Waiters
     -- $waiters

@@ -30,17 +30,17 @@ module Amazonka.CodeStarNotifications.ListEventTypes
     newListEventTypes,
 
     -- * Request Lenses
-    listEventTypes_nextToken,
     listEventTypes_filters,
     listEventTypes_maxResults,
+    listEventTypes_nextToken,
 
     -- * Destructuring the Response
     ListEventTypesResponse (..),
     newListEventTypesResponse,
 
     -- * Response Lenses
-    listEventTypesResponse_nextToken,
     listEventTypesResponse_eventTypes,
+    listEventTypesResponse_nextToken,
     listEventTypesResponse_httpStatus,
   )
 where
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventTypes' smart constructor.
 data ListEventTypes = ListEventTypes'
-  { -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters to use to return information by service or resource type.
+  { -- | The filters to use to return information by service or resource type.
     filters :: Prelude.Maybe [ListEventTypesFilter],
     -- | A non-negative integer used to limit the number of returned results. The
     -- default number is 50. The maximum number of results that can be returned
     -- is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,27 +75,22 @@ data ListEventTypes = ListEventTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEventTypes_nextToken' - An enumeration token that, when provided in a request, returns the next
--- batch of the results.
---
 -- 'filters', 'listEventTypes_filters' - The filters to use to return information by service or resource type.
 --
 -- 'maxResults', 'listEventTypes_maxResults' - A non-negative integer used to limit the number of returned results. The
 -- default number is 50. The maximum number of results that can be returned
 -- is 100.
+--
+-- 'nextToken', 'listEventTypes_nextToken' - An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
 newListEventTypes ::
   ListEventTypes
 newListEventTypes =
   ListEventTypes'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | An enumeration token that, when provided in a request, returns the next
--- batch of the results.
-listEventTypes_nextToken :: Lens.Lens' ListEventTypes (Prelude.Maybe Prelude.Text)
-listEventTypes_nextToken = Lens.lens (\ListEventTypes' {nextToken} -> nextToken) (\s@ListEventTypes' {} a -> s {nextToken = a} :: ListEventTypes)
 
 -- | The filters to use to return information by service or resource type.
 listEventTypes_filters :: Lens.Lens' ListEventTypes (Prelude.Maybe [ListEventTypesFilter])
@@ -106,6 +101,11 @@ listEventTypes_filters = Lens.lens (\ListEventTypes' {filters} -> filters) (\s@L
 -- is 100.
 listEventTypes_maxResults :: Lens.Lens' ListEventTypes (Prelude.Maybe Prelude.Natural)
 listEventTypes_maxResults = Lens.lens (\ListEventTypes' {maxResults} -> maxResults) (\s@ListEventTypes' {} a -> s {maxResults = a} :: ListEventTypes)
+
+-- | An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+listEventTypes_nextToken :: Lens.Lens' ListEventTypes (Prelude.Maybe Prelude.Text)
+listEventTypes_nextToken = Lens.lens (\ListEventTypes' {nextToken} -> nextToken) (\s@ListEventTypes' {} a -> s {nextToken = a} :: ListEventTypes)
 
 instance Core.AWSPager ListEventTypes where
   page rq rs
@@ -138,22 +138,22 @@ instance Core.AWSRequest ListEventTypes where
     Response.receiveJSON
       ( \s h x ->
           ListEventTypesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "EventTypes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "EventTypes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEventTypes where
   hashWithSalt _salt ListEventTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEventTypes where
   rnf ListEventTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventTypes where
   toHeaders =
@@ -170,9 +170,9 @@ instance Data.ToJSON ListEventTypes where
   toJSON ListEventTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -184,12 +184,12 @@ instance Data.ToQuery ListEventTypes where
 
 -- | /See:/ 'newListEventTypesResponse' smart constructor.
 data ListEventTypesResponse = ListEventTypesResponse'
-  { -- | An enumeration token that can be used in a request to return the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about each event, including service name, resource type,
+  { -- | Information about each event, including service name, resource type,
     -- event ID, and event name.
     eventTypes :: Prelude.Maybe [EventTypeSummary],
+    -- | An enumeration token that can be used in a request to return the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,11 +203,11 @@ data ListEventTypesResponse = ListEventTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEventTypesResponse_nextToken' - An enumeration token that can be used in a request to return the next
--- batch of the results.
---
 -- 'eventTypes', 'listEventTypesResponse_eventTypes' - Information about each event, including service name, resource type,
 -- event ID, and event name.
+--
+-- 'nextToken', 'listEventTypesResponse_nextToken' - An enumeration token that can be used in a request to return the next
+-- batch of the results.
 --
 -- 'httpStatus', 'listEventTypesResponse_httpStatus' - The response's http status code.
 newListEventTypesResponse ::
@@ -216,21 +216,21 @@ newListEventTypesResponse ::
   ListEventTypesResponse
 newListEventTypesResponse pHttpStatus_ =
   ListEventTypesResponse'
-    { nextToken =
+    { eventTypes =
         Prelude.Nothing,
-      eventTypes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An enumeration token that can be used in a request to return the next
--- batch of the results.
-listEventTypesResponse_nextToken :: Lens.Lens' ListEventTypesResponse (Prelude.Maybe Prelude.Text)
-listEventTypesResponse_nextToken = Lens.lens (\ListEventTypesResponse' {nextToken} -> nextToken) (\s@ListEventTypesResponse' {} a -> s {nextToken = a} :: ListEventTypesResponse)
 
 -- | Information about each event, including service name, resource type,
 -- event ID, and event name.
 listEventTypesResponse_eventTypes :: Lens.Lens' ListEventTypesResponse (Prelude.Maybe [EventTypeSummary])
 listEventTypesResponse_eventTypes = Lens.lens (\ListEventTypesResponse' {eventTypes} -> eventTypes) (\s@ListEventTypesResponse' {} a -> s {eventTypes = a} :: ListEventTypesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An enumeration token that can be used in a request to return the next
+-- batch of the results.
+listEventTypesResponse_nextToken :: Lens.Lens' ListEventTypesResponse (Prelude.Maybe Prelude.Text)
+listEventTypesResponse_nextToken = Lens.lens (\ListEventTypesResponse' {nextToken} -> nextToken) (\s@ListEventTypesResponse' {} a -> s {nextToken = a} :: ListEventTypesResponse)
 
 -- | The response's http status code.
 listEventTypesResponse_httpStatus :: Lens.Lens' ListEventTypesResponse Prelude.Int
@@ -238,6 +238,6 @@ listEventTypesResponse_httpStatus = Lens.lens (\ListEventTypesResponse' {httpSta
 
 instance Prelude.NFData ListEventTypesResponse where
   rnf ListEventTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventTypes
+    Prelude.rnf eventTypes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

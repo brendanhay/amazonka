@@ -40,8 +40,8 @@ module Amazonka.RDS.ModifyCustomDBEngineVersion
     newModifyCustomDBEngineVersion,
 
     -- * Request Lenses
-    modifyCustomDBEngineVersion_status,
     modifyCustomDBEngineVersion_description,
+    modifyCustomDBEngineVersion_status,
     modifyCustomDBEngineVersion_engine,
     modifyCustomDBEngineVersion_engineVersion,
 
@@ -50,33 +50,33 @@ module Amazonka.RDS.ModifyCustomDBEngineVersion
     newDBEngineVersion,
 
     -- * Response Lenses
-    dbEngineVersion_validUpgradeTarget,
-    dbEngineVersion_exportableLogTypes,
-    dbEngineVersion_supportsReadReplica,
-    dbEngineVersion_supportsBabelfish,
-    dbEngineVersion_supportedCharacterSets,
-    dbEngineVersion_tagList,
-    dbEngineVersion_supportedFeatureNames,
-    dbEngineVersion_dbEngineVersionArn,
-    dbEngineVersion_supportedEngineModes,
-    dbEngineVersion_defaultCharacterSet,
-    dbEngineVersion_status,
-    dbEngineVersion_customDBEngineVersionManifest,
-    dbEngineVersion_majorEngineVersion,
-    dbEngineVersion_databaseInstallationFilesS3BucketName,
-    dbEngineVersion_dbEngineVersionDescription,
-    dbEngineVersion_supportsParallelQuery,
-    dbEngineVersion_supportsLogExportsToCloudwatchLogs,
-    dbEngineVersion_kmsKeyId,
-    dbEngineVersion_engine,
-    dbEngineVersion_dbParameterGroupFamily,
-    dbEngineVersion_databaseInstallationFilesS3Prefix,
     dbEngineVersion_createTime,
-    dbEngineVersion_supportedTimezones,
-    dbEngineVersion_supportsGlobalDatabases,
-    dbEngineVersion_supportedNcharCharacterSets,
-    dbEngineVersion_engineVersion,
+    dbEngineVersion_customDBEngineVersionManifest,
     dbEngineVersion_dbEngineDescription,
+    dbEngineVersion_dbEngineVersionArn,
+    dbEngineVersion_dbEngineVersionDescription,
+    dbEngineVersion_dbParameterGroupFamily,
+    dbEngineVersion_databaseInstallationFilesS3BucketName,
+    dbEngineVersion_databaseInstallationFilesS3Prefix,
+    dbEngineVersion_defaultCharacterSet,
+    dbEngineVersion_engine,
+    dbEngineVersion_engineVersion,
+    dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_kmsKeyId,
+    dbEngineVersion_majorEngineVersion,
+    dbEngineVersion_status,
+    dbEngineVersion_supportedCharacterSets,
+    dbEngineVersion_supportedEngineModes,
+    dbEngineVersion_supportedFeatureNames,
+    dbEngineVersion_supportedNcharCharacterSets,
+    dbEngineVersion_supportedTimezones,
+    dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportsGlobalDatabases,
+    dbEngineVersion_supportsLogExportsToCloudwatchLogs,
+    dbEngineVersion_supportsParallelQuery,
+    dbEngineVersion_supportsReadReplica,
+    dbEngineVersion_tagList,
+    dbEngineVersion_validUpgradeTarget,
   )
 where
 
@@ -90,7 +90,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyCustomDBEngineVersion' smart constructor.
 data ModifyCustomDBEngineVersion = ModifyCustomDBEngineVersion'
-  { -- | The availability status to be assigned to the CEV. Valid values are as
+  { -- | An optional description of your CEV.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The availability status to be assigned to the CEV. Valid values are as
     -- follows:
     --
     -- [available]
@@ -109,8 +111,6 @@ data ModifyCustomDBEngineVersion = ModifyCustomDBEngineVersion'
     -- must not currently be in use by an RDS Custom instance, snapshot, or
     -- automated backup.
     status :: Prelude.Maybe CustomEngineVersionStatus,
-    -- | An optional description of your CEV.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The DB engine. The only supported value is @custom-oracle-ee@.
     engine :: Prelude.Text,
     -- | The custom engine version (CEV) that you want to modify. This option is
@@ -128,6 +128,8 @@ data ModifyCustomDBEngineVersion = ModifyCustomDBEngineVersion'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'description', 'modifyCustomDBEngineVersion_description' - An optional description of your CEV.
 --
 -- 'status', 'modifyCustomDBEngineVersion_status' - The availability status to be assigned to the CEV. Valid values are as
 -- follows:
@@ -148,8 +150,6 @@ data ModifyCustomDBEngineVersion = ModifyCustomDBEngineVersion'
 -- must not currently be in use by an RDS Custom instance, snapshot, or
 -- automated backup.
 --
--- 'description', 'modifyCustomDBEngineVersion_description' - An optional description of your CEV.
---
 -- 'engine', 'modifyCustomDBEngineVersion_engine' - The DB engine. The only supported value is @custom-oracle-ee@.
 --
 -- 'engineVersion', 'modifyCustomDBEngineVersion_engineVersion' - The custom engine version (CEV) that you want to modify. This option is
@@ -166,12 +166,16 @@ newModifyCustomDBEngineVersion
   pEngine_
   pEngineVersion_ =
     ModifyCustomDBEngineVersion'
-      { status =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        status = Prelude.Nothing,
         engine = pEngine_,
         engineVersion = pEngineVersion_
       }
+
+-- | An optional description of your CEV.
+modifyCustomDBEngineVersion_description :: Lens.Lens' ModifyCustomDBEngineVersion (Prelude.Maybe Prelude.Text)
+modifyCustomDBEngineVersion_description = Lens.lens (\ModifyCustomDBEngineVersion' {description} -> description) (\s@ModifyCustomDBEngineVersion' {} a -> s {description = a} :: ModifyCustomDBEngineVersion)
 
 -- | The availability status to be assigned to the CEV. Valid values are as
 -- follows:
@@ -193,10 +197,6 @@ newModifyCustomDBEngineVersion
 -- automated backup.
 modifyCustomDBEngineVersion_status :: Lens.Lens' ModifyCustomDBEngineVersion (Prelude.Maybe CustomEngineVersionStatus)
 modifyCustomDBEngineVersion_status = Lens.lens (\ModifyCustomDBEngineVersion' {status} -> status) (\s@ModifyCustomDBEngineVersion' {} a -> s {status = a} :: ModifyCustomDBEngineVersion)
-
--- | An optional description of your CEV.
-modifyCustomDBEngineVersion_description :: Lens.Lens' ModifyCustomDBEngineVersion (Prelude.Maybe Prelude.Text)
-modifyCustomDBEngineVersion_description = Lens.lens (\ModifyCustomDBEngineVersion' {description} -> description) (\s@ModifyCustomDBEngineVersion' {} a -> s {description = a} :: ModifyCustomDBEngineVersion)
 
 -- | The DB engine. The only supported value is @custom-oracle-ee@.
 modifyCustomDBEngineVersion_engine :: Lens.Lens' ModifyCustomDBEngineVersion Prelude.Text
@@ -222,15 +222,15 @@ instance Core.AWSRequest ModifyCustomDBEngineVersion where
 
 instance Prelude.Hashable ModifyCustomDBEngineVersion where
   hashWithSalt _salt ModifyCustomDBEngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData ModifyCustomDBEngineVersion where
   rnf ModifyCustomDBEngineVersion' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf engineVersion
 
@@ -249,8 +249,8 @@ instance Data.ToQuery ModifyCustomDBEngineVersion where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Status" Data.=: status,
         "Description" Data.=: description,
+        "Status" Data.=: status,
         "Engine" Data.=: engine,
         "EngineVersion" Data.=: engineVersion
       ]

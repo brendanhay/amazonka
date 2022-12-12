@@ -43,11 +43,11 @@ module Amazonka.Connect.CreateQueue
     newCreateQueue,
 
     -- * Request Lenses
-    createQueue_tags,
     createQueue_description,
-    createQueue_quickConnectIds,
     createQueue_maxContacts,
     createQueue_outboundCallerConfig,
+    createQueue_quickConnectIds,
+    createQueue_tags,
     createQueue_instanceId,
     createQueue_name,
     createQueue_hoursOfOperationId,
@@ -73,18 +73,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateQueue' smart constructor.
 data CreateQueue = CreateQueue'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the queue.
+  { -- | The description of the queue.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The quick connects available to agents who are working the queue.
-    quickConnectIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of contacts that can be in the queue before it is
     -- considered full.
     maxContacts :: Prelude.Maybe Prelude.Natural,
     -- | The outbound caller ID name, number, and outbound whisper flow.
     outboundCallerConfig :: Prelude.Maybe OutboundCallerConfig,
+    -- | The quick connects available to agents who are working the queue.
+    quickConnectIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -103,17 +103,17 @@ data CreateQueue = CreateQueue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createQueue_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
 -- 'description', 'createQueue_description' - The description of the queue.
---
--- 'quickConnectIds', 'createQueue_quickConnectIds' - The quick connects available to agents who are working the queue.
 --
 -- 'maxContacts', 'createQueue_maxContacts' - The maximum number of contacts that can be in the queue before it is
 -- considered full.
 --
 -- 'outboundCallerConfig', 'createQueue_outboundCallerConfig' - The outbound caller ID name, number, and outbound whisper flow.
+--
+-- 'quickConnectIds', 'createQueue_quickConnectIds' - The quick connects available to agents who are working the queue.
+--
+-- 'tags', 'createQueue_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'instanceId', 'createQueue_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -134,28 +134,19 @@ newCreateQueue
   pName_
   pHoursOfOperationId_ =
     CreateQueue'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
-        quickConnectIds = Prelude.Nothing,
+      { description = Prelude.Nothing,
         maxContacts = Prelude.Nothing,
         outboundCallerConfig = Prelude.Nothing,
+        quickConnectIds = Prelude.Nothing,
+        tags = Prelude.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         hoursOfOperationId = pHoursOfOperationId_
       }
 
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the queue.
 createQueue_description :: Lens.Lens' CreateQueue (Prelude.Maybe Prelude.Text)
 createQueue_description = Lens.lens (\CreateQueue' {description} -> description) (\s@CreateQueue' {} a -> s {description = a} :: CreateQueue)
-
--- | The quick connects available to agents who are working the queue.
-createQueue_quickConnectIds :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createQueue_quickConnectIds = Lens.lens (\CreateQueue' {quickConnectIds} -> quickConnectIds) (\s@CreateQueue' {} a -> s {quickConnectIds = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of contacts that can be in the queue before it is
 -- considered full.
@@ -165,6 +156,15 @@ createQueue_maxContacts = Lens.lens (\CreateQueue' {maxContacts} -> maxContacts)
 -- | The outbound caller ID name, number, and outbound whisper flow.
 createQueue_outboundCallerConfig :: Lens.Lens' CreateQueue (Prelude.Maybe OutboundCallerConfig)
 createQueue_outboundCallerConfig = Lens.lens (\CreateQueue' {outboundCallerConfig} -> outboundCallerConfig) (\s@CreateQueue' {} a -> s {outboundCallerConfig = a} :: CreateQueue)
+
+-- | The quick connects available to agents who are working the queue.
+createQueue_quickConnectIds :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createQueue_quickConnectIds = Lens.lens (\CreateQueue' {quickConnectIds} -> quickConnectIds) (\s@CreateQueue' {} a -> s {quickConnectIds = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -194,22 +194,22 @@ instance Core.AWSRequest CreateQueue where
 
 instance Prelude.Hashable CreateQueue where
   hashWithSalt _salt CreateQueue' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` quickConnectIds
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxContacts
       `Prelude.hashWithSalt` outboundCallerConfig
+      `Prelude.hashWithSalt` quickConnectIds
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` hoursOfOperationId
 
 instance Prelude.NFData CreateQueue where
   rnf CreateQueue' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf quickConnectIds
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf maxContacts
       `Prelude.seq` Prelude.rnf outboundCallerConfig
+      `Prelude.seq` Prelude.rnf quickConnectIds
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf hoursOfOperationId
@@ -229,13 +229,13 @@ instance Data.ToJSON CreateQueue where
   toJSON CreateQueue' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
-            ("QuickConnectIds" Data..=)
-              Prelude.<$> quickConnectIds,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("MaxContacts" Data..=) Prelude.<$> maxContacts,
             ("OutboundCallerConfig" Data..=)
               Prelude.<$> outboundCallerConfig,
+            ("QuickConnectIds" Data..=)
+              Prelude.<$> quickConnectIds,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("HoursOfOperationId" Data..= hoursOfOperationId)

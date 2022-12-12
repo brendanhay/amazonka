@@ -31,8 +31,12 @@ import Amazonka.SageMaker.Types.TrainingJobStatus
 --
 -- /See:/ 'newHyperParameterTrainingJobSummary' smart constructor.
 data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
-  { -- | The date and time that the training job started.
-    trainingStartTime :: Prelude.Maybe Data.POSIX,
+  { -- | The reason that the training job failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The FinalHyperParameterTuningJobObjectiveMetric object that specifies
+    -- the value of the objective metric of the tuning job that launched this
+    -- training job.
+    finalHyperParameterTuningJobObjectiveMetric :: Prelude.Maybe FinalHyperParameterTuningJobObjectiveMetric,
     -- | The status of the objective metric for the training job:
     --
     -- -   Succeeded: The final objective metric for the training job was
@@ -47,22 +51,18 @@ data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
     --     This typically occurs when the training job failed or did not emit
     --     an objective metric.
     objectiveStatus :: Prelude.Maybe ObjectiveStatus,
-    -- | The HyperParameter tuning job that launched the training job.
-    tuningJobName :: Prelude.Maybe Prelude.Text,
-    -- | The training job definition name.
-    trainingJobDefinitionName :: Prelude.Maybe Prelude.Text,
-    -- | The FinalHyperParameterTuningJobObjectiveMetric object that specifies
-    -- the value of the objective metric of the tuning job that launched this
-    -- training job.
-    finalHyperParameterTuningJobObjectiveMetric :: Prelude.Maybe FinalHyperParameterTuningJobObjectiveMetric,
-    -- | The reason that the training job failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time when the training job ends on training instances. You
     -- are billed for the time interval between the value of
     -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
     -- this is the time after model artifacts are uploaded. For failed jobs,
     -- this is the time when SageMaker detects a job failure.
     trainingEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The training job definition name.
+    trainingJobDefinitionName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the training job started.
+    trainingStartTime :: Prelude.Maybe Data.POSIX,
+    -- | The HyperParameter tuning job that launched the training job.
+    tuningJobName :: Prelude.Maybe Prelude.Text,
     -- | The name of the training job.
     trainingJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the training job.
@@ -84,7 +84,11 @@ data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trainingStartTime', 'hyperParameterTrainingJobSummary_trainingStartTime' - The date and time that the training job started.
+-- 'failureReason', 'hyperParameterTrainingJobSummary_failureReason' - The reason that the training job failed.
+--
+-- 'finalHyperParameterTuningJobObjectiveMetric', 'hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric' - The FinalHyperParameterTuningJobObjectiveMetric object that specifies
+-- the value of the objective metric of the tuning job that launched this
+-- training job.
 --
 -- 'objectiveStatus', 'hyperParameterTrainingJobSummary_objectiveStatus' - The status of the objective metric for the training job:
 --
@@ -100,21 +104,17 @@ data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
 --     This typically occurs when the training job failed or did not emit
 --     an objective metric.
 --
--- 'tuningJobName', 'hyperParameterTrainingJobSummary_tuningJobName' - The HyperParameter tuning job that launched the training job.
---
--- 'trainingJobDefinitionName', 'hyperParameterTrainingJobSummary_trainingJobDefinitionName' - The training job definition name.
---
--- 'finalHyperParameterTuningJobObjectiveMetric', 'hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric' - The FinalHyperParameterTuningJobObjectiveMetric object that specifies
--- the value of the objective metric of the tuning job that launched this
--- training job.
---
--- 'failureReason', 'hyperParameterTrainingJobSummary_failureReason' - The reason that the training job failed.
---
 -- 'trainingEndTime', 'hyperParameterTrainingJobSummary_trainingEndTime' - Specifies the time when the training job ends on training instances. You
 -- are billed for the time interval between the value of
 -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
 -- this is the time after model artifacts are uploaded. For failed jobs,
 -- this is the time when SageMaker detects a job failure.
+--
+-- 'trainingJobDefinitionName', 'hyperParameterTrainingJobSummary_trainingJobDefinitionName' - The training job definition name.
+--
+-- 'trainingStartTime', 'hyperParameterTrainingJobSummary_trainingStartTime' - The date and time that the training job started.
+--
+-- 'tuningJobName', 'hyperParameterTrainingJobSummary_tuningJobName' - The HyperParameter tuning job that launched the training job.
 --
 -- 'trainingJobName', 'hyperParameterTrainingJobSummary_trainingJobName' - The name of the training job.
 --
@@ -141,16 +141,16 @@ newHyperParameterTrainingJobSummary
   pCreationTime_
   pTrainingJobStatus_ =
     HyperParameterTrainingJobSummary'
-      { trainingStartTime =
-          Prelude.Nothing,
-        objectiveStatus = Prelude.Nothing,
-        tuningJobName = Prelude.Nothing,
-        trainingJobDefinitionName =
+      { failureReason =
           Prelude.Nothing,
         finalHyperParameterTuningJobObjectiveMetric =
           Prelude.Nothing,
-        failureReason = Prelude.Nothing,
+        objectiveStatus = Prelude.Nothing,
         trainingEndTime = Prelude.Nothing,
+        trainingJobDefinitionName =
+          Prelude.Nothing,
+        trainingStartTime = Prelude.Nothing,
+        tuningJobName = Prelude.Nothing,
         trainingJobName = pTrainingJobName_,
         trainingJobArn = pTrainingJobArn_,
         creationTime =
@@ -159,9 +159,15 @@ newHyperParameterTrainingJobSummary
         tunedHyperParameters = Prelude.mempty
       }
 
--- | The date and time that the training job started.
-hyperParameterTrainingJobSummary_trainingStartTime :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
-hyperParameterTrainingJobSummary_trainingStartTime = Lens.lens (\HyperParameterTrainingJobSummary' {trainingStartTime} -> trainingStartTime) (\s@HyperParameterTrainingJobSummary' {} a -> s {trainingStartTime = a} :: HyperParameterTrainingJobSummary) Prelude.. Lens.mapping Data._Time
+-- | The reason that the training job failed.
+hyperParameterTrainingJobSummary_failureReason :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.Text)
+hyperParameterTrainingJobSummary_failureReason = Lens.lens (\HyperParameterTrainingJobSummary' {failureReason} -> failureReason) (\s@HyperParameterTrainingJobSummary' {} a -> s {failureReason = a} :: HyperParameterTrainingJobSummary)
+
+-- | The FinalHyperParameterTuningJobObjectiveMetric object that specifies
+-- the value of the objective metric of the tuning job that launched this
+-- training job.
+hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe FinalHyperParameterTuningJobObjectiveMetric)
+hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric = Lens.lens (\HyperParameterTrainingJobSummary' {finalHyperParameterTuningJobObjectiveMetric} -> finalHyperParameterTuningJobObjectiveMetric) (\s@HyperParameterTrainingJobSummary' {} a -> s {finalHyperParameterTuningJobObjectiveMetric = a} :: HyperParameterTrainingJobSummary)
 
 -- | The status of the objective metric for the training job:
 --
@@ -179,24 +185,6 @@ hyperParameterTrainingJobSummary_trainingStartTime = Lens.lens (\HyperParameterT
 hyperParameterTrainingJobSummary_objectiveStatus :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe ObjectiveStatus)
 hyperParameterTrainingJobSummary_objectiveStatus = Lens.lens (\HyperParameterTrainingJobSummary' {objectiveStatus} -> objectiveStatus) (\s@HyperParameterTrainingJobSummary' {} a -> s {objectiveStatus = a} :: HyperParameterTrainingJobSummary)
 
--- | The HyperParameter tuning job that launched the training job.
-hyperParameterTrainingJobSummary_tuningJobName :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.Text)
-hyperParameterTrainingJobSummary_tuningJobName = Lens.lens (\HyperParameterTrainingJobSummary' {tuningJobName} -> tuningJobName) (\s@HyperParameterTrainingJobSummary' {} a -> s {tuningJobName = a} :: HyperParameterTrainingJobSummary)
-
--- | The training job definition name.
-hyperParameterTrainingJobSummary_trainingJobDefinitionName :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.Text)
-hyperParameterTrainingJobSummary_trainingJobDefinitionName = Lens.lens (\HyperParameterTrainingJobSummary' {trainingJobDefinitionName} -> trainingJobDefinitionName) (\s@HyperParameterTrainingJobSummary' {} a -> s {trainingJobDefinitionName = a} :: HyperParameterTrainingJobSummary)
-
--- | The FinalHyperParameterTuningJobObjectiveMetric object that specifies
--- the value of the objective metric of the tuning job that launched this
--- training job.
-hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe FinalHyperParameterTuningJobObjectiveMetric)
-hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric = Lens.lens (\HyperParameterTrainingJobSummary' {finalHyperParameterTuningJobObjectiveMetric} -> finalHyperParameterTuningJobObjectiveMetric) (\s@HyperParameterTrainingJobSummary' {} a -> s {finalHyperParameterTuningJobObjectiveMetric = a} :: HyperParameterTrainingJobSummary)
-
--- | The reason that the training job failed.
-hyperParameterTrainingJobSummary_failureReason :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.Text)
-hyperParameterTrainingJobSummary_failureReason = Lens.lens (\HyperParameterTrainingJobSummary' {failureReason} -> failureReason) (\s@HyperParameterTrainingJobSummary' {} a -> s {failureReason = a} :: HyperParameterTrainingJobSummary)
-
 -- | Specifies the time when the training job ends on training instances. You
 -- are billed for the time interval between the value of
 -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
@@ -204,6 +192,18 @@ hyperParameterTrainingJobSummary_failureReason = Lens.lens (\HyperParameterTrain
 -- this is the time when SageMaker detects a job failure.
 hyperParameterTrainingJobSummary_trainingEndTime :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
 hyperParameterTrainingJobSummary_trainingEndTime = Lens.lens (\HyperParameterTrainingJobSummary' {trainingEndTime} -> trainingEndTime) (\s@HyperParameterTrainingJobSummary' {} a -> s {trainingEndTime = a} :: HyperParameterTrainingJobSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The training job definition name.
+hyperParameterTrainingJobSummary_trainingJobDefinitionName :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.Text)
+hyperParameterTrainingJobSummary_trainingJobDefinitionName = Lens.lens (\HyperParameterTrainingJobSummary' {trainingJobDefinitionName} -> trainingJobDefinitionName) (\s@HyperParameterTrainingJobSummary' {} a -> s {trainingJobDefinitionName = a} :: HyperParameterTrainingJobSummary)
+
+-- | The date and time that the training job started.
+hyperParameterTrainingJobSummary_trainingStartTime :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
+hyperParameterTrainingJobSummary_trainingStartTime = Lens.lens (\HyperParameterTrainingJobSummary' {trainingStartTime} -> trainingStartTime) (\s@HyperParameterTrainingJobSummary' {} a -> s {trainingStartTime = a} :: HyperParameterTrainingJobSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The HyperParameter tuning job that launched the training job.
+hyperParameterTrainingJobSummary_tuningJobName :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.Text)
+hyperParameterTrainingJobSummary_tuningJobName = Lens.lens (\HyperParameterTrainingJobSummary' {tuningJobName} -> tuningJobName) (\s@HyperParameterTrainingJobSummary' {} a -> s {tuningJobName = a} :: HyperParameterTrainingJobSummary)
 
 -- | The name of the training job.
 hyperParameterTrainingJobSummary_trainingJobName :: Lens.Lens' HyperParameterTrainingJobSummary Prelude.Text
@@ -234,15 +234,15 @@ instance
       "HyperParameterTrainingJobSummary"
       ( \x ->
           HyperParameterTrainingJobSummary'
-            Prelude.<$> (x Data..:? "TrainingStartTime")
-            Prelude.<*> (x Data..:? "ObjectiveStatus")
-            Prelude.<*> (x Data..:? "TuningJobName")
-            Prelude.<*> (x Data..:? "TrainingJobDefinitionName")
+            Prelude.<$> (x Data..:? "FailureReason")
             Prelude.<*> ( x
                             Data..:? "FinalHyperParameterTuningJobObjectiveMetric"
                         )
-            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "ObjectiveStatus")
             Prelude.<*> (x Data..:? "TrainingEndTime")
+            Prelude.<*> (x Data..:? "TrainingJobDefinitionName")
+            Prelude.<*> (x Data..:? "TrainingStartTime")
+            Prelude.<*> (x Data..:? "TuningJobName")
             Prelude.<*> (x Data..: "TrainingJobName")
             Prelude.<*> (x Data..: "TrainingJobArn")
             Prelude.<*> (x Data..: "CreationTime")
@@ -259,13 +259,13 @@ instance
   hashWithSalt
     _salt
     HyperParameterTrainingJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` trainingStartTime
-        `Prelude.hashWithSalt` objectiveStatus
-        `Prelude.hashWithSalt` tuningJobName
-        `Prelude.hashWithSalt` trainingJobDefinitionName
+      _salt `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` finalHyperParameterTuningJobObjectiveMetric
-        `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` objectiveStatus
         `Prelude.hashWithSalt` trainingEndTime
+        `Prelude.hashWithSalt` trainingJobDefinitionName
+        `Prelude.hashWithSalt` trainingStartTime
+        `Prelude.hashWithSalt` tuningJobName
         `Prelude.hashWithSalt` trainingJobName
         `Prelude.hashWithSalt` trainingJobArn
         `Prelude.hashWithSalt` creationTime
@@ -277,14 +277,14 @@ instance
     HyperParameterTrainingJobSummary
   where
   rnf HyperParameterTrainingJobSummary' {..} =
-    Prelude.rnf trainingStartTime
-      `Prelude.seq` Prelude.rnf objectiveStatus
-      `Prelude.seq` Prelude.rnf tuningJobName
-      `Prelude.seq` Prelude.rnf trainingJobDefinitionName
+    Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf
         finalHyperParameterTuningJobObjectiveMetric
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf objectiveStatus
       `Prelude.seq` Prelude.rnf trainingEndTime
+      `Prelude.seq` Prelude.rnf trainingJobDefinitionName
+      `Prelude.seq` Prelude.rnf trainingStartTime
+      `Prelude.seq` Prelude.rnf tuningJobName
       `Prelude.seq` Prelude.rnf trainingJobName
       `Prelude.seq` Prelude.rnf trainingJobArn
       `Prelude.seq` Prelude.rnf creationTime

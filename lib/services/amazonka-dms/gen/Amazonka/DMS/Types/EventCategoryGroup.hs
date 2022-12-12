@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventCategoryGroup' smart constructor.
 data EventCategoryGroup = EventCategoryGroup'
-  { -- | The type of DMS resource that generates events.
+  { -- | A list of event categories from a source type that you\'ve chosen.
+    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | The type of DMS resource that generates events.
     --
     -- Valid values: replication-instance | replication-server | security-group
     -- | replication-task
-    sourceType :: Prelude.Maybe Prelude.Text,
-    -- | A list of event categories from a source type that you\'ve chosen.
-    eventCategories :: Prelude.Maybe [Prelude.Text]
+    sourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,19 +49,24 @@ data EventCategoryGroup = EventCategoryGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventCategories', 'eventCategoryGroup_eventCategories' - A list of event categories from a source type that you\'ve chosen.
+--
 -- 'sourceType', 'eventCategoryGroup_sourceType' - The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-server | security-group
 -- | replication-task
---
--- 'eventCategories', 'eventCategoryGroup_eventCategories' - A list of event categories from a source type that you\'ve chosen.
 newEventCategoryGroup ::
   EventCategoryGroup
 newEventCategoryGroup =
   EventCategoryGroup'
-    { sourceType = Prelude.Nothing,
-      eventCategories = Prelude.Nothing
+    { eventCategories =
+        Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
+
+-- | A list of event categories from a source type that you\'ve chosen.
+eventCategoryGroup_eventCategories :: Lens.Lens' EventCategoryGroup (Prelude.Maybe [Prelude.Text])
+eventCategoryGroup_eventCategories = Lens.lens (\EventCategoryGroup' {eventCategories} -> eventCategories) (\s@EventCategoryGroup' {} a -> s {eventCategories = a} :: EventCategoryGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of DMS resource that generates events.
 --
@@ -70,28 +75,24 @@ newEventCategoryGroup =
 eventCategoryGroup_sourceType :: Lens.Lens' EventCategoryGroup (Prelude.Maybe Prelude.Text)
 eventCategoryGroup_sourceType = Lens.lens (\EventCategoryGroup' {sourceType} -> sourceType) (\s@EventCategoryGroup' {} a -> s {sourceType = a} :: EventCategoryGroup)
 
--- | A list of event categories from a source type that you\'ve chosen.
-eventCategoryGroup_eventCategories :: Lens.Lens' EventCategoryGroup (Prelude.Maybe [Prelude.Text])
-eventCategoryGroup_eventCategories = Lens.lens (\EventCategoryGroup' {eventCategories} -> eventCategories) (\s@EventCategoryGroup' {} a -> s {eventCategories = a} :: EventCategoryGroup) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON EventCategoryGroup where
   parseJSON =
     Data.withObject
       "EventCategoryGroup"
       ( \x ->
           EventCategoryGroup'
-            Prelude.<$> (x Data..:? "SourceType")
-            Prelude.<*> ( x Data..:? "EventCategories"
+            Prelude.<$> ( x Data..:? "EventCategories"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "SourceType")
       )
 
 instance Prelude.Hashable EventCategoryGroup where
   hashWithSalt _salt EventCategoryGroup' {..} =
-    _salt `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` eventCategories
+    _salt `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` sourceType
 
 instance Prelude.NFData EventCategoryGroup where
   rnf EventCategoryGroup' {..} =
-    Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf eventCategories
+    Prelude.rnf eventCategories
+      `Prelude.seq` Prelude.rnf sourceType

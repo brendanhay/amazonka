@@ -42,10 +42,10 @@ module Amazonka.Rum.UpdateAppMonitor
     newUpdateAppMonitor,
 
     -- * Request Lenses
-    updateAppMonitor_domain,
     updateAppMonitor_appMonitorConfiguration,
-    updateAppMonitor_cwLogEnabled,
     updateAppMonitor_customEvents,
+    updateAppMonitor_cwLogEnabled,
+    updateAppMonitor_domain,
     updateAppMonitor_name,
 
     -- * Destructuring the Response
@@ -67,10 +67,7 @@ import Amazonka.Rum.Types
 
 -- | /See:/ 'newUpdateAppMonitor' smart constructor.
 data UpdateAppMonitor = UpdateAppMonitor'
-  { -- | The top-level internet domain name for which your application has
-    -- administrative authority.
-    domain :: Prelude.Maybe Prelude.Text,
-    -- | A structure that contains much of the configuration data for the app
+  { -- | A structure that contains much of the configuration data for the app
     -- monitor. If you are using Amazon Cognito for authorization, you must
     -- include this structure in your request, and it must include the ID of
     -- the Amazon Cognito identity pool to use for authorization. If you don\'t
@@ -78,18 +75,21 @@ data UpdateAppMonitor = UpdateAppMonitor'
     -- authorization method. For more information, see
     -- <https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html Authorize your application to send data to Amazon Web Services>.
     appMonitorConfiguration :: Prelude.Maybe AppMonitorConfiguration,
-    -- | Data collected by RUM is kept by RUM for 30 days and then deleted. This
-    -- parameter specifies whether RUM sends a copy of this telemetry data to
-    -- Amazon CloudWatch Logs in your account. This enables you to keep the
-    -- telemetry data for more than 30 days, but it does incur Amazon
-    -- CloudWatch Logs charges.
-    cwLogEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether this app monitor allows the web client to define and
     -- send custom events. The default is for custom events to be @DISABLED@.
     --
     -- For more information about custom events, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
     customEvents :: Prelude.Maybe CustomEvents,
+    -- | Data collected by RUM is kept by RUM for 30 days and then deleted. This
+    -- parameter specifies whether RUM sends a copy of this telemetry data to
+    -- Amazon CloudWatch Logs in your account. This enables you to keep the
+    -- telemetry data for more than 30 days, but it does incur Amazon
+    -- CloudWatch Logs charges.
+    cwLogEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The top-level internet domain name for which your application has
+    -- administrative authority.
+    domain :: Prelude.Maybe Prelude.Text,
     -- | The name of the app monitor to update.
     name :: Prelude.Text
   }
@@ -103,9 +103,6 @@ data UpdateAppMonitor = UpdateAppMonitor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domain', 'updateAppMonitor_domain' - The top-level internet domain name for which your application has
--- administrative authority.
---
 -- 'appMonitorConfiguration', 'updateAppMonitor_appMonitorConfiguration' - A structure that contains much of the configuration data for the app
 -- monitor. If you are using Amazon Cognito for authorization, you must
 -- include this structure in your request, and it must include the ID of
@@ -114,17 +111,20 @@ data UpdateAppMonitor = UpdateAppMonitor'
 -- authorization method. For more information, see
 -- <https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html Authorize your application to send data to Amazon Web Services>.
 --
+-- 'customEvents', 'updateAppMonitor_customEvents' - Specifies whether this app monitor allows the web client to define and
+-- send custom events. The default is for custom events to be @DISABLED@.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+--
 -- 'cwLogEnabled', 'updateAppMonitor_cwLogEnabled' - Data collected by RUM is kept by RUM for 30 days and then deleted. This
 -- parameter specifies whether RUM sends a copy of this telemetry data to
 -- Amazon CloudWatch Logs in your account. This enables you to keep the
 -- telemetry data for more than 30 days, but it does incur Amazon
 -- CloudWatch Logs charges.
 --
--- 'customEvents', 'updateAppMonitor_customEvents' - Specifies whether this app monitor allows the web client to define and
--- send custom events. The default is for custom events to be @DISABLED@.
---
--- For more information about custom events, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+-- 'domain', 'updateAppMonitor_domain' - The top-level internet domain name for which your application has
+-- administrative authority.
 --
 -- 'name', 'updateAppMonitor_name' - The name of the app monitor to update.
 newUpdateAppMonitor ::
@@ -133,17 +133,13 @@ newUpdateAppMonitor ::
   UpdateAppMonitor
 newUpdateAppMonitor pName_ =
   UpdateAppMonitor'
-    { domain = Prelude.Nothing,
-      appMonitorConfiguration = Prelude.Nothing,
-      cwLogEnabled = Prelude.Nothing,
+    { appMonitorConfiguration =
+        Prelude.Nothing,
       customEvents = Prelude.Nothing,
+      cwLogEnabled = Prelude.Nothing,
+      domain = Prelude.Nothing,
       name = pName_
     }
-
--- | The top-level internet domain name for which your application has
--- administrative authority.
-updateAppMonitor_domain :: Lens.Lens' UpdateAppMonitor (Prelude.Maybe Prelude.Text)
-updateAppMonitor_domain = Lens.lens (\UpdateAppMonitor' {domain} -> domain) (\s@UpdateAppMonitor' {} a -> s {domain = a} :: UpdateAppMonitor)
 
 -- | A structure that contains much of the configuration data for the app
 -- monitor. If you are using Amazon Cognito for authorization, you must
@@ -155,6 +151,14 @@ updateAppMonitor_domain = Lens.lens (\UpdateAppMonitor' {domain} -> domain) (\s@
 updateAppMonitor_appMonitorConfiguration :: Lens.Lens' UpdateAppMonitor (Prelude.Maybe AppMonitorConfiguration)
 updateAppMonitor_appMonitorConfiguration = Lens.lens (\UpdateAppMonitor' {appMonitorConfiguration} -> appMonitorConfiguration) (\s@UpdateAppMonitor' {} a -> s {appMonitorConfiguration = a} :: UpdateAppMonitor)
 
+-- | Specifies whether this app monitor allows the web client to define and
+-- send custom events. The default is for custom events to be @DISABLED@.
+--
+-- For more information about custom events, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
+updateAppMonitor_customEvents :: Lens.Lens' UpdateAppMonitor (Prelude.Maybe CustomEvents)
+updateAppMonitor_customEvents = Lens.lens (\UpdateAppMonitor' {customEvents} -> customEvents) (\s@UpdateAppMonitor' {} a -> s {customEvents = a} :: UpdateAppMonitor)
+
 -- | Data collected by RUM is kept by RUM for 30 days and then deleted. This
 -- parameter specifies whether RUM sends a copy of this telemetry data to
 -- Amazon CloudWatch Logs in your account. This enables you to keep the
@@ -163,13 +167,10 @@ updateAppMonitor_appMonitorConfiguration = Lens.lens (\UpdateAppMonitor' {appMon
 updateAppMonitor_cwLogEnabled :: Lens.Lens' UpdateAppMonitor (Prelude.Maybe Prelude.Bool)
 updateAppMonitor_cwLogEnabled = Lens.lens (\UpdateAppMonitor' {cwLogEnabled} -> cwLogEnabled) (\s@UpdateAppMonitor' {} a -> s {cwLogEnabled = a} :: UpdateAppMonitor)
 
--- | Specifies whether this app monitor allows the web client to define and
--- send custom events. The default is for custom events to be @DISABLED@.
---
--- For more information about custom events, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html Send custom events>.
-updateAppMonitor_customEvents :: Lens.Lens' UpdateAppMonitor (Prelude.Maybe CustomEvents)
-updateAppMonitor_customEvents = Lens.lens (\UpdateAppMonitor' {customEvents} -> customEvents) (\s@UpdateAppMonitor' {} a -> s {customEvents = a} :: UpdateAppMonitor)
+-- | The top-level internet domain name for which your application has
+-- administrative authority.
+updateAppMonitor_domain :: Lens.Lens' UpdateAppMonitor (Prelude.Maybe Prelude.Text)
+updateAppMonitor_domain = Lens.lens (\UpdateAppMonitor' {domain} -> domain) (\s@UpdateAppMonitor' {} a -> s {domain = a} :: UpdateAppMonitor)
 
 -- | The name of the app monitor to update.
 updateAppMonitor_name :: Lens.Lens' UpdateAppMonitor Prelude.Text
@@ -190,18 +191,19 @@ instance Core.AWSRequest UpdateAppMonitor where
 
 instance Prelude.Hashable UpdateAppMonitor where
   hashWithSalt _salt UpdateAppMonitor' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
       `Prelude.hashWithSalt` appMonitorConfiguration
-      `Prelude.hashWithSalt` cwLogEnabled
       `Prelude.hashWithSalt` customEvents
+      `Prelude.hashWithSalt` cwLogEnabled
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateAppMonitor where
   rnf UpdateAppMonitor' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf appMonitorConfiguration
-      `Prelude.seq` Prelude.rnf cwLogEnabled
+    Prelude.rnf appMonitorConfiguration
       `Prelude.seq` Prelude.rnf customEvents
+      `Prelude.seq` Prelude.rnf cwLogEnabled
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateAppMonitor where
@@ -219,11 +221,11 @@ instance Data.ToJSON UpdateAppMonitor where
   toJSON UpdateAppMonitor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Data..=) Prelude.<$> domain,
-            ("AppMonitorConfiguration" Data..=)
+          [ ("AppMonitorConfiguration" Data..=)
               Prelude.<$> appMonitorConfiguration,
+            ("CustomEvents" Data..=) Prelude.<$> customEvents,
             ("CwLogEnabled" Data..=) Prelude.<$> cwLogEnabled,
-            ("CustomEvents" Data..=) Prelude.<$> customEvents
+            ("Domain" Data..=) Prelude.<$> domain
           ]
       )
 

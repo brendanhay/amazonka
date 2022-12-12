@@ -29,9 +29,9 @@ module Amazonka.SSM.DescribeAssociationExecutionTargets
     newDescribeAssociationExecutionTargets,
 
     -- * Request Lenses
-    describeAssociationExecutionTargets_nextToken,
     describeAssociationExecutionTargets_filters,
     describeAssociationExecutionTargets_maxResults,
+    describeAssociationExecutionTargets_nextToken,
     describeAssociationExecutionTargets_associationId,
     describeAssociationExecutionTargets_executionId,
 
@@ -40,8 +40,8 @@ module Amazonka.SSM.DescribeAssociationExecutionTargets
     newDescribeAssociationExecutionTargetsResponse,
 
     -- * Response Lenses
-    describeAssociationExecutionTargetsResponse_nextToken,
     describeAssociationExecutionTargetsResponse_associationExecutionTargets,
+    describeAssociationExecutionTargetsResponse_nextToken,
     describeAssociationExecutionTargetsResponse_httpStatus,
   )
 where
@@ -56,10 +56,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeAssociationExecutionTargets' smart constructor.
 data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
-  { -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters for the request. You can specify the following filters and
+  { -- | Filters for the request. You can specify the following filters and
     -- values.
     --
     -- Status (EQUAL)
@@ -72,6 +69,9 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The association ID that includes the execution for which you want to
     -- view details.
     associationId :: Prelude.Text,
@@ -88,9 +88,6 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAssociationExecutionTargets_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
---
 -- 'filters', 'describeAssociationExecutionTargets_filters' - Filters for the request. You can specify the following filters and
 -- values.
 --
@@ -103,6 +100,9 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
 -- 'maxResults', 'describeAssociationExecutionTargets_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'describeAssociationExecutionTargets_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
 --
 -- 'associationId', 'describeAssociationExecutionTargets_associationId' - The association ID that includes the execution for which you want to
 -- view details.
@@ -118,18 +118,13 @@ newDescribeAssociationExecutionTargets
   pAssociationId_
   pExecutionId_ =
     DescribeAssociationExecutionTargets'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         associationId = pAssociationId_,
         executionId = pExecutionId_
       }
-
--- | A token to start the list. Use this token to get the next set of
--- results.
-describeAssociationExecutionTargets_nextToken :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe Prelude.Text)
-describeAssociationExecutionTargets_nextToken = Lens.lens (\DescribeAssociationExecutionTargets' {nextToken} -> nextToken) (\s@DescribeAssociationExecutionTargets' {} a -> s {nextToken = a} :: DescribeAssociationExecutionTargets)
 
 -- | Filters for the request. You can specify the following filters and
 -- values.
@@ -147,6 +142,11 @@ describeAssociationExecutionTargets_filters = Lens.lens (\DescribeAssociationExe
 -- next set of results.
 describeAssociationExecutionTargets_maxResults :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe Prelude.Natural)
 describeAssociationExecutionTargets_maxResults = Lens.lens (\DescribeAssociationExecutionTargets' {maxResults} -> maxResults) (\s@DescribeAssociationExecutionTargets' {} a -> s {maxResults = a} :: DescribeAssociationExecutionTargets)
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+describeAssociationExecutionTargets_nextToken :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe Prelude.Text)
+describeAssociationExecutionTargets_nextToken = Lens.lens (\DescribeAssociationExecutionTargets' {nextToken} -> nextToken) (\s@DescribeAssociationExecutionTargets' {} a -> s {nextToken = a} :: DescribeAssociationExecutionTargets)
 
 -- | The association ID that includes the execution for which you want to
 -- view details.
@@ -195,10 +195,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAssociationExecutionTargetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "AssociationExecutionTargets"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "AssociationExecutionTargets"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,9 +209,9 @@ instance
   hashWithSalt
     _salt
     DescribeAssociationExecutionTargets' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` associationId
         `Prelude.hashWithSalt` executionId
 
@@ -220,9 +220,9 @@ instance
     DescribeAssociationExecutionTargets
   where
   rnf DescribeAssociationExecutionTargets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf executionId
 
@@ -251,9 +251,9 @@ instance
   toJSON DescribeAssociationExecutionTargets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("AssociationId" Data..= associationId),
             Prelude.Just ("ExecutionId" Data..= executionId)
           ]
@@ -273,11 +273,11 @@ instance
 
 -- | /See:/ 'newDescribeAssociationExecutionTargetsResponse' smart constructor.
 data DescribeAssociationExecutionTargetsResponse = DescribeAssociationExecutionTargetsResponse'
-  { -- | The token for the next set of items to return. Use this token to get the
+  { -- | Information about the execution.
+    associationExecutionTargets :: Prelude.Maybe [AssociationExecutionTarget],
+    -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the execution.
-    associationExecutionTargets :: Prelude.Maybe [AssociationExecutionTarget],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -291,10 +291,10 @@ data DescribeAssociationExecutionTargetsResponse = DescribeAssociationExecutionT
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'associationExecutionTargets', 'describeAssociationExecutionTargetsResponse_associationExecutionTargets' - Information about the execution.
+--
 -- 'nextToken', 'describeAssociationExecutionTargetsResponse_nextToken' - The token for the next set of items to return. Use this token to get the
 -- next set of results.
---
--- 'associationExecutionTargets', 'describeAssociationExecutionTargetsResponse_associationExecutionTargets' - Information about the execution.
 --
 -- 'httpStatus', 'describeAssociationExecutionTargetsResponse_httpStatus' - The response's http status code.
 newDescribeAssociationExecutionTargetsResponse ::
@@ -304,21 +304,20 @@ newDescribeAssociationExecutionTargetsResponse ::
 newDescribeAssociationExecutionTargetsResponse
   pHttpStatus_ =
     DescribeAssociationExecutionTargetsResponse'
-      { nextToken =
+      { associationExecutionTargets =
           Prelude.Nothing,
-        associationExecutionTargets =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Information about the execution.
+describeAssociationExecutionTargetsResponse_associationExecutionTargets :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Prelude.Maybe [AssociationExecutionTarget])
+describeAssociationExecutionTargetsResponse_associationExecutionTargets = Lens.lens (\DescribeAssociationExecutionTargetsResponse' {associationExecutionTargets} -> associationExecutionTargets) (\s@DescribeAssociationExecutionTargetsResponse' {} a -> s {associationExecutionTargets = a} :: DescribeAssociationExecutionTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
 describeAssociationExecutionTargetsResponse_nextToken :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Prelude.Maybe Prelude.Text)
 describeAssociationExecutionTargetsResponse_nextToken = Lens.lens (\DescribeAssociationExecutionTargetsResponse' {nextToken} -> nextToken) (\s@DescribeAssociationExecutionTargetsResponse' {} a -> s {nextToken = a} :: DescribeAssociationExecutionTargetsResponse)
-
--- | Information about the execution.
-describeAssociationExecutionTargetsResponse_associationExecutionTargets :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Prelude.Maybe [AssociationExecutionTarget])
-describeAssociationExecutionTargetsResponse_associationExecutionTargets = Lens.lens (\DescribeAssociationExecutionTargetsResponse' {associationExecutionTargets} -> associationExecutionTargets) (\s@DescribeAssociationExecutionTargetsResponse' {} a -> s {associationExecutionTargets = a} :: DescribeAssociationExecutionTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAssociationExecutionTargetsResponse_httpStatus :: Lens.Lens' DescribeAssociationExecutionTargetsResponse Prelude.Int
@@ -329,6 +328,6 @@ instance
     DescribeAssociationExecutionTargetsResponse
   where
   rnf DescribeAssociationExecutionTargetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf associationExecutionTargets
+    Prelude.rnf associationExecutionTargets
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

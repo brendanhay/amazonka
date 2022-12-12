@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDashAdditionalManifest' smart constructor.
 data DashAdditionalManifest = DashAdditionalManifest'
-  { -- | Specify the outputs that you want this additional top-level manifest to
-    -- reference.
-    selectedOutputs :: Prelude.Maybe [Prelude.Text],
-    -- | Specify a name modifier that the service adds to the name of this
+  { -- | Specify a name modifier that the service adds to the name of this
     -- manifest to make it different from the file names of the other main
     -- manifests in the output group. For example, say that the default main
     -- manifest for your DASH group is film-name.mpd. If you enter
     -- \"-no-premium\" for this setting, then the file name the service
     -- generates for this top-level manifest is film-name-no-premium.mpd.
-    manifestNameModifier :: Prelude.Maybe Prelude.Text
+    manifestNameModifier :: Prelude.Maybe Prelude.Text,
+    -- | Specify the outputs that you want this additional top-level manifest to
+    -- reference.
+    selectedOutputs :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,28 +51,23 @@ data DashAdditionalManifest = DashAdditionalManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'selectedOutputs', 'dashAdditionalManifest_selectedOutputs' - Specify the outputs that you want this additional top-level manifest to
--- reference.
---
 -- 'manifestNameModifier', 'dashAdditionalManifest_manifestNameModifier' - Specify a name modifier that the service adds to the name of this
 -- manifest to make it different from the file names of the other main
 -- manifests in the output group. For example, say that the default main
 -- manifest for your DASH group is film-name.mpd. If you enter
 -- \"-no-premium\" for this setting, then the file name the service
 -- generates for this top-level manifest is film-name-no-premium.mpd.
+--
+-- 'selectedOutputs', 'dashAdditionalManifest_selectedOutputs' - Specify the outputs that you want this additional top-level manifest to
+-- reference.
 newDashAdditionalManifest ::
   DashAdditionalManifest
 newDashAdditionalManifest =
   DashAdditionalManifest'
-    { selectedOutputs =
+    { manifestNameModifier =
         Prelude.Nothing,
-      manifestNameModifier = Prelude.Nothing
+      selectedOutputs = Prelude.Nothing
     }
-
--- | Specify the outputs that you want this additional top-level manifest to
--- reference.
-dashAdditionalManifest_selectedOutputs :: Lens.Lens' DashAdditionalManifest (Prelude.Maybe [Prelude.Text])
-dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@DashAdditionalManifest' {} a -> s {selectedOutputs = a} :: DashAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify a name modifier that the service adds to the name of this
 -- manifest to make it different from the file names of the other main
@@ -83,35 +78,40 @@ dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {se
 dashAdditionalManifest_manifestNameModifier :: Lens.Lens' DashAdditionalManifest (Prelude.Maybe Prelude.Text)
 dashAdditionalManifest_manifestNameModifier = Lens.lens (\DashAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@DashAdditionalManifest' {} a -> s {manifestNameModifier = a} :: DashAdditionalManifest)
 
+-- | Specify the outputs that you want this additional top-level manifest to
+-- reference.
+dashAdditionalManifest_selectedOutputs :: Lens.Lens' DashAdditionalManifest (Prelude.Maybe [Prelude.Text])
+dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@DashAdditionalManifest' {} a -> s {selectedOutputs = a} :: DashAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON DashAdditionalManifest where
   parseJSON =
     Data.withObject
       "DashAdditionalManifest"
       ( \x ->
           DashAdditionalManifest'
-            Prelude.<$> ( x Data..:? "selectedOutputs"
+            Prelude.<$> (x Data..:? "manifestNameModifier")
+            Prelude.<*> ( x Data..:? "selectedOutputs"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "manifestNameModifier")
       )
 
 instance Prelude.Hashable DashAdditionalManifest where
   hashWithSalt _salt DashAdditionalManifest' {..} =
-    _salt `Prelude.hashWithSalt` selectedOutputs
-      `Prelude.hashWithSalt` manifestNameModifier
+    _salt `Prelude.hashWithSalt` manifestNameModifier
+      `Prelude.hashWithSalt` selectedOutputs
 
 instance Prelude.NFData DashAdditionalManifest where
   rnf DashAdditionalManifest' {..} =
-    Prelude.rnf selectedOutputs
-      `Prelude.seq` Prelude.rnf manifestNameModifier
+    Prelude.rnf manifestNameModifier
+      `Prelude.seq` Prelude.rnf selectedOutputs
 
 instance Data.ToJSON DashAdditionalManifest where
   toJSON DashAdditionalManifest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("selectedOutputs" Data..=)
-              Prelude.<$> selectedOutputs,
-            ("manifestNameModifier" Data..=)
-              Prelude.<$> manifestNameModifier
+          [ ("manifestNameModifier" Data..=)
+              Prelude.<$> manifestNameModifier,
+            ("selectedOutputs" Data..=)
+              Prelude.<$> selectedOutputs
           ]
       )

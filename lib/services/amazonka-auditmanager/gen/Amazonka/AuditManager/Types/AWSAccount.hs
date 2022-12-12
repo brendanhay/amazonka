@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAWSAccount' smart constructor.
 data AWSAccount = AWSAccount'
-  { -- | The name of the Amazon Web Services account.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The email address that\'s associated with the Amazon Web Services
+    -- account.
+    emailAddress :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the Amazon Web Services account.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The email address that\'s associated with the Amazon Web Services
-    -- account.
-    emailAddress :: Prelude.Maybe Prelude.Text
+    -- | The name of the Amazon Web Services account.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,33 +47,33 @@ data AWSAccount = AWSAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'aWSAccount_name' - The name of the Amazon Web Services account.
+-- 'emailAddress', 'aWSAccount_emailAddress' - The email address that\'s associated with the Amazon Web Services
+-- account.
 --
 -- 'id', 'aWSAccount_id' - The identifier for the Amazon Web Services account.
 --
--- 'emailAddress', 'aWSAccount_emailAddress' - The email address that\'s associated with the Amazon Web Services
--- account.
+-- 'name', 'aWSAccount_name' - The name of the Amazon Web Services account.
 newAWSAccount ::
   AWSAccount
 newAWSAccount =
   AWSAccount'
-    { name = Prelude.Nothing,
+    { emailAddress = Prelude.Nothing,
       id = Prelude.Nothing,
-      emailAddress = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The name of the Amazon Web Services account.
-aWSAccount_name :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
-aWSAccount_name = Lens.lens (\AWSAccount' {name} -> name) (\s@AWSAccount' {} a -> s {name = a} :: AWSAccount)
-
--- | The identifier for the Amazon Web Services account.
-aWSAccount_id :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
-aWSAccount_id = Lens.lens (\AWSAccount' {id} -> id) (\s@AWSAccount' {} a -> s {id = a} :: AWSAccount)
 
 -- | The email address that\'s associated with the Amazon Web Services
 -- account.
 aWSAccount_emailAddress :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
 aWSAccount_emailAddress = Lens.lens (\AWSAccount' {emailAddress} -> emailAddress) (\s@AWSAccount' {} a -> s {emailAddress = a} :: AWSAccount)
+
+-- | The identifier for the Amazon Web Services account.
+aWSAccount_id :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
+aWSAccount_id = Lens.lens (\AWSAccount' {id} -> id) (\s@AWSAccount' {} a -> s {id = a} :: AWSAccount)
+
+-- | The name of the Amazon Web Services account.
+aWSAccount_name :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
+aWSAccount_name = Lens.lens (\AWSAccount' {name} -> name) (\s@AWSAccount' {} a -> s {name = a} :: AWSAccount)
 
 instance Data.FromJSON AWSAccount where
   parseJSON =
@@ -81,29 +81,29 @@ instance Data.FromJSON AWSAccount where
       "AWSAccount"
       ( \x ->
           AWSAccount'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "emailAddress")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "emailAddress")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable AWSAccount where
   hashWithSalt _salt AWSAccount' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AWSAccount where
   rnf AWSAccount' {..} =
-    Prelude.rnf name
+    Prelude.rnf emailAddress
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON AWSAccount where
   toJSON AWSAccount' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("emailAddress" Data..=) Prelude.<$> emailAddress,
             ("id" Data..=) Prelude.<$> id,
-            ("emailAddress" Data..=) Prelude.<$> emailAddress
+            ("name" Data..=) Prelude.<$> name
           ]
       )

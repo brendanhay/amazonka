@@ -52,8 +52,8 @@ module Amazonka.StepFunctions.GetActivityTask
     newGetActivityTaskResponse,
 
     -- * Response Lenses
-    getActivityTaskResponse_taskToken,
     getActivityTaskResponse_input,
+    getActivityTaskResponse_taskToken,
     getActivityTaskResponse_httpStatus,
   )
 where
@@ -123,8 +123,8 @@ instance Core.AWSRequest GetActivityTask where
     Response.receiveJSON
       ( \s h x ->
           GetActivityTaskResponse'
-            Prelude.<$> (x Data..?> "taskToken")
-            Prelude.<*> (x Data..?> "input")
+            Prelude.<$> (x Data..?> "input")
+            Prelude.<*> (x Data..?> "taskToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,15 +170,15 @@ instance Data.ToQuery GetActivityTask where
 
 -- | /See:/ 'newGetActivityTaskResponse' smart constructor.
 data GetActivityTaskResponse = GetActivityTaskResponse'
-  { -- | A token that identifies the scheduled task. This token must be copied
+  { -- | The string that contains the JSON input data for the task. Length
+    -- constraints apply to the payload size, and are expressed as bytes in
+    -- UTF-8 encoding.
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A token that identifies the scheduled task. This token must be copied
     -- and included in subsequent calls to SendTaskHeartbeat, SendTaskSuccess
     -- or SendTaskFailure in order to report the progress or completion of the
     -- task.
     taskToken :: Prelude.Maybe Prelude.Text,
-    -- | The string that contains the JSON input data for the task. Length
-    -- constraints apply to the payload size, and are expressed as bytes in
-    -- UTF-8 encoding.
-    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,14 +192,14 @@ data GetActivityTaskResponse = GetActivityTaskResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'input', 'getActivityTaskResponse_input' - The string that contains the JSON input data for the task. Length
+-- constraints apply to the payload size, and are expressed as bytes in
+-- UTF-8 encoding.
+--
 -- 'taskToken', 'getActivityTaskResponse_taskToken' - A token that identifies the scheduled task. This token must be copied
 -- and included in subsequent calls to SendTaskHeartbeat, SendTaskSuccess
 -- or SendTaskFailure in order to report the progress or completion of the
 -- task.
---
--- 'input', 'getActivityTaskResponse_input' - The string that contains the JSON input data for the task. Length
--- constraints apply to the payload size, and are expressed as bytes in
--- UTF-8 encoding.
 --
 -- 'httpStatus', 'getActivityTaskResponse_httpStatus' - The response's http status code.
 newGetActivityTaskResponse ::
@@ -208,11 +208,16 @@ newGetActivityTaskResponse ::
   GetActivityTaskResponse
 newGetActivityTaskResponse pHttpStatus_ =
   GetActivityTaskResponse'
-    { taskToken =
-        Prelude.Nothing,
-      input = Prelude.Nothing,
+    { input = Prelude.Nothing,
+      taskToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The string that contains the JSON input data for the task. Length
+-- constraints apply to the payload size, and are expressed as bytes in
+-- UTF-8 encoding.
+getActivityTaskResponse_input :: Lens.Lens' GetActivityTaskResponse (Prelude.Maybe Prelude.Text)
+getActivityTaskResponse_input = Lens.lens (\GetActivityTaskResponse' {input} -> input) (\s@GetActivityTaskResponse' {} a -> s {input = a} :: GetActivityTaskResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A token that identifies the scheduled task. This token must be copied
 -- and included in subsequent calls to SendTaskHeartbeat, SendTaskSuccess
@@ -221,18 +226,12 @@ newGetActivityTaskResponse pHttpStatus_ =
 getActivityTaskResponse_taskToken :: Lens.Lens' GetActivityTaskResponse (Prelude.Maybe Prelude.Text)
 getActivityTaskResponse_taskToken = Lens.lens (\GetActivityTaskResponse' {taskToken} -> taskToken) (\s@GetActivityTaskResponse' {} a -> s {taskToken = a} :: GetActivityTaskResponse)
 
--- | The string that contains the JSON input data for the task. Length
--- constraints apply to the payload size, and are expressed as bytes in
--- UTF-8 encoding.
-getActivityTaskResponse_input :: Lens.Lens' GetActivityTaskResponse (Prelude.Maybe Prelude.Text)
-getActivityTaskResponse_input = Lens.lens (\GetActivityTaskResponse' {input} -> input) (\s@GetActivityTaskResponse' {} a -> s {input = a} :: GetActivityTaskResponse) Prelude.. Lens.mapping Data._Sensitive
-
 -- | The response's http status code.
 getActivityTaskResponse_httpStatus :: Lens.Lens' GetActivityTaskResponse Prelude.Int
 getActivityTaskResponse_httpStatus = Lens.lens (\GetActivityTaskResponse' {httpStatus} -> httpStatus) (\s@GetActivityTaskResponse' {} a -> s {httpStatus = a} :: GetActivityTaskResponse)
 
 instance Prelude.NFData GetActivityTaskResponse where
   rnf GetActivityTaskResponse' {..} =
-    Prelude.rnf taskToken
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf taskToken
       `Prelude.seq` Prelude.rnf httpStatus

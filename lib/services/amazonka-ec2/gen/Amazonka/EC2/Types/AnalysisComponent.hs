@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalysisComponent' smart constructor.
 data AnalysisComponent = AnalysisComponent'
-  { -- | The name of the analysis component.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the component.
+  { -- | The Amazon Resource Name (ARN) of the component.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the component.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the analysis component.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,19 @@ data AnalysisComponent = AnalysisComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'analysisComponent_name' - The name of the analysis component.
---
 -- 'arn', 'analysisComponent_arn' - The Amazon Resource Name (ARN) of the component.
 --
 -- 'id', 'analysisComponent_id' - The ID of the component.
+--
+-- 'name', 'analysisComponent_name' - The name of the analysis component.
 newAnalysisComponent ::
   AnalysisComponent
 newAnalysisComponent =
   AnalysisComponent'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the analysis component.
-analysisComponent_name :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
-analysisComponent_name = Lens.lens (\AnalysisComponent' {name} -> name) (\s@AnalysisComponent' {} a -> s {name = a} :: AnalysisComponent)
 
 -- | The Amazon Resource Name (ARN) of the component.
 analysisComponent_arn :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
@@ -72,21 +68,25 @@ analysisComponent_arn = Lens.lens (\AnalysisComponent' {arn} -> arn) (\s@Analysi
 analysisComponent_id :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
 analysisComponent_id = Lens.lens (\AnalysisComponent' {id} -> id) (\s@AnalysisComponent' {} a -> s {id = a} :: AnalysisComponent)
 
+-- | The name of the analysis component.
+analysisComponent_name :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
+analysisComponent_name = Lens.lens (\AnalysisComponent' {name} -> name) (\s@AnalysisComponent' {} a -> s {name = a} :: AnalysisComponent)
+
 instance Data.FromXML AnalysisComponent where
   parseXML x =
     AnalysisComponent'
-      Prelude.<$> (x Data..@? "name")
-      Prelude.<*> (x Data..@? "arn")
+      Prelude.<$> (x Data..@? "arn")
       Prelude.<*> (x Data..@? "id")
+      Prelude.<*> (x Data..@? "name")
 
 instance Prelude.Hashable AnalysisComponent where
   hashWithSalt _salt AnalysisComponent' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AnalysisComponent where
   rnf AnalysisComponent' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

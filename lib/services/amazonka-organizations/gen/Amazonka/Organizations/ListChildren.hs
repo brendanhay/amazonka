@@ -42,8 +42,8 @@ module Amazonka.Organizations.ListChildren
     newListChildren,
 
     -- * Request Lenses
-    listChildren_nextToken,
     listChildren_maxResults,
+    listChildren_nextToken,
     listChildren_parentId,
     listChildren_childType,
 
@@ -52,8 +52,8 @@ module Amazonka.Organizations.ListChildren
     newListChildrenResponse,
 
     -- * Response Lenses
-    listChildrenResponse_nextToken,
     listChildrenResponse_children,
+    listChildrenResponse_nextToken,
     listChildrenResponse_httpStatus,
   )
 where
@@ -68,13 +68,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChildren' smart constructor.
 data ListChildren = ListChildren'
-  { -- | The parameter for receiving additional results if you receive a
-    -- @NextToken@ response in a previous request. A @NextToken@ response
-    -- indicates that more output is available. Set this parameter to the value
-    -- of the previous call\'s @NextToken@ response to indicate where the
-    -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of results that you want included on each page of the
+  { -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
     -- maximum you specify, the @NextToken@ response element is present and has
@@ -85,6 +79,12 @@ data ListChildren = ListChildren'
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) for the parent root or OU whose children you
     -- want to list.
     --
@@ -112,12 +112,6 @@ data ListChildren = ListChildren'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChildren_nextToken' - The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
---
 -- 'maxResults', 'listChildren_maxResults' - The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
 -- that is specific to the operation. If additional items exist beyond the
@@ -128,6 +122,12 @@ data ListChildren = ListChildren'
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
+--
+-- 'nextToken', 'listChildren_nextToken' - The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
 --
 -- 'parentId', 'listChildren_parentId' - The unique identifier (ID) for the parent root or OU whose children you
 -- want to list.
@@ -152,19 +152,11 @@ newListChildren ::
   ListChildren
 newListChildren pParentId_ pChildType_ =
   ListChildren'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       parentId = pParentId_,
       childType = pChildType_
     }
-
--- | The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
-listChildren_nextToken :: Lens.Lens' ListChildren (Prelude.Maybe Prelude.Text)
-listChildren_nextToken = Lens.lens (\ListChildren' {nextToken} -> nextToken) (\s@ListChildren' {} a -> s {nextToken = a} :: ListChildren)
 
 -- | The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -178,6 +170,14 @@ listChildren_nextToken = Lens.lens (\ListChildren' {nextToken} -> nextToken) (\s
 -- results.
 listChildren_maxResults :: Lens.Lens' ListChildren (Prelude.Maybe Prelude.Natural)
 listChildren_maxResults = Lens.lens (\ListChildren' {maxResults} -> maxResults) (\s@ListChildren' {} a -> s {maxResults = a} :: ListChildren)
+
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+listChildren_nextToken :: Lens.Lens' ListChildren (Prelude.Maybe Prelude.Text)
+listChildren_nextToken = Lens.lens (\ListChildren' {nextToken} -> nextToken) (\s@ListChildren' {} a -> s {nextToken = a} :: ListChildren)
 
 -- | The unique identifier (ID) for the parent root or OU whose children you
 -- want to list.
@@ -226,22 +226,22 @@ instance Core.AWSRequest ListChildren where
     Response.receiveJSON
       ( \s h x ->
           ListChildrenResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Children" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Children" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListChildren where
   hashWithSalt _salt ListChildren' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` parentId
       `Prelude.hashWithSalt` childType
 
 instance Prelude.NFData ListChildren where
   rnf ListChildren' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf parentId
       `Prelude.seq` Prelude.rnf childType
 
@@ -264,8 +264,8 @@ instance Data.ToJSON ListChildren where
   toJSON ListChildren' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ParentId" Data..= parentId),
             Prelude.Just ("ChildType" Data..= childType)
           ]
@@ -279,14 +279,14 @@ instance Data.ToQuery ListChildren where
 
 -- | /See:/ 'newListChildrenResponse' smart constructor.
 data ListChildrenResponse = ListChildrenResponse'
-  { -- | If present, indicates that more output is available than is included in
+  { -- | The list of children of the specified parent container.
+    children :: Prelude.Maybe [Child],
+    -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of children of the specified parent container.
-    children :: Prelude.Maybe [Child],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -300,13 +300,13 @@ data ListChildrenResponse = ListChildrenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'children', 'listChildrenResponse_children' - The list of children of the specified parent container.
+--
 -- 'nextToken', 'listChildrenResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
---
--- 'children', 'listChildrenResponse_children' - The list of children of the specified parent container.
 --
 -- 'httpStatus', 'listChildrenResponse_httpStatus' - The response's http status code.
 newListChildrenResponse ::
@@ -315,10 +315,14 @@ newListChildrenResponse ::
   ListChildrenResponse
 newListChildrenResponse pHttpStatus_ =
   ListChildrenResponse'
-    { nextToken = Prelude.Nothing,
-      children = Prelude.Nothing,
+    { children = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of children of the specified parent container.
+listChildrenResponse_children :: Lens.Lens' ListChildrenResponse (Prelude.Maybe [Child])
+listChildrenResponse_children = Lens.lens (\ListChildrenResponse' {children} -> children) (\s@ListChildrenResponse' {} a -> s {children = a} :: ListChildrenResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -328,16 +332,12 @@ newListChildrenResponse pHttpStatus_ =
 listChildrenResponse_nextToken :: Lens.Lens' ListChildrenResponse (Prelude.Maybe Prelude.Text)
 listChildrenResponse_nextToken = Lens.lens (\ListChildrenResponse' {nextToken} -> nextToken) (\s@ListChildrenResponse' {} a -> s {nextToken = a} :: ListChildrenResponse)
 
--- | The list of children of the specified parent container.
-listChildrenResponse_children :: Lens.Lens' ListChildrenResponse (Prelude.Maybe [Child])
-listChildrenResponse_children = Lens.lens (\ListChildrenResponse' {children} -> children) (\s@ListChildrenResponse' {} a -> s {children = a} :: ListChildrenResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listChildrenResponse_httpStatus :: Lens.Lens' ListChildrenResponse Prelude.Int
 listChildrenResponse_httpStatus = Lens.lens (\ListChildrenResponse' {httpStatus} -> httpStatus) (\s@ListChildrenResponse' {} a -> s {httpStatus = a} :: ListChildrenResponse)
 
 instance Prelude.NFData ListChildrenResponse where
   rnf ListChildrenResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf children
+    Prelude.rnf children
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

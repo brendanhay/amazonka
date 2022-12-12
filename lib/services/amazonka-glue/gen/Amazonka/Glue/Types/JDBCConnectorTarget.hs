@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJDBCConnectorTarget' smart constructor.
 data JDBCConnectorTarget = JDBCConnectorTarget'
-  { -- | Specifies the data schema for the JDBC target.
-    outputSchemas :: Prelude.Maybe [GlueSchema],
-    -- | Additional connection options for the connector.
+  { -- | Additional connection options for the connector.
     additionalOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies the data schema for the JDBC target.
+    outputSchemas :: Prelude.Maybe [GlueSchema],
     -- | The name of the data target.
     name :: Prelude.Text,
     -- | The nodes that are inputs to the data target.
@@ -58,9 +58,9 @@ data JDBCConnectorTarget = JDBCConnectorTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputSchemas', 'jDBCConnectorTarget_outputSchemas' - Specifies the data schema for the JDBC target.
---
 -- 'additionalOptions', 'jDBCConnectorTarget_additionalOptions' - Additional connection options for the connector.
+--
+-- 'outputSchemas', 'jDBCConnectorTarget_outputSchemas' - Specifies the data schema for the JDBC target.
 --
 -- 'name', 'jDBCConnectorTarget_name' - The name of the data target.
 --
@@ -96,9 +96,9 @@ newJDBCConnectorTarget
   pConnectorName_
   pConnectionType_ =
     JDBCConnectorTarget'
-      { outputSchemas =
+      { additionalOptions =
           Prelude.Nothing,
-        additionalOptions = Prelude.Nothing,
+        outputSchemas = Prelude.Nothing,
         name = pName_,
         inputs = Lens.coerced Lens.# pInputs_,
         connectionName = pConnectionName_,
@@ -107,13 +107,13 @@ newJDBCConnectorTarget
         connectionType = pConnectionType_
       }
 
--- | Specifies the data schema for the JDBC target.
-jDBCConnectorTarget_outputSchemas :: Lens.Lens' JDBCConnectorTarget (Prelude.Maybe [GlueSchema])
-jDBCConnectorTarget_outputSchemas = Lens.lens (\JDBCConnectorTarget' {outputSchemas} -> outputSchemas) (\s@JDBCConnectorTarget' {} a -> s {outputSchemas = a} :: JDBCConnectorTarget) Prelude.. Lens.mapping Lens.coerced
-
 -- | Additional connection options for the connector.
 jDBCConnectorTarget_additionalOptions :: Lens.Lens' JDBCConnectorTarget (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 jDBCConnectorTarget_additionalOptions = Lens.lens (\JDBCConnectorTarget' {additionalOptions} -> additionalOptions) (\s@JDBCConnectorTarget' {} a -> s {additionalOptions = a} :: JDBCConnectorTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the data schema for the JDBC target.
+jDBCConnectorTarget_outputSchemas :: Lens.Lens' JDBCConnectorTarget (Prelude.Maybe [GlueSchema])
+jDBCConnectorTarget_outputSchemas = Lens.lens (\JDBCConnectorTarget' {outputSchemas} -> outputSchemas) (\s@JDBCConnectorTarget' {} a -> s {outputSchemas = a} :: JDBCConnectorTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the data target.
 jDBCConnectorTarget_name :: Lens.Lens' JDBCConnectorTarget Prelude.Text
@@ -146,10 +146,10 @@ instance Data.FromJSON JDBCConnectorTarget where
       "JDBCConnectorTarget"
       ( \x ->
           JDBCConnectorTarget'
-            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "AdditionalOptions"
+            Prelude.<$> ( x Data..:? "AdditionalOptions"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Inputs")
             Prelude.<*> (x Data..: "ConnectionName")
@@ -160,8 +160,8 @@ instance Data.FromJSON JDBCConnectorTarget where
 
 instance Prelude.Hashable JDBCConnectorTarget where
   hashWithSalt _salt JDBCConnectorTarget' {..} =
-    _salt `Prelude.hashWithSalt` outputSchemas
-      `Prelude.hashWithSalt` additionalOptions
+    _salt `Prelude.hashWithSalt` additionalOptions
+      `Prelude.hashWithSalt` outputSchemas
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` connectionName
@@ -171,8 +171,8 @@ instance Prelude.Hashable JDBCConnectorTarget where
 
 instance Prelude.NFData JDBCConnectorTarget where
   rnf JDBCConnectorTarget' {..} =
-    Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf additionalOptions
+    Prelude.rnf additionalOptions
+      `Prelude.seq` Prelude.rnf outputSchemas
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf connectionName
@@ -184,9 +184,9 @@ instance Data.ToJSON JDBCConnectorTarget where
   toJSON JDBCConnectorTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
-            ("AdditionalOptions" Data..=)
+          [ ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
+            ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just

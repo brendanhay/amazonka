@@ -43,8 +43,8 @@ module Amazonka.KinesisAnalyticsV2.AddApplicationInputProcessingConfiguration
     -- * Response Lenses
     addApplicationInputProcessingConfigurationResponse_applicationARN,
     addApplicationInputProcessingConfigurationResponse_applicationVersionId,
-    addApplicationInputProcessingConfigurationResponse_inputProcessingConfigurationDescription,
     addApplicationInputProcessingConfigurationResponse_inputId,
+    addApplicationInputProcessingConfigurationResponse_inputProcessingConfigurationDescription,
     addApplicationInputProcessingConfigurationResponse_httpStatus,
   )
 where
@@ -160,10 +160,10 @@ instance
           AddApplicationInputProcessingConfigurationResponse'
             Prelude.<$> (x Data..?> "ApplicationARN")
               Prelude.<*> (x Data..?> "ApplicationVersionId")
+              Prelude.<*> (x Data..?> "InputId")
               Prelude.<*> ( x
                               Data..?> "InputProcessingConfigurationDescription"
                           )
-              Prelude.<*> (x Data..?> "InputId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -247,13 +247,13 @@ data AddApplicationInputProcessingConfigurationResponse = AddApplicationInputPro
     applicationARN :: Prelude.Maybe Prelude.Text,
     -- | Provides the current application version.
     applicationVersionId :: Prelude.Maybe Prelude.Natural,
-    -- | The description of the preprocessor that executes on records in this
-    -- input before the application\'s code is run.
-    inputProcessingConfigurationDescription :: Prelude.Maybe InputProcessingConfigurationDescription,
     -- | The input ID that is associated with the application input. This is the
     -- ID that Kinesis Data Analytics assigns to each input configuration that
     -- you add to your application.
     inputId :: Prelude.Maybe Prelude.Text,
+    -- | The description of the preprocessor that executes on records in this
+    -- input before the application\'s code is run.
+    inputProcessingConfigurationDescription :: Prelude.Maybe InputProcessingConfigurationDescription,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,12 +271,12 @@ data AddApplicationInputProcessingConfigurationResponse = AddApplicationInputPro
 --
 -- 'applicationVersionId', 'addApplicationInputProcessingConfigurationResponse_applicationVersionId' - Provides the current application version.
 --
--- 'inputProcessingConfigurationDescription', 'addApplicationInputProcessingConfigurationResponse_inputProcessingConfigurationDescription' - The description of the preprocessor that executes on records in this
--- input before the application\'s code is run.
---
 -- 'inputId', 'addApplicationInputProcessingConfigurationResponse_inputId' - The input ID that is associated with the application input. This is the
 -- ID that Kinesis Data Analytics assigns to each input configuration that
 -- you add to your application.
+--
+-- 'inputProcessingConfigurationDescription', 'addApplicationInputProcessingConfigurationResponse_inputProcessingConfigurationDescription' - The description of the preprocessor that executes on records in this
+-- input before the application\'s code is run.
 --
 -- 'httpStatus', 'addApplicationInputProcessingConfigurationResponse_httpStatus' - The response's http status code.
 newAddApplicationInputProcessingConfigurationResponse ::
@@ -290,9 +290,9 @@ newAddApplicationInputProcessingConfigurationResponse
           Prelude.Nothing,
         applicationVersionId =
           Prelude.Nothing,
-        inputProcessingConfigurationDescription =
-          Prelude.Nothing,
         inputId =
+          Prelude.Nothing,
+        inputProcessingConfigurationDescription =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
@@ -306,16 +306,16 @@ addApplicationInputProcessingConfigurationResponse_applicationARN = Lens.lens (\
 addApplicationInputProcessingConfigurationResponse_applicationVersionId :: Lens.Lens' AddApplicationInputProcessingConfigurationResponse (Prelude.Maybe Prelude.Natural)
 addApplicationInputProcessingConfigurationResponse_applicationVersionId = Lens.lens (\AddApplicationInputProcessingConfigurationResponse' {applicationVersionId} -> applicationVersionId) (\s@AddApplicationInputProcessingConfigurationResponse' {} a -> s {applicationVersionId = a} :: AddApplicationInputProcessingConfigurationResponse)
 
--- | The description of the preprocessor that executes on records in this
--- input before the application\'s code is run.
-addApplicationInputProcessingConfigurationResponse_inputProcessingConfigurationDescription :: Lens.Lens' AddApplicationInputProcessingConfigurationResponse (Prelude.Maybe InputProcessingConfigurationDescription)
-addApplicationInputProcessingConfigurationResponse_inputProcessingConfigurationDescription = Lens.lens (\AddApplicationInputProcessingConfigurationResponse' {inputProcessingConfigurationDescription} -> inputProcessingConfigurationDescription) (\s@AddApplicationInputProcessingConfigurationResponse' {} a -> s {inputProcessingConfigurationDescription = a} :: AddApplicationInputProcessingConfigurationResponse)
-
 -- | The input ID that is associated with the application input. This is the
 -- ID that Kinesis Data Analytics assigns to each input configuration that
 -- you add to your application.
 addApplicationInputProcessingConfigurationResponse_inputId :: Lens.Lens' AddApplicationInputProcessingConfigurationResponse (Prelude.Maybe Prelude.Text)
 addApplicationInputProcessingConfigurationResponse_inputId = Lens.lens (\AddApplicationInputProcessingConfigurationResponse' {inputId} -> inputId) (\s@AddApplicationInputProcessingConfigurationResponse' {} a -> s {inputId = a} :: AddApplicationInputProcessingConfigurationResponse)
+
+-- | The description of the preprocessor that executes on records in this
+-- input before the application\'s code is run.
+addApplicationInputProcessingConfigurationResponse_inputProcessingConfigurationDescription :: Lens.Lens' AddApplicationInputProcessingConfigurationResponse (Prelude.Maybe InputProcessingConfigurationDescription)
+addApplicationInputProcessingConfigurationResponse_inputProcessingConfigurationDescription = Lens.lens (\AddApplicationInputProcessingConfigurationResponse' {inputProcessingConfigurationDescription} -> inputProcessingConfigurationDescription) (\s@AddApplicationInputProcessingConfigurationResponse' {} a -> s {inputProcessingConfigurationDescription = a} :: AddApplicationInputProcessingConfigurationResponse)
 
 -- | The response's http status code.
 addApplicationInputProcessingConfigurationResponse_httpStatus :: Lens.Lens' AddApplicationInputProcessingConfigurationResponse Prelude.Int
@@ -329,6 +329,6 @@ instance
     AddApplicationInputProcessingConfigurationResponse' {..} =
       Prelude.rnf applicationARN
         `Prelude.seq` Prelude.rnf applicationVersionId
-        `Prelude.seq` Prelude.rnf inputProcessingConfigurationDescription
         `Prelude.seq` Prelude.rnf inputId
+        `Prelude.seq` Prelude.rnf inputProcessingConfigurationDescription
         `Prelude.seq` Prelude.rnf httpStatus

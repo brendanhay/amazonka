@@ -29,10 +29,10 @@ module Amazonka.CodeBuild.UpdateWebhook
     newUpdateWebhook,
 
     -- * Request Lenses
-    updateWebhook_rotateSecret,
     updateWebhook_branchFilter,
     updateWebhook_buildType,
     updateWebhook_filterGroups,
+    updateWebhook_rotateSecret,
     updateWebhook_projectName,
 
     -- * Destructuring the Response
@@ -55,11 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWebhook' smart constructor.
 data UpdateWebhook = UpdateWebhook'
-  { -- | A boolean value that specifies whether the associated GitHub
-    -- repository\'s secret token should be updated. If you use Bitbucket for
-    -- your repository, @rotateSecret@ is ignored.
-    rotateSecret :: Prelude.Maybe Prelude.Bool,
-    -- | A regular expression used to determine which repository branches are
+  { -- | A regular expression used to determine which repository branches are
     -- built when a webhook is triggered. If the name of a branch matches the
     -- regular expression, then it is built. If @branchFilter@ is empty, then
     -- all branches are built.
@@ -72,6 +68,10 @@ data UpdateWebhook = UpdateWebhook'
     -- webhook event can trigger a build. A filter group must contain at least
     -- one @EVENT@ @WebhookFilter@.
     filterGroups :: Prelude.Maybe [[WebhookFilter]],
+    -- | A boolean value that specifies whether the associated GitHub
+    -- repository\'s secret token should be updated. If you use Bitbucket for
+    -- your repository, @rotateSecret@ is ignored.
+    rotateSecret :: Prelude.Maybe Prelude.Bool,
     -- | The name of the CodeBuild project.
     projectName :: Prelude.Text
   }
@@ -84,10 +84,6 @@ data UpdateWebhook = UpdateWebhook'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'rotateSecret', 'updateWebhook_rotateSecret' - A boolean value that specifies whether the associated GitHub
--- repository\'s secret token should be updated. If you use Bitbucket for
--- your repository, @rotateSecret@ is ignored.
 --
 -- 'branchFilter', 'updateWebhook_branchFilter' - A regular expression used to determine which repository branches are
 -- built when a webhook is triggered. If the name of a branch matches the
@@ -102,6 +98,10 @@ data UpdateWebhook = UpdateWebhook'
 -- webhook event can trigger a build. A filter group must contain at least
 -- one @EVENT@ @WebhookFilter@.
 --
+-- 'rotateSecret', 'updateWebhook_rotateSecret' - A boolean value that specifies whether the associated GitHub
+-- repository\'s secret token should be updated. If you use Bitbucket for
+-- your repository, @rotateSecret@ is ignored.
+--
 -- 'projectName', 'updateWebhook_projectName' - The name of the CodeBuild project.
 newUpdateWebhook ::
   -- | 'projectName'
@@ -109,18 +109,12 @@ newUpdateWebhook ::
   UpdateWebhook
 newUpdateWebhook pProjectName_ =
   UpdateWebhook'
-    { rotateSecret = Prelude.Nothing,
-      branchFilter = Prelude.Nothing,
+    { branchFilter = Prelude.Nothing,
       buildType = Prelude.Nothing,
       filterGroups = Prelude.Nothing,
+      rotateSecret = Prelude.Nothing,
       projectName = pProjectName_
     }
-
--- | A boolean value that specifies whether the associated GitHub
--- repository\'s secret token should be updated. If you use Bitbucket for
--- your repository, @rotateSecret@ is ignored.
-updateWebhook_rotateSecret :: Lens.Lens' UpdateWebhook (Prelude.Maybe Prelude.Bool)
-updateWebhook_rotateSecret = Lens.lens (\UpdateWebhook' {rotateSecret} -> rotateSecret) (\s@UpdateWebhook' {} a -> s {rotateSecret = a} :: UpdateWebhook)
 
 -- | A regular expression used to determine which repository branches are
 -- built when a webhook is triggered. If the name of a branch matches the
@@ -140,6 +134,12 @@ updateWebhook_buildType = Lens.lens (\UpdateWebhook' {buildType} -> buildType) (
 -- one @EVENT@ @WebhookFilter@.
 updateWebhook_filterGroups :: Lens.Lens' UpdateWebhook (Prelude.Maybe [[WebhookFilter]])
 updateWebhook_filterGroups = Lens.lens (\UpdateWebhook' {filterGroups} -> filterGroups) (\s@UpdateWebhook' {} a -> s {filterGroups = a} :: UpdateWebhook) Prelude.. Lens.mapping Lens.coerced
+
+-- | A boolean value that specifies whether the associated GitHub
+-- repository\'s secret token should be updated. If you use Bitbucket for
+-- your repository, @rotateSecret@ is ignored.
+updateWebhook_rotateSecret :: Lens.Lens' UpdateWebhook (Prelude.Maybe Prelude.Bool)
+updateWebhook_rotateSecret = Lens.lens (\UpdateWebhook' {rotateSecret} -> rotateSecret) (\s@UpdateWebhook' {} a -> s {rotateSecret = a} :: UpdateWebhook)
 
 -- | The name of the CodeBuild project.
 updateWebhook_projectName :: Lens.Lens' UpdateWebhook Prelude.Text
@@ -161,18 +161,18 @@ instance Core.AWSRequest UpdateWebhook where
 
 instance Prelude.Hashable UpdateWebhook where
   hashWithSalt _salt UpdateWebhook' {..} =
-    _salt `Prelude.hashWithSalt` rotateSecret
-      `Prelude.hashWithSalt` branchFilter
+    _salt `Prelude.hashWithSalt` branchFilter
       `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` filterGroups
+      `Prelude.hashWithSalt` rotateSecret
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData UpdateWebhook where
   rnf UpdateWebhook' {..} =
-    Prelude.rnf rotateSecret
-      `Prelude.seq` Prelude.rnf branchFilter
+    Prelude.rnf branchFilter
       `Prelude.seq` Prelude.rnf buildType
       `Prelude.seq` Prelude.rnf filterGroups
+      `Prelude.seq` Prelude.rnf rotateSecret
       `Prelude.seq` Prelude.rnf projectName
 
 instance Data.ToHeaders UpdateWebhook where
@@ -194,10 +194,10 @@ instance Data.ToJSON UpdateWebhook where
   toJSON UpdateWebhook' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("rotateSecret" Data..=) Prelude.<$> rotateSecret,
-            ("branchFilter" Data..=) Prelude.<$> branchFilter,
+          [ ("branchFilter" Data..=) Prelude.<$> branchFilter,
             ("buildType" Data..=) Prelude.<$> buildType,
             ("filterGroups" Data..=) Prelude.<$> filterGroups,
+            ("rotateSecret" Data..=) Prelude.<$> rotateSecret,
             Prelude.Just ("projectName" Data..= projectName)
           ]
       )

@@ -33,7 +33,44 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaFunctionRecommendation' smart constructor.
 data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
-  { -- | The reason for the finding classification of the function.
+  { -- | The Amazon Web Services account ID of the function.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The amount of memory, in MB, that\'s allocated to the current function.
+    currentMemorySize :: Prelude.Maybe Prelude.Int,
+    -- | The risk of the current Lambda function not meeting the performance
+    -- needs of its workloads. The higher the risk, the more likely the current
+    -- Lambda function requires more memory.
+    currentPerformanceRisk :: Prelude.Maybe CurrentPerformanceRisk,
+    -- | The finding classification of the function.
+    --
+    -- Findings for functions include:
+    --
+    -- -   __@Optimized@__ — The function is correctly provisioned to run your
+    --     workload based on its current configuration and its utilization
+    --     history. This finding classification does not include finding reason
+    --     codes.
+    --
+    -- -   __@NotOptimized@__ — The function is performing at a higher level
+    --     (over-provisioned) or at a lower level (under-provisioned) than
+    --     required for your workload because its current configuration is not
+    --     optimal. Over-provisioned resources might lead to unnecessary
+    --     infrastructure cost, and under-provisioned resources might lead to
+    --     poor application performance. This finding classification can
+    --     include the @MemoryUnderprovisioned@ and @MemoryUnderprovisioned@
+    --     finding reason codes.
+    --
+    -- -   __@Unavailable@__ — Compute Optimizer was unable to generate a
+    --     recommendation for the function. This could be because the function
+    --     has not accumulated sufficient metric data, or the function does not
+    --     qualify for a recommendation. This finding classification can
+    --     include the @InsufficientData@ and @Inconclusive@ finding reason
+    --     codes.
+    --
+    --     Functions with a finding of unavailable are not returned unless you
+    --     specify the @filter@ parameter with a value of @Unavailable@ in your
+    --     @GetLambdaFunctionRecommendations@ request.
+    finding :: Prelude.Maybe LambdaFunctionRecommendationFinding,
+    -- | The reason for the finding classification of the function.
     --
     -- Functions that have a finding classification of @Optimized@ don\'t have
     -- a finding reason code.
@@ -66,59 +103,22 @@ data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
     findingReasonCodes :: Prelude.Maybe [LambdaFunctionRecommendationFindingReasonCode],
     -- | The Amazon Resource Name (ARN) of the current function.
     functionArn :: Prelude.Maybe Prelude.Text,
-    -- | The risk of the current Lambda function not meeting the performance
-    -- needs of its workloads. The higher the risk, the more likely the current
-    -- Lambda function requires more memory.
-    currentPerformanceRisk :: Prelude.Maybe CurrentPerformanceRisk,
-    -- | The amount of memory, in MB, that\'s allocated to the current function.
-    currentMemorySize :: Prelude.Maybe Prelude.Int,
-    -- | The number of times your function code was applied during the look-back
-    -- period.
-    numberOfInvocations :: Prelude.Maybe Prelude.Integer,
-    -- | The timestamp of when the function recommendation was last generated.
-    lastRefreshTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The version number of the current function.
     functionVersion :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of when the function recommendation was last generated.
+    lastRefreshTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The number of days for which utilization metrics were analyzed for the
     -- function.
     lookbackPeriodInDays :: Prelude.Maybe Prelude.Double,
-    -- | The Amazon Web Services account ID of the function.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that describe the utilization metrics of the
-    -- function.
-    utilizationMetrics :: Prelude.Maybe [LambdaFunctionUtilizationMetric],
     -- | An array of objects that describe the memory configuration
     -- recommendation options for the function.
     memorySizeRecommendationOptions :: Prelude.Maybe [LambdaFunctionMemoryRecommendationOption],
-    -- | The finding classification of the function.
-    --
-    -- Findings for functions include:
-    --
-    -- -   __@Optimized@__ — The function is correctly provisioned to run your
-    --     workload based on its current configuration and its utilization
-    --     history. This finding classification does not include finding reason
-    --     codes.
-    --
-    -- -   __@NotOptimized@__ — The function is performing at a higher level
-    --     (over-provisioned) or at a lower level (under-provisioned) than
-    --     required for your workload because its current configuration is not
-    --     optimal. Over-provisioned resources might lead to unnecessary
-    --     infrastructure cost, and under-provisioned resources might lead to
-    --     poor application performance. This finding classification can
-    --     include the @MemoryUnderprovisioned@ and @MemoryUnderprovisioned@
-    --     finding reason codes.
-    --
-    -- -   __@Unavailable@__ — Compute Optimizer was unable to generate a
-    --     recommendation for the function. This could be because the function
-    --     has not accumulated sufficient metric data, or the function does not
-    --     qualify for a recommendation. This finding classification can
-    --     include the @InsufficientData@ and @Inconclusive@ finding reason
-    --     codes.
-    --
-    --     Functions with a finding of unavailable are not returned unless you
-    --     specify the @filter@ parameter with a value of @Unavailable@ in your
-    --     @GetLambdaFunctionRecommendations@ request.
-    finding :: Prelude.Maybe LambdaFunctionRecommendationFinding
+    -- | The number of times your function code was applied during the look-back
+    -- period.
+    numberOfInvocations :: Prelude.Maybe Prelude.Integer,
+    -- | An array of objects that describe the utilization metrics of the
+    -- function.
+    utilizationMetrics :: Prelude.Maybe [LambdaFunctionUtilizationMetric]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -129,6 +129,43 @@ data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'accountId', 'lambdaFunctionRecommendation_accountId' - The Amazon Web Services account ID of the function.
+--
+-- 'currentMemorySize', 'lambdaFunctionRecommendation_currentMemorySize' - The amount of memory, in MB, that\'s allocated to the current function.
+--
+-- 'currentPerformanceRisk', 'lambdaFunctionRecommendation_currentPerformanceRisk' - The risk of the current Lambda function not meeting the performance
+-- needs of its workloads. The higher the risk, the more likely the current
+-- Lambda function requires more memory.
+--
+-- 'finding', 'lambdaFunctionRecommendation_finding' - The finding classification of the function.
+--
+-- Findings for functions include:
+--
+-- -   __@Optimized@__ — The function is correctly provisioned to run your
+--     workload based on its current configuration and its utilization
+--     history. This finding classification does not include finding reason
+--     codes.
+--
+-- -   __@NotOptimized@__ — The function is performing at a higher level
+--     (over-provisioned) or at a lower level (under-provisioned) than
+--     required for your workload because its current configuration is not
+--     optimal. Over-provisioned resources might lead to unnecessary
+--     infrastructure cost, and under-provisioned resources might lead to
+--     poor application performance. This finding classification can
+--     include the @MemoryUnderprovisioned@ and @MemoryUnderprovisioned@
+--     finding reason codes.
+--
+-- -   __@Unavailable@__ — Compute Optimizer was unable to generate a
+--     recommendation for the function. This could be because the function
+--     has not accumulated sufficient metric data, or the function does not
+--     qualify for a recommendation. This finding classification can
+--     include the @InsufficientData@ and @Inconclusive@ finding reason
+--     codes.
+--
+--     Functions with a finding of unavailable are not returned unless you
+--     specify the @filter@ parameter with a value of @Unavailable@ in your
+--     @GetLambdaFunctionRecommendations@ request.
 --
 -- 'findingReasonCodes', 'lambdaFunctionRecommendation_findingReasonCodes' - The reason for the finding classification of the function.
 --
@@ -163,31 +200,56 @@ data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
 --
 -- 'functionArn', 'lambdaFunctionRecommendation_functionArn' - The Amazon Resource Name (ARN) of the current function.
 --
--- 'currentPerformanceRisk', 'lambdaFunctionRecommendation_currentPerformanceRisk' - The risk of the current Lambda function not meeting the performance
--- needs of its workloads. The higher the risk, the more likely the current
--- Lambda function requires more memory.
---
--- 'currentMemorySize', 'lambdaFunctionRecommendation_currentMemorySize' - The amount of memory, in MB, that\'s allocated to the current function.
---
--- 'numberOfInvocations', 'lambdaFunctionRecommendation_numberOfInvocations' - The number of times your function code was applied during the look-back
--- period.
+-- 'functionVersion', 'lambdaFunctionRecommendation_functionVersion' - The version number of the current function.
 --
 -- 'lastRefreshTimestamp', 'lambdaFunctionRecommendation_lastRefreshTimestamp' - The timestamp of when the function recommendation was last generated.
 --
--- 'functionVersion', 'lambdaFunctionRecommendation_functionVersion' - The version number of the current function.
---
 -- 'lookbackPeriodInDays', 'lambdaFunctionRecommendation_lookbackPeriodInDays' - The number of days for which utilization metrics were analyzed for the
--- function.
---
--- 'accountId', 'lambdaFunctionRecommendation_accountId' - The Amazon Web Services account ID of the function.
---
--- 'utilizationMetrics', 'lambdaFunctionRecommendation_utilizationMetrics' - An array of objects that describe the utilization metrics of the
 -- function.
 --
 -- 'memorySizeRecommendationOptions', 'lambdaFunctionRecommendation_memorySizeRecommendationOptions' - An array of objects that describe the memory configuration
 -- recommendation options for the function.
 --
--- 'finding', 'lambdaFunctionRecommendation_finding' - The finding classification of the function.
+-- 'numberOfInvocations', 'lambdaFunctionRecommendation_numberOfInvocations' - The number of times your function code was applied during the look-back
+-- period.
+--
+-- 'utilizationMetrics', 'lambdaFunctionRecommendation_utilizationMetrics' - An array of objects that describe the utilization metrics of the
+-- function.
+newLambdaFunctionRecommendation ::
+  LambdaFunctionRecommendation
+newLambdaFunctionRecommendation =
+  LambdaFunctionRecommendation'
+    { accountId =
+        Prelude.Nothing,
+      currentMemorySize = Prelude.Nothing,
+      currentPerformanceRisk = Prelude.Nothing,
+      finding = Prelude.Nothing,
+      findingReasonCodes = Prelude.Nothing,
+      functionArn = Prelude.Nothing,
+      functionVersion = Prelude.Nothing,
+      lastRefreshTimestamp = Prelude.Nothing,
+      lookbackPeriodInDays = Prelude.Nothing,
+      memorySizeRecommendationOptions =
+        Prelude.Nothing,
+      numberOfInvocations = Prelude.Nothing,
+      utilizationMetrics = Prelude.Nothing
+    }
+
+-- | The Amazon Web Services account ID of the function.
+lambdaFunctionRecommendation_accountId :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Text)
+lambdaFunctionRecommendation_accountId = Lens.lens (\LambdaFunctionRecommendation' {accountId} -> accountId) (\s@LambdaFunctionRecommendation' {} a -> s {accountId = a} :: LambdaFunctionRecommendation)
+
+-- | The amount of memory, in MB, that\'s allocated to the current function.
+lambdaFunctionRecommendation_currentMemorySize :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Int)
+lambdaFunctionRecommendation_currentMemorySize = Lens.lens (\LambdaFunctionRecommendation' {currentMemorySize} -> currentMemorySize) (\s@LambdaFunctionRecommendation' {} a -> s {currentMemorySize = a} :: LambdaFunctionRecommendation)
+
+-- | The risk of the current Lambda function not meeting the performance
+-- needs of its workloads. The higher the risk, the more likely the current
+-- Lambda function requires more memory.
+lambdaFunctionRecommendation_currentPerformanceRisk :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe CurrentPerformanceRisk)
+lambdaFunctionRecommendation_currentPerformanceRisk = Lens.lens (\LambdaFunctionRecommendation' {currentPerformanceRisk} -> currentPerformanceRisk) (\s@LambdaFunctionRecommendation' {} a -> s {currentPerformanceRisk = a} :: LambdaFunctionRecommendation)
+
+-- | The finding classification of the function.
 --
 -- Findings for functions include:
 --
@@ -215,25 +277,8 @@ data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
 --     Functions with a finding of unavailable are not returned unless you
 --     specify the @filter@ parameter with a value of @Unavailable@ in your
 --     @GetLambdaFunctionRecommendations@ request.
-newLambdaFunctionRecommendation ::
-  LambdaFunctionRecommendation
-newLambdaFunctionRecommendation =
-  LambdaFunctionRecommendation'
-    { findingReasonCodes =
-        Prelude.Nothing,
-      functionArn = Prelude.Nothing,
-      currentPerformanceRisk = Prelude.Nothing,
-      currentMemorySize = Prelude.Nothing,
-      numberOfInvocations = Prelude.Nothing,
-      lastRefreshTimestamp = Prelude.Nothing,
-      functionVersion = Prelude.Nothing,
-      lookbackPeriodInDays = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      utilizationMetrics = Prelude.Nothing,
-      memorySizeRecommendationOptions =
-        Prelude.Nothing,
-      finding = Prelude.Nothing
-    }
+lambdaFunctionRecommendation_finding :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe LambdaFunctionRecommendationFinding)
+lambdaFunctionRecommendation_finding = Lens.lens (\LambdaFunctionRecommendation' {finding} -> finding) (\s@LambdaFunctionRecommendation' {} a -> s {finding = a} :: LambdaFunctionRecommendation)
 
 -- | The reason for the finding classification of the function.
 --
@@ -272,78 +317,33 @@ lambdaFunctionRecommendation_findingReasonCodes = Lens.lens (\LambdaFunctionReco
 lambdaFunctionRecommendation_functionArn :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Text)
 lambdaFunctionRecommendation_functionArn = Lens.lens (\LambdaFunctionRecommendation' {functionArn} -> functionArn) (\s@LambdaFunctionRecommendation' {} a -> s {functionArn = a} :: LambdaFunctionRecommendation)
 
--- | The risk of the current Lambda function not meeting the performance
--- needs of its workloads. The higher the risk, the more likely the current
--- Lambda function requires more memory.
-lambdaFunctionRecommendation_currentPerformanceRisk :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe CurrentPerformanceRisk)
-lambdaFunctionRecommendation_currentPerformanceRisk = Lens.lens (\LambdaFunctionRecommendation' {currentPerformanceRisk} -> currentPerformanceRisk) (\s@LambdaFunctionRecommendation' {} a -> s {currentPerformanceRisk = a} :: LambdaFunctionRecommendation)
-
--- | The amount of memory, in MB, that\'s allocated to the current function.
-lambdaFunctionRecommendation_currentMemorySize :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Int)
-lambdaFunctionRecommendation_currentMemorySize = Lens.lens (\LambdaFunctionRecommendation' {currentMemorySize} -> currentMemorySize) (\s@LambdaFunctionRecommendation' {} a -> s {currentMemorySize = a} :: LambdaFunctionRecommendation)
-
--- | The number of times your function code was applied during the look-back
--- period.
-lambdaFunctionRecommendation_numberOfInvocations :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Integer)
-lambdaFunctionRecommendation_numberOfInvocations = Lens.lens (\LambdaFunctionRecommendation' {numberOfInvocations} -> numberOfInvocations) (\s@LambdaFunctionRecommendation' {} a -> s {numberOfInvocations = a} :: LambdaFunctionRecommendation)
+-- | The version number of the current function.
+lambdaFunctionRecommendation_functionVersion :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Text)
+lambdaFunctionRecommendation_functionVersion = Lens.lens (\LambdaFunctionRecommendation' {functionVersion} -> functionVersion) (\s@LambdaFunctionRecommendation' {} a -> s {functionVersion = a} :: LambdaFunctionRecommendation)
 
 -- | The timestamp of when the function recommendation was last generated.
 lambdaFunctionRecommendation_lastRefreshTimestamp :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.UTCTime)
 lambdaFunctionRecommendation_lastRefreshTimestamp = Lens.lens (\LambdaFunctionRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@LambdaFunctionRecommendation' {} a -> s {lastRefreshTimestamp = a} :: LambdaFunctionRecommendation) Prelude.. Lens.mapping Data._Time
-
--- | The version number of the current function.
-lambdaFunctionRecommendation_functionVersion :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Text)
-lambdaFunctionRecommendation_functionVersion = Lens.lens (\LambdaFunctionRecommendation' {functionVersion} -> functionVersion) (\s@LambdaFunctionRecommendation' {} a -> s {functionVersion = a} :: LambdaFunctionRecommendation)
 
 -- | The number of days for which utilization metrics were analyzed for the
 -- function.
 lambdaFunctionRecommendation_lookbackPeriodInDays :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Double)
 lambdaFunctionRecommendation_lookbackPeriodInDays = Lens.lens (\LambdaFunctionRecommendation' {lookbackPeriodInDays} -> lookbackPeriodInDays) (\s@LambdaFunctionRecommendation' {} a -> s {lookbackPeriodInDays = a} :: LambdaFunctionRecommendation)
 
--- | The Amazon Web Services account ID of the function.
-lambdaFunctionRecommendation_accountId :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Text)
-lambdaFunctionRecommendation_accountId = Lens.lens (\LambdaFunctionRecommendation' {accountId} -> accountId) (\s@LambdaFunctionRecommendation' {} a -> s {accountId = a} :: LambdaFunctionRecommendation)
-
--- | An array of objects that describe the utilization metrics of the
--- function.
-lambdaFunctionRecommendation_utilizationMetrics :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe [LambdaFunctionUtilizationMetric])
-lambdaFunctionRecommendation_utilizationMetrics = Lens.lens (\LambdaFunctionRecommendation' {utilizationMetrics} -> utilizationMetrics) (\s@LambdaFunctionRecommendation' {} a -> s {utilizationMetrics = a} :: LambdaFunctionRecommendation) Prelude.. Lens.mapping Lens.coerced
-
 -- | An array of objects that describe the memory configuration
 -- recommendation options for the function.
 lambdaFunctionRecommendation_memorySizeRecommendationOptions :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe [LambdaFunctionMemoryRecommendationOption])
 lambdaFunctionRecommendation_memorySizeRecommendationOptions = Lens.lens (\LambdaFunctionRecommendation' {memorySizeRecommendationOptions} -> memorySizeRecommendationOptions) (\s@LambdaFunctionRecommendation' {} a -> s {memorySizeRecommendationOptions = a} :: LambdaFunctionRecommendation) Prelude.. Lens.mapping Lens.coerced
 
--- | The finding classification of the function.
---
--- Findings for functions include:
---
--- -   __@Optimized@__ — The function is correctly provisioned to run your
---     workload based on its current configuration and its utilization
---     history. This finding classification does not include finding reason
---     codes.
---
--- -   __@NotOptimized@__ — The function is performing at a higher level
---     (over-provisioned) or at a lower level (under-provisioned) than
---     required for your workload because its current configuration is not
---     optimal. Over-provisioned resources might lead to unnecessary
---     infrastructure cost, and under-provisioned resources might lead to
---     poor application performance. This finding classification can
---     include the @MemoryUnderprovisioned@ and @MemoryUnderprovisioned@
---     finding reason codes.
---
--- -   __@Unavailable@__ — Compute Optimizer was unable to generate a
---     recommendation for the function. This could be because the function
---     has not accumulated sufficient metric data, or the function does not
---     qualify for a recommendation. This finding classification can
---     include the @InsufficientData@ and @Inconclusive@ finding reason
---     codes.
---
---     Functions with a finding of unavailable are not returned unless you
---     specify the @filter@ parameter with a value of @Unavailable@ in your
---     @GetLambdaFunctionRecommendations@ request.
-lambdaFunctionRecommendation_finding :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe LambdaFunctionRecommendationFinding)
-lambdaFunctionRecommendation_finding = Lens.lens (\LambdaFunctionRecommendation' {finding} -> finding) (\s@LambdaFunctionRecommendation' {} a -> s {finding = a} :: LambdaFunctionRecommendation)
+-- | The number of times your function code was applied during the look-back
+-- period.
+lambdaFunctionRecommendation_numberOfInvocations :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Integer)
+lambdaFunctionRecommendation_numberOfInvocations = Lens.lens (\LambdaFunctionRecommendation' {numberOfInvocations} -> numberOfInvocations) (\s@LambdaFunctionRecommendation' {} a -> s {numberOfInvocations = a} :: LambdaFunctionRecommendation)
+
+-- | An array of objects that describe the utilization metrics of the
+-- function.
+lambdaFunctionRecommendation_utilizationMetrics :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe [LambdaFunctionUtilizationMetric])
+lambdaFunctionRecommendation_utilizationMetrics = Lens.lens (\LambdaFunctionRecommendation' {utilizationMetrics} -> utilizationMetrics) (\s@LambdaFunctionRecommendation' {} a -> s {utilizationMetrics = a} :: LambdaFunctionRecommendation) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON LambdaFunctionRecommendation where
   parseJSON =
@@ -351,24 +351,24 @@ instance Data.FromJSON LambdaFunctionRecommendation where
       "LambdaFunctionRecommendation"
       ( \x ->
           LambdaFunctionRecommendation'
-            Prelude.<$> ( x Data..:? "findingReasonCodes"
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "currentMemorySize")
+            Prelude.<*> (x Data..:? "currentPerformanceRisk")
+            Prelude.<*> (x Data..:? "finding")
+            Prelude.<*> ( x Data..:? "findingReasonCodes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "functionArn")
-            Prelude.<*> (x Data..:? "currentPerformanceRisk")
-            Prelude.<*> (x Data..:? "currentMemorySize")
-            Prelude.<*> (x Data..:? "numberOfInvocations")
-            Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "functionVersion")
+            Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "lookbackPeriodInDays")
-            Prelude.<*> (x Data..:? "accountId")
-            Prelude.<*> ( x Data..:? "utilizationMetrics"
-                            Data..!= Prelude.mempty
-                        )
             Prelude.<*> ( x Data..:? "memorySizeRecommendationOptions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "finding")
+            Prelude.<*> (x Data..:? "numberOfInvocations")
+            Prelude.<*> ( x Data..:? "utilizationMetrics"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance
@@ -376,30 +376,30 @@ instance
     LambdaFunctionRecommendation
   where
   hashWithSalt _salt LambdaFunctionRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` findingReasonCodes
-      `Prelude.hashWithSalt` functionArn
-      `Prelude.hashWithSalt` currentPerformanceRisk
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentMemorySize
-      `Prelude.hashWithSalt` numberOfInvocations
-      `Prelude.hashWithSalt` lastRefreshTimestamp
-      `Prelude.hashWithSalt` functionVersion
-      `Prelude.hashWithSalt` lookbackPeriodInDays
-      `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` utilizationMetrics
-      `Prelude.hashWithSalt` memorySizeRecommendationOptions
+      `Prelude.hashWithSalt` currentPerformanceRisk
       `Prelude.hashWithSalt` finding
+      `Prelude.hashWithSalt` findingReasonCodes
+      `Prelude.hashWithSalt` functionArn
+      `Prelude.hashWithSalt` functionVersion
+      `Prelude.hashWithSalt` lastRefreshTimestamp
+      `Prelude.hashWithSalt` lookbackPeriodInDays
+      `Prelude.hashWithSalt` memorySizeRecommendationOptions
+      `Prelude.hashWithSalt` numberOfInvocations
+      `Prelude.hashWithSalt` utilizationMetrics
 
 instance Prelude.NFData LambdaFunctionRecommendation where
   rnf LambdaFunctionRecommendation' {..} =
-    Prelude.rnf findingReasonCodes
-      `Prelude.seq` Prelude.rnf functionArn
-      `Prelude.seq` Prelude.rnf currentPerformanceRisk
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf currentMemorySize
-      `Prelude.seq` Prelude.rnf numberOfInvocations
-      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
-      `Prelude.seq` Prelude.rnf functionVersion
-      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf utilizationMetrics
-      `Prelude.seq` Prelude.rnf memorySizeRecommendationOptions
+      `Prelude.seq` Prelude.rnf currentPerformanceRisk
       `Prelude.seq` Prelude.rnf finding
+      `Prelude.seq` Prelude.rnf findingReasonCodes
+      `Prelude.seq` Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf functionVersion
+      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
+      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
+      `Prelude.seq` Prelude.rnf memorySizeRecommendationOptions
+      `Prelude.seq` Prelude.rnf numberOfInvocations
+      `Prelude.seq` Prelude.rnf utilizationMetrics

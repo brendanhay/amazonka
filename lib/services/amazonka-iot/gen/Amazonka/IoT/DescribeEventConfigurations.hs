@@ -35,9 +35,9 @@ module Amazonka.IoT.DescribeEventConfigurations
     newDescribeEventConfigurationsResponse,
 
     -- * Response Lenses
-    describeEventConfigurationsResponse_lastModifiedDate,
     describeEventConfigurationsResponse_creationDate,
     describeEventConfigurationsResponse_eventConfigurations,
+    describeEventConfigurationsResponse_lastModifiedDate,
     describeEventConfigurationsResponse_httpStatus,
   )
 where
@@ -75,11 +75,11 @@ instance Core.AWSRequest DescribeEventConfigurations where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventConfigurationsResponse'
-            Prelude.<$> (x Data..?> "lastModifiedDate")
-            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<$> (x Data..?> "creationDate")
             Prelude.<*> ( x Data..?> "eventConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "lastModifiedDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,12 +101,12 @@ instance Data.ToQuery DescribeEventConfigurations where
 
 -- | /See:/ 'newDescribeEventConfigurationsResponse' smart constructor.
 data DescribeEventConfigurationsResponse = DescribeEventConfigurationsResponse'
-  { -- | The date the event configurations were last modified.
-    lastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | The creation date of the event configuration.
+  { -- | The creation date of the event configuration.
     creationDate :: Prelude.Maybe Data.POSIX,
     -- | The event configurations.
     eventConfigurations :: Prelude.Maybe (Prelude.HashMap EventType Configuration),
+    -- | The date the event configurations were last modified.
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -120,11 +120,11 @@ data DescribeEventConfigurationsResponse = DescribeEventConfigurationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'describeEventConfigurationsResponse_lastModifiedDate' - The date the event configurations were last modified.
---
 -- 'creationDate', 'describeEventConfigurationsResponse_creationDate' - The creation date of the event configuration.
 --
 -- 'eventConfigurations', 'describeEventConfigurationsResponse_eventConfigurations' - The event configurations.
+--
+-- 'lastModifiedDate', 'describeEventConfigurationsResponse_lastModifiedDate' - The date the event configurations were last modified.
 --
 -- 'httpStatus', 'describeEventConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeEventConfigurationsResponse ::
@@ -133,16 +133,12 @@ newDescribeEventConfigurationsResponse ::
   DescribeEventConfigurationsResponse
 newDescribeEventConfigurationsResponse pHttpStatus_ =
   DescribeEventConfigurationsResponse'
-    { lastModifiedDate =
+    { creationDate =
         Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       eventConfigurations = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The date the event configurations were last modified.
-describeEventConfigurationsResponse_lastModifiedDate :: Lens.Lens' DescribeEventConfigurationsResponse (Prelude.Maybe Prelude.UTCTime)
-describeEventConfigurationsResponse_lastModifiedDate = Lens.lens (\DescribeEventConfigurationsResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeEventConfigurationsResponse' {} a -> s {lastModifiedDate = a} :: DescribeEventConfigurationsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The creation date of the event configuration.
 describeEventConfigurationsResponse_creationDate :: Lens.Lens' DescribeEventConfigurationsResponse (Prelude.Maybe Prelude.UTCTime)
@@ -151,6 +147,10 @@ describeEventConfigurationsResponse_creationDate = Lens.lens (\DescribeEventConf
 -- | The event configurations.
 describeEventConfigurationsResponse_eventConfigurations :: Lens.Lens' DescribeEventConfigurationsResponse (Prelude.Maybe (Prelude.HashMap EventType Configuration))
 describeEventConfigurationsResponse_eventConfigurations = Lens.lens (\DescribeEventConfigurationsResponse' {eventConfigurations} -> eventConfigurations) (\s@DescribeEventConfigurationsResponse' {} a -> s {eventConfigurations = a} :: DescribeEventConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date the event configurations were last modified.
+describeEventConfigurationsResponse_lastModifiedDate :: Lens.Lens' DescribeEventConfigurationsResponse (Prelude.Maybe Prelude.UTCTime)
+describeEventConfigurationsResponse_lastModifiedDate = Lens.lens (\DescribeEventConfigurationsResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeEventConfigurationsResponse' {} a -> s {lastModifiedDate = a} :: DescribeEventConfigurationsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeEventConfigurationsResponse_httpStatus :: Lens.Lens' DescribeEventConfigurationsResponse Prelude.Int
@@ -161,7 +161,7 @@ instance
     DescribeEventConfigurationsResponse
   where
   rnf DescribeEventConfigurationsResponse' {..} =
-    Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf eventConfigurations
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSignalInformation' smart constructor.
 data SignalInformation = SignalInformation'
-  { -- | The minimum duration of time (in milliseconds) between two triggering
+  { -- | The maximum number of samples to collect.
+    maxSampleCount :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum duration of time (in milliseconds) between two triggering
     -- events to collect data.
     --
     -- If a signal changes often, you might want to collect data at a slower
     -- rate.
     minimumSamplingIntervalMs :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of samples to collect.
-    maxSampleCount :: Prelude.Maybe Prelude.Natural,
     -- | The name of the signal.
     name :: Prelude.Text
   }
@@ -49,13 +49,13 @@ data SignalInformation = SignalInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxSampleCount', 'signalInformation_maxSampleCount' - The maximum number of samples to collect.
+--
 -- 'minimumSamplingIntervalMs', 'signalInformation_minimumSamplingIntervalMs' - The minimum duration of time (in milliseconds) between two triggering
 -- events to collect data.
 --
 -- If a signal changes often, you might want to collect data at a slower
 -- rate.
---
--- 'maxSampleCount', 'signalInformation_maxSampleCount' - The maximum number of samples to collect.
 --
 -- 'name', 'signalInformation_name' - The name of the signal.
 newSignalInformation ::
@@ -64,11 +64,15 @@ newSignalInformation ::
   SignalInformation
 newSignalInformation pName_ =
   SignalInformation'
-    { minimumSamplingIntervalMs =
+    { maxSampleCount =
         Prelude.Nothing,
-      maxSampleCount = Prelude.Nothing,
+      minimumSamplingIntervalMs = Prelude.Nothing,
       name = pName_
     }
+
+-- | The maximum number of samples to collect.
+signalInformation_maxSampleCount :: Lens.Lens' SignalInformation (Prelude.Maybe Prelude.Natural)
+signalInformation_maxSampleCount = Lens.lens (\SignalInformation' {maxSampleCount} -> maxSampleCount) (\s@SignalInformation' {} a -> s {maxSampleCount = a} :: SignalInformation)
 
 -- | The minimum duration of time (in milliseconds) between two triggering
 -- events to collect data.
@@ -77,10 +81,6 @@ newSignalInformation pName_ =
 -- rate.
 signalInformation_minimumSamplingIntervalMs :: Lens.Lens' SignalInformation (Prelude.Maybe Prelude.Natural)
 signalInformation_minimumSamplingIntervalMs = Lens.lens (\SignalInformation' {minimumSamplingIntervalMs} -> minimumSamplingIntervalMs) (\s@SignalInformation' {} a -> s {minimumSamplingIntervalMs = a} :: SignalInformation)
-
--- | The maximum number of samples to collect.
-signalInformation_maxSampleCount :: Lens.Lens' SignalInformation (Prelude.Maybe Prelude.Natural)
-signalInformation_maxSampleCount = Lens.lens (\SignalInformation' {maxSampleCount} -> maxSampleCount) (\s@SignalInformation' {} a -> s {maxSampleCount = a} :: SignalInformation)
 
 -- | The name of the signal.
 signalInformation_name :: Lens.Lens' SignalInformation Prelude.Text
@@ -92,32 +92,31 @@ instance Data.FromJSON SignalInformation where
       "SignalInformation"
       ( \x ->
           SignalInformation'
-            Prelude.<$> (x Data..:? "minimumSamplingIntervalMs")
-            Prelude.<*> (x Data..:? "maxSampleCount")
+            Prelude.<$> (x Data..:? "maxSampleCount")
+            Prelude.<*> (x Data..:? "minimumSamplingIntervalMs")
             Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable SignalInformation where
   hashWithSalt _salt SignalInformation' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` maxSampleCount
       `Prelude.hashWithSalt` minimumSamplingIntervalMs
-      `Prelude.hashWithSalt` maxSampleCount
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SignalInformation where
   rnf SignalInformation' {..} =
-    Prelude.rnf minimumSamplingIntervalMs
-      `Prelude.seq` Prelude.rnf maxSampleCount
+    Prelude.rnf maxSampleCount
+      `Prelude.seq` Prelude.rnf minimumSamplingIntervalMs
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON SignalInformation where
   toJSON SignalInformation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("minimumSamplingIntervalMs" Data..=)
-              Prelude.<$> minimumSamplingIntervalMs,
-            ("maxSampleCount" Data..=)
+          [ ("maxSampleCount" Data..=)
               Prelude.<$> maxSampleCount,
+            ("minimumSamplingIntervalMs" Data..=)
+              Prelude.<$> minimumSamplingIntervalMs,
             Prelude.Just ("name" Data..= name)
           ]
       )

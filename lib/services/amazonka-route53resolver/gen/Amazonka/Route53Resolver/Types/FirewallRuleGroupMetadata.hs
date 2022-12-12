@@ -33,7 +33,15 @@ import Amazonka.Route53Resolver.Types.ShareStatus
 --
 -- /See:/ 'newFirewallRuleGroupMetadata' smart constructor.
 data FirewallRuleGroupMetadata = FirewallRuleGroupMetadata'
-  { -- | The name of the rule group.
+  { -- | The ARN (Amazon Resource Name) of the rule group.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | A unique string defined by you to identify the request. This allows you
+    -- to retry failed requests without the risk of running the operation
+    -- twice. This can be any unique string, for example, a timestamp.
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the rule group.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID for the account that created the rule
     -- group. When a rule group is shared with your account, this is the
@@ -43,15 +51,7 @@ data FirewallRuleGroupMetadata = FirewallRuleGroupMetadata'
     -- accounts, or was shared with the current account by another Amazon Web
     -- Services account. Sharing is configured through Resource Access Manager
     -- (RAM).
-    shareStatus :: Prelude.Maybe ShareStatus,
-    -- | The ARN (Amazon Resource Name) of the rule group.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the rule group.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | A unique string defined by you to identify the request. This allows you
-    -- to retry failed requests without the risk of running the operation
-    -- twice. This can be any unique string, for example, a timestamp.
-    creatorRequestId :: Prelude.Maybe Prelude.Text
+    shareStatus :: Prelude.Maybe ShareStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,6 +63,14 @@ data FirewallRuleGroupMetadata = FirewallRuleGroupMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'firewallRuleGroupMetadata_arn' - The ARN (Amazon Resource Name) of the rule group.
+--
+-- 'creatorRequestId', 'firewallRuleGroupMetadata_creatorRequestId' - A unique string defined by you to identify the request. This allows you
+-- to retry failed requests without the risk of running the operation
+-- twice. This can be any unique string, for example, a timestamp.
+--
+-- 'id', 'firewallRuleGroupMetadata_id' - The ID of the rule group.
+--
 -- 'name', 'firewallRuleGroupMetadata_name' - The name of the rule group.
 --
 -- 'ownerId', 'firewallRuleGroupMetadata_ownerId' - The Amazon Web Services account ID for the account that created the rule
@@ -73,25 +81,31 @@ data FirewallRuleGroupMetadata = FirewallRuleGroupMetadata'
 -- accounts, or was shared with the current account by another Amazon Web
 -- Services account. Sharing is configured through Resource Access Manager
 -- (RAM).
---
--- 'arn', 'firewallRuleGroupMetadata_arn' - The ARN (Amazon Resource Name) of the rule group.
---
--- 'id', 'firewallRuleGroupMetadata_id' - The ID of the rule group.
---
--- 'creatorRequestId', 'firewallRuleGroupMetadata_creatorRequestId' - A unique string defined by you to identify the request. This allows you
--- to retry failed requests without the risk of running the operation
--- twice. This can be any unique string, for example, a timestamp.
 newFirewallRuleGroupMetadata ::
   FirewallRuleGroupMetadata
 newFirewallRuleGroupMetadata =
   FirewallRuleGroupMetadata'
-    { name = Prelude.Nothing,
-      ownerId = Prelude.Nothing,
-      shareStatus = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      creatorRequestId = Prelude.Nothing,
       id = Prelude.Nothing,
-      creatorRequestId = Prelude.Nothing
+      name = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
+      shareStatus = Prelude.Nothing
     }
+
+-- | The ARN (Amazon Resource Name) of the rule group.
+firewallRuleGroupMetadata_arn :: Lens.Lens' FirewallRuleGroupMetadata (Prelude.Maybe Prelude.Text)
+firewallRuleGroupMetadata_arn = Lens.lens (\FirewallRuleGroupMetadata' {arn} -> arn) (\s@FirewallRuleGroupMetadata' {} a -> s {arn = a} :: FirewallRuleGroupMetadata)
+
+-- | A unique string defined by you to identify the request. This allows you
+-- to retry failed requests without the risk of running the operation
+-- twice. This can be any unique string, for example, a timestamp.
+firewallRuleGroupMetadata_creatorRequestId :: Lens.Lens' FirewallRuleGroupMetadata (Prelude.Maybe Prelude.Text)
+firewallRuleGroupMetadata_creatorRequestId = Lens.lens (\FirewallRuleGroupMetadata' {creatorRequestId} -> creatorRequestId) (\s@FirewallRuleGroupMetadata' {} a -> s {creatorRequestId = a} :: FirewallRuleGroupMetadata)
+
+-- | The ID of the rule group.
+firewallRuleGroupMetadata_id :: Lens.Lens' FirewallRuleGroupMetadata (Prelude.Maybe Prelude.Text)
+firewallRuleGroupMetadata_id = Lens.lens (\FirewallRuleGroupMetadata' {id} -> id) (\s@FirewallRuleGroupMetadata' {} a -> s {id = a} :: FirewallRuleGroupMetadata)
 
 -- | The name of the rule group.
 firewallRuleGroupMetadata_name :: Lens.Lens' FirewallRuleGroupMetadata (Prelude.Maybe Prelude.Text)
@@ -110,48 +124,34 @@ firewallRuleGroupMetadata_ownerId = Lens.lens (\FirewallRuleGroupMetadata' {owne
 firewallRuleGroupMetadata_shareStatus :: Lens.Lens' FirewallRuleGroupMetadata (Prelude.Maybe ShareStatus)
 firewallRuleGroupMetadata_shareStatus = Lens.lens (\FirewallRuleGroupMetadata' {shareStatus} -> shareStatus) (\s@FirewallRuleGroupMetadata' {} a -> s {shareStatus = a} :: FirewallRuleGroupMetadata)
 
--- | The ARN (Amazon Resource Name) of the rule group.
-firewallRuleGroupMetadata_arn :: Lens.Lens' FirewallRuleGroupMetadata (Prelude.Maybe Prelude.Text)
-firewallRuleGroupMetadata_arn = Lens.lens (\FirewallRuleGroupMetadata' {arn} -> arn) (\s@FirewallRuleGroupMetadata' {} a -> s {arn = a} :: FirewallRuleGroupMetadata)
-
--- | The ID of the rule group.
-firewallRuleGroupMetadata_id :: Lens.Lens' FirewallRuleGroupMetadata (Prelude.Maybe Prelude.Text)
-firewallRuleGroupMetadata_id = Lens.lens (\FirewallRuleGroupMetadata' {id} -> id) (\s@FirewallRuleGroupMetadata' {} a -> s {id = a} :: FirewallRuleGroupMetadata)
-
--- | A unique string defined by you to identify the request. This allows you
--- to retry failed requests without the risk of running the operation
--- twice. This can be any unique string, for example, a timestamp.
-firewallRuleGroupMetadata_creatorRequestId :: Lens.Lens' FirewallRuleGroupMetadata (Prelude.Maybe Prelude.Text)
-firewallRuleGroupMetadata_creatorRequestId = Lens.lens (\FirewallRuleGroupMetadata' {creatorRequestId} -> creatorRequestId) (\s@FirewallRuleGroupMetadata' {} a -> s {creatorRequestId = a} :: FirewallRuleGroupMetadata)
-
 instance Data.FromJSON FirewallRuleGroupMetadata where
   parseJSON =
     Data.withObject
       "FirewallRuleGroupMetadata"
       ( \x ->
           FirewallRuleGroupMetadata'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "OwnerId")
             Prelude.<*> (x Data..:? "ShareStatus")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "CreatorRequestId")
       )
 
 instance Prelude.Hashable FirewallRuleGroupMetadata where
   hashWithSalt _salt FirewallRuleGroupMetadata' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` shareStatus
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` creatorRequestId
 
 instance Prelude.NFData FirewallRuleGroupMetadata where
   rnf FirewallRuleGroupMetadata' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf shareStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf creatorRequestId

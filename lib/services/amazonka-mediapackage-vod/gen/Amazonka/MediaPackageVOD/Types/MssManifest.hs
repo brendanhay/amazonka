@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMssManifest' smart constructor.
 data MssManifest = MssManifest'
-  { streamSelection :: Prelude.Maybe StreamSelection,
-    -- | An optional string to include in the name of the manifest.
-    manifestName :: Prelude.Maybe Prelude.Text
+  { -- | An optional string to include in the name of the manifest.
+    manifestName :: Prelude.Maybe Prelude.Text,
+    streamSelection :: Prelude.Maybe StreamSelection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data MssManifest = MssManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamSelection', 'mssManifest_streamSelection' - Undocumented member.
---
 -- 'manifestName', 'mssManifest_manifestName' - An optional string to include in the name of the manifest.
+--
+-- 'streamSelection', 'mssManifest_streamSelection' - Undocumented member.
 newMssManifest ::
   MssManifest
 newMssManifest =
   MssManifest'
-    { streamSelection = Prelude.Nothing,
-      manifestName = Prelude.Nothing
+    { manifestName = Prelude.Nothing,
+      streamSelection = Prelude.Nothing
     }
-
--- | Undocumented member.
-mssManifest_streamSelection :: Lens.Lens' MssManifest (Prelude.Maybe StreamSelection)
-mssManifest_streamSelection = Lens.lens (\MssManifest' {streamSelection} -> streamSelection) (\s@MssManifest' {} a -> s {streamSelection = a} :: MssManifest)
 
 -- | An optional string to include in the name of the manifest.
 mssManifest_manifestName :: Lens.Lens' MssManifest (Prelude.Maybe Prelude.Text)
 mssManifest_manifestName = Lens.lens (\MssManifest' {manifestName} -> manifestName) (\s@MssManifest' {} a -> s {manifestName = a} :: MssManifest)
+
+-- | Undocumented member.
+mssManifest_streamSelection :: Lens.Lens' MssManifest (Prelude.Maybe StreamSelection)
+mssManifest_streamSelection = Lens.lens (\MssManifest' {streamSelection} -> streamSelection) (\s@MssManifest' {} a -> s {streamSelection = a} :: MssManifest)
 
 instance Data.FromJSON MssManifest where
   parseJSON =
@@ -68,26 +68,26 @@ instance Data.FromJSON MssManifest where
       "MssManifest"
       ( \x ->
           MssManifest'
-            Prelude.<$> (x Data..:? "streamSelection")
-            Prelude.<*> (x Data..:? "manifestName")
+            Prelude.<$> (x Data..:? "manifestName")
+            Prelude.<*> (x Data..:? "streamSelection")
       )
 
 instance Prelude.Hashable MssManifest where
   hashWithSalt _salt MssManifest' {..} =
-    _salt `Prelude.hashWithSalt` streamSelection
-      `Prelude.hashWithSalt` manifestName
+    _salt `Prelude.hashWithSalt` manifestName
+      `Prelude.hashWithSalt` streamSelection
 
 instance Prelude.NFData MssManifest where
   rnf MssManifest' {..} =
-    Prelude.rnf streamSelection
-      `Prelude.seq` Prelude.rnf manifestName
+    Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf streamSelection
 
 instance Data.ToJSON MssManifest where
   toJSON MssManifest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("streamSelection" Data..=)
-              Prelude.<$> streamSelection,
-            ("manifestName" Data..=) Prelude.<$> manifestName
+          [ ("manifestName" Data..=) Prelude.<$> manifestName,
+            ("streamSelection" Data..=)
+              Prelude.<$> streamSelection
           ]
       )

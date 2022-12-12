@@ -30,15 +30,15 @@ import Amazonka.Redshift.Types.Tag
 --
 -- /See:/ 'newEC2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-  { -- | The list of tags for the EC2 security group.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The name of the EC2 Security Group.
+    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID of the owner of the EC2 security
     -- group specified in the @EC2SecurityGroupName@ field.
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The status of the EC2 security group.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the EC2 Security Group.
-    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text
+    -- | The list of tags for the EC2 security group.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,27 +50,28 @@ data EC2SecurityGroup = EC2SecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'eC2SecurityGroup_tags' - The list of tags for the EC2 security group.
+-- 'eC2SecurityGroupName', 'eC2SecurityGroup_eC2SecurityGroupName' - The name of the EC2 Security Group.
 --
 -- 'eC2SecurityGroupOwnerId', 'eC2SecurityGroup_eC2SecurityGroupOwnerId' - The Amazon Web Services account ID of the owner of the EC2 security
 -- group specified in the @EC2SecurityGroupName@ field.
 --
 -- 'status', 'eC2SecurityGroup_status' - The status of the EC2 security group.
 --
--- 'eC2SecurityGroupName', 'eC2SecurityGroup_eC2SecurityGroupName' - The name of the EC2 Security Group.
+-- 'tags', 'eC2SecurityGroup_tags' - The list of tags for the EC2 security group.
 newEC2SecurityGroup ::
   EC2SecurityGroup
 newEC2SecurityGroup =
   EC2SecurityGroup'
-    { tags = Prelude.Nothing,
+    { eC2SecurityGroupName =
+        Prelude.Nothing,
       eC2SecurityGroupOwnerId = Prelude.Nothing,
       status = Prelude.Nothing,
-      eC2SecurityGroupName = Prelude.Nothing
+      tags = Prelude.Nothing
     }
 
--- | The list of tags for the EC2 security group.
-eC2SecurityGroup_tags :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe [Tag])
-eC2SecurityGroup_tags = Lens.lens (\EC2SecurityGroup' {tags} -> tags) (\s@EC2SecurityGroup' {} a -> s {tags = a} :: EC2SecurityGroup) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the EC2 Security Group.
+eC2SecurityGroup_eC2SecurityGroupName :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
+eC2SecurityGroup_eC2SecurityGroupName = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupName = a} :: EC2SecurityGroup)
 
 -- | The Amazon Web Services account ID of the owner of the EC2 security
 -- group specified in the @EC2SecurityGroupName@ field.
@@ -81,30 +82,30 @@ eC2SecurityGroup_eC2SecurityGroupOwnerId = Lens.lens (\EC2SecurityGroup' {eC2Sec
 eC2SecurityGroup_status :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
 eC2SecurityGroup_status = Lens.lens (\EC2SecurityGroup' {status} -> status) (\s@EC2SecurityGroup' {} a -> s {status = a} :: EC2SecurityGroup)
 
--- | The name of the EC2 Security Group.
-eC2SecurityGroup_eC2SecurityGroupName :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
-eC2SecurityGroup_eC2SecurityGroupName = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupName = a} :: EC2SecurityGroup)
+-- | The list of tags for the EC2 security group.
+eC2SecurityGroup_tags :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe [Tag])
+eC2SecurityGroup_tags = Lens.lens (\EC2SecurityGroup' {tags} -> tags) (\s@EC2SecurityGroup' {} a -> s {tags = a} :: EC2SecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromXML EC2SecurityGroup where
   parseXML x =
     EC2SecurityGroup'
-      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
-                  )
+      Prelude.<$> (x Data..@? "EC2SecurityGroupName")
       Prelude.<*> (x Data..@? "EC2SecurityGroupOwnerId")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> (x Data..@? "EC2SecurityGroupName")
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
+                  )
 
 instance Prelude.Hashable EC2SecurityGroup where
   hashWithSalt _salt EC2SecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` eC2SecurityGroupName
       `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` eC2SecurityGroupName
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData EC2SecurityGroup where
   rnf EC2SecurityGroup' {..} =
-    Prelude.rnf tags
+    Prelude.rnf eC2SecurityGroupName
       `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
+      `Prelude.seq` Prelude.rnf tags

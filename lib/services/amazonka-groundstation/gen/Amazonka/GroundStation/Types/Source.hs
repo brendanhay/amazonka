@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSource' smart constructor.
 data Source = Source'
-  { -- | Region of a dataflow source.
-    dataflowSourceRegion :: Prelude.Maybe Prelude.Text,
-    -- | UUID of a @Config@.
-    configId :: Prelude.Maybe Prelude.Text,
-    -- | Additional details for a @Config@, if type is @dataflow-endpoint@ or
+  { -- | Additional details for a @Config@, if type is @dataflow-endpoint@ or
     -- @antenna-downlink-demod-decode@
     configDetails :: Prelude.Maybe ConfigDetails,
+    -- | UUID of a @Config@.
+    configId :: Prelude.Maybe Prelude.Text,
     -- | Type of a @Config@.
-    configType :: Prelude.Maybe ConfigCapabilityType
+    configType :: Prelude.Maybe ConfigCapabilityType,
+    -- | Region of a dataflow source.
+    dataflowSourceRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,40 +50,40 @@ data Source = Source'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataflowSourceRegion', 'source_dataflowSourceRegion' - Region of a dataflow source.
---
--- 'configId', 'source_configId' - UUID of a @Config@.
---
 -- 'configDetails', 'source_configDetails' - Additional details for a @Config@, if type is @dataflow-endpoint@ or
 -- @antenna-downlink-demod-decode@
 --
+-- 'configId', 'source_configId' - UUID of a @Config@.
+--
 -- 'configType', 'source_configType' - Type of a @Config@.
+--
+-- 'dataflowSourceRegion', 'source_dataflowSourceRegion' - Region of a dataflow source.
 newSource ::
   Source
 newSource =
   Source'
-    { dataflowSourceRegion = Prelude.Nothing,
+    { configDetails = Prelude.Nothing,
       configId = Prelude.Nothing,
-      configDetails = Prelude.Nothing,
-      configType = Prelude.Nothing
+      configType = Prelude.Nothing,
+      dataflowSourceRegion = Prelude.Nothing
     }
-
--- | Region of a dataflow source.
-source_dataflowSourceRegion :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
-source_dataflowSourceRegion = Lens.lens (\Source' {dataflowSourceRegion} -> dataflowSourceRegion) (\s@Source' {} a -> s {dataflowSourceRegion = a} :: Source)
-
--- | UUID of a @Config@.
-source_configId :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
-source_configId = Lens.lens (\Source' {configId} -> configId) (\s@Source' {} a -> s {configId = a} :: Source)
 
 -- | Additional details for a @Config@, if type is @dataflow-endpoint@ or
 -- @antenna-downlink-demod-decode@
 source_configDetails :: Lens.Lens' Source (Prelude.Maybe ConfigDetails)
 source_configDetails = Lens.lens (\Source' {configDetails} -> configDetails) (\s@Source' {} a -> s {configDetails = a} :: Source)
 
+-- | UUID of a @Config@.
+source_configId :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
+source_configId = Lens.lens (\Source' {configId} -> configId) (\s@Source' {} a -> s {configId = a} :: Source)
+
 -- | Type of a @Config@.
 source_configType :: Lens.Lens' Source (Prelude.Maybe ConfigCapabilityType)
 source_configType = Lens.lens (\Source' {configType} -> configType) (\s@Source' {} a -> s {configType = a} :: Source)
+
+-- | Region of a dataflow source.
+source_dataflowSourceRegion :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
+source_dataflowSourceRegion = Lens.lens (\Source' {dataflowSourceRegion} -> dataflowSourceRegion) (\s@Source' {} a -> s {dataflowSourceRegion = a} :: Source)
 
 instance Data.FromJSON Source where
   parseJSON =
@@ -91,22 +91,22 @@ instance Data.FromJSON Source where
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> (x Data..:? "dataflowSourceRegion")
+            Prelude.<$> (x Data..:? "configDetails")
             Prelude.<*> (x Data..:? "configId")
-            Prelude.<*> (x Data..:? "configDetails")
             Prelude.<*> (x Data..:? "configType")
+            Prelude.<*> (x Data..:? "dataflowSourceRegion")
       )
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
-    _salt `Prelude.hashWithSalt` dataflowSourceRegion
+    _salt `Prelude.hashWithSalt` configDetails
       `Prelude.hashWithSalt` configId
-      `Prelude.hashWithSalt` configDetails
       `Prelude.hashWithSalt` configType
+      `Prelude.hashWithSalt` dataflowSourceRegion
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
-    Prelude.rnf dataflowSourceRegion
+    Prelude.rnf configDetails
       `Prelude.seq` Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configDetails
       `Prelude.seq` Prelude.rnf configType
+      `Prelude.seq` Prelude.rnf dataflowSourceRegion

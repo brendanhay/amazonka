@@ -27,12 +27,12 @@ module Amazonka.CustomerProfiles.ListWorkflows
     newListWorkflows,
 
     -- * Request Lenses
+    listWorkflows_maxResults,
     listWorkflows_nextToken,
-    listWorkflows_queryStartDate,
     listWorkflows_queryEndDate,
+    listWorkflows_queryStartDate,
     listWorkflows_status,
     listWorkflows_workflowType,
-    listWorkflows_maxResults,
     listWorkflows_domainName,
 
     -- * Destructuring the Response
@@ -56,20 +56,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWorkflows' smart constructor.
 data ListWorkflows = ListWorkflows'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Retrieve workflows started after timestamp.
-    queryStartDate :: Prelude.Maybe Data.POSIX,
     -- | Retrieve workflows ended after timestamp.
     queryEndDate :: Prelude.Maybe Data.POSIX,
+    -- | Retrieve workflows started after timestamp.
+    queryStartDate :: Prelude.Maybe Data.POSIX,
     -- | Status of workflow execution.
     status :: Prelude.Maybe Status,
     -- | The type of workflow. The only supported value is APPFLOW_INTEGRATION.
     workflowType :: Prelude.Maybe WorkflowType,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique name of the domain.
     domainName :: Prelude.Text
   }
@@ -83,19 +83,19 @@ data ListWorkflows = ListWorkflows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listWorkflows_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listWorkflows_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'queryStartDate', 'listWorkflows_queryStartDate' - Retrieve workflows started after timestamp.
---
 -- 'queryEndDate', 'listWorkflows_queryEndDate' - Retrieve workflows ended after timestamp.
+--
+-- 'queryStartDate', 'listWorkflows_queryStartDate' - Retrieve workflows started after timestamp.
 --
 -- 'status', 'listWorkflows_status' - Status of workflow execution.
 --
 -- 'workflowType', 'listWorkflows_workflowType' - The type of workflow. The only supported value is APPFLOW_INTEGRATION.
---
--- 'maxResults', 'listWorkflows_maxResults' - The maximum number of results to return per page.
 --
 -- 'domainName', 'listWorkflows_domainName' - The unique name of the domain.
 newListWorkflows ::
@@ -104,14 +104,18 @@ newListWorkflows ::
   ListWorkflows
 newListWorkflows pDomainName_ =
   ListWorkflows'
-    { nextToken = Prelude.Nothing,
-      queryStartDate = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       queryEndDate = Prelude.Nothing,
+      queryStartDate = Prelude.Nothing,
       status = Prelude.Nothing,
       workflowType = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       domainName = pDomainName_
     }
+
+-- | The maximum number of results to return per page.
+listWorkflows_maxResults :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Natural)
+listWorkflows_maxResults = Lens.lens (\ListWorkflows' {maxResults} -> maxResults) (\s@ListWorkflows' {} a -> s {maxResults = a} :: ListWorkflows)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -119,13 +123,13 @@ newListWorkflows pDomainName_ =
 listWorkflows_nextToken :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Text)
 listWorkflows_nextToken = Lens.lens (\ListWorkflows' {nextToken} -> nextToken) (\s@ListWorkflows' {} a -> s {nextToken = a} :: ListWorkflows)
 
--- | Retrieve workflows started after timestamp.
-listWorkflows_queryStartDate :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.UTCTime)
-listWorkflows_queryStartDate = Lens.lens (\ListWorkflows' {queryStartDate} -> queryStartDate) (\s@ListWorkflows' {} a -> s {queryStartDate = a} :: ListWorkflows) Prelude.. Lens.mapping Data._Time
-
 -- | Retrieve workflows ended after timestamp.
 listWorkflows_queryEndDate :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.UTCTime)
 listWorkflows_queryEndDate = Lens.lens (\ListWorkflows' {queryEndDate} -> queryEndDate) (\s@ListWorkflows' {} a -> s {queryEndDate = a} :: ListWorkflows) Prelude.. Lens.mapping Data._Time
+
+-- | Retrieve workflows started after timestamp.
+listWorkflows_queryStartDate :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.UTCTime)
+listWorkflows_queryStartDate = Lens.lens (\ListWorkflows' {queryStartDate} -> queryStartDate) (\s@ListWorkflows' {} a -> s {queryStartDate = a} :: ListWorkflows) Prelude.. Lens.mapping Data._Time
 
 -- | Status of workflow execution.
 listWorkflows_status :: Lens.Lens' ListWorkflows (Prelude.Maybe Status)
@@ -134,10 +138,6 @@ listWorkflows_status = Lens.lens (\ListWorkflows' {status} -> status) (\s@ListWo
 -- | The type of workflow. The only supported value is APPFLOW_INTEGRATION.
 listWorkflows_workflowType :: Lens.Lens' ListWorkflows (Prelude.Maybe WorkflowType)
 listWorkflows_workflowType = Lens.lens (\ListWorkflows' {workflowType} -> workflowType) (\s@ListWorkflows' {} a -> s {workflowType = a} :: ListWorkflows)
-
--- | The maximum number of results to return per page.
-listWorkflows_maxResults :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Natural)
-listWorkflows_maxResults = Lens.lens (\ListWorkflows' {maxResults} -> maxResults) (\s@ListWorkflows' {} a -> s {maxResults = a} :: ListWorkflows)
 
 -- | The unique name of the domain.
 listWorkflows_domainName :: Lens.Lens' ListWorkflows Prelude.Text
@@ -160,22 +160,22 @@ instance Core.AWSRequest ListWorkflows where
 
 instance Prelude.Hashable ListWorkflows where
   hashWithSalt _salt ListWorkflows' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` queryStartDate
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryEndDate
+      `Prelude.hashWithSalt` queryStartDate
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` workflowType
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData ListWorkflows where
   rnf ListWorkflows' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryStartDate
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queryEndDate
+      `Prelude.seq` Prelude.rnf queryStartDate
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders ListWorkflows where
@@ -193,9 +193,9 @@ instance Data.ToJSON ListWorkflows where
   toJSON ListWorkflows' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("QueryStartDate" Data..=)
+          [ ("QueryEndDate" Data..=) Prelude.<$> queryEndDate,
+            ("QueryStartDate" Data..=)
               Prelude.<$> queryStartDate,
-            ("QueryEndDate" Data..=) Prelude.<$> queryEndDate,
             ("Status" Data..=) Prelude.<$> status,
             ("WorkflowType" Data..=) Prelude.<$> workflowType
           ]
@@ -209,8 +209,8 @@ instance Data.ToPath ListWorkflows where
 instance Data.ToQuery ListWorkflows where
   toQuery ListWorkflows' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListWorkflowsResponse' smart constructor.

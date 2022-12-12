@@ -27,8 +27,8 @@ module Amazonka.MediaLive.BatchStart
     newBatchStart',
 
     -- * Request Lenses
-    batchStart'_multiplexIds,
     batchStart'_channelIds,
+    batchStart'_multiplexIds,
 
     -- * Destructuring the Response
     BatchStartResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newBatchStart'' smart constructor.
 data BatchStart' = BatchStart''
-  { -- | List of multiplex IDs
-    multiplexIds :: Prelude.Maybe [Prelude.Text],
-    -- | List of channel IDs
-    channelIds :: Prelude.Maybe [Prelude.Text]
+  { -- | List of channel IDs
+    channelIds :: Prelude.Maybe [Prelude.Text],
+    -- | List of multiplex IDs
+    multiplexIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data BatchStart' = BatchStart''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiplexIds', 'batchStart'_multiplexIds' - List of multiplex IDs
---
 -- 'channelIds', 'batchStart'_channelIds' - List of channel IDs
+--
+-- 'multiplexIds', 'batchStart'_multiplexIds' - List of multiplex IDs
 newBatchStart' ::
   BatchStart'
 newBatchStart' =
   BatchStart''
-    { multiplexIds = Prelude.Nothing,
-      channelIds = Prelude.Nothing
+    { channelIds = Prelude.Nothing,
+      multiplexIds = Prelude.Nothing
     }
-
--- | List of multiplex IDs
-batchStart'_multiplexIds :: Lens.Lens' BatchStart' (Prelude.Maybe [Prelude.Text])
-batchStart'_multiplexIds = Lens.lens (\BatchStart'' {multiplexIds} -> multiplexIds) (\s@BatchStart'' {} a -> s {multiplexIds = a} :: BatchStart') Prelude.. Lens.mapping Lens.coerced
 
 -- | List of channel IDs
 batchStart'_channelIds :: Lens.Lens' BatchStart' (Prelude.Maybe [Prelude.Text])
 batchStart'_channelIds = Lens.lens (\BatchStart'' {channelIds} -> channelIds) (\s@BatchStart'' {} a -> s {channelIds = a} :: BatchStart') Prelude.. Lens.mapping Lens.coerced
+
+-- | List of multiplex IDs
+batchStart'_multiplexIds :: Lens.Lens' BatchStart' (Prelude.Maybe [Prelude.Text])
+batchStart'_multiplexIds = Lens.lens (\BatchStart'' {multiplexIds} -> multiplexIds) (\s@BatchStart'' {} a -> s {multiplexIds = a} :: BatchStart') Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest BatchStart' where
   type AWSResponse BatchStart' = BatchStartResponse
@@ -102,13 +102,13 @@ instance Core.AWSRequest BatchStart' where
 
 instance Prelude.Hashable BatchStart' where
   hashWithSalt _salt BatchStart'' {..} =
-    _salt `Prelude.hashWithSalt` multiplexIds
-      `Prelude.hashWithSalt` channelIds
+    _salt `Prelude.hashWithSalt` channelIds
+      `Prelude.hashWithSalt` multiplexIds
 
 instance Prelude.NFData BatchStart' where
   rnf BatchStart'' {..} =
-    Prelude.rnf multiplexIds
-      `Prelude.seq` Prelude.rnf channelIds
+    Prelude.rnf channelIds
+      `Prelude.seq` Prelude.rnf multiplexIds
 
 instance Data.ToHeaders BatchStart' where
   toHeaders =
@@ -125,8 +125,8 @@ instance Data.ToJSON BatchStart' where
   toJSON BatchStart'' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("multiplexIds" Data..=) Prelude.<$> multiplexIds,
-            ("channelIds" Data..=) Prelude.<$> channelIds
+          [ ("channelIds" Data..=) Prelude.<$> channelIds,
+            ("multiplexIds" Data..=) Prelude.<$> multiplexIds
           ]
       )
 

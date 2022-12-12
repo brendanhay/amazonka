@@ -130,10 +130,26 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
     -- -   @DisplayName@ – The human-readable name used in the @From@ field for
     --     notifications to @email@ and @email-json@ endpoints.
     --
+    -- -   @EffectiveDeliveryPolicy@ – The JSON serialization of the effective
+    --     delivery policy, taking system defaults into account.
+    --
     -- -   @Owner@ – The Amazon Web Services account ID of the topic\'s owner.
     --
     -- -   @Policy@ – The JSON serialization of the topic\'s access control
     --     policy.
+    --
+    -- -   @SignatureVersion@ – The version of the Amazon SNS signature used
+    --     for the topic.
+    --
+    --     -   By default, @SignatureVersion@ is set to __1__. The signature is
+    --         a Base64-encoded __SHA1withRSA__ signature.
+    --
+    --     -   When you set @SignatureVersion@ to __2__. Amazon SNS uses a
+    --         Base64-encoded __SHA256withRSA__ signature.
+    --
+    --         If the API response does not include the @SignatureVersion@
+    --         attribute, it means that the @SignatureVersion@ for the topic
+    --         has value __1__.
     --
     -- -   @SubscriptionsConfirmed@ – The number of confirmed subscriptions for
     --     the topic.
@@ -146,8 +162,12 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
     --
     -- -   @TopicArn@ – The topic\'s ARN.
     --
-    -- -   @EffectiveDeliveryPolicy@ – The JSON serialization of the effective
-    --     delivery policy, taking system defaults into account.
+    -- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
+    --     @TracingConfig@ is set to @PassThrough@, and the topic passes
+    --     through the tracing header it receives from an Amazon SNS publisher
+    --     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+    --     segment data to topic owner account if the sampled flag in the
+    --     tracing header is true. This is only supported on standard topics.
     --
     -- The following attribute applies only to
     -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
@@ -206,10 +226,26 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 -- -   @DisplayName@ – The human-readable name used in the @From@ field for
 --     notifications to @email@ and @email-json@ endpoints.
 --
+-- -   @EffectiveDeliveryPolicy@ – The JSON serialization of the effective
+--     delivery policy, taking system defaults into account.
+--
 -- -   @Owner@ – The Amazon Web Services account ID of the topic\'s owner.
 --
 -- -   @Policy@ – The JSON serialization of the topic\'s access control
 --     policy.
+--
+-- -   @SignatureVersion@ – The version of the Amazon SNS signature used
+--     for the topic.
+--
+--     -   By default, @SignatureVersion@ is set to __1__. The signature is
+--         a Base64-encoded __SHA1withRSA__ signature.
+--
+--     -   When you set @SignatureVersion@ to __2__. Amazon SNS uses a
+--         Base64-encoded __SHA256withRSA__ signature.
+--
+--         If the API response does not include the @SignatureVersion@
+--         attribute, it means that the @SignatureVersion@ for the topic
+--         has value __1__.
 --
 -- -   @SubscriptionsConfirmed@ – The number of confirmed subscriptions for
 --     the topic.
@@ -222,8 +258,12 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 --
 -- -   @TopicArn@ – The topic\'s ARN.
 --
--- -   @EffectiveDeliveryPolicy@ – The JSON serialization of the effective
---     delivery policy, taking system defaults into account.
+-- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
+--     @TracingConfig@ is set to @PassThrough@, and the topic passes
+--     through the tracing header it receives from an Amazon SNS publisher
+--     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+--     segment data to topic owner account if the sampled flag in the
+--     tracing header is true. This is only supported on standard topics.
 --
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
@@ -281,10 +321,26 @@ newGetTopicAttributesResponse pHttpStatus_ =
 -- -   @DisplayName@ – The human-readable name used in the @From@ field for
 --     notifications to @email@ and @email-json@ endpoints.
 --
+-- -   @EffectiveDeliveryPolicy@ – The JSON serialization of the effective
+--     delivery policy, taking system defaults into account.
+--
 -- -   @Owner@ – The Amazon Web Services account ID of the topic\'s owner.
 --
 -- -   @Policy@ – The JSON serialization of the topic\'s access control
 --     policy.
+--
+-- -   @SignatureVersion@ – The version of the Amazon SNS signature used
+--     for the topic.
+--
+--     -   By default, @SignatureVersion@ is set to __1__. The signature is
+--         a Base64-encoded __SHA1withRSA__ signature.
+--
+--     -   When you set @SignatureVersion@ to __2__. Amazon SNS uses a
+--         Base64-encoded __SHA256withRSA__ signature.
+--
+--         If the API response does not include the @SignatureVersion@
+--         attribute, it means that the @SignatureVersion@ for the topic
+--         has value __1__.
 --
 -- -   @SubscriptionsConfirmed@ – The number of confirmed subscriptions for
 --     the topic.
@@ -297,8 +353,12 @@ newGetTopicAttributesResponse pHttpStatus_ =
 --
 -- -   @TopicArn@ – The topic\'s ARN.
 --
--- -   @EffectiveDeliveryPolicy@ – The JSON serialization of the effective
---     delivery policy, taking system defaults into account.
+-- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
+--     @TracingConfig@ is set to @PassThrough@, and the topic passes
+--     through the tracing header it receives from an Amazon SNS publisher
+--     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+--     segment data to topic owner account if the sampled flag in the
+--     tracing header is true. This is only supported on standard topics.
 --
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:

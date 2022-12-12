@@ -27,21 +27,21 @@ module Amazonka.SMS.UpdateApp
     newUpdateApp,
 
     -- * Request Lenses
-    updateApp_tags,
+    updateApp_appId,
+    updateApp_description,
     updateApp_name,
     updateApp_roleName,
-    updateApp_description,
     updateApp_serverGroups,
-    updateApp_appId,
+    updateApp_tags,
 
     -- * Destructuring the Response
     UpdateAppResponse (..),
     newUpdateAppResponse,
 
     -- * Response Lenses
-    updateAppResponse_tags,
     updateAppResponse_appSummary,
     updateAppResponse_serverGroups,
+    updateAppResponse_tags,
     updateAppResponse_httpStatus,
   )
 where
@@ -56,19 +56,19 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newUpdateApp' smart constructor.
 data UpdateApp = UpdateApp'
-  { -- | The tags to associate with the application.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The ID of the application.
+    appId :: Prelude.Maybe Prelude.Text,
+    -- | The new description of the application.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The new name of the application.
     name :: Prelude.Maybe Prelude.Text,
     -- | The name of the service role in the customer\'s account used by Server
     -- Migration Service.
     roleName :: Prelude.Maybe Prelude.Text,
-    -- | The new description of the application.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The server groups in the application to update.
     serverGroups :: Prelude.Maybe [ServerGroup],
-    -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text
+    -- | The tags to associate with the application.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,33 +80,37 @@ data UpdateApp = UpdateApp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateApp_tags' - The tags to associate with the application.
+-- 'appId', 'updateApp_appId' - The ID of the application.
+--
+-- 'description', 'updateApp_description' - The new description of the application.
 --
 -- 'name', 'updateApp_name' - The new name of the application.
 --
 -- 'roleName', 'updateApp_roleName' - The name of the service role in the customer\'s account used by Server
 -- Migration Service.
 --
--- 'description', 'updateApp_description' - The new description of the application.
---
 -- 'serverGroups', 'updateApp_serverGroups' - The server groups in the application to update.
 --
--- 'appId', 'updateApp_appId' - The ID of the application.
+-- 'tags', 'updateApp_tags' - The tags to associate with the application.
 newUpdateApp ::
   UpdateApp
 newUpdateApp =
   UpdateApp'
-    { tags = Prelude.Nothing,
+    { appId = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = Prelude.Nothing,
       roleName = Prelude.Nothing,
-      description = Prelude.Nothing,
       serverGroups = Prelude.Nothing,
-      appId = Prelude.Nothing
+      tags = Prelude.Nothing
     }
 
--- | The tags to associate with the application.
-updateApp_tags :: Lens.Lens' UpdateApp (Prelude.Maybe [Tag])
-updateApp_tags = Lens.lens (\UpdateApp' {tags} -> tags) (\s@UpdateApp' {} a -> s {tags = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the application.
+updateApp_appId :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_appId = Lens.lens (\UpdateApp' {appId} -> appId) (\s@UpdateApp' {} a -> s {appId = a} :: UpdateApp)
+
+-- | The new description of the application.
+updateApp_description :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_description = Lens.lens (\UpdateApp' {description} -> description) (\s@UpdateApp' {} a -> s {description = a} :: UpdateApp)
 
 -- | The new name of the application.
 updateApp_name :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
@@ -117,17 +121,13 @@ updateApp_name = Lens.lens (\UpdateApp' {name} -> name) (\s@UpdateApp' {} a -> s
 updateApp_roleName :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
 updateApp_roleName = Lens.lens (\UpdateApp' {roleName} -> roleName) (\s@UpdateApp' {} a -> s {roleName = a} :: UpdateApp)
 
--- | The new description of the application.
-updateApp_description :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_description = Lens.lens (\UpdateApp' {description} -> description) (\s@UpdateApp' {} a -> s {description = a} :: UpdateApp)
-
 -- | The server groups in the application to update.
 updateApp_serverGroups :: Lens.Lens' UpdateApp (Prelude.Maybe [ServerGroup])
 updateApp_serverGroups = Lens.lens (\UpdateApp' {serverGroups} -> serverGroups) (\s@UpdateApp' {} a -> s {serverGroups = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the application.
-updateApp_appId :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_appId = Lens.lens (\UpdateApp' {appId} -> appId) (\s@UpdateApp' {} a -> s {appId = a} :: UpdateApp)
+-- | The tags to associate with the application.
+updateApp_tags :: Lens.Lens' UpdateApp (Prelude.Maybe [Tag])
+updateApp_tags = Lens.lens (\UpdateApp' {tags} -> tags) (\s@UpdateApp' {} a -> s {tags = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest UpdateApp where
   type AWSResponse UpdateApp = UpdateAppResponse
@@ -137,29 +137,29 @@ instance Core.AWSRequest UpdateApp where
     Response.receiveJSON
       ( \s h x ->
           UpdateAppResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "appSummary")
+            Prelude.<$> (x Data..?> "appSummary")
             Prelude.<*> (x Data..?> "serverGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateApp where
   hashWithSalt _salt UpdateApp' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleName
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` serverGroups
-      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData UpdateApp where
   rnf UpdateApp' {..} =
-    Prelude.rnf tags
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf serverGroups
-      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders UpdateApp where
   toHeaders =
@@ -180,12 +180,12 @@ instance Data.ToJSON UpdateApp where
   toJSON UpdateApp' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("appId" Data..=) Prelude.<$> appId,
+            ("description" Data..=) Prelude.<$> description,
             ("name" Data..=) Prelude.<$> name,
             ("roleName" Data..=) Prelude.<$> roleName,
-            ("description" Data..=) Prelude.<$> description,
             ("serverGroups" Data..=) Prelude.<$> serverGroups,
-            ("appId" Data..=) Prelude.<$> appId
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 
@@ -197,12 +197,12 @@ instance Data.ToQuery UpdateApp where
 
 -- | /See:/ 'newUpdateAppResponse' smart constructor.
 data UpdateAppResponse = UpdateAppResponse'
-  { -- | The tags associated with the application.
-    tags :: Prelude.Maybe [Tag],
-    -- | A summary description of the application.
+  { -- | A summary description of the application.
     appSummary :: Prelude.Maybe AppSummary,
     -- | The updated server groups in the application.
     serverGroups :: Prelude.Maybe [ServerGroup],
+    -- | The tags associated with the application.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,11 +216,11 @@ data UpdateAppResponse = UpdateAppResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateAppResponse_tags' - The tags associated with the application.
---
 -- 'appSummary', 'updateAppResponse_appSummary' - A summary description of the application.
 --
 -- 'serverGroups', 'updateAppResponse_serverGroups' - The updated server groups in the application.
+--
+-- 'tags', 'updateAppResponse_tags' - The tags associated with the application.
 --
 -- 'httpStatus', 'updateAppResponse_httpStatus' - The response's http status code.
 newUpdateAppResponse ::
@@ -229,15 +229,11 @@ newUpdateAppResponse ::
   UpdateAppResponse
 newUpdateAppResponse pHttpStatus_ =
   UpdateAppResponse'
-    { tags = Prelude.Nothing,
-      appSummary = Prelude.Nothing,
+    { appSummary = Prelude.Nothing,
       serverGroups = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The tags associated with the application.
-updateAppResponse_tags :: Lens.Lens' UpdateAppResponse (Prelude.Maybe [Tag])
-updateAppResponse_tags = Lens.lens (\UpdateAppResponse' {tags} -> tags) (\s@UpdateAppResponse' {} a -> s {tags = a} :: UpdateAppResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A summary description of the application.
 updateAppResponse_appSummary :: Lens.Lens' UpdateAppResponse (Prelude.Maybe AppSummary)
@@ -247,13 +243,17 @@ updateAppResponse_appSummary = Lens.lens (\UpdateAppResponse' {appSummary} -> ap
 updateAppResponse_serverGroups :: Lens.Lens' UpdateAppResponse (Prelude.Maybe [ServerGroup])
 updateAppResponse_serverGroups = Lens.lens (\UpdateAppResponse' {serverGroups} -> serverGroups) (\s@UpdateAppResponse' {} a -> s {serverGroups = a} :: UpdateAppResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The tags associated with the application.
+updateAppResponse_tags :: Lens.Lens' UpdateAppResponse (Prelude.Maybe [Tag])
+updateAppResponse_tags = Lens.lens (\UpdateAppResponse' {tags} -> tags) (\s@UpdateAppResponse' {} a -> s {tags = a} :: UpdateAppResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 updateAppResponse_httpStatus :: Lens.Lens' UpdateAppResponse Prelude.Int
 updateAppResponse_httpStatus = Lens.lens (\UpdateAppResponse' {httpStatus} -> httpStatus) (\s@UpdateAppResponse' {} a -> s {httpStatus = a} :: UpdateAppResponse)
 
 instance Prelude.NFData UpdateAppResponse where
   rnf UpdateAppResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appSummary
+    Prelude.rnf appSummary
       `Prelude.seq` Prelude.rnf serverGroups
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

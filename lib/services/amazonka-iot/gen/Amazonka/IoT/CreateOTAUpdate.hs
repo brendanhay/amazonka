@@ -31,15 +31,15 @@ module Amazonka.IoT.CreateOTAUpdate
     newCreateOTAUpdate,
 
     -- * Request Lenses
-    createOTAUpdate_tags,
-    createOTAUpdate_awsJobExecutionsRolloutConfig,
-    createOTAUpdate_targetSelection,
-    createOTAUpdate_protocols,
-    createOTAUpdate_description,
     createOTAUpdate_additionalParameters,
     createOTAUpdate_awsJobAbortConfig,
-    createOTAUpdate_awsJobTimeoutConfig,
+    createOTAUpdate_awsJobExecutionsRolloutConfig,
     createOTAUpdate_awsJobPresignedUrlConfig,
+    createOTAUpdate_awsJobTimeoutConfig,
+    createOTAUpdate_description,
+    createOTAUpdate_protocols,
+    createOTAUpdate_tags,
+    createOTAUpdate_targetSelection,
     createOTAUpdate_otaUpdateId,
     createOTAUpdate_targets,
     createOTAUpdate_files,
@@ -50,11 +50,11 @@ module Amazonka.IoT.CreateOTAUpdate
     newCreateOTAUpdateResponse,
 
     -- * Response Lenses
-    createOTAUpdateResponse_awsIotJobId,
     createOTAUpdateResponse_awsIotJobArn,
-    createOTAUpdateResponse_otaUpdateStatus,
+    createOTAUpdateResponse_awsIotJobId,
     createOTAUpdateResponse_otaUpdateArn,
     createOTAUpdateResponse_otaUpdateId,
+    createOTAUpdateResponse_otaUpdateStatus,
     createOTAUpdateResponse_httpStatus,
   )
 where
@@ -69,10 +69,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateOTAUpdate' smart constructor.
 data CreateOTAUpdate = CreateOTAUpdate'
-  { -- | Metadata which can be used to manage updates.
-    tags :: Prelude.Maybe [Tag],
+  { -- | A list of additional OTA update parameters which are name-value pairs.
+    additionalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The criteria that determine when and how a job abort takes place.
+    awsJobAbortConfig :: Prelude.Maybe AwsJobAbortConfig,
     -- | Configuration for the rollout of OTA updates.
     awsJobExecutionsRolloutConfig :: Prelude.Maybe AwsJobExecutionsRolloutConfig,
+    -- | Configuration information for pre-signed URLs.
+    awsJobPresignedUrlConfig :: Prelude.Maybe AwsJobPresignedUrlConfig,
+    -- | Specifies the amount of time each device has to finish its execution of
+    -- the job. A timer is started when the job execution status is set to
+    -- @IN_PROGRESS@. If the job execution status is not set to another
+    -- terminal state before the timer expires, it will be automatically set to
+    -- @TIMED_OUT@.
+    awsJobTimeoutConfig :: Prelude.Maybe AwsJobTimeoutConfig,
+    -- | The description of the OTA update.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The protocol used to transfer the OTA update image. Valid values are
+    -- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the
+    -- target device can choose the protocol.
+    protocols :: Prelude.Maybe (Prelude.NonEmpty Protocol),
+    -- | Metadata which can be used to manage updates.
+    tags :: Prelude.Maybe [Tag],
     -- | Specifies whether the update will continue to run (CONTINUOUS), or will
     -- be complete after all the things specified as targets have completed the
     -- update (SNAPSHOT). If continuous, the update may also be run on a thing
@@ -81,24 +99,6 @@ data CreateOTAUpdate = CreateOTAUpdate'
     -- update was completed by all things originally in the group. Valid
     -- values: CONTINUOUS | SNAPSHOT.
     targetSelection :: Prelude.Maybe TargetSelection,
-    -- | The protocol used to transfer the OTA update image. Valid values are
-    -- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the
-    -- target device can choose the protocol.
-    protocols :: Prelude.Maybe (Prelude.NonEmpty Protocol),
-    -- | The description of the OTA update.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of additional OTA update parameters which are name-value pairs.
-    additionalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The criteria that determine when and how a job abort takes place.
-    awsJobAbortConfig :: Prelude.Maybe AwsJobAbortConfig,
-    -- | Specifies the amount of time each device has to finish its execution of
-    -- the job. A timer is started when the job execution status is set to
-    -- @IN_PROGRESS@. If the job execution status is not set to another
-    -- terminal state before the timer expires, it will be automatically set to
-    -- @TIMED_OUT@.
-    awsJobTimeoutConfig :: Prelude.Maybe AwsJobTimeoutConfig,
-    -- | Configuration information for pre-signed URLs.
-    awsJobPresignedUrlConfig :: Prelude.Maybe AwsJobPresignedUrlConfig,
     -- | The ID of the OTA update to be created.
     otaUpdateId :: Prelude.Text,
     -- | The devices targeted to receive OTA updates.
@@ -120,9 +120,27 @@ data CreateOTAUpdate = CreateOTAUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createOTAUpdate_tags' - Metadata which can be used to manage updates.
+-- 'additionalParameters', 'createOTAUpdate_additionalParameters' - A list of additional OTA update parameters which are name-value pairs.
+--
+-- 'awsJobAbortConfig', 'createOTAUpdate_awsJobAbortConfig' - The criteria that determine when and how a job abort takes place.
 --
 -- 'awsJobExecutionsRolloutConfig', 'createOTAUpdate_awsJobExecutionsRolloutConfig' - Configuration for the rollout of OTA updates.
+--
+-- 'awsJobPresignedUrlConfig', 'createOTAUpdate_awsJobPresignedUrlConfig' - Configuration information for pre-signed URLs.
+--
+-- 'awsJobTimeoutConfig', 'createOTAUpdate_awsJobTimeoutConfig' - Specifies the amount of time each device has to finish its execution of
+-- the job. A timer is started when the job execution status is set to
+-- @IN_PROGRESS@. If the job execution status is not set to another
+-- terminal state before the timer expires, it will be automatically set to
+-- @TIMED_OUT@.
+--
+-- 'description', 'createOTAUpdate_description' - The description of the OTA update.
+--
+-- 'protocols', 'createOTAUpdate_protocols' - The protocol used to transfer the OTA update image. Valid values are
+-- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the
+-- target device can choose the protocol.
+--
+-- 'tags', 'createOTAUpdate_tags' - Metadata which can be used to manage updates.
 --
 -- 'targetSelection', 'createOTAUpdate_targetSelection' - Specifies whether the update will continue to run (CONTINUOUS), or will
 -- be complete after all the things specified as targets have completed the
@@ -131,24 +149,6 @@ data CreateOTAUpdate = CreateOTAUpdate'
 -- on a thing when the thing is added to a target group, even after the
 -- update was completed by all things originally in the group. Valid
 -- values: CONTINUOUS | SNAPSHOT.
---
--- 'protocols', 'createOTAUpdate_protocols' - The protocol used to transfer the OTA update image. Valid values are
--- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the
--- target device can choose the protocol.
---
--- 'description', 'createOTAUpdate_description' - The description of the OTA update.
---
--- 'additionalParameters', 'createOTAUpdate_additionalParameters' - A list of additional OTA update parameters which are name-value pairs.
---
--- 'awsJobAbortConfig', 'createOTAUpdate_awsJobAbortConfig' - The criteria that determine when and how a job abort takes place.
---
--- 'awsJobTimeoutConfig', 'createOTAUpdate_awsJobTimeoutConfig' - Specifies the amount of time each device has to finish its execution of
--- the job. A timer is started when the job execution status is set to
--- @IN_PROGRESS@. If the job execution status is not set to another
--- terminal state before the timer expires, it will be automatically set to
--- @TIMED_OUT@.
---
--- 'awsJobPresignedUrlConfig', 'createOTAUpdate_awsJobPresignedUrlConfig' - Configuration information for pre-signed URLs.
 --
 -- 'otaUpdateId', 'createOTAUpdate_otaUpdateId' - The ID of the OTA update to be created.
 --
@@ -175,28 +175,59 @@ newCreateOTAUpdate
   pFiles_
   pRoleArn_ =
     CreateOTAUpdate'
-      { tags = Prelude.Nothing,
-        awsJobExecutionsRolloutConfig = Prelude.Nothing,
-        targetSelection = Prelude.Nothing,
-        protocols = Prelude.Nothing,
-        description = Prelude.Nothing,
-        additionalParameters = Prelude.Nothing,
+      { additionalParameters =
+          Prelude.Nothing,
         awsJobAbortConfig = Prelude.Nothing,
-        awsJobTimeoutConfig = Prelude.Nothing,
+        awsJobExecutionsRolloutConfig = Prelude.Nothing,
         awsJobPresignedUrlConfig = Prelude.Nothing,
+        awsJobTimeoutConfig = Prelude.Nothing,
+        description = Prelude.Nothing,
+        protocols = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        targetSelection = Prelude.Nothing,
         otaUpdateId = pOtaUpdateId_,
         targets = Lens.coerced Lens.# pTargets_,
         files = Lens.coerced Lens.# pFiles_,
         roleArn = pRoleArn_
       }
 
--- | Metadata which can be used to manage updates.
-createOTAUpdate_tags :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe [Tag])
-createOTAUpdate_tags = Lens.lens (\CreateOTAUpdate' {tags} -> tags) (\s@CreateOTAUpdate' {} a -> s {tags = a} :: CreateOTAUpdate) Prelude.. Lens.mapping Lens.coerced
+-- | A list of additional OTA update parameters which are name-value pairs.
+createOTAUpdate_additionalParameters :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createOTAUpdate_additionalParameters = Lens.lens (\CreateOTAUpdate' {additionalParameters} -> additionalParameters) (\s@CreateOTAUpdate' {} a -> s {additionalParameters = a} :: CreateOTAUpdate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The criteria that determine when and how a job abort takes place.
+createOTAUpdate_awsJobAbortConfig :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe AwsJobAbortConfig)
+createOTAUpdate_awsJobAbortConfig = Lens.lens (\CreateOTAUpdate' {awsJobAbortConfig} -> awsJobAbortConfig) (\s@CreateOTAUpdate' {} a -> s {awsJobAbortConfig = a} :: CreateOTAUpdate)
 
 -- | Configuration for the rollout of OTA updates.
 createOTAUpdate_awsJobExecutionsRolloutConfig :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe AwsJobExecutionsRolloutConfig)
 createOTAUpdate_awsJobExecutionsRolloutConfig = Lens.lens (\CreateOTAUpdate' {awsJobExecutionsRolloutConfig} -> awsJobExecutionsRolloutConfig) (\s@CreateOTAUpdate' {} a -> s {awsJobExecutionsRolloutConfig = a} :: CreateOTAUpdate)
+
+-- | Configuration information for pre-signed URLs.
+createOTAUpdate_awsJobPresignedUrlConfig :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe AwsJobPresignedUrlConfig)
+createOTAUpdate_awsJobPresignedUrlConfig = Lens.lens (\CreateOTAUpdate' {awsJobPresignedUrlConfig} -> awsJobPresignedUrlConfig) (\s@CreateOTAUpdate' {} a -> s {awsJobPresignedUrlConfig = a} :: CreateOTAUpdate)
+
+-- | Specifies the amount of time each device has to finish its execution of
+-- the job. A timer is started when the job execution status is set to
+-- @IN_PROGRESS@. If the job execution status is not set to another
+-- terminal state before the timer expires, it will be automatically set to
+-- @TIMED_OUT@.
+createOTAUpdate_awsJobTimeoutConfig :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe AwsJobTimeoutConfig)
+createOTAUpdate_awsJobTimeoutConfig = Lens.lens (\CreateOTAUpdate' {awsJobTimeoutConfig} -> awsJobTimeoutConfig) (\s@CreateOTAUpdate' {} a -> s {awsJobTimeoutConfig = a} :: CreateOTAUpdate)
+
+-- | The description of the OTA update.
+createOTAUpdate_description :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe Prelude.Text)
+createOTAUpdate_description = Lens.lens (\CreateOTAUpdate' {description} -> description) (\s@CreateOTAUpdate' {} a -> s {description = a} :: CreateOTAUpdate)
+
+-- | The protocol used to transfer the OTA update image. Valid values are
+-- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the
+-- target device can choose the protocol.
+createOTAUpdate_protocols :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe (Prelude.NonEmpty Protocol))
+createOTAUpdate_protocols = Lens.lens (\CreateOTAUpdate' {protocols} -> protocols) (\s@CreateOTAUpdate' {} a -> s {protocols = a} :: CreateOTAUpdate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Metadata which can be used to manage updates.
+createOTAUpdate_tags :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe [Tag])
+createOTAUpdate_tags = Lens.lens (\CreateOTAUpdate' {tags} -> tags) (\s@CreateOTAUpdate' {} a -> s {tags = a} :: CreateOTAUpdate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether the update will continue to run (CONTINUOUS), or will
 -- be complete after all the things specified as targets have completed the
@@ -207,36 +238,6 @@ createOTAUpdate_awsJobExecutionsRolloutConfig = Lens.lens (\CreateOTAUpdate' {aw
 -- values: CONTINUOUS | SNAPSHOT.
 createOTAUpdate_targetSelection :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe TargetSelection)
 createOTAUpdate_targetSelection = Lens.lens (\CreateOTAUpdate' {targetSelection} -> targetSelection) (\s@CreateOTAUpdate' {} a -> s {targetSelection = a} :: CreateOTAUpdate)
-
--- | The protocol used to transfer the OTA update image. Valid values are
--- [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the
--- target device can choose the protocol.
-createOTAUpdate_protocols :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe (Prelude.NonEmpty Protocol))
-createOTAUpdate_protocols = Lens.lens (\CreateOTAUpdate' {protocols} -> protocols) (\s@CreateOTAUpdate' {} a -> s {protocols = a} :: CreateOTAUpdate) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the OTA update.
-createOTAUpdate_description :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe Prelude.Text)
-createOTAUpdate_description = Lens.lens (\CreateOTAUpdate' {description} -> description) (\s@CreateOTAUpdate' {} a -> s {description = a} :: CreateOTAUpdate)
-
--- | A list of additional OTA update parameters which are name-value pairs.
-createOTAUpdate_additionalParameters :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createOTAUpdate_additionalParameters = Lens.lens (\CreateOTAUpdate' {additionalParameters} -> additionalParameters) (\s@CreateOTAUpdate' {} a -> s {additionalParameters = a} :: CreateOTAUpdate) Prelude.. Lens.mapping Lens.coerced
-
--- | The criteria that determine when and how a job abort takes place.
-createOTAUpdate_awsJobAbortConfig :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe AwsJobAbortConfig)
-createOTAUpdate_awsJobAbortConfig = Lens.lens (\CreateOTAUpdate' {awsJobAbortConfig} -> awsJobAbortConfig) (\s@CreateOTAUpdate' {} a -> s {awsJobAbortConfig = a} :: CreateOTAUpdate)
-
--- | Specifies the amount of time each device has to finish its execution of
--- the job. A timer is started when the job execution status is set to
--- @IN_PROGRESS@. If the job execution status is not set to another
--- terminal state before the timer expires, it will be automatically set to
--- @TIMED_OUT@.
-createOTAUpdate_awsJobTimeoutConfig :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe AwsJobTimeoutConfig)
-createOTAUpdate_awsJobTimeoutConfig = Lens.lens (\CreateOTAUpdate' {awsJobTimeoutConfig} -> awsJobTimeoutConfig) (\s@CreateOTAUpdate' {} a -> s {awsJobTimeoutConfig = a} :: CreateOTAUpdate)
-
--- | Configuration information for pre-signed URLs.
-createOTAUpdate_awsJobPresignedUrlConfig :: Lens.Lens' CreateOTAUpdate (Prelude.Maybe AwsJobPresignedUrlConfig)
-createOTAUpdate_awsJobPresignedUrlConfig = Lens.lens (\CreateOTAUpdate' {awsJobPresignedUrlConfig} -> awsJobPresignedUrlConfig) (\s@CreateOTAUpdate' {} a -> s {awsJobPresignedUrlConfig = a} :: CreateOTAUpdate)
 
 -- | The ID of the OTA update to be created.
 createOTAUpdate_otaUpdateId :: Lens.Lens' CreateOTAUpdate Prelude.Text
@@ -266,25 +267,25 @@ instance Core.AWSRequest CreateOTAUpdate where
     Response.receiveJSON
       ( \s h x ->
           CreateOTAUpdateResponse'
-            Prelude.<$> (x Data..?> "awsIotJobId")
-            Prelude.<*> (x Data..?> "awsIotJobArn")
-            Prelude.<*> (x Data..?> "otaUpdateStatus")
+            Prelude.<$> (x Data..?> "awsIotJobArn")
+            Prelude.<*> (x Data..?> "awsIotJobId")
             Prelude.<*> (x Data..?> "otaUpdateArn")
             Prelude.<*> (x Data..?> "otaUpdateId")
+            Prelude.<*> (x Data..?> "otaUpdateStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateOTAUpdate where
   hashWithSalt _salt CreateOTAUpdate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` awsJobExecutionsRolloutConfig
-      `Prelude.hashWithSalt` targetSelection
-      `Prelude.hashWithSalt` protocols
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` additionalParameters
+    _salt `Prelude.hashWithSalt` additionalParameters
       `Prelude.hashWithSalt` awsJobAbortConfig
-      `Prelude.hashWithSalt` awsJobTimeoutConfig
+      `Prelude.hashWithSalt` awsJobExecutionsRolloutConfig
       `Prelude.hashWithSalt` awsJobPresignedUrlConfig
+      `Prelude.hashWithSalt` awsJobTimeoutConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` targetSelection
       `Prelude.hashWithSalt` otaUpdateId
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` files
@@ -292,15 +293,15 @@ instance Prelude.Hashable CreateOTAUpdate where
 
 instance Prelude.NFData CreateOTAUpdate where
   rnf CreateOTAUpdate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf awsJobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf targetSelection
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf additionalParameters
+    Prelude.rnf additionalParameters
       `Prelude.seq` Prelude.rnf awsJobAbortConfig
-      `Prelude.seq` Prelude.rnf awsJobTimeoutConfig
+      `Prelude.seq` Prelude.rnf awsJobExecutionsRolloutConfig
       `Prelude.seq` Prelude.rnf awsJobPresignedUrlConfig
+      `Prelude.seq` Prelude.rnf awsJobTimeoutConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targetSelection
       `Prelude.seq` Prelude.rnf otaUpdateId
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf files
@@ -313,21 +314,21 @@ instance Data.ToJSON CreateOTAUpdate where
   toJSON CreateOTAUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("awsJobExecutionsRolloutConfig" Data..=)
-              Prelude.<$> awsJobExecutionsRolloutConfig,
-            ("targetSelection" Data..=)
-              Prelude.<$> targetSelection,
-            ("protocols" Data..=) Prelude.<$> protocols,
-            ("description" Data..=) Prelude.<$> description,
-            ("additionalParameters" Data..=)
+          [ ("additionalParameters" Data..=)
               Prelude.<$> additionalParameters,
             ("awsJobAbortConfig" Data..=)
               Prelude.<$> awsJobAbortConfig,
-            ("awsJobTimeoutConfig" Data..=)
-              Prelude.<$> awsJobTimeoutConfig,
+            ("awsJobExecutionsRolloutConfig" Data..=)
+              Prelude.<$> awsJobExecutionsRolloutConfig,
             ("awsJobPresignedUrlConfig" Data..=)
               Prelude.<$> awsJobPresignedUrlConfig,
+            ("awsJobTimeoutConfig" Data..=)
+              Prelude.<$> awsJobTimeoutConfig,
+            ("description" Data..=) Prelude.<$> description,
+            ("protocols" Data..=) Prelude.<$> protocols,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("targetSelection" Data..=)
+              Prelude.<$> targetSelection,
             Prelude.Just ("targets" Data..= targets),
             Prelude.Just ("files" Data..= files),
             Prelude.Just ("roleArn" Data..= roleArn)
@@ -344,16 +345,16 @@ instance Data.ToQuery CreateOTAUpdate where
 
 -- | /See:/ 'newCreateOTAUpdateResponse' smart constructor.
 data CreateOTAUpdateResponse = CreateOTAUpdateResponse'
-  { -- | The IoT job ID associated with the OTA update.
-    awsIotJobId :: Prelude.Maybe Prelude.Text,
-    -- | The IoT job ARN associated with the OTA update.
+  { -- | The IoT job ARN associated with the OTA update.
     awsIotJobArn :: Prelude.Maybe Prelude.Text,
-    -- | The OTA update status.
-    otaUpdateStatus :: Prelude.Maybe OTAUpdateStatus,
+    -- | The IoT job ID associated with the OTA update.
+    awsIotJobId :: Prelude.Maybe Prelude.Text,
     -- | The OTA update ARN.
     otaUpdateArn :: Prelude.Maybe Prelude.Text,
     -- | The OTA update ID.
     otaUpdateId :: Prelude.Maybe Prelude.Text,
+    -- | The OTA update status.
+    otaUpdateStatus :: Prelude.Maybe OTAUpdateStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -367,15 +368,15 @@ data CreateOTAUpdateResponse = CreateOTAUpdateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsIotJobId', 'createOTAUpdateResponse_awsIotJobId' - The IoT job ID associated with the OTA update.
---
 -- 'awsIotJobArn', 'createOTAUpdateResponse_awsIotJobArn' - The IoT job ARN associated with the OTA update.
 --
--- 'otaUpdateStatus', 'createOTAUpdateResponse_otaUpdateStatus' - The OTA update status.
+-- 'awsIotJobId', 'createOTAUpdateResponse_awsIotJobId' - The IoT job ID associated with the OTA update.
 --
 -- 'otaUpdateArn', 'createOTAUpdateResponse_otaUpdateArn' - The OTA update ARN.
 --
 -- 'otaUpdateId', 'createOTAUpdateResponse_otaUpdateId' - The OTA update ID.
+--
+-- 'otaUpdateStatus', 'createOTAUpdateResponse_otaUpdateStatus' - The OTA update status.
 --
 -- 'httpStatus', 'createOTAUpdateResponse_httpStatus' - The response's http status code.
 newCreateOTAUpdateResponse ::
@@ -384,26 +385,22 @@ newCreateOTAUpdateResponse ::
   CreateOTAUpdateResponse
 newCreateOTAUpdateResponse pHttpStatus_ =
   CreateOTAUpdateResponse'
-    { awsIotJobId =
+    { awsIotJobArn =
         Prelude.Nothing,
-      awsIotJobArn = Prelude.Nothing,
-      otaUpdateStatus = Prelude.Nothing,
+      awsIotJobId = Prelude.Nothing,
       otaUpdateArn = Prelude.Nothing,
       otaUpdateId = Prelude.Nothing,
+      otaUpdateStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The IoT job ID associated with the OTA update.
-createOTAUpdateResponse_awsIotJobId :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)
-createOTAUpdateResponse_awsIotJobId = Lens.lens (\CreateOTAUpdateResponse' {awsIotJobId} -> awsIotJobId) (\s@CreateOTAUpdateResponse' {} a -> s {awsIotJobId = a} :: CreateOTAUpdateResponse)
 
 -- | The IoT job ARN associated with the OTA update.
 createOTAUpdateResponse_awsIotJobArn :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)
 createOTAUpdateResponse_awsIotJobArn = Lens.lens (\CreateOTAUpdateResponse' {awsIotJobArn} -> awsIotJobArn) (\s@CreateOTAUpdateResponse' {} a -> s {awsIotJobArn = a} :: CreateOTAUpdateResponse)
 
--- | The OTA update status.
-createOTAUpdateResponse_otaUpdateStatus :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe OTAUpdateStatus)
-createOTAUpdateResponse_otaUpdateStatus = Lens.lens (\CreateOTAUpdateResponse' {otaUpdateStatus} -> otaUpdateStatus) (\s@CreateOTAUpdateResponse' {} a -> s {otaUpdateStatus = a} :: CreateOTAUpdateResponse)
+-- | The IoT job ID associated with the OTA update.
+createOTAUpdateResponse_awsIotJobId :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)
+createOTAUpdateResponse_awsIotJobId = Lens.lens (\CreateOTAUpdateResponse' {awsIotJobId} -> awsIotJobId) (\s@CreateOTAUpdateResponse' {} a -> s {awsIotJobId = a} :: CreateOTAUpdateResponse)
 
 -- | The OTA update ARN.
 createOTAUpdateResponse_otaUpdateArn :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)
@@ -413,15 +410,19 @@ createOTAUpdateResponse_otaUpdateArn = Lens.lens (\CreateOTAUpdateResponse' {ota
 createOTAUpdateResponse_otaUpdateId :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)
 createOTAUpdateResponse_otaUpdateId = Lens.lens (\CreateOTAUpdateResponse' {otaUpdateId} -> otaUpdateId) (\s@CreateOTAUpdateResponse' {} a -> s {otaUpdateId = a} :: CreateOTAUpdateResponse)
 
+-- | The OTA update status.
+createOTAUpdateResponse_otaUpdateStatus :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe OTAUpdateStatus)
+createOTAUpdateResponse_otaUpdateStatus = Lens.lens (\CreateOTAUpdateResponse' {otaUpdateStatus} -> otaUpdateStatus) (\s@CreateOTAUpdateResponse' {} a -> s {otaUpdateStatus = a} :: CreateOTAUpdateResponse)
+
 -- | The response's http status code.
 createOTAUpdateResponse_httpStatus :: Lens.Lens' CreateOTAUpdateResponse Prelude.Int
 createOTAUpdateResponse_httpStatus = Lens.lens (\CreateOTAUpdateResponse' {httpStatus} -> httpStatus) (\s@CreateOTAUpdateResponse' {} a -> s {httpStatus = a} :: CreateOTAUpdateResponse)
 
 instance Prelude.NFData CreateOTAUpdateResponse where
   rnf CreateOTAUpdateResponse' {..} =
-    Prelude.rnf awsIotJobId
-      `Prelude.seq` Prelude.rnf awsIotJobArn
-      `Prelude.seq` Prelude.rnf otaUpdateStatus
+    Prelude.rnf awsIotJobArn
+      `Prelude.seq` Prelude.rnf awsIotJobId
       `Prelude.seq` Prelude.rnf otaUpdateArn
       `Prelude.seq` Prelude.rnf otaUpdateId
+      `Prelude.seq` Prelude.rnf otaUpdateStatus
       `Prelude.seq` Prelude.rnf httpStatus

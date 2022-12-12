@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVersionInfo' smart constructor.
 data VersionInfo = VersionInfo'
-  { -- | The Docker version that\'s running on the container instance.
-    dockerVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Git commit hash for the Amazon ECS container agent build on the
+  { -- | The Git commit hash for the Amazon ECS container agent build on the
     -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
     -- GitHub repository.
     agentHash :: Prelude.Maybe Prelude.Text,
     -- | The version number of the Amazon ECS container agent.
-    agentVersion :: Prelude.Maybe Prelude.Text
+    agentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Docker version that\'s running on the container instance.
+    dockerVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,21 @@ data VersionInfo = VersionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dockerVersion', 'versionInfo_dockerVersion' - The Docker version that\'s running on the container instance.
---
 -- 'agentHash', 'versionInfo_agentHash' - The Git commit hash for the Amazon ECS container agent build on the
 -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
 -- GitHub repository.
 --
 -- 'agentVersion', 'versionInfo_agentVersion' - The version number of the Amazon ECS container agent.
+--
+-- 'dockerVersion', 'versionInfo_dockerVersion' - The Docker version that\'s running on the container instance.
 newVersionInfo ::
   VersionInfo
 newVersionInfo =
   VersionInfo'
-    { dockerVersion = Prelude.Nothing,
-      agentHash = Prelude.Nothing,
-      agentVersion = Prelude.Nothing
+    { agentHash = Prelude.Nothing,
+      agentVersion = Prelude.Nothing,
+      dockerVersion = Prelude.Nothing
     }
-
--- | The Docker version that\'s running on the container instance.
-versionInfo_dockerVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
-versionInfo_dockerVersion = Lens.lens (\VersionInfo' {dockerVersion} -> dockerVersion) (\s@VersionInfo' {} a -> s {dockerVersion = a} :: VersionInfo)
 
 -- | The Git commit hash for the Amazon ECS container agent build on the
 -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
@@ -78,35 +74,39 @@ versionInfo_agentHash = Lens.lens (\VersionInfo' {agentHash} -> agentHash) (\s@V
 versionInfo_agentVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
 versionInfo_agentVersion = Lens.lens (\VersionInfo' {agentVersion} -> agentVersion) (\s@VersionInfo' {} a -> s {agentVersion = a} :: VersionInfo)
 
+-- | The Docker version that\'s running on the container instance.
+versionInfo_dockerVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
+versionInfo_dockerVersion = Lens.lens (\VersionInfo' {dockerVersion} -> dockerVersion) (\s@VersionInfo' {} a -> s {dockerVersion = a} :: VersionInfo)
+
 instance Data.FromJSON VersionInfo where
   parseJSON =
     Data.withObject
       "VersionInfo"
       ( \x ->
           VersionInfo'
-            Prelude.<$> (x Data..:? "dockerVersion")
-            Prelude.<*> (x Data..:? "agentHash")
+            Prelude.<$> (x Data..:? "agentHash")
             Prelude.<*> (x Data..:? "agentVersion")
+            Prelude.<*> (x Data..:? "dockerVersion")
       )
 
 instance Prelude.Hashable VersionInfo where
   hashWithSalt _salt VersionInfo' {..} =
-    _salt `Prelude.hashWithSalt` dockerVersion
-      `Prelude.hashWithSalt` agentHash
+    _salt `Prelude.hashWithSalt` agentHash
       `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` dockerVersion
 
 instance Prelude.NFData VersionInfo where
   rnf VersionInfo' {..} =
-    Prelude.rnf dockerVersion
-      `Prelude.seq` Prelude.rnf agentHash
+    Prelude.rnf agentHash
       `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf dockerVersion
 
 instance Data.ToJSON VersionInfo where
   toJSON VersionInfo' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("dockerVersion" Data..=) Prelude.<$> dockerVersion,
-            ("agentHash" Data..=) Prelude.<$> agentHash,
-            ("agentVersion" Data..=) Prelude.<$> agentVersion
+          [ ("agentHash" Data..=) Prelude.<$> agentHash,
+            ("agentVersion" Data..=) Prelude.<$> agentVersion,
+            ("dockerVersion" Data..=) Prelude.<$> dockerVersion
           ]
       )

@@ -35,7 +35,11 @@ import Amazonka.SES.Types.ExtensionField
 --
 -- /See:/ 'newRecipientDsnFields' smart constructor.
 data RecipientDsnFields = RecipientDsnFields'
-  { -- | Additional X-headers to include in the DSN.
+  { -- | An extended explanation of what went wrong; this is usually an SMTP
+    -- response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the
+    -- correct formatting of this parameter.
+    diagnosticCode :: Prelude.Maybe Prelude.Text,
+    -- | Additional X-headers to include in the DSN.
     extensionFields :: Prelude.Maybe [ExtensionField],
     -- | The email address that the message was ultimately delivered to. This
     -- corresponds to the @Final-Recipient@ in the DSN. If not specified,
@@ -47,18 +51,14 @@ data RecipientDsnFields = RecipientDsnFields'
     -- Do not prepend the @FinalRecipient@ email address with @rfc 822;@, as
     -- described in <https://tools.ietf.org/html/rfc3798 RFC 3798>.
     finalRecipient :: Prelude.Maybe Prelude.Text,
+    -- | The time the final delivery attempt was made, in
+    -- <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
+    lastAttemptDate :: Prelude.Maybe Data.ISO8601,
     -- | The MTA to which the remote MTA attempted to deliver the message,
     -- formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
     -- (@mta-name-type; mta-name@). This parameter typically applies only to
     -- propagating synchronous bounces.
     remoteMta :: Prelude.Maybe Prelude.Text,
-    -- | An extended explanation of what went wrong; this is usually an SMTP
-    -- response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the
-    -- correct formatting of this parameter.
-    diagnosticCode :: Prelude.Maybe Prelude.Text,
-    -- | The time the final delivery attempt was made, in
-    -- <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
-    lastAttemptDate :: Prelude.Maybe Data.ISO8601,
     -- | The action performed by the reporting mail transfer agent (MTA) as a
     -- result of its attempt to deliver the message to the recipient address.
     -- This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464>.
@@ -77,6 +77,10 @@ data RecipientDsnFields = RecipientDsnFields'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'diagnosticCode', 'recipientDsnFields_diagnosticCode' - An extended explanation of what went wrong; this is usually an SMTP
+-- response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the
+-- correct formatting of this parameter.
+--
 -- 'extensionFields', 'recipientDsnFields_extensionFields' - Additional X-headers to include in the DSN.
 --
 -- 'finalRecipient', 'recipientDsnFields_finalRecipient' - The email address that the message was ultimately delivered to. This
@@ -89,17 +93,13 @@ data RecipientDsnFields = RecipientDsnFields'
 -- Do not prepend the @FinalRecipient@ email address with @rfc 822;@, as
 -- described in <https://tools.ietf.org/html/rfc3798 RFC 3798>.
 --
+-- 'lastAttemptDate', 'recipientDsnFields_lastAttemptDate' - The time the final delivery attempt was made, in
+-- <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
+--
 -- 'remoteMta', 'recipientDsnFields_remoteMta' - The MTA to which the remote MTA attempted to deliver the message,
 -- formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
 -- (@mta-name-type; mta-name@). This parameter typically applies only to
 -- propagating synchronous bounces.
---
--- 'diagnosticCode', 'recipientDsnFields_diagnosticCode' - An extended explanation of what went wrong; this is usually an SMTP
--- response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the
--- correct formatting of this parameter.
---
--- 'lastAttemptDate', 'recipientDsnFields_lastAttemptDate' - The time the final delivery attempt was made, in
--- <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
 --
 -- 'action', 'recipientDsnFields_action' - The action performed by the reporting mail transfer agent (MTA) as a
 -- result of its attempt to deliver the message to the recipient address.
@@ -115,15 +115,21 @@ newRecipientDsnFields ::
   RecipientDsnFields
 newRecipientDsnFields pAction_ pStatus_ =
   RecipientDsnFields'
-    { extensionFields =
+    { diagnosticCode =
         Prelude.Nothing,
+      extensionFields = Prelude.Nothing,
       finalRecipient = Prelude.Nothing,
-      remoteMta = Prelude.Nothing,
-      diagnosticCode = Prelude.Nothing,
       lastAttemptDate = Prelude.Nothing,
+      remoteMta = Prelude.Nothing,
       action = pAction_,
       status = pStatus_
     }
+
+-- | An extended explanation of what went wrong; this is usually an SMTP
+-- response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the
+-- correct formatting of this parameter.
+recipientDsnFields_diagnosticCode :: Lens.Lens' RecipientDsnFields (Prelude.Maybe Prelude.Text)
+recipientDsnFields_diagnosticCode = Lens.lens (\RecipientDsnFields' {diagnosticCode} -> diagnosticCode) (\s@RecipientDsnFields' {} a -> s {diagnosticCode = a} :: RecipientDsnFields)
 
 -- | Additional X-headers to include in the DSN.
 recipientDsnFields_extensionFields :: Lens.Lens' RecipientDsnFields (Prelude.Maybe [ExtensionField])
@@ -141,23 +147,17 @@ recipientDsnFields_extensionFields = Lens.lens (\RecipientDsnFields' {extensionF
 recipientDsnFields_finalRecipient :: Lens.Lens' RecipientDsnFields (Prelude.Maybe Prelude.Text)
 recipientDsnFields_finalRecipient = Lens.lens (\RecipientDsnFields' {finalRecipient} -> finalRecipient) (\s@RecipientDsnFields' {} a -> s {finalRecipient = a} :: RecipientDsnFields)
 
+-- | The time the final delivery attempt was made, in
+-- <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
+recipientDsnFields_lastAttemptDate :: Lens.Lens' RecipientDsnFields (Prelude.Maybe Prelude.UTCTime)
+recipientDsnFields_lastAttemptDate = Lens.lens (\RecipientDsnFields' {lastAttemptDate} -> lastAttemptDate) (\s@RecipientDsnFields' {} a -> s {lastAttemptDate = a} :: RecipientDsnFields) Prelude.. Lens.mapping Data._Time
+
 -- | The MTA to which the remote MTA attempted to deliver the message,
 -- formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
 -- (@mta-name-type; mta-name@). This parameter typically applies only to
 -- propagating synchronous bounces.
 recipientDsnFields_remoteMta :: Lens.Lens' RecipientDsnFields (Prelude.Maybe Prelude.Text)
 recipientDsnFields_remoteMta = Lens.lens (\RecipientDsnFields' {remoteMta} -> remoteMta) (\s@RecipientDsnFields' {} a -> s {remoteMta = a} :: RecipientDsnFields)
-
--- | An extended explanation of what went wrong; this is usually an SMTP
--- response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the
--- correct formatting of this parameter.
-recipientDsnFields_diagnosticCode :: Lens.Lens' RecipientDsnFields (Prelude.Maybe Prelude.Text)
-recipientDsnFields_diagnosticCode = Lens.lens (\RecipientDsnFields' {diagnosticCode} -> diagnosticCode) (\s@RecipientDsnFields' {} a -> s {diagnosticCode = a} :: RecipientDsnFields)
-
--- | The time the final delivery attempt was made, in
--- <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
-recipientDsnFields_lastAttemptDate :: Lens.Lens' RecipientDsnFields (Prelude.Maybe Prelude.UTCTime)
-recipientDsnFields_lastAttemptDate = Lens.lens (\RecipientDsnFields' {lastAttemptDate} -> lastAttemptDate) (\s@RecipientDsnFields' {} a -> s {lastAttemptDate = a} :: RecipientDsnFields) Prelude.. Lens.mapping Data._Time
 
 -- | The action performed by the reporting mail transfer agent (MTA) as a
 -- result of its attempt to deliver the message to the recipient address.
@@ -172,36 +172,36 @@ recipientDsnFields_status = Lens.lens (\RecipientDsnFields' {status} -> status) 
 
 instance Prelude.Hashable RecipientDsnFields where
   hashWithSalt _salt RecipientDsnFields' {..} =
-    _salt `Prelude.hashWithSalt` extensionFields
+    _salt `Prelude.hashWithSalt` diagnosticCode
+      `Prelude.hashWithSalt` extensionFields
       `Prelude.hashWithSalt` finalRecipient
-      `Prelude.hashWithSalt` remoteMta
-      `Prelude.hashWithSalt` diagnosticCode
       `Prelude.hashWithSalt` lastAttemptDate
+      `Prelude.hashWithSalt` remoteMta
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData RecipientDsnFields where
   rnf RecipientDsnFields' {..} =
-    Prelude.rnf extensionFields
+    Prelude.rnf diagnosticCode
+      `Prelude.seq` Prelude.rnf extensionFields
       `Prelude.seq` Prelude.rnf finalRecipient
-      `Prelude.seq` Prelude.rnf remoteMta
-      `Prelude.seq` Prelude.rnf diagnosticCode
       `Prelude.seq` Prelude.rnf lastAttemptDate
+      `Prelude.seq` Prelude.rnf remoteMta
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf status
 
 instance Data.ToQuery RecipientDsnFields where
   toQuery RecipientDsnFields' {..} =
     Prelude.mconcat
-      [ "ExtensionFields"
+      [ "DiagnosticCode" Data.=: diagnosticCode,
+        "ExtensionFields"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> extensionFields
             ),
         "FinalRecipient" Data.=: finalRecipient,
-        "RemoteMta" Data.=: remoteMta,
-        "DiagnosticCode" Data.=: diagnosticCode,
         "LastAttemptDate" Data.=: lastAttemptDate,
+        "RemoteMta" Data.=: remoteMta,
         "Action" Data.=: action,
         "Status" Data.=: status
       ]

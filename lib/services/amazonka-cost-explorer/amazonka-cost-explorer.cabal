@@ -72,8 +72,10 @@ library
     Amazonka.CostExplorer.Lens
     Amazonka.CostExplorer.ListCostAllocationTags
     Amazonka.CostExplorer.ListCostCategoryDefinitions
+    Amazonka.CostExplorer.ListSavingsPlansPurchaseRecommendationGeneration
     Amazonka.CostExplorer.ListTagsForResource
     Amazonka.CostExplorer.ProvideAnomalyFeedback
+    Amazonka.CostExplorer.StartSavingsPlansPurchaseRecommendationGeneration
     Amazonka.CostExplorer.TagResource
     Amazonka.CostExplorer.Types
     Amazonka.CostExplorer.Types.AccountScope
@@ -125,6 +127,8 @@ library
     Amazonka.CostExplorer.Types.Expression
     Amazonka.CostExplorer.Types.FindingReasonCode
     Amazonka.CostExplorer.Types.ForecastResult
+    Amazonka.CostExplorer.Types.GenerationStatus
+    Amazonka.CostExplorer.Types.GenerationSummary
     Amazonka.CostExplorer.Types.Granularity
     Amazonka.CostExplorer.Types.Group
     Amazonka.CostExplorer.Types.GroupDefinition

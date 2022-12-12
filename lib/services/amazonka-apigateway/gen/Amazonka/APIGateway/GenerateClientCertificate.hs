@@ -27,20 +27,20 @@ module Amazonka.APIGateway.GenerateClientCertificate
     newGenerateClientCertificate,
 
     -- * Request Lenses
-    generateClientCertificate_tags,
     generateClientCertificate_description,
+    generateClientCertificate_tags,
 
     -- * Destructuring the Response
     ClientCertificate (..),
     newClientCertificate,
 
     -- * Response Lenses
-    clientCertificate_tags,
-    clientCertificate_pemEncodedCertificate,
-    clientCertificate_description,
     clientCertificate_clientCertificateId,
     clientCertificate_createdDate,
+    clientCertificate_description,
     clientCertificate_expirationDate,
+    clientCertificate_pemEncodedCertificate,
+    clientCertificate_tags,
   )
 where
 
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGenerateClientCertificate' smart constructor.
 data GenerateClientCertificate = GenerateClientCertificate'
-  { -- | The key-value map of strings. The valid character set is
+  { -- | The description of the ClientCertificate.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the ClientCertificate.
-    description :: Prelude.Maybe Prelude.Text
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,28 +73,29 @@ data GenerateClientCertificate = GenerateClientCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'generateClientCertificate_description' - The description of the ClientCertificate.
+--
 -- 'tags', 'generateClientCertificate_tags' - The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
---
--- 'description', 'generateClientCertificate_description' - The description of the ClientCertificate.
 newGenerateClientCertificate ::
   GenerateClientCertificate
 newGenerateClientCertificate =
   GenerateClientCertificate'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing
+    { description =
+        Prelude.Nothing,
+      tags = Prelude.Nothing
     }
+
+-- | The description of the ClientCertificate.
+generateClientCertificate_description :: Lens.Lens' GenerateClientCertificate (Prelude.Maybe Prelude.Text)
+generateClientCertificate_description = Lens.lens (\GenerateClientCertificate' {description} -> description) (\s@GenerateClientCertificate' {} a -> s {description = a} :: GenerateClientCertificate)
 
 -- | The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
 generateClientCertificate_tags :: Lens.Lens' GenerateClientCertificate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 generateClientCertificate_tags = Lens.lens (\GenerateClientCertificate' {tags} -> tags) (\s@GenerateClientCertificate' {} a -> s {tags = a} :: GenerateClientCertificate) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the ClientCertificate.
-generateClientCertificate_description :: Lens.Lens' GenerateClientCertificate (Prelude.Maybe Prelude.Text)
-generateClientCertificate_description = Lens.lens (\GenerateClientCertificate' {description} -> description) (\s@GenerateClientCertificate' {} a -> s {description = a} :: GenerateClientCertificate)
 
 instance Core.AWSRequest GenerateClientCertificate where
   type
@@ -108,13 +109,13 @@ instance Core.AWSRequest GenerateClientCertificate where
 
 instance Prelude.Hashable GenerateClientCertificate where
   hashWithSalt _salt GenerateClientCertificate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData GenerateClientCertificate where
   rnf GenerateClientCertificate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders GenerateClientCertificate where
   toHeaders =
@@ -129,8 +130,8 @@ instance Data.ToJSON GenerateClientCertificate where
   toJSON GenerateClientCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 

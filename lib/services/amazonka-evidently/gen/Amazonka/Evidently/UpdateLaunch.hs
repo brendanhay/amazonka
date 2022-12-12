@@ -32,10 +32,10 @@ module Amazonka.Evidently.UpdateLaunch
 
     -- * Request Lenses
     updateLaunch_description,
-    updateLaunch_scheduledSplitsConfig,
-    updateLaunch_metricMonitors,
     updateLaunch_groups,
+    updateLaunch_metricMonitors,
     updateLaunch_randomizationSalt,
+    updateLaunch_scheduledSplitsConfig,
     updateLaunch_launch,
     updateLaunch_project,
 
@@ -61,21 +61,21 @@ import qualified Amazonka.Response as Response
 data UpdateLaunch = UpdateLaunch'
   { -- | An optional description for the launch.
     description :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that define the traffic allocation percentages
-    -- among the feature variations during each step of the launch.
-    scheduledSplitsConfig :: Prelude.Maybe ScheduledSplitsLaunchConfig,
-    -- | An array of structures that define the metrics that will be used to
-    -- monitor the launch performance.
-    metricMonitors :: Prelude.Maybe [MetricMonitorConfig],
     -- | An array of structures that contains the feature and variations that are
     -- to be used for the launch.
     groups :: Prelude.Maybe (Prelude.NonEmpty LaunchGroupConfig),
+    -- | An array of structures that define the metrics that will be used to
+    -- monitor the launch performance.
+    metricMonitors :: Prelude.Maybe [MetricMonitorConfig],
     -- | When Evidently assigns a particular user session to a launch, it must
     -- use a randomization ID to determine which variation the user session is
     -- served. This randomization ID is a combination of the entity ID and
     -- @randomizationSalt@. If you omit @randomizationSalt@, Evidently uses the
     -- launch name as the @randomizationSalt@.
     randomizationSalt :: Prelude.Maybe Prelude.Text,
+    -- | An array of structures that define the traffic allocation percentages
+    -- among the feature variations during each step of the launch.
+    scheduledSplitsConfig :: Prelude.Maybe ScheduledSplitsLaunchConfig,
     -- | The name of the launch that is to be updated.
     launch :: Prelude.Text,
     -- | The name or ARN of the project that contains the launch that you want to
@@ -94,20 +94,20 @@ data UpdateLaunch = UpdateLaunch'
 --
 -- 'description', 'updateLaunch_description' - An optional description for the launch.
 --
--- 'scheduledSplitsConfig', 'updateLaunch_scheduledSplitsConfig' - An array of structures that define the traffic allocation percentages
--- among the feature variations during each step of the launch.
+-- 'groups', 'updateLaunch_groups' - An array of structures that contains the feature and variations that are
+-- to be used for the launch.
 --
 -- 'metricMonitors', 'updateLaunch_metricMonitors' - An array of structures that define the metrics that will be used to
 -- monitor the launch performance.
---
--- 'groups', 'updateLaunch_groups' - An array of structures that contains the feature and variations that are
--- to be used for the launch.
 --
 -- 'randomizationSalt', 'updateLaunch_randomizationSalt' - When Evidently assigns a particular user session to a launch, it must
 -- use a randomization ID to determine which variation the user session is
 -- served. This randomization ID is a combination of the entity ID and
 -- @randomizationSalt@. If you omit @randomizationSalt@, Evidently uses the
 -- launch name as the @randomizationSalt@.
+--
+-- 'scheduledSplitsConfig', 'updateLaunch_scheduledSplitsConfig' - An array of structures that define the traffic allocation percentages
+-- among the feature variations during each step of the launch.
 --
 -- 'launch', 'updateLaunch_launch' - The name of the launch that is to be updated.
 --
@@ -122,10 +122,10 @@ newUpdateLaunch ::
 newUpdateLaunch pLaunch_ pProject_ =
   UpdateLaunch'
     { description = Prelude.Nothing,
-      scheduledSplitsConfig = Prelude.Nothing,
-      metricMonitors = Prelude.Nothing,
       groups = Prelude.Nothing,
+      metricMonitors = Prelude.Nothing,
       randomizationSalt = Prelude.Nothing,
+      scheduledSplitsConfig = Prelude.Nothing,
       launch = pLaunch_,
       project = pProject_
     }
@@ -134,20 +134,15 @@ newUpdateLaunch pLaunch_ pProject_ =
 updateLaunch_description :: Lens.Lens' UpdateLaunch (Prelude.Maybe Prelude.Text)
 updateLaunch_description = Lens.lens (\UpdateLaunch' {description} -> description) (\s@UpdateLaunch' {} a -> s {description = a} :: UpdateLaunch)
 
--- | An array of structures that define the traffic allocation percentages
--- among the feature variations during each step of the launch.
-updateLaunch_scheduledSplitsConfig :: Lens.Lens' UpdateLaunch (Prelude.Maybe ScheduledSplitsLaunchConfig)
-updateLaunch_scheduledSplitsConfig = Lens.lens (\UpdateLaunch' {scheduledSplitsConfig} -> scheduledSplitsConfig) (\s@UpdateLaunch' {} a -> s {scheduledSplitsConfig = a} :: UpdateLaunch)
+-- | An array of structures that contains the feature and variations that are
+-- to be used for the launch.
+updateLaunch_groups :: Lens.Lens' UpdateLaunch (Prelude.Maybe (Prelude.NonEmpty LaunchGroupConfig))
+updateLaunch_groups = Lens.lens (\UpdateLaunch' {groups} -> groups) (\s@UpdateLaunch' {} a -> s {groups = a} :: UpdateLaunch) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of structures that define the metrics that will be used to
 -- monitor the launch performance.
 updateLaunch_metricMonitors :: Lens.Lens' UpdateLaunch (Prelude.Maybe [MetricMonitorConfig])
 updateLaunch_metricMonitors = Lens.lens (\UpdateLaunch' {metricMonitors} -> metricMonitors) (\s@UpdateLaunch' {} a -> s {metricMonitors = a} :: UpdateLaunch) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of structures that contains the feature and variations that are
--- to be used for the launch.
-updateLaunch_groups :: Lens.Lens' UpdateLaunch (Prelude.Maybe (Prelude.NonEmpty LaunchGroupConfig))
-updateLaunch_groups = Lens.lens (\UpdateLaunch' {groups} -> groups) (\s@UpdateLaunch' {} a -> s {groups = a} :: UpdateLaunch) Prelude.. Lens.mapping Lens.coerced
 
 -- | When Evidently assigns a particular user session to a launch, it must
 -- use a randomization ID to determine which variation the user session is
@@ -156,6 +151,11 @@ updateLaunch_groups = Lens.lens (\UpdateLaunch' {groups} -> groups) (\s@UpdateLa
 -- launch name as the @randomizationSalt@.
 updateLaunch_randomizationSalt :: Lens.Lens' UpdateLaunch (Prelude.Maybe Prelude.Text)
 updateLaunch_randomizationSalt = Lens.lens (\UpdateLaunch' {randomizationSalt} -> randomizationSalt) (\s@UpdateLaunch' {} a -> s {randomizationSalt = a} :: UpdateLaunch)
+
+-- | An array of structures that define the traffic allocation percentages
+-- among the feature variations during each step of the launch.
+updateLaunch_scheduledSplitsConfig :: Lens.Lens' UpdateLaunch (Prelude.Maybe ScheduledSplitsLaunchConfig)
+updateLaunch_scheduledSplitsConfig = Lens.lens (\UpdateLaunch' {scheduledSplitsConfig} -> scheduledSplitsConfig) (\s@UpdateLaunch' {} a -> s {scheduledSplitsConfig = a} :: UpdateLaunch)
 
 -- | The name of the launch that is to be updated.
 updateLaunch_launch :: Lens.Lens' UpdateLaunch Prelude.Text
@@ -181,20 +181,20 @@ instance Core.AWSRequest UpdateLaunch where
 instance Prelude.Hashable UpdateLaunch where
   hashWithSalt _salt UpdateLaunch' {..} =
     _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` scheduledSplitsConfig
-      `Prelude.hashWithSalt` metricMonitors
       `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` metricMonitors
       `Prelude.hashWithSalt` randomizationSalt
+      `Prelude.hashWithSalt` scheduledSplitsConfig
       `Prelude.hashWithSalt` launch
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData UpdateLaunch where
   rnf UpdateLaunch' {..} =
     Prelude.rnf description
-      `Prelude.seq` Prelude.rnf scheduledSplitsConfig
-      `Prelude.seq` Prelude.rnf metricMonitors
       `Prelude.seq` Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf metricMonitors
       `Prelude.seq` Prelude.rnf randomizationSalt
+      `Prelude.seq` Prelude.rnf scheduledSplitsConfig
       `Prelude.seq` Prelude.rnf launch
       `Prelude.seq` Prelude.rnf project
 
@@ -214,13 +214,13 @@ instance Data.ToJSON UpdateLaunch where
     Data.object
       ( Prelude.catMaybes
           [ ("description" Data..=) Prelude.<$> description,
-            ("scheduledSplitsConfig" Data..=)
-              Prelude.<$> scheduledSplitsConfig,
+            ("groups" Data..=) Prelude.<$> groups,
             ("metricMonitors" Data..=)
               Prelude.<$> metricMonitors,
-            ("groups" Data..=) Prelude.<$> groups,
             ("randomizationSalt" Data..=)
-              Prelude.<$> randomizationSalt
+              Prelude.<$> randomizationSalt,
+            ("scheduledSplitsConfig" Data..=)
+              Prelude.<$> scheduledSplitsConfig
           ]
       )
 

@@ -29,8 +29,8 @@ module Amazonka.SSO.ListAccountRoles
     newListAccountRoles,
 
     -- * Request Lenses
-    listAccountRoles_nextToken,
     listAccountRoles_maxResults,
+    listAccountRoles_nextToken,
     listAccountRoles_accessToken,
     listAccountRoles_accountId,
 
@@ -55,11 +55,11 @@ import Amazonka.SSO.Types
 
 -- | /See:/ 'newListAccountRoles' smart constructor.
 data ListAccountRoles = ListAccountRoles'
-  { -- | The page token from the previous response output when you request
+  { -- | The number of items that clients can request per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The page token from the previous response output when you request
     -- subsequent pages.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of items that clients can request per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token issued by the @CreateToken@ API call. For more information,
     -- see
     -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
@@ -78,10 +78,10 @@ data ListAccountRoles = ListAccountRoles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAccountRoles_maxResults' - The number of items that clients can request per page.
+--
 -- 'nextToken', 'listAccountRoles_nextToken' - The page token from the previous response output when you request
 -- subsequent pages.
---
--- 'maxResults', 'listAccountRoles_maxResults' - The number of items that clients can request per page.
 --
 -- 'accessToken', 'listAccountRoles_accessToken' - The token issued by the @CreateToken@ API call. For more information,
 -- see
@@ -97,20 +97,20 @@ newListAccountRoles ::
   ListAccountRoles
 newListAccountRoles pAccessToken_ pAccountId_ =
   ListAccountRoles'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       accessToken = Data._Sensitive Lens.# pAccessToken_,
       accountId = pAccountId_
     }
+
+-- | The number of items that clients can request per page.
+listAccountRoles_maxResults :: Lens.Lens' ListAccountRoles (Prelude.Maybe Prelude.Natural)
+listAccountRoles_maxResults = Lens.lens (\ListAccountRoles' {maxResults} -> maxResults) (\s@ListAccountRoles' {} a -> s {maxResults = a} :: ListAccountRoles)
 
 -- | The page token from the previous response output when you request
 -- subsequent pages.
 listAccountRoles_nextToken :: Lens.Lens' ListAccountRoles (Prelude.Maybe Prelude.Text)
 listAccountRoles_nextToken = Lens.lens (\ListAccountRoles' {nextToken} -> nextToken) (\s@ListAccountRoles' {} a -> s {nextToken = a} :: ListAccountRoles)
-
--- | The number of items that clients can request per page.
-listAccountRoles_maxResults :: Lens.Lens' ListAccountRoles (Prelude.Maybe Prelude.Natural)
-listAccountRoles_maxResults = Lens.lens (\ListAccountRoles' {maxResults} -> maxResults) (\s@ListAccountRoles' {} a -> s {maxResults = a} :: ListAccountRoles)
 
 -- | The token issued by the @CreateToken@ API call. For more information,
 -- see
@@ -162,15 +162,15 @@ instance Core.AWSRequest ListAccountRoles where
 
 instance Prelude.Hashable ListAccountRoles where
   hashWithSalt _salt ListAccountRoles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData ListAccountRoles where
   rnf ListAccountRoles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf accessToken
       `Prelude.seq` Prelude.rnf accountId
 
@@ -188,8 +188,8 @@ instance Data.ToPath ListAccountRoles where
 instance Data.ToQuery ListAccountRoles where
   toQuery ListAccountRoles' {..} =
     Prelude.mconcat
-      [ "next_token" Data.=: nextToken,
-        "max_result" Data.=: maxResults,
+      [ "max_result" Data.=: maxResults,
+        "next_token" Data.=: nextToken,
         "account_id" Data.=: accountId
       ]
 

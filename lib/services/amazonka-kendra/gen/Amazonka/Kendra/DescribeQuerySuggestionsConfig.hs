@@ -39,15 +39,15 @@ module Amazonka.Kendra.DescribeQuerySuggestionsConfig
     newDescribeQuerySuggestionsConfigResponse,
 
     -- * Response Lenses
-    describeQuerySuggestionsConfigResponse_status,
-    describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers,
-    describeQuerySuggestionsConfigResponse_totalSuggestionsCount,
-    describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime,
-    describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays,
-    describeQuerySuggestionsConfigResponse_mode,
-    describeQuerySuggestionsConfigResponse_minimumQueryCount,
     describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation,
     describeQuerySuggestionsConfigResponse_lastClearTime,
+    describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime,
+    describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers,
+    describeQuerySuggestionsConfigResponse_minimumQueryCount,
+    describeQuerySuggestionsConfigResponse_mode,
+    describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays,
+    describeQuerySuggestionsConfigResponse_status,
+    describeQuerySuggestionsConfigResponse_totalSuggestionsCount,
     describeQuerySuggestionsConfigResponse_httpStatus,
   )
 where
@@ -106,15 +106,15 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeQuerySuggestionsConfigResponse'
-            Prelude.<$> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "MinimumNumberOfQueryingUsers")
-            Prelude.<*> (x Data..?> "TotalSuggestionsCount")
-            Prelude.<*> (x Data..?> "LastSuggestionsBuildTime")
-            Prelude.<*> (x Data..?> "QueryLogLookBackWindowInDays")
-            Prelude.<*> (x Data..?> "Mode")
-            Prelude.<*> (x Data..?> "MinimumQueryCount")
-            Prelude.<*> (x Data..?> "IncludeQueriesWithoutUserInformation")
+            Prelude.<$> (x Data..?> "IncludeQueriesWithoutUserInformation")
             Prelude.<*> (x Data..?> "LastClearTime")
+            Prelude.<*> (x Data..?> "LastSuggestionsBuildTime")
+            Prelude.<*> (x Data..?> "MinimumNumberOfQueryingUsers")
+            Prelude.<*> (x Data..?> "MinimumQueryCount")
+            Prelude.<*> (x Data..?> "Mode")
+            Prelude.<*> (x Data..?> "QueryLogLookBackWindowInDays")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "TotalSuggestionsCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,38 +167,7 @@ instance Data.ToQuery DescribeQuerySuggestionsConfig where
 
 -- | /See:/ 'newDescribeQuerySuggestionsConfigResponse' smart constructor.
 data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResponse'
-  { -- | Whether the status of query suggestions settings is currently @ACTIVE@
-    -- or @UPDATING@.
-    --
-    -- Active means the current settings apply and Updating means your changed
-    -- settings are in the process of applying.
-    status :: Prelude.Maybe QuerySuggestionsStatus,
-    -- | The minimum number of unique users who must search a query in order for
-    -- the query to be eligible to suggest to your users.
-    minimumNumberOfQueryingUsers :: Prelude.Maybe Prelude.Natural,
-    -- | The current total count of query suggestions for an index.
-    --
-    -- This count can change when you update your query suggestions settings,
-    -- if you filter out certain queries from suggestions using a block list,
-    -- and as the query log accumulates more queries for Amazon Kendra to learn
-    -- from.
-    totalSuggestionsCount :: Prelude.Maybe Prelude.Int,
-    -- | The date-time query suggestions for an index was last updated.
-    lastSuggestionsBuildTime :: Prelude.Maybe Data.POSIX,
-    -- | How recent your queries are in your query log time window (in days).
-    queryLogLookBackWindowInDays :: Prelude.Maybe Prelude.Int,
-    -- | Whether query suggestions are currently in @ENABLED@ mode or
-    -- @LEARN_ONLY@ mode.
-    --
-    -- By default, Amazon Kendra enables query suggestions.@LEARN_ONLY@ turns
-    -- off query suggestions for your users. You can change the mode using the
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html UpdateQuerySuggestionsConfig>
-    -- API.
-    mode :: Prelude.Maybe Mode,
-    -- | The minimum number of times a query must be searched in order for the
-    -- query to be eligible to suggest to your users.
-    minimumQueryCount :: Prelude.Maybe Prelude.Natural,
-    -- | @TRUE@ to use all queries, otherwise use only queries that include user
+  { -- | @TRUE@ to use all queries, otherwise use only queries that include user
     -- information to generate the query suggestions.
     includeQueriesWithoutUserInformation :: Prelude.Maybe Prelude.Bool,
     -- | The date-time query suggestions for an index was last cleared.
@@ -208,6 +177,37 @@ data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResp
     -- suggestions. Amazon Kendra only considers re-occurences of a query from
     -- the time you cleared suggestions.
     lastClearTime :: Prelude.Maybe Data.POSIX,
+    -- | The date-time query suggestions for an index was last updated.
+    lastSuggestionsBuildTime :: Prelude.Maybe Data.POSIX,
+    -- | The minimum number of unique users who must search a query in order for
+    -- the query to be eligible to suggest to your users.
+    minimumNumberOfQueryingUsers :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum number of times a query must be searched in order for the
+    -- query to be eligible to suggest to your users.
+    minimumQueryCount :: Prelude.Maybe Prelude.Natural,
+    -- | Whether query suggestions are currently in @ENABLED@ mode or
+    -- @LEARN_ONLY@ mode.
+    --
+    -- By default, Amazon Kendra enables query suggestions.@LEARN_ONLY@ turns
+    -- off query suggestions for your users. You can change the mode using the
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html UpdateQuerySuggestionsConfig>
+    -- API.
+    mode :: Prelude.Maybe Mode,
+    -- | How recent your queries are in your query log time window (in days).
+    queryLogLookBackWindowInDays :: Prelude.Maybe Prelude.Int,
+    -- | Whether the status of query suggestions settings is currently @ACTIVE@
+    -- or @UPDATING@.
+    --
+    -- Active means the current settings apply and Updating means your changed
+    -- settings are in the process of applying.
+    status :: Prelude.Maybe QuerySuggestionsStatus,
+    -- | The current total count of query suggestions for an index.
+    --
+    -- This count can change when you update your query suggestions settings,
+    -- if you filter out certain queries from suggestions using a block list,
+    -- and as the query log accumulates more queries for Amazon Kendra to learn
+    -- from.
+    totalSuggestionsCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,37 +221,6 @@ data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeQuerySuggestionsConfigResponse_status' - Whether the status of query suggestions settings is currently @ACTIVE@
--- or @UPDATING@.
---
--- Active means the current settings apply and Updating means your changed
--- settings are in the process of applying.
---
--- 'minimumNumberOfQueryingUsers', 'describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers' - The minimum number of unique users who must search a query in order for
--- the query to be eligible to suggest to your users.
---
--- 'totalSuggestionsCount', 'describeQuerySuggestionsConfigResponse_totalSuggestionsCount' - The current total count of query suggestions for an index.
---
--- This count can change when you update your query suggestions settings,
--- if you filter out certain queries from suggestions using a block list,
--- and as the query log accumulates more queries for Amazon Kendra to learn
--- from.
---
--- 'lastSuggestionsBuildTime', 'describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime' - The date-time query suggestions for an index was last updated.
---
--- 'queryLogLookBackWindowInDays', 'describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays' - How recent your queries are in your query log time window (in days).
---
--- 'mode', 'describeQuerySuggestionsConfigResponse_mode' - Whether query suggestions are currently in @ENABLED@ mode or
--- @LEARN_ONLY@ mode.
---
--- By default, Amazon Kendra enables query suggestions.@LEARN_ONLY@ turns
--- off query suggestions for your users. You can change the mode using the
--- <https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html UpdateQuerySuggestionsConfig>
--- API.
---
--- 'minimumQueryCount', 'describeQuerySuggestionsConfigResponse_minimumQueryCount' - The minimum number of times a query must be searched in order for the
--- query to be eligible to suggest to your users.
---
 -- 'includeQueriesWithoutUserInformation', 'describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation' - @TRUE@ to use all queries, otherwise use only queries that include user
 -- information to generate the query suggestions.
 --
@@ -262,6 +231,37 @@ data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResp
 -- suggestions. Amazon Kendra only considers re-occurences of a query from
 -- the time you cleared suggestions.
 --
+-- 'lastSuggestionsBuildTime', 'describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime' - The date-time query suggestions for an index was last updated.
+--
+-- 'minimumNumberOfQueryingUsers', 'describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers' - The minimum number of unique users who must search a query in order for
+-- the query to be eligible to suggest to your users.
+--
+-- 'minimumQueryCount', 'describeQuerySuggestionsConfigResponse_minimumQueryCount' - The minimum number of times a query must be searched in order for the
+-- query to be eligible to suggest to your users.
+--
+-- 'mode', 'describeQuerySuggestionsConfigResponse_mode' - Whether query suggestions are currently in @ENABLED@ mode or
+-- @LEARN_ONLY@ mode.
+--
+-- By default, Amazon Kendra enables query suggestions.@LEARN_ONLY@ turns
+-- off query suggestions for your users. You can change the mode using the
+-- <https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html UpdateQuerySuggestionsConfig>
+-- API.
+--
+-- 'queryLogLookBackWindowInDays', 'describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays' - How recent your queries are in your query log time window (in days).
+--
+-- 'status', 'describeQuerySuggestionsConfigResponse_status' - Whether the status of query suggestions settings is currently @ACTIVE@
+-- or @UPDATING@.
+--
+-- Active means the current settings apply and Updating means your changed
+-- settings are in the process of applying.
+--
+-- 'totalSuggestionsCount', 'describeQuerySuggestionsConfigResponse_totalSuggestionsCount' - The current total count of query suggestions for an index.
+--
+-- This count can change when you update your query suggestions settings,
+-- if you filter out certain queries from suggestions using a block list,
+-- and as the query log accumulates more queries for Amazon Kendra to learn
+-- from.
+--
 -- 'httpStatus', 'describeQuerySuggestionsConfigResponse_httpStatus' - The response's http status code.
 newDescribeQuerySuggestionsConfigResponse ::
   -- | 'httpStatus'
@@ -270,68 +270,22 @@ newDescribeQuerySuggestionsConfigResponse ::
 newDescribeQuerySuggestionsConfigResponse
   pHttpStatus_ =
     DescribeQuerySuggestionsConfigResponse'
-      { status =
+      { includeQueriesWithoutUserInformation =
+          Prelude.Nothing,
+        lastClearTime = Prelude.Nothing,
+        lastSuggestionsBuildTime =
           Prelude.Nothing,
         minimumNumberOfQueryingUsers =
           Prelude.Nothing,
-        totalSuggestionsCount =
-          Prelude.Nothing,
-        lastSuggestionsBuildTime =
-          Prelude.Nothing,
+        minimumQueryCount = Prelude.Nothing,
+        mode = Prelude.Nothing,
         queryLogLookBackWindowInDays =
           Prelude.Nothing,
-        mode = Prelude.Nothing,
-        minimumQueryCount = Prelude.Nothing,
-        includeQueriesWithoutUserInformation =
+        status = Prelude.Nothing,
+        totalSuggestionsCount =
           Prelude.Nothing,
-        lastClearTime = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Whether the status of query suggestions settings is currently @ACTIVE@
--- or @UPDATING@.
---
--- Active means the current settings apply and Updating means your changed
--- settings are in the process of applying.
-describeQuerySuggestionsConfigResponse_status :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe QuerySuggestionsStatus)
-describeQuerySuggestionsConfigResponse_status = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {status} -> status) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {status = a} :: DescribeQuerySuggestionsConfigResponse)
-
--- | The minimum number of unique users who must search a query in order for
--- the query to be eligible to suggest to your users.
-describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Natural)
-describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {minimumNumberOfQueryingUsers} -> minimumNumberOfQueryingUsers) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {minimumNumberOfQueryingUsers = a} :: DescribeQuerySuggestionsConfigResponse)
-
--- | The current total count of query suggestions for an index.
---
--- This count can change when you update your query suggestions settings,
--- if you filter out certain queries from suggestions using a block list,
--- and as the query log accumulates more queries for Amazon Kendra to learn
--- from.
-describeQuerySuggestionsConfigResponse_totalSuggestionsCount :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Int)
-describeQuerySuggestionsConfigResponse_totalSuggestionsCount = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {totalSuggestionsCount} -> totalSuggestionsCount) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {totalSuggestionsCount = a} :: DescribeQuerySuggestionsConfigResponse)
-
--- | The date-time query suggestions for an index was last updated.
-describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.UTCTime)
-describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {lastSuggestionsBuildTime} -> lastSuggestionsBuildTime) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {lastSuggestionsBuildTime = a} :: DescribeQuerySuggestionsConfigResponse) Prelude.. Lens.mapping Data._Time
-
--- | How recent your queries are in your query log time window (in days).
-describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Int)
-describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {queryLogLookBackWindowInDays} -> queryLogLookBackWindowInDays) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {queryLogLookBackWindowInDays = a} :: DescribeQuerySuggestionsConfigResponse)
-
--- | Whether query suggestions are currently in @ENABLED@ mode or
--- @LEARN_ONLY@ mode.
---
--- By default, Amazon Kendra enables query suggestions.@LEARN_ONLY@ turns
--- off query suggestions for your users. You can change the mode using the
--- <https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html UpdateQuerySuggestionsConfig>
--- API.
-describeQuerySuggestionsConfigResponse_mode :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Mode)
-describeQuerySuggestionsConfigResponse_mode = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {mode} -> mode) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {mode = a} :: DescribeQuerySuggestionsConfigResponse)
-
--- | The minimum number of times a query must be searched in order for the
--- query to be eligible to suggest to your users.
-describeQuerySuggestionsConfigResponse_minimumQueryCount :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Natural)
-describeQuerySuggestionsConfigResponse_minimumQueryCount = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {minimumQueryCount} -> minimumQueryCount) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {minimumQueryCount = a} :: DescribeQuerySuggestionsConfigResponse)
 
 -- | @TRUE@ to use all queries, otherwise use only queries that include user
 -- information to generate the query suggestions.
@@ -347,6 +301,51 @@ describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation = Le
 describeQuerySuggestionsConfigResponse_lastClearTime :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.UTCTime)
 describeQuerySuggestionsConfigResponse_lastClearTime = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {lastClearTime} -> lastClearTime) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {lastClearTime = a} :: DescribeQuerySuggestionsConfigResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The date-time query suggestions for an index was last updated.
+describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.UTCTime)
+describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {lastSuggestionsBuildTime} -> lastSuggestionsBuildTime) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {lastSuggestionsBuildTime = a} :: DescribeQuerySuggestionsConfigResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The minimum number of unique users who must search a query in order for
+-- the query to be eligible to suggest to your users.
+describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Natural)
+describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {minimumNumberOfQueryingUsers} -> minimumNumberOfQueryingUsers) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {minimumNumberOfQueryingUsers = a} :: DescribeQuerySuggestionsConfigResponse)
+
+-- | The minimum number of times a query must be searched in order for the
+-- query to be eligible to suggest to your users.
+describeQuerySuggestionsConfigResponse_minimumQueryCount :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Natural)
+describeQuerySuggestionsConfigResponse_minimumQueryCount = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {minimumQueryCount} -> minimumQueryCount) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {minimumQueryCount = a} :: DescribeQuerySuggestionsConfigResponse)
+
+-- | Whether query suggestions are currently in @ENABLED@ mode or
+-- @LEARN_ONLY@ mode.
+--
+-- By default, Amazon Kendra enables query suggestions.@LEARN_ONLY@ turns
+-- off query suggestions for your users. You can change the mode using the
+-- <https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html UpdateQuerySuggestionsConfig>
+-- API.
+describeQuerySuggestionsConfigResponse_mode :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Mode)
+describeQuerySuggestionsConfigResponse_mode = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {mode} -> mode) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {mode = a} :: DescribeQuerySuggestionsConfigResponse)
+
+-- | How recent your queries are in your query log time window (in days).
+describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Int)
+describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {queryLogLookBackWindowInDays} -> queryLogLookBackWindowInDays) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {queryLogLookBackWindowInDays = a} :: DescribeQuerySuggestionsConfigResponse)
+
+-- | Whether the status of query suggestions settings is currently @ACTIVE@
+-- or @UPDATING@.
+--
+-- Active means the current settings apply and Updating means your changed
+-- settings are in the process of applying.
+describeQuerySuggestionsConfigResponse_status :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe QuerySuggestionsStatus)
+describeQuerySuggestionsConfigResponse_status = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {status} -> status) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {status = a} :: DescribeQuerySuggestionsConfigResponse)
+
+-- | The current total count of query suggestions for an index.
+--
+-- This count can change when you update your query suggestions settings,
+-- if you filter out certain queries from suggestions using a block list,
+-- and as the query log accumulates more queries for Amazon Kendra to learn
+-- from.
+describeQuerySuggestionsConfigResponse_totalSuggestionsCount :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Int)
+describeQuerySuggestionsConfigResponse_totalSuggestionsCount = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {totalSuggestionsCount} -> totalSuggestionsCount) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {totalSuggestionsCount = a} :: DescribeQuerySuggestionsConfigResponse)
+
 -- | The response's http status code.
 describeQuerySuggestionsConfigResponse_httpStatus :: Lens.Lens' DescribeQuerySuggestionsConfigResponse Prelude.Int
 describeQuerySuggestionsConfigResponse_httpStatus = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {httpStatus} -> httpStatus) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {httpStatus = a} :: DescribeQuerySuggestionsConfigResponse)
@@ -356,13 +355,13 @@ instance
     DescribeQuerySuggestionsConfigResponse
   where
   rnf DescribeQuerySuggestionsConfigResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf minimumNumberOfQueryingUsers
-      `Prelude.seq` Prelude.rnf totalSuggestionsCount
-      `Prelude.seq` Prelude.rnf lastSuggestionsBuildTime
-      `Prelude.seq` Prelude.rnf queryLogLookBackWindowInDays
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf minimumQueryCount
-      `Prelude.seq` Prelude.rnf includeQueriesWithoutUserInformation
+    Prelude.rnf includeQueriesWithoutUserInformation
       `Prelude.seq` Prelude.rnf lastClearTime
+      `Prelude.seq` Prelude.rnf lastSuggestionsBuildTime
+      `Prelude.seq` Prelude.rnf minimumNumberOfQueryingUsers
+      `Prelude.seq` Prelude.rnf minimumQueryCount
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf queryLogLookBackWindowInDays
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf totalSuggestionsCount
       `Prelude.seq` Prelude.rnf httpStatus

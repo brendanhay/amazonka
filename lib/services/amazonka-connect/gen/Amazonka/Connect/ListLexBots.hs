@@ -36,8 +36,8 @@ module Amazonka.Connect.ListLexBots
     newListLexBots,
 
     -- * Request Lenses
-    listLexBots_nextToken,
     listLexBots_maxResults,
+    listLexBots_nextToken,
     listLexBots_instanceId,
 
     -- * Destructuring the Response
@@ -61,13 +61,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLexBots' smart constructor.
 data ListLexBots = ListLexBots'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page. If no value is
+    -- specified, the default is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page. If no value is
-    -- specified, the default is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -82,12 +82,12 @@ data ListLexBots = ListLexBots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listLexBots_maxResults' - The maximum number of results to return per page. If no value is
+-- specified, the default is 10.
+--
 -- 'nextToken', 'listLexBots_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listLexBots_maxResults' - The maximum number of results to return per page. If no value is
--- specified, the default is 10.
 --
 -- 'instanceId', 'listLexBots_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -97,21 +97,21 @@ newListLexBots ::
   ListLexBots
 newListLexBots pInstanceId_ =
   ListLexBots'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page. If no value is
+-- specified, the default is 10.
+listLexBots_maxResults :: Lens.Lens' ListLexBots (Prelude.Maybe Prelude.Natural)
+listLexBots_maxResults = Lens.lens (\ListLexBots' {maxResults} -> maxResults) (\s@ListLexBots' {} a -> s {maxResults = a} :: ListLexBots)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listLexBots_nextToken :: Lens.Lens' ListLexBots (Prelude.Maybe Prelude.Text)
 listLexBots_nextToken = Lens.lens (\ListLexBots' {nextToken} -> nextToken) (\s@ListLexBots' {} a -> s {nextToken = a} :: ListLexBots)
-
--- | The maximum number of results to return per page. If no value is
--- specified, the default is 10.
-listLexBots_maxResults :: Lens.Lens' ListLexBots (Prelude.Maybe Prelude.Natural)
-listLexBots_maxResults = Lens.lens (\ListLexBots' {maxResults} -> maxResults) (\s@ListLexBots' {} a -> s {maxResults = a} :: ListLexBots)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -152,14 +152,14 @@ instance Core.AWSRequest ListLexBots where
 
 instance Prelude.Hashable ListLexBots where
   hashWithSalt _salt ListLexBots' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListLexBots where
   rnf ListLexBots' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ListLexBots where
@@ -181,8 +181,8 @@ instance Data.ToPath ListLexBots where
 instance Data.ToQuery ListLexBots where
   toQuery ListLexBots' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListLexBotsResponse' smart constructor.

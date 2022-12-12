@@ -36,8 +36,8 @@ module Amazonka.CloudHSMV2.ListTags
     newListTags,
 
     -- * Request Lenses
-    listTags_nextToken,
     listTags_maxResults,
+    listTags_nextToken,
     listTags_resourceId,
 
     -- * Destructuring the Response
@@ -61,13 +61,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTags' smart constructor.
 data ListTags = ListTags'
-  { -- | The @NextToken@ value that you received in the previous response. Use
-    -- this value to get more tags.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of tags to return in the response. When there are
+  { -- | The maximum number of tags to return in the response. When there are
     -- more tags than the number you specify, the response contains a
     -- @NextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The @NextToken@ value that you received in the previous response. Use
+    -- this value to get more tags.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The cluster identifier (ID) for the cluster whose tags you are getting.
     -- To find the cluster ID, use DescribeClusters.
     resourceId :: Prelude.Text
@@ -82,12 +82,12 @@ data ListTags = ListTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTags_nextToken' - The @NextToken@ value that you received in the previous response. Use
--- this value to get more tags.
---
 -- 'maxResults', 'listTags_maxResults' - The maximum number of tags to return in the response. When there are
 -- more tags than the number you specify, the response contains a
 -- @NextToken@ value.
+--
+-- 'nextToken', 'listTags_nextToken' - The @NextToken@ value that you received in the previous response. Use
+-- this value to get more tags.
 --
 -- 'resourceId', 'listTags_resourceId' - The cluster identifier (ID) for the cluster whose tags you are getting.
 -- To find the cluster ID, use DescribeClusters.
@@ -97,21 +97,21 @@ newListTags ::
   ListTags
 newListTags pResourceId_ =
   ListTags'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceId = pResourceId_
     }
-
--- | The @NextToken@ value that you received in the previous response. Use
--- this value to get more tags.
-listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
-listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
 -- | The maximum number of tags to return in the response. When there are
 -- more tags than the number you specify, the response contains a
 -- @NextToken@ value.
 listTags_maxResults :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Natural)
 listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@ListTags' {} a -> s {maxResults = a} :: ListTags)
+
+-- | The @NextToken@ value that you received in the previous response. Use
+-- this value to get more tags.
+listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
+listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
 -- | The cluster identifier (ID) for the cluster whose tags you are getting.
 -- To find the cluster ID, use DescribeClusters.
@@ -149,14 +149,14 @@ instance Core.AWSRequest ListTags where
 
 instance Prelude.Hashable ListTags where
   hashWithSalt _salt ListTags' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ListTags where
   rnf ListTags' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceId
 
 instance Data.ToHeaders ListTags where
@@ -176,8 +176,8 @@ instance Data.ToJSON ListTags where
   toJSON ListTags' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )

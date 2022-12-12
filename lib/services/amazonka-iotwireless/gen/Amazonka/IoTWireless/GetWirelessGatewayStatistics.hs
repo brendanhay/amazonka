@@ -34,9 +34,9 @@ module Amazonka.IoTWireless.GetWirelessGatewayStatistics
     newGetWirelessGatewayStatisticsResponse,
 
     -- * Response Lenses
+    getWirelessGatewayStatisticsResponse_connectionStatus,
     getWirelessGatewayStatisticsResponse_lastUplinkReceivedAt,
     getWirelessGatewayStatisticsResponse_wirelessGatewayId,
-    getWirelessGatewayStatisticsResponse_connectionStatus,
     getWirelessGatewayStatisticsResponse_httpStatus,
   )
 where
@@ -89,9 +89,9 @@ instance Core.AWSRequest GetWirelessGatewayStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetWirelessGatewayStatisticsResponse'
-            Prelude.<$> (x Data..?> "LastUplinkReceivedAt")
+            Prelude.<$> (x Data..?> "ConnectionStatus")
+            Prelude.<*> (x Data..?> "LastUplinkReceivedAt")
             Prelude.<*> (x Data..?> "WirelessGatewayId")
-            Prelude.<*> (x Data..?> "ConnectionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,12 +122,12 @@ instance Data.ToQuery GetWirelessGatewayStatistics where
 
 -- | /See:/ 'newGetWirelessGatewayStatisticsResponse' smart constructor.
 data GetWirelessGatewayStatisticsResponse = GetWirelessGatewayStatisticsResponse'
-  { -- | The date and time when the most recent uplink was received.
+  { -- | The connection status of the wireless gateway.
+    connectionStatus :: Prelude.Maybe ConnectionStatus,
+    -- | The date and time when the most recent uplink was received.
     lastUplinkReceivedAt :: Prelude.Maybe Prelude.Text,
     -- | The ID of the wireless gateway.
     wirelessGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The connection status of the wireless gateway.
-    connectionStatus :: Prelude.Maybe ConnectionStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,11 +141,11 @@ data GetWirelessGatewayStatisticsResponse = GetWirelessGatewayStatisticsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionStatus', 'getWirelessGatewayStatisticsResponse_connectionStatus' - The connection status of the wireless gateway.
+--
 -- 'lastUplinkReceivedAt', 'getWirelessGatewayStatisticsResponse_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.
 --
 -- 'wirelessGatewayId', 'getWirelessGatewayStatisticsResponse_wirelessGatewayId' - The ID of the wireless gateway.
---
--- 'connectionStatus', 'getWirelessGatewayStatisticsResponse_connectionStatus' - The connection status of the wireless gateway.
 --
 -- 'httpStatus', 'getWirelessGatewayStatisticsResponse_httpStatus' - The response's http status code.
 newGetWirelessGatewayStatisticsResponse ::
@@ -154,12 +154,17 @@ newGetWirelessGatewayStatisticsResponse ::
   GetWirelessGatewayStatisticsResponse
 newGetWirelessGatewayStatisticsResponse pHttpStatus_ =
   GetWirelessGatewayStatisticsResponse'
-    { lastUplinkReceivedAt =
+    { connectionStatus =
+        Prelude.Nothing,
+      lastUplinkReceivedAt =
         Prelude.Nothing,
       wirelessGatewayId = Prelude.Nothing,
-      connectionStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The connection status of the wireless gateway.
+getWirelessGatewayStatisticsResponse_connectionStatus :: Lens.Lens' GetWirelessGatewayStatisticsResponse (Prelude.Maybe ConnectionStatus)
+getWirelessGatewayStatisticsResponse_connectionStatus = Lens.lens (\GetWirelessGatewayStatisticsResponse' {connectionStatus} -> connectionStatus) (\s@GetWirelessGatewayStatisticsResponse' {} a -> s {connectionStatus = a} :: GetWirelessGatewayStatisticsResponse)
 
 -- | The date and time when the most recent uplink was received.
 getWirelessGatewayStatisticsResponse_lastUplinkReceivedAt :: Lens.Lens' GetWirelessGatewayStatisticsResponse (Prelude.Maybe Prelude.Text)
@@ -168,10 +173,6 @@ getWirelessGatewayStatisticsResponse_lastUplinkReceivedAt = Lens.lens (\GetWirel
 -- | The ID of the wireless gateway.
 getWirelessGatewayStatisticsResponse_wirelessGatewayId :: Lens.Lens' GetWirelessGatewayStatisticsResponse (Prelude.Maybe Prelude.Text)
 getWirelessGatewayStatisticsResponse_wirelessGatewayId = Lens.lens (\GetWirelessGatewayStatisticsResponse' {wirelessGatewayId} -> wirelessGatewayId) (\s@GetWirelessGatewayStatisticsResponse' {} a -> s {wirelessGatewayId = a} :: GetWirelessGatewayStatisticsResponse)
-
--- | The connection status of the wireless gateway.
-getWirelessGatewayStatisticsResponse_connectionStatus :: Lens.Lens' GetWirelessGatewayStatisticsResponse (Prelude.Maybe ConnectionStatus)
-getWirelessGatewayStatisticsResponse_connectionStatus = Lens.lens (\GetWirelessGatewayStatisticsResponse' {connectionStatus} -> connectionStatus) (\s@GetWirelessGatewayStatisticsResponse' {} a -> s {connectionStatus = a} :: GetWirelessGatewayStatisticsResponse)
 
 -- | The response's http status code.
 getWirelessGatewayStatisticsResponse_httpStatus :: Lens.Lens' GetWirelessGatewayStatisticsResponse Prelude.Int
@@ -182,7 +183,7 @@ instance
     GetWirelessGatewayStatisticsResponse
   where
   rnf GetWirelessGatewayStatisticsResponse' {..} =
-    Prelude.rnf lastUplinkReceivedAt
+    Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf lastUplinkReceivedAt
       `Prelude.seq` Prelude.rnf wirelessGatewayId
-      `Prelude.seq` Prelude.rnf connectionStatus
       `Prelude.seq` Prelude.rnf httpStatus

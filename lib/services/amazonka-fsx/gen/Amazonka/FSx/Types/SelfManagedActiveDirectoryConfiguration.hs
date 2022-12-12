@@ -34,7 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSelfManagedActiveDirectoryConfiguration' smart constructor.
 data SelfManagedActiveDirectoryConfiguration = SelfManagedActiveDirectoryConfiguration'
-  { -- | (Optional) The fully qualified distinguished name of the organizational
+  { -- | (Optional) The name of the domain group whose members are granted
+    -- administrative privileges for the file system. Administrative privileges
+    -- include taking ownership of files and folders, setting audit controls
+    -- (audit ACLs) on files and folders, and administering the file system
+    -- remotely by using the FSx Remote PowerShell. The group that you specify
+    -- must already exist in your domain. If you don\'t provide one, your AD
+    -- domain\'s Domain Admins group is used.
+    fileSystemAdministratorsGroup :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The fully qualified distinguished name of the organizational
     -- unit within your self-managed AD directory. Amazon FSx only accepts OU
     -- as the direct parent of the file system. An example is
     -- @OU=FSx,DC=yourdomain,DC=corp,DC=com@. To learn more, see
@@ -45,14 +53,6 @@ data SelfManagedActiveDirectoryConfiguration = SelfManagedActiveDirectoryConfigu
     -- Only Organizational Unit (OU) objects can be the direct parent of the
     -- file system that you\'re creating.
     organizationalUnitDistinguishedName :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) The name of the domain group whose members are granted
-    -- administrative privileges for the file system. Administrative privileges
-    -- include taking ownership of files and folders, setting audit controls
-    -- (audit ACLs) on files and folders, and administering the file system
-    -- remotely by using the FSx Remote PowerShell. The group that you specify
-    -- must already exist in your domain. If you don\'t provide one, your AD
-    -- domain\'s Domain Admins group is used.
-    fileSystemAdministratorsGroup :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name of the self-managed AD directory, such
     -- as @corp.example.com@.
     domainName :: Prelude.Text,
@@ -79,6 +79,14 @@ data SelfManagedActiveDirectoryConfiguration = SelfManagedActiveDirectoryConfigu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fileSystemAdministratorsGroup', 'selfManagedActiveDirectoryConfiguration_fileSystemAdministratorsGroup' - (Optional) The name of the domain group whose members are granted
+-- administrative privileges for the file system. Administrative privileges
+-- include taking ownership of files and folders, setting audit controls
+-- (audit ACLs) on files and folders, and administering the file system
+-- remotely by using the FSx Remote PowerShell. The group that you specify
+-- must already exist in your domain. If you don\'t provide one, your AD
+-- domain\'s Domain Admins group is used.
+--
 -- 'organizationalUnitDistinguishedName', 'selfManagedActiveDirectoryConfiguration_organizationalUnitDistinguishedName' - (Optional) The fully qualified distinguished name of the organizational
 -- unit within your self-managed AD directory. Amazon FSx only accepts OU
 -- as the direct parent of the file system. An example is
@@ -89,14 +97,6 @@ data SelfManagedActiveDirectoryConfiguration = SelfManagedActiveDirectoryConfigu
 --
 -- Only Organizational Unit (OU) objects can be the direct parent of the
 -- file system that you\'re creating.
---
--- 'fileSystemAdministratorsGroup', 'selfManagedActiveDirectoryConfiguration_fileSystemAdministratorsGroup' - (Optional) The name of the domain group whose members are granted
--- administrative privileges for the file system. Administrative privileges
--- include taking ownership of files and folders, setting audit controls
--- (audit ACLs) on files and folders, and administering the file system
--- remotely by using the FSx Remote PowerShell. The group that you specify
--- must already exist in your domain. If you don\'t provide one, your AD
--- domain\'s Domain Admins group is used.
 --
 -- 'domainName', 'selfManagedActiveDirectoryConfiguration_domainName' - The fully qualified domain name of the self-managed AD directory, such
 -- as @corp.example.com@.
@@ -128,9 +128,9 @@ newSelfManagedActiveDirectoryConfiguration
   pPassword_
   pDnsIps_ =
     SelfManagedActiveDirectoryConfiguration'
-      { organizationalUnitDistinguishedName =
+      { fileSystemAdministratorsGroup =
           Prelude.Nothing,
-        fileSystemAdministratorsGroup =
+        organizationalUnitDistinguishedName =
           Prelude.Nothing,
         domainName = pDomainName_,
         userName = pUserName_,
@@ -140,6 +140,16 @@ newSelfManagedActiveDirectoryConfiguration
         dnsIps =
           Lens.coerced Lens.# pDnsIps_
       }
+
+-- | (Optional) The name of the domain group whose members are granted
+-- administrative privileges for the file system. Administrative privileges
+-- include taking ownership of files and folders, setting audit controls
+-- (audit ACLs) on files and folders, and administering the file system
+-- remotely by using the FSx Remote PowerShell. The group that you specify
+-- must already exist in your domain. If you don\'t provide one, your AD
+-- domain\'s Domain Admins group is used.
+selfManagedActiveDirectoryConfiguration_fileSystemAdministratorsGroup :: Lens.Lens' SelfManagedActiveDirectoryConfiguration (Prelude.Maybe Prelude.Text)
+selfManagedActiveDirectoryConfiguration_fileSystemAdministratorsGroup = Lens.lens (\SelfManagedActiveDirectoryConfiguration' {fileSystemAdministratorsGroup} -> fileSystemAdministratorsGroup) (\s@SelfManagedActiveDirectoryConfiguration' {} a -> s {fileSystemAdministratorsGroup = a} :: SelfManagedActiveDirectoryConfiguration)
 
 -- | (Optional) The fully qualified distinguished name of the organizational
 -- unit within your self-managed AD directory. Amazon FSx only accepts OU
@@ -153,16 +163,6 @@ newSelfManagedActiveDirectoryConfiguration
 -- file system that you\'re creating.
 selfManagedActiveDirectoryConfiguration_organizationalUnitDistinguishedName :: Lens.Lens' SelfManagedActiveDirectoryConfiguration (Prelude.Maybe Prelude.Text)
 selfManagedActiveDirectoryConfiguration_organizationalUnitDistinguishedName = Lens.lens (\SelfManagedActiveDirectoryConfiguration' {organizationalUnitDistinguishedName} -> organizationalUnitDistinguishedName) (\s@SelfManagedActiveDirectoryConfiguration' {} a -> s {organizationalUnitDistinguishedName = a} :: SelfManagedActiveDirectoryConfiguration)
-
--- | (Optional) The name of the domain group whose members are granted
--- administrative privileges for the file system. Administrative privileges
--- include taking ownership of files and folders, setting audit controls
--- (audit ACLs) on files and folders, and administering the file system
--- remotely by using the FSx Remote PowerShell. The group that you specify
--- must already exist in your domain. If you don\'t provide one, your AD
--- domain\'s Domain Admins group is used.
-selfManagedActiveDirectoryConfiguration_fileSystemAdministratorsGroup :: Lens.Lens' SelfManagedActiveDirectoryConfiguration (Prelude.Maybe Prelude.Text)
-selfManagedActiveDirectoryConfiguration_fileSystemAdministratorsGroup = Lens.lens (\SelfManagedActiveDirectoryConfiguration' {fileSystemAdministratorsGroup} -> fileSystemAdministratorsGroup) (\s@SelfManagedActiveDirectoryConfiguration' {} a -> s {fileSystemAdministratorsGroup = a} :: SelfManagedActiveDirectoryConfiguration)
 
 -- | The fully qualified domain name of the self-managed AD directory, such
 -- as @corp.example.com@.
@@ -195,8 +195,8 @@ instance
     _salt
     SelfManagedActiveDirectoryConfiguration' {..} =
       _salt
-        `Prelude.hashWithSalt` organizationalUnitDistinguishedName
         `Prelude.hashWithSalt` fileSystemAdministratorsGroup
+        `Prelude.hashWithSalt` organizationalUnitDistinguishedName
         `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` password
@@ -207,8 +207,8 @@ instance
     SelfManagedActiveDirectoryConfiguration
   where
   rnf SelfManagedActiveDirectoryConfiguration' {..} =
-    Prelude.rnf organizationalUnitDistinguishedName
-      `Prelude.seq` Prelude.rnf fileSystemAdministratorsGroup
+    Prelude.rnf fileSystemAdministratorsGroup
+      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf password
@@ -221,10 +221,10 @@ instance
   toJSON SelfManagedActiveDirectoryConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationalUnitDistinguishedName" Data..=)
-              Prelude.<$> organizationalUnitDistinguishedName,
-            ("FileSystemAdministratorsGroup" Data..=)
+          [ ("FileSystemAdministratorsGroup" Data..=)
               Prelude.<$> fileSystemAdministratorsGroup,
+            ("OrganizationalUnitDistinguishedName" Data..=)
+              Prelude.<$> organizationalUnitDistinguishedName,
             Prelude.Just ("DomainName" Data..= domainName),
             Prelude.Just ("UserName" Data..= userName),
             Prelude.Just ("Password" Data..= password),

@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTableError' smart constructor.
 data TableError = TableError'
-  { -- | The name of the table. For Hive compatibility, this must be entirely
+  { -- | The details about the error.
+    errorDetail :: Prelude.Maybe ErrorDetail,
+    -- | The name of the table. For Hive compatibility, this must be entirely
     -- lowercase.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | The details about the error.
-    errorDetail :: Prelude.Maybe ErrorDetail
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data TableError = TableError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorDetail', 'tableError_errorDetail' - The details about the error.
+--
 -- 'tableName', 'tableError_tableName' - The name of the table. For Hive compatibility, this must be entirely
 -- lowercase.
---
--- 'errorDetail', 'tableError_errorDetail' - The details about the error.
 newTableError ::
   TableError
 newTableError =
   TableError'
-    { tableName = Prelude.Nothing,
-      errorDetail = Prelude.Nothing
+    { errorDetail = Prelude.Nothing,
+      tableName = Prelude.Nothing
     }
+
+-- | The details about the error.
+tableError_errorDetail :: Lens.Lens' TableError (Prelude.Maybe ErrorDetail)
+tableError_errorDetail = Lens.lens (\TableError' {errorDetail} -> errorDetail) (\s@TableError' {} a -> s {errorDetail = a} :: TableError)
 
 -- | The name of the table. For Hive compatibility, this must be entirely
 -- lowercase.
 tableError_tableName :: Lens.Lens' TableError (Prelude.Maybe Prelude.Text)
 tableError_tableName = Lens.lens (\TableError' {tableName} -> tableName) (\s@TableError' {} a -> s {tableName = a} :: TableError)
-
--- | The details about the error.
-tableError_errorDetail :: Lens.Lens' TableError (Prelude.Maybe ErrorDetail)
-tableError_errorDetail = Lens.lens (\TableError' {errorDetail} -> errorDetail) (\s@TableError' {} a -> s {errorDetail = a} :: TableError)
 
 instance Data.FromJSON TableError where
   parseJSON =
@@ -72,16 +72,16 @@ instance Data.FromJSON TableError where
       "TableError"
       ( \x ->
           TableError'
-            Prelude.<$> (x Data..:? "TableName")
-            Prelude.<*> (x Data..:? "ErrorDetail")
+            Prelude.<$> (x Data..:? "ErrorDetail")
+            Prelude.<*> (x Data..:? "TableName")
       )
 
 instance Prelude.Hashable TableError where
   hashWithSalt _salt TableError' {..} =
-    _salt `Prelude.hashWithSalt` tableName
-      `Prelude.hashWithSalt` errorDetail
+    _salt `Prelude.hashWithSalt` errorDetail
+      `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData TableError where
   rnf TableError' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf errorDetail
+    Prelude.rnf errorDetail
+      `Prelude.seq` Prelude.rnf tableName

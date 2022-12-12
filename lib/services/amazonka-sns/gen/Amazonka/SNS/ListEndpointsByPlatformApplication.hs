@@ -48,8 +48,8 @@ module Amazonka.SNS.ListEndpointsByPlatformApplication
     newListEndpointsByPlatformApplicationResponse,
 
     -- * Response Lenses
-    listEndpointsByPlatformApplicationResponse_nextToken,
     listEndpointsByPlatformApplicationResponse_endpoints,
+    listEndpointsByPlatformApplicationResponse_nextToken,
     listEndpointsByPlatformApplicationResponse_httpStatus,
   )
 where
@@ -153,10 +153,10 @@ instance
       "ListEndpointsByPlatformApplicationResult"
       ( \s h x ->
           ListEndpointsByPlatformApplicationResponse'
-            Prelude.<$> (x Data..@? "NextToken")
-              Prelude.<*> ( x Data..@? "Endpoints" Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "member")
-                          )
+            Prelude.<$> ( x Data..@? "Endpoints" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
+                        )
+              Prelude.<*> (x Data..@? "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,12 +211,12 @@ instance
 --
 -- /See:/ 'newListEndpointsByPlatformApplicationResponse' smart constructor.
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'
-  { -- | NextToken string is returned when calling
+  { -- | Endpoints returned for ListEndpointsByPlatformApplication action.
+    endpoints :: Prelude.Maybe [Endpoint],
+    -- | NextToken string is returned when calling
     -- ListEndpointsByPlatformApplication action if additional records are
     -- available after the first page results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-    endpoints :: Prelude.Maybe [Endpoint],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,11 +230,11 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpoints', 'listEndpointsByPlatformApplicationResponse_endpoints' - Endpoints returned for ListEndpointsByPlatformApplication action.
+--
 -- 'nextToken', 'listEndpointsByPlatformApplicationResponse_nextToken' - NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
 -- available after the first page results.
---
--- 'endpoints', 'listEndpointsByPlatformApplicationResponse_endpoints' - Endpoints returned for ListEndpointsByPlatformApplication action.
 --
 -- 'httpStatus', 'listEndpointsByPlatformApplicationResponse_httpStatus' - The response's http status code.
 newListEndpointsByPlatformApplicationResponse ::
@@ -244,21 +244,21 @@ newListEndpointsByPlatformApplicationResponse ::
 newListEndpointsByPlatformApplicationResponse
   pHttpStatus_ =
     ListEndpointsByPlatformApplicationResponse'
-      { nextToken =
+      { endpoints =
           Prelude.Nothing,
-        endpoints = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Endpoints returned for ListEndpointsByPlatformApplication action.
+listEndpointsByPlatformApplicationResponse_endpoints :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Prelude.Maybe [Endpoint])
+listEndpointsByPlatformApplicationResponse_endpoints = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {endpoints} -> endpoints) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {endpoints = a} :: ListEndpointsByPlatformApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
 -- available after the first page results.
 listEndpointsByPlatformApplicationResponse_nextToken :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Prelude.Maybe Prelude.Text)
 listEndpointsByPlatformApplicationResponse_nextToken = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {nextToken} -> nextToken) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {nextToken = a} :: ListEndpointsByPlatformApplicationResponse)
-
--- | Endpoints returned for ListEndpointsByPlatformApplication action.
-listEndpointsByPlatformApplicationResponse_endpoints :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Prelude.Maybe [Endpoint])
-listEndpointsByPlatformApplicationResponse_endpoints = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {endpoints} -> endpoints) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {endpoints = a} :: ListEndpointsByPlatformApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEndpointsByPlatformApplicationResponse_httpStatus :: Lens.Lens' ListEndpointsByPlatformApplicationResponse Prelude.Int
@@ -269,6 +269,6 @@ instance
     ListEndpointsByPlatformApplicationResponse
   where
   rnf ListEndpointsByPlatformApplicationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endpoints
+    Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

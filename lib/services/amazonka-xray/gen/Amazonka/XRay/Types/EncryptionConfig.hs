@@ -31,14 +31,14 @@ import Amazonka.XRay.Types.EncryptionType
 --
 -- /See:/ 'newEncryptionConfig' smart constructor.
 data EncryptionConfig = EncryptionConfig'
-  { -- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
-    -- to @NONE@ for default encryption.
-    type' :: Prelude.Maybe EncryptionType,
+  { -- | The ID of the KMS key used for encryption, if applicable.
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The encryption status. While the status is @UPDATING@, X-Ray may encrypt
     -- data with a combination of the new and old settings.
     status :: Prelude.Maybe EncryptionStatus,
-    -- | The ID of the KMS key used for encryption, if applicable.
-    keyId :: Prelude.Maybe Prelude.Text
+    -- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
+    -- to @NONE@ for default encryption.
+    type' :: Prelude.Maybe EncryptionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,35 +50,35 @@ data EncryptionConfig = EncryptionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'encryptionConfig_type' - The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
--- to @NONE@ for default encryption.
+-- 'keyId', 'encryptionConfig_keyId' - The ID of the KMS key used for encryption, if applicable.
 --
 -- 'status', 'encryptionConfig_status' - The encryption status. While the status is @UPDATING@, X-Ray may encrypt
 -- data with a combination of the new and old settings.
 --
--- 'keyId', 'encryptionConfig_keyId' - The ID of the KMS key used for encryption, if applicable.
+-- 'type'', 'encryptionConfig_type' - The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
+-- to @NONE@ for default encryption.
 newEncryptionConfig ::
   EncryptionConfig
 newEncryptionConfig =
   EncryptionConfig'
-    { type' = Prelude.Nothing,
+    { keyId = Prelude.Nothing,
       status = Prelude.Nothing,
-      keyId = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
--- to @NONE@ for default encryption.
-encryptionConfig_type :: Lens.Lens' EncryptionConfig (Prelude.Maybe EncryptionType)
-encryptionConfig_type = Lens.lens (\EncryptionConfig' {type'} -> type') (\s@EncryptionConfig' {} a -> s {type' = a} :: EncryptionConfig)
+-- | The ID of the KMS key used for encryption, if applicable.
+encryptionConfig_keyId :: Lens.Lens' EncryptionConfig (Prelude.Maybe Prelude.Text)
+encryptionConfig_keyId = Lens.lens (\EncryptionConfig' {keyId} -> keyId) (\s@EncryptionConfig' {} a -> s {keyId = a} :: EncryptionConfig)
 
 -- | The encryption status. While the status is @UPDATING@, X-Ray may encrypt
 -- data with a combination of the new and old settings.
 encryptionConfig_status :: Lens.Lens' EncryptionConfig (Prelude.Maybe EncryptionStatus)
 encryptionConfig_status = Lens.lens (\EncryptionConfig' {status} -> status) (\s@EncryptionConfig' {} a -> s {status = a} :: EncryptionConfig)
 
--- | The ID of the KMS key used for encryption, if applicable.
-encryptionConfig_keyId :: Lens.Lens' EncryptionConfig (Prelude.Maybe Prelude.Text)
-encryptionConfig_keyId = Lens.lens (\EncryptionConfig' {keyId} -> keyId) (\s@EncryptionConfig' {} a -> s {keyId = a} :: EncryptionConfig)
+-- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
+-- to @NONE@ for default encryption.
+encryptionConfig_type :: Lens.Lens' EncryptionConfig (Prelude.Maybe EncryptionType)
+encryptionConfig_type = Lens.lens (\EncryptionConfig' {type'} -> type') (\s@EncryptionConfig' {} a -> s {type' = a} :: EncryptionConfig)
 
 instance Data.FromJSON EncryptionConfig where
   parseJSON =
@@ -86,19 +86,19 @@ instance Data.FromJSON EncryptionConfig where
       "EncryptionConfig"
       ( \x ->
           EncryptionConfig'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "KeyId")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable EncryptionConfig where
   hashWithSalt _salt EncryptionConfig' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EncryptionConfig where
   rnf EncryptionConfig' {..} =
-    Prelude.rnf type'
+    Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf type'

@@ -33,11 +33,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid
--- values depend on rate control mode and profile. \"1.0 - Audio
--- Description (Receiver Mix)\" setting receives a stereo description plus
--- control track and emits a mono AAC encode of the description track, with
--- control data emitted in the PES header as per ETSI TS 101 154 Annex E.
+-- | The Coding mode that you specify determines the number of audio channels
+-- and the audio channel layout metadata in your AAC output. Valid coding
+-- modes depend on the Rate control mode and Profile that you select. The
+-- following list shows the number of audio channels and channel layout for
+-- each coding mode. * 1.0 Audio Description (Receiver Mix): One channel,
+-- C. Includes audio description data from your stereo input. For more
+-- information see ETSI TS 101 154 Annex E. * 1.0 Mono: One channel, C. *
+-- 2.0 Stereo: Two channels, L, R. * 5.1 Surround: Five channels, C, L, R,
+-- Ls, Rs, LFE.
 newtype AacCodingMode = AacCodingMode'
   { fromAacCodingMode ::
       Data.Text

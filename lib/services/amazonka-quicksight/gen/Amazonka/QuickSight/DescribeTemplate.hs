@@ -27,8 +27,8 @@ module Amazonka.QuickSight.DescribeTemplate
     newDescribeTemplate,
 
     -- * Request Lenses
-    describeTemplate_versionNumber,
     describeTemplate_aliasName,
+    describeTemplate_versionNumber,
     describeTemplate_awsAccountId,
     describeTemplate_templateId,
 
@@ -53,16 +53,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTemplate' smart constructor.
 data DescribeTemplate = DescribeTemplate'
-  { -- | (Optional) The number for the version to describe. If a @VersionNumber@
-    -- parameter value isn\'t provided, the latest version of the template is
-    -- described.
-    versionNumber :: Prelude.Maybe Prelude.Natural,
-    -- | The alias of the template that you want to describe. If you name a
+  { -- | The alias of the template that you want to describe. If you name a
     -- specific alias, you describe the version that the alias points to. You
     -- can specify the latest version of the template by providing the keyword
     -- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@
     -- doesn\'t apply to templates.
     aliasName :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The number for the version to describe. If a @VersionNumber@
+    -- parameter value isn\'t provided, the latest version of the template is
+    -- described.
+    versionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the template
     -- that you\'re describing.
     awsAccountId :: Prelude.Text,
@@ -79,15 +79,15 @@ data DescribeTemplate = DescribeTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionNumber', 'describeTemplate_versionNumber' - (Optional) The number for the version to describe. If a @VersionNumber@
--- parameter value isn\'t provided, the latest version of the template is
--- described.
---
 -- 'aliasName', 'describeTemplate_aliasName' - The alias of the template that you want to describe. If you name a
 -- specific alias, you describe the version that the alias points to. You
 -- can specify the latest version of the template by providing the keyword
 -- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@
 -- doesn\'t apply to templates.
+--
+-- 'versionNumber', 'describeTemplate_versionNumber' - (Optional) The number for the version to describe. If a @VersionNumber@
+-- parameter value isn\'t provided, the latest version of the template is
+-- described.
 --
 -- 'awsAccountId', 'describeTemplate_awsAccountId' - The ID of the Amazon Web Services account that contains the template
 -- that you\'re describing.
@@ -101,17 +101,11 @@ newDescribeTemplate ::
   DescribeTemplate
 newDescribeTemplate pAwsAccountId_ pTemplateId_ =
   DescribeTemplate'
-    { versionNumber = Prelude.Nothing,
-      aliasName = Prelude.Nothing,
+    { aliasName = Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       templateId = pTemplateId_
     }
-
--- | (Optional) The number for the version to describe. If a @VersionNumber@
--- parameter value isn\'t provided, the latest version of the template is
--- described.
-describeTemplate_versionNumber :: Lens.Lens' DescribeTemplate (Prelude.Maybe Prelude.Natural)
-describeTemplate_versionNumber = Lens.lens (\DescribeTemplate' {versionNumber} -> versionNumber) (\s@DescribeTemplate' {} a -> s {versionNumber = a} :: DescribeTemplate)
 
 -- | The alias of the template that you want to describe. If you name a
 -- specific alias, you describe the version that the alias points to. You
@@ -120,6 +114,12 @@ describeTemplate_versionNumber = Lens.lens (\DescribeTemplate' {versionNumber} -
 -- doesn\'t apply to templates.
 describeTemplate_aliasName :: Lens.Lens' DescribeTemplate (Prelude.Maybe Prelude.Text)
 describeTemplate_aliasName = Lens.lens (\DescribeTemplate' {aliasName} -> aliasName) (\s@DescribeTemplate' {} a -> s {aliasName = a} :: DescribeTemplate)
+
+-- | (Optional) The number for the version to describe. If a @VersionNumber@
+-- parameter value isn\'t provided, the latest version of the template is
+-- described.
+describeTemplate_versionNumber :: Lens.Lens' DescribeTemplate (Prelude.Maybe Prelude.Natural)
+describeTemplate_versionNumber = Lens.lens (\DescribeTemplate' {versionNumber} -> versionNumber) (\s@DescribeTemplate' {} a -> s {versionNumber = a} :: DescribeTemplate)
 
 -- | The ID of the Amazon Web Services account that contains the template
 -- that you\'re describing.
@@ -147,15 +147,15 @@ instance Core.AWSRequest DescribeTemplate where
 
 instance Prelude.Hashable DescribeTemplate where
   hashWithSalt _salt DescribeTemplate' {..} =
-    _salt `Prelude.hashWithSalt` versionNumber
-      `Prelude.hashWithSalt` aliasName
+    _salt `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId
 
 instance Prelude.NFData DescribeTemplate where
   rnf DescribeTemplate' {..} =
-    Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf aliasName
+    Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf versionNumber
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf templateId
 
@@ -182,8 +182,8 @@ instance Data.ToPath DescribeTemplate where
 instance Data.ToQuery DescribeTemplate where
   toQuery DescribeTemplate' {..} =
     Prelude.mconcat
-      [ "version-number" Data.=: versionNumber,
-        "alias-name" Data.=: aliasName
+      [ "alias-name" Data.=: aliasName,
+        "version-number" Data.=: versionNumber
       ]
 
 -- | /See:/ 'newDescribeTemplateResponse' smart constructor.

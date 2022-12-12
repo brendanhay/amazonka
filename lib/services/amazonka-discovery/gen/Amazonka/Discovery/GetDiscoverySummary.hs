@@ -34,14 +34,14 @@ module Amazonka.Discovery.GetDiscoverySummary
     newGetDiscoverySummaryResponse,
 
     -- * Response Lenses
-    getDiscoverySummaryResponse_servers,
+    getDiscoverySummaryResponse_agentSummary,
     getDiscoverySummaryResponse_agentlessCollectorSummary,
     getDiscoverySummaryResponse_applications,
-    getDiscoverySummaryResponse_agentSummary,
     getDiscoverySummaryResponse_connectorSummary,
-    getDiscoverySummaryResponse_serversMappedtoTags,
     getDiscoverySummaryResponse_meCollectorSummary,
+    getDiscoverySummaryResponse_servers,
     getDiscoverySummaryResponse_serversMappedToApplications,
+    getDiscoverySummaryResponse_serversMappedtoTags,
     getDiscoverySummaryResponse_httpStatus,
   )
 where
@@ -78,14 +78,14 @@ instance Core.AWSRequest GetDiscoverySummary where
     Response.receiveJSON
       ( \s h x ->
           GetDiscoverySummaryResponse'
-            Prelude.<$> (x Data..?> "servers")
+            Prelude.<$> (x Data..?> "agentSummary")
             Prelude.<*> (x Data..?> "agentlessCollectorSummary")
             Prelude.<*> (x Data..?> "applications")
-            Prelude.<*> (x Data..?> "agentSummary")
             Prelude.<*> (x Data..?> "connectorSummary")
-            Prelude.<*> (x Data..?> "serversMappedtoTags")
             Prelude.<*> (x Data..?> "meCollectorSummary")
+            Prelude.<*> (x Data..?> "servers")
             Prelude.<*> (x Data..?> "serversMappedToApplications")
+            Prelude.<*> (x Data..?> "serversMappedtoTags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,23 +122,23 @@ instance Data.ToQuery GetDiscoverySummary where
 
 -- | /See:/ 'newGetDiscoverySummaryResponse' smart constructor.
 data GetDiscoverySummaryResponse = GetDiscoverySummaryResponse'
-  { -- | The number of servers discovered.
-    servers :: Prelude.Maybe Prelude.Integer,
+  { -- | Details about discovered agents, including agent status and health.
+    agentSummary :: Prelude.Maybe CustomerAgentInfo,
     agentlessCollectorSummary :: Prelude.Maybe CustomerAgentlessCollectorInfo,
     -- | The number of applications discovered.
     applications :: Prelude.Maybe Prelude.Integer,
-    -- | Details about discovered agents, including agent status and health.
-    agentSummary :: Prelude.Maybe CustomerAgentInfo,
     -- | Details about discovered connectors, including connector status and
     -- health.
     connectorSummary :: Prelude.Maybe CustomerConnectorInfo,
-    -- | The number of servers mapped to tags.
-    serversMappedtoTags :: Prelude.Maybe Prelude.Integer,
     -- | Details about Migration Evaluator collectors, including collector status
     -- and health.
     meCollectorSummary :: Prelude.Maybe CustomerMeCollectorInfo,
+    -- | The number of servers discovered.
+    servers :: Prelude.Maybe Prelude.Integer,
     -- | The number of servers mapped to applications.
     serversMappedToApplications :: Prelude.Maybe Prelude.Integer,
+    -- | The number of servers mapped to tags.
+    serversMappedtoTags :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -152,23 +152,23 @@ data GetDiscoverySummaryResponse = GetDiscoverySummaryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'servers', 'getDiscoverySummaryResponse_servers' - The number of servers discovered.
+-- 'agentSummary', 'getDiscoverySummaryResponse_agentSummary' - Details about discovered agents, including agent status and health.
 --
 -- 'agentlessCollectorSummary', 'getDiscoverySummaryResponse_agentlessCollectorSummary' - Undocumented member.
 --
 -- 'applications', 'getDiscoverySummaryResponse_applications' - The number of applications discovered.
 --
--- 'agentSummary', 'getDiscoverySummaryResponse_agentSummary' - Details about discovered agents, including agent status and health.
---
 -- 'connectorSummary', 'getDiscoverySummaryResponse_connectorSummary' - Details about discovered connectors, including connector status and
 -- health.
---
--- 'serversMappedtoTags', 'getDiscoverySummaryResponse_serversMappedtoTags' - The number of servers mapped to tags.
 --
 -- 'meCollectorSummary', 'getDiscoverySummaryResponse_meCollectorSummary' - Details about Migration Evaluator collectors, including collector status
 -- and health.
 --
+-- 'servers', 'getDiscoverySummaryResponse_servers' - The number of servers discovered.
+--
 -- 'serversMappedToApplications', 'getDiscoverySummaryResponse_serversMappedToApplications' - The number of servers mapped to applications.
+--
+-- 'serversMappedtoTags', 'getDiscoverySummaryResponse_serversMappedtoTags' - The number of servers mapped to tags.
 --
 -- 'httpStatus', 'getDiscoverySummaryResponse_httpStatus' - The response's http status code.
 newGetDiscoverySummaryResponse ::
@@ -177,21 +177,21 @@ newGetDiscoverySummaryResponse ::
   GetDiscoverySummaryResponse
 newGetDiscoverySummaryResponse pHttpStatus_ =
   GetDiscoverySummaryResponse'
-    { servers =
+    { agentSummary =
         Prelude.Nothing,
       agentlessCollectorSummary = Prelude.Nothing,
       applications = Prelude.Nothing,
-      agentSummary = Prelude.Nothing,
       connectorSummary = Prelude.Nothing,
-      serversMappedtoTags = Prelude.Nothing,
       meCollectorSummary = Prelude.Nothing,
+      servers = Prelude.Nothing,
       serversMappedToApplications = Prelude.Nothing,
+      serversMappedtoTags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The number of servers discovered.
-getDiscoverySummaryResponse_servers :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe Prelude.Integer)
-getDiscoverySummaryResponse_servers = Lens.lens (\GetDiscoverySummaryResponse' {servers} -> servers) (\s@GetDiscoverySummaryResponse' {} a -> s {servers = a} :: GetDiscoverySummaryResponse)
+-- | Details about discovered agents, including agent status and health.
+getDiscoverySummaryResponse_agentSummary :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe CustomerAgentInfo)
+getDiscoverySummaryResponse_agentSummary = Lens.lens (\GetDiscoverySummaryResponse' {agentSummary} -> agentSummary) (\s@GetDiscoverySummaryResponse' {} a -> s {agentSummary = a} :: GetDiscoverySummaryResponse)
 
 -- | Undocumented member.
 getDiscoverySummaryResponse_agentlessCollectorSummary :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe CustomerAgentlessCollectorInfo)
@@ -201,27 +201,27 @@ getDiscoverySummaryResponse_agentlessCollectorSummary = Lens.lens (\GetDiscovery
 getDiscoverySummaryResponse_applications :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe Prelude.Integer)
 getDiscoverySummaryResponse_applications = Lens.lens (\GetDiscoverySummaryResponse' {applications} -> applications) (\s@GetDiscoverySummaryResponse' {} a -> s {applications = a} :: GetDiscoverySummaryResponse)
 
--- | Details about discovered agents, including agent status and health.
-getDiscoverySummaryResponse_agentSummary :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe CustomerAgentInfo)
-getDiscoverySummaryResponse_agentSummary = Lens.lens (\GetDiscoverySummaryResponse' {agentSummary} -> agentSummary) (\s@GetDiscoverySummaryResponse' {} a -> s {agentSummary = a} :: GetDiscoverySummaryResponse)
-
 -- | Details about discovered connectors, including connector status and
 -- health.
 getDiscoverySummaryResponse_connectorSummary :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe CustomerConnectorInfo)
 getDiscoverySummaryResponse_connectorSummary = Lens.lens (\GetDiscoverySummaryResponse' {connectorSummary} -> connectorSummary) (\s@GetDiscoverySummaryResponse' {} a -> s {connectorSummary = a} :: GetDiscoverySummaryResponse)
-
--- | The number of servers mapped to tags.
-getDiscoverySummaryResponse_serversMappedtoTags :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe Prelude.Integer)
-getDiscoverySummaryResponse_serversMappedtoTags = Lens.lens (\GetDiscoverySummaryResponse' {serversMappedtoTags} -> serversMappedtoTags) (\s@GetDiscoverySummaryResponse' {} a -> s {serversMappedtoTags = a} :: GetDiscoverySummaryResponse)
 
 -- | Details about Migration Evaluator collectors, including collector status
 -- and health.
 getDiscoverySummaryResponse_meCollectorSummary :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe CustomerMeCollectorInfo)
 getDiscoverySummaryResponse_meCollectorSummary = Lens.lens (\GetDiscoverySummaryResponse' {meCollectorSummary} -> meCollectorSummary) (\s@GetDiscoverySummaryResponse' {} a -> s {meCollectorSummary = a} :: GetDiscoverySummaryResponse)
 
+-- | The number of servers discovered.
+getDiscoverySummaryResponse_servers :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe Prelude.Integer)
+getDiscoverySummaryResponse_servers = Lens.lens (\GetDiscoverySummaryResponse' {servers} -> servers) (\s@GetDiscoverySummaryResponse' {} a -> s {servers = a} :: GetDiscoverySummaryResponse)
+
 -- | The number of servers mapped to applications.
 getDiscoverySummaryResponse_serversMappedToApplications :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe Prelude.Integer)
 getDiscoverySummaryResponse_serversMappedToApplications = Lens.lens (\GetDiscoverySummaryResponse' {serversMappedToApplications} -> serversMappedToApplications) (\s@GetDiscoverySummaryResponse' {} a -> s {serversMappedToApplications = a} :: GetDiscoverySummaryResponse)
+
+-- | The number of servers mapped to tags.
+getDiscoverySummaryResponse_serversMappedtoTags :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe Prelude.Integer)
+getDiscoverySummaryResponse_serversMappedtoTags = Lens.lens (\GetDiscoverySummaryResponse' {serversMappedtoTags} -> serversMappedtoTags) (\s@GetDiscoverySummaryResponse' {} a -> s {serversMappedtoTags = a} :: GetDiscoverySummaryResponse)
 
 -- | The response's http status code.
 getDiscoverySummaryResponse_httpStatus :: Lens.Lens' GetDiscoverySummaryResponse Prelude.Int
@@ -229,12 +229,12 @@ getDiscoverySummaryResponse_httpStatus = Lens.lens (\GetDiscoverySummaryResponse
 
 instance Prelude.NFData GetDiscoverySummaryResponse where
   rnf GetDiscoverySummaryResponse' {..} =
-    Prelude.rnf servers
+    Prelude.rnf agentSummary
       `Prelude.seq` Prelude.rnf agentlessCollectorSummary
       `Prelude.seq` Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf agentSummary
       `Prelude.seq` Prelude.rnf connectorSummary
-      `Prelude.seq` Prelude.rnf serversMappedtoTags
       `Prelude.seq` Prelude.rnf meCollectorSummary
+      `Prelude.seq` Prelude.rnf servers
       `Prelude.seq` Prelude.rnf serversMappedToApplications
+      `Prelude.seq` Prelude.rnf serversMappedtoTags
       `Prelude.seq` Prelude.rnf httpStatus

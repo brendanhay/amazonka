@@ -30,24 +30,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssertionAttributes' smart constructor.
 data AssertionAttributes = AssertionAttributes'
-  { -- | The name of the attribute within the SAML assertion to use as the user
-    -- full \"friendly\" names for SAML users.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The name of the attribute within the SAML assertion to use as the email
+  { -- | The name of the attribute within the SAML assertion to use as the email
     -- names for SAML users.
     email :: Prelude.Maybe Prelude.Text,
+    -- | The name of the attribute within the SAML assertion to use as the user
+    -- full \"friendly\" names for user groups.
+    groups :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute within the SAML assertion to use as the login
     -- names for SAML users.
     login :: Prelude.Maybe Prelude.Text,
+    -- | The name of the attribute within the SAML assertion to use as the user
+    -- full \"friendly\" names for SAML users.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute within the SAML assertion to use as the user
     -- full \"friendly\" names for the users\' organizations.
     org :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute within the SAML assertion to use as the user
     -- roles.
-    role' :: Prelude.Maybe Prelude.Text,
-    -- | The name of the attribute within the SAML assertion to use as the user
-    -- full \"friendly\" names for user groups.
-    groups :: Prelude.Maybe Prelude.Text
+    role' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,49 +59,54 @@ data AssertionAttributes = AssertionAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'assertionAttributes_name' - The name of the attribute within the SAML assertion to use as the user
--- full \"friendly\" names for SAML users.
---
 -- 'email', 'assertionAttributes_email' - The name of the attribute within the SAML assertion to use as the email
 -- names for SAML users.
 --
+-- 'groups', 'assertionAttributes_groups' - The name of the attribute within the SAML assertion to use as the user
+-- full \"friendly\" names for user groups.
+--
 -- 'login', 'assertionAttributes_login' - The name of the attribute within the SAML assertion to use as the login
 -- names for SAML users.
+--
+-- 'name', 'assertionAttributes_name' - The name of the attribute within the SAML assertion to use as the user
+-- full \"friendly\" names for SAML users.
 --
 -- 'org', 'assertionAttributes_org' - The name of the attribute within the SAML assertion to use as the user
 -- full \"friendly\" names for the users\' organizations.
 --
 -- 'role'', 'assertionAttributes_role' - The name of the attribute within the SAML assertion to use as the user
 -- roles.
---
--- 'groups', 'assertionAttributes_groups' - The name of the attribute within the SAML assertion to use as the user
--- full \"friendly\" names for user groups.
 newAssertionAttributes ::
   AssertionAttributes
 newAssertionAttributes =
   AssertionAttributes'
-    { name = Prelude.Nothing,
-      email = Prelude.Nothing,
+    { email = Prelude.Nothing,
+      groups = Prelude.Nothing,
       login = Prelude.Nothing,
+      name = Prelude.Nothing,
       org = Prelude.Nothing,
-      role' = Prelude.Nothing,
-      groups = Prelude.Nothing
+      role' = Prelude.Nothing
     }
-
--- | The name of the attribute within the SAML assertion to use as the user
--- full \"friendly\" names for SAML users.
-assertionAttributes_name :: Lens.Lens' AssertionAttributes (Prelude.Maybe Prelude.Text)
-assertionAttributes_name = Lens.lens (\AssertionAttributes' {name} -> name) (\s@AssertionAttributes' {} a -> s {name = a} :: AssertionAttributes)
 
 -- | The name of the attribute within the SAML assertion to use as the email
 -- names for SAML users.
 assertionAttributes_email :: Lens.Lens' AssertionAttributes (Prelude.Maybe Prelude.Text)
 assertionAttributes_email = Lens.lens (\AssertionAttributes' {email} -> email) (\s@AssertionAttributes' {} a -> s {email = a} :: AssertionAttributes)
 
+-- | The name of the attribute within the SAML assertion to use as the user
+-- full \"friendly\" names for user groups.
+assertionAttributes_groups :: Lens.Lens' AssertionAttributes (Prelude.Maybe Prelude.Text)
+assertionAttributes_groups = Lens.lens (\AssertionAttributes' {groups} -> groups) (\s@AssertionAttributes' {} a -> s {groups = a} :: AssertionAttributes)
+
 -- | The name of the attribute within the SAML assertion to use as the login
 -- names for SAML users.
 assertionAttributes_login :: Lens.Lens' AssertionAttributes (Prelude.Maybe Prelude.Text)
 assertionAttributes_login = Lens.lens (\AssertionAttributes' {login} -> login) (\s@AssertionAttributes' {} a -> s {login = a} :: AssertionAttributes)
+
+-- | The name of the attribute within the SAML assertion to use as the user
+-- full \"friendly\" names for SAML users.
+assertionAttributes_name :: Lens.Lens' AssertionAttributes (Prelude.Maybe Prelude.Text)
+assertionAttributes_name = Lens.lens (\AssertionAttributes' {name} -> name) (\s@AssertionAttributes' {} a -> s {name = a} :: AssertionAttributes)
 
 -- | The name of the attribute within the SAML assertion to use as the user
 -- full \"friendly\" names for the users\' organizations.
@@ -113,52 +118,47 @@ assertionAttributes_org = Lens.lens (\AssertionAttributes' {org} -> org) (\s@Ass
 assertionAttributes_role :: Lens.Lens' AssertionAttributes (Prelude.Maybe Prelude.Text)
 assertionAttributes_role = Lens.lens (\AssertionAttributes' {role'} -> role') (\s@AssertionAttributes' {} a -> s {role' = a} :: AssertionAttributes)
 
--- | The name of the attribute within the SAML assertion to use as the user
--- full \"friendly\" names for user groups.
-assertionAttributes_groups :: Lens.Lens' AssertionAttributes (Prelude.Maybe Prelude.Text)
-assertionAttributes_groups = Lens.lens (\AssertionAttributes' {groups} -> groups) (\s@AssertionAttributes' {} a -> s {groups = a} :: AssertionAttributes)
-
 instance Data.FromJSON AssertionAttributes where
   parseJSON =
     Data.withObject
       "AssertionAttributes"
       ( \x ->
           AssertionAttributes'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "email")
+            Prelude.<$> (x Data..:? "email")
+            Prelude.<*> (x Data..:? "groups")
             Prelude.<*> (x Data..:? "login")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "org")
             Prelude.<*> (x Data..:? "role")
-            Prelude.<*> (x Data..:? "groups")
       )
 
 instance Prelude.Hashable AssertionAttributes where
   hashWithSalt _salt AssertionAttributes' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` email
+    _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` login
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` org
       `Prelude.hashWithSalt` role'
-      `Prelude.hashWithSalt` groups
 
 instance Prelude.NFData AssertionAttributes where
   rnf AssertionAttributes' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf email
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf login
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf org
       `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf groups
 
 instance Data.ToJSON AssertionAttributes where
   toJSON AssertionAttributes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("email" Data..=) Prelude.<$> email,
+          [ ("email" Data..=) Prelude.<$> email,
+            ("groups" Data..=) Prelude.<$> groups,
             ("login" Data..=) Prelude.<$> login,
+            ("name" Data..=) Prelude.<$> name,
             ("org" Data..=) Prelude.<$> org,
-            ("role" Data..=) Prelude.<$> role',
-            ("groups" Data..=) Prelude.<$> groups
+            ("role" Data..=) Prelude.<$> role'
           ]
       )

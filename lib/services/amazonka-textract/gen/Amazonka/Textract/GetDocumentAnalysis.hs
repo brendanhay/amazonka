@@ -85,8 +85,8 @@ module Amazonka.Textract.GetDocumentAnalysis
     newGetDocumentAnalysis,
 
     -- * Request Lenses
-    getDocumentAnalysis_nextToken,
     getDocumentAnalysis_maxResults,
+    getDocumentAnalysis_nextToken,
     getDocumentAnalysis_jobId,
 
     -- * Destructuring the Response
@@ -94,13 +94,13 @@ module Amazonka.Textract.GetDocumentAnalysis
     newGetDocumentAnalysisResponse,
 
     -- * Response Lenses
-    getDocumentAnalysisResponse_nextToken,
-    getDocumentAnalysisResponse_jobStatus,
-    getDocumentAnalysisResponse_documentMetadata,
-    getDocumentAnalysisResponse_warnings,
     getDocumentAnalysisResponse_analyzeDocumentModelVersion,
-    getDocumentAnalysisResponse_statusMessage,
     getDocumentAnalysisResponse_blocks,
+    getDocumentAnalysisResponse_documentMetadata,
+    getDocumentAnalysisResponse_jobStatus,
+    getDocumentAnalysisResponse_nextToken,
+    getDocumentAnalysisResponse_statusMessage,
+    getDocumentAnalysisResponse_warnings,
     getDocumentAnalysisResponse_httpStatus,
   )
 where
@@ -115,16 +115,16 @@ import Amazonka.Textract.Types
 
 -- | /See:/ 'newGetDocumentAnalysis' smart constructor.
 data GetDocumentAnalysis = GetDocumentAnalysis'
-  { -- | If the previous response was incomplete (because there are more blocks
-    -- to retrieve), Amazon Textract returns a pagination token in the
-    -- response. You can use this pagination token to retrieve the next set of
-    -- blocks.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per paginated call. The largest
+  { -- | The maximum number of results to return per paginated call. The largest
     -- value that you can specify is 1,000. If you specify a value greater than
     -- 1,000, a maximum of 1,000 results is returned. The default value is
     -- 1,000.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there are more blocks
+    -- to retrieve), Amazon Textract returns a pagination token in the
+    -- response. You can use this pagination token to retrieve the next set of
+    -- blocks.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the text-detection job. The @JobId@ is returned
     -- from @StartDocumentAnalysis@. A @JobId@ value is only valid for 7 days.
     jobId :: Prelude.Text
@@ -139,15 +139,15 @@ data GetDocumentAnalysis = GetDocumentAnalysis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getDocumentAnalysis_nextToken' - If the previous response was incomplete (because there are more blocks
--- to retrieve), Amazon Textract returns a pagination token in the
--- response. You can use this pagination token to retrieve the next set of
--- blocks.
---
 -- 'maxResults', 'getDocumentAnalysis_maxResults' - The maximum number of results to return per paginated call. The largest
 -- value that you can specify is 1,000. If you specify a value greater than
 -- 1,000, a maximum of 1,000 results is returned. The default value is
 -- 1,000.
+--
+-- 'nextToken', 'getDocumentAnalysis_nextToken' - If the previous response was incomplete (because there are more blocks
+-- to retrieve), Amazon Textract returns a pagination token in the
+-- response. You can use this pagination token to retrieve the next set of
+-- blocks.
 --
 -- 'jobId', 'getDocumentAnalysis_jobId' - A unique identifier for the text-detection job. The @JobId@ is returned
 -- from @StartDocumentAnalysis@. A @JobId@ value is only valid for 7 days.
@@ -157,17 +157,10 @@ newGetDocumentAnalysis ::
   GetDocumentAnalysis
 newGetDocumentAnalysis pJobId_ =
   GetDocumentAnalysis'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       jobId = pJobId_
     }
-
--- | If the previous response was incomplete (because there are more blocks
--- to retrieve), Amazon Textract returns a pagination token in the
--- response. You can use this pagination token to retrieve the next set of
--- blocks.
-getDocumentAnalysis_nextToken :: Lens.Lens' GetDocumentAnalysis (Prelude.Maybe Prelude.Text)
-getDocumentAnalysis_nextToken = Lens.lens (\GetDocumentAnalysis' {nextToken} -> nextToken) (\s@GetDocumentAnalysis' {} a -> s {nextToken = a} :: GetDocumentAnalysis)
 
 -- | The maximum number of results to return per paginated call. The largest
 -- value that you can specify is 1,000. If you specify a value greater than
@@ -175,6 +168,13 @@ getDocumentAnalysis_nextToken = Lens.lens (\GetDocumentAnalysis' {nextToken} -> 
 -- 1,000.
 getDocumentAnalysis_maxResults :: Lens.Lens' GetDocumentAnalysis (Prelude.Maybe Prelude.Natural)
 getDocumentAnalysis_maxResults = Lens.lens (\GetDocumentAnalysis' {maxResults} -> maxResults) (\s@GetDocumentAnalysis' {} a -> s {maxResults = a} :: GetDocumentAnalysis)
+
+-- | If the previous response was incomplete (because there are more blocks
+-- to retrieve), Amazon Textract returns a pagination token in the
+-- response. You can use this pagination token to retrieve the next set of
+-- blocks.
+getDocumentAnalysis_nextToken :: Lens.Lens' GetDocumentAnalysis (Prelude.Maybe Prelude.Text)
+getDocumentAnalysis_nextToken = Lens.lens (\GetDocumentAnalysis' {nextToken} -> nextToken) (\s@GetDocumentAnalysis' {} a -> s {nextToken = a} :: GetDocumentAnalysis)
 
 -- | A unique identifier for the text-detection job. The @JobId@ is returned
 -- from @StartDocumentAnalysis@. A @JobId@ value is only valid for 7 days.
@@ -191,26 +191,26 @@ instance Core.AWSRequest GetDocumentAnalysis where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentAnalysisResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "JobStatus")
-            Prelude.<*> (x Data..?> "DocumentMetadata")
-            Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "AnalyzeDocumentModelVersion")
-            Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<$> (x Data..?> "AnalyzeDocumentModelVersion")
             Prelude.<*> (x Data..?> "Blocks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DocumentMetadata")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetDocumentAnalysis where
   hashWithSalt _salt GetDocumentAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetDocumentAnalysis where
   rnf GetDocumentAnalysis' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf jobId
 
 instance Data.ToHeaders GetDocumentAnalysis where
@@ -232,8 +232,8 @@ instance Data.ToJSON GetDocumentAnalysis where
   toJSON GetDocumentAnalysis' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("JobId" Data..= jobId)
           ]
       )
@@ -246,24 +246,24 @@ instance Data.ToQuery GetDocumentAnalysis where
 
 -- | /See:/ 'newGetDocumentAnalysisResponse' smart constructor.
 data GetDocumentAnalysisResponse = GetDocumentAnalysisResponse'
-  { -- | If the response is truncated, Amazon Textract returns this token. You
-    -- can use this token in the subsequent request to retrieve the next set of
-    -- text detection results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the text detection job.
-    jobStatus :: Prelude.Maybe JobStatus,
+  { analyzeDocumentModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The results of the text-analysis operation.
+    blocks :: Prelude.Maybe [Block],
     -- | Information about a document that Amazon Textract processed.
     -- @DocumentMetadata@ is returned in every page of paginated responses from
     -- an Amazon Textract video operation.
     documentMetadata :: Prelude.Maybe DocumentMetadata,
-    -- | A list of warnings that occurred during the document-analysis operation.
-    warnings :: Prelude.Maybe [Warning],
-    analyzeDocumentModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the text detection job.
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | If the response is truncated, Amazon Textract returns this token. You
+    -- can use this token in the subsequent request to retrieve the next set of
+    -- text detection results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns if the detection job could not be completed. Contains
     -- explanation for what error occured.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The results of the text-analysis operation.
-    blocks :: Prelude.Maybe [Block],
+    -- | A list of warnings that occurred during the document-analysis operation.
+    warnings :: Prelude.Maybe [Warning],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -277,24 +277,24 @@ data GetDocumentAnalysisResponse = GetDocumentAnalysisResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getDocumentAnalysisResponse_nextToken' - If the response is truncated, Amazon Textract returns this token. You
--- can use this token in the subsequent request to retrieve the next set of
--- text detection results.
+-- 'analyzeDocumentModelVersion', 'getDocumentAnalysisResponse_analyzeDocumentModelVersion' -
 --
--- 'jobStatus', 'getDocumentAnalysisResponse_jobStatus' - The current status of the text detection job.
+-- 'blocks', 'getDocumentAnalysisResponse_blocks' - The results of the text-analysis operation.
 --
 -- 'documentMetadata', 'getDocumentAnalysisResponse_documentMetadata' - Information about a document that Amazon Textract processed.
 -- @DocumentMetadata@ is returned in every page of paginated responses from
 -- an Amazon Textract video operation.
 --
--- 'warnings', 'getDocumentAnalysisResponse_warnings' - A list of warnings that occurred during the document-analysis operation.
+-- 'jobStatus', 'getDocumentAnalysisResponse_jobStatus' - The current status of the text detection job.
 --
--- 'analyzeDocumentModelVersion', 'getDocumentAnalysisResponse_analyzeDocumentModelVersion' -
+-- 'nextToken', 'getDocumentAnalysisResponse_nextToken' - If the response is truncated, Amazon Textract returns this token. You
+-- can use this token in the subsequent request to retrieve the next set of
+-- text detection results.
 --
 -- 'statusMessage', 'getDocumentAnalysisResponse_statusMessage' - Returns if the detection job could not be completed. Contains
 -- explanation for what error occured.
 --
--- 'blocks', 'getDocumentAnalysisResponse_blocks' - The results of the text-analysis operation.
+-- 'warnings', 'getDocumentAnalysisResponse_warnings' - A list of warnings that occurred during the document-analysis operation.
 --
 -- 'httpStatus', 'getDocumentAnalysisResponse_httpStatus' - The response's http status code.
 newGetDocumentAnalysisResponse ::
@@ -303,26 +303,24 @@ newGetDocumentAnalysisResponse ::
   GetDocumentAnalysisResponse
 newGetDocumentAnalysisResponse pHttpStatus_ =
   GetDocumentAnalysisResponse'
-    { nextToken =
+    { analyzeDocumentModelVersion =
         Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
-      documentMetadata = Prelude.Nothing,
-      warnings = Prelude.Nothing,
-      analyzeDocumentModelVersion = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
       blocks = Prelude.Nothing,
+      documentMetadata = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      warnings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | If the response is truncated, Amazon Textract returns this token. You
--- can use this token in the subsequent request to retrieve the next set of
--- text detection results.
-getDocumentAnalysisResponse_nextToken :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe Prelude.Text)
-getDocumentAnalysisResponse_nextToken = Lens.lens (\GetDocumentAnalysisResponse' {nextToken} -> nextToken) (\s@GetDocumentAnalysisResponse' {} a -> s {nextToken = a} :: GetDocumentAnalysisResponse)
+-- |
+getDocumentAnalysisResponse_analyzeDocumentModelVersion :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe Prelude.Text)
+getDocumentAnalysisResponse_analyzeDocumentModelVersion = Lens.lens (\GetDocumentAnalysisResponse' {analyzeDocumentModelVersion} -> analyzeDocumentModelVersion) (\s@GetDocumentAnalysisResponse' {} a -> s {analyzeDocumentModelVersion = a} :: GetDocumentAnalysisResponse)
 
--- | The current status of the text detection job.
-getDocumentAnalysisResponse_jobStatus :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe JobStatus)
-getDocumentAnalysisResponse_jobStatus = Lens.lens (\GetDocumentAnalysisResponse' {jobStatus} -> jobStatus) (\s@GetDocumentAnalysisResponse' {} a -> s {jobStatus = a} :: GetDocumentAnalysisResponse)
+-- | The results of the text-analysis operation.
+getDocumentAnalysisResponse_blocks :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe [Block])
+getDocumentAnalysisResponse_blocks = Lens.lens (\GetDocumentAnalysisResponse' {blocks} -> blocks) (\s@GetDocumentAnalysisResponse' {} a -> s {blocks = a} :: GetDocumentAnalysisResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about a document that Amazon Textract processed.
 -- @DocumentMetadata@ is returned in every page of paginated responses from
@@ -330,22 +328,24 @@ getDocumentAnalysisResponse_jobStatus = Lens.lens (\GetDocumentAnalysisResponse'
 getDocumentAnalysisResponse_documentMetadata :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe DocumentMetadata)
 getDocumentAnalysisResponse_documentMetadata = Lens.lens (\GetDocumentAnalysisResponse' {documentMetadata} -> documentMetadata) (\s@GetDocumentAnalysisResponse' {} a -> s {documentMetadata = a} :: GetDocumentAnalysisResponse)
 
--- | A list of warnings that occurred during the document-analysis operation.
-getDocumentAnalysisResponse_warnings :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe [Warning])
-getDocumentAnalysisResponse_warnings = Lens.lens (\GetDocumentAnalysisResponse' {warnings} -> warnings) (\s@GetDocumentAnalysisResponse' {} a -> s {warnings = a} :: GetDocumentAnalysisResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The current status of the text detection job.
+getDocumentAnalysisResponse_jobStatus :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe JobStatus)
+getDocumentAnalysisResponse_jobStatus = Lens.lens (\GetDocumentAnalysisResponse' {jobStatus} -> jobStatus) (\s@GetDocumentAnalysisResponse' {} a -> s {jobStatus = a} :: GetDocumentAnalysisResponse)
 
--- |
-getDocumentAnalysisResponse_analyzeDocumentModelVersion :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe Prelude.Text)
-getDocumentAnalysisResponse_analyzeDocumentModelVersion = Lens.lens (\GetDocumentAnalysisResponse' {analyzeDocumentModelVersion} -> analyzeDocumentModelVersion) (\s@GetDocumentAnalysisResponse' {} a -> s {analyzeDocumentModelVersion = a} :: GetDocumentAnalysisResponse)
+-- | If the response is truncated, Amazon Textract returns this token. You
+-- can use this token in the subsequent request to retrieve the next set of
+-- text detection results.
+getDocumentAnalysisResponse_nextToken :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe Prelude.Text)
+getDocumentAnalysisResponse_nextToken = Lens.lens (\GetDocumentAnalysisResponse' {nextToken} -> nextToken) (\s@GetDocumentAnalysisResponse' {} a -> s {nextToken = a} :: GetDocumentAnalysisResponse)
 
 -- | Returns if the detection job could not be completed. Contains
 -- explanation for what error occured.
 getDocumentAnalysisResponse_statusMessage :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe Prelude.Text)
 getDocumentAnalysisResponse_statusMessage = Lens.lens (\GetDocumentAnalysisResponse' {statusMessage} -> statusMessage) (\s@GetDocumentAnalysisResponse' {} a -> s {statusMessage = a} :: GetDocumentAnalysisResponse)
 
--- | The results of the text-analysis operation.
-getDocumentAnalysisResponse_blocks :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe [Block])
-getDocumentAnalysisResponse_blocks = Lens.lens (\GetDocumentAnalysisResponse' {blocks} -> blocks) (\s@GetDocumentAnalysisResponse' {} a -> s {blocks = a} :: GetDocumentAnalysisResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A list of warnings that occurred during the document-analysis operation.
+getDocumentAnalysisResponse_warnings :: Lens.Lens' GetDocumentAnalysisResponse (Prelude.Maybe [Warning])
+getDocumentAnalysisResponse_warnings = Lens.lens (\GetDocumentAnalysisResponse' {warnings} -> warnings) (\s@GetDocumentAnalysisResponse' {} a -> s {warnings = a} :: GetDocumentAnalysisResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDocumentAnalysisResponse_httpStatus :: Lens.Lens' GetDocumentAnalysisResponse Prelude.Int
@@ -353,11 +353,11 @@ getDocumentAnalysisResponse_httpStatus = Lens.lens (\GetDocumentAnalysisResponse
 
 instance Prelude.NFData GetDocumentAnalysisResponse where
   rnf GetDocumentAnalysisResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf analyzeDocumentModelVersion
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf analyzeDocumentModelVersion
       `Prelude.seq` Prelude.rnf blocks
+      `Prelude.seq` Prelude.rnf documentMetadata
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf warnings
       `Prelude.seq` Prelude.rnf httpStatus

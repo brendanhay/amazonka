@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFuotaTask' smart constructor.
 data FuotaTask = FuotaTask'
-  { name :: Prelude.Maybe Prelude.Text,
-    arn :: Prelude.Maybe Prelude.Text,
-    id :: Prelude.Maybe Prelude.Text
+  { arn :: Prelude.Maybe Prelude.Text,
+    id :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,23 +42,19 @@ data FuotaTask = FuotaTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'fuotaTask_name' - Undocumented member.
---
 -- 'arn', 'fuotaTask_arn' - Undocumented member.
 --
 -- 'id', 'fuotaTask_id' - Undocumented member.
+--
+-- 'name', 'fuotaTask_name' - Undocumented member.
 newFuotaTask ::
   FuotaTask
 newFuotaTask =
   FuotaTask'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Undocumented member.
-fuotaTask_name :: Lens.Lens' FuotaTask (Prelude.Maybe Prelude.Text)
-fuotaTask_name = Lens.lens (\FuotaTask' {name} -> name) (\s@FuotaTask' {} a -> s {name = a} :: FuotaTask)
 
 -- | Undocumented member.
 fuotaTask_arn :: Lens.Lens' FuotaTask (Prelude.Maybe Prelude.Text)
@@ -68,25 +64,29 @@ fuotaTask_arn = Lens.lens (\FuotaTask' {arn} -> arn) (\s@FuotaTask' {} a -> s {a
 fuotaTask_id :: Lens.Lens' FuotaTask (Prelude.Maybe Prelude.Text)
 fuotaTask_id = Lens.lens (\FuotaTask' {id} -> id) (\s@FuotaTask' {} a -> s {id = a} :: FuotaTask)
 
+-- | Undocumented member.
+fuotaTask_name :: Lens.Lens' FuotaTask (Prelude.Maybe Prelude.Text)
+fuotaTask_name = Lens.lens (\FuotaTask' {name} -> name) (\s@FuotaTask' {} a -> s {name = a} :: FuotaTask)
+
 instance Data.FromJSON FuotaTask where
   parseJSON =
     Data.withObject
       "FuotaTask"
       ( \x ->
           FuotaTask'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable FuotaTask where
   hashWithSalt _salt FuotaTask' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData FuotaTask where
   rnf FuotaTask' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

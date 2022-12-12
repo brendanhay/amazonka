@@ -29,13 +29,13 @@ module Amazonka.DataSync.CreateLocationObjectStorage
     newCreateLocationObjectStorage,
 
     -- * Request Lenses
-    createLocationObjectStorage_tags,
-    createLocationObjectStorage_serverProtocol,
-    createLocationObjectStorage_serverCertificate,
-    createLocationObjectStorage_serverPort,
     createLocationObjectStorage_accessKey,
     createLocationObjectStorage_secretKey,
+    createLocationObjectStorage_serverCertificate,
+    createLocationObjectStorage_serverPort,
+    createLocationObjectStorage_serverProtocol,
     createLocationObjectStorage_subdirectory,
+    createLocationObjectStorage_tags,
     createLocationObjectStorage_serverHostname,
     createLocationObjectStorage_bucketName,
     createLocationObjectStorage_agentArns,
@@ -62,13 +62,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLocationObjectStorage' smart constructor.
 data CreateLocationObjectStorage = CreateLocationObjectStorage'
-  { -- | Specifies the key-value pair that represents a tag that you want to add
-    -- to the resource. Tags can help you manage, filter, and search for your
-    -- resources. We recommend creating a name tag for your location.
-    tags :: Prelude.Maybe [TagListEntry],
-    -- | Specifies the protocol that your object storage server uses to
-    -- communicate.
-    serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
+  { -- | Specifies the access key (for example, a user name) if credentials are
+    -- required to authenticate with the object storage server.
+    accessKey :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the secret key (for example, a password) if credentials are
+    -- required to authenticate with the object storage server.
+    secretKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies a certificate to authenticate with an object storage system
     -- that uses a private or self-signed certificate authority (CA). You must
     -- specify a Base64-encoded @.pem@ file (for example,
@@ -80,16 +79,17 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
     -- | Specifies the port that your object storage server accepts inbound
     -- network traffic on (for example, port 443).
     serverPort :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the access key (for example, a user name) if credentials are
-    -- required to authenticate with the object storage server.
-    accessKey :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the secret key (for example, a password) if credentials are
-    -- required to authenticate with the object storage server.
-    secretKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Specifies the protocol that your object storage server uses to
+    -- communicate.
+    serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
     -- | Specifies the object prefix for your object storage server. If this is a
     -- source location, DataSync only copies objects with this prefix. If this
     -- is a destination location, DataSync writes all objects with this prefix.
     subdirectory :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the key-value pair that represents a tag that you want to add
+    -- to the resource. Tags can help you manage, filter, and search for your
+    -- resources. We recommend creating a name tag for your location.
+    tags :: Prelude.Maybe [TagListEntry],
     -- | Specifies the domain name or IP address of the object storage server. A
     -- DataSync agent uses this hostname to mount the object storage server in
     -- a network.
@@ -111,12 +111,11 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLocationObjectStorage_tags' - Specifies the key-value pair that represents a tag that you want to add
--- to the resource. Tags can help you manage, filter, and search for your
--- resources. We recommend creating a name tag for your location.
+-- 'accessKey', 'createLocationObjectStorage_accessKey' - Specifies the access key (for example, a user name) if credentials are
+-- required to authenticate with the object storage server.
 --
--- 'serverProtocol', 'createLocationObjectStorage_serverProtocol' - Specifies the protocol that your object storage server uses to
--- communicate.
+-- 'secretKey', 'createLocationObjectStorage_secretKey' - Specifies the secret key (for example, a password) if credentials are
+-- required to authenticate with the object storage server.
 --
 -- 'serverCertificate', 'createLocationObjectStorage_serverCertificate' - Specifies a certificate to authenticate with an object storage system
 -- that uses a private or self-signed certificate authority (CA). You must
@@ -133,15 +132,16 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
 -- 'serverPort', 'createLocationObjectStorage_serverPort' - Specifies the port that your object storage server accepts inbound
 -- network traffic on (for example, port 443).
 --
--- 'accessKey', 'createLocationObjectStorage_accessKey' - Specifies the access key (for example, a user name) if credentials are
--- required to authenticate with the object storage server.
---
--- 'secretKey', 'createLocationObjectStorage_secretKey' - Specifies the secret key (for example, a password) if credentials are
--- required to authenticate with the object storage server.
+-- 'serverProtocol', 'createLocationObjectStorage_serverProtocol' - Specifies the protocol that your object storage server uses to
+-- communicate.
 --
 -- 'subdirectory', 'createLocationObjectStorage_subdirectory' - Specifies the object prefix for your object storage server. If this is a
 -- source location, DataSync only copies objects with this prefix. If this
 -- is a destination location, DataSync writes all objects with this prefix.
+--
+-- 'tags', 'createLocationObjectStorage_tags' - Specifies the key-value pair that represents a tag that you want to add
+-- to the resource. Tags can help you manage, filter, and search for your
+-- resources. We recommend creating a name tag for your location.
 --
 -- 'serverHostname', 'createLocationObjectStorage_serverHostname' - Specifies the domain name or IP address of the object storage server. A
 -- DataSync agent uses this hostname to mount the object storage server in
@@ -165,29 +165,28 @@ newCreateLocationObjectStorage
   pBucketName_
   pAgentArns_ =
     CreateLocationObjectStorage'
-      { tags =
+      { accessKey =
           Prelude.Nothing,
-        serverProtocol = Prelude.Nothing,
+        secretKey = Prelude.Nothing,
         serverCertificate = Prelude.Nothing,
         serverPort = Prelude.Nothing,
-        accessKey = Prelude.Nothing,
-        secretKey = Prelude.Nothing,
+        serverProtocol = Prelude.Nothing,
         subdirectory = Prelude.Nothing,
+        tags = Prelude.Nothing,
         serverHostname = pServerHostname_,
         bucketName = pBucketName_,
         agentArns = Lens.coerced Lens.# pAgentArns_
       }
 
--- | Specifies the key-value pair that represents a tag that you want to add
--- to the resource. Tags can help you manage, filter, and search for your
--- resources. We recommend creating a name tag for your location.
-createLocationObjectStorage_tags :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe [TagListEntry])
-createLocationObjectStorage_tags = Lens.lens (\CreateLocationObjectStorage' {tags} -> tags) (\s@CreateLocationObjectStorage' {} a -> s {tags = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies the access key (for example, a user name) if credentials are
+-- required to authenticate with the object storage server.
+createLocationObjectStorage_accessKey :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
+createLocationObjectStorage_accessKey = Lens.lens (\CreateLocationObjectStorage' {accessKey} -> accessKey) (\s@CreateLocationObjectStorage' {} a -> s {accessKey = a} :: CreateLocationObjectStorage)
 
--- | Specifies the protocol that your object storage server uses to
--- communicate.
-createLocationObjectStorage_serverProtocol :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
-createLocationObjectStorage_serverProtocol = Lens.lens (\CreateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@CreateLocationObjectStorage' {} a -> s {serverProtocol = a} :: CreateLocationObjectStorage)
+-- | Specifies the secret key (for example, a password) if credentials are
+-- required to authenticate with the object storage server.
+createLocationObjectStorage_secretKey :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
+createLocationObjectStorage_secretKey = Lens.lens (\CreateLocationObjectStorage' {secretKey} -> secretKey) (\s@CreateLocationObjectStorage' {} a -> s {secretKey = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies a certificate to authenticate with an object storage system
 -- that uses a private or self-signed certificate authority (CA). You must
@@ -208,21 +207,22 @@ createLocationObjectStorage_serverCertificate = Lens.lens (\CreateLocationObject
 createLocationObjectStorage_serverPort :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Natural)
 createLocationObjectStorage_serverPort = Lens.lens (\CreateLocationObjectStorage' {serverPort} -> serverPort) (\s@CreateLocationObjectStorage' {} a -> s {serverPort = a} :: CreateLocationObjectStorage)
 
--- | Specifies the access key (for example, a user name) if credentials are
--- required to authenticate with the object storage server.
-createLocationObjectStorage_accessKey :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
-createLocationObjectStorage_accessKey = Lens.lens (\CreateLocationObjectStorage' {accessKey} -> accessKey) (\s@CreateLocationObjectStorage' {} a -> s {accessKey = a} :: CreateLocationObjectStorage)
-
--- | Specifies the secret key (for example, a password) if credentials are
--- required to authenticate with the object storage server.
-createLocationObjectStorage_secretKey :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
-createLocationObjectStorage_secretKey = Lens.lens (\CreateLocationObjectStorage' {secretKey} -> secretKey) (\s@CreateLocationObjectStorage' {} a -> s {secretKey = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Data._Sensitive
+-- | Specifies the protocol that your object storage server uses to
+-- communicate.
+createLocationObjectStorage_serverProtocol :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
+createLocationObjectStorage_serverProtocol = Lens.lens (\CreateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@CreateLocationObjectStorage' {} a -> s {serverProtocol = a} :: CreateLocationObjectStorage)
 
 -- | Specifies the object prefix for your object storage server. If this is a
 -- source location, DataSync only copies objects with this prefix. If this
 -- is a destination location, DataSync writes all objects with this prefix.
 createLocationObjectStorage_subdirectory :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 createLocationObjectStorage_subdirectory = Lens.lens (\CreateLocationObjectStorage' {subdirectory} -> subdirectory) (\s@CreateLocationObjectStorage' {} a -> s {subdirectory = a} :: CreateLocationObjectStorage)
+
+-- | Specifies the key-value pair that represents a tag that you want to add
+-- to the resource. Tags can help you manage, filter, and search for your
+-- resources. We recommend creating a name tag for your location.
+createLocationObjectStorage_tags :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe [TagListEntry])
+createLocationObjectStorage_tags = Lens.lens (\CreateLocationObjectStorage' {tags} -> tags) (\s@CreateLocationObjectStorage' {} a -> s {tags = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the domain name or IP address of the object storage server. A
 -- DataSync agent uses this hostname to mount the object storage server in
@@ -256,26 +256,26 @@ instance Core.AWSRequest CreateLocationObjectStorage where
 
 instance Prelude.Hashable CreateLocationObjectStorage where
   hashWithSalt _salt CreateLocationObjectStorage' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` serverProtocol
+    _salt `Prelude.hashWithSalt` accessKey
+      `Prelude.hashWithSalt` secretKey
       `Prelude.hashWithSalt` serverCertificate
       `Prelude.hashWithSalt` serverPort
-      `Prelude.hashWithSalt` accessKey
-      `Prelude.hashWithSalt` secretKey
+      `Prelude.hashWithSalt` serverProtocol
       `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverHostname
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` agentArns
 
 instance Prelude.NFData CreateLocationObjectStorage where
   rnf CreateLocationObjectStorage' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serverProtocol
+    Prelude.rnf accessKey
+      `Prelude.seq` Prelude.rnf secretKey
       `Prelude.seq` Prelude.rnf serverCertificate
       `Prelude.seq` Prelude.rnf serverPort
-      `Prelude.seq` Prelude.rnf accessKey
-      `Prelude.seq` Prelude.rnf secretKey
+      `Prelude.seq` Prelude.rnf serverProtocol
       `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverHostname
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf agentArns
@@ -299,15 +299,15 @@ instance Data.ToJSON CreateLocationObjectStorage where
   toJSON CreateLocationObjectStorage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ServerProtocol" Data..=)
-              Prelude.<$> serverProtocol,
+          [ ("AccessKey" Data..=) Prelude.<$> accessKey,
+            ("SecretKey" Data..=) Prelude.<$> secretKey,
             ("ServerCertificate" Data..=)
               Prelude.<$> serverCertificate,
             ("ServerPort" Data..=) Prelude.<$> serverPort,
-            ("AccessKey" Data..=) Prelude.<$> accessKey,
-            ("SecretKey" Data..=) Prelude.<$> secretKey,
+            ("ServerProtocol" Data..=)
+              Prelude.<$> serverProtocol,
             ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ServerHostname" Data..= serverHostname),
             Prelude.Just ("BucketName" Data..= bucketName),

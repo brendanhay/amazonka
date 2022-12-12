@@ -32,10 +32,10 @@ import Amazonka.WellArchitected.Types.QuestionDifference
 data PillarDifference = PillarDifference'
   { -- | Indicates the type of change to the pillar.
     differenceStatus :: Prelude.Maybe DifferenceStatus,
-    -- | List of question differences.
-    questionDifferences :: Prelude.Maybe [QuestionDifference],
     pillarId :: Prelude.Maybe Prelude.Text,
-    pillarName :: Prelude.Maybe Prelude.Text
+    pillarName :: Prelude.Maybe Prelude.Text,
+    -- | List of question differences.
+    questionDifferences :: Prelude.Maybe [QuestionDifference]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,25 @@ data PillarDifference = PillarDifference'
 --
 -- 'differenceStatus', 'pillarDifference_differenceStatus' - Indicates the type of change to the pillar.
 --
--- 'questionDifferences', 'pillarDifference_questionDifferences' - List of question differences.
---
 -- 'pillarId', 'pillarDifference_pillarId' - Undocumented member.
 --
 -- 'pillarName', 'pillarDifference_pillarName' - Undocumented member.
+--
+-- 'questionDifferences', 'pillarDifference_questionDifferences' - List of question differences.
 newPillarDifference ::
   PillarDifference
 newPillarDifference =
   PillarDifference'
     { differenceStatus =
         Prelude.Nothing,
-      questionDifferences = Prelude.Nothing,
       pillarId = Prelude.Nothing,
-      pillarName = Prelude.Nothing
+      pillarName = Prelude.Nothing,
+      questionDifferences = Prelude.Nothing
     }
 
 -- | Indicates the type of change to the pillar.
 pillarDifference_differenceStatus :: Lens.Lens' PillarDifference (Prelude.Maybe DifferenceStatus)
 pillarDifference_differenceStatus = Lens.lens (\PillarDifference' {differenceStatus} -> differenceStatus) (\s@PillarDifference' {} a -> s {differenceStatus = a} :: PillarDifference)
-
--- | List of question differences.
-pillarDifference_questionDifferences :: Lens.Lens' PillarDifference (Prelude.Maybe [QuestionDifference])
-pillarDifference_questionDifferences = Lens.lens (\PillarDifference' {questionDifferences} -> questionDifferences) (\s@PillarDifference' {} a -> s {questionDifferences = a} :: PillarDifference) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 pillarDifference_pillarId :: Lens.Lens' PillarDifference (Prelude.Maybe Prelude.Text)
@@ -81,6 +77,10 @@ pillarDifference_pillarId = Lens.lens (\PillarDifference' {pillarId} -> pillarId
 pillarDifference_pillarName :: Lens.Lens' PillarDifference (Prelude.Maybe Prelude.Text)
 pillarDifference_pillarName = Lens.lens (\PillarDifference' {pillarName} -> pillarName) (\s@PillarDifference' {} a -> s {pillarName = a} :: PillarDifference)
 
+-- | List of question differences.
+pillarDifference_questionDifferences :: Lens.Lens' PillarDifference (Prelude.Maybe [QuestionDifference])
+pillarDifference_questionDifferences = Lens.lens (\PillarDifference' {questionDifferences} -> questionDifferences) (\s@PillarDifference' {} a -> s {questionDifferences = a} :: PillarDifference) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON PillarDifference where
   parseJSON =
     Data.withObject
@@ -88,23 +88,23 @@ instance Data.FromJSON PillarDifference where
       ( \x ->
           PillarDifference'
             Prelude.<$> (x Data..:? "DifferenceStatus")
+            Prelude.<*> (x Data..:? "PillarId")
+            Prelude.<*> (x Data..:? "PillarName")
             Prelude.<*> ( x Data..:? "QuestionDifferences"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "PillarId")
-            Prelude.<*> (x Data..:? "PillarName")
       )
 
 instance Prelude.Hashable PillarDifference where
   hashWithSalt _salt PillarDifference' {..} =
     _salt `Prelude.hashWithSalt` differenceStatus
-      `Prelude.hashWithSalt` questionDifferences
       `Prelude.hashWithSalt` pillarId
       `Prelude.hashWithSalt` pillarName
+      `Prelude.hashWithSalt` questionDifferences
 
 instance Prelude.NFData PillarDifference where
   rnf PillarDifference' {..} =
     Prelude.rnf differenceStatus
-      `Prelude.seq` Prelude.rnf questionDifferences
       `Prelude.seq` Prelude.rnf pillarId
       `Prelude.seq` Prelude.rnf pillarName
+      `Prelude.seq` Prelude.rnf questionDifferences

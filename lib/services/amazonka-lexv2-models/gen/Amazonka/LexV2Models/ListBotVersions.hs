@@ -35,9 +35,9 @@ module Amazonka.LexV2Models.ListBotVersions
     newListBotVersions,
 
     -- * Request Lenses
+    listBotVersions_maxResults,
     listBotVersions_nextToken,
     listBotVersions_sortBy,
-    listBotVersions_maxResults,
     listBotVersions_botId,
 
     -- * Destructuring the Response
@@ -45,9 +45,9 @@ module Amazonka.LexV2Models.ListBotVersions
     newListBotVersionsResponse,
 
     -- * Response Lenses
-    listBotVersionsResponse_nextToken,
     listBotVersionsResponse_botId,
     listBotVersionsResponse_botVersionSummaries,
+    listBotVersionsResponse_nextToken,
     listBotVersionsResponse_httpStatus,
   )
 where
@@ -62,7 +62,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBotVersions' smart constructor.
 data ListBotVersions = ListBotVersions'
-  { -- | If the response to the @ListBotVersion@ operation contains more results
+  { -- | The maximum number of versions to return in each page of results. If
+    -- there are fewer results than the max page size, only the actual number
+    -- of results are returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response to the @ListBotVersion@ operation contains more results
     -- than specified in the @maxResults@ parameter, a token is returned in the
     -- response. Use that token in the @nextToken@ parameter to return the next
     -- page of results.
@@ -71,10 +75,6 @@ data ListBotVersions = ListBotVersions'
     -- that the list be sorted by version name in either ascending or
     -- descending order.
     sortBy :: Prelude.Maybe BotVersionSortBy,
-    -- | The maximum number of versions to return in each page of results. If
-    -- there are fewer results than the max page size, only the actual number
-    -- of results are returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the bot to list versions for.
     botId :: Prelude.Text
   }
@@ -88,6 +88,10 @@ data ListBotVersions = ListBotVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBotVersions_maxResults' - The maximum number of versions to return in each page of results. If
+-- there are fewer results than the max page size, only the actual number
+-- of results are returned.
+--
 -- 'nextToken', 'listBotVersions_nextToken' - If the response to the @ListBotVersion@ operation contains more results
 -- than specified in the @maxResults@ parameter, a token is returned in the
 -- response. Use that token in the @nextToken@ parameter to return the next
@@ -97,10 +101,6 @@ data ListBotVersions = ListBotVersions'
 -- that the list be sorted by version name in either ascending or
 -- descending order.
 --
--- 'maxResults', 'listBotVersions_maxResults' - The maximum number of versions to return in each page of results. If
--- there are fewer results than the max page size, only the actual number
--- of results are returned.
---
 -- 'botId', 'listBotVersions_botId' - The identifier of the bot to list versions for.
 newListBotVersions ::
   -- | 'botId'
@@ -108,11 +108,17 @@ newListBotVersions ::
   ListBotVersions
 newListBotVersions pBotId_ =
   ListBotVersions'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       botId = pBotId_
     }
+
+-- | The maximum number of versions to return in each page of results. If
+-- there are fewer results than the max page size, only the actual number
+-- of results are returned.
+listBotVersions_maxResults :: Lens.Lens' ListBotVersions (Prelude.Maybe Prelude.Natural)
+listBotVersions_maxResults = Lens.lens (\ListBotVersions' {maxResults} -> maxResults) (\s@ListBotVersions' {} a -> s {maxResults = a} :: ListBotVersions)
 
 -- | If the response to the @ListBotVersion@ operation contains more results
 -- than specified in the @maxResults@ parameter, a token is returned in the
@@ -126,12 +132,6 @@ listBotVersions_nextToken = Lens.lens (\ListBotVersions' {nextToken} -> nextToke
 -- descending order.
 listBotVersions_sortBy :: Lens.Lens' ListBotVersions (Prelude.Maybe BotVersionSortBy)
 listBotVersions_sortBy = Lens.lens (\ListBotVersions' {sortBy} -> sortBy) (\s@ListBotVersions' {} a -> s {sortBy = a} :: ListBotVersions)
-
--- | The maximum number of versions to return in each page of results. If
--- there are fewer results than the max page size, only the actual number
--- of results are returned.
-listBotVersions_maxResults :: Lens.Lens' ListBotVersions (Prelude.Maybe Prelude.Natural)
-listBotVersions_maxResults = Lens.lens (\ListBotVersions' {maxResults} -> maxResults) (\s@ListBotVersions' {} a -> s {maxResults = a} :: ListBotVersions)
 
 -- | The identifier of the bot to list versions for.
 listBotVersions_botId :: Lens.Lens' ListBotVersions Prelude.Text
@@ -147,26 +147,26 @@ instance Core.AWSRequest ListBotVersions where
     Response.receiveJSON
       ( \s h x ->
           ListBotVersionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> ( x Data..?> "botVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBotVersions where
   hashWithSalt _salt ListBotVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData ListBotVersions where
   rnf ListBotVersions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf botId
 
 instance Data.ToHeaders ListBotVersions where
@@ -184,9 +184,9 @@ instance Data.ToJSON ListBotVersions where
   toJSON ListBotVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy
           ]
       )
 
@@ -200,12 +200,7 @@ instance Data.ToQuery ListBotVersions where
 
 -- | /See:/ 'newListBotVersionsResponse' smart constructor.
 data ListBotVersionsResponse = ListBotVersionsResponse'
-  { -- | A token that indicates whether there are more results to return in a
-    -- response to the @ListBotVersions@ operation. If the @nextToken@ field is
-    -- present, you send the contents as the @nextToken@ parameter of a
-    -- @ListBotAliases@ operation request to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot to list versions for.
+  { -- | The identifier of the bot to list versions for.
     botId :: Prelude.Maybe Prelude.Text,
     -- | Summary information for the bot versions that meet the filter criteria
     -- specified in the request. The length of the list is specified in the
@@ -213,6 +208,11 @@ data ListBotVersionsResponse = ListBotVersionsResponse'
     -- available, the @nextToken@ field contains a token to get the next page
     -- of results.
     botVersionSummaries :: Prelude.Maybe [BotVersionSummary],
+    -- | A token that indicates whether there are more results to return in a
+    -- response to the @ListBotVersions@ operation. If the @nextToken@ field is
+    -- present, you send the contents as the @nextToken@ parameter of a
+    -- @ListBotAliases@ operation request to get the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,11 +226,6 @@ data ListBotVersionsResponse = ListBotVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBotVersionsResponse_nextToken' - A token that indicates whether there are more results to return in a
--- response to the @ListBotVersions@ operation. If the @nextToken@ field is
--- present, you send the contents as the @nextToken@ parameter of a
--- @ListBotAliases@ operation request to get the next page of results.
---
 -- 'botId', 'listBotVersionsResponse_botId' - The identifier of the bot to list versions for.
 --
 -- 'botVersionSummaries', 'listBotVersionsResponse_botVersionSummaries' - Summary information for the bot versions that meet the filter criteria
@@ -239,6 +234,11 @@ data ListBotVersionsResponse = ListBotVersionsResponse'
 -- available, the @nextToken@ field contains a token to get the next page
 -- of results.
 --
+-- 'nextToken', 'listBotVersionsResponse_nextToken' - A token that indicates whether there are more results to return in a
+-- response to the @ListBotVersions@ operation. If the @nextToken@ field is
+-- present, you send the contents as the @nextToken@ parameter of a
+-- @ListBotAliases@ operation request to get the next page of results.
+--
 -- 'httpStatus', 'listBotVersionsResponse_httpStatus' - The response's http status code.
 newListBotVersionsResponse ::
   -- | 'httpStatus'
@@ -246,19 +246,11 @@ newListBotVersionsResponse ::
   ListBotVersionsResponse
 newListBotVersionsResponse pHttpStatus_ =
   ListBotVersionsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      botId = Prelude.Nothing,
+    { botId = Prelude.Nothing,
       botVersionSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that indicates whether there are more results to return in a
--- response to the @ListBotVersions@ operation. If the @nextToken@ field is
--- present, you send the contents as the @nextToken@ parameter of a
--- @ListBotAliases@ operation request to get the next page of results.
-listBotVersionsResponse_nextToken :: Lens.Lens' ListBotVersionsResponse (Prelude.Maybe Prelude.Text)
-listBotVersionsResponse_nextToken = Lens.lens (\ListBotVersionsResponse' {nextToken} -> nextToken) (\s@ListBotVersionsResponse' {} a -> s {nextToken = a} :: ListBotVersionsResponse)
 
 -- | The identifier of the bot to list versions for.
 listBotVersionsResponse_botId :: Lens.Lens' ListBotVersionsResponse (Prelude.Maybe Prelude.Text)
@@ -272,13 +264,20 @@ listBotVersionsResponse_botId = Lens.lens (\ListBotVersionsResponse' {botId} -> 
 listBotVersionsResponse_botVersionSummaries :: Lens.Lens' ListBotVersionsResponse (Prelude.Maybe [BotVersionSummary])
 listBotVersionsResponse_botVersionSummaries = Lens.lens (\ListBotVersionsResponse' {botVersionSummaries} -> botVersionSummaries) (\s@ListBotVersionsResponse' {} a -> s {botVersionSummaries = a} :: ListBotVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | A token that indicates whether there are more results to return in a
+-- response to the @ListBotVersions@ operation. If the @nextToken@ field is
+-- present, you send the contents as the @nextToken@ parameter of a
+-- @ListBotAliases@ operation request to get the next page of results.
+listBotVersionsResponse_nextToken :: Lens.Lens' ListBotVersionsResponse (Prelude.Maybe Prelude.Text)
+listBotVersionsResponse_nextToken = Lens.lens (\ListBotVersionsResponse' {nextToken} -> nextToken) (\s@ListBotVersionsResponse' {} a -> s {nextToken = a} :: ListBotVersionsResponse)
+
 -- | The response's http status code.
 listBotVersionsResponse_httpStatus :: Lens.Lens' ListBotVersionsResponse Prelude.Int
 listBotVersionsResponse_httpStatus = Lens.lens (\ListBotVersionsResponse' {httpStatus} -> httpStatus) (\s@ListBotVersionsResponse' {} a -> s {httpStatus = a} :: ListBotVersionsResponse)
 
 instance Prelude.NFData ListBotVersionsResponse where
   rnf ListBotVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersionSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

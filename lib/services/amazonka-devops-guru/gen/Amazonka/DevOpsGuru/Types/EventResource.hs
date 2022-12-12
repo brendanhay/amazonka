@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventResource' smart constructor.
 data EventResource = EventResource'
-  { -- | The name of the resource that emitted an event.
+  { -- | The Amazon Resource Name (ARN) of the resource that emitted an event.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource that emitted an event.
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of resource that emitted an event.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource that emitted an event.
-    arn :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,19 +48,23 @@ data EventResource = EventResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'eventResource_arn' - The Amazon Resource Name (ARN) of the resource that emitted an event.
+--
 -- 'name', 'eventResource_name' - The name of the resource that emitted an event.
 --
 -- 'type'', 'eventResource_type' - The type of resource that emitted an event.
---
--- 'arn', 'eventResource_arn' - The Amazon Resource Name (ARN) of the resource that emitted an event.
 newEventResource ::
   EventResource
 newEventResource =
   EventResource'
-    { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the resource that emitted an event.
+eventResource_arn :: Lens.Lens' EventResource (Prelude.Maybe Prelude.Text)
+eventResource_arn = Lens.lens (\EventResource' {arn} -> arn) (\s@EventResource' {} a -> s {arn = a} :: EventResource)
 
 -- | The name of the resource that emitted an event.
 eventResource_name :: Lens.Lens' EventResource (Prelude.Maybe Prelude.Text)
@@ -70,29 +74,25 @@ eventResource_name = Lens.lens (\EventResource' {name} -> name) (\s@EventResourc
 eventResource_type :: Lens.Lens' EventResource (Prelude.Maybe Prelude.Text)
 eventResource_type = Lens.lens (\EventResource' {type'} -> type') (\s@EventResource' {} a -> s {type' = a} :: EventResource)
 
--- | The Amazon Resource Name (ARN) of the resource that emitted an event.
-eventResource_arn :: Lens.Lens' EventResource (Prelude.Maybe Prelude.Text)
-eventResource_arn = Lens.lens (\EventResource' {arn} -> arn) (\s@EventResource' {} a -> s {arn = a} :: EventResource)
-
 instance Data.FromJSON EventResource where
   parseJSON =
     Data.withObject
       "EventResource"
       ( \x ->
           EventResource'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable EventResource where
   hashWithSalt _salt EventResource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData EventResource where
   rnf EventResource' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn

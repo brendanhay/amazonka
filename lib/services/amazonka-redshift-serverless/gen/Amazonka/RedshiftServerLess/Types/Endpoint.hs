@@ -29,10 +29,10 @@ import Amazonka.RedshiftServerLess.Types.VpcEndpoint
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | The port that Amazon Redshift Serverless listens on.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | The DNS address of the VPC endpoint.
+  { -- | The DNS address of the VPC endpoint.
     address :: Prelude.Maybe Prelude.Text,
+    -- | The port that Amazon Redshift Serverless listens on.
+    port :: Prelude.Maybe Prelude.Int,
     -- | An array of @VpcEndpoint@ objects.
     vpcEndpoints :: Prelude.Maybe [VpcEndpoint]
   }
@@ -46,27 +46,27 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'endpoint_port' - The port that Amazon Redshift Serverless listens on.
---
 -- 'address', 'endpoint_address' - The DNS address of the VPC endpoint.
+--
+-- 'port', 'endpoint_port' - The port that Amazon Redshift Serverless listens on.
 --
 -- 'vpcEndpoints', 'endpoint_vpcEndpoints' - An array of @VpcEndpoint@ objects.
 newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { port = Prelude.Nothing,
-      address = Prelude.Nothing,
+    { address = Prelude.Nothing,
+      port = Prelude.Nothing,
       vpcEndpoints = Prelude.Nothing
     }
-
--- | The port that Amazon Redshift Serverless listens on.
-endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
-endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
 -- | The DNS address of the VPC endpoint.
 endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
+
+-- | The port that Amazon Redshift Serverless listens on.
+endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
+endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
 -- | An array of @VpcEndpoint@ objects.
 endpoint_vpcEndpoints :: Lens.Lens' Endpoint (Prelude.Maybe [VpcEndpoint])
@@ -78,19 +78,19 @@ instance Data.FromJSON Endpoint where
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Data..:? "port")
-            Prelude.<*> (x Data..:? "address")
+            Prelude.<$> (x Data..:? "address")
+            Prelude.<*> (x Data..:? "port")
             Prelude.<*> (x Data..:? "vpcEndpoints" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` address
+    _salt `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` vpcEndpoints
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf port
-      `Prelude.seq` Prelude.rnf address
+    Prelude.rnf address
+      `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf vpcEndpoints

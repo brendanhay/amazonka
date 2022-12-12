@@ -31,19 +31,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPhoneNumberOrder' smart constructor.
 data PhoneNumberOrder = PhoneNumberOrder'
-  { -- | The phone number order ID.
+  { -- | The phone number order creation time stamp, in ISO 8601 format.
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The ordered phone number details, such as the phone number in E.164
+    -- format and the phone number status.
+    orderedPhoneNumbers :: Prelude.Maybe [OrderedPhoneNumber],
+    -- | The phone number order ID.
     phoneNumberOrderId :: Prelude.Maybe Prelude.Text,
     -- | The phone number order product type.
     productType :: Prelude.Maybe PhoneNumberProductType,
-    -- | The phone number order creation time stamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The updated phone number order time stamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the phone number order.
     status :: Prelude.Maybe PhoneNumberOrderStatus,
-    -- | The ordered phone number details, such as the phone number in E.164
-    -- format and the phone number status.
-    orderedPhoneNumbers :: Prelude.Maybe [OrderedPhoneNumber]
+    -- | The updated phone number order time stamp, in ISO 8601 format.
+    updatedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -55,30 +55,39 @@ data PhoneNumberOrder = PhoneNumberOrder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdTimestamp', 'phoneNumberOrder_createdTimestamp' - The phone number order creation time stamp, in ISO 8601 format.
+--
+-- 'orderedPhoneNumbers', 'phoneNumberOrder_orderedPhoneNumbers' - The ordered phone number details, such as the phone number in E.164
+-- format and the phone number status.
+--
 -- 'phoneNumberOrderId', 'phoneNumberOrder_phoneNumberOrderId' - The phone number order ID.
 --
 -- 'productType', 'phoneNumberOrder_productType' - The phone number order product type.
 --
--- 'createdTimestamp', 'phoneNumberOrder_createdTimestamp' - The phone number order creation time stamp, in ISO 8601 format.
---
--- 'updatedTimestamp', 'phoneNumberOrder_updatedTimestamp' - The updated phone number order time stamp, in ISO 8601 format.
---
 -- 'status', 'phoneNumberOrder_status' - The status of the phone number order.
 --
--- 'orderedPhoneNumbers', 'phoneNumberOrder_orderedPhoneNumbers' - The ordered phone number details, such as the phone number in E.164
--- format and the phone number status.
+-- 'updatedTimestamp', 'phoneNumberOrder_updatedTimestamp' - The updated phone number order time stamp, in ISO 8601 format.
 newPhoneNumberOrder ::
   PhoneNumberOrder
 newPhoneNumberOrder =
   PhoneNumberOrder'
-    { phoneNumberOrderId =
+    { createdTimestamp =
         Prelude.Nothing,
+      orderedPhoneNumbers = Prelude.Nothing,
+      phoneNumberOrderId = Prelude.Nothing,
       productType = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      updatedTimestamp = Prelude.Nothing,
       status = Prelude.Nothing,
-      orderedPhoneNumbers = Prelude.Nothing
+      updatedTimestamp = Prelude.Nothing
     }
+
+-- | The phone number order creation time stamp, in ISO 8601 format.
+phoneNumberOrder_createdTimestamp :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe Prelude.UTCTime)
+phoneNumberOrder_createdTimestamp = Lens.lens (\PhoneNumberOrder' {createdTimestamp} -> createdTimestamp) (\s@PhoneNumberOrder' {} a -> s {createdTimestamp = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Data._Time
+
+-- | The ordered phone number details, such as the phone number in E.164
+-- format and the phone number status.
+phoneNumberOrder_orderedPhoneNumbers :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe [OrderedPhoneNumber])
+phoneNumberOrder_orderedPhoneNumbers = Lens.lens (\PhoneNumberOrder' {orderedPhoneNumbers} -> orderedPhoneNumbers) (\s@PhoneNumberOrder' {} a -> s {orderedPhoneNumbers = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Lens.coerced
 
 -- | The phone number order ID.
 phoneNumberOrder_phoneNumberOrderId :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe Prelude.Text)
@@ -88,22 +97,13 @@ phoneNumberOrder_phoneNumberOrderId = Lens.lens (\PhoneNumberOrder' {phoneNumber
 phoneNumberOrder_productType :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe PhoneNumberProductType)
 phoneNumberOrder_productType = Lens.lens (\PhoneNumberOrder' {productType} -> productType) (\s@PhoneNumberOrder' {} a -> s {productType = a} :: PhoneNumberOrder)
 
--- | The phone number order creation time stamp, in ISO 8601 format.
-phoneNumberOrder_createdTimestamp :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe Prelude.UTCTime)
-phoneNumberOrder_createdTimestamp = Lens.lens (\PhoneNumberOrder' {createdTimestamp} -> createdTimestamp) (\s@PhoneNumberOrder' {} a -> s {createdTimestamp = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Data._Time
-
--- | The updated phone number order time stamp, in ISO 8601 format.
-phoneNumberOrder_updatedTimestamp :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe Prelude.UTCTime)
-phoneNumberOrder_updatedTimestamp = Lens.lens (\PhoneNumberOrder' {updatedTimestamp} -> updatedTimestamp) (\s@PhoneNumberOrder' {} a -> s {updatedTimestamp = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Data._Time
-
 -- | The status of the phone number order.
 phoneNumberOrder_status :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe PhoneNumberOrderStatus)
 phoneNumberOrder_status = Lens.lens (\PhoneNumberOrder' {status} -> status) (\s@PhoneNumberOrder' {} a -> s {status = a} :: PhoneNumberOrder)
 
--- | The ordered phone number details, such as the phone number in E.164
--- format and the phone number status.
-phoneNumberOrder_orderedPhoneNumbers :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe [OrderedPhoneNumber])
-phoneNumberOrder_orderedPhoneNumbers = Lens.lens (\PhoneNumberOrder' {orderedPhoneNumbers} -> orderedPhoneNumbers) (\s@PhoneNumberOrder' {} a -> s {orderedPhoneNumbers = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Lens.coerced
+-- | The updated phone number order time stamp, in ISO 8601 format.
+phoneNumberOrder_updatedTimestamp :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe Prelude.UTCTime)
+phoneNumberOrder_updatedTimestamp = Lens.lens (\PhoneNumberOrder' {updatedTimestamp} -> updatedTimestamp) (\s@PhoneNumberOrder' {} a -> s {updatedTimestamp = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON PhoneNumberOrder where
   parseJSON =
@@ -111,30 +111,30 @@ instance Data.FromJSON PhoneNumberOrder where
       "PhoneNumberOrder"
       ( \x ->
           PhoneNumberOrder'
-            Prelude.<$> (x Data..:? "PhoneNumberOrderId")
-            Prelude.<*> (x Data..:? "ProductType")
-            Prelude.<*> (x Data..:? "CreatedTimestamp")
-            Prelude.<*> (x Data..:? "UpdatedTimestamp")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "CreatedTimestamp")
             Prelude.<*> ( x Data..:? "OrderedPhoneNumbers"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "PhoneNumberOrderId")
+            Prelude.<*> (x Data..:? "ProductType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
       )
 
 instance Prelude.Hashable PhoneNumberOrder where
   hashWithSalt _salt PhoneNumberOrder' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumberOrderId
-      `Prelude.hashWithSalt` productType
-      `Prelude.hashWithSalt` createdTimestamp
-      `Prelude.hashWithSalt` updatedTimestamp
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` orderedPhoneNumbers
+      `Prelude.hashWithSalt` phoneNumberOrderId
+      `Prelude.hashWithSalt` productType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` updatedTimestamp
 
 instance Prelude.NFData PhoneNumberOrder where
   rnf PhoneNumberOrder' {..} =
-    Prelude.rnf phoneNumberOrderId
-      `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf orderedPhoneNumbers
+      `Prelude.seq` Prelude.rnf phoneNumberOrderId
+      `Prelude.seq` Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updatedTimestamp

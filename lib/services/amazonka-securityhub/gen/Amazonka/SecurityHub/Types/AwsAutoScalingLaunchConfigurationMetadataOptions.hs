@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsAutoScalingLaunchConfigurationMetadataOptions' smart constructor.
 data AwsAutoScalingLaunchConfigurationMetadataOptions = AwsAutoScalingLaunchConfigurationMetadataOptions'
-  { -- | The HTTP @PUT@ response hop limit for instance metadata requests. The
+  { -- | Enables or disables the HTTP metadata endpoint on your instances. By
+    -- default, the metadata endpoint is enabled.
+    httpEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP @PUT@ response hop limit for instance metadata requests. The
     -- larger the number, the further instance metadata requests can travel.
     httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether token usage is @required@ or @optional@ for metadata
     -- requests. By default, token usage is @optional@.
-    httpTokens :: Prelude.Maybe Prelude.Text,
-    -- | Enables or disables the HTTP metadata endpoint on your instances. By
-    -- default, the metadata endpoint is enabled.
-    httpEndpoint :: Prelude.Maybe Prelude.Text
+    httpTokens :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,30 @@ data AwsAutoScalingLaunchConfigurationMetadataOptions = AwsAutoScalingLaunchConf
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'httpEndpoint', 'awsAutoScalingLaunchConfigurationMetadataOptions_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. By
+-- default, the metadata endpoint is enabled.
+--
 -- 'httpPutResponseHopLimit', 'awsAutoScalingLaunchConfigurationMetadataOptions_httpPutResponseHopLimit' - The HTTP @PUT@ response hop limit for instance metadata requests. The
 -- larger the number, the further instance metadata requests can travel.
 --
 -- 'httpTokens', 'awsAutoScalingLaunchConfigurationMetadataOptions_httpTokens' - Indicates whether token usage is @required@ or @optional@ for metadata
 -- requests. By default, token usage is @optional@.
---
--- 'httpEndpoint', 'awsAutoScalingLaunchConfigurationMetadataOptions_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. By
--- default, the metadata endpoint is enabled.
 newAwsAutoScalingLaunchConfigurationMetadataOptions ::
   AwsAutoScalingLaunchConfigurationMetadataOptions
 newAwsAutoScalingLaunchConfigurationMetadataOptions =
   AwsAutoScalingLaunchConfigurationMetadataOptions'
-    { httpPutResponseHopLimit =
+    { httpEndpoint =
+        Prelude.Nothing,
+      httpPutResponseHopLimit =
         Prelude.Nothing,
       httpTokens =
-        Prelude.Nothing,
-      httpEndpoint =
         Prelude.Nothing
     }
+
+-- | Enables or disables the HTTP metadata endpoint on your instances. By
+-- default, the metadata endpoint is enabled.
+awsAutoScalingLaunchConfigurationMetadataOptions_httpEndpoint :: Lens.Lens' AwsAutoScalingLaunchConfigurationMetadataOptions (Prelude.Maybe Prelude.Text)
+awsAutoScalingLaunchConfigurationMetadataOptions_httpEndpoint = Lens.lens (\AwsAutoScalingLaunchConfigurationMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@AwsAutoScalingLaunchConfigurationMetadataOptions' {} a -> s {httpEndpoint = a} :: AwsAutoScalingLaunchConfigurationMetadataOptions)
 
 -- | The HTTP @PUT@ response hop limit for instance metadata requests. The
 -- larger the number, the further instance metadata requests can travel.
@@ -78,11 +83,6 @@ awsAutoScalingLaunchConfigurationMetadataOptions_httpPutResponseHopLimit = Lens.
 awsAutoScalingLaunchConfigurationMetadataOptions_httpTokens :: Lens.Lens' AwsAutoScalingLaunchConfigurationMetadataOptions (Prelude.Maybe Prelude.Text)
 awsAutoScalingLaunchConfigurationMetadataOptions_httpTokens = Lens.lens (\AwsAutoScalingLaunchConfigurationMetadataOptions' {httpTokens} -> httpTokens) (\s@AwsAutoScalingLaunchConfigurationMetadataOptions' {} a -> s {httpTokens = a} :: AwsAutoScalingLaunchConfigurationMetadataOptions)
 
--- | Enables or disables the HTTP metadata endpoint on your instances. By
--- default, the metadata endpoint is enabled.
-awsAutoScalingLaunchConfigurationMetadataOptions_httpEndpoint :: Lens.Lens' AwsAutoScalingLaunchConfigurationMetadataOptions (Prelude.Maybe Prelude.Text)
-awsAutoScalingLaunchConfigurationMetadataOptions_httpEndpoint = Lens.lens (\AwsAutoScalingLaunchConfigurationMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@AwsAutoScalingLaunchConfigurationMetadataOptions' {} a -> s {httpEndpoint = a} :: AwsAutoScalingLaunchConfigurationMetadataOptions)
-
 instance
   Data.FromJSON
     AwsAutoScalingLaunchConfigurationMetadataOptions
@@ -92,9 +92,9 @@ instance
       "AwsAutoScalingLaunchConfigurationMetadataOptions"
       ( \x ->
           AwsAutoScalingLaunchConfigurationMetadataOptions'
-            Prelude.<$> (x Data..:? "HttpPutResponseHopLimit")
+            Prelude.<$> (x Data..:? "HttpEndpoint")
+              Prelude.<*> (x Data..:? "HttpPutResponseHopLimit")
               Prelude.<*> (x Data..:? "HttpTokens")
-              Prelude.<*> (x Data..:? "HttpEndpoint")
       )
 
 instance
@@ -104,10 +104,9 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingLaunchConfigurationMetadataOptions' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` httpEndpoint
         `Prelude.hashWithSalt` httpPutResponseHopLimit
         `Prelude.hashWithSalt` httpTokens
-        `Prelude.hashWithSalt` httpEndpoint
 
 instance
   Prelude.NFData
@@ -115,9 +114,9 @@ instance
   where
   rnf
     AwsAutoScalingLaunchConfigurationMetadataOptions' {..} =
-      Prelude.rnf httpPutResponseHopLimit
+      Prelude.rnf httpEndpoint
+        `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
         `Prelude.seq` Prelude.rnf httpTokens
-        `Prelude.seq` Prelude.rnf httpEndpoint
 
 instance
   Data.ToJSON
@@ -127,9 +126,9 @@ instance
     AwsAutoScalingLaunchConfigurationMetadataOptions' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("HttpPutResponseHopLimit" Data..=)
+            [ ("HttpEndpoint" Data..=) Prelude.<$> httpEndpoint,
+              ("HttpPutResponseHopLimit" Data..=)
                 Prelude.<$> httpPutResponseHopLimit,
-              ("HttpTokens" Data..=) Prelude.<$> httpTokens,
-              ("HttpEndpoint" Data..=) Prelude.<$> httpEndpoint
+              ("HttpTokens" Data..=) Prelude.<$> httpTokens
             ]
         )

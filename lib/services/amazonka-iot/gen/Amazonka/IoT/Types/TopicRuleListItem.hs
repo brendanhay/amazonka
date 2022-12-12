@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTopicRuleListItem' smart constructor.
 data TopicRuleListItem = TopicRuleListItem'
-  { -- | The rule ARN.
+  { -- | The date and time the rule was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The rule ARN.
     ruleArn :: Prelude.Maybe Prelude.Text,
-    -- | The pattern for the topic names that apply.
-    topicPattern :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the rule is disabled.
+    ruleDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the rule.
     ruleName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the rule was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
-    -- | Specifies whether the rule is disabled.
-    ruleDisabled :: Prelude.Maybe Prelude.Bool
+    -- | The pattern for the topic names that apply.
+    topicPattern :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,45 @@ data TopicRuleListItem = TopicRuleListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAt', 'topicRuleListItem_createdAt' - The date and time the rule was created.
+--
 -- 'ruleArn', 'topicRuleListItem_ruleArn' - The rule ARN.
 --
--- 'topicPattern', 'topicRuleListItem_topicPattern' - The pattern for the topic names that apply.
+-- 'ruleDisabled', 'topicRuleListItem_ruleDisabled' - Specifies whether the rule is disabled.
 --
 -- 'ruleName', 'topicRuleListItem_ruleName' - The name of the rule.
 --
--- 'createdAt', 'topicRuleListItem_createdAt' - The date and time the rule was created.
---
--- 'ruleDisabled', 'topicRuleListItem_ruleDisabled' - Specifies whether the rule is disabled.
+-- 'topicPattern', 'topicRuleListItem_topicPattern' - The pattern for the topic names that apply.
 newTopicRuleListItem ::
   TopicRuleListItem
 newTopicRuleListItem =
   TopicRuleListItem'
-    { ruleArn = Prelude.Nothing,
-      topicPattern = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
+      ruleArn = Prelude.Nothing,
+      ruleDisabled = Prelude.Nothing,
       ruleName = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      ruleDisabled = Prelude.Nothing
+      topicPattern = Prelude.Nothing
     }
-
--- | The rule ARN.
-topicRuleListItem_ruleArn :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.Text)
-topicRuleListItem_ruleArn = Lens.lens (\TopicRuleListItem' {ruleArn} -> ruleArn) (\s@TopicRuleListItem' {} a -> s {ruleArn = a} :: TopicRuleListItem)
-
--- | The pattern for the topic names that apply.
-topicRuleListItem_topicPattern :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.Text)
-topicRuleListItem_topicPattern = Lens.lens (\TopicRuleListItem' {topicPattern} -> topicPattern) (\s@TopicRuleListItem' {} a -> s {topicPattern = a} :: TopicRuleListItem)
-
--- | The name of the rule.
-topicRuleListItem_ruleName :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.Text)
-topicRuleListItem_ruleName = Lens.lens (\TopicRuleListItem' {ruleName} -> ruleName) (\s@TopicRuleListItem' {} a -> s {ruleName = a} :: TopicRuleListItem)
 
 -- | The date and time the rule was created.
 topicRuleListItem_createdAt :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.UTCTime)
 topicRuleListItem_createdAt = Lens.lens (\TopicRuleListItem' {createdAt} -> createdAt) (\s@TopicRuleListItem' {} a -> s {createdAt = a} :: TopicRuleListItem) Prelude.. Lens.mapping Data._Time
 
+-- | The rule ARN.
+topicRuleListItem_ruleArn :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.Text)
+topicRuleListItem_ruleArn = Lens.lens (\TopicRuleListItem' {ruleArn} -> ruleArn) (\s@TopicRuleListItem' {} a -> s {ruleArn = a} :: TopicRuleListItem)
+
 -- | Specifies whether the rule is disabled.
 topicRuleListItem_ruleDisabled :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.Bool)
 topicRuleListItem_ruleDisabled = Lens.lens (\TopicRuleListItem' {ruleDisabled} -> ruleDisabled) (\s@TopicRuleListItem' {} a -> s {ruleDisabled = a} :: TopicRuleListItem)
+
+-- | The name of the rule.
+topicRuleListItem_ruleName :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.Text)
+topicRuleListItem_ruleName = Lens.lens (\TopicRuleListItem' {ruleName} -> ruleName) (\s@TopicRuleListItem' {} a -> s {ruleName = a} :: TopicRuleListItem)
+
+-- | The pattern for the topic names that apply.
+topicRuleListItem_topicPattern :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.Text)
+topicRuleListItem_topicPattern = Lens.lens (\TopicRuleListItem' {topicPattern} -> topicPattern) (\s@TopicRuleListItem' {} a -> s {topicPattern = a} :: TopicRuleListItem)
 
 instance Data.FromJSON TopicRuleListItem where
   parseJSON =
@@ -95,25 +95,25 @@ instance Data.FromJSON TopicRuleListItem where
       "TopicRuleListItem"
       ( \x ->
           TopicRuleListItem'
-            Prelude.<$> (x Data..:? "ruleArn")
-            Prelude.<*> (x Data..:? "topicPattern")
-            Prelude.<*> (x Data..:? "ruleName")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<$> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "ruleArn")
             Prelude.<*> (x Data..:? "ruleDisabled")
+            Prelude.<*> (x Data..:? "ruleName")
+            Prelude.<*> (x Data..:? "topicPattern")
       )
 
 instance Prelude.Hashable TopicRuleListItem where
   hashWithSalt _salt TopicRuleListItem' {..} =
-    _salt `Prelude.hashWithSalt` ruleArn
-      `Prelude.hashWithSalt` topicPattern
-      `Prelude.hashWithSalt` ruleName
-      `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` ruleArn
       `Prelude.hashWithSalt` ruleDisabled
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` topicPattern
 
 instance Prelude.NFData TopicRuleListItem where
   rnf TopicRuleListItem' {..} =
-    Prelude.rnf ruleArn
-      `Prelude.seq` Prelude.rnf topicPattern
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf ruleArn
       `Prelude.seq` Prelude.rnf ruleDisabled
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf topicPattern

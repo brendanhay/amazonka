@@ -31,8 +31,8 @@ module Amazonka.IVS.ListRecordingConfigurations
     newListRecordingConfigurations,
 
     -- * Request Lenses
-    listRecordingConfigurations_nextToken,
     listRecordingConfigurations_maxResults,
+    listRecordingConfigurations_nextToken,
 
     -- * Destructuring the Response
     ListRecordingConfigurationsResponse (..),
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecordingConfigurations' smart constructor.
 data ListRecordingConfigurations = ListRecordingConfigurations'
-  { -- | The first recording configuration to retrieve. This is used for
-    -- pagination; see the @nextToken@ response field.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of recording configurations to return. Default: your
+  { -- | Maximum number of recording configurations to return. Default: your
     -- service quota or 100, whichever is smaller.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The first recording configuration to retrieve. This is used for
+    -- pagination; see the @nextToken@ response field.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,29 +72,29 @@ data ListRecordingConfigurations = ListRecordingConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecordingConfigurations_nextToken' - The first recording configuration to retrieve. This is used for
--- pagination; see the @nextToken@ response field.
---
 -- 'maxResults', 'listRecordingConfigurations_maxResults' - Maximum number of recording configurations to return. Default: your
 -- service quota or 100, whichever is smaller.
+--
+-- 'nextToken', 'listRecordingConfigurations_nextToken' - The first recording configuration to retrieve. This is used for
+-- pagination; see the @nextToken@ response field.
 newListRecordingConfigurations ::
   ListRecordingConfigurations
 newListRecordingConfigurations =
   ListRecordingConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The first recording configuration to retrieve. This is used for
--- pagination; see the @nextToken@ response field.
-listRecordingConfigurations_nextToken :: Lens.Lens' ListRecordingConfigurations (Prelude.Maybe Prelude.Text)
-listRecordingConfigurations_nextToken = Lens.lens (\ListRecordingConfigurations' {nextToken} -> nextToken) (\s@ListRecordingConfigurations' {} a -> s {nextToken = a} :: ListRecordingConfigurations)
 
 -- | Maximum number of recording configurations to return. Default: your
 -- service quota or 100, whichever is smaller.
 listRecordingConfigurations_maxResults :: Lens.Lens' ListRecordingConfigurations (Prelude.Maybe Prelude.Natural)
 listRecordingConfigurations_maxResults = Lens.lens (\ListRecordingConfigurations' {maxResults} -> maxResults) (\s@ListRecordingConfigurations' {} a -> s {maxResults = a} :: ListRecordingConfigurations)
+
+-- | The first recording configuration to retrieve. This is used for
+-- pagination; see the @nextToken@ response field.
+listRecordingConfigurations_nextToken :: Lens.Lens' ListRecordingConfigurations (Prelude.Maybe Prelude.Text)
+listRecordingConfigurations_nextToken = Lens.lens (\ListRecordingConfigurations' {nextToken} -> nextToken) (\s@ListRecordingConfigurations' {} a -> s {nextToken = a} :: ListRecordingConfigurations)
 
 instance Core.AWSPager ListRecordingConfigurations where
   page rq rs
@@ -136,13 +136,13 @@ instance Core.AWSRequest ListRecordingConfigurations where
 
 instance Prelude.Hashable ListRecordingConfigurations where
   hashWithSalt _salt ListRecordingConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRecordingConfigurations where
   rnf ListRecordingConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRecordingConfigurations where
   toHeaders =
@@ -159,8 +159,8 @@ instance Data.ToJSON ListRecordingConfigurations where
   toJSON ListRecordingConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

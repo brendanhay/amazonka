@@ -50,11 +50,11 @@ module Amazonka.ApplicationAutoScaling.PutScheduledAction
     newPutScheduledAction,
 
     -- * Request Lenses
-    putScheduledAction_schedule,
-    putScheduledAction_timezone,
     putScheduledAction_endTime,
     putScheduledAction_scalableTargetAction,
+    putScheduledAction_schedule,
     putScheduledAction_startTime,
+    putScheduledAction_timezone,
     putScheduledAction_serviceNamespace,
     putScheduledAction_scheduledActionName,
     putScheduledAction_resourceId,
@@ -79,7 +79,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutScheduledAction' smart constructor.
 data PutScheduledAction = PutScheduledAction'
-  { -- | The schedule for this action. The following formats are supported:
+  { -- | The date and time for the recurring schedule to end, in UTC.
+    endTime :: Prelude.Maybe Data.POSIX,
+    -- | The new minimum and maximum capacity. You can set both values or just
+    -- one. At the scheduled time, if the current capacity is below the minimum
+    -- capacity, Application Auto Scaling scales out to the minimum capacity.
+    -- If the current capacity is above the maximum capacity, Application Auto
+    -- Scaling scales in to the maximum capacity.
+    scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
+    -- | The schedule for this action. The following formats are supported:
     --
     -- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
     --
@@ -104,6 +112,8 @@ data PutScheduledAction = PutScheduledAction'
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
     -- in the /Application Auto Scaling User Guide/.
     schedule :: Prelude.Maybe Prelude.Text,
+    -- | The date and time for this scheduled action to start, in UTC.
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the time zone used when setting a scheduled action by using an
     -- at or cron expression. If a time zone is not provided, UTC is used by
     -- default.
@@ -112,16 +122,6 @@ data PutScheduledAction = PutScheduledAction'
     -- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
     -- information, see <https://www.joda.org/joda-time/timezones.html>.
     timezone :: Prelude.Maybe Prelude.Text,
-    -- | The date and time for the recurring schedule to end, in UTC.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | The new minimum and maximum capacity. You can set both values or just
-    -- one. At the scheduled time, if the current capacity is below the minimum
-    -- capacity, Application Auto Scaling scales out to the minimum capacity.
-    -- If the current capacity is above the maximum capacity, Application Auto
-    -- Scaling scales in to the maximum capacity.
-    scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
-    -- | The date and time for this scheduled action to start, in UTC.
-    startTime :: Prelude.Maybe Data.POSIX,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -274,6 +274,14 @@ data PutScheduledAction = PutScheduledAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endTime', 'putScheduledAction_endTime' - The date and time for the recurring schedule to end, in UTC.
+--
+-- 'scalableTargetAction', 'putScheduledAction_scalableTargetAction' - The new minimum and maximum capacity. You can set both values or just
+-- one. At the scheduled time, if the current capacity is below the minimum
+-- capacity, Application Auto Scaling scales out to the minimum capacity.
+-- If the current capacity is above the maximum capacity, Application Auto
+-- Scaling scales in to the maximum capacity.
+--
 -- 'schedule', 'putScheduledAction_schedule' - The schedule for this action. The following formats are supported:
 --
 -- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
@@ -299,6 +307,8 @@ data PutScheduledAction = PutScheduledAction'
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
 -- in the /Application Auto Scaling User Guide/.
 --
+-- 'startTime', 'putScheduledAction_startTime' - The date and time for this scheduled action to start, in UTC.
+--
 -- 'timezone', 'putScheduledAction_timezone' - Specifies the time zone used when setting a scheduled action by using an
 -- at or cron expression. If a time zone is not provided, UTC is used by
 -- default.
@@ -306,16 +316,6 @@ data PutScheduledAction = PutScheduledAction'
 -- Valid values are the canonical names of the IANA time zones supported by
 -- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
 -- information, see <https://www.joda.org/joda-time/timezones.html>.
---
--- 'endTime', 'putScheduledAction_endTime' - The date and time for the recurring schedule to end, in UTC.
---
--- 'scalableTargetAction', 'putScheduledAction_scalableTargetAction' - The new minimum and maximum capacity. You can set both values or just
--- one. At the scheduled time, if the current capacity is below the minimum
--- capacity, Application Auto Scaling scales out to the minimum capacity.
--- If the current capacity is above the maximum capacity, Application Auto
--- Scaling scales in to the maximum capacity.
---
--- 'startTime', 'putScheduledAction_startTime' - The date and time for this scheduled action to start, in UTC.
 --
 -- 'serviceNamespace', 'putScheduledAction_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -473,16 +473,28 @@ newPutScheduledAction
   pResourceId_
   pScalableDimension_ =
     PutScheduledAction'
-      { schedule = Prelude.Nothing,
-        timezone = Prelude.Nothing,
-        endTime = Prelude.Nothing,
+      { endTime = Prelude.Nothing,
         scalableTargetAction = Prelude.Nothing,
+        schedule = Prelude.Nothing,
         startTime = Prelude.Nothing,
+        timezone = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         scheduledActionName = pScheduledActionName_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_
       }
+
+-- | The date and time for the recurring schedule to end, in UTC.
+putScheduledAction_endTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
+putScheduledAction_endTime = Lens.lens (\PutScheduledAction' {endTime} -> endTime) (\s@PutScheduledAction' {} a -> s {endTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Data._Time
+
+-- | The new minimum and maximum capacity. You can set both values or just
+-- one. At the scheduled time, if the current capacity is below the minimum
+-- capacity, Application Auto Scaling scales out to the minimum capacity.
+-- If the current capacity is above the maximum capacity, Application Auto
+-- Scaling scales in to the maximum capacity.
+putScheduledAction_scalableTargetAction :: Lens.Lens' PutScheduledAction (Prelude.Maybe ScalableTargetAction)
+putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scalableTargetAction} -> scalableTargetAction) (\s@PutScheduledAction' {} a -> s {scalableTargetAction = a} :: PutScheduledAction)
 
 -- | The schedule for this action. The following formats are supported:
 --
@@ -511,6 +523,10 @@ newPutScheduledAction
 putScheduledAction_schedule :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.Text)
 putScheduledAction_schedule = Lens.lens (\PutScheduledAction' {schedule} -> schedule) (\s@PutScheduledAction' {} a -> s {schedule = a} :: PutScheduledAction)
 
+-- | The date and time for this scheduled action to start, in UTC.
+putScheduledAction_startTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
+putScheduledAction_startTime = Lens.lens (\PutScheduledAction' {startTime} -> startTime) (\s@PutScheduledAction' {} a -> s {startTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Data._Time
+
 -- | Specifies the time zone used when setting a scheduled action by using an
 -- at or cron expression. If a time zone is not provided, UTC is used by
 -- default.
@@ -520,22 +536,6 @@ putScheduledAction_schedule = Lens.lens (\PutScheduledAction' {schedule} -> sche
 -- information, see <https://www.joda.org/joda-time/timezones.html>.
 putScheduledAction_timezone :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.Text)
 putScheduledAction_timezone = Lens.lens (\PutScheduledAction' {timezone} -> timezone) (\s@PutScheduledAction' {} a -> s {timezone = a} :: PutScheduledAction)
-
--- | The date and time for the recurring schedule to end, in UTC.
-putScheduledAction_endTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
-putScheduledAction_endTime = Lens.lens (\PutScheduledAction' {endTime} -> endTime) (\s@PutScheduledAction' {} a -> s {endTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Data._Time
-
--- | The new minimum and maximum capacity. You can set both values or just
--- one. At the scheduled time, if the current capacity is below the minimum
--- capacity, Application Auto Scaling scales out to the minimum capacity.
--- If the current capacity is above the maximum capacity, Application Auto
--- Scaling scales in to the maximum capacity.
-putScheduledAction_scalableTargetAction :: Lens.Lens' PutScheduledAction (Prelude.Maybe ScalableTargetAction)
-putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scalableTargetAction} -> scalableTargetAction) (\s@PutScheduledAction' {} a -> s {scalableTargetAction = a} :: PutScheduledAction)
-
--- | The date and time for this scheduled action to start, in UTC.
-putScheduledAction_startTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
-putScheduledAction_startTime = Lens.lens (\PutScheduledAction' {startTime} -> startTime) (\s@PutScheduledAction' {} a -> s {startTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Data._Time
 
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -701,11 +701,11 @@ instance Core.AWSRequest PutScheduledAction where
 
 instance Prelude.Hashable PutScheduledAction where
   hashWithSalt _salt PutScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` schedule
-      `Prelude.hashWithSalt` timezone
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` scalableTargetAction
+      `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` timezone
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` scheduledActionName
       `Prelude.hashWithSalt` resourceId
@@ -713,11 +713,11 @@ instance Prelude.Hashable PutScheduledAction where
 
 instance Prelude.NFData PutScheduledAction where
   rnf PutScheduledAction' {..} =
-    Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf scalableTargetAction
+      `Prelude.seq` Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf timezone
       `Prelude.seq` Prelude.rnf serviceNamespace
       `Prelude.seq` Prelude.rnf scheduledActionName
       `Prelude.seq` Prelude.rnf resourceId
@@ -742,12 +742,12 @@ instance Data.ToJSON PutScheduledAction where
   toJSON PutScheduledAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Data..=) Prelude.<$> schedule,
-            ("Timezone" Data..=) Prelude.<$> timezone,
-            ("EndTime" Data..=) Prelude.<$> endTime,
+          [ ("EndTime" Data..=) Prelude.<$> endTime,
             ("ScalableTargetAction" Data..=)
               Prelude.<$> scalableTargetAction,
+            ("Schedule" Data..=) Prelude.<$> schedule,
             ("StartTime" Data..=) Prelude.<$> startTime,
+            ("Timezone" Data..=) Prelude.<$> timezone,
             Prelude.Just
               ("ServiceNamespace" Data..= serviceNamespace),
             Prelude.Just

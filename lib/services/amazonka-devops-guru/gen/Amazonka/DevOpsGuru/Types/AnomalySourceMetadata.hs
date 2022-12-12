@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnomalySourceMetadata' smart constructor.
 data AnomalySourceMetadata = AnomalySourceMetadata'
-  { -- | The name of the anomaly\'s resource.
+  { -- | The source of the anomaly.
+    source :: Prelude.Maybe Prelude.Text,
+    -- | The name of the anomaly\'s resource.
     sourceResourceName :: Prelude.Maybe Prelude.Text,
     -- | The anomaly\'s resource type.
-    sourceResourceType :: Prelude.Maybe Prelude.Text,
-    -- | The source of the anomaly.
-    source :: Prelude.Maybe Prelude.Text
+    sourceResourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,23 @@ data AnomalySourceMetadata = AnomalySourceMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'source', 'anomalySourceMetadata_source' - The source of the anomaly.
+--
 -- 'sourceResourceName', 'anomalySourceMetadata_sourceResourceName' - The name of the anomaly\'s resource.
 --
 -- 'sourceResourceType', 'anomalySourceMetadata_sourceResourceType' - The anomaly\'s resource type.
---
--- 'source', 'anomalySourceMetadata_source' - The source of the anomaly.
 newAnomalySourceMetadata ::
   AnomalySourceMetadata
 newAnomalySourceMetadata =
   AnomalySourceMetadata'
-    { sourceResourceName =
-        Prelude.Nothing,
-      sourceResourceType = Prelude.Nothing,
-      source = Prelude.Nothing
+    { source = Prelude.Nothing,
+      sourceResourceName = Prelude.Nothing,
+      sourceResourceType = Prelude.Nothing
     }
+
+-- | The source of the anomaly.
+anomalySourceMetadata_source :: Lens.Lens' AnomalySourceMetadata (Prelude.Maybe Prelude.Text)
+anomalySourceMetadata_source = Lens.lens (\AnomalySourceMetadata' {source} -> source) (\s@AnomalySourceMetadata' {} a -> s {source = a} :: AnomalySourceMetadata)
 
 -- | The name of the anomaly\'s resource.
 anomalySourceMetadata_sourceResourceName :: Lens.Lens' AnomalySourceMetadata (Prelude.Maybe Prelude.Text)
@@ -70,29 +73,25 @@ anomalySourceMetadata_sourceResourceName = Lens.lens (\AnomalySourceMetadata' {s
 anomalySourceMetadata_sourceResourceType :: Lens.Lens' AnomalySourceMetadata (Prelude.Maybe Prelude.Text)
 anomalySourceMetadata_sourceResourceType = Lens.lens (\AnomalySourceMetadata' {sourceResourceType} -> sourceResourceType) (\s@AnomalySourceMetadata' {} a -> s {sourceResourceType = a} :: AnomalySourceMetadata)
 
--- | The source of the anomaly.
-anomalySourceMetadata_source :: Lens.Lens' AnomalySourceMetadata (Prelude.Maybe Prelude.Text)
-anomalySourceMetadata_source = Lens.lens (\AnomalySourceMetadata' {source} -> source) (\s@AnomalySourceMetadata' {} a -> s {source = a} :: AnomalySourceMetadata)
-
 instance Data.FromJSON AnomalySourceMetadata where
   parseJSON =
     Data.withObject
       "AnomalySourceMetadata"
       ( \x ->
           AnomalySourceMetadata'
-            Prelude.<$> (x Data..:? "SourceResourceName")
+            Prelude.<$> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "SourceResourceName")
             Prelude.<*> (x Data..:? "SourceResourceType")
-            Prelude.<*> (x Data..:? "Source")
       )
 
 instance Prelude.Hashable AnomalySourceMetadata where
   hashWithSalt _salt AnomalySourceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` sourceResourceName
+    _salt `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` sourceResourceName
       `Prelude.hashWithSalt` sourceResourceType
-      `Prelude.hashWithSalt` source
 
 instance Prelude.NFData AnomalySourceMetadata where
   rnf AnomalySourceMetadata' {..} =
-    Prelude.rnf sourceResourceName
+    Prelude.rnf source
+      `Prelude.seq` Prelude.rnf sourceResourceName
       `Prelude.seq` Prelude.rnf sourceResourceType
-      `Prelude.seq` Prelude.rnf source

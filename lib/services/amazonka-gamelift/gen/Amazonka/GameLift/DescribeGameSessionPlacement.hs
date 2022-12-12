@@ -32,16 +32,6 @@
 -- FlexMatch or queues. Continuously polling with
 -- @DescribeGameSessionPlacement@ should only be used for games in
 -- development with low game session usage.
---
--- If successful, a GameSessionPlacement object is returned.
---
--- __Related actions__
---
--- CreateGameSession | DescribeGameSessions | DescribeGameSessionDetails |
--- SearchGameSessions | UpdateGameSession | GetGameSessionLogUrl |
--- StartGameSessionPlacement | DescribeGameSessionPlacement |
--- StopGameSessionPlacement |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DescribeGameSessionPlacement
   ( -- * Creating a Request
     DescribeGameSessionPlacement (..),
@@ -68,9 +58,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDescribeGameSessionPlacement' smart constructor.
+-- | /See:/ 'newDescribeGameSessionPlacement' smart constructor.
 data DescribeGameSessionPlacement = DescribeGameSessionPlacement'
   { -- | A unique identifier for a game session placement to retrieve.
     placementId :: Prelude.Text
@@ -153,9 +141,7 @@ instance Data.ToPath DescribeGameSessionPlacement where
 instance Data.ToQuery DescribeGameSessionPlacement where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDescribeGameSessionPlacementResponse' smart constructor.
+-- | /See:/ 'newDescribeGameSessionPlacementResponse' smart constructor.
 data DescribeGameSessionPlacementResponse = DescribeGameSessionPlacementResponse'
   { -- | Object that describes the requested game session placement.
     gameSessionPlacement :: Prelude.Maybe GameSessionPlacement,

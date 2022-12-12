@@ -51,9 +51,9 @@ module Amazonka.CodeGuruReviewer.AssociateRepository
     newAssociateRepository,
 
     -- * Request Lenses
-    associateRepository_tags,
     associateRepository_clientRequestToken,
     associateRepository_kmsKeyDetails,
+    associateRepository_tags,
     associateRepository_repository,
 
     -- * Destructuring the Response
@@ -61,8 +61,8 @@ module Amazonka.CodeGuruReviewer.AssociateRepository
     newAssociateRepositoryResponse,
 
     -- * Response Lenses
-    associateRepositoryResponse_tags,
     associateRepositoryResponse_repositoryAssociation,
+    associateRepositoryResponse_tags,
     associateRepositoryResponse_httpStatus,
   )
 where
@@ -77,18 +77,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateRepository' smart constructor.
 data AssociateRepository = AssociateRepository'
-  { -- | An array of key-value pairs used to tag an associated repository. A tag
-    -- is a custom attribute label with two parts:
-    --
-    -- -   A /tag key/ (for example, @CostCenter@, @Environment@, @Project@, or
-    --     @Secret@). Tag keys are case sensitive.
-    --
-    -- -   An optional field known as a /tag value/ (for example,
-    --     @111122223333@, @Production@, or a team name). Omitting the tag
-    --     value is the same as using an empty string. Like tag keys, tag
-    --     values are case sensitive.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Amazon CodeGuru Reviewer uses this value to prevent the accidental
+  { -- | Amazon CodeGuru Reviewer uses this value to prevent the accidental
     -- creation of duplicate repository associations if there are failures and
     -- retries.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
@@ -101,6 +90,17 @@ data AssociateRepository = AssociateRepository'
     -- -   The ID of the Amazon Web Services KMS key that is associated with
     --     this repository association.
     kmsKeyDetails :: Prelude.Maybe KMSKeyDetails,
+    -- | An array of key-value pairs used to tag an associated repository. A tag
+    -- is a custom attribute label with two parts:
+    --
+    -- -   A /tag key/ (for example, @CostCenter@, @Environment@, @Project@, or
+    --     @Secret@). Tag keys are case sensitive.
+    --
+    -- -   An optional field known as a /tag value/ (for example,
+    --     @111122223333@, @Production@, or a team name). Omitting the tag
+    --     value is the same as using an empty string. Like tag keys, tag
+    --     values are case sensitive.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The repository to associate.
     repository :: Repository
   }
@@ -113,17 +113,6 @@ data AssociateRepository = AssociateRepository'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'associateRepository_tags' - An array of key-value pairs used to tag an associated repository. A tag
--- is a custom attribute label with two parts:
---
--- -   A /tag key/ (for example, @CostCenter@, @Environment@, @Project@, or
---     @Secret@). Tag keys are case sensitive.
---
--- -   An optional field known as a /tag value/ (for example,
---     @111122223333@, @Production@, or a team name). Omitting the tag
---     value is the same as using an empty string. Like tag keys, tag
---     values are case sensitive.
 --
 -- 'clientRequestToken', 'associateRepository_clientRequestToken' - Amazon CodeGuru Reviewer uses this value to prevent the accidental
 -- creation of duplicate repository associations if there are failures and
@@ -138,20 +127,7 @@ data AssociateRepository = AssociateRepository'
 -- -   The ID of the Amazon Web Services KMS key that is associated with
 --     this repository association.
 --
--- 'repository', 'associateRepository_repository' - The repository to associate.
-newAssociateRepository ::
-  -- | 'repository'
-  Repository ->
-  AssociateRepository
-newAssociateRepository pRepository_ =
-  AssociateRepository'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      kmsKeyDetails = Prelude.Nothing,
-      repository = pRepository_
-    }
-
--- | An array of key-value pairs used to tag an associated repository. A tag
+-- 'tags', 'associateRepository_tags' - An array of key-value pairs used to tag an associated repository. A tag
 -- is a custom attribute label with two parts:
 --
 -- -   A /tag key/ (for example, @CostCenter@, @Environment@, @Project@, or
@@ -161,8 +137,20 @@ newAssociateRepository pRepository_ =
 --     @111122223333@, @Production@, or a team name). Omitting the tag
 --     value is the same as using an empty string. Like tag keys, tag
 --     values are case sensitive.
-associateRepository_tags :: Lens.Lens' AssociateRepository (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-associateRepository_tags = Lens.lens (\AssociateRepository' {tags} -> tags) (\s@AssociateRepository' {} a -> s {tags = a} :: AssociateRepository) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'repository', 'associateRepository_repository' - The repository to associate.
+newAssociateRepository ::
+  -- | 'repository'
+  Repository ->
+  AssociateRepository
+newAssociateRepository pRepository_ =
+  AssociateRepository'
+    { clientRequestToken =
+        Prelude.Nothing,
+      kmsKeyDetails = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      repository = pRepository_
+    }
 
 -- | Amazon CodeGuru Reviewer uses this value to prevent the accidental
 -- creation of duplicate repository associations if there are failures and
@@ -181,6 +169,19 @@ associateRepository_clientRequestToken = Lens.lens (\AssociateRepository' {clien
 associateRepository_kmsKeyDetails :: Lens.Lens' AssociateRepository (Prelude.Maybe KMSKeyDetails)
 associateRepository_kmsKeyDetails = Lens.lens (\AssociateRepository' {kmsKeyDetails} -> kmsKeyDetails) (\s@AssociateRepository' {} a -> s {kmsKeyDetails = a} :: AssociateRepository)
 
+-- | An array of key-value pairs used to tag an associated repository. A tag
+-- is a custom attribute label with two parts:
+--
+-- -   A /tag key/ (for example, @CostCenter@, @Environment@, @Project@, or
+--     @Secret@). Tag keys are case sensitive.
+--
+-- -   An optional field known as a /tag value/ (for example,
+--     @111122223333@, @Production@, or a team name). Omitting the tag
+--     value is the same as using an empty string. Like tag keys, tag
+--     values are case sensitive.
+associateRepository_tags :: Lens.Lens' AssociateRepository (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+associateRepository_tags = Lens.lens (\AssociateRepository' {tags} -> tags) (\s@AssociateRepository' {} a -> s {tags = a} :: AssociateRepository) Prelude.. Lens.mapping Lens.coerced
+
 -- | The repository to associate.
 associateRepository_repository :: Lens.Lens' AssociateRepository Repository
 associateRepository_repository = Lens.lens (\AssociateRepository' {repository} -> repository) (\s@AssociateRepository' {} a -> s {repository = a} :: AssociateRepository)
@@ -195,23 +196,23 @@ instance Core.AWSRequest AssociateRepository where
     Response.receiveJSON
       ( \s h x ->
           AssociateRepositoryResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "RepositoryAssociation")
+            Prelude.<$> (x Data..?> "RepositoryAssociation")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable AssociateRepository where
   hashWithSalt _salt AssociateRepository' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` kmsKeyDetails
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` repository
 
 instance Prelude.NFData AssociateRepository where
   rnf AssociateRepository' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf kmsKeyDetails
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf repository
 
 instance Data.ToHeaders AssociateRepository where
@@ -229,10 +230,10 @@ instance Data.ToJSON AssociateRepository where
   toJSON AssociateRepository' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("KMSKeyDetails" Data..=) Prelude.<$> kmsKeyDetails,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Repository" Data..= repository)
           ]
       )
@@ -245,7 +246,9 @@ instance Data.ToQuery AssociateRepository where
 
 -- | /See:/ 'newAssociateRepositoryResponse' smart constructor.
 data AssociateRepositoryResponse = AssociateRepositoryResponse'
-  { -- | An array of key-value pairs used to tag an associated repository. A tag
+  { -- | Information about the repository association.
+    repositoryAssociation :: Prelude.Maybe RepositoryAssociation,
+    -- | An array of key-value pairs used to tag an associated repository. A tag
     -- is a custom attribute label with two parts:
     --
     -- -   A /tag key/ (for example, @CostCenter@, @Environment@, @Project@, or
@@ -256,8 +259,6 @@ data AssociateRepositoryResponse = AssociateRepositoryResponse'
     --     value is the same as using an empty string. Like tag keys, tag
     --     values are case sensitive.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Information about the repository association.
-    repositoryAssociation :: Prelude.Maybe RepositoryAssociation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,6 +272,8 @@ data AssociateRepositoryResponse = AssociateRepositoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'repositoryAssociation', 'associateRepositoryResponse_repositoryAssociation' - Information about the repository association.
+--
 -- 'tags', 'associateRepositoryResponse_tags' - An array of key-value pairs used to tag an associated repository. A tag
 -- is a custom attribute label with two parts:
 --
@@ -282,8 +285,6 @@ data AssociateRepositoryResponse = AssociateRepositoryResponse'
 --     value is the same as using an empty string. Like tag keys, tag
 --     values are case sensitive.
 --
--- 'repositoryAssociation', 'associateRepositoryResponse_repositoryAssociation' - Information about the repository association.
---
 -- 'httpStatus', 'associateRepositoryResponse_httpStatus' - The response's http status code.
 newAssociateRepositoryResponse ::
   -- | 'httpStatus'
@@ -291,11 +292,15 @@ newAssociateRepositoryResponse ::
   AssociateRepositoryResponse
 newAssociateRepositoryResponse pHttpStatus_ =
   AssociateRepositoryResponse'
-    { tags =
+    { repositoryAssociation =
         Prelude.Nothing,
-      repositoryAssociation = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the repository association.
+associateRepositoryResponse_repositoryAssociation :: Lens.Lens' AssociateRepositoryResponse (Prelude.Maybe RepositoryAssociation)
+associateRepositoryResponse_repositoryAssociation = Lens.lens (\AssociateRepositoryResponse' {repositoryAssociation} -> repositoryAssociation) (\s@AssociateRepositoryResponse' {} a -> s {repositoryAssociation = a} :: AssociateRepositoryResponse)
 
 -- | An array of key-value pairs used to tag an associated repository. A tag
 -- is a custom attribute label with two parts:
@@ -310,16 +315,12 @@ newAssociateRepositoryResponse pHttpStatus_ =
 associateRepositoryResponse_tags :: Lens.Lens' AssociateRepositoryResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 associateRepositoryResponse_tags = Lens.lens (\AssociateRepositoryResponse' {tags} -> tags) (\s@AssociateRepositoryResponse' {} a -> s {tags = a} :: AssociateRepositoryResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about the repository association.
-associateRepositoryResponse_repositoryAssociation :: Lens.Lens' AssociateRepositoryResponse (Prelude.Maybe RepositoryAssociation)
-associateRepositoryResponse_repositoryAssociation = Lens.lens (\AssociateRepositoryResponse' {repositoryAssociation} -> repositoryAssociation) (\s@AssociateRepositoryResponse' {} a -> s {repositoryAssociation = a} :: AssociateRepositoryResponse)
-
 -- | The response's http status code.
 associateRepositoryResponse_httpStatus :: Lens.Lens' AssociateRepositoryResponse Prelude.Int
 associateRepositoryResponse_httpStatus = Lens.lens (\AssociateRepositoryResponse' {httpStatus} -> httpStatus) (\s@AssociateRepositoryResponse' {} a -> s {httpStatus = a} :: AssociateRepositoryResponse)
 
 instance Prelude.NFData AssociateRepositoryResponse where
   rnf AssociateRepositoryResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf repositoryAssociation
+    Prelude.rnf repositoryAssociation
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

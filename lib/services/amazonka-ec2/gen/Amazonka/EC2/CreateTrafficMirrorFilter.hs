@@ -47,8 +47,8 @@ module Amazonka.EC2.CreateTrafficMirrorFilter
     newCreateTrafficMirrorFilterResponse,
 
     -- * Response Lenses
-    createTrafficMirrorFilterResponse_trafficMirrorFilter,
     createTrafficMirrorFilterResponse_clientToken,
+    createTrafficMirrorFilterResponse_trafficMirrorFilter,
     createTrafficMirrorFilterResponse_httpStatus,
   )
 where
@@ -141,8 +141,8 @@ instance Core.AWSRequest CreateTrafficMirrorFilter where
     Response.receiveXML
       ( \s h x ->
           CreateTrafficMirrorFilterResponse'
-            Prelude.<$> (x Data..@? "trafficMirrorFilter")
-            Prelude.<*> (x Data..@? "clientToken")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> (x Data..@? "trafficMirrorFilter")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,12 +184,12 @@ instance Data.ToQuery CreateTrafficMirrorFilter where
 
 -- | /See:/ 'newCreateTrafficMirrorFilterResponse' smart constructor.
 data CreateTrafficMirrorFilterResponse = CreateTrafficMirrorFilterResponse'
-  { -- | Information about the Traffic Mirror filter.
-    trafficMirrorFilter :: Prelude.Maybe TrafficMirrorFilter,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the Traffic Mirror filter.
+    trafficMirrorFilter :: Prelude.Maybe TrafficMirrorFilter,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,11 +203,11 @@ data CreateTrafficMirrorFilterResponse = CreateTrafficMirrorFilterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trafficMirrorFilter', 'createTrafficMirrorFilterResponse_trafficMirrorFilter' - Information about the Traffic Mirror filter.
---
 -- 'clientToken', 'createTrafficMirrorFilterResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+--
+-- 'trafficMirrorFilter', 'createTrafficMirrorFilterResponse_trafficMirrorFilter' - Information about the Traffic Mirror filter.
 --
 -- 'httpStatus', 'createTrafficMirrorFilterResponse_httpStatus' - The response's http status code.
 newCreateTrafficMirrorFilterResponse ::
@@ -216,21 +216,21 @@ newCreateTrafficMirrorFilterResponse ::
   CreateTrafficMirrorFilterResponse
 newCreateTrafficMirrorFilterResponse pHttpStatus_ =
   CreateTrafficMirrorFilterResponse'
-    { trafficMirrorFilter =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      trafficMirrorFilter = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the Traffic Mirror filter.
-createTrafficMirrorFilterResponse_trafficMirrorFilter :: Lens.Lens' CreateTrafficMirrorFilterResponse (Prelude.Maybe TrafficMirrorFilter)
-createTrafficMirrorFilterResponse_trafficMirrorFilter = Lens.lens (\CreateTrafficMirrorFilterResponse' {trafficMirrorFilter} -> trafficMirrorFilter) (\s@CreateTrafficMirrorFilterResponse' {} a -> s {trafficMirrorFilter = a} :: CreateTrafficMirrorFilterResponse)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 createTrafficMirrorFilterResponse_clientToken :: Lens.Lens' CreateTrafficMirrorFilterResponse (Prelude.Maybe Prelude.Text)
 createTrafficMirrorFilterResponse_clientToken = Lens.lens (\CreateTrafficMirrorFilterResponse' {clientToken} -> clientToken) (\s@CreateTrafficMirrorFilterResponse' {} a -> s {clientToken = a} :: CreateTrafficMirrorFilterResponse)
+
+-- | Information about the Traffic Mirror filter.
+createTrafficMirrorFilterResponse_trafficMirrorFilter :: Lens.Lens' CreateTrafficMirrorFilterResponse (Prelude.Maybe TrafficMirrorFilter)
+createTrafficMirrorFilterResponse_trafficMirrorFilter = Lens.lens (\CreateTrafficMirrorFilterResponse' {trafficMirrorFilter} -> trafficMirrorFilter) (\s@CreateTrafficMirrorFilterResponse' {} a -> s {trafficMirrorFilter = a} :: CreateTrafficMirrorFilterResponse)
 
 -- | The response's http status code.
 createTrafficMirrorFilterResponse_httpStatus :: Lens.Lens' CreateTrafficMirrorFilterResponse Prelude.Int
@@ -241,6 +241,6 @@ instance
     CreateTrafficMirrorFilterResponse
   where
   rnf CreateTrafficMirrorFilterResponse' {..} =
-    Prelude.rnf trafficMirrorFilter
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf trafficMirrorFilter
       `Prelude.seq` Prelude.rnf httpStatus

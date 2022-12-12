@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestinations' smart constructor.
 data Destinations = Destinations'
-  { -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM Role that authorizes the destination.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of the resource.
+  { -- | The Amazon Resource Name of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The description of the resource.
     description :: Prelude.Maybe Prelude.Text,
     -- | The rule name or topic rule to send messages to.
     expression :: Prelude.Maybe Prelude.Text,
     -- | The type of value in @Expression@.
-    expressionType :: Prelude.Maybe ExpressionType
+    expressionType :: Prelude.Maybe ExpressionType,
+    -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM Role that authorizes the destination.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,10 +52,6 @@ data Destinations = Destinations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'destinations_name' - The name of the resource.
---
--- 'roleArn', 'destinations_roleArn' - The ARN of the IAM Role that authorizes the destination.
---
 -- 'arn', 'destinations_arn' - The Amazon Resource Name of the resource.
 --
 -- 'description', 'destinations_description' - The description of the resource.
@@ -63,25 +59,21 @@ data Destinations = Destinations'
 -- 'expression', 'destinations_expression' - The rule name or topic rule to send messages to.
 --
 -- 'expressionType', 'destinations_expressionType' - The type of value in @Expression@.
+--
+-- 'name', 'destinations_name' - The name of the resource.
+--
+-- 'roleArn', 'destinations_roleArn' - The ARN of the IAM Role that authorizes the destination.
 newDestinations ::
   Destinations
 newDestinations =
   Destinations'
-    { name = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       description = Prelude.Nothing,
       expression = Prelude.Nothing,
-      expressionType = Prelude.Nothing
+      expressionType = Prelude.Nothing,
+      name = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
-
--- | The name of the resource.
-destinations_name :: Lens.Lens' Destinations (Prelude.Maybe Prelude.Text)
-destinations_name = Lens.lens (\Destinations' {name} -> name) (\s@Destinations' {} a -> s {name = a} :: Destinations)
-
--- | The ARN of the IAM Role that authorizes the destination.
-destinations_roleArn :: Lens.Lens' Destinations (Prelude.Maybe Prelude.Text)
-destinations_roleArn = Lens.lens (\Destinations' {roleArn} -> roleArn) (\s@Destinations' {} a -> s {roleArn = a} :: Destinations)
 
 -- | The Amazon Resource Name of the resource.
 destinations_arn :: Lens.Lens' Destinations (Prelude.Maybe Prelude.Text)
@@ -99,34 +91,42 @@ destinations_expression = Lens.lens (\Destinations' {expression} -> expression) 
 destinations_expressionType :: Lens.Lens' Destinations (Prelude.Maybe ExpressionType)
 destinations_expressionType = Lens.lens (\Destinations' {expressionType} -> expressionType) (\s@Destinations' {} a -> s {expressionType = a} :: Destinations)
 
+-- | The name of the resource.
+destinations_name :: Lens.Lens' Destinations (Prelude.Maybe Prelude.Text)
+destinations_name = Lens.lens (\Destinations' {name} -> name) (\s@Destinations' {} a -> s {name = a} :: Destinations)
+
+-- | The ARN of the IAM Role that authorizes the destination.
+destinations_roleArn :: Lens.Lens' Destinations (Prelude.Maybe Prelude.Text)
+destinations_roleArn = Lens.lens (\Destinations' {roleArn} -> roleArn) (\s@Destinations' {} a -> s {roleArn = a} :: Destinations)
+
 instance Data.FromJSON Destinations where
   parseJSON =
     Data.withObject
       "Destinations"
       ( \x ->
           Destinations'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "RoleArn")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Expression")
             Prelude.<*> (x Data..:? "ExpressionType")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RoleArn")
       )
 
 instance Prelude.Hashable Destinations where
   hashWithSalt _salt Destinations' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` expressionType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData Destinations where
   rnf Destinations' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf expressionType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn

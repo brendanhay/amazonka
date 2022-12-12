@@ -32,30 +32,30 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentSummary' smart constructor.
 data EnvironmentSummary = EnvironmentSummary'
-  { -- | The tags assigned to the environment.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The name of the environment.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the environment.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the environment is created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the transit gateway set up by the environment.
-    transitGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the environment.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the environment.
-    state :: Prelude.Maybe EnvironmentState,
-    -- | A timestamp that indicates when the environment was last updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | A description of the environment.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID of the environment owner.
-    ownerAccountId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the environment.
     environmentId :: Prelude.Maybe Prelude.Text,
     -- | Any error associated with the environment resource.
     error :: Prelude.Maybe ErrorResponse,
+    -- | A timestamp that indicates when the environment was last updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the environment.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The network fabric type of the environment.
-    networkFabricType :: Prelude.Maybe NetworkFabricType
+    networkFabricType :: Prelude.Maybe NetworkFabricType,
+    -- | The Amazon Web Services account ID of the environment owner.
+    ownerAccountId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the environment.
+    state :: Prelude.Maybe EnvironmentState,
+    -- | The tags assigned to the environment.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The ID of the transit gateway set up by the environment.
+    transitGatewayId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -67,82 +67,58 @@ data EnvironmentSummary = EnvironmentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'environmentSummary_tags' - The tags assigned to the environment.
---
--- 'name', 'environmentSummary_name' - The name of the environment.
+-- 'arn', 'environmentSummary_arn' - The Amazon Resource Name (ARN) of the environment.
 --
 -- 'createdTime', 'environmentSummary_createdTime' - A timestamp that indicates when the environment is created.
 --
--- 'transitGatewayId', 'environmentSummary_transitGatewayId' - The ID of the transit gateway set up by the environment.
---
--- 'arn', 'environmentSummary_arn' - The Amazon Resource Name (ARN) of the environment.
---
--- 'state', 'environmentSummary_state' - The current state of the environment.
---
--- 'lastUpdatedTime', 'environmentSummary_lastUpdatedTime' - A timestamp that indicates when the environment was last updated.
---
 -- 'description', 'environmentSummary_description' - A description of the environment.
---
--- 'ownerAccountId', 'environmentSummary_ownerAccountId' - The Amazon Web Services account ID of the environment owner.
 --
 -- 'environmentId', 'environmentSummary_environmentId' - The unique identifier of the environment.
 --
 -- 'error', 'environmentSummary_error' - Any error associated with the environment resource.
 --
+-- 'lastUpdatedTime', 'environmentSummary_lastUpdatedTime' - A timestamp that indicates when the environment was last updated.
+--
+-- 'name', 'environmentSummary_name' - The name of the environment.
+--
 -- 'networkFabricType', 'environmentSummary_networkFabricType' - The network fabric type of the environment.
+--
+-- 'ownerAccountId', 'environmentSummary_ownerAccountId' - The Amazon Web Services account ID of the environment owner.
+--
+-- 'state', 'environmentSummary_state' - The current state of the environment.
+--
+-- 'tags', 'environmentSummary_tags' - The tags assigned to the environment.
+--
+-- 'transitGatewayId', 'environmentSummary_transitGatewayId' - The ID of the transit gateway set up by the environment.
 newEnvironmentSummary ::
   EnvironmentSummary
 newEnvironmentSummary =
   EnvironmentSummary'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      transitGatewayId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
       description = Prelude.Nothing,
-      ownerAccountId = Prelude.Nothing,
       environmentId = Prelude.Nothing,
       error = Prelude.Nothing,
-      networkFabricType = Prelude.Nothing
+      lastUpdatedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      networkFabricType = Prelude.Nothing,
+      ownerAccountId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      transitGatewayId = Prelude.Nothing
     }
-
--- | The tags assigned to the environment.
-environmentSummary_tags :: Lens.Lens' EnvironmentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-environmentSummary_tags = Lens.lens (\EnvironmentSummary' {tags} -> tags) (\s@EnvironmentSummary' {} a -> s {tags = a} :: EnvironmentSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
-
--- | The name of the environment.
-environmentSummary_name :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
-environmentSummary_name = Lens.lens (\EnvironmentSummary' {name} -> name) (\s@EnvironmentSummary' {} a -> s {name = a} :: EnvironmentSummary)
-
--- | A timestamp that indicates when the environment is created.
-environmentSummary_createdTime :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.UTCTime)
-environmentSummary_createdTime = Lens.lens (\EnvironmentSummary' {createdTime} -> createdTime) (\s@EnvironmentSummary' {} a -> s {createdTime = a} :: EnvironmentSummary) Prelude.. Lens.mapping Data._Time
-
--- | The ID of the transit gateway set up by the environment.
-environmentSummary_transitGatewayId :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
-environmentSummary_transitGatewayId = Lens.lens (\EnvironmentSummary' {transitGatewayId} -> transitGatewayId) (\s@EnvironmentSummary' {} a -> s {transitGatewayId = a} :: EnvironmentSummary)
 
 -- | The Amazon Resource Name (ARN) of the environment.
 environmentSummary_arn :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
 environmentSummary_arn = Lens.lens (\EnvironmentSummary' {arn} -> arn) (\s@EnvironmentSummary' {} a -> s {arn = a} :: EnvironmentSummary)
 
--- | The current state of the environment.
-environmentSummary_state :: Lens.Lens' EnvironmentSummary (Prelude.Maybe EnvironmentState)
-environmentSummary_state = Lens.lens (\EnvironmentSummary' {state} -> state) (\s@EnvironmentSummary' {} a -> s {state = a} :: EnvironmentSummary)
-
--- | A timestamp that indicates when the environment was last updated.
-environmentSummary_lastUpdatedTime :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.UTCTime)
-environmentSummary_lastUpdatedTime = Lens.lens (\EnvironmentSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@EnvironmentSummary' {} a -> s {lastUpdatedTime = a} :: EnvironmentSummary) Prelude.. Lens.mapping Data._Time
+-- | A timestamp that indicates when the environment is created.
+environmentSummary_createdTime :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.UTCTime)
+environmentSummary_createdTime = Lens.lens (\EnvironmentSummary' {createdTime} -> createdTime) (\s@EnvironmentSummary' {} a -> s {createdTime = a} :: EnvironmentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the environment.
 environmentSummary_description :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
 environmentSummary_description = Lens.lens (\EnvironmentSummary' {description} -> description) (\s@EnvironmentSummary' {} a -> s {description = a} :: EnvironmentSummary)
-
--- | The Amazon Web Services account ID of the environment owner.
-environmentSummary_ownerAccountId :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
-environmentSummary_ownerAccountId = Lens.lens (\EnvironmentSummary' {ownerAccountId} -> ownerAccountId) (\s@EnvironmentSummary' {} a -> s {ownerAccountId = a} :: EnvironmentSummary)
 
 -- | The unique identifier of the environment.
 environmentSummary_environmentId :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
@@ -152,9 +128,33 @@ environmentSummary_environmentId = Lens.lens (\EnvironmentSummary' {environmentI
 environmentSummary_error :: Lens.Lens' EnvironmentSummary (Prelude.Maybe ErrorResponse)
 environmentSummary_error = Lens.lens (\EnvironmentSummary' {error} -> error) (\s@EnvironmentSummary' {} a -> s {error = a} :: EnvironmentSummary)
 
+-- | A timestamp that indicates when the environment was last updated.
+environmentSummary_lastUpdatedTime :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.UTCTime)
+environmentSummary_lastUpdatedTime = Lens.lens (\EnvironmentSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@EnvironmentSummary' {} a -> s {lastUpdatedTime = a} :: EnvironmentSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the environment.
+environmentSummary_name :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
+environmentSummary_name = Lens.lens (\EnvironmentSummary' {name} -> name) (\s@EnvironmentSummary' {} a -> s {name = a} :: EnvironmentSummary)
+
 -- | The network fabric type of the environment.
 environmentSummary_networkFabricType :: Lens.Lens' EnvironmentSummary (Prelude.Maybe NetworkFabricType)
 environmentSummary_networkFabricType = Lens.lens (\EnvironmentSummary' {networkFabricType} -> networkFabricType) (\s@EnvironmentSummary' {} a -> s {networkFabricType = a} :: EnvironmentSummary)
+
+-- | The Amazon Web Services account ID of the environment owner.
+environmentSummary_ownerAccountId :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
+environmentSummary_ownerAccountId = Lens.lens (\EnvironmentSummary' {ownerAccountId} -> ownerAccountId) (\s@EnvironmentSummary' {} a -> s {ownerAccountId = a} :: EnvironmentSummary)
+
+-- | The current state of the environment.
+environmentSummary_state :: Lens.Lens' EnvironmentSummary (Prelude.Maybe EnvironmentState)
+environmentSummary_state = Lens.lens (\EnvironmentSummary' {state} -> state) (\s@EnvironmentSummary' {} a -> s {state = a} :: EnvironmentSummary)
+
+-- | The tags assigned to the environment.
+environmentSummary_tags :: Lens.Lens' EnvironmentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+environmentSummary_tags = Lens.lens (\EnvironmentSummary' {tags} -> tags) (\s@EnvironmentSummary' {} a -> s {tags = a} :: EnvironmentSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | The ID of the transit gateway set up by the environment.
+environmentSummary_transitGatewayId :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
+environmentSummary_transitGatewayId = Lens.lens (\EnvironmentSummary' {transitGatewayId} -> transitGatewayId) (\s@EnvironmentSummary' {} a -> s {transitGatewayId = a} :: EnvironmentSummary)
 
 instance Data.FromJSON EnvironmentSummary where
   parseJSON =
@@ -162,46 +162,46 @@ instance Data.FromJSON EnvironmentSummary where
       "EnvironmentSummary"
       ( \x ->
           EnvironmentSummary'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "TransitGatewayId")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "LastUpdatedTime")
             Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "OwnerAccountId")
             Prelude.<*> (x Data..:? "EnvironmentId")
             Prelude.<*> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "NetworkFabricType")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TransitGatewayId")
       )
 
 instance Prelude.Hashable EnvironmentSummary where
   hashWithSalt _salt EnvironmentSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` transitGatewayId
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` ownerAccountId
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` networkFabricType
+      `Prelude.hashWithSalt` ownerAccountId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` transitGatewayId
 
 instance Prelude.NFData EnvironmentSummary where
   rnf EnvironmentSummary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ownerAccountId
       `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf networkFabricType
+      `Prelude.seq` Prelude.rnf ownerAccountId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf transitGatewayId

@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyTypeDescription' smart constructor.
 data PolicyTypeDescription = PolicyTypeDescription'
-  { -- | The description of the policy attributes associated with the policies
+  { -- | A description of the policy type.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The description of the policy attributes associated with the policies
     -- defined by Elastic Load Balancing.
     policyAttributeTypeDescriptions :: Prelude.Maybe [PolicyAttributeTypeDescription],
     -- | The name of the policy type.
-    policyTypeName :: Prelude.Maybe Prelude.Text,
-    -- | A description of the policy type.
-    description :: Prelude.Maybe Prelude.Text
+    policyTypeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,25 @@ data PolicyTypeDescription = PolicyTypeDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'policyTypeDescription_description' - A description of the policy type.
+--
 -- 'policyAttributeTypeDescriptions', 'policyTypeDescription_policyAttributeTypeDescriptions' - The description of the policy attributes associated with the policies
 -- defined by Elastic Load Balancing.
 --
 -- 'policyTypeName', 'policyTypeDescription_policyTypeName' - The name of the policy type.
---
--- 'description', 'policyTypeDescription_description' - A description of the policy type.
 newPolicyTypeDescription ::
   PolicyTypeDescription
 newPolicyTypeDescription =
   PolicyTypeDescription'
-    { policyAttributeTypeDescriptions =
+    { description =
         Prelude.Nothing,
-      policyTypeName = Prelude.Nothing,
-      description = Prelude.Nothing
+      policyAttributeTypeDescriptions = Prelude.Nothing,
+      policyTypeName = Prelude.Nothing
     }
+
+-- | A description of the policy type.
+policyTypeDescription_description :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe Prelude.Text)
+policyTypeDescription_description = Lens.lens (\PolicyTypeDescription' {description} -> description) (\s@PolicyTypeDescription' {} a -> s {description = a} :: PolicyTypeDescription)
 
 -- | The description of the policy attributes associated with the policies
 -- defined by Elastic Load Balancing.
@@ -73,29 +77,24 @@ policyTypeDescription_policyAttributeTypeDescriptions = Lens.lens (\PolicyTypeDe
 policyTypeDescription_policyTypeName :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe Prelude.Text)
 policyTypeDescription_policyTypeName = Lens.lens (\PolicyTypeDescription' {policyTypeName} -> policyTypeName) (\s@PolicyTypeDescription' {} a -> s {policyTypeName = a} :: PolicyTypeDescription)
 
--- | A description of the policy type.
-policyTypeDescription_description :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe Prelude.Text)
-policyTypeDescription_description = Lens.lens (\PolicyTypeDescription' {description} -> description) (\s@PolicyTypeDescription' {} a -> s {description = a} :: PolicyTypeDescription)
-
 instance Data.FromXML PolicyTypeDescription where
   parseXML x =
     PolicyTypeDescription'
-      Prelude.<$> ( x Data..@? "PolicyAttributeTypeDescriptions"
+      Prelude.<$> (x Data..@? "Description")
+      Prelude.<*> ( x Data..@? "PolicyAttributeTypeDescriptions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "PolicyTypeName")
-      Prelude.<*> (x Data..@? "Description")
 
 instance Prelude.Hashable PolicyTypeDescription where
   hashWithSalt _salt PolicyTypeDescription' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` policyAttributeTypeDescriptions
       `Prelude.hashWithSalt` policyTypeName
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData PolicyTypeDescription where
   rnf PolicyTypeDescription' {..} =
-    Prelude.rnf policyAttributeTypeDescriptions
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf policyAttributeTypeDescriptions
       `Prelude.seq` Prelude.rnf policyTypeName
-      `Prelude.seq` Prelude.rnf description

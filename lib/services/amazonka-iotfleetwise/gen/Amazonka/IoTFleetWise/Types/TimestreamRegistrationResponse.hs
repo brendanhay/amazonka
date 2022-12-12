@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data TimestreamRegistrationResponse = TimestreamRegistrationResponse'
   { -- | A message associated with a registration error.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the Timestream database table.
-    timestreamTableArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Timestream database.
     timestreamDatabaseArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Timestream database table.
+    timestreamTableArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Timestream database.
     timestreamDatabaseName :: Prelude.Text,
     -- | The name of the Timestream database table.
@@ -57,9 +57,9 @@ data TimestreamRegistrationResponse = TimestreamRegistrationResponse'
 --
 -- 'errorMessage', 'timestreamRegistrationResponse_errorMessage' - A message associated with a registration error.
 --
--- 'timestreamTableArn', 'timestreamRegistrationResponse_timestreamTableArn' - The ARN of the Timestream database table.
---
 -- 'timestreamDatabaseArn', 'timestreamRegistrationResponse_timestreamDatabaseArn' - The Amazon Resource Name (ARN) of the Timestream database.
+--
+-- 'timestreamTableArn', 'timestreamRegistrationResponse_timestreamTableArn' - The ARN of the Timestream database table.
 --
 -- 'timestreamDatabaseName', 'timestreamRegistrationResponse_timestreamDatabaseName' - The name of the Timestream database.
 --
@@ -83,8 +83,8 @@ newTimestreamRegistrationResponse
     TimestreamRegistrationResponse'
       { errorMessage =
           Prelude.Nothing,
-        timestreamTableArn = Prelude.Nothing,
         timestreamDatabaseArn = Prelude.Nothing,
+        timestreamTableArn = Prelude.Nothing,
         timestreamDatabaseName =
           pTimestreamDatabaseName_,
         timestreamTableName = pTimestreamTableName_,
@@ -95,13 +95,13 @@ newTimestreamRegistrationResponse
 timestreamRegistrationResponse_errorMessage :: Lens.Lens' TimestreamRegistrationResponse (Prelude.Maybe Prelude.Text)
 timestreamRegistrationResponse_errorMessage = Lens.lens (\TimestreamRegistrationResponse' {errorMessage} -> errorMessage) (\s@TimestreamRegistrationResponse' {} a -> s {errorMessage = a} :: TimestreamRegistrationResponse)
 
--- | The ARN of the Timestream database table.
-timestreamRegistrationResponse_timestreamTableArn :: Lens.Lens' TimestreamRegistrationResponse (Prelude.Maybe Prelude.Text)
-timestreamRegistrationResponse_timestreamTableArn = Lens.lens (\TimestreamRegistrationResponse' {timestreamTableArn} -> timestreamTableArn) (\s@TimestreamRegistrationResponse' {} a -> s {timestreamTableArn = a} :: TimestreamRegistrationResponse)
-
 -- | The Amazon Resource Name (ARN) of the Timestream database.
 timestreamRegistrationResponse_timestreamDatabaseArn :: Lens.Lens' TimestreamRegistrationResponse (Prelude.Maybe Prelude.Text)
 timestreamRegistrationResponse_timestreamDatabaseArn = Lens.lens (\TimestreamRegistrationResponse' {timestreamDatabaseArn} -> timestreamDatabaseArn) (\s@TimestreamRegistrationResponse' {} a -> s {timestreamDatabaseArn = a} :: TimestreamRegistrationResponse)
+
+-- | The ARN of the Timestream database table.
+timestreamRegistrationResponse_timestreamTableArn :: Lens.Lens' TimestreamRegistrationResponse (Prelude.Maybe Prelude.Text)
+timestreamRegistrationResponse_timestreamTableArn = Lens.lens (\TimestreamRegistrationResponse' {timestreamTableArn} -> timestreamTableArn) (\s@TimestreamRegistrationResponse' {} a -> s {timestreamTableArn = a} :: TimestreamRegistrationResponse)
 
 -- | The name of the Timestream database.
 timestreamRegistrationResponse_timestreamDatabaseName :: Lens.Lens' TimestreamRegistrationResponse Prelude.Text
@@ -124,8 +124,8 @@ instance Data.FromJSON TimestreamRegistrationResponse where
       ( \x ->
           TimestreamRegistrationResponse'
             Prelude.<$> (x Data..:? "errorMessage")
-            Prelude.<*> (x Data..:? "timestreamTableArn")
             Prelude.<*> (x Data..:? "timestreamDatabaseArn")
+            Prelude.<*> (x Data..:? "timestreamTableArn")
             Prelude.<*> (x Data..: "timestreamDatabaseName")
             Prelude.<*> (x Data..: "timestreamTableName")
             Prelude.<*> (x Data..: "registrationStatus")
@@ -139,8 +139,8 @@ instance
     _salt
     TimestreamRegistrationResponse' {..} =
       _salt `Prelude.hashWithSalt` errorMessage
-        `Prelude.hashWithSalt` timestreamTableArn
         `Prelude.hashWithSalt` timestreamDatabaseArn
+        `Prelude.hashWithSalt` timestreamTableArn
         `Prelude.hashWithSalt` timestreamDatabaseName
         `Prelude.hashWithSalt` timestreamTableName
         `Prelude.hashWithSalt` registrationStatus
@@ -151,8 +151,8 @@ instance
   where
   rnf TimestreamRegistrationResponse' {..} =
     Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf timestreamTableArn
       `Prelude.seq` Prelude.rnf timestreamDatabaseArn
+      `Prelude.seq` Prelude.rnf timestreamTableArn
       `Prelude.seq` Prelude.rnf timestreamDatabaseName
       `Prelude.seq` Prelude.rnf timestreamTableName
       `Prelude.seq` Prelude.rnf registrationStatus

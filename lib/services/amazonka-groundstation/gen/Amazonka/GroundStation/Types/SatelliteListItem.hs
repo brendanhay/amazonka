@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSatelliteListItem' smart constructor.
 data SatelliteListItem = SatelliteListItem'
-  { -- | ARN of a satellite.
-    satelliteArn :: Prelude.Maybe Prelude.Text,
-    -- | The current ephemeris being used to compute the trajectory of the
+  { -- | The current ephemeris being used to compute the trajectory of the
     -- satellite.
     currentEphemeris :: Prelude.Maybe EphemerisMetaData,
-    -- | UUID of a satellite.
-    satelliteId :: Prelude.Maybe Prelude.Text,
+    -- | A list of ground stations to which the satellite is on-boarded.
+    groundStations :: Prelude.Maybe [Prelude.Text],
     -- | NORAD satellite ID number.
     noradSatelliteID :: Prelude.Maybe Prelude.Natural,
-    -- | A list of ground stations to which the satellite is on-boarded.
-    groundStations :: Prelude.Maybe [Prelude.Text]
+    -- | ARN of a satellite.
+    satelliteArn :: Prelude.Maybe Prelude.Text,
+    -- | UUID of a satellite.
+    satelliteId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,47 +51,48 @@ data SatelliteListItem = SatelliteListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'satelliteArn', 'satelliteListItem_satelliteArn' - ARN of a satellite.
---
 -- 'currentEphemeris', 'satelliteListItem_currentEphemeris' - The current ephemeris being used to compute the trajectory of the
 -- satellite.
 --
--- 'satelliteId', 'satelliteListItem_satelliteId' - UUID of a satellite.
+-- 'groundStations', 'satelliteListItem_groundStations' - A list of ground stations to which the satellite is on-boarded.
 --
 -- 'noradSatelliteID', 'satelliteListItem_noradSatelliteID' - NORAD satellite ID number.
 --
--- 'groundStations', 'satelliteListItem_groundStations' - A list of ground stations to which the satellite is on-boarded.
+-- 'satelliteArn', 'satelliteListItem_satelliteArn' - ARN of a satellite.
+--
+-- 'satelliteId', 'satelliteListItem_satelliteId' - UUID of a satellite.
 newSatelliteListItem ::
   SatelliteListItem
 newSatelliteListItem =
   SatelliteListItem'
-    { satelliteArn = Prelude.Nothing,
-      currentEphemeris = Prelude.Nothing,
-      satelliteId = Prelude.Nothing,
+    { currentEphemeris =
+        Prelude.Nothing,
+      groundStations = Prelude.Nothing,
       noradSatelliteID = Prelude.Nothing,
-      groundStations = Prelude.Nothing
+      satelliteArn = Prelude.Nothing,
+      satelliteId = Prelude.Nothing
     }
-
--- | ARN of a satellite.
-satelliteListItem_satelliteArn :: Lens.Lens' SatelliteListItem (Prelude.Maybe Prelude.Text)
-satelliteListItem_satelliteArn = Lens.lens (\SatelliteListItem' {satelliteArn} -> satelliteArn) (\s@SatelliteListItem' {} a -> s {satelliteArn = a} :: SatelliteListItem)
 
 -- | The current ephemeris being used to compute the trajectory of the
 -- satellite.
 satelliteListItem_currentEphemeris :: Lens.Lens' SatelliteListItem (Prelude.Maybe EphemerisMetaData)
 satelliteListItem_currentEphemeris = Lens.lens (\SatelliteListItem' {currentEphemeris} -> currentEphemeris) (\s@SatelliteListItem' {} a -> s {currentEphemeris = a} :: SatelliteListItem)
 
--- | UUID of a satellite.
-satelliteListItem_satelliteId :: Lens.Lens' SatelliteListItem (Prelude.Maybe Prelude.Text)
-satelliteListItem_satelliteId = Lens.lens (\SatelliteListItem' {satelliteId} -> satelliteId) (\s@SatelliteListItem' {} a -> s {satelliteId = a} :: SatelliteListItem)
+-- | A list of ground stations to which the satellite is on-boarded.
+satelliteListItem_groundStations :: Lens.Lens' SatelliteListItem (Prelude.Maybe [Prelude.Text])
+satelliteListItem_groundStations = Lens.lens (\SatelliteListItem' {groundStations} -> groundStations) (\s@SatelliteListItem' {} a -> s {groundStations = a} :: SatelliteListItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | NORAD satellite ID number.
 satelliteListItem_noradSatelliteID :: Lens.Lens' SatelliteListItem (Prelude.Maybe Prelude.Natural)
 satelliteListItem_noradSatelliteID = Lens.lens (\SatelliteListItem' {noradSatelliteID} -> noradSatelliteID) (\s@SatelliteListItem' {} a -> s {noradSatelliteID = a} :: SatelliteListItem)
 
--- | A list of ground stations to which the satellite is on-boarded.
-satelliteListItem_groundStations :: Lens.Lens' SatelliteListItem (Prelude.Maybe [Prelude.Text])
-satelliteListItem_groundStations = Lens.lens (\SatelliteListItem' {groundStations} -> groundStations) (\s@SatelliteListItem' {} a -> s {groundStations = a} :: SatelliteListItem) Prelude.. Lens.mapping Lens.coerced
+-- | ARN of a satellite.
+satelliteListItem_satelliteArn :: Lens.Lens' SatelliteListItem (Prelude.Maybe Prelude.Text)
+satelliteListItem_satelliteArn = Lens.lens (\SatelliteListItem' {satelliteArn} -> satelliteArn) (\s@SatelliteListItem' {} a -> s {satelliteArn = a} :: SatelliteListItem)
+
+-- | UUID of a satellite.
+satelliteListItem_satelliteId :: Lens.Lens' SatelliteListItem (Prelude.Maybe Prelude.Text)
+satelliteListItem_satelliteId = Lens.lens (\SatelliteListItem' {satelliteId} -> satelliteId) (\s@SatelliteListItem' {} a -> s {satelliteId = a} :: SatelliteListItem)
 
 instance Data.FromJSON SatelliteListItem where
   parseJSON =
@@ -99,27 +100,25 @@ instance Data.FromJSON SatelliteListItem where
       "SatelliteListItem"
       ( \x ->
           SatelliteListItem'
-            Prelude.<$> (x Data..:? "satelliteArn")
-            Prelude.<*> (x Data..:? "currentEphemeris")
-            Prelude.<*> (x Data..:? "satelliteId")
+            Prelude.<$> (x Data..:? "currentEphemeris")
+            Prelude.<*> (x Data..:? "groundStations" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "noradSatelliteID")
-            Prelude.<*> ( x Data..:? "groundStations"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Data..:? "satelliteArn")
+            Prelude.<*> (x Data..:? "satelliteId")
       )
 
 instance Prelude.Hashable SatelliteListItem where
   hashWithSalt _salt SatelliteListItem' {..} =
-    _salt `Prelude.hashWithSalt` satelliteArn
-      `Prelude.hashWithSalt` currentEphemeris
-      `Prelude.hashWithSalt` satelliteId
-      `Prelude.hashWithSalt` noradSatelliteID
+    _salt `Prelude.hashWithSalt` currentEphemeris
       `Prelude.hashWithSalt` groundStations
+      `Prelude.hashWithSalt` noradSatelliteID
+      `Prelude.hashWithSalt` satelliteArn
+      `Prelude.hashWithSalt` satelliteId
 
 instance Prelude.NFData SatelliteListItem where
   rnf SatelliteListItem' {..} =
-    Prelude.rnf satelliteArn
-      `Prelude.seq` Prelude.rnf currentEphemeris
-      `Prelude.seq` Prelude.rnf satelliteId
-      `Prelude.seq` Prelude.rnf noradSatelliteID
+    Prelude.rnf currentEphemeris
       `Prelude.seq` Prelude.rnf groundStations
+      `Prelude.seq` Prelude.rnf noradSatelliteID
+      `Prelude.seq` Prelude.rnf satelliteArn
+      `Prelude.seq` Prelude.rnf satelliteId

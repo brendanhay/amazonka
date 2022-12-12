@@ -32,9 +32,9 @@ module Amazonka.SSM.DeleteDocument
     newDeleteDocument,
 
     -- * Request Lenses
-    deleteDocument_versionName,
-    deleteDocument_force,
     deleteDocument_documentVersion,
+    deleteDocument_force,
+    deleteDocument_versionName,
     deleteDocument_name,
 
     -- * Destructuring the Response
@@ -56,18 +56,18 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDeleteDocument' smart constructor.
 data DeleteDocument = DeleteDocument'
-  { -- | The version name of the document that you want to delete. If not
-    -- provided, all versions of the document are deleted.
-    versionName :: Prelude.Maybe Prelude.Text,
+  { -- | The version of the document that you want to delete. If not provided,
+    -- all versions of the document are deleted.
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | Some SSM document types require that you specify a @Force@ flag before
     -- you can delete the document. For example, you must specify a @Force@
     -- flag to delete a document of type @ApplicationConfigurationSchema@. You
     -- can restrict access to the @Force@ flag in an Identity and Access
     -- Management (IAM) policy.
     force :: Prelude.Maybe Prelude.Bool,
-    -- | The version of the document that you want to delete. If not provided,
-    -- all versions of the document are deleted.
-    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The version name of the document that you want to delete. If not
+    -- provided, all versions of the document are deleted.
+    versionName :: Prelude.Maybe Prelude.Text,
     -- | The name of the document.
     name :: Prelude.Text
   }
@@ -81,8 +81,8 @@ data DeleteDocument = DeleteDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionName', 'deleteDocument_versionName' - The version name of the document that you want to delete. If not
--- provided, all versions of the document are deleted.
+-- 'documentVersion', 'deleteDocument_documentVersion' - The version of the document that you want to delete. If not provided,
+-- all versions of the document are deleted.
 --
 -- 'force', 'deleteDocument_force' - Some SSM document types require that you specify a @Force@ flag before
 -- you can delete the document. For example, you must specify a @Force@
@@ -90,8 +90,8 @@ data DeleteDocument = DeleteDocument'
 -- can restrict access to the @Force@ flag in an Identity and Access
 -- Management (IAM) policy.
 --
--- 'documentVersion', 'deleteDocument_documentVersion' - The version of the document that you want to delete. If not provided,
--- all versions of the document are deleted.
+-- 'versionName', 'deleteDocument_versionName' - The version name of the document that you want to delete. If not
+-- provided, all versions of the document are deleted.
 --
 -- 'name', 'deleteDocument_name' - The name of the document.
 newDeleteDocument ::
@@ -100,16 +100,16 @@ newDeleteDocument ::
   DeleteDocument
 newDeleteDocument pName_ =
   DeleteDocument'
-    { versionName = Prelude.Nothing,
+    { documentVersion = Prelude.Nothing,
       force = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
+      versionName = Prelude.Nothing,
       name = pName_
     }
 
--- | The version name of the document that you want to delete. If not
--- provided, all versions of the document are deleted.
-deleteDocument_versionName :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Text)
-deleteDocument_versionName = Lens.lens (\DeleteDocument' {versionName} -> versionName) (\s@DeleteDocument' {} a -> s {versionName = a} :: DeleteDocument)
+-- | The version of the document that you want to delete. If not provided,
+-- all versions of the document are deleted.
+deleteDocument_documentVersion :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Text)
+deleteDocument_documentVersion = Lens.lens (\DeleteDocument' {documentVersion} -> documentVersion) (\s@DeleteDocument' {} a -> s {documentVersion = a} :: DeleteDocument)
 
 -- | Some SSM document types require that you specify a @Force@ flag before
 -- you can delete the document. For example, you must specify a @Force@
@@ -119,10 +119,10 @@ deleteDocument_versionName = Lens.lens (\DeleteDocument' {versionName} -> versio
 deleteDocument_force :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Bool)
 deleteDocument_force = Lens.lens (\DeleteDocument' {force} -> force) (\s@DeleteDocument' {} a -> s {force = a} :: DeleteDocument)
 
--- | The version of the document that you want to delete. If not provided,
--- all versions of the document are deleted.
-deleteDocument_documentVersion :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Text)
-deleteDocument_documentVersion = Lens.lens (\DeleteDocument' {documentVersion} -> documentVersion) (\s@DeleteDocument' {} a -> s {documentVersion = a} :: DeleteDocument)
+-- | The version name of the document that you want to delete. If not
+-- provided, all versions of the document are deleted.
+deleteDocument_versionName :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Text)
+deleteDocument_versionName = Lens.lens (\DeleteDocument' {versionName} -> versionName) (\s@DeleteDocument' {} a -> s {versionName = a} :: DeleteDocument)
 
 -- | The name of the document.
 deleteDocument_name :: Lens.Lens' DeleteDocument Prelude.Text
@@ -143,16 +143,16 @@ instance Core.AWSRequest DeleteDocument where
 
 instance Prelude.Hashable DeleteDocument where
   hashWithSalt _salt DeleteDocument' {..} =
-    _salt `Prelude.hashWithSalt` versionName
+    _salt `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` force
-      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteDocument where
   rnf DeleteDocument' {..} =
-    Prelude.rnf versionName
+    Prelude.rnf documentVersion
       `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders DeleteDocument where
@@ -172,10 +172,10 @@ instance Data.ToJSON DeleteDocument where
   toJSON DeleteDocument' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VersionName" Data..=) Prelude.<$> versionName,
-            ("Force" Data..=) Prelude.<$> force,
-            ("DocumentVersion" Data..=)
+          [ ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
+            ("Force" Data..=) Prelude.<$> force,
+            ("VersionName" Data..=) Prelude.<$> versionName,
             Prelude.Just ("Name" Data..= name)
           ]
       )

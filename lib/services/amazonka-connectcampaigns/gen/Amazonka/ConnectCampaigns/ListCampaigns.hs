@@ -30,17 +30,17 @@ module Amazonka.ConnectCampaigns.ListCampaigns
     newListCampaigns,
 
     -- * Request Lenses
-    listCampaigns_nextToken,
     listCampaigns_filters,
     listCampaigns_maxResults,
+    listCampaigns_nextToken,
 
     -- * Destructuring the Response
     ListCampaignsResponse (..),
     newListCampaignsResponse,
 
     -- * Response Lenses
-    listCampaignsResponse_nextToken,
     listCampaignsResponse_campaignSummaryList,
+    listCampaignsResponse_nextToken,
     listCampaignsResponse_httpStatus,
   )
 where
@@ -57,9 +57,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListCampaigns' smart constructor.
 data ListCampaigns = ListCampaigns'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    filters :: Prelude.Maybe CampaignFilters,
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { filters :: Prelude.Maybe CampaignFilters,
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,23 +71,19 @@ data ListCampaigns = ListCampaigns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCampaigns_nextToken' - Undocumented member.
---
 -- 'filters', 'listCampaigns_filters' - Undocumented member.
 --
 -- 'maxResults', 'listCampaigns_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listCampaigns_nextToken' - Undocumented member.
 newListCampaigns ::
   ListCampaigns
 newListCampaigns =
   ListCampaigns'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Undocumented member.
-listCampaigns_nextToken :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Text)
-listCampaigns_nextToken = Lens.lens (\ListCampaigns' {nextToken} -> nextToken) (\s@ListCampaigns' {} a -> s {nextToken = a} :: ListCampaigns)
 
 -- | Undocumented member.
 listCampaigns_filters :: Lens.Lens' ListCampaigns (Prelude.Maybe CampaignFilters)
@@ -96,6 +92,10 @@ listCampaigns_filters = Lens.lens (\ListCampaigns' {filters} -> filters) (\s@Lis
 -- | Undocumented member.
 listCampaigns_maxResults :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Natural)
 listCampaigns_maxResults = Lens.lens (\ListCampaigns' {maxResults} -> maxResults) (\s@ListCampaigns' {} a -> s {maxResults = a} :: ListCampaigns)
+
+-- | Undocumented member.
+listCampaigns_nextToken :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Text)
+listCampaigns_nextToken = Lens.lens (\ListCampaigns' {nextToken} -> nextToken) (\s@ListCampaigns' {} a -> s {nextToken = a} :: ListCampaigns)
 
 instance Core.AWSPager ListCampaigns where
   page rq rs
@@ -127,24 +127,24 @@ instance Core.AWSRequest ListCampaigns where
     Response.receiveJSON
       ( \s h x ->
           ListCampaignsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "campaignSummaryList"
+            Prelude.<$> ( x Data..?> "campaignSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCampaigns where
   hashWithSalt _salt ListCampaigns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCampaigns where
   rnf ListCampaigns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCampaigns where
   toHeaders =
@@ -161,9 +161,9 @@ instance Data.ToJSON ListCampaigns where
   toJSON ListCampaigns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -177,8 +177,8 @@ instance Data.ToQuery ListCampaigns where
 --
 -- /See:/ 'newListCampaignsResponse' smart constructor.
 data ListCampaignsResponse = ListCampaignsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    campaignSummaryList :: Prelude.Maybe [CampaignSummary],
+  { campaignSummaryList :: Prelude.Maybe [CampaignSummary],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,9 +192,9 @@ data ListCampaignsResponse = ListCampaignsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCampaignsResponse_nextToken' - Undocumented member.
---
 -- 'campaignSummaryList', 'listCampaignsResponse_campaignSummaryList' - Undocumented member.
+--
+-- 'nextToken', 'listCampaignsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listCampaignsResponse_httpStatus' - The response's http status code.
 newListCampaignsResponse ::
@@ -203,18 +203,19 @@ newListCampaignsResponse ::
   ListCampaignsResponse
 newListCampaignsResponse pHttpStatus_ =
   ListCampaignsResponse'
-    { nextToken = Prelude.Nothing,
-      campaignSummaryList = Prelude.Nothing,
+    { campaignSummaryList =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listCampaignsResponse_nextToken :: Lens.Lens' ListCampaignsResponse (Prelude.Maybe Prelude.Text)
-listCampaignsResponse_nextToken = Lens.lens (\ListCampaignsResponse' {nextToken} -> nextToken) (\s@ListCampaignsResponse' {} a -> s {nextToken = a} :: ListCampaignsResponse)
-
--- | Undocumented member.
 listCampaignsResponse_campaignSummaryList :: Lens.Lens' ListCampaignsResponse (Prelude.Maybe [CampaignSummary])
 listCampaignsResponse_campaignSummaryList = Lens.lens (\ListCampaignsResponse' {campaignSummaryList} -> campaignSummaryList) (\s@ListCampaignsResponse' {} a -> s {campaignSummaryList = a} :: ListCampaignsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listCampaignsResponse_nextToken :: Lens.Lens' ListCampaignsResponse (Prelude.Maybe Prelude.Text)
+listCampaignsResponse_nextToken = Lens.lens (\ListCampaignsResponse' {nextToken} -> nextToken) (\s@ListCampaignsResponse' {} a -> s {nextToken = a} :: ListCampaignsResponse)
 
 -- | The response's http status code.
 listCampaignsResponse_httpStatus :: Lens.Lens' ListCampaignsResponse Prelude.Int
@@ -222,6 +223,6 @@ listCampaignsResponse_httpStatus = Lens.lens (\ListCampaignsResponse' {httpStatu
 
 instance Prelude.NFData ListCampaignsResponse where
   rnf ListCampaignsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf campaignSummaryList
+    Prelude.rnf campaignSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

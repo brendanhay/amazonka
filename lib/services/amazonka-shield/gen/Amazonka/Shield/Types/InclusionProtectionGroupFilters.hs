@@ -42,12 +42,12 @@ data InclusionProtectionGroupFilters = InclusionProtectionGroupFilters'
     -- | The pattern specification of the protection groups that you want to
     -- retrieve.
     patterns :: Prelude.Maybe (Prelude.NonEmpty ProtectionGroupPattern),
+    -- | The ID of the protection group that you want to retrieve.
+    protectionGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The resource type configuration of the protection groups that you want
     -- to retrieve. In the protection group configuration, you specify the
     -- resource type when you set the group\'s @Pattern@ to @BY_RESOURCE_TYPE@.
-    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty ProtectedResourceType),
-    -- | The ID of the protection group that you want to retrieve.
-    protectionGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty ProtectedResourceType)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,11 +65,11 @@ data InclusionProtectionGroupFilters = InclusionProtectionGroupFilters'
 -- 'patterns', 'inclusionProtectionGroupFilters_patterns' - The pattern specification of the protection groups that you want to
 -- retrieve.
 --
+-- 'protectionGroupIds', 'inclusionProtectionGroupFilters_protectionGroupIds' - The ID of the protection group that you want to retrieve.
+--
 -- 'resourceTypes', 'inclusionProtectionGroupFilters_resourceTypes' - The resource type configuration of the protection groups that you want
 -- to retrieve. In the protection group configuration, you specify the
 -- resource type when you set the group\'s @Pattern@ to @BY_RESOURCE_TYPE@.
---
--- 'protectionGroupIds', 'inclusionProtectionGroupFilters_protectionGroupIds' - The ID of the protection group that you want to retrieve.
 newInclusionProtectionGroupFilters ::
   InclusionProtectionGroupFilters
 newInclusionProtectionGroupFilters =
@@ -77,8 +77,8 @@ newInclusionProtectionGroupFilters =
     { aggregations =
         Prelude.Nothing,
       patterns = Prelude.Nothing,
-      resourceTypes = Prelude.Nothing,
-      protectionGroupIds = Prelude.Nothing
+      protectionGroupIds = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing
     }
 
 -- | The aggregation setting of the protection groups that you want to
@@ -91,15 +91,15 @@ inclusionProtectionGroupFilters_aggregations = Lens.lens (\InclusionProtectionGr
 inclusionProtectionGroupFilters_patterns :: Lens.Lens' InclusionProtectionGroupFilters (Prelude.Maybe (Prelude.NonEmpty ProtectionGroupPattern))
 inclusionProtectionGroupFilters_patterns = Lens.lens (\InclusionProtectionGroupFilters' {patterns} -> patterns) (\s@InclusionProtectionGroupFilters' {} a -> s {patterns = a} :: InclusionProtectionGroupFilters) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ID of the protection group that you want to retrieve.
+inclusionProtectionGroupFilters_protectionGroupIds :: Lens.Lens' InclusionProtectionGroupFilters (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+inclusionProtectionGroupFilters_protectionGroupIds = Lens.lens (\InclusionProtectionGroupFilters' {protectionGroupIds} -> protectionGroupIds) (\s@InclusionProtectionGroupFilters' {} a -> s {protectionGroupIds = a} :: InclusionProtectionGroupFilters) Prelude.. Lens.mapping Lens.coerced
+
 -- | The resource type configuration of the protection groups that you want
 -- to retrieve. In the protection group configuration, you specify the
 -- resource type when you set the group\'s @Pattern@ to @BY_RESOURCE_TYPE@.
 inclusionProtectionGroupFilters_resourceTypes :: Lens.Lens' InclusionProtectionGroupFilters (Prelude.Maybe (Prelude.NonEmpty ProtectedResourceType))
 inclusionProtectionGroupFilters_resourceTypes = Lens.lens (\InclusionProtectionGroupFilters' {resourceTypes} -> resourceTypes) (\s@InclusionProtectionGroupFilters' {} a -> s {resourceTypes = a} :: InclusionProtectionGroupFilters) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the protection group that you want to retrieve.
-inclusionProtectionGroupFilters_protectionGroupIds :: Lens.Lens' InclusionProtectionGroupFilters (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-inclusionProtectionGroupFilters_protectionGroupIds = Lens.lens (\InclusionProtectionGroupFilters' {protectionGroupIds} -> protectionGroupIds) (\s@InclusionProtectionGroupFilters' {} a -> s {protectionGroupIds = a} :: InclusionProtectionGroupFilters) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -110,8 +110,8 @@ instance
     InclusionProtectionGroupFilters' {..} =
       _salt `Prelude.hashWithSalt` aggregations
         `Prelude.hashWithSalt` patterns
-        `Prelude.hashWithSalt` resourceTypes
         `Prelude.hashWithSalt` protectionGroupIds
+        `Prelude.hashWithSalt` resourceTypes
 
 instance
   Prelude.NFData
@@ -120,8 +120,8 @@ instance
   rnf InclusionProtectionGroupFilters' {..} =
     Prelude.rnf aggregations
       `Prelude.seq` Prelude.rnf patterns
-      `Prelude.seq` Prelude.rnf resourceTypes
       `Prelude.seq` Prelude.rnf protectionGroupIds
+      `Prelude.seq` Prelude.rnf resourceTypes
 
 instance Data.ToJSON InclusionProtectionGroupFilters where
   toJSON InclusionProtectionGroupFilters' {..} =
@@ -129,8 +129,8 @@ instance Data.ToJSON InclusionProtectionGroupFilters where
       ( Prelude.catMaybes
           [ ("Aggregations" Data..=) Prelude.<$> aggregations,
             ("Patterns" Data..=) Prelude.<$> patterns,
-            ("ResourceTypes" Data..=) Prelude.<$> resourceTypes,
             ("ProtectionGroupIds" Data..=)
-              Prelude.<$> protectionGroupIds
+              Prelude.<$> protectionGroupIds,
+            ("ResourceTypes" Data..=) Prelude.<$> resourceTypes
           ]
       )

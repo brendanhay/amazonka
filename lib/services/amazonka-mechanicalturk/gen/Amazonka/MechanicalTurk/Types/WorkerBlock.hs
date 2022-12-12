@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkerBlock' smart constructor.
 data WorkerBlock = WorkerBlock'
-  { -- | The ID of the Worker who accepted the HIT.
-    workerId :: Prelude.Maybe Prelude.Text,
-    -- | A message explaining the reason the Worker was blocked.
-    reason :: Prelude.Maybe Prelude.Text
+  { -- | A message explaining the reason the Worker was blocked.
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Worker who accepted the HIT.
+    workerId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data WorkerBlock = WorkerBlock'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workerId', 'workerBlock_workerId' - The ID of the Worker who accepted the HIT.
---
 -- 'reason', 'workerBlock_reason' - A message explaining the reason the Worker was blocked.
+--
+-- 'workerId', 'workerBlock_workerId' - The ID of the Worker who accepted the HIT.
 newWorkerBlock ::
   WorkerBlock
 newWorkerBlock =
   WorkerBlock'
-    { workerId = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { reason = Prelude.Nothing,
+      workerId = Prelude.Nothing
     }
-
--- | The ID of the Worker who accepted the HIT.
-workerBlock_workerId :: Lens.Lens' WorkerBlock (Prelude.Maybe Prelude.Text)
-workerBlock_workerId = Lens.lens (\WorkerBlock' {workerId} -> workerId) (\s@WorkerBlock' {} a -> s {workerId = a} :: WorkerBlock)
 
 -- | A message explaining the reason the Worker was blocked.
 workerBlock_reason :: Lens.Lens' WorkerBlock (Prelude.Maybe Prelude.Text)
 workerBlock_reason = Lens.lens (\WorkerBlock' {reason} -> reason) (\s@WorkerBlock' {} a -> s {reason = a} :: WorkerBlock)
+
+-- | The ID of the Worker who accepted the HIT.
+workerBlock_workerId :: Lens.Lens' WorkerBlock (Prelude.Maybe Prelude.Text)
+workerBlock_workerId = Lens.lens (\WorkerBlock' {workerId} -> workerId) (\s@WorkerBlock' {} a -> s {workerId = a} :: WorkerBlock)
 
 instance Data.FromJSON WorkerBlock where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON WorkerBlock where
       "WorkerBlock"
       ( \x ->
           WorkerBlock'
-            Prelude.<$> (x Data..:? "WorkerId")
-            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<$> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "WorkerId")
       )
 
 instance Prelude.Hashable WorkerBlock where
   hashWithSalt _salt WorkerBlock' {..} =
-    _salt `Prelude.hashWithSalt` workerId
-      `Prelude.hashWithSalt` reason
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` workerId
 
 instance Prelude.NFData WorkerBlock where
   rnf WorkerBlock' {..} =
-    Prelude.rnf workerId
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf workerId

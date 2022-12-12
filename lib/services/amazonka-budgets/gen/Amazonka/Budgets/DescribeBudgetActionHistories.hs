@@ -29,8 +29,8 @@ module Amazonka.Budgets.DescribeBudgetActionHistories
     newDescribeBudgetActionHistories,
 
     -- * Request Lenses
-    describeBudgetActionHistories_nextToken,
     describeBudgetActionHistories_maxResults,
+    describeBudgetActionHistories_nextToken,
     describeBudgetActionHistories_timePeriod,
     describeBudgetActionHistories_accountId,
     describeBudgetActionHistories_budgetName,
@@ -57,8 +57,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeBudgetActionHistories' smart constructor.
 data DescribeBudgetActionHistories = DescribeBudgetActionHistories'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     timePeriod :: Prelude.Maybe TimePeriod,
     accountId :: Prelude.Text,
     budgetName :: Prelude.Text,
@@ -75,9 +75,9 @@ data DescribeBudgetActionHistories = DescribeBudgetActionHistories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeBudgetActionHistories_nextToken' - Undocumented member.
---
 -- 'maxResults', 'describeBudgetActionHistories_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeBudgetActionHistories_nextToken' - Undocumented member.
 --
 -- 'timePeriod', 'describeBudgetActionHistories_timePeriod' - Undocumented member.
 --
@@ -99,9 +99,9 @@ newDescribeBudgetActionHistories
   pBudgetName_
   pActionId_ =
     DescribeBudgetActionHistories'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         timePeriod = Prelude.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_,
@@ -109,12 +109,12 @@ newDescribeBudgetActionHistories
       }
 
 -- | Undocumented member.
-describeBudgetActionHistories_nextToken :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe Prelude.Text)
-describeBudgetActionHistories_nextToken = Lens.lens (\DescribeBudgetActionHistories' {nextToken} -> nextToken) (\s@DescribeBudgetActionHistories' {} a -> s {nextToken = a} :: DescribeBudgetActionHistories)
-
--- | Undocumented member.
 describeBudgetActionHistories_maxResults :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe Prelude.Natural)
 describeBudgetActionHistories_maxResults = Lens.lens (\DescribeBudgetActionHistories' {maxResults} -> maxResults) (\s@DescribeBudgetActionHistories' {} a -> s {maxResults = a} :: DescribeBudgetActionHistories)
+
+-- | Undocumented member.
+describeBudgetActionHistories_nextToken :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe Prelude.Text)
+describeBudgetActionHistories_nextToken = Lens.lens (\DescribeBudgetActionHistories' {nextToken} -> nextToken) (\s@DescribeBudgetActionHistories' {} a -> s {nextToken = a} :: DescribeBudgetActionHistories)
 
 -- | Undocumented member.
 describeBudgetActionHistories_timePeriod :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe TimePeriod)
@@ -178,8 +178,8 @@ instance
     DescribeBudgetActionHistories
   where
   hashWithSalt _salt DescribeBudgetActionHistories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` timePeriod
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` budgetName
@@ -187,8 +187,8 @@ instance
 
 instance Prelude.NFData DescribeBudgetActionHistories where
   rnf DescribeBudgetActionHistories' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf timePeriod
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf budgetName
@@ -213,8 +213,8 @@ instance Data.ToJSON DescribeBudgetActionHistories where
   toJSON DescribeBudgetActionHistories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("TimePeriod" Data..=) Prelude.<$> timePeriod,
             Prelude.Just ("AccountId" Data..= accountId),
             Prelude.Just ("BudgetName" Data..= budgetName),

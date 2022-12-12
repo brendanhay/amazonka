@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVariableImpactExplanation' smart constructor.
 data VariableImpactExplanation = VariableImpactExplanation'
-  { -- | The raw, uninterpreted value represented as log-odds of the fraud. These
+  { -- | The event variable name.
+    eventVariableName :: Prelude.Maybe Prelude.Text,
+    -- | The raw, uninterpreted value represented as log-odds of the fraud. These
     -- values are usually between -10 to +10, but range from - infinity to +
     -- infinity.
     --
@@ -38,8 +40,6 @@ data VariableImpactExplanation = VariableImpactExplanation'
     -- -   A negative value indicates that the variable drove the risk score
     --     down.
     logOddsImpact :: Prelude.Maybe Prelude.Double,
-    -- | The event variable name.
-    eventVariableName :: Prelude.Maybe Prelude.Text,
     -- | The event variable\'s relative impact in terms of magnitude on the
     -- prediction scores. The relative impact values consist of a numerical
     -- rating (0-5, 5 being the highest) and direction (increased\/decreased)
@@ -56,6 +56,8 @@ data VariableImpactExplanation = VariableImpactExplanation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventVariableName', 'variableImpactExplanation_eventVariableName' - The event variable name.
+--
 -- 'logOddsImpact', 'variableImpactExplanation_logOddsImpact' - The raw, uninterpreted value represented as log-odds of the fraud. These
 -- values are usually between -10 to +10, but range from - infinity to +
 -- infinity.
@@ -66,8 +68,6 @@ data VariableImpactExplanation = VariableImpactExplanation'
 -- -   A negative value indicates that the variable drove the risk score
 --     down.
 --
--- 'eventVariableName', 'variableImpactExplanation_eventVariableName' - The event variable name.
---
 -- 'relativeImpact', 'variableImpactExplanation_relativeImpact' - The event variable\'s relative impact in terms of magnitude on the
 -- prediction scores. The relative impact values consist of a numerical
 -- rating (0-5, 5 being the highest) and direction (increased\/decreased)
@@ -76,11 +76,15 @@ newVariableImpactExplanation ::
   VariableImpactExplanation
 newVariableImpactExplanation =
   VariableImpactExplanation'
-    { logOddsImpact =
+    { eventVariableName =
         Prelude.Nothing,
-      eventVariableName = Prelude.Nothing,
+      logOddsImpact = Prelude.Nothing,
       relativeImpact = Prelude.Nothing
     }
+
+-- | The event variable name.
+variableImpactExplanation_eventVariableName :: Lens.Lens' VariableImpactExplanation (Prelude.Maybe Prelude.Text)
+variableImpactExplanation_eventVariableName = Lens.lens (\VariableImpactExplanation' {eventVariableName} -> eventVariableName) (\s@VariableImpactExplanation' {} a -> s {eventVariableName = a} :: VariableImpactExplanation)
 
 -- | The raw, uninterpreted value represented as log-odds of the fraud. These
 -- values are usually between -10 to +10, but range from - infinity to +
@@ -93,10 +97,6 @@ newVariableImpactExplanation =
 --     down.
 variableImpactExplanation_logOddsImpact :: Lens.Lens' VariableImpactExplanation (Prelude.Maybe Prelude.Double)
 variableImpactExplanation_logOddsImpact = Lens.lens (\VariableImpactExplanation' {logOddsImpact} -> logOddsImpact) (\s@VariableImpactExplanation' {} a -> s {logOddsImpact = a} :: VariableImpactExplanation)
-
--- | The event variable name.
-variableImpactExplanation_eventVariableName :: Lens.Lens' VariableImpactExplanation (Prelude.Maybe Prelude.Text)
-variableImpactExplanation_eventVariableName = Lens.lens (\VariableImpactExplanation' {eventVariableName} -> eventVariableName) (\s@VariableImpactExplanation' {} a -> s {eventVariableName = a} :: VariableImpactExplanation)
 
 -- | The event variable\'s relative impact in terms of magnitude on the
 -- prediction scores. The relative impact values consist of a numerical
@@ -111,19 +111,19 @@ instance Data.FromJSON VariableImpactExplanation where
       "VariableImpactExplanation"
       ( \x ->
           VariableImpactExplanation'
-            Prelude.<$> (x Data..:? "logOddsImpact")
-            Prelude.<*> (x Data..:? "eventVariableName")
+            Prelude.<$> (x Data..:? "eventVariableName")
+            Prelude.<*> (x Data..:? "logOddsImpact")
             Prelude.<*> (x Data..:? "relativeImpact")
       )
 
 instance Prelude.Hashable VariableImpactExplanation where
   hashWithSalt _salt VariableImpactExplanation' {..} =
-    _salt `Prelude.hashWithSalt` logOddsImpact
-      `Prelude.hashWithSalt` eventVariableName
+    _salt `Prelude.hashWithSalt` eventVariableName
+      `Prelude.hashWithSalt` logOddsImpact
       `Prelude.hashWithSalt` relativeImpact
 
 instance Prelude.NFData VariableImpactExplanation where
   rnf VariableImpactExplanation' {..} =
-    Prelude.rnf logOddsImpact
-      `Prelude.seq` Prelude.rnf eventVariableName
+    Prelude.rnf eventVariableName
+      `Prelude.seq` Prelude.rnf logOddsImpact
       `Prelude.seq` Prelude.rnf relativeImpact

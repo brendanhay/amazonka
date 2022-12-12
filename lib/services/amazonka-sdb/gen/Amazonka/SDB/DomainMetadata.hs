@@ -36,13 +36,13 @@ module Amazonka.SDB.DomainMetadata
     newDomainMetadataResponse,
 
     -- * Response Lenses
-    domainMetadataResponse_attributeNamesSizeBytes,
-    domainMetadataResponse_itemCount,
-    domainMetadataResponse_timestamp,
     domainMetadataResponse_attributeNameCount,
+    domainMetadataResponse_attributeNamesSizeBytes,
     domainMetadataResponse_attributeValueCount,
-    domainMetadataResponse_itemNamesSizeBytes,
     domainMetadataResponse_attributeValuesSizeBytes,
+    domainMetadataResponse_itemCount,
+    domainMetadataResponse_itemNamesSizeBytes,
+    domainMetadataResponse_timestamp,
     domainMetadataResponse_httpStatus,
   )
 where
@@ -93,13 +93,13 @@ instance Core.AWSRequest DomainMetadata where
       "DomainMetadataResult"
       ( \s h x ->
           DomainMetadataResponse'
-            Prelude.<$> (x Data..@? "AttributeNamesSizeBytes")
-            Prelude.<*> (x Data..@? "ItemCount")
-            Prelude.<*> (x Data..@? "Timestamp")
-            Prelude.<*> (x Data..@? "AttributeNameCount")
+            Prelude.<$> (x Data..@? "AttributeNameCount")
+            Prelude.<*> (x Data..@? "AttributeNamesSizeBytes")
             Prelude.<*> (x Data..@? "AttributeValueCount")
-            Prelude.<*> (x Data..@? "ItemNamesSizeBytes")
             Prelude.<*> (x Data..@? "AttributeValuesSizeBytes")
+            Prelude.<*> (x Data..@? "ItemCount")
+            Prelude.<*> (x Data..@? "ItemNamesSizeBytes")
+            Prelude.<*> (x Data..@? "Timestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,20 +128,20 @@ instance Data.ToQuery DomainMetadata where
 
 -- | /See:/ 'newDomainMetadataResponse' smart constructor.
 data DomainMetadataResponse = DomainMetadataResponse'
-  { -- | The total size of all unique attribute names in the domain, in bytes.
-    attributeNamesSizeBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The number of all items in the domain.
-    itemCount :: Prelude.Maybe Prelude.Int,
-    -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
-    timestamp :: Prelude.Maybe Prelude.Int,
-    -- | The number of unique attribute names in the domain.
+  { -- | The number of unique attribute names in the domain.
     attributeNameCount :: Prelude.Maybe Prelude.Int,
+    -- | The total size of all unique attribute names in the domain, in bytes.
+    attributeNamesSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The number of all attribute name\/value pairs in the domain.
     attributeValueCount :: Prelude.Maybe Prelude.Int,
-    -- | The total size of all item names in the domain, in bytes.
-    itemNamesSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The total size of all attribute values in the domain, in bytes.
     attributeValuesSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The number of all items in the domain.
+    itemCount :: Prelude.Maybe Prelude.Int,
+    -- | The total size of all item names in the domain, in bytes.
+    itemNamesSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
+    timestamp :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,19 +155,19 @@ data DomainMetadataResponse = DomainMetadataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeNamesSizeBytes', 'domainMetadataResponse_attributeNamesSizeBytes' - The total size of all unique attribute names in the domain, in bytes.
---
--- 'itemCount', 'domainMetadataResponse_itemCount' - The number of all items in the domain.
---
--- 'timestamp', 'domainMetadataResponse_timestamp' - The data and time when metadata was calculated, in Epoch (UNIX) seconds.
---
 -- 'attributeNameCount', 'domainMetadataResponse_attributeNameCount' - The number of unique attribute names in the domain.
+--
+-- 'attributeNamesSizeBytes', 'domainMetadataResponse_attributeNamesSizeBytes' - The total size of all unique attribute names in the domain, in bytes.
 --
 -- 'attributeValueCount', 'domainMetadataResponse_attributeValueCount' - The number of all attribute name\/value pairs in the domain.
 --
+-- 'attributeValuesSizeBytes', 'domainMetadataResponse_attributeValuesSizeBytes' - The total size of all attribute values in the domain, in bytes.
+--
+-- 'itemCount', 'domainMetadataResponse_itemCount' - The number of all items in the domain.
+--
 -- 'itemNamesSizeBytes', 'domainMetadataResponse_itemNamesSizeBytes' - The total size of all item names in the domain, in bytes.
 --
--- 'attributeValuesSizeBytes', 'domainMetadataResponse_attributeValuesSizeBytes' - The total size of all attribute values in the domain, in bytes.
+-- 'timestamp', 'domainMetadataResponse_timestamp' - The data and time when metadata was calculated, in Epoch (UNIX) seconds.
 --
 -- 'httpStatus', 'domainMetadataResponse_httpStatus' - The response's http status code.
 newDomainMetadataResponse ::
@@ -176,44 +176,44 @@ newDomainMetadataResponse ::
   DomainMetadataResponse
 newDomainMetadataResponse pHttpStatus_ =
   DomainMetadataResponse'
-    { attributeNamesSizeBytes =
+    { attributeNameCount =
         Prelude.Nothing,
-      itemCount = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      attributeNameCount = Prelude.Nothing,
+      attributeNamesSizeBytes = Prelude.Nothing,
       attributeValueCount = Prelude.Nothing,
-      itemNamesSizeBytes = Prelude.Nothing,
       attributeValuesSizeBytes = Prelude.Nothing,
+      itemCount = Prelude.Nothing,
+      itemNamesSizeBytes = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The total size of all unique attribute names in the domain, in bytes.
-domainMetadataResponse_attributeNamesSizeBytes :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Integer)
-domainMetadataResponse_attributeNamesSizeBytes = Lens.lens (\DomainMetadataResponse' {attributeNamesSizeBytes} -> attributeNamesSizeBytes) (\s@DomainMetadataResponse' {} a -> s {attributeNamesSizeBytes = a} :: DomainMetadataResponse)
-
--- | The number of all items in the domain.
-domainMetadataResponse_itemCount :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
-domainMetadataResponse_itemCount = Lens.lens (\DomainMetadataResponse' {itemCount} -> itemCount) (\s@DomainMetadataResponse' {} a -> s {itemCount = a} :: DomainMetadataResponse)
-
--- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
-domainMetadataResponse_timestamp :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
-domainMetadataResponse_timestamp = Lens.lens (\DomainMetadataResponse' {timestamp} -> timestamp) (\s@DomainMetadataResponse' {} a -> s {timestamp = a} :: DomainMetadataResponse)
 
 -- | The number of unique attribute names in the domain.
 domainMetadataResponse_attributeNameCount :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
 domainMetadataResponse_attributeNameCount = Lens.lens (\DomainMetadataResponse' {attributeNameCount} -> attributeNameCount) (\s@DomainMetadataResponse' {} a -> s {attributeNameCount = a} :: DomainMetadataResponse)
 
+-- | The total size of all unique attribute names in the domain, in bytes.
+domainMetadataResponse_attributeNamesSizeBytes :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Integer)
+domainMetadataResponse_attributeNamesSizeBytes = Lens.lens (\DomainMetadataResponse' {attributeNamesSizeBytes} -> attributeNamesSizeBytes) (\s@DomainMetadataResponse' {} a -> s {attributeNamesSizeBytes = a} :: DomainMetadataResponse)
+
 -- | The number of all attribute name\/value pairs in the domain.
 domainMetadataResponse_attributeValueCount :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
 domainMetadataResponse_attributeValueCount = Lens.lens (\DomainMetadataResponse' {attributeValueCount} -> attributeValueCount) (\s@DomainMetadataResponse' {} a -> s {attributeValueCount = a} :: DomainMetadataResponse)
+
+-- | The total size of all attribute values in the domain, in bytes.
+domainMetadataResponse_attributeValuesSizeBytes :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Integer)
+domainMetadataResponse_attributeValuesSizeBytes = Lens.lens (\DomainMetadataResponse' {attributeValuesSizeBytes} -> attributeValuesSizeBytes) (\s@DomainMetadataResponse' {} a -> s {attributeValuesSizeBytes = a} :: DomainMetadataResponse)
+
+-- | The number of all items in the domain.
+domainMetadataResponse_itemCount :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
+domainMetadataResponse_itemCount = Lens.lens (\DomainMetadataResponse' {itemCount} -> itemCount) (\s@DomainMetadataResponse' {} a -> s {itemCount = a} :: DomainMetadataResponse)
 
 -- | The total size of all item names in the domain, in bytes.
 domainMetadataResponse_itemNamesSizeBytes :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Integer)
 domainMetadataResponse_itemNamesSizeBytes = Lens.lens (\DomainMetadataResponse' {itemNamesSizeBytes} -> itemNamesSizeBytes) (\s@DomainMetadataResponse' {} a -> s {itemNamesSizeBytes = a} :: DomainMetadataResponse)
 
--- | The total size of all attribute values in the domain, in bytes.
-domainMetadataResponse_attributeValuesSizeBytes :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Integer)
-domainMetadataResponse_attributeValuesSizeBytes = Lens.lens (\DomainMetadataResponse' {attributeValuesSizeBytes} -> attributeValuesSizeBytes) (\s@DomainMetadataResponse' {} a -> s {attributeValuesSizeBytes = a} :: DomainMetadataResponse)
+-- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
+domainMetadataResponse_timestamp :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
+domainMetadataResponse_timestamp = Lens.lens (\DomainMetadataResponse' {timestamp} -> timestamp) (\s@DomainMetadataResponse' {} a -> s {timestamp = a} :: DomainMetadataResponse)
 
 -- | The response's http status code.
 domainMetadataResponse_httpStatus :: Lens.Lens' DomainMetadataResponse Prelude.Int
@@ -221,11 +221,11 @@ domainMetadataResponse_httpStatus = Lens.lens (\DomainMetadataResponse' {httpSta
 
 instance Prelude.NFData DomainMetadataResponse where
   rnf DomainMetadataResponse' {..} =
-    Prelude.rnf attributeNamesSizeBytes
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf attributeNameCount
+    Prelude.rnf attributeNameCount
+      `Prelude.seq` Prelude.rnf attributeNamesSizeBytes
       `Prelude.seq` Prelude.rnf attributeValueCount
-      `Prelude.seq` Prelude.rnf itemNamesSizeBytes
       `Prelude.seq` Prelude.rnf attributeValuesSizeBytes
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf itemNamesSizeBytes
+      `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf httpStatus

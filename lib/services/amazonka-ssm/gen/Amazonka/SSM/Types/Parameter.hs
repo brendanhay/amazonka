@@ -29,21 +29,21 @@ import Amazonka.SSM.Types.ParameterType
 --
 -- /See:/ 'newParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | Either the version number or the label used to retrieve the parameter
+  { -- | The Amazon Resource Name (ARN) of the parameter.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
+    -- default is @text@.
+    dataType :: Prelude.Maybe Prelude.Text,
+    -- | Date the parameter was last changed or updated and the parameter version
+    -- was created.
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
+    -- | Either the version number or the label used to retrieve the parameter
     -- value. Specify selectors by using one of the following formats:
     --
     -- parameter_name:version
     --
     -- parameter_name:label
     selector :: Prelude.Maybe Prelude.Text,
-    -- | Date the parameter was last changed or updated and the parameter version
-    -- was created.
-    lastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the parameter.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
-    -- default is @text@.
-    dataType :: Prelude.Maybe Prelude.Text,
     -- | Applies to parameters that reference information in other Amazon Web
     -- Services services. @SourceResult@ is the raw result or response from the
     -- source.
@@ -74,20 +74,20 @@ data Parameter = Parameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'parameter_arn' - The Amazon Resource Name (ARN) of the parameter.
+--
+-- 'dataType', 'parameter_dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@. The
+-- default is @text@.
+--
+-- 'lastModifiedDate', 'parameter_lastModifiedDate' - Date the parameter was last changed or updated and the parameter version
+-- was created.
+--
 -- 'selector', 'parameter_selector' - Either the version number or the label used to retrieve the parameter
 -- value. Specify selectors by using one of the following formats:
 --
 -- parameter_name:version
 --
 -- parameter_name:label
---
--- 'lastModifiedDate', 'parameter_lastModifiedDate' - Date the parameter was last changed or updated and the parameter version
--- was created.
---
--- 'arn', 'parameter_arn' - The Amazon Resource Name (ARN) of the parameter.
---
--- 'dataType', 'parameter_dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@. The
--- default is @text@.
 --
 -- 'sourceResult', 'parameter_sourceResult' - Applies to parameters that reference information in other Amazon Web
 -- Services services. @SourceResult@ is the raw result or response from the
@@ -119,30 +119,16 @@ newParameter ::
   Parameter
 newParameter pName_ pType_ pValue_ pVersion_ =
   Parameter'
-    { selector = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       dataType = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
+      selector = Prelude.Nothing,
       sourceResult = Prelude.Nothing,
       name = pName_,
       type' = pType_,
       value = Data._Sensitive Lens.# pValue_,
       version = pVersion_
     }
-
--- | Either the version number or the label used to retrieve the parameter
--- value. Specify selectors by using one of the following formats:
---
--- parameter_name:version
---
--- parameter_name:label
-parameter_selector :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_selector = Lens.lens (\Parameter' {selector} -> selector) (\s@Parameter' {} a -> s {selector = a} :: Parameter)
-
--- | Date the parameter was last changed or updated and the parameter version
--- was created.
-parameter_lastModifiedDate :: Lens.Lens' Parameter (Prelude.Maybe Prelude.UTCTime)
-parameter_lastModifiedDate = Lens.lens (\Parameter' {lastModifiedDate} -> lastModifiedDate) (\s@Parameter' {} a -> s {lastModifiedDate = a} :: Parameter) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the parameter.
 parameter_arn :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
@@ -152,6 +138,20 @@ parameter_arn = Lens.lens (\Parameter' {arn} -> arn) (\s@Parameter' {} a -> s {a
 -- default is @text@.
 parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
+
+-- | Date the parameter was last changed or updated and the parameter version
+-- was created.
+parameter_lastModifiedDate :: Lens.Lens' Parameter (Prelude.Maybe Prelude.UTCTime)
+parameter_lastModifiedDate = Lens.lens (\Parameter' {lastModifiedDate} -> lastModifiedDate) (\s@Parameter' {} a -> s {lastModifiedDate = a} :: Parameter) Prelude.. Lens.mapping Data._Time
+
+-- | Either the version number or the label used to retrieve the parameter
+-- value. Specify selectors by using one of the following formats:
+--
+-- parameter_name:version
+--
+-- parameter_name:label
+parameter_selector :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_selector = Lens.lens (\Parameter' {selector} -> selector) (\s@Parameter' {} a -> s {selector = a} :: Parameter)
 
 -- | Applies to parameters that reference information in other Amazon Web
 -- Services services. @SourceResult@ is the raw result or response from the
@@ -188,10 +188,10 @@ instance Data.FromJSON Parameter where
       "Parameter"
       ( \x ->
           Parameter'
-            Prelude.<$> (x Data..:? "Selector")
-            Prelude.<*> (x Data..:? "LastModifiedDate")
-            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<$> (x Data..:? "ARN")
             Prelude.<*> (x Data..:? "DataType")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "Selector")
             Prelude.<*> (x Data..:? "SourceResult")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Type")
@@ -201,10 +201,10 @@ instance Data.FromJSON Parameter where
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
-    _salt `Prelude.hashWithSalt` selector
-      `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` selector
       `Prelude.hashWithSalt` sourceResult
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
@@ -213,10 +213,10 @@ instance Prelude.Hashable Parameter where
 
 instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
-    Prelude.rnf selector
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf selector
       `Prelude.seq` Prelude.rnf sourceResult
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'

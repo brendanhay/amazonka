@@ -32,11 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 data DeliveryStreamEncryptionConfigurationInput = DeliveryStreamEncryptionConfigurationInput'
   { -- | If you set @KeyType@ to @CUSTOMER_MANAGED_CMK@, you must specify the
     -- Amazon Resource Name (ARN) of the CMK. If you set @KeyType@ to
-    -- @AWS_OWNED_CMK@, Kinesis Data Firehose uses a service-account CMK.
+    -- @Amazon Web Services_OWNED_CMK@, Kinesis Data Firehose uses a
+    -- service-account CMK.
     keyARN :: Prelude.Maybe Prelude.Text,
     -- | Indicates the type of customer master key (CMK) to use for encryption.
-    -- The default setting is @AWS_OWNED_CMK@. For more information about CMKs,
-    -- see
+    -- The default setting is @Amazon Web Services_OWNED_CMK@. For more
+    -- information about CMKs, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)>.
     -- When you invoke CreateDeliveryStream or StartDeliveryStreamEncryption
     -- with @KeyType@ set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose
@@ -59,7 +60,7 @@ data DeliveryStreamEncryptionConfigurationInput = DeliveryStreamEncryptionConfig
     -- Firehose doesn\'t support asymmetric CMKs. For information about
     -- symmetric and asymmetric CMKs, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html About Symmetric and Asymmetric CMKs>
-    -- in the AWS Key Management Service developer guide.
+    -- in the Amazon Web Services Key Management Service developer guide.
     keyType :: KeyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,11 +75,12 @@ data DeliveryStreamEncryptionConfigurationInput = DeliveryStreamEncryptionConfig
 --
 -- 'keyARN', 'deliveryStreamEncryptionConfigurationInput_keyARN' - If you set @KeyType@ to @CUSTOMER_MANAGED_CMK@, you must specify the
 -- Amazon Resource Name (ARN) of the CMK. If you set @KeyType@ to
--- @AWS_OWNED_CMK@, Kinesis Data Firehose uses a service-account CMK.
+-- @Amazon Web Services_OWNED_CMK@, Kinesis Data Firehose uses a
+-- service-account CMK.
 --
 -- 'keyType', 'deliveryStreamEncryptionConfigurationInput_keyType' - Indicates the type of customer master key (CMK) to use for encryption.
--- The default setting is @AWS_OWNED_CMK@. For more information about CMKs,
--- see
+-- The default setting is @Amazon Web Services_OWNED_CMK@. For more
+-- information about CMKs, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)>.
 -- When you invoke CreateDeliveryStream or StartDeliveryStreamEncryption
 -- with @KeyType@ set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose
@@ -101,7 +103,7 @@ data DeliveryStreamEncryptionConfigurationInput = DeliveryStreamEncryptionConfig
 -- Firehose doesn\'t support asymmetric CMKs. For information about
 -- symmetric and asymmetric CMKs, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html About Symmetric and Asymmetric CMKs>
--- in the AWS Key Management Service developer guide.
+-- in the Amazon Web Services Key Management Service developer guide.
 newDeliveryStreamEncryptionConfigurationInput ::
   -- | 'keyType'
   KeyType ->
@@ -116,13 +118,14 @@ newDeliveryStreamEncryptionConfigurationInput
 
 -- | If you set @KeyType@ to @CUSTOMER_MANAGED_CMK@, you must specify the
 -- Amazon Resource Name (ARN) of the CMK. If you set @KeyType@ to
--- @AWS_OWNED_CMK@, Kinesis Data Firehose uses a service-account CMK.
+-- @Amazon Web Services_OWNED_CMK@, Kinesis Data Firehose uses a
+-- service-account CMK.
 deliveryStreamEncryptionConfigurationInput_keyARN :: Lens.Lens' DeliveryStreamEncryptionConfigurationInput (Prelude.Maybe Prelude.Text)
 deliveryStreamEncryptionConfigurationInput_keyARN = Lens.lens (\DeliveryStreamEncryptionConfigurationInput' {keyARN} -> keyARN) (\s@DeliveryStreamEncryptionConfigurationInput' {} a -> s {keyARN = a} :: DeliveryStreamEncryptionConfigurationInput)
 
 -- | Indicates the type of customer master key (CMK) to use for encryption.
--- The default setting is @AWS_OWNED_CMK@. For more information about CMKs,
--- see
+-- The default setting is @Amazon Web Services_OWNED_CMK@. For more
+-- information about CMKs, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)>.
 -- When you invoke CreateDeliveryStream or StartDeliveryStreamEncryption
 -- with @KeyType@ set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose
@@ -145,7 +148,7 @@ deliveryStreamEncryptionConfigurationInput_keyARN = Lens.lens (\DeliveryStreamEn
 -- Firehose doesn\'t support asymmetric CMKs. For information about
 -- symmetric and asymmetric CMKs, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html About Symmetric and Asymmetric CMKs>
--- in the AWS Key Management Service developer guide.
+-- in the Amazon Web Services Key Management Service developer guide.
 deliveryStreamEncryptionConfigurationInput_keyType :: Lens.Lens' DeliveryStreamEncryptionConfigurationInput KeyType
 deliveryStreamEncryptionConfigurationInput_keyType = Lens.lens (\DeliveryStreamEncryptionConfigurationInput' {keyType} -> keyType) (\s@DeliveryStreamEncryptionConfigurationInput' {} a -> s {keyType = a} :: DeliveryStreamEncryptionConfigurationInput)
 

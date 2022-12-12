@@ -37,8 +37,8 @@ module Amazonka.SESV2.GetDedicatedIps
     newGetDedicatedIpsResponse,
 
     -- * Response Lenses
-    getDedicatedIpsResponse_nextToken,
     getDedicatedIpsResponse_dedicatedIps,
+    getDedicatedIpsResponse_nextToken,
     getDedicatedIpsResponse_httpStatus,
   )
 where
@@ -123,8 +123,8 @@ instance Core.AWSRequest GetDedicatedIps where
     Response.receiveJSON
       ( \s h x ->
           GetDedicatedIpsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "DedicatedIps" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DedicatedIps" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,13 +167,13 @@ instance Data.ToQuery GetDedicatedIps where
 --
 -- /See:/ 'newGetDedicatedIpsResponse' smart constructor.
 data GetDedicatedIpsResponse = GetDedicatedIpsResponse'
-  { -- | A token that indicates that there are additional dedicated IP addresses
+  { -- | A list of dedicated IP addresses that are associated with your Amazon
+    -- Web Services account.
+    dedicatedIps :: Prelude.Maybe [DedicatedIp],
+    -- | A token that indicates that there are additional dedicated IP addresses
     -- to list. To view additional addresses, issue another request to
     -- @GetDedicatedIps@, passing this token in the @NextToken@ parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of dedicated IP addresses that are associated with your Amazon
-    -- Web Services account.
-    dedicatedIps :: Prelude.Maybe [DedicatedIp],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,12 +187,12 @@ data GetDedicatedIpsResponse = GetDedicatedIpsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dedicatedIps', 'getDedicatedIpsResponse_dedicatedIps' - A list of dedicated IP addresses that are associated with your Amazon
+-- Web Services account.
+--
 -- 'nextToken', 'getDedicatedIpsResponse_nextToken' - A token that indicates that there are additional dedicated IP addresses
 -- to list. To view additional addresses, issue another request to
 -- @GetDedicatedIps@, passing this token in the @NextToken@ parameter.
---
--- 'dedicatedIps', 'getDedicatedIpsResponse_dedicatedIps' - A list of dedicated IP addresses that are associated with your Amazon
--- Web Services account.
 --
 -- 'httpStatus', 'getDedicatedIpsResponse_httpStatus' - The response's http status code.
 newGetDedicatedIpsResponse ::
@@ -201,11 +201,16 @@ newGetDedicatedIpsResponse ::
   GetDedicatedIpsResponse
 newGetDedicatedIpsResponse pHttpStatus_ =
   GetDedicatedIpsResponse'
-    { nextToken =
+    { dedicatedIps =
         Prelude.Nothing,
-      dedicatedIps = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of dedicated IP addresses that are associated with your Amazon
+-- Web Services account.
+getDedicatedIpsResponse_dedicatedIps :: Lens.Lens' GetDedicatedIpsResponse (Prelude.Maybe [DedicatedIp])
+getDedicatedIpsResponse_dedicatedIps = Lens.lens (\GetDedicatedIpsResponse' {dedicatedIps} -> dedicatedIps) (\s@GetDedicatedIpsResponse' {} a -> s {dedicatedIps = a} :: GetDedicatedIpsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there are additional dedicated IP addresses
 -- to list. To view additional addresses, issue another request to
@@ -213,17 +218,12 @@ newGetDedicatedIpsResponse pHttpStatus_ =
 getDedicatedIpsResponse_nextToken :: Lens.Lens' GetDedicatedIpsResponse (Prelude.Maybe Prelude.Text)
 getDedicatedIpsResponse_nextToken = Lens.lens (\GetDedicatedIpsResponse' {nextToken} -> nextToken) (\s@GetDedicatedIpsResponse' {} a -> s {nextToken = a} :: GetDedicatedIpsResponse)
 
--- | A list of dedicated IP addresses that are associated with your Amazon
--- Web Services account.
-getDedicatedIpsResponse_dedicatedIps :: Lens.Lens' GetDedicatedIpsResponse (Prelude.Maybe [DedicatedIp])
-getDedicatedIpsResponse_dedicatedIps = Lens.lens (\GetDedicatedIpsResponse' {dedicatedIps} -> dedicatedIps) (\s@GetDedicatedIpsResponse' {} a -> s {dedicatedIps = a} :: GetDedicatedIpsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getDedicatedIpsResponse_httpStatus :: Lens.Lens' GetDedicatedIpsResponse Prelude.Int
 getDedicatedIpsResponse_httpStatus = Lens.lens (\GetDedicatedIpsResponse' {httpStatus} -> httpStatus) (\s@GetDedicatedIpsResponse' {} a -> s {httpStatus = a} :: GetDedicatedIpsResponse)
 
 instance Prelude.NFData GetDedicatedIpsResponse where
   rnf GetDedicatedIpsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dedicatedIps
+    Prelude.rnf dedicatedIps
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

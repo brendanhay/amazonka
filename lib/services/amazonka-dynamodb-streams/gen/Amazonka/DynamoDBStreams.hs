@@ -25,17 +25,17 @@ module Amazonka.DynamoDBStreams
     -- * Errors
     -- $errors
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** ExpiredIteratorException
+    _ExpiredIteratorException,
 
     -- ** InternalServerError
     _InternalServerError,
 
-    -- ** ExpiredIteratorException
-    _ExpiredIteratorException,
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** TrimmedDataAccessException
     _TrimmedDataAccessException,

@@ -27,8 +27,8 @@ module Amazonka.IdentityStore.CreateGroup
     newCreateGroup,
 
     -- * Request Lenses
-    createGroup_displayName,
     createGroup_description,
+    createGroup_displayName,
     createGroup_identityStoreId,
 
     -- * Destructuring the Response
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { -- | A string containing the name of the group. This value is commonly
+  { -- | A string containing the description of the group.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A string containing the name of the group. This value is commonly
     -- displayed when the group is referenced.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing the description of the group.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The globally unique identifier for the identity store.
     identityStoreId :: Prelude.Text
   }
@@ -70,10 +70,10 @@ data CreateGroup = CreateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createGroup_description' - A string containing the description of the group.
+--
 -- 'displayName', 'createGroup_displayName' - A string containing the name of the group. This value is commonly
 -- displayed when the group is referenced.
---
--- 'description', 'createGroup_description' - A string containing the description of the group.
 --
 -- 'identityStoreId', 'createGroup_identityStoreId' - The globally unique identifier for the identity store.
 newCreateGroup ::
@@ -82,19 +82,19 @@ newCreateGroup ::
   CreateGroup
 newCreateGroup pIdentityStoreId_ =
   CreateGroup'
-    { displayName = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       identityStoreId = pIdentityStoreId_
     }
+
+-- | A string containing the description of the group.
+createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
+createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the name of the group. This value is commonly
 -- displayed when the group is referenced.
 createGroup_displayName :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
 createGroup_displayName = Lens.lens (\CreateGroup' {displayName} -> displayName) (\s@CreateGroup' {} a -> s {displayName = a} :: CreateGroup) Prelude.. Lens.mapping Data._Sensitive
-
--- | A string containing the description of the group.
-createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
-createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The globally unique identifier for the identity store.
 createGroup_identityStoreId :: Lens.Lens' CreateGroup Prelude.Text
@@ -115,14 +115,14 @@ instance Core.AWSRequest CreateGroup where
 
 instance Prelude.Hashable CreateGroup where
   hashWithSalt _salt CreateGroup' {..} =
-    _salt `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` identityStoreId
 
 instance Prelude.NFData CreateGroup where
   rnf CreateGroup' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf identityStoreId
 
 instance Data.ToHeaders CreateGroup where
@@ -144,8 +144,8 @@ instance Data.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Data..=) Prelude.<$> displayName,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
             Prelude.Just
               ("IdentityStoreId" Data..= identityStoreId)
           ]

@@ -30,8 +30,8 @@ module Amazonka.AmplifyUiBuilder.ListComponents
     newListComponents,
 
     -- * Request Lenses
-    listComponents_nextToken,
     listComponents_maxResults,
+    listComponents_nextToken,
     listComponents_appId,
     listComponents_environmentName,
 
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListComponents' smart constructor.
 data ListComponents = ListComponents'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of components to retrieve.
+  { -- | The maximum number of components to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for the Amplify app.
     appId :: Prelude.Text,
     -- | The name of the backend environment that is a part of the Amplify app.
@@ -75,9 +75,9 @@ data ListComponents = ListComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComponents_nextToken' - The token to request the next page of results.
---
 -- 'maxResults', 'listComponents_maxResults' - The maximum number of components to retrieve.
+--
+-- 'nextToken', 'listComponents_nextToken' - The token to request the next page of results.
 --
 -- 'appId', 'listComponents_appId' - The unique ID for the Amplify app.
 --
@@ -90,19 +90,19 @@ newListComponents ::
   ListComponents
 newListComponents pAppId_ pEnvironmentName_ =
   ListComponents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appId = pAppId_,
       environmentName = pEnvironmentName_
     }
 
--- | The token to request the next page of results.
-listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
-listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
-
 -- | The maximum number of components to retrieve.
 listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
 listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
+
+-- | The token to request the next page of results.
+listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
+listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
 -- | The unique ID for the Amplify app.
 listComponents_appId :: Lens.Lens' ListComponents Prelude.Text
@@ -147,15 +147,15 @@ instance Core.AWSRequest ListComponents where
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData ListComponents where
   rnf ListComponents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf environmentName
 
@@ -183,8 +183,8 @@ instance Data.ToPath ListComponents where
 instance Data.ToQuery ListComponents where
   toQuery ListComponents' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListComponentsResponse' smart constructor.

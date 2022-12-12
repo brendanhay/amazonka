@@ -29,9 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventInformation' smart constructor.
 data EventInformation = EventInformation'
-  { -- | The ID of the instance. This information is available only for
-    -- @instanceChange@ events.
-    instanceId :: Prelude.Maybe Prelude.Text,
+  { -- | The description of the event.
+    eventDescription :: Prelude.Maybe Prelude.Text,
     -- | The event.
     --
     -- @error@ events:
@@ -120,8 +119,9 @@ data EventInformation = EventInformation'
     --     with load balancers failed. For more information, see the
     --     description of the event.
     eventSubType :: Prelude.Maybe Prelude.Text,
-    -- | The description of the event.
-    eventDescription :: Prelude.Maybe Prelude.Text
+    -- | The ID of the instance. This information is available only for
+    -- @instanceChange@ events.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -133,8 +133,7 @@ data EventInformation = EventInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'eventInformation_instanceId' - The ID of the instance. This information is available only for
--- @instanceChange@ events.
+-- 'eventDescription', 'eventInformation_eventDescription' - The description of the event.
 --
 -- 'eventSubType', 'eventInformation_eventSubType' - The event.
 --
@@ -224,20 +223,21 @@ data EventInformation = EventInformation'
 --     with load balancers failed. For more information, see the
 --     description of the event.
 --
--- 'eventDescription', 'eventInformation_eventDescription' - The description of the event.
+-- 'instanceId', 'eventInformation_instanceId' - The ID of the instance. This information is available only for
+-- @instanceChange@ events.
 newEventInformation ::
   EventInformation
 newEventInformation =
   EventInformation'
-    { instanceId = Prelude.Nothing,
+    { eventDescription =
+        Prelude.Nothing,
       eventSubType = Prelude.Nothing,
-      eventDescription = Prelude.Nothing
+      instanceId = Prelude.Nothing
     }
 
--- | The ID of the instance. This information is available only for
--- @instanceChange@ events.
-eventInformation_instanceId :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
-eventInformation_instanceId = Lens.lens (\EventInformation' {instanceId} -> instanceId) (\s@EventInformation' {} a -> s {instanceId = a} :: EventInformation)
+-- | The description of the event.
+eventInformation_eventDescription :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
+eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescription} -> eventDescription) (\s@EventInformation' {} a -> s {eventDescription = a} :: EventInformation)
 
 -- | The event.
 --
@@ -329,25 +329,26 @@ eventInformation_instanceId = Lens.lens (\EventInformation' {instanceId} -> inst
 eventInformation_eventSubType :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
 eventInformation_eventSubType = Lens.lens (\EventInformation' {eventSubType} -> eventSubType) (\s@EventInformation' {} a -> s {eventSubType = a} :: EventInformation)
 
--- | The description of the event.
-eventInformation_eventDescription :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
-eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescription} -> eventDescription) (\s@EventInformation' {} a -> s {eventDescription = a} :: EventInformation)
+-- | The ID of the instance. This information is available only for
+-- @instanceChange@ events.
+eventInformation_instanceId :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
+eventInformation_instanceId = Lens.lens (\EventInformation' {instanceId} -> instanceId) (\s@EventInformation' {} a -> s {instanceId = a} :: EventInformation)
 
 instance Data.FromXML EventInformation where
   parseXML x =
     EventInformation'
-      Prelude.<$> (x Data..@? "instanceId")
+      Prelude.<$> (x Data..@? "eventDescription")
       Prelude.<*> (x Data..@? "eventSubType")
-      Prelude.<*> (x Data..@? "eventDescription")
+      Prelude.<*> (x Data..@? "instanceId")
 
 instance Prelude.Hashable EventInformation where
   hashWithSalt _salt EventInformation' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` eventDescription
       `Prelude.hashWithSalt` eventSubType
-      `Prelude.hashWithSalt` eventDescription
+      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData EventInformation where
   rnf EventInformation' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf eventDescription
       `Prelude.seq` Prelude.rnf eventSubType
-      `Prelude.seq` Prelude.rnf eventDescription
+      `Prelude.seq` Prelude.rnf instanceId

@@ -18,8 +18,8 @@ module Amazonka.IoTSecureTunneling.Types
     defaultService,
 
     -- * Errors
-    _ResourceNotFoundException,
     _LimitExceededException,
+    _ResourceNotFoundException,
 
     -- * ClientMode
     ClientMode (..),
@@ -56,27 +56,27 @@ module Amazonka.IoTSecureTunneling.Types
     -- * Tunnel
     Tunnel (..),
     newTunnel,
-    tunnel_tags,
-    tunnel_lastUpdatedAt,
-    tunnel_destinationConnectionState,
-    tunnel_status,
+    tunnel_createdAt,
     tunnel_description,
     tunnel_destinationConfig,
-    tunnel_tunnelId,
+    tunnel_destinationConnectionState,
+    tunnel_lastUpdatedAt,
+    tunnel_sourceConnectionState,
+    tunnel_status,
+    tunnel_tags,
     tunnel_timeoutConfig,
     tunnel_tunnelArn,
-    tunnel_createdAt,
-    tunnel_sourceConnectionState,
+    tunnel_tunnelId,
 
     -- * TunnelSummary
     TunnelSummary (..),
     newTunnelSummary,
+    tunnelSummary_createdAt,
+    tunnelSummary_description,
     tunnelSummary_lastUpdatedAt,
     tunnelSummary_status,
-    tunnelSummary_description,
-    tunnelSummary_tunnelId,
     tunnelSummary_tunnelArn,
-    tunnelSummary_createdAt,
+    tunnelSummary_tunnelId,
   )
 where
 
@@ -120,28 +120,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -149,13 +143,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -163,14 +161,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Thrown when an operation is attempted on a resource that does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
 
 -- | Thrown when a tunnel limit is exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -178,3 +171,10 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
+
+-- | Thrown when an operation is attempted on a resource that does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"

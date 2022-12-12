@@ -47,16 +47,17 @@ module Amazonka.MGN.DisconnectFromService
     newSourceServer,
 
     -- * Response Lenses
-    sourceServer_tags,
-    sourceServer_vcenterClientID,
-    sourceServer_lifeCycle,
-    sourceServer_replicationType,
-    sourceServer_launchedInstance,
+    sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
     sourceServer_isArchived,
-    sourceServer_sourceServerID,
+    sourceServer_launchedInstance,
+    sourceServer_lifeCycle,
+    sourceServer_replicationType,
     sourceServer_sourceProperties,
+    sourceServer_sourceServerID,
+    sourceServer_tags,
+    sourceServer_vcenterClientID,
   )
 where
 

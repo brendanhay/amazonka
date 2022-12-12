@@ -22,9 +22,9 @@ module Amazonka.Route53RecoveryCluster.Lens
     getRoutingControlStateResponse_routingControlState,
 
     -- ** ListRoutingControls
-    listRoutingControls_nextToken,
     listRoutingControls_controlPanelArn,
     listRoutingControls_maxResults,
+    listRoutingControls_nextToken,
     listRoutingControlsResponse_nextToken,
     listRoutingControlsResponse_httpStatus,
     listRoutingControlsResponse_routingControls,
@@ -44,10 +44,10 @@ module Amazonka.Route53RecoveryCluster.Lens
 
     -- ** RoutingControl
     routingControl_controlPanelArn,
-    routingControl_routingControlState,
     routingControl_controlPanelName,
     routingControl_routingControlArn,
     routingControl_routingControlName,
+    routingControl_routingControlState,
 
     -- ** UpdateRoutingControlStateEntry
     updateRoutingControlStateEntry_routingControlArn,

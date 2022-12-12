@@ -29,8 +29,8 @@ module Amazonka.Route53Resolver.ListTagsForResource
     newListTagsForResource,
 
     -- * Request Lenses
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceArn,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.Route53Resolver.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -54,17 +54,17 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | For the first @ListTagsForResource@ request, omit this value.
+  { -- | The maximum number of tags that you want to return in the response to a
+    -- @ListTagsForResource@ request. If you don\'t specify a value for
+    -- @MaxResults@, Resolver returns up to 100 tags.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For the first @ListTagsForResource@ request, omit this value.
     --
     -- If you have more than @MaxResults@ tags, you can submit another
     -- @ListTagsForResource@ request to get the next group of tags for the
     -- resource. In the next request, specify the value of @NextToken@ from the
     -- previous response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of tags that you want to return in the response to a
-    -- @ListTagsForResource@ request. If you don\'t specify a value for
-    -- @MaxResults@, Resolver returns up to 100 tags.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) for the resource that you want to list
     -- tags for.
     resourceArn :: Prelude.Text
@@ -79,16 +79,16 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTagsForResource_maxResults' - The maximum number of tags that you want to return in the response to a
+-- @ListTagsForResource@ request. If you don\'t specify a value for
+-- @MaxResults@, Resolver returns up to 100 tags.
+--
 -- 'nextToken', 'listTagsForResource_nextToken' - For the first @ListTagsForResource@ request, omit this value.
 --
 -- If you have more than @MaxResults@ tags, you can submit another
 -- @ListTagsForResource@ request to get the next group of tags for the
 -- resource. In the next request, specify the value of @NextToken@ from the
 -- previous response.
---
--- 'maxResults', 'listTagsForResource_maxResults' - The maximum number of tags that you want to return in the response to a
--- @ListTagsForResource@ request. If you don\'t specify a value for
--- @MaxResults@, Resolver returns up to 100 tags.
 --
 -- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) for the resource that you want to list
 -- tags for.
@@ -98,10 +98,16 @@ newListTagsForResource ::
   ListTagsForResource
 newListTagsForResource pResourceArn_ =
   ListTagsForResource'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
+
+-- | The maximum number of tags that you want to return in the response to a
+-- @ListTagsForResource@ request. If you don\'t specify a value for
+-- @MaxResults@, Resolver returns up to 100 tags.
+listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
+listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
 
 -- | For the first @ListTagsForResource@ request, omit this value.
 --
@@ -111,12 +117,6 @@ newListTagsForResource pResourceArn_ =
 -- previous response.
 listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
-
--- | The maximum number of tags that you want to return in the response to a
--- @ListTagsForResource@ request. If you don\'t specify a value for
--- @MaxResults@, Resolver returns up to 100 tags.
-listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
-listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
 
 -- | The Amazon Resource Name (ARN) for the resource that you want to list
 -- tags for.
@@ -155,21 +155,21 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders ListTagsForResource where
@@ -191,8 +191,8 @@ instance Data.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
@@ -205,14 +205,14 @@ instance Data.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | The tags that are associated with the resource that you specified in the
-    -- @ListTagsForResource@ request.
-    tags :: Prelude.Maybe [Tag],
-    -- | If more than @MaxResults@ tags match the specified criteria, you can
+  { -- | If more than @MaxResults@ tags match the specified criteria, you can
     -- submit another @ListTagsForResource@ request to get the next group of
     -- results. In the next request, specify the value of @NextToken@ from the
     -- previous response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags that are associated with the resource that you specified in the
+    -- @ListTagsForResource@ request.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,13 +226,13 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourceResponse_tags' - The tags that are associated with the resource that you specified in the
--- @ListTagsForResource@ request.
---
 -- 'nextToken', 'listTagsForResourceResponse_nextToken' - If more than @MaxResults@ tags match the specified criteria, you can
 -- submit another @ListTagsForResource@ request to get the next group of
 -- results. In the next request, specify the value of @NextToken@ from the
 -- previous response.
+--
+-- 'tags', 'listTagsForResourceResponse_tags' - The tags that are associated with the resource that you specified in the
+-- @ListTagsForResource@ request.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -241,16 +241,11 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { tags =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The tags that are associated with the resource that you specified in the
--- @ListTagsForResource@ request.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If more than @MaxResults@ tags match the specified criteria, you can
 -- submit another @ListTagsForResource@ request to get the next group of
@@ -259,12 +254,17 @@ listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tag
 listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
 
+-- | The tags that are associated with the resource that you specified in the
+-- @ListTagsForResource@ request.
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

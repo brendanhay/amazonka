@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMessageSystemAttributeValue' smart constructor.
 data MessageSystemAttributeValue = MessageSystemAttributeValue'
   { -- | Not implemented. Reserved for future use.
-    stringListValues :: Prelude.Maybe [Prelude.Text],
+    binaryListValues :: Prelude.Maybe [Data.Base64],
     -- | Binary type attributes can store any binary data, such as compressed
     -- data, encrypted data, or images.
     binaryValue :: Prelude.Maybe Data.Base64,
     -- | Not implemented. Reserved for future use.
-    binaryListValues :: Prelude.Maybe [Data.Base64],
+    stringListValues :: Prelude.Maybe [Prelude.Text],
     -- | Strings are Unicode with UTF-8 binary encoding. For a list of code
     -- values, see
     -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
@@ -62,7 +62,7 @@ data MessageSystemAttributeValue = MessageSystemAttributeValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringListValues', 'messageSystemAttributeValue_stringListValues' - Not implemented. Reserved for future use.
+-- 'binaryListValues', 'messageSystemAttributeValue_binaryListValues' - Not implemented. Reserved for future use.
 --
 -- 'binaryValue', 'messageSystemAttributeValue_binaryValue' - Binary type attributes can store any binary data, such as compressed
 -- data, encrypted data, or images.--
@@ -71,7 +71,7 @@ data MessageSystemAttributeValue = MessageSystemAttributeValue'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'binaryListValues', 'messageSystemAttributeValue_binaryListValues' - Not implemented. Reserved for future use.
+-- 'stringListValues', 'messageSystemAttributeValue_stringListValues' - Not implemented. Reserved for future use.
 --
 -- 'stringValue', 'messageSystemAttributeValue_stringValue' - Strings are Unicode with UTF-8 binary encoding. For a list of code
 -- values, see
@@ -90,17 +90,17 @@ newMessageSystemAttributeValue ::
   MessageSystemAttributeValue
 newMessageSystemAttributeValue pDataType_ =
   MessageSystemAttributeValue'
-    { stringListValues =
+    { binaryListValues =
         Prelude.Nothing,
       binaryValue = Prelude.Nothing,
-      binaryListValues = Prelude.Nothing,
+      stringListValues = Prelude.Nothing,
       stringValue = Prelude.Nothing,
       dataType = pDataType_
     }
 
 -- | Not implemented. Reserved for future use.
-messageSystemAttributeValue_stringListValues :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe [Prelude.Text])
-messageSystemAttributeValue_stringListValues = Lens.lens (\MessageSystemAttributeValue' {stringListValues} -> stringListValues) (\s@MessageSystemAttributeValue' {} a -> s {stringListValues = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Lens.coerced
+messageSystemAttributeValue_binaryListValues :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe [Prelude.ByteString])
+messageSystemAttributeValue_binaryListValues = Lens.lens (\MessageSystemAttributeValue' {binaryListValues} -> binaryListValues) (\s@MessageSystemAttributeValue' {} a -> s {binaryListValues = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | Binary type attributes can store any binary data, such as compressed
 -- data, encrypted data, or images.--
@@ -112,8 +112,8 @@ messageSystemAttributeValue_binaryValue :: Lens.Lens' MessageSystemAttributeValu
 messageSystemAttributeValue_binaryValue = Lens.lens (\MessageSystemAttributeValue' {binaryValue} -> binaryValue) (\s@MessageSystemAttributeValue' {} a -> s {binaryValue = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Data._Base64
 
 -- | Not implemented. Reserved for future use.
-messageSystemAttributeValue_binaryListValues :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe [Prelude.ByteString])
-messageSystemAttributeValue_binaryListValues = Lens.lens (\MessageSystemAttributeValue' {binaryListValues} -> binaryListValues) (\s@MessageSystemAttributeValue' {} a -> s {binaryListValues = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Lens.coerced
+messageSystemAttributeValue_stringListValues :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe [Prelude.Text])
+messageSystemAttributeValue_stringListValues = Lens.lens (\MessageSystemAttributeValue' {stringListValues} -> stringListValues) (\s@MessageSystemAttributeValue' {} a -> s {stringListValues = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | Strings are Unicode with UTF-8 binary encoding. For a list of code
 -- values, see
@@ -133,33 +133,33 @@ messageSystemAttributeValue_dataType = Lens.lens (\MessageSystemAttributeValue' 
 
 instance Prelude.Hashable MessageSystemAttributeValue where
   hashWithSalt _salt MessageSystemAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` stringListValues
+    _salt `Prelude.hashWithSalt` binaryListValues
       `Prelude.hashWithSalt` binaryValue
-      `Prelude.hashWithSalt` binaryListValues
+      `Prelude.hashWithSalt` stringListValues
       `Prelude.hashWithSalt` stringValue
       `Prelude.hashWithSalt` dataType
 
 instance Prelude.NFData MessageSystemAttributeValue where
   rnf MessageSystemAttributeValue' {..} =
-    Prelude.rnf stringListValues
+    Prelude.rnf binaryListValues
       `Prelude.seq` Prelude.rnf binaryValue
-      `Prelude.seq` Prelude.rnf binaryListValues
+      `Prelude.seq` Prelude.rnf stringListValues
       `Prelude.seq` Prelude.rnf stringValue
       `Prelude.seq` Prelude.rnf dataType
 
 instance Data.ToQuery MessageSystemAttributeValue where
   toQuery MessageSystemAttributeValue' {..} =
     Prelude.mconcat
-      [ "StringListValue"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "StringListValue"
-                Prelude.<$> stringListValues
-            ),
-        "BinaryValue" Data.=: binaryValue,
-        "BinaryListValue"
+      [ "BinaryListValue"
           Data.=: Data.toQuery
             ( Data.toQueryList "BinaryListValue"
                 Prelude.<$> binaryListValues
+            ),
+        "BinaryValue" Data.=: binaryValue,
+        "StringListValue"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "StringListValue"
+                Prelude.<$> stringListValues
             ),
         "StringValue" Data.=: stringValue,
         "DataType" Data.=: dataType

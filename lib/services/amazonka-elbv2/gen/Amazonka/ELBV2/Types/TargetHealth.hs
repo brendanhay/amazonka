@@ -30,9 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetHealth' smart constructor.
 data TargetHealth = TargetHealth'
-  { -- | The state of the target.
-    state :: Prelude.Maybe TargetHealthStateEnum,
-    -- | A description of the target health that provides additional details. If
+  { -- | A description of the target health that provides additional details. If
     -- the state is @healthy@, a description is not provided.
     description :: Prelude.Maybe Prelude.Text,
     -- | The reason code.
@@ -97,7 +95,9 @@ data TargetHealth = TargetHealth'
     --
     -- -   @Elb.InternalError@ - Target health is unavailable due to an
     --     internal error. Applies only to Network Load Balancers.
-    reason :: Prelude.Maybe TargetHealthReasonEnum
+    reason :: Prelude.Maybe TargetHealthReasonEnum,
+    -- | The state of the target.
+    state :: Prelude.Maybe TargetHealthStateEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,8 +108,6 @@ data TargetHealth = TargetHealth'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'state', 'targetHealth_state' - The state of the target.
 --
 -- 'description', 'targetHealth_description' - A description of the target health that provides additional details. If
 -- the state is @healthy@, a description is not provided.
@@ -176,18 +174,16 @@ data TargetHealth = TargetHealth'
 --
 -- -   @Elb.InternalError@ - Target health is unavailable due to an
 --     internal error. Applies only to Network Load Balancers.
+--
+-- 'state', 'targetHealth_state' - The state of the target.
 newTargetHealth ::
   TargetHealth
 newTargetHealth =
   TargetHealth'
-    { state = Prelude.Nothing,
-      description = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { description = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The state of the target.
-targetHealth_state :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthStateEnum)
-targetHealth_state = Lens.lens (\TargetHealth' {state} -> state) (\s@TargetHealth' {} a -> s {state = a} :: TargetHealth)
 
 -- | A description of the target health that provides additional details. If
 -- the state is @healthy@, a description is not provided.
@@ -259,21 +255,25 @@ targetHealth_description = Lens.lens (\TargetHealth' {description} -> descriptio
 targetHealth_reason :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthReasonEnum)
 targetHealth_reason = Lens.lens (\TargetHealth' {reason} -> reason) (\s@TargetHealth' {} a -> s {reason = a} :: TargetHealth)
 
+-- | The state of the target.
+targetHealth_state :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthStateEnum)
+targetHealth_state = Lens.lens (\TargetHealth' {state} -> state) (\s@TargetHealth' {} a -> s {state = a} :: TargetHealth)
+
 instance Data.FromXML TargetHealth where
   parseXML x =
     TargetHealth'
-      Prelude.<$> (x Data..@? "State")
-      Prelude.<*> (x Data..@? "Description")
+      Prelude.<$> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "Reason")
+      Prelude.<*> (x Data..@? "State")
 
 instance Prelude.Hashable TargetHealth where
   hashWithSalt _salt TargetHealth' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData TargetHealth where
   rnf TargetHealth' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf state

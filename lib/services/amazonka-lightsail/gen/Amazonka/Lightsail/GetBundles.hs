@@ -44,8 +44,8 @@ module Amazonka.Lightsail.GetBundles
     newGetBundlesResponse,
 
     -- * Response Lenses
-    getBundlesResponse_nextPageToken,
     getBundlesResponse_bundles,
+    getBundlesResponse_nextPageToken,
     getBundlesResponse_httpStatus,
   )
 where
@@ -137,8 +137,8 @@ instance Core.AWSRequest GetBundles where
     Response.receiveJSON
       ( \s h x ->
           GetBundlesResponse'
-            Prelude.<$> (x Data..?> "nextPageToken")
-            Prelude.<*> (x Data..?> "bundles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "bundles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,7 +185,10 @@ instance Data.ToQuery GetBundles where
 
 -- | /See:/ 'newGetBundlesResponse' smart constructor.
 data GetBundlesResponse = GetBundlesResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | An array of key-value pairs that contains information about the
+    -- available bundles.
+    bundles :: Prelude.Maybe [Bundle],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -193,9 +196,6 @@ data GetBundlesResponse = GetBundlesResponse'
     -- To get the next page of results, perform another @GetBundles@ request
     -- and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of key-value pairs that contains information about the
-    -- available bundles.
-    bundles :: Prelude.Maybe [Bundle],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,6 +209,9 @@ data GetBundlesResponse = GetBundlesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bundles', 'getBundlesResponse_bundles' - An array of key-value pairs that contains information about the
+-- available bundles.
+--
 -- 'nextPageToken', 'getBundlesResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -217,9 +220,6 @@ data GetBundlesResponse = GetBundlesResponse'
 -- To get the next page of results, perform another @GetBundles@ request
 -- and specify the next page token using the @pageToken@ parameter.
 --
--- 'bundles', 'getBundlesResponse_bundles' - An array of key-value pairs that contains information about the
--- available bundles.
---
 -- 'httpStatus', 'getBundlesResponse_httpStatus' - The response's http status code.
 newGetBundlesResponse ::
   -- | 'httpStatus'
@@ -227,11 +227,15 @@ newGetBundlesResponse ::
   GetBundlesResponse
 newGetBundlesResponse pHttpStatus_ =
   GetBundlesResponse'
-    { nextPageToken =
-        Prelude.Nothing,
-      bundles = Prelude.Nothing,
+    { bundles = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of key-value pairs that contains information about the
+-- available bundles.
+getBundlesResponse_bundles :: Lens.Lens' GetBundlesResponse (Prelude.Maybe [Bundle])
+getBundlesResponse_bundles = Lens.lens (\GetBundlesResponse' {bundles} -> bundles) (\s@GetBundlesResponse' {} a -> s {bundles = a} :: GetBundlesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -243,17 +247,12 @@ newGetBundlesResponse pHttpStatus_ =
 getBundlesResponse_nextPageToken :: Lens.Lens' GetBundlesResponse (Prelude.Maybe Prelude.Text)
 getBundlesResponse_nextPageToken = Lens.lens (\GetBundlesResponse' {nextPageToken} -> nextPageToken) (\s@GetBundlesResponse' {} a -> s {nextPageToken = a} :: GetBundlesResponse)
 
--- | An array of key-value pairs that contains information about the
--- available bundles.
-getBundlesResponse_bundles :: Lens.Lens' GetBundlesResponse (Prelude.Maybe [Bundle])
-getBundlesResponse_bundles = Lens.lens (\GetBundlesResponse' {bundles} -> bundles) (\s@GetBundlesResponse' {} a -> s {bundles = a} :: GetBundlesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getBundlesResponse_httpStatus :: Lens.Lens' GetBundlesResponse Prelude.Int
 getBundlesResponse_httpStatus = Lens.lens (\GetBundlesResponse' {httpStatus} -> httpStatus) (\s@GetBundlesResponse' {} a -> s {httpStatus = a} :: GetBundlesResponse)
 
 instance Prelude.NFData GetBundlesResponse where
   rnf GetBundlesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf bundles
+    Prelude.rnf bundles
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

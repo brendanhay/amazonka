@@ -30,9 +30,9 @@ module Amazonka.CloudWatchEvents.ListRuleNamesByTarget
     newListRuleNamesByTarget,
 
     -- * Request Lenses
-    listRuleNamesByTarget_nextToken,
     listRuleNamesByTarget_eventBusName,
     listRuleNamesByTarget_limit,
+    listRuleNamesByTarget_nextToken,
     listRuleNamesByTarget_targetArn,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRuleNamesByTarget' smart constructor.
 data ListRuleNamesByTarget = ListRuleNamesByTarget'
-  { -- | The token returned by a previous call to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or ARN of the event bus to list rules for. If you omit this,
+  { -- | The name or ARN of the event bus to list rules for. If you omit this,
     -- the default event bus is used.
     eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The token returned by a previous call to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target resource.
     targetArn :: Prelude.Text
   }
@@ -77,13 +77,13 @@ data ListRuleNamesByTarget = ListRuleNamesByTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRuleNamesByTarget_nextToken' - The token returned by a previous call to retrieve the next set of
--- results.
---
 -- 'eventBusName', 'listRuleNamesByTarget_eventBusName' - The name or ARN of the event bus to list rules for. If you omit this,
 -- the default event bus is used.
 --
 -- 'limit', 'listRuleNamesByTarget_limit' - The maximum number of results to return.
+--
+-- 'nextToken', 'listRuleNamesByTarget_nextToken' - The token returned by a previous call to retrieve the next set of
+-- results.
 --
 -- 'targetArn', 'listRuleNamesByTarget_targetArn' - The Amazon Resource Name (ARN) of the target resource.
 newListRuleNamesByTarget ::
@@ -92,16 +92,12 @@ newListRuleNamesByTarget ::
   ListRuleNamesByTarget
 newListRuleNamesByTarget pTargetArn_ =
   ListRuleNamesByTarget'
-    { nextToken = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
+    { eventBusName =
+        Prelude.Nothing,
       limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       targetArn = pTargetArn_
     }
-
--- | The token returned by a previous call to retrieve the next set of
--- results.
-listRuleNamesByTarget_nextToken :: Lens.Lens' ListRuleNamesByTarget (Prelude.Maybe Prelude.Text)
-listRuleNamesByTarget_nextToken = Lens.lens (\ListRuleNamesByTarget' {nextToken} -> nextToken) (\s@ListRuleNamesByTarget' {} a -> s {nextToken = a} :: ListRuleNamesByTarget)
 
 -- | The name or ARN of the event bus to list rules for. If you omit this,
 -- the default event bus is used.
@@ -111,6 +107,11 @@ listRuleNamesByTarget_eventBusName = Lens.lens (\ListRuleNamesByTarget' {eventBu
 -- | The maximum number of results to return.
 listRuleNamesByTarget_limit :: Lens.Lens' ListRuleNamesByTarget (Prelude.Maybe Prelude.Natural)
 listRuleNamesByTarget_limit = Lens.lens (\ListRuleNamesByTarget' {limit} -> limit) (\s@ListRuleNamesByTarget' {} a -> s {limit = a} :: ListRuleNamesByTarget)
+
+-- | The token returned by a previous call to retrieve the next set of
+-- results.
+listRuleNamesByTarget_nextToken :: Lens.Lens' ListRuleNamesByTarget (Prelude.Maybe Prelude.Text)
+listRuleNamesByTarget_nextToken = Lens.lens (\ListRuleNamesByTarget' {nextToken} -> nextToken) (\s@ListRuleNamesByTarget' {} a -> s {nextToken = a} :: ListRuleNamesByTarget)
 
 -- | The Amazon Resource Name (ARN) of the target resource.
 listRuleNamesByTarget_targetArn :: Lens.Lens' ListRuleNamesByTarget Prelude.Text
@@ -155,16 +156,16 @@ instance Core.AWSRequest ListRuleNamesByTarget where
 
 instance Prelude.Hashable ListRuleNamesByTarget where
   hashWithSalt _salt ListRuleNamesByTarget' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` eventBusName
+    _salt `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` targetArn
 
 instance Prelude.NFData ListRuleNamesByTarget where
   rnf ListRuleNamesByTarget' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventBusName
+    Prelude.rnf eventBusName
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf targetArn
 
 instance Data.ToHeaders ListRuleNamesByTarget where
@@ -186,9 +187,9 @@ instance Data.ToJSON ListRuleNamesByTarget where
   toJSON ListRuleNamesByTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("EventBusName" Data..=) Prelude.<$> eventBusName,
+          [ ("EventBusName" Data..=) Prelude.<$> eventBusName,
             ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("TargetArn" Data..= targetArn)
           ]
       )

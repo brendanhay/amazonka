@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentBindingPropertiesValue' smart constructor.
 data ComponentBindingPropertiesValue = ComponentBindingPropertiesValue'
-  { -- | The property type.
-    type' :: Prelude.Maybe Prelude.Text,
+  { -- | Describes the properties to customize with data at runtime.
+    bindingProperties :: Prelude.Maybe ComponentBindingPropertiesValueProperties,
     -- | The default value of the property.
     defaultValue :: Prelude.Maybe Prelude.Text,
-    -- | Describes the properties to customize with data at runtime.
-    bindingProperties :: Prelude.Maybe ComponentBindingPropertiesValueProperties
+    -- | The property type.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,32 +49,32 @@ data ComponentBindingPropertiesValue = ComponentBindingPropertiesValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'componentBindingPropertiesValue_type' - The property type.
+-- 'bindingProperties', 'componentBindingPropertiesValue_bindingProperties' - Describes the properties to customize with data at runtime.
 --
 -- 'defaultValue', 'componentBindingPropertiesValue_defaultValue' - The default value of the property.
 --
--- 'bindingProperties', 'componentBindingPropertiesValue_bindingProperties' - Describes the properties to customize with data at runtime.
+-- 'type'', 'componentBindingPropertiesValue_type' - The property type.
 newComponentBindingPropertiesValue ::
   ComponentBindingPropertiesValue
 newComponentBindingPropertiesValue =
   ComponentBindingPropertiesValue'
-    { type' =
+    { bindingProperties =
         Prelude.Nothing,
       defaultValue = Prelude.Nothing,
-      bindingProperties = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The property type.
-componentBindingPropertiesValue_type :: Lens.Lens' ComponentBindingPropertiesValue (Prelude.Maybe Prelude.Text)
-componentBindingPropertiesValue_type = Lens.lens (\ComponentBindingPropertiesValue' {type'} -> type') (\s@ComponentBindingPropertiesValue' {} a -> s {type' = a} :: ComponentBindingPropertiesValue)
+-- | Describes the properties to customize with data at runtime.
+componentBindingPropertiesValue_bindingProperties :: Lens.Lens' ComponentBindingPropertiesValue (Prelude.Maybe ComponentBindingPropertiesValueProperties)
+componentBindingPropertiesValue_bindingProperties = Lens.lens (\ComponentBindingPropertiesValue' {bindingProperties} -> bindingProperties) (\s@ComponentBindingPropertiesValue' {} a -> s {bindingProperties = a} :: ComponentBindingPropertiesValue)
 
 -- | The default value of the property.
 componentBindingPropertiesValue_defaultValue :: Lens.Lens' ComponentBindingPropertiesValue (Prelude.Maybe Prelude.Text)
 componentBindingPropertiesValue_defaultValue = Lens.lens (\ComponentBindingPropertiesValue' {defaultValue} -> defaultValue) (\s@ComponentBindingPropertiesValue' {} a -> s {defaultValue = a} :: ComponentBindingPropertiesValue)
 
--- | Describes the properties to customize with data at runtime.
-componentBindingPropertiesValue_bindingProperties :: Lens.Lens' ComponentBindingPropertiesValue (Prelude.Maybe ComponentBindingPropertiesValueProperties)
-componentBindingPropertiesValue_bindingProperties = Lens.lens (\ComponentBindingPropertiesValue' {bindingProperties} -> bindingProperties) (\s@ComponentBindingPropertiesValue' {} a -> s {bindingProperties = a} :: ComponentBindingPropertiesValue)
+-- | The property type.
+componentBindingPropertiesValue_type :: Lens.Lens' ComponentBindingPropertiesValue (Prelude.Maybe Prelude.Text)
+componentBindingPropertiesValue_type = Lens.lens (\ComponentBindingPropertiesValue' {type'} -> type') (\s@ComponentBindingPropertiesValue' {} a -> s {type' = a} :: ComponentBindingPropertiesValue)
 
 instance
   Data.FromJSON
@@ -85,9 +85,9 @@ instance
       "ComponentBindingPropertiesValue"
       ( \x ->
           ComponentBindingPropertiesValue'
-            Prelude.<$> (x Data..:? "type")
+            Prelude.<$> (x Data..:? "bindingProperties")
             Prelude.<*> (x Data..:? "defaultValue")
-            Prelude.<*> (x Data..:? "bindingProperties")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance
@@ -97,26 +97,26 @@ instance
   hashWithSalt
     _salt
     ComponentBindingPropertiesValue' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` bindingProperties
         `Prelude.hashWithSalt` defaultValue
-        `Prelude.hashWithSalt` bindingProperties
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     ComponentBindingPropertiesValue
   where
   rnf ComponentBindingPropertiesValue' {..} =
-    Prelude.rnf type'
+    Prelude.rnf bindingProperties
       `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf bindingProperties
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON ComponentBindingPropertiesValue where
   toJSON ComponentBindingPropertiesValue' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("type" Data..=) Prelude.<$> type',
+          [ ("bindingProperties" Data..=)
+              Prelude.<$> bindingProperties,
             ("defaultValue" Data..=) Prelude.<$> defaultValue,
-            ("bindingProperties" Data..=)
-              Prelude.<$> bindingProperties
+            ("type" Data..=) Prelude.<$> type'
           ]
       )

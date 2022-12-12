@@ -37,18 +37,18 @@ module Amazonka.FraudDetector.GetModels
     newGetModels,
 
     -- * Request Lenses
-    getModels_nextToken,
-    getModels_modelType,
     getModels_maxResults,
     getModels_modelId,
+    getModels_modelType,
+    getModels_nextToken,
 
     -- * Destructuring the Response
     GetModelsResponse (..),
     newGetModelsResponse,
 
     -- * Response Lenses
-    getModelsResponse_nextToken,
     getModelsResponse_models,
+    getModelsResponse_nextToken,
     getModelsResponse_httpStatus,
   )
 where
@@ -63,14 +63,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetModels' smart constructor.
 data GetModels = GetModels'
-  { -- | The next token for the subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The model type.
-    modelType :: Prelude.Maybe ModelTypeEnum,
-    -- | The maximum number of objects to return for the request.
+  { -- | The maximum number of objects to return for the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The model ID.
-    modelId :: Prelude.Maybe Prelude.Text
+    modelId :: Prelude.Maybe Prelude.Text,
+    -- | The model type.
+    modelType :: Prelude.Maybe ModelTypeEnum,
+    -- | The next token for the subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,30 +82,22 @@ data GetModels = GetModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getModels_nextToken' - The next token for the subsequent request.
---
--- 'modelType', 'getModels_modelType' - The model type.
---
 -- 'maxResults', 'getModels_maxResults' - The maximum number of objects to return for the request.
 --
 -- 'modelId', 'getModels_modelId' - The model ID.
+--
+-- 'modelType', 'getModels_modelType' - The model type.
+--
+-- 'nextToken', 'getModels_nextToken' - The next token for the subsequent request.
 newGetModels ::
   GetModels
 newGetModels =
   GetModels'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      modelId = Prelude.Nothing,
       modelType = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      modelId = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The next token for the subsequent request.
-getModels_nextToken :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
-getModels_nextToken = Lens.lens (\GetModels' {nextToken} -> nextToken) (\s@GetModels' {} a -> s {nextToken = a} :: GetModels)
-
--- | The model type.
-getModels_modelType :: Lens.Lens' GetModels (Prelude.Maybe ModelTypeEnum)
-getModels_modelType = Lens.lens (\GetModels' {modelType} -> modelType) (\s@GetModels' {} a -> s {modelType = a} :: GetModels)
 
 -- | The maximum number of objects to return for the request.
 getModels_maxResults :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Natural)
@@ -115,6 +107,14 @@ getModels_maxResults = Lens.lens (\GetModels' {maxResults} -> maxResults) (\s@Ge
 getModels_modelId :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
 getModels_modelId = Lens.lens (\GetModels' {modelId} -> modelId) (\s@GetModels' {} a -> s {modelId = a} :: GetModels)
 
+-- | The model type.
+getModels_modelType :: Lens.Lens' GetModels (Prelude.Maybe ModelTypeEnum)
+getModels_modelType = Lens.lens (\GetModels' {modelType} -> modelType) (\s@GetModels' {} a -> s {modelType = a} :: GetModels)
+
+-- | The next token for the subsequent request.
+getModels_nextToken :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
+getModels_nextToken = Lens.lens (\GetModels' {nextToken} -> nextToken) (\s@GetModels' {} a -> s {nextToken = a} :: GetModels)
+
 instance Core.AWSRequest GetModels where
   type AWSResponse GetModels = GetModelsResponse
   request overrides =
@@ -123,24 +123,24 @@ instance Core.AWSRequest GetModels where
     Response.receiveJSON
       ( \s h x ->
           GetModelsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "models" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "models" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetModels where
   hashWithSalt _salt GetModels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` modelType
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetModels where
   rnf GetModels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf modelType
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetModels where
   toHeaders =
@@ -161,10 +161,10 @@ instance Data.ToJSON GetModels where
   toJSON GetModels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("modelId" Data..=) Prelude.<$> modelId,
             ("modelType" Data..=) Prelude.<$> modelType,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("modelId" Data..=) Prelude.<$> modelId
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -176,10 +176,10 @@ instance Data.ToQuery GetModels where
 
 -- | /See:/ 'newGetModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'
-  { -- | The next page token to be used in subsequent requests.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The array of models.
+  { -- | The array of models.
     models :: Prelude.Maybe [Model],
+    -- | The next page token to be used in subsequent requests.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,9 +193,9 @@ data GetModelsResponse = GetModelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getModelsResponse_nextToken' - The next page token to be used in subsequent requests.
---
 -- 'models', 'getModelsResponse_models' - The array of models.
+--
+-- 'nextToken', 'getModelsResponse_nextToken' - The next page token to be used in subsequent requests.
 --
 -- 'httpStatus', 'getModelsResponse_httpStatus' - The response's http status code.
 newGetModelsResponse ::
@@ -204,18 +204,18 @@ newGetModelsResponse ::
   GetModelsResponse
 newGetModelsResponse pHttpStatus_ =
   GetModelsResponse'
-    { nextToken = Prelude.Nothing,
-      models = Prelude.Nothing,
+    { models = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next page token to be used in subsequent requests.
-getModelsResponse_nextToken :: Lens.Lens' GetModelsResponse (Prelude.Maybe Prelude.Text)
-getModelsResponse_nextToken = Lens.lens (\GetModelsResponse' {nextToken} -> nextToken) (\s@GetModelsResponse' {} a -> s {nextToken = a} :: GetModelsResponse)
 
 -- | The array of models.
 getModelsResponse_models :: Lens.Lens' GetModelsResponse (Prelude.Maybe [Model])
 getModelsResponse_models = Lens.lens (\GetModelsResponse' {models} -> models) (\s@GetModelsResponse' {} a -> s {models = a} :: GetModelsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The next page token to be used in subsequent requests.
+getModelsResponse_nextToken :: Lens.Lens' GetModelsResponse (Prelude.Maybe Prelude.Text)
+getModelsResponse_nextToken = Lens.lens (\GetModelsResponse' {nextToken} -> nextToken) (\s@GetModelsResponse' {} a -> s {nextToken = a} :: GetModelsResponse)
 
 -- | The response's http status code.
 getModelsResponse_httpStatus :: Lens.Lens' GetModelsResponse Prelude.Int
@@ -223,6 +223,6 @@ getModelsResponse_httpStatus = Lens.lens (\GetModelsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetModelsResponse where
   rnf GetModelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf models
+    Prelude.rnf models
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -54,8 +54,8 @@ module Amazonka.WAFV2.GetRateBasedStatementManagedKeys
     newGetRateBasedStatementManagedKeysResponse,
 
     -- * Response Lenses
-    getRateBasedStatementManagedKeysResponse_managedKeysIPV6,
     getRateBasedStatementManagedKeysResponse_managedKeysIPV4,
+    getRateBasedStatementManagedKeysResponse_managedKeysIPV6,
     getRateBasedStatementManagedKeysResponse_httpStatus,
   )
 where
@@ -214,8 +214,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRateBasedStatementManagedKeysResponse'
-            Prelude.<$> (x Data..?> "ManagedKeysIPV6")
-            Prelude.<*> (x Data..?> "ManagedKeysIPV4")
+            Prelude.<$> (x Data..?> "ManagedKeysIPV4")
+            Prelude.<*> (x Data..?> "ManagedKeysIPV6")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -285,10 +285,10 @@ instance
 
 -- | /See:/ 'newGetRateBasedStatementManagedKeysResponse' smart constructor.
 data GetRateBasedStatementManagedKeysResponse = GetRateBasedStatementManagedKeysResponse'
-  { -- | The keys that are of Internet Protocol version 6 (IPv6).
-    managedKeysIPV6 :: Prelude.Maybe RateBasedStatementManagedKeysIPSet,
-    -- | The keys that are of Internet Protocol version 4 (IPv4).
+  { -- | The keys that are of Internet Protocol version 4 (IPv4).
     managedKeysIPV4 :: Prelude.Maybe RateBasedStatementManagedKeysIPSet,
+    -- | The keys that are of Internet Protocol version 6 (IPv6).
+    managedKeysIPV6 :: Prelude.Maybe RateBasedStatementManagedKeysIPSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -302,9 +302,9 @@ data GetRateBasedStatementManagedKeysResponse = GetRateBasedStatementManagedKeys
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedKeysIPV6', 'getRateBasedStatementManagedKeysResponse_managedKeysIPV6' - The keys that are of Internet Protocol version 6 (IPv6).
---
 -- 'managedKeysIPV4', 'getRateBasedStatementManagedKeysResponse_managedKeysIPV4' - The keys that are of Internet Protocol version 4 (IPv4).
+--
+-- 'managedKeysIPV6', 'getRateBasedStatementManagedKeysResponse_managedKeysIPV6' - The keys that are of Internet Protocol version 6 (IPv6).
 --
 -- 'httpStatus', 'getRateBasedStatementManagedKeysResponse_httpStatus' - The response's http status code.
 newGetRateBasedStatementManagedKeysResponse ::
@@ -314,19 +314,19 @@ newGetRateBasedStatementManagedKeysResponse ::
 newGetRateBasedStatementManagedKeysResponse
   pHttpStatus_ =
     GetRateBasedStatementManagedKeysResponse'
-      { managedKeysIPV6 =
+      { managedKeysIPV4 =
           Prelude.Nothing,
-        managedKeysIPV4 = Prelude.Nothing,
+        managedKeysIPV6 = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The keys that are of Internet Protocol version 6 (IPv6).
-getRateBasedStatementManagedKeysResponse_managedKeysIPV6 :: Lens.Lens' GetRateBasedStatementManagedKeysResponse (Prelude.Maybe RateBasedStatementManagedKeysIPSet)
-getRateBasedStatementManagedKeysResponse_managedKeysIPV6 = Lens.lens (\GetRateBasedStatementManagedKeysResponse' {managedKeysIPV6} -> managedKeysIPV6) (\s@GetRateBasedStatementManagedKeysResponse' {} a -> s {managedKeysIPV6 = a} :: GetRateBasedStatementManagedKeysResponse)
 
 -- | The keys that are of Internet Protocol version 4 (IPv4).
 getRateBasedStatementManagedKeysResponse_managedKeysIPV4 :: Lens.Lens' GetRateBasedStatementManagedKeysResponse (Prelude.Maybe RateBasedStatementManagedKeysIPSet)
 getRateBasedStatementManagedKeysResponse_managedKeysIPV4 = Lens.lens (\GetRateBasedStatementManagedKeysResponse' {managedKeysIPV4} -> managedKeysIPV4) (\s@GetRateBasedStatementManagedKeysResponse' {} a -> s {managedKeysIPV4 = a} :: GetRateBasedStatementManagedKeysResponse)
+
+-- | The keys that are of Internet Protocol version 6 (IPv6).
+getRateBasedStatementManagedKeysResponse_managedKeysIPV6 :: Lens.Lens' GetRateBasedStatementManagedKeysResponse (Prelude.Maybe RateBasedStatementManagedKeysIPSet)
+getRateBasedStatementManagedKeysResponse_managedKeysIPV6 = Lens.lens (\GetRateBasedStatementManagedKeysResponse' {managedKeysIPV6} -> managedKeysIPV6) (\s@GetRateBasedStatementManagedKeysResponse' {} a -> s {managedKeysIPV6 = a} :: GetRateBasedStatementManagedKeysResponse)
 
 -- | The response's http status code.
 getRateBasedStatementManagedKeysResponse_httpStatus :: Lens.Lens' GetRateBasedStatementManagedKeysResponse Prelude.Int
@@ -337,6 +337,6 @@ instance
     GetRateBasedStatementManagedKeysResponse
   where
   rnf GetRateBasedStatementManagedKeysResponse' {..} =
-    Prelude.rnf managedKeysIPV6
-      `Prelude.seq` Prelude.rnf managedKeysIPV4
+    Prelude.rnf managedKeysIPV4
+      `Prelude.seq` Prelude.rnf managedKeysIPV6
       `Prelude.seq` Prelude.rnf httpStatus

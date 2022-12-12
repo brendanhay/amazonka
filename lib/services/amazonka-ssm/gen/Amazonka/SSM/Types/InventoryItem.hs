@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInventoryItem' smart constructor.
 data InventoryItem = InventoryItem'
-  { -- | MD5 hash of the inventory item type contents. The content hash is used
+  { -- | The inventory data of the inventory type.
+    content :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
+    -- | MD5 hash of the inventory item type contents. The content hash is used
     -- to determine whether to update inventory information. The PutInventory
     -- API doesn\'t update the inventory item type contents if the MD5 hash
     -- hasn\'t changed since last update.
@@ -39,8 +41,6 @@ data InventoryItem = InventoryItem'
     -- @ExecutionType@, @ComplianceType@ properties of the @AWS:ComplianceItem@
     -- type.
     context :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The inventory data of the inventory type.
-    content :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
     -- | The name of the inventory type. Default inventory item type names start
     -- with @AWS@. Custom inventory type names will start with Custom. Default
     -- inventory item types include the following: @AWS:AWSComponent@,
@@ -62,6 +62,8 @@ data InventoryItem = InventoryItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'content', 'inventoryItem_content' - The inventory data of the inventory type.
+--
 -- 'contentHash', 'inventoryItem_contentHash' - MD5 hash of the inventory item type contents. The content hash is used
 -- to determine whether to update inventory information. The PutInventory
 -- API doesn\'t update the inventory item type contents if the MD5 hash
@@ -71,8 +73,6 @@ data InventoryItem = InventoryItem'
 -- example, with this attribute, you can specify the @ExecutionId@,
 -- @ExecutionType@, @ComplianceType@ properties of the @AWS:ComplianceItem@
 -- type.
---
--- 'content', 'inventoryItem_content' - The inventory data of the inventory type.
 --
 -- 'typeName', 'inventoryItem_typeName' - The name of the inventory type. Default inventory item type names start
 -- with @AWS@. Custom inventory type names will start with Custom. Default
@@ -96,13 +96,17 @@ newInventoryItem
   pSchemaVersion_
   pCaptureTime_ =
     InventoryItem'
-      { contentHash = Prelude.Nothing,
+      { content = Prelude.Nothing,
+        contentHash = Prelude.Nothing,
         context = Prelude.Nothing,
-        content = Prelude.Nothing,
         typeName = pTypeName_,
         schemaVersion = pSchemaVersion_,
         captureTime = pCaptureTime_
       }
+
+-- | The inventory data of the inventory type.
+inventoryItem_content :: Lens.Lens' InventoryItem (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
+inventoryItem_content = Lens.lens (\InventoryItem' {content} -> content) (\s@InventoryItem' {} a -> s {content = a} :: InventoryItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | MD5 hash of the inventory item type contents. The content hash is used
 -- to determine whether to update inventory information. The PutInventory
@@ -117,10 +121,6 @@ inventoryItem_contentHash = Lens.lens (\InventoryItem' {contentHash} -> contentH
 -- type.
 inventoryItem_context :: Lens.Lens' InventoryItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 inventoryItem_context = Lens.lens (\InventoryItem' {context} -> context) (\s@InventoryItem' {} a -> s {context = a} :: InventoryItem) Prelude.. Lens.mapping Lens.coerced
-
--- | The inventory data of the inventory type.
-inventoryItem_content :: Lens.Lens' InventoryItem (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
-inventoryItem_content = Lens.lens (\InventoryItem' {content} -> content) (\s@InventoryItem' {} a -> s {content = a} :: InventoryItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the inventory type. Default inventory item type names start
 -- with @AWS@. Custom inventory type names will start with Custom. Default
@@ -140,18 +140,18 @@ inventoryItem_captureTime = Lens.lens (\InventoryItem' {captureTime} -> captureT
 
 instance Prelude.Hashable InventoryItem where
   hashWithSalt _salt InventoryItem' {..} =
-    _salt `Prelude.hashWithSalt` contentHash
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` contentHash
       `Prelude.hashWithSalt` context
-      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` captureTime
 
 instance Prelude.NFData InventoryItem where
   rnf InventoryItem' {..} =
-    Prelude.rnf contentHash
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf contentHash
       `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf schemaVersion
       `Prelude.seq` Prelude.rnf captureTime
@@ -160,9 +160,9 @@ instance Data.ToJSON InventoryItem where
   toJSON InventoryItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ContentHash" Data..=) Prelude.<$> contentHash,
+          [ ("Content" Data..=) Prelude.<$> content,
+            ("ContentHash" Data..=) Prelude.<$> contentHash,
             ("Context" Data..=) Prelude.<$> context,
-            ("Content" Data..=) Prelude.<$> content,
             Prelude.Just ("TypeName" Data..= typeName),
             Prelude.Just ("SchemaVersion" Data..= schemaVersion),
             Prelude.Just ("CaptureTime" Data..= captureTime)

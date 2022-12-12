@@ -29,11 +29,11 @@ module Amazonka.AmplifyBackend.ListBackendJobs
     newListBackendJobs,
 
     -- * Request Lenses
-    listBackendJobs_nextToken,
     listBackendJobs_jobId,
-    listBackendJobs_status,
     listBackendJobs_maxResults,
+    listBackendJobs_nextToken,
     listBackendJobs_operation,
+    listBackendJobs_status,
     listBackendJobs_appId,
     listBackendJobs_backendEnvironmentName,
 
@@ -42,8 +42,8 @@ module Amazonka.AmplifyBackend.ListBackendJobs
     newListBackendJobsResponse,
 
     -- * Response Lenses
-    listBackendJobsResponse_nextToken,
     listBackendJobsResponse_jobs,
+    listBackendJobsResponse_nextToken,
     listBackendJobsResponse_httpStatus,
   )
 where
@@ -60,18 +60,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListBackendJobs' smart constructor.
 data ListBackendJobs = ListBackendJobs'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the job.
+  { -- | The ID for the job.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | Filters the list of response objects to include only those with the
-    -- specified status.
-    status :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that you want in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the list of response objects to include only those with the
     -- specified operation name.
     operation :: Prelude.Maybe Prelude.Text,
+    -- | Filters the list of response objects to include only those with the
+    -- specified status.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The app ID.
     appId :: Prelude.Text,
     -- | The name of the backend environment.
@@ -87,17 +87,17 @@ data ListBackendJobs = ListBackendJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBackendJobs_nextToken' - The token for the next set of results.
---
 -- 'jobId', 'listBackendJobs_jobId' - The ID for the job.
---
--- 'status', 'listBackendJobs_status' - Filters the list of response objects to include only those with the
--- specified status.
 --
 -- 'maxResults', 'listBackendJobs_maxResults' - The maximum number of results that you want in the response.
 --
+-- 'nextToken', 'listBackendJobs_nextToken' - The token for the next set of results.
+--
 -- 'operation', 'listBackendJobs_operation' - Filters the list of response objects to include only those with the
 -- specified operation name.
+--
+-- 'status', 'listBackendJobs_status' - Filters the list of response objects to include only those with the
+-- specified status.
 --
 -- 'appId', 'listBackendJobs_appId' - The app ID.
 --
@@ -110,36 +110,36 @@ newListBackendJobs ::
   ListBackendJobs
 newListBackendJobs pAppId_ pBackendEnvironmentName_ =
   ListBackendJobs'
-    { nextToken = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { jobId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       operation = Prelude.Nothing,
+      status = Prelude.Nothing,
       appId = pAppId_,
       backendEnvironmentName = pBackendEnvironmentName_
     }
-
--- | The token for the next set of results.
-listBackendJobs_nextToken :: Lens.Lens' ListBackendJobs (Prelude.Maybe Prelude.Text)
-listBackendJobs_nextToken = Lens.lens (\ListBackendJobs' {nextToken} -> nextToken) (\s@ListBackendJobs' {} a -> s {nextToken = a} :: ListBackendJobs)
 
 -- | The ID for the job.
 listBackendJobs_jobId :: Lens.Lens' ListBackendJobs (Prelude.Maybe Prelude.Text)
 listBackendJobs_jobId = Lens.lens (\ListBackendJobs' {jobId} -> jobId) (\s@ListBackendJobs' {} a -> s {jobId = a} :: ListBackendJobs)
 
--- | Filters the list of response objects to include only those with the
--- specified status.
-listBackendJobs_status :: Lens.Lens' ListBackendJobs (Prelude.Maybe Prelude.Text)
-listBackendJobs_status = Lens.lens (\ListBackendJobs' {status} -> status) (\s@ListBackendJobs' {} a -> s {status = a} :: ListBackendJobs)
-
 -- | The maximum number of results that you want in the response.
 listBackendJobs_maxResults :: Lens.Lens' ListBackendJobs (Prelude.Maybe Prelude.Natural)
 listBackendJobs_maxResults = Lens.lens (\ListBackendJobs' {maxResults} -> maxResults) (\s@ListBackendJobs' {} a -> s {maxResults = a} :: ListBackendJobs)
+
+-- | The token for the next set of results.
+listBackendJobs_nextToken :: Lens.Lens' ListBackendJobs (Prelude.Maybe Prelude.Text)
+listBackendJobs_nextToken = Lens.lens (\ListBackendJobs' {nextToken} -> nextToken) (\s@ListBackendJobs' {} a -> s {nextToken = a} :: ListBackendJobs)
 
 -- | Filters the list of response objects to include only those with the
 -- specified operation name.
 listBackendJobs_operation :: Lens.Lens' ListBackendJobs (Prelude.Maybe Prelude.Text)
 listBackendJobs_operation = Lens.lens (\ListBackendJobs' {operation} -> operation) (\s@ListBackendJobs' {} a -> s {operation = a} :: ListBackendJobs)
+
+-- | Filters the list of response objects to include only those with the
+-- specified status.
+listBackendJobs_status :: Lens.Lens' ListBackendJobs (Prelude.Maybe Prelude.Text)
+listBackendJobs_status = Lens.lens (\ListBackendJobs' {status} -> status) (\s@ListBackendJobs' {} a -> s {status = a} :: ListBackendJobs)
 
 -- | The app ID.
 listBackendJobs_appId :: Lens.Lens' ListBackendJobs Prelude.Text
@@ -180,28 +180,28 @@ instance Core.AWSRequest ListBackendJobs where
     Response.receiveJSON
       ( \s h x ->
           ListBackendJobsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBackendJobs where
   hashWithSalt _salt ListBackendJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
 
 instance Prelude.NFData ListBackendJobs where
   rnf ListBackendJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
 
@@ -220,11 +220,11 @@ instance Data.ToJSON ListBackendJobs where
   toJSON ListBackendJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("jobId" Data..=) Prelude.<$> jobId,
-            ("status" Data..=) Prelude.<$> status,
+          [ ("jobId" Data..=) Prelude.<$> jobId,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("operation" Data..=) Prelude.<$> operation
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("operation" Data..=) Prelude.<$> operation,
+            ("status" Data..=) Prelude.<$> status
           ]
       )
 
@@ -242,10 +242,10 @@ instance Data.ToQuery ListBackendJobs where
 
 -- | /See:/ 'newListBackendJobsResponse' smart constructor.
 data ListBackendJobsResponse = ListBackendJobsResponse'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of jobs and their properties.
+  { -- | An array of jobs and their properties.
     jobs :: Prelude.Maybe [BackendJobRespObj],
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -259,9 +259,9 @@ data ListBackendJobsResponse = ListBackendJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBackendJobsResponse_nextToken' - The token for the next set of results.
---
 -- 'jobs', 'listBackendJobsResponse_jobs' - An array of jobs and their properties.
+--
+-- 'nextToken', 'listBackendJobsResponse_nextToken' - The token for the next set of results.
 --
 -- 'httpStatus', 'listBackendJobsResponse_httpStatus' - The response's http status code.
 newListBackendJobsResponse ::
@@ -270,19 +270,18 @@ newListBackendJobsResponse ::
   ListBackendJobsResponse
 newListBackendJobsResponse pHttpStatus_ =
   ListBackendJobsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      jobs = Prelude.Nothing,
+    { jobs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of results.
-listBackendJobsResponse_nextToken :: Lens.Lens' ListBackendJobsResponse (Prelude.Maybe Prelude.Text)
-listBackendJobsResponse_nextToken = Lens.lens (\ListBackendJobsResponse' {nextToken} -> nextToken) (\s@ListBackendJobsResponse' {} a -> s {nextToken = a} :: ListBackendJobsResponse)
 
 -- | An array of jobs and their properties.
 listBackendJobsResponse_jobs :: Lens.Lens' ListBackendJobsResponse (Prelude.Maybe [BackendJobRespObj])
 listBackendJobsResponse_jobs = Lens.lens (\ListBackendJobsResponse' {jobs} -> jobs) (\s@ListBackendJobsResponse' {} a -> s {jobs = a} :: ListBackendJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of results.
+listBackendJobsResponse_nextToken :: Lens.Lens' ListBackendJobsResponse (Prelude.Maybe Prelude.Text)
+listBackendJobsResponse_nextToken = Lens.lens (\ListBackendJobsResponse' {nextToken} -> nextToken) (\s@ListBackendJobsResponse' {} a -> s {nextToken = a} :: ListBackendJobsResponse)
 
 -- | The response's http status code.
 listBackendJobsResponse_httpStatus :: Lens.Lens' ListBackendJobsResponse Prelude.Int
@@ -290,6 +289,6 @@ listBackendJobsResponse_httpStatus = Lens.lens (\ListBackendJobsResponse' {httpS
 
 instance Prelude.NFData ListBackendJobsResponse where
   rnf ListBackendJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobs
+    Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

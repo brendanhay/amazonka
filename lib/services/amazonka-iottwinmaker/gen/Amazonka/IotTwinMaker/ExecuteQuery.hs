@@ -28,8 +28,8 @@ module Amazonka.IotTwinMaker.ExecuteQuery
     newExecuteQuery,
 
     -- * Request Lenses
-    executeQuery_nextToken,
     executeQuery_maxResults,
+    executeQuery_nextToken,
     executeQuery_workspaceId,
     executeQuery_queryStatement,
 
@@ -38,9 +38,9 @@ module Amazonka.IotTwinMaker.ExecuteQuery
     newExecuteQueryResponse,
 
     -- * Response Lenses
+    executeQueryResponse_columnDescriptions,
     executeQueryResponse_nextToken,
     executeQueryResponse_rows,
-    executeQueryResponse_columnDescriptions,
     executeQueryResponse_httpStatus,
   )
 where
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExecuteQuery' smart constructor.
 data ExecuteQuery = ExecuteQuery'
-  { -- | The string that specifies the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time. The default is 25.
+  { -- | The maximum number of results to return at one time. The default is 25.
     --
     -- Valid Range: Minimum value of 1. Maximum value of 250.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The string that specifies the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the workspace.
     workspaceId :: Prelude.Text,
     -- | The query statement.
@@ -76,11 +76,11 @@ data ExecuteQuery = ExecuteQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'executeQuery_nextToken' - The string that specifies the next page of results.
---
 -- 'maxResults', 'executeQuery_maxResults' - The maximum number of results to return at one time. The default is 25.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 250.
+--
+-- 'nextToken', 'executeQuery_nextToken' - The string that specifies the next page of results.
 --
 -- 'workspaceId', 'executeQuery_workspaceId' - The ID of the workspace.
 --
@@ -93,21 +93,21 @@ newExecuteQuery ::
   ExecuteQuery
 newExecuteQuery pWorkspaceId_ pQueryStatement_ =
   ExecuteQuery'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       workspaceId = pWorkspaceId_,
       queryStatement = pQueryStatement_
     }
-
--- | The string that specifies the next page of results.
-executeQuery_nextToken :: Lens.Lens' ExecuteQuery (Prelude.Maybe Prelude.Text)
-executeQuery_nextToken = Lens.lens (\ExecuteQuery' {nextToken} -> nextToken) (\s@ExecuteQuery' {} a -> s {nextToken = a} :: ExecuteQuery)
 
 -- | The maximum number of results to return at one time. The default is 25.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 250.
 executeQuery_maxResults :: Lens.Lens' ExecuteQuery (Prelude.Maybe Prelude.Natural)
 executeQuery_maxResults = Lens.lens (\ExecuteQuery' {maxResults} -> maxResults) (\s@ExecuteQuery' {} a -> s {maxResults = a} :: ExecuteQuery)
+
+-- | The string that specifies the next page of results.
+executeQuery_nextToken :: Lens.Lens' ExecuteQuery (Prelude.Maybe Prelude.Text)
+executeQuery_nextToken = Lens.lens (\ExecuteQuery' {nextToken} -> nextToken) (\s@ExecuteQuery' {} a -> s {nextToken = a} :: ExecuteQuery)
 
 -- | The ID of the workspace.
 executeQuery_workspaceId :: Lens.Lens' ExecuteQuery Prelude.Text
@@ -125,25 +125,25 @@ instance Core.AWSRequest ExecuteQuery where
     Response.receiveJSON
       ( \s h x ->
           ExecuteQueryResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "rows" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "columnDescriptions"
+            Prelude.<$> ( x Data..?> "columnDescriptions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "rows" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ExecuteQuery where
   hashWithSalt _salt ExecuteQuery' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` queryStatement
 
 instance Prelude.NFData ExecuteQuery where
   rnf ExecuteQuery' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf queryStatement
 
@@ -162,8 +162,8 @@ instance Data.ToJSON ExecuteQuery where
   toJSON ExecuteQuery' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("workspaceId" Data..= workspaceId),
             Prelude.Just
               ("queryStatement" Data..= queryStatement)
@@ -178,12 +178,12 @@ instance Data.ToQuery ExecuteQuery where
 
 -- | /See:/ 'newExecuteQueryResponse' smart constructor.
 data ExecuteQueryResponse = ExecuteQueryResponse'
-  { -- | The string that specifies the next page of results.
+  { -- | A list of ColumnDescription objects.
+    columnDescriptions :: Prelude.Maybe [ColumnDescription],
+    -- | The string that specifies the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Represents a single row in the query results.
     rows :: Prelude.Maybe [Row],
-    -- | A list of ColumnDescription objects.
-    columnDescriptions :: Prelude.Maybe [ColumnDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,11 +197,11 @@ data ExecuteQueryResponse = ExecuteQueryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'columnDescriptions', 'executeQueryResponse_columnDescriptions' - A list of ColumnDescription objects.
+--
 -- 'nextToken', 'executeQueryResponse_nextToken' - The string that specifies the next page of results.
 --
 -- 'rows', 'executeQueryResponse_rows' - Represents a single row in the query results.
---
--- 'columnDescriptions', 'executeQueryResponse_columnDescriptions' - A list of ColumnDescription objects.
 --
 -- 'httpStatus', 'executeQueryResponse_httpStatus' - The response's http status code.
 newExecuteQueryResponse ::
@@ -210,11 +210,16 @@ newExecuteQueryResponse ::
   ExecuteQueryResponse
 newExecuteQueryResponse pHttpStatus_ =
   ExecuteQueryResponse'
-    { nextToken = Prelude.Nothing,
+    { columnDescriptions =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       rows = Prelude.Nothing,
-      columnDescriptions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of ColumnDescription objects.
+executeQueryResponse_columnDescriptions :: Lens.Lens' ExecuteQueryResponse (Prelude.Maybe [ColumnDescription])
+executeQueryResponse_columnDescriptions = Lens.lens (\ExecuteQueryResponse' {columnDescriptions} -> columnDescriptions) (\s@ExecuteQueryResponse' {} a -> s {columnDescriptions = a} :: ExecuteQueryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string that specifies the next page of results.
 executeQueryResponse_nextToken :: Lens.Lens' ExecuteQueryResponse (Prelude.Maybe Prelude.Text)
@@ -224,17 +229,13 @@ executeQueryResponse_nextToken = Lens.lens (\ExecuteQueryResponse' {nextToken} -
 executeQueryResponse_rows :: Lens.Lens' ExecuteQueryResponse (Prelude.Maybe [Row])
 executeQueryResponse_rows = Lens.lens (\ExecuteQueryResponse' {rows} -> rows) (\s@ExecuteQueryResponse' {} a -> s {rows = a} :: ExecuteQueryResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of ColumnDescription objects.
-executeQueryResponse_columnDescriptions :: Lens.Lens' ExecuteQueryResponse (Prelude.Maybe [ColumnDescription])
-executeQueryResponse_columnDescriptions = Lens.lens (\ExecuteQueryResponse' {columnDescriptions} -> columnDescriptions) (\s@ExecuteQueryResponse' {} a -> s {columnDescriptions = a} :: ExecuteQueryResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 executeQueryResponse_httpStatus :: Lens.Lens' ExecuteQueryResponse Prelude.Int
 executeQueryResponse_httpStatus = Lens.lens (\ExecuteQueryResponse' {httpStatus} -> httpStatus) (\s@ExecuteQueryResponse' {} a -> s {httpStatus = a} :: ExecuteQueryResponse)
 
 instance Prelude.NFData ExecuteQueryResponse where
   rnf ExecuteQueryResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf columnDescriptions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf columnDescriptions
       `Prelude.seq` Prelude.rnf httpStatus

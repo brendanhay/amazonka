@@ -33,12 +33,12 @@ data FastLaunchLaunchTemplateSpecificationResponse = FastLaunchLaunchTemplateSpe
   { -- | The ID of the launch template for faster launching of the associated
     -- Windows AMI.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The version of the launch template for faster launching of the
-    -- associated Windows AMI.
-    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template for faster launching of the associated
     -- Windows AMI.
-    launchTemplateName :: Prelude.Maybe Prelude.Text
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
+    -- | The version of the launch template for faster launching of the
+    -- associated Windows AMI.
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,20 +53,20 @@ data FastLaunchLaunchTemplateSpecificationResponse = FastLaunchLaunchTemplateSpe
 -- 'launchTemplateId', 'fastLaunchLaunchTemplateSpecificationResponse_launchTemplateId' - The ID of the launch template for faster launching of the associated
 -- Windows AMI.
 --
--- 'version', 'fastLaunchLaunchTemplateSpecificationResponse_version' - The version of the launch template for faster launching of the
--- associated Windows AMI.
---
 -- 'launchTemplateName', 'fastLaunchLaunchTemplateSpecificationResponse_launchTemplateName' - The name of the launch template for faster launching of the associated
 -- Windows AMI.
+--
+-- 'version', 'fastLaunchLaunchTemplateSpecificationResponse_version' - The version of the launch template for faster launching of the
+-- associated Windows AMI.
 newFastLaunchLaunchTemplateSpecificationResponse ::
   FastLaunchLaunchTemplateSpecificationResponse
 newFastLaunchLaunchTemplateSpecificationResponse =
   FastLaunchLaunchTemplateSpecificationResponse'
     { launchTemplateId =
         Prelude.Nothing,
-      version = Prelude.Nothing,
       launchTemplateName =
-        Prelude.Nothing
+        Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | The ID of the launch template for faster launching of the associated
@@ -74,15 +74,15 @@ newFastLaunchLaunchTemplateSpecificationResponse =
 fastLaunchLaunchTemplateSpecificationResponse_launchTemplateId :: Lens.Lens' FastLaunchLaunchTemplateSpecificationResponse (Prelude.Maybe Prelude.Text)
 fastLaunchLaunchTemplateSpecificationResponse_launchTemplateId = Lens.lens (\FastLaunchLaunchTemplateSpecificationResponse' {launchTemplateId} -> launchTemplateId) (\s@FastLaunchLaunchTemplateSpecificationResponse' {} a -> s {launchTemplateId = a} :: FastLaunchLaunchTemplateSpecificationResponse)
 
--- | The version of the launch template for faster launching of the
--- associated Windows AMI.
-fastLaunchLaunchTemplateSpecificationResponse_version :: Lens.Lens' FastLaunchLaunchTemplateSpecificationResponse (Prelude.Maybe Prelude.Text)
-fastLaunchLaunchTemplateSpecificationResponse_version = Lens.lens (\FastLaunchLaunchTemplateSpecificationResponse' {version} -> version) (\s@FastLaunchLaunchTemplateSpecificationResponse' {} a -> s {version = a} :: FastLaunchLaunchTemplateSpecificationResponse)
-
 -- | The name of the launch template for faster launching of the associated
 -- Windows AMI.
 fastLaunchLaunchTemplateSpecificationResponse_launchTemplateName :: Lens.Lens' FastLaunchLaunchTemplateSpecificationResponse (Prelude.Maybe Prelude.Text)
 fastLaunchLaunchTemplateSpecificationResponse_launchTemplateName = Lens.lens (\FastLaunchLaunchTemplateSpecificationResponse' {launchTemplateName} -> launchTemplateName) (\s@FastLaunchLaunchTemplateSpecificationResponse' {} a -> s {launchTemplateName = a} :: FastLaunchLaunchTemplateSpecificationResponse)
+
+-- | The version of the launch template for faster launching of the
+-- associated Windows AMI.
+fastLaunchLaunchTemplateSpecificationResponse_version :: Lens.Lens' FastLaunchLaunchTemplateSpecificationResponse (Prelude.Maybe Prelude.Text)
+fastLaunchLaunchTemplateSpecificationResponse_version = Lens.lens (\FastLaunchLaunchTemplateSpecificationResponse' {version} -> version) (\s@FastLaunchLaunchTemplateSpecificationResponse' {} a -> s {version = a} :: FastLaunchLaunchTemplateSpecificationResponse)
 
 instance
   Data.FromXML
@@ -91,8 +91,8 @@ instance
   parseXML x =
     FastLaunchLaunchTemplateSpecificationResponse'
       Prelude.<$> (x Data..@? "launchTemplateId")
-        Prelude.<*> (x Data..@? "version")
         Prelude.<*> (x Data..@? "launchTemplateName")
+        Prelude.<*> (x Data..@? "version")
 
 instance
   Prelude.Hashable
@@ -102,8 +102,8 @@ instance
     _salt
     FastLaunchLaunchTemplateSpecificationResponse' {..} =
       _salt `Prelude.hashWithSalt` launchTemplateId
-        `Prelude.hashWithSalt` version
         `Prelude.hashWithSalt` launchTemplateName
+        `Prelude.hashWithSalt` version
 
 instance
   Prelude.NFData
@@ -112,5 +112,5 @@ instance
   rnf
     FastLaunchLaunchTemplateSpecificationResponse' {..} =
       Prelude.rnf launchTemplateId
-        `Prelude.seq` Prelude.rnf version
         `Prelude.seq` Prelude.rnf launchTemplateName
+        `Prelude.seq` Prelude.rnf version

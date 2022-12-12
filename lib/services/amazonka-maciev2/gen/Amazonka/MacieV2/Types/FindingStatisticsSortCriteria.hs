@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFindingStatisticsSortCriteria' smart constructor.
 data FindingStatisticsSortCriteria = FindingStatisticsSortCriteria'
-  { -- | The sort order to apply to the results, based on the value for the
+  { -- | The grouping to sort the results by. Valid values are: count, sort the
+    -- results by the number of findings in each group of results; and,
+    -- groupKey, sort the results by the name of each group of results.
+    attributeName :: Prelude.Maybe FindingStatisticsSortAttributeName,
+    -- | The sort order to apply to the results, based on the value for the
     -- property specified by the attributeName property. Valid values are: ASC,
     -- sort the results in ascending order; and, DESC, sort the results in
     -- descending order.
-    orderBy :: Prelude.Maybe OrderBy,
-    -- | The grouping to sort the results by. Valid values are: count, sort the
-    -- results by the number of findings in each group of results; and,
-    -- groupKey, sort the results by the name of each group of results.
-    attributeName :: Prelude.Maybe FindingStatisticsSortAttributeName
+    orderBy :: Prelude.Maybe OrderBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,22 +51,28 @@ data FindingStatisticsSortCriteria = FindingStatisticsSortCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeName', 'findingStatisticsSortCriteria_attributeName' - The grouping to sort the results by. Valid values are: count, sort the
+-- results by the number of findings in each group of results; and,
+-- groupKey, sort the results by the name of each group of results.
+--
 -- 'orderBy', 'findingStatisticsSortCriteria_orderBy' - The sort order to apply to the results, based on the value for the
 -- property specified by the attributeName property. Valid values are: ASC,
 -- sort the results in ascending order; and, DESC, sort the results in
 -- descending order.
---
--- 'attributeName', 'findingStatisticsSortCriteria_attributeName' - The grouping to sort the results by. Valid values are: count, sort the
--- results by the number of findings in each group of results; and,
--- groupKey, sort the results by the name of each group of results.
 newFindingStatisticsSortCriteria ::
   FindingStatisticsSortCriteria
 newFindingStatisticsSortCriteria =
   FindingStatisticsSortCriteria'
-    { orderBy =
+    { attributeName =
         Prelude.Nothing,
-      attributeName = Prelude.Nothing
+      orderBy = Prelude.Nothing
     }
+
+-- | The grouping to sort the results by. Valid values are: count, sort the
+-- results by the number of findings in each group of results; and,
+-- groupKey, sort the results by the name of each group of results.
+findingStatisticsSortCriteria_attributeName :: Lens.Lens' FindingStatisticsSortCriteria (Prelude.Maybe FindingStatisticsSortAttributeName)
+findingStatisticsSortCriteria_attributeName = Lens.lens (\FindingStatisticsSortCriteria' {attributeName} -> attributeName) (\s@FindingStatisticsSortCriteria' {} a -> s {attributeName = a} :: FindingStatisticsSortCriteria)
 
 -- | The sort order to apply to the results, based on the value for the
 -- property specified by the attributeName property. Valid values are: ASC,
@@ -75,30 +81,24 @@ newFindingStatisticsSortCriteria =
 findingStatisticsSortCriteria_orderBy :: Lens.Lens' FindingStatisticsSortCriteria (Prelude.Maybe OrderBy)
 findingStatisticsSortCriteria_orderBy = Lens.lens (\FindingStatisticsSortCriteria' {orderBy} -> orderBy) (\s@FindingStatisticsSortCriteria' {} a -> s {orderBy = a} :: FindingStatisticsSortCriteria)
 
--- | The grouping to sort the results by. Valid values are: count, sort the
--- results by the number of findings in each group of results; and,
--- groupKey, sort the results by the name of each group of results.
-findingStatisticsSortCriteria_attributeName :: Lens.Lens' FindingStatisticsSortCriteria (Prelude.Maybe FindingStatisticsSortAttributeName)
-findingStatisticsSortCriteria_attributeName = Lens.lens (\FindingStatisticsSortCriteria' {attributeName} -> attributeName) (\s@FindingStatisticsSortCriteria' {} a -> s {attributeName = a} :: FindingStatisticsSortCriteria)
-
 instance
   Prelude.Hashable
     FindingStatisticsSortCriteria
   where
   hashWithSalt _salt FindingStatisticsSortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` orderBy
-      `Prelude.hashWithSalt` attributeName
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData FindingStatisticsSortCriteria where
   rnf FindingStatisticsSortCriteria' {..} =
-    Prelude.rnf orderBy
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf orderBy
 
 instance Data.ToJSON FindingStatisticsSortCriteria where
   toJSON FindingStatisticsSortCriteria' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("orderBy" Data..=) Prelude.<$> orderBy,
-            ("attributeName" Data..=) Prelude.<$> attributeName
+          [ ("attributeName" Data..=) Prelude.<$> attributeName,
+            ("orderBy" Data..=) Prelude.<$> orderBy
           ]
       )

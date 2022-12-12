@@ -21,7 +21,13 @@ module Amazonka.Lambda.Types.StateReasonCode
   ( StateReasonCode
       ( ..,
         StateReasonCode_Creating,
+        StateReasonCode_DisabledKMSKey,
+        StateReasonCode_EFSIOError,
+        StateReasonCode_EFSMountConnectivityError,
+        StateReasonCode_EFSMountFailure,
+        StateReasonCode_EFSMountTimeout,
         StateReasonCode_EniLimitExceeded,
+        StateReasonCode_FunctionError,
         StateReasonCode_Idle,
         StateReasonCode_ImageAccessDenied,
         StateReasonCode_ImageDeleted,
@@ -29,8 +35,13 @@ module Amazonka.Lambda.Types.StateReasonCode
         StateReasonCode_InternalError,
         StateReasonCode_InvalidConfiguration,
         StateReasonCode_InvalidImage,
+        StateReasonCode_InvalidRuntime,
         StateReasonCode_InvalidSecurityGroup,
+        StateReasonCode_InvalidStateKMSKey,
         StateReasonCode_InvalidSubnet,
+        StateReasonCode_InvalidZipFileException,
+        StateReasonCode_KMSKeyAccessDenied,
+        StateReasonCode_KMSKeyNotFound,
         StateReasonCode_Restoring,
         StateReasonCode_SubnetOutOfIPAddresses
       ),
@@ -72,8 +83,26 @@ newtype StateReasonCode = StateReasonCode'
 pattern StateReasonCode_Creating :: StateReasonCode
 pattern StateReasonCode_Creating = StateReasonCode' "Creating"
 
+pattern StateReasonCode_DisabledKMSKey :: StateReasonCode
+pattern StateReasonCode_DisabledKMSKey = StateReasonCode' "DisabledKMSKey"
+
+pattern StateReasonCode_EFSIOError :: StateReasonCode
+pattern StateReasonCode_EFSIOError = StateReasonCode' "EFSIOError"
+
+pattern StateReasonCode_EFSMountConnectivityError :: StateReasonCode
+pattern StateReasonCode_EFSMountConnectivityError = StateReasonCode' "EFSMountConnectivityError"
+
+pattern StateReasonCode_EFSMountFailure :: StateReasonCode
+pattern StateReasonCode_EFSMountFailure = StateReasonCode' "EFSMountFailure"
+
+pattern StateReasonCode_EFSMountTimeout :: StateReasonCode
+pattern StateReasonCode_EFSMountTimeout = StateReasonCode' "EFSMountTimeout"
+
 pattern StateReasonCode_EniLimitExceeded :: StateReasonCode
 pattern StateReasonCode_EniLimitExceeded = StateReasonCode' "EniLimitExceeded"
+
+pattern StateReasonCode_FunctionError :: StateReasonCode
+pattern StateReasonCode_FunctionError = StateReasonCode' "FunctionError"
 
 pattern StateReasonCode_Idle :: StateReasonCode
 pattern StateReasonCode_Idle = StateReasonCode' "Idle"
@@ -96,11 +125,26 @@ pattern StateReasonCode_InvalidConfiguration = StateReasonCode' "InvalidConfigur
 pattern StateReasonCode_InvalidImage :: StateReasonCode
 pattern StateReasonCode_InvalidImage = StateReasonCode' "InvalidImage"
 
+pattern StateReasonCode_InvalidRuntime :: StateReasonCode
+pattern StateReasonCode_InvalidRuntime = StateReasonCode' "InvalidRuntime"
+
 pattern StateReasonCode_InvalidSecurityGroup :: StateReasonCode
 pattern StateReasonCode_InvalidSecurityGroup = StateReasonCode' "InvalidSecurityGroup"
 
+pattern StateReasonCode_InvalidStateKMSKey :: StateReasonCode
+pattern StateReasonCode_InvalidStateKMSKey = StateReasonCode' "InvalidStateKMSKey"
+
 pattern StateReasonCode_InvalidSubnet :: StateReasonCode
 pattern StateReasonCode_InvalidSubnet = StateReasonCode' "InvalidSubnet"
+
+pattern StateReasonCode_InvalidZipFileException :: StateReasonCode
+pattern StateReasonCode_InvalidZipFileException = StateReasonCode' "InvalidZipFileException"
+
+pattern StateReasonCode_KMSKeyAccessDenied :: StateReasonCode
+pattern StateReasonCode_KMSKeyAccessDenied = StateReasonCode' "KMSKeyAccessDenied"
+
+pattern StateReasonCode_KMSKeyNotFound :: StateReasonCode
+pattern StateReasonCode_KMSKeyNotFound = StateReasonCode' "KMSKeyNotFound"
 
 pattern StateReasonCode_Restoring :: StateReasonCode
 pattern StateReasonCode_Restoring = StateReasonCode' "Restoring"
@@ -110,7 +154,13 @@ pattern StateReasonCode_SubnetOutOfIPAddresses = StateReasonCode' "SubnetOutOfIP
 
 {-# COMPLETE
   StateReasonCode_Creating,
+  StateReasonCode_DisabledKMSKey,
+  StateReasonCode_EFSIOError,
+  StateReasonCode_EFSMountConnectivityError,
+  StateReasonCode_EFSMountFailure,
+  StateReasonCode_EFSMountTimeout,
   StateReasonCode_EniLimitExceeded,
+  StateReasonCode_FunctionError,
   StateReasonCode_Idle,
   StateReasonCode_ImageAccessDenied,
   StateReasonCode_ImageDeleted,
@@ -118,8 +168,13 @@ pattern StateReasonCode_SubnetOutOfIPAddresses = StateReasonCode' "SubnetOutOfIP
   StateReasonCode_InternalError,
   StateReasonCode_InvalidConfiguration,
   StateReasonCode_InvalidImage,
+  StateReasonCode_InvalidRuntime,
   StateReasonCode_InvalidSecurityGroup,
+  StateReasonCode_InvalidStateKMSKey,
   StateReasonCode_InvalidSubnet,
+  StateReasonCode_InvalidZipFileException,
+  StateReasonCode_KMSKeyAccessDenied,
+  StateReasonCode_KMSKeyNotFound,
   StateReasonCode_Restoring,
   StateReasonCode_SubnetOutOfIPAddresses,
   StateReasonCode'

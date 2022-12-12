@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newFilesLimit' smart constructor.
 data FilesLimit = FilesLimit'
   { -- | A criteria to use for Amazon S3 files sorting before their selection. By
-    -- default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it\'s
-    -- the only allowed value.
-    orderedBy :: Prelude.Maybe OrderedBy,
-    -- | A criteria to use for Amazon S3 files sorting before their selection. By
     -- default uses DESCENDING order, i.e. most recent files are selected
     -- first. Another possible value is ASCENDING.
     order :: Prelude.Maybe Order,
+    -- | A criteria to use for Amazon S3 files sorting before their selection. By
+    -- default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it\'s
+    -- the only allowed value.
+    orderedBy :: Prelude.Maybe OrderedBy,
     -- | The number of Amazon S3 files to select.
     maxFiles :: Prelude.Natural
   }
@@ -52,13 +52,13 @@ data FilesLimit = FilesLimit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'orderedBy', 'filesLimit_orderedBy' - A criteria to use for Amazon S3 files sorting before their selection. By
--- default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it\'s
--- the only allowed value.
---
 -- 'order', 'filesLimit_order' - A criteria to use for Amazon S3 files sorting before their selection. By
 -- default uses DESCENDING order, i.e. most recent files are selected
 -- first. Another possible value is ASCENDING.
+--
+-- 'orderedBy', 'filesLimit_orderedBy' - A criteria to use for Amazon S3 files sorting before their selection. By
+-- default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it\'s
+-- the only allowed value.
 --
 -- 'maxFiles', 'filesLimit_maxFiles' - The number of Amazon S3 files to select.
 newFilesLimit ::
@@ -67,22 +67,22 @@ newFilesLimit ::
   FilesLimit
 newFilesLimit pMaxFiles_ =
   FilesLimit'
-    { orderedBy = Prelude.Nothing,
-      order = Prelude.Nothing,
+    { order = Prelude.Nothing,
+      orderedBy = Prelude.Nothing,
       maxFiles = pMaxFiles_
     }
-
--- | A criteria to use for Amazon S3 files sorting before their selection. By
--- default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it\'s
--- the only allowed value.
-filesLimit_orderedBy :: Lens.Lens' FilesLimit (Prelude.Maybe OrderedBy)
-filesLimit_orderedBy = Lens.lens (\FilesLimit' {orderedBy} -> orderedBy) (\s@FilesLimit' {} a -> s {orderedBy = a} :: FilesLimit)
 
 -- | A criteria to use for Amazon S3 files sorting before their selection. By
 -- default uses DESCENDING order, i.e. most recent files are selected
 -- first. Another possible value is ASCENDING.
 filesLimit_order :: Lens.Lens' FilesLimit (Prelude.Maybe Order)
 filesLimit_order = Lens.lens (\FilesLimit' {order} -> order) (\s@FilesLimit' {} a -> s {order = a} :: FilesLimit)
+
+-- | A criteria to use for Amazon S3 files sorting before their selection. By
+-- default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it\'s
+-- the only allowed value.
+filesLimit_orderedBy :: Lens.Lens' FilesLimit (Prelude.Maybe OrderedBy)
+filesLimit_orderedBy = Lens.lens (\FilesLimit' {orderedBy} -> orderedBy) (\s@FilesLimit' {} a -> s {orderedBy = a} :: FilesLimit)
 
 -- | The number of Amazon S3 files to select.
 filesLimit_maxFiles :: Lens.Lens' FilesLimit Prelude.Natural
@@ -94,29 +94,29 @@ instance Data.FromJSON FilesLimit where
       "FilesLimit"
       ( \x ->
           FilesLimit'
-            Prelude.<$> (x Data..:? "OrderedBy")
-            Prelude.<*> (x Data..:? "Order")
+            Prelude.<$> (x Data..:? "Order")
+            Prelude.<*> (x Data..:? "OrderedBy")
             Prelude.<*> (x Data..: "MaxFiles")
       )
 
 instance Prelude.Hashable FilesLimit where
   hashWithSalt _salt FilesLimit' {..} =
-    _salt `Prelude.hashWithSalt` orderedBy
-      `Prelude.hashWithSalt` order
+    _salt `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` orderedBy
       `Prelude.hashWithSalt` maxFiles
 
 instance Prelude.NFData FilesLimit where
   rnf FilesLimit' {..} =
-    Prelude.rnf orderedBy
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf order
+      `Prelude.seq` Prelude.rnf orderedBy
       `Prelude.seq` Prelude.rnf maxFiles
 
 instance Data.ToJSON FilesLimit where
   toJSON FilesLimit' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OrderedBy" Data..=) Prelude.<$> orderedBy,
-            ("Order" Data..=) Prelude.<$> order,
+          [ ("Order" Data..=) Prelude.<$> order,
+            ("OrderedBy" Data..=) Prelude.<$> orderedBy,
             Prelude.Just ("MaxFiles" Data..= maxFiles)
           ]
       )

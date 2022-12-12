@@ -31,27 +31,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPostDialogCodeHookInvocationSpecification' smart constructor.
 data PostDialogCodeHookInvocationSpecification = PostDialogCodeHookInvocationSpecification'
-  { -- | Specifies the next step that the bot runs when the code hook times out.
-    timeoutNextStep :: Prelude.Maybe DialogState,
-    -- | A list of conditional branches to evaluate if the code hook times out.
-    timeoutConditional :: Prelude.Maybe ConditionalSpecification,
+  { -- | A list of conditional branches to evaluate after the dialog code hook
+    -- throws an exception or returns with the @State@ field of the @Intent@
+    -- object set to @Failed@.
+    failureConditional :: Prelude.Maybe ConditionalSpecification,
     -- | Specifies the next step the bot runs after the dialog code hook throws
     -- an exception or returns with the @State@ field of the @Intent@ object
     -- set to @Failed@.
     failureNextStep :: Prelude.Maybe DialogState,
-    timeoutResponse :: Prelude.Maybe ResponseSpecification,
-    -- | Specifics the next step the bot runs after the dialog code hook finishes
-    -- successfully.
-    successNextStep :: Prelude.Maybe DialogState,
+    failureResponse :: Prelude.Maybe ResponseSpecification,
     -- | A list of conditional branches to evaluate after the dialog code hook
     -- finishes successfully.
     successConditional :: Prelude.Maybe ConditionalSpecification,
+    -- | Specifics the next step the bot runs after the dialog code hook finishes
+    -- successfully.
+    successNextStep :: Prelude.Maybe DialogState,
     successResponse :: Prelude.Maybe ResponseSpecification,
-    -- | A list of conditional branches to evaluate after the dialog code hook
-    -- throws an exception or returns with the @State@ field of the @Intent@
-    -- object set to @Failed@.
-    failureConditional :: Prelude.Maybe ConditionalSpecification,
-    failureResponse :: Prelude.Maybe ResponseSpecification
+    -- | A list of conditional branches to evaluate if the code hook times out.
+    timeoutConditional :: Prelude.Maybe ConditionalSpecification,
+    -- | Specifies the next step that the bot runs when the code hook times out.
+    timeoutNextStep :: Prelude.Maybe DialogState,
+    timeoutResponse :: Prelude.Maybe ResponseSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,60 +63,58 @@ data PostDialogCodeHookInvocationSpecification = PostDialogCodeHookInvocationSpe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeoutNextStep', 'postDialogCodeHookInvocationSpecification_timeoutNextStep' - Specifies the next step that the bot runs when the code hook times out.
---
--- 'timeoutConditional', 'postDialogCodeHookInvocationSpecification_timeoutConditional' - A list of conditional branches to evaluate if the code hook times out.
+-- 'failureConditional', 'postDialogCodeHookInvocationSpecification_failureConditional' - A list of conditional branches to evaluate after the dialog code hook
+-- throws an exception or returns with the @State@ field of the @Intent@
+-- object set to @Failed@.
 --
 -- 'failureNextStep', 'postDialogCodeHookInvocationSpecification_failureNextStep' - Specifies the next step the bot runs after the dialog code hook throws
 -- an exception or returns with the @State@ field of the @Intent@ object
 -- set to @Failed@.
 --
--- 'timeoutResponse', 'postDialogCodeHookInvocationSpecification_timeoutResponse' - Undocumented member.
---
--- 'successNextStep', 'postDialogCodeHookInvocationSpecification_successNextStep' - Specifics the next step the bot runs after the dialog code hook finishes
--- successfully.
+-- 'failureResponse', 'postDialogCodeHookInvocationSpecification_failureResponse' - Undocumented member.
 --
 -- 'successConditional', 'postDialogCodeHookInvocationSpecification_successConditional' - A list of conditional branches to evaluate after the dialog code hook
 -- finishes successfully.
 --
+-- 'successNextStep', 'postDialogCodeHookInvocationSpecification_successNextStep' - Specifics the next step the bot runs after the dialog code hook finishes
+-- successfully.
+--
 -- 'successResponse', 'postDialogCodeHookInvocationSpecification_successResponse' - Undocumented member.
 --
--- 'failureConditional', 'postDialogCodeHookInvocationSpecification_failureConditional' - A list of conditional branches to evaluate after the dialog code hook
--- throws an exception or returns with the @State@ field of the @Intent@
--- object set to @Failed@.
+-- 'timeoutConditional', 'postDialogCodeHookInvocationSpecification_timeoutConditional' - A list of conditional branches to evaluate if the code hook times out.
 --
--- 'failureResponse', 'postDialogCodeHookInvocationSpecification_failureResponse' - Undocumented member.
+-- 'timeoutNextStep', 'postDialogCodeHookInvocationSpecification_timeoutNextStep' - Specifies the next step that the bot runs when the code hook times out.
+--
+-- 'timeoutResponse', 'postDialogCodeHookInvocationSpecification_timeoutResponse' - Undocumented member.
 newPostDialogCodeHookInvocationSpecification ::
   PostDialogCodeHookInvocationSpecification
 newPostDialogCodeHookInvocationSpecification =
   PostDialogCodeHookInvocationSpecification'
-    { timeoutNextStep =
-        Prelude.Nothing,
-      timeoutConditional =
+    { failureConditional =
         Prelude.Nothing,
       failureNextStep =
         Prelude.Nothing,
-      timeoutResponse =
-        Prelude.Nothing,
-      successNextStep =
+      failureResponse =
         Prelude.Nothing,
       successConditional =
         Prelude.Nothing,
+      successNextStep =
+        Prelude.Nothing,
       successResponse =
         Prelude.Nothing,
-      failureConditional =
+      timeoutConditional =
         Prelude.Nothing,
-      failureResponse =
+      timeoutNextStep =
+        Prelude.Nothing,
+      timeoutResponse =
         Prelude.Nothing
     }
 
--- | Specifies the next step that the bot runs when the code hook times out.
-postDialogCodeHookInvocationSpecification_timeoutNextStep :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe DialogState)
-postDialogCodeHookInvocationSpecification_timeoutNextStep = Lens.lens (\PostDialogCodeHookInvocationSpecification' {timeoutNextStep} -> timeoutNextStep) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {timeoutNextStep = a} :: PostDialogCodeHookInvocationSpecification)
-
--- | A list of conditional branches to evaluate if the code hook times out.
-postDialogCodeHookInvocationSpecification_timeoutConditional :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ConditionalSpecification)
-postDialogCodeHookInvocationSpecification_timeoutConditional = Lens.lens (\PostDialogCodeHookInvocationSpecification' {timeoutConditional} -> timeoutConditional) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {timeoutConditional = a} :: PostDialogCodeHookInvocationSpecification)
+-- | A list of conditional branches to evaluate after the dialog code hook
+-- throws an exception or returns with the @State@ field of the @Intent@
+-- object set to @Failed@.
+postDialogCodeHookInvocationSpecification_failureConditional :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ConditionalSpecification)
+postDialogCodeHookInvocationSpecification_failureConditional = Lens.lens (\PostDialogCodeHookInvocationSpecification' {failureConditional} -> failureConditional) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {failureConditional = a} :: PostDialogCodeHookInvocationSpecification)
 
 -- | Specifies the next step the bot runs after the dialog code hook throws
 -- an exception or returns with the @State@ field of the @Intent@ object
@@ -125,32 +123,34 @@ postDialogCodeHookInvocationSpecification_failureNextStep :: Lens.Lens' PostDial
 postDialogCodeHookInvocationSpecification_failureNextStep = Lens.lens (\PostDialogCodeHookInvocationSpecification' {failureNextStep} -> failureNextStep) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {failureNextStep = a} :: PostDialogCodeHookInvocationSpecification)
 
 -- | Undocumented member.
-postDialogCodeHookInvocationSpecification_timeoutResponse :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ResponseSpecification)
-postDialogCodeHookInvocationSpecification_timeoutResponse = Lens.lens (\PostDialogCodeHookInvocationSpecification' {timeoutResponse} -> timeoutResponse) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {timeoutResponse = a} :: PostDialogCodeHookInvocationSpecification)
-
--- | Specifics the next step the bot runs after the dialog code hook finishes
--- successfully.
-postDialogCodeHookInvocationSpecification_successNextStep :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe DialogState)
-postDialogCodeHookInvocationSpecification_successNextStep = Lens.lens (\PostDialogCodeHookInvocationSpecification' {successNextStep} -> successNextStep) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {successNextStep = a} :: PostDialogCodeHookInvocationSpecification)
+postDialogCodeHookInvocationSpecification_failureResponse :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ResponseSpecification)
+postDialogCodeHookInvocationSpecification_failureResponse = Lens.lens (\PostDialogCodeHookInvocationSpecification' {failureResponse} -> failureResponse) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {failureResponse = a} :: PostDialogCodeHookInvocationSpecification)
 
 -- | A list of conditional branches to evaluate after the dialog code hook
 -- finishes successfully.
 postDialogCodeHookInvocationSpecification_successConditional :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ConditionalSpecification)
 postDialogCodeHookInvocationSpecification_successConditional = Lens.lens (\PostDialogCodeHookInvocationSpecification' {successConditional} -> successConditional) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {successConditional = a} :: PostDialogCodeHookInvocationSpecification)
 
+-- | Specifics the next step the bot runs after the dialog code hook finishes
+-- successfully.
+postDialogCodeHookInvocationSpecification_successNextStep :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe DialogState)
+postDialogCodeHookInvocationSpecification_successNextStep = Lens.lens (\PostDialogCodeHookInvocationSpecification' {successNextStep} -> successNextStep) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {successNextStep = a} :: PostDialogCodeHookInvocationSpecification)
+
 -- | Undocumented member.
 postDialogCodeHookInvocationSpecification_successResponse :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ResponseSpecification)
 postDialogCodeHookInvocationSpecification_successResponse = Lens.lens (\PostDialogCodeHookInvocationSpecification' {successResponse} -> successResponse) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {successResponse = a} :: PostDialogCodeHookInvocationSpecification)
 
--- | A list of conditional branches to evaluate after the dialog code hook
--- throws an exception or returns with the @State@ field of the @Intent@
--- object set to @Failed@.
-postDialogCodeHookInvocationSpecification_failureConditional :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ConditionalSpecification)
-postDialogCodeHookInvocationSpecification_failureConditional = Lens.lens (\PostDialogCodeHookInvocationSpecification' {failureConditional} -> failureConditional) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {failureConditional = a} :: PostDialogCodeHookInvocationSpecification)
+-- | A list of conditional branches to evaluate if the code hook times out.
+postDialogCodeHookInvocationSpecification_timeoutConditional :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ConditionalSpecification)
+postDialogCodeHookInvocationSpecification_timeoutConditional = Lens.lens (\PostDialogCodeHookInvocationSpecification' {timeoutConditional} -> timeoutConditional) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {timeoutConditional = a} :: PostDialogCodeHookInvocationSpecification)
+
+-- | Specifies the next step that the bot runs when the code hook times out.
+postDialogCodeHookInvocationSpecification_timeoutNextStep :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe DialogState)
+postDialogCodeHookInvocationSpecification_timeoutNextStep = Lens.lens (\PostDialogCodeHookInvocationSpecification' {timeoutNextStep} -> timeoutNextStep) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {timeoutNextStep = a} :: PostDialogCodeHookInvocationSpecification)
 
 -- | Undocumented member.
-postDialogCodeHookInvocationSpecification_failureResponse :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ResponseSpecification)
-postDialogCodeHookInvocationSpecification_failureResponse = Lens.lens (\PostDialogCodeHookInvocationSpecification' {failureResponse} -> failureResponse) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {failureResponse = a} :: PostDialogCodeHookInvocationSpecification)
+postDialogCodeHookInvocationSpecification_timeoutResponse :: Lens.Lens' PostDialogCodeHookInvocationSpecification (Prelude.Maybe ResponseSpecification)
+postDialogCodeHookInvocationSpecification_timeoutResponse = Lens.lens (\PostDialogCodeHookInvocationSpecification' {timeoutResponse} -> timeoutResponse) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {timeoutResponse = a} :: PostDialogCodeHookInvocationSpecification)
 
 instance
   Data.FromJSON
@@ -161,15 +161,15 @@ instance
       "PostDialogCodeHookInvocationSpecification"
       ( \x ->
           PostDialogCodeHookInvocationSpecification'
-            Prelude.<$> (x Data..:? "timeoutNextStep")
-              Prelude.<*> (x Data..:? "timeoutConditional")
+            Prelude.<$> (x Data..:? "failureConditional")
               Prelude.<*> (x Data..:? "failureNextStep")
-              Prelude.<*> (x Data..:? "timeoutResponse")
-              Prelude.<*> (x Data..:? "successNextStep")
-              Prelude.<*> (x Data..:? "successConditional")
-              Prelude.<*> (x Data..:? "successResponse")
-              Prelude.<*> (x Data..:? "failureConditional")
               Prelude.<*> (x Data..:? "failureResponse")
+              Prelude.<*> (x Data..:? "successConditional")
+              Prelude.<*> (x Data..:? "successNextStep")
+              Prelude.<*> (x Data..:? "successResponse")
+              Prelude.<*> (x Data..:? "timeoutConditional")
+              Prelude.<*> (x Data..:? "timeoutNextStep")
+              Prelude.<*> (x Data..:? "timeoutResponse")
       )
 
 instance
@@ -179,30 +179,30 @@ instance
   hashWithSalt
     _salt
     PostDialogCodeHookInvocationSpecification' {..} =
-      _salt `Prelude.hashWithSalt` timeoutNextStep
-        `Prelude.hashWithSalt` timeoutConditional
+      _salt `Prelude.hashWithSalt` failureConditional
         `Prelude.hashWithSalt` failureNextStep
-        `Prelude.hashWithSalt` timeoutResponse
-        `Prelude.hashWithSalt` successNextStep
-        `Prelude.hashWithSalt` successConditional
-        `Prelude.hashWithSalt` successResponse
-        `Prelude.hashWithSalt` failureConditional
         `Prelude.hashWithSalt` failureResponse
+        `Prelude.hashWithSalt` successConditional
+        `Prelude.hashWithSalt` successNextStep
+        `Prelude.hashWithSalt` successResponse
+        `Prelude.hashWithSalt` timeoutConditional
+        `Prelude.hashWithSalt` timeoutNextStep
+        `Prelude.hashWithSalt` timeoutResponse
 
 instance
   Prelude.NFData
     PostDialogCodeHookInvocationSpecification
   where
   rnf PostDialogCodeHookInvocationSpecification' {..} =
-    Prelude.rnf timeoutNextStep
-      `Prelude.seq` Prelude.rnf timeoutConditional
+    Prelude.rnf failureConditional
       `Prelude.seq` Prelude.rnf failureNextStep
-      `Prelude.seq` Prelude.rnf timeoutResponse
-      `Prelude.seq` Prelude.rnf successNextStep
-      `Prelude.seq` Prelude.rnf successConditional
-      `Prelude.seq` Prelude.rnf successResponse
-      `Prelude.seq` Prelude.rnf failureConditional
       `Prelude.seq` Prelude.rnf failureResponse
+      `Prelude.seq` Prelude.rnf successConditional
+      `Prelude.seq` Prelude.rnf successNextStep
+      `Prelude.seq` Prelude.rnf successResponse
+      `Prelude.seq` Prelude.rnf timeoutConditional
+      `Prelude.seq` Prelude.rnf timeoutNextStep
+      `Prelude.seq` Prelude.rnf timeoutResponse
 
 instance
   Data.ToJSON
@@ -211,23 +211,23 @@ instance
   toJSON PostDialogCodeHookInvocationSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeoutNextStep" Data..=)
-              Prelude.<$> timeoutNextStep,
-            ("timeoutConditional" Data..=)
-              Prelude.<$> timeoutConditional,
+          [ ("failureConditional" Data..=)
+              Prelude.<$> failureConditional,
             ("failureNextStep" Data..=)
               Prelude.<$> failureNextStep,
-            ("timeoutResponse" Data..=)
-              Prelude.<$> timeoutResponse,
-            ("successNextStep" Data..=)
-              Prelude.<$> successNextStep,
+            ("failureResponse" Data..=)
+              Prelude.<$> failureResponse,
             ("successConditional" Data..=)
               Prelude.<$> successConditional,
+            ("successNextStep" Data..=)
+              Prelude.<$> successNextStep,
             ("successResponse" Data..=)
               Prelude.<$> successResponse,
-            ("failureConditional" Data..=)
-              Prelude.<$> failureConditional,
-            ("failureResponse" Data..=)
-              Prelude.<$> failureResponse
+            ("timeoutConditional" Data..=)
+              Prelude.<$> timeoutConditional,
+            ("timeoutNextStep" Data..=)
+              Prelude.<$> timeoutNextStep,
+            ("timeoutResponse" Data..=)
+              Prelude.<$> timeoutResponse
           ]
       )

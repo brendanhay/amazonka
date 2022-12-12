@@ -42,9 +42,9 @@ module Amazonka.IAM.CreatePolicy
     newCreatePolicy,
 
     -- * Request Lenses
-    createPolicy_tags,
-    createPolicy_path,
     createPolicy_description,
+    createPolicy_path,
+    createPolicy_tags,
     createPolicy_policyName,
     createPolicy_policyDocument,
 
@@ -68,16 +68,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-  { -- | A list of tags that you want to attach to the new IAM customer managed
-    -- policy. Each tag consists of a key name and an associated value. For
-    -- more information about tagging, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
-    -- in the /IAM User Guide/.
+  { -- | A friendly description of the policy.
     --
-    -- If any one of the tags is invalid or if you exceed the allowed maximum
-    -- number of tags, then the entire request fails and the resource is not
-    -- created.
-    tags :: Prelude.Maybe [Tag],
+    -- Typically used to store information about the permissions defined in the
+    -- policy. For example, \"Grants access to production DynamoDB tables.\"
+    --
+    -- The policy description is immutable. After a value is assigned, it
+    -- cannot be changed.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The path for the policy.
     --
     -- For more information about paths, see
@@ -97,14 +95,16 @@ data CreatePolicy = CreatePolicy'
     --
     -- You cannot use an asterisk (*) in the path name.
     path :: Prelude.Maybe Prelude.Text,
-    -- | A friendly description of the policy.
+    -- | A list of tags that you want to attach to the new IAM customer managed
+    -- policy. Each tag consists of a key name and an associated value. For
+    -- more information about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
     --
-    -- Typically used to store information about the permissions defined in the
-    -- policy. For example, \"Grants access to production DynamoDB tables.\"
-    --
-    -- The policy description is immutable. After a value is assigned, it
-    -- cannot be changed.
-    description :: Prelude.Maybe Prelude.Text,
+    -- If any one of the tags is invalid or if you exceed the allowed maximum
+    -- number of tags, then the entire request fails and the resource is not
+    -- created.
+    tags :: Prelude.Maybe [Tag],
     -- | The friendly name of the policy.
     --
     -- IAM user, group, role, and policy names must be unique within the
@@ -151,15 +151,13 @@ data CreatePolicy = CreatePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createPolicy_tags' - A list of tags that you want to attach to the new IAM customer managed
--- policy. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
+-- 'description', 'createPolicy_description' - A friendly description of the policy.
 --
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
+-- Typically used to store information about the permissions defined in the
+-- policy. For example, \"Grants access to production DynamoDB tables.\"
+--
+-- The policy description is immutable. After a value is assigned, it
+-- cannot be changed.
 --
 -- 'path', 'createPolicy_path' - The path for the policy.
 --
@@ -180,13 +178,15 @@ data CreatePolicy = CreatePolicy'
 --
 -- You cannot use an asterisk (*) in the path name.
 --
--- 'description', 'createPolicy_description' - A friendly description of the policy.
+-- 'tags', 'createPolicy_tags' - A list of tags that you want to attach to the new IAM customer managed
+-- policy. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
 --
--- Typically used to store information about the permissions defined in the
--- policy. For example, \"Grants access to production DynamoDB tables.\"
---
--- The policy description is immutable. After a value is assigned, it
--- cannot be changed.
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
 --
 -- 'policyName', 'createPolicy_policyName' - The friendly name of the policy.
 --
@@ -230,24 +230,22 @@ newCreatePolicy ::
   CreatePolicy
 newCreatePolicy pPolicyName_ pPolicyDocument_ =
   CreatePolicy'
-    { tags = Prelude.Nothing,
+    { description = Prelude.Nothing,
       path = Prelude.Nothing,
-      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       policyName = pPolicyName_,
       policyDocument = pPolicyDocument_
     }
 
--- | A list of tags that you want to attach to the new IAM customer managed
--- policy. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
+-- | A friendly description of the policy.
 --
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
-createPolicy_tags :: Lens.Lens' CreatePolicy (Prelude.Maybe [Tag])
-createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Prelude.. Lens.mapping Lens.coerced
+-- Typically used to store information about the permissions defined in the
+-- policy. For example, \"Grants access to production DynamoDB tables.\"
+--
+-- The policy description is immutable. After a value is assigned, it
+-- cannot be changed.
+createPolicy_description :: Lens.Lens' CreatePolicy (Prelude.Maybe Prelude.Text)
+createPolicy_description = Lens.lens (\CreatePolicy' {description} -> description) (\s@CreatePolicy' {} a -> s {description = a} :: CreatePolicy)
 
 -- | The path for the policy.
 --
@@ -270,15 +268,17 @@ createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' 
 createPolicy_path :: Lens.Lens' CreatePolicy (Prelude.Maybe Prelude.Text)
 createPolicy_path = Lens.lens (\CreatePolicy' {path} -> path) (\s@CreatePolicy' {} a -> s {path = a} :: CreatePolicy)
 
--- | A friendly description of the policy.
+-- | A list of tags that you want to attach to the new IAM customer managed
+-- policy. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
 --
--- Typically used to store information about the permissions defined in the
--- policy. For example, \"Grants access to production DynamoDB tables.\"
---
--- The policy description is immutable. After a value is assigned, it
--- cannot be changed.
-createPolicy_description :: Lens.Lens' CreatePolicy (Prelude.Maybe Prelude.Text)
-createPolicy_description = Lens.lens (\CreatePolicy' {description} -> description) (\s@CreatePolicy' {} a -> s {description = a} :: CreatePolicy)
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+createPolicy_tags :: Lens.Lens' CreatePolicy (Prelude.Maybe [Tag])
+createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The friendly name of the policy.
 --
@@ -334,17 +334,17 @@ instance Core.AWSRequest CreatePolicy where
 
 instance Prelude.Hashable CreatePolicy where
   hashWithSalt _salt CreatePolicy' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
 
 instance Prelude.NFData CreatePolicy where
   rnf CreatePolicy' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyDocument
 
@@ -361,11 +361,11 @@ instance Data.ToQuery CreatePolicy where
           Data.=: ("CreatePolicy" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        "Path" Data.=: path,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> tags),
-        "Path" Data.=: path,
-        "Description" Data.=: description,
         "PolicyName" Data.=: policyName,
         "PolicyDocument" Data.=: policyDocument
       ]

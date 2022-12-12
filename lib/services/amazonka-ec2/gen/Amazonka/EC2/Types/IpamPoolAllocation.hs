@@ -31,23 +31,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpamPoolAllocation' smart constructor.
 data IpamPoolAllocation = IpamPoolAllocation'
-  { -- | The ID of the resource.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the resource.
-    resourceType :: Prelude.Maybe IpamPoolAllocationResourceType,
-    -- | The CIDR for the allocation. A CIDR is a representation of an IP address
+  { -- | The CIDR for the allocation. A CIDR is a representation of an IP address
     -- and its associated network mask (or netmask) and refers to a range of IP
     -- addresses. An IPv4 CIDR example is @10.24.34.0\/23@. An IPv6 CIDR
     -- example is @2001:DB8::\/32@.
     cidr :: Prelude.Maybe Prelude.Text,
     -- | A description of the pool allocation.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an allocation.
+    ipamPoolAllocationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the resource.
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The owner of the resource.
     resourceOwner :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Region of the resource.
     resourceRegion :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an allocation.
-    ipamPoolAllocationId :: Prelude.Maybe Prelude.Text
+    -- | The type of the resource.
+    resourceType :: Prelude.Maybe IpamPoolAllocationResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,10 +59,6 @@ data IpamPoolAllocation = IpamPoolAllocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'ipamPoolAllocation_resourceId' - The ID of the resource.
---
--- 'resourceType', 'ipamPoolAllocation_resourceType' - The type of the resource.
---
 -- 'cidr', 'ipamPoolAllocation_cidr' - The CIDR for the allocation. A CIDR is a representation of an IP address
 -- and its associated network mask (or netmask) and refers to a range of IP
 -- addresses. An IPv4 CIDR example is @10.24.34.0\/23@. An IPv6 CIDR
@@ -70,31 +66,27 @@ data IpamPoolAllocation = IpamPoolAllocation'
 --
 -- 'description', 'ipamPoolAllocation_description' - A description of the pool allocation.
 --
+-- 'ipamPoolAllocationId', 'ipamPoolAllocation_ipamPoolAllocationId' - The ID of an allocation.
+--
+-- 'resourceId', 'ipamPoolAllocation_resourceId' - The ID of the resource.
+--
 -- 'resourceOwner', 'ipamPoolAllocation_resourceOwner' - The owner of the resource.
 --
 -- 'resourceRegion', 'ipamPoolAllocation_resourceRegion' - The Amazon Web Services Region of the resource.
 --
--- 'ipamPoolAllocationId', 'ipamPoolAllocation_ipamPoolAllocationId' - The ID of an allocation.
+-- 'resourceType', 'ipamPoolAllocation_resourceType' - The type of the resource.
 newIpamPoolAllocation ::
   IpamPoolAllocation
 newIpamPoolAllocation =
   IpamPoolAllocation'
-    { resourceId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      cidr = Prelude.Nothing,
+    { cidr = Prelude.Nothing,
       description = Prelude.Nothing,
+      ipamPoolAllocationId = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
       resourceOwner = Prelude.Nothing,
       resourceRegion = Prelude.Nothing,
-      ipamPoolAllocationId = Prelude.Nothing
+      resourceType = Prelude.Nothing
     }
-
--- | The ID of the resource.
-ipamPoolAllocation_resourceId :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe Prelude.Text)
-ipamPoolAllocation_resourceId = Lens.lens (\IpamPoolAllocation' {resourceId} -> resourceId) (\s@IpamPoolAllocation' {} a -> s {resourceId = a} :: IpamPoolAllocation)
-
--- | The type of the resource.
-ipamPoolAllocation_resourceType :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe IpamPoolAllocationResourceType)
-ipamPoolAllocation_resourceType = Lens.lens (\IpamPoolAllocation' {resourceType} -> resourceType) (\s@IpamPoolAllocation' {} a -> s {resourceType = a} :: IpamPoolAllocation)
 
 -- | The CIDR for the allocation. A CIDR is a representation of an IP address
 -- and its associated network mask (or netmask) and refers to a range of IP
@@ -107,6 +99,14 @@ ipamPoolAllocation_cidr = Lens.lens (\IpamPoolAllocation' {cidr} -> cidr) (\s@Ip
 ipamPoolAllocation_description :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe Prelude.Text)
 ipamPoolAllocation_description = Lens.lens (\IpamPoolAllocation' {description} -> description) (\s@IpamPoolAllocation' {} a -> s {description = a} :: IpamPoolAllocation)
 
+-- | The ID of an allocation.
+ipamPoolAllocation_ipamPoolAllocationId :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe Prelude.Text)
+ipamPoolAllocation_ipamPoolAllocationId = Lens.lens (\IpamPoolAllocation' {ipamPoolAllocationId} -> ipamPoolAllocationId) (\s@IpamPoolAllocation' {} a -> s {ipamPoolAllocationId = a} :: IpamPoolAllocation)
+
+-- | The ID of the resource.
+ipamPoolAllocation_resourceId :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe Prelude.Text)
+ipamPoolAllocation_resourceId = Lens.lens (\IpamPoolAllocation' {resourceId} -> resourceId) (\s@IpamPoolAllocation' {} a -> s {resourceId = a} :: IpamPoolAllocation)
+
 -- | The owner of the resource.
 ipamPoolAllocation_resourceOwner :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe Prelude.Text)
 ipamPoolAllocation_resourceOwner = Lens.lens (\IpamPoolAllocation' {resourceOwner} -> resourceOwner) (\s@IpamPoolAllocation' {} a -> s {resourceOwner = a} :: IpamPoolAllocation)
@@ -115,37 +115,37 @@ ipamPoolAllocation_resourceOwner = Lens.lens (\IpamPoolAllocation' {resourceOwne
 ipamPoolAllocation_resourceRegion :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe Prelude.Text)
 ipamPoolAllocation_resourceRegion = Lens.lens (\IpamPoolAllocation' {resourceRegion} -> resourceRegion) (\s@IpamPoolAllocation' {} a -> s {resourceRegion = a} :: IpamPoolAllocation)
 
--- | The ID of an allocation.
-ipamPoolAllocation_ipamPoolAllocationId :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe Prelude.Text)
-ipamPoolAllocation_ipamPoolAllocationId = Lens.lens (\IpamPoolAllocation' {ipamPoolAllocationId} -> ipamPoolAllocationId) (\s@IpamPoolAllocation' {} a -> s {ipamPoolAllocationId = a} :: IpamPoolAllocation)
+-- | The type of the resource.
+ipamPoolAllocation_resourceType :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe IpamPoolAllocationResourceType)
+ipamPoolAllocation_resourceType = Lens.lens (\IpamPoolAllocation' {resourceType} -> resourceType) (\s@IpamPoolAllocation' {} a -> s {resourceType = a} :: IpamPoolAllocation)
 
 instance Data.FromXML IpamPoolAllocation where
   parseXML x =
     IpamPoolAllocation'
-      Prelude.<$> (x Data..@? "resourceId")
-      Prelude.<*> (x Data..@? "resourceType")
-      Prelude.<*> (x Data..@? "cidr")
+      Prelude.<$> (x Data..@? "cidr")
       Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "ipamPoolAllocationId")
+      Prelude.<*> (x Data..@? "resourceId")
       Prelude.<*> (x Data..@? "resourceOwner")
       Prelude.<*> (x Data..@? "resourceRegion")
-      Prelude.<*> (x Data..@? "ipamPoolAllocationId")
+      Prelude.<*> (x Data..@? "resourceType")
 
 instance Prelude.Hashable IpamPoolAllocation where
   hashWithSalt _salt IpamPoolAllocation' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` cidr
+    _salt `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` ipamPoolAllocationId
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceOwner
       `Prelude.hashWithSalt` resourceRegion
-      `Prelude.hashWithSalt` ipamPoolAllocationId
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData IpamPoolAllocation where
   rnf IpamPoolAllocation' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf cidr
+    Prelude.rnf cidr
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf ipamPoolAllocationId
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceOwner
       `Prelude.seq` Prelude.rnf resourceRegion
-      `Prelude.seq` Prelude.rnf ipamPoolAllocationId
+      `Prelude.seq` Prelude.rnf resourceType

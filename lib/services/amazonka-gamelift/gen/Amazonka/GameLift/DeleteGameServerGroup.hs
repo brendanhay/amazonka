@@ -51,13 +51,6 @@
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
--- __Related actions__
---
--- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
--- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
--- SuspendGameServerGroup | DescribeGameServerInstances |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Amazonka.GameLift.DeleteGameServerGroup
   ( -- * Creating a Request
     DeleteGameServerGroup (..),
@@ -100,8 +93,8 @@ data DeleteGameServerGroup = DeleteGameServerGroup'
     -- -   @RETAIN@ – Does a safe delete of the game server group but retains
     --     the Amazon EC2 Auto Scaling group as is.
     deleteOption :: Prelude.Maybe GameServerGroupDeleteOption,
-    -- | A unique identifier for the game server group. Use either the
-    -- GameServerGroup name or ARN value.
+    -- | A unique identifier for the game server group. Use either the name or
+    -- ARN value.
     gameServerGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -127,8 +120,8 @@ data DeleteGameServerGroup = DeleteGameServerGroup'
 -- -   @RETAIN@ – Does a safe delete of the game server group but retains
 --     the Amazon EC2 Auto Scaling group as is.
 --
--- 'gameServerGroupName', 'deleteGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
+-- 'gameServerGroupName', 'deleteGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the name or
+-- ARN value.
 newDeleteGameServerGroup ::
   -- | 'gameServerGroupName'
   Prelude.Text ->
@@ -155,8 +148,8 @@ newDeleteGameServerGroup pGameServerGroupName_ =
 deleteGameServerGroup_deleteOption :: Lens.Lens' DeleteGameServerGroup (Prelude.Maybe GameServerGroupDeleteOption)
 deleteGameServerGroup_deleteOption = Lens.lens (\DeleteGameServerGroup' {deleteOption} -> deleteOption) (\s@DeleteGameServerGroup' {} a -> s {deleteOption = a} :: DeleteGameServerGroup)
 
--- | A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
+-- | A unique identifier for the game server group. Use either the name or
+-- ARN value.
 deleteGameServerGroup_gameServerGroupName :: Lens.Lens' DeleteGameServerGroup Prelude.Text
 deleteGameServerGroup_gameServerGroupName = Lens.lens (\DeleteGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@DeleteGameServerGroup' {} a -> s {gameServerGroupName = a} :: DeleteGameServerGroup)
 

@@ -36,9 +36,9 @@ module Amazonka.IoT.ListCertificates
     newListCertificates,
 
     -- * Request Lenses
+    listCertificates_ascendingOrder,
     listCertificates_marker,
     listCertificates_pageSize,
-    listCertificates_ascendingOrder,
 
     -- * Destructuring the Response
     ListCertificatesResponse (..),
@@ -63,13 +63,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { -- | The marker for the next set of results.
+  { -- | Specifies the order for results. If True, the results are returned in
+    -- ascending order, based on the creation date.
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
+    -- | The marker for the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The result page size.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the order for results. If True, the results are returned in
-    -- ascending order, based on the creation date.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,20 +81,25 @@ data ListCertificates = ListCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ascendingOrder', 'listCertificates_ascendingOrder' - Specifies the order for results. If True, the results are returned in
+-- ascending order, based on the creation date.
+--
 -- 'marker', 'listCertificates_marker' - The marker for the next set of results.
 --
 -- 'pageSize', 'listCertificates_pageSize' - The result page size.
---
--- 'ascendingOrder', 'listCertificates_ascendingOrder' - Specifies the order for results. If True, the results are returned in
--- ascending order, based on the creation date.
 newListCertificates ::
   ListCertificates
 newListCertificates =
   ListCertificates'
-    { marker = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing
+    { ascendingOrder = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      pageSize = Prelude.Nothing
     }
+
+-- | Specifies the order for results. If True, the results are returned in
+-- ascending order, based on the creation date.
+listCertificates_ascendingOrder :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Bool)
+listCertificates_ascendingOrder = Lens.lens (\ListCertificates' {ascendingOrder} -> ascendingOrder) (\s@ListCertificates' {} a -> s {ascendingOrder = a} :: ListCertificates)
 
 -- | The marker for the next set of results.
 listCertificates_marker :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Text)
@@ -103,11 +108,6 @@ listCertificates_marker = Lens.lens (\ListCertificates' {marker} -> marker) (\s@
 -- | The result page size.
 listCertificates_pageSize :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Natural)
 listCertificates_pageSize = Lens.lens (\ListCertificates' {pageSize} -> pageSize) (\s@ListCertificates' {} a -> s {pageSize = a} :: ListCertificates)
-
--- | Specifies the order for results. If True, the results are returned in
--- ascending order, based on the creation date.
-listCertificates_ascendingOrder :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Bool)
-listCertificates_ascendingOrder = Lens.lens (\ListCertificates' {ascendingOrder} -> ascendingOrder) (\s@ListCertificates' {} a -> s {ascendingOrder = a} :: ListCertificates)
 
 instance Core.AWSPager ListCertificates where
   page rq rs
@@ -148,15 +148,15 @@ instance Core.AWSRequest ListCertificates where
 
 instance Prelude.Hashable ListCertificates where
   hashWithSalt _salt ListCertificates' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` ascendingOrder
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` ascendingOrder
 
 instance Prelude.NFData ListCertificates where
   rnf ListCertificates' {..} =
-    Prelude.rnf marker
+    Prelude.rnf ascendingOrder
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf ascendingOrder
 
 instance Data.ToHeaders ListCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,9 +167,9 @@ instance Data.ToPath ListCertificates where
 instance Data.ToQuery ListCertificates where
   toQuery ListCertificates' {..} =
     Prelude.mconcat
-      [ "marker" Data.=: marker,
-        "pageSize" Data.=: pageSize,
-        "isAscendingOrder" Data.=: ascendingOrder
+      [ "isAscendingOrder" Data.=: ascendingOrder,
+        "marker" Data.=: marker,
+        "pageSize" Data.=: pageSize
       ]
 
 -- | The output of the ListCertificates operation.

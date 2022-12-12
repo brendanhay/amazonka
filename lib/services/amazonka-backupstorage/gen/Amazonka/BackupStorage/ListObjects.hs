@@ -27,12 +27,12 @@ module Amazonka.BackupStorage.ListObjects
     newListObjects,
 
     -- * Request Lenses
-    listObjects_nextToken,
-    listObjects_createdBefore,
-    listObjects_startingObjectName,
-    listObjects_maxResults,
-    listObjects_startingObjectPrefix,
     listObjects_createdAfter,
+    listObjects_createdBefore,
+    listObjects_maxResults,
+    listObjects_nextToken,
+    listObjects_startingObjectName,
+    listObjects_startingObjectPrefix,
     listObjects_storageJobId,
 
     -- * Destructuring the Response
@@ -56,20 +56,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListObjects' smart constructor.
 data ListObjects = ListObjects'
-  { -- | Pagination token
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | (Optional) Created after filter
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | (Optional) Created before filter
     createdBefore :: Prelude.Maybe Data.POSIX,
+    -- | Maximum objects count
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Optional, specifies the starting Object name to list from. Ignored if
     -- NextToken is not NULL
     startingObjectName :: Prelude.Maybe Prelude.Text,
-    -- | Maximum objects count
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Optional, specifies the starting Object prefix to list from. Ignored if
     -- NextToken is not NULL
     startingObjectPrefix :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Created after filter
-    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | Storage job id
     storageJobId :: Prelude.Text
   }
@@ -83,19 +83,19 @@ data ListObjects = ListObjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listObjects_nextToken' - Pagination token
+-- 'createdAfter', 'listObjects_createdAfter' - (Optional) Created after filter
 --
 -- 'createdBefore', 'listObjects_createdBefore' - (Optional) Created before filter
+--
+-- 'maxResults', 'listObjects_maxResults' - Maximum objects count
+--
+-- 'nextToken', 'listObjects_nextToken' - Pagination token
 --
 -- 'startingObjectName', 'listObjects_startingObjectName' - Optional, specifies the starting Object name to list from. Ignored if
 -- NextToken is not NULL
 --
--- 'maxResults', 'listObjects_maxResults' - Maximum objects count
---
 -- 'startingObjectPrefix', 'listObjects_startingObjectPrefix' - Optional, specifies the starting Object prefix to list from. Ignored if
 -- NextToken is not NULL
---
--- 'createdAfter', 'listObjects_createdAfter' - (Optional) Created after filter
 --
 -- 'storageJobId', 'listObjects_storageJobId' - Storage job id
 newListObjects ::
@@ -104,40 +104,40 @@ newListObjects ::
   ListObjects
 newListObjects pStorageJobId_ =
   ListObjects'
-    { nextToken = Prelude.Nothing,
+    { createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
-      startingObjectName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      startingObjectName = Prelude.Nothing,
       startingObjectPrefix = Prelude.Nothing,
-      createdAfter = Prelude.Nothing,
       storageJobId = pStorageJobId_
     }
 
--- | Pagination token
-listObjects_nextToken :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
-listObjects_nextToken = Lens.lens (\ListObjects' {nextToken} -> nextToken) (\s@ListObjects' {} a -> s {nextToken = a} :: ListObjects)
+-- | (Optional) Created after filter
+listObjects_createdAfter :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.UTCTime)
+listObjects_createdAfter = Lens.lens (\ListObjects' {createdAfter} -> createdAfter) (\s@ListObjects' {} a -> s {createdAfter = a} :: ListObjects) Prelude.. Lens.mapping Data._Time
 
 -- | (Optional) Created before filter
 listObjects_createdBefore :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.UTCTime)
 listObjects_createdBefore = Lens.lens (\ListObjects' {createdBefore} -> createdBefore) (\s@ListObjects' {} a -> s {createdBefore = a} :: ListObjects) Prelude.. Lens.mapping Data._Time
+
+-- | Maximum objects count
+listObjects_maxResults :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Natural)
+listObjects_maxResults = Lens.lens (\ListObjects' {maxResults} -> maxResults) (\s@ListObjects' {} a -> s {maxResults = a} :: ListObjects)
+
+-- | Pagination token
+listObjects_nextToken :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
+listObjects_nextToken = Lens.lens (\ListObjects' {nextToken} -> nextToken) (\s@ListObjects' {} a -> s {nextToken = a} :: ListObjects)
 
 -- | Optional, specifies the starting Object name to list from. Ignored if
 -- NextToken is not NULL
 listObjects_startingObjectName :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
 listObjects_startingObjectName = Lens.lens (\ListObjects' {startingObjectName} -> startingObjectName) (\s@ListObjects' {} a -> s {startingObjectName = a} :: ListObjects)
 
--- | Maximum objects count
-listObjects_maxResults :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Natural)
-listObjects_maxResults = Lens.lens (\ListObjects' {maxResults} -> maxResults) (\s@ListObjects' {} a -> s {maxResults = a} :: ListObjects)
-
 -- | Optional, specifies the starting Object prefix to list from. Ignored if
 -- NextToken is not NULL
 listObjects_startingObjectPrefix :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.Text)
 listObjects_startingObjectPrefix = Lens.lens (\ListObjects' {startingObjectPrefix} -> startingObjectPrefix) (\s@ListObjects' {} a -> s {startingObjectPrefix = a} :: ListObjects)
-
--- | (Optional) Created after filter
-listObjects_createdAfter :: Lens.Lens' ListObjects (Prelude.Maybe Prelude.UTCTime)
-listObjects_createdAfter = Lens.lens (\ListObjects' {createdAfter} -> createdAfter) (\s@ListObjects' {} a -> s {createdAfter = a} :: ListObjects) Prelude.. Lens.mapping Data._Time
 
 -- | Storage job id
 listObjects_storageJobId :: Lens.Lens' ListObjects Prelude.Text
@@ -158,22 +158,22 @@ instance Core.AWSRequest ListObjects where
 
 instance Prelude.Hashable ListObjects where
   hashWithSalt _salt ListObjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
-      `Prelude.hashWithSalt` startingObjectName
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` startingObjectName
       `Prelude.hashWithSalt` startingObjectPrefix
-      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` storageJobId
 
 instance Prelude.NFData ListObjects where
   rnf ListObjects' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf startingObjectName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startingObjectName
       `Prelude.seq` Prelude.rnf startingObjectPrefix
-      `Prelude.seq` Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf storageJobId
 
 instance Data.ToHeaders ListObjects where
@@ -198,13 +198,13 @@ instance Data.ToPath ListObjects where
 instance Data.ToQuery ListObjects where
   toQuery ListObjects' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
+      [ "created-after" Data.=: createdAfter,
         "created-before" Data.=: createdBefore,
-        "starting-object-name" Data.=: startingObjectName,
         "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
+        "starting-object-name" Data.=: startingObjectName,
         "starting-object-prefix"
-          Data.=: startingObjectPrefix,
-        "created-after" Data.=: createdAfter
+          Data.=: startingObjectPrefix
       ]
 
 -- | /See:/ 'newListObjectsResponse' smart constructor.

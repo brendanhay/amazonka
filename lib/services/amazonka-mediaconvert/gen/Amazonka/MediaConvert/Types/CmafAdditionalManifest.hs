@@ -31,10 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCmafAdditionalManifest' smart constructor.
 data CmafAdditionalManifest = CmafAdditionalManifest'
-  { -- | Specify the outputs that you want this additional top-level manifest to
-    -- reference.
-    selectedOutputs :: Prelude.Maybe [Prelude.Text],
-    -- | Specify a name modifier that the service adds to the name of this
+  { -- | Specify a name modifier that the service adds to the name of this
     -- manifest to make it different from the file names of the other main
     -- manifests in the output group. For example, say that the default main
     -- manifest for your HLS group is film-name.m3u8. If you enter
@@ -43,7 +40,10 @@ data CmafAdditionalManifest = CmafAdditionalManifest'
     -- HLS output groups, specify a manifestNameModifier that is different from
     -- the nameModifier of the output. The service uses the output name
     -- modifier to create unique names for the individual variant manifests.
-    manifestNameModifier :: Prelude.Maybe Prelude.Text
+    manifestNameModifier :: Prelude.Maybe Prelude.Text,
+    -- | Specify the outputs that you want this additional top-level manifest to
+    -- reference.
+    selectedOutputs :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,9 +55,6 @@ data CmafAdditionalManifest = CmafAdditionalManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'selectedOutputs', 'cmafAdditionalManifest_selectedOutputs' - Specify the outputs that you want this additional top-level manifest to
--- reference.
---
 -- 'manifestNameModifier', 'cmafAdditionalManifest_manifestNameModifier' - Specify a name modifier that the service adds to the name of this
 -- manifest to make it different from the file names of the other main
 -- manifests in the output group. For example, say that the default main
@@ -67,19 +64,17 @@ data CmafAdditionalManifest = CmafAdditionalManifest'
 -- HLS output groups, specify a manifestNameModifier that is different from
 -- the nameModifier of the output. The service uses the output name
 -- modifier to create unique names for the individual variant manifests.
+--
+-- 'selectedOutputs', 'cmafAdditionalManifest_selectedOutputs' - Specify the outputs that you want this additional top-level manifest to
+-- reference.
 newCmafAdditionalManifest ::
   CmafAdditionalManifest
 newCmafAdditionalManifest =
   CmafAdditionalManifest'
-    { selectedOutputs =
+    { manifestNameModifier =
         Prelude.Nothing,
-      manifestNameModifier = Prelude.Nothing
+      selectedOutputs = Prelude.Nothing
     }
-
--- | Specify the outputs that you want this additional top-level manifest to
--- reference.
-cmafAdditionalManifest_selectedOutputs :: Lens.Lens' CmafAdditionalManifest (Prelude.Maybe [Prelude.Text])
-cmafAdditionalManifest_selectedOutputs = Lens.lens (\CmafAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@CmafAdditionalManifest' {} a -> s {selectedOutputs = a} :: CmafAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify a name modifier that the service adds to the name of this
 -- manifest to make it different from the file names of the other main
@@ -93,35 +88,40 @@ cmafAdditionalManifest_selectedOutputs = Lens.lens (\CmafAdditionalManifest' {se
 cmafAdditionalManifest_manifestNameModifier :: Lens.Lens' CmafAdditionalManifest (Prelude.Maybe Prelude.Text)
 cmafAdditionalManifest_manifestNameModifier = Lens.lens (\CmafAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@CmafAdditionalManifest' {} a -> s {manifestNameModifier = a} :: CmafAdditionalManifest)
 
+-- | Specify the outputs that you want this additional top-level manifest to
+-- reference.
+cmafAdditionalManifest_selectedOutputs :: Lens.Lens' CmafAdditionalManifest (Prelude.Maybe [Prelude.Text])
+cmafAdditionalManifest_selectedOutputs = Lens.lens (\CmafAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@CmafAdditionalManifest' {} a -> s {selectedOutputs = a} :: CmafAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON CmafAdditionalManifest where
   parseJSON =
     Data.withObject
       "CmafAdditionalManifest"
       ( \x ->
           CmafAdditionalManifest'
-            Prelude.<$> ( x Data..:? "selectedOutputs"
+            Prelude.<$> (x Data..:? "manifestNameModifier")
+            Prelude.<*> ( x Data..:? "selectedOutputs"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "manifestNameModifier")
       )
 
 instance Prelude.Hashable CmafAdditionalManifest where
   hashWithSalt _salt CmafAdditionalManifest' {..} =
-    _salt `Prelude.hashWithSalt` selectedOutputs
-      `Prelude.hashWithSalt` manifestNameModifier
+    _salt `Prelude.hashWithSalt` manifestNameModifier
+      `Prelude.hashWithSalt` selectedOutputs
 
 instance Prelude.NFData CmafAdditionalManifest where
   rnf CmafAdditionalManifest' {..} =
-    Prelude.rnf selectedOutputs
-      `Prelude.seq` Prelude.rnf manifestNameModifier
+    Prelude.rnf manifestNameModifier
+      `Prelude.seq` Prelude.rnf selectedOutputs
 
 instance Data.ToJSON CmafAdditionalManifest where
   toJSON CmafAdditionalManifest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("selectedOutputs" Data..=)
-              Prelude.<$> selectedOutputs,
-            ("manifestNameModifier" Data..=)
-              Prelude.<$> manifestNameModifier
+          [ ("manifestNameModifier" Data..=)
+              Prelude.<$> manifestNameModifier,
+            ("selectedOutputs" Data..=)
+              Prelude.<$> selectedOutputs
           ]
       )

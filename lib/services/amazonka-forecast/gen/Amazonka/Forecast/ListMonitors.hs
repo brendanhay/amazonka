@@ -33,17 +33,17 @@ module Amazonka.Forecast.ListMonitors
     newListMonitors,
 
     -- * Request Lenses
-    listMonitors_nextToken,
     listMonitors_filters,
     listMonitors_maxResults,
+    listMonitors_nextToken,
 
     -- * Destructuring the Response
     ListMonitorsResponse (..),
     newListMonitorsResponse,
 
     -- * Response Lenses
-    listMonitorsResponse_nextToken,
     listMonitorsResponse_monitors,
+    listMonitorsResponse_nextToken,
     listMonitorsResponse_httpStatus,
   )
 where
@@ -58,11 +58,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMonitors' smart constructor.
 data ListMonitors = ListMonitors'
-  { -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of filters. For each filter, provide a condition and a match
+  { -- | An array of filters. For each filter, provide a condition and a match
     -- statement. The condition is either @IS@ or @IS_NOT@, which specifies
     -- whether to include or exclude the resources that match the statement
     -- from the list. The match statement consists of a key and a value.
@@ -83,7 +79,11 @@ data ListMonitors = ListMonitors'
     -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of monitors to include in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,10 +94,6 @@ data ListMonitors = ListMonitors'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listMonitors_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
 --
 -- 'filters', 'listMonitors_filters' - An array of filters. For each filter, provide a condition and a match
 -- statement. The condition is either @IS@ or @IS_NOT@, which specifies
@@ -120,20 +116,18 @@ data ListMonitors = ListMonitors'
 -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
 --
 -- 'maxResults', 'listMonitors_maxResults' - The maximum number of monitors to include in the response.
+--
+-- 'nextToken', 'listMonitors_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
 newListMonitors ::
   ListMonitors
 newListMonitors =
   ListMonitors'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-listMonitors_nextToken :: Lens.Lens' ListMonitors (Prelude.Maybe Prelude.Text)
-listMonitors_nextToken = Lens.lens (\ListMonitors' {nextToken} -> nextToken) (\s@ListMonitors' {} a -> s {nextToken = a} :: ListMonitors)
 
 -- | An array of filters. For each filter, provide a condition and a match
 -- statement. The condition is either @IS@ or @IS_NOT@, which specifies
@@ -160,6 +154,12 @@ listMonitors_filters = Lens.lens (\ListMonitors' {filters} -> filters) (\s@ListM
 -- | The maximum number of monitors to include in the response.
 listMonitors_maxResults :: Lens.Lens' ListMonitors (Prelude.Maybe Prelude.Natural)
 listMonitors_maxResults = Lens.lens (\ListMonitors' {maxResults} -> maxResults) (\s@ListMonitors' {} a -> s {maxResults = a} :: ListMonitors)
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+listMonitors_nextToken :: Lens.Lens' ListMonitors (Prelude.Maybe Prelude.Text)
+listMonitors_nextToken = Lens.lens (\ListMonitors' {nextToken} -> nextToken) (\s@ListMonitors' {} a -> s {nextToken = a} :: ListMonitors)
 
 instance Core.AWSPager ListMonitors where
   page rq rs
@@ -188,22 +188,22 @@ instance Core.AWSRequest ListMonitors where
     Response.receiveJSON
       ( \s h x ->
           ListMonitorsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Monitors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Monitors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMonitors where
   hashWithSalt _salt ListMonitors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMonitors where
   rnf ListMonitors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMonitors where
   toHeaders =
@@ -224,9 +224,9 @@ instance Data.ToJSON ListMonitors where
   toJSON ListMonitors' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -238,11 +238,11 @@ instance Data.ToQuery ListMonitors where
 
 -- | /See:/ 'newListMonitorsResponse' smart constructor.
 data ListMonitorsResponse = ListMonitorsResponse'
-  { -- | If the response is truncated, Amazon Forecast returns this token. To
+  { -- | An array of objects that summarize each monitor\'s properties.
+    monitors :: Prelude.Maybe [MonitorSummary],
+    -- | If the response is truncated, Amazon Forecast returns this token. To
     -- retrieve the next set of results, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that summarize each monitor\'s properties.
-    monitors :: Prelude.Maybe [MonitorSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -256,10 +256,10 @@ data ListMonitorsResponse = ListMonitorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'monitors', 'listMonitorsResponse_monitors' - An array of objects that summarize each monitor\'s properties.
+--
 -- 'nextToken', 'listMonitorsResponse_nextToken' - If the response is truncated, Amazon Forecast returns this token. To
 -- retrieve the next set of results, use the token in the next request.
---
--- 'monitors', 'listMonitorsResponse_monitors' - An array of objects that summarize each monitor\'s properties.
 --
 -- 'httpStatus', 'listMonitorsResponse_httpStatus' - The response's http status code.
 newListMonitorsResponse ::
@@ -268,19 +268,19 @@ newListMonitorsResponse ::
   ListMonitorsResponse
 newListMonitorsResponse pHttpStatus_ =
   ListMonitorsResponse'
-    { nextToken = Prelude.Nothing,
-      monitors = Prelude.Nothing,
+    { monitors = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects that summarize each monitor\'s properties.
+listMonitorsResponse_monitors :: Lens.Lens' ListMonitorsResponse (Prelude.Maybe [MonitorSummary])
+listMonitorsResponse_monitors = Lens.lens (\ListMonitorsResponse' {monitors} -> monitors) (\s@ListMonitorsResponse' {} a -> s {monitors = a} :: ListMonitorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Forecast returns this token. To
 -- retrieve the next set of results, use the token in the next request.
 listMonitorsResponse_nextToken :: Lens.Lens' ListMonitorsResponse (Prelude.Maybe Prelude.Text)
 listMonitorsResponse_nextToken = Lens.lens (\ListMonitorsResponse' {nextToken} -> nextToken) (\s@ListMonitorsResponse' {} a -> s {nextToken = a} :: ListMonitorsResponse)
-
--- | An array of objects that summarize each monitor\'s properties.
-listMonitorsResponse_monitors :: Lens.Lens' ListMonitorsResponse (Prelude.Maybe [MonitorSummary])
-listMonitorsResponse_monitors = Lens.lens (\ListMonitorsResponse' {monitors} -> monitors) (\s@ListMonitorsResponse' {} a -> s {monitors = a} :: ListMonitorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listMonitorsResponse_httpStatus :: Lens.Lens' ListMonitorsResponse Prelude.Int
@@ -288,6 +288,6 @@ listMonitorsResponse_httpStatus = Lens.lens (\ListMonitorsResponse' {httpStatus}
 
 instance Prelude.NFData ListMonitorsResponse where
   rnf ListMonitorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf monitors
+    Prelude.rnf monitors
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

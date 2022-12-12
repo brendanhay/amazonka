@@ -31,9 +31,9 @@ module Amazonka.SSMIncidents.ListIncidentRecords
     newListIncidentRecords,
 
     -- * Request Lenses
-    listIncidentRecords_nextToken,
     listIncidentRecords_filters,
     listIncidentRecords_maxResults,
+    listIncidentRecords_nextToken,
 
     -- * Destructuring the Response
     ListIncidentRecordsResponse (..),
@@ -56,9 +56,7 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newListIncidentRecords' smart constructor.
 data ListIncidentRecords = ListIncidentRecords'
-  { -- | The pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the list of incident records through which you are searching.
+  { -- | Filters the list of incident records through which you are searching.
     -- You can filter on the following keys:
     --
     -- -   @creationTime@
@@ -81,7 +79,9 @@ data ListIncidentRecords = ListIncidentRecords'
     --     returns incident records that match any of the values provided.
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,8 +92,6 @@ data ListIncidentRecords = ListIncidentRecords'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listIncidentRecords_nextToken' - The pagination token to continue to the next page of results.
 --
 -- 'filters', 'listIncidentRecords_filters' - Filters the list of incident records through which you are searching.
 -- You can filter on the following keys:
@@ -118,18 +116,16 @@ data ListIncidentRecords = ListIncidentRecords'
 --     returns incident records that match any of the values provided.
 --
 -- 'maxResults', 'listIncidentRecords_maxResults' - The maximum number of results per page.
+--
+-- 'nextToken', 'listIncidentRecords_nextToken' - The pagination token to continue to the next page of results.
 newListIncidentRecords ::
   ListIncidentRecords
 newListIncidentRecords =
   ListIncidentRecords'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token to continue to the next page of results.
-listIncidentRecords_nextToken :: Lens.Lens' ListIncidentRecords (Prelude.Maybe Prelude.Text)
-listIncidentRecords_nextToken = Lens.lens (\ListIncidentRecords' {nextToken} -> nextToken) (\s@ListIncidentRecords' {} a -> s {nextToken = a} :: ListIncidentRecords)
 
 -- | Filters the list of incident records through which you are searching.
 -- You can filter on the following keys:
@@ -158,6 +154,10 @@ listIncidentRecords_filters = Lens.lens (\ListIncidentRecords' {filters} -> filt
 -- | The maximum number of results per page.
 listIncidentRecords_maxResults :: Lens.Lens' ListIncidentRecords (Prelude.Maybe Prelude.Natural)
 listIncidentRecords_maxResults = Lens.lens (\ListIncidentRecords' {maxResults} -> maxResults) (\s@ListIncidentRecords' {} a -> s {maxResults = a} :: ListIncidentRecords)
+
+-- | The pagination token to continue to the next page of results.
+listIncidentRecords_nextToken :: Lens.Lens' ListIncidentRecords (Prelude.Maybe Prelude.Text)
+listIncidentRecords_nextToken = Lens.lens (\ListIncidentRecords' {nextToken} -> nextToken) (\s@ListIncidentRecords' {} a -> s {nextToken = a} :: ListIncidentRecords)
 
 instance Core.AWSPager ListIncidentRecords where
   page rq rs
@@ -199,15 +199,15 @@ instance Core.AWSRequest ListIncidentRecords where
 
 instance Prelude.Hashable ListIncidentRecords where
   hashWithSalt _salt ListIncidentRecords' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListIncidentRecords where
   rnf ListIncidentRecords' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListIncidentRecords where
   toHeaders =
@@ -224,9 +224,9 @@ instance Data.ToJSON ListIncidentRecords where
   toJSON ListIncidentRecords' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

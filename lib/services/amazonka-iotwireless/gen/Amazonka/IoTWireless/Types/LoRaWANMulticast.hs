@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANMulticast' smart constructor.
 data LoRaWANMulticast = LoRaWANMulticast'
-  { rfRegion :: Prelude.Maybe SupportedRfRegion,
-    dlClass :: Prelude.Maybe DlClass
+  { dlClass :: Prelude.Maybe DlClass,
+    rfRegion :: Prelude.Maybe SupportedRfRegion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,40 +43,40 @@ data LoRaWANMulticast = LoRaWANMulticast'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rfRegion', 'loRaWANMulticast_rfRegion' - Undocumented member.
---
 -- 'dlClass', 'loRaWANMulticast_dlClass' - Undocumented member.
+--
+-- 'rfRegion', 'loRaWANMulticast_rfRegion' - Undocumented member.
 newLoRaWANMulticast ::
   LoRaWANMulticast
 newLoRaWANMulticast =
   LoRaWANMulticast'
-    { rfRegion = Prelude.Nothing,
-      dlClass = Prelude.Nothing
+    { dlClass = Prelude.Nothing,
+      rfRegion = Prelude.Nothing
     }
-
--- | Undocumented member.
-loRaWANMulticast_rfRegion :: Lens.Lens' LoRaWANMulticast (Prelude.Maybe SupportedRfRegion)
-loRaWANMulticast_rfRegion = Lens.lens (\LoRaWANMulticast' {rfRegion} -> rfRegion) (\s@LoRaWANMulticast' {} a -> s {rfRegion = a} :: LoRaWANMulticast)
 
 -- | Undocumented member.
 loRaWANMulticast_dlClass :: Lens.Lens' LoRaWANMulticast (Prelude.Maybe DlClass)
 loRaWANMulticast_dlClass = Lens.lens (\LoRaWANMulticast' {dlClass} -> dlClass) (\s@LoRaWANMulticast' {} a -> s {dlClass = a} :: LoRaWANMulticast)
 
+-- | Undocumented member.
+loRaWANMulticast_rfRegion :: Lens.Lens' LoRaWANMulticast (Prelude.Maybe SupportedRfRegion)
+loRaWANMulticast_rfRegion = Lens.lens (\LoRaWANMulticast' {rfRegion} -> rfRegion) (\s@LoRaWANMulticast' {} a -> s {rfRegion = a} :: LoRaWANMulticast)
+
 instance Prelude.Hashable LoRaWANMulticast where
   hashWithSalt _salt LoRaWANMulticast' {..} =
-    _salt `Prelude.hashWithSalt` rfRegion
-      `Prelude.hashWithSalt` dlClass
+    _salt `Prelude.hashWithSalt` dlClass
+      `Prelude.hashWithSalt` rfRegion
 
 instance Prelude.NFData LoRaWANMulticast where
   rnf LoRaWANMulticast' {..} =
-    Prelude.rnf rfRegion
-      `Prelude.seq` Prelude.rnf dlClass
+    Prelude.rnf dlClass
+      `Prelude.seq` Prelude.rnf rfRegion
 
 instance Data.ToJSON LoRaWANMulticast where
   toJSON LoRaWANMulticast' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RfRegion" Data..=) Prelude.<$> rfRegion,
-            ("DlClass" Data..=) Prelude.<$> dlClass
+          [ ("DlClass" Data..=) Prelude.<$> dlClass,
+            ("RfRegion" Data..=) Prelude.<$> rfRegion
           ]
       )

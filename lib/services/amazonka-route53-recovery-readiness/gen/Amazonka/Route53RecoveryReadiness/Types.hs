@@ -19,9 +19,9 @@ module Amazonka.Route53RecoveryReadiness.Types
 
     -- * Errors
     _AccessDeniedException,
+    _ConflictException,
     _InternalServerException,
     _ResourceNotFoundException,
-    _ConflictException,
     _ThrottlingException,
     _ValidationException,
 
@@ -40,11 +40,11 @@ module Amazonka.Route53RecoveryReadiness.Types
     -- * DNSTargetResource
     DNSTargetResource (..),
     newDNSTargetResource,
-    dNSTargetResource_targetResource,
-    dNSTargetResource_hostedZoneArn,
     dNSTargetResource_domainName,
+    dNSTargetResource_hostedZoneArn,
     dNSTargetResource_recordSetId,
     dNSTargetResource_recordType,
+    dNSTargetResource_targetResource,
 
     -- * ListRulesOutput
     ListRulesOutput (..),
@@ -72,8 +72,8 @@ module Amazonka.Route53RecoveryReadiness.Types
     -- * ReadinessCheckOutput
     ReadinessCheckOutput (..),
     newReadinessCheckOutput,
-    readinessCheckOutput_tags,
     readinessCheckOutput_readinessCheckName,
+    readinessCheckOutput_tags,
     readinessCheckOutput_readinessCheckArn,
     readinessCheckOutput_resourceSet,
 
@@ -99,16 +99,16 @@ module Amazonka.Route53RecoveryReadiness.Types
     -- * Resource
     Resource (..),
     newResource,
-    resource_readinessScopes,
-    resource_dnsTargetResource,
-    resource_resourceArn,
     resource_componentId,
+    resource_dnsTargetResource,
+    resource_readinessScopes,
+    resource_resourceArn,
 
     -- * ResourceResult
     ResourceResult (..),
     newResourceResult,
-    resourceResult_resourceArn,
     resourceResult_componentId,
+    resourceResult_resourceArn,
     resourceResult_readiness,
     resourceResult_lastCheckedTimestamp,
 
@@ -185,28 +185,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -214,13 +208,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -228,6 +226,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | User does not have sufficient access to perform this action.
@@ -237,6 +237,14 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
+
+-- | Updating or deleting a resource can cause an inconsistent state.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | An unexpected error occurred.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -253,14 +261,6 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
-
--- | Updating or deleting a resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | Request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

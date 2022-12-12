@@ -22,7 +22,8 @@ module Amazonka.KMS.Types.OriginType
       ( ..,
         OriginType_AWS_CLOUDHSM,
         OriginType_AWS_KMS,
-        OriginType_EXTERNAL
+        OriginType_EXTERNAL,
+        OriginType_EXTERNAL_KEY_STORE
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern OriginType_AWS_KMS = OriginType' "AWS_KMS"
 pattern OriginType_EXTERNAL :: OriginType
 pattern OriginType_EXTERNAL = OriginType' "EXTERNAL"
 
+pattern OriginType_EXTERNAL_KEY_STORE :: OriginType
+pattern OriginType_EXTERNAL_KEY_STORE = OriginType' "EXTERNAL_KEY_STORE"
+
 {-# COMPLETE
   OriginType_AWS_CLOUDHSM,
   OriginType_AWS_KMS,
   OriginType_EXTERNAL,
+  OriginType_EXTERNAL_KEY_STORE,
   OriginType'
   #-}

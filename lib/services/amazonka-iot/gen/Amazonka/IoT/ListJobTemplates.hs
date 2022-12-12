@@ -33,16 +33,16 @@ module Amazonka.IoT.ListJobTemplates
     newListJobTemplates,
 
     -- * Request Lenses
-    listJobTemplates_nextToken,
     listJobTemplates_maxResults,
+    listJobTemplates_nextToken,
 
     -- * Destructuring the Response
     ListJobTemplatesResponse (..),
     newListJobTemplatesResponse,
 
     -- * Response Lenses
-    listJobTemplatesResponse_nextToken,
     listJobTemplatesResponse_jobTemplates,
+    listJobTemplatesResponse_nextToken,
     listJobTemplatesResponse_httpStatus,
   )
 where
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJobTemplates' smart constructor.
 data ListJobTemplates = ListJobTemplates'
-  { -- | The token to use to return the next set of results in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return in the list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to return the next set of results in the list.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,24 +72,24 @@ data ListJobTemplates = ListJobTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listJobTemplates_nextToken' - The token to use to return the next set of results in the list.
---
 -- 'maxResults', 'listJobTemplates_maxResults' - The maximum number of results to return in the list.
+--
+-- 'nextToken', 'listJobTemplates_nextToken' - The token to use to return the next set of results in the list.
 newListJobTemplates ::
   ListJobTemplates
 newListJobTemplates =
   ListJobTemplates'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to use to return the next set of results in the list.
-listJobTemplates_nextToken :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.Text)
-listJobTemplates_nextToken = Lens.lens (\ListJobTemplates' {nextToken} -> nextToken) (\s@ListJobTemplates' {} a -> s {nextToken = a} :: ListJobTemplates)
 
 -- | The maximum number of results to return in the list.
 listJobTemplates_maxResults :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.Natural)
 listJobTemplates_maxResults = Lens.lens (\ListJobTemplates' {maxResults} -> maxResults) (\s@ListJobTemplates' {} a -> s {maxResults = a} :: ListJobTemplates)
+
+-- | The token to use to return the next set of results in the list.
+listJobTemplates_nextToken :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.Text)
+listJobTemplates_nextToken = Lens.lens (\ListJobTemplates' {nextToken} -> nextToken) (\s@ListJobTemplates' {} a -> s {nextToken = a} :: ListJobTemplates)
 
 instance Core.AWSPager ListJobTemplates where
   page rq rs
@@ -123,20 +123,20 @@ instance Core.AWSRequest ListJobTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListJobTemplatesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "jobTemplates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "jobTemplates" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListJobTemplates where
   hashWithSalt _salt ListJobTemplates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListJobTemplates where
   rnf ListJobTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListJobTemplates where
   toHeaders = Prelude.const Prelude.mempty
@@ -147,17 +147,17 @@ instance Data.ToPath ListJobTemplates where
 instance Data.ToQuery ListJobTemplates where
   toQuery ListJobTemplates' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListJobTemplatesResponse' smart constructor.
 data ListJobTemplatesResponse = ListJobTemplatesResponse'
-  { -- | The token for the next set of results, or __null__ if there are no
+  { -- | A list of objects that contain information about the job templates.
+    jobTemplates :: Prelude.Maybe [JobTemplateSummary],
+    -- | The token for the next set of results, or __null__ if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of objects that contain information about the job templates.
-    jobTemplates :: Prelude.Maybe [JobTemplateSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,10 +171,10 @@ data ListJobTemplatesResponse = ListJobTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobTemplates', 'listJobTemplatesResponse_jobTemplates' - A list of objects that contain information about the job templates.
+--
 -- 'nextToken', 'listJobTemplatesResponse_nextToken' - The token for the next set of results, or __null__ if there are no
 -- additional results.
---
--- 'jobTemplates', 'listJobTemplatesResponse_jobTemplates' - A list of objects that contain information about the job templates.
 --
 -- 'httpStatus', 'listJobTemplatesResponse_httpStatus' - The response's http status code.
 newListJobTemplatesResponse ::
@@ -183,20 +183,20 @@ newListJobTemplatesResponse ::
   ListJobTemplatesResponse
 newListJobTemplatesResponse pHttpStatus_ =
   ListJobTemplatesResponse'
-    { nextToken =
+    { jobTemplates =
         Prelude.Nothing,
-      jobTemplates = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of objects that contain information about the job templates.
+listJobTemplatesResponse_jobTemplates :: Lens.Lens' ListJobTemplatesResponse (Prelude.Maybe [JobTemplateSummary])
+listJobTemplatesResponse_jobTemplates = Lens.lens (\ListJobTemplatesResponse' {jobTemplates} -> jobTemplates) (\s@ListJobTemplatesResponse' {} a -> s {jobTemplates = a} :: ListJobTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or __null__ if there are no
 -- additional results.
 listJobTemplatesResponse_nextToken :: Lens.Lens' ListJobTemplatesResponse (Prelude.Maybe Prelude.Text)
 listJobTemplatesResponse_nextToken = Lens.lens (\ListJobTemplatesResponse' {nextToken} -> nextToken) (\s@ListJobTemplatesResponse' {} a -> s {nextToken = a} :: ListJobTemplatesResponse)
-
--- | A list of objects that contain information about the job templates.
-listJobTemplatesResponse_jobTemplates :: Lens.Lens' ListJobTemplatesResponse (Prelude.Maybe [JobTemplateSummary])
-listJobTemplatesResponse_jobTemplates = Lens.lens (\ListJobTemplatesResponse' {jobTemplates} -> jobTemplates) (\s@ListJobTemplatesResponse' {} a -> s {jobTemplates = a} :: ListJobTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listJobTemplatesResponse_httpStatus :: Lens.Lens' ListJobTemplatesResponse Prelude.Int
@@ -204,6 +204,6 @@ listJobTemplatesResponse_httpStatus = Lens.lens (\ListJobTemplatesResponse' {htt
 
 instance Prelude.NFData ListJobTemplatesResponse where
   rnf ListJobTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobTemplates
+    Prelude.rnf jobTemplates
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

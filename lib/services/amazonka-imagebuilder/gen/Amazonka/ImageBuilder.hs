@@ -23,56 +23,56 @@ module Amazonka.ImageBuilder
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
+    -- ** CallRateLimitExceededException
+    _CallRateLimitExceededException,
 
     -- ** ClientException
     _ClientException,
 
-    -- ** ResourceDependencyException
-    _ResourceDependencyException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** InvalidVersionNumberException
-    _InvalidVersionNumberException,
-
-    -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InvalidParameterCombinationException
-    _InvalidParameterCombinationException,
-
-    -- ** CallRateLimitExceededException
-    _CallRateLimitExceededException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
     -- ** ForbiddenException
     _ForbiddenException,
-
-    -- ** ServiceException
-    _ServiceException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
 
     -- ** IdempotentParameterMismatchException
     _IdempotentParameterMismatchException,
 
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InvalidVersionNumberException
+    _InvalidVersionNumberException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceDependencyException
+    _ResourceDependencyException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- * Waiters
     -- $waiters

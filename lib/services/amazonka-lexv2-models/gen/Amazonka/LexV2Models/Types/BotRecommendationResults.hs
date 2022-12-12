@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBotRecommendationResults' smart constructor.
 data BotRecommendationResults = BotRecommendationResults'
-  { -- | The presigned URL link of the recommended bot definition.
+  { -- | The presigned url link of the associated transcript.
+    associatedTranscriptsUrl :: Prelude.Maybe Prelude.Text,
+    -- | The presigned URL link of the recommended bot definition.
     botLocaleExportUrl :: Prelude.Maybe Prelude.Text,
     -- | The statistical summary of the bot recommendation results.
-    statistics :: Prelude.Maybe BotRecommendationResultStatistics,
-    -- | The presigned url link of the associated transcript.
-    associatedTranscriptsUrl :: Prelude.Maybe Prelude.Text
+    statistics :: Prelude.Maybe BotRecommendationResultStatistics
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,24 @@ data BotRecommendationResults = BotRecommendationResults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'associatedTranscriptsUrl', 'botRecommendationResults_associatedTranscriptsUrl' - The presigned url link of the associated transcript.
+--
 -- 'botLocaleExportUrl', 'botRecommendationResults_botLocaleExportUrl' - The presigned URL link of the recommended bot definition.
 --
 -- 'statistics', 'botRecommendationResults_statistics' - The statistical summary of the bot recommendation results.
---
--- 'associatedTranscriptsUrl', 'botRecommendationResults_associatedTranscriptsUrl' - The presigned url link of the associated transcript.
 newBotRecommendationResults ::
   BotRecommendationResults
 newBotRecommendationResults =
   BotRecommendationResults'
-    { botLocaleExportUrl =
+    { associatedTranscriptsUrl =
         Prelude.Nothing,
-      statistics = Prelude.Nothing,
-      associatedTranscriptsUrl = Prelude.Nothing
+      botLocaleExportUrl = Prelude.Nothing,
+      statistics = Prelude.Nothing
     }
+
+-- | The presigned url link of the associated transcript.
+botRecommendationResults_associatedTranscriptsUrl :: Lens.Lens' BotRecommendationResults (Prelude.Maybe Prelude.Text)
+botRecommendationResults_associatedTranscriptsUrl = Lens.lens (\BotRecommendationResults' {associatedTranscriptsUrl} -> associatedTranscriptsUrl) (\s@BotRecommendationResults' {} a -> s {associatedTranscriptsUrl = a} :: BotRecommendationResults)
 
 -- | The presigned URL link of the recommended bot definition.
 botRecommendationResults_botLocaleExportUrl :: Lens.Lens' BotRecommendationResults (Prelude.Maybe Prelude.Text)
@@ -71,29 +75,26 @@ botRecommendationResults_botLocaleExportUrl = Lens.lens (\BotRecommendationResul
 botRecommendationResults_statistics :: Lens.Lens' BotRecommendationResults (Prelude.Maybe BotRecommendationResultStatistics)
 botRecommendationResults_statistics = Lens.lens (\BotRecommendationResults' {statistics} -> statistics) (\s@BotRecommendationResults' {} a -> s {statistics = a} :: BotRecommendationResults)
 
--- | The presigned url link of the associated transcript.
-botRecommendationResults_associatedTranscriptsUrl :: Lens.Lens' BotRecommendationResults (Prelude.Maybe Prelude.Text)
-botRecommendationResults_associatedTranscriptsUrl = Lens.lens (\BotRecommendationResults' {associatedTranscriptsUrl} -> associatedTranscriptsUrl) (\s@BotRecommendationResults' {} a -> s {associatedTranscriptsUrl = a} :: BotRecommendationResults)
-
 instance Data.FromJSON BotRecommendationResults where
   parseJSON =
     Data.withObject
       "BotRecommendationResults"
       ( \x ->
           BotRecommendationResults'
-            Prelude.<$> (x Data..:? "botLocaleExportUrl")
+            Prelude.<$> (x Data..:? "associatedTranscriptsUrl")
+            Prelude.<*> (x Data..:? "botLocaleExportUrl")
             Prelude.<*> (x Data..:? "statistics")
-            Prelude.<*> (x Data..:? "associatedTranscriptsUrl")
       )
 
 instance Prelude.Hashable BotRecommendationResults where
   hashWithSalt _salt BotRecommendationResults' {..} =
-    _salt `Prelude.hashWithSalt` botLocaleExportUrl
-      `Prelude.hashWithSalt` statistics
+    _salt
       `Prelude.hashWithSalt` associatedTranscriptsUrl
+      `Prelude.hashWithSalt` botLocaleExportUrl
+      `Prelude.hashWithSalt` statistics
 
 instance Prelude.NFData BotRecommendationResults where
   rnf BotRecommendationResults' {..} =
-    Prelude.rnf botLocaleExportUrl
+    Prelude.rnf associatedTranscriptsUrl
+      `Prelude.seq` Prelude.rnf botLocaleExportUrl
       `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf associatedTranscriptsUrl

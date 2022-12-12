@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data CodeSigning = CodeSigning'
   { -- | The ID of the @AWSSignerJob@ which was created to sign the file.
     awsSignerJobId :: Prelude.Maybe Prelude.Text,
-    -- | Describes the code-signing job.
-    startSigningJobParameter :: Prelude.Maybe StartSigningJobParameter,
     -- | A custom method for code signing a file.
-    customCodeSigning :: Prelude.Maybe CustomCodeSigning
+    customCodeSigning :: Prelude.Maybe CustomCodeSigning,
+    -- | Describes the code-signing job.
+    startSigningJobParameter :: Prelude.Maybe StartSigningJobParameter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,29 @@ data CodeSigning = CodeSigning'
 --
 -- 'awsSignerJobId', 'codeSigning_awsSignerJobId' - The ID of the @AWSSignerJob@ which was created to sign the file.
 --
--- 'startSigningJobParameter', 'codeSigning_startSigningJobParameter' - Describes the code-signing job.
---
 -- 'customCodeSigning', 'codeSigning_customCodeSigning' - A custom method for code signing a file.
+--
+-- 'startSigningJobParameter', 'codeSigning_startSigningJobParameter' - Describes the code-signing job.
 newCodeSigning ::
   CodeSigning
 newCodeSigning =
   CodeSigning'
     { awsSignerJobId = Prelude.Nothing,
-      startSigningJobParameter = Prelude.Nothing,
-      customCodeSigning = Prelude.Nothing
+      customCodeSigning = Prelude.Nothing,
+      startSigningJobParameter = Prelude.Nothing
     }
 
 -- | The ID of the @AWSSignerJob@ which was created to sign the file.
 codeSigning_awsSignerJobId :: Lens.Lens' CodeSigning (Prelude.Maybe Prelude.Text)
 codeSigning_awsSignerJobId = Lens.lens (\CodeSigning' {awsSignerJobId} -> awsSignerJobId) (\s@CodeSigning' {} a -> s {awsSignerJobId = a} :: CodeSigning)
 
--- | Describes the code-signing job.
-codeSigning_startSigningJobParameter :: Lens.Lens' CodeSigning (Prelude.Maybe StartSigningJobParameter)
-codeSigning_startSigningJobParameter = Lens.lens (\CodeSigning' {startSigningJobParameter} -> startSigningJobParameter) (\s@CodeSigning' {} a -> s {startSigningJobParameter = a} :: CodeSigning)
-
 -- | A custom method for code signing a file.
 codeSigning_customCodeSigning :: Lens.Lens' CodeSigning (Prelude.Maybe CustomCodeSigning)
 codeSigning_customCodeSigning = Lens.lens (\CodeSigning' {customCodeSigning} -> customCodeSigning) (\s@CodeSigning' {} a -> s {customCodeSigning = a} :: CodeSigning)
+
+-- | Describes the code-signing job.
+codeSigning_startSigningJobParameter :: Lens.Lens' CodeSigning (Prelude.Maybe StartSigningJobParameter)
+codeSigning_startSigningJobParameter = Lens.lens (\CodeSigning' {startSigningJobParameter} -> startSigningJobParameter) (\s@CodeSigning' {} a -> s {startSigningJobParameter = a} :: CodeSigning)
 
 instance Data.FromJSON CodeSigning where
   parseJSON =
@@ -80,21 +80,21 @@ instance Data.FromJSON CodeSigning where
       ( \x ->
           CodeSigning'
             Prelude.<$> (x Data..:? "awsSignerJobId")
-            Prelude.<*> (x Data..:? "startSigningJobParameter")
             Prelude.<*> (x Data..:? "customCodeSigning")
+            Prelude.<*> (x Data..:? "startSigningJobParameter")
       )
 
 instance Prelude.Hashable CodeSigning where
   hashWithSalt _salt CodeSigning' {..} =
     _salt `Prelude.hashWithSalt` awsSignerJobId
-      `Prelude.hashWithSalt` startSigningJobParameter
       `Prelude.hashWithSalt` customCodeSigning
+      `Prelude.hashWithSalt` startSigningJobParameter
 
 instance Prelude.NFData CodeSigning where
   rnf CodeSigning' {..} =
     Prelude.rnf awsSignerJobId
-      `Prelude.seq` Prelude.rnf startSigningJobParameter
       `Prelude.seq` Prelude.rnf customCodeSigning
+      `Prelude.seq` Prelude.rnf startSigningJobParameter
 
 instance Data.ToJSON CodeSigning where
   toJSON CodeSigning' {..} =
@@ -102,9 +102,9 @@ instance Data.ToJSON CodeSigning where
       ( Prelude.catMaybes
           [ ("awsSignerJobId" Data..=)
               Prelude.<$> awsSignerJobId,
-            ("startSigningJobParameter" Data..=)
-              Prelude.<$> startSigningJobParameter,
             ("customCodeSigning" Data..=)
-              Prelude.<$> customCodeSigning
+              Prelude.<$> customCodeSigning,
+            ("startSigningJobParameter" Data..=)
+              Prelude.<$> startSigningJobParameter
           ]
       )

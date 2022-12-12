@@ -80,6 +80,11 @@ library
     Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry
     Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails
     Amazonka.DataExchange.Types.Code
+    Amazonka.DataExchange.Types.CreateS3DataAccessFromS3BucketRequestDetails
+    Amazonka.DataExchange.Types.CreateS3DataAccessFromS3BucketResponseDetails
+    Amazonka.DataExchange.Types.DatabaseLFTagPolicy
+    Amazonka.DataExchange.Types.DatabaseLFTagPolicyAndPermissions
+    Amazonka.DataExchange.Types.DatabaseLFTagPolicyPermission
     Amazonka.DataExchange.Types.DataSetEntry
     Amazonka.DataExchange.Types.Details
     Amazonka.DataExchange.Types.Event
@@ -96,6 +101,8 @@ library
     Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
     Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
     Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
+    Amazonka.DataExchange.Types.ImportAssetsFromLakeFormationTagPolicyRequestDetails
+    Amazonka.DataExchange.Types.ImportAssetsFromLakeFormationTagPolicyResponseDetails
     Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
     Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
     Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
@@ -104,6 +111,14 @@ library
     Amazonka.DataExchange.Types.JobError
     Amazonka.DataExchange.Types.JobErrorLimitName
     Amazonka.DataExchange.Types.JobErrorResourceTypes
+    Amazonka.DataExchange.Types.LakeFormationDataPermissionAsset
+    Amazonka.DataExchange.Types.LakeFormationDataPermissionDetails
+    Amazonka.DataExchange.Types.LakeFormationDataPermissionType
+    Amazonka.DataExchange.Types.LFPermission
+    Amazonka.DataExchange.Types.LFResourceDetails
+    Amazonka.DataExchange.Types.LFResourceType
+    Amazonka.DataExchange.Types.LFTag
+    Amazonka.DataExchange.Types.LFTagPolicyDetails
     Amazonka.DataExchange.Types.Origin
     Amazonka.DataExchange.Types.OriginDetails
     Amazonka.DataExchange.Types.ProtocolType
@@ -114,9 +129,14 @@ library
     Amazonka.DataExchange.Types.RevisionDestinationEntry
     Amazonka.DataExchange.Types.RevisionEntry
     Amazonka.DataExchange.Types.RevisionPublished
+    Amazonka.DataExchange.Types.S3DataAccessAsset
+    Amazonka.DataExchange.Types.S3DataAccessAssetSourceEntry
     Amazonka.DataExchange.Types.S3SnapshotAsset
     Amazonka.DataExchange.Types.ServerSideEncryptionTypes
     Amazonka.DataExchange.Types.State
+    Amazonka.DataExchange.Types.TableLFTagPolicy
+    Amazonka.DataExchange.Types.TableLFTagPolicyAndPermissions
+    Amazonka.DataExchange.Types.TableTagPolicyLFPermission
     Amazonka.DataExchange.Types.Type
     Amazonka.DataExchange.UntagResource
     Amazonka.DataExchange.UpdateAsset

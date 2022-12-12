@@ -50,17 +50,17 @@ module Amazonka.Forecast.DescribeMonitor
     newDescribeMonitorResponse,
 
     -- * Response Lenses
+    describeMonitorResponse_baseline,
+    describeMonitorResponse_creationTime,
+    describeMonitorResponse_estimatedEvaluationTimeRemainingInMinutes,
+    describeMonitorResponse_lastEvaluationState,
+    describeMonitorResponse_lastEvaluationTime,
     describeMonitorResponse_lastModificationTime,
     describeMonitorResponse_message,
     describeMonitorResponse_monitorArn,
-    describeMonitorResponse_baseline,
-    describeMonitorResponse_status,
-    describeMonitorResponse_estimatedEvaluationTimeRemainingInMinutes,
-    describeMonitorResponse_lastEvaluationTime,
-    describeMonitorResponse_lastEvaluationState,
     describeMonitorResponse_monitorName,
-    describeMonitorResponse_creationTime,
     describeMonitorResponse_resourceArn,
+    describeMonitorResponse_status,
     describeMonitorResponse_httpStatus,
   )
 where
@@ -110,19 +110,19 @@ instance Core.AWSRequest DescribeMonitor where
     Response.receiveJSON
       ( \s h x ->
           DescribeMonitorResponse'
-            Prelude.<$> (x Data..?> "LastModificationTime")
-            Prelude.<*> (x Data..?> "Message")
-            Prelude.<*> (x Data..?> "MonitorArn")
-            Prelude.<*> (x Data..?> "Baseline")
-            Prelude.<*> (x Data..?> "Status")
+            Prelude.<$> (x Data..?> "Baseline")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> ( x
                             Data..?> "EstimatedEvaluationTimeRemainingInMinutes"
                         )
-            Prelude.<*> (x Data..?> "LastEvaluationTime")
             Prelude.<*> (x Data..?> "LastEvaluationState")
+            Prelude.<*> (x Data..?> "LastEvaluationTime")
+            Prelude.<*> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "MonitorArn")
             Prelude.<*> (x Data..?> "MonitorName")
-            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,30 +163,30 @@ instance Data.ToQuery DescribeMonitor where
 
 -- | /See:/ 'newDescribeMonitorResponse' smart constructor.
 data DescribeMonitorResponse = DescribeMonitorResponse'
-  { -- | The timestamp of the latest modification to the monitor.
+  { -- | Metrics you can use as a baseline for comparison purposes. Use these
+    -- values you interpret monitoring results for an auto predictor.
+    baseline :: Prelude.Maybe Baseline,
+    -- | The timestamp for when the monitor resource was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The estimated number of minutes remaining before the monitor resource
+    -- finishes its current evaluation.
+    estimatedEvaluationTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | The state of the monitor\'s latest evaluation.
+    lastEvaluationState :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of the latest evaluation completed by the monitor.
+    lastEvaluationTime :: Prelude.Maybe Data.POSIX,
+    -- | The timestamp of the latest modification to the monitor.
     lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | An error message, if any, for the monitor.
     message :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the monitor resource described.
     monitorArn :: Prelude.Maybe Prelude.Text,
-    -- | Metrics you can use as a baseline for comparison purposes. Use these
-    -- values you interpret monitoring results for an auto predictor.
-    baseline :: Prelude.Maybe Baseline,
-    -- | The status of the monitor resource.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The estimated number of minutes remaining before the monitor resource
-    -- finishes its current evaluation.
-    estimatedEvaluationTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
-    -- | The timestamp of the latest evaluation completed by the monitor.
-    lastEvaluationTime :: Prelude.Maybe Data.POSIX,
-    -- | The state of the monitor\'s latest evaluation.
-    lastEvaluationState :: Prelude.Maybe Prelude.Text,
     -- | The name of the monitor.
     monitorName :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp for when the monitor resource was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the auto predictor being monitored.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the monitor resource.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,29 +200,29 @@ data DescribeMonitorResponse = DescribeMonitorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'baseline', 'describeMonitorResponse_baseline' - Metrics you can use as a baseline for comparison purposes. Use these
+-- values you interpret monitoring results for an auto predictor.
+--
+-- 'creationTime', 'describeMonitorResponse_creationTime' - The timestamp for when the monitor resource was created.
+--
+-- 'estimatedEvaluationTimeRemainingInMinutes', 'describeMonitorResponse_estimatedEvaluationTimeRemainingInMinutes' - The estimated number of minutes remaining before the monitor resource
+-- finishes its current evaluation.
+--
+-- 'lastEvaluationState', 'describeMonitorResponse_lastEvaluationState' - The state of the monitor\'s latest evaluation.
+--
+-- 'lastEvaluationTime', 'describeMonitorResponse_lastEvaluationTime' - The timestamp of the latest evaluation completed by the monitor.
+--
 -- 'lastModificationTime', 'describeMonitorResponse_lastModificationTime' - The timestamp of the latest modification to the monitor.
 --
 -- 'message', 'describeMonitorResponse_message' - An error message, if any, for the monitor.
 --
 -- 'monitorArn', 'describeMonitorResponse_monitorArn' - The Amazon Resource Name (ARN) of the monitor resource described.
 --
--- 'baseline', 'describeMonitorResponse_baseline' - Metrics you can use as a baseline for comparison purposes. Use these
--- values you interpret monitoring results for an auto predictor.
---
--- 'status', 'describeMonitorResponse_status' - The status of the monitor resource.
---
--- 'estimatedEvaluationTimeRemainingInMinutes', 'describeMonitorResponse_estimatedEvaluationTimeRemainingInMinutes' - The estimated number of minutes remaining before the monitor resource
--- finishes its current evaluation.
---
--- 'lastEvaluationTime', 'describeMonitorResponse_lastEvaluationTime' - The timestamp of the latest evaluation completed by the monitor.
---
--- 'lastEvaluationState', 'describeMonitorResponse_lastEvaluationState' - The state of the monitor\'s latest evaluation.
---
 -- 'monitorName', 'describeMonitorResponse_monitorName' - The name of the monitor.
 --
--- 'creationTime', 'describeMonitorResponse_creationTime' - The timestamp for when the monitor resource was created.
---
 -- 'resourceArn', 'describeMonitorResponse_resourceArn' - The Amazon Resource Name (ARN) of the auto predictor being monitored.
+--
+-- 'status', 'describeMonitorResponse_status' - The status of the monitor resource.
 --
 -- 'httpStatus', 'describeMonitorResponse_httpStatus' - The response's http status code.
 newDescribeMonitorResponse ::
@@ -231,21 +231,43 @@ newDescribeMonitorResponse ::
   DescribeMonitorResponse
 newDescribeMonitorResponse pHttpStatus_ =
   DescribeMonitorResponse'
-    { lastModificationTime =
+    { baseline =
         Prelude.Nothing,
-      message = Prelude.Nothing,
-      monitorArn = Prelude.Nothing,
-      baseline = Prelude.Nothing,
-      status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       estimatedEvaluationTimeRemainingInMinutes =
         Prelude.Nothing,
-      lastEvaluationTime = Prelude.Nothing,
       lastEvaluationState = Prelude.Nothing,
+      lastEvaluationTime = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
+      message = Prelude.Nothing,
+      monitorArn = Prelude.Nothing,
       monitorName = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Metrics you can use as a baseline for comparison purposes. Use these
+-- values you interpret monitoring results for an auto predictor.
+describeMonitorResponse_baseline :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Baseline)
+describeMonitorResponse_baseline = Lens.lens (\DescribeMonitorResponse' {baseline} -> baseline) (\s@DescribeMonitorResponse' {} a -> s {baseline = a} :: DescribeMonitorResponse)
+
+-- | The timestamp for when the monitor resource was created.
+describeMonitorResponse_creationTime :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.UTCTime)
+describeMonitorResponse_creationTime = Lens.lens (\DescribeMonitorResponse' {creationTime} -> creationTime) (\s@DescribeMonitorResponse' {} a -> s {creationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The estimated number of minutes remaining before the monitor resource
+-- finishes its current evaluation.
+describeMonitorResponse_estimatedEvaluationTimeRemainingInMinutes :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Integer)
+describeMonitorResponse_estimatedEvaluationTimeRemainingInMinutes = Lens.lens (\DescribeMonitorResponse' {estimatedEvaluationTimeRemainingInMinutes} -> estimatedEvaluationTimeRemainingInMinutes) (\s@DescribeMonitorResponse' {} a -> s {estimatedEvaluationTimeRemainingInMinutes = a} :: DescribeMonitorResponse)
+
+-- | The state of the monitor\'s latest evaluation.
+describeMonitorResponse_lastEvaluationState :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)
+describeMonitorResponse_lastEvaluationState = Lens.lens (\DescribeMonitorResponse' {lastEvaluationState} -> lastEvaluationState) (\s@DescribeMonitorResponse' {} a -> s {lastEvaluationState = a} :: DescribeMonitorResponse)
+
+-- | The timestamp of the latest evaluation completed by the monitor.
+describeMonitorResponse_lastEvaluationTime :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.UTCTime)
+describeMonitorResponse_lastEvaluationTime = Lens.lens (\DescribeMonitorResponse' {lastEvaluationTime} -> lastEvaluationTime) (\s@DescribeMonitorResponse' {} a -> s {lastEvaluationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the latest modification to the monitor.
 describeMonitorResponse_lastModificationTime :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.UTCTime)
@@ -259,39 +281,17 @@ describeMonitorResponse_message = Lens.lens (\DescribeMonitorResponse' {message}
 describeMonitorResponse_monitorArn :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)
 describeMonitorResponse_monitorArn = Lens.lens (\DescribeMonitorResponse' {monitorArn} -> monitorArn) (\s@DescribeMonitorResponse' {} a -> s {monitorArn = a} :: DescribeMonitorResponse)
 
--- | Metrics you can use as a baseline for comparison purposes. Use these
--- values you interpret monitoring results for an auto predictor.
-describeMonitorResponse_baseline :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Baseline)
-describeMonitorResponse_baseline = Lens.lens (\DescribeMonitorResponse' {baseline} -> baseline) (\s@DescribeMonitorResponse' {} a -> s {baseline = a} :: DescribeMonitorResponse)
-
--- | The status of the monitor resource.
-describeMonitorResponse_status :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)
-describeMonitorResponse_status = Lens.lens (\DescribeMonitorResponse' {status} -> status) (\s@DescribeMonitorResponse' {} a -> s {status = a} :: DescribeMonitorResponse)
-
--- | The estimated number of minutes remaining before the monitor resource
--- finishes its current evaluation.
-describeMonitorResponse_estimatedEvaluationTimeRemainingInMinutes :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Integer)
-describeMonitorResponse_estimatedEvaluationTimeRemainingInMinutes = Lens.lens (\DescribeMonitorResponse' {estimatedEvaluationTimeRemainingInMinutes} -> estimatedEvaluationTimeRemainingInMinutes) (\s@DescribeMonitorResponse' {} a -> s {estimatedEvaluationTimeRemainingInMinutes = a} :: DescribeMonitorResponse)
-
--- | The timestamp of the latest evaluation completed by the monitor.
-describeMonitorResponse_lastEvaluationTime :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.UTCTime)
-describeMonitorResponse_lastEvaluationTime = Lens.lens (\DescribeMonitorResponse' {lastEvaluationTime} -> lastEvaluationTime) (\s@DescribeMonitorResponse' {} a -> s {lastEvaluationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Data._Time
-
--- | The state of the monitor\'s latest evaluation.
-describeMonitorResponse_lastEvaluationState :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)
-describeMonitorResponse_lastEvaluationState = Lens.lens (\DescribeMonitorResponse' {lastEvaluationState} -> lastEvaluationState) (\s@DescribeMonitorResponse' {} a -> s {lastEvaluationState = a} :: DescribeMonitorResponse)
-
 -- | The name of the monitor.
 describeMonitorResponse_monitorName :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)
 describeMonitorResponse_monitorName = Lens.lens (\DescribeMonitorResponse' {monitorName} -> monitorName) (\s@DescribeMonitorResponse' {} a -> s {monitorName = a} :: DescribeMonitorResponse)
 
--- | The timestamp for when the monitor resource was created.
-describeMonitorResponse_creationTime :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.UTCTime)
-describeMonitorResponse_creationTime = Lens.lens (\DescribeMonitorResponse' {creationTime} -> creationTime) (\s@DescribeMonitorResponse' {} a -> s {creationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The Amazon Resource Name (ARN) of the auto predictor being monitored.
 describeMonitorResponse_resourceArn :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)
 describeMonitorResponse_resourceArn = Lens.lens (\DescribeMonitorResponse' {resourceArn} -> resourceArn) (\s@DescribeMonitorResponse' {} a -> s {resourceArn = a} :: DescribeMonitorResponse)
+
+-- | The status of the monitor resource.
+describeMonitorResponse_status :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)
+describeMonitorResponse_status = Lens.lens (\DescribeMonitorResponse' {status} -> status) (\s@DescribeMonitorResponse' {} a -> s {status = a} :: DescribeMonitorResponse)
 
 -- | The response's http status code.
 describeMonitorResponse_httpStatus :: Lens.Lens' DescribeMonitorResponse Prelude.Int
@@ -299,15 +299,15 @@ describeMonitorResponse_httpStatus = Lens.lens (\DescribeMonitorResponse' {httpS
 
 instance Prelude.NFData DescribeMonitorResponse where
   rnf DescribeMonitorResponse' {..} =
-    Prelude.rnf lastModificationTime
+    Prelude.rnf baseline
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf estimatedEvaluationTimeRemainingInMinutes
+      `Prelude.seq` Prelude.rnf lastEvaluationState
+      `Prelude.seq` Prelude.rnf lastEvaluationTime
+      `Prelude.seq` Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf baseline
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf estimatedEvaluationTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf lastEvaluationTime
-      `Prelude.seq` Prelude.rnf lastEvaluationState
       `Prelude.seq` Prelude.rnf monitorName
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

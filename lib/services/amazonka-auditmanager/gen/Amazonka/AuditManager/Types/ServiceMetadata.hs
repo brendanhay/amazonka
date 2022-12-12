@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceMetadata' smart constructor.
 data ServiceMetadata = ServiceMetadata'
-  { -- | The name of the Amazon Web Service.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The display name of the Amazon Web Service.
-    displayName :: Prelude.Maybe Prelude.Text,
+  { -- | The category that the Amazon Web Service belongs to, such as compute,
+    -- storage, or database.
+    category :: Prelude.Maybe Prelude.Text,
     -- | The description of the Amazon Web Service.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The category that the Amazon Web Service belongs to, such as compute,
-    -- storage, or database.
-    category :: Prelude.Maybe Prelude.Text
+    -- | The display name of the Amazon Web Service.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon Web Service.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,40 +48,40 @@ data ServiceMetadata = ServiceMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'serviceMetadata_name' - The name of the Amazon Web Service.
---
--- 'displayName', 'serviceMetadata_displayName' - The display name of the Amazon Web Service.
+-- 'category', 'serviceMetadata_category' - The category that the Amazon Web Service belongs to, such as compute,
+-- storage, or database.
 --
 -- 'description', 'serviceMetadata_description' - The description of the Amazon Web Service.
 --
--- 'category', 'serviceMetadata_category' - The category that the Amazon Web Service belongs to, such as compute,
--- storage, or database.
+-- 'displayName', 'serviceMetadata_displayName' - The display name of the Amazon Web Service.
+--
+-- 'name', 'serviceMetadata_name' - The name of the Amazon Web Service.
 newServiceMetadata ::
   ServiceMetadata
 newServiceMetadata =
   ServiceMetadata'
-    { name = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+    { category = Prelude.Nothing,
       description = Prelude.Nothing,
-      category = Prelude.Nothing
+      displayName = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the Amazon Web Service.
-serviceMetadata_name :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
-serviceMetadata_name = Lens.lens (\ServiceMetadata' {name} -> name) (\s@ServiceMetadata' {} a -> s {name = a} :: ServiceMetadata)
-
--- | The display name of the Amazon Web Service.
-serviceMetadata_displayName :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
-serviceMetadata_displayName = Lens.lens (\ServiceMetadata' {displayName} -> displayName) (\s@ServiceMetadata' {} a -> s {displayName = a} :: ServiceMetadata)
-
--- | The description of the Amazon Web Service.
-serviceMetadata_description :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
-serviceMetadata_description = Lens.lens (\ServiceMetadata' {description} -> description) (\s@ServiceMetadata' {} a -> s {description = a} :: ServiceMetadata)
 
 -- | The category that the Amazon Web Service belongs to, such as compute,
 -- storage, or database.
 serviceMetadata_category :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
 serviceMetadata_category = Lens.lens (\ServiceMetadata' {category} -> category) (\s@ServiceMetadata' {} a -> s {category = a} :: ServiceMetadata)
+
+-- | The description of the Amazon Web Service.
+serviceMetadata_description :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
+serviceMetadata_description = Lens.lens (\ServiceMetadata' {description} -> description) (\s@ServiceMetadata' {} a -> s {description = a} :: ServiceMetadata)
+
+-- | The display name of the Amazon Web Service.
+serviceMetadata_displayName :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
+serviceMetadata_displayName = Lens.lens (\ServiceMetadata' {displayName} -> displayName) (\s@ServiceMetadata' {} a -> s {displayName = a} :: ServiceMetadata)
+
+-- | The name of the Amazon Web Service.
+serviceMetadata_name :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
+serviceMetadata_name = Lens.lens (\ServiceMetadata' {name} -> name) (\s@ServiceMetadata' {} a -> s {name = a} :: ServiceMetadata)
 
 instance Data.FromJSON ServiceMetadata where
   parseJSON =
@@ -89,22 +89,22 @@ instance Data.FromJSON ServiceMetadata where
       "ServiceMetadata"
       ( \x ->
           ServiceMetadata'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<$> (x Data..:? "category")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable ServiceMetadata where
   hashWithSalt _salt ServiceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` displayName
+    _salt `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ServiceMetadata where
   rnf ServiceMetadata' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf displayName
+    Prelude.rnf category
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf name

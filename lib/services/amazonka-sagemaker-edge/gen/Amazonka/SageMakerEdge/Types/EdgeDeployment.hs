@@ -32,15 +32,15 @@ import Amazonka.SageMakerEdge.Types.FailureHandlingPolicy
 --
 -- /See:/ 'newEdgeDeployment' smart constructor.
 data EdgeDeployment = EdgeDeployment'
-  { -- | The type of the deployment.
-    type' :: Prelude.Maybe DeploymentType,
+  { -- | Returns a list of Definition objects.
+    definitions :: Prelude.Maybe [Definition],
     -- | The name and unique ID of the deployment.
     deploymentName :: Prelude.Maybe Prelude.Text,
     -- | Determines whether to rollback to previous configuration if deployment
     -- fails.
     failureHandlingPolicy :: Prelude.Maybe FailureHandlingPolicy,
-    -- | Returns a list of Definition objects.
-    definitions :: Prelude.Maybe [Definition]
+    -- | The type of the deployment.
+    type' :: Prelude.Maybe DeploymentType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,27 +52,27 @@ data EdgeDeployment = EdgeDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'edgeDeployment_type' - The type of the deployment.
+-- 'definitions', 'edgeDeployment_definitions' - Returns a list of Definition objects.
 --
 -- 'deploymentName', 'edgeDeployment_deploymentName' - The name and unique ID of the deployment.
 --
 -- 'failureHandlingPolicy', 'edgeDeployment_failureHandlingPolicy' - Determines whether to rollback to previous configuration if deployment
 -- fails.
 --
--- 'definitions', 'edgeDeployment_definitions' - Returns a list of Definition objects.
+-- 'type'', 'edgeDeployment_type' - The type of the deployment.
 newEdgeDeployment ::
   EdgeDeployment
 newEdgeDeployment =
   EdgeDeployment'
-    { type' = Prelude.Nothing,
+    { definitions = Prelude.Nothing,
       deploymentName = Prelude.Nothing,
       failureHandlingPolicy = Prelude.Nothing,
-      definitions = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The type of the deployment.
-edgeDeployment_type :: Lens.Lens' EdgeDeployment (Prelude.Maybe DeploymentType)
-edgeDeployment_type = Lens.lens (\EdgeDeployment' {type'} -> type') (\s@EdgeDeployment' {} a -> s {type' = a} :: EdgeDeployment)
+-- | Returns a list of Definition objects.
+edgeDeployment_definitions :: Lens.Lens' EdgeDeployment (Prelude.Maybe [Definition])
+edgeDeployment_definitions = Lens.lens (\EdgeDeployment' {definitions} -> definitions) (\s@EdgeDeployment' {} a -> s {definitions = a} :: EdgeDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name and unique ID of the deployment.
 edgeDeployment_deploymentName :: Lens.Lens' EdgeDeployment (Prelude.Maybe Prelude.Text)
@@ -83,9 +83,9 @@ edgeDeployment_deploymentName = Lens.lens (\EdgeDeployment' {deploymentName} -> 
 edgeDeployment_failureHandlingPolicy :: Lens.Lens' EdgeDeployment (Prelude.Maybe FailureHandlingPolicy)
 edgeDeployment_failureHandlingPolicy = Lens.lens (\EdgeDeployment' {failureHandlingPolicy} -> failureHandlingPolicy) (\s@EdgeDeployment' {} a -> s {failureHandlingPolicy = a} :: EdgeDeployment)
 
--- | Returns a list of Definition objects.
-edgeDeployment_definitions :: Lens.Lens' EdgeDeployment (Prelude.Maybe [Definition])
-edgeDeployment_definitions = Lens.lens (\EdgeDeployment' {definitions} -> definitions) (\s@EdgeDeployment' {} a -> s {definitions = a} :: EdgeDeployment) Prelude.. Lens.mapping Lens.coerced
+-- | The type of the deployment.
+edgeDeployment_type :: Lens.Lens' EdgeDeployment (Prelude.Maybe DeploymentType)
+edgeDeployment_type = Lens.lens (\EdgeDeployment' {type'} -> type') (\s@EdgeDeployment' {} a -> s {type' = a} :: EdgeDeployment)
 
 instance Data.FromJSON EdgeDeployment where
   parseJSON =
@@ -93,22 +93,22 @@ instance Data.FromJSON EdgeDeployment where
       "EdgeDeployment"
       ( \x ->
           EdgeDeployment'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Definitions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "DeploymentName")
             Prelude.<*> (x Data..:? "FailureHandlingPolicy")
-            Prelude.<*> (x Data..:? "Definitions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable EdgeDeployment where
   hashWithSalt _salt EdgeDeployment' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` definitions
       `Prelude.hashWithSalt` deploymentName
       `Prelude.hashWithSalt` failureHandlingPolicy
-      `Prelude.hashWithSalt` definitions
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EdgeDeployment where
   rnf EdgeDeployment' {..} =
-    Prelude.rnf type'
+    Prelude.rnf definitions
       `Prelude.seq` Prelude.rnf deploymentName
       `Prelude.seq` Prelude.rnf failureHandlingPolicy
-      `Prelude.seq` Prelude.rnf definitions
+      `Prelude.seq` Prelude.rnf type'

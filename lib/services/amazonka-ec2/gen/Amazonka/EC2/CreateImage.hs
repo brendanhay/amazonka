@@ -53,8 +53,8 @@ module Amazonka.EC2.CreateImage
     createImage_blockDeviceMappings,
     createImage_description,
     createImage_dryRun,
-    createImage_tagSpecifications,
     createImage_noReboot,
+    createImage_tagSpecifications,
     createImage_instanceId,
     createImage_name,
 
@@ -89,6 +89,20 @@ data CreateImage = CreateImage'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | By default, when Amazon EC2 creates the new AMI, it reboots the instance
+    -- so that it can take snapshots of the attached volumes while data is at
+    -- rest, in order to ensure a consistent state. You can set the @NoReboot@
+    -- parameter to @true@ in the API request, or use the @--no-reboot@ option
+    -- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
+    -- instance.
+    --
+    -- If you choose to bypass the shutdown and reboot process by setting the
+    -- @NoReboot@ parameter to @true@ in the API request, or by using the
+    -- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
+    -- integrity of the created image.
+    --
+    -- Default: @false@ (follow standard reboot process)
+    noReboot :: Prelude.Maybe Prelude.Bool,
     -- | The tags to apply to the AMI and snapshots on creation. You can tag the
     -- AMI, the snapshots, or both.
     --
@@ -104,20 +118,6 @@ data CreateImage = CreateImage'
     -- To tag an AMI or snapshot after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | By default, when Amazon EC2 creates the new AMI, it reboots the instance
-    -- so that it can take snapshots of the attached volumes while data is at
-    -- rest, in order to ensure a consistent state. You can set the @NoReboot@
-    -- parameter to @true@ in the API request, or use the @--no-reboot@ option
-    -- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
-    -- instance.
-    --
-    -- If you choose to bypass the shutdown and reboot process by setting the
-    -- @NoReboot@ parameter to @true@ in the API request, or by using the
-    -- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
-    -- integrity of the created image.
-    --
-    -- Default: @false@ (follow standard reboot process)
-    noReboot :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
     instanceId :: Prelude.Text,
     -- | A name for the new image.
@@ -148,6 +148,20 @@ data CreateImage = CreateImage'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'noReboot', 'createImage_noReboot' - By default, when Amazon EC2 creates the new AMI, it reboots the instance
+-- so that it can take snapshots of the attached volumes while data is at
+-- rest, in order to ensure a consistent state. You can set the @NoReboot@
+-- parameter to @true@ in the API request, or use the @--no-reboot@ option
+-- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
+-- instance.
+--
+-- If you choose to bypass the shutdown and reboot process by setting the
+-- @NoReboot@ parameter to @true@ in the API request, or by using the
+-- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
+-- integrity of the created image.
+--
+-- Default: @false@ (follow standard reboot process)
+--
 -- 'tagSpecifications', 'createImage_tagSpecifications' - The tags to apply to the AMI and snapshots on creation. You can tag the
 -- AMI, the snapshots, or both.
 --
@@ -162,20 +176,6 @@ data CreateImage = CreateImage'
 --
 -- To tag an AMI or snapshot after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
---
--- 'noReboot', 'createImage_noReboot' - By default, when Amazon EC2 creates the new AMI, it reboots the instance
--- so that it can take snapshots of the attached volumes while data is at
--- rest, in order to ensure a consistent state. You can set the @NoReboot@
--- parameter to @true@ in the API request, or use the @--no-reboot@ option
--- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
--- instance.
---
--- If you choose to bypass the shutdown and reboot process by setting the
--- @NoReboot@ parameter to @true@ in the API request, or by using the
--- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
--- integrity of the created image.
---
--- Default: @false@ (follow standard reboot process)
 --
 -- 'instanceId', 'createImage_instanceId' - The ID of the instance.
 --
@@ -195,8 +195,8 @@ newCreateImage pInstanceId_ pName_ =
     { blockDeviceMappings = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
       noReboot = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       instanceId = pInstanceId_,
       name = pName_
     }
@@ -218,6 +218,22 @@ createImage_description = Lens.lens (\CreateImage' {description} -> description)
 createImage_dryRun :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Bool)
 createImage_dryRun = Lens.lens (\CreateImage' {dryRun} -> dryRun) (\s@CreateImage' {} a -> s {dryRun = a} :: CreateImage)
 
+-- | By default, when Amazon EC2 creates the new AMI, it reboots the instance
+-- so that it can take snapshots of the attached volumes while data is at
+-- rest, in order to ensure a consistent state. You can set the @NoReboot@
+-- parameter to @true@ in the API request, or use the @--no-reboot@ option
+-- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
+-- instance.
+--
+-- If you choose to bypass the shutdown and reboot process by setting the
+-- @NoReboot@ parameter to @true@ in the API request, or by using the
+-- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
+-- integrity of the created image.
+--
+-- Default: @false@ (follow standard reboot process)
+createImage_noReboot :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Bool)
+createImage_noReboot = Lens.lens (\CreateImage' {noReboot} -> noReboot) (\s@CreateImage' {} a -> s {noReboot = a} :: CreateImage)
+
 -- | The tags to apply to the AMI and snapshots on creation. You can tag the
 -- AMI, the snapshots, or both.
 --
@@ -234,22 +250,6 @@ createImage_dryRun = Lens.lens (\CreateImage' {dryRun} -> dryRun) (\s@CreateImag
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
 createImage_tagSpecifications :: Lens.Lens' CreateImage (Prelude.Maybe [TagSpecification])
 createImage_tagSpecifications = Lens.lens (\CreateImage' {tagSpecifications} -> tagSpecifications) (\s@CreateImage' {} a -> s {tagSpecifications = a} :: CreateImage) Prelude.. Lens.mapping Lens.coerced
-
--- | By default, when Amazon EC2 creates the new AMI, it reboots the instance
--- so that it can take snapshots of the attached volumes while data is at
--- rest, in order to ensure a consistent state. You can set the @NoReboot@
--- parameter to @true@ in the API request, or use the @--no-reboot@ option
--- in the CLI to prevent Amazon EC2 from shutting down and rebooting the
--- instance.
---
--- If you choose to bypass the shutdown and reboot process by setting the
--- @NoReboot@ parameter to @true@ in the API request, or by using the
--- @--no-reboot@ option in the CLI, we can\'t guarantee the file system
--- integrity of the created image.
---
--- Default: @false@ (follow standard reboot process)
-createImage_noReboot :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Bool)
-createImage_noReboot = Lens.lens (\CreateImage' {noReboot} -> noReboot) (\s@CreateImage' {} a -> s {noReboot = a} :: CreateImage)
 
 -- | The ID of the instance.
 createImage_instanceId :: Lens.Lens' CreateImage Prelude.Text
@@ -280,8 +280,8 @@ instance Prelude.Hashable CreateImage where
     _salt `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` noReboot
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
 
@@ -290,8 +290,8 @@ instance Prelude.NFData CreateImage where
     Prelude.rnf blockDeviceMappings
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf noReboot
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
 
@@ -314,11 +314,11 @@ instance Data.ToQuery CreateImage where
           ),
         "Description" Data.=: description,
         "DryRun" Data.=: dryRun,
+        "NoReboot" Data.=: noReboot,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "NoReboot" Data.=: noReboot,
         "InstanceId" Data.=: instanceId,
         "Name" Data.=: name
       ]

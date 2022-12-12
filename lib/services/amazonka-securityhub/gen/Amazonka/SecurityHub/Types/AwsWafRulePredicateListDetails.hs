@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsWafRulePredicateListDetails' smart constructor.
 data AwsWafRulePredicateListDetails = AwsWafRulePredicateListDetails'
-  { -- | The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a predicate in a rule, such as @ByteMatchSetId@
+  { -- | A unique identifier for a predicate in a rule, such as @ByteMatchSetId@
     -- or @IPSetId@.
     dataId :: Prelude.Maybe Prelude.Text,
     -- | Specifies if you want WAF to allow, block, or count requests based on
     -- the settings in the @ByteMatchSet@, @IPSet@, @SqlInjectionMatchSet@,
     -- @XssMatchSet@, @RegexMatchSet@, @GeoMatchSet@, or @SizeConstraintSet@.
-    negated :: Prelude.Maybe Prelude.Bool
+    negated :: Prelude.Maybe Prelude.Bool,
+    -- | The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,27 +51,23 @@ data AwsWafRulePredicateListDetails = AwsWafRulePredicateListDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsWafRulePredicateListDetails_type' - The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
---
 -- 'dataId', 'awsWafRulePredicateListDetails_dataId' - A unique identifier for a predicate in a rule, such as @ByteMatchSetId@
 -- or @IPSetId@.
 --
 -- 'negated', 'awsWafRulePredicateListDetails_negated' - Specifies if you want WAF to allow, block, or count requests based on
 -- the settings in the @ByteMatchSet@, @IPSet@, @SqlInjectionMatchSet@,
 -- @XssMatchSet@, @RegexMatchSet@, @GeoMatchSet@, or @SizeConstraintSet@.
+--
+-- 'type'', 'awsWafRulePredicateListDetails_type' - The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
 newAwsWafRulePredicateListDetails ::
   AwsWafRulePredicateListDetails
 newAwsWafRulePredicateListDetails =
   AwsWafRulePredicateListDetails'
-    { type' =
+    { dataId =
         Prelude.Nothing,
-      dataId = Prelude.Nothing,
-      negated = Prelude.Nothing
+      negated = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
-awsWafRulePredicateListDetails_type :: Lens.Lens' AwsWafRulePredicateListDetails (Prelude.Maybe Prelude.Text)
-awsWafRulePredicateListDetails_type = Lens.lens (\AwsWafRulePredicateListDetails' {type'} -> type') (\s@AwsWafRulePredicateListDetails' {} a -> s {type' = a} :: AwsWafRulePredicateListDetails)
 
 -- | A unique identifier for a predicate in a rule, such as @ByteMatchSetId@
 -- or @IPSetId@.
@@ -84,15 +80,19 @@ awsWafRulePredicateListDetails_dataId = Lens.lens (\AwsWafRulePredicateListDetai
 awsWafRulePredicateListDetails_negated :: Lens.Lens' AwsWafRulePredicateListDetails (Prelude.Maybe Prelude.Bool)
 awsWafRulePredicateListDetails_negated = Lens.lens (\AwsWafRulePredicateListDetails' {negated} -> negated) (\s@AwsWafRulePredicateListDetails' {} a -> s {negated = a} :: AwsWafRulePredicateListDetails)
 
+-- | The type of predicate in a rule, such as @ByteMatch@ or @IPSet@.
+awsWafRulePredicateListDetails_type :: Lens.Lens' AwsWafRulePredicateListDetails (Prelude.Maybe Prelude.Text)
+awsWafRulePredicateListDetails_type = Lens.lens (\AwsWafRulePredicateListDetails' {type'} -> type') (\s@AwsWafRulePredicateListDetails' {} a -> s {type' = a} :: AwsWafRulePredicateListDetails)
+
 instance Data.FromJSON AwsWafRulePredicateListDetails where
   parseJSON =
     Data.withObject
       "AwsWafRulePredicateListDetails"
       ( \x ->
           AwsWafRulePredicateListDetails'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "DataId")
+            Prelude.<$> (x Data..:? "DataId")
             Prelude.<*> (x Data..:? "Negated")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -102,25 +102,25 @@ instance
   hashWithSalt
     _salt
     AwsWafRulePredicateListDetails' {..} =
-      _salt `Prelude.hashWithSalt` type'
-        `Prelude.hashWithSalt` dataId
+      _salt `Prelude.hashWithSalt` dataId
         `Prelude.hashWithSalt` negated
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsWafRulePredicateListDetails
   where
   rnf AwsWafRulePredicateListDetails' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf dataId
+    Prelude.rnf dataId
       `Prelude.seq` Prelude.rnf negated
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON AwsWafRulePredicateListDetails where
   toJSON AwsWafRulePredicateListDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("DataId" Data..=) Prelude.<$> dataId,
-            ("Negated" Data..=) Prelude.<$> negated
+          [ ("DataId" Data..=) Prelude.<$> dataId,
+            ("Negated" Data..=) Prelude.<$> negated,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

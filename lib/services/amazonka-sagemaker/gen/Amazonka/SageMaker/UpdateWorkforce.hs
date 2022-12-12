@@ -60,9 +60,9 @@ module Amazonka.SageMaker.UpdateWorkforce
     newUpdateWorkforce,
 
     -- * Request Lenses
+    updateWorkforce_oidcConfig,
     updateWorkforce_sourceIpConfig,
     updateWorkforce_workforceVpcConfig,
-    updateWorkforce_oidcConfig,
     updateWorkforce_workforceName,
 
     -- * Destructuring the Response
@@ -85,7 +85,10 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateWorkforce' smart constructor.
 data UpdateWorkforce = UpdateWorkforce'
-  { -- | A list of one to ten worker IP address ranges
+  { -- | Use this parameter to update your OIDC Identity Provider (IdP)
+    -- configuration for a workforce made using your own IdP.
+    oidcConfig :: Prelude.Maybe OidcConfig,
+    -- | A list of one to ten worker IP address ranges
     -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
     -- that can be used to access tasks assigned to this workforce.
     --
@@ -93,9 +96,6 @@ data UpdateWorkforce = UpdateWorkforce'
     sourceIpConfig :: Prelude.Maybe SourceIpConfig,
     -- | Use this parameter to update your VPC configuration for a workforce.
     workforceVpcConfig :: Prelude.Maybe WorkforceVpcConfigRequest,
-    -- | Use this parameter to update your OIDC Identity Provider (IdP)
-    -- configuration for a workforce made using your own IdP.
-    oidcConfig :: Prelude.Maybe OidcConfig,
     -- | The name of the private workforce that you want to update. You can find
     -- your workforce name by using the operation.
     workforceName :: Prelude.Text
@@ -110,6 +110,9 @@ data UpdateWorkforce = UpdateWorkforce'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'oidcConfig', 'updateWorkforce_oidcConfig' - Use this parameter to update your OIDC Identity Provider (IdP)
+-- configuration for a workforce made using your own IdP.
+--
 -- 'sourceIpConfig', 'updateWorkforce_sourceIpConfig' - A list of one to ten worker IP address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
 -- that can be used to access tasks assigned to this workforce.
@@ -117,9 +120,6 @@ data UpdateWorkforce = UpdateWorkforce'
 -- Maximum: Ten CIDR values
 --
 -- 'workforceVpcConfig', 'updateWorkforce_workforceVpcConfig' - Use this parameter to update your VPC configuration for a workforce.
---
--- 'oidcConfig', 'updateWorkforce_oidcConfig' - Use this parameter to update your OIDC Identity Provider (IdP)
--- configuration for a workforce made using your own IdP.
 --
 -- 'workforceName', 'updateWorkforce_workforceName' - The name of the private workforce that you want to update. You can find
 -- your workforce name by using the operation.
@@ -129,11 +129,16 @@ newUpdateWorkforce ::
   UpdateWorkforce
 newUpdateWorkforce pWorkforceName_ =
   UpdateWorkforce'
-    { sourceIpConfig = Prelude.Nothing,
+    { oidcConfig = Prelude.Nothing,
+      sourceIpConfig = Prelude.Nothing,
       workforceVpcConfig = Prelude.Nothing,
-      oidcConfig = Prelude.Nothing,
       workforceName = pWorkforceName_
     }
+
+-- | Use this parameter to update your OIDC Identity Provider (IdP)
+-- configuration for a workforce made using your own IdP.
+updateWorkforce_oidcConfig :: Lens.Lens' UpdateWorkforce (Prelude.Maybe OidcConfig)
+updateWorkforce_oidcConfig = Lens.lens (\UpdateWorkforce' {oidcConfig} -> oidcConfig) (\s@UpdateWorkforce' {} a -> s {oidcConfig = a} :: UpdateWorkforce)
 
 -- | A list of one to ten worker IP address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
@@ -146,11 +151,6 @@ updateWorkforce_sourceIpConfig = Lens.lens (\UpdateWorkforce' {sourceIpConfig} -
 -- | Use this parameter to update your VPC configuration for a workforce.
 updateWorkforce_workforceVpcConfig :: Lens.Lens' UpdateWorkforce (Prelude.Maybe WorkforceVpcConfigRequest)
 updateWorkforce_workforceVpcConfig = Lens.lens (\UpdateWorkforce' {workforceVpcConfig} -> workforceVpcConfig) (\s@UpdateWorkforce' {} a -> s {workforceVpcConfig = a} :: UpdateWorkforce)
-
--- | Use this parameter to update your OIDC Identity Provider (IdP)
--- configuration for a workforce made using your own IdP.
-updateWorkforce_oidcConfig :: Lens.Lens' UpdateWorkforce (Prelude.Maybe OidcConfig)
-updateWorkforce_oidcConfig = Lens.lens (\UpdateWorkforce' {oidcConfig} -> oidcConfig) (\s@UpdateWorkforce' {} a -> s {oidcConfig = a} :: UpdateWorkforce)
 
 -- | The name of the private workforce that you want to update. You can find
 -- your workforce name by using the operation.
@@ -173,16 +173,16 @@ instance Core.AWSRequest UpdateWorkforce where
 
 instance Prelude.Hashable UpdateWorkforce where
   hashWithSalt _salt UpdateWorkforce' {..} =
-    _salt `Prelude.hashWithSalt` sourceIpConfig
+    _salt `Prelude.hashWithSalt` oidcConfig
+      `Prelude.hashWithSalt` sourceIpConfig
       `Prelude.hashWithSalt` workforceVpcConfig
-      `Prelude.hashWithSalt` oidcConfig
       `Prelude.hashWithSalt` workforceName
 
 instance Prelude.NFData UpdateWorkforce where
   rnf UpdateWorkforce' {..} =
-    Prelude.rnf sourceIpConfig
+    Prelude.rnf oidcConfig
+      `Prelude.seq` Prelude.rnf sourceIpConfig
       `Prelude.seq` Prelude.rnf workforceVpcConfig
-      `Prelude.seq` Prelude.rnf oidcConfig
       `Prelude.seq` Prelude.rnf workforceName
 
 instance Data.ToHeaders UpdateWorkforce where
@@ -202,11 +202,11 @@ instance Data.ToJSON UpdateWorkforce where
   toJSON UpdateWorkforce' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SourceIpConfig" Data..=)
+          [ ("OidcConfig" Data..=) Prelude.<$> oidcConfig,
+            ("SourceIpConfig" Data..=)
               Prelude.<$> sourceIpConfig,
             ("WorkforceVpcConfig" Data..=)
               Prelude.<$> workforceVpcConfig,
-            ("OidcConfig" Data..=) Prelude.<$> oidcConfig,
             Prelude.Just
               ("WorkforceName" Data..= workforceName)
           ]

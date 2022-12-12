@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIndexAttachment' smart constructor.
 data IndexAttachment = IndexAttachment'
-  { -- | In response to ListIndex, the @ObjectIdentifier@ of the object attached
+  { -- | The indexed attribute values.
+    indexedAttributes :: Prelude.Maybe [AttributeKeyAndValue],
+    -- | In response to ListIndex, the @ObjectIdentifier@ of the object attached
     -- to the index. In response to ListAttachedIndices, the @ObjectIdentifier@
     -- of the index attached to the object. This field will always contain the
     -- @ObjectIdentifier@ of the object on the opposite side of the attachment
     -- specified in the query.
-    objectIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The indexed attribute values.
-    indexedAttributes :: Prelude.Maybe [AttributeKeyAndValue]
+    objectIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,25 @@ data IndexAttachment = IndexAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'indexedAttributes', 'indexAttachment_indexedAttributes' - The indexed attribute values.
+--
 -- 'objectIdentifier', 'indexAttachment_objectIdentifier' - In response to ListIndex, the @ObjectIdentifier@ of the object attached
 -- to the index. In response to ListAttachedIndices, the @ObjectIdentifier@
 -- of the index attached to the object. This field will always contain the
 -- @ObjectIdentifier@ of the object on the opposite side of the attachment
 -- specified in the query.
---
--- 'indexedAttributes', 'indexAttachment_indexedAttributes' - The indexed attribute values.
 newIndexAttachment ::
   IndexAttachment
 newIndexAttachment =
   IndexAttachment'
-    { objectIdentifier =
+    { indexedAttributes =
         Prelude.Nothing,
-      indexedAttributes = Prelude.Nothing
+      objectIdentifier = Prelude.Nothing
     }
+
+-- | The indexed attribute values.
+indexAttachment_indexedAttributes :: Lens.Lens' IndexAttachment (Prelude.Maybe [AttributeKeyAndValue])
+indexAttachment_indexedAttributes = Lens.lens (\IndexAttachment' {indexedAttributes} -> indexedAttributes) (\s@IndexAttachment' {} a -> s {indexedAttributes = a} :: IndexAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | In response to ListIndex, the @ObjectIdentifier@ of the object attached
 -- to the index. In response to ListAttachedIndices, the @ObjectIdentifier@
@@ -72,28 +76,24 @@ newIndexAttachment =
 indexAttachment_objectIdentifier :: Lens.Lens' IndexAttachment (Prelude.Maybe Prelude.Text)
 indexAttachment_objectIdentifier = Lens.lens (\IndexAttachment' {objectIdentifier} -> objectIdentifier) (\s@IndexAttachment' {} a -> s {objectIdentifier = a} :: IndexAttachment)
 
--- | The indexed attribute values.
-indexAttachment_indexedAttributes :: Lens.Lens' IndexAttachment (Prelude.Maybe [AttributeKeyAndValue])
-indexAttachment_indexedAttributes = Lens.lens (\IndexAttachment' {indexedAttributes} -> indexedAttributes) (\s@IndexAttachment' {} a -> s {indexedAttributes = a} :: IndexAttachment) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON IndexAttachment where
   parseJSON =
     Data.withObject
       "IndexAttachment"
       ( \x ->
           IndexAttachment'
-            Prelude.<$> (x Data..:? "ObjectIdentifier")
-            Prelude.<*> ( x Data..:? "IndexedAttributes"
+            Prelude.<$> ( x Data..:? "IndexedAttributes"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "ObjectIdentifier")
       )
 
 instance Prelude.Hashable IndexAttachment where
   hashWithSalt _salt IndexAttachment' {..} =
-    _salt `Prelude.hashWithSalt` objectIdentifier
-      `Prelude.hashWithSalt` indexedAttributes
+    _salt `Prelude.hashWithSalt` indexedAttributes
+      `Prelude.hashWithSalt` objectIdentifier
 
 instance Prelude.NFData IndexAttachment where
   rnf IndexAttachment' {..} =
-    Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf indexedAttributes
+    Prelude.rnf indexedAttributes
+      `Prelude.seq` Prelude.rnf objectIdentifier

@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModel' smart constructor.
 data Model = Model'
-  { -- | The description of the model.
+  { -- | The content-type for the model, for example, \"application\/json\".
+    contentType :: Prelude.Maybe Prelude.Text,
+    -- | The description of the model.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The model identifier.
+    modelId :: Prelude.Maybe Prelude.Text,
     -- | The schema for the model. For application\/json models, this should be
     -- JSON schema draft 4 model.
     schema :: Prelude.Maybe Prelude.Text,
-    -- | The model identifier.
-    modelId :: Prelude.Maybe Prelude.Text,
-    -- | The content-type for the model, for example, \"application\/json\".
-    contentType :: Prelude.Maybe Prelude.Text,
     -- | The name of the model. Must be alphanumeric.
     name :: Prelude.Text
   }
@@ -52,14 +52,14 @@ data Model = Model'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'model_description' - The description of the model.
+-- 'contentType', 'model_contentType' - The content-type for the model, for example, \"application\/json\".
 --
--- 'schema', 'model_schema' - The schema for the model. For application\/json models, this should be
--- JSON schema draft 4 model.
+-- 'description', 'model_description' - The description of the model.
 --
 -- 'modelId', 'model_modelId' - The model identifier.
 --
--- 'contentType', 'model_contentType' - The content-type for the model, for example, \"application\/json\".
+-- 'schema', 'model_schema' - The schema for the model. For application\/json models, this should be
+-- JSON schema draft 4 model.
 --
 -- 'name', 'model_name' - The name of the model. Must be alphanumeric.
 newModel ::
@@ -68,29 +68,29 @@ newModel ::
   Model
 newModel pName_ =
   Model'
-    { description = Prelude.Nothing,
-      schema = Prelude.Nothing,
+    { contentType = Prelude.Nothing,
+      description = Prelude.Nothing,
       modelId = Prelude.Nothing,
-      contentType = Prelude.Nothing,
+      schema = Prelude.Nothing,
       name = pName_
     }
+
+-- | The content-type for the model, for example, \"application\/json\".
+model_contentType :: Lens.Lens' Model (Prelude.Maybe Prelude.Text)
+model_contentType = Lens.lens (\Model' {contentType} -> contentType) (\s@Model' {} a -> s {contentType = a} :: Model)
 
 -- | The description of the model.
 model_description :: Lens.Lens' Model (Prelude.Maybe Prelude.Text)
 model_description = Lens.lens (\Model' {description} -> description) (\s@Model' {} a -> s {description = a} :: Model)
 
--- | The schema for the model. For application\/json models, this should be
--- JSON schema draft 4 model.
-model_schema :: Lens.Lens' Model (Prelude.Maybe Prelude.Text)
-model_schema = Lens.lens (\Model' {schema} -> schema) (\s@Model' {} a -> s {schema = a} :: Model)
-
 -- | The model identifier.
 model_modelId :: Lens.Lens' Model (Prelude.Maybe Prelude.Text)
 model_modelId = Lens.lens (\Model' {modelId} -> modelId) (\s@Model' {} a -> s {modelId = a} :: Model)
 
--- | The content-type for the model, for example, \"application\/json\".
-model_contentType :: Lens.Lens' Model (Prelude.Maybe Prelude.Text)
-model_contentType = Lens.lens (\Model' {contentType} -> contentType) (\s@Model' {} a -> s {contentType = a} :: Model)
+-- | The schema for the model. For application\/json models, this should be
+-- JSON schema draft 4 model.
+model_schema :: Lens.Lens' Model (Prelude.Maybe Prelude.Text)
+model_schema = Lens.lens (\Model' {schema} -> schema) (\s@Model' {} a -> s {schema = a} :: Model)
 
 -- | The name of the model. Must be alphanumeric.
 model_name :: Lens.Lens' Model Prelude.Text
@@ -102,25 +102,25 @@ instance Data.FromJSON Model where
       "Model"
       ( \x ->
           Model'
-            Prelude.<$> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "schema")
+            Prelude.<$> (x Data..:? "contentType")
+            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "modelId")
-            Prelude.<*> (x Data..:? "contentType")
+            Prelude.<*> (x Data..:? "schema")
             Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Model where
   hashWithSalt _salt Model' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` schema
+    _salt `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modelId
-      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Model where
   rnf Model' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf schema
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf name

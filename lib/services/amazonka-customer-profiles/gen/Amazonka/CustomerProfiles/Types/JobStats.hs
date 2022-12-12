@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobStats' smart constructor.
 data JobStats = JobStats'
-  { -- | The number of merges completed.
-    numberOfMergesDone :: Prelude.Maybe Prelude.Integer,
-    -- | The number of matches found.
+  { -- | The number of matches found.
     numberOfMatchesFound :: Prelude.Maybe Prelude.Integer,
+    -- | The number of merges completed.
+    numberOfMergesDone :: Prelude.Maybe Prelude.Integer,
     -- | The number of profiles reviewed.
     numberOfProfilesReviewed :: Prelude.Maybe Prelude.Integer
   }
@@ -45,27 +45,27 @@ data JobStats = JobStats'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfMergesDone', 'jobStats_numberOfMergesDone' - The number of merges completed.
---
 -- 'numberOfMatchesFound', 'jobStats_numberOfMatchesFound' - The number of matches found.
+--
+-- 'numberOfMergesDone', 'jobStats_numberOfMergesDone' - The number of merges completed.
 --
 -- 'numberOfProfilesReviewed', 'jobStats_numberOfProfilesReviewed' - The number of profiles reviewed.
 newJobStats ::
   JobStats
 newJobStats =
   JobStats'
-    { numberOfMergesDone = Prelude.Nothing,
-      numberOfMatchesFound = Prelude.Nothing,
+    { numberOfMatchesFound = Prelude.Nothing,
+      numberOfMergesDone = Prelude.Nothing,
       numberOfProfilesReviewed = Prelude.Nothing
     }
-
--- | The number of merges completed.
-jobStats_numberOfMergesDone :: Lens.Lens' JobStats (Prelude.Maybe Prelude.Integer)
-jobStats_numberOfMergesDone = Lens.lens (\JobStats' {numberOfMergesDone} -> numberOfMergesDone) (\s@JobStats' {} a -> s {numberOfMergesDone = a} :: JobStats)
 
 -- | The number of matches found.
 jobStats_numberOfMatchesFound :: Lens.Lens' JobStats (Prelude.Maybe Prelude.Integer)
 jobStats_numberOfMatchesFound = Lens.lens (\JobStats' {numberOfMatchesFound} -> numberOfMatchesFound) (\s@JobStats' {} a -> s {numberOfMatchesFound = a} :: JobStats)
+
+-- | The number of merges completed.
+jobStats_numberOfMergesDone :: Lens.Lens' JobStats (Prelude.Maybe Prelude.Integer)
+jobStats_numberOfMergesDone = Lens.lens (\JobStats' {numberOfMergesDone} -> numberOfMergesDone) (\s@JobStats' {} a -> s {numberOfMergesDone = a} :: JobStats)
 
 -- | The number of profiles reviewed.
 jobStats_numberOfProfilesReviewed :: Lens.Lens' JobStats (Prelude.Maybe Prelude.Integer)
@@ -77,19 +77,19 @@ instance Data.FromJSON JobStats where
       "JobStats"
       ( \x ->
           JobStats'
-            Prelude.<$> (x Data..:? "NumberOfMergesDone")
-            Prelude.<*> (x Data..:? "NumberOfMatchesFound")
+            Prelude.<$> (x Data..:? "NumberOfMatchesFound")
+            Prelude.<*> (x Data..:? "NumberOfMergesDone")
             Prelude.<*> (x Data..:? "NumberOfProfilesReviewed")
       )
 
 instance Prelude.Hashable JobStats where
   hashWithSalt _salt JobStats' {..} =
-    _salt `Prelude.hashWithSalt` numberOfMergesDone
-      `Prelude.hashWithSalt` numberOfMatchesFound
+    _salt `Prelude.hashWithSalt` numberOfMatchesFound
+      `Prelude.hashWithSalt` numberOfMergesDone
       `Prelude.hashWithSalt` numberOfProfilesReviewed
 
 instance Prelude.NFData JobStats where
   rnf JobStats' {..} =
-    Prelude.rnf numberOfMergesDone
-      `Prelude.seq` Prelude.rnf numberOfMatchesFound
+    Prelude.rnf numberOfMatchesFound
+      `Prelude.seq` Prelude.rnf numberOfMergesDone
       `Prelude.seq` Prelude.rnf numberOfProfilesReviewed

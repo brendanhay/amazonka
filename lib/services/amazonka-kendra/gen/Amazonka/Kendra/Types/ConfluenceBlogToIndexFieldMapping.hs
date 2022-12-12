@@ -36,13 +36,13 @@ import qualified Amazonka.Prelude as Prelude
 data ConfluenceBlogToIndexFieldMapping = ConfluenceBlogToIndexFieldMapping'
   { -- | The name of the field in the data source.
     dataSourceFieldName :: Prelude.Maybe ConfluenceBlogFieldName,
-    -- | The name of the index field to map to the Confluence data source field.
-    -- The index field type must match the Confluence field type.
-    indexFieldName :: Prelude.Maybe Prelude.Text,
     -- | The format for date fields in the data source. If the field specified in
     -- @DataSourceFieldName@ is a date field you must specify the date format.
     -- If the field is not a date field, an exception is thrown.
-    dateFieldFormat :: Prelude.Maybe Prelude.Text
+    dateFieldFormat :: Prelude.Maybe Prelude.Text,
+    -- | The name of the index field to map to the Confluence data source field.
+    -- The index field type must match the Confluence field type.
+    indexFieldName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,36 +56,36 @@ data ConfluenceBlogToIndexFieldMapping = ConfluenceBlogToIndexFieldMapping'
 --
 -- 'dataSourceFieldName', 'confluenceBlogToIndexFieldMapping_dataSourceFieldName' - The name of the field in the data source.
 --
--- 'indexFieldName', 'confluenceBlogToIndexFieldMapping_indexFieldName' - The name of the index field to map to the Confluence data source field.
--- The index field type must match the Confluence field type.
---
 -- 'dateFieldFormat', 'confluenceBlogToIndexFieldMapping_dateFieldFormat' - The format for date fields in the data source. If the field specified in
 -- @DataSourceFieldName@ is a date field you must specify the date format.
 -- If the field is not a date field, an exception is thrown.
+--
+-- 'indexFieldName', 'confluenceBlogToIndexFieldMapping_indexFieldName' - The name of the index field to map to the Confluence data source field.
+-- The index field type must match the Confluence field type.
 newConfluenceBlogToIndexFieldMapping ::
   ConfluenceBlogToIndexFieldMapping
 newConfluenceBlogToIndexFieldMapping =
   ConfluenceBlogToIndexFieldMapping'
     { dataSourceFieldName =
         Prelude.Nothing,
-      indexFieldName = Prelude.Nothing,
-      dateFieldFormat = Prelude.Nothing
+      dateFieldFormat = Prelude.Nothing,
+      indexFieldName = Prelude.Nothing
     }
 
 -- | The name of the field in the data source.
 confluenceBlogToIndexFieldMapping_dataSourceFieldName :: Lens.Lens' ConfluenceBlogToIndexFieldMapping (Prelude.Maybe ConfluenceBlogFieldName)
 confluenceBlogToIndexFieldMapping_dataSourceFieldName = Lens.lens (\ConfluenceBlogToIndexFieldMapping' {dataSourceFieldName} -> dataSourceFieldName) (\s@ConfluenceBlogToIndexFieldMapping' {} a -> s {dataSourceFieldName = a} :: ConfluenceBlogToIndexFieldMapping)
 
--- | The name of the index field to map to the Confluence data source field.
--- The index field type must match the Confluence field type.
-confluenceBlogToIndexFieldMapping_indexFieldName :: Lens.Lens' ConfluenceBlogToIndexFieldMapping (Prelude.Maybe Prelude.Text)
-confluenceBlogToIndexFieldMapping_indexFieldName = Lens.lens (\ConfluenceBlogToIndexFieldMapping' {indexFieldName} -> indexFieldName) (\s@ConfluenceBlogToIndexFieldMapping' {} a -> s {indexFieldName = a} :: ConfluenceBlogToIndexFieldMapping)
-
 -- | The format for date fields in the data source. If the field specified in
 -- @DataSourceFieldName@ is a date field you must specify the date format.
 -- If the field is not a date field, an exception is thrown.
 confluenceBlogToIndexFieldMapping_dateFieldFormat :: Lens.Lens' ConfluenceBlogToIndexFieldMapping (Prelude.Maybe Prelude.Text)
 confluenceBlogToIndexFieldMapping_dateFieldFormat = Lens.lens (\ConfluenceBlogToIndexFieldMapping' {dateFieldFormat} -> dateFieldFormat) (\s@ConfluenceBlogToIndexFieldMapping' {} a -> s {dateFieldFormat = a} :: ConfluenceBlogToIndexFieldMapping)
+
+-- | The name of the index field to map to the Confluence data source field.
+-- The index field type must match the Confluence field type.
+confluenceBlogToIndexFieldMapping_indexFieldName :: Lens.Lens' ConfluenceBlogToIndexFieldMapping (Prelude.Maybe Prelude.Text)
+confluenceBlogToIndexFieldMapping_indexFieldName = Lens.lens (\ConfluenceBlogToIndexFieldMapping' {indexFieldName} -> indexFieldName) (\s@ConfluenceBlogToIndexFieldMapping' {} a -> s {indexFieldName = a} :: ConfluenceBlogToIndexFieldMapping)
 
 instance
   Data.FromJSON
@@ -97,8 +97,8 @@ instance
       ( \x ->
           ConfluenceBlogToIndexFieldMapping'
             Prelude.<$> (x Data..:? "DataSourceFieldName")
-            Prelude.<*> (x Data..:? "IndexFieldName")
             Prelude.<*> (x Data..:? "DateFieldFormat")
+            Prelude.<*> (x Data..:? "IndexFieldName")
       )
 
 instance
@@ -109,8 +109,8 @@ instance
     _salt
     ConfluenceBlogToIndexFieldMapping' {..} =
       _salt `Prelude.hashWithSalt` dataSourceFieldName
-        `Prelude.hashWithSalt` indexFieldName
         `Prelude.hashWithSalt` dateFieldFormat
+        `Prelude.hashWithSalt` indexFieldName
 
 instance
   Prelude.NFData
@@ -118,8 +118,8 @@ instance
   where
   rnf ConfluenceBlogToIndexFieldMapping' {..} =
     Prelude.rnf dataSourceFieldName
-      `Prelude.seq` Prelude.rnf indexFieldName
       `Prelude.seq` Prelude.rnf dateFieldFormat
+      `Prelude.seq` Prelude.rnf indexFieldName
 
 instance
   Data.ToJSON
@@ -130,9 +130,9 @@ instance
       ( Prelude.catMaybes
           [ ("DataSourceFieldName" Data..=)
               Prelude.<$> dataSourceFieldName,
-            ("IndexFieldName" Data..=)
-              Prelude.<$> indexFieldName,
             ("DateFieldFormat" Data..=)
-              Prelude.<$> dateFieldFormat
+              Prelude.<$> dateFieldFormat,
+            ("IndexFieldName" Data..=)
+              Prelude.<$> indexFieldName
           ]
       )

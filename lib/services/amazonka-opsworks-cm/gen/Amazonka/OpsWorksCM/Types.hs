@@ -18,11 +18,11 @@ module Amazonka.OpsWorksCM.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
-    _InvalidStateException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
     _InvalidNextTokenException,
+    _InvalidStateException,
+    _LimitExceededException,
+    _ResourceAlreadyExistsException,
+    _ResourceNotFoundException,
     _ValidationException,
 
     -- * BackupStatus
@@ -43,37 +43,37 @@ module Amazonka.OpsWorksCM.Types
     -- * AccountAttribute
     AccountAttribute (..),
     newAccountAttribute,
+    accountAttribute_maximum,
     accountAttribute_name,
     accountAttribute_used,
-    accountAttribute_maximum,
 
     -- * Backup
     Backup (..),
     newBackup,
-    backup_statusDescription,
-    backup_backupId,
-    backup_preferredBackupWindow,
-    backup_s3DataUrl,
-    backup_serviceRoleArn,
-    backup_securityGroupIds,
-    backup_s3LogUrl,
-    backup_serverName,
-    backup_engineModel,
-    backup_toolsVersion,
-    backup_instanceProfileArn,
-    backup_status,
-    backup_description,
-    backup_keyPair,
-    backup_instanceType,
-    backup_backupType,
     backup_backupArn,
-    backup_userArn,
-    backup_s3DataSize,
-    backup_engine,
-    backup_preferredMaintenanceWindow,
-    backup_subnetIds,
+    backup_backupId,
+    backup_backupType,
     backup_createdAt,
+    backup_description,
+    backup_engine,
+    backup_engineModel,
     backup_engineVersion,
+    backup_instanceProfileArn,
+    backup_instanceType,
+    backup_keyPair,
+    backup_preferredBackupWindow,
+    backup_preferredMaintenanceWindow,
+    backup_s3DataSize,
+    backup_s3DataUrl,
+    backup_s3LogUrl,
+    backup_securityGroupIds,
+    backup_serverName,
+    backup_serviceRoleArn,
+    backup_status,
+    backup_statusDescription,
+    backup_subnetIds,
+    backup_toolsVersion,
+    backup_userArn,
 
     -- * EngineAttribute
     EngineAttribute (..),
@@ -84,38 +84,38 @@ module Amazonka.OpsWorksCM.Types
     -- * Server
     Server (..),
     newServer,
+    server_associatePublicIpAddress,
+    server_backupRetentionCount,
+    server_cloudFormationStackArn,
+    server_createdAt,
+    server_customDomain,
+    server_disableAutomatedBackup,
+    server_endpoint,
+    server_engine,
+    server_engineAttributes,
+    server_engineModel,
+    server_engineVersion,
+    server_instanceProfileArn,
+    server_instanceType,
+    server_keyPair,
     server_maintenanceStatus,
     server_preferredBackupWindow,
-    server_associatePublicIpAddress,
-    server_serviceRoleArn,
-    server_securityGroupIds,
-    server_serverName,
-    server_engineModel,
-    server_instanceProfileArn,
-    server_statusReason,
-    server_engineAttributes,
-    server_status,
-    server_cloudFormationStackArn,
-    server_keyPair,
-    server_backupRetentionCount,
-    server_instanceType,
-    server_serverArn,
-    server_engine,
     server_preferredMaintenanceWindow,
-    server_endpoint,
+    server_securityGroupIds,
+    server_serverArn,
+    server_serverName,
+    server_serviceRoleArn,
+    server_status,
+    server_statusReason,
     server_subnetIds,
-    server_createdAt,
-    server_disableAutomatedBackup,
-    server_engineVersion,
-    server_customDomain,
 
     -- * ServerEvent
     ServerEvent (..),
     newServerEvent,
+    serverEvent_createdAt,
+    serverEvent_logUrl,
     serverEvent_message,
     serverEvent_serverName,
-    serverEvent_logUrl,
-    serverEvent_createdAt,
 
     -- * Tag
     Tag (..),
@@ -166,28 +166,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -195,13 +189,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -209,14 +207,16 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The requested resource cannot be created because it already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
+-- | This occurs when the provided nextToken is not valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
-    "ResourceAlreadyExistsException"
+    "InvalidNextTokenException"
 
 -- | The resource is in a state that does not allow you to perform a
 -- specified action.
@@ -226,13 +226,6 @@ _InvalidStateException =
     defaultService
     "InvalidStateException"
 
--- | The requested resource does not exist, or access was denied.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
 -- | The limit of servers or backups has been reached.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
@@ -240,12 +233,19 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | This occurs when the provided nextToken is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
+-- | The requested resource cannot be created because it already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "InvalidNextTokenException"
+    "ResourceAlreadyExistsException"
+
+-- | The requested resource does not exist, or access was denied.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
 
 -- | One or more of the provided request parameters are not valid.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -27,9 +27,9 @@ module Amazonka.IoTAnalytics.UpdateDatastore
     newUpdateDatastore,
 
     -- * Request Lenses
+    updateDatastore_datastoreStorage,
     updateDatastore_fileFormatConfiguration,
     updateDatastore_retentionPeriod,
-    updateDatastore_datastoreStorage,
     updateDatastore_datastoreName,
 
     -- * Destructuring the Response
@@ -48,7 +48,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDatastore' smart constructor.
 data UpdateDatastore = UpdateDatastore'
-  { -- | Contains the configuration information of file formats. IoT Analytics
+  { -- | Where data in a data store is stored.. You can choose @serviceManagedS3@
+    -- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
+    -- storage. The default is @serviceManagedS3@. You can\'t change the choice
+    -- of Amazon S3 storage after your data store is created.
+    datastoreStorage :: Prelude.Maybe DatastoreStorage,
+    -- | Contains the configuration information of file formats. IoT Analytics
     -- data stores support JSON and <https://parquet.apache.org/ Parquet>.
     --
     -- The default file format is JSON. You can specify only one format.
@@ -59,11 +64,6 @@ data UpdateDatastore = UpdateDatastore'
     -- retention period can\'t be updated if the data store\'s Amazon S3
     -- storage is customer-managed.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
-    -- | Where data in a data store is stored.. You can choose @serviceManagedS3@
-    -- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
-    -- storage. The default is @serviceManagedS3@. You can\'t change the choice
-    -- of Amazon S3 storage after your data store is created.
-    datastoreStorage :: Prelude.Maybe DatastoreStorage,
     -- | The name of the data store to be updated.
     datastoreName :: Prelude.Text
   }
@@ -77,6 +77,11 @@ data UpdateDatastore = UpdateDatastore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'datastoreStorage', 'updateDatastore_datastoreStorage' - Where data in a data store is stored.. You can choose @serviceManagedS3@
+-- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
+-- storage. The default is @serviceManagedS3@. You can\'t change the choice
+-- of Amazon S3 storage after your data store is created.
+--
 -- 'fileFormatConfiguration', 'updateDatastore_fileFormatConfiguration' - Contains the configuration information of file formats. IoT Analytics
 -- data stores support JSON and <https://parquet.apache.org/ Parquet>.
 --
@@ -88,11 +93,6 @@ data UpdateDatastore = UpdateDatastore'
 -- retention period can\'t be updated if the data store\'s Amazon S3
 -- storage is customer-managed.
 --
--- 'datastoreStorage', 'updateDatastore_datastoreStorage' - Where data in a data store is stored.. You can choose @serviceManagedS3@
--- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
--- storage. The default is @serviceManagedS3@. You can\'t change the choice
--- of Amazon S3 storage after your data store is created.
---
 -- 'datastoreName', 'updateDatastore_datastoreName' - The name of the data store to be updated.
 newUpdateDatastore ::
   -- | 'datastoreName'
@@ -100,12 +100,19 @@ newUpdateDatastore ::
   UpdateDatastore
 newUpdateDatastore pDatastoreName_ =
   UpdateDatastore'
-    { fileFormatConfiguration =
+    { datastoreStorage =
         Prelude.Nothing,
+      fileFormatConfiguration = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
-      datastoreStorage = Prelude.Nothing,
       datastoreName = pDatastoreName_
     }
+
+-- | Where data in a data store is stored.. You can choose @serviceManagedS3@
+-- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
+-- storage. The default is @serviceManagedS3@. You can\'t change the choice
+-- of Amazon S3 storage after your data store is created.
+updateDatastore_datastoreStorage :: Lens.Lens' UpdateDatastore (Prelude.Maybe DatastoreStorage)
+updateDatastore_datastoreStorage = Lens.lens (\UpdateDatastore' {datastoreStorage} -> datastoreStorage) (\s@UpdateDatastore' {} a -> s {datastoreStorage = a} :: UpdateDatastore)
 
 -- | Contains the configuration information of file formats. IoT Analytics
 -- data stores support JSON and <https://parquet.apache.org/ Parquet>.
@@ -122,13 +129,6 @@ updateDatastore_fileFormatConfiguration = Lens.lens (\UpdateDatastore' {fileForm
 updateDatastore_retentionPeriod :: Lens.Lens' UpdateDatastore (Prelude.Maybe RetentionPeriod)
 updateDatastore_retentionPeriod = Lens.lens (\UpdateDatastore' {retentionPeriod} -> retentionPeriod) (\s@UpdateDatastore' {} a -> s {retentionPeriod = a} :: UpdateDatastore)
 
--- | Where data in a data store is stored.. You can choose @serviceManagedS3@
--- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@
--- storage. The default is @serviceManagedS3@. You can\'t change the choice
--- of Amazon S3 storage after your data store is created.
-updateDatastore_datastoreStorage :: Lens.Lens' UpdateDatastore (Prelude.Maybe DatastoreStorage)
-updateDatastore_datastoreStorage = Lens.lens (\UpdateDatastore' {datastoreStorage} -> datastoreStorage) (\s@UpdateDatastore' {} a -> s {datastoreStorage = a} :: UpdateDatastore)
-
 -- | The name of the data store to be updated.
 updateDatastore_datastoreName :: Lens.Lens' UpdateDatastore Prelude.Text
 updateDatastore_datastoreName = Lens.lens (\UpdateDatastore' {datastoreName} -> datastoreName) (\s@UpdateDatastore' {} a -> s {datastoreName = a} :: UpdateDatastore)
@@ -144,17 +144,16 @@ instance Core.AWSRequest UpdateDatastore where
 
 instance Prelude.Hashable UpdateDatastore where
   hashWithSalt _salt UpdateDatastore' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` datastoreStorage
       `Prelude.hashWithSalt` fileFormatConfiguration
       `Prelude.hashWithSalt` retentionPeriod
-      `Prelude.hashWithSalt` datastoreStorage
       `Prelude.hashWithSalt` datastoreName
 
 instance Prelude.NFData UpdateDatastore where
   rnf UpdateDatastore' {..} =
-    Prelude.rnf fileFormatConfiguration
+    Prelude.rnf datastoreStorage
+      `Prelude.seq` Prelude.rnf fileFormatConfiguration
       `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf datastoreStorage
       `Prelude.seq` Prelude.rnf datastoreName
 
 instance Data.ToHeaders UpdateDatastore where
@@ -164,12 +163,12 @@ instance Data.ToJSON UpdateDatastore where
   toJSON UpdateDatastore' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("fileFormatConfiguration" Data..=)
+          [ ("datastoreStorage" Data..=)
+              Prelude.<$> datastoreStorage,
+            ("fileFormatConfiguration" Data..=)
               Prelude.<$> fileFormatConfiguration,
             ("retentionPeriod" Data..=)
-              Prelude.<$> retentionPeriod,
-            ("datastoreStorage" Data..=)
-              Prelude.<$> datastoreStorage
+              Prelude.<$> retentionPeriod
           ]
       )
 

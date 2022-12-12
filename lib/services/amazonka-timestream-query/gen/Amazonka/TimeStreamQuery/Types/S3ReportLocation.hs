@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3ReportLocation' smart constructor.
 data S3ReportLocation = S3ReportLocation'
-  { -- | S3 key.
-    objectKey :: Prelude.Maybe Prelude.Text,
-    -- | S3 bucket name.
-    bucketName :: Prelude.Maybe Prelude.Text
+  { -- | S3 bucket name.
+    bucketName :: Prelude.Maybe Prelude.Text,
+    -- | S3 key.
+    objectKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data S3ReportLocation = S3ReportLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'objectKey', 's3ReportLocation_objectKey' - S3 key.
---
 -- 'bucketName', 's3ReportLocation_bucketName' - S3 bucket name.
+--
+-- 'objectKey', 's3ReportLocation_objectKey' - S3 key.
 newS3ReportLocation ::
   S3ReportLocation
 newS3ReportLocation =
   S3ReportLocation'
-    { objectKey = Prelude.Nothing,
-      bucketName = Prelude.Nothing
+    { bucketName = Prelude.Nothing,
+      objectKey = Prelude.Nothing
     }
-
--- | S3 key.
-s3ReportLocation_objectKey :: Lens.Lens' S3ReportLocation (Prelude.Maybe Prelude.Text)
-s3ReportLocation_objectKey = Lens.lens (\S3ReportLocation' {objectKey} -> objectKey) (\s@S3ReportLocation' {} a -> s {objectKey = a} :: S3ReportLocation)
 
 -- | S3 bucket name.
 s3ReportLocation_bucketName :: Lens.Lens' S3ReportLocation (Prelude.Maybe Prelude.Text)
 s3ReportLocation_bucketName = Lens.lens (\S3ReportLocation' {bucketName} -> bucketName) (\s@S3ReportLocation' {} a -> s {bucketName = a} :: S3ReportLocation)
+
+-- | S3 key.
+s3ReportLocation_objectKey :: Lens.Lens' S3ReportLocation (Prelude.Maybe Prelude.Text)
+s3ReportLocation_objectKey = Lens.lens (\S3ReportLocation' {objectKey} -> objectKey) (\s@S3ReportLocation' {} a -> s {objectKey = a} :: S3ReportLocation)
 
 instance Data.FromJSON S3ReportLocation where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON S3ReportLocation where
       "S3ReportLocation"
       ( \x ->
           S3ReportLocation'
-            Prelude.<$> (x Data..:? "ObjectKey")
-            Prelude.<*> (x Data..:? "BucketName")
+            Prelude.<$> (x Data..:? "BucketName")
+            Prelude.<*> (x Data..:? "ObjectKey")
       )
 
 instance Prelude.Hashable S3ReportLocation where
   hashWithSalt _salt S3ReportLocation' {..} =
-    _salt `Prelude.hashWithSalt` objectKey
-      `Prelude.hashWithSalt` bucketName
+    _salt `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` objectKey
 
 instance Prelude.NFData S3ReportLocation where
   rnf S3ReportLocation' {..} =
-    Prelude.rnf objectKey
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf objectKey

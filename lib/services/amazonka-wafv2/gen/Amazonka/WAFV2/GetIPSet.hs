@@ -36,8 +36,8 @@ module Amazonka.WAFV2.GetIPSet
     newGetIPSetResponse,
 
     -- * Response Lenses
-    getIPSetResponse_lockToken,
     getIPSetResponse_iPSet,
+    getIPSetResponse_lockToken,
     getIPSetResponse_httpStatus,
   )
 where
@@ -151,8 +151,8 @@ instance Core.AWSRequest GetIPSet where
     Response.receiveJSON
       ( \s h x ->
           GetIPSetResponse'
-            Prelude.<$> (x Data..?> "LockToken")
-            Prelude.<*> (x Data..?> "IPSet")
+            Prelude.<$> (x Data..?> "IPSet")
+            Prelude.<*> (x Data..?> "LockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,7 +199,8 @@ instance Data.ToQuery GetIPSet where
 
 -- | /See:/ 'newGetIPSetResponse' smart constructor.
 data GetIPSetResponse = GetIPSetResponse'
-  { -- | A token used for optimistic locking. WAF returns a token to your @get@
+  { iPSet :: Prelude.Maybe IPSet,
+    -- | A token used for optimistic locking. WAF returns a token to your @get@
     -- and @list@ requests, to mark the state of the entity at the time of the
     -- request. To make changes to the entity associated with the token, you
     -- provide the token to operations like @update@ and @delete@. WAF uses the
@@ -208,7 +209,6 @@ data GetIPSetResponse = GetIPSetResponse'
     -- @WAFOptimisticLockException@. If this happens, perform another @get@,
     -- and use the new token returned by that operation.
     lockToken :: Prelude.Maybe Prelude.Text,
-    iPSet :: Prelude.Maybe IPSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,6 +222,8 @@ data GetIPSetResponse = GetIPSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'iPSet', 'getIPSetResponse_iPSet' -
+--
 -- 'lockToken', 'getIPSetResponse_lockToken' - A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
 -- request. To make changes to the entity associated with the token, you
@@ -231,8 +233,6 @@ data GetIPSetResponse = GetIPSetResponse'
 -- @WAFOptimisticLockException@. If this happens, perform another @get@,
 -- and use the new token returned by that operation.
 --
--- 'iPSet', 'getIPSetResponse_iPSet' -
---
 -- 'httpStatus', 'getIPSetResponse_httpStatus' - The response's http status code.
 newGetIPSetResponse ::
   -- | 'httpStatus'
@@ -240,10 +240,14 @@ newGetIPSetResponse ::
   GetIPSetResponse
 newGetIPSetResponse pHttpStatus_ =
   GetIPSetResponse'
-    { lockToken = Prelude.Nothing,
-      iPSet = Prelude.Nothing,
+    { iPSet = Prelude.Nothing,
+      lockToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- |
+getIPSetResponse_iPSet :: Lens.Lens' GetIPSetResponse (Prelude.Maybe IPSet)
+getIPSetResponse_iPSet = Lens.lens (\GetIPSetResponse' {iPSet} -> iPSet) (\s@GetIPSetResponse' {} a -> s {iPSet = a} :: GetIPSetResponse)
 
 -- | A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
@@ -256,16 +260,12 @@ newGetIPSetResponse pHttpStatus_ =
 getIPSetResponse_lockToken :: Lens.Lens' GetIPSetResponse (Prelude.Maybe Prelude.Text)
 getIPSetResponse_lockToken = Lens.lens (\GetIPSetResponse' {lockToken} -> lockToken) (\s@GetIPSetResponse' {} a -> s {lockToken = a} :: GetIPSetResponse)
 
--- |
-getIPSetResponse_iPSet :: Lens.Lens' GetIPSetResponse (Prelude.Maybe IPSet)
-getIPSetResponse_iPSet = Lens.lens (\GetIPSetResponse' {iPSet} -> iPSet) (\s@GetIPSetResponse' {} a -> s {iPSet = a} :: GetIPSetResponse)
-
 -- | The response's http status code.
 getIPSetResponse_httpStatus :: Lens.Lens' GetIPSetResponse Prelude.Int
 getIPSetResponse_httpStatus = Lens.lens (\GetIPSetResponse' {httpStatus} -> httpStatus) (\s@GetIPSetResponse' {} a -> s {httpStatus = a} :: GetIPSetResponse)
 
 instance Prelude.NFData GetIPSetResponse where
   rnf GetIPSetResponse' {..} =
-    Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf iPSet
+    Prelude.rnf iPSet
+      `Prelude.seq` Prelude.rnf lockToken
       `Prelude.seq` Prelude.rnf httpStatus

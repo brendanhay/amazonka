@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPropertyRequest' smart constructor.
 data PropertyRequest = PropertyRequest'
-  { -- | The update type of the update property request.
-    updateType :: Prelude.Maybe PropertyUpdateType,
-    -- | An object that specifies information about a property.
+  { -- | An object that specifies information about a property.
     definition :: Prelude.Maybe PropertyDefinitionRequest,
+    -- | The update type of the update property request.
+    updateType :: Prelude.Maybe PropertyUpdateType,
     -- | The value of the property.
     value :: Prelude.Maybe DataValue
   }
@@ -48,27 +48,27 @@ data PropertyRequest = PropertyRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateType', 'propertyRequest_updateType' - The update type of the update property request.
---
 -- 'definition', 'propertyRequest_definition' - An object that specifies information about a property.
+--
+-- 'updateType', 'propertyRequest_updateType' - The update type of the update property request.
 --
 -- 'value', 'propertyRequest_value' - The value of the property.
 newPropertyRequest ::
   PropertyRequest
 newPropertyRequest =
   PropertyRequest'
-    { updateType = Prelude.Nothing,
-      definition = Prelude.Nothing,
+    { definition = Prelude.Nothing,
+      updateType = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The update type of the update property request.
-propertyRequest_updateType :: Lens.Lens' PropertyRequest (Prelude.Maybe PropertyUpdateType)
-propertyRequest_updateType = Lens.lens (\PropertyRequest' {updateType} -> updateType) (\s@PropertyRequest' {} a -> s {updateType = a} :: PropertyRequest)
 
 -- | An object that specifies information about a property.
 propertyRequest_definition :: Lens.Lens' PropertyRequest (Prelude.Maybe PropertyDefinitionRequest)
 propertyRequest_definition = Lens.lens (\PropertyRequest' {definition} -> definition) (\s@PropertyRequest' {} a -> s {definition = a} :: PropertyRequest)
+
+-- | The update type of the update property request.
+propertyRequest_updateType :: Lens.Lens' PropertyRequest (Prelude.Maybe PropertyUpdateType)
+propertyRequest_updateType = Lens.lens (\PropertyRequest' {updateType} -> updateType) (\s@PropertyRequest' {} a -> s {updateType = a} :: PropertyRequest)
 
 -- | The value of the property.
 propertyRequest_value :: Lens.Lens' PropertyRequest (Prelude.Maybe DataValue)
@@ -76,22 +76,22 @@ propertyRequest_value = Lens.lens (\PropertyRequest' {value} -> value) (\s@Prope
 
 instance Prelude.Hashable PropertyRequest where
   hashWithSalt _salt PropertyRequest' {..} =
-    _salt `Prelude.hashWithSalt` updateType
-      `Prelude.hashWithSalt` definition
+    _salt `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` updateType
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PropertyRequest where
   rnf PropertyRequest' {..} =
-    Prelude.rnf updateType
-      `Prelude.seq` Prelude.rnf definition
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf updateType
       `Prelude.seq` Prelude.rnf value
 
 instance Data.ToJSON PropertyRequest where
   toJSON PropertyRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("updateType" Data..=) Prelude.<$> updateType,
-            ("definition" Data..=) Prelude.<$> definition,
+          [ ("definition" Data..=) Prelude.<$> definition,
+            ("updateType" Data..=) Prelude.<$> updateType,
             ("value" Data..=) Prelude.<$> value
           ]
       )

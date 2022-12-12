@@ -30,8 +30,8 @@ module Amazonka.EFS.DescribeAccountPreferences
     newDescribeAccountPreferences,
 
     -- * Request Lenses
-    describeAccountPreferences_nextToken,
     describeAccountPreferences_maxResults,
+    describeAccountPreferences_nextToken,
 
     -- * Destructuring the Response
     DescribeAccountPreferencesResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAccountPreferences' smart constructor.
 data DescribeAccountPreferences = DescribeAccountPreferences'
-  { -- | (Optional) You can use @NextToken@ in a subsequent request to fetch the
-    -- next page of Amazon Web Services account preferences if the response
-    -- payload was paginated.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) When retrieving account preferences, you can optionally
+  { -- | (Optional) When retrieving account preferences, you can optionally
     -- specify the @MaxItems@ parameter to limit the number of objects returned
     -- in a response. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) You can use @NextToken@ in a subsequent request to fetch the
+    -- next page of Amazon Web Services account preferences if the response
+    -- payload was paginated.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,33 +73,33 @@ data DescribeAccountPreferences = DescribeAccountPreferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAccountPreferences_nextToken' - (Optional) You can use @NextToken@ in a subsequent request to fetch the
--- next page of Amazon Web Services account preferences if the response
--- payload was paginated.
---
 -- 'maxResults', 'describeAccountPreferences_maxResults' - (Optional) When retrieving account preferences, you can optionally
 -- specify the @MaxItems@ parameter to limit the number of objects returned
 -- in a response. The default value is 100.
+--
+-- 'nextToken', 'describeAccountPreferences_nextToken' - (Optional) You can use @NextToken@ in a subsequent request to fetch the
+-- next page of Amazon Web Services account preferences if the response
+-- payload was paginated.
 newDescribeAccountPreferences ::
   DescribeAccountPreferences
 newDescribeAccountPreferences =
   DescribeAccountPreferences'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | (Optional) You can use @NextToken@ in a subsequent request to fetch the
--- next page of Amazon Web Services account preferences if the response
--- payload was paginated.
-describeAccountPreferences_nextToken :: Lens.Lens' DescribeAccountPreferences (Prelude.Maybe Prelude.Text)
-describeAccountPreferences_nextToken = Lens.lens (\DescribeAccountPreferences' {nextToken} -> nextToken) (\s@DescribeAccountPreferences' {} a -> s {nextToken = a} :: DescribeAccountPreferences)
 
 -- | (Optional) When retrieving account preferences, you can optionally
 -- specify the @MaxItems@ parameter to limit the number of objects returned
 -- in a response. The default value is 100.
 describeAccountPreferences_maxResults :: Lens.Lens' DescribeAccountPreferences (Prelude.Maybe Prelude.Natural)
 describeAccountPreferences_maxResults = Lens.lens (\DescribeAccountPreferences' {maxResults} -> maxResults) (\s@DescribeAccountPreferences' {} a -> s {maxResults = a} :: DescribeAccountPreferences)
+
+-- | (Optional) You can use @NextToken@ in a subsequent request to fetch the
+-- next page of Amazon Web Services account preferences if the response
+-- payload was paginated.
+describeAccountPreferences_nextToken :: Lens.Lens' DescribeAccountPreferences (Prelude.Maybe Prelude.Text)
+describeAccountPreferences_nextToken = Lens.lens (\DescribeAccountPreferences' {nextToken} -> nextToken) (\s@DescribeAccountPreferences' {} a -> s {nextToken = a} :: DescribeAccountPreferences)
 
 instance Core.AWSRequest DescribeAccountPreferences where
   type
@@ -118,13 +118,13 @@ instance Core.AWSRequest DescribeAccountPreferences where
 
 instance Prelude.Hashable DescribeAccountPreferences where
   hashWithSalt _salt DescribeAccountPreferences' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeAccountPreferences where
   rnf DescribeAccountPreferences' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAccountPreferences where
   toHeaders = Prelude.const Prelude.mempty

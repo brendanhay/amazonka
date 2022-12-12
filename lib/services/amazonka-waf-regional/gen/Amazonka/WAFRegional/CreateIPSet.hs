@@ -67,8 +67,8 @@ module Amazonka.WAFRegional.CreateIPSet
     newCreateIPSetResponse,
 
     -- * Response Lenses
-    createIPSetResponse_iPSet,
     createIPSetResponse_changeToken,
+    createIPSetResponse_iPSet,
     createIPSetResponse_httpStatus,
   )
 where
@@ -132,8 +132,8 @@ instance Core.AWSRequest CreateIPSet where
     Response.receiveJSON
       ( \s h x ->
           CreateIPSetResponse'
-            Prelude.<$> (x Data..?> "IPSet")
-            Prelude.<*> (x Data..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
+            Prelude.<*> (x Data..?> "IPSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,12 +179,12 @@ instance Data.ToQuery CreateIPSet where
 
 -- | /See:/ 'newCreateIPSetResponse' smart constructor.
 data CreateIPSetResponse = CreateIPSetResponse'
-  { -- | The IPSet returned in the @CreateIPSet@ response.
-    iPSet :: Prelude.Maybe IPSet,
-    -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You
+  { -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You
     -- can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
     changeToken :: Prelude.Maybe Prelude.Text,
+    -- | The IPSet returned in the @CreateIPSet@ response.
+    iPSet :: Prelude.Maybe IPSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,11 +198,11 @@ data CreateIPSetResponse = CreateIPSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iPSet', 'createIPSetResponse_iPSet' - The IPSet returned in the @CreateIPSet@ response.
---
 -- 'changeToken', 'createIPSetResponse_changeToken' - The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You
 -- can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
+--
+-- 'iPSet', 'createIPSetResponse_iPSet' - The IPSet returned in the @CreateIPSet@ response.
 --
 -- 'httpStatus', 'createIPSetResponse_httpStatus' - The response's http status code.
 newCreateIPSetResponse ::
@@ -211,14 +211,10 @@ newCreateIPSetResponse ::
   CreateIPSetResponse
 newCreateIPSetResponse pHttpStatus_ =
   CreateIPSetResponse'
-    { iPSet = Prelude.Nothing,
-      changeToken = Prelude.Nothing,
+    { changeToken = Prelude.Nothing,
+      iPSet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The IPSet returned in the @CreateIPSet@ response.
-createIPSetResponse_iPSet :: Lens.Lens' CreateIPSetResponse (Prelude.Maybe IPSet)
-createIPSetResponse_iPSet = Lens.lens (\CreateIPSetResponse' {iPSet} -> iPSet) (\s@CreateIPSetResponse' {} a -> s {iPSet = a} :: CreateIPSetResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You
 -- can also use this value to query the status of the request. For more
@@ -226,12 +222,16 @@ createIPSetResponse_iPSet = Lens.lens (\CreateIPSetResponse' {iPSet} -> iPSet) (
 createIPSetResponse_changeToken :: Lens.Lens' CreateIPSetResponse (Prelude.Maybe Prelude.Text)
 createIPSetResponse_changeToken = Lens.lens (\CreateIPSetResponse' {changeToken} -> changeToken) (\s@CreateIPSetResponse' {} a -> s {changeToken = a} :: CreateIPSetResponse)
 
+-- | The IPSet returned in the @CreateIPSet@ response.
+createIPSetResponse_iPSet :: Lens.Lens' CreateIPSetResponse (Prelude.Maybe IPSet)
+createIPSetResponse_iPSet = Lens.lens (\CreateIPSetResponse' {iPSet} -> iPSet) (\s@CreateIPSetResponse' {} a -> s {iPSet = a} :: CreateIPSetResponse)
+
 -- | The response's http status code.
 createIPSetResponse_httpStatus :: Lens.Lens' CreateIPSetResponse Prelude.Int
 createIPSetResponse_httpStatus = Lens.lens (\CreateIPSetResponse' {httpStatus} -> httpStatus) (\s@CreateIPSetResponse' {} a -> s {httpStatus = a} :: CreateIPSetResponse)
 
 instance Prelude.NFData CreateIPSetResponse where
   rnf CreateIPSetResponse' {..} =
-    Prelude.rnf iPSet
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf iPSet
       `Prelude.seq` Prelude.rnf httpStatus

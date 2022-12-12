@@ -34,12 +34,12 @@ module Amazonka.MediaLive.DescribeInputSecurityGroup
     newDescribeInputSecurityGroupResponse,
 
     -- * Response Lenses
-    describeInputSecurityGroupResponse_tags,
     describeInputSecurityGroupResponse_arn,
-    describeInputSecurityGroupResponse_state,
     describeInputSecurityGroupResponse_id,
-    describeInputSecurityGroupResponse_whitelistRules,
     describeInputSecurityGroupResponse_inputs,
+    describeInputSecurityGroupResponse_state,
+    describeInputSecurityGroupResponse_tags,
+    describeInputSecurityGroupResponse_whitelistRules,
     describeInputSecurityGroupResponse_httpStatus,
   )
 where
@@ -94,12 +94,12 @@ instance Core.AWSRequest DescribeInputSecurityGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeInputSecurityGroupResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "state")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "id")
-            Prelude.<*> (x Data..?> "whitelistRules" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "inputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "whitelistRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,18 +136,18 @@ instance Data.ToQuery DescribeInputSecurityGroup where
 --
 -- /See:/ 'newDescribeInputSecurityGroupResponse' smart constructor.
 data DescribeInputSecurityGroupResponse = DescribeInputSecurityGroupResponse'
-  { -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique ARN of Input Security Group
+  { -- | Unique ARN of Input Security Group
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the Input Security Group.
-    state :: Prelude.Maybe InputSecurityGroupState,
     -- | The Id of the Input Security Group
     id :: Prelude.Maybe Prelude.Text,
-    -- | Whitelist rules and their sync status
-    whitelistRules :: Prelude.Maybe [InputWhitelistRule],
     -- | The list of inputs currently using this Input Security Group.
     inputs :: Prelude.Maybe [Prelude.Text],
+    -- | The current state of the Input Security Group.
+    state :: Prelude.Maybe InputSecurityGroupState,
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Whitelist rules and their sync status
+    whitelistRules :: Prelude.Maybe [InputWhitelistRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,17 +161,17 @@ data DescribeInputSecurityGroupResponse = DescribeInputSecurityGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeInputSecurityGroupResponse_tags' - A collection of key-value pairs.
---
 -- 'arn', 'describeInputSecurityGroupResponse_arn' - Unique ARN of Input Security Group
---
--- 'state', 'describeInputSecurityGroupResponse_state' - The current state of the Input Security Group.
 --
 -- 'id', 'describeInputSecurityGroupResponse_id' - The Id of the Input Security Group
 --
--- 'whitelistRules', 'describeInputSecurityGroupResponse_whitelistRules' - Whitelist rules and their sync status
---
 -- 'inputs', 'describeInputSecurityGroupResponse_inputs' - The list of inputs currently using this Input Security Group.
+--
+-- 'state', 'describeInputSecurityGroupResponse_state' - The current state of the Input Security Group.
+--
+-- 'tags', 'describeInputSecurityGroupResponse_tags' - A collection of key-value pairs.
+--
+-- 'whitelistRules', 'describeInputSecurityGroupResponse_whitelistRules' - Whitelist rules and their sync status
 --
 -- 'httpStatus', 'describeInputSecurityGroupResponse_httpStatus' - The response's http status code.
 newDescribeInputSecurityGroupResponse ::
@@ -180,39 +180,39 @@ newDescribeInputSecurityGroupResponse ::
   DescribeInputSecurityGroupResponse
 newDescribeInputSecurityGroupResponse pHttpStatus_ =
   DescribeInputSecurityGroupResponse'
-    { tags =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
       id = Prelude.Nothing,
-      whitelistRules = Prelude.Nothing,
       inputs = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      whitelistRules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A collection of key-value pairs.
-describeInputSecurityGroupResponse_tags :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeInputSecurityGroupResponse_tags = Lens.lens (\DescribeInputSecurityGroupResponse' {tags} -> tags) (\s@DescribeInputSecurityGroupResponse' {} a -> s {tags = a} :: DescribeInputSecurityGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique ARN of Input Security Group
 describeInputSecurityGroupResponse_arn :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe Prelude.Text)
 describeInputSecurityGroupResponse_arn = Lens.lens (\DescribeInputSecurityGroupResponse' {arn} -> arn) (\s@DescribeInputSecurityGroupResponse' {} a -> s {arn = a} :: DescribeInputSecurityGroupResponse)
 
--- | The current state of the Input Security Group.
-describeInputSecurityGroupResponse_state :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe InputSecurityGroupState)
-describeInputSecurityGroupResponse_state = Lens.lens (\DescribeInputSecurityGroupResponse' {state} -> state) (\s@DescribeInputSecurityGroupResponse' {} a -> s {state = a} :: DescribeInputSecurityGroupResponse)
-
 -- | The Id of the Input Security Group
 describeInputSecurityGroupResponse_id :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe Prelude.Text)
 describeInputSecurityGroupResponse_id = Lens.lens (\DescribeInputSecurityGroupResponse' {id} -> id) (\s@DescribeInputSecurityGroupResponse' {} a -> s {id = a} :: DescribeInputSecurityGroupResponse)
 
--- | Whitelist rules and their sync status
-describeInputSecurityGroupResponse_whitelistRules :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe [InputWhitelistRule])
-describeInputSecurityGroupResponse_whitelistRules = Lens.lens (\DescribeInputSecurityGroupResponse' {whitelistRules} -> whitelistRules) (\s@DescribeInputSecurityGroupResponse' {} a -> s {whitelistRules = a} :: DescribeInputSecurityGroupResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The list of inputs currently using this Input Security Group.
 describeInputSecurityGroupResponse_inputs :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe [Prelude.Text])
 describeInputSecurityGroupResponse_inputs = Lens.lens (\DescribeInputSecurityGroupResponse' {inputs} -> inputs) (\s@DescribeInputSecurityGroupResponse' {} a -> s {inputs = a} :: DescribeInputSecurityGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The current state of the Input Security Group.
+describeInputSecurityGroupResponse_state :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe InputSecurityGroupState)
+describeInputSecurityGroupResponse_state = Lens.lens (\DescribeInputSecurityGroupResponse' {state} -> state) (\s@DescribeInputSecurityGroupResponse' {} a -> s {state = a} :: DescribeInputSecurityGroupResponse)
+
+-- | A collection of key-value pairs.
+describeInputSecurityGroupResponse_tags :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeInputSecurityGroupResponse_tags = Lens.lens (\DescribeInputSecurityGroupResponse' {tags} -> tags) (\s@DescribeInputSecurityGroupResponse' {} a -> s {tags = a} :: DescribeInputSecurityGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Whitelist rules and their sync status
+describeInputSecurityGroupResponse_whitelistRules :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe [InputWhitelistRule])
+describeInputSecurityGroupResponse_whitelistRules = Lens.lens (\DescribeInputSecurityGroupResponse' {whitelistRules} -> whitelistRules) (\s@DescribeInputSecurityGroupResponse' {} a -> s {whitelistRules = a} :: DescribeInputSecurityGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInputSecurityGroupResponse_httpStatus :: Lens.Lens' DescribeInputSecurityGroupResponse Prelude.Int
@@ -223,10 +223,10 @@ instance
     DescribeInputSecurityGroupResponse
   where
   rnf DescribeInputSecurityGroupResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf whitelistRules
       `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf whitelistRules
       `Prelude.seq` Prelude.rnf httpStatus

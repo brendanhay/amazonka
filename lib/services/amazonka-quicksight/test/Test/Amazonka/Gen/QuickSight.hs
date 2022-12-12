@@ -147,11 +147,17 @@ import Test.Tasty
 --         , requestDescribeAnalysis $
 --             newDescribeAnalysis
 --
+--         , requestDescribeAnalysisDefinition $
+--             newDescribeAnalysisDefinition
+--
 --         , requestDescribeAnalysisPermissions $
 --             newDescribeAnalysisPermissions
 --
 --         , requestDescribeDashboard $
 --             newDescribeDashboard
+--
+--         , requestDescribeDashboardDefinition $
+--             newDescribeDashboardDefinition
 --
 --         , requestDescribeDashboardPermissions $
 --             newDescribeDashboardPermissions
@@ -200,6 +206,9 @@ import Test.Tasty
 --
 --         , requestDescribeTemplateAlias $
 --             newDescribeTemplateAlias
+--
+--         , requestDescribeTemplateDefinition $
+--             newDescribeTemplateDefinition
 --
 --         , requestDescribeTemplatePermissions $
 --             newDescribeTemplatePermissions
@@ -519,11 +528,17 @@ import Test.Tasty
 --         , responseDescribeAnalysis $
 --             newDescribeAnalysisResponse
 --
+--         , responseDescribeAnalysisDefinition $
+--             newDescribeAnalysisDefinitionResponse
+--
 --         , responseDescribeAnalysisPermissions $
 --             newDescribeAnalysisPermissionsResponse
 --
 --         , responseDescribeDashboard $
 --             newDescribeDashboardResponse
+--
+--         , responseDescribeDashboardDefinition $
+--             newDescribeDashboardDefinitionResponse
 --
 --         , responseDescribeDashboardPermissions $
 --             newDescribeDashboardPermissionsResponse
@@ -572,6 +587,9 @@ import Test.Tasty
 --
 --         , responseDescribeTemplateAlias $
 --             newDescribeTemplateAliasResponse
+--
+--         , responseDescribeTemplateDefinition $
+--             newDescribeTemplateDefinitionResponse
 --
 --         , responseDescribeTemplatePermissions $
 --             newDescribeTemplatePermissionsResponse
@@ -1013,6 +1031,12 @@ requestDescribeAnalysis =
     "DescribeAnalysis"
     "fixture/DescribeAnalysis.yaml"
 
+requestDescribeAnalysisDefinition :: DescribeAnalysisDefinition -> TestTree
+requestDescribeAnalysisDefinition =
+  req
+    "DescribeAnalysisDefinition"
+    "fixture/DescribeAnalysisDefinition.yaml"
+
 requestDescribeAnalysisPermissions :: DescribeAnalysisPermissions -> TestTree
 requestDescribeAnalysisPermissions =
   req
@@ -1024,6 +1048,12 @@ requestDescribeDashboard =
   req
     "DescribeDashboard"
     "fixture/DescribeDashboard.yaml"
+
+requestDescribeDashboardDefinition :: DescribeDashboardDefinition -> TestTree
+requestDescribeDashboardDefinition =
+  req
+    "DescribeDashboardDefinition"
+    "fixture/DescribeDashboardDefinition.yaml"
 
 requestDescribeDashboardPermissions :: DescribeDashboardPermissions -> TestTree
 requestDescribeDashboardPermissions =
@@ -1120,6 +1150,12 @@ requestDescribeTemplateAlias =
   req
     "DescribeTemplateAlias"
     "fixture/DescribeTemplateAlias.yaml"
+
+requestDescribeTemplateDefinition :: DescribeTemplateDefinition -> TestTree
+requestDescribeTemplateDefinition =
+  req
+    "DescribeTemplateDefinition"
+    "fixture/DescribeTemplateDefinition.yaml"
 
 requestDescribeTemplatePermissions :: DescribeTemplatePermissions -> TestTree
 requestDescribeTemplatePermissions =
@@ -1833,6 +1869,14 @@ responseDescribeAnalysis =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAnalysis)
 
+responseDescribeAnalysisDefinition :: DescribeAnalysisDefinitionResponse -> TestTree
+responseDescribeAnalysisDefinition =
+  res
+    "DescribeAnalysisDefinitionResponse"
+    "fixture/DescribeAnalysisDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnalysisDefinition)
+
 responseDescribeAnalysisPermissions :: DescribeAnalysisPermissionsResponse -> TestTree
 responseDescribeAnalysisPermissions =
   res
@@ -1848,6 +1892,14 @@ responseDescribeDashboard =
     "fixture/DescribeDashboardResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDashboard)
+
+responseDescribeDashboardDefinition :: DescribeDashboardDefinitionResponse -> TestTree
+responseDescribeDashboardDefinition =
+  res
+    "DescribeDashboardDefinitionResponse"
+    "fixture/DescribeDashboardDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDashboardDefinition)
 
 responseDescribeDashboardPermissions :: DescribeDashboardPermissionsResponse -> TestTree
 responseDescribeDashboardPermissions =
@@ -1976,6 +2028,14 @@ responseDescribeTemplateAlias =
     "fixture/DescribeTemplateAliasResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTemplateAlias)
+
+responseDescribeTemplateDefinition :: DescribeTemplateDefinitionResponse -> TestTree
+responseDescribeTemplateDefinition =
+  res
+    "DescribeTemplateDefinitionResponse"
+    "fixture/DescribeTemplateDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTemplateDefinition)
 
 responseDescribeTemplatePermissions :: DescribeTemplatePermissionsResponse -> TestTree
 responseDescribeTemplatePermissions =

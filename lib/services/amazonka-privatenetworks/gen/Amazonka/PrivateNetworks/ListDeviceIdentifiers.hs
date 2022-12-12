@@ -46,8 +46,8 @@ module Amazonka.PrivateNetworks.ListDeviceIdentifiers
     newListDeviceIdentifiersResponse,
 
     -- * Response Lenses
-    listDeviceIdentifiersResponse_nextToken,
     listDeviceIdentifiersResponse_deviceIdentifiers,
+    listDeviceIdentifiersResponse_nextToken,
     listDeviceIdentifiersResponse_httpStatus,
   )
 where
@@ -181,10 +181,10 @@ instance Core.AWSRequest ListDeviceIdentifiers where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceIdentifiersResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "deviceIdentifiers"
+            Prelude.<$> ( x Data..?> "deviceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,10 +232,10 @@ instance Data.ToQuery ListDeviceIdentifiers where
 
 -- | /See:/ 'newListDeviceIdentifiersResponse' smart constructor.
 data ListDeviceIdentifiersResponse = ListDeviceIdentifiersResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the device identifiers.
+  { -- | Information about the device identifiers.
     deviceIdentifiers :: Prelude.Maybe [DeviceIdentifier],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -249,9 +249,9 @@ data ListDeviceIdentifiersResponse = ListDeviceIdentifiersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDeviceIdentifiersResponse_nextToken' - The token for the next page of results.
---
 -- 'deviceIdentifiers', 'listDeviceIdentifiersResponse_deviceIdentifiers' - Information about the device identifiers.
+--
+-- 'nextToken', 'listDeviceIdentifiersResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'listDeviceIdentifiersResponse_httpStatus' - The response's http status code.
 newListDeviceIdentifiersResponse ::
@@ -260,19 +260,19 @@ newListDeviceIdentifiersResponse ::
   ListDeviceIdentifiersResponse
 newListDeviceIdentifiersResponse pHttpStatus_ =
   ListDeviceIdentifiersResponse'
-    { nextToken =
+    { deviceIdentifiers =
         Prelude.Nothing,
-      deviceIdentifiers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-listDeviceIdentifiersResponse_nextToken :: Lens.Lens' ListDeviceIdentifiersResponse (Prelude.Maybe Prelude.Text)
-listDeviceIdentifiersResponse_nextToken = Lens.lens (\ListDeviceIdentifiersResponse' {nextToken} -> nextToken) (\s@ListDeviceIdentifiersResponse' {} a -> s {nextToken = a} :: ListDeviceIdentifiersResponse)
 
 -- | Information about the device identifiers.
 listDeviceIdentifiersResponse_deviceIdentifiers :: Lens.Lens' ListDeviceIdentifiersResponse (Prelude.Maybe [DeviceIdentifier])
 listDeviceIdentifiersResponse_deviceIdentifiers = Lens.lens (\ListDeviceIdentifiersResponse' {deviceIdentifiers} -> deviceIdentifiers) (\s@ListDeviceIdentifiersResponse' {} a -> s {deviceIdentifiers = a} :: ListDeviceIdentifiersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+listDeviceIdentifiersResponse_nextToken :: Lens.Lens' ListDeviceIdentifiersResponse (Prelude.Maybe Prelude.Text)
+listDeviceIdentifiersResponse_nextToken = Lens.lens (\ListDeviceIdentifiersResponse' {nextToken} -> nextToken) (\s@ListDeviceIdentifiersResponse' {} a -> s {nextToken = a} :: ListDeviceIdentifiersResponse)
 
 -- | The response's http status code.
 listDeviceIdentifiersResponse_httpStatus :: Lens.Lens' ListDeviceIdentifiersResponse Prelude.Int
@@ -280,6 +280,6 @@ listDeviceIdentifiersResponse_httpStatus = Lens.lens (\ListDeviceIdentifiersResp
 
 instance Prelude.NFData ListDeviceIdentifiersResponse where
   rnf ListDeviceIdentifiersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceIdentifiers
+    Prelude.rnf deviceIdentifiers
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -32,7 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagScopeTerm' smart constructor.
 data TagScopeTerm = TagScopeTerm'
-  { -- | The object property to use in the condition. The only valid value is
+  { -- | The operator to use in the condition. Valid values are EQ (equals) or NE
+    -- (not equals).
+    comparator :: Prelude.Maybe JobComparator,
+    -- | The object property to use in the condition. The only valid value is
     -- TAG.
     key :: Prelude.Maybe Prelude.Text,
     -- | The tag keys or tag key and value pairs to use in the condition. To
@@ -40,10 +43,7 @@ data TagScopeTerm = TagScopeTerm'
     -- set the value for each associated tag value to an empty string.
     tagValues :: Prelude.Maybe [TagValuePair],
     -- | The type of object to apply the condition to.
-    target :: Prelude.Maybe TagTarget,
-    -- | The operator to use in the condition. Valid values are EQ (equals) or NE
-    -- (not equals).
-    comparator :: Prelude.Maybe JobComparator
+    target :: Prelude.Maybe TagTarget
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,9 @@ data TagScopeTerm = TagScopeTerm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'comparator', 'tagScopeTerm_comparator' - The operator to use in the condition. Valid values are EQ (equals) or NE
+-- (not equals).
+--
 -- 'key', 'tagScopeTerm_key' - The object property to use in the condition. The only valid value is
 -- TAG.
 --
@@ -63,18 +66,20 @@ data TagScopeTerm = TagScopeTerm'
 -- set the value for each associated tag value to an empty string.
 --
 -- 'target', 'tagScopeTerm_target' - The type of object to apply the condition to.
---
--- 'comparator', 'tagScopeTerm_comparator' - The operator to use in the condition. Valid values are EQ (equals) or NE
--- (not equals).
 newTagScopeTerm ::
   TagScopeTerm
 newTagScopeTerm =
   TagScopeTerm'
-    { key = Prelude.Nothing,
+    { comparator = Prelude.Nothing,
+      key = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      target = Prelude.Nothing,
-      comparator = Prelude.Nothing
+      target = Prelude.Nothing
     }
+
+-- | The operator to use in the condition. Valid values are EQ (equals) or NE
+-- (not equals).
+tagScopeTerm_comparator :: Lens.Lens' TagScopeTerm (Prelude.Maybe JobComparator)
+tagScopeTerm_comparator = Lens.lens (\TagScopeTerm' {comparator} -> comparator) (\s@TagScopeTerm' {} a -> s {comparator = a} :: TagScopeTerm)
 
 -- | The object property to use in the condition. The only valid value is
 -- TAG.
@@ -91,44 +96,39 @@ tagScopeTerm_tagValues = Lens.lens (\TagScopeTerm' {tagValues} -> tagValues) (\s
 tagScopeTerm_target :: Lens.Lens' TagScopeTerm (Prelude.Maybe TagTarget)
 tagScopeTerm_target = Lens.lens (\TagScopeTerm' {target} -> target) (\s@TagScopeTerm' {} a -> s {target = a} :: TagScopeTerm)
 
--- | The operator to use in the condition. Valid values are EQ (equals) or NE
--- (not equals).
-tagScopeTerm_comparator :: Lens.Lens' TagScopeTerm (Prelude.Maybe JobComparator)
-tagScopeTerm_comparator = Lens.lens (\TagScopeTerm' {comparator} -> comparator) (\s@TagScopeTerm' {} a -> s {comparator = a} :: TagScopeTerm)
-
 instance Data.FromJSON TagScopeTerm where
   parseJSON =
     Data.withObject
       "TagScopeTerm"
       ( \x ->
           TagScopeTerm'
-            Prelude.<$> (x Data..:? "key")
+            Prelude.<$> (x Data..:? "comparator")
+            Prelude.<*> (x Data..:? "key")
             Prelude.<*> (x Data..:? "tagValues" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "target")
-            Prelude.<*> (x Data..:? "comparator")
       )
 
 instance Prelude.Hashable TagScopeTerm where
   hashWithSalt _salt TagScopeTerm' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` tagValues
       `Prelude.hashWithSalt` target
-      `Prelude.hashWithSalt` comparator
 
 instance Prelude.NFData TagScopeTerm where
   rnf TagScopeTerm' {..} =
-    Prelude.rnf key
+    Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf tagValues
       `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf comparator
 
 instance Data.ToJSON TagScopeTerm where
   toJSON TagScopeTerm' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("key" Data..=) Prelude.<$> key,
+          [ ("comparator" Data..=) Prelude.<$> comparator,
+            ("key" Data..=) Prelude.<$> key,
             ("tagValues" Data..=) Prelude.<$> tagValues,
-            ("target" Data..=) Prelude.<$> target,
-            ("comparator" Data..=) Prelude.<$> comparator
+            ("target" Data..=) Prelude.<$> target
           ]
       )

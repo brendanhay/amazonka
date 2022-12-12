@@ -32,8 +32,8 @@ module Amazonka.LakeFormation.GetTemporaryGluePartitionCredentials
 
     -- * Request Lenses
     getTemporaryGluePartitionCredentials_auditContext,
-    getTemporaryGluePartitionCredentials_permissions,
     getTemporaryGluePartitionCredentials_durationSeconds,
+    getTemporaryGluePartitionCredentials_permissions,
     getTemporaryGluePartitionCredentials_tableArn,
     getTemporaryGluePartitionCredentials_partition,
     getTemporaryGluePartitionCredentials_supportedPermissionTypes,
@@ -43,10 +43,10 @@ module Amazonka.LakeFormation.GetTemporaryGluePartitionCredentials
     newGetTemporaryGluePartitionCredentialsResponse,
 
     -- * Response Lenses
-    getTemporaryGluePartitionCredentialsResponse_sessionToken,
+    getTemporaryGluePartitionCredentialsResponse_accessKeyId,
     getTemporaryGluePartitionCredentialsResponse_expiration,
     getTemporaryGluePartitionCredentialsResponse_secretAccessKey,
-    getTemporaryGluePartitionCredentialsResponse_accessKeyId,
+    getTemporaryGluePartitionCredentialsResponse_sessionToken,
     getTemporaryGluePartitionCredentialsResponse_httpStatus,
   )
 where
@@ -64,12 +64,12 @@ data GetTemporaryGluePartitionCredentials = GetTemporaryGluePartitionCredentials
   { -- | A structure representing context to access a resource (column names,
     -- query ID, etc).
     auditContext :: Prelude.Maybe AuditContext,
-    -- | Filters the request based on the user having been granted a list of
-    -- specified permissions on the requested resource(s).
-    permissions :: Prelude.Maybe [Permission],
     -- | The time period, between 900 and 21,600 seconds, for the timeout of the
     -- temporary credentials.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Filters the request based on the user having been granted a list of
+    -- specified permissions on the requested resource(s).
+    permissions :: Prelude.Maybe [Permission],
     -- | The ARN of the partitions\' table.
     tableArn :: Prelude.Text,
     -- | A list of partition values identifying a single partition.
@@ -91,11 +91,11 @@ data GetTemporaryGluePartitionCredentials = GetTemporaryGluePartitionCredentials
 -- 'auditContext', 'getTemporaryGluePartitionCredentials_auditContext' - A structure representing context to access a resource (column names,
 -- query ID, etc).
 --
--- 'permissions', 'getTemporaryGluePartitionCredentials_permissions' - Filters the request based on the user having been granted a list of
--- specified permissions on the requested resource(s).
---
 -- 'durationSeconds', 'getTemporaryGluePartitionCredentials_durationSeconds' - The time period, between 900 and 21,600 seconds, for the timeout of the
 -- temporary credentials.
+--
+-- 'permissions', 'getTemporaryGluePartitionCredentials_permissions' - Filters the request based on the user having been granted a list of
+-- specified permissions on the requested resource(s).
 --
 -- 'tableArn', 'getTemporaryGluePartitionCredentials_tableArn' - The ARN of the partitions\' table.
 --
@@ -118,8 +118,8 @@ newGetTemporaryGluePartitionCredentials
     GetTemporaryGluePartitionCredentials'
       { auditContext =
           Prelude.Nothing,
-        permissions = Prelude.Nothing,
         durationSeconds = Prelude.Nothing,
+        permissions = Prelude.Nothing,
         tableArn = pTableArn_,
         partition = pPartition_,
         supportedPermissionTypes =
@@ -132,15 +132,15 @@ newGetTemporaryGluePartitionCredentials
 getTemporaryGluePartitionCredentials_auditContext :: Lens.Lens' GetTemporaryGluePartitionCredentials (Prelude.Maybe AuditContext)
 getTemporaryGluePartitionCredentials_auditContext = Lens.lens (\GetTemporaryGluePartitionCredentials' {auditContext} -> auditContext) (\s@GetTemporaryGluePartitionCredentials' {} a -> s {auditContext = a} :: GetTemporaryGluePartitionCredentials)
 
--- | Filters the request based on the user having been granted a list of
--- specified permissions on the requested resource(s).
-getTemporaryGluePartitionCredentials_permissions :: Lens.Lens' GetTemporaryGluePartitionCredentials (Prelude.Maybe [Permission])
-getTemporaryGluePartitionCredentials_permissions = Lens.lens (\GetTemporaryGluePartitionCredentials' {permissions} -> permissions) (\s@GetTemporaryGluePartitionCredentials' {} a -> s {permissions = a} :: GetTemporaryGluePartitionCredentials) Prelude.. Lens.mapping Lens.coerced
-
 -- | The time period, between 900 and 21,600 seconds, for the timeout of the
 -- temporary credentials.
 getTemporaryGluePartitionCredentials_durationSeconds :: Lens.Lens' GetTemporaryGluePartitionCredentials (Prelude.Maybe Prelude.Natural)
 getTemporaryGluePartitionCredentials_durationSeconds = Lens.lens (\GetTemporaryGluePartitionCredentials' {durationSeconds} -> durationSeconds) (\s@GetTemporaryGluePartitionCredentials' {} a -> s {durationSeconds = a} :: GetTemporaryGluePartitionCredentials)
+
+-- | Filters the request based on the user having been granted a list of
+-- specified permissions on the requested resource(s).
+getTemporaryGluePartitionCredentials_permissions :: Lens.Lens' GetTemporaryGluePartitionCredentials (Prelude.Maybe [Permission])
+getTemporaryGluePartitionCredentials_permissions = Lens.lens (\GetTemporaryGluePartitionCredentials' {permissions} -> permissions) (\s@GetTemporaryGluePartitionCredentials' {} a -> s {permissions = a} :: GetTemporaryGluePartitionCredentials) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the partitions\' table.
 getTemporaryGluePartitionCredentials_tableArn :: Lens.Lens' GetTemporaryGluePartitionCredentials Prelude.Text
@@ -168,10 +168,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetTemporaryGluePartitionCredentialsResponse'
-            Prelude.<$> (x Data..?> "SessionToken")
+            Prelude.<$> (x Data..?> "AccessKeyId")
               Prelude.<*> (x Data..?> "Expiration")
               Prelude.<*> (x Data..?> "SecretAccessKey")
-              Prelude.<*> (x Data..?> "AccessKeyId")
+              Prelude.<*> (x Data..?> "SessionToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,8 +183,8 @@ instance
     _salt
     GetTemporaryGluePartitionCredentials' {..} =
       _salt `Prelude.hashWithSalt` auditContext
-        `Prelude.hashWithSalt` permissions
         `Prelude.hashWithSalt` durationSeconds
+        `Prelude.hashWithSalt` permissions
         `Prelude.hashWithSalt` tableArn
         `Prelude.hashWithSalt` partition
         `Prelude.hashWithSalt` supportedPermissionTypes
@@ -195,8 +195,8 @@ instance
   where
   rnf GetTemporaryGluePartitionCredentials' {..} =
     Prelude.rnf auditContext
-      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf tableArn
       `Prelude.seq` Prelude.rnf partition
       `Prelude.seq` Prelude.rnf supportedPermissionTypes
@@ -223,9 +223,9 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("AuditContext" Data..=) Prelude.<$> auditContext,
-            ("Permissions" Data..=) Prelude.<$> permissions,
             ("DurationSeconds" Data..=)
               Prelude.<$> durationSeconds,
+            ("Permissions" Data..=) Prelude.<$> permissions,
             Prelude.Just ("TableArn" Data..= tableArn),
             Prelude.Just ("Partition" Data..= partition),
             Prelude.Just
@@ -251,14 +251,14 @@ instance
 
 -- | /See:/ 'newGetTemporaryGluePartitionCredentialsResponse' smart constructor.
 data GetTemporaryGluePartitionCredentialsResponse = GetTemporaryGluePartitionCredentialsResponse'
-  { -- | The session token for the temporary credentials.
-    sessionToken :: Prelude.Maybe Prelude.Text,
+  { -- | The access key ID for the temporary credentials.
+    accessKeyId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the temporary credentials expire.
     expiration :: Prelude.Maybe Data.POSIX,
     -- | The secret key for the temporary credentials.
     secretAccessKey :: Prelude.Maybe Prelude.Text,
-    -- | The access key ID for the temporary credentials.
-    accessKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The session token for the temporary credentials.
+    sessionToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -272,13 +272,13 @@ data GetTemporaryGluePartitionCredentialsResponse = GetTemporaryGluePartitionCre
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionToken', 'getTemporaryGluePartitionCredentialsResponse_sessionToken' - The session token for the temporary credentials.
+-- 'accessKeyId', 'getTemporaryGluePartitionCredentialsResponse_accessKeyId' - The access key ID for the temporary credentials.
 --
 -- 'expiration', 'getTemporaryGluePartitionCredentialsResponse_expiration' - The date and time when the temporary credentials expire.
 --
 -- 'secretAccessKey', 'getTemporaryGluePartitionCredentialsResponse_secretAccessKey' - The secret key for the temporary credentials.
 --
--- 'accessKeyId', 'getTemporaryGluePartitionCredentialsResponse_accessKeyId' - The access key ID for the temporary credentials.
+-- 'sessionToken', 'getTemporaryGluePartitionCredentialsResponse_sessionToken' - The session token for the temporary credentials.
 --
 -- 'httpStatus', 'getTemporaryGluePartitionCredentialsResponse_httpStatus' - The response's http status code.
 newGetTemporaryGluePartitionCredentialsResponse ::
@@ -288,18 +288,19 @@ newGetTemporaryGluePartitionCredentialsResponse ::
 newGetTemporaryGluePartitionCredentialsResponse
   pHttpStatus_ =
     GetTemporaryGluePartitionCredentialsResponse'
-      { sessionToken =
+      { accessKeyId =
           Prelude.Nothing,
         expiration = Prelude.Nothing,
         secretAccessKey =
           Prelude.Nothing,
-        accessKeyId = Prelude.Nothing,
+        sessionToken =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The session token for the temporary credentials.
-getTemporaryGluePartitionCredentialsResponse_sessionToken :: Lens.Lens' GetTemporaryGluePartitionCredentialsResponse (Prelude.Maybe Prelude.Text)
-getTemporaryGluePartitionCredentialsResponse_sessionToken = Lens.lens (\GetTemporaryGluePartitionCredentialsResponse' {sessionToken} -> sessionToken) (\s@GetTemporaryGluePartitionCredentialsResponse' {} a -> s {sessionToken = a} :: GetTemporaryGluePartitionCredentialsResponse)
+-- | The access key ID for the temporary credentials.
+getTemporaryGluePartitionCredentialsResponse_accessKeyId :: Lens.Lens' GetTemporaryGluePartitionCredentialsResponse (Prelude.Maybe Prelude.Text)
+getTemporaryGluePartitionCredentialsResponse_accessKeyId = Lens.lens (\GetTemporaryGluePartitionCredentialsResponse' {accessKeyId} -> accessKeyId) (\s@GetTemporaryGluePartitionCredentialsResponse' {} a -> s {accessKeyId = a} :: GetTemporaryGluePartitionCredentialsResponse)
 
 -- | The date and time when the temporary credentials expire.
 getTemporaryGluePartitionCredentialsResponse_expiration :: Lens.Lens' GetTemporaryGluePartitionCredentialsResponse (Prelude.Maybe Prelude.UTCTime)
@@ -309,9 +310,9 @@ getTemporaryGluePartitionCredentialsResponse_expiration = Lens.lens (\GetTempora
 getTemporaryGluePartitionCredentialsResponse_secretAccessKey :: Lens.Lens' GetTemporaryGluePartitionCredentialsResponse (Prelude.Maybe Prelude.Text)
 getTemporaryGluePartitionCredentialsResponse_secretAccessKey = Lens.lens (\GetTemporaryGluePartitionCredentialsResponse' {secretAccessKey} -> secretAccessKey) (\s@GetTemporaryGluePartitionCredentialsResponse' {} a -> s {secretAccessKey = a} :: GetTemporaryGluePartitionCredentialsResponse)
 
--- | The access key ID for the temporary credentials.
-getTemporaryGluePartitionCredentialsResponse_accessKeyId :: Lens.Lens' GetTemporaryGluePartitionCredentialsResponse (Prelude.Maybe Prelude.Text)
-getTemporaryGluePartitionCredentialsResponse_accessKeyId = Lens.lens (\GetTemporaryGluePartitionCredentialsResponse' {accessKeyId} -> accessKeyId) (\s@GetTemporaryGluePartitionCredentialsResponse' {} a -> s {accessKeyId = a} :: GetTemporaryGluePartitionCredentialsResponse)
+-- | The session token for the temporary credentials.
+getTemporaryGluePartitionCredentialsResponse_sessionToken :: Lens.Lens' GetTemporaryGluePartitionCredentialsResponse (Prelude.Maybe Prelude.Text)
+getTemporaryGluePartitionCredentialsResponse_sessionToken = Lens.lens (\GetTemporaryGluePartitionCredentialsResponse' {sessionToken} -> sessionToken) (\s@GetTemporaryGluePartitionCredentialsResponse' {} a -> s {sessionToken = a} :: GetTemporaryGluePartitionCredentialsResponse)
 
 -- | The response's http status code.
 getTemporaryGluePartitionCredentialsResponse_httpStatus :: Lens.Lens' GetTemporaryGluePartitionCredentialsResponse Prelude.Int
@@ -322,8 +323,8 @@ instance
     GetTemporaryGluePartitionCredentialsResponse
   where
   rnf GetTemporaryGluePartitionCredentialsResponse' {..} =
-    Prelude.rnf sessionToken
+    Prelude.rnf accessKeyId
       `Prelude.seq` Prelude.rnf expiration
       `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf sessionToken
       `Prelude.seq` Prelude.rnf httpStatus

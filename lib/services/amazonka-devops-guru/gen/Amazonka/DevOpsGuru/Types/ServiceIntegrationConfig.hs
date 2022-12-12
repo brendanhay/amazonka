@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceIntegrationConfig' smart constructor.
 data ServiceIntegrationConfig = ServiceIntegrationConfig'
-  { -- | Information about whether DevOps Guru is configured to create an OpsItem
+  { -- | Information about whether DevOps Guru is configured to perform log
+    -- anomaly detection on Amazon CloudWatch log groups.
+    logsAnomalyDetection :: Prelude.Maybe LogsAnomalyDetectionIntegration,
+    -- | Information about whether DevOps Guru is configured to create an OpsItem
     -- in Amazon Web Services Systems Manager OpsCenter for each created
     -- insight.
-    opsCenter :: Prelude.Maybe OpsCenterIntegration,
-    -- | Information about whether DevOps Guru is configured to perform log
-    -- anomaly detection on Amazon CloudWatch log groups.
-    logsAnomalyDetection :: Prelude.Maybe LogsAnomalyDetectionIntegration
+    opsCenter :: Prelude.Maybe OpsCenterIntegration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,20 +49,25 @@ data ServiceIntegrationConfig = ServiceIntegrationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'logsAnomalyDetection', 'serviceIntegrationConfig_logsAnomalyDetection' - Information about whether DevOps Guru is configured to perform log
+-- anomaly detection on Amazon CloudWatch log groups.
+--
 -- 'opsCenter', 'serviceIntegrationConfig_opsCenter' - Information about whether DevOps Guru is configured to create an OpsItem
 -- in Amazon Web Services Systems Manager OpsCenter for each created
 -- insight.
---
--- 'logsAnomalyDetection', 'serviceIntegrationConfig_logsAnomalyDetection' - Information about whether DevOps Guru is configured to perform log
--- anomaly detection on Amazon CloudWatch log groups.
 newServiceIntegrationConfig ::
   ServiceIntegrationConfig
 newServiceIntegrationConfig =
   ServiceIntegrationConfig'
-    { opsCenter =
+    { logsAnomalyDetection =
         Prelude.Nothing,
-      logsAnomalyDetection = Prelude.Nothing
+      opsCenter = Prelude.Nothing
     }
+
+-- | Information about whether DevOps Guru is configured to perform log
+-- anomaly detection on Amazon CloudWatch log groups.
+serviceIntegrationConfig_logsAnomalyDetection :: Lens.Lens' ServiceIntegrationConfig (Prelude.Maybe LogsAnomalyDetectionIntegration)
+serviceIntegrationConfig_logsAnomalyDetection = Lens.lens (\ServiceIntegrationConfig' {logsAnomalyDetection} -> logsAnomalyDetection) (\s@ServiceIntegrationConfig' {} a -> s {logsAnomalyDetection = a} :: ServiceIntegrationConfig)
 
 -- | Information about whether DevOps Guru is configured to create an OpsItem
 -- in Amazon Web Services Systems Manager OpsCenter for each created
@@ -70,27 +75,22 @@ newServiceIntegrationConfig =
 serviceIntegrationConfig_opsCenter :: Lens.Lens' ServiceIntegrationConfig (Prelude.Maybe OpsCenterIntegration)
 serviceIntegrationConfig_opsCenter = Lens.lens (\ServiceIntegrationConfig' {opsCenter} -> opsCenter) (\s@ServiceIntegrationConfig' {} a -> s {opsCenter = a} :: ServiceIntegrationConfig)
 
--- | Information about whether DevOps Guru is configured to perform log
--- anomaly detection on Amazon CloudWatch log groups.
-serviceIntegrationConfig_logsAnomalyDetection :: Lens.Lens' ServiceIntegrationConfig (Prelude.Maybe LogsAnomalyDetectionIntegration)
-serviceIntegrationConfig_logsAnomalyDetection = Lens.lens (\ServiceIntegrationConfig' {logsAnomalyDetection} -> logsAnomalyDetection) (\s@ServiceIntegrationConfig' {} a -> s {logsAnomalyDetection = a} :: ServiceIntegrationConfig)
-
 instance Data.FromJSON ServiceIntegrationConfig where
   parseJSON =
     Data.withObject
       "ServiceIntegrationConfig"
       ( \x ->
           ServiceIntegrationConfig'
-            Prelude.<$> (x Data..:? "OpsCenter")
-            Prelude.<*> (x Data..:? "LogsAnomalyDetection")
+            Prelude.<$> (x Data..:? "LogsAnomalyDetection")
+            Prelude.<*> (x Data..:? "OpsCenter")
       )
 
 instance Prelude.Hashable ServiceIntegrationConfig where
   hashWithSalt _salt ServiceIntegrationConfig' {..} =
-    _salt `Prelude.hashWithSalt` opsCenter
-      `Prelude.hashWithSalt` logsAnomalyDetection
+    _salt `Prelude.hashWithSalt` logsAnomalyDetection
+      `Prelude.hashWithSalt` opsCenter
 
 instance Prelude.NFData ServiceIntegrationConfig where
   rnf ServiceIntegrationConfig' {..} =
-    Prelude.rnf opsCenter
-      `Prelude.seq` Prelude.rnf logsAnomalyDetection
+    Prelude.rnf logsAnomalyDetection
+      `Prelude.seq` Prelude.rnf opsCenter

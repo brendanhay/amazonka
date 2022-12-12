@@ -33,19 +33,16 @@ import Amazonka.SageMaker.Types.AutoMLSecurityConfig
 --
 -- /See:/ 'newAutoMLJobConfig' smart constructor.
 data AutoMLJobConfig = AutoMLJobConfig'
-  { -- | The configuration for splitting the input training dataset.
-    --
-    -- Type: AutoMLDataSplitConfig
-    dataSplitConfig :: Prelude.Maybe AutoMLDataSplitConfig,
+  { -- | The configuration for generating a candidate for an AutoML job
+    -- (optional).
+    candidateGenerationConfig :: Prelude.Maybe AutoMLCandidateGenerationConfig,
     -- | How long an AutoML job is allowed to run, or how many candidates a job
     -- is allowed to generate.
     completionCriteria :: Prelude.Maybe AutoMLJobCompletionCriteria,
-    -- | The configuration for generating a candidate for an AutoML job
-    -- (optional).
-    candidateGenerationConfig :: Prelude.Maybe AutoMLCandidateGenerationConfig,
-    -- | The security configuration for traffic encryption or Amazon VPC
-    -- settings.
-    securityConfig :: Prelude.Maybe AutoMLSecurityConfig,
+    -- | The configuration for splitting the input training dataset.
+    --
+    -- Type: AutoMLDataSplitConfig
+    dataSplitConfig :: Prelude.Maybe AutoMLDataSplitConfig,
     -- | The method that Autopilot uses to train the data. You can either specify
     -- the mode manually or let Autopilot choose for you based on the dataset
     -- size by selecting @AUTO@. In @AUTO@ mode, Autopilot chooses @ENSEMBLING@
@@ -68,7 +65,10 @@ data AutoMLJobConfig = AutoMLJobConfig'
     -- best hyperparameters according to your objective metric. See
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
     -- for a list of algorithms supported by @HYPERPARAMETER_TUNING@ mode.
-    mode :: Prelude.Maybe AutoMLMode
+    mode :: Prelude.Maybe AutoMLMode,
+    -- | The security configuration for traffic encryption or Amazon VPC
+    -- settings.
+    securityConfig :: Prelude.Maybe AutoMLSecurityConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,18 +80,15 @@ data AutoMLJobConfig = AutoMLJobConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSplitConfig', 'autoMLJobConfig_dataSplitConfig' - The configuration for splitting the input training dataset.
---
--- Type: AutoMLDataSplitConfig
+-- 'candidateGenerationConfig', 'autoMLJobConfig_candidateGenerationConfig' - The configuration for generating a candidate for an AutoML job
+-- (optional).
 --
 -- 'completionCriteria', 'autoMLJobConfig_completionCriteria' - How long an AutoML job is allowed to run, or how many candidates a job
 -- is allowed to generate.
 --
--- 'candidateGenerationConfig', 'autoMLJobConfig_candidateGenerationConfig' - The configuration for generating a candidate for an AutoML job
--- (optional).
+-- 'dataSplitConfig', 'autoMLJobConfig_dataSplitConfig' - The configuration for splitting the input training dataset.
 --
--- 'securityConfig', 'autoMLJobConfig_securityConfig' - The security configuration for traffic encryption or Amazon VPC
--- settings.
+-- Type: AutoMLDataSplitConfig
 --
 -- 'mode', 'autoMLJobConfig_mode' - The method that Autopilot uses to train the data. You can either specify
 -- the mode manually or let Autopilot choose for you based on the dataset
@@ -115,37 +112,36 @@ data AutoMLJobConfig = AutoMLJobConfig'
 -- best hyperparameters according to your objective metric. See
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
 -- for a list of algorithms supported by @HYPERPARAMETER_TUNING@ mode.
+--
+-- 'securityConfig', 'autoMLJobConfig_securityConfig' - The security configuration for traffic encryption or Amazon VPC
+-- settings.
 newAutoMLJobConfig ::
   AutoMLJobConfig
 newAutoMLJobConfig =
   AutoMLJobConfig'
-    { dataSplitConfig = Prelude.Nothing,
+    { candidateGenerationConfig =
+        Prelude.Nothing,
       completionCriteria = Prelude.Nothing,
-      candidateGenerationConfig = Prelude.Nothing,
-      securityConfig = Prelude.Nothing,
-      mode = Prelude.Nothing
+      dataSplitConfig = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      securityConfig = Prelude.Nothing
     }
-
--- | The configuration for splitting the input training dataset.
---
--- Type: AutoMLDataSplitConfig
-autoMLJobConfig_dataSplitConfig :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLDataSplitConfig)
-autoMLJobConfig_dataSplitConfig = Lens.lens (\AutoMLJobConfig' {dataSplitConfig} -> dataSplitConfig) (\s@AutoMLJobConfig' {} a -> s {dataSplitConfig = a} :: AutoMLJobConfig)
-
--- | How long an AutoML job is allowed to run, or how many candidates a job
--- is allowed to generate.
-autoMLJobConfig_completionCriteria :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLJobCompletionCriteria)
-autoMLJobConfig_completionCriteria = Lens.lens (\AutoMLJobConfig' {completionCriteria} -> completionCriteria) (\s@AutoMLJobConfig' {} a -> s {completionCriteria = a} :: AutoMLJobConfig)
 
 -- | The configuration for generating a candidate for an AutoML job
 -- (optional).
 autoMLJobConfig_candidateGenerationConfig :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLCandidateGenerationConfig)
 autoMLJobConfig_candidateGenerationConfig = Lens.lens (\AutoMLJobConfig' {candidateGenerationConfig} -> candidateGenerationConfig) (\s@AutoMLJobConfig' {} a -> s {candidateGenerationConfig = a} :: AutoMLJobConfig)
 
--- | The security configuration for traffic encryption or Amazon VPC
--- settings.
-autoMLJobConfig_securityConfig :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLSecurityConfig)
-autoMLJobConfig_securityConfig = Lens.lens (\AutoMLJobConfig' {securityConfig} -> securityConfig) (\s@AutoMLJobConfig' {} a -> s {securityConfig = a} :: AutoMLJobConfig)
+-- | How long an AutoML job is allowed to run, or how many candidates a job
+-- is allowed to generate.
+autoMLJobConfig_completionCriteria :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLJobCompletionCriteria)
+autoMLJobConfig_completionCriteria = Lens.lens (\AutoMLJobConfig' {completionCriteria} -> completionCriteria) (\s@AutoMLJobConfig' {} a -> s {completionCriteria = a} :: AutoMLJobConfig)
+
+-- | The configuration for splitting the input training dataset.
+--
+-- Type: AutoMLDataSplitConfig
+autoMLJobConfig_dataSplitConfig :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLDataSplitConfig)
+autoMLJobConfig_dataSplitConfig = Lens.lens (\AutoMLJobConfig' {dataSplitConfig} -> dataSplitConfig) (\s@AutoMLJobConfig' {} a -> s {dataSplitConfig = a} :: AutoMLJobConfig)
 
 -- | The method that Autopilot uses to train the data. You can either specify
 -- the mode manually or let Autopilot choose for you based on the dataset
@@ -172,47 +168,53 @@ autoMLJobConfig_securityConfig = Lens.lens (\AutoMLJobConfig' {securityConfig} -
 autoMLJobConfig_mode :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLMode)
 autoMLJobConfig_mode = Lens.lens (\AutoMLJobConfig' {mode} -> mode) (\s@AutoMLJobConfig' {} a -> s {mode = a} :: AutoMLJobConfig)
 
+-- | The security configuration for traffic encryption or Amazon VPC
+-- settings.
+autoMLJobConfig_securityConfig :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLSecurityConfig)
+autoMLJobConfig_securityConfig = Lens.lens (\AutoMLJobConfig' {securityConfig} -> securityConfig) (\s@AutoMLJobConfig' {} a -> s {securityConfig = a} :: AutoMLJobConfig)
+
 instance Data.FromJSON AutoMLJobConfig where
   parseJSON =
     Data.withObject
       "AutoMLJobConfig"
       ( \x ->
           AutoMLJobConfig'
-            Prelude.<$> (x Data..:? "DataSplitConfig")
+            Prelude.<$> (x Data..:? "CandidateGenerationConfig")
             Prelude.<*> (x Data..:? "CompletionCriteria")
-            Prelude.<*> (x Data..:? "CandidateGenerationConfig")
-            Prelude.<*> (x Data..:? "SecurityConfig")
+            Prelude.<*> (x Data..:? "DataSplitConfig")
             Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "SecurityConfig")
       )
 
 instance Prelude.Hashable AutoMLJobConfig where
   hashWithSalt _salt AutoMLJobConfig' {..} =
-    _salt `Prelude.hashWithSalt` dataSplitConfig
-      `Prelude.hashWithSalt` completionCriteria
+    _salt
       `Prelude.hashWithSalt` candidateGenerationConfig
-      `Prelude.hashWithSalt` securityConfig
+      `Prelude.hashWithSalt` completionCriteria
+      `Prelude.hashWithSalt` dataSplitConfig
       `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` securityConfig
 
 instance Prelude.NFData AutoMLJobConfig where
   rnf AutoMLJobConfig' {..} =
-    Prelude.rnf dataSplitConfig
+    Prelude.rnf candidateGenerationConfig
       `Prelude.seq` Prelude.rnf completionCriteria
-      `Prelude.seq` Prelude.rnf candidateGenerationConfig
-      `Prelude.seq` Prelude.rnf securityConfig
+      `Prelude.seq` Prelude.rnf dataSplitConfig
       `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf securityConfig
 
 instance Data.ToJSON AutoMLJobConfig where
   toJSON AutoMLJobConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DataSplitConfig" Data..=)
-              Prelude.<$> dataSplitConfig,
+          [ ("CandidateGenerationConfig" Data..=)
+              Prelude.<$> candidateGenerationConfig,
             ("CompletionCriteria" Data..=)
               Prelude.<$> completionCriteria,
-            ("CandidateGenerationConfig" Data..=)
-              Prelude.<$> candidateGenerationConfig,
+            ("DataSplitConfig" Data..=)
+              Prelude.<$> dataSplitConfig,
+            ("Mode" Data..=) Prelude.<$> mode,
             ("SecurityConfig" Data..=)
-              Prelude.<$> securityConfig,
-            ("Mode" Data..=) Prelude.<$> mode
+              Prelude.<$> securityConfig
           ]
       )

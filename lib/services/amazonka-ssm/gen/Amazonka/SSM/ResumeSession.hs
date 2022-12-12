@@ -40,9 +40,9 @@ module Amazonka.SSM.ResumeSession
     newResumeSessionResponse,
 
     -- * Response Lenses
-    resumeSessionResponse_tokenValue,
-    resumeSessionResponse_streamUrl,
     resumeSessionResponse_sessionId,
+    resumeSessionResponse_streamUrl,
+    resumeSessionResponse_tokenValue,
     resumeSessionResponse_httpStatus,
   )
 where
@@ -92,9 +92,9 @@ instance Core.AWSRequest ResumeSession where
     Response.receiveJSON
       ( \s h x ->
           ResumeSessionResponse'
-            Prelude.<$> (x Data..?> "TokenValue")
+            Prelude.<$> (x Data..?> "SessionId")
             Prelude.<*> (x Data..?> "StreamUrl")
-            Prelude.<*> (x Data..?> "SessionId")
+            Prelude.<*> (x Data..?> "TokenValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,9 +133,8 @@ instance Data.ToQuery ResumeSession where
 
 -- | /See:/ 'newResumeSessionResponse' smart constructor.
 data ResumeSessionResponse = ResumeSessionResponse'
-  { -- | An encrypted token value containing session and caller information. Used
-    -- to authenticate the connection to the managed node.
-    tokenValue :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the session.
+    sessionId :: Prelude.Maybe Prelude.Text,
     -- | A URL back to SSM Agent on the managed node that the Session Manager
     -- client uses to send commands and receive output from the managed node.
     -- Format:
@@ -151,8 +150,9 @@ data ResumeSessionResponse = ResumeSessionResponse'
     -- __session-id__ represents the ID of a Session Manager session, such as
     -- @1a2b3c4dEXAMPLE@.
     streamUrl :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the session.
-    sessionId :: Prelude.Maybe Prelude.Text,
+    -- | An encrypted token value containing session and caller information. Used
+    -- to authenticate the connection to the managed node.
+    tokenValue :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,8 +166,7 @@ data ResumeSessionResponse = ResumeSessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tokenValue', 'resumeSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used
--- to authenticate the connection to the managed node.
+-- 'sessionId', 'resumeSessionResponse_sessionId' - The ID of the session.
 --
 -- 'streamUrl', 'resumeSessionResponse_streamUrl' - A URL back to SSM Agent on the managed node that the Session Manager
 -- client uses to send commands and receive output from the managed node.
@@ -184,7 +183,8 @@ data ResumeSessionResponse = ResumeSessionResponse'
 -- __session-id__ represents the ID of a Session Manager session, such as
 -- @1a2b3c4dEXAMPLE@.
 --
--- 'sessionId', 'resumeSessionResponse_sessionId' - The ID of the session.
+-- 'tokenValue', 'resumeSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used
+-- to authenticate the connection to the managed node.
 --
 -- 'httpStatus', 'resumeSessionResponse_httpStatus' - The response's http status code.
 newResumeSessionResponse ::
@@ -193,17 +193,15 @@ newResumeSessionResponse ::
   ResumeSessionResponse
 newResumeSessionResponse pHttpStatus_ =
   ResumeSessionResponse'
-    { tokenValue =
-        Prelude.Nothing,
+    { sessionId = Prelude.Nothing,
       streamUrl = Prelude.Nothing,
-      sessionId = Prelude.Nothing,
+      tokenValue = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An encrypted token value containing session and caller information. Used
--- to authenticate the connection to the managed node.
-resumeSessionResponse_tokenValue :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
-resumeSessionResponse_tokenValue = Lens.lens (\ResumeSessionResponse' {tokenValue} -> tokenValue) (\s@ResumeSessionResponse' {} a -> s {tokenValue = a} :: ResumeSessionResponse)
+-- | The ID of the session.
+resumeSessionResponse_sessionId :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
+resumeSessionResponse_sessionId = Lens.lens (\ResumeSessionResponse' {sessionId} -> sessionId) (\s@ResumeSessionResponse' {} a -> s {sessionId = a} :: ResumeSessionResponse)
 
 -- | A URL back to SSM Agent on the managed node that the Session Manager
 -- client uses to send commands and receive output from the managed node.
@@ -222,9 +220,10 @@ resumeSessionResponse_tokenValue = Lens.lens (\ResumeSessionResponse' {tokenValu
 resumeSessionResponse_streamUrl :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
 resumeSessionResponse_streamUrl = Lens.lens (\ResumeSessionResponse' {streamUrl} -> streamUrl) (\s@ResumeSessionResponse' {} a -> s {streamUrl = a} :: ResumeSessionResponse)
 
--- | The ID of the session.
-resumeSessionResponse_sessionId :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
-resumeSessionResponse_sessionId = Lens.lens (\ResumeSessionResponse' {sessionId} -> sessionId) (\s@ResumeSessionResponse' {} a -> s {sessionId = a} :: ResumeSessionResponse)
+-- | An encrypted token value containing session and caller information. Used
+-- to authenticate the connection to the managed node.
+resumeSessionResponse_tokenValue :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
+resumeSessionResponse_tokenValue = Lens.lens (\ResumeSessionResponse' {tokenValue} -> tokenValue) (\s@ResumeSessionResponse' {} a -> s {tokenValue = a} :: ResumeSessionResponse)
 
 -- | The response's http status code.
 resumeSessionResponse_httpStatus :: Lens.Lens' ResumeSessionResponse Prelude.Int
@@ -232,7 +231,7 @@ resumeSessionResponse_httpStatus = Lens.lens (\ResumeSessionResponse' {httpStatu
 
 instance Prelude.NFData ResumeSessionResponse where
   rnf ResumeSessionResponse' {..} =
-    Prelude.rnf tokenValue
+    Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf streamUrl
-      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf tokenValue
       `Prelude.seq` Prelude.rnf httpStatus

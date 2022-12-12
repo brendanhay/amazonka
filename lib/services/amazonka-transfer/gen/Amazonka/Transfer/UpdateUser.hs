@@ -33,11 +33,11 @@ module Amazonka.Transfer.UpdateUser
 
     -- * Request Lenses
     updateUser_homeDirectory,
+    updateUser_homeDirectoryMappings,
+    updateUser_homeDirectoryType,
     updateUser_policy,
     updateUser_posixProfile,
     updateUser_role,
-    updateUser_homeDirectoryType,
-    updateUser_homeDirectoryMappings,
     updateUser_serverId,
     updateUser_userName,
 
@@ -67,6 +67,35 @@ data UpdateUser = UpdateUser'
     --
     -- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
     homeDirectory :: Prelude.Maybe Prelude.Text,
+    -- | Logical directory mappings that specify what Amazon S3 or Amazon EFS
+    -- paths and keys should be visible to your user and how you want to make
+    -- them visible. You must specify the @Entry@ and @Target@ pair, where
+    -- @Entry@ shows how the path is made visible and @Target@ is the actual
+    -- Amazon S3 or Amazon EFS path. If you only specify a target, it is
+    -- displayed as is. You also must ensure that your Identity and Access
+    -- Management (IAM) role provides access to paths in @Target@. This value
+    -- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
+    --
+    -- The following is an @Entry@ and @Target@ pair example.
+    --
+    -- @[ { \"Entry\": \"\/directory1\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
+    --
+    -- In most cases, you can use this value instead of the session policy to
+    -- lock down your user to the designated home directory (\"@chroot@\"). To
+    -- do this, you can set @Entry@ to \'\/\' and set @Target@ to the
+    -- HomeDirectory parameter value.
+    --
+    -- The following is an @Entry@ and @Target@ pair example for @chroot@.
+    --
+    -- @[ { \"Entry\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
+    homeDirectoryMappings :: Prelude.Maybe (Prelude.NonEmpty HomeDirectoryMapEntry),
+    -- | The type of landing directory (folder) that you want your users\' home
+    -- directory to be when they log in to the server. If you set it to @PATH@,
+    -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
+    -- their file transfer protocol clients. If you set it @LOGICAL@, you need
+    -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
+    -- make Amazon S3 or Amazon EFS paths visible to your users.
+    homeDirectoryType :: Prelude.Maybe HomeDirectoryType,
     -- | A session policy for your user so that you can use the same Identity and
     -- Access Management (IAM) role across multiple users. This policy scopes
     -- down a user\'s access to portions of their Amazon S3 bucket. Variables
@@ -103,35 +132,6 @@ data UpdateUser = UpdateUser'
     -- server to access your resources when servicing your users\' transfer
     -- requests.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | The type of landing directory (folder) that you want your users\' home
-    -- directory to be when they log in to the server. If you set it to @PATH@,
-    -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
-    -- their file transfer protocol clients. If you set it @LOGICAL@, you need
-    -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
-    -- make Amazon S3 or Amazon EFS paths visible to your users.
-    homeDirectoryType :: Prelude.Maybe HomeDirectoryType,
-    -- | Logical directory mappings that specify what Amazon S3 or Amazon EFS
-    -- paths and keys should be visible to your user and how you want to make
-    -- them visible. You must specify the @Entry@ and @Target@ pair, where
-    -- @Entry@ shows how the path is made visible and @Target@ is the actual
-    -- Amazon S3 or Amazon EFS path. If you only specify a target, it is
-    -- displayed as is. You also must ensure that your Identity and Access
-    -- Management (IAM) role provides access to paths in @Target@. This value
-    -- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
-    --
-    -- The following is an @Entry@ and @Target@ pair example.
-    --
-    -- @[ { \"Entry\": \"\/directory1\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
-    --
-    -- In most cases, you can use this value instead of the session policy to
-    -- lock down your user to the designated home directory (\"@chroot@\"). To
-    -- do this, you can set @Entry@ to \'\/\' and set @Target@ to the
-    -- HomeDirectory parameter value.
-    --
-    -- The following is an @Entry@ and @Target@ pair example for @chroot@.
-    --
-    -- @[ { \"Entry\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
-    homeDirectoryMappings :: Prelude.Maybe (Prelude.NonEmpty HomeDirectoryMapEntry),
     -- | A system-assigned unique identifier for a server instance that the user
     -- account is assigned to.
     serverId :: Prelude.Text,
@@ -157,6 +157,35 @@ data UpdateUser = UpdateUser'
 -- using the client.
 --
 -- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
+--
+-- 'homeDirectoryMappings', 'updateUser_homeDirectoryMappings' - Logical directory mappings that specify what Amazon S3 or Amazon EFS
+-- paths and keys should be visible to your user and how you want to make
+-- them visible. You must specify the @Entry@ and @Target@ pair, where
+-- @Entry@ shows how the path is made visible and @Target@ is the actual
+-- Amazon S3 or Amazon EFS path. If you only specify a target, it is
+-- displayed as is. You also must ensure that your Identity and Access
+-- Management (IAM) role provides access to paths in @Target@. This value
+-- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
+--
+-- The following is an @Entry@ and @Target@ pair example.
+--
+-- @[ { \"Entry\": \"\/directory1\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
+--
+-- In most cases, you can use this value instead of the session policy to
+-- lock down your user to the designated home directory (\"@chroot@\"). To
+-- do this, you can set @Entry@ to \'\/\' and set @Target@ to the
+-- HomeDirectory parameter value.
+--
+-- The following is an @Entry@ and @Target@ pair example for @chroot@.
+--
+-- @[ { \"Entry\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
+--
+-- 'homeDirectoryType', 'updateUser_homeDirectoryType' - The type of landing directory (folder) that you want your users\' home
+-- directory to be when they log in to the server. If you set it to @PATH@,
+-- the user will see the absolute Amazon S3 bucket or EFS paths as is in
+-- their file transfer protocol clients. If you set it @LOGICAL@, you need
+-- to provide mappings in the @HomeDirectoryMappings@ for how you want to
+-- make Amazon S3 or Amazon EFS paths visible to your users.
 --
 -- 'policy', 'updateUser_policy' - A session policy for your user so that you can use the same Identity and
 -- Access Management (IAM) role across multiple users. This policy scopes
@@ -194,14 +223,41 @@ data UpdateUser = UpdateUser'
 -- server to access your resources when servicing your users\' transfer
 -- requests.
 --
--- 'homeDirectoryType', 'updateUser_homeDirectoryType' - The type of landing directory (folder) that you want your users\' home
--- directory to be when they log in to the server. If you set it to @PATH@,
--- the user will see the absolute Amazon S3 bucket or EFS paths as is in
--- their file transfer protocol clients. If you set it @LOGICAL@, you need
--- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or Amazon EFS paths visible to your users.
+-- 'serverId', 'updateUser_serverId' - A system-assigned unique identifier for a server instance that the user
+-- account is assigned to.
 --
--- 'homeDirectoryMappings', 'updateUser_homeDirectoryMappings' - Logical directory mappings that specify what Amazon S3 or Amazon EFS
+-- 'userName', 'updateUser_userName' - A unique string that identifies a user and is associated with a server
+-- as specified by the @ServerId@. This user name must be a minimum of 3
+-- and a maximum of 100 characters long. The following are valid
+-- characters: a-z, A-Z, 0-9, underscore \'_\', hyphen \'-\', period \'.\',
+-- and at sign \'\@\'. The user name can\'t start with a hyphen, period, or
+-- at sign.
+newUpdateUser ::
+  -- | 'serverId'
+  Prelude.Text ->
+  -- | 'userName'
+  Prelude.Text ->
+  UpdateUser
+newUpdateUser pServerId_ pUserName_ =
+  UpdateUser'
+    { homeDirectory = Prelude.Nothing,
+      homeDirectoryMappings = Prelude.Nothing,
+      homeDirectoryType = Prelude.Nothing,
+      policy = Prelude.Nothing,
+      posixProfile = Prelude.Nothing,
+      role' = Prelude.Nothing,
+      serverId = pServerId_,
+      userName = pUserName_
+    }
+
+-- | The landing directory (folder) for a user when they log in to the server
+-- using the client.
+--
+-- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
+updateUser_homeDirectory :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_homeDirectory = Lens.lens (\UpdateUser' {homeDirectory} -> homeDirectory) (\s@UpdateUser' {} a -> s {homeDirectory = a} :: UpdateUser)
+
+-- | Logical directory mappings that specify what Amazon S3 or Amazon EFS
 -- paths and keys should be visible to your user and how you want to make
 -- them visible. You must specify the @Entry@ and @Target@ pair, where
 -- @Entry@ shows how the path is made visible and @Target@ is the actual
@@ -222,40 +278,17 @@ data UpdateUser = UpdateUser'
 -- The following is an @Entry@ and @Target@ pair example for @chroot@.
 --
 -- @[ { \"Entry\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
---
--- 'serverId', 'updateUser_serverId' - A system-assigned unique identifier for a server instance that the user
--- account is assigned to.
---
--- 'userName', 'updateUser_userName' - A unique string that identifies a user and is associated with a server
--- as specified by the @ServerId@. This user name must be a minimum of 3
--- and a maximum of 100 characters long. The following are valid
--- characters: a-z, A-Z, 0-9, underscore \'_\', hyphen \'-\', period \'.\',
--- and at sign \'\@\'. The user name can\'t start with a hyphen, period, or
--- at sign.
-newUpdateUser ::
-  -- | 'serverId'
-  Prelude.Text ->
-  -- | 'userName'
-  Prelude.Text ->
-  UpdateUser
-newUpdateUser pServerId_ pUserName_ =
-  UpdateUser'
-    { homeDirectory = Prelude.Nothing,
-      policy = Prelude.Nothing,
-      posixProfile = Prelude.Nothing,
-      role' = Prelude.Nothing,
-      homeDirectoryType = Prelude.Nothing,
-      homeDirectoryMappings = Prelude.Nothing,
-      serverId = pServerId_,
-      userName = pUserName_
-    }
+updateUser_homeDirectoryMappings :: Lens.Lens' UpdateUser (Prelude.Maybe (Prelude.NonEmpty HomeDirectoryMapEntry))
+updateUser_homeDirectoryMappings = Lens.lens (\UpdateUser' {homeDirectoryMappings} -> homeDirectoryMappings) (\s@UpdateUser' {} a -> s {homeDirectoryMappings = a} :: UpdateUser) Prelude.. Lens.mapping Lens.coerced
 
--- | The landing directory (folder) for a user when they log in to the server
--- using the client.
---
--- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
-updateUser_homeDirectory :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_homeDirectory = Lens.lens (\UpdateUser' {homeDirectory} -> homeDirectory) (\s@UpdateUser' {} a -> s {homeDirectory = a} :: UpdateUser)
+-- | The type of landing directory (folder) that you want your users\' home
+-- directory to be when they log in to the server. If you set it to @PATH@,
+-- the user will see the absolute Amazon S3 bucket or EFS paths as is in
+-- their file transfer protocol clients. If you set it @LOGICAL@, you need
+-- to provide mappings in the @HomeDirectoryMappings@ for how you want to
+-- make Amazon S3 or Amazon EFS paths visible to your users.
+updateUser_homeDirectoryType :: Lens.Lens' UpdateUser (Prelude.Maybe HomeDirectoryType)
+updateUser_homeDirectoryType = Lens.lens (\UpdateUser' {homeDirectoryType} -> homeDirectoryType) (\s@UpdateUser' {} a -> s {homeDirectoryType = a} :: UpdateUser)
 
 -- | A session policy for your user so that you can use the same Identity and
 -- Access Management (IAM) role across multiple users. This policy scopes
@@ -299,39 +332,6 @@ updateUser_posixProfile = Lens.lens (\UpdateUser' {posixProfile} -> posixProfile
 updateUser_role :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_role = Lens.lens (\UpdateUser' {role'} -> role') (\s@UpdateUser' {} a -> s {role' = a} :: UpdateUser)
 
--- | The type of landing directory (folder) that you want your users\' home
--- directory to be when they log in to the server. If you set it to @PATH@,
--- the user will see the absolute Amazon S3 bucket or EFS paths as is in
--- their file transfer protocol clients. If you set it @LOGICAL@, you need
--- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or Amazon EFS paths visible to your users.
-updateUser_homeDirectoryType :: Lens.Lens' UpdateUser (Prelude.Maybe HomeDirectoryType)
-updateUser_homeDirectoryType = Lens.lens (\UpdateUser' {homeDirectoryType} -> homeDirectoryType) (\s@UpdateUser' {} a -> s {homeDirectoryType = a} :: UpdateUser)
-
--- | Logical directory mappings that specify what Amazon S3 or Amazon EFS
--- paths and keys should be visible to your user and how you want to make
--- them visible. You must specify the @Entry@ and @Target@ pair, where
--- @Entry@ shows how the path is made visible and @Target@ is the actual
--- Amazon S3 or Amazon EFS path. If you only specify a target, it is
--- displayed as is. You also must ensure that your Identity and Access
--- Management (IAM) role provides access to paths in @Target@. This value
--- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
---
--- The following is an @Entry@ and @Target@ pair example.
---
--- @[ { \"Entry\": \"\/directory1\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
---
--- In most cases, you can use this value instead of the session policy to
--- lock down your user to the designated home directory (\"@chroot@\"). To
--- do this, you can set @Entry@ to \'\/\' and set @Target@ to the
--- HomeDirectory parameter value.
---
--- The following is an @Entry@ and @Target@ pair example for @chroot@.
---
--- @[ { \"Entry\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
-updateUser_homeDirectoryMappings :: Lens.Lens' UpdateUser (Prelude.Maybe (Prelude.NonEmpty HomeDirectoryMapEntry))
-updateUser_homeDirectoryMappings = Lens.lens (\UpdateUser' {homeDirectoryMappings} -> homeDirectoryMappings) (\s@UpdateUser' {} a -> s {homeDirectoryMappings = a} :: UpdateUser) Prelude.. Lens.mapping Lens.coerced
-
 -- | A system-assigned unique identifier for a server instance that the user
 -- account is assigned to.
 updateUser_serverId :: Lens.Lens' UpdateUser Prelude.Text
@@ -362,22 +362,22 @@ instance Core.AWSRequest UpdateUser where
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
     _salt `Prelude.hashWithSalt` homeDirectory
+      `Prelude.hashWithSalt` homeDirectoryMappings
+      `Prelude.hashWithSalt` homeDirectoryType
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` posixProfile
       `Prelude.hashWithSalt` role'
-      `Prelude.hashWithSalt` homeDirectoryType
-      `Prelude.hashWithSalt` homeDirectoryMappings
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
     Prelude.rnf homeDirectory
+      `Prelude.seq` Prelude.rnf homeDirectoryMappings
+      `Prelude.seq` Prelude.rnf homeDirectoryType
       `Prelude.seq` Prelude.rnf policy
       `Prelude.seq` Prelude.rnf posixProfile
       `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf homeDirectoryType
-      `Prelude.seq` Prelude.rnf homeDirectoryMappings
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf userName
 
@@ -399,13 +399,13 @@ instance Data.ToJSON UpdateUser where
     Data.object
       ( Prelude.catMaybes
           [ ("HomeDirectory" Data..=) Prelude.<$> homeDirectory,
+            ("HomeDirectoryMappings" Data..=)
+              Prelude.<$> homeDirectoryMappings,
+            ("HomeDirectoryType" Data..=)
+              Prelude.<$> homeDirectoryType,
             ("Policy" Data..=) Prelude.<$> policy,
             ("PosixProfile" Data..=) Prelude.<$> posixProfile,
             ("Role" Data..=) Prelude.<$> role',
-            ("HomeDirectoryType" Data..=)
-              Prelude.<$> homeDirectoryType,
-            ("HomeDirectoryMappings" Data..=)
-              Prelude.<$> homeDirectoryMappings,
             Prelude.Just ("ServerId" Data..= serverId),
             Prelude.Just ("UserName" Data..= userName)
           ]

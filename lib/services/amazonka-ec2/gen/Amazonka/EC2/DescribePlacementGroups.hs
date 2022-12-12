@@ -30,8 +30,8 @@ module Amazonka.EC2.DescribePlacementGroups
     newDescribePlacementGroups,
 
     -- * Request Lenses
-    describePlacementGroups_filters,
     describePlacementGroups_dryRun,
+    describePlacementGroups_filters,
     describePlacementGroups_groupIds,
     describePlacementGroups_groupNames,
 
@@ -55,7 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
-  { -- | The filters.
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The filters.
     --
     -- -   @group-name@ - The name of the placement group.
     --
@@ -80,11 +85,6 @@ data DescribePlacementGroups = DescribePlacementGroups'
     --     filter to find all resources that have a tag with a specific key,
     --     regardless of the tag value.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the placement groups.
     groupIds :: Prelude.Maybe [Prelude.Text],
     -- | The names of the placement groups.
@@ -102,6 +102,11 @@ data DescribePlacementGroups = DescribePlacementGroups'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dryRun', 'describePlacementGroups_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describePlacementGroups_filters' - The filters.
 --
@@ -128,11 +133,6 @@ data DescribePlacementGroups = DescribePlacementGroups'
 --     filter to find all resources that have a tag with a specific key,
 --     regardless of the tag value.
 --
--- 'dryRun', 'describePlacementGroups_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'groupIds', 'describePlacementGroups_groupIds' - The IDs of the placement groups.
 --
 -- 'groupNames', 'describePlacementGroups_groupNames' - The names of the placement groups.
@@ -143,11 +143,18 @@ newDescribePlacementGroups ::
   DescribePlacementGroups
 newDescribePlacementGroups =
   DescribePlacementGroups'
-    { filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      filters = Prelude.Nothing,
       groupIds = Prelude.Nothing,
       groupNames = Prelude.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describePlacementGroups_dryRun :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe Prelude.Bool)
+describePlacementGroups_dryRun = Lens.lens (\DescribePlacementGroups' {dryRun} -> dryRun) (\s@DescribePlacementGroups' {} a -> s {dryRun = a} :: DescribePlacementGroups)
 
 -- | The filters.
 --
@@ -175,13 +182,6 @@ newDescribePlacementGroups =
 --     regardless of the tag value.
 describePlacementGroups_filters :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Filter])
 describePlacementGroups_filters = Lens.lens (\DescribePlacementGroups' {filters} -> filters) (\s@DescribePlacementGroups' {} a -> s {filters = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens.coerced
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describePlacementGroups_dryRun :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe Prelude.Bool)
-describePlacementGroups_dryRun = Lens.lens (\DescribePlacementGroups' {dryRun} -> dryRun) (\s@DescribePlacementGroups' {} a -> s {dryRun = a} :: DescribePlacementGroups)
 
 -- | The IDs of the placement groups.
 describePlacementGroups_groupIds :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Prelude.Text])
@@ -213,15 +213,15 @@ instance Core.AWSRequest DescribePlacementGroups where
 
 instance Prelude.Hashable DescribePlacementGroups where
   hashWithSalt _salt DescribePlacementGroups' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` groupIds
       `Prelude.hashWithSalt` groupNames
 
 instance Prelude.NFData DescribePlacementGroups where
   rnf DescribePlacementGroups' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf groupIds
       `Prelude.seq` Prelude.rnf groupNames
 
@@ -238,9 +238,9 @@ instance Data.ToQuery DescribePlacementGroups where
           Data.=: ("DescribePlacementGroups" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "GroupId" Prelude.<$> groupIds),
         Data.toQuery

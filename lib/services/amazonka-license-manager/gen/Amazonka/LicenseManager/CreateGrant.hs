@@ -40,8 +40,8 @@ module Amazonka.LicenseManager.CreateGrant
     newCreateGrantResponse,
 
     -- * Response Lenses
-    createGrantResponse_status,
     createGrantResponse_grantArn,
+    createGrantResponse_status,
     createGrantResponse_version,
     createGrantResponse_httpStatus,
   )
@@ -160,8 +160,8 @@ instance Core.AWSRequest CreateGrant where
     Response.receiveJSON
       ( \s h x ->
           CreateGrantResponse'
-            Prelude.<$> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "GrantArn")
+            Prelude.<$> (x Data..?> "GrantArn")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -221,10 +221,10 @@ instance Data.ToQuery CreateGrant where
 
 -- | /See:/ 'newCreateGrantResponse' smart constructor.
 data CreateGrantResponse = CreateGrantResponse'
-  { -- | Grant status.
-    status :: Prelude.Maybe GrantStatus,
-    -- | Grant ARN.
+  { -- | Grant ARN.
     grantArn :: Prelude.Maybe Prelude.Text,
+    -- | Grant status.
+    status :: Prelude.Maybe GrantStatus,
     -- | Grant version.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -240,9 +240,9 @@ data CreateGrantResponse = CreateGrantResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'createGrantResponse_status' - Grant status.
---
 -- 'grantArn', 'createGrantResponse_grantArn' - Grant ARN.
+--
+-- 'status', 'createGrantResponse_status' - Grant status.
 --
 -- 'version', 'createGrantResponse_version' - Grant version.
 --
@@ -253,19 +253,19 @@ newCreateGrantResponse ::
   CreateGrantResponse
 newCreateGrantResponse pHttpStatus_ =
   CreateGrantResponse'
-    { status = Prelude.Nothing,
-      grantArn = Prelude.Nothing,
+    { grantArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Grant status.
-createGrantResponse_status :: Lens.Lens' CreateGrantResponse (Prelude.Maybe GrantStatus)
-createGrantResponse_status = Lens.lens (\CreateGrantResponse' {status} -> status) (\s@CreateGrantResponse' {} a -> s {status = a} :: CreateGrantResponse)
-
 -- | Grant ARN.
 createGrantResponse_grantArn :: Lens.Lens' CreateGrantResponse (Prelude.Maybe Prelude.Text)
 createGrantResponse_grantArn = Lens.lens (\CreateGrantResponse' {grantArn} -> grantArn) (\s@CreateGrantResponse' {} a -> s {grantArn = a} :: CreateGrantResponse)
+
+-- | Grant status.
+createGrantResponse_status :: Lens.Lens' CreateGrantResponse (Prelude.Maybe GrantStatus)
+createGrantResponse_status = Lens.lens (\CreateGrantResponse' {status} -> status) (\s@CreateGrantResponse' {} a -> s {status = a} :: CreateGrantResponse)
 
 -- | Grant version.
 createGrantResponse_version :: Lens.Lens' CreateGrantResponse (Prelude.Maybe Prelude.Text)
@@ -277,7 +277,7 @@ createGrantResponse_httpStatus = Lens.lens (\CreateGrantResponse' {httpStatus} -
 
 instance Prelude.NFData CreateGrantResponse where
   rnf CreateGrantResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf grantArn
+    Prelude.rnf grantArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

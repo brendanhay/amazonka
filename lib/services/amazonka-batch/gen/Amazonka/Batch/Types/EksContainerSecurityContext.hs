@@ -30,19 +30,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEksContainerSecurityContext' smart constructor.
 data EksContainerSecurityContext = EksContainerSecurityContext'
-  { -- | When this parameter is @true@, the container is given read-only access
+  { -- | When this parameter is @true@, the container is given elevated
+    -- permissions on the host container instance. The level of permissions are
+    -- similar to the @root@ user permissions. The default value is @false@.
+    -- This parameter maps to @privileged@ policy in the
+    -- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged Privileged pod security policies>
+    -- in the /Kubernetes documentation/.
+    privileged :: Prelude.Maybe Prelude.Bool,
+    -- | When this parameter is @true@, the container is given read-only access
     -- to its root file system. The default value is @false@. This parameter
     -- maps to @ReadOnlyRootFilesystem@ policy in the
     -- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems Volumes and file systems pod security policies>
     -- in the /Kubernetes documentation/.
     readOnlyRootFilesystem :: Prelude.Maybe Prelude.Bool,
-    -- | When this parameter is specified, the container is run as the specified
-    -- user ID (@uid@). If this parameter isn\'t specified, the default is the
-    -- user that\'s specified in the image metadata. This parameter maps to
-    -- @RunAsUser@ and @MustRanAs@ policy in the
-    -- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups Users and groups pod security policies>
-    -- in the /Kubernetes documentation/.
-    runAsUser :: Prelude.Maybe Prelude.Integer,
     -- | When this parameter is specified, the container is run as the specified
     -- group ID (@gid@). If this parameter isn\'t specified, the default is the
     -- group that\'s specified in the image metadata. This parameter maps to
@@ -57,13 +57,13 @@ data EksContainerSecurityContext = EksContainerSecurityContext'
     -- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups Users and groups pod security policies>
     -- in the /Kubernetes documentation/.
     runAsNonRoot :: Prelude.Maybe Prelude.Bool,
-    -- | When this parameter is @true@, the container is given elevated
-    -- permissions on the host container instance. The level of permissions are
-    -- similar to the @root@ user permissions. The default value is @false@.
-    -- This parameter maps to @privileged@ policy in the
-    -- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged Privileged pod security policies>
+    -- | When this parameter is specified, the container is run as the specified
+    -- user ID (@uid@). If this parameter isn\'t specified, the default is the
+    -- user that\'s specified in the image metadata. This parameter maps to
+    -- @RunAsUser@ and @MustRanAs@ policy in the
+    -- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups Users and groups pod security policies>
     -- in the /Kubernetes documentation/.
-    privileged :: Prelude.Maybe Prelude.Bool
+    runAsUser :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,17 +75,17 @@ data EksContainerSecurityContext = EksContainerSecurityContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'privileged', 'eksContainerSecurityContext_privileged' - When this parameter is @true@, the container is given elevated
+-- permissions on the host container instance. The level of permissions are
+-- similar to the @root@ user permissions. The default value is @false@.
+-- This parameter maps to @privileged@ policy in the
+-- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged Privileged pod security policies>
+-- in the /Kubernetes documentation/.
+--
 -- 'readOnlyRootFilesystem', 'eksContainerSecurityContext_readOnlyRootFilesystem' - When this parameter is @true@, the container is given read-only access
 -- to its root file system. The default value is @false@. This parameter
 -- maps to @ReadOnlyRootFilesystem@ policy in the
 -- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems Volumes and file systems pod security policies>
--- in the /Kubernetes documentation/.
---
--- 'runAsUser', 'eksContainerSecurityContext_runAsUser' - When this parameter is specified, the container is run as the specified
--- user ID (@uid@). If this parameter isn\'t specified, the default is the
--- user that\'s specified in the image metadata. This parameter maps to
--- @RunAsUser@ and @MustRanAs@ policy in the
--- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups Users and groups pod security policies>
 -- in the /Kubernetes documentation/.
 --
 -- 'runAsGroup', 'eksContainerSecurityContext_runAsGroup' - When this parameter is specified, the container is run as the specified
@@ -102,23 +102,32 @@ data EksContainerSecurityContext = EksContainerSecurityContext'
 -- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups Users and groups pod security policies>
 -- in the /Kubernetes documentation/.
 --
--- 'privileged', 'eksContainerSecurityContext_privileged' - When this parameter is @true@, the container is given elevated
--- permissions on the host container instance. The level of permissions are
--- similar to the @root@ user permissions. The default value is @false@.
--- This parameter maps to @privileged@ policy in the
--- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged Privileged pod security policies>
+-- 'runAsUser', 'eksContainerSecurityContext_runAsUser' - When this parameter is specified, the container is run as the specified
+-- user ID (@uid@). If this parameter isn\'t specified, the default is the
+-- user that\'s specified in the image metadata. This parameter maps to
+-- @RunAsUser@ and @MustRanAs@ policy in the
+-- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups Users and groups pod security policies>
 -- in the /Kubernetes documentation/.
 newEksContainerSecurityContext ::
   EksContainerSecurityContext
 newEksContainerSecurityContext =
   EksContainerSecurityContext'
-    { readOnlyRootFilesystem =
+    { privileged =
         Prelude.Nothing,
-      runAsUser = Prelude.Nothing,
+      readOnlyRootFilesystem = Prelude.Nothing,
       runAsGroup = Prelude.Nothing,
       runAsNonRoot = Prelude.Nothing,
-      privileged = Prelude.Nothing
+      runAsUser = Prelude.Nothing
     }
+
+-- | When this parameter is @true@, the container is given elevated
+-- permissions on the host container instance. The level of permissions are
+-- similar to the @root@ user permissions. The default value is @false@.
+-- This parameter maps to @privileged@ policy in the
+-- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged Privileged pod security policies>
+-- in the /Kubernetes documentation/.
+eksContainerSecurityContext_privileged :: Lens.Lens' EksContainerSecurityContext (Prelude.Maybe Prelude.Bool)
+eksContainerSecurityContext_privileged = Lens.lens (\EksContainerSecurityContext' {privileged} -> privileged) (\s@EksContainerSecurityContext' {} a -> s {privileged = a} :: EksContainerSecurityContext)
 
 -- | When this parameter is @true@, the container is given read-only access
 -- to its root file system. The default value is @false@. This parameter
@@ -127,15 +136,6 @@ newEksContainerSecurityContext =
 -- in the /Kubernetes documentation/.
 eksContainerSecurityContext_readOnlyRootFilesystem :: Lens.Lens' EksContainerSecurityContext (Prelude.Maybe Prelude.Bool)
 eksContainerSecurityContext_readOnlyRootFilesystem = Lens.lens (\EksContainerSecurityContext' {readOnlyRootFilesystem} -> readOnlyRootFilesystem) (\s@EksContainerSecurityContext' {} a -> s {readOnlyRootFilesystem = a} :: EksContainerSecurityContext)
-
--- | When this parameter is specified, the container is run as the specified
--- user ID (@uid@). If this parameter isn\'t specified, the default is the
--- user that\'s specified in the image metadata. This parameter maps to
--- @RunAsUser@ and @MustRanAs@ policy in the
--- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups Users and groups pod security policies>
--- in the /Kubernetes documentation/.
-eksContainerSecurityContext_runAsUser :: Lens.Lens' EksContainerSecurityContext (Prelude.Maybe Prelude.Integer)
-eksContainerSecurityContext_runAsUser = Lens.lens (\EksContainerSecurityContext' {runAsUser} -> runAsUser) (\s@EksContainerSecurityContext' {} a -> s {runAsUser = a} :: EksContainerSecurityContext)
 
 -- | When this parameter is specified, the container is run as the specified
 -- group ID (@gid@). If this parameter isn\'t specified, the default is the
@@ -155,14 +155,14 @@ eksContainerSecurityContext_runAsGroup = Lens.lens (\EksContainerSecurityContext
 eksContainerSecurityContext_runAsNonRoot :: Lens.Lens' EksContainerSecurityContext (Prelude.Maybe Prelude.Bool)
 eksContainerSecurityContext_runAsNonRoot = Lens.lens (\EksContainerSecurityContext' {runAsNonRoot} -> runAsNonRoot) (\s@EksContainerSecurityContext' {} a -> s {runAsNonRoot = a} :: EksContainerSecurityContext)
 
--- | When this parameter is @true@, the container is given elevated
--- permissions on the host container instance. The level of permissions are
--- similar to the @root@ user permissions. The default value is @false@.
--- This parameter maps to @privileged@ policy in the
--- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged Privileged pod security policies>
+-- | When this parameter is specified, the container is run as the specified
+-- user ID (@uid@). If this parameter isn\'t specified, the default is the
+-- user that\'s specified in the image metadata. This parameter maps to
+-- @RunAsUser@ and @MustRanAs@ policy in the
+-- <https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups Users and groups pod security policies>
 -- in the /Kubernetes documentation/.
-eksContainerSecurityContext_privileged :: Lens.Lens' EksContainerSecurityContext (Prelude.Maybe Prelude.Bool)
-eksContainerSecurityContext_privileged = Lens.lens (\EksContainerSecurityContext' {privileged} -> privileged) (\s@EksContainerSecurityContext' {} a -> s {privileged = a} :: EksContainerSecurityContext)
+eksContainerSecurityContext_runAsUser :: Lens.Lens' EksContainerSecurityContext (Prelude.Maybe Prelude.Integer)
+eksContainerSecurityContext_runAsUser = Lens.lens (\EksContainerSecurityContext' {runAsUser} -> runAsUser) (\s@EksContainerSecurityContext' {} a -> s {runAsUser = a} :: EksContainerSecurityContext)
 
 instance Data.FromJSON EksContainerSecurityContext where
   parseJSON =
@@ -170,38 +170,38 @@ instance Data.FromJSON EksContainerSecurityContext where
       "EksContainerSecurityContext"
       ( \x ->
           EksContainerSecurityContext'
-            Prelude.<$> (x Data..:? "readOnlyRootFilesystem")
-            Prelude.<*> (x Data..:? "runAsUser")
+            Prelude.<$> (x Data..:? "privileged")
+            Prelude.<*> (x Data..:? "readOnlyRootFilesystem")
             Prelude.<*> (x Data..:? "runAsGroup")
             Prelude.<*> (x Data..:? "runAsNonRoot")
-            Prelude.<*> (x Data..:? "privileged")
+            Prelude.<*> (x Data..:? "runAsUser")
       )
 
 instance Prelude.Hashable EksContainerSecurityContext where
   hashWithSalt _salt EksContainerSecurityContext' {..} =
-    _salt `Prelude.hashWithSalt` readOnlyRootFilesystem
-      `Prelude.hashWithSalt` runAsUser
+    _salt `Prelude.hashWithSalt` privileged
+      `Prelude.hashWithSalt` readOnlyRootFilesystem
       `Prelude.hashWithSalt` runAsGroup
       `Prelude.hashWithSalt` runAsNonRoot
-      `Prelude.hashWithSalt` privileged
+      `Prelude.hashWithSalt` runAsUser
 
 instance Prelude.NFData EksContainerSecurityContext where
   rnf EksContainerSecurityContext' {..} =
-    Prelude.rnf readOnlyRootFilesystem
-      `Prelude.seq` Prelude.rnf runAsUser
+    Prelude.rnf privileged
+      `Prelude.seq` Prelude.rnf readOnlyRootFilesystem
       `Prelude.seq` Prelude.rnf runAsGroup
       `Prelude.seq` Prelude.rnf runAsNonRoot
-      `Prelude.seq` Prelude.rnf privileged
+      `Prelude.seq` Prelude.rnf runAsUser
 
 instance Data.ToJSON EksContainerSecurityContext where
   toJSON EksContainerSecurityContext' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("readOnlyRootFilesystem" Data..=)
+          [ ("privileged" Data..=) Prelude.<$> privileged,
+            ("readOnlyRootFilesystem" Data..=)
               Prelude.<$> readOnlyRootFilesystem,
-            ("runAsUser" Data..=) Prelude.<$> runAsUser,
             ("runAsGroup" Data..=) Prelude.<$> runAsGroup,
             ("runAsNonRoot" Data..=) Prelude.<$> runAsNonRoot,
-            ("privileged" Data..=) Prelude.<$> privileged
+            ("runAsUser" Data..=) Prelude.<$> runAsUser
           ]
       )

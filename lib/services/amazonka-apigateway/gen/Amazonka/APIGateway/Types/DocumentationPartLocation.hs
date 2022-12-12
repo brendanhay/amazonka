@@ -29,12 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentationPartLocation' smart constructor.
 data DocumentationPartLocation = DocumentationPartLocation'
-  { -- | The name of the targeted API entity. It is a valid and required field
-    -- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
-    -- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
-    -- @RESPONSE_HEADER@. It is an invalid field for any other entity type.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP verb of a method. It is a valid field for the API entity types
+  { -- | The HTTP verb of a method. It is a valid field for the API entity types
     -- of @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@,
     -- @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. The
     -- default value is @*@ for any method. When an applicable child entity
@@ -42,6 +37,11 @@ data DocumentationPartLocation = DocumentationPartLocation'
     -- specifications of the other @location@ attributes, the child entity\'s
     -- @method@ attribute must match that of the parent entity exactly.
     method :: Prelude.Maybe Prelude.Text,
+    -- | The name of the targeted API entity. It is a valid and required field
+    -- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
+    -- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
+    -- @RESPONSE_HEADER@. It is an invalid field for any other entity type.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The URL path of the target. It is a valid field for the API entity types
     -- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
     -- @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and
@@ -77,11 +77,6 @@ data DocumentationPartLocation = DocumentationPartLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'documentationPartLocation_name' - The name of the targeted API entity. It is a valid and required field
--- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
--- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
--- @RESPONSE_HEADER@. It is an invalid field for any other entity type.
---
 -- 'method', 'documentationPartLocation_method' - The HTTP verb of a method. It is a valid field for the API entity types
 -- of @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@,
 -- @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. The
@@ -89,6 +84,11 @@ data DocumentationPartLocation = DocumentationPartLocation'
 -- inherits the content of an entity of the same type with more general
 -- specifications of the other @location@ attributes, the child entity\'s
 -- @method@ attribute must match that of the parent entity exactly.
+--
+-- 'name', 'documentationPartLocation_name' - The name of the targeted API entity. It is a valid and required field
+-- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
+-- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
+-- @RESPONSE_HEADER@. It is an invalid field for any other entity type.
 --
 -- 'path', 'documentationPartLocation_path' - The URL path of the target. It is a valid field for the API entity types
 -- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
@@ -119,19 +119,13 @@ newDocumentationPartLocation ::
   DocumentationPartLocation
 newDocumentationPartLocation pType_ =
   DocumentationPartLocation'
-    { name = Prelude.Nothing,
-      method = Prelude.Nothing,
+    { method =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       path = Prelude.Nothing,
       statusCode = Prelude.Nothing,
       type' = pType_
     }
-
--- | The name of the targeted API entity. It is a valid and required field
--- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
--- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
--- @RESPONSE_HEADER@. It is an invalid field for any other entity type.
-documentationPartLocation_name :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
-documentationPartLocation_name = Lens.lens (\DocumentationPartLocation' {name} -> name) (\s@DocumentationPartLocation' {} a -> s {name = a} :: DocumentationPartLocation)
 
 -- | The HTTP verb of a method. It is a valid field for the API entity types
 -- of @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@,
@@ -142,6 +136,13 @@ documentationPartLocation_name = Lens.lens (\DocumentationPartLocation' {name} -
 -- @method@ attribute must match that of the parent entity exactly.
 documentationPartLocation_method :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
 documentationPartLocation_method = Lens.lens (\DocumentationPartLocation' {method} -> method) (\s@DocumentationPartLocation' {} a -> s {method = a} :: DocumentationPartLocation)
+
+-- | The name of the targeted API entity. It is a valid and required field
+-- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
+-- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
+-- @RESPONSE_HEADER@. It is an invalid field for any other entity type.
+documentationPartLocation_name :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
+documentationPartLocation_name = Lens.lens (\DocumentationPartLocation' {name} -> name) (\s@DocumentationPartLocation' {} a -> s {name = a} :: DocumentationPartLocation)
 
 -- | The URL path of the target. It is a valid field for the API entity types
 -- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
@@ -179,8 +180,8 @@ instance Data.FromJSON DocumentationPartLocation where
       "DocumentationPartLocation"
       ( \x ->
           DocumentationPartLocation'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "method")
+            Prelude.<$> (x Data..:? "method")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "path")
             Prelude.<*> (x Data..:? "statusCode")
             Prelude.<*> (x Data..: "type")
@@ -188,16 +189,16 @@ instance Data.FromJSON DocumentationPartLocation where
 
 instance Prelude.Hashable DocumentationPartLocation where
   hashWithSalt _salt DocumentationPartLocation' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` method
+    _salt `Prelude.hashWithSalt` method
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` statusCode
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DocumentationPartLocation where
   rnf DocumentationPartLocation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf method
+    Prelude.rnf method
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf type'
@@ -206,8 +207,8 @@ instance Data.ToJSON DocumentationPartLocation where
   toJSON DocumentationPartLocation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("method" Data..=) Prelude.<$> method,
+          [ ("method" Data..=) Prelude.<$> method,
+            ("name" Data..=) Prelude.<$> name,
             ("path" Data..=) Prelude.<$> path,
             ("statusCode" Data..=) Prelude.<$> statusCode,
             Prelude.Just ("type" Data..= type')

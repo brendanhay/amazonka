@@ -30,18 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchedule' smart constructor.
 data Schedule = Schedule'
-  { -- | The timezone that applies to the scheduling expression. For example,
-    -- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
-    -- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
-    -- not specified this defaults to UTC.
-    timezone :: Prelude.Maybe Prelude.Text,
-    -- | The cron expression determines how often EC2 Image Builder evaluates
-    -- your @pipelineExecutionStartCondition@.
-    --
-    -- For information on how to format a cron expression in Image Builder, see
-    -- <https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html Use cron expressions in EC2 Image Builder>.
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | The condition configures when the pipeline should trigger a new image
+  { -- | The condition configures when the pipeline should trigger a new image
     -- build. When the @pipelineExecutionStartCondition@ is set to
     -- @EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE@, and you use
     -- semantic version filters on the base image or components in your image
@@ -52,7 +41,18 @@ data Schedule = Schedule'
     -- current time. For semantic version syntax, see
     -- <https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html CreateComponent>
     -- in the /EC2 Image Builder API Reference/.
-    pipelineExecutionStartCondition :: Prelude.Maybe PipelineExecutionStartCondition
+    pipelineExecutionStartCondition :: Prelude.Maybe PipelineExecutionStartCondition,
+    -- | The cron expression determines how often EC2 Image Builder evaluates
+    -- your @pipelineExecutionStartCondition@.
+    --
+    -- For information on how to format a cron expression in Image Builder, see
+    -- <https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html Use cron expressions in EC2 Image Builder>.
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
+    -- | The timezone that applies to the scheduling expression. For example,
+    -- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
+    -- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
+    -- not specified this defaults to UTC.
+    timezone :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,17 +63,6 @@ data Schedule = Schedule'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'timezone', 'schedule_timezone' - The timezone that applies to the scheduling expression. For example,
--- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
--- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
--- not specified this defaults to UTC.
---
--- 'scheduleExpression', 'schedule_scheduleExpression' - The cron expression determines how often EC2 Image Builder evaluates
--- your @pipelineExecutionStartCondition@.
---
--- For information on how to format a cron expression in Image Builder, see
--- <https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html Use cron expressions in EC2 Image Builder>.
 --
 -- 'pipelineExecutionStartCondition', 'schedule_pipelineExecutionStartCondition' - The condition configures when the pipeline should trigger a new image
 -- build. When the @pipelineExecutionStartCondition@ is set to
@@ -86,29 +75,26 @@ data Schedule = Schedule'
 -- current time. For semantic version syntax, see
 -- <https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html CreateComponent>
 -- in the /EC2 Image Builder API Reference/.
-newSchedule ::
-  Schedule
-newSchedule =
-  Schedule'
-    { timezone = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
-      pipelineExecutionStartCondition = Prelude.Nothing
-    }
-
--- | The timezone that applies to the scheduling expression. For example,
--- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
--- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
--- not specified this defaults to UTC.
-schedule_timezone :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
-schedule_timezone = Lens.lens (\Schedule' {timezone} -> timezone) (\s@Schedule' {} a -> s {timezone = a} :: Schedule)
-
--- | The cron expression determines how often EC2 Image Builder evaluates
+--
+-- 'scheduleExpression', 'schedule_scheduleExpression' - The cron expression determines how often EC2 Image Builder evaluates
 -- your @pipelineExecutionStartCondition@.
 --
 -- For information on how to format a cron expression in Image Builder, see
 -- <https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html Use cron expressions in EC2 Image Builder>.
-schedule_scheduleExpression :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
-schedule_scheduleExpression = Lens.lens (\Schedule' {scheduleExpression} -> scheduleExpression) (\s@Schedule' {} a -> s {scheduleExpression = a} :: Schedule)
+--
+-- 'timezone', 'schedule_timezone' - The timezone that applies to the scheduling expression. For example,
+-- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
+-- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
+-- not specified this defaults to UTC.
+newSchedule ::
+  Schedule
+newSchedule =
+  Schedule'
+    { pipelineExecutionStartCondition =
+        Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      timezone = Prelude.Nothing
+    }
 
 -- | The condition configures when the pipeline should trigger a new image
 -- build. When the @pipelineExecutionStartCondition@ is set to
@@ -124,37 +110,53 @@ schedule_scheduleExpression = Lens.lens (\Schedule' {scheduleExpression} -> sche
 schedule_pipelineExecutionStartCondition :: Lens.Lens' Schedule (Prelude.Maybe PipelineExecutionStartCondition)
 schedule_pipelineExecutionStartCondition = Lens.lens (\Schedule' {pipelineExecutionStartCondition} -> pipelineExecutionStartCondition) (\s@Schedule' {} a -> s {pipelineExecutionStartCondition = a} :: Schedule)
 
+-- | The cron expression determines how often EC2 Image Builder evaluates
+-- your @pipelineExecutionStartCondition@.
+--
+-- For information on how to format a cron expression in Image Builder, see
+-- <https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html Use cron expressions in EC2 Image Builder>.
+schedule_scheduleExpression :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
+schedule_scheduleExpression = Lens.lens (\Schedule' {scheduleExpression} -> scheduleExpression) (\s@Schedule' {} a -> s {scheduleExpression = a} :: Schedule)
+
+-- | The timezone that applies to the scheduling expression. For example,
+-- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
+-- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
+-- not specified this defaults to UTC.
+schedule_timezone :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
+schedule_timezone = Lens.lens (\Schedule' {timezone} -> timezone) (\s@Schedule' {} a -> s {timezone = a} :: Schedule)
+
 instance Data.FromJSON Schedule where
   parseJSON =
     Data.withObject
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Data..:? "timezone")
+            Prelude.<$> (x Data..:? "pipelineExecutionStartCondition")
             Prelude.<*> (x Data..:? "scheduleExpression")
-            Prelude.<*> (x Data..:? "pipelineExecutionStartCondition")
+            Prelude.<*> (x Data..:? "timezone")
       )
 
 instance Prelude.Hashable Schedule where
   hashWithSalt _salt Schedule' {..} =
-    _salt `Prelude.hashWithSalt` timezone
-      `Prelude.hashWithSalt` scheduleExpression
+    _salt
       `Prelude.hashWithSalt` pipelineExecutionStartCondition
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` timezone
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf timezone
+    Prelude.rnf pipelineExecutionStartCondition
       `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf pipelineExecutionStartCondition
+      `Prelude.seq` Prelude.rnf timezone
 
 instance Data.ToJSON Schedule where
   toJSON Schedule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timezone" Data..=) Prelude.<$> timezone,
+          [ ("pipelineExecutionStartCondition" Data..=)
+              Prelude.<$> pipelineExecutionStartCondition,
             ("scheduleExpression" Data..=)
               Prelude.<$> scheduleExpression,
-            ("pipelineExecutionStartCondition" Data..=)
-              Prelude.<$> pipelineExecutionStartCondition
+            ("timezone" Data..=) Prelude.<$> timezone
           ]
       )

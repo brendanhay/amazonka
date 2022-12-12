@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduledInstanceRecurrenceRequest' smart constructor.
 data ScheduledInstanceRecurrenceRequest = ScheduledInstanceRecurrenceRequest'
-  { -- | The days. For a monthly schedule, this is one or more days of the month
+  { -- | The frequency (@Daily@, @Weekly@, or @Monthly@).
+    frequency :: Prelude.Maybe Prelude.Text,
+    -- | The interval quantity. The interval unit depends on the value of
+    -- @Frequency@. For example, every 2 weeks or every 2 months.
+    interval :: Prelude.Maybe Prelude.Int,
+    -- | The days. For a monthly schedule, this is one or more days of the month
     -- (1-31). For a weekly schedule, this is one or more days of the week
     -- (1-7, where 1 is Sunday). You can\'t specify this value with a daily
     -- schedule. If the occurrence is relative to the end of the month, you can
     -- specify only a single day.
     occurrenceDays :: Prelude.Maybe [Prelude.Int],
-    -- | The interval quantity. The interval unit depends on the value of
-    -- @Frequency@. For example, every 2 weeks or every 2 months.
-    interval :: Prelude.Maybe Prelude.Int,
-    -- | The frequency (@Daily@, @Weekly@, or @Monthly@).
-    frequency :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the occurrence is relative to the end of the specified
     -- week or month. You can\'t specify this value with a daily schedule.
     occurrenceRelativeToEnd :: Prelude.Maybe Prelude.Bool,
@@ -58,16 +58,16 @@ data ScheduledInstanceRecurrenceRequest = ScheduledInstanceRecurrenceRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'frequency', 'scheduledInstanceRecurrenceRequest_frequency' - The frequency (@Daily@, @Weekly@, or @Monthly@).
+--
+-- 'interval', 'scheduledInstanceRecurrenceRequest_interval' - The interval quantity. The interval unit depends on the value of
+-- @Frequency@. For example, every 2 weeks or every 2 months.
+--
 -- 'occurrenceDays', 'scheduledInstanceRecurrenceRequest_occurrenceDays' - The days. For a monthly schedule, this is one or more days of the month
 -- (1-31). For a weekly schedule, this is one or more days of the week
 -- (1-7, where 1 is Sunday). You can\'t specify this value with a daily
 -- schedule. If the occurrence is relative to the end of the month, you can
 -- specify only a single day.
---
--- 'interval', 'scheduledInstanceRecurrenceRequest_interval' - The interval quantity. The interval unit depends on the value of
--- @Frequency@. For example, every 2 weeks or every 2 months.
---
--- 'frequency', 'scheduledInstanceRecurrenceRequest_frequency' - The frequency (@Daily@, @Weekly@, or @Monthly@).
 --
 -- 'occurrenceRelativeToEnd', 'scheduledInstanceRecurrenceRequest_occurrenceRelativeToEnd' - Indicates whether the occurrence is relative to the end of the specified
 -- week or month. You can\'t specify this value with a daily schedule.
@@ -79,14 +79,23 @@ newScheduledInstanceRecurrenceRequest ::
   ScheduledInstanceRecurrenceRequest
 newScheduledInstanceRecurrenceRequest =
   ScheduledInstanceRecurrenceRequest'
-    { occurrenceDays =
+    { frequency =
         Prelude.Nothing,
       interval = Prelude.Nothing,
-      frequency = Prelude.Nothing,
+      occurrenceDays = Prelude.Nothing,
       occurrenceRelativeToEnd =
         Prelude.Nothing,
       occurrenceUnit = Prelude.Nothing
     }
+
+-- | The frequency (@Daily@, @Weekly@, or @Monthly@).
+scheduledInstanceRecurrenceRequest_frequency :: Lens.Lens' ScheduledInstanceRecurrenceRequest (Prelude.Maybe Prelude.Text)
+scheduledInstanceRecurrenceRequest_frequency = Lens.lens (\ScheduledInstanceRecurrenceRequest' {frequency} -> frequency) (\s@ScheduledInstanceRecurrenceRequest' {} a -> s {frequency = a} :: ScheduledInstanceRecurrenceRequest)
+
+-- | The interval quantity. The interval unit depends on the value of
+-- @Frequency@. For example, every 2 weeks or every 2 months.
+scheduledInstanceRecurrenceRequest_interval :: Lens.Lens' ScheduledInstanceRecurrenceRequest (Prelude.Maybe Prelude.Int)
+scheduledInstanceRecurrenceRequest_interval = Lens.lens (\ScheduledInstanceRecurrenceRequest' {interval} -> interval) (\s@ScheduledInstanceRecurrenceRequest' {} a -> s {interval = a} :: ScheduledInstanceRecurrenceRequest)
 
 -- | The days. For a monthly schedule, this is one or more days of the month
 -- (1-31). For a weekly schedule, this is one or more days of the week
@@ -95,15 +104,6 @@ newScheduledInstanceRecurrenceRequest =
 -- specify only a single day.
 scheduledInstanceRecurrenceRequest_occurrenceDays :: Lens.Lens' ScheduledInstanceRecurrenceRequest (Prelude.Maybe [Prelude.Int])
 scheduledInstanceRecurrenceRequest_occurrenceDays = Lens.lens (\ScheduledInstanceRecurrenceRequest' {occurrenceDays} -> occurrenceDays) (\s@ScheduledInstanceRecurrenceRequest' {} a -> s {occurrenceDays = a} :: ScheduledInstanceRecurrenceRequest) Prelude.. Lens.mapping Lens.coerced
-
--- | The interval quantity. The interval unit depends on the value of
--- @Frequency@. For example, every 2 weeks or every 2 months.
-scheduledInstanceRecurrenceRequest_interval :: Lens.Lens' ScheduledInstanceRecurrenceRequest (Prelude.Maybe Prelude.Int)
-scheduledInstanceRecurrenceRequest_interval = Lens.lens (\ScheduledInstanceRecurrenceRequest' {interval} -> interval) (\s@ScheduledInstanceRecurrenceRequest' {} a -> s {interval = a} :: ScheduledInstanceRecurrenceRequest)
-
--- | The frequency (@Daily@, @Weekly@, or @Monthly@).
-scheduledInstanceRecurrenceRequest_frequency :: Lens.Lens' ScheduledInstanceRecurrenceRequest (Prelude.Maybe Prelude.Text)
-scheduledInstanceRecurrenceRequest_frequency = Lens.lens (\ScheduledInstanceRecurrenceRequest' {frequency} -> frequency) (\s@ScheduledInstanceRecurrenceRequest' {} a -> s {frequency = a} :: ScheduledInstanceRecurrenceRequest)
 
 -- | Indicates whether the occurrence is relative to the end of the specified
 -- week or month. You can\'t specify this value with a daily schedule.
@@ -123,9 +123,9 @@ instance
   hashWithSalt
     _salt
     ScheduledInstanceRecurrenceRequest' {..} =
-      _salt `Prelude.hashWithSalt` occurrenceDays
+      _salt `Prelude.hashWithSalt` frequency
         `Prelude.hashWithSalt` interval
-        `Prelude.hashWithSalt` frequency
+        `Prelude.hashWithSalt` occurrenceDays
         `Prelude.hashWithSalt` occurrenceRelativeToEnd
         `Prelude.hashWithSalt` occurrenceUnit
 
@@ -134,9 +134,9 @@ instance
     ScheduledInstanceRecurrenceRequest
   where
   rnf ScheduledInstanceRecurrenceRequest' {..} =
-    Prelude.rnf occurrenceDays
+    Prelude.rnf frequency
       `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf occurrenceDays
       `Prelude.seq` Prelude.rnf occurrenceRelativeToEnd
       `Prelude.seq` Prelude.rnf occurrenceUnit
 
@@ -146,12 +146,12 @@ instance
   where
   toQuery ScheduledInstanceRecurrenceRequest' {..} =
     Prelude.mconcat
-      [ Data.toQuery
+      [ "Frequency" Data.=: frequency,
+        "Interval" Data.=: interval,
+        Data.toQuery
           ( Data.toQueryList "OccurrenceDay"
               Prelude.<$> occurrenceDays
           ),
-        "Interval" Data.=: interval,
-        "Frequency" Data.=: frequency,
         "OccurrenceRelativeToEnd"
           Data.=: occurrenceRelativeToEnd,
         "OccurrenceUnit" Data.=: occurrenceUnit

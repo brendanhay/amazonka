@@ -27,17 +27,17 @@ module Amazonka.MemoryDb.DescribeACLs
     newDescribeACLs,
 
     -- * Request Lenses
-    describeACLs_nextToken,
     describeACLs_aCLName,
     describeACLs_maxResults,
+    describeACLs_nextToken,
 
     -- * Destructuring the Response
     DescribeACLsResponse (..),
     newDescribeACLsResponse,
 
     -- * Response Lenses
-    describeACLsResponse_nextToken,
     describeACLsResponse_aCLs,
+    describeACLsResponse_nextToken,
     describeACLsResponse_httpStatus,
   )
 where
@@ -52,18 +52,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeACLs' smart constructor.
 data DescribeACLs = DescribeACLs'
-  { -- | An optional argument to pass in case the total number of records exceeds
-    -- the value of MaxResults. If nextToken is returned, there are more
-    -- results available. The value of nextToken is a unique pagination token
-    -- for each page. Make the call again using the returned token to retrieve
-    -- the next page. Keep all other arguments unchanged.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the ACL
+  { -- | The name of the ACL
     aCLName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | An optional argument to pass in case the total number of records exceeds
+    -- the value of MaxResults. If nextToken is returned, there are more
+    -- results available. The value of nextToken is a unique pagination token
+    -- for each page. Make the call again using the returned token to retrieve
+    -- the next page. Keep all other arguments unchanged.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,33 +75,25 @@ data DescribeACLs = DescribeACLs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeACLs_nextToken' - An optional argument to pass in case the total number of records exceeds
--- the value of MaxResults. If nextToken is returned, there are more
--- results available. The value of nextToken is a unique pagination token
--- for each page. Make the call again using the returned token to retrieve
--- the next page. Keep all other arguments unchanged.
---
 -- 'aCLName', 'describeACLs_aCLName' - The name of the ACL
 --
 -- 'maxResults', 'describeACLs_maxResults' - The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
-newDescribeACLs ::
-  DescribeACLs
-newDescribeACLs =
-  DescribeACLs'
-    { nextToken = Prelude.Nothing,
-      aCLName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | An optional argument to pass in case the total number of records exceeds
+--
+-- 'nextToken', 'describeACLs_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
 -- results available. The value of nextToken is a unique pagination token
 -- for each page. Make the call again using the returned token to retrieve
 -- the next page. Keep all other arguments unchanged.
-describeACLs_nextToken :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Text)
-describeACLs_nextToken = Lens.lens (\DescribeACLs' {nextToken} -> nextToken) (\s@DescribeACLs' {} a -> s {nextToken = a} :: DescribeACLs)
+newDescribeACLs ::
+  DescribeACLs
+newDescribeACLs =
+  DescribeACLs'
+    { aCLName = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | The name of the ACL
 describeACLs_aCLName :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Text)
@@ -113,6 +105,14 @@ describeACLs_aCLName = Lens.lens (\DescribeACLs' {aCLName} -> aCLName) (\s@Descr
 describeACLs_maxResults :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Int)
 describeACLs_maxResults = Lens.lens (\DescribeACLs' {maxResults} -> maxResults) (\s@DescribeACLs' {} a -> s {maxResults = a} :: DescribeACLs)
 
+-- | An optional argument to pass in case the total number of records exceeds
+-- the value of MaxResults. If nextToken is returned, there are more
+-- results available. The value of nextToken is a unique pagination token
+-- for each page. Make the call again using the returned token to retrieve
+-- the next page. Keep all other arguments unchanged.
+describeACLs_nextToken :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Text)
+describeACLs_nextToken = Lens.lens (\DescribeACLs' {nextToken} -> nextToken) (\s@DescribeACLs' {} a -> s {nextToken = a} :: DescribeACLs)
+
 instance Core.AWSRequest DescribeACLs where
   type AWSResponse DescribeACLs = DescribeACLsResponse
   request overrides =
@@ -121,22 +121,22 @@ instance Core.AWSRequest DescribeACLs where
     Response.receiveJSON
       ( \s h x ->
           DescribeACLsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ACLs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ACLs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeACLs where
   hashWithSalt _salt DescribeACLs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` aCLName
+    _salt `Prelude.hashWithSalt` aCLName
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeACLs where
   rnf DescribeACLs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf aCLName
+    Prelude.rnf aCLName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeACLs where
   toHeaders =
@@ -157,9 +157,9 @@ instance Data.ToJSON DescribeACLs where
   toJSON DescribeACLs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ACLName" Data..=) Prelude.<$> aCLName,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("ACLName" Data..=) Prelude.<$> aCLName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -171,13 +171,13 @@ instance Data.ToQuery DescribeACLs where
 
 -- | /See:/ 'newDescribeACLsResponse' smart constructor.
 data DescribeACLsResponse = DescribeACLsResponse'
-  { -- | If nextToken is returned, there are more results available. The value of
+  { -- | The list of ACLs
+    aCLs :: Prelude.Maybe [ACL],
+    -- | If nextToken is returned, there are more results available. The value of
     -- nextToken is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of ACLs
-    aCLs :: Prelude.Maybe [ACL],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,12 +191,12 @@ data DescribeACLsResponse = DescribeACLsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aCLs', 'describeACLsResponse_aCLs' - The list of ACLs
+--
 -- 'nextToken', 'describeACLsResponse_nextToken' - If nextToken is returned, there are more results available. The value of
 -- nextToken is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged.
---
--- 'aCLs', 'describeACLsResponse_aCLs' - The list of ACLs
 --
 -- 'httpStatus', 'describeACLsResponse_httpStatus' - The response's http status code.
 newDescribeACLsResponse ::
@@ -205,10 +205,14 @@ newDescribeACLsResponse ::
   DescribeACLsResponse
 newDescribeACLsResponse pHttpStatus_ =
   DescribeACLsResponse'
-    { nextToken = Prelude.Nothing,
-      aCLs = Prelude.Nothing,
+    { aCLs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of ACLs
+describeACLsResponse_aCLs :: Lens.Lens' DescribeACLsResponse (Prelude.Maybe [ACL])
+describeACLsResponse_aCLs = Lens.lens (\DescribeACLsResponse' {aCLs} -> aCLs) (\s@DescribeACLsResponse' {} a -> s {aCLs = a} :: DescribeACLsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If nextToken is returned, there are more results available. The value of
 -- nextToken is a unique pagination token for each page. Make the call
@@ -217,16 +221,12 @@ newDescribeACLsResponse pHttpStatus_ =
 describeACLsResponse_nextToken :: Lens.Lens' DescribeACLsResponse (Prelude.Maybe Prelude.Text)
 describeACLsResponse_nextToken = Lens.lens (\DescribeACLsResponse' {nextToken} -> nextToken) (\s@DescribeACLsResponse' {} a -> s {nextToken = a} :: DescribeACLsResponse)
 
--- | The list of ACLs
-describeACLsResponse_aCLs :: Lens.Lens' DescribeACLsResponse (Prelude.Maybe [ACL])
-describeACLsResponse_aCLs = Lens.lens (\DescribeACLsResponse' {aCLs} -> aCLs) (\s@DescribeACLsResponse' {} a -> s {aCLs = a} :: DescribeACLsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeACLsResponse_httpStatus :: Lens.Lens' DescribeACLsResponse Prelude.Int
 describeACLsResponse_httpStatus = Lens.lens (\DescribeACLsResponse' {httpStatus} -> httpStatus) (\s@DescribeACLsResponse' {} a -> s {httpStatus = a} :: DescribeACLsResponse)
 
 instance Prelude.NFData DescribeACLsResponse where
   rnf DescribeACLsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf aCLs
+    Prelude.rnf aCLs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

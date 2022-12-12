@@ -34,11 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomain' smart constructor.
 data Domain = Domain'
-  { -- | The hosted zone ID for a domain hosted in Route 53. Required when
+  { -- | The fully qualified domain name.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The hosted zone ID for a domain hosted in Route 53. Required when
     -- configuring a domain hosted in Route 53.
-    hostedZoneId :: Prelude.Maybe Prelude.Text,
-    -- | The fully qualified domain name.
-    domainName :: Prelude.Maybe Prelude.Text
+    hostedZoneId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,42 +50,42 @@ data Domain = Domain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainName', 'domain_domainName' - The fully qualified domain name.
+--
 -- 'hostedZoneId', 'domain_hostedZoneId' - The hosted zone ID for a domain hosted in Route 53. Required when
 -- configuring a domain hosted in Route 53.
---
--- 'domainName', 'domain_domainName' - The fully qualified domain name.
 newDomain ::
   Domain
 newDomain =
   Domain'
-    { hostedZoneId = Prelude.Nothing,
-      domainName = Prelude.Nothing
+    { domainName = Prelude.Nothing,
+      hostedZoneId = Prelude.Nothing
     }
+
+-- | The fully qualified domain name.
+domain_domainName :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
+domain_domainName = Lens.lens (\Domain' {domainName} -> domainName) (\s@Domain' {} a -> s {domainName = a} :: Domain)
 
 -- | The hosted zone ID for a domain hosted in Route 53. Required when
 -- configuring a domain hosted in Route 53.
 domain_hostedZoneId :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_hostedZoneId = Lens.lens (\Domain' {hostedZoneId} -> hostedZoneId) (\s@Domain' {} a -> s {hostedZoneId = a} :: Domain)
 
--- | The fully qualified domain name.
-domain_domainName :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
-domain_domainName = Lens.lens (\Domain' {domainName} -> domainName) (\s@Domain' {} a -> s {domainName = a} :: Domain)
-
 instance Prelude.Hashable Domain where
   hashWithSalt _salt Domain' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
-      `Prelude.hashWithSalt` domainName
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` hostedZoneId
 
 instance Prelude.NFData Domain where
   rnf Domain' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf hostedZoneId
 
 instance Data.ToJSON Domain where
   toJSON Domain' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("HostedZoneId" Data..=) Prelude.<$> hostedZoneId,
-            ("DomainName" Data..=) Prelude.<$> domainName
+          [ ("DomainName" Data..=) Prelude.<$> domainName,
+            ("HostedZoneId" Data..=) Prelude.<$> hostedZoneId
           ]
       )

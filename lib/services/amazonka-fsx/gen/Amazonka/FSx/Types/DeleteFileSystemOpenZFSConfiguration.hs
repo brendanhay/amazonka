@@ -31,19 +31,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFileSystemOpenZFSConfiguration' smart constructor.
 data DeleteFileSystemOpenZFSConfiguration = DeleteFileSystemOpenZFSConfiguration'
-  { -- | By default, Amazon FSx for OpenZFS takes a final backup on your behalf
-    -- when the @DeleteFileSystem@ operation is invoked. Doing this helps
-    -- protect you from data loss, and we highly recommend taking the final
-    -- backup. If you want to skip taking a final backup, set this value to
-    -- @true@.
-    skipFinalBackup :: Prelude.Maybe Prelude.Bool,
+  { -- | A list of tags to apply to the file system\'s final backup.
+    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | To delete a file system if there are child volumes present below the
     -- root volume, use the string @DELETE_CHILD_VOLUMES_AND_SNAPSHOTS@. If
     -- your file system has child volumes and you don\'t use this option, the
     -- delete request will fail.
     options :: Prelude.Maybe [DeleteFileSystemOpenZFSOption],
-    -- | A list of tags to apply to the file system\'s final backup.
-    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag)
+    -- | By default, Amazon FSx for OpenZFS takes a final backup on your behalf
+    -- when the @DeleteFileSystem@ operation is invoked. Doing this helps
+    -- protect you from data loss, and we highly recommend taking the final
+    -- backup. If you want to skip taking a final backup, set this value to
+    -- @true@.
+    skipFinalBackup :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,27 +55,38 @@ data DeleteFileSystemOpenZFSConfiguration = DeleteFileSystemOpenZFSConfiguration
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skipFinalBackup', 'deleteFileSystemOpenZFSConfiguration_skipFinalBackup' - By default, Amazon FSx for OpenZFS takes a final backup on your behalf
--- when the @DeleteFileSystem@ operation is invoked. Doing this helps
--- protect you from data loss, and we highly recommend taking the final
--- backup. If you want to skip taking a final backup, set this value to
--- @true@.
+-- 'finalBackupTags', 'deleteFileSystemOpenZFSConfiguration_finalBackupTags' - A list of tags to apply to the file system\'s final backup.
 --
 -- 'options', 'deleteFileSystemOpenZFSConfiguration_options' - To delete a file system if there are child volumes present below the
 -- root volume, use the string @DELETE_CHILD_VOLUMES_AND_SNAPSHOTS@. If
 -- your file system has child volumes and you don\'t use this option, the
 -- delete request will fail.
 --
--- 'finalBackupTags', 'deleteFileSystemOpenZFSConfiguration_finalBackupTags' - A list of tags to apply to the file system\'s final backup.
+-- 'skipFinalBackup', 'deleteFileSystemOpenZFSConfiguration_skipFinalBackup' - By default, Amazon FSx for OpenZFS takes a final backup on your behalf
+-- when the @DeleteFileSystem@ operation is invoked. Doing this helps
+-- protect you from data loss, and we highly recommend taking the final
+-- backup. If you want to skip taking a final backup, set this value to
+-- @true@.
 newDeleteFileSystemOpenZFSConfiguration ::
   DeleteFileSystemOpenZFSConfiguration
 newDeleteFileSystemOpenZFSConfiguration =
   DeleteFileSystemOpenZFSConfiguration'
-    { skipFinalBackup =
+    { finalBackupTags =
         Prelude.Nothing,
       options = Prelude.Nothing,
-      finalBackupTags = Prelude.Nothing
+      skipFinalBackup = Prelude.Nothing
     }
+
+-- | A list of tags to apply to the file system\'s final backup.
+deleteFileSystemOpenZFSConfiguration_finalBackupTags :: Lens.Lens' DeleteFileSystemOpenZFSConfiguration (Prelude.Maybe (Prelude.NonEmpty Tag))
+deleteFileSystemOpenZFSConfiguration_finalBackupTags = Lens.lens (\DeleteFileSystemOpenZFSConfiguration' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemOpenZFSConfiguration' {} a -> s {finalBackupTags = a} :: DeleteFileSystemOpenZFSConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | To delete a file system if there are child volumes present below the
+-- root volume, use the string @DELETE_CHILD_VOLUMES_AND_SNAPSHOTS@. If
+-- your file system has child volumes and you don\'t use this option, the
+-- delete request will fail.
+deleteFileSystemOpenZFSConfiguration_options :: Lens.Lens' DeleteFileSystemOpenZFSConfiguration (Prelude.Maybe [DeleteFileSystemOpenZFSOption])
+deleteFileSystemOpenZFSConfiguration_options = Lens.lens (\DeleteFileSystemOpenZFSConfiguration' {options} -> options) (\s@DeleteFileSystemOpenZFSConfiguration' {} a -> s {options = a} :: DeleteFileSystemOpenZFSConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | By default, Amazon FSx for OpenZFS takes a final backup on your behalf
 -- when the @DeleteFileSystem@ operation is invoked. Doing this helps
@@ -85,17 +96,6 @@ newDeleteFileSystemOpenZFSConfiguration =
 deleteFileSystemOpenZFSConfiguration_skipFinalBackup :: Lens.Lens' DeleteFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Bool)
 deleteFileSystemOpenZFSConfiguration_skipFinalBackup = Lens.lens (\DeleteFileSystemOpenZFSConfiguration' {skipFinalBackup} -> skipFinalBackup) (\s@DeleteFileSystemOpenZFSConfiguration' {} a -> s {skipFinalBackup = a} :: DeleteFileSystemOpenZFSConfiguration)
 
--- | To delete a file system if there are child volumes present below the
--- root volume, use the string @DELETE_CHILD_VOLUMES_AND_SNAPSHOTS@. If
--- your file system has child volumes and you don\'t use this option, the
--- delete request will fail.
-deleteFileSystemOpenZFSConfiguration_options :: Lens.Lens' DeleteFileSystemOpenZFSConfiguration (Prelude.Maybe [DeleteFileSystemOpenZFSOption])
-deleteFileSystemOpenZFSConfiguration_options = Lens.lens (\DeleteFileSystemOpenZFSConfiguration' {options} -> options) (\s@DeleteFileSystemOpenZFSConfiguration' {} a -> s {options = a} :: DeleteFileSystemOpenZFSConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of tags to apply to the file system\'s final backup.
-deleteFileSystemOpenZFSConfiguration_finalBackupTags :: Lens.Lens' DeleteFileSystemOpenZFSConfiguration (Prelude.Maybe (Prelude.NonEmpty Tag))
-deleteFileSystemOpenZFSConfiguration_finalBackupTags = Lens.lens (\DeleteFileSystemOpenZFSConfiguration' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemOpenZFSConfiguration' {} a -> s {finalBackupTags = a} :: DeleteFileSystemOpenZFSConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 instance
   Prelude.Hashable
     DeleteFileSystemOpenZFSConfiguration
@@ -103,18 +103,18 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemOpenZFSConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` skipFinalBackup
+      _salt `Prelude.hashWithSalt` finalBackupTags
         `Prelude.hashWithSalt` options
-        `Prelude.hashWithSalt` finalBackupTags
+        `Prelude.hashWithSalt` skipFinalBackup
 
 instance
   Prelude.NFData
     DeleteFileSystemOpenZFSConfiguration
   where
   rnf DeleteFileSystemOpenZFSConfiguration' {..} =
-    Prelude.rnf skipFinalBackup
+    Prelude.rnf finalBackupTags
       `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf finalBackupTags
+      `Prelude.seq` Prelude.rnf skipFinalBackup
 
 instance
   Data.ToJSON
@@ -123,10 +123,10 @@ instance
   toJSON DeleteFileSystemOpenZFSConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SkipFinalBackup" Data..=)
-              Prelude.<$> skipFinalBackup,
+          [ ("FinalBackupTags" Data..=)
+              Prelude.<$> finalBackupTags,
             ("Options" Data..=) Prelude.<$> options,
-            ("FinalBackupTags" Data..=)
-              Prelude.<$> finalBackupTags
+            ("SkipFinalBackup" Data..=)
+              Prelude.<$> skipFinalBackup
           ]
       )

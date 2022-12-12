@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 data TargetSummary = TargetSummary'
   { -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
     targetAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The status of the target.
+    targetStatus :: Prelude.Maybe TargetStatus,
     -- | The type of the target (for example, @SNS@).
     --
     -- -   Chatbot topics are specified as @SNS@.
     --
     -- -   Chatbot clients are specified as @AWSChatbotSlack@.
-    targetType :: Prelude.Maybe Prelude.Text,
-    -- | The status of the target.
-    targetStatus :: Prelude.Maybe TargetStatus
+    targetType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -52,25 +52,29 @@ data TargetSummary = TargetSummary'
 --
 -- 'targetAddress', 'targetSummary_targetAddress' - The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
 --
+-- 'targetStatus', 'targetSummary_targetStatus' - The status of the target.
+--
 -- 'targetType', 'targetSummary_targetType' - The type of the target (for example, @SNS@).
 --
 -- -   Chatbot topics are specified as @SNS@.
 --
 -- -   Chatbot clients are specified as @AWSChatbotSlack@.
---
--- 'targetStatus', 'targetSummary_targetStatus' - The status of the target.
 newTargetSummary ::
   TargetSummary
 newTargetSummary =
   TargetSummary'
     { targetAddress = Prelude.Nothing,
-      targetType = Prelude.Nothing,
-      targetStatus = Prelude.Nothing
+      targetStatus = Prelude.Nothing,
+      targetType = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.
 targetSummary_targetAddress :: Lens.Lens' TargetSummary (Prelude.Maybe Prelude.Text)
 targetSummary_targetAddress = Lens.lens (\TargetSummary' {targetAddress} -> targetAddress) (\s@TargetSummary' {} a -> s {targetAddress = a} :: TargetSummary) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The status of the target.
+targetSummary_targetStatus :: Lens.Lens' TargetSummary (Prelude.Maybe TargetStatus)
+targetSummary_targetStatus = Lens.lens (\TargetSummary' {targetStatus} -> targetStatus) (\s@TargetSummary' {} a -> s {targetStatus = a} :: TargetSummary)
 
 -- | The type of the target (for example, @SNS@).
 --
@@ -80,10 +84,6 @@ targetSummary_targetAddress = Lens.lens (\TargetSummary' {targetAddress} -> targ
 targetSummary_targetType :: Lens.Lens' TargetSummary (Prelude.Maybe Prelude.Text)
 targetSummary_targetType = Lens.lens (\TargetSummary' {targetType} -> targetType) (\s@TargetSummary' {} a -> s {targetType = a} :: TargetSummary)
 
--- | The status of the target.
-targetSummary_targetStatus :: Lens.Lens' TargetSummary (Prelude.Maybe TargetStatus)
-targetSummary_targetStatus = Lens.lens (\TargetSummary' {targetStatus} -> targetStatus) (\s@TargetSummary' {} a -> s {targetStatus = a} :: TargetSummary)
-
 instance Data.FromJSON TargetSummary where
   parseJSON =
     Data.withObject
@@ -91,18 +91,18 @@ instance Data.FromJSON TargetSummary where
       ( \x ->
           TargetSummary'
             Prelude.<$> (x Data..:? "TargetAddress")
-            Prelude.<*> (x Data..:? "TargetType")
             Prelude.<*> (x Data..:? "TargetStatus")
+            Prelude.<*> (x Data..:? "TargetType")
       )
 
 instance Prelude.Hashable TargetSummary where
   hashWithSalt _salt TargetSummary' {..} =
     _salt `Prelude.hashWithSalt` targetAddress
-      `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` targetStatus
+      `Prelude.hashWithSalt` targetType
 
 instance Prelude.NFData TargetSummary where
   rnf TargetSummary' {..} =
     Prelude.rnf targetAddress
-      `Prelude.seq` Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf targetStatus
+      `Prelude.seq` Prelude.rnf targetType

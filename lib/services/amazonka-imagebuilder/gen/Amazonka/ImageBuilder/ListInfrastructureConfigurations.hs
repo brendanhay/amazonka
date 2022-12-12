@@ -27,17 +27,17 @@ module Amazonka.ImageBuilder.ListInfrastructureConfigurations
     newListInfrastructureConfigurations,
 
     -- * Request Lenses
-    listInfrastructureConfigurations_nextToken,
     listInfrastructureConfigurations_filters,
     listInfrastructureConfigurations_maxResults,
+    listInfrastructureConfigurations_nextToken,
 
     -- * Destructuring the Response
     ListInfrastructureConfigurationsResponse (..),
     newListInfrastructureConfigurationsResponse,
 
     -- * Response Lenses
-    listInfrastructureConfigurationsResponse_nextToken,
     listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList,
+    listInfrastructureConfigurationsResponse_nextToken,
     listInfrastructureConfigurationsResponse_requestId,
     listInfrastructureConfigurationsResponse_httpStatus,
   )
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInfrastructureConfigurations' smart constructor.
 data ListInfrastructureConfigurations = ListInfrastructureConfigurations'
-  { -- | A token to specify where to start paginating. This is the NextToken from
-    -- a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can filter on @name@ to streamline results.
+  { -- | You can filter on @name@ to streamline results.
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
     -- | The maximum items to return in a request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to specify where to start paginating. This is the NextToken from
+    -- a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,21 @@ data ListInfrastructureConfigurations = ListInfrastructureConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInfrastructureConfigurations_nextToken' - A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
---
 -- 'filters', 'listInfrastructureConfigurations_filters' - You can filter on @name@ to streamline results.
 --
 -- 'maxResults', 'listInfrastructureConfigurations_maxResults' - The maximum items to return in a request.
+--
+-- 'nextToken', 'listInfrastructureConfigurations_nextToken' - A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
 newListInfrastructureConfigurations ::
   ListInfrastructureConfigurations
 newListInfrastructureConfigurations =
   ListInfrastructureConfigurations'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
-listInfrastructureConfigurations_nextToken :: Lens.Lens' ListInfrastructureConfigurations (Prelude.Maybe Prelude.Text)
-listInfrastructureConfigurations_nextToken = Lens.lens (\ListInfrastructureConfigurations' {nextToken} -> nextToken) (\s@ListInfrastructureConfigurations' {} a -> s {nextToken = a} :: ListInfrastructureConfigurations)
 
 -- | You can filter on @name@ to streamline results.
 listInfrastructureConfigurations_filters :: Lens.Lens' ListInfrastructureConfigurations (Prelude.Maybe (Prelude.NonEmpty Filter))
@@ -99,6 +94,11 @@ listInfrastructureConfigurations_filters = Lens.lens (\ListInfrastructureConfigu
 -- | The maximum items to return in a request.
 listInfrastructureConfigurations_maxResults :: Lens.Lens' ListInfrastructureConfigurations (Prelude.Maybe Prelude.Natural)
 listInfrastructureConfigurations_maxResults = Lens.lens (\ListInfrastructureConfigurations' {maxResults} -> maxResults) (\s@ListInfrastructureConfigurations' {} a -> s {maxResults = a} :: ListInfrastructureConfigurations)
+
+-- | A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+listInfrastructureConfigurations_nextToken :: Lens.Lens' ListInfrastructureConfigurations (Prelude.Maybe Prelude.Text)
+listInfrastructureConfigurations_nextToken = Lens.lens (\ListInfrastructureConfigurations' {nextToken} -> nextToken) (\s@ListInfrastructureConfigurations' {} a -> s {nextToken = a} :: ListInfrastructureConfigurations)
 
 instance
   Core.AWSRequest
@@ -113,10 +113,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListInfrastructureConfigurationsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "infrastructureConfigurationSummaryList"
+            Prelude.<$> ( x Data..?> "infrastructureConfigurationSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -128,18 +128,18 @@ instance
   hashWithSalt
     _salt
     ListInfrastructureConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListInfrastructureConfigurations
   where
   rnf ListInfrastructureConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -159,9 +159,9 @@ instance Data.ToJSON ListInfrastructureConfigurations where
   toJSON ListInfrastructureConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -177,13 +177,13 @@ instance
 
 -- | /See:/ 'newListInfrastructureConfigurationsResponse' smart constructor.
 data ListInfrastructureConfigurationsResponse = ListInfrastructureConfigurationsResponse'
-  { -- | The next token used for paginated responses. When this is not empty,
+  { -- | The list of infrastructure configurations.
+    infrastructureConfigurationSummaryList :: Prelude.Maybe [InfrastructureConfigurationSummary],
+    -- | The next token used for paginated responses. When this is not empty,
     -- there are additional elements that the service has not included in this
     -- request. Use this token with the next request to retrieve additional
     -- objects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of infrastructure configurations.
-    infrastructureConfigurationSummaryList :: Prelude.Maybe [InfrastructureConfigurationSummary],
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -199,12 +199,12 @@ data ListInfrastructureConfigurationsResponse = ListInfrastructureConfigurations
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'infrastructureConfigurationSummaryList', 'listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList' - The list of infrastructure configurations.
+--
 -- 'nextToken', 'listInfrastructureConfigurationsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
 -- request. Use this token with the next request to retrieve additional
 -- objects.
---
--- 'infrastructureConfigurationSummaryList', 'listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList' - The list of infrastructure configurations.
 --
 -- 'requestId', 'listInfrastructureConfigurationsResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -216,13 +216,16 @@ newListInfrastructureConfigurationsResponse ::
 newListInfrastructureConfigurationsResponse
   pHttpStatus_ =
     ListInfrastructureConfigurationsResponse'
-      { nextToken =
+      { infrastructureConfigurationSummaryList =
           Prelude.Nothing,
-        infrastructureConfigurationSummaryList =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         requestId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The list of infrastructure configurations.
+listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList :: Lens.Lens' ListInfrastructureConfigurationsResponse (Prelude.Maybe [InfrastructureConfigurationSummary])
+listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList = Lens.lens (\ListInfrastructureConfigurationsResponse' {infrastructureConfigurationSummaryList} -> infrastructureConfigurationSummaryList) (\s@ListInfrastructureConfigurationsResponse' {} a -> s {infrastructureConfigurationSummaryList = a} :: ListInfrastructureConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
@@ -230,10 +233,6 @@ newListInfrastructureConfigurationsResponse
 -- objects.
 listInfrastructureConfigurationsResponse_nextToken :: Lens.Lens' ListInfrastructureConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listInfrastructureConfigurationsResponse_nextToken = Lens.lens (\ListInfrastructureConfigurationsResponse' {nextToken} -> nextToken) (\s@ListInfrastructureConfigurationsResponse' {} a -> s {nextToken = a} :: ListInfrastructureConfigurationsResponse)
-
--- | The list of infrastructure configurations.
-listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList :: Lens.Lens' ListInfrastructureConfigurationsResponse (Prelude.Maybe [InfrastructureConfigurationSummary])
-listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList = Lens.lens (\ListInfrastructureConfigurationsResponse' {infrastructureConfigurationSummaryList} -> infrastructureConfigurationSummaryList) (\s@ListInfrastructureConfigurationsResponse' {} a -> s {infrastructureConfigurationSummaryList = a} :: ListInfrastructureConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The request ID that uniquely identifies this request.
 listInfrastructureConfigurationsResponse_requestId :: Lens.Lens' ListInfrastructureConfigurationsResponse (Prelude.Maybe Prelude.Text)
@@ -248,7 +247,7 @@ instance
     ListInfrastructureConfigurationsResponse
   where
   rnf ListInfrastructureConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf infrastructureConfigurationSummaryList
+    Prelude.rnf infrastructureConfigurationSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

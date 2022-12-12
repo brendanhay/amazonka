@@ -39,26 +39,26 @@ module Amazonka.GreengrassV2
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** RequestAlreadyInProgressException
+    _RequestAlreadyInProgressException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
 
     -- ** ValidationException
     _ValidationException,
-
-    -- ** RequestAlreadyInProgressException
-    _RequestAlreadyInProgressException,
 
     -- * Waiters
     -- $waiters

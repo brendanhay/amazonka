@@ -27,9 +27,9 @@ module Amazonka.DMS.ImportCertificate
     newImportCertificate,
 
     -- * Request Lenses
-    importCertificate_tags,
-    importCertificate_certificateWallet,
     importCertificate_certificatePem,
+    importCertificate_certificateWallet,
+    importCertificate_tags,
     importCertificate_certificateIdentifier,
 
     -- * Destructuring the Response
@@ -52,16 +52,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
-  { -- | The tags associated with the certificate.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The contents of a @.pem@ file, which contains an X.509 certificate.
+    certificatePem :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The location of an imported Oracle Wallet certificate for use with SSL.
     -- Provide the name of a @.sso@ file using the @fileb:\/\/@ prefix. You
     -- can\'t provide the certificate inline.
     --
     -- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@
     certificateWallet :: Prelude.Maybe Data.Base64,
-    -- | The contents of a @.pem@ file, which contains an X.509 certificate.
-    certificatePem :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The tags associated with the certificate.
+    tags :: Prelude.Maybe [Tag],
     -- | A customer-assigned name for the certificate. Identifiers must begin
     -- with a letter and must contain only ASCII letters, digits, and hyphens.
     -- They can\'t end with a hyphen or contain two consecutive hyphens.
@@ -77,7 +77,7 @@ data ImportCertificate = ImportCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importCertificate_tags' - The tags associated with the certificate.
+-- 'certificatePem', 'importCertificate_certificatePem' - The contents of a @.pem@ file, which contains an X.509 certificate.
 --
 -- 'certificateWallet', 'importCertificate_certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.
 -- Provide the name of a @.sso@ file using the @fileb:\/\/@ prefix. You
@@ -89,7 +89,7 @@ data ImportCertificate = ImportCertificate'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'certificatePem', 'importCertificate_certificatePem' - The contents of a @.pem@ file, which contains an X.509 certificate.
+-- 'tags', 'importCertificate_tags' - The tags associated with the certificate.
 --
 -- 'certificateIdentifier', 'importCertificate_certificateIdentifier' - A customer-assigned name for the certificate. Identifiers must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens.
@@ -100,15 +100,16 @@ newImportCertificate ::
   ImportCertificate
 newImportCertificate pCertificateIdentifier_ =
   ImportCertificate'
-    { tags = Prelude.Nothing,
+    { certificatePem =
+        Prelude.Nothing,
       certificateWallet = Prelude.Nothing,
-      certificatePem = Prelude.Nothing,
+      tags = Prelude.Nothing,
       certificateIdentifier = pCertificateIdentifier_
     }
 
--- | The tags associated with the certificate.
-importCertificate_tags :: Lens.Lens' ImportCertificate (Prelude.Maybe [Tag])
-importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Prelude.. Lens.mapping Lens.coerced
+-- | The contents of a @.pem@ file, which contains an X.509 certificate.
+importCertificate_certificatePem :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
+importCertificate_certificatePem = Lens.lens (\ImportCertificate' {certificatePem} -> certificatePem) (\s@ImportCertificate' {} a -> s {certificatePem = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The location of an imported Oracle Wallet certificate for use with SSL.
 -- Provide the name of a @.sso@ file using the @fileb:\/\/@ prefix. You
@@ -122,9 +123,9 @@ importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@Impo
 importCertificate_certificateWallet :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.ByteString)
 importCertificate_certificateWallet = Lens.lens (\ImportCertificate' {certificateWallet} -> certificateWallet) (\s@ImportCertificate' {} a -> s {certificateWallet = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Base64
 
--- | The contents of a @.pem@ file, which contains an X.509 certificate.
-importCertificate_certificatePem :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
-importCertificate_certificatePem = Lens.lens (\ImportCertificate' {certificatePem} -> certificatePem) (\s@ImportCertificate' {} a -> s {certificatePem = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Sensitive
+-- | The tags associated with the certificate.
+importCertificate_tags :: Lens.Lens' ImportCertificate (Prelude.Maybe [Tag])
+importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | A customer-assigned name for the certificate. Identifiers must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens.
@@ -148,16 +149,16 @@ instance Core.AWSRequest ImportCertificate where
 
 instance Prelude.Hashable ImportCertificate where
   hashWithSalt _salt ImportCertificate' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` certificatePem
       `Prelude.hashWithSalt` certificateWallet
-      `Prelude.hashWithSalt` certificatePem
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` certificateIdentifier
 
 instance Prelude.NFData ImportCertificate where
   rnf ImportCertificate' {..} =
-    Prelude.rnf tags
+    Prelude.rnf certificatePem
       `Prelude.seq` Prelude.rnf certificateWallet
-      `Prelude.seq` Prelude.rnf certificatePem
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf certificateIdentifier
 
 instance Data.ToHeaders ImportCertificate where
@@ -179,11 +180,11 @@ instance Data.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("CertificatePem" Data..=)
+              Prelude.<$> certificatePem,
             ("CertificateWallet" Data..=)
               Prelude.<$> certificateWallet,
-            ("CertificatePem" Data..=)
-              Prelude.<$> certificatePem,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "CertificateIdentifier"
                   Data..= certificateIdentifier

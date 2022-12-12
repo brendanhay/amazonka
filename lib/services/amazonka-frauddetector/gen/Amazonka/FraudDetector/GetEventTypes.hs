@@ -33,17 +33,17 @@ module Amazonka.FraudDetector.GetEventTypes
     newGetEventTypes,
 
     -- * Request Lenses
+    getEventTypes_maxResults,
     getEventTypes_name,
     getEventTypes_nextToken,
-    getEventTypes_maxResults,
 
     -- * Destructuring the Response
     GetEventTypesResponse (..),
     newGetEventTypesResponse,
 
     -- * Response Lenses
-    getEventTypesResponse_nextToken,
     getEventTypesResponse_eventTypes,
+    getEventTypesResponse_nextToken,
     getEventTypesResponse_httpStatus,
   )
 where
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEventTypes' smart constructor.
 data GetEventTypes = GetEventTypes'
-  { -- | The name.
+  { -- | The maximum number of objects to return for the request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The next token for the subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects to return for the request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,19 +75,23 @@ data GetEventTypes = GetEventTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getEventTypes_maxResults' - The maximum number of objects to return for the request.
+--
 -- 'name', 'getEventTypes_name' - The name.
 --
 -- 'nextToken', 'getEventTypes_nextToken' - The next token for the subsequent request.
---
--- 'maxResults', 'getEventTypes_maxResults' - The maximum number of objects to return for the request.
 newGetEventTypes ::
   GetEventTypes
 newGetEventTypes =
   GetEventTypes'
-    { name = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      name = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of objects to return for the request.
+getEventTypes_maxResults :: Lens.Lens' GetEventTypes (Prelude.Maybe Prelude.Natural)
+getEventTypes_maxResults = Lens.lens (\GetEventTypes' {maxResults} -> maxResults) (\s@GetEventTypes' {} a -> s {maxResults = a} :: GetEventTypes)
 
 -- | The name.
 getEventTypes_name :: Lens.Lens' GetEventTypes (Prelude.Maybe Prelude.Text)
@@ -96,10 +100,6 @@ getEventTypes_name = Lens.lens (\GetEventTypes' {name} -> name) (\s@GetEventType
 -- | The next token for the subsequent request.
 getEventTypes_nextToken :: Lens.Lens' GetEventTypes (Prelude.Maybe Prelude.Text)
 getEventTypes_nextToken = Lens.lens (\GetEventTypes' {nextToken} -> nextToken) (\s@GetEventTypes' {} a -> s {nextToken = a} :: GetEventTypes)
-
--- | The maximum number of objects to return for the request.
-getEventTypes_maxResults :: Lens.Lens' GetEventTypes (Prelude.Maybe Prelude.Natural)
-getEventTypes_maxResults = Lens.lens (\GetEventTypes' {maxResults} -> maxResults) (\s@GetEventTypes' {} a -> s {maxResults = a} :: GetEventTypes)
 
 instance Core.AWSRequest GetEventTypes where
   type
@@ -111,22 +111,22 @@ instance Core.AWSRequest GetEventTypes where
     Response.receiveJSON
       ( \s h x ->
           GetEventTypesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "eventTypes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "eventTypes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetEventTypes where
   hashWithSalt _salt GetEventTypes' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetEventTypes where
   rnf GetEventTypes' {..} =
-    Prelude.rnf name
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders GetEventTypes where
   toHeaders =
@@ -147,9 +147,9 @@ instance Data.ToJSON GetEventTypes where
   toJSON GetEventTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("name" Data..=) Prelude.<$> name,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -161,10 +161,10 @@ instance Data.ToQuery GetEventTypes where
 
 -- | /See:/ 'newGetEventTypesResponse' smart constructor.
 data GetEventTypesResponse = GetEventTypesResponse'
-  { -- | The next page token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of event types.
+  { -- | An array of event types.
     eventTypes :: Prelude.Maybe [Data.Sensitive EventType],
+    -- | The next page token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data GetEventTypesResponse = GetEventTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEventTypesResponse_nextToken' - The next page token.
---
 -- 'eventTypes', 'getEventTypesResponse_eventTypes' - An array of event types.
+--
+-- 'nextToken', 'getEventTypesResponse_nextToken' - The next page token.
 --
 -- 'httpStatus', 'getEventTypesResponse_httpStatus' - The response's http status code.
 newGetEventTypesResponse ::
@@ -189,18 +189,19 @@ newGetEventTypesResponse ::
   GetEventTypesResponse
 newGetEventTypesResponse pHttpStatus_ =
   GetEventTypesResponse'
-    { nextToken = Prelude.Nothing,
-      eventTypes = Prelude.Nothing,
+    { eventTypes =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next page token.
-getEventTypesResponse_nextToken :: Lens.Lens' GetEventTypesResponse (Prelude.Maybe Prelude.Text)
-getEventTypesResponse_nextToken = Lens.lens (\GetEventTypesResponse' {nextToken} -> nextToken) (\s@GetEventTypesResponse' {} a -> s {nextToken = a} :: GetEventTypesResponse)
 
 -- | An array of event types.
 getEventTypesResponse_eventTypes :: Lens.Lens' GetEventTypesResponse (Prelude.Maybe [EventType])
 getEventTypesResponse_eventTypes = Lens.lens (\GetEventTypesResponse' {eventTypes} -> eventTypes) (\s@GetEventTypesResponse' {} a -> s {eventTypes = a} :: GetEventTypesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The next page token.
+getEventTypesResponse_nextToken :: Lens.Lens' GetEventTypesResponse (Prelude.Maybe Prelude.Text)
+getEventTypesResponse_nextToken = Lens.lens (\GetEventTypesResponse' {nextToken} -> nextToken) (\s@GetEventTypesResponse' {} a -> s {nextToken = a} :: GetEventTypesResponse)
 
 -- | The response's http status code.
 getEventTypesResponse_httpStatus :: Lens.Lens' GetEventTypesResponse Prelude.Int
@@ -208,6 +209,6 @@ getEventTypesResponse_httpStatus = Lens.lens (\GetEventTypesResponse' {httpStatu
 
 instance Prelude.NFData GetEventTypesResponse where
   rnf GetEventTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventTypes
+    Prelude.rnf eventTypes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

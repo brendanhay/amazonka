@@ -1,0 +1,76 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-oam/amazonka-oam.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-oam",
+    srcs = [
+        "gen/Amazonka/OAM.hs",
+        "gen/Amazonka/OAM/CreateLink.hs",
+        "gen/Amazonka/OAM/CreateSink.hs",
+        "gen/Amazonka/OAM/DeleteLink.hs",
+        "gen/Amazonka/OAM/DeleteSink.hs",
+        "gen/Amazonka/OAM/GetLink.hs",
+        "gen/Amazonka/OAM/GetSink.hs",
+        "gen/Amazonka/OAM/GetSinkPolicy.hs",
+        "gen/Amazonka/OAM/Lens.hs",
+        "gen/Amazonka/OAM/ListAttachedLinks.hs",
+        "gen/Amazonka/OAM/ListLinks.hs",
+        "gen/Amazonka/OAM/ListSinks.hs",
+        "gen/Amazonka/OAM/ListTagsForResource.hs",
+        "gen/Amazonka/OAM/PutSinkPolicy.hs",
+        "gen/Amazonka/OAM/TagResource.hs",
+        "gen/Amazonka/OAM/Types.hs",
+        "gen/Amazonka/OAM/Types/ListAttachedLinksItem.hs",
+        "gen/Amazonka/OAM/Types/ListLinksItem.hs",
+        "gen/Amazonka/OAM/Types/ListSinksItem.hs",
+        "gen/Amazonka/OAM/Types/ResourceType.hs",
+        "gen/Amazonka/OAM/UntagResource.hs",
+        "gen/Amazonka/OAM/UpdateLink.hs",
+        "gen/Amazonka/OAM/Waiters.hs",
+    ],
+    ghcopts = [
+        "-DVERSION_amazonka_oam=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka-core",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-oam/amazonka-oam.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-oam-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/Amazonka/Gen/OAM.hs",
+        "test/Test/Amazonka/OAM.hs",
+        "test/Test/Amazonka/OAM/Internal.hs",
+    ],
+    ghcopts = [
+        "-DVERSION_amazonka_oam=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    main_file = "test/Main.hs",
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-oam",
+        "//lib/amazonka-core",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

@@ -29,8 +29,8 @@ module Amazonka.EMRServerless.ListApplications
     newListApplications,
 
     -- * Request Lenses
-    listApplications_nextToken,
     listApplications_maxResults,
+    listApplications_nextToken,
     listApplications_states,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApplications' smart constructor.
 data ListApplications = ListApplications'
-  { -- | The token for the next set of application results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of applications that can be listed.
+  { -- | The maximum number of applications that can be listed.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of application results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An optional filter for application states. Note that if this filter
     -- contains multiple states, the resulting list will be grouped by the
     -- state.
@@ -73,9 +73,9 @@ data ListApplications = ListApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApplications_nextToken' - The token for the next set of application results.
---
 -- 'maxResults', 'listApplications_maxResults' - The maximum number of applications that can be listed.
+--
+-- 'nextToken', 'listApplications_nextToken' - The token for the next set of application results.
 --
 -- 'states', 'listApplications_states' - An optional filter for application states. Note that if this filter
 -- contains multiple states, the resulting list will be grouped by the
@@ -84,18 +84,18 @@ newListApplications ::
   ListApplications
 newListApplications =
   ListApplications'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       states = Prelude.Nothing
     }
-
--- | The token for the next set of application results.
-listApplications_nextToken :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
-listApplications_nextToken = Lens.lens (\ListApplications' {nextToken} -> nextToken) (\s@ListApplications' {} a -> s {nextToken = a} :: ListApplications)
 
 -- | The maximum number of applications that can be listed.
 listApplications_maxResults :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
 listApplications_maxResults = Lens.lens (\ListApplications' {maxResults} -> maxResults) (\s@ListApplications' {} a -> s {maxResults = a} :: ListApplications)
+
+-- | The token for the next set of application results.
+listApplications_nextToken :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
+listApplications_nextToken = Lens.lens (\ListApplications' {nextToken} -> nextToken) (\s@ListApplications' {} a -> s {nextToken = a} :: ListApplications)
 
 -- | An optional filter for application states. Note that if this filter
 -- contains multiple states, the resulting list will be grouped by the
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListApplications where
 
 instance Prelude.Hashable ListApplications where
   hashWithSalt _salt ListApplications' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` states
 
 instance Prelude.NFData ListApplications where
   rnf ListApplications' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf states
 
 instance Data.ToHeaders ListApplications where
@@ -166,8 +166,8 @@ instance Data.ToPath ListApplications where
 instance Data.ToQuery ListApplications where
   toQuery ListApplications' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "states"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> states)

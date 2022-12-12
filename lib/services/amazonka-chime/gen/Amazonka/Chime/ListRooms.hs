@@ -29,9 +29,9 @@ module Amazonka.Chime.ListRooms
     newListRooms,
 
     -- * Request Lenses
+    listRooms_maxResults,
     listRooms_memberId,
     listRooms_nextToken,
-    listRooms_maxResults,
     listRooms_accountId,
 
     -- * Destructuring the Response
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRooms' smart constructor.
 data ListRooms = ListRooms'
-  { -- | The member ID (user ID or bot ID).
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The member ID (user ID or bot ID).
     memberId :: Prelude.Maybe Prelude.Text,
     -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data ListRooms = ListRooms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRooms_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'memberId', 'listRooms_memberId' - The member ID (user ID or bot ID).
 --
 -- 'nextToken', 'listRooms_nextToken' - The token to use to retrieve the next page of results.
---
--- 'maxResults', 'listRooms_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'accountId', 'listRooms_accountId' - The Amazon Chime account ID.
 newListRooms ::
@@ -87,11 +87,15 @@ newListRooms ::
   ListRooms
 newListRooms pAccountId_ =
   ListRooms'
-    { memberId = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      memberId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       accountId = pAccountId_
     }
+
+-- | The maximum number of results to return in a single call.
+listRooms_maxResults :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Natural)
+listRooms_maxResults = Lens.lens (\ListRooms' {maxResults} -> maxResults) (\s@ListRooms' {} a -> s {maxResults = a} :: ListRooms)
 
 -- | The member ID (user ID or bot ID).
 listRooms_memberId :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
@@ -100,10 +104,6 @@ listRooms_memberId = Lens.lens (\ListRooms' {memberId} -> memberId) (\s@ListRoom
 -- | The token to use to retrieve the next page of results.
 listRooms_nextToken :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
 listRooms_nextToken = Lens.lens (\ListRooms' {nextToken} -> nextToken) (\s@ListRooms' {} a -> s {nextToken = a} :: ListRooms)
-
--- | The maximum number of results to return in a single call.
-listRooms_maxResults :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Natural)
-listRooms_maxResults = Lens.lens (\ListRooms' {maxResults} -> maxResults) (\s@ListRooms' {} a -> s {maxResults = a} :: ListRooms)
 
 -- | The Amazon Chime account ID.
 listRooms_accountId :: Lens.Lens' ListRooms Prelude.Text
@@ -124,16 +124,16 @@ instance Core.AWSRequest ListRooms where
 
 instance Prelude.Hashable ListRooms where
   hashWithSalt _salt ListRooms' {..} =
-    _salt `Prelude.hashWithSalt` memberId
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData ListRooms where
   rnf ListRooms' {..} =
-    Prelude.rnf memberId
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf accountId
 
 instance Data.ToHeaders ListRooms where
@@ -147,9 +147,9 @@ instance Data.ToPath ListRooms where
 instance Data.ToQuery ListRooms where
   toQuery ListRooms' {..} =
     Prelude.mconcat
-      [ "member-id" Data.=: memberId,
-        "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "member-id" Data.=: memberId,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRoomsResponse' smart constructor.

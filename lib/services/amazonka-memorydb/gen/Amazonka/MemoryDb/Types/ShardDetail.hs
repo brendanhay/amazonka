@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newShardDetail' smart constructor.
 data ShardDetail = ShardDetail'
-  { -- | The name of the shard
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The configuration details of the shard
+  { -- | The configuration details of the shard
     configuration :: Prelude.Maybe ShardConfiguration,
-    -- | The date and time that the shard\'s snapshot was created
-    snapshotCreationTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the shard
+    name :: Prelude.Maybe Prelude.Text,
     -- | The size of the shard\'s snapshot
-    size :: Prelude.Maybe Prelude.Text
+    size :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the shard\'s snapshot was created
+    snapshotCreationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,38 +48,38 @@ data ShardDetail = ShardDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'shardDetail_name' - The name of the shard
---
 -- 'configuration', 'shardDetail_configuration' - The configuration details of the shard
 --
--- 'snapshotCreationTime', 'shardDetail_snapshotCreationTime' - The date and time that the shard\'s snapshot was created
+-- 'name', 'shardDetail_name' - The name of the shard
 --
 -- 'size', 'shardDetail_size' - The size of the shard\'s snapshot
+--
+-- 'snapshotCreationTime', 'shardDetail_snapshotCreationTime' - The date and time that the shard\'s snapshot was created
 newShardDetail ::
   ShardDetail
 newShardDetail =
   ShardDetail'
-    { name = Prelude.Nothing,
-      configuration = Prelude.Nothing,
-      snapshotCreationTime = Prelude.Nothing,
-      size = Prelude.Nothing
+    { configuration = Prelude.Nothing,
+      name = Prelude.Nothing,
+      size = Prelude.Nothing,
+      snapshotCreationTime = Prelude.Nothing
     }
-
--- | The name of the shard
-shardDetail_name :: Lens.Lens' ShardDetail (Prelude.Maybe Prelude.Text)
-shardDetail_name = Lens.lens (\ShardDetail' {name} -> name) (\s@ShardDetail' {} a -> s {name = a} :: ShardDetail)
 
 -- | The configuration details of the shard
 shardDetail_configuration :: Lens.Lens' ShardDetail (Prelude.Maybe ShardConfiguration)
 shardDetail_configuration = Lens.lens (\ShardDetail' {configuration} -> configuration) (\s@ShardDetail' {} a -> s {configuration = a} :: ShardDetail)
 
--- | The date and time that the shard\'s snapshot was created
-shardDetail_snapshotCreationTime :: Lens.Lens' ShardDetail (Prelude.Maybe Prelude.UTCTime)
-shardDetail_snapshotCreationTime = Lens.lens (\ShardDetail' {snapshotCreationTime} -> snapshotCreationTime) (\s@ShardDetail' {} a -> s {snapshotCreationTime = a} :: ShardDetail) Prelude.. Lens.mapping Data._Time
+-- | The name of the shard
+shardDetail_name :: Lens.Lens' ShardDetail (Prelude.Maybe Prelude.Text)
+shardDetail_name = Lens.lens (\ShardDetail' {name} -> name) (\s@ShardDetail' {} a -> s {name = a} :: ShardDetail)
 
 -- | The size of the shard\'s snapshot
 shardDetail_size :: Lens.Lens' ShardDetail (Prelude.Maybe Prelude.Text)
 shardDetail_size = Lens.lens (\ShardDetail' {size} -> size) (\s@ShardDetail' {} a -> s {size = a} :: ShardDetail)
+
+-- | The date and time that the shard\'s snapshot was created
+shardDetail_snapshotCreationTime :: Lens.Lens' ShardDetail (Prelude.Maybe Prelude.UTCTime)
+shardDetail_snapshotCreationTime = Lens.lens (\ShardDetail' {snapshotCreationTime} -> snapshotCreationTime) (\s@ShardDetail' {} a -> s {snapshotCreationTime = a} :: ShardDetail) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON ShardDetail where
   parseJSON =
@@ -87,22 +87,22 @@ instance Data.FromJSON ShardDetail where
       "ShardDetail"
       ( \x ->
           ShardDetail'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Configuration")
-            Prelude.<*> (x Data..:? "SnapshotCreationTime")
+            Prelude.<$> (x Data..:? "Configuration")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "SnapshotCreationTime")
       )
 
 instance Prelude.Hashable ShardDetail where
   hashWithSalt _salt ShardDetail' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` configuration
-      `Prelude.hashWithSalt` snapshotCreationTime
+    _salt `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` snapshotCreationTime
 
 instance Prelude.NFData ShardDetail where
   rnf ShardDetail' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf snapshotCreationTime
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf snapshotCreationTime

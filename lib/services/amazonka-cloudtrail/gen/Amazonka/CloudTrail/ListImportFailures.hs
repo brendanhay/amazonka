@@ -29,8 +29,8 @@ module Amazonka.CloudTrail.ListImportFailures
     newListImportFailures,
 
     -- * Request Lenses
-    listImportFailures_nextToken,
     listImportFailures_maxResults,
+    listImportFailures_nextToken,
     listImportFailures_importId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.CloudTrail.ListImportFailures
     newListImportFailuresResponse,
 
     -- * Response Lenses
-    listImportFailuresResponse_nextToken,
     listImportFailuresResponse_failures,
+    listImportFailuresResponse_nextToken,
     listImportFailuresResponse_httpStatus,
   )
 where
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListImportFailures' smart constructor.
 data ListImportFailures = ListImportFailures'
-  { -- | A token you can use to get the next page of import failures.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of failures to display on a single page.
+  { -- | The maximum number of failures to display on a single page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token you can use to get the next page of import failures.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the import.
     importId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data ListImportFailures = ListImportFailures'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listImportFailures_nextToken' - A token you can use to get the next page of import failures.
---
 -- 'maxResults', 'listImportFailures_maxResults' - The maximum number of failures to display on a single page.
+--
+-- 'nextToken', 'listImportFailures_nextToken' - A token you can use to get the next page of import failures.
 --
 -- 'importId', 'listImportFailures_importId' - The ID of the import.
 newListImportFailures ::
@@ -82,18 +82,18 @@ newListImportFailures ::
   ListImportFailures
 newListImportFailures pImportId_ =
   ListImportFailures'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       importId = pImportId_
     }
-
--- | A token you can use to get the next page of import failures.
-listImportFailures_nextToken :: Lens.Lens' ListImportFailures (Prelude.Maybe Prelude.Text)
-listImportFailures_nextToken = Lens.lens (\ListImportFailures' {nextToken} -> nextToken) (\s@ListImportFailures' {} a -> s {nextToken = a} :: ListImportFailures)
 
 -- | The maximum number of failures to display on a single page.
 listImportFailures_maxResults :: Lens.Lens' ListImportFailures (Prelude.Maybe Prelude.Natural)
 listImportFailures_maxResults = Lens.lens (\ListImportFailures' {maxResults} -> maxResults) (\s@ListImportFailures' {} a -> s {maxResults = a} :: ListImportFailures)
+
+-- | A token you can use to get the next page of import failures.
+listImportFailures_nextToken :: Lens.Lens' ListImportFailures (Prelude.Maybe Prelude.Text)
+listImportFailures_nextToken = Lens.lens (\ListImportFailures' {nextToken} -> nextToken) (\s@ListImportFailures' {} a -> s {nextToken = a} :: ListImportFailures)
 
 -- | The ID of the import.
 listImportFailures_importId :: Lens.Lens' ListImportFailures Prelude.Text
@@ -131,21 +131,21 @@ instance Core.AWSRequest ListImportFailures where
     Response.receiveJSON
       ( \s h x ->
           ListImportFailuresResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListImportFailures where
   hashWithSalt _salt ListImportFailures' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` importId
 
 instance Prelude.NFData ListImportFailures where
   rnf ListImportFailures' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf importId
 
 instance Data.ToHeaders ListImportFailures where
@@ -167,8 +167,8 @@ instance Data.ToJSON ListImportFailures where
   toJSON ListImportFailures' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ImportId" Data..= importId)
           ]
       )
@@ -181,10 +181,10 @@ instance Data.ToQuery ListImportFailures where
 
 -- | /See:/ 'newListImportFailuresResponse' smart constructor.
 data ListImportFailuresResponse = ListImportFailuresResponse'
-  { -- | A token you can use to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about the import failures.
+  { -- | Contains information about the import failures.
     failures :: Prelude.Maybe [ImportFailureListItem],
+    -- | A token you can use to get the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,9 +198,9 @@ data ListImportFailuresResponse = ListImportFailuresResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listImportFailuresResponse_nextToken' - A token you can use to get the next page of results.
---
 -- 'failures', 'listImportFailuresResponse_failures' - Contains information about the import failures.
+--
+-- 'nextToken', 'listImportFailuresResponse_nextToken' - A token you can use to get the next page of results.
 --
 -- 'httpStatus', 'listImportFailuresResponse_httpStatus' - The response's http status code.
 newListImportFailuresResponse ::
@@ -209,19 +209,19 @@ newListImportFailuresResponse ::
   ListImportFailuresResponse
 newListImportFailuresResponse pHttpStatus_ =
   ListImportFailuresResponse'
-    { nextToken =
+    { failures =
         Prelude.Nothing,
-      failures = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token you can use to get the next page of results.
-listImportFailuresResponse_nextToken :: Lens.Lens' ListImportFailuresResponse (Prelude.Maybe Prelude.Text)
-listImportFailuresResponse_nextToken = Lens.lens (\ListImportFailuresResponse' {nextToken} -> nextToken) (\s@ListImportFailuresResponse' {} a -> s {nextToken = a} :: ListImportFailuresResponse)
 
 -- | Contains information about the import failures.
 listImportFailuresResponse_failures :: Lens.Lens' ListImportFailuresResponse (Prelude.Maybe [ImportFailureListItem])
 listImportFailuresResponse_failures = Lens.lens (\ListImportFailuresResponse' {failures} -> failures) (\s@ListImportFailuresResponse' {} a -> s {failures = a} :: ListImportFailuresResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token you can use to get the next page of results.
+listImportFailuresResponse_nextToken :: Lens.Lens' ListImportFailuresResponse (Prelude.Maybe Prelude.Text)
+listImportFailuresResponse_nextToken = Lens.lens (\ListImportFailuresResponse' {nextToken} -> nextToken) (\s@ListImportFailuresResponse' {} a -> s {nextToken = a} :: ListImportFailuresResponse)
 
 -- | The response's http status code.
 listImportFailuresResponse_httpStatus :: Lens.Lens' ListImportFailuresResponse Prelude.Int
@@ -229,6 +229,6 @@ listImportFailuresResponse_httpStatus = Lens.lens (\ListImportFailuresResponse' 
 
 instance Prelude.NFData ListImportFailuresResponse where
   rnf ListImportFailuresResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf failures
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.GetDistributionConfiguration
     newGetDistributionConfigurationResponse,
 
     -- * Response Lenses
-    getDistributionConfigurationResponse_requestId,
     getDistributionConfigurationResponse_distributionConfiguration,
+    getDistributionConfigurationResponse_requestId,
     getDistributionConfigurationResponse_httpStatus,
   )
 where
@@ -92,8 +92,8 @@ instance Core.AWSRequest GetDistributionConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetDistributionConfigurationResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "distributionConfiguration")
+            Prelude.<$> (x Data..?> "distributionConfiguration")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,10 +133,10 @@ instance Data.ToQuery GetDistributionConfiguration where
 
 -- | /See:/ 'newGetDistributionConfigurationResponse' smart constructor.
 data GetDistributionConfigurationResponse = GetDistributionConfigurationResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The distribution configuration object.
+  { -- | The distribution configuration object.
     distributionConfiguration :: Prelude.Maybe DistributionConfiguration,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,9 +150,9 @@ data GetDistributionConfigurationResponse = GetDistributionConfigurationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getDistributionConfigurationResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'distributionConfiguration', 'getDistributionConfigurationResponse_distributionConfiguration' - The distribution configuration object.
+--
+-- 'requestId', 'getDistributionConfigurationResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'getDistributionConfigurationResponse_httpStatus' - The response's http status code.
 newGetDistributionConfigurationResponse ::
@@ -161,20 +161,19 @@ newGetDistributionConfigurationResponse ::
   GetDistributionConfigurationResponse
 newGetDistributionConfigurationResponse pHttpStatus_ =
   GetDistributionConfigurationResponse'
-    { requestId =
+    { distributionConfiguration =
         Prelude.Nothing,
-      distributionConfiguration =
-        Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-getDistributionConfigurationResponse_requestId :: Lens.Lens' GetDistributionConfigurationResponse (Prelude.Maybe Prelude.Text)
-getDistributionConfigurationResponse_requestId = Lens.lens (\GetDistributionConfigurationResponse' {requestId} -> requestId) (\s@GetDistributionConfigurationResponse' {} a -> s {requestId = a} :: GetDistributionConfigurationResponse)
 
 -- | The distribution configuration object.
 getDistributionConfigurationResponse_distributionConfiguration :: Lens.Lens' GetDistributionConfigurationResponse (Prelude.Maybe DistributionConfiguration)
 getDistributionConfigurationResponse_distributionConfiguration = Lens.lens (\GetDistributionConfigurationResponse' {distributionConfiguration} -> distributionConfiguration) (\s@GetDistributionConfigurationResponse' {} a -> s {distributionConfiguration = a} :: GetDistributionConfigurationResponse)
+
+-- | The request ID that uniquely identifies this request.
+getDistributionConfigurationResponse_requestId :: Lens.Lens' GetDistributionConfigurationResponse (Prelude.Maybe Prelude.Text)
+getDistributionConfigurationResponse_requestId = Lens.lens (\GetDistributionConfigurationResponse' {requestId} -> requestId) (\s@GetDistributionConfigurationResponse' {} a -> s {requestId = a} :: GetDistributionConfigurationResponse)
 
 -- | The response's http status code.
 getDistributionConfigurationResponse_httpStatus :: Lens.Lens' GetDistributionConfigurationResponse Prelude.Int
@@ -185,6 +184,6 @@ instance
     GetDistributionConfigurationResponse
   where
   rnf GetDistributionConfigurationResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf distributionConfiguration
+    Prelude.rnf distributionConfiguration
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

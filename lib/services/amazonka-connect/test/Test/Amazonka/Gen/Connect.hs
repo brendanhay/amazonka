@@ -87,6 +87,9 @@ import Test.Tasty
 --         , requestCreateRoutingProfile $
 --             newCreateRoutingProfile
 --
+--         , requestCreateRule $
+--             newCreateRule
+--
 --         , requestCreateSecurityProfile $
 --             newCreateSecurityProfile
 --
@@ -125,6 +128,9 @@ import Test.Tasty
 --
 --         , requestDeleteQuickConnect $
 --             newDeleteQuickConnect
+--
+--         , requestDeleteRule $
+--             newDeleteRule
 --
 --         , requestDeleteSecurityProfile $
 --             newDeleteSecurityProfile
@@ -182,6 +188,9 @@ import Test.Tasty
 --
 --         , requestDescribeRoutingProfile $
 --             newDescribeRoutingProfile
+--
+--         , requestDescribeRule $
+--             newDescribeRule
 --
 --         , requestDescribeSecurityProfile $
 --             newDescribeSecurityProfile
@@ -317,6 +326,9 @@ import Test.Tasty
 --
 --         , requestListRoutingProfiles $
 --             newListRoutingProfiles
+--
+--         , requestListRules $
+--             newListRules
 --
 --         , requestListSecurityKeys $
 --             newListSecurityKeys
@@ -486,6 +498,9 @@ import Test.Tasty
 --         , requestUpdateRoutingProfileQueues $
 --             newUpdateRoutingProfileQueues
 --
+--         , requestUpdateRule $
+--             newUpdateRule
+--
 --         , requestUpdateSecurityProfile $
 --             newUpdateSecurityProfile
 --
@@ -579,6 +594,9 @@ import Test.Tasty
 --         , responseCreateRoutingProfile $
 --             newCreateRoutingProfileResponse
 --
+--         , responseCreateRule $
+--             newCreateRuleResponse
+--
 --         , responseCreateSecurityProfile $
 --             newCreateSecurityProfileResponse
 --
@@ -617,6 +635,9 @@ import Test.Tasty
 --
 --         , responseDeleteQuickConnect $
 --             newDeleteQuickConnectResponse
+--
+--         , responseDeleteRule $
+--             newDeleteRuleResponse
 --
 --         , responseDeleteSecurityProfile $
 --             newDeleteSecurityProfileResponse
@@ -674,6 +695,9 @@ import Test.Tasty
 --
 --         , responseDescribeRoutingProfile $
 --             newDescribeRoutingProfileResponse
+--
+--         , responseDescribeRule $
+--             newDescribeRuleResponse
 --
 --         , responseDescribeSecurityProfile $
 --             newDescribeSecurityProfileResponse
@@ -809,6 +833,9 @@ import Test.Tasty
 --
 --         , responseListRoutingProfiles $
 --             newListRoutingProfilesResponse
+--
+--         , responseListRules $
+--             newListRulesResponse
 --
 --         , responseListSecurityKeys $
 --             newListSecurityKeysResponse
@@ -978,6 +1005,9 @@ import Test.Tasty
 --         , responseUpdateRoutingProfileQueues $
 --             newUpdateRoutingProfileQueuesResponse
 --
+--         , responseUpdateRule $
+--             newUpdateRuleResponse
+--
 --         , responseUpdateSecurityProfile $
 --             newUpdateSecurityProfileResponse
 --
@@ -1133,6 +1163,12 @@ requestCreateRoutingProfile =
     "CreateRoutingProfile"
     "fixture/CreateRoutingProfile.yaml"
 
+requestCreateRule :: CreateRule -> TestTree
+requestCreateRule =
+  req
+    "CreateRule"
+    "fixture/CreateRule.yaml"
+
 requestCreateSecurityProfile :: CreateSecurityProfile -> TestTree
 requestCreateSecurityProfile =
   req
@@ -1210,6 +1246,12 @@ requestDeleteQuickConnect =
   req
     "DeleteQuickConnect"
     "fixture/DeleteQuickConnect.yaml"
+
+requestDeleteRule :: DeleteRule -> TestTree
+requestDeleteRule =
+  req
+    "DeleteRule"
+    "fixture/DeleteRule.yaml"
 
 requestDeleteSecurityProfile :: DeleteSecurityProfile -> TestTree
 requestDeleteSecurityProfile =
@@ -1324,6 +1366,12 @@ requestDescribeRoutingProfile =
   req
     "DescribeRoutingProfile"
     "fixture/DescribeRoutingProfile.yaml"
+
+requestDescribeRule :: DescribeRule -> TestTree
+requestDescribeRule =
+  req
+    "DescribeRule"
+    "fixture/DescribeRule.yaml"
 
 requestDescribeSecurityProfile :: DescribeSecurityProfile -> TestTree
 requestDescribeSecurityProfile =
@@ -1594,6 +1642,12 @@ requestListRoutingProfiles =
   req
     "ListRoutingProfiles"
     "fixture/ListRoutingProfiles.yaml"
+
+requestListRules :: ListRules -> TestTree
+requestListRules =
+  req
+    "ListRules"
+    "fixture/ListRules.yaml"
 
 requestListSecurityKeys :: ListSecurityKeys -> TestTree
 requestListSecurityKeys =
@@ -1931,6 +1985,12 @@ requestUpdateRoutingProfileQueues =
     "UpdateRoutingProfileQueues"
     "fixture/UpdateRoutingProfileQueues.yaml"
 
+requestUpdateRule :: UpdateRule -> TestTree
+requestUpdateRule =
+  req
+    "UpdateRule"
+    "fixture/UpdateRule.yaml"
+
 requestUpdateSecurityProfile :: UpdateSecurityProfile -> TestTree
 requestUpdateSecurityProfile =
   req
@@ -2153,6 +2213,14 @@ responseCreateRoutingProfile =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateRoutingProfile)
 
+responseCreateRule :: CreateRuleResponse -> TestTree
+responseCreateRule =
+  res
+    "CreateRuleResponse"
+    "fixture/CreateRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRule)
+
 responseCreateSecurityProfile :: CreateSecurityProfileResponse -> TestTree
 responseCreateSecurityProfile =
   res
@@ -2256,6 +2324,14 @@ responseDeleteQuickConnect =
     "fixture/DeleteQuickConnectResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteQuickConnect)
+
+responseDeleteRule :: DeleteRuleResponse -> TestTree
+responseDeleteRule =
+  res
+    "DeleteRuleResponse"
+    "fixture/DeleteRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRule)
 
 responseDeleteSecurityProfile :: DeleteSecurityProfileResponse -> TestTree
 responseDeleteSecurityProfile =
@@ -2408,6 +2484,14 @@ responseDescribeRoutingProfile =
     "fixture/DescribeRoutingProfileResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeRoutingProfile)
+
+responseDescribeRule :: DescribeRuleResponse -> TestTree
+responseDescribeRule =
+  res
+    "DescribeRuleResponse"
+    "fixture/DescribeRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRule)
 
 responseDescribeSecurityProfile :: DescribeSecurityProfileResponse -> TestTree
 responseDescribeSecurityProfile =
@@ -2768,6 +2852,14 @@ responseListRoutingProfiles =
     "fixture/ListRoutingProfilesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRoutingProfiles)
+
+responseListRules :: ListRulesResponse -> TestTree
+responseListRules =
+  res
+    "ListRulesResponse"
+    "fixture/ListRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRules)
 
 responseListSecurityKeys :: ListSecurityKeysResponse -> TestTree
 responseListSecurityKeys =
@@ -3216,6 +3308,14 @@ responseUpdateRoutingProfileQueues =
     "fixture/UpdateRoutingProfileQueuesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateRoutingProfileQueues)
+
+responseUpdateRule :: UpdateRuleResponse -> TestTree
+responseUpdateRule =
+  res
+    "UpdateRuleResponse"
+    "fixture/UpdateRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRule)
 
 responseUpdateSecurityProfile :: UpdateSecurityProfileResponse -> TestTree
 responseUpdateSecurityProfile =

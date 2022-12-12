@@ -31,15 +31,15 @@ import Amazonka.Textract.Types.IdentityDocumentField
 --
 -- /See:/ 'newIdentityDocument' smart constructor.
 data IdentityDocument = IdentityDocument'
-  { -- | Denotes the placement of a document in the IdentityDocument list. The
+  { -- | Individual word recognition, as returned by document detection.
+    blocks :: Prelude.Maybe [Block],
+    -- | Denotes the placement of a document in the IdentityDocument list. The
     -- first document is marked 1, the second 2 and so on.
     documentIndex :: Prelude.Maybe Prelude.Natural,
     -- | The structure used to record information extracted from identity
     -- documents. Contains both normalized field and value of the extracted
     -- text.
-    identityDocumentFields :: Prelude.Maybe [IdentityDocumentField],
-    -- | Individual word recognition, as returned by document detection.
-    blocks :: Prelude.Maybe [Block]
+    identityDocumentFields :: Prelude.Maybe [IdentityDocumentField]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,22 +51,26 @@ data IdentityDocument = IdentityDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'blocks', 'identityDocument_blocks' - Individual word recognition, as returned by document detection.
+--
 -- 'documentIndex', 'identityDocument_documentIndex' - Denotes the placement of a document in the IdentityDocument list. The
 -- first document is marked 1, the second 2 and so on.
 --
 -- 'identityDocumentFields', 'identityDocument_identityDocumentFields' - The structure used to record information extracted from identity
 -- documents. Contains both normalized field and value of the extracted
 -- text.
---
--- 'blocks', 'identityDocument_blocks' - Individual word recognition, as returned by document detection.
 newIdentityDocument ::
   IdentityDocument
 newIdentityDocument =
   IdentityDocument'
-    { documentIndex = Prelude.Nothing,
-      identityDocumentFields = Prelude.Nothing,
-      blocks = Prelude.Nothing
+    { blocks = Prelude.Nothing,
+      documentIndex = Prelude.Nothing,
+      identityDocumentFields = Prelude.Nothing
     }
+
+-- | Individual word recognition, as returned by document detection.
+identityDocument_blocks :: Lens.Lens' IdentityDocument (Prelude.Maybe [Block])
+identityDocument_blocks = Lens.lens (\IdentityDocument' {blocks} -> blocks) (\s@IdentityDocument' {} a -> s {blocks = a} :: IdentityDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | Denotes the placement of a document in the IdentityDocument list. The
 -- first document is marked 1, the second 2 and so on.
@@ -79,31 +83,27 @@ identityDocument_documentIndex = Lens.lens (\IdentityDocument' {documentIndex} -
 identityDocument_identityDocumentFields :: Lens.Lens' IdentityDocument (Prelude.Maybe [IdentityDocumentField])
 identityDocument_identityDocumentFields = Lens.lens (\IdentityDocument' {identityDocumentFields} -> identityDocumentFields) (\s@IdentityDocument' {} a -> s {identityDocumentFields = a} :: IdentityDocument) Prelude.. Lens.mapping Lens.coerced
 
--- | Individual word recognition, as returned by document detection.
-identityDocument_blocks :: Lens.Lens' IdentityDocument (Prelude.Maybe [Block])
-identityDocument_blocks = Lens.lens (\IdentityDocument' {blocks} -> blocks) (\s@IdentityDocument' {} a -> s {blocks = a} :: IdentityDocument) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON IdentityDocument where
   parseJSON =
     Data.withObject
       "IdentityDocument"
       ( \x ->
           IdentityDocument'
-            Prelude.<$> (x Data..:? "DocumentIndex")
+            Prelude.<$> (x Data..:? "Blocks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DocumentIndex")
             Prelude.<*> ( x Data..:? "IdentityDocumentFields"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Blocks" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable IdentityDocument where
   hashWithSalt _salt IdentityDocument' {..} =
-    _salt `Prelude.hashWithSalt` documentIndex
+    _salt `Prelude.hashWithSalt` blocks
+      `Prelude.hashWithSalt` documentIndex
       `Prelude.hashWithSalt` identityDocumentFields
-      `Prelude.hashWithSalt` blocks
 
 instance Prelude.NFData IdentityDocument where
   rnf IdentityDocument' {..} =
-    Prelude.rnf documentIndex
+    Prelude.rnf blocks
+      `Prelude.seq` Prelude.rnf documentIndex
       `Prelude.seq` Prelude.rnf identityDocumentFields
-      `Prelude.seq` Prelude.rnf blocks

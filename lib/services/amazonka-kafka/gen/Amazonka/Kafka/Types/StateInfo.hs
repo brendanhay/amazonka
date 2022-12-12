@@ -26,8 +26,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newStateInfo' smart constructor.
 data StateInfo = StateInfo'
-  { message :: Prelude.Maybe Prelude.Text,
-    code :: Prelude.Maybe Prelude.Text
+  { code :: Prelude.Maybe Prelude.Text,
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -39,24 +39,24 @@ data StateInfo = StateInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'stateInfo_message' - Undocumented member.
---
 -- 'code', 'stateInfo_code' - Undocumented member.
+--
+-- 'message', 'stateInfo_message' - Undocumented member.
 newStateInfo ::
   StateInfo
 newStateInfo =
   StateInfo'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | Undocumented member.
-stateInfo_message :: Lens.Lens' StateInfo (Prelude.Maybe Prelude.Text)
-stateInfo_message = Lens.lens (\StateInfo' {message} -> message) (\s@StateInfo' {} a -> s {message = a} :: StateInfo)
 
 -- | Undocumented member.
 stateInfo_code :: Lens.Lens' StateInfo (Prelude.Maybe Prelude.Text)
 stateInfo_code = Lens.lens (\StateInfo' {code} -> code) (\s@StateInfo' {} a -> s {code = a} :: StateInfo)
+
+-- | Undocumented member.
+stateInfo_message :: Lens.Lens' StateInfo (Prelude.Maybe Prelude.Text)
+stateInfo_message = Lens.lens (\StateInfo' {message} -> message) (\s@StateInfo' {} a -> s {message = a} :: StateInfo)
 
 instance Data.FromJSON StateInfo where
   parseJSON =
@@ -64,15 +64,15 @@ instance Data.FromJSON StateInfo where
       "StateInfo"
       ( \x ->
           StateInfo'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable StateInfo where
   hashWithSalt _salt StateInfo' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData StateInfo where
   rnf StateInfo' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

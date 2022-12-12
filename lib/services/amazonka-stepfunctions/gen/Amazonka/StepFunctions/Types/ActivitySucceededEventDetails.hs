@@ -30,11 +30,11 @@ import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'newActivitySucceededEventDetails' smart constructor.
 data ActivitySucceededEventDetails = ActivitySucceededEventDetails'
-  { -- | Contains details about the output of an execution history event.
-    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
-    -- | The JSON data output by the activity task. Length constraints apply to
+  { -- | The JSON data output by the activity task. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    output :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Contains details about the output of an execution history event.
+    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data ActivitySucceededEventDetails = ActivitySucceededEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputDetails', 'activitySucceededEventDetails_outputDetails' - Contains details about the output of an execution history event.
---
 -- 'output', 'activitySucceededEventDetails_output' - The JSON data output by the activity task. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- 'outputDetails', 'activitySucceededEventDetails_outputDetails' - Contains details about the output of an execution history event.
 newActivitySucceededEventDetails ::
   ActivitySucceededEventDetails
 newActivitySucceededEventDetails =
   ActivitySucceededEventDetails'
-    { outputDetails =
+    { output =
         Prelude.Nothing,
-      output = Prelude.Nothing
+      outputDetails = Prelude.Nothing
     }
-
--- | Contains details about the output of an execution history event.
-activitySucceededEventDetails_outputDetails :: Lens.Lens' ActivitySucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
-activitySucceededEventDetails_outputDetails = Lens.lens (\ActivitySucceededEventDetails' {outputDetails} -> outputDetails) (\s@ActivitySucceededEventDetails' {} a -> s {outputDetails = a} :: ActivitySucceededEventDetails)
 
 -- | The JSON data output by the activity task. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
 activitySucceededEventDetails_output :: Lens.Lens' ActivitySucceededEventDetails (Prelude.Maybe Prelude.Text)
 activitySucceededEventDetails_output = Lens.lens (\ActivitySucceededEventDetails' {output} -> output) (\s@ActivitySucceededEventDetails' {} a -> s {output = a} :: ActivitySucceededEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Contains details about the output of an execution history event.
+activitySucceededEventDetails_outputDetails :: Lens.Lens' ActivitySucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+activitySucceededEventDetails_outputDetails = Lens.lens (\ActivitySucceededEventDetails' {outputDetails} -> outputDetails) (\s@ActivitySucceededEventDetails' {} a -> s {outputDetails = a} :: ActivitySucceededEventDetails)
 
 instance Data.FromJSON ActivitySucceededEventDetails where
   parseJSON =
@@ -74,8 +74,8 @@ instance Data.FromJSON ActivitySucceededEventDetails where
       "ActivitySucceededEventDetails"
       ( \x ->
           ActivitySucceededEventDetails'
-            Prelude.<$> (x Data..:? "outputDetails")
-            Prelude.<*> (x Data..:? "output")
+            Prelude.<$> (x Data..:? "output")
+            Prelude.<*> (x Data..:? "outputDetails")
       )
 
 instance
@@ -83,10 +83,10 @@ instance
     ActivitySucceededEventDetails
   where
   hashWithSalt _salt ActivitySucceededEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` outputDetails
-      `Prelude.hashWithSalt` output
+    _salt `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` outputDetails
 
 instance Prelude.NFData ActivitySucceededEventDetails where
   rnf ActivitySucceededEventDetails' {..} =
-    Prelude.rnf outputDetails
-      `Prelude.seq` Prelude.rnf output
+    Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputDetails

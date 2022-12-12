@@ -29,14 +29,14 @@ import Amazonka.Redshift.Internal
 --
 -- /See:/ 'newRevisionTarget' smart constructor.
 data RevisionTarget = RevisionTarget'
-  { -- | A string that describes the changes and features that will be applied to
-    -- the cluster when it is updated to the corresponding ClusterDbRevision.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A unique string that identifies the version to update the cluster to.
+  { -- | A unique string that identifies the version to update the cluster to.
     -- You can use this value in ModifyClusterDbRevision.
     databaseRevision :: Prelude.Maybe Prelude.Text,
     -- | The date on which the database revision was released.
-    databaseRevisionReleaseDate :: Prelude.Maybe Data.ISO8601
+    databaseRevisionReleaseDate :: Prelude.Maybe Data.ISO8601,
+    -- | A string that describes the changes and features that will be applied to
+    -- the cluster when it is updated to the corresponding ClusterDbRevision.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,21 @@ data RevisionTarget = RevisionTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'revisionTarget_description' - A string that describes the changes and features that will be applied to
--- the cluster when it is updated to the corresponding ClusterDbRevision.
---
 -- 'databaseRevision', 'revisionTarget_databaseRevision' - A unique string that identifies the version to update the cluster to.
 -- You can use this value in ModifyClusterDbRevision.
 --
 -- 'databaseRevisionReleaseDate', 'revisionTarget_databaseRevisionReleaseDate' - The date on which the database revision was released.
+--
+-- 'description', 'revisionTarget_description' - A string that describes the changes and features that will be applied to
+-- the cluster when it is updated to the corresponding ClusterDbRevision.
 newRevisionTarget ::
   RevisionTarget
 newRevisionTarget =
   RevisionTarget'
-    { description = Prelude.Nothing,
-      databaseRevision = Prelude.Nothing,
-      databaseRevisionReleaseDate = Prelude.Nothing
+    { databaseRevision = Prelude.Nothing,
+      databaseRevisionReleaseDate = Prelude.Nothing,
+      description = Prelude.Nothing
     }
-
--- | A string that describes the changes and features that will be applied to
--- the cluster when it is updated to the corresponding ClusterDbRevision.
-revisionTarget_description :: Lens.Lens' RevisionTarget (Prelude.Maybe Prelude.Text)
-revisionTarget_description = Lens.lens (\RevisionTarget' {description} -> description) (\s@RevisionTarget' {} a -> s {description = a} :: RevisionTarget)
 
 -- | A unique string that identifies the version to update the cluster to.
 -- You can use this value in ModifyClusterDbRevision.
@@ -78,21 +73,26 @@ revisionTarget_databaseRevision = Lens.lens (\RevisionTarget' {databaseRevision}
 revisionTarget_databaseRevisionReleaseDate :: Lens.Lens' RevisionTarget (Prelude.Maybe Prelude.UTCTime)
 revisionTarget_databaseRevisionReleaseDate = Lens.lens (\RevisionTarget' {databaseRevisionReleaseDate} -> databaseRevisionReleaseDate) (\s@RevisionTarget' {} a -> s {databaseRevisionReleaseDate = a} :: RevisionTarget) Prelude.. Lens.mapping Data._Time
 
+-- | A string that describes the changes and features that will be applied to
+-- the cluster when it is updated to the corresponding ClusterDbRevision.
+revisionTarget_description :: Lens.Lens' RevisionTarget (Prelude.Maybe Prelude.Text)
+revisionTarget_description = Lens.lens (\RevisionTarget' {description} -> description) (\s@RevisionTarget' {} a -> s {description = a} :: RevisionTarget)
+
 instance Data.FromXML RevisionTarget where
   parseXML x =
     RevisionTarget'
-      Prelude.<$> (x Data..@? "Description")
-      Prelude.<*> (x Data..@? "DatabaseRevision")
+      Prelude.<$> (x Data..@? "DatabaseRevision")
       Prelude.<*> (x Data..@? "DatabaseRevisionReleaseDate")
+      Prelude.<*> (x Data..@? "Description")
 
 instance Prelude.Hashable RevisionTarget where
   hashWithSalt _salt RevisionTarget' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` databaseRevision
+    _salt `Prelude.hashWithSalt` databaseRevision
       `Prelude.hashWithSalt` databaseRevisionReleaseDate
+      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData RevisionTarget where
   rnf RevisionTarget' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf databaseRevision
+    Prelude.rnf databaseRevision
       `Prelude.seq` Prelude.rnf databaseRevisionReleaseDate
+      `Prelude.seq` Prelude.rnf description

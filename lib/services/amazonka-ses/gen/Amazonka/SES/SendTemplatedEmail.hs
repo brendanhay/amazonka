@@ -72,12 +72,12 @@ module Amazonka.SES.SendTemplatedEmail
     newSendTemplatedEmail,
 
     -- * Request Lenses
-    sendTemplatedEmail_tags,
-    sendTemplatedEmail_returnPath,
-    sendTemplatedEmail_replyToAddresses,
-    sendTemplatedEmail_sourceArn,
     sendTemplatedEmail_configurationSetName,
+    sendTemplatedEmail_replyToAddresses,
+    sendTemplatedEmail_returnPath,
     sendTemplatedEmail_returnPathArn,
+    sendTemplatedEmail_sourceArn,
+    sendTemplatedEmail_tags,
     sendTemplatedEmail_templateArn,
     sendTemplatedEmail_source,
     sendTemplatedEmail_destination,
@@ -108,11 +108,12 @@ import Amazonka.SES.Types
 --
 -- /See:/ 'newSendTemplatedEmail' smart constructor.
 data SendTemplatedEmail = SendTemplatedEmail'
-  { -- | A list of tags, in the form of name\/value pairs, to apply to an email
-    -- that you send using @SendTemplatedEmail@. Tags correspond to
-    -- characteristics of the email that you define, so that you can publish
-    -- email sending events.
-    tags :: Prelude.Maybe [MessageTag],
+  { -- | The name of the configuration set to use when you send an email using
+    -- @SendTemplatedEmail@.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
+    -- | The reply-to email address(es) for the message. If the recipient replies
+    -- to the message, each reply-to address will receive the reply.
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The email address that bounces and complaints will be forwarded to when
     -- feedback forwarding is enabled. If the message cannot be delivered to
     -- the recipient, then an error message will be returned from the
@@ -122,27 +123,6 @@ data SendTemplatedEmail = SendTemplatedEmail'
     -- individually verified with Amazon SES, or from a domain that has been
     -- verified with Amazon SES.
     returnPath :: Prelude.Maybe Prelude.Text,
-    -- | The reply-to email address(es) for the message. If the recipient replies
-    -- to the message, each reply-to address will receive the reply.
-    replyToAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | This parameter is used only for sending authorization. It is the ARN of
-    -- the identity that is associated with the sending authorization policy
-    -- that permits you to send for the email address specified in the @Source@
-    -- parameter.
-    --
-    -- For example, if the owner of @example.com@ (which has ARN
-    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
-    -- policy to it that authorizes you to send from @user\@example.com@, then
-    -- you would specify the @SourceArn@ to be
-    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
-    -- @Source@ to be @user\@example.com@.
-    --
-    -- For more information about sending authorization, see the
-    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration set to use when you send an email using
-    -- @SendTemplatedEmail@.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the @ReturnPath@
@@ -158,6 +138,26 @@ data SendTemplatedEmail = SendTemplatedEmail'
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
     returnPathArn :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to send for the email address specified in the @Source@
+    -- parameter.
+    --
+    -- For example, if the owner of @example.com@ (which has ARN
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+    -- policy to it that authorizes you to send from @user\@example.com@, then
+    -- you would specify the @SourceArn@ to be
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+    -- @Source@ to be @user\@example.com@.
+    --
+    -- For more information about sending authorization, see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+    sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags, in the form of name\/value pairs, to apply to an email
+    -- that you send using @SendTemplatedEmail@. Tags correspond to
+    -- characteristics of the email that you define, so that you can publish
+    -- email sending events.
+    tags :: Prelude.Maybe [MessageTag],
     -- | The ARN of the template to use when sending this email.
     templateArn :: Prelude.Maybe Prelude.Text,
     -- | The email address that is sending the email. This email address must be
@@ -206,10 +206,11 @@ data SendTemplatedEmail = SendTemplatedEmail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'sendTemplatedEmail_tags' - A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send using @SendTemplatedEmail@. Tags correspond to
--- characteristics of the email that you define, so that you can publish
--- email sending events.
+-- 'configurationSetName', 'sendTemplatedEmail_configurationSetName' - The name of the configuration set to use when you send an email using
+-- @SendTemplatedEmail@.
+--
+-- 'replyToAddresses', 'sendTemplatedEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies
+-- to the message, each reply-to address will receive the reply.
 --
 -- 'returnPath', 'sendTemplatedEmail_returnPath' - The email address that bounces and complaints will be forwarded to when
 -- feedback forwarding is enabled. If the message cannot be delivered to
@@ -220,8 +221,20 @@ data SendTemplatedEmail = SendTemplatedEmail'
 -- individually verified with Amazon SES, or from a domain that has been
 -- verified with Amazon SES.
 --
--- 'replyToAddresses', 'sendTemplatedEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies
--- to the message, each reply-to address will receive the reply.
+-- 'returnPathArn', 'sendTemplatedEmail_returnPathArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the @ReturnPath@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to use @feedback\@example.com@, then
+-- you would specify the @ReturnPathArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @ReturnPath@ to be @feedback\@example.com@.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- 'sourceArn', 'sendTemplatedEmail_sourceArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -238,23 +251,10 @@ data SendTemplatedEmail = SendTemplatedEmail'
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
--- 'configurationSetName', 'sendTemplatedEmail_configurationSetName' - The name of the configuration set to use when you send an email using
--- @SendTemplatedEmail@.
---
--- 'returnPathArn', 'sendTemplatedEmail_returnPathArn' - This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the @ReturnPath@
--- parameter.
---
--- For example, if the owner of @example.com@ (which has ARN
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
--- policy to it that authorizes you to use @feedback\@example.com@, then
--- you would specify the @ReturnPathArn@ to be
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
--- @ReturnPath@ to be @feedback\@example.com@.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- 'tags', 'sendTemplatedEmail_tags' - A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using @SendTemplatedEmail@. Tags correspond to
+-- characteristics of the email that you define, so that you can publish
+-- email sending events.
 --
 -- 'templateArn', 'sendTemplatedEmail_templateArn' - The ARN of the template to use when sending this email.
 --
@@ -308,12 +308,13 @@ newSendTemplatedEmail
   pTemplate_
   pTemplateData_ =
     SendTemplatedEmail'
-      { tags = Prelude.Nothing,
-        returnPath = Prelude.Nothing,
+      { configurationSetName =
+          Prelude.Nothing,
         replyToAddresses = Prelude.Nothing,
-        sourceArn = Prelude.Nothing,
-        configurationSetName = Prelude.Nothing,
+        returnPath = Prelude.Nothing,
         returnPathArn = Prelude.Nothing,
+        sourceArn = Prelude.Nothing,
+        tags = Prelude.Nothing,
         templateArn = Prelude.Nothing,
         source = pSource_,
         destination = pDestination_,
@@ -321,12 +322,15 @@ newSendTemplatedEmail
         templateData = pTemplateData_
       }
 
--- | A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send using @SendTemplatedEmail@. Tags correspond to
--- characteristics of the email that you define, so that you can publish
--- email sending events.
-sendTemplatedEmail_tags :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe [MessageTag])
-sendTemplatedEmail_tags = Lens.lens (\SendTemplatedEmail' {tags} -> tags) (\s@SendTemplatedEmail' {} a -> s {tags = a} :: SendTemplatedEmail) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the configuration set to use when you send an email using
+-- @SendTemplatedEmail@.
+sendTemplatedEmail_configurationSetName :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendTemplatedEmail_configurationSetName = Lens.lens (\SendTemplatedEmail' {configurationSetName} -> configurationSetName) (\s@SendTemplatedEmail' {} a -> s {configurationSetName = a} :: SendTemplatedEmail)
+
+-- | The reply-to email address(es) for the message. If the recipient replies
+-- to the message, each reply-to address will receive the reply.
+sendTemplatedEmail_replyToAddresses :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe [Prelude.Text])
+sendTemplatedEmail_replyToAddresses = Lens.lens (\SendTemplatedEmail' {replyToAddresses} -> replyToAddresses) (\s@SendTemplatedEmail' {} a -> s {replyToAddresses = a} :: SendTemplatedEmail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The email address that bounces and complaints will be forwarded to when
 -- feedback forwarding is enabled. If the message cannot be delivered to
@@ -339,10 +343,22 @@ sendTemplatedEmail_tags = Lens.lens (\SendTemplatedEmail' {tags} -> tags) (\s@Se
 sendTemplatedEmail_returnPath :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendTemplatedEmail_returnPath = Lens.lens (\SendTemplatedEmail' {returnPath} -> returnPath) (\s@SendTemplatedEmail' {} a -> s {returnPath = a} :: SendTemplatedEmail)
 
--- | The reply-to email address(es) for the message. If the recipient replies
--- to the message, each reply-to address will receive the reply.
-sendTemplatedEmail_replyToAddresses :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe [Prelude.Text])
-sendTemplatedEmail_replyToAddresses = Lens.lens (\SendTemplatedEmail' {replyToAddresses} -> replyToAddresses) (\s@SendTemplatedEmail' {} a -> s {replyToAddresses = a} :: SendTemplatedEmail) Prelude.. Lens.mapping Lens.coerced
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the @ReturnPath@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to use @feedback\@example.com@, then
+-- you would specify the @ReturnPathArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @ReturnPath@ to be @feedback\@example.com@.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+sendTemplatedEmail_returnPathArn :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendTemplatedEmail_returnPathArn = Lens.lens (\SendTemplatedEmail' {returnPathArn} -> returnPathArn) (\s@SendTemplatedEmail' {} a -> s {returnPathArn = a} :: SendTemplatedEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -361,27 +377,12 @@ sendTemplatedEmail_replyToAddresses = Lens.lens (\SendTemplatedEmail' {replyToAd
 sendTemplatedEmail_sourceArn :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendTemplatedEmail_sourceArn = Lens.lens (\SendTemplatedEmail' {sourceArn} -> sourceArn) (\s@SendTemplatedEmail' {} a -> s {sourceArn = a} :: SendTemplatedEmail)
 
--- | The name of the configuration set to use when you send an email using
--- @SendTemplatedEmail@.
-sendTemplatedEmail_configurationSetName :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
-sendTemplatedEmail_configurationSetName = Lens.lens (\SendTemplatedEmail' {configurationSetName} -> configurationSetName) (\s@SendTemplatedEmail' {} a -> s {configurationSetName = a} :: SendTemplatedEmail)
-
--- | This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the @ReturnPath@
--- parameter.
---
--- For example, if the owner of @example.com@ (which has ARN
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
--- policy to it that authorizes you to use @feedback\@example.com@, then
--- you would specify the @ReturnPathArn@ to be
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
--- @ReturnPath@ to be @feedback\@example.com@.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendTemplatedEmail_returnPathArn :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
-sendTemplatedEmail_returnPathArn = Lens.lens (\SendTemplatedEmail' {returnPathArn} -> returnPathArn) (\s@SendTemplatedEmail' {} a -> s {returnPathArn = a} :: SendTemplatedEmail)
+-- | A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using @SendTemplatedEmail@. Tags correspond to
+-- characteristics of the email that you define, so that you can publish
+-- email sending events.
+sendTemplatedEmail_tags :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe [MessageTag])
+sendTemplatedEmail_tags = Lens.lens (\SendTemplatedEmail' {tags} -> tags) (\s@SendTemplatedEmail' {} a -> s {tags = a} :: SendTemplatedEmail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the template to use when sending this email.
 sendTemplatedEmail_templateArn :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
@@ -447,12 +448,12 @@ instance Core.AWSRequest SendTemplatedEmail where
 
 instance Prelude.Hashable SendTemplatedEmail where
   hashWithSalt _salt SendTemplatedEmail' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` returnPath
+    _salt `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` replyToAddresses
-      `Prelude.hashWithSalt` sourceArn
-      `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` returnPath
       `Prelude.hashWithSalt` returnPathArn
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` templateArn
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` destination
@@ -461,12 +462,12 @@ instance Prelude.Hashable SendTemplatedEmail where
 
 instance Prelude.NFData SendTemplatedEmail where
   rnf SendTemplatedEmail' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf returnPath
+    Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf replyToAddresses
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf returnPath
       `Prelude.seq` Prelude.rnf returnPathArn
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf templateArn
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf destination
@@ -486,18 +487,18 @@ instance Data.ToQuery SendTemplatedEmail where
           Data.=: ("SendTemplatedEmail" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> tags),
-        "ReturnPath" Data.=: returnPath,
+        "ConfigurationSetName" Data.=: configurationSetName,
         "ReplyToAddresses"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> replyToAddresses
             ),
-        "SourceArn" Data.=: sourceArn,
-        "ConfigurationSetName" Data.=: configurationSetName,
+        "ReturnPath" Data.=: returnPath,
         "ReturnPathArn" Data.=: returnPathArn,
+        "SourceArn" Data.=: sourceArn,
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "TemplateArn" Data.=: templateArn,
         "Source" Data.=: source,
         "Destination" Data.=: destination,

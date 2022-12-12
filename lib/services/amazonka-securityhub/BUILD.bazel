@@ -534,6 +534,7 @@ haskell_library(
         "gen/Amazonka/SecurityHub/Types/SortOrder.hs",
         "gen/Amazonka/SecurityHub/Types/Standard.hs",
         "gen/Amazonka/SecurityHub/Types/StandardsControl.hs",
+        "gen/Amazonka/SecurityHub/Types/StandardsManagedBy.hs",
         "gen/Amazonka/SecurityHub/Types/StandardsStatus.hs",
         "gen/Amazonka/SecurityHub/Types/StandardsStatusReason.hs",
         "gen/Amazonka/SecurityHub/Types/StandardsSubscription.hs",

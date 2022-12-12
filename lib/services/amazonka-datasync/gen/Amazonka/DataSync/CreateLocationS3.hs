@@ -32,10 +32,10 @@ module Amazonka.DataSync.CreateLocationS3
     newCreateLocationS3,
 
     -- * Request Lenses
-    createLocationS3_tags,
+    createLocationS3_agentArns,
     createLocationS3_s3StorageClass,
     createLocationS3_subdirectory,
-    createLocationS3_agentArns,
+    createLocationS3_tags,
     createLocationS3_s3BucketArn,
     createLocationS3_s3Config,
 
@@ -61,10 +61,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLocationS3' smart constructor.
 data CreateLocationS3 = CreateLocationS3'
-  { -- | The key-value pair that represents the tag that you want to add to the
-    -- location. The value can be an empty string. We recommend using tags to
-    -- name your resources.
-    tags :: Prelude.Maybe [TagListEntry],
+  { -- | If you\'re using DataSync on an Amazon Web Services Outpost, specify the
+    -- Amazon Resource Names (ARNs) of the DataSync agents deployed on your
+    -- Outpost. For more information about launching a DataSync agent on an
+    -- Amazon Web Services Outpost, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
+    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon S3 storage class that you want to store your files in when
     -- this location is used as a task destination. For buckets in Amazon Web
     -- Services Regions, the storage class defaults to Standard. For buckets on
@@ -80,12 +82,10 @@ data CreateLocationS3 = CreateLocationS3'
     -- is used to read data from the S3 source location or write data to the S3
     -- destination.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | If you\'re using DataSync on an Amazon Web Services Outpost, specify the
-    -- Amazon Resource Names (ARNs) of the DataSync agents deployed on your
-    -- Outpost. For more information about launching a DataSync agent on an
-    -- Amazon Web Services Outpost, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
-    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The key-value pair that represents the tag that you want to add to the
+    -- location. The value can be an empty string. We recommend using tags to
+    -- name your resources.
+    tags :: Prelude.Maybe [TagListEntry],
     -- | The ARN of the Amazon S3 bucket. If the bucket is on an Amazon Web
     -- Services Outpost, this must be an access point ARN.
     s3BucketArn :: Prelude.Text,
@@ -101,9 +101,11 @@ data CreateLocationS3 = CreateLocationS3'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLocationS3_tags' - The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
+-- 'agentArns', 'createLocationS3_agentArns' - If you\'re using DataSync on an Amazon Web Services Outpost, specify the
+-- Amazon Resource Names (ARNs) of the DataSync agents deployed on your
+-- Outpost. For more information about launching a DataSync agent on an
+-- Amazon Web Services Outpost, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
 --
 -- 's3StorageClass', 'createLocationS3_s3StorageClass' - The Amazon S3 storage class that you want to store your files in when
 -- this location is used as a task destination. For buckets in Amazon Web
@@ -120,11 +122,9 @@ data CreateLocationS3 = CreateLocationS3'
 -- is used to read data from the S3 source location or write data to the S3
 -- destination.
 --
--- 'agentArns', 'createLocationS3_agentArns' - If you\'re using DataSync on an Amazon Web Services Outpost, specify the
--- Amazon Resource Names (ARNs) of the DataSync agents deployed on your
--- Outpost. For more information about launching a DataSync agent on an
--- Amazon Web Services Outpost, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
+-- 'tags', 'createLocationS3_tags' - The key-value pair that represents the tag that you want to add to the
+-- location. The value can be an empty string. We recommend using tags to
+-- name your resources.
 --
 -- 's3BucketArn', 'createLocationS3_s3BucketArn' - The ARN of the Amazon S3 bucket. If the bucket is on an Amazon Web
 -- Services Outpost, this must be an access point ARN.
@@ -138,19 +138,21 @@ newCreateLocationS3 ::
   CreateLocationS3
 newCreateLocationS3 pS3BucketArn_ pS3Config_ =
   CreateLocationS3'
-    { tags = Prelude.Nothing,
+    { agentArns = Prelude.Nothing,
       s3StorageClass = Prelude.Nothing,
       subdirectory = Prelude.Nothing,
-      agentArns = Prelude.Nothing,
+      tags = Prelude.Nothing,
       s3BucketArn = pS3BucketArn_,
       s3Config = pS3Config_
     }
 
--- | The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
-createLocationS3_tags :: Lens.Lens' CreateLocationS3 (Prelude.Maybe [TagListEntry])
-createLocationS3_tags = Lens.lens (\CreateLocationS3' {tags} -> tags) (\s@CreateLocationS3' {} a -> s {tags = a} :: CreateLocationS3) Prelude.. Lens.mapping Lens.coerced
+-- | If you\'re using DataSync on an Amazon Web Services Outpost, specify the
+-- Amazon Resource Names (ARNs) of the DataSync agents deployed on your
+-- Outpost. For more information about launching a DataSync agent on an
+-- Amazon Web Services Outpost, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
+createLocationS3_agentArns :: Lens.Lens' CreateLocationS3 (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createLocationS3_agentArns = Lens.lens (\CreateLocationS3' {agentArns} -> agentArns) (\s@CreateLocationS3' {} a -> s {agentArns = a} :: CreateLocationS3) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 storage class that you want to store your files in when
 -- this location is used as a task destination. For buckets in Amazon Web
@@ -171,13 +173,11 @@ createLocationS3_s3StorageClass = Lens.lens (\CreateLocationS3' {s3StorageClass}
 createLocationS3_subdirectory :: Lens.Lens' CreateLocationS3 (Prelude.Maybe Prelude.Text)
 createLocationS3_subdirectory = Lens.lens (\CreateLocationS3' {subdirectory} -> subdirectory) (\s@CreateLocationS3' {} a -> s {subdirectory = a} :: CreateLocationS3)
 
--- | If you\'re using DataSync on an Amazon Web Services Outpost, specify the
--- Amazon Resource Names (ARNs) of the DataSync agents deployed on your
--- Outpost. For more information about launching a DataSync agent on an
--- Amazon Web Services Outpost, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent Deploy your DataSync agent on Outposts>.
-createLocationS3_agentArns :: Lens.Lens' CreateLocationS3 (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createLocationS3_agentArns = Lens.lens (\CreateLocationS3' {agentArns} -> agentArns) (\s@CreateLocationS3' {} a -> s {agentArns = a} :: CreateLocationS3) Prelude.. Lens.mapping Lens.coerced
+-- | The key-value pair that represents the tag that you want to add to the
+-- location. The value can be an empty string. We recommend using tags to
+-- name your resources.
+createLocationS3_tags :: Lens.Lens' CreateLocationS3 (Prelude.Maybe [TagListEntry])
+createLocationS3_tags = Lens.lens (\CreateLocationS3' {tags} -> tags) (\s@CreateLocationS3' {} a -> s {tags = a} :: CreateLocationS3) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the Amazon S3 bucket. If the bucket is on an Amazon Web
 -- Services Outpost, this must be an access point ARN.
@@ -204,19 +204,19 @@ instance Core.AWSRequest CreateLocationS3 where
 
 instance Prelude.Hashable CreateLocationS3 where
   hashWithSalt _salt CreateLocationS3' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` agentArns
       `Prelude.hashWithSalt` s3StorageClass
       `Prelude.hashWithSalt` subdirectory
-      `Prelude.hashWithSalt` agentArns
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` s3BucketArn
       `Prelude.hashWithSalt` s3Config
 
 instance Prelude.NFData CreateLocationS3 where
   rnf CreateLocationS3' {..} =
-    Prelude.rnf tags
+    Prelude.rnf agentArns
       `Prelude.seq` Prelude.rnf s3StorageClass
       `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf s3BucketArn
       `Prelude.seq` Prelude.rnf s3Config
 
@@ -239,11 +239,11 @@ instance Data.ToJSON CreateLocationS3 where
   toJSON CreateLocationS3' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("AgentArns" Data..=) Prelude.<$> agentArns,
             ("S3StorageClass" Data..=)
               Prelude.<$> s3StorageClass,
             ("Subdirectory" Data..=) Prelude.<$> subdirectory,
-            ("AgentArns" Data..=) Prelude.<$> agentArns,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("S3BucketArn" Data..= s3BucketArn),
             Prelude.Just ("S3Config" Data..= s3Config)
           ]

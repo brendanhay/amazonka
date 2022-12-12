@@ -44,12 +44,12 @@ data ServiceNowConfiguration = ServiceNowConfiguration'
     -- client secret using the ServiceNow console. For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html Using a ServiceNow data source>.
     authenticationType :: Prelude.Maybe ServiceNowAuthenticationType,
-    -- | Configuration information for crawling service catalogs in the
-    -- ServiceNow site.
-    serviceCatalogConfiguration :: Prelude.Maybe ServiceNowServiceCatalogConfiguration,
     -- | Configuration information for crawling knowledge articles in the
     -- ServiceNow site.
     knowledgeArticleConfiguration :: Prelude.Maybe ServiceNowKnowledgeArticleConfiguration,
+    -- | Configuration information for crawling service catalogs in the
+    -- ServiceNow site.
+    serviceCatalogConfiguration :: Prelude.Maybe ServiceNowServiceCatalogConfiguration,
     -- | The ServiceNow instance that the data source connects to. The host
     -- endpoint should look like the following: /{instance}.service-now.com./
     hostUrl :: Prelude.Text,
@@ -58,7 +58,7 @@ data ServiceNowConfiguration = ServiceNowConfiguration'
     -- ServiceNow instance. You can also provide OAuth authentication
     -- credentials of user name, password, client ID, and client secret. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html#servicenow-authentication Authentication for a ServiceNow data source>.
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html Using a ServiceNow data source>.
     secretArn :: Prelude.Text,
     -- | The identifier of the release that the ServiceNow host is running. If
     -- the host is not running the @LONDON@ release, use @OTHERS@.
@@ -85,10 +85,10 @@ data ServiceNowConfiguration = ServiceNowConfiguration'
 -- client secret using the ServiceNow console. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html Using a ServiceNow data source>.
 --
--- 'serviceCatalogConfiguration', 'serviceNowConfiguration_serviceCatalogConfiguration' - Configuration information for crawling service catalogs in the
+-- 'knowledgeArticleConfiguration', 'serviceNowConfiguration_knowledgeArticleConfiguration' - Configuration information for crawling knowledge articles in the
 -- ServiceNow site.
 --
--- 'knowledgeArticleConfiguration', 'serviceNowConfiguration_knowledgeArticleConfiguration' - Configuration information for crawling knowledge articles in the
+-- 'serviceCatalogConfiguration', 'serviceNowConfiguration_serviceCatalogConfiguration' - Configuration information for crawling service catalogs in the
 -- ServiceNow site.
 --
 -- 'hostUrl', 'serviceNowConfiguration_hostUrl' - The ServiceNow instance that the data source connects to. The host
@@ -99,7 +99,7 @@ data ServiceNowConfiguration = ServiceNowConfiguration'
 -- ServiceNow instance. You can also provide OAuth authentication
 -- credentials of user name, password, client ID, and client secret. For
 -- more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html#servicenow-authentication Authentication for a ServiceNow data source>.
+-- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html Using a ServiceNow data source>.
 --
 -- 'serviceNowBuildVersion', 'serviceNowConfiguration_serviceNowBuildVersion' - The identifier of the release that the ServiceNow host is running. If
 -- the host is not running the @LONDON@ release, use @OTHERS@.
@@ -118,8 +118,8 @@ newServiceNowConfiguration
     ServiceNowConfiguration'
       { authenticationType =
           Prelude.Nothing,
-        serviceCatalogConfiguration = Prelude.Nothing,
         knowledgeArticleConfiguration = Prelude.Nothing,
+        serviceCatalogConfiguration = Prelude.Nothing,
         hostUrl = pHostUrl_,
         secretArn = pSecretArn_,
         serviceNowBuildVersion = pServiceNowBuildVersion_
@@ -138,15 +138,15 @@ newServiceNowConfiguration
 serviceNowConfiguration_authenticationType :: Lens.Lens' ServiceNowConfiguration (Prelude.Maybe ServiceNowAuthenticationType)
 serviceNowConfiguration_authenticationType = Lens.lens (\ServiceNowConfiguration' {authenticationType} -> authenticationType) (\s@ServiceNowConfiguration' {} a -> s {authenticationType = a} :: ServiceNowConfiguration)
 
--- | Configuration information for crawling service catalogs in the
--- ServiceNow site.
-serviceNowConfiguration_serviceCatalogConfiguration :: Lens.Lens' ServiceNowConfiguration (Prelude.Maybe ServiceNowServiceCatalogConfiguration)
-serviceNowConfiguration_serviceCatalogConfiguration = Lens.lens (\ServiceNowConfiguration' {serviceCatalogConfiguration} -> serviceCatalogConfiguration) (\s@ServiceNowConfiguration' {} a -> s {serviceCatalogConfiguration = a} :: ServiceNowConfiguration)
-
 -- | Configuration information for crawling knowledge articles in the
 -- ServiceNow site.
 serviceNowConfiguration_knowledgeArticleConfiguration :: Lens.Lens' ServiceNowConfiguration (Prelude.Maybe ServiceNowKnowledgeArticleConfiguration)
 serviceNowConfiguration_knowledgeArticleConfiguration = Lens.lens (\ServiceNowConfiguration' {knowledgeArticleConfiguration} -> knowledgeArticleConfiguration) (\s@ServiceNowConfiguration' {} a -> s {knowledgeArticleConfiguration = a} :: ServiceNowConfiguration)
+
+-- | Configuration information for crawling service catalogs in the
+-- ServiceNow site.
+serviceNowConfiguration_serviceCatalogConfiguration :: Lens.Lens' ServiceNowConfiguration (Prelude.Maybe ServiceNowServiceCatalogConfiguration)
+serviceNowConfiguration_serviceCatalogConfiguration = Lens.lens (\ServiceNowConfiguration' {serviceCatalogConfiguration} -> serviceCatalogConfiguration) (\s@ServiceNowConfiguration' {} a -> s {serviceCatalogConfiguration = a} :: ServiceNowConfiguration)
 
 -- | The ServiceNow instance that the data source connects to. The host
 -- endpoint should look like the following: /{instance}.service-now.com./
@@ -158,7 +158,7 @@ serviceNowConfiguration_hostUrl = Lens.lens (\ServiceNowConfiguration' {hostUrl}
 -- ServiceNow instance. You can also provide OAuth authentication
 -- credentials of user name, password, client ID, and client secret. For
 -- more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html#servicenow-authentication Authentication for a ServiceNow data source>.
+-- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html Using a ServiceNow data source>.
 serviceNowConfiguration_secretArn :: Lens.Lens' ServiceNowConfiguration Prelude.Text
 serviceNowConfiguration_secretArn = Lens.lens (\ServiceNowConfiguration' {secretArn} -> secretArn) (\s@ServiceNowConfiguration' {} a -> s {secretArn = a} :: ServiceNowConfiguration)
 
@@ -174,8 +174,8 @@ instance Data.FromJSON ServiceNowConfiguration where
       ( \x ->
           ServiceNowConfiguration'
             Prelude.<$> (x Data..:? "AuthenticationType")
-            Prelude.<*> (x Data..:? "ServiceCatalogConfiguration")
             Prelude.<*> (x Data..:? "KnowledgeArticleConfiguration")
+            Prelude.<*> (x Data..:? "ServiceCatalogConfiguration")
             Prelude.<*> (x Data..: "HostUrl")
             Prelude.<*> (x Data..: "SecretArn")
             Prelude.<*> (x Data..: "ServiceNowBuildVersion")
@@ -184,8 +184,8 @@ instance Data.FromJSON ServiceNowConfiguration where
 instance Prelude.Hashable ServiceNowConfiguration where
   hashWithSalt _salt ServiceNowConfiguration' {..} =
     _salt `Prelude.hashWithSalt` authenticationType
-      `Prelude.hashWithSalt` serviceCatalogConfiguration
       `Prelude.hashWithSalt` knowledgeArticleConfiguration
+      `Prelude.hashWithSalt` serviceCatalogConfiguration
       `Prelude.hashWithSalt` hostUrl
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` serviceNowBuildVersion
@@ -193,8 +193,8 @@ instance Prelude.Hashable ServiceNowConfiguration where
 instance Prelude.NFData ServiceNowConfiguration where
   rnf ServiceNowConfiguration' {..} =
     Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf serviceCatalogConfiguration
       `Prelude.seq` Prelude.rnf knowledgeArticleConfiguration
+      `Prelude.seq` Prelude.rnf serviceCatalogConfiguration
       `Prelude.seq` Prelude.rnf hostUrl
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf serviceNowBuildVersion
@@ -205,10 +205,10 @@ instance Data.ToJSON ServiceNowConfiguration where
       ( Prelude.catMaybes
           [ ("AuthenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("ServiceCatalogConfiguration" Data..=)
-              Prelude.<$> serviceCatalogConfiguration,
             ("KnowledgeArticleConfiguration" Data..=)
               Prelude.<$> knowledgeArticleConfiguration,
+            ("ServiceCatalogConfiguration" Data..=)
+              Prelude.<$> serviceCatalogConfiguration,
             Prelude.Just ("HostUrl" Data..= hostUrl),
             Prelude.Just ("SecretArn" Data..= secretArn),
             Prelude.Just

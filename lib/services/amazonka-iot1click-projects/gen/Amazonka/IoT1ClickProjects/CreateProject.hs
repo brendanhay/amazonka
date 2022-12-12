@@ -29,9 +29,9 @@ module Amazonka.IoT1ClickProjects.CreateProject
     newCreateProject,
 
     -- * Request Lenses
-    createProject_tags,
     createProject_description,
     createProject_placementTemplate,
+    createProject_tags,
     createProject_projectName,
 
     -- * Destructuring the Response
@@ -53,13 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | Optional tags (metadata key\/value pairs) to be associated with the
-    -- project. For example,
-    -- @{ {\"key1\": \"value1\", \"key2\": \"value2\"} }@. For more
-    -- information, see
-    -- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An optional description for the project.
+  { -- | An optional description for the project.
     description :: Prelude.Maybe Prelude.Text,
     -- | The schema defining the placement to be created. A placement template
     -- defines placement default attributes and device templates. You cannot
@@ -67,6 +61,12 @@ data CreateProject = CreateProject'
     -- However, you can update @callbackOverrides@ for the device templates
     -- using the @UpdateProject@ API.
     placementTemplate :: Prelude.Maybe PlacementTemplate,
+    -- | Optional tags (metadata key\/value pairs) to be associated with the
+    -- project. For example,
+    -- @{ {\"key1\": \"value1\", \"key2\": \"value2\"} }@. For more
+    -- information, see
+    -- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the project to create.
     projectName :: Prelude.Text
   }
@@ -80,12 +80,6 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProject_tags' - Optional tags (metadata key\/value pairs) to be associated with the
--- project. For example,
--- @{ {\"key1\": \"value1\", \"key2\": \"value2\"} }@. For more
--- information, see
--- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
---
 -- 'description', 'createProject_description' - An optional description for the project.
 --
 -- 'placementTemplate', 'createProject_placementTemplate' - The schema defining the placement to be created. A placement template
@@ -94,6 +88,12 @@ data CreateProject = CreateProject'
 -- However, you can update @callbackOverrides@ for the device templates
 -- using the @UpdateProject@ API.
 --
+-- 'tags', 'createProject_tags' - Optional tags (metadata key\/value pairs) to be associated with the
+-- project. For example,
+-- @{ {\"key1\": \"value1\", \"key2\": \"value2\"} }@. For more
+-- information, see
+-- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
+--
 -- 'projectName', 'createProject_projectName' - The name of the project to create.
 newCreateProject ::
   -- | 'projectName'
@@ -101,19 +101,11 @@ newCreateProject ::
   CreateProject
 newCreateProject pProjectName_ =
   CreateProject'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       placementTemplate = Prelude.Nothing,
+      tags = Prelude.Nothing,
       projectName = pProjectName_
     }
-
--- | Optional tags (metadata key\/value pairs) to be associated with the
--- project. For example,
--- @{ {\"key1\": \"value1\", \"key2\": \"value2\"} }@. For more
--- information, see
--- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
-createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional description for the project.
 createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
@@ -126,6 +118,14 @@ createProject_description = Lens.lens (\CreateProject' {description} -> descript
 -- using the @UpdateProject@ API.
 createProject_placementTemplate :: Lens.Lens' CreateProject (Prelude.Maybe PlacementTemplate)
 createProject_placementTemplate = Lens.lens (\CreateProject' {placementTemplate} -> placementTemplate) (\s@CreateProject' {} a -> s {placementTemplate = a} :: CreateProject)
+
+-- | Optional tags (metadata key\/value pairs) to be associated with the
+-- project. For example,
+-- @{ {\"key1\": \"value1\", \"key2\": \"value2\"} }@. For more
+-- information, see
+-- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
+createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the project to create.
 createProject_projectName :: Lens.Lens' CreateProject Prelude.Text
@@ -146,16 +146,16 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` placementTemplate
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf placementTemplate
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf projectName
 
 instance Data.ToHeaders CreateProject where
@@ -173,10 +173,10 @@ instance Data.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             ("placementTemplate" Data..=)
               Prelude.<$> placementTemplate,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("projectName" Data..= projectName)
           ]
       )

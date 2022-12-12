@@ -27,8 +27,8 @@ module Amazonka.FraudDetector.DescribeDetector
     newDescribeDetector,
 
     -- * Request Lenses
-    describeDetector_nextToken,
     describeDetector_maxResults,
+    describeDetector_nextToken,
     describeDetector_detectorId,
 
     -- * Destructuring the Response
@@ -36,10 +36,10 @@ module Amazonka.FraudDetector.DescribeDetector
     newDescribeDetectorResponse,
 
     -- * Response Lenses
-    describeDetectorResponse_nextToken,
     describeDetectorResponse_arn,
-    describeDetectorResponse_detectorVersionSummaries,
     describeDetectorResponse_detectorId,
+    describeDetectorResponse_detectorVersionSummaries,
+    describeDetectorResponse_nextToken,
     describeDetectorResponse_httpStatus,
   )
 where
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDetector' smart constructor.
 data DescribeDetector = DescribeDetector'
-  { -- | The next token from the previous response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for the request.
+  { -- | The maximum number of results to return for the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The next token from the previous response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The detector ID.
     detectorId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data DescribeDetector = DescribeDetector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDetector_nextToken' - The next token from the previous response.
---
 -- 'maxResults', 'describeDetector_maxResults' - The maximum number of results to return for the request.
+--
+-- 'nextToken', 'describeDetector_nextToken' - The next token from the previous response.
 --
 -- 'detectorId', 'describeDetector_detectorId' - The detector ID.
 newDescribeDetector ::
@@ -82,18 +82,18 @@ newDescribeDetector ::
   DescribeDetector
 newDescribeDetector pDetectorId_ =
   DescribeDetector'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       detectorId = pDetectorId_
     }
-
--- | The next token from the previous response.
-describeDetector_nextToken :: Lens.Lens' DescribeDetector (Prelude.Maybe Prelude.Text)
-describeDetector_nextToken = Lens.lens (\DescribeDetector' {nextToken} -> nextToken) (\s@DescribeDetector' {} a -> s {nextToken = a} :: DescribeDetector)
 
 -- | The maximum number of results to return for the request.
 describeDetector_maxResults :: Lens.Lens' DescribeDetector (Prelude.Maybe Prelude.Natural)
 describeDetector_maxResults = Lens.lens (\DescribeDetector' {maxResults} -> maxResults) (\s@DescribeDetector' {} a -> s {maxResults = a} :: DescribeDetector)
+
+-- | The next token from the previous response.
+describeDetector_nextToken :: Lens.Lens' DescribeDetector (Prelude.Maybe Prelude.Text)
+describeDetector_nextToken = Lens.lens (\DescribeDetector' {nextToken} -> nextToken) (\s@DescribeDetector' {} a -> s {nextToken = a} :: DescribeDetector)
 
 -- | The detector ID.
 describeDetector_detectorId :: Lens.Lens' DescribeDetector Prelude.Text
@@ -109,25 +109,25 @@ instance Core.AWSRequest DescribeDetector where
     Response.receiveJSON
       ( \s h x ->
           DescribeDetectorResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "detectorId")
             Prelude.<*> ( x Data..?> "detectorVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "detectorId")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDetector where
   hashWithSalt _salt DescribeDetector' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData DescribeDetector where
   rnf DescribeDetector' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf detectorId
 
 instance Data.ToHeaders DescribeDetector where
@@ -149,8 +149,8 @@ instance Data.ToJSON DescribeDetector where
   toJSON DescribeDetector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("detectorId" Data..= detectorId)
           ]
       )
@@ -163,14 +163,14 @@ instance Data.ToQuery DescribeDetector where
 
 -- | /See:/ 'newDescribeDetectorResponse' smart constructor.
 data DescribeDetectorResponse = DescribeDetectorResponse'
-  { -- | The next token to be used for subsequent requests.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The detector ARN.
+  { -- | The detector ARN.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The status and description for each detector version.
-    detectorVersionSummaries :: Prelude.Maybe [DetectorVersionSummary],
     -- | The detector ID.
     detectorId :: Prelude.Maybe Prelude.Text,
+    -- | The status and description for each detector version.
+    detectorVersionSummaries :: Prelude.Maybe [DetectorVersionSummary],
+    -- | The next token to be used for subsequent requests.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,13 +184,13 @@ data DescribeDetectorResponse = DescribeDetectorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDetectorResponse_nextToken' - The next token to be used for subsequent requests.
---
 -- 'arn', 'describeDetectorResponse_arn' - The detector ARN.
+--
+-- 'detectorId', 'describeDetectorResponse_detectorId' - The detector ID.
 --
 -- 'detectorVersionSummaries', 'describeDetectorResponse_detectorVersionSummaries' - The status and description for each detector version.
 --
--- 'detectorId', 'describeDetectorResponse_detectorId' - The detector ID.
+-- 'nextToken', 'describeDetectorResponse_nextToken' - The next token to be used for subsequent requests.
 --
 -- 'httpStatus', 'describeDetectorResponse_httpStatus' - The response's http status code.
 newDescribeDetectorResponse ::
@@ -199,29 +199,28 @@ newDescribeDetectorResponse ::
   DescribeDetectorResponse
 newDescribeDetectorResponse pHttpStatus_ =
   DescribeDetectorResponse'
-    { nextToken =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      detectorVersionSummaries = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       detectorId = Prelude.Nothing,
+      detectorVersionSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next token to be used for subsequent requests.
-describeDetectorResponse_nextToken :: Lens.Lens' DescribeDetectorResponse (Prelude.Maybe Prelude.Text)
-describeDetectorResponse_nextToken = Lens.lens (\DescribeDetectorResponse' {nextToken} -> nextToken) (\s@DescribeDetectorResponse' {} a -> s {nextToken = a} :: DescribeDetectorResponse)
 
 -- | The detector ARN.
 describeDetectorResponse_arn :: Lens.Lens' DescribeDetectorResponse (Prelude.Maybe Prelude.Text)
 describeDetectorResponse_arn = Lens.lens (\DescribeDetectorResponse' {arn} -> arn) (\s@DescribeDetectorResponse' {} a -> s {arn = a} :: DescribeDetectorResponse)
 
+-- | The detector ID.
+describeDetectorResponse_detectorId :: Lens.Lens' DescribeDetectorResponse (Prelude.Maybe Prelude.Text)
+describeDetectorResponse_detectorId = Lens.lens (\DescribeDetectorResponse' {detectorId} -> detectorId) (\s@DescribeDetectorResponse' {} a -> s {detectorId = a} :: DescribeDetectorResponse)
+
 -- | The status and description for each detector version.
 describeDetectorResponse_detectorVersionSummaries :: Lens.Lens' DescribeDetectorResponse (Prelude.Maybe [DetectorVersionSummary])
 describeDetectorResponse_detectorVersionSummaries = Lens.lens (\DescribeDetectorResponse' {detectorVersionSummaries} -> detectorVersionSummaries) (\s@DescribeDetectorResponse' {} a -> s {detectorVersionSummaries = a} :: DescribeDetectorResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The detector ID.
-describeDetectorResponse_detectorId :: Lens.Lens' DescribeDetectorResponse (Prelude.Maybe Prelude.Text)
-describeDetectorResponse_detectorId = Lens.lens (\DescribeDetectorResponse' {detectorId} -> detectorId) (\s@DescribeDetectorResponse' {} a -> s {detectorId = a} :: DescribeDetectorResponse)
+-- | The next token to be used for subsequent requests.
+describeDetectorResponse_nextToken :: Lens.Lens' DescribeDetectorResponse (Prelude.Maybe Prelude.Text)
+describeDetectorResponse_nextToken = Lens.lens (\DescribeDetectorResponse' {nextToken} -> nextToken) (\s@DescribeDetectorResponse' {} a -> s {nextToken = a} :: DescribeDetectorResponse)
 
 -- | The response's http status code.
 describeDetectorResponse_httpStatus :: Lens.Lens' DescribeDetectorResponse Prelude.Int
@@ -229,8 +228,8 @@ describeDetectorResponse_httpStatus = Lens.lens (\DescribeDetectorResponse' {htt
 
 instance Prelude.NFData DescribeDetectorResponse where
   rnf DescribeDetectorResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf detectorVersionSummaries
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf detectorVersionSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

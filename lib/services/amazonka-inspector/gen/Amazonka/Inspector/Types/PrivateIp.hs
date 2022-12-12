@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrivateIp' smart constructor.
 data PrivateIp = PrivateIp'
-  { -- | The full IP address of the network inteface.
-    privateIpAddress :: Prelude.Maybe Prelude.Text,
-    -- | The DNS name of the private IP address.
-    privateDnsName :: Prelude.Maybe Prelude.Text
+  { -- | The DNS name of the private IP address.
+    privateDnsName :: Prelude.Maybe Prelude.Text,
+    -- | The full IP address of the network inteface.
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data PrivateIp = PrivateIp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'privateIpAddress', 'privateIp_privateIpAddress' - The full IP address of the network inteface.
---
 -- 'privateDnsName', 'privateIp_privateDnsName' - The DNS name of the private IP address.
+--
+-- 'privateIpAddress', 'privateIp_privateIpAddress' - The full IP address of the network inteface.
 newPrivateIp ::
   PrivateIp
 newPrivateIp =
   PrivateIp'
-    { privateIpAddress = Prelude.Nothing,
-      privateDnsName = Prelude.Nothing
+    { privateDnsName = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing
     }
-
--- | The full IP address of the network inteface.
-privateIp_privateIpAddress :: Lens.Lens' PrivateIp (Prelude.Maybe Prelude.Text)
-privateIp_privateIpAddress = Lens.lens (\PrivateIp' {privateIpAddress} -> privateIpAddress) (\s@PrivateIp' {} a -> s {privateIpAddress = a} :: PrivateIp)
 
 -- | The DNS name of the private IP address.
 privateIp_privateDnsName :: Lens.Lens' PrivateIp (Prelude.Maybe Prelude.Text)
 privateIp_privateDnsName = Lens.lens (\PrivateIp' {privateDnsName} -> privateDnsName) (\s@PrivateIp' {} a -> s {privateDnsName = a} :: PrivateIp)
+
+-- | The full IP address of the network inteface.
+privateIp_privateIpAddress :: Lens.Lens' PrivateIp (Prelude.Maybe Prelude.Text)
+privateIp_privateIpAddress = Lens.lens (\PrivateIp' {privateIpAddress} -> privateIpAddress) (\s@PrivateIp' {} a -> s {privateIpAddress = a} :: PrivateIp)
 
 instance Data.FromJSON PrivateIp where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON PrivateIp where
       "PrivateIp"
       ( \x ->
           PrivateIp'
-            Prelude.<$> (x Data..:? "privateIpAddress")
-            Prelude.<*> (x Data..:? "privateDnsName")
+            Prelude.<$> (x Data..:? "privateDnsName")
+            Prelude.<*> (x Data..:? "privateIpAddress")
       )
 
 instance Prelude.Hashable PrivateIp where
   hashWithSalt _salt PrivateIp' {..} =
-    _salt `Prelude.hashWithSalt` privateIpAddress
-      `Prelude.hashWithSalt` privateDnsName
+    _salt `Prelude.hashWithSalt` privateDnsName
+      `Prelude.hashWithSalt` privateIpAddress
 
 instance Prelude.NFData PrivateIp where
   rnf PrivateIp' {..} =
-    Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf privateDnsName
+    Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf privateIpAddress

@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | The current state of the topic. A value of “active” means that
+  { -- | The Amazon Resource Name (ARN) that identifies the topic.
+    topicArn :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the topic. A value of “active” means that
     -- notifications will be sent to the topic. A value of “inactive” means
     -- that notifications will not be sent to the topic.
-    topicStatus :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that identifies the topic.
-    topicArn :: Prelude.Maybe Prelude.Text
+    topicStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,19 +47,23 @@ data NotificationConfiguration = NotificationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'topicArn', 'notificationConfiguration_topicArn' - The Amazon Resource Name (ARN) that identifies the topic.
+--
 -- 'topicStatus', 'notificationConfiguration_topicStatus' - The current state of the topic. A value of “active” means that
 -- notifications will be sent to the topic. A value of “inactive” means
 -- that notifications will not be sent to the topic.
---
--- 'topicArn', 'notificationConfiguration_topicArn' - The Amazon Resource Name (ARN) that identifies the topic.
 newNotificationConfiguration ::
   NotificationConfiguration
 newNotificationConfiguration =
   NotificationConfiguration'
-    { topicStatus =
+    { topicArn =
         Prelude.Nothing,
-      topicArn = Prelude.Nothing
+      topicStatus = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) that identifies the topic.
+notificationConfiguration_topicArn :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
+notificationConfiguration_topicArn = Lens.lens (\NotificationConfiguration' {topicArn} -> topicArn) (\s@NotificationConfiguration' {} a -> s {topicArn = a} :: NotificationConfiguration)
 
 -- | The current state of the topic. A value of “active” means that
 -- notifications will be sent to the topic. A value of “inactive” means
@@ -67,26 +71,22 @@ newNotificationConfiguration =
 notificationConfiguration_topicStatus :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_topicStatus = Lens.lens (\NotificationConfiguration' {topicStatus} -> topicStatus) (\s@NotificationConfiguration' {} a -> s {topicStatus = a} :: NotificationConfiguration)
 
--- | The Amazon Resource Name (ARN) that identifies the topic.
-notificationConfiguration_topicArn :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
-notificationConfiguration_topicArn = Lens.lens (\NotificationConfiguration' {topicArn} -> topicArn) (\s@NotificationConfiguration' {} a -> s {topicArn = a} :: NotificationConfiguration)
-
 instance Data.FromJSON NotificationConfiguration where
   parseJSON =
     Data.withObject
       "NotificationConfiguration"
       ( \x ->
           NotificationConfiguration'
-            Prelude.<$> (x Data..:? "TopicStatus")
-            Prelude.<*> (x Data..:? "TopicArn")
+            Prelude.<$> (x Data..:? "TopicArn")
+            Prelude.<*> (x Data..:? "TopicStatus")
       )
 
 instance Prelude.Hashable NotificationConfiguration where
   hashWithSalt _salt NotificationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` topicStatus
-      `Prelude.hashWithSalt` topicArn
+    _salt `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` topicStatus
 
 instance Prelude.NFData NotificationConfiguration where
   rnf NotificationConfiguration' {..} =
-    Prelude.rnf topicStatus
-      `Prelude.seq` Prelude.rnf topicArn
+    Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf topicStatus

@@ -39,6 +39,9 @@ import Test.Tasty
 --         , requestGetImportFileTask $
 --             newGetImportFileTask
 --
+--         , requestGetLatestAssessmentId $
+--             newGetLatestAssessmentId
+--
 --         , requestGetPortfolioPreferences $
 --             newGetPortfolioPreferences
 --
@@ -101,6 +104,9 @@ import Test.Tasty
 --
 --         , responseGetImportFileTask $
 --             newGetImportFileTaskResponse
+--
+--         , responseGetLatestAssessmentId $
+--             newGetLatestAssessmentIdResponse
 --
 --         , responseGetPortfolioPreferences $
 --             newGetPortfolioPreferencesResponse
@@ -178,6 +184,12 @@ requestGetImportFileTask =
   req
     "GetImportFileTask"
     "fixture/GetImportFileTask.yaml"
+
+requestGetLatestAssessmentId :: GetLatestAssessmentId -> TestTree
+requestGetLatestAssessmentId =
+  req
+    "GetLatestAssessmentId"
+    "fixture/GetLatestAssessmentId.yaml"
 
 requestGetPortfolioPreferences :: GetPortfolioPreferences -> TestTree
 requestGetPortfolioPreferences =
@@ -308,6 +320,14 @@ responseGetImportFileTask =
     "fixture/GetImportFileTaskResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetImportFileTask)
+
+responseGetLatestAssessmentId :: GetLatestAssessmentIdResponse -> TestTree
+responseGetLatestAssessmentId =
+  res
+    "GetLatestAssessmentIdResponse"
+    "fixture/GetLatestAssessmentIdResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLatestAssessmentId)
 
 responseGetPortfolioPreferences :: GetPortfolioPreferencesResponse -> TestTree
 responseGetPortfolioPreferences =

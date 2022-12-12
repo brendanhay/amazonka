@@ -64,24 +64,17 @@
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
--- __Related actions__
---
--- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
--- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
--- SuspendGameServerGroup | DescribeGameServerInstances |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Amazonka.GameLift.CreateGameServerGroup
   ( -- * Creating a Request
     CreateGameServerGroup (..),
     newCreateGameServerGroup,
 
     -- * Request Lenses
-    createGameServerGroup_tags,
-    createGameServerGroup_gameServerProtectionPolicy,
-    createGameServerGroup_vpcSubnets,
-    createGameServerGroup_balancingStrategy,
     createGameServerGroup_autoScalingPolicy,
+    createGameServerGroup_balancingStrategy,
+    createGameServerGroup_gameServerProtectionPolicy,
+    createGameServerGroup_tags,
+    createGameServerGroup_vpcSubnets,
     createGameServerGroup_gameServerGroupName,
     createGameServerGroup_roleArn,
     createGameServerGroup_minSize,
@@ -109,35 +102,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGameServerGroup' smart constructor.
 data CreateGameServerGroup = CreateGameServerGroup'
-  { -- | A list of labels to assign to the new game server group resource. Tags
-    -- are developer-defined key-value pairs. Tagging Amazon Web Services
-    -- resources is useful for resource management, access management, and cost
-    -- allocation. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
-    -- in the /Amazon Web Services General Reference/. Once the resource is
-    -- created, you can use TagResource, UntagResource, and ListTagsForResource
-    -- to add, remove, and view tags, respectively. The maximum tag limit may
-    -- be lower than stated. See the Amazon Web Services General Reference for
-    -- actual tagging limits.
-    tags :: Prelude.Maybe [Tag],
-    -- | A flag that indicates whether instances in the game server group are
-    -- protected from early termination. Unprotected instances that have active
-    -- game servers running might be terminated during a scale-down event,
-    -- causing players to be dropped from the game. Protected instances cannot
-    -- be terminated while there are active game servers running except in the
-    -- event of a forced game server group deletion (see ). An exception to
-    -- this is with Spot Instances, which can be terminated by Amazon Web
-    -- Services regardless of protection status. This property is set to
-    -- @NO_PROTECTION@ by default.
-    gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
-    -- | A list of virtual private cloud (VPC) subnets to use with instances in
-    -- the game server group. By default, all GameLift FleetIQ-supported
-    -- Availability Zones are used. You can use this parameter to specify VPCs
-    -- that you\'ve set up. This property cannot be updated after the game
-    -- server group is created, and the corresponding Auto Scaling group will
-    -- always use the property value that is set with this request, even if the
-    -- Auto Scaling group is updated directly.
-    vpcSubnets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | Configuration settings to define a scaling policy for the Auto Scaling
+    -- group that is optimized for game hosting. The scaling policy uses the
+    -- metric @\"PercentUtilizedGameServers\"@ to maintain a buffer of idle
+    -- game servers that can immediately accommodate new games and players.
+    -- After the Auto Scaling group is created, update this value directly in
+    -- the Auto Scaling group using the Amazon Web Services console or APIs.
+    autoScalingPolicy :: Prelude.Maybe GameServerGroupAutoScalingPolicy,
     -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
     -- On-Demand Instances in the game server group. Method options include the
     -- following:
@@ -160,13 +131,31 @@ data CreateGameServerGroup = CreateGameServerGroup'
     --     server group. No Spot Instances are used, even when available, while
     --     this balancing strategy is in force.
     balancingStrategy :: Prelude.Maybe BalancingStrategy,
-    -- | Configuration settings to define a scaling policy for the Auto Scaling
-    -- group that is optimized for game hosting. The scaling policy uses the
-    -- metric @\"PercentUtilizedGameServers\"@ to maintain a buffer of idle
-    -- game servers that can immediately accommodate new games and players.
-    -- After the Auto Scaling group is created, update this value directly in
-    -- the Auto Scaling group using the Amazon Web Services console or APIs.
-    autoScalingPolicy :: Prelude.Maybe GameServerGroupAutoScalingPolicy,
+    -- | A flag that indicates whether instances in the game server group are
+    -- protected from early termination. Unprotected instances that have active
+    -- game servers running might be terminated during a scale-down event,
+    -- causing players to be dropped from the game. Protected instances cannot
+    -- be terminated while there are active game servers running except in the
+    -- event of a forced game server group deletion (see ). An exception to
+    -- this is with Spot Instances, which can be terminated by Amazon Web
+    -- Services regardless of protection status. This property is set to
+    -- @NO_PROTECTION@ by default.
+    gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
+    -- | A list of labels to assign to the new game server group resource. Tags
+    -- are developer-defined key-value pairs. Tagging Amazon Web Services
+    -- resources is useful for resource management, access management, and cost
+    -- allocation. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in the /Amazon Web Services General Reference/.
+    tags :: Prelude.Maybe [Tag],
+    -- | A list of virtual private cloud (VPC) subnets to use with instances in
+    -- the game server group. By default, all GameLift FleetIQ-supported
+    -- Availability Zones are used. You can use this parameter to specify VPCs
+    -- that you\'ve set up. This property cannot be updated after the game
+    -- server group is created, and the corresponding Auto Scaling group will
+    -- always use the property value that is set with this request, even if the
+    -- Auto Scaling group is updated directly.
+    vpcSubnets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | An identifier for the new game server group. This value is used to
     -- generate unique ARN identifiers for the Amazon EC2 Auto Scaling group
     -- and the GameLift FleetIQ game server group. The name must be unique per
@@ -227,34 +216,12 @@ data CreateGameServerGroup = CreateGameServerGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createGameServerGroup_tags' - A list of labels to assign to the new game server group resource. Tags
--- are developer-defined key-value pairs. Tagging Amazon Web Services
--- resources is useful for resource management, access management, and cost
--- allocation. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in the /Amazon Web Services General Reference/. Once the resource is
--- created, you can use TagResource, UntagResource, and ListTagsForResource
--- to add, remove, and view tags, respectively. The maximum tag limit may
--- be lower than stated. See the Amazon Web Services General Reference for
--- actual tagging limits.
---
--- 'gameServerProtectionPolicy', 'createGameServerGroup_gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are
--- protected from early termination. Unprotected instances that have active
--- game servers running might be terminated during a scale-down event,
--- causing players to be dropped from the game. Protected instances cannot
--- be terminated while there are active game servers running except in the
--- event of a forced game server group deletion (see ). An exception to
--- this is with Spot Instances, which can be terminated by Amazon Web
--- Services regardless of protection status. This property is set to
--- @NO_PROTECTION@ by default.
---
--- 'vpcSubnets', 'createGameServerGroup_vpcSubnets' - A list of virtual private cloud (VPC) subnets to use with instances in
--- the game server group. By default, all GameLift FleetIQ-supported
--- Availability Zones are used. You can use this parameter to specify VPCs
--- that you\'ve set up. This property cannot be updated after the game
--- server group is created, and the corresponding Auto Scaling group will
--- always use the property value that is set with this request, even if the
--- Auto Scaling group is updated directly.
+-- 'autoScalingPolicy', 'createGameServerGroup_autoScalingPolicy' - Configuration settings to define a scaling policy for the Auto Scaling
+-- group that is optimized for game hosting. The scaling policy uses the
+-- metric @\"PercentUtilizedGameServers\"@ to maintain a buffer of idle
+-- game servers that can immediately accommodate new games and players.
+-- After the Auto Scaling group is created, update this value directly in
+-- the Auto Scaling group using the Amazon Web Services console or APIs.
 --
 -- 'balancingStrategy', 'createGameServerGroup_balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and
 -- On-Demand Instances in the game server group. Method options include the
@@ -278,12 +245,30 @@ data CreateGameServerGroup = CreateGameServerGroup'
 --     server group. No Spot Instances are used, even when available, while
 --     this balancing strategy is in force.
 --
--- 'autoScalingPolicy', 'createGameServerGroup_autoScalingPolicy' - Configuration settings to define a scaling policy for the Auto Scaling
--- group that is optimized for game hosting. The scaling policy uses the
--- metric @\"PercentUtilizedGameServers\"@ to maintain a buffer of idle
--- game servers that can immediately accommodate new games and players.
--- After the Auto Scaling group is created, update this value directly in
--- the Auto Scaling group using the Amazon Web Services console or APIs.
+-- 'gameServerProtectionPolicy', 'createGameServerGroup_gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are
+-- protected from early termination. Unprotected instances that have active
+-- game servers running might be terminated during a scale-down event,
+-- causing players to be dropped from the game. Protected instances cannot
+-- be terminated while there are active game servers running except in the
+-- event of a forced game server group deletion (see ). An exception to
+-- this is with Spot Instances, which can be terminated by Amazon Web
+-- Services regardless of protection status. This property is set to
+-- @NO_PROTECTION@ by default.
+--
+-- 'tags', 'createGameServerGroup_tags' - A list of labels to assign to the new game server group resource. Tags
+-- are developer-defined key-value pairs. Tagging Amazon Web Services
+-- resources is useful for resource management, access management, and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/.
+--
+-- 'vpcSubnets', 'createGameServerGroup_vpcSubnets' - A list of virtual private cloud (VPC) subnets to use with instances in
+-- the game server group. By default, all GameLift FleetIQ-supported
+-- Availability Zones are used. You can use this parameter to specify VPCs
+-- that you\'ve set up. This property cannot be updated after the game
+-- server group is created, and the corresponding Auto Scaling group will
+-- always use the property value that is set with this request, even if the
+-- Auto Scaling group is updated directly.
 --
 -- 'gameServerGroupName', 'createGameServerGroup_gameServerGroupName' - An identifier for the new game server group. This value is used to
 -- generate unique ARN identifiers for the Amazon EC2 Auto Scaling group
@@ -355,11 +340,12 @@ newCreateGameServerGroup
   pLaunchTemplate_
   pInstanceDefinitions_ =
     CreateGameServerGroup'
-      { tags = Prelude.Nothing,
-        gameServerProtectionPolicy = Prelude.Nothing,
-        vpcSubnets = Prelude.Nothing,
+      { autoScalingPolicy =
+          Prelude.Nothing,
         balancingStrategy = Prelude.Nothing,
-        autoScalingPolicy = Prelude.Nothing,
+        gameServerProtectionPolicy = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        vpcSubnets = Prelude.Nothing,
         gameServerGroupName = pGameServerGroupName_,
         roleArn = pRoleArn_,
         minSize = pMinSize_,
@@ -369,40 +355,14 @@ newCreateGameServerGroup
           Lens.coerced Lens.# pInstanceDefinitions_
       }
 
--- | A list of labels to assign to the new game server group resource. Tags
--- are developer-defined key-value pairs. Tagging Amazon Web Services
--- resources is useful for resource management, access management, and cost
--- allocation. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in the /Amazon Web Services General Reference/. Once the resource is
--- created, you can use TagResource, UntagResource, and ListTagsForResource
--- to add, remove, and view tags, respectively. The maximum tag limit may
--- be lower than stated. See the Amazon Web Services General Reference for
--- actual tagging limits.
-createGameServerGroup_tags :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe [Tag])
-createGameServerGroup_tags = Lens.lens (\CreateGameServerGroup' {tags} -> tags) (\s@CreateGameServerGroup' {} a -> s {tags = a} :: CreateGameServerGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | A flag that indicates whether instances in the game server group are
--- protected from early termination. Unprotected instances that have active
--- game servers running might be terminated during a scale-down event,
--- causing players to be dropped from the game. Protected instances cannot
--- be terminated while there are active game servers running except in the
--- event of a forced game server group deletion (see ). An exception to
--- this is with Spot Instances, which can be terminated by Amazon Web
--- Services regardless of protection status. This property is set to
--- @NO_PROTECTION@ by default.
-createGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
-createGameServerGroup_gameServerProtectionPolicy = Lens.lens (\CreateGameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@CreateGameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: CreateGameServerGroup)
-
--- | A list of virtual private cloud (VPC) subnets to use with instances in
--- the game server group. By default, all GameLift FleetIQ-supported
--- Availability Zones are used. You can use this parameter to specify VPCs
--- that you\'ve set up. This property cannot be updated after the game
--- server group is created, and the corresponding Auto Scaling group will
--- always use the property value that is set with this request, even if the
--- Auto Scaling group is updated directly.
-createGameServerGroup_vpcSubnets :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createGameServerGroup_vpcSubnets = Lens.lens (\CreateGameServerGroup' {vpcSubnets} -> vpcSubnets) (\s@CreateGameServerGroup' {} a -> s {vpcSubnets = a} :: CreateGameServerGroup) Prelude.. Lens.mapping Lens.coerced
+-- | Configuration settings to define a scaling policy for the Auto Scaling
+-- group that is optimized for game hosting. The scaling policy uses the
+-- metric @\"PercentUtilizedGameServers\"@ to maintain a buffer of idle
+-- game servers that can immediately accommodate new games and players.
+-- After the Auto Scaling group is created, update this value directly in
+-- the Auto Scaling group using the Amazon Web Services console or APIs.
+createGameServerGroup_autoScalingPolicy :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe GameServerGroupAutoScalingPolicy)
+createGameServerGroup_autoScalingPolicy = Lens.lens (\CreateGameServerGroup' {autoScalingPolicy} -> autoScalingPolicy) (\s@CreateGameServerGroup' {} a -> s {autoScalingPolicy = a} :: CreateGameServerGroup)
 
 -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
 -- On-Demand Instances in the game server group. Method options include the
@@ -428,14 +388,36 @@ createGameServerGroup_vpcSubnets = Lens.lens (\CreateGameServerGroup' {vpcSubnet
 createGameServerGroup_balancingStrategy :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe BalancingStrategy)
 createGameServerGroup_balancingStrategy = Lens.lens (\CreateGameServerGroup' {balancingStrategy} -> balancingStrategy) (\s@CreateGameServerGroup' {} a -> s {balancingStrategy = a} :: CreateGameServerGroup)
 
--- | Configuration settings to define a scaling policy for the Auto Scaling
--- group that is optimized for game hosting. The scaling policy uses the
--- metric @\"PercentUtilizedGameServers\"@ to maintain a buffer of idle
--- game servers that can immediately accommodate new games and players.
--- After the Auto Scaling group is created, update this value directly in
--- the Auto Scaling group using the Amazon Web Services console or APIs.
-createGameServerGroup_autoScalingPolicy :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe GameServerGroupAutoScalingPolicy)
-createGameServerGroup_autoScalingPolicy = Lens.lens (\CreateGameServerGroup' {autoScalingPolicy} -> autoScalingPolicy) (\s@CreateGameServerGroup' {} a -> s {autoScalingPolicy = a} :: CreateGameServerGroup)
+-- | A flag that indicates whether instances in the game server group are
+-- protected from early termination. Unprotected instances that have active
+-- game servers running might be terminated during a scale-down event,
+-- causing players to be dropped from the game. Protected instances cannot
+-- be terminated while there are active game servers running except in the
+-- event of a forced game server group deletion (see ). An exception to
+-- this is with Spot Instances, which can be terminated by Amazon Web
+-- Services regardless of protection status. This property is set to
+-- @NO_PROTECTION@ by default.
+createGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
+createGameServerGroup_gameServerProtectionPolicy = Lens.lens (\CreateGameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@CreateGameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: CreateGameServerGroup)
+
+-- | A list of labels to assign to the new game server group resource. Tags
+-- are developer-defined key-value pairs. Tagging Amazon Web Services
+-- resources is useful for resource management, access management, and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/.
+createGameServerGroup_tags :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe [Tag])
+createGameServerGroup_tags = Lens.lens (\CreateGameServerGroup' {tags} -> tags) (\s@CreateGameServerGroup' {} a -> s {tags = a} :: CreateGameServerGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of virtual private cloud (VPC) subnets to use with instances in
+-- the game server group. By default, all GameLift FleetIQ-supported
+-- Availability Zones are used. You can use this parameter to specify VPCs
+-- that you\'ve set up. This property cannot be updated after the game
+-- server group is created, and the corresponding Auto Scaling group will
+-- always use the property value that is set with this request, even if the
+-- Auto Scaling group is updated directly.
+createGameServerGroup_vpcSubnets :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createGameServerGroup_vpcSubnets = Lens.lens (\CreateGameServerGroup' {vpcSubnets} -> vpcSubnets) (\s@CreateGameServerGroup' {} a -> s {vpcSubnets = a} :: CreateGameServerGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier for the new game server group. This value is used to
 -- generate unique ARN identifiers for the Amazon EC2 Auto Scaling group
@@ -514,11 +496,11 @@ instance Core.AWSRequest CreateGameServerGroup where
 
 instance Prelude.Hashable CreateGameServerGroup where
   hashWithSalt _salt CreateGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` gameServerProtectionPolicy
-      `Prelude.hashWithSalt` vpcSubnets
+    _salt `Prelude.hashWithSalt` autoScalingPolicy
       `Prelude.hashWithSalt` balancingStrategy
-      `Prelude.hashWithSalt` autoScalingPolicy
+      `Prelude.hashWithSalt` gameServerProtectionPolicy
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcSubnets
       `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` minSize
@@ -528,11 +510,11 @@ instance Prelude.Hashable CreateGameServerGroup where
 
 instance Prelude.NFData CreateGameServerGroup where
   rnf CreateGameServerGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf gameServerProtectionPolicy
-      `Prelude.seq` Prelude.rnf vpcSubnets
+    Prelude.rnf autoScalingPolicy
       `Prelude.seq` Prelude.rnf balancingStrategy
-      `Prelude.seq` Prelude.rnf autoScalingPolicy
+      `Prelude.seq` Prelude.rnf gameServerProtectionPolicy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcSubnets
       `Prelude.seq` Prelude.rnf gameServerGroupName
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf minSize
@@ -559,14 +541,14 @@ instance Data.ToJSON CreateGameServerGroup where
   toJSON CreateGameServerGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("GameServerProtectionPolicy" Data..=)
-              Prelude.<$> gameServerProtectionPolicy,
-            ("VpcSubnets" Data..=) Prelude.<$> vpcSubnets,
+          [ ("AutoScalingPolicy" Data..=)
+              Prelude.<$> autoScalingPolicy,
             ("BalancingStrategy" Data..=)
               Prelude.<$> balancingStrategy,
-            ("AutoScalingPolicy" Data..=)
-              Prelude.<$> autoScalingPolicy,
+            ("GameServerProtectionPolicy" Data..=)
+              Prelude.<$> gameServerProtectionPolicy,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("VpcSubnets" Data..=) Prelude.<$> vpcSubnets,
             Prelude.Just
               ("GameServerGroupName" Data..= gameServerGroupName),
             Prelude.Just ("RoleArn" Data..= roleArn),

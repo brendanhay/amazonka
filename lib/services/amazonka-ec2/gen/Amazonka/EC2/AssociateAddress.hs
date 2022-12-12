@@ -66,13 +66,13 @@ module Amazonka.EC2.AssociateAddress
     newAssociateAddress,
 
     -- * Request Lenses
-    associateAddress_allowReassociation,
     associateAddress_allocationId,
-    associateAddress_publicIp,
+    associateAddress_allowReassociation,
     associateAddress_dryRun,
     associateAddress_instanceId,
     associateAddress_networkInterfaceId,
     associateAddress_privateIpAddress,
+    associateAddress_publicIp,
 
     -- * Destructuring the Response
     AssociateAddressResponse (..),
@@ -94,7 +94,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateAddress' smart constructor.
 data AssociateAddress = AssociateAddress'
-  { -- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an
+  { -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
+    allocationId :: Prelude.Maybe Prelude.Text,
+    -- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an
     -- Elastic IP address that is already associated with an instance or
     -- network interface to be reassociated with the specified instance or
     -- network interface. Otherwise, the operation fails. In a VPC in an
@@ -102,11 +104,6 @@ data AssociateAddress = AssociateAddress'
     -- specify false to ensure the operation fails if the Elastic IP address is
     -- already associated with another resource.
     allowReassociation :: Prelude.Maybe Prelude.Bool,
-    -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-    allocationId :: Prelude.Maybe Prelude.Text,
-    -- | [EC2-Classic] The Elastic IP address to associate with the instance.
-    -- This is required for EC2-Classic.
-    publicIp :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -126,7 +123,10 @@ data AssociateAddress = AssociateAddress'
     -- | [EC2-VPC] The primary or secondary private IP address to associate with
     -- the Elastic IP address. If no private IP address is specified, the
     -- Elastic IP address is associated with the primary private IP address.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | [EC2-Classic] The Elastic IP address to associate with the instance.
+    -- This is required for EC2-Classic.
+    publicIp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -138,6 +138,8 @@ data AssociateAddress = AssociateAddress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allocationId', 'associateAddress_allocationId' - [EC2-VPC] The allocation ID. This is required for EC2-VPC.
+--
 -- 'allowReassociation', 'associateAddress_allowReassociation' - [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an
 -- Elastic IP address that is already associated with an instance or
 -- network interface to be reassociated with the specified instance or
@@ -145,11 +147,6 @@ data AssociateAddress = AssociateAddress'
 -- EC2-VPC-only account, reassociation is automatic, therefore you can
 -- specify false to ensure the operation fails if the Elastic IP address is
 -- already associated with another resource.
---
--- 'allocationId', 'associateAddress_allocationId' - [EC2-VPC] The allocation ID. This is required for EC2-VPC.
---
--- 'publicIp', 'associateAddress_publicIp' - [EC2-Classic] The Elastic IP address to associate with the instance.
--- This is required for EC2-Classic.
 --
 -- 'dryRun', 'associateAddress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -170,19 +167,25 @@ data AssociateAddress = AssociateAddress'
 -- 'privateIpAddress', 'associateAddress_privateIpAddress' - [EC2-VPC] The primary or secondary private IP address to associate with
 -- the Elastic IP address. If no private IP address is specified, the
 -- Elastic IP address is associated with the primary private IP address.
+--
+-- 'publicIp', 'associateAddress_publicIp' - [EC2-Classic] The Elastic IP address to associate with the instance.
+-- This is required for EC2-Classic.
 newAssociateAddress ::
   AssociateAddress
 newAssociateAddress =
   AssociateAddress'
-    { allowReassociation =
-        Prelude.Nothing,
-      allocationId = Prelude.Nothing,
-      publicIp = Prelude.Nothing,
+    { allocationId = Prelude.Nothing,
+      allowReassociation = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       instanceId = Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing
+      privateIpAddress = Prelude.Nothing,
+      publicIp = Prelude.Nothing
     }
+
+-- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
+associateAddress_allocationId :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
+associateAddress_allocationId = Lens.lens (\AssociateAddress' {allocationId} -> allocationId) (\s@AssociateAddress' {} a -> s {allocationId = a} :: AssociateAddress)
 
 -- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an
 -- Elastic IP address that is already associated with an instance or
@@ -193,15 +196,6 @@ newAssociateAddress =
 -- already associated with another resource.
 associateAddress_allowReassociation :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Bool)
 associateAddress_allowReassociation = Lens.lens (\AssociateAddress' {allowReassociation} -> allowReassociation) (\s@AssociateAddress' {} a -> s {allowReassociation = a} :: AssociateAddress)
-
--- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-associateAddress_allocationId :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
-associateAddress_allocationId = Lens.lens (\AssociateAddress' {allocationId} -> allocationId) (\s@AssociateAddress' {} a -> s {allocationId = a} :: AssociateAddress)
-
--- | [EC2-Classic] The Elastic IP address to associate with the instance.
--- This is required for EC2-Classic.
-associateAddress_publicIp :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
-associateAddress_publicIp = Lens.lens (\AssociateAddress' {publicIp} -> publicIp) (\s@AssociateAddress' {} a -> s {publicIp = a} :: AssociateAddress)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -231,6 +225,11 @@ associateAddress_networkInterfaceId = Lens.lens (\AssociateAddress' {networkInte
 associateAddress_privateIpAddress :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
 associateAddress_privateIpAddress = Lens.lens (\AssociateAddress' {privateIpAddress} -> privateIpAddress) (\s@AssociateAddress' {} a -> s {privateIpAddress = a} :: AssociateAddress)
 
+-- | [EC2-Classic] The Elastic IP address to associate with the instance.
+-- This is required for EC2-Classic.
+associateAddress_publicIp :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
+associateAddress_publicIp = Lens.lens (\AssociateAddress' {publicIp} -> publicIp) (\s@AssociateAddress' {} a -> s {publicIp = a} :: AssociateAddress)
+
 instance Core.AWSRequest AssociateAddress where
   type
     AWSResponse AssociateAddress =
@@ -247,23 +246,23 @@ instance Core.AWSRequest AssociateAddress where
 
 instance Prelude.Hashable AssociateAddress where
   hashWithSalt _salt AssociateAddress' {..} =
-    _salt `Prelude.hashWithSalt` allowReassociation
-      `Prelude.hashWithSalt` allocationId
-      `Prelude.hashWithSalt` publicIp
+    _salt `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` allowReassociation
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` publicIp
 
 instance Prelude.NFData AssociateAddress where
   rnf AssociateAddress' {..} =
-    Prelude.rnf allowReassociation
-      `Prelude.seq` Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf allowReassociation
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf publicIp
 
 instance Data.ToHeaders AssociateAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,13 +277,13 @@ instance Data.ToQuery AssociateAddress where
           Data.=: ("AssociateAddress" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "AllowReassociation" Data.=: allowReassociation,
         "AllocationId" Data.=: allocationId,
-        "PublicIp" Data.=: publicIp,
+        "AllowReassociation" Data.=: allowReassociation,
         "DryRun" Data.=: dryRun,
         "InstanceId" Data.=: instanceId,
         "NetworkInterfaceId" Data.=: networkInterfaceId,
-        "PrivateIpAddress" Data.=: privateIpAddress
+        "PrivateIpAddress" Data.=: privateIpAddress,
+        "PublicIp" Data.=: publicIp
       ]
 
 -- | /See:/ 'newAssociateAddressResponse' smart constructor.

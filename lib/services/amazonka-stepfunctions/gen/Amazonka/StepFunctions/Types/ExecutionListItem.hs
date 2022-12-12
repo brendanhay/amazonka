@@ -29,7 +29,17 @@ import Amazonka.StepFunctions.Types.ExecutionStatus
 --
 -- /See:/ 'newExecutionListItem' smart constructor.
 data ExecutionListItem = ExecutionListItem'
-  { -- | If the execution already ended, the date the execution stopped.
+  { -- | The total number of items processed in a child workflow execution. This
+    -- field is returned only if @mapRunArn@ was specified in the
+    -- @ListExecutions@ API action. If @stateMachineArn@ was specified in
+    -- @ListExecutions@, the @itemCount@ field isn\'t returned.
+    itemCount :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of a Map Run. This field is returned only
+    -- if @mapRunArn@ was specified in the @ListExecutions@ API action. If
+    -- @stateMachineArn@ was specified in @ListExecutions@, the @mapRunArn@
+    -- isn\'t returned.
+    mapRunArn :: Prelude.Maybe Prelude.Text,
+    -- | If the execution already ended, the date the execution stopped.
     stopDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) that identifies the execution.
     executionArn :: Prelude.Text,
@@ -66,6 +76,16 @@ data ExecutionListItem = ExecutionListItem'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'itemCount', 'executionListItem_itemCount' - The total number of items processed in a child workflow execution. This
+-- field is returned only if @mapRunArn@ was specified in the
+-- @ListExecutions@ API action. If @stateMachineArn@ was specified in
+-- @ListExecutions@, the @itemCount@ field isn\'t returned.
+--
+-- 'mapRunArn', 'executionListItem_mapRunArn' - The Amazon Resource Name (ARN) of a Map Run. This field is returned only
+-- if @mapRunArn@ was specified in the @ListExecutions@ API action. If
+-- @stateMachineArn@ was specified in @ListExecutions@, the @mapRunArn@
+-- isn\'t returned.
 --
 -- 'stopDate', 'executionListItem_stopDate' - If the execution already ended, the date the execution stopped.
 --
@@ -112,13 +132,29 @@ newExecutionListItem
   pStatus_
   pStartDate_ =
     ExecutionListItem'
-      { stopDate = Prelude.Nothing,
+      { itemCount = Prelude.Nothing,
+        mapRunArn = Prelude.Nothing,
+        stopDate = Prelude.Nothing,
         executionArn = pExecutionArn_,
         stateMachineArn = pStateMachineArn_,
         name = pName_,
         status = pStatus_,
         startDate = Data._Time Lens.# pStartDate_
       }
+
+-- | The total number of items processed in a child workflow execution. This
+-- field is returned only if @mapRunArn@ was specified in the
+-- @ListExecutions@ API action. If @stateMachineArn@ was specified in
+-- @ListExecutions@, the @itemCount@ field isn\'t returned.
+executionListItem_itemCount :: Lens.Lens' ExecutionListItem (Prelude.Maybe Prelude.Natural)
+executionListItem_itemCount = Lens.lens (\ExecutionListItem' {itemCount} -> itemCount) (\s@ExecutionListItem' {} a -> s {itemCount = a} :: ExecutionListItem)
+
+-- | The Amazon Resource Name (ARN) of a Map Run. This field is returned only
+-- if @mapRunArn@ was specified in the @ListExecutions@ API action. If
+-- @stateMachineArn@ was specified in @ListExecutions@, the @mapRunArn@
+-- isn\'t returned.
+executionListItem_mapRunArn :: Lens.Lens' ExecutionListItem (Prelude.Maybe Prelude.Text)
+executionListItem_mapRunArn = Lens.lens (\ExecutionListItem' {mapRunArn} -> mapRunArn) (\s@ExecutionListItem' {} a -> s {mapRunArn = a} :: ExecutionListItem)
 
 -- | If the execution already ended, the date the execution stopped.
 executionListItem_stopDate :: Lens.Lens' ExecutionListItem (Prelude.Maybe Prelude.UTCTime)
@@ -165,7 +201,9 @@ instance Data.FromJSON ExecutionListItem where
       "ExecutionListItem"
       ( \x ->
           ExecutionListItem'
-            Prelude.<$> (x Data..:? "stopDate")
+            Prelude.<$> (x Data..:? "itemCount")
+            Prelude.<*> (x Data..:? "mapRunArn")
+            Prelude.<*> (x Data..:? "stopDate")
             Prelude.<*> (x Data..: "executionArn")
             Prelude.<*> (x Data..: "stateMachineArn")
             Prelude.<*> (x Data..: "name")
@@ -175,7 +213,9 @@ instance Data.FromJSON ExecutionListItem where
 
 instance Prelude.Hashable ExecutionListItem where
   hashWithSalt _salt ExecutionListItem' {..} =
-    _salt `Prelude.hashWithSalt` stopDate
+    _salt `Prelude.hashWithSalt` itemCount
+      `Prelude.hashWithSalt` mapRunArn
+      `Prelude.hashWithSalt` stopDate
       `Prelude.hashWithSalt` executionArn
       `Prelude.hashWithSalt` stateMachineArn
       `Prelude.hashWithSalt` name
@@ -184,7 +224,9 @@ instance Prelude.Hashable ExecutionListItem where
 
 instance Prelude.NFData ExecutionListItem where
   rnf ExecutionListItem' {..} =
-    Prelude.rnf stopDate
+    Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf mapRunArn
+      `Prelude.seq` Prelude.rnf stopDate
       `Prelude.seq` Prelude.rnf executionArn
       `Prelude.seq` Prelude.rnf stateMachineArn
       `Prelude.seq` Prelude.rnf name

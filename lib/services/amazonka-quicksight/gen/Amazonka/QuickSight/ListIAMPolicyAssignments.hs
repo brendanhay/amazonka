@@ -27,9 +27,9 @@ module Amazonka.QuickSight.ListIAMPolicyAssignments
     newListIAMPolicyAssignments,
 
     -- * Request Lenses
-    listIAMPolicyAssignments_nextToken,
-    listIAMPolicyAssignments_maxResults,
     listIAMPolicyAssignments_assignmentStatus,
+    listIAMPolicyAssignments_maxResults,
+    listIAMPolicyAssignments_nextToken,
     listIAMPolicyAssignments_awsAccountId,
     listIAMPolicyAssignments_namespace,
 
@@ -38,8 +38,8 @@ module Amazonka.QuickSight.ListIAMPolicyAssignments
     newListIAMPolicyAssignmentsResponse,
 
     -- * Response Lenses
-    listIAMPolicyAssignmentsResponse_nextToken,
     listIAMPolicyAssignmentsResponse_iAMPolicyAssignments,
+    listIAMPolicyAssignmentsResponse_nextToken,
     listIAMPolicyAssignmentsResponse_requestId,
     listIAMPolicyAssignmentsResponse_status,
   )
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIAMPolicyAssignments' smart constructor.
 data ListIAMPolicyAssignments = ListIAMPolicyAssignments'
-  { -- | The token for the next set of results, or null if there are no more
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The status of the assignments.
+    assignmentStatus :: Prelude.Maybe AssignmentStatus,
     -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The status of the assignments.
-    assignmentStatus :: Prelude.Maybe AssignmentStatus,
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that contains these IAM policy
     -- assignments.
     awsAccountId :: Prelude.Text,
@@ -78,12 +78,12 @@ data ListIAMPolicyAssignments = ListIAMPolicyAssignments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIAMPolicyAssignments_nextToken' - The token for the next set of results, or null if there are no more
--- results.
+-- 'assignmentStatus', 'listIAMPolicyAssignments_assignmentStatus' - The status of the assignments.
 --
 -- 'maxResults', 'listIAMPolicyAssignments_maxResults' - The maximum number of results to be returned per request.
 --
--- 'assignmentStatus', 'listIAMPolicyAssignments_assignmentStatus' - The status of the assignments.
+-- 'nextToken', 'listIAMPolicyAssignments_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
 -- 'awsAccountId', 'listIAMPolicyAssignments_awsAccountId' - The ID of the Amazon Web Services account that contains these IAM policy
 -- assignments.
@@ -99,26 +99,26 @@ newListIAMPolicyAssignments
   pAwsAccountId_
   pNamespace_ =
     ListIAMPolicyAssignments'
-      { nextToken =
+      { assignmentStatus =
           Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        assignmentStatus = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         namespace = pNamespace_
       }
 
--- | The token for the next set of results, or null if there are no more
--- results.
-listIAMPolicyAssignments_nextToken :: Lens.Lens' ListIAMPolicyAssignments (Prelude.Maybe Prelude.Text)
-listIAMPolicyAssignments_nextToken = Lens.lens (\ListIAMPolicyAssignments' {nextToken} -> nextToken) (\s@ListIAMPolicyAssignments' {} a -> s {nextToken = a} :: ListIAMPolicyAssignments)
+-- | The status of the assignments.
+listIAMPolicyAssignments_assignmentStatus :: Lens.Lens' ListIAMPolicyAssignments (Prelude.Maybe AssignmentStatus)
+listIAMPolicyAssignments_assignmentStatus = Lens.lens (\ListIAMPolicyAssignments' {assignmentStatus} -> assignmentStatus) (\s@ListIAMPolicyAssignments' {} a -> s {assignmentStatus = a} :: ListIAMPolicyAssignments)
 
 -- | The maximum number of results to be returned per request.
 listIAMPolicyAssignments_maxResults :: Lens.Lens' ListIAMPolicyAssignments (Prelude.Maybe Prelude.Natural)
 listIAMPolicyAssignments_maxResults = Lens.lens (\ListIAMPolicyAssignments' {maxResults} -> maxResults) (\s@ListIAMPolicyAssignments' {} a -> s {maxResults = a} :: ListIAMPolicyAssignments)
 
--- | The status of the assignments.
-listIAMPolicyAssignments_assignmentStatus :: Lens.Lens' ListIAMPolicyAssignments (Prelude.Maybe AssignmentStatus)
-listIAMPolicyAssignments_assignmentStatus = Lens.lens (\ListIAMPolicyAssignments' {assignmentStatus} -> assignmentStatus) (\s@ListIAMPolicyAssignments' {} a -> s {assignmentStatus = a} :: ListIAMPolicyAssignments)
+-- | The token for the next set of results, or null if there are no more
+-- results.
+listIAMPolicyAssignments_nextToken :: Lens.Lens' ListIAMPolicyAssignments (Prelude.Maybe Prelude.Text)
+listIAMPolicyAssignments_nextToken = Lens.lens (\ListIAMPolicyAssignments' {nextToken} -> nextToken) (\s@ListIAMPolicyAssignments' {} a -> s {nextToken = a} :: ListIAMPolicyAssignments)
 
 -- | The ID of the Amazon Web Services account that contains these IAM policy
 -- assignments.
@@ -139,27 +139,27 @@ instance Core.AWSRequest ListIAMPolicyAssignments where
     Response.receiveJSON
       ( \s h x ->
           ListIAMPolicyAssignmentsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "IAMPolicyAssignments"
+            Prelude.<$> ( x Data..?> "IAMPolicyAssignments"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListIAMPolicyAssignments where
   hashWithSalt _salt ListIAMPolicyAssignments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` assignmentStatus
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` assignmentStatus
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData ListIAMPolicyAssignments where
   rnf ListIAMPolicyAssignments' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf assignmentStatus
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf assignmentStatus
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf namespace
 
@@ -187,17 +187,17 @@ instance Data.ToPath ListIAMPolicyAssignments where
 instance Data.ToQuery ListIAMPolicyAssignments where
   toQuery ListIAMPolicyAssignments' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListIAMPolicyAssignmentsResponse' smart constructor.
 data ListIAMPolicyAssignmentsResponse = ListIAMPolicyAssignmentsResponse'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | Information describing the IAM policy assignments.
+    iAMPolicyAssignments :: Prelude.Maybe [IAMPolicyAssignmentSummary],
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information describing the IAM policy assignments.
-    iAMPolicyAssignments :: Prelude.Maybe [IAMPolicyAssignmentSummary],
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -213,10 +213,10 @@ data ListIAMPolicyAssignmentsResponse = ListIAMPolicyAssignmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'iAMPolicyAssignments', 'listIAMPolicyAssignmentsResponse_iAMPolicyAssignments' - Information describing the IAM policy assignments.
+--
 -- 'nextToken', 'listIAMPolicyAssignmentsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'iAMPolicyAssignments', 'listIAMPolicyAssignmentsResponse_iAMPolicyAssignments' - Information describing the IAM policy assignments.
 --
 -- 'requestId', 'listIAMPolicyAssignmentsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
@@ -227,21 +227,21 @@ newListIAMPolicyAssignmentsResponse ::
   ListIAMPolicyAssignmentsResponse
 newListIAMPolicyAssignmentsResponse pStatus_ =
   ListIAMPolicyAssignmentsResponse'
-    { nextToken =
+    { iAMPolicyAssignments =
         Prelude.Nothing,
-      iAMPolicyAssignments = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | Information describing the IAM policy assignments.
+listIAMPolicyAssignmentsResponse_iAMPolicyAssignments :: Lens.Lens' ListIAMPolicyAssignmentsResponse (Prelude.Maybe [IAMPolicyAssignmentSummary])
+listIAMPolicyAssignmentsResponse_iAMPolicyAssignments = Lens.lens (\ListIAMPolicyAssignmentsResponse' {iAMPolicyAssignments} -> iAMPolicyAssignments) (\s@ListIAMPolicyAssignmentsResponse' {} a -> s {iAMPolicyAssignments = a} :: ListIAMPolicyAssignmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listIAMPolicyAssignmentsResponse_nextToken :: Lens.Lens' ListIAMPolicyAssignmentsResponse (Prelude.Maybe Prelude.Text)
 listIAMPolicyAssignmentsResponse_nextToken = Lens.lens (\ListIAMPolicyAssignmentsResponse' {nextToken} -> nextToken) (\s@ListIAMPolicyAssignmentsResponse' {} a -> s {nextToken = a} :: ListIAMPolicyAssignmentsResponse)
-
--- | Information describing the IAM policy assignments.
-listIAMPolicyAssignmentsResponse_iAMPolicyAssignments :: Lens.Lens' ListIAMPolicyAssignmentsResponse (Prelude.Maybe [IAMPolicyAssignmentSummary])
-listIAMPolicyAssignmentsResponse_iAMPolicyAssignments = Lens.lens (\ListIAMPolicyAssignmentsResponse' {iAMPolicyAssignments} -> iAMPolicyAssignments) (\s@ListIAMPolicyAssignmentsResponse' {} a -> s {iAMPolicyAssignments = a} :: ListIAMPolicyAssignmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services request ID for this operation.
 listIAMPolicyAssignmentsResponse_requestId :: Lens.Lens' ListIAMPolicyAssignmentsResponse (Prelude.Maybe Prelude.Text)
@@ -256,7 +256,7 @@ instance
     ListIAMPolicyAssignmentsResponse
   where
   rnf ListIAMPolicyAssignmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf iAMPolicyAssignments
+    Prelude.rnf iAMPolicyAssignments
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

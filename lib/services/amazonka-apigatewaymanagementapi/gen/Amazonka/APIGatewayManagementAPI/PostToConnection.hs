@@ -46,7 +46,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPostToConnection' smart constructor.
 data PostToConnection = PostToConnection'
-  { -- | The identifier of the connection that a specific client is using.
+  { 
+    -- | The Stage of API Gateway
+    stage :: Prelude.Text,
+    -- | The identifier of the connection that a specific client is using.
     connectionId :: Prelude.Text,
     -- | The data to be sent to the client specified by its connection id.
     data' :: Prelude.ByteString
@@ -65,14 +68,17 @@ data PostToConnection = PostToConnection'
 --
 -- 'data'', 'postToConnection_data' - The data to be sent to the client specified by its connection id.
 newPostToConnection ::
+-- | 'stage'
+  Prelude.Text ->
   -- | 'connectionId'
   Prelude.Text ->
   -- | 'data''
   Prelude.ByteString ->
   PostToConnection
-newPostToConnection pConnectionId_ pData_ =
+newPostToConnection pStage_ pConnectionId_ pData_ =
   PostToConnection'
-    { connectionId = pConnectionId_,
+    { stage = pStage_,
+      connectionId = pConnectionId_,
       data' = pData_
     }
 
@@ -120,7 +126,7 @@ instance Data.ToHeaders PostToConnection where
 instance Data.ToPath PostToConnection where
   toPath PostToConnection' {..} =
     Prelude.mconcat
-      ["/@connections/", Data.toBS connectionId]
+      ["/", Data.toBS stage, "/@connections/", Data.toBS connectionId]
 
 instance Data.ToQuery PostToConnection where
   toQuery = Prelude.const Prelude.mempty

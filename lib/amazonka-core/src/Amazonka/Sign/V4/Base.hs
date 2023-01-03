@@ -51,7 +51,7 @@ instance ToLog V4 where
         "  signature         = " <> build metaSignature,
         "  string to sign    = {",
         build metaStringToSign,
-        "}",
+        "  }",
         "  canonical request = {",
         build metaCanonicalRequest,
         "  }",

@@ -19,7 +19,7 @@ import qualified Data.CaseInsensitive as CI
 
 -- | A convenience function for overriding the 'Service' 'Endpoint'.
 --
--- /See:/ 'serviceEndpoint'.
+-- /See:/ 'endpoint'.
 setEndpoint ::
   -- | Whether to use HTTPS (ie. SSL).
   Bool ->

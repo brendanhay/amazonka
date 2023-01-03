@@ -22,8 +22,16 @@ tests =
         [ testGroup
             "deserialise"
             [ testFromText
-                "rfc822"
+                "rfc822 - UTC"
+                "Fri, 07 Nov 2014 04:42:13 UTC"
+                (time :: RFC822),
+              testFromText
+                "rfc822 - GMT"
                 "Fri, 07 Nov 2014 04:42:13 GMT"
+                (time :: RFC822),
+              testFromText
+                "rfc822 - PST"
+                "Fri, 06 Nov 2014 20:42:13 PST"
                 (time :: RFC822),
               testFromText
                 "iso8601"

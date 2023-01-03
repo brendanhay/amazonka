@@ -106,6 +106,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-core`: Parse more timezone names than just `"GMT"`, per RFC822
+[\#868](https://github.com/brendanhay/amazonka/pull/868)
 - `amazonka-ec2`, `amazonka-route53`, `amazonka-s3`: Provide handwritten `Iso'`s and `Lens'`s for manually-written types, that match the new generator's conventions
 [\#859](https://github.com/brendanhay/amazonka/pull/859)
 - `amazonka-redshift`: Deprecate `getAccountId` as Redshift uses service-principal credentials to deliver logs to S3. Also provide `getCloudTrailAccountId`

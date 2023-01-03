@@ -53,7 +53,8 @@ newtype Time (a :: Format) = Time {fromTime :: UTCTime}
 
 instance Hashable (Time a) where
   hashWithSalt salt (Time (Time.UTCTime (Time.ModifiedJulianDay d) t)) =
-    salt `hashWithSalt` d
+    salt
+      `hashWithSalt` d
       `hashWithSalt` toRational t
 
 _Time :: Iso' (Time a) UTCTime
@@ -76,7 +77,7 @@ class TimeFormat a where
   format :: proxy a -> String
 
 instance TimeFormat RFC822 where
-  format _ = "%a, %d %b %Y %H:%M:%S GMT"
+  format _ = "%a, %d %b %Y %H:%M:%S %Z"
 
 instance TimeFormat ISO8601 where
   format _ = iso8601DateFormat (Just "%XZ")
@@ -87,19 +88,7 @@ instance TimeFormat BasicTime where
 instance TimeFormat AWSTime where
   format _ = "%Y%m%dT%H%M%SZ"
 
-instance FromText BasicTime where
-  fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
-
-instance FromText AWSTime where
-  fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
-
-instance FromText RFC822 where
-  fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
-
-instance FromText ISO8601 where
-  fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
-
-instance FromText POSIX where
+instance FromText (Time fmt) where
   fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
 
 parseFormattedTime :: A.Parser (Time a)
@@ -130,7 +119,8 @@ parseFormattedTime = do
 parseUnixTimestamp :: A.Parser (Time a)
 parseUnixTimestamp =
   Time . posixSecondsToUTCTime . realToFrac
-    <$> AText.double <* AText.endOfInput
+    <$> AText.double
+    <* AText.endOfInput
     <|> fail "Failure parsing Unix Timestamp"
 
 instance ToText RFC822 where
@@ -150,7 +140,15 @@ instance ToText POSIX where
 
 renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
 renderFormattedTime (Time t) =
-  formatTime defaultTimeLocale (format (Proxy @(Time a))) t
+  formatTime
+    defaultTimeLocale
+    (format (Proxy @(Time a)))
+    -- Convert `t` to a GMT `ZonedTime`, because otherwise the
+    -- `FormatTime` instance for `UTCTime` converts to UTC `ZonedTime`
+    -- for us. While they are the same offset, a UTC `ZonedTime` emits
+    -- `UTC` instead of `GMT` when formatted by `RFC822`'s
+    -- `TimeFormat`, which is not a valid `zone` in RFC 822's grammar.
+    (Time.utcToZonedTime (read "GMT") t)
 
 instance FromXML RFC822 where
   parseXML = parseXMLText "RFC822"

@@ -88,19 +88,7 @@ instance TimeFormat BasicTime where
 instance TimeFormat AWSTime where
   format _ = "%Y%m%dT%H%M%SZ"
 
-instance FromText BasicTime where
-  fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
-
-instance FromText AWSTime where
-  fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
-
-instance FromText RFC822 where
-  fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
-
-instance FromText ISO8601 where
-  fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
-
-instance FromText POSIX where
+instance FromText (Time fmt) where
   fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
 
 parseFormattedTime :: A.Parser (Time a)

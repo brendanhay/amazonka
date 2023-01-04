@@ -54,7 +54,7 @@ sign Request {service = Service {..}, ..} AuthEnv {..} r t = Signed meta rq
         }
 
     meth = toBS method
-    path' = toBS (escapePath path)
+    path' = toBS (escapePath $ basePath <> path)
 
     end@Endpoint {..} = endpoint r
 

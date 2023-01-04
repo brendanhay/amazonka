@@ -77,9 +77,9 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
         }
 
     meth = toBS method
-    path' = toBS (escapePath path)
+    path' = toBS (escapePath $ basePath <> path)
 
-    end = endpoint r
+    end@Endpoint {basePath} = endpoint r
 
     Service {timeout, endpoint} = service
 
@@ -107,8 +107,8 @@ newSigner headers method path query = signer
     signer =
       BS8.intercalate
         "\n"
-        ( method :
-          map constructSigningHeader (List.sort filteredHeaders)
+        ( method
+            : map constructSigningHeader (List.sort filteredHeaders)
             ++ [constructFullPath path (toSignerQueryBS filteredQuery)]
         )
 

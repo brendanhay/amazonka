@@ -79,6 +79,7 @@ defaultEndpoint Service {endpointPrefix = p} r = go (CI.mk p)
     region host =
       Endpoint
         { host,
+          basePath = mempty,
           secure = True,
           port = 443,
           scope = reg
@@ -87,6 +88,7 @@ defaultEndpoint Service {endpointPrefix = p} r = go (CI.mk p)
     global host =
       Endpoint
         { host,
+          basePath = mempty,
           secure = True,
           port = 443,
           scope = "us-east-1"

@@ -164,6 +164,7 @@ module Amazonka.Types
 
     -- ** Lenses
     endpoint_host,
+    endpoint_basePath,
     endpoint_secure,
     endpoint_port,
     endpoint_scope,
@@ -416,9 +417,18 @@ instance AsError Error where
     x -> Left x
 
 data Endpoint = Endpoint
-  { host :: ByteString,
+  { -- | The host to make requests to. Usually something like
+    -- @s3.us-east-1.amazonaws.com@.
+    host :: ByteString,
+    -- | Path segment prepended to the request path of any request
+    -- made to this endpoint. This is useful if you want to use the
+    -- AWS API Gateway Management API, which requires you to override
+    -- the client endpoint including a leading path segment (either
+    -- the stage or, on a custom domain, the mapped base path).
+    basePath :: RawPath,
     secure :: Bool,
     port :: Int,
+    -- | Signing scope, usually a region like @us-east-1@.
     scope :: ByteString
   }
   deriving stock (Eq, Show, Generic)
@@ -426,6 +436,10 @@ data Endpoint = Endpoint
 {-# INLINE endpoint_host #-}
 endpoint_host :: Lens' Endpoint ByteString
 endpoint_host f e@Endpoint {host} = f host <&> \host' -> e {host = host'}
+
+{-# INLINE endpoint_basePath #-}
+endpoint_basePath :: Lens' Endpoint RawPath
+endpoint_basePath f e@Endpoint {basePath} = f basePath <&> \basePath' -> e {basePath = basePath'}
 
 {-# INLINE endpoint_secure #-}
 endpoint_secure :: Lens' Endpoint Bool

@@ -28,7 +28,6 @@ import Control.Exception as Exception
 import Control.Monad.Trans.Resource (liftResourceT, transResourceT)
 import qualified Control.Retry as Retry
 import qualified Data.List as List
-import Data.Monoid (Dual (..), Endo (..))
 import qualified Data.Time as Time
 import qualified Network.HTTP.Conduit as Client.Conduit
 
@@ -158,7 +157,7 @@ httpRequest env@Env {..} x =
     proxy _ = Proxy
 
 configureRequest :: AWSRequest a => Env' withAuth -> a -> Request a
-configureRequest Env {override = overrides} = request (appEndo (getDual overrides))
+configureRequest Env {overrides} = request overrides
 
 retryStream :: Request a -> Retry.RetryPolicy
 retryStream Request {body} =

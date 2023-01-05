@@ -44,7 +44,7 @@ module Amazonka.Lens
     env_region,
     env_logger,
     env_retryCheck,
-    env_override,
+    env_overrides,
     env_manager,
     env_auth,
 

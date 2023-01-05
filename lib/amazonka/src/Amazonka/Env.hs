@@ -24,7 +24,7 @@ module Amazonka.Env
     env_region,
     env_logger,
     env_retryCheck,
-    env_override,
+    env_overrides,
     env_manager,
     env_auth,
 
@@ -46,7 +46,6 @@ import Amazonka.Prelude
 import Amazonka.Types hiding (timeout)
 import qualified Amazonka.Types as Service (Service (..))
 import qualified Data.Function as Function
-import Data.Monoid (Dual (..), Endo (..))
 import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
@@ -65,7 +64,7 @@ data Env' withAuth = Env
   { region :: Region,
     logger :: Logger,
     retryCheck :: Int -> Client.HttpException -> Bool,
-    override :: Dual (Endo Service),
+    overrides :: Service -> Service,
     manager :: Client.Manager,
     auth :: withAuth Auth
   }
@@ -83,9 +82,9 @@ env_logger f e@Env {logger} = f logger <&> \logger' -> e {logger = logger'}
 env_retryCheck :: Lens' (Env' withAuth) (Int -> Client.HttpException -> Bool)
 env_retryCheck f e@Env {retryCheck} = f retryCheck <&> \retryCheck' -> e {retryCheck = retryCheck'}
 
-{-# INLINE env_override #-}
-env_override :: Lens' (Env' withAuth) (Dual (Endo Service))
-env_override f e@Env {override} = f override <&> \override' -> e {override = override'}
+{-# INLINE env_overrides #-}
+env_overrides :: Lens' (Env' withAuth) (Service -> Service)
+env_overrides f e@Env {overrides} = f overrides <&> \overrides' -> e {overrides = overrides'}
 
 {-# INLINE env_manager #-}
 env_manager :: Lens' (Env' withAuth) Client.Manager
@@ -152,7 +151,7 @@ newEnvNoAuthFromManager manager = do
       { region = fromMaybe NorthVirginia mRegion,
         logger = \_ _ -> pure (),
         retryCheck = retryConnectionFailure 3,
-        override = mempty,
+        overrides = id,
         manager,
         auth = Proxy
       }
@@ -189,7 +188,7 @@ retryConnectionFailure limit n = \case
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configurations.
 overrideService :: (Service -> Service) -> Env' withAuth -> Env' withAuth
-overrideService f env = env {override = override env <> Dual (Endo f)}
+overrideService f env = env {overrides = f . overrides env}
 
 -- | Configure a specific service. All requests belonging to the
 -- supplied service will use this configuration instead of the default.

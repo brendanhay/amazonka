@@ -163,7 +163,6 @@ import Amazonka.Send
     sendUnsignedEither,
   )
 import Control.Monad.Trans.Resource (runResourceT)
-import Data.Monoid (Dual (..), Endo (..))
 
 -- $usage
 -- The key functions dealing with the request/response lifecycle are:
@@ -442,7 +441,7 @@ presign ::
   m ClientRequest
 presign env time expires rq =
   Presign.presignWith
-    (appEndo (getDual (Env.override env)))
+    (Env.overrides env)
     (runIdentity $ Env.auth env)
     (Env.region env)
     time

@@ -28,6 +28,7 @@ tests =
       testProperty "S3 canonical paths are escaped once" testS3CanonicalPathsEscapedOnce,
       testProperty "non-S3 canonical paths are escaped twice" testNonS3CanonicalPathsEscapedTwice,
       testCase "empty path" testEmptyPath,
+      testCase "base path" testBasePath,
       testCase "S3 canonical path encoding example" testS3CanonicalPathExample,
       testCase "non-S3 canonical path encoding example" testNonS3CanonicalPathExample,
       testCase "S3 canonical path is not normalized" testS3ShouldNotNormalize,
@@ -35,29 +36,74 @@ tests =
     ]
 
 testRequestPathsEscapedOnce :: Property
-testRequestPathsEscapedOnce = QC.forAll (mkV4Paths arbitrary mkNormalizedPath) $ \(raw, reqPath, _) ->
+testRequestPathsEscapedOnce = QC.forAll (mkV4Paths args) $ \(raw, reqPath, _) ->
   untag reqPath == toBS (escapePath raw)
+  where
+    args =
+      V4PathArgs
+        { genAbbrev = arbitrary,
+          genBasePath = mkNormalizedPath,
+          genPath = mkNormalizedPath
+        }
 
 testS3CanonicalPathsEscapedOnce :: Property
-testS3CanonicalPathsEscapedOnce = QC.forAll (mkV4Paths (pure "S3") mkNormalizedPath) $ \(_, reqPath, canonicalPath') ->
+testS3CanonicalPathsEscapedOnce = QC.forAll (mkV4Paths args) $ \(_, reqPath, canonicalPath') ->
   untag reqPath == untag canonicalPath'
+  where
+    args =
+      V4PathArgs
+        { genAbbrev = pure "S3",
+          genBasePath = mkNormalizedPath,
+          genPath = mkNormalizedPath
+        }
 
 testNonS3CanonicalPathsEscapedTwice :: Property
-testNonS3CanonicalPathsEscapedTwice = QC.forAll (mkV4Paths mkNonS3Service mkNormalizedPath) $ \(raw, _, canonicalPath') ->
+testNonS3CanonicalPathsEscapedTwice = QC.forAll (mkV4Paths args) $ \(raw, _, canonicalPath') ->
   untag canonicalPath' == toBS (escapePathTwice raw)
+  where
+    args =
+      V4PathArgs
+        { genAbbrev = mkNonS3Service,
+          genBasePath = mkNormalizedPath,
+          genPath = mkNormalizedPath
+        }
 
 testEmptyPath :: Assertion
 testEmptyPath = do
-  let empty = Raw []
-  (_, reqPath, canonicalPath') <- generate $ mkV4Paths arbitrary (pure empty)
+  (_, reqPath, canonicalPath') <-
+    generate . mkV4Paths $
+      V4PathArgs
+        { genAbbrev = arbitrary,
+          genBasePath = pure mempty,
+          genPath = pure mempty
+        }
   toBS reqPath @?= "/"
   toBS canonicalPath' @?= "/"
+
+testBasePath :: Assertion
+testBasePath = do
+  basePath <- generate arbitrary
+  path <- generate arbitrary
+  (_, reqPath, _) <-
+    generate . mkV4Paths $
+      V4PathArgs
+        { genAbbrev = arbitrary,
+          genBasePath = pure basePath,
+          genPath = pure path
+        }
+  toBS reqPath @?= toBS (escapePath $ basePath <> path)
 
 testNonS3CanonicalPathExample :: Assertion
 testNonS3CanonicalPathExample = do
   let example = Raw ["documents and settings"]
 
-  (_, reqPath, canonicalPath') <- generate $ mkV4Paths mkNonS3Service (pure example)
+  (_, reqPath, canonicalPath') <-
+    generate . mkV4Paths $
+      V4PathArgs
+        { genAbbrev = mkNonS3Service,
+          genBasePath = pure mempty,
+          genPath = pure example
+        }
   toBS reqPath @?= "/documents%20and%20settings"
   toBS canonicalPath' @?= "/documents%2520and%2520settings"
 
@@ -65,7 +111,13 @@ testS3CanonicalPathExample :: Assertion
 testS3CanonicalPathExample = do
   let example = Raw ["documents and settings"]
 
-  (_, reqPath, canonicalPath') <- generate $ mkV4Paths (pure "S3") (pure example)
+  (_, reqPath, canonicalPath') <-
+    generate . mkV4Paths $
+      V4PathArgs
+        { genAbbrev = pure "S3",
+          genBasePath = pure mempty,
+          genPath = pure example
+        }
   toBS reqPath @?= "/documents%20and%20settings"
   untag canonicalPath' @?= untag reqPath
 
@@ -73,7 +125,13 @@ testS3ShouldNotNormalize :: Assertion
 testS3ShouldNotNormalize = do
   let key = Raw ["foo", "..", "bar", ".", "baz", "."]
 
-  (_, reqPath, canonicalPath') <- generate $ mkV4Paths (pure "S3") (pure key)
+  (_, reqPath, canonicalPath') <-
+    generate . mkV4Paths $
+      V4PathArgs
+        { genAbbrev = pure "S3",
+          genBasePath = pure mempty,
+          genPath = pure key
+        }
   toBS reqPath @?= "/foo/../bar/./baz/."
   untag canonicalPath' @?= untag reqPath
 
@@ -81,22 +139,38 @@ testNonS3ShouldNormalize :: Assertion
 testNonS3ShouldNormalize = do
   let key = Raw ["foo", "..", "bar", ".", "baz", "."]
 
-  (_, reqPath, canonicalPath') <- generate $ mkV4Paths mkNonS3Service (pure key)
+  (_, reqPath, canonicalPath') <-
+    generate . mkV4Paths $
+      V4PathArgs
+        { genAbbrev = mkNonS3Service,
+          genBasePath = pure mempty,
+          genPath = pure key
+        }
   toBS reqPath @?= "/bar/baz"
   untag canonicalPath' @?= untag reqPath
 
-mkV4Paths :: Gen Abbrev -> Gen RawPath -> Gen (RawPath, Base.Path, CanonicalPath)
-mkV4Paths genAbbrev genPath = do
+data V4PathArgs = V4PathArgs
+  { genAbbrev :: Gen Abbrev,
+    genBasePath :: Gen RawPath,
+    genPath :: Gen RawPath
+  }
+
+mkV4Paths :: V4PathArgs -> Gen (RawPath, Base.Path, CanonicalPath)
+mkV4Paths V4PathArgs {..} = do
   aReq <- arbitrary :: Gen (Request ())
+  aBasePath <- genBasePath
   aPath <- genPath
-  aService <- arbitrary
+  aService@Service {endpoint} <- arbitrary
   anAbbrev <- genAbbrev
   aBody <- toHashed <$> (arbitrary :: Gen ByteString)
 
-  let svc =
+  let reg = NorthVirginia
+      end = endpoint reg
+      svc =
         aService
           { signer = v4,
-            abbrev = anAbbrev
+            abbrev = anAbbrev,
+            endpoint = const $ end {basePath = aBasePath}
           }
       req =
         aReq
@@ -105,7 +179,7 @@ mkV4Paths genAbbrev genPath = do
             body = Hashed aBody
           }
 
-  pure (aPath, escapedPath req, canonicalPath req)
+  pure (fullRawPath reg req, escapedPath reg req, canonicalPath reg req)
 
 mkNormalizedPath :: Gen RawPath
 mkNormalizedPath = arbitrary `suchThat` noDots

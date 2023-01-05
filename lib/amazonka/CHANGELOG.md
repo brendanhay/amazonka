@@ -106,6 +106,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-core`: `Endpoint` now has a `basePath :: RawPath`. Handy with `amazonka-apigatewaymanagementapi`.
+[\#869](https://github.com/brendanhay/amazonka/pull/869)
 - `amazonka-core`: Parse more timezone names than just `"GMT"`, per RFC822
 [\#868](https://github.com/brendanhay/amazonka/pull/868)
 - `amazonka-ec2`, `amazonka-route53`, `amazonka-s3`: Provide handwritten `Iso'`s and `Lens'`s for manually-written types, that match the new generator's conventions

@@ -41,6 +41,7 @@ module Amazonka.Core.Lens
 
     -- ** Endpoint
     endpoint_host,
+    endpoint_basePath,
     endpoint_secure,
     endpoint_port,
     endpoint_scope,

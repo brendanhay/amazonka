@@ -209,8 +209,8 @@ signMetadata a r ts presign digest rq@Request {headers, method, query, service} 
 
     end = endpoint service r
     method' = Tag $ toBS method
-    path = escapedPath rq
-    cpath = canonicalPath rq
+    path = escapedPath r rq
+    cpath = canonicalPath r rq
 
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
@@ -265,17 +265,27 @@ canonicalRequest meth path digest query chs shs =
         toBS digest
       ]
 
-escapedPath :: Request a -> Path
-escapedPath Request {service = Service {abbrev}, path} =
-  Tag . toBS . escapePath $ case abbrev of
-    "S3" -> path
-    _ -> collapsePath path
-
-canonicalPath :: Request a -> CanonicalPath
-canonicalPath Request {service = Service {abbrev}, path = path} =
+escapedPath :: Region -> Request a -> Path
+escapedPath r rq@Request {service = Service {abbrev}} =
   Tag $ case abbrev of
-    "S3" -> toBS (escapePath path)
-    _ -> toBS (escapePathTwice (collapsePath path))
+    "S3" -> toBS $ escapePath p
+    _ -> toBS $ escapePath $ collapsePath p
+  where
+    p = fullRawPath r rq
+
+canonicalPath :: Region -> Request a -> CanonicalPath
+canonicalPath r rq@Request {service = Service {abbrev}} =
+  Tag $ case abbrev of
+    "S3" -> toBS $ escapePath p
+    _ -> toBS $ escapePathTwice $ collapsePath p
+  where
+    p = fullRawPath r rq
+
+-- | The complete raw path for a request, including any 'basePath' on
+-- the endpoint.
+fullRawPath :: Region -> Request a -> RawPath
+fullRawPath r Request {path, service = Service {endpoint}} =
+  basePath (endpoint r) <> path
 
 canonicalQuery :: QueryString -> CanonicalQuery
 canonicalQuery = Tag . toBS

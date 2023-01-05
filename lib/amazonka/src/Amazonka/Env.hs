@@ -11,7 +11,9 @@
 module Amazonka.Env
   ( -- * Creating the Environment
     newEnv,
+    newEnvFromManager,
     newEnvNoAuth,
+    newEnvNoAuthFromManager,
     Env' (..),
     Env,
     EnvNoAuth,
@@ -93,9 +95,10 @@ env_manager f e@Env {manager} = f manager <&> \manager' -> e {manager = manager'
 env_auth :: Lens (Env' withAuth) (Env' withAuth') (withAuth Auth) (withAuth' Auth)
 env_auth f e@Env {auth} = f auth <&> \auth' -> e {auth = auth'}
 
--- | Creates a new environment with a new 'Manager' without debug logging
--- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
--- Lenses can be used to further configure the resulting 'Env'.
+-- | Creates a new environment with a new 'Client.Manager' without
+-- debug logging and uses 'getAuth' to expand/discover the supplied
+-- 'Credentials'.  Lenses can be used to further configure the
+-- resulting 'Env'.
 --
 -- /Since:/ @1.5.0@ - The region is now retrieved from the @AWS_REGION@ environment
 -- variable (identical to official SDKs), or defaults to @us-east-1@.
@@ -117,6 +120,15 @@ newEnv ::
   m Env
 newEnv = (newEnvNoAuth >>=)
 
+-- | Creates a new environment, but with an existing 'Client.Manager'.
+newEnvFromManager ::
+  MonadIO m =>
+  Client.Manager ->
+  -- | Credential discovery mechanism.
+  (EnvNoAuth -> m Env) ->
+  m Env
+newEnvFromManager manager = (newEnvNoAuthFromManager manager >>=)
+
 -- | Generate an environment without credentials, which may only make
 -- unsigned requests. This sets the region based on the @AWS_REGION@
 -- environment variable, or 'NorthVirginia' if unset.
@@ -126,19 +138,24 @@ newEnv = (newEnvNoAuth >>=)
 -- operation, which needs to make an unsigned request to pass the
 -- token from an identity provider.
 newEnvNoAuth :: MonadIO m => m EnvNoAuth
-newEnvNoAuth = do
-  manager <- liftIO $ Client.newManager Client.Conduit.tlsManagerSettings
+newEnvNoAuth =
+  liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
+    >>= newEnvNoAuthFromManager
+
+-- | Generate an environment without credentials, passing in an
+-- explicit 'Client.Manager'.
+newEnvNoAuthFromManager :: MonadIO m => Client.Manager -> m EnvNoAuth
+newEnvNoAuthFromManager manager = do
   mRegion <- lookupRegion
-  let env =
-        Env
-          { region = fromMaybe NorthVirginia mRegion,
-            logger = \_ _ -> pure (),
-            retryCheck = retryConnectionFailure 3,
-            override = mempty,
-            manager = manager,
-            auth = Proxy
-          }
-  pure env
+  pure
+    Env
+      { region = fromMaybe NorthVirginia mRegion,
+        logger = \_ _ -> pure (),
+        retryCheck = retryConnectionFailure 3,
+        override = mempty,
+        manager,
+        auth = Proxy
+      }
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.
 authMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
@@ -161,13 +178,13 @@ retryConnectionFailure limit n = \case
   Client.HttpExceptionRequest _ ex
     | n >= limit -> False
     | otherwise ->
-      case ex of
-        Client.NoResponseDataReceived -> True
-        Client.ConnectionTimeout -> True
-        Client.ConnectionClosed -> True
-        Client.ConnectionFailure {} -> True
-        Client.InternalException {} -> True
-        _other -> False
+        case ex of
+          Client.NoResponseDataReceived -> True
+          Client.ConnectionTimeout -> True
+          Client.ConnectionClosed -> True
+          Client.ConnectionFailure {} -> True
+          Client.InternalException {} -> True
+          _other -> False
 
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configurations.

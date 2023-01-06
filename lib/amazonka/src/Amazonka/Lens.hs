@@ -43,6 +43,7 @@ module Amazonka.Lens
     -- ** Env'
     env_region,
     env_logger,
+    env_hooks,
     env_retryCheck,
     env_overrides,
     env_manager,

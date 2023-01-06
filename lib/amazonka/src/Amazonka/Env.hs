@@ -23,6 +23,7 @@ module Amazonka.Env
     -- ** Lenses
     env_region,
     env_logger,
+    env_hooks,
     env_retryCheck,
     env_overrides,
     env_manager,
@@ -42,6 +43,7 @@ module Amazonka.Env
 where
 
 import Amazonka.Core.Lens.Internal (Lens)
+import Amazonka.Env.Hooks (Hooks, addLoggingHooks, noHooks)
 import Amazonka.Prelude
 import Amazonka.Types hiding (timeout)
 import qualified Amazonka.Types as Service (Service (..))
@@ -69,6 +71,7 @@ type EnvNoAuth = Env' Proxy
 data Env' withAuth = Env
   { region :: Region,
     logger :: Logger,
+    hooks :: ~Hooks,
     retryCheck :: Int -> Client.HttpException -> Bool,
     overrides :: Service -> Service,
     manager :: Client.Manager,
@@ -83,6 +86,10 @@ env_region f e@Env {region} = f region <&> \region' -> e {region = region'}
 {-# INLINE env_logger #-}
 env_logger :: Lens' (Env' withAuth) Logger
 env_logger f e@Env {logger} = f logger <&> \logger' -> e {logger = logger'}
+
+{-# INLINE env_hooks #-}
+env_hooks :: Lens' (Env' withAuth) Hooks
+env_hooks f e@Env {hooks} = f hooks <&> \hooks' -> e {hooks = hooks'}
 
 {-# INLINE env_retryCheck #-}
 env_retryCheck :: Lens' (Env' withAuth) (Int -> Client.HttpException -> Bool)
@@ -156,6 +163,7 @@ newEnvNoAuthFromManager manager = do
     Env
       { region = fromMaybe NorthVirginia mRegion,
         logger = \_ _ -> pure (),
+        hooks = addLoggingHooks noHooks,
         retryCheck = retryConnectionFailure 3,
         overrides = id,
         manager,

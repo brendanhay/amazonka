@@ -19,6 +19,7 @@ import qualified Amazonka.Waiter as Waiter
 import qualified Control.Exception as Exception
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
+import Data.Typeable (Typeable)
 import qualified Network.HTTP.Client as Client
 
 -- | Send a request, returning the associated response if successful.
@@ -26,7 +27,9 @@ import qualified Network.HTTP.Client as Client
 -- See 'send'.
 sendEither ::
   ( MonadResource m,
-    AWSRequest a
+    AWSRequest a,
+    Typeable a,
+    Typeable (AWSResponse a)
   ) =>
   Env ->
   a ->
@@ -41,7 +44,9 @@ sendEither env =
 -- See 'sendEither'.
 send ::
   ( MonadResource m,
-    AWSRequest a
+    AWSRequest a,
+    Typeable a,
+    Typeable (AWSResponse a)
   ) =>
   Env ->
   a ->
@@ -60,7 +65,9 @@ send env =
 -- See 'sendUnsigned'.
 sendUnsignedEither ::
   ( MonadResource m,
-    AWSRequest a
+    AWSRequest a,
+    Typeable a,
+    Typeable (AWSResponse a)
   ) =>
   Env' withAuth ->
   a ->
@@ -75,7 +82,9 @@ sendUnsignedEither env =
 -- See 'sendUnsignedEither'.
 sendUnsigned ::
   ( MonadResource m,
-    AWSRequest a
+    AWSRequest a,
+    Typeable a,
+    Typeable (AWSResponse a)
   ) =>
   Env' withAuth ->
   a ->
@@ -90,7 +99,9 @@ sendUnsigned env =
 -- See 'paginate'.
 paginateEither ::
   ( MonadResource m,
-    AWSPager a
+    AWSPager a,
+    Typeable a,
+    Typeable (AWSResponse a)
   ) =>
   Env ->
   a ->
@@ -112,7 +123,9 @@ paginateEither env = go
 -- See 'paginateEither'.
 paginate ::
   ( MonadResource m,
-    AWSPager a
+    AWSPager a,
+    Typeable a,
+    Typeable (AWSResponse a)
   ) =>
   Env ->
   a ->
@@ -126,7 +139,8 @@ paginate env =
 -- See 'await'.
 awaitEither ::
   ( MonadResource m,
-    AWSRequest a
+    AWSRequest a,
+    Typeable a
   ) =>
   Env ->
   Waiter.Wait a ->
@@ -143,7 +157,8 @@ awaitEither env wait =
 -- See 'awaitEither'.
 await ::
   ( MonadResource m,
-    AWSRequest a
+    AWSRequest a,
+    Typeable a
   ) =>
   Env ->
   Waiter.Wait a ->

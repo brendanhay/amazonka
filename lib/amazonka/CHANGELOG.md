@@ -106,6 +106,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka`: The `override :: Dual (Endo Service)` has been replaced by `overrides :: Service -> Service`.
+[\#870](https://github.com/brendanhay/amazonka/pull/870)
 - `amazonka-core`: `Endpoint` now has a `basePath :: RawPath`. Handy with `amazonka-apigatewaymanagementapi`.
 [\#869](https://github.com/brendanhay/amazonka/pull/869)
 - `amazonka-core`: Parse more timezone names than just `"GMT"`, per RFC822

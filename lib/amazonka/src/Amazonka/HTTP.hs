@@ -165,7 +165,7 @@ retryStream Request {body} =
 
 retryService :: Service -> Retry.RetryPolicy
 retryService Service {retry = Exponential {..}} =
-  Retry.limitRetries attempts <> Retry.RetryPolicyM (return . delay)
+  Retry.limitRetries attempts <> Retry.RetryPolicyM (pure . delay)
   where
     delay (Retry.rsIterNumber -> n)
       | n >= 0 = Just $ truncate (grow * 1000000)

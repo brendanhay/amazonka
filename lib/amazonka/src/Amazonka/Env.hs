@@ -51,8 +51,14 @@ import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 import System.Environment as Environment
 
+-- | An environment with auth credentials. Most AWS requests need one
+-- of these, and you can create one with 'Amazonka.Env.newEnv'
 type Env = Env' Identity
 
+-- | An environment with no auth credentials. Used for certain
+-- requests which need to be unsigned, like
+-- @sts:AssumeRoleWithWebIdentity@, and you can create one with
+-- 'Amazonka.Env.newEnvNoAuth' if you need it.
 type EnvNoAuth = Env' Proxy
 
 -- | The environment containing the parameters required to make AWS requests.
@@ -114,7 +120,7 @@ env_auth f e@Env {auth} = f auth <&> \auth' -> e {auth = auth'}
 -- /See:/ 'newEnvFromManager'.
 newEnv ::
   MonadIO m =>
-  -- | Credential discovery mechanism.
+  -- | Credential discovery mechanism, often 'Amazonka.Auth.discover'.
   (EnvNoAuth -> m Env) ->
   m Env
 newEnv = (newEnvNoAuth >>=)

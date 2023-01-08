@@ -294,7 +294,7 @@ perl -pi -e 's/Network\.AWS/Amazonka/g' `find . -type f -name '*.hs'`
 
 ### New libraries
 
-- `amazonka-apigatewaymanagementapi`: API management strategies allow you to monitor and manage APIs in a secure and scalable way. [Overview](https://aws.amazon.com/api-gateway/api-management/)
+- `amazonka-apigatewaymanagementapi`: API for backends to interact with active WebSocket connections on a deployed API Gateway. [Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html)
 - `amazonka-eks`: Amazon Elastic Kubernetes Service (Amazon EKS) is a managed container service to run and scale Kubernetes applications in the cloud or on-premises. [Overview](https://aws.amazon.com/eks/)
 [\#618](https://github.com/brendanhay/amazonka/pull/618)
 - `amazonka-qldb`: Fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log. Owned by a central trusted authority. [Overview](https://aws.amazon.com/qldb/)

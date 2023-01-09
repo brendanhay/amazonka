@@ -7,7 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Error where
 
-import Amazonka.Core.Lens.Internal (Choice, Getting, Optic', filtered)
+import Amazonka.Core.Lens.Internal (Choice, Fold, Optic', filtered)
 import Amazonka.Data
 import Amazonka.Prelude
 import Amazonka.Types
@@ -31,7 +31,7 @@ import Network.HTTP.Types.Status (Status (..))
 -- >
 -- > import Amazonka.S3 (ServiceError, s3)
 -- >
--- > _NoSuchBucketPolicy :: AsError a => Getting (First ServiceError) a ServiceError
+-- > _NoSuchBucketPolicy :: AsError a => Fold a ServiceError
 -- > _NoSuchBucketPolicy = _MatchServiceError s3 "NoSuchBucketPolicy"
 --
 -- With example usage being:
@@ -43,13 +43,13 @@ _MatchServiceError ::
   AsError a =>
   Service ->
   ErrorCode ->
-  Getting (First ServiceError) a ServiceError
+  Fold a ServiceError
 _MatchServiceError s c = _ServiceError . hasService s . hasCode c
 
 statusSuccess :: Status -> Bool
 statusSuccess (statusCode -> n) = n >= 200 && n < 300 || n == 304
 
-_HttpStatus :: AsError a => Getting (First Status) a Status
+_HttpStatus :: AsError a => Traversal' a Status
 _HttpStatus = _Error . f
   where
     f g = \case
@@ -180,7 +180,7 @@ decodeError ::
 decodeError a s h bs e
   | LBS.null bs = parseRESTError a s h bs
   | otherwise =
-    either
-      (SerializeError . SerializeError' a s (Just bs))
-      ServiceError
-      e
+      either
+        (SerializeError . SerializeError' a s (Just bs))
+        ServiceError
+        e

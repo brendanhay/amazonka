@@ -143,8 +143,7 @@ errorS n =
   let cxt = Exts.CxSingle () (Exts.TypeA () $ tycon "Core.AsError" `tyapp` tyvar "a")
       forall = Exts.TyForall () Nothing (Just cxt)
    in Exts.TypeSig () [ident n] . forall $
-        tycon "Lens.Getting"
-          `tyapp` (tyapp (tycon "Prelude.First") (tycon "Core.ServiceError"))
+        tycon "Lens.Fold"
           `tyapp` tyvar "a"
           `tyapp` tycon "Core.ServiceError"
 

@@ -155,6 +155,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
+- `amazonka-s3`: Properly format timestamps
+[\#881](https://github.com/brendanhay/amazonka/pull/881)
 - `amazonka`: Take per-shape `timestampFormat` annotations into account.
 [\#882](https://github.com/brendanhay/amazonka/pull/882)
 - `amazonka-core`: Only consider 2xx and 304 responses as successful

@@ -155,6 +155,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
+- `amazonka`: Take per-shape `timestampFormat` annotations into account.
+[\#882](https://github.com/brendanhay/amazonka/pull/882)
 - `amazonka-core`: Only consider 2xx and 304 responses as successful
 [\#835](https://github.com/brendanhay/amazonka/pull/835)
 - `amazonka-core`: Allow customisation of S3 addressing styles like Boto 3 can (thanks @basvandijk, @ivb-supercede)

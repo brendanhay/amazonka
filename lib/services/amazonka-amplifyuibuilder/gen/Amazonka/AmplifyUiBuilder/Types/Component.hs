@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AmplifyUiBuilder.Types.Component
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@ data Component = Component'
     -- actions to components.
     events :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentEvent),
     -- | The time that the component was modified.
-    modifiedAt :: Prelude.Maybe Data.POSIX,
+    modifiedAt :: Prelude.Maybe Data.ISO8601,
     -- | The schema version of the component when it was imported.
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the component in its original source system, such as
@@ -66,7 +66,7 @@ data Component = Component'
     -- another custom component.
     componentType :: Prelude.Text,
     -- | The time that the component was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The name of the backend environment that is a part of the Amplify app.
     environmentName :: Prelude.Text,
     -- | The unique ID of the component.

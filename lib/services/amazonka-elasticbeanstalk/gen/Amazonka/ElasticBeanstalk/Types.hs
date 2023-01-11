@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ElasticBeanstalk.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -743,7 +743,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | AWS CodeBuild is not available in the specified region.
-_CodeBuildNotInServiceRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CodeBuildNotInServiceRegionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CodeBuildNotInServiceRegionException =
   Core._MatchServiceError
     defaultService
@@ -751,7 +751,7 @@ _CodeBuildNotInServiceRegionException =
     Prelude.. Core.hasStatus 400
 
 -- | A generic service exception has occurred.
-_ElasticBeanstalkServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ElasticBeanstalkServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ElasticBeanstalkServiceException =
   Core._MatchServiceError
     defaultService
@@ -759,7 +759,7 @@ _ElasticBeanstalkServiceException =
 
 -- | The specified account does not have sufficient privileges for one or
 -- more AWS services.
-_InsufficientPrivilegesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientPrivilegesException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InsufficientPrivilegesException =
   Core._MatchServiceError
     defaultService
@@ -768,7 +768,7 @@ _InsufficientPrivilegesException =
 
 -- | One or more input parameters is not valid. Please correct the input
 -- parameters and try the operation again.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -776,7 +776,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Cannot modify the managed action in its current state.
-_ManagedActionInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ManagedActionInvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ManagedActionInvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -785,7 +785,7 @@ _ManagedActionInvalidStateException =
 
 -- | Unable to perform the specified operation because another operation that
 -- effects an element in this activity is already in progress.
-_OperationInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationInProgressException =
   Core._MatchServiceError
     defaultService
@@ -794,7 +794,7 @@ _OperationInProgressException =
 
 -- | You cannot delete the platform version because there are still
 -- environments running on it.
-_PlatformVersionStillReferencedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PlatformVersionStillReferencedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PlatformVersionStillReferencedException =
   Core._MatchServiceError
     defaultService
@@ -802,7 +802,7 @@ _PlatformVersionStillReferencedException =
     Prelude.. Core.hasStatus 400
 
 -- | A resource doesn\'t exist for the specified Amazon Resource Name (ARN).
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -811,7 +811,7 @@ _ResourceNotFoundException =
 
 -- | The type of the specified Amazon Resource Name (ARN) isn\'t supported
 -- for this operation.
-_ResourceTypeNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceTypeNotSupportedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceTypeNotSupportedException =
   Core._MatchServiceError
     defaultService
@@ -826,7 +826,7 @@ _ResourceTypeNotSupportedException =
 -- -   PDX\/us-west-2
 --
 -- -   DUB\/eu-west-1
-_S3LocationNotInServiceRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_S3LocationNotInServiceRegionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _S3LocationNotInServiceRegionException =
   Core._MatchServiceError
     defaultService
@@ -834,7 +834,7 @@ _S3LocationNotInServiceRegionException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified account does not have a subscription to Amazon S3.
-_S3SubscriptionRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_S3SubscriptionRequiredException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _S3SubscriptionRequiredException =
   Core._MatchServiceError
     defaultService
@@ -843,7 +843,7 @@ _S3SubscriptionRequiredException =
 
 -- | Unable to delete the Amazon S3 source bundle associated with the
 -- application version. The application version was deleted successfully.
-_SourceBundleDeletionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SourceBundleDeletionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SourceBundleDeletionException =
   Core._MatchServiceError
     defaultService
@@ -851,14 +851,14 @@ _SourceBundleDeletionException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified account has reached its limit of application versions.
-_TooManyApplicationVersionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyApplicationVersionsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyApplicationVersionsException =
   Core._MatchServiceError
     defaultService
     "TooManyApplicationVersionsException"
 
 -- | The specified account has reached its limit of applications.
-_TooManyApplicationsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyApplicationsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyApplicationsException =
   Core._MatchServiceError
     defaultService
@@ -866,7 +866,7 @@ _TooManyApplicationsException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified account has reached its limit of Amazon S3 buckets.
-_TooManyBucketsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyBucketsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyBucketsException =
   Core._MatchServiceError
     defaultService
@@ -874,7 +874,7 @@ _TooManyBucketsException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified account has reached its limit of configuration templates.
-_TooManyConfigurationTemplatesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyConfigurationTemplatesException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyConfigurationTemplatesException =
   Core._MatchServiceError
     defaultService
@@ -882,7 +882,7 @@ _TooManyConfigurationTemplatesException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified account has reached its limit of environments.
-_TooManyEnvironmentsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyEnvironmentsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyEnvironmentsException =
   Core._MatchServiceError
     defaultService
@@ -891,7 +891,7 @@ _TooManyEnvironmentsException =
 
 -- | You have exceeded the maximum number of allowed platforms associated
 -- with the account.
-_TooManyPlatformsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyPlatformsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyPlatformsException =
   Core._MatchServiceError
     defaultService
@@ -904,7 +904,7 @@ _TooManyPlatformsException =
 -- To calculate this, the operation considers both the number of tags the
 -- resource already has and the tags this operation would add if it
 -- succeeded.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

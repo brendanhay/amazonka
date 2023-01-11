@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.WAFV2.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -980,7 +980,7 @@ defaultService =
 
 -- | WAF couldn’t perform the operation because your resource is being used
 -- by another resource or it’s associated with another resource.
-_WAFAssociatedItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFAssociatedItemException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFAssociatedItemException =
   Core._MatchServiceError
     defaultService
@@ -999,7 +999,7 @@ _WAFAssociatedItemException =
 -- Alternately, you can suppress this warning by adding the following tag
 -- to the resource that you provide to this operation: @Tag@
 -- (key:@WAF:OversizeFieldsHandlingConstraintOptOut@, value:@true@).
-_WAFConfigurationWarningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFConfigurationWarningException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFConfigurationWarningException =
   Core._MatchServiceError
     defaultService
@@ -1007,7 +1007,7 @@ _WAFConfigurationWarningException =
 
 -- | WAF couldn’t perform the operation because the resource that you tried
 -- to save is a duplicate of an existing one.
-_WAFDuplicateItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFDuplicateItemException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFDuplicateItemException =
   Core._MatchServiceError
     defaultService
@@ -1016,7 +1016,7 @@ _WAFDuplicateItemException =
 -- | The operation failed because the specified version for the managed rule
 -- group has expired. You can retrieve the available versions for the
 -- managed rule group by calling ListAvailableManagedRuleGroupVersions.
-_WAFExpiredManagedRuleGroupVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFExpiredManagedRuleGroupVersionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFExpiredManagedRuleGroupVersionException =
   Core._MatchServiceError
     defaultService
@@ -1024,14 +1024,14 @@ _WAFExpiredManagedRuleGroupVersionException =
 
 -- | Your request is valid, but WAF couldn’t perform the operation because of
 -- a system problem. Retry your request.
-_WAFInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFInternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFInternalErrorException =
   Core._MatchServiceError
     defaultService
     "WAFInternalErrorException"
 
 -- | The operation isn\'t valid.
-_WAFInvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFInvalidOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFInvalidOperationException =
   Core._MatchServiceError
     defaultService
@@ -1050,7 +1050,7 @@ _WAFInvalidOperationException =
 --
 -- -   Your request references an ARN that is malformed, or corresponds to
 --     a resource with which a web ACL can\'t be associated.
-_WAFInvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFInvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFInvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -1078,7 +1078,7 @@ _WAFInvalidParameterException =
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html IAM Policies>.
-_WAFInvalidPermissionPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFInvalidPermissionPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFInvalidPermissionPolicyException =
   Core._MatchServiceError
     defaultService
@@ -1086,7 +1086,7 @@ _WAFInvalidPermissionPolicyException =
 
 -- | WAF couldn’t perform the operation because the resource that you
 -- requested isn’t valid. Check the resource, and try again.
-_WAFInvalidResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFInvalidResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFInvalidResourceException =
   Core._MatchServiceError
     defaultService
@@ -1097,7 +1097,7 @@ _WAFInvalidResourceException =
 -- create for an Amazon Web Services account. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
 -- in the /WAF Developer Guide/.
-_WAFLimitsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFLimitsExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFLimitsExceededException =
   Core._MatchServiceError
     defaultService
@@ -1107,7 +1107,7 @@ _WAFLimitsExceededException =
 -- logging configuration requires. For information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html Logging web ACL traffic information>
 -- in the /WAF Developer Guide/.
-_WAFLogDestinationPermissionIssueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFLogDestinationPermissionIssueException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFLogDestinationPermissionIssueException =
   Core._MatchServiceError
     defaultService
@@ -1117,7 +1117,7 @@ _WAFLogDestinationPermissionIssueException =
 -- If you\'ve just created a resource that you\'re using in this operation,
 -- you might just need to wait a few minutes. It can take from a few
 -- seconds to a number of minutes for changes to propagate.
-_WAFNonexistentItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFNonexistentItemException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFNonexistentItemException =
   Core._MatchServiceError
     defaultService
@@ -1127,7 +1127,7 @@ _WAFNonexistentItemException =
 -- resource that has changed since you last retrieved it. Get the resource
 -- again, make any changes you need to make to the new copy, and retry your
 -- operation.
-_WAFOptimisticLockException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFOptimisticLockException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFOptimisticLockException =
   Core._MatchServiceError
     defaultService
@@ -1142,7 +1142,7 @@ _WAFOptimisticLockException =
 -- @DeleteServiceLinkedRole@, wait at least 15 minutes and try the request
 -- again. If you receive this same exception again, you will have to wait
 -- additional time until the role is unlocked.
-_WAFServiceLinkedRoleErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFServiceLinkedRoleErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFServiceLinkedRoleErrorException =
   Core._MatchServiceError
     defaultService
@@ -1150,14 +1150,14 @@ _WAFServiceLinkedRoleErrorException =
 
 -- | You tried to use a managed rule group that\'s available by subscription,
 -- but you aren\'t subscribed to it yet.
-_WAFSubscriptionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFSubscriptionNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFSubscriptionNotFoundException =
   Core._MatchServiceError
     defaultService
     "WAFSubscriptionNotFoundException"
 
 -- | An error occurred during the tagging operation. Retry your request.
-_WAFTagOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFTagOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFTagOperationException =
   Core._MatchServiceError
     defaultService
@@ -1165,7 +1165,7 @@ _WAFTagOperationException =
 
 -- | WAF couldn’t perform your tagging operation because of an internal
 -- error. Retry your request.
-_WAFTagOperationInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFTagOperationInternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFTagOperationInternalErrorException =
   Core._MatchServiceError
     defaultService
@@ -1177,7 +1177,7 @@ _WAFTagOperationInternalErrorException =
 -- seconds to a number of minutes for changes to propagate. Verify the
 -- resources that you are specifying in your request parameters and then
 -- retry the operation.
-_WAFUnavailableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFUnavailableEntityException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WAFUnavailableEntityException =
   Core._MatchServiceError
     defaultService

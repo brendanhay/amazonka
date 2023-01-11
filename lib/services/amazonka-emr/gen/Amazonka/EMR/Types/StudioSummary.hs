@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.Types.StudioSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStudioSummary' smart constructor.
 data StudioSummary = StudioSummary'
-  { -- | Specifies whether the Studio authenticates users using IAM or Amazon Web
-    -- Services SSO.
+  { -- | Specifies whether the Studio authenticates users using IAM or IAM
+    -- Identity Center.
     authMode :: Prelude.Maybe AuthMode,
     -- | The time when the Amazon EMR Studio was created.
     creationTime :: Prelude.Maybe Data.POSIX,
@@ -58,8 +58,8 @@ data StudioSummary = StudioSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authMode', 'studioSummary_authMode' - Specifies whether the Studio authenticates users using IAM or Amazon Web
--- Services SSO.
+-- 'authMode', 'studioSummary_authMode' - Specifies whether the Studio authenticates users using IAM or IAM
+-- Identity Center.
 --
 -- 'creationTime', 'studioSummary_creationTime' - The time when the Amazon EMR Studio was created.
 --
@@ -86,8 +86,8 @@ newStudioSummary =
       vpcId = Prelude.Nothing
     }
 
--- | Specifies whether the Studio authenticates users using IAM or Amazon Web
--- Services SSO.
+-- | Specifies whether the Studio authenticates users using IAM or IAM
+-- Identity Center.
 studioSummary_authMode :: Lens.Lens' StudioSummary (Prelude.Maybe AuthMode)
 studioSummary_authMode = Lens.lens (\StudioSummary' {authMode} -> authMode) (\s@StudioSummary' {} a -> s {authMode = a} :: StudioSummary)
 

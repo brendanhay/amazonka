@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.Types.VolumeSpecification
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,8 @@ data VolumeSpecification = VolumeSpecification'
     -- | The throughput, in mebibyte per second (MiB\/s). This optional parameter
     -- can be a number from 125 - 1000 and is valid only for gp3 volumes.
     throughput :: Prelude.Maybe Prelude.Natural,
-    -- | The volume type. Volume types supported are gp2, io1, and standard.
+    -- | The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and
+    -- standard.
     volumeType :: Prelude.Text,
     -- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024.
     -- If the volume type is EBS-optimized, the minimum value is 10.
@@ -58,7 +59,8 @@ data VolumeSpecification = VolumeSpecification'
 -- 'throughput', 'volumeSpecification_throughput' - The throughput, in mebibyte per second (MiB\/s). This optional parameter
 -- can be a number from 125 - 1000 and is valid only for gp3 volumes.
 --
--- 'volumeType', 'volumeSpecification_volumeType' - The volume type. Volume types supported are gp2, io1, and standard.
+-- 'volumeType', 'volumeSpecification_volumeType' - The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and
+-- standard.
 --
 -- 'sizeInGB', 'volumeSpecification_sizeInGB' - The volume size, in gibibytes (GiB). This can be a number from 1 - 1024.
 -- If the volume type is EBS-optimized, the minimum value is 10.
@@ -86,7 +88,8 @@ volumeSpecification_iops = Lens.lens (\VolumeSpecification' {iops} -> iops) (\s@
 volumeSpecification_throughput :: Lens.Lens' VolumeSpecification (Prelude.Maybe Prelude.Natural)
 volumeSpecification_throughput = Lens.lens (\VolumeSpecification' {throughput} -> throughput) (\s@VolumeSpecification' {} a -> s {throughput = a} :: VolumeSpecification)
 
--- | The volume type. Volume types supported are gp2, io1, and standard.
+-- | The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and
+-- standard.
 volumeSpecification_volumeType :: Lens.Lens' VolumeSpecification Prelude.Text
 volumeSpecification_volumeType = Lens.lens (\VolumeSpecification' {volumeType} -> volumeType) (\s@VolumeSpecification' {} a -> s {volumeType = a} :: VolumeSpecification)
 

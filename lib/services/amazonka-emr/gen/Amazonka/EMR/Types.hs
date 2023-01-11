@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -299,6 +299,11 @@ module Amazonka.EMR.Types
     configuration_classification,
     configuration_configurations,
     configuration_properties,
+
+    -- * Credentials
+    Credentials (..),
+    newCredentials,
+    credentials_usernamePassword,
 
     -- * EbsBlockDevice
     EbsBlockDevice (..),
@@ -850,6 +855,12 @@ module Amazonka.EMR.Types
     tag_key,
     tag_value,
 
+    -- * UsernamePassword
+    UsernamePassword (..),
+    newUsernamePassword,
+    usernamePassword_password,
+    usernamePassword_username,
+
     -- * VolumeSpecification
     VolumeSpecification (..),
     newVolumeSpecification,
@@ -891,6 +902,7 @@ import Amazonka.EMR.Types.ComparisonOperator
 import Amazonka.EMR.Types.ComputeLimits
 import Amazonka.EMR.Types.ComputeLimitsUnitType
 import Amazonka.EMR.Types.Configuration
+import Amazonka.EMR.Types.Credentials
 import Amazonka.EMR.Types.EbsBlockDevice
 import Amazonka.EMR.Types.EbsBlockDeviceConfig
 import Amazonka.EMR.Types.EbsConfiguration
@@ -984,6 +996,7 @@ import Amazonka.EMR.Types.StudioSummary
 import Amazonka.EMR.Types.SupportedProductConfig
 import Amazonka.EMR.Types.Tag
 import Amazonka.EMR.Types.Unit
+import Amazonka.EMR.Types.UsernamePassword
 import Amazonka.EMR.Types.VolumeSpecification
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -1060,7 +1073,7 @@ defaultService =
 
 -- | Indicates that an error occurred while processing the request and that
 -- the request was not completed.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -1068,14 +1081,14 @@ _InternalServerError =
 
 -- | This exception occurs when there is an internal failure in the Amazon
 -- EMR service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
 
 -- | This exception occurs when there is something wrong with user input.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService

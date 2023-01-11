@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.Types.SessionMappingDetail
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,7 +38,7 @@ data SessionMappingDetail = SessionMappingDetail'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /Amazon Web Services SSO Identity Store API Reference/.
+    -- in the /IAM Identity Center Identity Store API Reference/.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the identity mapped to the Amazon EMR Studio is a user
     -- or a group.
@@ -69,7 +69,7 @@ data SessionMappingDetail = SessionMappingDetail'
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/.
+-- in the /IAM Identity Center Identity Store API Reference/.
 --
 -- 'identityType', 'sessionMappingDetail_identityType' - Specifies whether the identity mapped to the Amazon EMR Studio is a user
 -- or a group.
@@ -106,7 +106,7 @@ sessionMappingDetail_identityId = Lens.lens (\SessionMappingDetail' {identityId}
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/.
+-- in the /IAM Identity Center Identity Store API Reference/.
 sessionMappingDetail_identityName :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
 sessionMappingDetail_identityName = Lens.lens (\SessionMappingDetail' {identityName} -> identityName) (\s@SessionMappingDetail' {} a -> s {identityName = a} :: SessionMappingDetail)
 

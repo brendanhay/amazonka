@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.RunJobFlow
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,12 +39,9 @@
 -- complex, you may require more than 256 steps to process your data. You
 -- can bypass the 256-step limitation in various ways, including using the
 -- SSH shell to connect to the master node and submitting queries directly
--- to the software running on the master node, such as Hive and Hadoop. For
--- more information on how to do this, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Cluster>
--- in the /Amazon EMR Management Guide/.
+-- to the software running on the master node, such as Hive and Hadoop.
 --
--- For long running clusters, we recommend that you periodically store your
+-- For long-running clusters, we recommend that you periodically store your
 -- results.
 --
 -- The instance fleets configuration is available only in Amazon EMR
@@ -243,7 +240,9 @@ data RunJobFlow = RunJobFlow'
     -- | The name of a security configuration to apply to the cluster.
     securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that Amazon EMR assumes in order to access Amazon Web
-    -- Services resources on your behalf.
+    -- Services resources on your behalf. If you\'ve created a custom service
+    -- role path, you must specify it for the service role when you launch your
+    -- cluster.
     serviceRole :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of steps that can be executed concurrently. The
     -- default value is @1@. The maximum value is @256@.
@@ -431,7 +430,9 @@ data RunJobFlow = RunJobFlow'
 -- 'securityConfiguration', 'runJobFlow_securityConfiguration' - The name of a security configuration to apply to the cluster.
 --
 -- 'serviceRole', 'runJobFlow_serviceRole' - The IAM role that Amazon EMR assumes in order to access Amazon Web
--- Services resources on your behalf.
+-- Services resources on your behalf. If you\'ve created a custom service
+-- role path, you must specify it for the service role when you launch your
+-- cluster.
 --
 -- 'stepConcurrencyLevel', 'runJobFlow_stepConcurrencyLevel' - Specifies the number of steps that can be executed concurrently. The
 -- default value is @1@. The maximum value is @256@.
@@ -688,7 +689,9 @@ runJobFlow_securityConfiguration :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude
 runJobFlow_securityConfiguration = Lens.lens (\RunJobFlow' {securityConfiguration} -> securityConfiguration) (\s@RunJobFlow' {} a -> s {securityConfiguration = a} :: RunJobFlow)
 
 -- | The IAM role that Amazon EMR assumes in order to access Amazon Web
--- Services resources on your behalf.
+-- Services resources on your behalf. If you\'ve created a custom service
+-- role path, you must specify it for the service role when you launch your
+-- cluster.
 runJobFlow_serviceRole :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
 runJobFlow_serviceRole = Lens.lens (\RunJobFlow' {serviceRole} -> serviceRole) (\s@RunJobFlow' {} a -> s {serviceRole = a} :: RunJobFlow)
 

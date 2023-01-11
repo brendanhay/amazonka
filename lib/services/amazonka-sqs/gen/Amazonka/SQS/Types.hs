@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SQS.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -222,7 +222,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Two or more batch entries in the request have the same @Id@.
-_BatchEntryIdsNotDistinct :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchEntryIdsNotDistinct :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BatchEntryIdsNotDistinct =
   Core._MatchServiceError
     defaultService
@@ -230,7 +230,7 @@ _BatchEntryIdsNotDistinct =
     Prelude.. Core.hasStatus 400
 
 -- | The length of all the messages put together is more than the limit.
-_BatchRequestTooLong :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchRequestTooLong :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BatchRequestTooLong =
   Core._MatchServiceError
     defaultService
@@ -238,7 +238,7 @@ _BatchRequestTooLong =
     Prelude.. Core.hasStatus 400
 
 -- | The batch request doesn\'t contain any entries.
-_EmptyBatchRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EmptyBatchRequest :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EmptyBatchRequest =
   Core._MatchServiceError
     defaultService
@@ -246,7 +246,7 @@ _EmptyBatchRequest =
     Prelude.. Core.hasStatus 400
 
 -- | The specified attribute doesn\'t exist.
-_InvalidAttributeName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAttributeName :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAttributeName =
   Core._MatchServiceError
     defaultService
@@ -254,7 +254,7 @@ _InvalidAttributeName =
 
 -- | The @Id@ of a batch entry in a batch request doesn\'t abide by the
 -- specification.
-_InvalidBatchEntryId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidBatchEntryId :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidBatchEntryId =
   Core._MatchServiceError
     defaultService
@@ -262,21 +262,21 @@ _InvalidBatchEntryId =
     Prelude.. Core.hasStatus 400
 
 -- | The specified receipt handle isn\'t valid for the current version.
-_InvalidIdFormat :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidIdFormat :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidIdFormat =
   Core._MatchServiceError
     defaultService
     "InvalidIdFormat"
 
 -- | The message contains characters outside the allowed set.
-_InvalidMessageContents :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidMessageContents :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidMessageContents =
   Core._MatchServiceError
     defaultService
     "InvalidMessageContents"
 
 -- | The specified message isn\'t in flight.
-_MessageNotInflight :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MessageNotInflight :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MessageNotInflight =
   Core._MatchServiceError
     defaultService
@@ -287,7 +287,7 @@ _MessageNotInflight =
 -- returns this error if the maximum number of inflight messages is reached
 -- and @AddPermission@ returns this error if the maximum number of
 -- permissions for the queue is reached.
-_OverLimit :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OverLimit :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OverLimit =
   Core._MatchServiceError defaultService "OverLimit"
     Prelude.. Core.hasStatus 403
@@ -295,7 +295,7 @@ _OverLimit =
 -- | Indicates that the specified queue previously received a @PurgeQueue@
 -- request within the last 60 seconds (the time it can take to delete the
 -- messages in the queue).
-_PurgeQueueInProgress :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PurgeQueueInProgress :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PurgeQueueInProgress =
   Core._MatchServiceError
     defaultService
@@ -304,7 +304,7 @@ _PurgeQueueInProgress =
 
 -- | You must wait 60 seconds after deleting a queue before you can create
 -- another queue with the same name.
-_QueueDeletedRecently :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueueDeletedRecently :: Core.AsError a => Lens.Fold a Core.ServiceError
 _QueueDeletedRecently =
   Core._MatchServiceError
     defaultService
@@ -312,7 +312,7 @@ _QueueDeletedRecently =
     Prelude.. Core.hasStatus 400
 
 -- | The specified queue doesn\'t exist.
-_QueueDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueueDoesNotExist :: Core.AsError a => Lens.Fold a Core.ServiceError
 _QueueDoesNotExist =
   Core._MatchServiceError
     defaultService
@@ -322,7 +322,7 @@ _QueueDoesNotExist =
 -- | A queue with this name already exists. Amazon SQS returns this error
 -- only if the request includes attributes whose values differ from those
 -- of the existing queue.
-_QueueNameExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueueNameExists :: Core.AsError a => Lens.Fold a Core.ServiceError
 _QueueNameExists =
   Core._MatchServiceError
     defaultService
@@ -330,14 +330,14 @@ _QueueNameExists =
     Prelude.. Core.hasStatus 400
 
 -- | The specified receipt handle isn\'t valid.
-_ReceiptHandleIsInvalid :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReceiptHandleIsInvalid :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ReceiptHandleIsInvalid =
   Core._MatchServiceError
     defaultService
     "ReceiptHandleIsInvalid"
 
 -- | The batch request contains more entries than permissible.
-_TooManyEntriesInBatchRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyEntriesInBatchRequest :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyEntriesInBatchRequest =
   Core._MatchServiceError
     defaultService
@@ -345,7 +345,7 @@ _TooManyEntriesInBatchRequest =
     Prelude.. Core.hasStatus 400
 
 -- | Error code 400. Unsupported operation.
-_UnsupportedOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperation :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedOperation =
   Core._MatchServiceError
     defaultService

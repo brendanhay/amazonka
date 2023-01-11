@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.Types.Permission
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- renew private certificates, you must give the ACM service principal all
 -- available permissions (@IssueCertificate@, @GetCertificate@, and
 -- @ListPermissions@). Permissions can be assigned with the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreatePermission.html CreatePermission>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreatePermission.html CreatePermission>
 -- action, removed with the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePermission.html DeletePermission>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html DeletePermission>
 -- action, and listed with the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListPermissions.html ListPermissions>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html ListPermissions>
 -- action.
 --
 -- /See:/ 'newPermission' smart constructor.

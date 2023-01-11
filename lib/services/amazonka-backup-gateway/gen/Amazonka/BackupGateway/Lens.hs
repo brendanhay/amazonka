@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,10 +43,28 @@ module Amazonka.BackupGateway.Lens
     disassociateGatewayFromServerResponse_gatewayArn,
     disassociateGatewayFromServerResponse_httpStatus,
 
+    -- ** GetBandwidthRateLimitSchedule
+    getBandwidthRateLimitSchedule_gatewayArn,
+    getBandwidthRateLimitScheduleResponse_bandwidthRateLimitIntervals,
+    getBandwidthRateLimitScheduleResponse_gatewayArn,
+    getBandwidthRateLimitScheduleResponse_httpStatus,
+
     -- ** GetGateway
     getGateway_gatewayArn,
     getGatewayResponse_gateway,
     getGatewayResponse_httpStatus,
+
+    -- ** GetHypervisor
+    getHypervisor_hypervisorArn,
+    getHypervisorResponse_hypervisor,
+    getHypervisorResponse_httpStatus,
+
+    -- ** GetHypervisorPropertyMappings
+    getHypervisorPropertyMappings_hypervisorArn,
+    getHypervisorPropertyMappingsResponse_hypervisorArn,
+    getHypervisorPropertyMappingsResponse_iamRoleArn,
+    getHypervisorPropertyMappingsResponse_vmwareToAwsTagMappings,
+    getHypervisorPropertyMappingsResponse_httpStatus,
 
     -- ** GetVirtualMachine
     getVirtualMachine_resourceArn,
@@ -91,6 +109,19 @@ module Amazonka.BackupGateway.Lens
     listVirtualMachinesResponse_virtualMachines,
     listVirtualMachinesResponse_httpStatus,
 
+    -- ** PutBandwidthRateLimitSchedule
+    putBandwidthRateLimitSchedule_bandwidthRateLimitIntervals,
+    putBandwidthRateLimitSchedule_gatewayArn,
+    putBandwidthRateLimitScheduleResponse_gatewayArn,
+    putBandwidthRateLimitScheduleResponse_httpStatus,
+
+    -- ** PutHypervisorPropertyMappings
+    putHypervisorPropertyMappings_hypervisorArn,
+    putHypervisorPropertyMappings_iamRoleArn,
+    putHypervisorPropertyMappings_vmwareToAwsTagMappings,
+    putHypervisorPropertyMappingsResponse_hypervisorArn,
+    putHypervisorPropertyMappingsResponse_httpStatus,
+
     -- ** PutMaintenanceStartTime
     putMaintenanceStartTime_dayOfMonth,
     putMaintenanceStartTime_dayOfWeek,
@@ -99,6 +130,11 @@ module Amazonka.BackupGateway.Lens
     putMaintenanceStartTime_minuteOfHour,
     putMaintenanceStartTimeResponse_gatewayArn,
     putMaintenanceStartTimeResponse_httpStatus,
+
+    -- ** StartVirtualMachinesMetadataSync
+    startVirtualMachinesMetadataSync_hypervisorArn,
+    startVirtualMachinesMetadataSyncResponse_hypervisorArn,
+    startVirtualMachinesMetadataSyncResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceARN,
@@ -132,6 +168,7 @@ module Amazonka.BackupGateway.Lens
 
     -- ** UpdateHypervisor
     updateHypervisor_host,
+    updateHypervisor_logGroupArn,
     updateHypervisor_name,
     updateHypervisor_password,
     updateHypervisor_username,
@@ -140,6 +177,14 @@ module Amazonka.BackupGateway.Lens
     updateHypervisorResponse_httpStatus,
 
     -- * Types
+
+    -- ** BandwidthRateLimitInterval
+    bandwidthRateLimitInterval_averageUploadRateLimitInBitsPerSec,
+    bandwidthRateLimitInterval_daysOfWeek,
+    bandwidthRateLimitInterval_endHourOfDay,
+    bandwidthRateLimitInterval_endMinuteOfHour,
+    bandwidthRateLimitInterval_startHourOfDay,
+    bandwidthRateLimitInterval_startMinuteOfHour,
 
     -- ** Gateway
     gateway_gatewayArn,
@@ -164,6 +209,17 @@ module Amazonka.BackupGateway.Lens
     hypervisor_kmsKeyArn,
     hypervisor_name,
     hypervisor_state,
+
+    -- ** HypervisorDetails
+    hypervisorDetails_host,
+    hypervisorDetails_hypervisorArn,
+    hypervisorDetails_kmsKeyArn,
+    hypervisorDetails_lastSuccessfulMetadataSyncTime,
+    hypervisorDetails_latestMetadataSyncStatus,
+    hypervisorDetails_latestMetadataSyncStatusMessage,
+    hypervisorDetails_logGroupArn,
+    hypervisorDetails_name,
+    hypervisorDetails_state,
 
     -- ** MaintenanceStartTime
     maintenanceStartTime_dayOfMonth,
@@ -190,6 +246,18 @@ module Amazonka.BackupGateway.Lens
     virtualMachineDetails_name,
     virtualMachineDetails_path,
     virtualMachineDetails_resourceArn,
+    virtualMachineDetails_vmwareTags,
+
+    -- ** VmwareTag
+    vmwareTag_vmwareCategory,
+    vmwareTag_vmwareTagDescription,
+    vmwareTag_vmwareTagName,
+
+    -- ** VmwareToAwsTagMapping
+    vmwareToAwsTagMapping_awsTagKey,
+    vmwareToAwsTagMapping_awsTagValue,
+    vmwareToAwsTagMapping_vmwareCategory,
+    vmwareToAwsTagMapping_vmwareTagName,
   )
 where
 
@@ -198,23 +266,33 @@ import Amazonka.BackupGateway.CreateGateway
 import Amazonka.BackupGateway.DeleteGateway
 import Amazonka.BackupGateway.DeleteHypervisor
 import Amazonka.BackupGateway.DisassociateGatewayFromServer
+import Amazonka.BackupGateway.GetBandwidthRateLimitSchedule
 import Amazonka.BackupGateway.GetGateway
+import Amazonka.BackupGateway.GetHypervisor
+import Amazonka.BackupGateway.GetHypervisorPropertyMappings
 import Amazonka.BackupGateway.GetVirtualMachine
 import Amazonka.BackupGateway.ImportHypervisorConfiguration
 import Amazonka.BackupGateway.ListGateways
 import Amazonka.BackupGateway.ListHypervisors
 import Amazonka.BackupGateway.ListTagsForResource
 import Amazonka.BackupGateway.ListVirtualMachines
+import Amazonka.BackupGateway.PutBandwidthRateLimitSchedule
+import Amazonka.BackupGateway.PutHypervisorPropertyMappings
 import Amazonka.BackupGateway.PutMaintenanceStartTime
+import Amazonka.BackupGateway.StartVirtualMachinesMetadataSync
 import Amazonka.BackupGateway.TagResource
 import Amazonka.BackupGateway.TestHypervisorConfiguration
+import Amazonka.BackupGateway.Types.BandwidthRateLimitInterval
 import Amazonka.BackupGateway.Types.Gateway
 import Amazonka.BackupGateway.Types.GatewayDetails
 import Amazonka.BackupGateway.Types.Hypervisor
+import Amazonka.BackupGateway.Types.HypervisorDetails
 import Amazonka.BackupGateway.Types.MaintenanceStartTime
 import Amazonka.BackupGateway.Types.Tag
 import Amazonka.BackupGateway.Types.VirtualMachine
 import Amazonka.BackupGateway.Types.VirtualMachineDetails
+import Amazonka.BackupGateway.Types.VmwareTag
+import Amazonka.BackupGateway.Types.VmwareToAwsTagMapping
 import Amazonka.BackupGateway.UntagResource
 import Amazonka.BackupGateway.UpdateGatewayInformation
 import Amazonka.BackupGateway.UpdateGatewaySoftwareNow

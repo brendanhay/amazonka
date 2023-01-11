@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListEulas
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List Eulas.
+-- List EULAs.
 --
 -- This operation returns paginated results.
 module Amazonka.Nimble.ListEulas
@@ -55,7 +55,8 @@ import qualified Amazonka.Response as Response
 data ListEulas = ListEulas'
   { -- | The list of EULA IDs that should be returned
     eulaIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to request the next page of results.
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +71,8 @@ data ListEulas = ListEulas'
 --
 -- 'eulaIds', 'listEulas_eulaIds' - The list of EULA IDs that should be returned
 --
--- 'nextToken', 'listEulas_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'listEulas_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 newListEulas ::
   ListEulas
 newListEulas =
@@ -83,7 +85,8 @@ newListEulas =
 listEulas_eulaIds :: Lens.Lens' ListEulas (Prelude.Maybe [Prelude.Text])
 listEulas_eulaIds = Lens.lens (\ListEulas' {eulaIds} -> eulaIds) (\s@ListEulas' {} a -> s {eulaIds = a} :: ListEulas) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to request the next page of results.
+-- | The token for the next set of results, or null if there are no more
+-- results.
 listEulas_nextToken :: Lens.Lens' ListEulas (Prelude.Maybe Prelude.Text)
 listEulas_nextToken = Lens.lens (\ListEulas' {nextToken} -> nextToken) (\s@ListEulas' {} a -> s {nextToken = a} :: ListEulas)
 

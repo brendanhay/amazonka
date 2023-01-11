@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.AssetEntry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,7 @@ data AssetEntry = AssetEntry'
     -- | The type of asset that is added to a data set.
     assetType :: AssetType,
     -- | The date and time that the asset was created, in ISO 8601 format.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The unique identifier for the data set associated with this asset.
     dataSetId :: Prelude.Text,
     -- | The unique identifier for the asset.
@@ -67,7 +67,7 @@ data AssetEntry = AssetEntry'
     -- | The unique identifier for the revision associated with this asset.
     revisionId :: Prelude.Text,
     -- | The date and time that the asset was last updated, in ISO 8601 format.
-    updatedAt :: Data.POSIX
+    updatedAt :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

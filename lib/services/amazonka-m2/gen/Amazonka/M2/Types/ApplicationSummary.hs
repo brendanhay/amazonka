@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.ApplicationSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,16 +33,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
-  { -- | Indicates whether there is an ongoing deployment or if the application
-    -- has ever deployed successfully.
+  { -- | Indicates either an ongoing deployment or if the application has ever
+    -- deployed successfully.
     deploymentStatus :: Prelude.Maybe ApplicationDeploymentLifecycle,
     -- | The description of the application.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the runtime environment that hosts this
     -- application.
     environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the application was last started. Null until the
-    -- application has started running for the first time.
+    -- | The timestamp when you last started the application. Null until the
+    -- application runs for the first time.
     lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the status of the latest version of the application.
     versionStatus :: Prelude.Maybe ApplicationVersionLifecycle,
@@ -71,16 +71,16 @@ data ApplicationSummary = ApplicationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentStatus', 'applicationSummary_deploymentStatus' - Indicates whether there is an ongoing deployment or if the application
--- has ever deployed successfully.
+-- 'deploymentStatus', 'applicationSummary_deploymentStatus' - Indicates either an ongoing deployment or if the application has ever
+-- deployed successfully.
 --
 -- 'description', 'applicationSummary_description' - The description of the application.
 --
 -- 'environmentId', 'applicationSummary_environmentId' - The unique identifier of the runtime environment that hosts this
 -- application.
 --
--- 'lastStartTime', 'applicationSummary_lastStartTime' - The timestamp when the application was last started. Null until the
--- application has started running for the first time.
+-- 'lastStartTime', 'applicationSummary_lastStartTime' - The timestamp when you last started the application. Null until the
+-- application runs for the first time.
 --
 -- 'versionStatus', 'applicationSummary_versionStatus' - Indicates the status of the latest version of the application.
 --
@@ -137,8 +137,8 @@ newApplicationSummary
         status = pStatus_
       }
 
--- | Indicates whether there is an ongoing deployment or if the application
--- has ever deployed successfully.
+-- | Indicates either an ongoing deployment or if the application has ever
+-- deployed successfully.
 applicationSummary_deploymentStatus :: Lens.Lens' ApplicationSummary (Prelude.Maybe ApplicationDeploymentLifecycle)
 applicationSummary_deploymentStatus = Lens.lens (\ApplicationSummary' {deploymentStatus} -> deploymentStatus) (\s@ApplicationSummary' {} a -> s {deploymentStatus = a} :: ApplicationSummary)
 
@@ -151,8 +151,8 @@ applicationSummary_description = Lens.lens (\ApplicationSummary' {description} -
 applicationSummary_environmentId :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
 applicationSummary_environmentId = Lens.lens (\ApplicationSummary' {environmentId} -> environmentId) (\s@ApplicationSummary' {} a -> s {environmentId = a} :: ApplicationSummary)
 
--- | The timestamp when the application was last started. Null until the
--- application has started running for the first time.
+-- | The timestamp when you last started the application. Null until the
+-- application runs for the first time.
 applicationSummary_lastStartTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.UTCTime)
 applicationSummary_lastStartTime = Lens.lens (\ApplicationSummary' {lastStartTime} -> lastStartTime) (\s@ApplicationSummary' {} a -> s {lastStartTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Data._Time
 

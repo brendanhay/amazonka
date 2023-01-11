@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.OriginShield
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,10 +48,10 @@ data OriginShield = OriginShield'
     originShieldRegion :: Prelude.Maybe Prelude.Text,
     -- | A flag that specifies whether Origin Shield is enabled.
     --
-    -- When it’s enabled, CloudFront routes all requests through Origin Shield,
-    -- which can help protect your origin. When it’s disabled, CloudFront might
-    -- send requests directly to your origin from multiple edge locations or
-    -- regional edge caches.
+    -- When it\'s enabled, CloudFront routes all requests through Origin
+    -- Shield, which can help protect your origin. When it\'s disabled,
+    -- CloudFront might send requests directly to your origin from multiple
+    -- edge locations or regional edge caches.
     enabled :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,10 +79,10 @@ data OriginShield = OriginShield'
 --
 -- 'enabled', 'originShield_enabled' - A flag that specifies whether Origin Shield is enabled.
 --
--- When it’s enabled, CloudFront routes all requests through Origin Shield,
--- which can help protect your origin. When it’s disabled, CloudFront might
--- send requests directly to your origin from multiple edge locations or
--- regional edge caches.
+-- When it\'s enabled, CloudFront routes all requests through Origin
+-- Shield, which can help protect your origin. When it\'s disabled,
+-- CloudFront might send requests directly to your origin from multiple
+-- edge locations or regional edge caches.
 newOriginShield ::
   -- | 'enabled'
   Prelude.Bool ->
@@ -110,10 +110,10 @@ originShield_originShieldRegion = Lens.lens (\OriginShield' {originShieldRegion}
 
 -- | A flag that specifies whether Origin Shield is enabled.
 --
--- When it’s enabled, CloudFront routes all requests through Origin Shield,
--- which can help protect your origin. When it’s disabled, CloudFront might
--- send requests directly to your origin from multiple edge locations or
--- regional edge caches.
+-- When it\'s enabled, CloudFront routes all requests through Origin
+-- Shield, which can help protect your origin. When it\'s disabled,
+-- CloudFront might send requests directly to your origin from multiple
+-- edge locations or regional edge caches.
 originShield_enabled :: Lens.Lens' OriginShield Prelude.Bool
 originShield_enabled = Lens.lens (\OriginShield' {enabled} -> enabled) (\s@OriginShield' {} a -> s {enabled = a} :: OriginShield)
 

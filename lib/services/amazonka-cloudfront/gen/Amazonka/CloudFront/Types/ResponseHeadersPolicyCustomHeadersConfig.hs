@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeadersConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A list of HTTP response header names and their values. CloudFront
 -- includes these headers in HTTP responses that it sends for requests that
--- match a cache behavior that’s associated with this response headers
+-- match a cache behavior that\'s associated with this response headers
 -- policy.
 --
 -- /See:/ 'newResponseHeadersPolicyCustomHeadersConfig' smart constructor.

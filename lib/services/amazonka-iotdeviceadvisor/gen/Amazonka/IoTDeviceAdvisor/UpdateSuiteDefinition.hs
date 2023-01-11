@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,8 @@ module Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition
     newUpdateSuiteDefinition,
 
     -- * Request Lenses
-    updateSuiteDefinition_suiteDefinitionConfiguration,
     updateSuiteDefinition_suiteDefinitionId,
+    updateSuiteDefinition_suiteDefinitionConfiguration,
 
     -- * Destructuring the Response
     UpdateSuiteDefinitionResponse (..),
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSuiteDefinition' smart constructor.
 data UpdateSuiteDefinition = UpdateSuiteDefinition'
-  { -- | Updates a Device Advisor test suite with suite definition configuration.
-    suiteDefinitionConfiguration :: Prelude.Maybe SuiteDefinitionConfiguration,
-    -- | Suite definition ID of the test suite to be updated.
-    suiteDefinitionId :: Prelude.Text
+  { -- | Suite definition ID of the test suite to be updated.
+    suiteDefinitionId :: Prelude.Text,
+    -- | Updates a Device Advisor test suite with suite definition configuration.
+    suiteDefinitionConfiguration :: SuiteDefinitionConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,27 +74,32 @@ data UpdateSuiteDefinition = UpdateSuiteDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suiteDefinitionConfiguration', 'updateSuiteDefinition_suiteDefinitionConfiguration' - Updates a Device Advisor test suite with suite definition configuration.
---
 -- 'suiteDefinitionId', 'updateSuiteDefinition_suiteDefinitionId' - Suite definition ID of the test suite to be updated.
+--
+-- 'suiteDefinitionConfiguration', 'updateSuiteDefinition_suiteDefinitionConfiguration' - Updates a Device Advisor test suite with suite definition configuration.
 newUpdateSuiteDefinition ::
   -- | 'suiteDefinitionId'
   Prelude.Text ->
+  -- | 'suiteDefinitionConfiguration'
+  SuiteDefinitionConfiguration ->
   UpdateSuiteDefinition
-newUpdateSuiteDefinition pSuiteDefinitionId_ =
-  UpdateSuiteDefinition'
-    { suiteDefinitionConfiguration =
-        Prelude.Nothing,
-      suiteDefinitionId = pSuiteDefinitionId_
-    }
-
--- | Updates a Device Advisor test suite with suite definition configuration.
-updateSuiteDefinition_suiteDefinitionConfiguration :: Lens.Lens' UpdateSuiteDefinition (Prelude.Maybe SuiteDefinitionConfiguration)
-updateSuiteDefinition_suiteDefinitionConfiguration = Lens.lens (\UpdateSuiteDefinition' {suiteDefinitionConfiguration} -> suiteDefinitionConfiguration) (\s@UpdateSuiteDefinition' {} a -> s {suiteDefinitionConfiguration = a} :: UpdateSuiteDefinition)
+newUpdateSuiteDefinition
+  pSuiteDefinitionId_
+  pSuiteDefinitionConfiguration_ =
+    UpdateSuiteDefinition'
+      { suiteDefinitionId =
+          pSuiteDefinitionId_,
+        suiteDefinitionConfiguration =
+          pSuiteDefinitionConfiguration_
+      }
 
 -- | Suite definition ID of the test suite to be updated.
 updateSuiteDefinition_suiteDefinitionId :: Lens.Lens' UpdateSuiteDefinition Prelude.Text
 updateSuiteDefinition_suiteDefinitionId = Lens.lens (\UpdateSuiteDefinition' {suiteDefinitionId} -> suiteDefinitionId) (\s@UpdateSuiteDefinition' {} a -> s {suiteDefinitionId = a} :: UpdateSuiteDefinition)
+
+-- | Updates a Device Advisor test suite with suite definition configuration.
+updateSuiteDefinition_suiteDefinitionConfiguration :: Lens.Lens' UpdateSuiteDefinition SuiteDefinitionConfiguration
+updateSuiteDefinition_suiteDefinitionConfiguration = Lens.lens (\UpdateSuiteDefinition' {suiteDefinitionConfiguration} -> suiteDefinitionConfiguration) (\s@UpdateSuiteDefinition' {} a -> s {suiteDefinitionConfiguration = a} :: UpdateSuiteDefinition)
 
 instance Core.AWSRequest UpdateSuiteDefinition where
   type
@@ -117,14 +122,13 @@ instance Core.AWSRequest UpdateSuiteDefinition where
 
 instance Prelude.Hashable UpdateSuiteDefinition where
   hashWithSalt _salt UpdateSuiteDefinition' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` suiteDefinitionId
       `Prelude.hashWithSalt` suiteDefinitionConfiguration
-      `Prelude.hashWithSalt` suiteDefinitionId
 
 instance Prelude.NFData UpdateSuiteDefinition where
   rnf UpdateSuiteDefinition' {..} =
-    Prelude.rnf suiteDefinitionConfiguration
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
+    Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf suiteDefinitionConfiguration
 
 instance Data.ToHeaders UpdateSuiteDefinition where
   toHeaders =
@@ -141,8 +145,10 @@ instance Data.ToJSON UpdateSuiteDefinition where
   toJSON UpdateSuiteDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("suiteDefinitionConfiguration" Data..=)
-              Prelude.<$> suiteDefinitionConfiguration
+          [ Prelude.Just
+              ( "suiteDefinitionConfiguration"
+                  Data..= suiteDefinitionConfiguration
+              )
           ]
       )
 
@@ -164,7 +170,7 @@ data UpdateSuiteDefinitionResponse = UpdateSuiteDefinitionResponse'
     suiteDefinitionArn :: Prelude.Maybe Prelude.Text,
     -- | Suite definition ID of the updated test suite.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
-    -- | Suite definition name of the updated test suite.
+    -- | Updates the suite definition name. This is a required parameter.
     suiteDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | Suite definition version of the updated test suite.
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
@@ -189,7 +195,7 @@ data UpdateSuiteDefinitionResponse = UpdateSuiteDefinitionResponse'
 --
 -- 'suiteDefinitionId', 'updateSuiteDefinitionResponse_suiteDefinitionId' - Suite definition ID of the updated test suite.
 --
--- 'suiteDefinitionName', 'updateSuiteDefinitionResponse_suiteDefinitionName' - Suite definition name of the updated test suite.
+-- 'suiteDefinitionName', 'updateSuiteDefinitionResponse_suiteDefinitionName' - Updates the suite definition name. This is a required parameter.
 --
 -- 'suiteDefinitionVersion', 'updateSuiteDefinitionResponse_suiteDefinitionVersion' - Suite definition version of the updated test suite.
 --
@@ -226,7 +232,7 @@ updateSuiteDefinitionResponse_suiteDefinitionArn = Lens.lens (\UpdateSuiteDefini
 updateSuiteDefinitionResponse_suiteDefinitionId :: Lens.Lens' UpdateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 updateSuiteDefinitionResponse_suiteDefinitionId = Lens.lens (\UpdateSuiteDefinitionResponse' {suiteDefinitionId} -> suiteDefinitionId) (\s@UpdateSuiteDefinitionResponse' {} a -> s {suiteDefinitionId = a} :: UpdateSuiteDefinitionResponse)
 
--- | Suite definition name of the updated test suite.
+-- | Updates the suite definition name. This is a required parameter.
 updateSuiteDefinitionResponse_suiteDefinitionName :: Lens.Lens' UpdateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 updateSuiteDefinitionResponse_suiteDefinitionName = Lens.lens (\UpdateSuiteDefinitionResponse' {suiteDefinitionName} -> suiteDefinitionName) (\s@UpdateSuiteDefinitionResponse' {} a -> s {suiteDefinitionName = a} :: UpdateSuiteDefinitionResponse)
 

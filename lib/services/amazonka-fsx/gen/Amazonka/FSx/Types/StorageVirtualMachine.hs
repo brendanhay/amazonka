@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.FSx.Types.StorageVirtualMachine
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.LifecycleTransitionReason
 import Amazonka.FSx.Types.StorageVirtualMachineLifecycle
 import Amazonka.FSx.Types.StorageVirtualMachineRootVolumeSecurityStyle
+import Amazonka.FSx.Types.StorageVirtualMachineSubtype
 import Amazonka.FSx.Types.SvmActiveDirectoryConfiguration
 import Amazonka.FSx.Types.SvmEndpoints
 import Amazonka.FSx.Types.Tag
@@ -67,6 +68,8 @@ data StorageVirtualMachine = StorageVirtualMachine'
     rootVolumeSecurityStyle :: Prelude.Maybe StorageVirtualMachineRootVolumeSecurityStyle,
     -- | The SVM\'s system generated unique ID.
     storageVirtualMachineId :: Prelude.Maybe Prelude.Text,
+    -- | Describes the SVM\'s subtype.
+    subtype :: Prelude.Maybe StorageVirtualMachineSubtype,
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The SVM\'s UUID (universally unique identifier).
     uuid :: Prelude.Maybe Prelude.Text
@@ -116,6 +119,8 @@ data StorageVirtualMachine = StorageVirtualMachine'
 --
 -- 'storageVirtualMachineId', 'storageVirtualMachine_storageVirtualMachineId' - The SVM\'s system generated unique ID.
 --
+-- 'subtype', 'storageVirtualMachine_subtype' - Describes the SVM\'s subtype.
+--
 -- 'tags', 'storageVirtualMachine_tags' - Undocumented member.
 --
 -- 'uuid', 'storageVirtualMachine_uuid' - The SVM\'s UUID (universally unique identifier).
@@ -134,6 +139,7 @@ newStorageVirtualMachine =
       resourceARN = Prelude.Nothing,
       rootVolumeSecurityStyle = Prelude.Nothing,
       storageVirtualMachineId = Prelude.Nothing,
+      subtype = Prelude.Nothing,
       tags = Prelude.Nothing,
       uuid = Prelude.Nothing
     }
@@ -193,6 +199,10 @@ storageVirtualMachine_rootVolumeSecurityStyle = Lens.lens (\StorageVirtualMachin
 storageVirtualMachine_storageVirtualMachineId :: Lens.Lens' StorageVirtualMachine (Prelude.Maybe Prelude.Text)
 storageVirtualMachine_storageVirtualMachineId = Lens.lens (\StorageVirtualMachine' {storageVirtualMachineId} -> storageVirtualMachineId) (\s@StorageVirtualMachine' {} a -> s {storageVirtualMachineId = a} :: StorageVirtualMachine)
 
+-- | Describes the SVM\'s subtype.
+storageVirtualMachine_subtype :: Lens.Lens' StorageVirtualMachine (Prelude.Maybe StorageVirtualMachineSubtype)
+storageVirtualMachine_subtype = Lens.lens (\StorageVirtualMachine' {subtype} -> subtype) (\s@StorageVirtualMachine' {} a -> s {subtype = a} :: StorageVirtualMachine)
+
 -- | Undocumented member.
 storageVirtualMachine_tags :: Lens.Lens' StorageVirtualMachine (Prelude.Maybe (Prelude.NonEmpty Tag))
 storageVirtualMachine_tags = Lens.lens (\StorageVirtualMachine' {tags} -> tags) (\s@StorageVirtualMachine' {} a -> s {tags = a} :: StorageVirtualMachine) Prelude.. Lens.mapping Lens.coerced
@@ -217,6 +227,7 @@ instance Data.FromJSON StorageVirtualMachine where
             Prelude.<*> (x Data..:? "ResourceARN")
             Prelude.<*> (x Data..:? "RootVolumeSecurityStyle")
             Prelude.<*> (x Data..:? "StorageVirtualMachineId")
+            Prelude.<*> (x Data..:? "Subtype")
             Prelude.<*> (x Data..:? "Tags")
             Prelude.<*> (x Data..:? "UUID")
       )
@@ -234,6 +245,7 @@ instance Prelude.Hashable StorageVirtualMachine where
       `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` rootVolumeSecurityStyle
       `Prelude.hashWithSalt` storageVirtualMachineId
+      `Prelude.hashWithSalt` subtype
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` uuid
 
@@ -249,5 +261,6 @@ instance Prelude.NFData StorageVirtualMachine where
       `Prelude.seq` Prelude.rnf resourceARN
       `Prelude.seq` Prelude.rnf rootVolumeSecurityStyle
       `Prelude.seq` Prelude.rnf storageVirtualMachineId
+      `Prelude.seq` Prelude.rnf subtype
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf uuid

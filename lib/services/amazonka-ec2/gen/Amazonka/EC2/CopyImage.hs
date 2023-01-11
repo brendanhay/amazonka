@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.CopyImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,12 +41,12 @@
 -- the request using __KmsKeyId__. Outposts do not support unencrypted
 -- snapshots. For more information,
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- For more information about the prerequisites and limits when copying an
 -- AMI, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copy an AMI>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.CopyImage
   ( -- * Creating a Request
     CopyImage (..),
@@ -113,7 +113,7 @@ data CopyImage = CopyImage'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copy AMIs from an Amazon Web Services Region to an Outpost>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     destinationOutpostArn :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -127,7 +127,7 @@ data CopyImage = CopyImage'
     -- Management Service (KMS) KMS key using @KmsKeyId@. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the symmetric Key Management Service (KMS) KMS key to
     -- use when creating encrypted volumes. If this parameter is not specified,
@@ -198,7 +198,7 @@ data CopyImage = CopyImage'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copy AMIs from an Amazon Web Services Region to an Outpost>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'dryRun', 'copyImage_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -212,7 +212,7 @@ data CopyImage = CopyImage'
 -- Management Service (KMS) KMS key using @KmsKeyId@. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'kmsKeyId', 'copyImage_kmsKeyId' - The identifier of the symmetric Key Management Service (KMS) KMS key to
 -- use when creating encrypted volumes. If this parameter is not specified,
@@ -299,7 +299,7 @@ copyImage_description = Lens.lens (\CopyImage' {description} -> description) (\s
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copy AMIs from an Amazon Web Services Region to an Outpost>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 copyImage_destinationOutpostArn :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_destinationOutpostArn = Lens.lens (\CopyImage' {destinationOutpostArn} -> destinationOutpostArn) (\s@CopyImage' {} a -> s {destinationOutpostArn = a} :: CopyImage)
 
@@ -317,7 +317,7 @@ copyImage_dryRun = Lens.lens (\CopyImage' {dryRun} -> dryRun) (\s@CopyImage' {} 
 -- Management Service (KMS) KMS key using @KmsKeyId@. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 copyImage_encrypted :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
 copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyImage' {} a -> s {encrypted = a} :: CopyImage)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.UpdateStudioComponent
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,9 +62,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateStudioComponent' smart constructor.
 data UpdateStudioComponent = UpdateStudioComponent'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The configuration of the studio component, based on component type.
     configuration :: Prelude.Maybe StudioComponentConfiguration,
@@ -77,14 +77,14 @@ data UpdateStudioComponent = UpdateStudioComponent'
     -- | The name for the studio component.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An IAM role attached to a Studio Component that gives the studio
-    -- component access to AWS resources at anytime while the instance is
-    -- running.
+    -- component access to Amazon Web Services resources at anytime while the
+    -- instance is running.
     runtimeRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Parameters for the studio component scripts.
     scriptParameters :: Prelude.Maybe (Data.Sensitive [ScriptParameterKeyValue]),
     -- | An IAM role attached to Studio Component when the system initialization
-    -- script runs which give the studio component access to AWS resources when
-    -- the system initialization script runs.
+    -- script runs which give the studio component access to Amazon Web
+    -- Services resources when the system initialization script runs.
     secureInitializationRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The specific subtype of a studio component.
     subtype :: Prelude.Maybe StudioComponentSubtype,
@@ -106,9 +106,9 @@ data UpdateStudioComponent = UpdateStudioComponent'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'updateStudioComponent_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'configuration', 'updateStudioComponent_configuration' - The configuration of the studio component, based on component type.
 --
@@ -121,14 +121,14 @@ data UpdateStudioComponent = UpdateStudioComponent'
 -- 'name', 'updateStudioComponent_name' - The name for the studio component.
 --
 -- 'runtimeRoleArn', 'updateStudioComponent_runtimeRoleArn' - An IAM role attached to a Studio Component that gives the studio
--- component access to AWS resources at anytime while the instance is
--- running.
+-- component access to Amazon Web Services resources at anytime while the
+-- instance is running.
 --
 -- 'scriptParameters', 'updateStudioComponent_scriptParameters' - Parameters for the studio component scripts.
 --
 -- 'secureInitializationRoleArn', 'updateStudioComponent_secureInitializationRoleArn' - An IAM role attached to Studio Component when the system initialization
--- script runs which give the studio component access to AWS resources when
--- the system initialization script runs.
+-- script runs which give the studio component access to Amazon Web
+-- Services resources when the system initialization script runs.
 --
 -- 'subtype', 'updateStudioComponent_subtype' - The specific subtype of a studio component.
 --
@@ -164,9 +164,9 @@ newUpdateStudioComponent
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 updateStudioComponent_clientToken :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
 updateStudioComponent_clientToken = Lens.lens (\UpdateStudioComponent' {clientToken} -> clientToken) (\s@UpdateStudioComponent' {} a -> s {clientToken = a} :: UpdateStudioComponent)
 
@@ -191,8 +191,8 @@ updateStudioComponent_name :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Pr
 updateStudioComponent_name = Lens.lens (\UpdateStudioComponent' {name} -> name) (\s@UpdateStudioComponent' {} a -> s {name = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An IAM role attached to a Studio Component that gives the studio
--- component access to AWS resources at anytime while the instance is
--- running.
+-- component access to Amazon Web Services resources at anytime while the
+-- instance is running.
 updateStudioComponent_runtimeRoleArn :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
 updateStudioComponent_runtimeRoleArn = Lens.lens (\UpdateStudioComponent' {runtimeRoleArn} -> runtimeRoleArn) (\s@UpdateStudioComponent' {} a -> s {runtimeRoleArn = a} :: UpdateStudioComponent)
 
@@ -201,8 +201,8 @@ updateStudioComponent_scriptParameters :: Lens.Lens' UpdateStudioComponent (Prel
 updateStudioComponent_scriptParameters = Lens.lens (\UpdateStudioComponent' {scriptParameters} -> scriptParameters) (\s@UpdateStudioComponent' {} a -> s {scriptParameters = a} :: UpdateStudioComponent) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | An IAM role attached to Studio Component when the system initialization
--- script runs which give the studio component access to AWS resources when
--- the system initialization script runs.
+-- script runs which give the studio component access to Amazon Web
+-- Services resources when the system initialization script runs.
 updateStudioComponent_secureInitializationRoleArn :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
 updateStudioComponent_secureInitializationRoleArn = Lens.lens (\UpdateStudioComponent' {secureInitializationRoleArn} -> secureInitializationRoleArn) (\s@UpdateStudioComponent' {} a -> s {secureInitializationRoleArn = a} :: UpdateStudioComponent)
 

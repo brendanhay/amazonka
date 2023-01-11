@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.Types.Endpoint
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,7 +45,7 @@ data Endpoint = Endpoint'
     -- configurations for endpoints.
     configurationOverrides :: Prelude.Maybe ConfigurationOverrides,
     -- | The date and time when the endpoint was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The execution role ARN of the endpoint.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The reasons why the endpoint has failed.

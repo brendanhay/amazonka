@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StreamingSessionStream
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamingSessionStream' smart constructor.
 data StreamingSessionStream = StreamingSessionStream'
-  { -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+  { -- | The ISO timestamp in seconds for when the resource was created.
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The user ID of the user that created the streaming session stream.
     createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The Unix epoch timestamp in seconds for when the resource expires.
-    expiresAt :: Prelude.Maybe Data.POSIX,
+    -- | The ISO timestamp in seconds for when the resource expires.
+    expiresAt :: Prelude.Maybe Data.ISO8601,
     -- | The user ID of the user that owns the streaming session. The user that
     -- owns the session will be logging into the session and interacting with
     -- the virtual workstation.
@@ -62,11 +62,11 @@ data StreamingSessionStream = StreamingSessionStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'streamingSessionStream_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
+-- 'createdAt', 'streamingSessionStream_createdAt' - The ISO timestamp in seconds for when the resource was created.
 --
 -- 'createdBy', 'streamingSessionStream_createdBy' - The user ID of the user that created the streaming session stream.
 --
--- 'expiresAt', 'streamingSessionStream_expiresAt' - The Unix epoch timestamp in seconds for when the resource expires.
+-- 'expiresAt', 'streamingSessionStream_expiresAt' - The ISO timestamp in seconds for when the resource expires.
 --
 -- 'ownedBy', 'streamingSessionStream_ownedBy' - The user ID of the user that owns the streaming session. The user that
 -- owns the session will be logging into the session and interacting with
@@ -94,7 +94,7 @@ newStreamingSessionStream =
       url = Prelude.Nothing
     }
 
--- | The Unix epoch timestamp in seconds for when the resource was created.
+-- | The ISO timestamp in seconds for when the resource was created.
 streamingSessionStream_createdAt :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.UTCTime)
 streamingSessionStream_createdAt = Lens.lens (\StreamingSessionStream' {createdAt} -> createdAt) (\s@StreamingSessionStream' {} a -> s {createdAt = a} :: StreamingSessionStream) Prelude.. Lens.mapping Data._Time
 
@@ -102,7 +102,7 @@ streamingSessionStream_createdAt = Lens.lens (\StreamingSessionStream' {createdA
 streamingSessionStream_createdBy :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
 streamingSessionStream_createdBy = Lens.lens (\StreamingSessionStream' {createdBy} -> createdBy) (\s@StreamingSessionStream' {} a -> s {createdBy = a} :: StreamingSessionStream)
 
--- | The Unix epoch timestamp in seconds for when the resource expires.
+-- | The ISO timestamp in seconds for when the resource expires.
 streamingSessionStream_expiresAt :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.UTCTime)
 streamingSessionStream_expiresAt = Lens.lens (\StreamingSessionStream' {expiresAt} -> expiresAt) (\s@StreamingSessionStream' {} a -> s {expiresAt = a} :: StreamingSessionStream) Prelude.. Lens.mapping Data._Time
 

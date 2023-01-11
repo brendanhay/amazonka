@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Types.PortMapping
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,7 +76,76 @@ data PortMapping = PortMapping'
     -- assigned in this way do not count toward the 100 reserved ports limit of
     -- a container instance.
     containerPort :: Prelude.Maybe Prelude.Int,
+    -- | The port number range on the container that\'s bound to the dynamically
+    -- mapped host port range.
+    --
+    -- The following rules apply when you specify a @containerPortRange@:
+    --
+    -- -   You must use either the @bridge@ network mode or the @awsvpc@
+    --     network mode.
+    --
+    -- -   This parameter is available for both the EC2 and Fargate launch
+    --     types.
+    --
+    -- -   This parameter is available for both the Linux and Windows operating
+    --     systems.
+    --
+    -- -   The container instance must have at least version 1.67.0 of the
+    --     container agent and at least version 1.67.0-1 of the @ecs-init@
+    --     package
+    --
+    -- -   You can specify a maximum of 100 port ranges per container.
+    --
+    -- -   You do not specify a @hostPortRange@. The value of the
+    --     @hostPortRange@ is set as follows:
+    --
+    --     -   For containers in a task with the @awsvpc@ network mode, the
+    --         @hostPort@ is set to the same value as the @containerPort@. This
+    --         is a static mapping strategy.
+    --
+    --     -   For containers in a task with the @bridge@ network mode, the
+    --         Amazon ECS agent finds open host ports from the default
+    --         ephemeral range and passes it to docker to bind them to the
+    --         container ports.
+    --
+    -- -   The @containerPortRange@ valid values are between 1 and 65535.
+    --
+    -- -   A port can only be included in one port mapping per container.
+    --
+    -- -   You cannot specify overlapping port ranges.
+    --
+    -- -   The first port in the range must be less than last port in the
+    --     range.
+    --
+    -- -   Docker recommends that you turn off the docker-proxy in the Docker
+    --     daemon config file when you have a large number of ports.
+    --
+    --     For more information, see
+    --     <https://github.com/moby/moby/issues/11185 Issue #11185> on the
+    --     Github website.
+    --
+    --     For information about how to turn off the docker-proxy in the Docker
+    --     daemon config file, see
+    --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon Docker daemon>
+    --     in the /Amazon ECS Developer Guide/.
+    --
+    -- You can call
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html DescribeTasks>
+    -- to view the @hostPortRange@ which are the host ports that are bound to
+    -- the container ports.
+    containerPortRange :: Prelude.Maybe Prelude.Text,
     -- | The port number on the container instance to reserve for your container.
+    --
+    -- If you specify a @containerPortRange@, leave this field empty and the
+    -- value of the @hostPort@ is set as follows:
+    --
+    -- -   For containers in a task with the @awsvpc@ network mode, the
+    --     @hostPort@ is set to the same value as the @containerPort@. This is
+    --     a static mapping strategy.
+    --
+    -- -   For containers in a task with the @bridge@ network mode, the Amazon
+    --     ECS agent finds open ports on the host and automaticaly binds them
+    --     to the container ports. This is a dynamic mapping strategy.
     --
     -- If you use containers in a task with the @awsvpc@ or @host@ network
     -- mode, the @hostPort@ can either be left blank or set to the same value
@@ -164,7 +233,76 @@ data PortMapping = PortMapping'
 -- assigned in this way do not count toward the 100 reserved ports limit of
 -- a container instance.
 --
+-- 'containerPortRange', 'portMapping_containerPortRange' - The port number range on the container that\'s bound to the dynamically
+-- mapped host port range.
+--
+-- The following rules apply when you specify a @containerPortRange@:
+--
+-- -   You must use either the @bridge@ network mode or the @awsvpc@
+--     network mode.
+--
+-- -   This parameter is available for both the EC2 and Fargate launch
+--     types.
+--
+-- -   This parameter is available for both the Linux and Windows operating
+--     systems.
+--
+-- -   The container instance must have at least version 1.67.0 of the
+--     container agent and at least version 1.67.0-1 of the @ecs-init@
+--     package
+--
+-- -   You can specify a maximum of 100 port ranges per container.
+--
+-- -   You do not specify a @hostPortRange@. The value of the
+--     @hostPortRange@ is set as follows:
+--
+--     -   For containers in a task with the @awsvpc@ network mode, the
+--         @hostPort@ is set to the same value as the @containerPort@. This
+--         is a static mapping strategy.
+--
+--     -   For containers in a task with the @bridge@ network mode, the
+--         Amazon ECS agent finds open host ports from the default
+--         ephemeral range and passes it to docker to bind them to the
+--         container ports.
+--
+-- -   The @containerPortRange@ valid values are between 1 and 65535.
+--
+-- -   A port can only be included in one port mapping per container.
+--
+-- -   You cannot specify overlapping port ranges.
+--
+-- -   The first port in the range must be less than last port in the
+--     range.
+--
+-- -   Docker recommends that you turn off the docker-proxy in the Docker
+--     daemon config file when you have a large number of ports.
+--
+--     For more information, see
+--     <https://github.com/moby/moby/issues/11185 Issue #11185> on the
+--     Github website.
+--
+--     For information about how to turn off the docker-proxy in the Docker
+--     daemon config file, see
+--     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon Docker daemon>
+--     in the /Amazon ECS Developer Guide/.
+--
+-- You can call
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html DescribeTasks>
+-- to view the @hostPortRange@ which are the host ports that are bound to
+-- the container ports.
+--
 -- 'hostPort', 'portMapping_hostPort' - The port number on the container instance to reserve for your container.
+--
+-- If you specify a @containerPortRange@, leave this field empty and the
+-- value of the @hostPort@ is set as follows:
+--
+-- -   For containers in a task with the @awsvpc@ network mode, the
+--     @hostPort@ is set to the same value as the @containerPort@. This is
+--     a static mapping strategy.
+--
+-- -   For containers in a task with the @bridge@ network mode, the Amazon
+--     ECS agent finds open ports on the host and automaticaly binds them
+--     to the container ports. This is a dynamic mapping strategy.
 --
 -- If you use containers in a task with the @awsvpc@ or @host@ network
 -- mode, the @hostPort@ can either be left blank or set to the same value
@@ -213,6 +351,7 @@ newPortMapping =
   PortMapping'
     { appProtocol = Prelude.Nothing,
       containerPort = Prelude.Nothing,
+      containerPortRange = Prelude.Nothing,
       hostPort = Prelude.Nothing,
       name = Prelude.Nothing,
       protocol = Prelude.Nothing
@@ -255,7 +394,78 @@ portMapping_appProtocol = Lens.lens (\PortMapping' {appProtocol} -> appProtocol)
 portMapping_containerPort :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Int)
 portMapping_containerPort = Lens.lens (\PortMapping' {containerPort} -> containerPort) (\s@PortMapping' {} a -> s {containerPort = a} :: PortMapping)
 
+-- | The port number range on the container that\'s bound to the dynamically
+-- mapped host port range.
+--
+-- The following rules apply when you specify a @containerPortRange@:
+--
+-- -   You must use either the @bridge@ network mode or the @awsvpc@
+--     network mode.
+--
+-- -   This parameter is available for both the EC2 and Fargate launch
+--     types.
+--
+-- -   This parameter is available for both the Linux and Windows operating
+--     systems.
+--
+-- -   The container instance must have at least version 1.67.0 of the
+--     container agent and at least version 1.67.0-1 of the @ecs-init@
+--     package
+--
+-- -   You can specify a maximum of 100 port ranges per container.
+--
+-- -   You do not specify a @hostPortRange@. The value of the
+--     @hostPortRange@ is set as follows:
+--
+--     -   For containers in a task with the @awsvpc@ network mode, the
+--         @hostPort@ is set to the same value as the @containerPort@. This
+--         is a static mapping strategy.
+--
+--     -   For containers in a task with the @bridge@ network mode, the
+--         Amazon ECS agent finds open host ports from the default
+--         ephemeral range and passes it to docker to bind them to the
+--         container ports.
+--
+-- -   The @containerPortRange@ valid values are between 1 and 65535.
+--
+-- -   A port can only be included in one port mapping per container.
+--
+-- -   You cannot specify overlapping port ranges.
+--
+-- -   The first port in the range must be less than last port in the
+--     range.
+--
+-- -   Docker recommends that you turn off the docker-proxy in the Docker
+--     daemon config file when you have a large number of ports.
+--
+--     For more information, see
+--     <https://github.com/moby/moby/issues/11185 Issue #11185> on the
+--     Github website.
+--
+--     For information about how to turn off the docker-proxy in the Docker
+--     daemon config file, see
+--     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon Docker daemon>
+--     in the /Amazon ECS Developer Guide/.
+--
+-- You can call
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html DescribeTasks>
+-- to view the @hostPortRange@ which are the host ports that are bound to
+-- the container ports.
+portMapping_containerPortRange :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Text)
+portMapping_containerPortRange = Lens.lens (\PortMapping' {containerPortRange} -> containerPortRange) (\s@PortMapping' {} a -> s {containerPortRange = a} :: PortMapping)
+
 -- | The port number on the container instance to reserve for your container.
+--
+-- If you specify a @containerPortRange@, leave this field empty and the
+-- value of the @hostPort@ is set as follows:
+--
+-- -   For containers in a task with the @awsvpc@ network mode, the
+--     @hostPort@ is set to the same value as the @containerPort@. This is
+--     a static mapping strategy.
+--
+-- -   For containers in a task with the @bridge@ network mode, the Amazon
+--     ECS agent finds open ports on the host and automaticaly binds them
+--     to the container ports. This is a dynamic mapping strategy.
 --
 -- If you use containers in a task with the @awsvpc@ or @host@ network
 -- mode, the @hostPort@ can either be left blank or set to the same value
@@ -313,6 +523,7 @@ instance Data.FromJSON PortMapping where
           PortMapping'
             Prelude.<$> (x Data..:? "appProtocol")
             Prelude.<*> (x Data..:? "containerPort")
+            Prelude.<*> (x Data..:? "containerPortRange")
             Prelude.<*> (x Data..:? "hostPort")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "protocol")
@@ -322,6 +533,7 @@ instance Prelude.Hashable PortMapping where
   hashWithSalt _salt PortMapping' {..} =
     _salt `Prelude.hashWithSalt` appProtocol
       `Prelude.hashWithSalt` containerPort
+      `Prelude.hashWithSalt` containerPortRange
       `Prelude.hashWithSalt` hostPort
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` protocol
@@ -330,6 +542,7 @@ instance Prelude.NFData PortMapping where
   rnf PortMapping' {..} =
     Prelude.rnf appProtocol
       `Prelude.seq` Prelude.rnf containerPort
+      `Prelude.seq` Prelude.rnf containerPortRange
       `Prelude.seq` Prelude.rnf hostPort
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf protocol
@@ -340,6 +553,8 @@ instance Data.ToJSON PortMapping where
       ( Prelude.catMaybes
           [ ("appProtocol" Data..=) Prelude.<$> appProtocol,
             ("containerPort" Data..=) Prelude.<$> containerPort,
+            ("containerPortRange" Data..=)
+              Prelude.<$> containerPortRange,
             ("hostPort" Data..=) Prelude.<$> hostPort,
             ("name" Data..=) Prelude.<$> name,
             ("protocol" Data..=) Prelude.<$> protocol

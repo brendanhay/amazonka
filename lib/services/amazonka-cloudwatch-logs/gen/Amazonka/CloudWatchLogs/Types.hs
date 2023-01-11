@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CloudWatchLogs.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -329,21 +329,25 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The event was already logged.
-_DataAlreadyAcceptedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+--
+-- @PutLogEvents@ actions are now always accepted and never return
+-- @DataAlreadyAcceptedException@ regardless of whether a given batch of
+-- log events has already been accepted.
+_DataAlreadyAcceptedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DataAlreadyAcceptedException =
   Core._MatchServiceError
     defaultService
     "DataAlreadyAcceptedException"
 
 -- | The operation is not valid on the specified resource.
-_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidOperationException =
   Core._MatchServiceError
     defaultService
     "InvalidOperationException"
 
 -- | A parameter is specified incorrectly.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -352,14 +356,18 @@ _InvalidParameterException =
 -- | The sequence token is not valid. You can get the correct sequence token
 -- in the @expectedSequenceToken@ field in the
 -- @InvalidSequenceTokenException@ message.
-_InvalidSequenceTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+--
+-- @PutLogEvents@ actions are now always accepted and never return
+-- @InvalidSequenceTokenException@ regardless of receiving an invalid
+-- sequence token.
+_InvalidSequenceTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidSequenceTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidSequenceTokenException"
 
 -- | You have reached the maximum number of resources that can be created.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -371,7 +379,7 @@ _LimitExceededException =
 --
 -- For more information about valid query syntax, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
-_MalformedQueryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedQueryException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MalformedQueryException =
   Core._MatchServiceError
     defaultService
@@ -379,35 +387,35 @@ _MalformedQueryException =
 
 -- | Multiple concurrent requests to update the same resource were in
 -- conflict.
-_OperationAbortedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationAbortedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationAbortedException =
   Core._MatchServiceError
     defaultService
     "OperationAbortedException"
 
 -- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The service cannot complete the request.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
 
 -- | A resource can have no more than 50 tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
@@ -415,7 +423,7 @@ _TooManyTagsException =
 
 -- | The most likely cause is an Amazon Web Services access key ID or secret
 -- key that\'s not valid.
-_UnrecognizedClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnrecognizedClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnrecognizedClientException =
   Core._MatchServiceError
     defaultService

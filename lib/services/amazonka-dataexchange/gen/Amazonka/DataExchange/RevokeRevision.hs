@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.RevokeRevision
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -192,7 +192,7 @@ data RevokeRevisionResponse = RevokeRevisionResponse'
     -- | An optional comment about the revision.
     comment :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the revision was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The unique identifier for the data set associated with the data set
     -- revision.
     dataSetId :: Prelude.Maybe Prelude.Text,
@@ -214,14 +214,14 @@ data RevokeRevisionResponse = RevokeRevisionResponse'
     -- revoked.
     revoked :: Prelude.Maybe Prelude.Bool,
     -- | The date and time that the revision was revoked, in ISO 8601 format.
-    revokedAt :: Prelude.Maybe Data.POSIX,
+    revokedAt :: Prelude.Maybe Data.ISO8601,
     -- | The revision ID of the owned revision corresponding to the entitled
     -- revision being viewed. This parameter is returned when a revision owner
     -- is viewing the entitled copy of its owned revision.
     sourceId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the revision was last updated, in ISO 8601
     -- format.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

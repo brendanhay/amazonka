@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.GetKeyGroupConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,9 @@
 --
 -- Gets a key group configuration.
 --
--- To get a key group configuration, you must provide the key group’s
--- identifier. If the key group is referenced in a distribution’s cache
--- behavior, you can get the key group’s identifier using
+-- To get a key group configuration, you must provide the key group\'s
+-- identifier. If the key group is referenced in a distribution\'s cache
+-- behavior, you can get the key group\'s identifier using
 -- @ListDistributions@ or @GetDistribution@. If the key group is not
 -- referenced in a cache behavior, you can get the identifier using
 -- @ListKeyGroups@.

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.ListStreams
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,12 +48,15 @@ module Amazonka.Kinesis.ListStreams
     -- * Request Lenses
     listStreams_exclusiveStartStreamName,
     listStreams_limit,
+    listStreams_nextToken,
 
     -- * Destructuring the Response
     ListStreamsResponse (..),
     newListStreamsResponse,
 
     -- * Response Lenses
+    listStreamsResponse_nextToken,
+    listStreamsResponse_streamSummaries,
     listStreamsResponse_httpStatus,
     listStreamsResponse_streamNames,
     listStreamsResponse_hasMoreStreams,
@@ -76,7 +79,8 @@ data ListStreams = ListStreams'
     exclusiveStartStreamName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of streams to list. The default value is 100. If you
     -- specify a value greater than 100, at most 100 results are returned.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,13 +96,16 @@ data ListStreams = ListStreams'
 --
 -- 'limit', 'listStreams_limit' - The maximum number of streams to list. The default value is 100. If you
 -- specify a value greater than 100, at most 100 results are returned.
+--
+-- 'nextToken', 'listStreams_nextToken' -
 newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
     { exclusiveStartStreamName =
         Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | The name of the stream to start the list with.
@@ -110,6 +117,10 @@ listStreams_exclusiveStartStreamName = Lens.lens (\ListStreams' {exclusiveStartS
 listStreams_limit :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_limit = Lens.lens (\ListStreams' {limit} -> limit) (\s@ListStreams' {} a -> s {limit = a} :: ListStreams)
 
+-- |
+listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
+
 instance Core.AWSPager ListStreams where
   page rq rs
     | Core.stop
@@ -117,15 +128,15 @@ instance Core.AWSPager ListStreams where
       Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listStreamsResponse_streamNames Prelude.. Lens._last
+            Lens.^? listStreamsResponse_nextToken Prelude.. Lens._Just
         ) =
       Prelude.Nothing
     | Prelude.otherwise =
       Prelude.Just Prelude.$
         rq
-          Prelude.& listStreams_exclusiveStartStreamName
+          Prelude.& listStreams_nextToken
           Lens..~ rs
-          Lens.^? listStreamsResponse_streamNames Prelude.. Lens._last
+          Lens.^? listStreamsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreams where
   type AWSResponse ListStreams = ListStreamsResponse
@@ -135,7 +146,11 @@ instance Core.AWSRequest ListStreams where
     Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "StreamSummaries"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "StreamNames" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "HasMoreStreams")
       )
@@ -145,11 +160,13 @@ instance Prelude.Hashable ListStreams where
     _salt
       `Prelude.hashWithSalt` exclusiveStartStreamName
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStreams where
   rnf ListStreams' {..} =
     Prelude.rnf exclusiveStartStreamName
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStreams where
   toHeaders =
@@ -172,7 +189,8 @@ instance Data.ToJSON ListStreams where
       ( Prelude.catMaybes
           [ ("ExclusiveStartStreamName" Data..=)
               Prelude.<$> exclusiveStartStreamName,
-            ("Limit" Data..=) Prelude.<$> limit
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -186,7 +204,9 @@ instance Data.ToQuery ListStreams where
 --
 -- /See:/ 'newListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { -- | The response's http status code.
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    streamSummaries :: Prelude.Maybe [StreamSummary],
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The names of the streams that are associated with the Amazon Web
     -- Services account making the @ListStreams@ request.
@@ -204,6 +224,10 @@ data ListStreamsResponse = ListStreamsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listStreamsResponse_nextToken' -
+--
+-- 'streamSummaries', 'listStreamsResponse_streamSummaries' -
+--
 -- 'httpStatus', 'listStreamsResponse_httpStatus' - The response's http status code.
 --
 -- 'streamNames', 'listStreamsResponse_streamNames' - The names of the streams that are associated with the Amazon Web
@@ -218,10 +242,20 @@ newListStreamsResponse ::
   ListStreamsResponse
 newListStreamsResponse pHttpStatus_ pHasMoreStreams_ =
   ListStreamsResponse'
-    { httpStatus = pHttpStatus_,
+    { nextToken = Prelude.Nothing,
+      streamSummaries = Prelude.Nothing,
+      httpStatus = pHttpStatus_,
       streamNames = Prelude.mempty,
       hasMoreStreams = pHasMoreStreams_
     }
+
+-- |
+listStreamsResponse_nextToken :: Lens.Lens' ListStreamsResponse (Prelude.Maybe Prelude.Text)
+listStreamsResponse_nextToken = Lens.lens (\ListStreamsResponse' {nextToken} -> nextToken) (\s@ListStreamsResponse' {} a -> s {nextToken = a} :: ListStreamsResponse)
+
+-- |
+listStreamsResponse_streamSummaries :: Lens.Lens' ListStreamsResponse (Prelude.Maybe [StreamSummary])
+listStreamsResponse_streamSummaries = Lens.lens (\ListStreamsResponse' {streamSummaries} -> streamSummaries) (\s@ListStreamsResponse' {} a -> s {streamSummaries = a} :: ListStreamsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Prelude.Int
@@ -238,6 +272,8 @@ listStreamsResponse_hasMoreStreams = Lens.lens (\ListStreamsResponse' {hasMoreSt
 
 instance Prelude.NFData ListStreamsResponse where
   rnf ListStreamsResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf streamSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf streamNames
       `Prelude.seq` Prelude.rnf hasMoreStreams

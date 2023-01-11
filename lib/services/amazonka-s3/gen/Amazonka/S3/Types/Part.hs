@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.S3.Types.Part
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ data Part = Part'
     -- | Entity tag returned when the part was uploaded.
     eTag :: Prelude.Maybe ETag,
     -- | Date and time at which the part was uploaded.
-    lastModified :: Prelude.Maybe Data.ISO8601,
+    lastModified :: Prelude.Maybe Data.RFC822,
     -- | Part number identifying the part. This is a positive integer between 1
     -- and 10,000.
     partNumber :: Prelude.Maybe Prelude.Int,

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.AutoScalingPlans.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -279,21 +279,21 @@ defaultService =
 
 -- | Concurrent updates caused an exception, for example, if you request an
 -- update to a scaling plan that already has a pending update.
-_ConcurrentUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentUpdateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentUpdateException =
   Core._MatchServiceError
     defaultService
     "ConcurrentUpdateException"
 
 -- | The service encountered an internal error.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
     "InternalServiceException"
 
 -- | The token provided is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -301,14 +301,14 @@ _InvalidNextTokenException =
 
 -- | Your account exceeded a limit. This exception is thrown when a
 -- per-account resource limit is exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The specified object could not be found.
-_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ObjectNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -316,7 +316,7 @@ _ObjectNotFoundException =
 
 -- | An exception was thrown for a validation issue. Review the parameters
 -- provided.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

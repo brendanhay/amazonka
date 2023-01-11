@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Kafka.Types.ClusterInfo
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@ data ClusterInfo = ClusterInfo'
     -- | The name of the cluster.
     clusterName :: Prelude.Maybe Prelude.Text,
     -- | The time when the cluster was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | Information about the version of software currently deployed on the
     -- Apache Kafka brokers in the cluster.
     currentBrokerSoftwareInfo :: Prelude.Maybe BrokerSoftwareInfo,

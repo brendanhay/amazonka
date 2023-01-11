@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.M2.CreateApplication
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new application with given parameters. Requires an existing
--- environment and application definition file.
+-- runtime environment and application definition file.
 module Amazonka.M2.CreateApplication
   ( -- * Creating a Request
     CreateApplication (..),
@@ -30,6 +30,7 @@ module Amazonka.M2.CreateApplication
     -- * Request Lenses
     createApplication_clientToken,
     createApplication_description,
+    createApplication_kmsKeyId,
     createApplication_tags,
     createApplication_definition,
     createApplication_engineType,
@@ -66,6 +67,8 @@ data CreateApplication = CreateApplication'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the application.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of a customer managed key.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A list of tags to apply to the application.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The application definition for this application. You can specify either
@@ -95,6 +98,8 @@ data CreateApplication = CreateApplication'
 --
 -- 'description', 'createApplication_description' - The description of the application.
 --
+-- 'kmsKeyId', 'createApplication_kmsKeyId' - The identifier of a customer managed key.
+--
 -- 'tags', 'createApplication_tags' - A list of tags to apply to the application.
 --
 -- 'definition', 'createApplication_definition' - The application definition for this application. You can specify either
@@ -115,6 +120,7 @@ newCreateApplication pDefinition_ pEngineType_ pName_ =
   CreateApplication'
     { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       tags = Prelude.Nothing,
       definition = pDefinition_,
       engineType = pEngineType_,
@@ -133,6 +139,10 @@ createApplication_clientToken = Lens.lens (\CreateApplication' {clientToken} -> 
 -- | The description of the application.
 createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
+
+-- | The identifier of a customer managed key.
+createApplication_kmsKeyId :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_kmsKeyId = Lens.lens (\CreateApplication' {kmsKeyId} -> kmsKeyId) (\s@CreateApplication' {} a -> s {kmsKeyId = a} :: CreateApplication)
 
 -- | A list of tags to apply to the application.
 createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -171,6 +181,7 @@ instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` engineType
@@ -180,6 +191,7 @@ instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf engineType
@@ -202,6 +214,7 @@ instance Data.ToJSON CreateApplication where
       ( Prelude.catMaybes
           [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("definition" Data..= definition),
             Prelude.Just ("engineType" Data..= engineType),

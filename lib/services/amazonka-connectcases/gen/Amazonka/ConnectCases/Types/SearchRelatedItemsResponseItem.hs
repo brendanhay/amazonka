@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectCases.Types.SearchRelatedItemsResponseItem
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data SearchRelatedItemsResponseItem = SearchRelatedItemsResponseItem'
     -- used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Time at which a related item was associated with a case.
-    associationTime :: Data.POSIX,
+    associationTime :: Data.ISO8601,
     -- | Represents the content of a particular type of related item.
     content :: RelatedItemContent,
     -- | Unique identifier of a related item.

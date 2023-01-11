@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.DynamoDBStreams.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -203,14 +203,14 @@ defaultService =
 -- | The shard iterator has expired and can no longer be used to retrieve
 -- stream records. A shard iterator expires 15 minutes after it is
 -- retrieved using the @GetShardIterator@ action.
-_ExpiredIteratorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredIteratorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExpiredIteratorException =
   Core._MatchServiceError
     defaultService
     "ExpiredIteratorException"
 
 -- | An error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -233,7 +233,7 @@ _InternalServerError =
 -- operations are allowed per account.
 --
 -- There is a soft account quota of 2,500 tables.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -241,7 +241,7 @@ _LimitExceededException =
 
 -- | The operation tried to access a nonexistent table or index. The resource
 -- might not be specified correctly, or its status might not be @ACTIVE@.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -261,7 +261,7 @@ _ResourceNotFoundException =
 --     @GetRecords@ request, a stream record in the shard exceeds the 24
 --     hour period and is trimmed. This causes the iterator to access a
 --     record that no longer exists.
-_TrimmedDataAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TrimmedDataAccessException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TrimmedDataAccessException =
   Core._MatchServiceError
     defaultService

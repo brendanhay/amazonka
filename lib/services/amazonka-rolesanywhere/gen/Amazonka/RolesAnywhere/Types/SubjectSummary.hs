@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RolesAnywhere.Types.SubjectSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,19 +32,19 @@ data SubjectSummary = SubjectSummary'
   { -- | The ISO-8601 time stamp of when the certificate was first used in a
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The enabled status of the Subject.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The ISO-8601 time stamp of when the certificate was last used in a
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation.
-    lastSeenAt :: Prelude.Maybe Data.POSIX,
+    lastSeenAt :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the resource.
     subjectArn :: Prelude.Maybe Prelude.Text,
     -- | The id of the resource.
     subjectId :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 timestamp when the subject was last updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The x509 principal identifier of the authenticating certificate.
     x509Subject :: Prelude.Maybe Prelude.Text
   }

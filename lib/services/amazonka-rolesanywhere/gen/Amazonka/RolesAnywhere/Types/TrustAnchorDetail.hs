@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RolesAnywhere.Types.TrustAnchorDetail
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,7 @@ import Amazonka.RolesAnywhere.Types.Source
 -- /See:/ 'newTrustAnchorDetail' smart constructor.
 data TrustAnchorDetail = TrustAnchorDetail'
   { -- | The ISO-8601 timestamp when the trust anchor was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | Indicates whether the trust anchor is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the trust anchor.
@@ -42,7 +42,7 @@ data TrustAnchorDetail = TrustAnchorDetail'
     -- | The unique identifier of the trust anchor.
     trustAnchorId :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 timestamp when the trust anchor was last updated.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    updatedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

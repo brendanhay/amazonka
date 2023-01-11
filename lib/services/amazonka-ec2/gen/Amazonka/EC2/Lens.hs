@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -2224,8 +2224,11 @@ module Amazonka.EC2.Lens
     describeImages_filters,
     describeImages_imageIds,
     describeImages_includeDeprecated,
+    describeImages_maxResults,
+    describeImages_nextToken,
     describeImages_owners,
     describeImagesResponse_images,
+    describeImagesResponse_nextToken,
     describeImagesResponse_httpStatus,
 
     -- ** DescribeImportImageTasks
@@ -6436,6 +6439,7 @@ module Amazonka.EC2.Lens
     fpgaImage_description,
     fpgaImage_fpgaImageGlobalId,
     fpgaImage_fpgaImageId,
+    fpgaImage_instanceTypes,
     fpgaImage_name,
     fpgaImage_ownerAlias,
     fpgaImage_ownerId,

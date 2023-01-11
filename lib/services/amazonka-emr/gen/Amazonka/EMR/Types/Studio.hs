@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.Types.Studio
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStudio' smart constructor.
 data Studio = Studio'
   { -- | Specifies whether the Amazon EMR Studio authenticates users using IAM or
-    -- Amazon Web Services SSO.
+    -- IAM Identity Center.
     authMode :: Prelude.Maybe AuthMode,
     -- | The time the Amazon EMR Studio was created.
     creationTime :: Prelude.Maybe Data.POSIX,
@@ -87,7 +87,7 @@ data Studio = Studio'
 -- for backwards compatibility:
 --
 -- 'authMode', 'studio_authMode' - Specifies whether the Amazon EMR Studio authenticates users using IAM or
--- Amazon Web Services SSO.
+-- IAM Identity Center.
 --
 -- 'creationTime', 'studio_creationTime' - The time the Amazon EMR Studio was created.
 --
@@ -153,7 +153,7 @@ newStudio =
     }
 
 -- | Specifies whether the Amazon EMR Studio authenticates users using IAM or
--- Amazon Web Services SSO.
+-- IAM Identity Center.
 studio_authMode :: Lens.Lens' Studio (Prelude.Maybe AuthMode)
 studio_authMode = Lens.lens (\Studio' {authMode} -> authMode) (\s@Studio' {} a -> s {authMode = a} :: Studio)
 

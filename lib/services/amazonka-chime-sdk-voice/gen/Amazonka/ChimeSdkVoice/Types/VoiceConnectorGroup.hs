@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ChimeSdkVoice.Types.VoiceConnectorGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newVoiceConnectorGroup' smart constructor.
 data VoiceConnectorGroup = VoiceConnectorGroup'
-  { createdTimestamp :: Prelude.Maybe Data.POSIX,
+  { createdTimestamp :: Prelude.Maybe Data.ISO8601,
     name :: Prelude.Maybe Prelude.Text,
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601,
     voiceConnectorGroupArn :: Prelude.Maybe Prelude.Text,
     voiceConnectorGroupId :: Prelude.Maybe Prelude.Text,
     voiceConnectorItems :: Prelude.Maybe [VoiceConnectorItem]

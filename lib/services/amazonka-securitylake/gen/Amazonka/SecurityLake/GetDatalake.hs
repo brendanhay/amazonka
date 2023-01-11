@@ -14,14 +14,16 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.GetDatalake
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve the Security Lake configuration object for the specified
--- account ID. This API does not take input parameters.
+-- Retrieves the Amazon Security Lake configuration object for the
+-- specified Amazon Web Services account ID. You can use the @GetDatalake@
+-- API to know whether Security Lake is enabled for the current Region.
+-- This API does not take input parameters.
 module Amazonka.SecurityLake.GetDatalake
   ( -- * Creating a Request
     GetDatalake (..),

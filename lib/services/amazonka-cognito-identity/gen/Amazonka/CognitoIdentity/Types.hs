@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CognitoIdentity.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -202,7 +202,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Thrown if there are parallel requests to modify a resource.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -210,7 +210,7 @@ _ConcurrentModificationException =
 
 -- | The provided developer user identifier is already registered with
 -- Cognito under a different identity ID.
-_DeveloperUserAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DeveloperUserAlreadyRegisteredException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DeveloperUserAlreadyRegisteredException =
   Core._MatchServiceError
     defaultService
@@ -218,7 +218,7 @@ _DeveloperUserAlreadyRegisteredException =
 
 -- | An exception thrown when a dependent service such as Facebook or Twitter
 -- is not responding
-_ExternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -226,7 +226,7 @@ _ExternalServiceException =
 
 -- | Thrown when the service encounters an error during processing the
 -- request.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
@@ -234,28 +234,28 @@ _InternalErrorException =
 
 -- | Thrown if the identity pool has no role associated for the given auth
 -- type (auth\/unauth) or if the AssumeRole fails.
-_InvalidIdentityPoolConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidIdentityPoolConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidIdentityPoolConfigurationException =
   Core._MatchServiceError
     defaultService
     "InvalidIdentityPoolConfigurationException"
 
 -- | Thrown for missing or bad input parameter(s).
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | Thrown when the total number of user pools has exceeded a preset limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | Thrown when a user is not authorized to access the requested resource.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService
@@ -263,7 +263,7 @@ _NotAuthorizedException =
 
 -- | Thrown when a user tries to use a login which is already linked to
 -- another account.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceConflictException =
   Core._MatchServiceError
     defaultService
@@ -271,14 +271,14 @@ _ResourceConflictException =
 
 -- | Thrown when the requested resource (for example, a dataset or record)
 -- does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | Thrown when a request is throttled.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

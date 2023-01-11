@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.APIGatewayManagementAPI.GetConnection
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -120,10 +120,10 @@ instance Data.ToQuery GetConnection where
 -- | /See:/ 'newGetConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
   { -- | The time in ISO 8601 format for when the connection was established.
-    connectedAt :: Prelude.Maybe Data.POSIX,
+    connectedAt :: Prelude.Maybe Data.ISO8601,
     identity :: Prelude.Maybe Identity,
     -- | The time in ISO 8601 format for when the connection was last active.
-    lastActiveAt :: Prelude.Maybe Data.POSIX,
+    lastActiveAt :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

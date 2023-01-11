@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.NetworkFirewall.Types.Attachment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,9 +41,16 @@ data Attachment = Attachment'
     -- the sync states that are reported in the @Config@ settings. When this
     -- value is @READY@, the endpoint is available and configured properly to
     -- handle network traffic. When the endpoint isn\'t available for traffic,
-    -- this value will reflect its state, for example @CREATING@, @DELETING@,
-    -- or @FAILED@.
+    -- this value will reflect its state, for example @CREATING@ or @DELETING@.
     status :: Prelude.Maybe AttachmentStatus,
+    -- | If Network Firewall fails to create or delete the firewall endpoint in
+    -- the subnet, it populates this with the reason for the failure and how to
+    -- resolve it. Depending on the error, it can take as many as 15 minutes to
+    -- populate this field. For more information about the errors and solutions
+    -- available for this field, see
+    -- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html Troubleshooting firewall endpoint failures>
+    -- in the /Network Firewall Developer Guide/.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the subnet that you\'ve specified to be used
     -- for a firewall endpoint.
     subnetId :: Prelude.Maybe Prelude.Text
@@ -68,8 +75,15 @@ data Attachment = Attachment'
 -- the sync states that are reported in the @Config@ settings. When this
 -- value is @READY@, the endpoint is available and configured properly to
 -- handle network traffic. When the endpoint isn\'t available for traffic,
--- this value will reflect its state, for example @CREATING@, @DELETING@,
--- or @FAILED@.
+-- this value will reflect its state, for example @CREATING@ or @DELETING@.
+--
+-- 'statusMessage', 'attachment_statusMessage' - If Network Firewall fails to create or delete the firewall endpoint in
+-- the subnet, it populates this with the reason for the failure and how to
+-- resolve it. Depending on the error, it can take as many as 15 minutes to
+-- populate this field. For more information about the errors and solutions
+-- available for this field, see
+-- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html Troubleshooting firewall endpoint failures>
+-- in the /Network Firewall Developer Guide/.
 --
 -- 'subnetId', 'attachment_subnetId' - The unique identifier of the subnet that you\'ve specified to be used
 -- for a firewall endpoint.
@@ -79,6 +93,7 @@ newAttachment =
   Attachment'
     { endpointId = Prelude.Nothing,
       status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       subnetId = Prelude.Nothing
     }
 
@@ -94,10 +109,19 @@ attachment_endpointId = Lens.lens (\Attachment' {endpointId} -> endpointId) (\s@
 -- the sync states that are reported in the @Config@ settings. When this
 -- value is @READY@, the endpoint is available and configured properly to
 -- handle network traffic. When the endpoint isn\'t available for traffic,
--- this value will reflect its state, for example @CREATING@, @DELETING@,
--- or @FAILED@.
+-- this value will reflect its state, for example @CREATING@ or @DELETING@.
 attachment_status :: Lens.Lens' Attachment (Prelude.Maybe AttachmentStatus)
 attachment_status = Lens.lens (\Attachment' {status} -> status) (\s@Attachment' {} a -> s {status = a} :: Attachment)
+
+-- | If Network Firewall fails to create or delete the firewall endpoint in
+-- the subnet, it populates this with the reason for the failure and how to
+-- resolve it. Depending on the error, it can take as many as 15 minutes to
+-- populate this field. For more information about the errors and solutions
+-- available for this field, see
+-- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html Troubleshooting firewall endpoint failures>
+-- in the /Network Firewall Developer Guide/.
+attachment_statusMessage :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
+attachment_statusMessage = Lens.lens (\Attachment' {statusMessage} -> statusMessage) (\s@Attachment' {} a -> s {statusMessage = a} :: Attachment)
 
 -- | The unique identifier of the subnet that you\'ve specified to be used
 -- for a firewall endpoint.
@@ -112,6 +136,7 @@ instance Data.FromJSON Attachment where
           Attachment'
             Prelude.<$> (x Data..:? "EndpointId")
             Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StatusMessage")
             Prelude.<*> (x Data..:? "SubnetId")
       )
 
@@ -119,10 +144,12 @@ instance Prelude.Hashable Attachment where
   hashWithSalt _salt Attachment' {..} =
     _salt `Prelude.hashWithSalt` endpointId
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData Attachment where
   rnf Attachment' {..} =
     Prelude.rnf endpointId
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf subnetId

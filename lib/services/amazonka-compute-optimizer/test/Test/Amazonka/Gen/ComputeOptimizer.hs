@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.ComputeOptimizer
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestExportEC2InstanceRecommendations $
 --             newExportEC2InstanceRecommendations
 --
+--         , requestExportECSServiceRecommendations $
+--             newExportECSServiceRecommendations
+--
 --         , requestExportLambdaFunctionRecommendations $
 --             newExportLambdaFunctionRecommendations
 --
@@ -56,6 +59,12 @@ import Test.Tasty
 --
 --         , requestGetEC2RecommendationProjectedMetrics $
 --             newGetEC2RecommendationProjectedMetrics
+--
+--         , requestGetECSServiceRecommendationProjectedMetrics $
+--             newGetECSServiceRecommendationProjectedMetrics
+--
+--         , requestGetECSServiceRecommendations $
+--             newGetECSServiceRecommendations
 --
 --         , requestGetEffectiveRecommendationPreferences $
 --             newGetEffectiveRecommendationPreferences
@@ -99,6 +108,9 @@ import Test.Tasty
 --         , responseExportEC2InstanceRecommendations $
 --             newExportEC2InstanceRecommendationsResponse
 --
+--         , responseExportECSServiceRecommendations $
+--             newExportECSServiceRecommendationsResponse
+--
 --         , responseExportLambdaFunctionRecommendations $
 --             newExportLambdaFunctionRecommendationsResponse
 --
@@ -113,6 +125,12 @@ import Test.Tasty
 --
 --         , responseGetEC2RecommendationProjectedMetrics $
 --             newGetEC2RecommendationProjectedMetricsResponse
+--
+--         , responseGetECSServiceRecommendationProjectedMetrics $
+--             newGetECSServiceRecommendationProjectedMetricsResponse
+--
+--         , responseGetECSServiceRecommendations $
+--             newGetECSServiceRecommendationsResponse
 --
 --         , responseGetEffectiveRecommendationPreferences $
 --             newGetEffectiveRecommendationPreferencesResponse
@@ -173,6 +191,12 @@ requestExportEC2InstanceRecommendations =
     "ExportEC2InstanceRecommendations"
     "fixture/ExportEC2InstanceRecommendations.yaml"
 
+requestExportECSServiceRecommendations :: ExportECSServiceRecommendations -> TestTree
+requestExportECSServiceRecommendations =
+  req
+    "ExportECSServiceRecommendations"
+    "fixture/ExportECSServiceRecommendations.yaml"
+
 requestExportLambdaFunctionRecommendations :: ExportLambdaFunctionRecommendations -> TestTree
 requestExportLambdaFunctionRecommendations =
   req
@@ -202,6 +226,18 @@ requestGetEC2RecommendationProjectedMetrics =
   req
     "GetEC2RecommendationProjectedMetrics"
     "fixture/GetEC2RecommendationProjectedMetrics.yaml"
+
+requestGetECSServiceRecommendationProjectedMetrics :: GetECSServiceRecommendationProjectedMetrics -> TestTree
+requestGetECSServiceRecommendationProjectedMetrics =
+  req
+    "GetECSServiceRecommendationProjectedMetrics"
+    "fixture/GetECSServiceRecommendationProjectedMetrics.yaml"
+
+requestGetECSServiceRecommendations :: GetECSServiceRecommendations -> TestTree
+requestGetECSServiceRecommendations =
+  req
+    "GetECSServiceRecommendations"
+    "fixture/GetECSServiceRecommendations.yaml"
 
 requestGetEffectiveRecommendationPreferences :: GetEffectiveRecommendationPreferences -> TestTree
 requestGetEffectiveRecommendationPreferences =
@@ -293,6 +329,14 @@ responseExportEC2InstanceRecommendations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ExportEC2InstanceRecommendations)
 
+responseExportECSServiceRecommendations :: ExportECSServiceRecommendationsResponse -> TestTree
+responseExportECSServiceRecommendations =
+  res
+    "ExportECSServiceRecommendationsResponse"
+    "fixture/ExportECSServiceRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExportECSServiceRecommendations)
+
 responseExportLambdaFunctionRecommendations :: ExportLambdaFunctionRecommendationsResponse -> TestTree
 responseExportLambdaFunctionRecommendations =
   res
@@ -332,6 +376,22 @@ responseGetEC2RecommendationProjectedMetrics =
     "fixture/GetEC2RecommendationProjectedMetricsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetEC2RecommendationProjectedMetrics)
+
+responseGetECSServiceRecommendationProjectedMetrics :: GetECSServiceRecommendationProjectedMetricsResponse -> TestTree
+responseGetECSServiceRecommendationProjectedMetrics =
+  res
+    "GetECSServiceRecommendationProjectedMetricsResponse"
+    "fixture/GetECSServiceRecommendationProjectedMetricsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetECSServiceRecommendationProjectedMetrics)
+
+responseGetECSServiceRecommendations :: GetECSServiceRecommendationsResponse -> TestTree
+responseGetECSServiceRecommendations =
+  res
+    "GetECSServiceRecommendationsResponse"
+    "fixture/GetECSServiceRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetECSServiceRecommendations)
 
 responseGetEffectiveRecommendationPreferences :: GetEffectiveRecommendationPreferencesResponse -> TestTree
 responseGetEffectiveRecommendationPreferences =

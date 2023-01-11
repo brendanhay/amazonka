@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftServerLess.Types.Namespace
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data Namespace = Namespace'
     -- namespace.
     adminUsername :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The date of when the namespace was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | The name of the first database created in the namespace.
     dbName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to set as a default in

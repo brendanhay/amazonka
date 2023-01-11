@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.ListDatalakeExceptions
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the Amazon Security Lake exceptions that you can use to find the
+-- Lists the Amazon Security Lake exceptions that you can use to find the
 -- source of problems and fix them.
 --
 -- This operation returns paginated results.
@@ -57,11 +57,16 @@ import Amazonka.SecurityLake.Types
 data ListDatalakeExceptions = ListDatalakeExceptions'
   { -- | List the maximum number of failures in Security Lake.
     maxFailures :: Prelude.Maybe Prelude.Int,
-    -- | List if there are more results available. if nextToken is returned, You
-    -- can make the call again using the returned token to retrieve the next
-    -- page
+    -- | List if there are more results available. The value of nextToken is a
+    -- unique pagination token for each page. Repeat the call using the
+    -- returned token to retrieve the next page. Keep all other arguments
+    -- unchanged.
+    --
+    -- Each pagination token expires after 24 hours. Using an expired
+    -- pagination token will return an HTTP 400 InvalidToken error.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List the regions from which exceptions are retrieved.
+    -- | List the Amazon Web Services Regions from which exceptions are
+    -- retrieved.
     regionSet :: Prelude.Maybe [Region]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,11 +81,16 @@ data ListDatalakeExceptions = ListDatalakeExceptions'
 --
 -- 'maxFailures', 'listDatalakeExceptions_maxFailures' - List the maximum number of failures in Security Lake.
 --
--- 'nextToken', 'listDatalakeExceptions_nextToken' - List if there are more results available. if nextToken is returned, You
--- can make the call again using the returned token to retrieve the next
--- page
+-- 'nextToken', 'listDatalakeExceptions_nextToken' - List if there are more results available. The value of nextToken is a
+-- unique pagination token for each page. Repeat the call using the
+-- returned token to retrieve the next page. Keep all other arguments
+-- unchanged.
 --
--- 'regionSet', 'listDatalakeExceptions_regionSet' - List the regions from which exceptions are retrieved.
+-- Each pagination token expires after 24 hours. Using an expired
+-- pagination token will return an HTTP 400 InvalidToken error.
+--
+-- 'regionSet', 'listDatalakeExceptions_regionSet' - List the Amazon Web Services Regions from which exceptions are
+-- retrieved.
 newListDatalakeExceptions ::
   ListDatalakeExceptions
 newListDatalakeExceptions =
@@ -95,13 +105,18 @@ newListDatalakeExceptions =
 listDatalakeExceptions_maxFailures :: Lens.Lens' ListDatalakeExceptions (Prelude.Maybe Prelude.Int)
 listDatalakeExceptions_maxFailures = Lens.lens (\ListDatalakeExceptions' {maxFailures} -> maxFailures) (\s@ListDatalakeExceptions' {} a -> s {maxFailures = a} :: ListDatalakeExceptions)
 
--- | List if there are more results available. if nextToken is returned, You
--- can make the call again using the returned token to retrieve the next
--- page
+-- | List if there are more results available. The value of nextToken is a
+-- unique pagination token for each page. Repeat the call using the
+-- returned token to retrieve the next page. Keep all other arguments
+-- unchanged.
+--
+-- Each pagination token expires after 24 hours. Using an expired
+-- pagination token will return an HTTP 400 InvalidToken error.
 listDatalakeExceptions_nextToken :: Lens.Lens' ListDatalakeExceptions (Prelude.Maybe Prelude.Text)
 listDatalakeExceptions_nextToken = Lens.lens (\ListDatalakeExceptions' {nextToken} -> nextToken) (\s@ListDatalakeExceptions' {} a -> s {nextToken = a} :: ListDatalakeExceptions)
 
--- | List the regions from which exceptions are retrieved.
+-- | List the Amazon Web Services Regions from which exceptions are
+-- retrieved.
 listDatalakeExceptions_regionSet :: Lens.Lens' ListDatalakeExceptions (Prelude.Maybe [Region])
 listDatalakeExceptions_regionSet = Lens.lens (\ListDatalakeExceptions' {regionSet} -> regionSet) (\s@ListDatalakeExceptions' {} a -> s {regionSet = a} :: ListDatalakeExceptions) Prelude.. Lens.mapping Lens.coerced
 
@@ -184,13 +199,17 @@ instance Data.ToQuery ListDatalakeExceptions where
 
 -- | /See:/ 'newListDatalakeExceptionsResponse' smart constructor.
 data ListDatalakeExceptionsResponse = ListDatalakeExceptionsResponse'
-  { -- | List if there are more results available. if nextToken is returned, You
-    -- can make the call again using the returned token to retrieve the next
-    -- page
+  { -- | List if there are more results available. The value of nextToken is a
+    -- unique pagination token for each page. Repeat the call using the
+    -- returned token to retrieve the next page. Keep all other arguments
+    -- unchanged.
+    --
+    -- Each pagination token expires after 24 hours. Using an expired
+    -- pagination token will return an HTTP 400 InvalidToken error.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Lists the non-retryable failures in the current region.
+    -- | Lists the failures that cannot be retried in the current Region.
     nonRetryableFailures :: [FailuresResponse]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -203,13 +222,17 @@ data ListDatalakeExceptionsResponse = ListDatalakeExceptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDatalakeExceptionsResponse_nextToken' - List if there are more results available. if nextToken is returned, You
--- can make the call again using the returned token to retrieve the next
--- page
+-- 'nextToken', 'listDatalakeExceptionsResponse_nextToken' - List if there are more results available. The value of nextToken is a
+-- unique pagination token for each page. Repeat the call using the
+-- returned token to retrieve the next page. Keep all other arguments
+-- unchanged.
+--
+-- Each pagination token expires after 24 hours. Using an expired
+-- pagination token will return an HTTP 400 InvalidToken error.
 --
 -- 'httpStatus', 'listDatalakeExceptionsResponse_httpStatus' - The response's http status code.
 --
--- 'nonRetryableFailures', 'listDatalakeExceptionsResponse_nonRetryableFailures' - Lists the non-retryable failures in the current region.
+-- 'nonRetryableFailures', 'listDatalakeExceptionsResponse_nonRetryableFailures' - Lists the failures that cannot be retried in the current Region.
 newListDatalakeExceptionsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -222,9 +245,13 @@ newListDatalakeExceptionsResponse pHttpStatus_ =
       nonRetryableFailures = Prelude.mempty
     }
 
--- | List if there are more results available. if nextToken is returned, You
--- can make the call again using the returned token to retrieve the next
--- page
+-- | List if there are more results available. The value of nextToken is a
+-- unique pagination token for each page. Repeat the call using the
+-- returned token to retrieve the next page. Keep all other arguments
+-- unchanged.
+--
+-- Each pagination token expires after 24 hours. Using an expired
+-- pagination token will return an HTTP 400 InvalidToken error.
 listDatalakeExceptionsResponse_nextToken :: Lens.Lens' ListDatalakeExceptionsResponse (Prelude.Maybe Prelude.Text)
 listDatalakeExceptionsResponse_nextToken = Lens.lens (\ListDatalakeExceptionsResponse' {nextToken} -> nextToken) (\s@ListDatalakeExceptionsResponse' {} a -> s {nextToken = a} :: ListDatalakeExceptionsResponse)
 
@@ -232,7 +259,7 @@ listDatalakeExceptionsResponse_nextToken = Lens.lens (\ListDatalakeExceptionsRes
 listDatalakeExceptionsResponse_httpStatus :: Lens.Lens' ListDatalakeExceptionsResponse Prelude.Int
 listDatalakeExceptionsResponse_httpStatus = Lens.lens (\ListDatalakeExceptionsResponse' {httpStatus} -> httpStatus) (\s@ListDatalakeExceptionsResponse' {} a -> s {httpStatus = a} :: ListDatalakeExceptionsResponse)
 
--- | Lists the non-retryable failures in the current region.
+-- | Lists the failures that cannot be retried in the current Region.
 listDatalakeExceptionsResponse_nonRetryableFailures :: Lens.Lens' ListDatalakeExceptionsResponse [FailuresResponse]
 listDatalakeExceptionsResponse_nonRetryableFailures = Lens.lens (\ListDatalakeExceptionsResponse' {nonRetryableFailures} -> nonRetryableFailures) (\s@ListDatalakeExceptionsResponse' {} a -> s {nonRetryableFailures = a} :: ListDatalakeExceptionsResponse) Prelude.. Lens.coerced
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.GetLaunchProfileInitialization
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,14 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLaunchProfileInitialization' smart constructor.
 data GetLaunchProfileInitialization = GetLaunchProfileInitialization'
-  { -- | The Launch Profile ID.
+  { -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Text,
     -- | The launch profile protocol versions supported by the client.
     launchProfileProtocolVersions :: [Prelude.Text],
     -- | The launch purpose.
     launchPurpose :: Prelude.Text,
-    -- | The platform where this Launch Profile will be used, either WINDOWS or
-    -- LINUX.
+    -- | The platform where this Launch Profile will be used, either Windows or
+    -- Linux.
     platform :: Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -75,14 +76,15 @@ data GetLaunchProfileInitialization = GetLaunchProfileInitialization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchProfileId', 'getLaunchProfileInitialization_launchProfileId' - The Launch Profile ID.
+-- 'launchProfileId', 'getLaunchProfileInitialization_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'launchProfileProtocolVersions', 'getLaunchProfileInitialization_launchProfileProtocolVersions' - The launch profile protocol versions supported by the client.
 --
 -- 'launchPurpose', 'getLaunchProfileInitialization_launchPurpose' - The launch purpose.
 --
--- 'platform', 'getLaunchProfileInitialization_platform' - The platform where this Launch Profile will be used, either WINDOWS or
--- LINUX.
+-- 'platform', 'getLaunchProfileInitialization_platform' - The platform where this Launch Profile will be used, either Windows or
+-- Linux.
 --
 -- 'studioId', 'getLaunchProfileInitialization_studioId' - The studio ID.
 newGetLaunchProfileInitialization ::
@@ -110,7 +112,8 @@ newGetLaunchProfileInitialization
         studioId = pStudioId_
       }
 
--- | The Launch Profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 getLaunchProfileInitialization_launchProfileId :: Lens.Lens' GetLaunchProfileInitialization Prelude.Text
 getLaunchProfileInitialization_launchProfileId = Lens.lens (\GetLaunchProfileInitialization' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfileInitialization' {} a -> s {launchProfileId = a} :: GetLaunchProfileInitialization)
 
@@ -122,8 +125,8 @@ getLaunchProfileInitialization_launchProfileProtocolVersions = Lens.lens (\GetLa
 getLaunchProfileInitialization_launchPurpose :: Lens.Lens' GetLaunchProfileInitialization Prelude.Text
 getLaunchProfileInitialization_launchPurpose = Lens.lens (\GetLaunchProfileInitialization' {launchPurpose} -> launchPurpose) (\s@GetLaunchProfileInitialization' {} a -> s {launchPurpose = a} :: GetLaunchProfileInitialization)
 
--- | The platform where this Launch Profile will be used, either WINDOWS or
--- LINUX.
+-- | The platform where this Launch Profile will be used, either Windows or
+-- Linux.
 getLaunchProfileInitialization_platform :: Lens.Lens' GetLaunchProfileInitialization Prelude.Text
 getLaunchProfileInitialization_platform = Lens.lens (\GetLaunchProfileInitialization' {platform} -> platform) (\s@GetLaunchProfileInitialization' {} a -> s {platform = a} :: GetLaunchProfileInitialization)
 

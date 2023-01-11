@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.DeleteDatalakeDelegatedAdmin
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the Security Lake administrator account for the organization.
--- This API can only be called by the organization management account. The
--- organization management account cannot be the delegated administrator
--- account.
+-- Deletes the Amazon Security Lake delegated administrator account for the
+-- organization. This API can only be called by the organization management
+-- account. The organization management account cannot be the delegated
+-- administrator account.
 module Amazonka.SecurityLake.DeleteDatalakeDelegatedAdmin
   ( -- * Creating a Request
     DeleteDatalakeDelegatedAdmin (..),
@@ -51,7 +51,7 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newDeleteDatalakeDelegatedAdmin' smart constructor.
 data DeleteDatalakeDelegatedAdmin = DeleteDatalakeDelegatedAdmin'
-  { -- | Account ID the Security Lake delegated administrator.
+  { -- | The account ID the Security Lake delegated administrator.
     account :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +64,7 @@ data DeleteDatalakeDelegatedAdmin = DeleteDatalakeDelegatedAdmin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'account', 'deleteDatalakeDelegatedAdmin_account' - Account ID the Security Lake delegated administrator.
+-- 'account', 'deleteDatalakeDelegatedAdmin_account' - The account ID the Security Lake delegated administrator.
 newDeleteDatalakeDelegatedAdmin ::
   -- | 'account'
   Prelude.Text ->
@@ -72,7 +72,7 @@ newDeleteDatalakeDelegatedAdmin ::
 newDeleteDatalakeDelegatedAdmin pAccount_ =
   DeleteDatalakeDelegatedAdmin' {account = pAccount_}
 
--- | Account ID the Security Lake delegated administrator.
+-- | The account ID the Security Lake delegated administrator.
 deleteDatalakeDelegatedAdmin_account :: Lens.Lens' DeleteDatalakeDelegatedAdmin Prelude.Text
 deleteDatalakeDelegatedAdmin_account = Lens.lens (\DeleteDatalakeDelegatedAdmin' {account} -> account) (\s@DeleteDatalakeDelegatedAdmin' {} a -> s {account = a} :: DeleteDatalakeDelegatedAdmin)
 

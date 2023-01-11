@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.DataSetSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data DataSetSummary = DataSetSummary'
   { -- | The timestamp when the data set was created.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
-    -- or unknown.
+    -- | The type of data set. The only supported value is VSAM.
     dataSetOrg :: Prelude.Maybe Prelude.Text,
     -- | The format of the data set.
     format :: Prelude.Maybe Prelude.Text,
@@ -54,8 +53,7 @@ data DataSetSummary = DataSetSummary'
 --
 -- 'creationTime', 'dataSetSummary_creationTime' - The timestamp when the data set was created.
 --
--- 'dataSetOrg', 'dataSetSummary_dataSetOrg' - The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
--- or unknown.
+-- 'dataSetOrg', 'dataSetSummary_dataSetOrg' - The type of data set. The only supported value is VSAM.
 --
 -- 'format', 'dataSetSummary_format' - The format of the data set.
 --
@@ -82,8 +80,7 @@ newDataSetSummary pDataSetName_ =
 dataSetSummary_creationTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
 dataSetSummary_creationTime = Lens.lens (\DataSetSummary' {creationTime} -> creationTime) (\s@DataSetSummary' {} a -> s {creationTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
--- | The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
--- or unknown.
+-- | The type of data set. The only supported value is VSAM.
 dataSetSummary_dataSetOrg :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
 dataSetSummary_dataSetOrg = Lens.lens (\DataSetSummary' {dataSetOrg} -> dataSetOrg) (\s@DataSetSummary' {} a -> s {dataSetOrg = a} :: DataSetSummary)
 

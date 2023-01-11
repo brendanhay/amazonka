@@ -14,14 +14,16 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.SendEvent
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends an event. Note that ConnectionToken is used for invoking this API
--- instead of ParticipantToken.
+-- Sends an event.
+--
+-- @ConnectionToken@ is used for invoking this API instead of
+-- @ParticipantToken@.
 --
 -- The Amazon Connect Participant Service APIs do not use
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication>.
@@ -58,16 +60,26 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newSendEvent' smart constructor.
 data SendEvent = SendEvent'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The content of the event to be sent (for example, message text). This is
-    -- not yet supported.
+    -- | The content of the event to be sent (for example, message text). For
+    -- content related to message receipts, this is supported in the form of a
+    -- JSON string.
+    --
+    -- Sample Content:
+    -- \"{\\\"messageId\\\":\\\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\\\"}\"
     content :: Prelude.Maybe Prelude.Text,
     -- | The content type of the request. Supported types are:
     --
     -- -   application\/vnd.amazonaws.connect.event.typing
     --
     -- -   application\/vnd.amazonaws.connect.event.connection.acknowledged
+    --
+    -- -   application\/vnd.amazonaws.connect.event.message.delivered
+    --
+    -- -   application\/vnd.amazonaws.connect.event.message.read
     contentType :: Prelude.Text,
     -- | The authentication token associated with the participant\'s connection.
     connectionToken :: Prelude.Text
@@ -83,16 +95,26 @@ data SendEvent = SendEvent'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'sendEvent_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
--- 'content', 'sendEvent_content' - The content of the event to be sent (for example, message text). This is
--- not yet supported.
+-- 'content', 'sendEvent_content' - The content of the event to be sent (for example, message text). For
+-- content related to message receipts, this is supported in the form of a
+-- JSON string.
+--
+-- Sample Content:
+-- \"{\\\"messageId\\\":\\\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\\\"}\"
 --
 -- 'contentType', 'sendEvent_contentType' - The content type of the request. Supported types are:
 --
 -- -   application\/vnd.amazonaws.connect.event.typing
 --
 -- -   application\/vnd.amazonaws.connect.event.connection.acknowledged
+--
+-- -   application\/vnd.amazonaws.connect.event.message.delivered
+--
+-- -   application\/vnd.amazonaws.connect.event.message.read
 --
 -- 'connectionToken', 'sendEvent_connectionToken' - The authentication token associated with the participant\'s connection.
 newSendEvent ::
@@ -110,12 +132,18 @@ newSendEvent pContentType_ pConnectionToken_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 sendEvent_clientToken :: Lens.Lens' SendEvent (Prelude.Maybe Prelude.Text)
 sendEvent_clientToken = Lens.lens (\SendEvent' {clientToken} -> clientToken) (\s@SendEvent' {} a -> s {clientToken = a} :: SendEvent)
 
--- | The content of the event to be sent (for example, message text). This is
--- not yet supported.
+-- | The content of the event to be sent (for example, message text). For
+-- content related to message receipts, this is supported in the form of a
+-- JSON string.
+--
+-- Sample Content:
+-- \"{\\\"messageId\\\":\\\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\\\"}\"
 sendEvent_content :: Lens.Lens' SendEvent (Prelude.Maybe Prelude.Text)
 sendEvent_content = Lens.lens (\SendEvent' {content} -> content) (\s@SendEvent' {} a -> s {content = a} :: SendEvent)
 
@@ -124,6 +152,10 @@ sendEvent_content = Lens.lens (\SendEvent' {content} -> content) (\s@SendEvent' 
 -- -   application\/vnd.amazonaws.connect.event.typing
 --
 -- -   application\/vnd.amazonaws.connect.event.connection.acknowledged
+--
+-- -   application\/vnd.amazonaws.connect.event.message.delivered
+--
+-- -   application\/vnd.amazonaws.connect.event.message.read
 sendEvent_contentType :: Lens.Lens' SendEvent Prelude.Text
 sendEvent_contentType = Lens.lens (\SendEvent' {contentType} -> contentType) (\s@SendEvent' {} a -> s {contentType = a} :: SendEvent)
 

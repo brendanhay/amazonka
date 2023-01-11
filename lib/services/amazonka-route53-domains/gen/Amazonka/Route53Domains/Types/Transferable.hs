@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.Types.Transferable
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,10 @@
 module Amazonka.Route53Domains.Types.Transferable
   ( Transferable
       ( ..,
+        Transferable_DOMAIN_IN_ANOTHER_ACCOUNT,
+        Transferable_DOMAIN_IN_OWN_ACCOUNT,
         Transferable_DONT_KNOW,
+        Transferable_PREMIUM_DOMAIN,
         Transferable_TRANSFERABLE,
         Transferable_UNTRANSFERABLE
       ),
@@ -33,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Whether the domain name can be transferred to Route 53.
 --
--- You can transfer only domains that have a value of @TRANSFERABLE@ for
+-- You can transfer only domains that have a value of @TRANSFERABLE@ or
 -- @Transferable@.
 --
 -- Valid values:
@@ -46,6 +49,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- [DONT_KNOW]
 --     Reserved for future use.
+--
+-- [DOMAIN_IN_OWN_ACCOUNT]
+--     The domain already exists in the current Amazon Web Services
+--     account.
+--
+-- [DOMAIN_IN_ANOTHER_ACCOUNT]
+--     the domain exists in another Amazon Web Services account.
+--
+-- [PREMIUM_DOMAIN]
+--     Premium domain transfer is not supported.
 newtype Transferable = Transferable'
   { fromTransferable ::
       Data.Text
@@ -74,8 +87,17 @@ newtype Transferable = Transferable'
       Data.ToXML
     )
 
+pattern Transferable_DOMAIN_IN_ANOTHER_ACCOUNT :: Transferable
+pattern Transferable_DOMAIN_IN_ANOTHER_ACCOUNT = Transferable' "DOMAIN_IN_ANOTHER_ACCOUNT"
+
+pattern Transferable_DOMAIN_IN_OWN_ACCOUNT :: Transferable
+pattern Transferable_DOMAIN_IN_OWN_ACCOUNT = Transferable' "DOMAIN_IN_OWN_ACCOUNT"
+
 pattern Transferable_DONT_KNOW :: Transferable
 pattern Transferable_DONT_KNOW = Transferable' "DONT_KNOW"
+
+pattern Transferable_PREMIUM_DOMAIN :: Transferable
+pattern Transferable_PREMIUM_DOMAIN = Transferable' "PREMIUM_DOMAIN"
 
 pattern Transferable_TRANSFERABLE :: Transferable
 pattern Transferable_TRANSFERABLE = Transferable' "TRANSFERABLE"
@@ -84,7 +106,10 @@ pattern Transferable_UNTRANSFERABLE :: Transferable
 pattern Transferable_UNTRANSFERABLE = Transferable' "UNTRANSFERABLE"
 
 {-# COMPLETE
+  Transferable_DOMAIN_IN_ANOTHER_ACCOUNT,
+  Transferable_DOMAIN_IN_OWN_ACCOUNT,
   Transferable_DONT_KNOW,
+  Transferable_PREMIUM_DOMAIN,
   Transferable_TRANSFERABLE,
   Transferable_UNTRANSFERABLE,
   Transferable'

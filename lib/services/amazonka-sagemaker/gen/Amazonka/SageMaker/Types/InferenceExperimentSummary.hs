@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.InferenceExperimentSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,8 @@ data InferenceExperimentSummary = InferenceExperimentSummary'
     -- | The description of the inference experiment.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM role that Amazon SageMaker can assume to access model
-    -- artifacts and container images.
+    -- artifacts and container images, and manage Amazon SageMaker Inference
+    -- endpoints for model deployment.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The duration for which the inference experiment ran or will run.
     --
@@ -71,7 +72,8 @@ data InferenceExperimentSummary = InferenceExperimentSummary'
 -- 'description', 'inferenceExperimentSummary_description' - The description of the inference experiment.
 --
 -- 'roleArn', 'inferenceExperimentSummary_roleArn' - The ARN of the IAM role that Amazon SageMaker can assume to access model
--- artifacts and container images.
+-- artifacts and container images, and manage Amazon SageMaker Inference
+-- endpoints for model deployment.
 --
 -- 'schedule', 'inferenceExperimentSummary_schedule' - The duration for which the inference experiment ran or will run.
 --
@@ -131,7 +133,8 @@ inferenceExperimentSummary_description :: Lens.Lens' InferenceExperimentSummary 
 inferenceExperimentSummary_description = Lens.lens (\InferenceExperimentSummary' {description} -> description) (\s@InferenceExperimentSummary' {} a -> s {description = a} :: InferenceExperimentSummary)
 
 -- | The ARN of the IAM role that Amazon SageMaker can assume to access model
--- artifacts and container images.
+-- artifacts and container images, and manage Amazon SageMaker Inference
+-- endpoints for model deployment.
 inferenceExperimentSummary_roleArn :: Lens.Lens' InferenceExperimentSummary (Prelude.Maybe Prelude.Text)
 inferenceExperimentSummary_roleArn = Lens.lens (\InferenceExperimentSummary' {roleArn} -> roleArn) (\s@InferenceExperimentSummary' {} a -> s {roleArn = a} :: InferenceExperimentSummary)
 

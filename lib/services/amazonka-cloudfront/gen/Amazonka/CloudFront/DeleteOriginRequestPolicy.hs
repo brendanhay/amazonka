@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.DeleteOriginRequestPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,11 +22,12 @@
 --
 -- Deletes an origin request policy.
 --
--- You cannot delete an origin request policy if it’s attached to any cache
--- behaviors. First update your distributions to remove the origin request
--- policy from all cache behaviors, then delete the origin request policy.
+-- You cannot delete an origin request policy if it\'s attached to any
+-- cache behaviors. First update your distributions to remove the origin
+-- request policy from all cache behaviors, then delete the origin request
+-- policy.
 --
--- To delete an origin request policy, you must provide the policy’s
+-- To delete an origin request policy, you must provide the policy\'s
 -- identifier and version. To get the identifier, you can use
 -- @ListOriginRequestPolicies@ or @GetOriginRequestPolicy@.
 module Amazonka.CloudFront.DeleteOriginRequestPolicy
@@ -55,7 +56,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteOriginRequestPolicy' smart constructor.
 data DeleteOriginRequestPolicy = DeleteOriginRequestPolicy'
   { -- | The version of the origin request policy that you are deleting. The
-    -- version is the origin request policy’s @ETag@ value, which you can get
+    -- version is the origin request policy\'s @ETag@ value, which you can get
     -- using @ListOriginRequestPolicies@, @GetOriginRequestPolicy@, or
     -- @GetOriginRequestPolicyConfig@.
     ifMatch :: Prelude.Maybe Prelude.Text,
@@ -75,7 +76,7 @@ data DeleteOriginRequestPolicy = DeleteOriginRequestPolicy'
 -- for backwards compatibility:
 --
 -- 'ifMatch', 'deleteOriginRequestPolicy_ifMatch' - The version of the origin request policy that you are deleting. The
--- version is the origin request policy’s @ETag@ value, which you can get
+-- version is the origin request policy\'s @ETag@ value, which you can get
 -- using @ListOriginRequestPolicies@, @GetOriginRequestPolicy@, or
 -- @GetOriginRequestPolicyConfig@.
 --
@@ -94,7 +95,7 @@ newDeleteOriginRequestPolicy pId_ =
     }
 
 -- | The version of the origin request policy that you are deleting. The
--- version is the origin request policy’s @ETag@ value, which you can get
+-- version is the origin request policy\'s @ETag@ value, which you can get
 -- using @ListOriginRequestPolicies@, @GetOriginRequestPolicy@, or
 -- @GetOriginRequestPolicyConfig@.
 deleteOriginRequestPolicy_ifMatch :: Lens.Lens' DeleteOriginRequestPolicy (Prelude.Maybe Prelude.Text)

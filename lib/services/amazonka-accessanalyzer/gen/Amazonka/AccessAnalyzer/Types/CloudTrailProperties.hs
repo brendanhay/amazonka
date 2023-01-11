@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.CloudTrailProperties
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,12 +34,12 @@ data CloudTrailProperties = CloudTrailProperties'
     -- | The start of the time range for which IAM Access Analyzer reviews your
     -- CloudTrail events. Events with a timestamp before this time are not
     -- considered to generate a policy.
-    startTime :: Data.POSIX,
+    startTime :: Data.ISO8601,
     -- | The end of the time range for which IAM Access Analyzer reviews your
     -- CloudTrail events. Events with a timestamp after this time are not
     -- considered to generate a policy. If this is not included in the request,
     -- the default value is the current time.
-    endTime :: Data.POSIX
+    endTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

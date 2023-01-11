@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.Types.SessionMappingSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 data SessionMappingSummary = SessionMappingSummary'
   { -- | The time the session mapping was created.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The globally unique identifier (GUID) of the user or group from the
-    -- Amazon Web Services SSO Identity Store.
+    -- | The globally unique identifier (GUID) of the user or group from the IAM
+    -- Identity Center Identity Store.
     identityId :: Prelude.Maybe Prelude.Text,
     -- | The name of the user or group. For more information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /Amazon Web Services SSO Identity Store API Reference/.
+    -- in the /IAM Identity Center Identity Store API Reference/.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the identity mapped to the Amazon EMR Studio is a user
     -- or a group.
@@ -62,14 +62,14 @@ data SessionMappingSummary = SessionMappingSummary'
 --
 -- 'creationTime', 'sessionMappingSummary_creationTime' - The time the session mapping was created.
 --
--- 'identityId', 'sessionMappingSummary_identityId' - The globally unique identifier (GUID) of the user or group from the
--- Amazon Web Services SSO Identity Store.
+-- 'identityId', 'sessionMappingSummary_identityId' - The globally unique identifier (GUID) of the user or group from the IAM
+-- Identity Center Identity Store.
 --
 -- 'identityName', 'sessionMappingSummary_identityName' - The name of the user or group. For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/.
+-- in the /IAM Identity Center Identity Store API Reference/.
 --
 -- 'identityType', 'sessionMappingSummary_identityType' - Specifies whether the identity mapped to the Amazon EMR Studio is a user
 -- or a group.
@@ -95,8 +95,8 @@ newSessionMappingSummary =
 sessionMappingSummary_creationTime :: Lens.Lens' SessionMappingSummary (Prelude.Maybe Prelude.UTCTime)
 sessionMappingSummary_creationTime = Lens.lens (\SessionMappingSummary' {creationTime} -> creationTime) (\s@SessionMappingSummary' {} a -> s {creationTime = a} :: SessionMappingSummary) Prelude.. Lens.mapping Data._Time
 
--- | The globally unique identifier (GUID) of the user or group from the
--- Amazon Web Services SSO Identity Store.
+-- | The globally unique identifier (GUID) of the user or group from the IAM
+-- Identity Center Identity Store.
 sessionMappingSummary_identityId :: Lens.Lens' SessionMappingSummary (Prelude.Maybe Prelude.Text)
 sessionMappingSummary_identityId = Lens.lens (\SessionMappingSummary' {identityId} -> identityId) (\s@SessionMappingSummary' {} a -> s {identityId = a} :: SessionMappingSummary)
 
@@ -104,7 +104,7 @@ sessionMappingSummary_identityId = Lens.lens (\SessionMappingSummary' {identityI
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/.
+-- in the /IAM Identity Center Identity Store API Reference/.
 sessionMappingSummary_identityName :: Lens.Lens' SessionMappingSummary (Prelude.Maybe Prelude.Text)
 sessionMappingSummary_identityName = Lens.lens (\SessionMappingSummary' {identityName} -> identityName) (\s@SessionMappingSummary' {} a -> s {identityName = a} :: SessionMappingSummary)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Support.Types.CaseDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,10 +40,11 @@ import Amazonka.Support.Types.RecentCaseCommunications
 -- -   __displayId__ - The identifier for the case on pages in the Amazon
 --     Web Services Support Center.
 --
--- -   __language__ - The ISO 639-1 code for the language in which Amazon
---     Web Services provides support. Amazon Web Services Support currently
---     supports English (\"en\") and Japanese (\"ja\"). Language parameters
---     must be passed explicitly for operations that take them.
+-- -   __language__ - The language in which Amazon Web Services Support
+--     handles the case. Amazon Web Services Support currently supports
+--     English (\"en\") and Japanese (\"ja\"). You must specify the ISO
+--     639-1 code for the @language@ parameter if you want support in that
+--     language.
 --
 -- -   __nextToken__ - A resumption point for pagination.
 --
@@ -95,10 +96,10 @@ data CaseDetails = CaseDetails'
     -- | The ID displayed for the case in the Amazon Web Services Support Center.
     -- This is a numeric string.
     displayId :: Prelude.Maybe Prelude.Text,
-    -- | The ISO 639-1 code for the language in which Amazon Web Services
-    -- provides support. Amazon Web Services Support currently supports English
-    -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
-    -- explicitly for operations that take them.
+    -- | The language in which Amazon Web Services Support handles the case.
+    -- Amazon Web Services Support currently supports English (\"en\") and
+    -- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+    -- @language@ parameter if you want support in that language.
     language :: Prelude.Maybe Prelude.Text,
     -- | The five most recent communications between you and Amazon Web Services
     -- Support Center, including the IDs of any attachments to the
@@ -156,10 +157,10 @@ data CaseDetails = CaseDetails'
 -- 'displayId', 'caseDetails_displayId' - The ID displayed for the case in the Amazon Web Services Support Center.
 -- This is a numeric string.
 --
--- 'language', 'caseDetails_language' - The ISO 639-1 code for the language in which Amazon Web Services
--- provides support. Amazon Web Services Support currently supports English
--- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
--- explicitly for operations that take them.
+-- 'language', 'caseDetails_language' - The language in which Amazon Web Services Support handles the case.
+-- Amazon Web Services Support currently supports English (\"en\") and
+-- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+-- @language@ parameter if you want support in that language.
 --
 -- 'recentCommunications', 'caseDetails_recentCommunications' - The five most recent communications between you and Amazon Web Services
 -- Support Center, including the IDs of any attachments to the
@@ -231,10 +232,10 @@ caseDetails_ccEmailAddresses = Lens.lens (\CaseDetails' {ccEmailAddresses} -> cc
 caseDetails_displayId :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_displayId = Lens.lens (\CaseDetails' {displayId} -> displayId) (\s@CaseDetails' {} a -> s {displayId = a} :: CaseDetails)
 
--- | The ISO 639-1 code for the language in which Amazon Web Services
--- provides support. Amazon Web Services Support currently supports English
--- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
--- explicitly for operations that take them.
+-- | The language in which Amazon Web Services Support handles the case.
+-- Amazon Web Services Support currently supports English (\"en\") and
+-- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+-- @language@ parameter if you want support in that language.
 caseDetails_language :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_language = Lens.lens (\CaseDetails' {language} -> language) (\s@CaseDetails' {} a -> s {language = a} :: CaseDetails)
 

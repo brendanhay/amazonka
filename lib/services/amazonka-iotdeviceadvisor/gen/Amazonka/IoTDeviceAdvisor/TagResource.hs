@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoTDeviceAdvisor.TagResource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The resource ARN of an IoT Device Advisor resource.
+  { -- | The resource ARN of an IoT Device Advisor resource. This can be
+    -- SuiteDefinition ARN or SuiteRun ARN.
     resourceArn :: Prelude.Text,
     -- | The tags to be attached to the IoT Device Advisor resource.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
@@ -68,7 +69,8 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The resource ARN of an IoT Device Advisor resource.
+-- 'resourceArn', 'tagResource_resourceArn' - The resource ARN of an IoT Device Advisor resource. This can be
+-- SuiteDefinition ARN or SuiteRun ARN.
 --
 -- 'tags', 'tagResource_tags' - The tags to be attached to the IoT Device Advisor resource.
 newTagResource ::
@@ -81,7 +83,8 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | The resource ARN of an IoT Device Advisor resource.
+-- | The resource ARN of an IoT Device Advisor resource. This can be
+-- SuiteDefinition ARN or SuiteRun ARN.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 

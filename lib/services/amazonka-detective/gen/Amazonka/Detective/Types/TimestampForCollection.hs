@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Detective.Types.TimestampForCollection
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ data TimestampForCollection = TimestampForCollection'
   { -- | The data and time when data collection began for a source package. The
     -- value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    timestamp :: Prelude.Maybe Data.POSIX
+    timestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

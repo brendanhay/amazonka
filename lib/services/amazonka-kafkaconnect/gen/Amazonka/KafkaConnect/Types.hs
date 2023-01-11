@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.KafkaConnect.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -521,7 +521,7 @@ defaultService =
 
 -- | HTTP Status Code 400: Bad request due to incorrect input. Correct your
 -- request and then retry it.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -530,7 +530,7 @@ _BadRequestException =
 
 -- | HTTP Status Code 409: Conflict. A resource with this name already
 -- exists. Retry your request with another name.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -539,7 +539,7 @@ _ConflictException =
 
 -- | HTTP Status Code 403: Access forbidden. Correct your credentials and
 -- then retry your request.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -548,7 +548,7 @@ _ForbiddenException =
 
 -- | HTTP Status Code 500: Unexpected internal server error. Retrying your
 -- request might resolve the issue.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -557,7 +557,7 @@ _InternalServerErrorException =
 
 -- | HTTP Status Code 404: Resource not found due to incorrect input. Correct
 -- your request and then retry it.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -566,7 +566,7 @@ _NotFoundException =
 
 -- | HTTP Status Code 503: Service Unavailable. Retrying your request in some
 -- time might resolve the issue.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -574,7 +574,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | HTTP Status Code 429: Limit exceeded. Resource limit reached.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -583,7 +583,7 @@ _TooManyRequestsException =
 
 -- | HTTP Status Code 401: Unauthorized request. The provided credentials
 -- couldn\'t be validated.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig.Types.Rule
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,12 +34,12 @@ data Rule = Rule'
     -- changed, the criteria set by the rule configuration is met. Otherwise,
     -- the change to the routing control state is not accepted. For example,
     -- the criteria might be that at least one routing control state is On
-    -- after the transation so that traffic continues to flow to at least one
+    -- after the transaction so that traffic continues to flow to at least one
     -- cell for the application. This ensures that you avoid a fail-open
     -- scenario.
     assertion :: Prelude.Maybe AssertionRule,
     -- | A gating rule verifies that a gating routing control or set of gating
-    -- rounting controls, evaluates as true, based on a rule configuration that
+    -- routing controls, evaluates as true, based on a rule configuration that
     -- you specify, which allows a set of routing control state changes to
     -- complete.
     --
@@ -65,12 +65,12 @@ data Rule = Rule'
 -- changed, the criteria set by the rule configuration is met. Otherwise,
 -- the change to the routing control state is not accepted. For example,
 -- the criteria might be that at least one routing control state is On
--- after the transation so that traffic continues to flow to at least one
+-- after the transaction so that traffic continues to flow to at least one
 -- cell for the application. This ensures that you avoid a fail-open
 -- scenario.
 --
 -- 'gating', 'rule_gating' - A gating rule verifies that a gating routing control or set of gating
--- rounting controls, evaluates as true, based on a rule configuration that
+-- routing controls, evaluates as true, based on a rule configuration that
 -- you specify, which allows a set of routing control state changes to
 -- complete.
 --
@@ -92,14 +92,14 @@ newRule =
 -- changed, the criteria set by the rule configuration is met. Otherwise,
 -- the change to the routing control state is not accepted. For example,
 -- the criteria might be that at least one routing control state is On
--- after the transation so that traffic continues to flow to at least one
+-- after the transaction so that traffic continues to flow to at least one
 -- cell for the application. This ensures that you avoid a fail-open
 -- scenario.
 rule_assertion :: Lens.Lens' Rule (Prelude.Maybe AssertionRule)
 rule_assertion = Lens.lens (\Rule' {assertion} -> assertion) (\s@Rule' {} a -> s {assertion = a} :: Rule)
 
 -- | A gating rule verifies that a gating routing control or set of gating
--- rounting controls, evaluates as true, based on a rule configuration that
+-- routing controls, evaluates as true, based on a rule configuration that
 -- you specify, which allows a set of routing control state changes to
 -- complete.
 --

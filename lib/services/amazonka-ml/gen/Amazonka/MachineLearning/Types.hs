@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MachineLearning.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -353,14 +353,14 @@ defaultService =
 -- | A second request to use or change an object was not allowed. This can
 -- result from retrying a request using a parameter that was not present in
 -- the original request.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
 
 -- | An error on the server occurred when trying to process a request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -368,14 +368,14 @@ _InternalServerException =
 
 -- | An error on the client occurred. Typically, the cause is an invalid
 -- input value.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | Prism for InvalidTagException' errors.
-_InvalidTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTagException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidTagException =
   Core._MatchServiceError
     defaultService
@@ -383,7 +383,7 @@ _InvalidTagException =
 
 -- | The subscriber exceeded the maximum number of operations. This exception
 -- can occur when listing objects such as @DataSource@.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -391,21 +391,21 @@ _LimitExceededException =
 
 -- | The exception is thrown when a predict request is made to an unmounted
 -- @MLModel@.
-_PredictorNotMountedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PredictorNotMountedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PredictorNotMountedException =
   Core._MatchServiceError
     defaultService
     "PredictorNotMountedException"
 
 -- | A specified resource cannot be located.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | Prism for TagLimitExceededException' errors.
-_TagLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TagLimitExceededException =
   Core._MatchServiceError
     defaultService

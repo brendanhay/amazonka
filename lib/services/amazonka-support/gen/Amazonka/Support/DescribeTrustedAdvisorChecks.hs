@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Support.DescribeTrustedAdvisorChecks
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,16 +22,16 @@
 --
 -- Returns information about all available Trusted Advisor checks,
 -- including the name, ID, category, description, and metadata. You must
--- specify a language code. The Amazon Web Services Support API currently
--- supports English (\"en\") and Japanese (\"ja\"). The response contains a
--- TrustedAdvisorCheckDescription object for each check. You must set the
--- Amazon Web Services Region to us-east-1.
+-- specify a language code.
+--
+-- The response contains a TrustedAdvisorCheckDescription object for each
+-- check. You must set the Amazon Web Services Region to us-east-1.
 --
 -- -   You must have a Business, Enterprise On-Ramp, or Enterprise Support
 --     plan to use the Amazon Web Services Support API.
 --
 -- -   If you call the Amazon Web Services Support API from an account that
---     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     doesn\'t have a Business, Enterprise On-Ramp, or Enterprise Support
 --     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.
@@ -39,6 +39,13 @@
 -- -   The names and descriptions for Trusted Advisor checks are subject to
 --     change. We recommend that you specify the check ID in your code to
 --     uniquely identify a check.
+--
+-- To call the Trusted Advisor operations in the Amazon Web Services
+-- Support API, you must use the US East (N. Virginia) endpoint. Currently,
+-- the US West (Oregon) and Europe (Ireland) endpoints don\'t support the
+-- Trusted Advisor operations. For more information, see
+-- <https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint About the Amazon Web Services Support API>
+-- in the /Amazon Web Services Support User Guide/.
 module Amazonka.Support.DescribeTrustedAdvisorChecks
   ( -- * Creating a Request
     DescribeTrustedAdvisorChecks (..),
@@ -67,10 +74,33 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newDescribeTrustedAdvisorChecks' smart constructor.
 data DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
-  { -- | The ISO 639-1 code for the language in which Amazon Web Services
-    -- provides support. Amazon Web Services Support currently supports English
-    -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
-    -- explicitly for operations that take them.
+  { -- | The ISO 639-1 code for the language that you want your checks to appear
+    -- in.
+    --
+    -- The Amazon Web Services Support API currently supports the following
+    -- languages for Trusted Advisor:
+    --
+    -- -   Chinese, Simplified - @zh@
+    --
+    -- -   Chinese, Traditional - @zh_TW@
+    --
+    -- -   English - @en@
+    --
+    -- -   French - @fr@
+    --
+    -- -   German - @de@
+    --
+    -- -   Indonesian - @id@
+    --
+    -- -   Italian - @it@
+    --
+    -- -   Japanese - @ja@
+    --
+    -- -   Korean - @ko@
+    --
+    -- -   Portuguese, Brazilian - @pt_BR@
+    --
+    -- -   Spanish - @es@
     language :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,10 +113,33 @@ data DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'language', 'describeTrustedAdvisorChecks_language' - The ISO 639-1 code for the language in which Amazon Web Services
--- provides support. Amazon Web Services Support currently supports English
--- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
--- explicitly for operations that take them.
+-- 'language', 'describeTrustedAdvisorChecks_language' - The ISO 639-1 code for the language that you want your checks to appear
+-- in.
+--
+-- The Amazon Web Services Support API currently supports the following
+-- languages for Trusted Advisor:
+--
+-- -   Chinese, Simplified - @zh@
+--
+-- -   Chinese, Traditional - @zh_TW@
+--
+-- -   English - @en@
+--
+-- -   French - @fr@
+--
+-- -   German - @de@
+--
+-- -   Indonesian - @id@
+--
+-- -   Italian - @it@
+--
+-- -   Japanese - @ja@
+--
+-- -   Korean - @ko@
+--
+-- -   Portuguese, Brazilian - @pt_BR@
+--
+-- -   Spanish - @es@
 newDescribeTrustedAdvisorChecks ::
   -- | 'language'
   Prelude.Text ->
@@ -97,10 +150,33 @@ newDescribeTrustedAdvisorChecks pLanguage_ =
         pLanguage_
     }
 
--- | The ISO 639-1 code for the language in which Amazon Web Services
--- provides support. Amazon Web Services Support currently supports English
--- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
--- explicitly for operations that take them.
+-- | The ISO 639-1 code for the language that you want your checks to appear
+-- in.
+--
+-- The Amazon Web Services Support API currently supports the following
+-- languages for Trusted Advisor:
+--
+-- -   Chinese, Simplified - @zh@
+--
+-- -   Chinese, Traditional - @zh_TW@
+--
+-- -   English - @en@
+--
+-- -   French - @fr@
+--
+-- -   German - @de@
+--
+-- -   Indonesian - @id@
+--
+-- -   Italian - @it@
+--
+-- -   Japanese - @ja@
+--
+-- -   Korean - @ko@
+--
+-- -   Portuguese, Brazilian - @pt_BR@
+--
+-- -   Spanish - @es@
 describeTrustedAdvisorChecks_language :: Lens.Lens' DescribeTrustedAdvisorChecks Prelude.Text
 describeTrustedAdvisorChecks_language = Lens.lens (\DescribeTrustedAdvisorChecks' {language} -> language) (\s@DescribeTrustedAdvisorChecks' {} a -> s {language = a} :: DescribeTrustedAdvisorChecks)
 

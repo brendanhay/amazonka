@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.GetAnnotationImportJob
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -139,9 +139,9 @@ data GetAnnotationImportJobResponse = GetAnnotationImportJobResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | When the job completed.
-    completionTime :: Data.POSIX,
+    completionTime :: Data.ISO8601,
     -- | When the job was created.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The job\'s destination annotation store.
     destinationName :: Prelude.Text,
     formatOptions :: FormatOptions,
@@ -158,7 +158,7 @@ data GetAnnotationImportJobResponse = GetAnnotationImportJobResponse'
     -- | The job\'s status message.
     statusMessage :: Prelude.Text,
     -- | When the job was updated.
-    updateTime :: Data.POSIX
+    updateTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

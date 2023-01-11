@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Backup.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -541,7 +541,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The required resource already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -549,7 +549,7 @@ _AlreadyExistsException =
 
 -- | Backup can\'t perform the action that you requested until it finishes
 -- performing a previous action. Try again later.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -557,7 +557,7 @@ _ConflictException =
 
 -- | A dependent Amazon Web Services service or resource returned an error to
 -- the Backup service, and the action cannot be completed.
-_DependencyFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DependencyFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DependencyFailureException =
   Core._MatchServiceError
     defaultService
@@ -565,7 +565,7 @@ _DependencyFailureException =
 
 -- | Indicates that something is wrong with a parameter\'s value. For
 -- example, the value is out of range.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -573,7 +573,7 @@ _InvalidParameterValueException =
 
 -- | Indicates that something is wrong with the input to the request. For
 -- example, a parameter is of the wrong type.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -582,7 +582,7 @@ _InvalidRequestException =
 -- | Backup is already performing an action on this recovery point. It can\'t
 -- perform the action you requested until the first action finishes. Try
 -- again later.
-_InvalidResourceStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidResourceStateException =
   Core._MatchServiceError
     defaultService
@@ -590,28 +590,28 @@ _InvalidResourceStateException =
 
 -- | A limit in the request has been exceeded; for example, a maximum number
 -- of items allowed in a request.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | Indicates that a required parameter is missing.
-_MissingParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MissingParameterValueException =
   Core._MatchServiceError
     defaultService
     "MissingParameterValueException"
 
 -- | A resource that is required for the action doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The request failed due to a temporary failure of the server.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService

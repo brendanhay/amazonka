@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.WAFV2.Types.LoggingConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,10 +39,15 @@ import Amazonka.WAFV2.Types.LoggingFilter
 --
 -- 1.  Create your logging destination. You can use an Amazon CloudWatch
 --     Logs log group, an Amazon Simple Storage Service (Amazon S3) bucket,
---     or an Amazon Kinesis Data Firehose. For information about
---     configuring logging destinations and the permissions that are
---     required for each, see
---     <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html Logging web ACL traffic information>
+--     or an Amazon Kinesis Data Firehose.
+--
+--     The name that you give the destination must start with
+--     @aws-waf-logs-@. Depending on the type of destination, you might
+--     need to configure additional settings or permissions.
+--
+--     For configuration requirements and pricing information for each
+--     destination type, see
+--     <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html Logging web ACL traffic>
 --     in the /WAF Developer Guide/.
 --
 -- 2.  Associate your logging destination to your web ACL using a

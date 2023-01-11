@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.UserPausedDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 data UserPausedDetails = UserPausedDetails'
   { -- | The date and time, in UTC and extended ISO 8601 format, when the job or
     -- job run will expire and be cancelled if you don\'t resume it first.
-    jobExpiresAt :: Prelude.Maybe Data.POSIX,
+    jobExpiresAt :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the Health event that Amazon Macie
     -- sent to notify you of the job or job run\'s pending expiration and
     -- cancellation. This value is null if a job has been paused for less than
@@ -44,7 +44,7 @@ data UserPausedDetails = UserPausedDetails'
     jobImminentExpirationHealthEventArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when you paused
     -- the job.
-    jobPausedAt :: Prelude.Maybe Data.POSIX
+    jobPausedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

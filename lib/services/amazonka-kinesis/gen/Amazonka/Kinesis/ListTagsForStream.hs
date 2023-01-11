@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.ListTagsForStream
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,9 @@
 --
 -- Lists the tags for the specified Kinesis data stream. This operation has
 -- a limit of five transactions per second per account.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 module Amazonka.Kinesis.ListTagsForStream
   ( -- * Creating a Request
     ListTagsForStream (..),
@@ -30,6 +33,7 @@ module Amazonka.Kinesis.ListTagsForStream
     -- * Request Lenses
     listTagsForStream_exclusiveStartTagKey,
     listTagsForStream_limit,
+    listTagsForStream_streamARN,
     listTagsForStream_streamName,
 
     -- * Destructuring the Response
@@ -64,8 +68,10 @@ data ListTagsForStream = ListTagsForStream'
     -- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last
     -- key in the response.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream.
-    streamName :: Prelude.Text
+    streamName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,17 +92,18 @@ data ListTagsForStream = ListTagsForStream'
 -- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last
 -- key in the response.
 --
+-- 'streamARN', 'listTagsForStream_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'listTagsForStream_streamName' - The name of the stream.
 newListTagsForStream ::
-  -- | 'streamName'
-  Prelude.Text ->
   ListTagsForStream
-newListTagsForStream pStreamName_ =
+newListTagsForStream =
   ListTagsForStream'
     { exclusiveStartTagKey =
         Prelude.Nothing,
       limit = Prelude.Nothing,
-      streamName = pStreamName_
+      streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing
     }
 
 -- | The key to use as the starting point for the list of tags. If this
@@ -112,8 +119,12 @@ listTagsForStream_exclusiveStartTagKey = Lens.lens (\ListTagsForStream' {exclusi
 listTagsForStream_limit :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Natural)
 listTagsForStream_limit = Lens.lens (\ListTagsForStream' {limit} -> limit) (\s@ListTagsForStream' {} a -> s {limit = a} :: ListTagsForStream)
 
+-- | The ARN of the stream.
+listTagsForStream_streamARN :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Text)
+listTagsForStream_streamARN = Lens.lens (\ListTagsForStream' {streamARN} -> streamARN) (\s@ListTagsForStream' {} a -> s {streamARN = a} :: ListTagsForStream)
+
 -- | The name of the stream.
-listTagsForStream_streamName :: Lens.Lens' ListTagsForStream Prelude.Text
+listTagsForStream_streamName :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Text)
 listTagsForStream_streamName = Lens.lens (\ListTagsForStream' {streamName} -> streamName) (\s@ListTagsForStream' {} a -> s {streamName = a} :: ListTagsForStream)
 
 instance Core.AWSRequest ListTagsForStream where
@@ -135,12 +146,14 @@ instance Prelude.Hashable ListTagsForStream where
   hashWithSalt _salt ListTagsForStream' {..} =
     _salt `Prelude.hashWithSalt` exclusiveStartTagKey
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData ListTagsForStream where
   rnf ListTagsForStream' {..} =
     Prelude.rnf exclusiveStartTagKey
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamName
 
 instance Data.ToHeaders ListTagsForStream where
@@ -165,7 +178,8 @@ instance Data.ToJSON ListTagsForStream where
           [ ("ExclusiveStartTagKey" Data..=)
               Prelude.<$> exclusiveStartTagKey,
             ("Limit" Data..=) Prelude.<$> limit,
-            Prelude.Just ("StreamName" Data..= streamName)
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName
           ]
       )
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.InputDeviceHdSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,6 +45,9 @@ data InputDeviceHdSettings = InputDeviceHdSettings'
     framerate :: Prelude.Maybe Prelude.Double,
     -- | The height of the video source, in pixels.
     height :: Prelude.Maybe Prelude.Int,
+    -- | The Link device\'s buffer size (latency) in milliseconds (ms). You can
+    -- specify this value.
+    latencyMs :: Prelude.Maybe Prelude.Int,
     -- | The current maximum bitrate for ingesting this source, in bits per
     -- second. You can specify this maximum.
     maxBitrate :: Prelude.Maybe Prelude.Int,
@@ -75,6 +78,9 @@ data InputDeviceHdSettings = InputDeviceHdSettings'
 --
 -- 'height', 'inputDeviceHdSettings_height' - The height of the video source, in pixels.
 --
+-- 'latencyMs', 'inputDeviceHdSettings_latencyMs' - The Link device\'s buffer size (latency) in milliseconds (ms). You can
+-- specify this value.
+--
 -- 'maxBitrate', 'inputDeviceHdSettings_maxBitrate' - The current maximum bitrate for ingesting this source, in bits per
 -- second. You can specify this maximum.
 --
@@ -91,6 +97,7 @@ newInputDeviceHdSettings =
       deviceState = Prelude.Nothing,
       framerate = Prelude.Nothing,
       height = Prelude.Nothing,
+      latencyMs = Prelude.Nothing,
       maxBitrate = Prelude.Nothing,
       scanType = Prelude.Nothing,
       width = Prelude.Nothing
@@ -118,6 +125,11 @@ inputDeviceHdSettings_framerate = Lens.lens (\InputDeviceHdSettings' {framerate}
 inputDeviceHdSettings_height :: Lens.Lens' InputDeviceHdSettings (Prelude.Maybe Prelude.Int)
 inputDeviceHdSettings_height = Lens.lens (\InputDeviceHdSettings' {height} -> height) (\s@InputDeviceHdSettings' {} a -> s {height = a} :: InputDeviceHdSettings)
 
+-- | The Link device\'s buffer size (latency) in milliseconds (ms). You can
+-- specify this value.
+inputDeviceHdSettings_latencyMs :: Lens.Lens' InputDeviceHdSettings (Prelude.Maybe Prelude.Int)
+inputDeviceHdSettings_latencyMs = Lens.lens (\InputDeviceHdSettings' {latencyMs} -> latencyMs) (\s@InputDeviceHdSettings' {} a -> s {latencyMs = a} :: InputDeviceHdSettings)
+
 -- | The current maximum bitrate for ingesting this source, in bits per
 -- second. You can specify this maximum.
 inputDeviceHdSettings_maxBitrate :: Lens.Lens' InputDeviceHdSettings (Prelude.Maybe Prelude.Int)
@@ -142,6 +154,7 @@ instance Data.FromJSON InputDeviceHdSettings where
             Prelude.<*> (x Data..:? "deviceState")
             Prelude.<*> (x Data..:? "framerate")
             Prelude.<*> (x Data..:? "height")
+            Prelude.<*> (x Data..:? "latencyMs")
             Prelude.<*> (x Data..:? "maxBitrate")
             Prelude.<*> (x Data..:? "scanType")
             Prelude.<*> (x Data..:? "width")
@@ -154,6 +167,7 @@ instance Prelude.Hashable InputDeviceHdSettings where
       `Prelude.hashWithSalt` deviceState
       `Prelude.hashWithSalt` framerate
       `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` latencyMs
       `Prelude.hashWithSalt` maxBitrate
       `Prelude.hashWithSalt` scanType
       `Prelude.hashWithSalt` width
@@ -165,6 +179,7 @@ instance Prelude.NFData InputDeviceHdSettings where
       `Prelude.seq` Prelude.rnf deviceState
       `Prelude.seq` Prelude.rnf framerate
       `Prelude.seq` Prelude.rnf height
+      `Prelude.seq` Prelude.rnf latencyMs
       `Prelude.seq` Prelude.rnf maxBitrate
       `Prelude.seq` Prelude.rnf scanType
       `Prelude.seq` Prelude.rnf width

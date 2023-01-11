@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.CreateCertificateAuthority
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,15 +34,15 @@
 -- that is included in certificates issued by the CA. If successful, this
 -- action returns the Amazon Resource Name (ARN) of the CA.
 --
--- ACM Private CA assets that are stored in Amazon S3 can be protected with
--- encryption. For more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption Encrypting Your CRLs>.
+-- Both Amazon Web Services Private CA and the IAM principal must have
+-- permission to write to the S3 bucket that you specify. If the IAM
+-- principal making the call does not have permission to write to the
+-- bucket, then an exception is thrown. For more information, see
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
 --
--- Both PCA and the IAM principal must have permission to write to the S3
--- bucket that you specify. If the IAM principal making the call does not
--- have permission to write to the bucket, then an exception is thrown. For
--- more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
+-- Amazon Web Services Private CA assets that are stored in Amazon S3 can
+-- be protected with encryption. For more information, see
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption Encrypting Your CRLs>.
 module Amazonka.CertificateManagerPCA.CreateCertificateAuthority
   ( -- * Creating a Request
     CreateCertificateAuthority (..),
@@ -81,10 +81,11 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     -- __CreateCertificateAuthority__ action. Idempotency tokens for
     -- __CreateCertificateAuthority__ time out after five minutes. Therefore,
     -- if you call __CreateCertificateAuthority__ multiple times with the same
-    -- idempotency token within five minutes, ACM Private CA recognizes that
-    -- you are requesting only certificate authority and will issue only one.
-    -- If you change the idempotency token for each call, PCA recognizes that
-    -- you are requesting multiple certificate authorities.
+    -- idempotency token within five minutes, Amazon Web Services Private CA
+    -- recognizes that you are requesting only certificate authority and will
+    -- issue only one. If you change the idempotency token for each call,
+    -- Amazon Web Services Private CA recognizes that you are requesting
+    -- multiple certificate authorities.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies a cryptographic key management compliance standard used for
     -- handling CA keys.
@@ -107,10 +108,30 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     -- | Contains information to enable Online Certificate Status Protocol (OCSP)
     -- support, to enable a certificate revocation list (CRL), to enable both,
     -- or to enable neither. The default is for both certificate validation
-    -- mechanisms to be disabled. For more information, see the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
+    -- mechanisms to be disabled.
+    --
+    -- The following requirements apply to revocation configurations.
+    --
+    -- -   A configuration disabling CRLs or OCSP must contain only the
+    --     @Enabled=False@ parameter, and will fail if other parameters such as
+    --     @CustomCname@ or @ExpirationInDays@ are included.
+    --
+    -- -   In a CRL configuration, the @S3BucketName@ parameter must conform to
+    --     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html Amazon S3 bucket naming rules>.
+    --
+    -- -   A configuration containing a custom Canonical Name (CNAME) parameter
+    --     for CRLs or OCSP must conform to
+    --     <https://www.ietf.org/rfc/rfc2396.txt RFC2396> restrictions on the
+    --     use of special characters in a CNAME.
+    --
+    -- -   In a CRL or OCSP configuration, the value of a CNAME parameter must
+    --     not include a protocol prefix such as \"http:\/\/\" or
+    --     \"https:\/\/\".
+    --
+    -- For more information, see the
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
     -- and
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
     -- types.
     revocationConfiguration :: Prelude.Maybe RevocationConfiguration,
     -- | Key-value pairs that will be attached to the new private CA. You can
@@ -145,10 +166,11 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
 -- __CreateCertificateAuthority__ action. Idempotency tokens for
 -- __CreateCertificateAuthority__ time out after five minutes. Therefore,
 -- if you call __CreateCertificateAuthority__ multiple times with the same
--- idempotency token within five minutes, ACM Private CA recognizes that
--- you are requesting only certificate authority and will issue only one.
--- If you change the idempotency token for each call, PCA recognizes that
--- you are requesting multiple certificate authorities.
+-- idempotency token within five minutes, Amazon Web Services Private CA
+-- recognizes that you are requesting only certificate authority and will
+-- issue only one. If you change the idempotency token for each call,
+-- Amazon Web Services Private CA recognizes that you are requesting
+-- multiple certificate authorities.
 --
 -- 'keyStorageSecurityStandard', 'createCertificateAuthority_keyStorageSecurityStandard' - Specifies a cryptographic key management compliance standard used for
 -- handling CA keys.
@@ -171,10 +193,30 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
 -- 'revocationConfiguration', 'createCertificateAuthority_revocationConfiguration' - Contains information to enable Online Certificate Status Protocol (OCSP)
 -- support, to enable a certificate revocation list (CRL), to enable both,
 -- or to enable neither. The default is for both certificate validation
--- mechanisms to be disabled. For more information, see the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
+-- mechanisms to be disabled.
+--
+-- The following requirements apply to revocation configurations.
+--
+-- -   A configuration disabling CRLs or OCSP must contain only the
+--     @Enabled=False@ parameter, and will fail if other parameters such as
+--     @CustomCname@ or @ExpirationInDays@ are included.
+--
+-- -   In a CRL configuration, the @S3BucketName@ parameter must conform to
+--     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html Amazon S3 bucket naming rules>.
+--
+-- -   A configuration containing a custom Canonical Name (CNAME) parameter
+--     for CRLs or OCSP must conform to
+--     <https://www.ietf.org/rfc/rfc2396.txt RFC2396> restrictions on the
+--     use of special characters in a CNAME.
+--
+-- -   In a CRL or OCSP configuration, the value of a CNAME parameter must
+--     not include a protocol prefix such as \"http:\/\/\" or
+--     \"https:\/\/\".
+--
+-- For more information, see the
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
 -- and
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
 -- types.
 --
 -- 'tags', 'createCertificateAuthority_tags' - Key-value pairs that will be attached to the new private CA. You can
@@ -219,10 +261,11 @@ newCreateCertificateAuthority
 -- __CreateCertificateAuthority__ action. Idempotency tokens for
 -- __CreateCertificateAuthority__ time out after five minutes. Therefore,
 -- if you call __CreateCertificateAuthority__ multiple times with the same
--- idempotency token within five minutes, ACM Private CA recognizes that
--- you are requesting only certificate authority and will issue only one.
--- If you change the idempotency token for each call, PCA recognizes that
--- you are requesting multiple certificate authorities.
+-- idempotency token within five minutes, Amazon Web Services Private CA
+-- recognizes that you are requesting only certificate authority and will
+-- issue only one. If you change the idempotency token for each call,
+-- Amazon Web Services Private CA recognizes that you are requesting
+-- multiple certificate authorities.
 createCertificateAuthority_idempotencyToken :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe Prelude.Text)
 createCertificateAuthority_idempotencyToken = Lens.lens (\CreateCertificateAuthority' {idempotencyToken} -> idempotencyToken) (\s@CreateCertificateAuthority' {} a -> s {idempotencyToken = a} :: CreateCertificateAuthority)
 
@@ -249,10 +292,30 @@ createCertificateAuthority_keyStorageSecurityStandard = Lens.lens (\CreateCertif
 -- | Contains information to enable Online Certificate Status Protocol (OCSP)
 -- support, to enable a certificate revocation list (CRL), to enable both,
 -- or to enable neither. The default is for both certificate validation
--- mechanisms to be disabled. For more information, see the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
+-- mechanisms to be disabled.
+--
+-- The following requirements apply to revocation configurations.
+--
+-- -   A configuration disabling CRLs or OCSP must contain only the
+--     @Enabled=False@ parameter, and will fail if other parameters such as
+--     @CustomCname@ or @ExpirationInDays@ are included.
+--
+-- -   In a CRL configuration, the @S3BucketName@ parameter must conform to
+--     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html Amazon S3 bucket naming rules>.
+--
+-- -   A configuration containing a custom Canonical Name (CNAME) parameter
+--     for CRLs or OCSP must conform to
+--     <https://www.ietf.org/rfc/rfc2396.txt RFC2396> restrictions on the
+--     use of special characters in a CNAME.
+--
+-- -   In a CRL or OCSP configuration, the value of a CNAME parameter must
+--     not include a protocol prefix such as \"http:\/\/\" or
+--     \"https:\/\/\".
+--
+-- For more information, see the
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
 -- and
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
 -- types.
 createCertificateAuthority_revocationConfiguration :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe RevocationConfiguration)
 createCertificateAuthority_revocationConfiguration = Lens.lens (\CreateCertificateAuthority' {revocationConfiguration} -> revocationConfiguration) (\s@CreateCertificateAuthority' {} a -> s {revocationConfiguration = a} :: CreateCertificateAuthority)

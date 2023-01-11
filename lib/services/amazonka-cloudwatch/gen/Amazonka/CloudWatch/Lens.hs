@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CloudWatch.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -465,6 +465,7 @@ module Amazonka.CloudWatch.Lens
     metricAlarm_dimensions,
     metricAlarm_evaluateLowSampleCountPercentile,
     metricAlarm_evaluationPeriods,
+    metricAlarm_evaluationState,
     metricAlarm_extendedStatistic,
     metricAlarm_insufficientDataActions,
     metricAlarm_metricName,
@@ -474,6 +475,7 @@ module Amazonka.CloudWatch.Lens
     metricAlarm_period,
     metricAlarm_stateReason,
     metricAlarm_stateReasonData,
+    metricAlarm_stateTransitionedTimestamp,
     metricAlarm_stateUpdatedTimestamp,
     metricAlarm_stateValue,
     metricAlarm_statistic,

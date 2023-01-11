@@ -12,13 +12,14 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.Types.ScalingActivity
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Amazonka.ApplicationAutoScaling.Types.ScalingActivity where
 
+import Amazonka.ApplicationAutoScaling.Types.NotScaledReason
 import Amazonka.ApplicationAutoScaling.Types.ScalableDimension
 import Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode
 import Amazonka.ApplicationAutoScaling.Types.ServiceNamespace
@@ -35,6 +36,11 @@ data ScalingActivity = ScalingActivity'
     details :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for when the scaling activity ended.
     endTime :: Prelude.Maybe Data.POSIX,
+    -- | Machine-readable data that describes the reason for a not scaled
+    -- activity. Only available when
+    -- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalingActivities.html DescribeScalingActivities>
+    -- includes not scaled activities.
+    notScaledReasons :: Prelude.Maybe [NotScaledReason],
     -- | A simple message about the current status of the scaling activity.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the scaling activity.
@@ -142,7 +148,7 @@ data ScalingActivity = ScalingActivity'
     --     Aurora PostgreSQL-compatible edition.
     --
     -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an SageMaker model endpoint variant.
+    --     instances for a SageMaker model endpoint variant.
     --
     -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
     --     a custom resource provided by your own application or service.
@@ -199,6 +205,11 @@ data ScalingActivity = ScalingActivity'
 -- 'details', 'scalingActivity_details' - The details about the scaling activity.
 --
 -- 'endTime', 'scalingActivity_endTime' - The Unix timestamp for when the scaling activity ended.
+--
+-- 'notScaledReasons', 'scalingActivity_notScaledReasons' - Machine-readable data that describes the reason for a not scaled
+-- activity. Only available when
+-- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalingActivities.html DescribeScalingActivities>
+-- includes not scaled activities.
 --
 -- 'statusMessage', 'scalingActivity_statusMessage' - A simple message about the current status of the scaling activity.
 --
@@ -307,7 +318,7 @@ data ScalingActivity = ScalingActivity'
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
+--     instances for a SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -379,6 +390,7 @@ newScalingActivity
     ScalingActivity'
       { details = Prelude.Nothing,
         endTime = Prelude.Nothing,
+        notScaledReasons = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         activityId = pActivityId_,
         serviceNamespace = pServiceNamespace_,
@@ -397,6 +409,13 @@ scalingActivity_details = Lens.lens (\ScalingActivity' {details} -> details) (\s
 -- | The Unix timestamp for when the scaling activity ended.
 scalingActivity_endTime :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.UTCTime)
 scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s@ScalingActivity' {} a -> s {endTime = a} :: ScalingActivity) Prelude.. Lens.mapping Data._Time
+
+-- | Machine-readable data that describes the reason for a not scaled
+-- activity. Only available when
+-- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalingActivities.html DescribeScalingActivities>
+-- includes not scaled activities.
+scalingActivity_notScaledReasons :: Lens.Lens' ScalingActivity (Prelude.Maybe [NotScaledReason])
+scalingActivity_notScaledReasons = Lens.lens (\ScalingActivity' {notScaledReasons} -> notScaledReasons) (\s@ScalingActivity' {} a -> s {notScaledReasons = a} :: ScalingActivity) Prelude.. Lens.mapping Lens.coerced
 
 -- | A simple message about the current status of the scaling activity.
 scalingActivity_statusMessage :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
@@ -513,7 +532,7 @@ scalingActivity_resourceId = Lens.lens (\ScalingActivity' {resourceId} -> resour
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
+--     instances for a SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -574,6 +593,9 @@ instance Data.FromJSON ScalingActivity where
           ScalingActivity'
             Prelude.<$> (x Data..:? "Details")
             Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> ( x Data..:? "NotScaledReasons"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "StatusMessage")
             Prelude.<*> (x Data..: "ActivityId")
             Prelude.<*> (x Data..: "ServiceNamespace")
@@ -589,6 +611,7 @@ instance Prelude.Hashable ScalingActivity where
   hashWithSalt _salt ScalingActivity' {..} =
     _salt `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` notScaledReasons
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` activityId
       `Prelude.hashWithSalt` serviceNamespace
@@ -603,6 +626,7 @@ instance Prelude.NFData ScalingActivity where
   rnf ScalingActivity' {..} =
     Prelude.rnf details
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf notScaledReasons
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf activityId
       `Prelude.seq` Prelude.rnf serviceNamespace

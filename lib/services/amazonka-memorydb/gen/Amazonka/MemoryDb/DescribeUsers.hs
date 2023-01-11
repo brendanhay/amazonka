@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeUsers
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of users.
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeUsers
   ( -- * Creating a Request
     DescribeUsers (..),
@@ -122,6 +124,25 @@ describeUsers_nextToken = Lens.lens (\DescribeUsers' {nextToken} -> nextToken) (
 -- | The name of the user
 describeUsers_userName :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_userName = Lens.lens (\DescribeUsers' {userName} -> userName) (\s@DescribeUsers' {} a -> s {userName = a} :: DescribeUsers)
+
+instance Core.AWSPager DescribeUsers where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeUsersResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeUsersResponse_users Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeUsers_nextToken
+          Lens..~ rs
+          Lens.^? describeUsersResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUsers where
   type

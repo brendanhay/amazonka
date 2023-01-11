@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.GetSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSettings' smart constructor.
 data GetSettings = GetSettings'
-  { -- | The list of @SettingAttribute@ enum values.
+  { -- | The list of setting attribute enum values.
     attribute :: SettingAttribute
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data GetSettings = GetSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attribute', 'getSettings_attribute' - The list of @SettingAttribute@ enum values.
+-- 'attribute', 'getSettings_attribute' - The list of setting attribute enum values.
 newGetSettings ::
   -- | 'attribute'
   SettingAttribute ->
@@ -70,7 +70,7 @@ newGetSettings ::
 newGetSettings pAttribute_ =
   GetSettings' {attribute = pAttribute_}
 
--- | The list of @SettingAttribute@ enum values.
+-- | The list of setting attribute enum values.
 getSettings_attribute :: Lens.Lens' GetSettings SettingAttribute
 getSettings_attribute = Lens.lens (\GetSettings' {attribute} -> attribute) (\s@GetSettings' {} a -> s {attribute = a} :: GetSettings)
 

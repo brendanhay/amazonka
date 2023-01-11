@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStarNotifications.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -183,7 +183,7 @@ defaultService =
 
 -- | AWS CodeStar Notifications can\'t create the notification rule because
 -- you do not have sufficient permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -193,7 +193,7 @@ _AccessDeniedException =
 -- | AWS CodeStar Notifications can\'t complete the request because the
 -- resource is being modified by another process. Wait a few minutes and
 -- try again.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -201,7 +201,7 @@ _ConcurrentModificationException =
     Prelude.. Core.hasStatus 400
 
 -- | Some or all of the configuration is incomplete, missing, or not valid.
-_ConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -210,7 +210,7 @@ _ConfigurationException =
 
 -- | The value for the enumeration token used in the request to return the
 -- next batch of the results is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -220,7 +220,7 @@ _InvalidNextTokenException =
 -- | One of the AWS CodeStar Notifications limits has been exceeded. Limits
 -- apply to accounts, notification rules, notifications, resources, and
 -- targets. For more information, see Limits.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -229,7 +229,7 @@ _LimitExceededException =
 
 -- | A resource with the same name or ID already exists. Notification rule
 -- names must be unique in your Amazon Web Services account.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -238,7 +238,7 @@ _ResourceAlreadyExistsException =
 
 -- | AWS CodeStar Notifications can\'t find a resource that matches the
 -- provided ARN.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -246,7 +246,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | One or more parameter values are not valid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

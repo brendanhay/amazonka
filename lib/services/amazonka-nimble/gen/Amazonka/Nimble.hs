@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -213,6 +213,12 @@ module Amazonka.Nimble
     GetStreamingSessionResponse (GetStreamingSessionResponse'),
     newGetStreamingSessionResponse,
 
+    -- ** GetStreamingSessionBackup
+    GetStreamingSessionBackup (GetStreamingSessionBackup'),
+    newGetStreamingSessionBackup,
+    GetStreamingSessionBackupResponse (GetStreamingSessionBackupResponse'),
+    newGetStreamingSessionBackupResponse,
+
     -- ** GetStreamingSessionStream
     GetStreamingSessionStream (GetStreamingSessionStream'),
     newGetStreamingSessionStream,
@@ -266,6 +272,12 @@ module Amazonka.Nimble
     newListStreamingImages,
     ListStreamingImagesResponse (ListStreamingImagesResponse'),
     newListStreamingImagesResponse,
+
+    -- ** ListStreamingSessionBackups (Paginated)
+    ListStreamingSessionBackups (ListStreamingSessionBackups'),
+    newListStreamingSessionBackups,
+    ListStreamingSessionBackupsResponse (ListStreamingSessionBackupsResponse'),
+    newListStreamingSessionBackupsResponse,
 
     -- ** ListStreamingSessions (Paginated)
     ListStreamingSessions (ListStreamingSessions'),
@@ -371,6 +383,9 @@ module Amazonka.Nimble
 
     -- * Types
 
+    -- ** AutomaticTerminationMode
+    AutomaticTerminationMode (..),
+
     -- ** LaunchProfilePersona
     LaunchProfilePersona (..),
 
@@ -391,6 +406,12 @@ module Amazonka.Nimble
 
     -- ** LaunchProfileValidationType
     LaunchProfileValidationType (..),
+
+    -- ** SessionBackupMode
+    SessionBackupMode (..),
+
+    -- ** SessionPersistenceMode
+    SessionPersistenceMode (..),
 
     -- ** StreamingClipboardMode
     StreamingClipboardMode (..),
@@ -448,6 +469,9 @@ module Amazonka.Nimble
 
     -- ** StudioStatusCode
     StudioStatusCode (..),
+
+    -- ** VolumeRetentionMode
+    VolumeRetentionMode (..),
 
     -- ** ActiveDirectoryComputerAttribute
     ActiveDirectoryComputerAttribute (ActiveDirectoryComputerAttribute'),
@@ -517,6 +541,10 @@ module Amazonka.Nimble
     StreamConfigurationCreate (StreamConfigurationCreate'),
     newStreamConfigurationCreate,
 
+    -- ** StreamConfigurationSessionBackup
+    StreamConfigurationSessionBackup (StreamConfigurationSessionBackup'),
+    newStreamConfigurationSessionBackup,
+
     -- ** StreamConfigurationSessionStorage
     StreamConfigurationSessionStorage (StreamConfigurationSessionStorage'),
     newStreamConfigurationSessionStorage,
@@ -532,6 +560,10 @@ module Amazonka.Nimble
     -- ** StreamingSession
     StreamingSession (StreamingSession'),
     newStreamingSession,
+
+    -- ** StreamingSessionBackup
+    StreamingSessionBackup (StreamingSessionBackup'),
+    newStreamingSessionBackup,
 
     -- ** StreamingSessionStorageRoot
     StreamingSessionStorageRoot (StreamingSessionStorageRoot'),
@@ -572,6 +604,10 @@ module Amazonka.Nimble
     -- ** ValidationResult
     ValidationResult (ValidationResult'),
     newValidationResult,
+
+    -- ** VolumeConfiguration
+    VolumeConfiguration (VolumeConfiguration'),
+    newVolumeConfiguration,
   )
 where
 
@@ -596,6 +632,7 @@ import Amazonka.Nimble.GetLaunchProfileInitialization
 import Amazonka.Nimble.GetLaunchProfileMember
 import Amazonka.Nimble.GetStreamingImage
 import Amazonka.Nimble.GetStreamingSession
+import Amazonka.Nimble.GetStreamingSessionBackup
 import Amazonka.Nimble.GetStreamingSessionStream
 import Amazonka.Nimble.GetStudio
 import Amazonka.Nimble.GetStudioComponent
@@ -606,6 +643,7 @@ import Amazonka.Nimble.ListEulas
 import Amazonka.Nimble.ListLaunchProfileMembers
 import Amazonka.Nimble.ListLaunchProfiles
 import Amazonka.Nimble.ListStreamingImages
+import Amazonka.Nimble.ListStreamingSessionBackups
 import Amazonka.Nimble.ListStreamingSessions
 import Amazonka.Nimble.ListStudioComponents
 import Amazonka.Nimble.ListStudioMembers

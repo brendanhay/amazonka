@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.SipRule
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSipRule' smart constructor.
 data SipRule = SipRule'
   { -- | The time at which the SIP rule was created, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | Indicates whether the SIP rule is enabled or disabled. You must disable
     -- a rule before you can delete it.
     disabled :: Prelude.Maybe Prelude.Bool,
@@ -54,7 +54,7 @@ data SipRule = SipRule'
     -- name or @ToPhoneNumber@ matches in the incoming SIP request.
     triggerValue :: Prelude.Maybe Prelude.Text,
     -- | The time at which the SIP rule was last updated, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

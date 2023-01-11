@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.TimeStreamWrite.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -230,7 +230,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You are not authorized to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -238,7 +238,7 @@ _AccessDeniedException =
 
 -- | Timestream was unable to process this request because it contains
 -- resource that already exists.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -246,14 +246,14 @@ _ConflictException =
 
 -- | Timestream was unable to fully process this request because of an
 -- internal server error.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
 
 -- | The requested endpoint was invalid.
-_InvalidEndpointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEndpointException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidEndpointException =
   Core._MatchServiceError
     defaultService
@@ -284,7 +284,7 @@ _InvalidEndpointException =
 -- For more information, see
 -- <https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html Quotas>
 -- in the Timestream Developer Guide.
-_RejectedRecordsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RejectedRecordsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RejectedRecordsException =
   Core._MatchServiceError
     defaultService
@@ -292,14 +292,14 @@ _RejectedRecordsException =
 
 -- | The operation tried to access a nonexistent resource. The resource might
 -- not be specified correctly, or its status might not be ACTIVE.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | Instance quota of resource exceeded for this account.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -307,14 +307,14 @@ _ServiceQuotaExceededException =
 
 -- | Too many requests were made by a user exceeding service quotas. The
 -- request was throttled.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
 
 -- | Invalid or malformed request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

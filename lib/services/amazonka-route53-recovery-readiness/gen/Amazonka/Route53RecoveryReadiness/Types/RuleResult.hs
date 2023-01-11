@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryReadiness.Types.RuleResult
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,7 +39,7 @@ data RuleResult = RuleResult'
     ruleId :: Prelude.Text,
     -- | The time the resource was last checked for readiness, in ISO-8601
     -- format, UTC.
-    lastCheckedTimestamp :: Data.POSIX
+    lastCheckedTimestamp :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

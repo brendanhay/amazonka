@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.ListVirtualClusters
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,9 +69,9 @@ data ListVirtualClusters = ListVirtualClusters'
     -- supported type as of now.
     containerProviderType :: Prelude.Maybe ContainerProviderType,
     -- | The date and time after which the virtual clusters are created.
-    createdAfter :: Prelude.Maybe Data.POSIX,
+    createdAfter :: Prelude.Maybe Data.ISO8601,
     -- | The date and time before which the virtual clusters are created.
-    createdBefore :: Prelude.Maybe Data.POSIX,
+    createdBefore :: Prelude.Maybe Data.ISO8601,
     -- | The maximum number of virtual clusters that can be listed.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The token for the next set of virtual clusters to return.

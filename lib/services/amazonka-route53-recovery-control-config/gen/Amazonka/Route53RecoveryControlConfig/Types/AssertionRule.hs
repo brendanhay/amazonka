@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig.Types.AssertionRule
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,9 +30,9 @@ import Amazonka.Route53RecoveryControlConfig.Types.Status
 -- state, that the criteria that you set in the rule configuration is met.
 -- Otherwise, the change to the routing control is not accepted. For
 -- example, the criteria might be that at least one routing control state
--- is On after the transation so that traffic continues to flow to at least
--- one cell for the application. This ensures that you avoid a fail-open
--- scenario.
+-- is On after the transaction so that traffic continues to flow to at
+-- least one cell for the application. This ensures that you avoid a
+-- fail-open scenario.
 --
 -- /See:/ 'newAssertionRule' smart constructor.
 data AssertionRule = AssertionRule'
@@ -51,7 +51,7 @@ data AssertionRule = AssertionRule'
     -- | The criteria that you set for specific assertion routing controls
     -- (AssertedControls) that designate how many routing control states must
     -- be ON as the result of a transaction. For example, if you have three
-    -- assertion routing controls, you might specify atleast 2 for your rule
+    -- assertion routing controls, you might specify ATLEAST 2 for your rule
     -- configuration. This means that at least two assertion routing control
     -- states must be ON, so that at least two Amazon Web Services Regions have
     -- traffic flowing to them.
@@ -90,7 +90,7 @@ data AssertionRule = AssertionRule'
 -- 'ruleConfig', 'assertionRule_ruleConfig' - The criteria that you set for specific assertion routing controls
 -- (AssertedControls) that designate how many routing control states must
 -- be ON as the result of a transaction. For example, if you have three
--- assertion routing controls, you might specify atleast 2 for your rule
+-- assertion routing controls, you might specify ATLEAST 2 for your rule
 -- configuration. This means that at least two assertion routing control
 -- states must be ON, so that at least two Amazon Web Services Regions have
 -- traffic flowing to them.
@@ -156,7 +156,7 @@ assertionRule_assertedControls = Lens.lens (\AssertionRule' {assertedControls} -
 -- | The criteria that you set for specific assertion routing controls
 -- (AssertedControls) that designate how many routing control states must
 -- be ON as the result of a transaction. For example, if you have three
--- assertion routing controls, you might specify atleast 2 for your rule
+-- assertion routing controls, you might specify ATLEAST 2 for your rule
 -- configuration. This means that at least two assertion routing control
 -- states must be ON, so that at least two Amazon Web Services Regions have
 -- traffic flowing to them.

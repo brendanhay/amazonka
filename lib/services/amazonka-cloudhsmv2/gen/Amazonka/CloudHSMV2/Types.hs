@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CloudHSMV2.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -206,7 +206,7 @@ defaultService =
 
 -- | The request was rejected because the requester does not have permission
 -- to perform the requested operation.
-_CloudHsmAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmAccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CloudHsmAccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -214,14 +214,14 @@ _CloudHsmAccessDeniedException =
 
 -- | The request was rejected because of an AWS CloudHSM internal failure.
 -- The request can be retried.
-_CloudHsmInternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmInternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CloudHsmInternalFailureException =
   Core._MatchServiceError
     defaultService
     "CloudHsmInternalFailureException"
 
 -- | The request was rejected because it is not a valid request.
-_CloudHsmInvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmInvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CloudHsmInvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -229,14 +229,14 @@ _CloudHsmInvalidRequestException =
 
 -- | The request was rejected because it refers to a resource that cannot be
 -- found.
-_CloudHsmResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CloudHsmResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "CloudHsmResourceNotFoundException"
 
 -- | The request was rejected because an error occurred.
-_CloudHsmServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CloudHsmServiceException =
   Core._MatchServiceError
     defaultService
@@ -244,7 +244,7 @@ _CloudHsmServiceException =
 
 -- | The request was rejected because of a tagging failure. Verify the tag
 -- conditions in all applicable policies, and then retry the request.
-_CloudHsmTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmTagException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CloudHsmTagException =
   Core._MatchServiceError
     defaultService

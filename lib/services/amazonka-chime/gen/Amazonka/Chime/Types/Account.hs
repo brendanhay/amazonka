@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.Account
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@ data Account = Account'
     -- in the /Amazon Chime Administration Guide/.
     accountType :: Prelude.Maybe AccountType,
     -- | The Amazon Chime account creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The default license for the Amazon Chime account.
     defaultLicense :: Prelude.Maybe License,
     -- | The sign-in delegate groups associated with the account.

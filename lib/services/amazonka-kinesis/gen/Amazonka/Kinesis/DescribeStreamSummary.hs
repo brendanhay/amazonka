@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.DescribeStreamSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,9 @@
 --
 -- Provides a summarized description of the specified Kinesis data stream
 -- without the shard list.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- The information returned includes the stream name, Amazon Resource Name
 -- (ARN), status, record retention period, approximate creation time,
@@ -35,6 +38,7 @@ module Amazonka.Kinesis.DescribeStreamSummary
     newDescribeStreamSummary,
 
     -- * Request Lenses
+    describeStreamSummary_streamARN,
     describeStreamSummary_streamName,
 
     -- * Destructuring the Response
@@ -57,8 +61,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeStreamSummary' smart constructor.
 data DescribeStreamSummary = DescribeStreamSummary'
-  { -- | The name of the stream to describe.
-    streamName :: Prelude.Text
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream to describe.
+    streamName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,16 +76,23 @@ data DescribeStreamSummary = DescribeStreamSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'describeStreamSummary_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'describeStreamSummary_streamName' - The name of the stream to describe.
 newDescribeStreamSummary ::
-  -- | 'streamName'
-  Prelude.Text ->
   DescribeStreamSummary
-newDescribeStreamSummary pStreamName_ =
-  DescribeStreamSummary' {streamName = pStreamName_}
+newDescribeStreamSummary =
+  DescribeStreamSummary'
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing
+    }
+
+-- | The ARN of the stream.
+describeStreamSummary_streamARN :: Lens.Lens' DescribeStreamSummary (Prelude.Maybe Prelude.Text)
+describeStreamSummary_streamARN = Lens.lens (\DescribeStreamSummary' {streamARN} -> streamARN) (\s@DescribeStreamSummary' {} a -> s {streamARN = a} :: DescribeStreamSummary)
 
 -- | The name of the stream to describe.
-describeStreamSummary_streamName :: Lens.Lens' DescribeStreamSummary Prelude.Text
+describeStreamSummary_streamName :: Lens.Lens' DescribeStreamSummary (Prelude.Maybe Prelude.Text)
 describeStreamSummary_streamName = Lens.lens (\DescribeStreamSummary' {streamName} -> streamName) (\s@DescribeStreamSummary' {} a -> s {streamName = a} :: DescribeStreamSummary)
 
 instance Core.AWSRequest DescribeStreamSummary where
@@ -98,11 +111,13 @@ instance Core.AWSRequest DescribeStreamSummary where
 
 instance Prelude.Hashable DescribeStreamSummary where
   hashWithSalt _salt DescribeStreamSummary' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData DescribeStreamSummary where
   rnf DescribeStreamSummary' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Data.ToHeaders DescribeStreamSummary where
   toHeaders =
@@ -123,7 +138,9 @@ instance Data.ToJSON DescribeStreamSummary where
   toJSON DescribeStreamSummary' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("StreamName" Data..= streamName)]
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName
+          ]
       )
 
 instance Data.ToPath DescribeStreamSummary where

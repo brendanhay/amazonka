@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.Framework
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data Framework = Framework'
     controlSets :: Prelude.Maybe (Prelude.NonEmpty ControlSet),
     -- | The sources that Audit Manager collects evidence from for the control.
     controlSources :: Prelude.Maybe Prelude.Text,
-    -- | Specifies when the framework was created.
+    -- | The time when the framework was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The IAM user or role that created the framework.
     createdBy :: Prelude.Maybe Prelude.Text,
@@ -48,7 +48,7 @@ data Framework = Framework'
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the framework.
     id :: Prelude.Maybe Prelude.Text,
-    -- | Specifies when the framework was most recently updated.
+    -- | The time when the framework was most recently updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The IAM user or role that most recently updated the framework.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
@@ -80,7 +80,7 @@ data Framework = Framework'
 --
 -- 'controlSources', 'framework_controlSources' - The sources that Audit Manager collects evidence from for the control.
 --
--- 'createdAt', 'framework_createdAt' - Specifies when the framework was created.
+-- 'createdAt', 'framework_createdAt' - The time when the framework was created.
 --
 -- 'createdBy', 'framework_createdBy' - The IAM user or role that created the framework.
 --
@@ -88,7 +88,7 @@ data Framework = Framework'
 --
 -- 'id', 'framework_id' - The unique identifier for the framework.
 --
--- 'lastUpdatedAt', 'framework_lastUpdatedAt' - Specifies when the framework was most recently updated.
+-- 'lastUpdatedAt', 'framework_lastUpdatedAt' - The time when the framework was most recently updated.
 --
 -- 'lastUpdatedBy', 'framework_lastUpdatedBy' - The IAM user or role that most recently updated the framework.
 --
@@ -136,7 +136,7 @@ framework_controlSets = Lens.lens (\Framework' {controlSets} -> controlSets) (\s
 framework_controlSources :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
 framework_controlSources = Lens.lens (\Framework' {controlSources} -> controlSources) (\s@Framework' {} a -> s {controlSources = a} :: Framework)
 
--- | Specifies when the framework was created.
+-- | The time when the framework was created.
 framework_createdAt :: Lens.Lens' Framework (Prelude.Maybe Prelude.UTCTime)
 framework_createdAt = Lens.lens (\Framework' {createdAt} -> createdAt) (\s@Framework' {} a -> s {createdAt = a} :: Framework) Prelude.. Lens.mapping Data._Time
 
@@ -152,7 +152,7 @@ framework_description = Lens.lens (\Framework' {description} -> description) (\s
 framework_id :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
 framework_id = Lens.lens (\Framework' {id} -> id) (\s@Framework' {} a -> s {id = a} :: Framework)
 
--- | Specifies when the framework was most recently updated.
+-- | The time when the framework was most recently updated.
 framework_lastUpdatedAt :: Lens.Lens' Framework (Prelude.Maybe Prelude.UTCTime)
 framework_lastUpdatedAt = Lens.lens (\Framework' {lastUpdatedAt} -> lastUpdatedAt) (\s@Framework' {} a -> s {lastUpdatedAt = a} :: Framework) Prelude.. Lens.mapping Data._Time
 

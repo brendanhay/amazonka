@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Kafka.Types.ClusterOperationInfo
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,9 +36,9 @@ data ClusterOperationInfo = ClusterOperationInfo'
     -- | ARN of the cluster.
     clusterArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the operation was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The time at which the operation finished.
-    endTime :: Prelude.Maybe Data.POSIX,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | Describes the error if the operation fails.
     errorInfo :: Prelude.Maybe ErrorInfo,
     -- | ARN of the cluster operation.

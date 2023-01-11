@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListDistributionsByResponseHeadersPolicyId
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a list of distribution IDs for distributions that have a cache
--- behavior that’s associated with the specified response headers policy.
+-- behavior that\'s associated with the specified response headers policy.
 --
 -- You can optionally specify the maximum number of items to receive in the
 -- response. If the total number of items in the list exceeds the maximum
@@ -62,8 +62,8 @@ data ListDistributionsByResponseHeadersPolicyId = ListDistributionsByResponseHea
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of distribution IDs. The response includes distribution IDs in
     -- the list that occur after the marker. To get the next page of the list,
-    -- set this field’s value to the value of @NextMarker@ from the current
-    -- page’s response.
+    -- set this field\'s value to the value of @NextMarker@ from the current
+    -- page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of distribution IDs that you want to get in the
     -- response.
@@ -85,8 +85,8 @@ data ListDistributionsByResponseHeadersPolicyId = ListDistributionsByResponseHea
 -- 'marker', 'listDistributionsByResponseHeadersPolicyId_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
--- set this field’s value to the value of @NextMarker@ from the current
--- page’s response.
+-- set this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 --
 -- 'maxItems', 'listDistributionsByResponseHeadersPolicyId_maxItems' - The maximum number of distribution IDs that you want to get in the
 -- response.
@@ -110,8 +110,8 @@ newListDistributionsByResponseHeadersPolicyId
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
--- set this field’s value to the value of @NextMarker@ from the current
--- page’s response.
+-- set this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 listDistributionsByResponseHeadersPolicyId_marker :: Lens.Lens' ListDistributionsByResponseHeadersPolicyId (Prelude.Maybe Prelude.Text)
 listDistributionsByResponseHeadersPolicyId_marker = Lens.lens (\ListDistributionsByResponseHeadersPolicyId' {marker} -> marker) (\s@ListDistributionsByResponseHeadersPolicyId' {} a -> s {marker = a} :: ListDistributionsByResponseHeadersPolicyId)
 

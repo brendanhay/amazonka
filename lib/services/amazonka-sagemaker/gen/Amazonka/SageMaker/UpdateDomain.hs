@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.UpdateDomain
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ module Amazonka.SageMaker.UpdateDomain
     newUpdateDomain,
 
     -- * Request Lenses
+    updateDomain_appSecurityGroupManagement,
     updateDomain_defaultSpaceSettings,
     updateDomain_defaultUserSettings,
     updateDomain_domainSettingsForUpdate,
@@ -52,7 +53,13 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
-  { -- | The default settings used to create a space within the Domain.
+  { -- | The entity that creates and manages the required security groups for
+    -- inter-app communication in @VPCOnly@ mode. Required when
+    -- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
+    -- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
+    -- is provided.
+    appSecurityGroupManagement :: Prelude.Maybe AppSecurityGroupManagement,
+    -- | The default settings used to create a space within the Domain.
     defaultSpaceSettings :: Prelude.Maybe DefaultSpaceSettings,
     -- | A collection of settings.
     defaultUserSettings :: Prelude.Maybe UserSettings,
@@ -71,6 +78,12 @@ data UpdateDomain = UpdateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appSecurityGroupManagement', 'updateDomain_appSecurityGroupManagement' - The entity that creates and manages the required security groups for
+-- inter-app communication in @VPCOnly@ mode. Required when
+-- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
+-- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
+-- is provided.
+--
 -- 'defaultSpaceSettings', 'updateDomain_defaultSpaceSettings' - The default settings used to create a space within the Domain.
 --
 -- 'defaultUserSettings', 'updateDomain_defaultUserSettings' - A collection of settings.
@@ -84,12 +97,21 @@ newUpdateDomain ::
   UpdateDomain
 newUpdateDomain pDomainId_ =
   UpdateDomain'
-    { defaultSpaceSettings =
+    { appSecurityGroupManagement =
         Prelude.Nothing,
+      defaultSpaceSettings = Prelude.Nothing,
       defaultUserSettings = Prelude.Nothing,
       domainSettingsForUpdate = Prelude.Nothing,
       domainId = pDomainId_
     }
+
+-- | The entity that creates and manages the required security groups for
+-- inter-app communication in @VPCOnly@ mode. Required when
+-- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
+-- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
+-- is provided.
+updateDomain_appSecurityGroupManagement :: Lens.Lens' UpdateDomain (Prelude.Maybe AppSecurityGroupManagement)
+updateDomain_appSecurityGroupManagement = Lens.lens (\UpdateDomain' {appSecurityGroupManagement} -> appSecurityGroupManagement) (\s@UpdateDomain' {} a -> s {appSecurityGroupManagement = a} :: UpdateDomain)
 
 -- | The default settings used to create a space within the Domain.
 updateDomain_defaultSpaceSettings :: Lens.Lens' UpdateDomain (Prelude.Maybe DefaultSpaceSettings)
@@ -121,14 +143,17 @@ instance Core.AWSRequest UpdateDomain where
 
 instance Prelude.Hashable UpdateDomain where
   hashWithSalt _salt UpdateDomain' {..} =
-    _salt `Prelude.hashWithSalt` defaultSpaceSettings
+    _salt
+      `Prelude.hashWithSalt` appSecurityGroupManagement
+      `Prelude.hashWithSalt` defaultSpaceSettings
       `Prelude.hashWithSalt` defaultUserSettings
       `Prelude.hashWithSalt` domainSettingsForUpdate
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData UpdateDomain where
   rnf UpdateDomain' {..} =
-    Prelude.rnf defaultSpaceSettings
+    Prelude.rnf appSecurityGroupManagement
+      `Prelude.seq` Prelude.rnf defaultSpaceSettings
       `Prelude.seq` Prelude.rnf defaultUserSettings
       `Prelude.seq` Prelude.rnf domainSettingsForUpdate
       `Prelude.seq` Prelude.rnf domainId
@@ -150,7 +175,9 @@ instance Data.ToJSON UpdateDomain where
   toJSON UpdateDomain' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DefaultSpaceSettings" Data..=)
+          [ ("AppSecurityGroupManagement" Data..=)
+              Prelude.<$> appSecurityGroupManagement,
+            ("DefaultSpaceSettings" Data..=)
               Prelude.<$> defaultSpaceSettings,
             ("DefaultUserSettings" Data..=)
               Prelude.<$> defaultUserSettings,

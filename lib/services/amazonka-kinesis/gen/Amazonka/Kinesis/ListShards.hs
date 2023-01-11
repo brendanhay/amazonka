@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.ListShards
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,9 @@
 -- Lists the shards in a stream and provides information about each shard.
 -- This operation has a limit of 1000 transactions per second per data
 -- stream.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- This action does not list expired shards. For information about expired
 -- shards, see
@@ -45,6 +48,7 @@ module Amazonka.Kinesis.ListShards
     listShards_maxResults,
     listShards_nextToken,
     listShards_shardFilter,
+    listShards_streamARN,
     listShards_streamCreationTimestamp,
     listShards_streamName,
 
@@ -133,6 +137,8 @@ data ListShards = ListShards'
     -- then all shards starting from the provided timestamp to TIP are
     -- returned.
     shardFilter :: Prelude.Maybe ShardFilter,
+    -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | Specify this input parameter to distinguish data streams that have the
     -- same name. For example, if you create a data stream and then delete it,
     -- and you later create another data stream with the same name, you can use
@@ -222,6 +228,8 @@ data ListShards = ListShards'
 -- then all shards starting from the provided timestamp to TIP are
 -- returned.
 --
+-- 'streamARN', 'listShards_streamARN' - The ARN of the stream.
+--
 -- 'streamCreationTimestamp', 'listShards_streamCreationTimestamp' - Specify this input parameter to distinguish data streams that have the
 -- same name. For example, if you create a data stream and then delete it,
 -- and you later create another data stream with the same name, you can use
@@ -244,6 +252,7 @@ newListShards =
       maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       shardFilter = Prelude.Nothing,
+      streamARN = Prelude.Nothing,
       streamCreationTimestamp = Prelude.Nothing,
       streamName = Prelude.Nothing
     }
@@ -320,6 +329,10 @@ listShards_nextToken = Lens.lens (\ListShards' {nextToken} -> nextToken) (\s@Lis
 listShards_shardFilter :: Lens.Lens' ListShards (Prelude.Maybe ShardFilter)
 listShards_shardFilter = Lens.lens (\ListShards' {shardFilter} -> shardFilter) (\s@ListShards' {} a -> s {shardFilter = a} :: ListShards)
 
+-- | The ARN of the stream.
+listShards_streamARN :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Text)
+listShards_streamARN = Lens.lens (\ListShards' {streamARN} -> streamARN) (\s@ListShards' {} a -> s {streamARN = a} :: ListShards)
+
 -- | Specify this input parameter to distinguish data streams that have the
 -- same name. For example, if you create a data stream and then delete it,
 -- and you later create another data stream with the same name, you can use
@@ -376,6 +389,7 @@ instance Prelude.Hashable ListShards where
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` shardFilter
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamCreationTimestamp
       `Prelude.hashWithSalt` streamName
 
@@ -385,6 +399,7 @@ instance Prelude.NFData ListShards where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf shardFilter
+      `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamCreationTimestamp
       `Prelude.seq` Prelude.rnf streamName
 
@@ -412,6 +427,7 @@ instance Data.ToJSON ListShards where
             ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ShardFilter" Data..=) Prelude.<$> shardFilter,
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
             ("StreamCreationTimestamp" Data..=)
               Prelude.<$> streamCreationTimestamp,
             ("StreamName" Data..=) Prelude.<$> streamName

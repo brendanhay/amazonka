@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.UpdateDatalakeExceptionsExpiry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,8 @@
 --
 -- Update the expiration period for the exception message to your preferred
 -- time, and control the time-to-live (TTL) for the exception message to
--- remain. Exceptions are stored by default, for a 2 week period of time
--- from when a record was created in Security Lake.
+-- remain. Exceptions are stored by default for 2 weeks from when a record
+-- was created in Amazon Security Lake.
 module Amazonka.SecurityLake.UpdateDatalakeExceptionsExpiry
   ( -- * Creating a Request
     UpdateDatalakeExceptionsExpiry (..),

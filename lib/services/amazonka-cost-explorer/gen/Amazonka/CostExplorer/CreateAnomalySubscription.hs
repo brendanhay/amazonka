@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.CreateAnomalySubscription
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a subscription to a cost anomaly detection monitor. You can use
--- each subscription to define subscribers with email or SNS notifications.
--- Email subscribers can set a dollar threshold and a time frequency for
--- receiving notifications.
+-- Adds an alert subscription to a cost anomaly detection monitor. You can
+-- use each subscription to define subscribers with email or SNS
+-- notifications. Email subscribers can set an absolute or percentage
+-- threshold and a time frequency for receiving notifications.
 module Amazonka.CostExplorer.CreateAnomalySubscription
   ( -- * Creating a Request
     CreateAnomalySubscription (..),

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftServerLess.Types.Workgroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,7 +39,7 @@ data Workgroup = Workgroup'
     -- @search_path@, and @max_query_execution_time@.
     configParameters :: Prelude.Maybe [ConfigParameter],
     -- | The creation date of the workgroup.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | The endpoint that is created from the workgroup.
     endpoint :: Prelude.Maybe Endpoint,
     -- | The value that specifies whether to enable enhanced virtual private

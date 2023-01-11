@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Braket.Types.QuantumTaskSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newQuantumTaskSummary' smart constructor.
 data QuantumTaskSummary = QuantumTaskSummary'
   { -- | The time at which the task finished.
-    endedAt :: Prelude.Maybe Data.POSIX,
+    endedAt :: Prelude.Maybe Data.ISO8601,
     -- | Displays the key, value pairs of tags associated with this quantum task.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time at which the task was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The ARN of the device the task ran on.
     deviceArn :: Prelude.Text,
     -- | The S3 bucket where the task result file is stored..

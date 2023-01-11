@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityHub.Types.StandardsControl
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,7 +38,7 @@ data StandardsControl = StandardsControl'
     controlStatus :: Prelude.Maybe ControlStatus,
     -- | The date and time that the status of the security standard control was
     -- most recently updated.
-    controlStatusUpdatedAt :: Prelude.Maybe Data.POSIX,
+    controlStatusUpdatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The longer description of the security standard control. Provides
     -- information about what the control is checking for.
     description :: Prelude.Maybe Prelude.Text,

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.KubernetesNetworkConfigResponse
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data KubernetesNetworkConfigResponse = KubernetesNetworkConfigResponse'
     -- from. Kubernetes assigns addresses from an IPv4 CIDR block assigned to a
     -- subnet that the node is in. If you didn\'t specify a CIDR block when you
     -- created the cluster, then Kubernetes assigns addresses from either the
-    -- 10.100.0.0\/16 or 172.20.0.0\/16 CIDR blocks. If this was specified,
+    -- @10.100.0.0\/16@ or @172.20.0.0\/16@ CIDR blocks. If this was specified,
     -- then it was specified when the cluster was created and it can\'t be
     -- changed.
     serviceIpv4Cidr :: Prelude.Maybe Prelude.Text,
@@ -71,7 +71,7 @@ data KubernetesNetworkConfigResponse = KubernetesNetworkConfigResponse'
 -- from. Kubernetes assigns addresses from an IPv4 CIDR block assigned to a
 -- subnet that the node is in. If you didn\'t specify a CIDR block when you
 -- created the cluster, then Kubernetes assigns addresses from either the
--- 10.100.0.0\/16 or 172.20.0.0\/16 CIDR blocks. If this was specified,
+-- @10.100.0.0\/16@ or @172.20.0.0\/16@ CIDR blocks. If this was specified,
 -- then it was specified when the cluster was created and it can\'t be
 -- changed.
 --
@@ -102,7 +102,7 @@ kubernetesNetworkConfigResponse_ipFamily = Lens.lens (\KubernetesNetworkConfigRe
 -- from. Kubernetes assigns addresses from an IPv4 CIDR block assigned to a
 -- subnet that the node is in. If you didn\'t specify a CIDR block when you
 -- created the cluster, then Kubernetes assigns addresses from either the
--- 10.100.0.0\/16 or 172.20.0.0\/16 CIDR blocks. If this was specified,
+-- @10.100.0.0\/16@ or @172.20.0.0\/16@ CIDR blocks. If this was specified,
 -- then it was specified when the cluster was created and it can\'t be
 -- changed.
 kubernetesNetworkConfigResponse_serviceIpv4Cidr :: Lens.Lens' KubernetesNetworkConfigResponse (Prelude.Maybe Prelude.Text)

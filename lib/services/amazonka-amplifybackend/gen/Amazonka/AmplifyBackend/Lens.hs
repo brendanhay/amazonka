@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.AmplifyBackend.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -187,6 +187,7 @@ module Amazonka.AmplifyBackend.Lens
     getBackendAPIModels_appId,
     getBackendAPIModels_backendEnvironmentName,
     getBackendAPIModels_resourceName,
+    getBackendAPIModelsResponse_modelIntrospectionSchema,
     getBackendAPIModelsResponse_models,
     getBackendAPIModelsResponse_status,
     getBackendAPIModelsResponse_httpStatus,

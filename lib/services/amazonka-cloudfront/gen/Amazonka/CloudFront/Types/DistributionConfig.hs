@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.DistributionConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -170,8 +170,8 @@ data DistributionConfig = DistributionConfig'
     -- this value is @true@, this is a staging distribution. When this value is
     -- @false@, this is not a staging distribution.
     staging :: Prelude.Maybe Prelude.Bool,
-    -- | A complex type that determines the distribution’s SSL\/TLS configuration
-    -- for communicating with viewers.
+    -- | A complex type that determines the distribution\'s SSL\/TLS
+    -- configuration for communicating with viewers.
     viewerCertificate :: Prelude.Maybe ViewerCertificate,
     -- | A unique identifier that specifies the WAF web ACL, if any, to associate
     -- with this distribution. To specify a web ACL created using the latest
@@ -208,8 +208,8 @@ data DistributionConfig = DistributionConfig'
     -- values of @PathPattern@ in @CacheBehavior@ elements. You must create
     -- exactly one default cache behavior.
     defaultCacheBehavior :: DefaultCacheBehavior,
-    -- | An optional comment to describe the distribution. The comment cannot be
-    -- longer than 128 characters.
+    -- | A comment to describe the distribution. The comment cannot be longer
+    -- than 128 characters.
     comment :: Data.Sensitive Prelude.Text,
     -- | From this field, you can enable or disable the selected distribution.
     enabled :: Prelude.Bool
@@ -355,8 +355,8 @@ data DistributionConfig = DistributionConfig'
 -- this value is @true@, this is a staging distribution. When this value is
 -- @false@, this is not a staging distribution.
 --
--- 'viewerCertificate', 'distributionConfig_viewerCertificate' - A complex type that determines the distribution’s SSL\/TLS configuration
--- for communicating with viewers.
+-- 'viewerCertificate', 'distributionConfig_viewerCertificate' - A complex type that determines the distribution\'s SSL\/TLS
+-- configuration for communicating with viewers.
 --
 -- 'webACLId', 'distributionConfig_webACLId' - A unique identifier that specifies the WAF web ACL, if any, to associate
 -- with this distribution. To specify a web ACL created using the latest
@@ -393,8 +393,8 @@ data DistributionConfig = DistributionConfig'
 -- values of @PathPattern@ in @CacheBehavior@ elements. You must create
 -- exactly one default cache behavior.
 --
--- 'comment', 'distributionConfig_comment' - An optional comment to describe the distribution. The comment cannot be
--- longer than 128 characters.
+-- 'comment', 'distributionConfig_comment' - A comment to describe the distribution. The comment cannot be longer
+-- than 128 characters.
 --
 -- 'enabled', 'distributionConfig_enabled' - From this field, you can enable or disable the selected distribution.
 newDistributionConfig ::
@@ -592,8 +592,8 @@ distributionConfig_restrictions = Lens.lens (\DistributionConfig' {restrictions}
 distributionConfig_staging :: Lens.Lens' DistributionConfig (Prelude.Maybe Prelude.Bool)
 distributionConfig_staging = Lens.lens (\DistributionConfig' {staging} -> staging) (\s@DistributionConfig' {} a -> s {staging = a} :: DistributionConfig)
 
--- | A complex type that determines the distribution’s SSL\/TLS configuration
--- for communicating with viewers.
+-- | A complex type that determines the distribution\'s SSL\/TLS
+-- configuration for communicating with viewers.
 distributionConfig_viewerCertificate :: Lens.Lens' DistributionConfig (Prelude.Maybe ViewerCertificate)
 distributionConfig_viewerCertificate = Lens.lens (\DistributionConfig' {viewerCertificate} -> viewerCertificate) (\s@DistributionConfig' {} a -> s {viewerCertificate = a} :: DistributionConfig)
 
@@ -640,8 +640,8 @@ distributionConfig_origins = Lens.lens (\DistributionConfig' {origins} -> origin
 distributionConfig_defaultCacheBehavior :: Lens.Lens' DistributionConfig DefaultCacheBehavior
 distributionConfig_defaultCacheBehavior = Lens.lens (\DistributionConfig' {defaultCacheBehavior} -> defaultCacheBehavior) (\s@DistributionConfig' {} a -> s {defaultCacheBehavior = a} :: DistributionConfig)
 
--- | An optional comment to describe the distribution. The comment cannot be
--- longer than 128 characters.
+-- | A comment to describe the distribution. The comment cannot be longer
+-- than 128 characters.
 distributionConfig_comment :: Lens.Lens' DistributionConfig Prelude.Text
 distributionConfig_comment = Lens.lens (\DistributionConfig' {comment} -> comment) (\s@DistributionConfig' {} a -> s {comment = a} :: DistributionConfig) Prelude.. Data._Sensitive
 

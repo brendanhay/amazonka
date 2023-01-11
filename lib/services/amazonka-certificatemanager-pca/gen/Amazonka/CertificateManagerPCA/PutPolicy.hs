@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.PutPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,12 +24,12 @@
 --
 -- A policy can also be applied by sharing a private CA through Amazon Web
 -- Services Resource Access Manager (RAM). For more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html Attach a Policy for Cross-Account Access>.
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/pca-ram.html Attach a Policy for Cross-Account Access>.
 --
 -- The policy can be displayed with
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html GetPolicy>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetPolicy.html GetPolicy>
 -- and removed with
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html DeletePolicy>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html DeletePolicy>.
 --
 -- __About Policies__
 --
@@ -37,7 +37,7 @@
 --     customer account, to Amazon Web Services Organizations, or to an
 --     Amazon Web Services Organizations unit. Policies are under the
 --     control of a CA administrator. For more information, see
---     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html Using a Resource Based Policy with ACM Private CA>.
+--     <https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html Using a Resource Based Policy with Amazon Web Services Private CA>.
 --
 -- -   A policy permits a user of Certificate Manager (ACM) to issue ACM
 --     certificates signed by a CA in another account.
@@ -45,13 +45,13 @@
 -- -   For ACM to manage automatic renewal of these certificates, the ACM
 --     user must configure a Service Linked Role (SLR). The SLR allows the
 --     ACM service to assume the identity of the user, subject to
---     confirmation against the ACM Private CA policy. For more
---     information, see
+--     confirmation against the Amazon Web Services Private CA policy. For
+--     more information, see
 --     <https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html Using a Service Linked Role with ACM>.
 --
 -- -   Updates made in Amazon Web Services Resource Manager (RAM) are
 --     reflected in policies. For more information, see
---     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html Attach a Policy for Cross-Account Access>.
+--     <https://docs.aws.amazon.com/privateca/latest/userguide/pca-ram.html Attach a Policy for Cross-Account Access>.
 module Amazonka.CertificateManagerPCA.PutPolicy
   ( -- * Creating a Request
     PutPolicy (..),
@@ -79,7 +79,7 @@ import qualified Amazonka.Response as Response
 data PutPolicy = PutPolicy'
   { -- | The Amazon Resource Number (ARN) of the private CA to associate with the
     -- policy. The ARN of the CA can be found by calling the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action.
     resourceArn :: Prelude.Text,
     -- | The path and file name of a JSON-formatted IAM policy to attach to the
@@ -102,7 +102,7 @@ data PutPolicy = PutPolicy'
 --
 -- 'resourceArn', 'putPolicy_resourceArn' - The Amazon Resource Number (ARN) of the private CA to associate with the
 -- policy. The ARN of the CA can be found by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action.
 --
 -- 'policy', 'putPolicy_policy' - The path and file name of a JSON-formatted IAM policy to attach to the
@@ -125,7 +125,7 @@ newPutPolicy pResourceArn_ pPolicy_ =
 
 -- | The Amazon Resource Number (ARN) of the private CA to associate with the
 -- policy. The ARN of the CA can be found by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action.
 putPolicy_resourceArn :: Lens.Lens' PutPolicy Prelude.Text
 putPolicy_resourceArn = Lens.lens (\PutPolicy' {resourceArn} -> resourceArn) (\s@PutPolicy' {} a -> s {resourceArn = a} :: PutPolicy)

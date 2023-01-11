@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -148,7 +148,7 @@ data DescribeImageResponse = DescribeImageResponse'
     -- | When a create, update, or delete operation fails, the reason for the
     -- failure.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the image.
+    -- | The ARN of the image.
     imageArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the image.
     imageName :: Prelude.Maybe Prelude.Text,
@@ -156,8 +156,8 @@ data DescribeImageResponse = DescribeImageResponse'
     imageStatus :: Prelude.Maybe ImageStatus,
     -- | When the image was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the IAM role that enables Amazon
-    -- SageMaker to perform tasks on your behalf.
+    -- | The ARN of the IAM role that enables Amazon SageMaker to perform tasks
+    -- on your behalf.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,7 +181,7 @@ data DescribeImageResponse = DescribeImageResponse'
 -- 'failureReason', 'describeImageResponse_failureReason' - When a create, update, or delete operation fails, the reason for the
 -- failure.
 --
--- 'imageArn', 'describeImageResponse_imageArn' - The Amazon Resource Name (ARN) of the image.
+-- 'imageArn', 'describeImageResponse_imageArn' - The ARN of the image.
 --
 -- 'imageName', 'describeImageResponse_imageName' - The name of the image.
 --
@@ -189,8 +189,8 @@ data DescribeImageResponse = DescribeImageResponse'
 --
 -- 'lastModifiedTime', 'describeImageResponse_lastModifiedTime' - When the image was last modified.
 --
--- 'roleArn', 'describeImageResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM role that enables Amazon
--- SageMaker to perform tasks on your behalf.
+-- 'roleArn', 'describeImageResponse_roleArn' - The ARN of the IAM role that enables Amazon SageMaker to perform tasks
+-- on your behalf.
 --
 -- 'httpStatus', 'describeImageResponse_httpStatus' - The response's http status code.
 newDescribeImageResponse ::
@@ -229,7 +229,7 @@ describeImageResponse_displayName = Lens.lens (\DescribeImageResponse' {displayN
 describeImageResponse_failureReason :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.Text)
 describeImageResponse_failureReason = Lens.lens (\DescribeImageResponse' {failureReason} -> failureReason) (\s@DescribeImageResponse' {} a -> s {failureReason = a} :: DescribeImageResponse)
 
--- | The Amazon Resource Name (ARN) of the image.
+-- | The ARN of the image.
 describeImageResponse_imageArn :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.Text)
 describeImageResponse_imageArn = Lens.lens (\DescribeImageResponse' {imageArn} -> imageArn) (\s@DescribeImageResponse' {} a -> s {imageArn = a} :: DescribeImageResponse)
 
@@ -245,8 +245,8 @@ describeImageResponse_imageStatus = Lens.lens (\DescribeImageResponse' {imageSta
 describeImageResponse_lastModifiedTime :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.UTCTime)
 describeImageResponse_lastModifiedTime = Lens.lens (\DescribeImageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeImageResponse' {} a -> s {lastModifiedTime = a} :: DescribeImageResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the IAM role that enables Amazon
--- SageMaker to perform tasks on your behalf.
+-- | The ARN of the IAM role that enables Amazon SageMaker to perform tasks
+-- on your behalf.
 describeImageResponse_roleArn :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.Text)
 describeImageResponse_roleArn = Lens.lens (\DescribeImageResponse' {roleArn} -> roleArn) (\s@DescribeImageResponse' {} a -> s {roleArn = a} :: DescribeImageResponse)
 

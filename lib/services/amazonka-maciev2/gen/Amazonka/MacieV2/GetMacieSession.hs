@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetMacieSession
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,7 +109,7 @@ instance Data.ToQuery GetMacieSession where
 data GetMacieSessionResponse = GetMacieSessionResponse'
   { -- | The date and time, in UTC and extended ISO 8601 format, when the Amazon
     -- Macie account was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The frequency with which Amazon Macie publishes updates to policy
     -- findings for the account. This includes publishing updates to Security
     -- Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).
@@ -125,7 +125,7 @@ data GetMacieSessionResponse = GetMacieSessionResponse'
     status :: Prelude.Maybe MacieStatus,
     -- | The date and time, in UTC and extended ISO 8601 format, of the most
     -- recent change to the status of the Amazon Macie account.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

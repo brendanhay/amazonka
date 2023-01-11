@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudWatchLogs.PutLogEvents
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,13 +22,11 @@
 --
 -- Uploads a batch of log events to the specified log stream.
 --
--- You must include the sequence token obtained from the response of the
--- previous call. An upload in a newly created log stream does not require
--- a sequence token. You can also get the sequence token in the
--- @expectedSequenceToken@ field from @InvalidSequenceTokenException@. If
--- you call @PutLogEvents@ twice within a narrow time period using the same
--- value for @sequenceToken@, both calls might be successful or one might
--- be rejected.
+-- The sequence token is now ignored in @PutLogEvents@ actions.
+-- @PutLogEvents@ actions are always accepted and never return
+-- @InvalidSequenceTokenException@ or @DataAlreadyAcceptedException@ even
+-- if the sequence token is not valid. You can use parallel @PutLogEvents@
+-- actions on the same log stream.
 --
 -- The batch of events must satisfy the following constraints:
 --
@@ -56,8 +54,10 @@
 --
 -- -   The maximum number of log events in a batch is 10,000.
 --
--- -   There is a quota of five requests per second per log stream.
---     Additional requests are throttled. This quota can\'t be changed.
+-- -   The quota of five requests per second per log stream has been
+--     removed. Instead, @PutLogEvents@ actions are throttled based on a
+--     per-second per-account quota. You can request an increase to the
+--     per-second throttling quota by using the Service Quotas service.
 --
 -- If a call to @PutLogEvents@ returns \"UnrecognizedClientException\" the
 -- most likely cause is a non-valid Amazon Web Services access key ID or
@@ -95,12 +95,12 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPutLogEvents' smart constructor.
 data PutLogEvents = PutLogEvents'
   { -- | The sequence token obtained from the response of the previous
-    -- @PutLogEvents@ call. An upload in a newly created log stream does not
-    -- require a sequence token. You can also get the sequence token using
-    -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams>.
-    -- If you call @PutLogEvents@ twice within a narrow time period using the
-    -- same value for @sequenceToken@, both calls might be successful or one
-    -- might be rejected.
+    -- @PutLogEvents@ call.
+    --
+    -- The @sequenceToken@ parameter is now ignored in @PutLogEvents@ actions.
+    -- @PutLogEvents@ actions are now accepted and never return
+    -- @InvalidSequenceTokenException@ or @DataAlreadyAcceptedException@ even
+    -- if the sequence token is not valid.
     sequenceToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
     logGroupName :: Prelude.Text,
@@ -120,12 +120,12 @@ data PutLogEvents = PutLogEvents'
 -- for backwards compatibility:
 --
 -- 'sequenceToken', 'putLogEvents_sequenceToken' - The sequence token obtained from the response of the previous
--- @PutLogEvents@ call. An upload in a newly created log stream does not
--- require a sequence token. You can also get the sequence token using
--- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams>.
--- If you call @PutLogEvents@ twice within a narrow time period using the
--- same value for @sequenceToken@, both calls might be successful or one
--- might be rejected.
+-- @PutLogEvents@ call.
+--
+-- The @sequenceToken@ parameter is now ignored in @PutLogEvents@ actions.
+-- @PutLogEvents@ actions are now accepted and never return
+-- @InvalidSequenceTokenException@ or @DataAlreadyAcceptedException@ even
+-- if the sequence token is not valid.
 --
 -- 'logGroupName', 'putLogEvents_logGroupName' - The name of the log group.
 --
@@ -152,12 +152,12 @@ newPutLogEvents
       }
 
 -- | The sequence token obtained from the response of the previous
--- @PutLogEvents@ call. An upload in a newly created log stream does not
--- require a sequence token. You can also get the sequence token using
--- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams>.
--- If you call @PutLogEvents@ twice within a narrow time period using the
--- same value for @sequenceToken@, both calls might be successful or one
--- might be rejected.
+-- @PutLogEvents@ call.
+--
+-- The @sequenceToken@ parameter is now ignored in @PutLogEvents@ actions.
+-- @PutLogEvents@ actions are now accepted and never return
+-- @InvalidSequenceTokenException@ or @DataAlreadyAcceptedException@ even
+-- if the sequence token is not valid.
 putLogEvents_sequenceToken :: Lens.Lens' PutLogEvents (Prelude.Maybe Prelude.Text)
 putLogEvents_sequenceToken = Lens.lens (\PutLogEvents' {sequenceToken} -> sequenceToken) (\s@PutLogEvents' {} a -> s {sequenceToken = a} :: PutLogEvents)
 
@@ -233,6 +233,14 @@ instance Data.ToQuery PutLogEvents where
 -- | /See:/ 'newPutLogEventsResponse' smart constructor.
 data PutLogEventsResponse = PutLogEventsResponse'
   { -- | The next sequence token.
+    --
+    -- This field has been deprecated.
+    --
+    -- The sequence token is now ignored in @PutLogEvents@ actions.
+    -- @PutLogEvents@ actions are always accepted even if the sequence token is
+    -- not valid. You can use parallel @PutLogEvents@ actions on the same log
+    -- stream and you do not need to wait for the response of a previous
+    -- @PutLogEvents@ action to obtain the @nextSequenceToken@ value.
     nextSequenceToken :: Prelude.Maybe Prelude.Text,
     -- | The rejected events.
     rejectedLogEventsInfo :: Prelude.Maybe RejectedLogEventsInfo,
@@ -251,6 +259,14 @@ data PutLogEventsResponse = PutLogEventsResponse'
 --
 -- 'nextSequenceToken', 'putLogEventsResponse_nextSequenceToken' - The next sequence token.
 --
+-- This field has been deprecated.
+--
+-- The sequence token is now ignored in @PutLogEvents@ actions.
+-- @PutLogEvents@ actions are always accepted even if the sequence token is
+-- not valid. You can use parallel @PutLogEvents@ actions on the same log
+-- stream and you do not need to wait for the response of a previous
+-- @PutLogEvents@ action to obtain the @nextSequenceToken@ value.
+--
 -- 'rejectedLogEventsInfo', 'putLogEventsResponse_rejectedLogEventsInfo' - The rejected events.
 --
 -- 'httpStatus', 'putLogEventsResponse_httpStatus' - The response's http status code.
@@ -267,6 +283,14 @@ newPutLogEventsResponse pHttpStatus_ =
     }
 
 -- | The next sequence token.
+--
+-- This field has been deprecated.
+--
+-- The sequence token is now ignored in @PutLogEvents@ actions.
+-- @PutLogEvents@ actions are always accepted even if the sequence token is
+-- not valid. You can use parallel @PutLogEvents@ actions on the same log
+-- stream and you do not need to wait for the response of a previous
+-- @PutLogEvents@ action to obtain the @nextSequenceToken@ value.
 putLogEventsResponse_nextSequenceToken :: Lens.Lens' PutLogEventsResponse (Prelude.Maybe Prelude.Text)
 putLogEventsResponse_nextSequenceToken = Lens.lens (\PutLogEventsResponse' {nextSequenceToken} -> nextSequenceToken) (\s@PutLogEventsResponse' {} a -> s {nextSequenceToken = a} :: PutLogEventsResponse)
 

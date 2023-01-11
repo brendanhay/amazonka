@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IVSChat.UpdateLoggingConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -179,7 +179,7 @@ data UpdateLoggingConfigurationResponse = UpdateLoggingConfigurationResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | Time when the logging configuration was created. This is an ISO 8601
     -- timestamp; /note that this is returned as a string/.
-    createTime :: Prelude.Maybe Data.POSIX,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | A complex type that contains a destination configuration for where chat
     -- content will be logged, from the request. There is only one type of
     -- destination (@cloudWatchLogs@, @firehose@, or @s3@) in a
@@ -198,7 +198,7 @@ data UpdateLoggingConfigurationResponse = UpdateLoggingConfigurationResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Time of the logging configuration’s last update. This is an ISO 8601
     -- timestamp; /note that this is returned as a string/.
-    updateTime :: Prelude.Maybe Data.POSIX,
+    updateTime :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

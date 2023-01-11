@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiResponseDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ data ImportAssetFromApiGatewayApiResponseDetails = ImportAssetFromApiGatewayApiR
     -- | The upload URL of the API specification.
     apiSpecificationUploadUrl :: Prelude.Text,
     -- | The date and time that the upload URL expires, in ISO 8601 format.
-    apiSpecificationUploadUrlExpiresAt :: Data.POSIX,
+    apiSpecificationUploadUrlExpiresAt :: Data.ISO8601,
     -- | The data set ID.
     dataSetId :: Prelude.Text,
     -- | The protocol type.

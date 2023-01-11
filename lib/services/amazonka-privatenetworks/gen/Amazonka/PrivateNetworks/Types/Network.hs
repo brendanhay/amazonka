@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.PrivateNetworks.Types.Network
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,7 @@ import Amazonka.PrivateNetworks.Types.NetworkStatus
 -- /See:/ 'newNetwork' smart constructor.
 data Network = Network'
   { -- | The creation time of the network.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The description of the network.
     description :: Prelude.Maybe Prelude.Text,
     -- | The status reason of the network.

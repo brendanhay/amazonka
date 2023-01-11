@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.STS.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -140,7 +140,7 @@ defaultService =
 -- | The web identity token that was passed is expired or is not valid. Get a
 -- new identity token from the identity provider and then retry the
 -- request.
-_ExpiredTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExpiredTokenException =
   Core._MatchServiceError
     defaultService
@@ -153,7 +153,7 @@ _ExpiredTokenException =
 -- Retry the request a limited number of times so that you don\'t exceed
 -- the request rate. If the error persists, the identity provider might be
 -- down or not responding.
-_IDPCommunicationErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IDPCommunicationErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IDPCommunicationErrorException =
   Core._MatchServiceError
     defaultService
@@ -166,7 +166,7 @@ _IDPCommunicationErrorException =
 -- If this error is returned for the @AssumeRoleWithWebIdentity@ operation,
 -- it can also mean that the claim has expired or has been explicitly
 -- revoked.
-_IDPRejectedClaimException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IDPRejectedClaimException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IDPRejectedClaimException =
   Core._MatchServiceError
     defaultService
@@ -176,7 +176,7 @@ _IDPRejectedClaimException =
 -- | The error returned if the message passed to @DecodeAuthorizationMessage@
 -- was invalid. This can happen if the token contains invalid characters,
 -- such as linebreaks.
-_InvalidAuthorizationMessageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAuthorizationMessageException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAuthorizationMessageException =
   Core._MatchServiceError
     defaultService
@@ -186,7 +186,7 @@ _InvalidAuthorizationMessageException =
 -- | The web identity token that was passed could not be validated by Amazon
 -- Web Services. Get a new identity token from the identity provider and
 -- then retry the request.
-_InvalidIdentityTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidIdentityTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidIdentityTokenException =
   Core._MatchServiceError
     defaultService
@@ -195,7 +195,7 @@ _InvalidIdentityTokenException =
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
     defaultService
@@ -215,7 +215,7 @@ _MalformedPolicyDocumentException =
 -- policy and session tag limits. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length IAM and STS Entity Character Limits>
 -- in the /IAM User Guide/.
-_PackedPolicyTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PackedPolicyTooLargeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PackedPolicyTooLargeException =
   Core._MatchServiceError
     defaultService
@@ -228,7 +228,7 @@ _PackedPolicyTooLargeException =
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
 -- in the /IAM User Guide/.
-_RegionDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RegionDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RegionDisabledException =
   Core._MatchServiceError
     defaultService

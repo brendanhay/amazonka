@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeFeatureGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -196,9 +196,19 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
     -- | A value indicating whether the update made to the feature group was
     -- successful.
     lastUpdateStatus :: Prelude.Maybe LastUpdateStatus,
-    -- | The configuration of the @OfflineStore@, inducing the S3 location of the
-    -- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
-    -- data catalogue configurations, and the security configuration.
+    -- | The configuration of the offline store. It includes the following
+    -- configurations:
+    --
+    -- -   Amazon S3 location of the offline store.
+    --
+    -- -   Configuration of the Glue data catalog.
+    --
+    -- -   Table format of the offline store.
+    --
+    -- -   Option to disable the automatic creation of a Glue table for the
+    --     offline store.
+    --
+    -- -   Encryption configuration.
     offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
     -- | The status of the @OfflineStore@. Notifies you if replicating data into
     -- the @OfflineStore@ has failed. Returns either: @Active@ or @Blocked@
@@ -208,7 +218,7 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
     -- | The size of the @OnlineStore@ in bytes.
     onlineStoreTotalSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
-    -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
+    -- data into the OfflineStore if an OfflineStoreConfig is provided.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -261,9 +271,19 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
 -- 'lastUpdateStatus', 'describeFeatureGroupResponse_lastUpdateStatus' - A value indicating whether the update made to the feature group was
 -- successful.
 --
--- 'offlineStoreConfig', 'describeFeatureGroupResponse_offlineStoreConfig' - The configuration of the @OfflineStore@, inducing the S3 location of the
--- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
--- data catalogue configurations, and the security configuration.
+-- 'offlineStoreConfig', 'describeFeatureGroupResponse_offlineStoreConfig' - The configuration of the offline store. It includes the following
+-- configurations:
+--
+-- -   Amazon S3 location of the offline store.
+--
+-- -   Configuration of the Glue data catalog.
+--
+-- -   Table format of the offline store.
+--
+-- -   Option to disable the automatic creation of a Glue table for the
+--     offline store.
+--
+-- -   Encryption configuration.
 --
 -- 'offlineStoreStatus', 'describeFeatureGroupResponse_offlineStoreStatus' - The status of the @OfflineStore@. Notifies you if replicating data into
 -- the @OfflineStore@ has failed. Returns either: @Active@ or @Blocked@
@@ -273,7 +293,7 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
 -- 'onlineStoreTotalSizeBytes', 'describeFeatureGroupResponse_onlineStoreTotalSizeBytes' - The size of the @OnlineStore@ in bytes.
 --
 -- 'roleArn', 'describeFeatureGroupResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to persist
--- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
+-- data into the OfflineStore if an OfflineStoreConfig is provided.
 --
 -- 'httpStatus', 'describeFeatureGroupResponse_httpStatus' - The response's http status code.
 --
@@ -376,9 +396,19 @@ describeFeatureGroupResponse_lastModifiedTime = Lens.lens (\DescribeFeatureGroup
 describeFeatureGroupResponse_lastUpdateStatus :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe LastUpdateStatus)
 describeFeatureGroupResponse_lastUpdateStatus = Lens.lens (\DescribeFeatureGroupResponse' {lastUpdateStatus} -> lastUpdateStatus) (\s@DescribeFeatureGroupResponse' {} a -> s {lastUpdateStatus = a} :: DescribeFeatureGroupResponse)
 
--- | The configuration of the @OfflineStore@, inducing the S3 location of the
--- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
--- data catalogue configurations, and the security configuration.
+-- | The configuration of the offline store. It includes the following
+-- configurations:
+--
+-- -   Amazon S3 location of the offline store.
+--
+-- -   Configuration of the Glue data catalog.
+--
+-- -   Table format of the offline store.
+--
+-- -   Option to disable the automatic creation of a Glue table for the
+--     offline store.
+--
+-- -   Encryption configuration.
 describeFeatureGroupResponse_offlineStoreConfig :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe OfflineStoreConfig)
 describeFeatureGroupResponse_offlineStoreConfig = Lens.lens (\DescribeFeatureGroupResponse' {offlineStoreConfig} -> offlineStoreConfig) (\s@DescribeFeatureGroupResponse' {} a -> s {offlineStoreConfig = a} :: DescribeFeatureGroupResponse)
 
@@ -396,7 +426,7 @@ describeFeatureGroupResponse_onlineStoreTotalSizeBytes :: Lens.Lens' DescribeFea
 describeFeatureGroupResponse_onlineStoreTotalSizeBytes = Lens.lens (\DescribeFeatureGroupResponse' {onlineStoreTotalSizeBytes} -> onlineStoreTotalSizeBytes) (\s@DescribeFeatureGroupResponse' {} a -> s {onlineStoreTotalSizeBytes = a} :: DescribeFeatureGroupResponse)
 
 -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
--- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
+-- data into the OfflineStore if an OfflineStoreConfig is provided.
 describeFeatureGroupResponse_roleArn :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.Text)
 describeFeatureGroupResponse_roleArn = Lens.lens (\DescribeFeatureGroupResponse' {roleArn} -> roleArn) (\s@DescribeFeatureGroupResponse' {} a -> s {roleArn = a} :: DescribeFeatureGroupResponse)
 

@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -63,6 +63,7 @@ library
     Amazonka.EMR.DescribeStudio
     Amazonka.EMR.GetAutoTerminationPolicy
     Amazonka.EMR.GetBlockPublicAccessConfiguration
+    Amazonka.EMR.GetClusterSessionCredentials
     Amazonka.EMR.GetManagedScalingPolicy
     Amazonka.EMR.GetStudioSessionMapping
     Amazonka.EMR.Lens
@@ -124,6 +125,7 @@ library
     Amazonka.EMR.Types.ComputeLimits
     Amazonka.EMR.Types.ComputeLimitsUnitType
     Amazonka.EMR.Types.Configuration
+    Amazonka.EMR.Types.Credentials
     Amazonka.EMR.Types.EbsBlockDevice
     Amazonka.EMR.Types.EbsBlockDeviceConfig
     Amazonka.EMR.Types.EbsConfiguration
@@ -217,6 +219,7 @@ library
     Amazonka.EMR.Types.SupportedProductConfig
     Amazonka.EMR.Types.Tag
     Amazonka.EMR.Types.Unit
+    Amazonka.EMR.Types.UsernamePassword
     Amazonka.EMR.Types.VolumeSpecification
     Amazonka.EMR.UpdateStudio
     Amazonka.EMR.UpdateStudioSessionMapping

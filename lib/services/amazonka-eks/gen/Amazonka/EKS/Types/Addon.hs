@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.Addon
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,11 +41,11 @@ data Addon = Addon'
     addonVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster.
     clusterName :: Prelude.Maybe Prelude.Text,
-    -- | The provided configuration values.
+    -- | The configuration values that you provided.
     configurationValues :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the add-on was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | An object representing the health of the add-on.
+    -- | An object that represents the health of the add-on.
     health :: Prelude.Maybe AddonHealth,
     -- | Information about an Amazon EKS add-on from the Amazon Web Services
     -- Marketplace.
@@ -56,8 +56,8 @@ data Addon = Addon'
     owner :: Prelude.Maybe Prelude.Text,
     -- | The publisher of the add-on.
     publisher :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role that is bound to the
-    -- Kubernetes service account used by the add-on.
+    -- | The Amazon Resource Name (ARN) of the IAM role that\'s bound to the
+    -- Kubernetes service account that the add-on uses.
     serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the add-on.
     status :: Prelude.Maybe AddonStatus,
@@ -85,11 +85,11 @@ data Addon = Addon'
 --
 -- 'clusterName', 'addon_clusterName' - The name of the cluster.
 --
--- 'configurationValues', 'addon_configurationValues' - The provided configuration values.
+-- 'configurationValues', 'addon_configurationValues' - The configuration values that you provided.
 --
 -- 'createdAt', 'addon_createdAt' - The date and time that the add-on was created.
 --
--- 'health', 'addon_health' - An object representing the health of the add-on.
+-- 'health', 'addon_health' - An object that represents the health of the add-on.
 --
 -- 'marketplaceInformation', 'addon_marketplaceInformation' - Information about an Amazon EKS add-on from the Amazon Web Services
 -- Marketplace.
@@ -100,8 +100,8 @@ data Addon = Addon'
 --
 -- 'publisher', 'addon_publisher' - The publisher of the add-on.
 --
--- 'serviceAccountRoleArn', 'addon_serviceAccountRoleArn' - The Amazon Resource Name (ARN) of the IAM role that is bound to the
--- Kubernetes service account used by the add-on.
+-- 'serviceAccountRoleArn', 'addon_serviceAccountRoleArn' - The Amazon Resource Name (ARN) of the IAM role that\'s bound to the
+-- Kubernetes service account that the add-on uses.
 --
 -- 'status', 'addon_status' - The status of the add-on.
 --
@@ -145,7 +145,7 @@ addon_addonVersion = Lens.lens (\Addon' {addonVersion} -> addonVersion) (\s@Addo
 addon_clusterName :: Lens.Lens' Addon (Prelude.Maybe Prelude.Text)
 addon_clusterName = Lens.lens (\Addon' {clusterName} -> clusterName) (\s@Addon' {} a -> s {clusterName = a} :: Addon)
 
--- | The provided configuration values.
+-- | The configuration values that you provided.
 addon_configurationValues :: Lens.Lens' Addon (Prelude.Maybe Prelude.Text)
 addon_configurationValues = Lens.lens (\Addon' {configurationValues} -> configurationValues) (\s@Addon' {} a -> s {configurationValues = a} :: Addon)
 
@@ -153,7 +153,7 @@ addon_configurationValues = Lens.lens (\Addon' {configurationValues} -> configur
 addon_createdAt :: Lens.Lens' Addon (Prelude.Maybe Prelude.UTCTime)
 addon_createdAt = Lens.lens (\Addon' {createdAt} -> createdAt) (\s@Addon' {} a -> s {createdAt = a} :: Addon) Prelude.. Lens.mapping Data._Time
 
--- | An object representing the health of the add-on.
+-- | An object that represents the health of the add-on.
 addon_health :: Lens.Lens' Addon (Prelude.Maybe AddonHealth)
 addon_health = Lens.lens (\Addon' {health} -> health) (\s@Addon' {} a -> s {health = a} :: Addon)
 
@@ -174,8 +174,8 @@ addon_owner = Lens.lens (\Addon' {owner} -> owner) (\s@Addon' {} a -> s {owner =
 addon_publisher :: Lens.Lens' Addon (Prelude.Maybe Prelude.Text)
 addon_publisher = Lens.lens (\Addon' {publisher} -> publisher) (\s@Addon' {} a -> s {publisher = a} :: Addon)
 
--- | The Amazon Resource Name (ARN) of the IAM role that is bound to the
--- Kubernetes service account used by the add-on.
+-- | The Amazon Resource Name (ARN) of the IAM role that\'s bound to the
+-- Kubernetes service account that the add-on uses.
 addon_serviceAccountRoleArn :: Lens.Lens' Addon (Prelude.Maybe Prelude.Text)
 addon_serviceAccountRoleArn = Lens.lens (\Addon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@Addon' {} a -> s {serviceAccountRoleArn = a} :: Addon)
 

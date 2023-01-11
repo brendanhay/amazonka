@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.EnvironmentLifecycle
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,8 @@ module Amazonka.M2.Types.EnvironmentLifecycle
         EnvironmentLifecycle_Available,
         EnvironmentLifecycle_Creating,
         EnvironmentLifecycle_Deleting,
-        EnvironmentLifecycle_Failed
+        EnvironmentLifecycle_Failed,
+        EnvironmentLifecycle_Updating
       ),
   )
 where
@@ -72,10 +73,14 @@ pattern EnvironmentLifecycle_Deleting = EnvironmentLifecycle' "Deleting"
 pattern EnvironmentLifecycle_Failed :: EnvironmentLifecycle
 pattern EnvironmentLifecycle_Failed = EnvironmentLifecycle' "Failed"
 
+pattern EnvironmentLifecycle_Updating :: EnvironmentLifecycle
+pattern EnvironmentLifecycle_Updating = EnvironmentLifecycle' "Updating"
+
 {-# COMPLETE
   EnvironmentLifecycle_Available,
   EnvironmentLifecycle_Creating,
   EnvironmentLifecycle_Deleting,
   EnvironmentLifecycle_Failed,
+  EnvironmentLifecycle_Updating,
   EnvironmentLifecycle'
   #-}

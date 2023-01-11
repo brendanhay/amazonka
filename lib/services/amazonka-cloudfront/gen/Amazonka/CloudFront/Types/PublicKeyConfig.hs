@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.PublicKeyConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ data PublicKeyConfig = PublicKeyConfig'
     -- 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
     -- | A string included in the request to help make sure that the request
-    -- can’t be replayed.
+    -- can\'t be replayed.
     callerReference :: Prelude.Text,
     -- | A name to help identify the public key.
     name :: Prelude.Text,
@@ -59,7 +59,7 @@ data PublicKeyConfig = PublicKeyConfig'
 -- 128 characters.
 --
 -- 'callerReference', 'publicKeyConfig_callerReference' - A string included in the request to help make sure that the request
--- can’t be replayed.
+-- can\'t be replayed.
 --
 -- 'name', 'publicKeyConfig_name' - A name to help identify the public key.
 --
@@ -92,7 +92,7 @@ publicKeyConfig_comment :: Lens.Lens' PublicKeyConfig (Prelude.Maybe Prelude.Tex
 publicKeyConfig_comment = Lens.lens (\PublicKeyConfig' {comment} -> comment) (\s@PublicKeyConfig' {} a -> s {comment = a} :: PublicKeyConfig)
 
 -- | A string included in the request to help make sure that the request
--- can’t be replayed.
+-- can\'t be replayed.
 publicKeyConfig_callerReference :: Lens.Lens' PublicKeyConfig Prelude.Text
 publicKeyConfig_callerReference = Lens.lens (\PublicKeyConfig' {callerReference} -> callerReference) (\s@PublicKeyConfig' {} a -> s {callerReference = a} :: PublicKeyConfig)
 

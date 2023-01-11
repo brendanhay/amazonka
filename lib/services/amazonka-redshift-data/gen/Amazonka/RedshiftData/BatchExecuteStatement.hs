@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftData.BatchExecuteStatement
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,12 +36,18 @@
 --     operation is required. When connecting to a serverless workgroup,
 --     specify the workgroup name and database name. Also, permission to
 --     call the @redshift-serverless:GetCredentials@ operation is required.
+--
+-- For more information about the Amazon Redshift Data API and CLI usage
+-- examples, see
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html Using the Amazon Redshift Data API>
+-- in the /Amazon Redshift Management Guide/.
 module Amazonka.RedshiftData.BatchExecuteStatement
   ( -- * Creating a Request
     BatchExecuteStatement (..),
     newBatchExecuteStatement,
 
     -- * Request Lenses
+    batchExecuteStatement_clientToken,
     batchExecuteStatement_clusterIdentifier,
     batchExecuteStatement_dbUser,
     batchExecuteStatement_secretArn,
@@ -77,7 +83,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchExecuteStatement' smart constructor.
 data BatchExecuteStatement = BatchExecuteStatement'
-  { -- | The cluster identifier. This parameter is required when connecting to a
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The cluster identifier. This parameter is required when connecting to a
     -- cluster and authenticating using either Secrets Manager or temporary
     -- credentials.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
@@ -101,6 +110,8 @@ data BatchExecuteStatement = BatchExecuteStatement'
     -- using either Secrets Manager or temporary credentials.
     database :: Prelude.Text,
     -- | One or more SQL statements to run.
+    --
+    -- >  The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
     sqls :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,6 +123,9 @@ data BatchExecuteStatement = BatchExecuteStatement'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'batchExecuteStatement_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
 --
 -- 'clusterIdentifier', 'batchExecuteStatement_clusterIdentifier' - The cluster identifier. This parameter is required when connecting to a
 -- cluster and authenticating using either Secrets Manager or temporary
@@ -137,6 +151,8 @@ data BatchExecuteStatement = BatchExecuteStatement'
 -- using either Secrets Manager or temporary credentials.
 --
 -- 'sqls', 'batchExecuteStatement_sqls' - One or more SQL statements to run.
+--
+-- >  The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
 newBatchExecuteStatement ::
   -- | 'database'
   Prelude.Text ->
@@ -145,8 +161,9 @@ newBatchExecuteStatement ::
   BatchExecuteStatement
 newBatchExecuteStatement pDatabase_ pSqls_ =
   BatchExecuteStatement'
-    { clusterIdentifier =
+    { clientToken =
         Prelude.Nothing,
+      clusterIdentifier = Prelude.Nothing,
       dbUser = Prelude.Nothing,
       secretArn = Prelude.Nothing,
       statementName = Prelude.Nothing,
@@ -155,6 +172,11 @@ newBatchExecuteStatement pDatabase_ pSqls_ =
       database = pDatabase_,
       sqls = Lens.coerced Lens.# pSqls_
     }
+
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+batchExecuteStatement_clientToken :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
+batchExecuteStatement_clientToken = Lens.lens (\BatchExecuteStatement' {clientToken} -> clientToken) (\s@BatchExecuteStatement' {} a -> s {clientToken = a} :: BatchExecuteStatement)
 
 -- | The cluster identifier. This parameter is required when connecting to a
 -- cluster and authenticating using either Secrets Manager or temporary
@@ -194,6 +216,8 @@ batchExecuteStatement_database :: Lens.Lens' BatchExecuteStatement Prelude.Text
 batchExecuteStatement_database = Lens.lens (\BatchExecuteStatement' {database} -> database) (\s@BatchExecuteStatement' {} a -> s {database = a} :: BatchExecuteStatement)
 
 -- | One or more SQL statements to run.
+--
+-- >  The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
 batchExecuteStatement_sqls :: Lens.Lens' BatchExecuteStatement (Prelude.NonEmpty Prelude.Text)
 batchExecuteStatement_sqls = Lens.lens (\BatchExecuteStatement' {sqls} -> sqls) (\s@BatchExecuteStatement' {} a -> s {sqls = a} :: BatchExecuteStatement) Prelude.. Lens.coerced
 
@@ -219,7 +243,8 @@ instance Core.AWSRequest BatchExecuteStatement where
 
 instance Prelude.Hashable BatchExecuteStatement where
   hashWithSalt _salt BatchExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` statementName
@@ -230,7 +255,8 @@ instance Prelude.Hashable BatchExecuteStatement where
 
 instance Prelude.NFData BatchExecuteStatement where
   rnf BatchExecuteStatement' {..} =
-    Prelude.rnf clusterIdentifier
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf statementName
@@ -258,7 +284,8 @@ instance Data.ToJSON BatchExecuteStatement where
   toJSON BatchExecuteStatement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ClusterIdentifier" Data..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
             ("DbUser" Data..=) Prelude.<$> dbUser,
             ("SecretArn" Data..=) Prelude.<$> secretArn,

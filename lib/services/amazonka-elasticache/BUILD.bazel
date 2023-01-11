@@ -156,6 +156,7 @@ haskell_library(
         "gen/Amazonka/ElastiCache/Types/Tag.hs",
         "gen/Amazonka/ElastiCache/Types/TagListMessage.hs",
         "gen/Amazonka/ElastiCache/Types/TimeRangeFilter.hs",
+        "gen/Amazonka/ElastiCache/Types/TransitEncryptionMode.hs",
         "gen/Amazonka/ElastiCache/Types/UnprocessedUpdateAction.hs",
         "gen/Amazonka/ElastiCache/Types/UpdateAction.hs",
         "gen/Amazonka/ElastiCache/Types/UpdateActionResultsMessage.hs",

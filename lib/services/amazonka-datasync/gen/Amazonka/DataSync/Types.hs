@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.DataSync.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -399,14 +399,14 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | This exception is thrown when an error occurs in the DataSync service.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
     "InternalException"
 
 -- | This exception is thrown when the client submits a malformed request.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService

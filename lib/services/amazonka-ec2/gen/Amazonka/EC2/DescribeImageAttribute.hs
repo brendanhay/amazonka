@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeImageAttribute
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -219,7 +219,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     -- used when requesting instance metadata. In addition,
     -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     imdsSupport :: Prelude.Maybe AttributeValue,
     -- | The kernel ID.
     kernelId :: Prelude.Maybe AttributeValue,
@@ -248,7 +248,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     -- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
     -- GitHub. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     uefiData :: Prelude.Maybe AttributeValue,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -277,7 +277,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 -- used when requesting instance metadata. In addition,
 -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'kernelId', 'describeImageAttributeResponse_kernelId' - The kernel ID.
 --
@@ -306,7 +306,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 -- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
 -- GitHub. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'httpStatus', 'describeImageAttributeResponse_httpStatus' - The response's http status code.
 newDescribeImageAttributeResponse ::
@@ -354,7 +354,7 @@ describeImageAttributeResponse_imageId = Lens.lens (\DescribeImageAttributeRespo
 -- used when requesting instance metadata. In addition,
 -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 describeImageAttributeResponse_imdsSupport :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
 describeImageAttributeResponse_imdsSupport = Lens.lens (\DescribeImageAttributeResponse' {imdsSupport} -> imdsSupport) (\s@DescribeImageAttributeResponse' {} a -> s {imdsSupport = a} :: DescribeImageAttributeResponse)
 
@@ -399,7 +399,7 @@ describeImageAttributeResponse_tpmSupport = Lens.lens (\DescribeImageAttributeRe
 -- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
 -- GitHub. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 describeImageAttributeResponse_uefiData :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
 describeImageAttributeResponse_uefiData = Lens.lens (\DescribeImageAttributeResponse' {uefiData} -> uefiData) (\s@DescribeImageAttributeResponse' {} a -> s {uefiData = a} :: DescribeImageAttributeResponse)
 

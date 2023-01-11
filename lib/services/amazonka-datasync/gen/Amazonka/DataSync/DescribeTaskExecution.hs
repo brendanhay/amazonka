@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataSync.DescribeTaskExecution
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -161,9 +161,10 @@ instance Data.ToQuery DescribeTaskExecution where
 data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
   { -- | The physical number of bytes transferred over the network after
     -- compression was applied. In most cases, this number is less than
-    -- @BytesTransferred@.
+    -- @BytesTransferred@ unless the data isn\'t compressible.
     bytesCompressed :: Prelude.Maybe Prelude.Integer,
-    -- | The physical number of bytes transferred over the network.
+    -- | The total number of bytes that are involved in the transfer. For the
+    -- number of bytes sent over the network, see @BytesCompressed@.
     bytesTransferred :: Prelude.Maybe Prelude.Integer,
     -- | The number of logical bytes written to the destination Amazon Web
     -- Services storage resource.
@@ -172,32 +173,30 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
     -- the network.
     estimatedBytesToTransfer :: Prelude.Maybe Prelude.Integer,
     -- | The expected number of files that is to be transferred over the network.
-    -- This value is calculated during the PREPARING phase, before the
-    -- TRANSFERRING phase. This value is the expected number of files to be
-    -- transferred. It\'s calculated based on comparing the content of the
-    -- source and destination locations and finding the delta that needs to be
-    -- transferred.
+    -- This value is calculated during the @PREPARING@ phase before the
+    -- @TRANSFERRING@ phase of the task execution. This value is the expected
+    -- number of files to be transferred. It\'s calculated based on comparing
+    -- the content of the source and destination locations and finding the
+    -- delta that needs to be transferred.
     estimatedFilesToTransfer :: Prelude.Maybe Prelude.Integer,
-    -- | A list of filter rules that determines which files to exclude from a
-    -- task. The list should contain a single filter string that consists of
-    -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
-    -- pipe), for example: @\"\/folder1|\/folder2\"@
+    -- | A list of filter rules that exclude specific data during your transfer.
+    -- For more information and examples, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
     excludes :: Prelude.Maybe [FilterRule],
     -- | The actual number of files that was transferred over the network. This
     -- value is calculated and updated on an ongoing basis during the
-    -- TRANSFERRING phase. It\'s updated periodically when each file is read
-    -- from the source and sent over the network.
+    -- @TRANSFERRING@ phase of the task execution. It\'s updated periodically
+    -- when each file is read from the source and sent over the network.
     --
     -- If failures occur during a transfer, this value can be less than
-    -- @EstimatedFilesToTransfer@. This value can also be greater than
-    -- @EstimatedFilesTransferred@ in some cases. This element is
+    -- @EstimatedFilesToTransfer@. In some cases, this value can also be
+    -- greater than @EstimatedFilesToTransfer@. This element is
     -- implementation-specific for some location types, so don\'t use it as an
     -- indicator for a correct file number or to monitor your task execution.
     filesTransferred :: Prelude.Maybe Prelude.Integer,
-    -- | A list of filter rules that determines which files to include when
-    -- running a task. The list should contain a single filter string that
-    -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe), for example: @\"\/folder1|\/folder2\"@
+    -- | A list of filter rules that include specific data during your transfer.
+    -- For more information and examples, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
     includes :: Prelude.Maybe [FilterRule],
     options :: Prelude.Maybe Options,
     -- | The result of the task execution.
@@ -233,9 +232,10 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
 --
 -- 'bytesCompressed', 'describeTaskExecutionResponse_bytesCompressed' - The physical number of bytes transferred over the network after
 -- compression was applied. In most cases, this number is less than
--- @BytesTransferred@.
+-- @BytesTransferred@ unless the data isn\'t compressible.
 --
--- 'bytesTransferred', 'describeTaskExecutionResponse_bytesTransferred' - The physical number of bytes transferred over the network.
+-- 'bytesTransferred', 'describeTaskExecutionResponse_bytesTransferred' - The total number of bytes that are involved in the transfer. For the
+-- number of bytes sent over the network, see @BytesCompressed@.
 --
 -- 'bytesWritten', 'describeTaskExecutionResponse_bytesWritten' - The number of logical bytes written to the destination Amazon Web
 -- Services storage resource.
@@ -244,32 +244,30 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
 -- the network.
 --
 -- 'estimatedFilesToTransfer', 'describeTaskExecutionResponse_estimatedFilesToTransfer' - The expected number of files that is to be transferred over the network.
--- This value is calculated during the PREPARING phase, before the
--- TRANSFERRING phase. This value is the expected number of files to be
--- transferred. It\'s calculated based on comparing the content of the
--- source and destination locations and finding the delta that needs to be
--- transferred.
+-- This value is calculated during the @PREPARING@ phase before the
+-- @TRANSFERRING@ phase of the task execution. This value is the expected
+-- number of files to be transferred. It\'s calculated based on comparing
+-- the content of the source and destination locations and finding the
+-- delta that needs to be transferred.
 --
--- 'excludes', 'describeTaskExecutionResponse_excludes' - A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example: @\"\/folder1|\/folder2\"@
+-- 'excludes', 'describeTaskExecutionResponse_excludes' - A list of filter rules that exclude specific data during your transfer.
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 --
 -- 'filesTransferred', 'describeTaskExecutionResponse_filesTransferred' - The actual number of files that was transferred over the network. This
 -- value is calculated and updated on an ongoing basis during the
--- TRANSFERRING phase. It\'s updated periodically when each file is read
--- from the source and sent over the network.
+-- @TRANSFERRING@ phase of the task execution. It\'s updated periodically
+-- when each file is read from the source and sent over the network.
 --
 -- If failures occur during a transfer, this value can be less than
--- @EstimatedFilesToTransfer@. This value can also be greater than
--- @EstimatedFilesTransferred@ in some cases. This element is
+-- @EstimatedFilesToTransfer@. In some cases, this value can also be
+-- greater than @EstimatedFilesToTransfer@. This element is
 -- implementation-specific for some location types, so don\'t use it as an
 -- indicator for a correct file number or to monitor your task execution.
 --
--- 'includes', 'describeTaskExecutionResponse_includes' - A list of filter rules that determines which files to include when
--- running a task. The list should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example: @\"\/folder1|\/folder2\"@
+-- 'includes', 'describeTaskExecutionResponse_includes' - A list of filter rules that include specific data during your transfer.
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 --
 -- 'options', 'describeTaskExecutionResponse_options' - Undocumented member.
 --
@@ -317,11 +315,12 @@ newDescribeTaskExecutionResponse pHttpStatus_ =
 
 -- | The physical number of bytes transferred over the network after
 -- compression was applied. In most cases, this number is less than
--- @BytesTransferred@.
+-- @BytesTransferred@ unless the data isn\'t compressible.
 describeTaskExecutionResponse_bytesCompressed :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
 describeTaskExecutionResponse_bytesCompressed = Lens.lens (\DescribeTaskExecutionResponse' {bytesCompressed} -> bytesCompressed) (\s@DescribeTaskExecutionResponse' {} a -> s {bytesCompressed = a} :: DescribeTaskExecutionResponse)
 
--- | The physical number of bytes transferred over the network.
+-- | The total number of bytes that are involved in the transfer. For the
+-- number of bytes sent over the network, see @BytesCompressed@.
 describeTaskExecutionResponse_bytesTransferred :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
 describeTaskExecutionResponse_bytesTransferred = Lens.lens (\DescribeTaskExecutionResponse' {bytesTransferred} -> bytesTransferred) (\s@DescribeTaskExecutionResponse' {} a -> s {bytesTransferred = a} :: DescribeTaskExecutionResponse)
 
@@ -336,38 +335,36 @@ describeTaskExecutionResponse_estimatedBytesToTransfer :: Lens.Lens' DescribeTas
 describeTaskExecutionResponse_estimatedBytesToTransfer = Lens.lens (\DescribeTaskExecutionResponse' {estimatedBytesToTransfer} -> estimatedBytesToTransfer) (\s@DescribeTaskExecutionResponse' {} a -> s {estimatedBytesToTransfer = a} :: DescribeTaskExecutionResponse)
 
 -- | The expected number of files that is to be transferred over the network.
--- This value is calculated during the PREPARING phase, before the
--- TRANSFERRING phase. This value is the expected number of files to be
--- transferred. It\'s calculated based on comparing the content of the
--- source and destination locations and finding the delta that needs to be
--- transferred.
+-- This value is calculated during the @PREPARING@ phase before the
+-- @TRANSFERRING@ phase of the task execution. This value is the expected
+-- number of files to be transferred. It\'s calculated based on comparing
+-- the content of the source and destination locations and finding the
+-- delta that needs to be transferred.
 describeTaskExecutionResponse_estimatedFilesToTransfer :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
 describeTaskExecutionResponse_estimatedFilesToTransfer = Lens.lens (\DescribeTaskExecutionResponse' {estimatedFilesToTransfer} -> estimatedFilesToTransfer) (\s@DescribeTaskExecutionResponse' {} a -> s {estimatedFilesToTransfer = a} :: DescribeTaskExecutionResponse)
 
--- | A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example: @\"\/folder1|\/folder2\"@
+-- | A list of filter rules that exclude specific data during your transfer.
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 describeTaskExecutionResponse_excludes :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe [FilterRule])
 describeTaskExecutionResponse_excludes = Lens.lens (\DescribeTaskExecutionResponse' {excludes} -> excludes) (\s@DescribeTaskExecutionResponse' {} a -> s {excludes = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The actual number of files that was transferred over the network. This
 -- value is calculated and updated on an ongoing basis during the
--- TRANSFERRING phase. It\'s updated periodically when each file is read
--- from the source and sent over the network.
+-- @TRANSFERRING@ phase of the task execution. It\'s updated periodically
+-- when each file is read from the source and sent over the network.
 --
 -- If failures occur during a transfer, this value can be less than
--- @EstimatedFilesToTransfer@. This value can also be greater than
--- @EstimatedFilesTransferred@ in some cases. This element is
+-- @EstimatedFilesToTransfer@. In some cases, this value can also be
+-- greater than @EstimatedFilesToTransfer@. This element is
 -- implementation-specific for some location types, so don\'t use it as an
 -- indicator for a correct file number or to monitor your task execution.
 describeTaskExecutionResponse_filesTransferred :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
 describeTaskExecutionResponse_filesTransferred = Lens.lens (\DescribeTaskExecutionResponse' {filesTransferred} -> filesTransferred) (\s@DescribeTaskExecutionResponse' {} a -> s {filesTransferred = a} :: DescribeTaskExecutionResponse)
 
--- | A list of filter rules that determines which files to include when
--- running a task. The list should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example: @\"\/folder1|\/folder2\"@
+-- | A list of filter rules that include specific data during your transfer.
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 describeTaskExecutionResponse_includes :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe [FilterRule])
 describeTaskExecutionResponse_includes = Lens.lens (\DescribeTaskExecutionResponse' {includes} -> includes) (\s@DescribeTaskExecutionResponse' {} a -> s {includes = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Lens.coerced
 

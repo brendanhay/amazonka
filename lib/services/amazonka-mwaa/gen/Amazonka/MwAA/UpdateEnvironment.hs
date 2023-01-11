@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MwAA.UpdateEnvironment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,7 +73,7 @@ data UpdateEnvironment = UpdateEnvironment'
     airflowConfigurationOptions :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))),
     -- | The Apache Airflow version for your environment. If no value is
     -- specified, defaults to the latest version. Valid values: @1.10.12@,
-    -- @2.0.2@, and @2.2.2@.
+    -- @2.0.2@, @2.2.2@, and @2.4.3@.
     airflowVersion :: Prelude.Maybe Prelude.Text,
     -- | The relative path to the DAGs folder on your Amazon S3 bucket. For
     -- example, @dags@. To learn more, see
@@ -165,7 +165,7 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 -- 'airflowVersion', 'updateEnvironment_airflowVersion' - The Apache Airflow version for your environment. If no value is
 -- specified, defaults to the latest version. Valid values: @1.10.12@,
--- @2.0.2@, and @2.2.2@.
+-- @2.0.2@, @2.2.2@, and @2.4.3@.
 --
 -- 'dagS3Path', 'updateEnvironment_dagS3Path' - The relative path to the DAGs folder on your Amazon S3 bucket. For
 -- example, @dags@. To learn more, see
@@ -274,7 +274,7 @@ updateEnvironment_airflowConfigurationOptions = Lens.lens (\UpdateEnvironment' {
 
 -- | The Apache Airflow version for your environment. If no value is
 -- specified, defaults to the latest version. Valid values: @1.10.12@,
--- @2.0.2@, and @2.2.2@.
+-- @2.0.2@, @2.2.2@, and @2.4.3@.
 updateEnvironment_airflowVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_airflowVersion = Lens.lens (\UpdateEnvironment' {airflowVersion} -> airflowVersion) (\s@UpdateEnvironment' {} a -> s {airflowVersion = a} :: UpdateEnvironment)
 

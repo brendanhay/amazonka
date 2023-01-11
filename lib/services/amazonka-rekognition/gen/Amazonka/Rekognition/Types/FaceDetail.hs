@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Rekognition.Types.FaceDetail
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@ import Amazonka.Rekognition.Types.Sunglasses
 -- specify which attributes to return, use the @FaceAttributes@ input
 -- parameter for StartFaceDetection. The following Amazon Rekognition Video
 -- operations return only the default attributes. The corresponding Start
--- operations don\'t have a @FaceAttributes@ input parameter.
+-- operations don\'t have a @FaceAttributes@ input parameter:
 --
 -- -   GetCelebrityRecognition
 --

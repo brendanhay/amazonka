@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceGroups.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -236,7 +236,7 @@ defaultService =
 
 -- | The request includes one or more parameters that violate validation
 -- rules.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -244,7 +244,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The caller isn\'t authorized to make the request. Check permissions.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -253,7 +253,7 @@ _ForbiddenException =
 
 -- | An internal error occurred while processing the request. Try again
 -- later.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -262,7 +262,7 @@ _InternalServerErrorException =
 
 -- | The request uses an HTTP method that isn\'t allowed for the specified
 -- resource.
-_MethodNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MethodNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MethodNotAllowedException =
   Core._MatchServiceError
     defaultService
@@ -270,7 +270,7 @@ _MethodNotAllowedException =
     Prelude.. Core.hasStatus 405
 
 -- | One or more of the specified resources don\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -279,7 +279,7 @@ _NotFoundException =
 
 -- | You\'ve exceeded throttling limits by making too many requests in a
 -- period of time.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -288,7 +288,7 @@ _TooManyRequestsException =
 
 -- | The request was rejected because it doesn\'t have valid credentials for
 -- the target resource.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.AudioTrackSelection
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.MediaLive.Types.AudioTrackSelection where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MediaLive.Types.AudioDolbyEDecode
 import Amazonka.MediaLive.Types.AudioTrack
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAudioTrackSelection' smart constructor.
 data AudioTrackSelection = AudioTrackSelection'
-  { -- | Selects one or more unique audio tracks from within a source.
+  { -- | Configure decoding options for Dolby E streams - these should be Dolby E
+    -- frames carried in PCM streams tagged with SMPTE-337
+    dolbyEDecode :: Prelude.Maybe AudioDolbyEDecode,
+    -- | Selects one or more unique audio tracks from within a source.
     tracks :: [AudioTrack]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,11 +46,23 @@ data AudioTrackSelection = AudioTrackSelection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dolbyEDecode', 'audioTrackSelection_dolbyEDecode' - Configure decoding options for Dolby E streams - these should be Dolby E
+-- frames carried in PCM streams tagged with SMPTE-337
+--
 -- 'tracks', 'audioTrackSelection_tracks' - Selects one or more unique audio tracks from within a source.
 newAudioTrackSelection ::
   AudioTrackSelection
 newAudioTrackSelection =
-  AudioTrackSelection' {tracks = Prelude.mempty}
+  AudioTrackSelection'
+    { dolbyEDecode =
+        Prelude.Nothing,
+      tracks = Prelude.mempty
+    }
+
+-- | Configure decoding options for Dolby E streams - these should be Dolby E
+-- frames carried in PCM streams tagged with SMPTE-337
+audioTrackSelection_dolbyEDecode :: Lens.Lens' AudioTrackSelection (Prelude.Maybe AudioDolbyEDecode)
+audioTrackSelection_dolbyEDecode = Lens.lens (\AudioTrackSelection' {dolbyEDecode} -> dolbyEDecode) (\s@AudioTrackSelection' {} a -> s {dolbyEDecode = a} :: AudioTrackSelection)
 
 -- | Selects one or more unique audio tracks from within a source.
 audioTrackSelection_tracks :: Lens.Lens' AudioTrackSelection [AudioTrack]
@@ -58,19 +74,25 @@ instance Data.FromJSON AudioTrackSelection where
       "AudioTrackSelection"
       ( \x ->
           AudioTrackSelection'
-            Prelude.<$> (x Data..:? "tracks" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "dolbyEDecode")
+            Prelude.<*> (x Data..:? "tracks" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AudioTrackSelection where
   hashWithSalt _salt AudioTrackSelection' {..} =
-    _salt `Prelude.hashWithSalt` tracks
+    _salt `Prelude.hashWithSalt` dolbyEDecode
+      `Prelude.hashWithSalt` tracks
 
 instance Prelude.NFData AudioTrackSelection where
-  rnf AudioTrackSelection' {..} = Prelude.rnf tracks
+  rnf AudioTrackSelection' {..} =
+    Prelude.rnf dolbyEDecode
+      `Prelude.seq` Prelude.rnf tracks
 
 instance Data.ToJSON AudioTrackSelection where
   toJSON AudioTrackSelection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("tracks" Data..= tracks)]
+          [ ("dolbyEDecode" Data..=) Prelude.<$> dolbyEDecode,
+            Prelude.Just ("tracks" Data..= tracks)
+          ]
       )

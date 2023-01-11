@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceExplorer2.Types.Resource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,7 +37,7 @@ data Resource = Resource'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that Resource Explorer last queried this resource and
     -- updated the index with the latest information about the resource.
-    lastReportedAt :: Prelude.Maybe Data.POSIX,
+    lastReportedAt :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Web Services account that owns the resource.
     owningAccountId :: Prelude.Maybe Prelude.Text,
     -- | A structure with additional type-specific details about the resource.

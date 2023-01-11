@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.GetOriginRequestPolicyConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,11 +23,11 @@
 -- Gets an origin request policy configuration.
 --
 -- To get an origin request policy configuration, you must provide the
--- policy’s identifier. If the origin request policy is attached to a
--- distribution’s cache behavior, you can get the policy’s identifier using
--- @ListDistributions@ or @GetDistribution@. If the origin request policy
--- is not attached to a cache behavior, you can get the identifier using
--- @ListOriginRequestPolicies@.
+-- policy\'s identifier. If the origin request policy is attached to a
+-- distribution\'s cache behavior, you can get the policy\'s identifier
+-- using @ListDistributions@ or @GetDistribution@. If the origin request
+-- policy is not attached to a cache behavior, you can get the identifier
+-- using @ListOriginRequestPolicies@.
 module Amazonka.CloudFront.GetOriginRequestPolicyConfig
   ( -- * Creating a Request
     GetOriginRequestPolicyConfig (..),
@@ -58,8 +58,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetOriginRequestPolicyConfig' smart constructor.
 data GetOriginRequestPolicyConfig = GetOriginRequestPolicyConfig'
   { -- | The unique identifier for the origin request policy. If the origin
-    -- request policy is attached to a distribution’s cache behavior, you can
-    -- get the policy’s identifier using @ListDistributions@ or
+    -- request policy is attached to a distribution\'s cache behavior, you can
+    -- get the policy\'s identifier using @ListDistributions@ or
     -- @GetDistribution@. If the origin request policy is not attached to a
     -- cache behavior, you can get the identifier using
     -- @ListOriginRequestPolicies@.
@@ -76,8 +76,8 @@ data GetOriginRequestPolicyConfig = GetOriginRequestPolicyConfig'
 -- for backwards compatibility:
 --
 -- 'id', 'getOriginRequestPolicyConfig_id' - The unique identifier for the origin request policy. If the origin
--- request policy is attached to a distribution’s cache behavior, you can
--- get the policy’s identifier using @ListDistributions@ or
+-- request policy is attached to a distribution\'s cache behavior, you can
+-- get the policy\'s identifier using @ListDistributions@ or
 -- @GetDistribution@. If the origin request policy is not attached to a
 -- cache behavior, you can get the identifier using
 -- @ListOriginRequestPolicies@.
@@ -89,8 +89,8 @@ newGetOriginRequestPolicyConfig pId_ =
   GetOriginRequestPolicyConfig' {id = pId_}
 
 -- | The unique identifier for the origin request policy. If the origin
--- request policy is attached to a distribution’s cache behavior, you can
--- get the policy’s identifier using @ListDistributions@ or
+-- request policy is attached to a distribution\'s cache behavior, you can
+-- get the policy\'s identifier using @ListDistributions@ or
 -- @GetDistribution@. If the origin request policy is not attached to a
 -- cache behavior, you can get the identifier using
 -- @ListOriginRequestPolicies@.

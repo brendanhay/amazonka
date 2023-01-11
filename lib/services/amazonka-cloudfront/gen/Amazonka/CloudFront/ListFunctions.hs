@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListFunctions
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ data ListFunctions = ListFunctions'
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of functions. The response includes functions in the list that
     -- occur after the marker. To get the next page of the list, set this
-    -- field’s value to the value of @NextMarker@ from the current page’s
+    -- field\'s value to the value of @NextMarker@ from the current page\'s
     -- response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of functions that you want in the response.
@@ -87,7 +87,7 @@ data ListFunctions = ListFunctions'
 -- 'marker', 'listFunctions_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of functions. The response includes functions in the list that
 -- occur after the marker. To get the next page of the list, set this
--- field’s value to the value of @NextMarker@ from the current page’s
+-- field\'s value to the value of @NextMarker@ from the current page\'s
 -- response.
 --
 -- 'maxItems', 'listFunctions_maxItems' - The maximum number of functions that you want in the response.
@@ -106,7 +106,7 @@ newListFunctions =
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of functions. The response includes functions in the list that
 -- occur after the marker. To get the next page of the list, set this
--- field’s value to the value of @NextMarker@ from the current page’s
+-- field\'s value to the value of @NextMarker@ from the current page\'s
 -- response.
 listFunctions_marker :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
 listFunctions_marker = Lens.lens (\ListFunctions' {marker} -> marker) (\s@ListFunctions' {} a -> s {marker = a} :: ListFunctions)

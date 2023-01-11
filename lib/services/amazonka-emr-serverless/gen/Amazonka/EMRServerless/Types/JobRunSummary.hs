@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMRServerless.Types.JobRunSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,8 +51,7 @@ data JobRunSummary = JobRunSummary'
     state :: JobRunState,
     -- | The state details of the job run.
     stateDetails :: Prelude.Text,
-    -- | The EMR release version associated with the application your job is
-    -- running on.
+    -- | The EMR release associated with the application your job is running on.
     releaseLabel :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,8 +86,7 @@ data JobRunSummary = JobRunSummary'
 --
 -- 'stateDetails', 'jobRunSummary_stateDetails' - The state details of the job run.
 --
--- 'releaseLabel', 'jobRunSummary_releaseLabel' - The EMR release version associated with the application your job is
--- running on.
+-- 'releaseLabel', 'jobRunSummary_releaseLabel' - The EMR release associated with the application your job is running on.
 newJobRunSummary ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -181,8 +179,7 @@ jobRunSummary_state = Lens.lens (\JobRunSummary' {state} -> state) (\s@JobRunSum
 jobRunSummary_stateDetails :: Lens.Lens' JobRunSummary Prelude.Text
 jobRunSummary_stateDetails = Lens.lens (\JobRunSummary' {stateDetails} -> stateDetails) (\s@JobRunSummary' {} a -> s {stateDetails = a} :: JobRunSummary)
 
--- | The EMR release version associated with the application your job is
--- running on.
+-- | The EMR release associated with the application your job is running on.
 jobRunSummary_releaseLabel :: Lens.Lens' JobRunSummary Prelude.Text
 jobRunSummary_releaseLabel = Lens.lens (\JobRunSummary' {releaseLabel} -> releaseLabel) (\s@JobRunSummary' {} a -> s {releaseLabel = a} :: JobRunSummary)
 

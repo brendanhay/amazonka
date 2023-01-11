@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceExplorer2.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -191,7 +191,7 @@ defaultService =
 
 -- | The credentials that you used to call this operation don\'t have the
 -- minimum required permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -201,7 +201,7 @@ _AccessDeniedException =
 -- | You tried to create a new view or index when one already exists, and you
 -- either didn\'t specify or specified a different idempotency token as the
 -- original request.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -210,7 +210,7 @@ _ConflictException =
 
 -- | The request failed because of internal service error. Try your request
 -- again later.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -219,7 +219,7 @@ _InternalServerException =
 
 -- | You specified a resource that doesn\'t exist. Check the ID or ARN that
 -- you used to identity the resource, and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -227,7 +227,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request failed because it exceeds a service quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -237,7 +237,7 @@ _ServiceQuotaExceededException =
 -- | The request failed because you exceeded a rate limit for this operation.
 -- For more information, see
 -- <https://docs.aws.amazon.com/arexug/mainline/quotas.html Quotas for Resource Explorer>.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -246,7 +246,7 @@ _ThrottlingException =
 
 -- | The principal making the request isn\'t permitted to perform the
 -- operation.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService
@@ -255,7 +255,7 @@ _UnauthorizedException =
 
 -- | You provided an invalid value for one of the operation\'s parameters.
 -- Check the syntax for the operation, and try again.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetCustomDataIdentifier
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -145,7 +145,7 @@ data GetCustomDataIdentifierResponse = GetCustomDataIdentifierResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the custom
     -- data identifier was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | Specifies whether the custom data identifier was deleted. If you delete
     -- a custom data identifier, Amazon Macie doesn\'t delete it permanently.
     -- Instead, it soft deletes the identifier.

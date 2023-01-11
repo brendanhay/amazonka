@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -621,7 +621,7 @@ defaultService =
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
 -- in the /IAM User Guide/.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -631,7 +631,7 @@ _AccessDeniedException =
 -- | This exception is thrown if the request contains a semantic error. The
 -- precise meaning will depend on the API, and will be documented in the
 -- error message.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -642,7 +642,7 @@ _BadRequestException =
 -- using an action or resource on behalf of a user that doesn\'t have
 -- permissions to use the action or resource or specifying an identifier
 -- that is not valid.
-_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClientException =
   Core._MatchServiceError
     defaultService
@@ -651,7 +651,7 @@ _ClientException =
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -660,7 +660,7 @@ _InvalidParameterException =
 
 -- | The request is invalid given the state of the cluster. Check the state
 -- of the cluster and the associated operations.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -669,7 +669,7 @@ _InvalidRequestException =
 
 -- | A service resource associated with the request could not be found.
 -- Clients should not retry such requests.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -677,7 +677,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -685,7 +685,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 409
 
 -- | You have encountered a service limit on the specified resource.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -696,7 +696,7 @@ _ResourceLimitExceededException =
 -- clusters with ListClusters. You can view your available managed node
 -- groups with ListNodegroups. Amazon EKS clusters and node groups are
 -- Region-specific.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -705,7 +705,7 @@ _ResourceNotFoundException =
 
 -- | Required resources (such as service-linked roles) were created and are
 -- still propagating. Retry later.
-_ResourcePropagationDelayException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourcePropagationDelayException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourcePropagationDelayException =
   Core._MatchServiceError
     defaultService
@@ -713,7 +713,7 @@ _ResourcePropagationDelayException =
     Prelude.. Core.hasStatus 428
 
 -- | These errors are usually caused by a server-side issue.
-_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServerException =
   Core._MatchServiceError
     defaultService
@@ -721,7 +721,7 @@ _ServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The service is unavailable. Back off and retry the operation.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -732,7 +732,7 @@ _ServiceUnavailableException =
 -- Zone that does not support Amazon EKS. The exception output specifies
 -- the supported Availability Zones for your account, from which you can
 -- choose subnets for your cluster.
-_UnsupportedAvailabilityZoneException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedAvailabilityZoneException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedAvailabilityZoneException =
   Core._MatchServiceError
     defaultService

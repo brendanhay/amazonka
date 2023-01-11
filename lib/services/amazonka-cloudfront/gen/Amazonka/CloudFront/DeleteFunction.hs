@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.DeleteFunction
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,11 +22,11 @@
 --
 -- Deletes a CloudFront function.
 --
--- You cannot delete a function if it’s associated with a cache behavior.
+-- You cannot delete a function if it\'s associated with a cache behavior.
 -- First, update your distributions to remove the function association from
 -- all cache behaviors, then delete the function.
 --
--- To delete a function, you must provide the function’s name and version
+-- To delete a function, you must provide the function\'s name and version
 -- (@ETag@ value). To get these values, you can use @ListFunctions@ and
 -- @DescribeFunction@.
 module Amazonka.CloudFront.DeleteFunction

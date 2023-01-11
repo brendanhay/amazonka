@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.CreateDBCluster
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,9 @@ module Amazonka.RDS.CreateDBCluster
     createDBCluster_globalClusterIdentifier,
     createDBCluster_iops,
     createDBCluster_kmsKeyId,
+    createDBCluster_manageMasterUserPassword,
     createDBCluster_masterUserPassword,
+    createDBCluster_masterUserSecretKmsKeyId,
     createDBCluster_masterUsername,
     createDBCluster_monitoringInterval,
     createDBCluster_monitoringRoleArn,
@@ -452,13 +454,56 @@ data CreateDBCluster = CreateDBCluster'
     --
     -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to manage the master user password with
+    -- Amazon Web Services Secrets Manager.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon Aurora User Guide./
+    --
+    -- Constraints:
+    --
+    -- -   Can\'t manage the master user password with Amazon Web Services
+    --     Secrets Manager if @MasterUserPassword@ is specified.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+    manageMasterUserPassword :: Prelude.Maybe Prelude.Bool,
     -- | The password for the master database user. This password can contain any
     -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
     --
-    -- Constraints: Must contain from 8 to 41 characters.
+    -- Constraints:
+    --
+    -- -   Must contain from 8 to 41 characters.
+    --
+    -- -   Can\'t be specified if @ManageMasterUserPassword@ is turned on.
     --
     -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+    -- automatically generated and managed in Amazon Web Services Secrets
+    -- Manager.
+    --
+    -- This setting is valid only if the master user password is managed by RDS
+    -- in Amazon Web Services Secrets Manager for the DB cluster.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the KMS key. To use a KMS key in a different
+    -- Amazon Web Services account, specify the key ARN or alias ARN.
+    --
+    -- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+    -- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+    -- secret is in a different Amazon Web Services account, then you can\'t
+    -- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+    -- must use a customer managed KMS key.
+    --
+    -- There is a default KMS key for your Amazon Web Services account. Your
+    -- Amazon Web Services account has a different default KMS key for each
+    -- Amazon Web Services Region.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+    masterUserSecretKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the master user for the DB cluster.
     --
     -- Constraints:
@@ -1111,10 +1156,53 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
+-- 'manageMasterUserPassword', 'createDBCluster_manageMasterUserPassword' - A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'masterUserPassword', 'createDBCluster_masterUserPassword' - The password for the master database user. This password can contain any
 -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
--- Constraints: Must contain from 8 to 41 characters.
+-- Constraints:
+--
+-- -   Must contain from 8 to 41 characters.
+--
+-- -   Can\'t be specified if @ManageMasterUserPassword@ is turned on.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
+-- 'masterUserSecretKmsKeyId', 'createDBCluster_masterUserSecretKmsKeyId' - The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB cluster.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+-- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+-- secret is in a different Amazon Web Services account, then you can\'t
+-- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+-- must use a customer managed KMS key.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
 --
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
@@ -1452,7 +1540,9 @@ newCreateDBCluster pDBClusterIdentifier_ pEngine_ =
       globalClusterIdentifier = Prelude.Nothing,
       iops = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      manageMasterUserPassword = Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
+      masterUserSecretKmsKeyId = Prelude.Nothing,
       masterUsername = Prelude.Nothing,
       monitoringInterval = Prelude.Nothing,
       monitoringRoleArn = Prelude.Nothing,
@@ -1870,14 +1960,61 @@ createDBCluster_iops = Lens.lens (\CreateDBCluster' {iops} -> iops) (\s@CreateDB
 createDBCluster_kmsKeyId :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_kmsKeyId = Lens.lens (\CreateDBCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateDBCluster' {} a -> s {kmsKeyId = a} :: CreateDBCluster)
 
+-- | A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+createDBCluster_manageMasterUserPassword :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
+createDBCluster_manageMasterUserPassword = Lens.lens (\CreateDBCluster' {manageMasterUserPassword} -> manageMasterUserPassword) (\s@CreateDBCluster' {} a -> s {manageMasterUserPassword = a} :: CreateDBCluster)
+
 -- | The password for the master database user. This password can contain any
 -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
--- Constraints: Must contain from 8 to 41 characters.
+-- Constraints:
+--
+-- -   Must contain from 8 to 41 characters.
+--
+-- -   Can\'t be specified if @ManageMasterUserPassword@ is turned on.
 --
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 createDBCluster_masterUserPassword :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_masterUserPassword = Lens.lens (\CreateDBCluster' {masterUserPassword} -> masterUserPassword) (\s@CreateDBCluster' {} a -> s {masterUserPassword = a} :: CreateDBCluster)
+
+-- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB cluster.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+-- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+-- secret is in a different Amazon Web Services account, then you can\'t
+-- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+-- must use a customer managed KMS key.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+createDBCluster_masterUserSecretKmsKeyId :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_masterUserSecretKmsKeyId = Lens.lens (\CreateDBCluster' {masterUserSecretKmsKeyId} -> masterUserSecretKmsKeyId) (\s@CreateDBCluster' {} a -> s {masterUserSecretKmsKeyId = a} :: CreateDBCluster)
 
 -- | The name of the master user for the DB cluster.
 --
@@ -2264,7 +2401,9 @@ instance Prelude.Hashable CreateDBCluster where
       `Prelude.hashWithSalt` globalClusterIdentifier
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` manageMasterUserPassword
       `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` masterUserSecretKmsKeyId
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` monitoringInterval
       `Prelude.hashWithSalt` monitoringRoleArn
@@ -2323,7 +2462,11 @@ instance Prelude.NFData CreateDBCluster where
       `Prelude.seq` Prelude.rnf
         kmsKeyId
       `Prelude.seq` Prelude.rnf
+        manageMasterUserPassword
+      `Prelude.seq` Prelude.rnf
         masterUserPassword
+      `Prelude.seq` Prelude.rnf
+        masterUserSecretKmsKeyId
       `Prelude.seq` Prelude.rnf
         masterUsername
       `Prelude.seq` Prelude.rnf
@@ -2422,7 +2565,11 @@ instance Data.ToQuery CreateDBCluster where
           Data.=: globalClusterIdentifier,
         "Iops" Data.=: iops,
         "KmsKeyId" Data.=: kmsKeyId,
+        "ManageMasterUserPassword"
+          Data.=: manageMasterUserPassword,
         "MasterUserPassword" Data.=: masterUserPassword,
+        "MasterUserSecretKmsKeyId"
+          Data.=: masterUserSecretKmsKeyId,
         "MasterUsername" Data.=: masterUsername,
         "MonitoringInterval" Data.=: monitoringInterval,
         "MonitoringRoleArn" Data.=: monitoringRoleArn,

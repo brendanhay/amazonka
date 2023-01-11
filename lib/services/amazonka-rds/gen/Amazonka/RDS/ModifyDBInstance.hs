@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.ModifyDBInstance
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,7 +56,9 @@ module Amazonka.RDS.ModifyDBInstance
     modifyDBInstance_engineVersion,
     modifyDBInstance_iops,
     modifyDBInstance_licenseModel,
+    modifyDBInstance_manageMasterUserPassword,
     modifyDBInstance_masterUserPassword,
+    modifyDBInstance_masterUserSecretKmsKeyId,
     modifyDBInstance_maxAllocatedStorage,
     modifyDBInstance_monitoringInterval,
     modifyDBInstance_monitoringRoleArn,
@@ -73,6 +75,7 @@ module Amazonka.RDS.ModifyDBInstance
     modifyDBInstance_publiclyAccessible,
     modifyDBInstance_replicaMode,
     modifyDBInstance_resumeFullAutomationModeMinutes,
+    modifyDBInstance_rotateMasterUserPassword,
     modifyDBInstance_storageThroughput,
     modifyDBInstance_storageType,
     modifyDBInstance_tdeCredentialArn,
@@ -196,9 +199,16 @@ data ModifyDBInstance = ModifyDBInstance'
     -- -   It can be specified for a PostgreSQL read replica only if the source
     --     is running PostgreSQL 9.3.5.
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the certificate to associate with the DB instance.
+    -- | Specifies the CA certificate identifier to use for the DB instance’s
+    -- server certificate.
     --
     -- This setting doesn\'t apply to RDS Custom.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+    -- in the /Amazon Aurora User Guide/.
     cACertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance is restarted when you
     -- rotate your SSL\/TLS certificate.
@@ -248,16 +258,17 @@ data ModifyDBInstance = ModifyDBInstance'
     -- db.m4.large. Not all DB instance classes are available in all Amazon Web
     -- Services Regions, or for all database engines. For the full list of DB
     -- instance classes, and availability for your engine, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB instance classes>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
     -- in the /Amazon RDS User Guide/ or
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html Aurora DB instance classes>
-    -- in the /Amazon Aurora User Guide/.
+    -- in the /Amazon Aurora User Guide/. For RDS Custom, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.instances DB instance class support for RDS Custom for Oracle>
+    -- and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS DB instance class support for RDS Custom for SQL Server>.
     --
     -- If you modify the DB instance class, an outage occurs during the change.
-    -- The change is applied during the next maintenance window, unless
-    -- @ApplyImmediately@ is enabled for this request.
-    --
-    -- This setting doesn\'t apply to RDS Custom for Oracle.
+    -- The change is applied during the next maintenance window, unless you
+    -- specify @ApplyImmediately@ in your request.
     --
     -- Default: Uses existing setting
     dbInstanceClass :: Prelude.Maybe Prelude.Text,
@@ -391,7 +402,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- in the /Amazon RDS User Guide/.
     --
     -- For more information about CoIPs, see
-    -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+    -- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
     -- in the /Amazon Web Services Outposts User Guide/.
     enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
@@ -473,6 +484,29 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Valid values: @license-included@ | @bring-your-own-license@ |
     -- @general-public-license@
     licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to manage the master user password with
+    -- Amazon Web Services Secrets Manager.
+    --
+    -- If the DB cluster doesn\'t manage the master user password with Amazon
+    -- Web Services Secrets Manager, you can turn on this management. In this
+    -- case, you can\'t specify @MasterUserPassword@.
+    --
+    -- If the DB cluster already manages the master user password with Amazon
+    -- Web Services Secrets Manager, and you specify that the master user
+    -- password is not managed with Amazon Web Services Secrets Manager, then
+    -- you must specify @MasterUserPassword@. In this case, RDS deletes the
+    -- secret and uses the new password for the master user specified by
+    -- @MasterUserPassword@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- Constraints:
+    --
+    -- -   Can\'t manage the master user password with Amazon Web Services
+    --     Secrets Manager if @MasterUserPassword@ is specified.
+    manageMasterUserPassword :: Prelude.Maybe Prelude.Bool,
     -- | The new password for the master user. The password can include any
     -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
     --
@@ -490,6 +524,9 @@ data ModifyDBInstance = ModifyDBInstance'
     -- cluster. For more information, see @ModifyDBCluster@.
     --
     -- Default: Uses existing setting
+    --
+    -- Constraints: Can\'t be specified if @ManageMasterUserPassword@ is turned
+    -- on.
     --
     -- __MariaDB__
     --
@@ -516,6 +553,37 @@ data ModifyDBInstance = ModifyDBInstance'
     -- password is lost. This includes restoring privileges that might have
     -- been accidentally revoked.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+    -- automatically generated and managed in Amazon Web Services Secrets
+    -- Manager.
+    --
+    -- This setting is valid only if both of the following conditions are met:
+    --
+    -- -   The DB instance doesn\'t manage the master user password in Amazon
+    --     Web Services Secrets Manager.
+    --
+    --     If the DB instance already manages the master user password in
+    --     Amazon Web Services Secrets Manager, you can\'t change the KMS key
+    --     used to encrypt the secret.
+    --
+    -- -   You are turning on @ManageMasterUserPassword@ to manage the master
+    --     user password in Amazon Web Services Secrets Manager.
+    --
+    --     If you are turning on @ManageMasterUserPassword@ and don\'t specify
+    --     @MasterUserSecretKmsKeyId@, then the @aws\/secretsmanager@ KMS key
+    --     is used to encrypt the secret. If the secret is in a different
+    --     Amazon Web Services account, then you can\'t use the
+    --     @aws\/secretsmanager@ KMS key to encrypt the secret, and you must
+    --     use a customer managed KMS key.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the KMS key. To use a KMS key in a different
+    -- Amazon Web Services account, specify the key ARN or alias ARN.
+    --
+    -- There is a default KMS key for your Amazon Web Services account. Your
+    -- Amazon Web Services account has a different default KMS key for each
+    -- Amazon Web Services Region.
+    masterUserSecretKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
     -- scale the storage of the DB instance.
     --
@@ -750,6 +818,22 @@ data ModifyDBInstance = ModifyDBInstance'
     -- ends, RDS Custom resumes full automation. The minimum value is @60@
     -- (default). The maximum value is @1,440@.
     resumeFullAutomationModeMinutes :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether to rotate the secret managed by Amazon
+    -- Web Services Secrets Manager for the master user password.
+    --
+    -- This setting is valid only if the master user password is managed by RDS
+    -- in Amazon Web Services Secrets Manager for the DB cluster. The secret
+    -- value contains the updated password.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- Constraints:
+    --
+    -- -   You must apply the change immediately when rotating the master user
+    --     password.
+    rotateMasterUserPassword :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the storage throughput value for the DB instance.
     --
     -- This setting applies only to the @gp3@ storage type.
@@ -919,9 +1003,16 @@ data ModifyDBInstance = ModifyDBInstance'
 -- -   It can be specified for a PostgreSQL read replica only if the source
 --     is running PostgreSQL 9.3.5.
 --
--- 'cACertificateIdentifier', 'modifyDBInstance_cACertificateIdentifier' - Specifies the certificate to associate with the DB instance.
+-- 'cACertificateIdentifier', 'modifyDBInstance_cACertificateIdentifier' - Specifies the CA certificate identifier to use for the DB instance’s
+-- server certificate.
 --
 -- This setting doesn\'t apply to RDS Custom.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+-- in the /Amazon Aurora User Guide/.
 --
 -- 'certificateRotationRestart', 'modifyDBInstance_certificateRotationRestart' - A value that indicates whether the DB instance is restarted when you
 -- rotate your SSL\/TLS certificate.
@@ -971,16 +1062,17 @@ data ModifyDBInstance = ModifyDBInstance'
 -- db.m4.large. Not all DB instance classes are available in all Amazon Web
 -- Services Regions, or for all database engines. For the full list of DB
 -- instance classes, and availability for your engine, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB instance classes>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
 -- in the /Amazon RDS User Guide/ or
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html Aurora DB instance classes>
--- in the /Amazon Aurora User Guide/.
+-- in the /Amazon Aurora User Guide/. For RDS Custom, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.instances DB instance class support for RDS Custom for Oracle>
+-- and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS DB instance class support for RDS Custom for SQL Server>.
 --
 -- If you modify the DB instance class, an outage occurs during the change.
--- The change is applied during the next maintenance window, unless
--- @ApplyImmediately@ is enabled for this request.
---
--- This setting doesn\'t apply to RDS Custom for Oracle.
+-- The change is applied during the next maintenance window, unless you
+-- specify @ApplyImmediately@ in your request.
 --
 -- Default: Uses existing setting
 --
@@ -1114,7 +1206,7 @@ data ModifyDBInstance = ModifyDBInstance'
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 --
 -- 'enableIAMDatabaseAuthentication', 'modifyDBInstance_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
@@ -1196,6 +1288,29 @@ data ModifyDBInstance = ModifyDBInstance'
 -- Valid values: @license-included@ | @bring-your-own-license@ |
 -- @general-public-license@
 --
+-- 'manageMasterUserPassword', 'modifyDBInstance_manageMasterUserPassword' - A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- If the DB cluster doesn\'t manage the master user password with Amazon
+-- Web Services Secrets Manager, you can turn on this management. In this
+-- case, you can\'t specify @MasterUserPassword@.
+--
+-- If the DB cluster already manages the master user password with Amazon
+-- Web Services Secrets Manager, and you specify that the master user
+-- password is not managed with Amazon Web Services Secrets Manager, then
+-- you must specify @MasterUserPassword@. In this case, RDS deletes the
+-- secret and uses the new password for the master user specified by
+-- @MasterUserPassword@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+--
 -- 'masterUserPassword', 'modifyDBInstance_masterUserPassword' - The new password for the master user. The password can include any
 -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
@@ -1213,6 +1328,9 @@ data ModifyDBInstance = ModifyDBInstance'
 -- cluster. For more information, see @ModifyDBCluster@.
 --
 -- Default: Uses existing setting
+--
+-- Constraints: Can\'t be specified if @ManageMasterUserPassword@ is turned
+-- on.
 --
 -- __MariaDB__
 --
@@ -1238,6 +1356,37 @@ data ModifyDBInstance = ModifyDBInstance'
 -- provides a way to regain access to a primary instance user if the
 -- password is lost. This includes restoring privileges that might have
 -- been accidentally revoked.
+--
+-- 'masterUserSecretKmsKeyId', 'modifyDBInstance_masterUserSecretKmsKeyId' - The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if both of the following conditions are met:
+--
+-- -   The DB instance doesn\'t manage the master user password in Amazon
+--     Web Services Secrets Manager.
+--
+--     If the DB instance already manages the master user password in
+--     Amazon Web Services Secrets Manager, you can\'t change the KMS key
+--     used to encrypt the secret.
+--
+-- -   You are turning on @ManageMasterUserPassword@ to manage the master
+--     user password in Amazon Web Services Secrets Manager.
+--
+--     If you are turning on @ManageMasterUserPassword@ and don\'t specify
+--     @MasterUserSecretKmsKeyId@, then the @aws\/secretsmanager@ KMS key
+--     is used to encrypt the secret. If the secret is in a different
+--     Amazon Web Services account, then you can\'t use the
+--     @aws\/secretsmanager@ KMS key to encrypt the secret, and you must
+--     use a customer managed KMS key.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
 --
 -- 'maxAllocatedStorage', 'modifyDBInstance_maxAllocatedStorage' - The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
 -- scale the storage of the DB instance.
@@ -1473,6 +1622,22 @@ data ModifyDBInstance = ModifyDBInstance'
 -- ends, RDS Custom resumes full automation. The minimum value is @60@
 -- (default). The maximum value is @1,440@.
 --
+-- 'rotateMasterUserPassword', 'modifyDBInstance_rotateMasterUserPassword' - A value that indicates whether to rotate the secret managed by Amazon
+-- Web Services Secrets Manager for the master user password.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB cluster. The secret
+-- value contains the updated password.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
+--
+-- Constraints:
+--
+-- -   You must apply the change immediately when rotating the master user
+--     password.
+--
 -- 'storageThroughput', 'modifyDBInstance_storageThroughput' - Specifies the storage throughput value for the DB instance.
 --
 -- This setting applies only to the @gp3@ storage type.
@@ -1569,7 +1734,9 @@ newModifyDBInstance pDBInstanceIdentifier_ =
       engineVersion = Prelude.Nothing,
       iops = Prelude.Nothing,
       licenseModel = Prelude.Nothing,
+      manageMasterUserPassword = Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
+      masterUserSecretKmsKeyId = Prelude.Nothing,
       maxAllocatedStorage = Prelude.Nothing,
       monitoringInterval = Prelude.Nothing,
       monitoringRoleArn = Prelude.Nothing,
@@ -1586,6 +1753,7 @@ newModifyDBInstance pDBInstanceIdentifier_ =
       publiclyAccessible = Prelude.Nothing,
       replicaMode = Prelude.Nothing,
       resumeFullAutomationModeMinutes = Prelude.Nothing,
+      rotateMasterUserPassword = Prelude.Nothing,
       storageThroughput = Prelude.Nothing,
       storageType = Prelude.Nothing,
       tdeCredentialArn = Prelude.Nothing,
@@ -1702,9 +1870,16 @@ modifyDBInstance_awsBackupRecoveryPointArn = Lens.lens (\ModifyDBInstance' {awsB
 modifyDBInstance_backupRetentionPeriod :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_backupRetentionPeriod = Lens.lens (\ModifyDBInstance' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBInstance' {} a -> s {backupRetentionPeriod = a} :: ModifyDBInstance)
 
--- | Specifies the certificate to associate with the DB instance.
+-- | Specifies the CA certificate identifier to use for the DB instance’s
+-- server certificate.
 --
 -- This setting doesn\'t apply to RDS Custom.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+-- in the /Amazon Aurora User Guide/.
 modifyDBInstance_cACertificateIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_cACertificateIdentifier = Lens.lens (\ModifyDBInstance' {cACertificateIdentifier} -> cACertificateIdentifier) (\s@ModifyDBInstance' {} a -> s {cACertificateIdentifier = a} :: ModifyDBInstance)
 
@@ -1762,16 +1937,17 @@ modifyDBInstance_copyTagsToSnapshot = Lens.lens (\ModifyDBInstance' {copyTagsToS
 -- db.m4.large. Not all DB instance classes are available in all Amazon Web
 -- Services Regions, or for all database engines. For the full list of DB
 -- instance classes, and availability for your engine, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB instance classes>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
 -- in the /Amazon RDS User Guide/ or
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html Aurora DB instance classes>
--- in the /Amazon Aurora User Guide/.
+-- in the /Amazon Aurora User Guide/. For RDS Custom, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.instances DB instance class support for RDS Custom for Oracle>
+-- and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS DB instance class support for RDS Custom for SQL Server>.
 --
 -- If you modify the DB instance class, an outage occurs during the change.
--- The change is applied during the next maintenance window, unless
--- @ApplyImmediately@ is enabled for this request.
---
--- This setting doesn\'t apply to RDS Custom for Oracle.
+-- The change is applied during the next maintenance window, unless you
+-- specify @ApplyImmediately@ in your request.
 --
 -- Default: Uses existing setting
 modifyDBInstance_dbInstanceClass :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
@@ -1921,7 +2097,7 @@ modifyDBInstance_domainIAMRoleName = Lens.lens (\ModifyDBInstance' {domainIAMRol
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 modifyDBInstance_enableCustomerOwnedIp :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_enableCustomerOwnedIp = Lens.lens (\ModifyDBInstance' {enableCustomerOwnedIp} -> enableCustomerOwnedIp) (\s@ModifyDBInstance' {} a -> s {enableCustomerOwnedIp = a} :: ModifyDBInstance)
@@ -2015,6 +2191,31 @@ modifyDBInstance_iops = Lens.lens (\ModifyDBInstance' {iops} -> iops) (\s@Modify
 modifyDBInstance_licenseModel :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_licenseModel = Lens.lens (\ModifyDBInstance' {licenseModel} -> licenseModel) (\s@ModifyDBInstance' {} a -> s {licenseModel = a} :: ModifyDBInstance)
 
+-- | A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- If the DB cluster doesn\'t manage the master user password with Amazon
+-- Web Services Secrets Manager, you can turn on this management. In this
+-- case, you can\'t specify @MasterUserPassword@.
+--
+-- If the DB cluster already manages the master user password with Amazon
+-- Web Services Secrets Manager, and you specify that the master user
+-- password is not managed with Amazon Web Services Secrets Manager, then
+-- you must specify @MasterUserPassword@. In this case, RDS deletes the
+-- secret and uses the new password for the master user specified by
+-- @MasterUserPassword@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+modifyDBInstance_manageMasterUserPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_manageMasterUserPassword = Lens.lens (\ModifyDBInstance' {manageMasterUserPassword} -> manageMasterUserPassword) (\s@ModifyDBInstance' {} a -> s {manageMasterUserPassword = a} :: ModifyDBInstance)
+
 -- | The new password for the master user. The password can include any
 -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
@@ -2032,6 +2233,9 @@ modifyDBInstance_licenseModel = Lens.lens (\ModifyDBInstance' {licenseModel} -> 
 -- cluster. For more information, see @ModifyDBCluster@.
 --
 -- Default: Uses existing setting
+--
+-- Constraints: Can\'t be specified if @ManageMasterUserPassword@ is turned
+-- on.
 --
 -- __MariaDB__
 --
@@ -2059,6 +2263,39 @@ modifyDBInstance_licenseModel = Lens.lens (\ModifyDBInstance' {licenseModel} -> 
 -- been accidentally revoked.
 modifyDBInstance_masterUserPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_masterUserPassword = Lens.lens (\ModifyDBInstance' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBInstance' {} a -> s {masterUserPassword = a} :: ModifyDBInstance)
+
+-- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if both of the following conditions are met:
+--
+-- -   The DB instance doesn\'t manage the master user password in Amazon
+--     Web Services Secrets Manager.
+--
+--     If the DB instance already manages the master user password in
+--     Amazon Web Services Secrets Manager, you can\'t change the KMS key
+--     used to encrypt the secret.
+--
+-- -   You are turning on @ManageMasterUserPassword@ to manage the master
+--     user password in Amazon Web Services Secrets Manager.
+--
+--     If you are turning on @ManageMasterUserPassword@ and don\'t specify
+--     @MasterUserSecretKmsKeyId@, then the @aws\/secretsmanager@ KMS key
+--     is used to encrypt the secret. If the secret is in a different
+--     Amazon Web Services account, then you can\'t use the
+--     @aws\/secretsmanager@ KMS key to encrypt the secret, and you must
+--     use a customer managed KMS key.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
+modifyDBInstance_masterUserSecretKmsKeyId :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_masterUserSecretKmsKeyId = Lens.lens (\ModifyDBInstance' {masterUserSecretKmsKeyId} -> masterUserSecretKmsKeyId) (\s@ModifyDBInstance' {} a -> s {masterUserSecretKmsKeyId = a} :: ModifyDBInstance)
 
 -- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
 -- scale the storage of the DB instance.
@@ -2326,6 +2563,24 @@ modifyDBInstance_replicaMode = Lens.lens (\ModifyDBInstance' {replicaMode} -> re
 modifyDBInstance_resumeFullAutomationModeMinutes :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_resumeFullAutomationModeMinutes = Lens.lens (\ModifyDBInstance' {resumeFullAutomationModeMinutes} -> resumeFullAutomationModeMinutes) (\s@ModifyDBInstance' {} a -> s {resumeFullAutomationModeMinutes = a} :: ModifyDBInstance)
 
+-- | A value that indicates whether to rotate the secret managed by Amazon
+-- Web Services Secrets Manager for the master user password.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB cluster. The secret
+-- value contains the updated password.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
+--
+-- Constraints:
+--
+-- -   You must apply the change immediately when rotating the master user
+--     password.
+modifyDBInstance_rotateMasterUserPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_rotateMasterUserPassword = Lens.lens (\ModifyDBInstance' {rotateMasterUserPassword} -> rotateMasterUserPassword) (\s@ModifyDBInstance' {} a -> s {rotateMasterUserPassword = a} :: ModifyDBInstance)
+
 -- | Specifies the storage throughput value for the DB instance.
 --
 -- This setting applies only to the @gp3@ storage type.
@@ -2447,7 +2702,9 @@ instance Prelude.Hashable ModifyDBInstance where
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` manageMasterUserPassword
       `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` masterUserSecretKmsKeyId
       `Prelude.hashWithSalt` maxAllocatedStorage
       `Prelude.hashWithSalt` monitoringInterval
       `Prelude.hashWithSalt` monitoringRoleArn
@@ -2464,6 +2721,7 @@ instance Prelude.Hashable ModifyDBInstance where
       `Prelude.hashWithSalt` publiclyAccessible
       `Prelude.hashWithSalt` replicaMode
       `Prelude.hashWithSalt` resumeFullAutomationModeMinutes
+      `Prelude.hashWithSalt` rotateMasterUserPassword
       `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` tdeCredentialArn
@@ -2505,7 +2763,11 @@ instance Prelude.NFData ModifyDBInstance where
       `Prelude.seq` Prelude.rnf
         licenseModel
       `Prelude.seq` Prelude.rnf
+        manageMasterUserPassword
+      `Prelude.seq` Prelude.rnf
         masterUserPassword
+      `Prelude.seq` Prelude.rnf
+        masterUserSecretKmsKeyId
       `Prelude.seq` Prelude.rnf
         maxAllocatedStorage
       `Prelude.seq` Prelude.rnf
@@ -2538,6 +2800,8 @@ instance Prelude.NFData ModifyDBInstance where
         replicaMode
       `Prelude.seq` Prelude.rnf
         resumeFullAutomationModeMinutes
+      `Prelude.seq` Prelude.rnf
+        rotateMasterUserPassword
       `Prelude.seq` Prelude.rnf
         storageThroughput
       `Prelude.seq` Prelude.rnf
@@ -2605,7 +2869,11 @@ instance Data.ToQuery ModifyDBInstance where
         "EngineVersion" Data.=: engineVersion,
         "Iops" Data.=: iops,
         "LicenseModel" Data.=: licenseModel,
+        "ManageMasterUserPassword"
+          Data.=: manageMasterUserPassword,
         "MasterUserPassword" Data.=: masterUserPassword,
+        "MasterUserSecretKmsKeyId"
+          Data.=: masterUserSecretKmsKeyId,
         "MaxAllocatedStorage" Data.=: maxAllocatedStorage,
         "MonitoringInterval" Data.=: monitoringInterval,
         "MonitoringRoleArn" Data.=: monitoringRoleArn,
@@ -2632,6 +2900,8 @@ instance Data.ToQuery ModifyDBInstance where
         "ReplicaMode" Data.=: replicaMode,
         "ResumeFullAutomationModeMinutes"
           Data.=: resumeFullAutomationModeMinutes,
+        "RotateMasterUserPassword"
+          Data.=: rotateMasterUserPassword,
         "StorageThroughput" Data.=: storageThroughput,
         "StorageType" Data.=: storageType,
         "TdeCredentialArn" Data.=: tdeCredentialArn,

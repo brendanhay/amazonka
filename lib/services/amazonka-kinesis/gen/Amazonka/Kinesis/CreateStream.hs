@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.CreateStream
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,12 +26,18 @@
 -- of shards, which are uniquely identified groups of data records in a
 -- stream.
 --
--- You specify and control the number of shards that a stream is composed
--- of. Each shard can support reads up to five transactions per second, up
--- to a maximum data read total of 2 MiB per second. Each shard can support
--- writes up to 1,000 records per second, up to a maximum data write total
--- of 1 MiB per second. If the amount of data input increases or decreases,
--- you can add or remove shards.
+-- You can create your data stream using either on-demand or provisioned
+-- capacity mode. Data streams with an on-demand mode require no capacity
+-- planning and automatically scale to handle gigabytes of write and read
+-- throughput per minute. With the on-demand mode, Kinesis Data Streams
+-- automatically manages the shards in order to provide the necessary
+-- throughput. For the data streams with a provisioned mode, you must
+-- specify the number of shards for the data stream. Each shard can support
+-- reads up to five transactions per second, up to a maximum data read
+-- total of 2 MiB per second. Each shard can support writes up to 1,000
+-- records per second, up to a maximum data write total of 1 MiB per
+-- second. If the amount of data input increases or decreases, you can add
+-- or remove shards.
 --
 -- The stream name identifies the stream. The name is scoped to the Amazon
 -- Web Services account used by the application. It is also scoped by

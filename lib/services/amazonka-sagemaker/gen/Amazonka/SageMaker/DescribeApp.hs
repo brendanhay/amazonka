@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeApp
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,8 @@ import Amazonka.SageMaker.Types
 data DescribeApp = DescribeApp'
   { -- | The name of the space.
     spaceName :: Prelude.Maybe Prelude.Text,
-    -- | The user profile name.
+    -- | The user profile name. If this value is not set, then @SpaceName@ must
+    -- be set.
     userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The domain ID.
     domainId :: Prelude.Text,
@@ -87,7 +88,8 @@ data DescribeApp = DescribeApp'
 --
 -- 'spaceName', 'describeApp_spaceName' - The name of the space.
 --
--- 'userProfileName', 'describeApp_userProfileName' - The user profile name.
+-- 'userProfileName', 'describeApp_userProfileName' - The user profile name. If this value is not set, then @SpaceName@ must
+-- be set.
 --
 -- 'domainId', 'describeApp_domainId' - The domain ID.
 --
@@ -115,7 +117,8 @@ newDescribeApp pDomainId_ pAppType_ pAppName_ =
 describeApp_spaceName :: Lens.Lens' DescribeApp (Prelude.Maybe Prelude.Text)
 describeApp_spaceName = Lens.lens (\DescribeApp' {spaceName} -> spaceName) (\s@DescribeApp' {} a -> s {spaceName = a} :: DescribeApp)
 
--- | The user profile name.
+-- | The user profile name. If this value is not set, then @SpaceName@ must
+-- be set.
 describeApp_userProfileName :: Lens.Lens' DescribeApp (Prelude.Maybe Prelude.Text)
 describeApp_userProfileName = Lens.lens (\DescribeApp' {userProfileName} -> userProfileName) (\s@DescribeApp' {} a -> s {userProfileName = a} :: DescribeApp)
 
@@ -226,7 +229,8 @@ data DescribeAppResponse = DescribeAppResponse'
     -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
     -- image created on the instance.
     resourceSpec :: Prelude.Maybe ResourceSpec,
-    -- | The name of the space.
+    -- | The name of the space. If this value is not set, then @UserProfileName@
+    -- must be set.
     spaceName :: Prelude.Maybe Prelude.Text,
     -- | The status.
     status :: Prelude.Maybe AppStatus,
@@ -267,7 +271,8 @@ data DescribeAppResponse = DescribeAppResponse'
 -- 'resourceSpec', 'describeAppResponse_resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker
 -- image created on the instance.
 --
--- 'spaceName', 'describeAppResponse_spaceName' - The name of the space.
+-- 'spaceName', 'describeAppResponse_spaceName' - The name of the space. If this value is not set, then @UserProfileName@
+-- must be set.
 --
 -- 'status', 'describeAppResponse_status' - The status.
 --
@@ -335,7 +340,8 @@ describeAppResponse_lastUserActivityTimestamp = Lens.lens (\DescribeAppResponse'
 describeAppResponse_resourceSpec :: Lens.Lens' DescribeAppResponse (Prelude.Maybe ResourceSpec)
 describeAppResponse_resourceSpec = Lens.lens (\DescribeAppResponse' {resourceSpec} -> resourceSpec) (\s@DescribeAppResponse' {} a -> s {resourceSpec = a} :: DescribeAppResponse)
 
--- | The name of the space.
+-- | The name of the space. If this value is not set, then @UserProfileName@
+-- must be set.
 describeAppResponse_spaceName :: Lens.Lens' DescribeAppResponse (Prelude.Maybe Prelude.Text)
 describeAppResponse_spaceName = Lens.lens (\DescribeAppResponse' {spaceName} -> spaceName) (\s@DescribeAppResponse' {} a -> s {spaceName = a} :: DescribeAppResponse)
 

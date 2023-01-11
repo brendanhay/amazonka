@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.H264Settings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,6 +47,7 @@ import Amazonka.MediaLive.Types.H264SubGopLength
 import Amazonka.MediaLive.Types.H264Syntax
 import Amazonka.MediaLive.Types.H264TemporalAq
 import Amazonka.MediaLive.Types.H264TimecodeInsertionBehavior
+import Amazonka.MediaLive.Types.TimecodeBurninSettings
 import qualified Amazonka.Prelude as Prelude
 
 -- | H264 Settings
@@ -252,6 +253,8 @@ data H264Settings = H264Settings'
     -- Adaptive quantization to Disabled, MediaLive ignores any value in this
     -- field and doesn\'t apply temporal AQ.
     temporalAq :: Prelude.Maybe H264TemporalAq,
+    -- | Timecode burn-in settings
+    timecodeBurninSettings :: Prelude.Maybe TimecodeBurninSettings,
     -- | Determines how timecodes should be inserted into the video elementary
     -- stream. - \'disabled\': Do not include timecodes - \'picTimingSei\':
     -- Pass through picture timing SEI messages from the source specified in
@@ -467,6 +470,8 @@ data H264Settings = H264Settings'
 -- Adaptive quantization to Disabled, MediaLive ignores any value in this
 -- field and doesn\'t apply temporal AQ.
 --
+-- 'timecodeBurninSettings', 'h264Settings_timecodeBurninSettings' - Timecode burn-in settings
+--
 -- 'timecodeInsertion', 'h264Settings_timecodeInsertion' - Determines how timecodes should be inserted into the video elementary
 -- stream. - \'disabled\': Do not include timecodes - \'picTimingSei\':
 -- Pass through picture timing SEI messages from the source specified in
@@ -516,6 +521,7 @@ newH264Settings =
       subgopLength = Prelude.Nothing,
       syntax = Prelude.Nothing,
       temporalAq = Prelude.Nothing,
+      timecodeBurninSettings = Prelude.Nothing,
       timecodeInsertion = Prelude.Nothing
     }
 
@@ -798,6 +804,10 @@ h264Settings_syntax = Lens.lens (\H264Settings' {syntax} -> syntax) (\s@H264Sett
 h264Settings_temporalAq :: Lens.Lens' H264Settings (Prelude.Maybe H264TemporalAq)
 h264Settings_temporalAq = Lens.lens (\H264Settings' {temporalAq} -> temporalAq) (\s@H264Settings' {} a -> s {temporalAq = a} :: H264Settings)
 
+-- | Timecode burn-in settings
+h264Settings_timecodeBurninSettings :: Lens.Lens' H264Settings (Prelude.Maybe TimecodeBurninSettings)
+h264Settings_timecodeBurninSettings = Lens.lens (\H264Settings' {timecodeBurninSettings} -> timecodeBurninSettings) (\s@H264Settings' {} a -> s {timecodeBurninSettings = a} :: H264Settings)
+
 -- | Determines how timecodes should be inserted into the video elementary
 -- stream. - \'disabled\': Do not include timecodes - \'picTimingSei\':
 -- Pass through picture timing SEI messages from the source specified in
@@ -851,6 +861,7 @@ instance Data.FromJSON H264Settings where
             Prelude.<*> (x Data..:? "subgopLength")
             Prelude.<*> (x Data..:? "syntax")
             Prelude.<*> (x Data..:? "temporalAq")
+            Prelude.<*> (x Data..:? "timecodeBurninSettings")
             Prelude.<*> (x Data..:? "timecodeInsertion")
       )
 
@@ -896,6 +907,7 @@ instance Prelude.Hashable H264Settings where
       `Prelude.hashWithSalt` subgopLength
       `Prelude.hashWithSalt` syntax
       `Prelude.hashWithSalt` temporalAq
+      `Prelude.hashWithSalt` timecodeBurninSettings
       `Prelude.hashWithSalt` timecodeInsertion
 
 instance Prelude.NFData H264Settings where
@@ -959,6 +971,8 @@ instance Prelude.NFData H264Settings where
       `Prelude.seq` Prelude.rnf
         temporalAq
       `Prelude.seq` Prelude.rnf
+        timecodeBurninSettings
+      `Prelude.seq` Prelude.rnf
         timecodeInsertion
 
 instance Data.ToJSON H264Settings where
@@ -1019,6 +1033,8 @@ instance Data.ToJSON H264Settings where
             ("subgopLength" Data..=) Prelude.<$> subgopLength,
             ("syntax" Data..=) Prelude.<$> syntax,
             ("temporalAq" Data..=) Prelude.<$> temporalAq,
+            ("timecodeBurninSettings" Data..=)
+              Prelude.<$> timecodeBurninSettings,
             ("timecodeInsertion" Data..=)
               Prelude.<$> timecodeInsertion
           ]

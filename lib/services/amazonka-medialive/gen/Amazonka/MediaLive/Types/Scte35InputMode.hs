@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.Scte35InputMode
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Settings to let you create a clip of the file input, in order to set up
--- the input to ingest only a portion of the file.
+-- | Whether the SCTE-35 input should be the active input or a fixed input.
 newtype Scte35InputMode = Scte35InputMode'
   { fromScte35InputMode ::
       Data.Text

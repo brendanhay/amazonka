@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
   { -- | Identifies the resource associated with the metric type. You can\'t
     -- specify a resource label unless the metric type is
     -- @ALBRequestCountPerTarget@ and there is a target group attached to the
-    -- Spot Fleet request or ECS service.
+    -- Spot Fleet or ECS service.
     --
     -- You create the resource label by appending the final portion of the load
     -- balancer ARN and the final portion of the target group ARN into a single
@@ -64,7 +64,7 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
     -- API operation.
     resourceLabel :: Prelude.Maybe Prelude.Text,
     -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only
-    -- to Spot Fleet requests and ECS services.
+    -- to Spot Fleets and ECS services.
     predefinedMetricType :: MetricType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,7 +80,7 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
 -- 'resourceLabel', 'predefinedMetricSpecification_resourceLabel' - Identifies the resource associated with the metric type. You can\'t
 -- specify a resource label unless the metric type is
 -- @ALBRequestCountPerTarget@ and there is a target group attached to the
--- Spot Fleet request or ECS service.
+-- Spot Fleet or ECS service.
 --
 -- You create the resource label by appending the final portion of the load
 -- balancer ARN and the final portion of the target group ARN into a single
@@ -104,7 +104,7 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
 -- API operation.
 --
 -- 'predefinedMetricType', 'predefinedMetricSpecification_predefinedMetricType' - The metric type. The @ALBRequestCountPerTarget@ metric type applies only
--- to Spot Fleet requests and ECS services.
+-- to Spot Fleets and ECS services.
 newPredefinedMetricSpecification ::
   -- | 'predefinedMetricType'
   MetricType ->
@@ -121,7 +121,7 @@ newPredefinedMetricSpecification
 -- | Identifies the resource associated with the metric type. You can\'t
 -- specify a resource label unless the metric type is
 -- @ALBRequestCountPerTarget@ and there is a target group attached to the
--- Spot Fleet request or ECS service.
+-- Spot Fleet or ECS service.
 --
 -- You create the resource label by appending the final portion of the load
 -- balancer ARN and the final portion of the target group ARN into a single
@@ -147,7 +147,7 @@ predefinedMetricSpecification_resourceLabel :: Lens.Lens' PredefinedMetricSpecif
 predefinedMetricSpecification_resourceLabel = Lens.lens (\PredefinedMetricSpecification' {resourceLabel} -> resourceLabel) (\s@PredefinedMetricSpecification' {} a -> s {resourceLabel = a} :: PredefinedMetricSpecification)
 
 -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only
--- to Spot Fleet requests and ECS services.
+-- to Spot Fleets and ECS services.
 predefinedMetricSpecification_predefinedMetricType :: Lens.Lens' PredefinedMetricSpecification MetricType
 predefinedMetricSpecification_predefinedMetricType = Lens.lens (\PredefinedMetricSpecification' {predefinedMetricType} -> predefinedMetricType) (\s@PredefinedMetricSpecification' {} a -> s {predefinedMetricType = a} :: PredefinedMetricSpecification)
 

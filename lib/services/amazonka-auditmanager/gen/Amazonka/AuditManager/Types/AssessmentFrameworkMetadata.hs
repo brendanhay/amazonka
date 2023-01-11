@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.AssessmentFrameworkMetadata
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,13 +39,13 @@ data AssessmentFrameworkMetadata = AssessmentFrameworkMetadata'
     controlSetsCount :: Prelude.Maybe Prelude.Int,
     -- | The number of controls that are associated with the framework.
     controlsCount :: Prelude.Maybe Prelude.Int,
-    -- | Specifies when the framework was created.
+    -- | The time when the framework was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The description of the framework.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the framework.
     id :: Prelude.Maybe Prelude.Text,
-    -- | Specifies when the framework was most recently updated.
+    -- | The time when the framework was most recently updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The logo that\'s associated with the framework.
     logo :: Prelude.Maybe Prelude.Text,
@@ -73,13 +73,13 @@ data AssessmentFrameworkMetadata = AssessmentFrameworkMetadata'
 --
 -- 'controlsCount', 'assessmentFrameworkMetadata_controlsCount' - The number of controls that are associated with the framework.
 --
--- 'createdAt', 'assessmentFrameworkMetadata_createdAt' - Specifies when the framework was created.
+-- 'createdAt', 'assessmentFrameworkMetadata_createdAt' - The time when the framework was created.
 --
 -- 'description', 'assessmentFrameworkMetadata_description' - The description of the framework.
 --
 -- 'id', 'assessmentFrameworkMetadata_id' - The unique identifier for the framework.
 --
--- 'lastUpdatedAt', 'assessmentFrameworkMetadata_lastUpdatedAt' - Specifies when the framework was most recently updated.
+-- 'lastUpdatedAt', 'assessmentFrameworkMetadata_lastUpdatedAt' - The time when the framework was most recently updated.
 --
 -- 'logo', 'assessmentFrameworkMetadata_logo' - The logo that\'s associated with the framework.
 --
@@ -120,7 +120,7 @@ assessmentFrameworkMetadata_controlSetsCount = Lens.lens (\AssessmentFrameworkMe
 assessmentFrameworkMetadata_controlsCount :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Int)
 assessmentFrameworkMetadata_controlsCount = Lens.lens (\AssessmentFrameworkMetadata' {controlsCount} -> controlsCount) (\s@AssessmentFrameworkMetadata' {} a -> s {controlsCount = a} :: AssessmentFrameworkMetadata)
 
--- | Specifies when the framework was created.
+-- | The time when the framework was created.
 assessmentFrameworkMetadata_createdAt :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.UTCTime)
 assessmentFrameworkMetadata_createdAt = Lens.lens (\AssessmentFrameworkMetadata' {createdAt} -> createdAt) (\s@AssessmentFrameworkMetadata' {} a -> s {createdAt = a} :: AssessmentFrameworkMetadata) Prelude.. Lens.mapping Data._Time
 
@@ -132,7 +132,7 @@ assessmentFrameworkMetadata_description = Lens.lens (\AssessmentFrameworkMetadat
 assessmentFrameworkMetadata_id :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.Text)
 assessmentFrameworkMetadata_id = Lens.lens (\AssessmentFrameworkMetadata' {id} -> id) (\s@AssessmentFrameworkMetadata' {} a -> s {id = a} :: AssessmentFrameworkMetadata)
 
--- | Specifies when the framework was most recently updated.
+-- | The time when the framework was most recently updated.
 assessmentFrameworkMetadata_lastUpdatedAt :: Lens.Lens' AssessmentFrameworkMetadata (Prelude.Maybe Prelude.UTCTime)
 assessmentFrameworkMetadata_lastUpdatedAt = Lens.lens (\AssessmentFrameworkMetadata' {lastUpdatedAt} -> lastUpdatedAt) (\s@AssessmentFrameworkMetadata' {} a -> s {lastUpdatedAt = a} :: AssessmentFrameworkMetadata) Prelude.. Lens.mapping Data._Time
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.S3.UploadPartCopy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -195,12 +195,12 @@ data UploadPartCopy = UploadPartCopy'
   { -- | Copies the object if its entity tag (ETag) matches the specified tag.
     copySourceIfMatch :: Prelude.Maybe Prelude.Text,
     -- | Copies the object if it has been modified since the specified time.
-    copySourceIfModifiedSince :: Prelude.Maybe Data.ISO8601,
+    copySourceIfModifiedSince :: Prelude.Maybe Data.RFC822,
     -- | Copies the object if its entity tag (ETag) is different than the
     -- specified ETag.
     copySourceIfNoneMatch :: Prelude.Maybe Prelude.Text,
     -- | Copies the object if it hasn\'t been modified since the specified time.
-    copySourceIfUnmodifiedSince :: Prelude.Maybe Data.ISO8601,
+    copySourceIfUnmodifiedSince :: Prelude.Maybe Data.RFC822,
     -- | The range of bytes to copy from the source object. The range value must
     -- use the form bytes=first-last, where the first and last are the
     -- zero-based byte offsets to copy. For example, bytes=0-9 indicates that

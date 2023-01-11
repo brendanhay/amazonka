@@ -14,17 +14,17 @@
 
 -- |
 -- Module      : Amazonka.M2.DeleteApplicationFromEnvironment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specific application from a specified environment where it has
--- been previously deployed. You cannot delete an environment using
--- DeleteEnvironment, if any application has ever been deployed to it. This
--- API removes the association of the application with the environment so
--- you can delete the environment smoothly.
+-- Deletes a specific application from the specific runtime environment
+-- where it was previously deployed. You cannot delete a runtime
+-- environment using DeleteEnvironment if any application has ever been
+-- deployed to it. This API removes the association of the application with
+-- the runtime environment so you can delete the environment smoothly.
 module Amazonka.M2.DeleteApplicationFromEnvironment
   ( -- * Creating a Request
     DeleteApplicationFromEnvironment (..),

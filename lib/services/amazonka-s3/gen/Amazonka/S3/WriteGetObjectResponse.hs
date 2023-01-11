@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.S3.WriteGetObjectResponse
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -230,9 +230,9 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     -- information. The value of the @rule-id@ is URL-encoded.
     expiration :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the object is no longer cacheable.
-    expires :: Prelude.Maybe Data.ISO8601,
+    expires :: Prelude.Maybe Data.RFC822,
     -- | The date and time that the object was last modified.
-    lastModified :: Prelude.Maybe Data.ISO8601,
+    lastModified :: Prelude.Maybe Data.RFC822,
     -- | A map of metadata to store with the object in S3.
     metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | Set to the number of metadata entries not returned in @x-amz-meta@

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.BucketMetadata
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,7 +73,7 @@ data BucketMetadata = BucketMetadata'
     -- | The date and time, in UTC and extended ISO 8601 format, when the bucket
     -- was created, or changes such as edits to the bucket\'s policy were most
     -- recently made to the bucket.
-    bucketCreatedAt :: Prelude.Maybe Data.POSIX,
+    bucketCreatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The name of the bucket.
     bucketName :: Prelude.Maybe Prelude.Text,
     -- | The total number of objects that Amazon Macie can analyze in the bucket.
@@ -109,11 +109,11 @@ data BucketMetadata = BucketMetadata'
     -- Macie most recently performed automated sensitive data discovery for the
     -- bucket. This value is null if automated sensitive data discovery is
     -- currently disabled for your account.
-    lastAutomatedDiscoveryTime :: Prelude.Maybe Data.POSIX,
+    lastAutomatedDiscoveryTime :: Prelude.Maybe Data.ISO8601,
     -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
     -- Macie most recently retrieved both bucket and object metadata from
     -- Amazon S3 for the bucket.
-    lastUpdated :: Prelude.Maybe Data.POSIX,
+    lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The total number of objects in the bucket.
     objectCount :: Prelude.Maybe Prelude.Integer,
     -- | The total number of objects that are in the bucket, grouped by

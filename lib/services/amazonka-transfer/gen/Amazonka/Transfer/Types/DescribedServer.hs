@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types.DescribedServer
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -181,8 +181,8 @@ data DescribedServer = DescribedServer'
     -- | Specifies the workflow ID for the workflow to assign and the execution
     -- role that\'s used for executing the workflow.
     --
-    -- In addition to a workflow to execute when a file is uploaded completely,
-    -- @WorkflowDetails@ can also contain a workflow ID (and execution role)
+    -- In additon to a workflow to execute when a file is uploaded completely,
+    -- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
     -- for a workflow to execute on partial upload. A partial upload occurs
     -- when a file is open when the session disconnects.
     workflowDetails :: Prelude.Maybe WorkflowDetails,
@@ -341,8 +341,8 @@ data DescribedServer = DescribedServer'
 -- 'workflowDetails', 'describedServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In addition to a workflow to execute when a file is uploaded completely,
--- @WorkflowDetails@ can also contain a workflow ID (and execution role)
+-- In additon to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
 -- when a file is open when the session disconnects.
 --
@@ -550,8 +550,8 @@ describedServer_userCount = Lens.lens (\DescribedServer' {userCount} -> userCoun
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In addition to a workflow to execute when a file is uploaded completely,
--- @WorkflowDetails@ can also contain a workflow ID (and execution role)
+-- In additon to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
 -- when a file is open when the session disconnects.
 describedServer_workflowDetails :: Lens.Lens' DescribedServer (Prelude.Maybe WorkflowDetails)

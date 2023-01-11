@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.ArchiveRuleSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,9 +34,9 @@ data ArchiveRuleSummary = ArchiveRuleSummary'
     -- | A filter used to define the archive rule.
     filter' :: Prelude.HashMap Prelude.Text Criterion,
     -- | The time at which the archive rule was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The time at which the archive rule was last updated.
-    updatedAt :: Data.POSIX
+    updatedAt :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

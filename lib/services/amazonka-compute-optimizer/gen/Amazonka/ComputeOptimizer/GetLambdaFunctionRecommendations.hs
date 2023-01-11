@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.GetLambdaFunctionRecommendations
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,8 @@
 -- specific set of requirements. For more information, see the
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html Supported resources and requirements>
 -- in the /Compute Optimizer User Guide/.
+--
+-- This operation returns paginated results.
 module Amazonka.ComputeOptimizer.GetLambdaFunctionRecommendations
   ( -- * Creating a Request
     GetLambdaFunctionRecommendations (..),
@@ -88,7 +90,7 @@ data GetLambdaFunctionRecommendations = GetLambdaFunctionRecommendations'
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to advance to the next page of function recommendations.
     nextToken :: Prelude.Maybe Prelude.Text
   }
@@ -180,12 +182,37 @@ getLambdaFunctionRecommendations_functionArns = Lens.lens (\GetLambdaFunctionRec
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
-getLambdaFunctionRecommendations_maxResults :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe Prelude.Int)
+getLambdaFunctionRecommendations_maxResults :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe Prelude.Natural)
 getLambdaFunctionRecommendations_maxResults = Lens.lens (\GetLambdaFunctionRecommendations' {maxResults} -> maxResults) (\s@GetLambdaFunctionRecommendations' {} a -> s {maxResults = a} :: GetLambdaFunctionRecommendations)
 
 -- | The token to advance to the next page of function recommendations.
 getLambdaFunctionRecommendations_nextToken :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe Prelude.Text)
 getLambdaFunctionRecommendations_nextToken = Lens.lens (\GetLambdaFunctionRecommendations' {nextToken} -> nextToken) (\s@GetLambdaFunctionRecommendations' {} a -> s {nextToken = a} :: GetLambdaFunctionRecommendations)
+
+instance
+  Core.AWSPager
+    GetLambdaFunctionRecommendations
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getLambdaFunctionRecommendationsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getLambdaFunctionRecommendationsResponse_lambdaFunctionRecommendations
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getLambdaFunctionRecommendations_nextToken
+          Lens..~ rs
+          Lens.^? getLambdaFunctionRecommendationsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -266,17 +266,17 @@ defaultService =
 -- contains a Deny statement for the specific Amazon Web Services action.
 -- An implicit denial occurs when there is no applicable Deny statement and
 -- also no applicable Allow statement.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | Amazon Security Lake can\'t find an Amazon Web Services account with the
+-- | Amazon Security Lake cannot find an Amazon Web Services account with the
 -- accountID that you specified, or the account whose credentials you used
 -- to make this request isn\'t a member of an organization.
-_AccountNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccountNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -285,7 +285,7 @@ _AccountNotFoundException =
 
 -- | Amazon Security Lake generally returns 404 errors if the requested
 -- object is missing from the bucket.
-_BucketNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BucketNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BucketNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -293,7 +293,7 @@ _BucketNotFoundException =
     Prelude.. Core.hasStatus 409
 
 -- | More than one process tried to modify a resource at the same time.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -305,7 +305,7 @@ _ConcurrentModificationException =
 -- propagate to the host serving the current request. A retry (with
 -- appropriate backoff logic) is the recommended response to this
 -- exception.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -314,7 +314,7 @@ _ConflictException =
 
 -- | There was a conflict when you attempted to modify a Security Lake source
 -- name.
-_ConflictSourceNamesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictSourceNamesException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictSourceNamesException =
   Core._MatchServiceError
     defaultService
@@ -322,7 +322,7 @@ _ConflictSourceNamesException =
     Prelude.. Core.hasStatus 400
 
 -- | A conflicting subscription exception operation is in progress.
-_ConflictSubscriptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictSubscriptionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictSubscriptionException =
   Core._MatchServiceError
     defaultService
@@ -330,7 +330,7 @@ _ConflictSubscriptionException =
     Prelude.. Core.hasStatus 400
 
 -- | Represents an error interacting with the Amazon EventBridge service.
-_EventBridgeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EventBridgeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EventBridgeException =
   Core._MatchServiceError
     defaultService
@@ -339,16 +339,16 @@ _EventBridgeException =
 
 -- | Internal service exceptions are sometimes caused by transient issues.
 -- Before you start troubleshooting, perform the operation again.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | The request was rejected because an invalid or out-of-range value was
--- supplied for an input parameter.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+-- | The request was rejected because a value that\'s not valid or is out of
+-- range was supplied for an input parameter.
+_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -356,7 +356,7 @@ _InvalidInputException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -365,10 +365,10 @@ _ResourceNotFoundException =
 
 -- | Provides an extension of the AmazonServiceException for errors reported
 -- by Amazon S3 while processing a request. In particular, this class
--- provides access to Amazon S3\'s extended request ID. This ID is required
--- debugging information in the case the user needs to contact Amazon about
--- an issue where Amazon S3 is incorrectly handling a request.
-_S3Exception :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+-- provides access to the Amazon S3 extended request ID. If Amazon S3 is
+-- incorrectly handling a request and you need to contact Amazon, this
+-- extended request ID may provide useful debugging information.
+_S3Exception :: Core.AsError a => Lens.Fold a Core.ServiceError
 _S3Exception =
   Core._MatchServiceError
     defaultService
@@ -378,7 +378,7 @@ _S3Exception =
 -- | You have exceeded your service quota. To perform the requested action,
 -- remove some of the relevant resources, or use Service Quotas to request
 -- a service quota increase.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -386,7 +386,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The limit on the number of requests per second was exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -394,7 +394,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | Your signing certificate could not be validated.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

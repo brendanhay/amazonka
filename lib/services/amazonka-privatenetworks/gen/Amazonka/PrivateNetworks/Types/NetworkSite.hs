@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.PrivateNetworks.Types.NetworkSite
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ data NetworkSite = NetworkSite'
     -- | The parent Availability Zone ID for the network site.
     availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the network site.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The current plan of the network site.
     currentPlan :: Prelude.Maybe SitePlan,
     -- | The description of the network site.

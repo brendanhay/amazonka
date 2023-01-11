@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.SSM
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -11,39 +11,41 @@
 --
 -- Derived from API version @2014-11-06@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Web Services Systems Manager is a collection of capabilities to
--- help you manage your applications and infrastructure running in the
--- Amazon Web Services Cloud;. Systems Manager simplifies application and
--- resource management, shortens the time to detect and resolve operational
--- problems, and helps you manage your Amazon Web Services resources
--- securely at scale.
+-- Amazon Web Services Systems Manager is the operations hub for your
+-- Amazon Web Services applications and resources and a secure end-to-end
+-- management solution for hybrid cloud environments that enables safe and
+-- secure operations at scale.
 --
 -- This reference is intended to be used with the
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ Amazon Web Services Systems Manager User Guide>.
---
--- To get started, verify prerequisites. For more information, see
+-- To get started, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html Setting up Amazon Web Services Systems Manager>.
 --
 -- __Related resources__
 --
--- -   For information about how to use a Query API, see
---     <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html Making API requests>.
+-- -   For information about each of the capabilities that comprise Systems
+--     Manager, see
+--     <https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities Systems Manager capabilities>
+--     in the /Amazon Web Services Systems Manager User Guide/.
 --
--- -   For information about other API operations you can perform on EC2
---     instances, see the
---     <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ Amazon EC2 API Reference>.
+-- -   For details about predefined runbooks for Automation, a capability
+--     of Amazon Web Services Systems Manager, see the
+--     /<https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html Systems Manager Automation runbook reference>/
+--     .
 --
 -- -   For information about AppConfig, a capability of Systems Manager,
 --     see the
---     <https://docs.aws.amazon.com/appconfig/latest/userguide/ AppConfig User Guide>
+--     /<https://docs.aws.amazon.com/appconfig/latest/userguide/ AppConfig User Guide>/
 --     and the
---     <https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/ AppConfig API Reference>.
+--     /<https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/ AppConfig API Reference>/
+--     .
 --
 -- -   For information about Incident Manager, a capability of Systems
 --     Manager, see the
---     <https://docs.aws.amazon.com/incident-manager/latest/userguide/ Incident Manager User Guide>
+--     /<https://docs.aws.amazon.com/incident-manager/latest/userguide/ Systems Manager Incident Manager User Guide>/
 --     and the
---     <https://docs.aws.amazon.com/incident-manager/latest/APIReference/ Incident Manager API Reference>.
+--     /<https://docs.aws.amazon.com/incident-manager/latest/APIReference/ Systems Manager Incident Manager API Reference>/
+--     .
 module Amazonka.SSM
   ( -- * Service Configuration
     defaultService,

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MigrationHubReFactorSpaces.CreateService
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,7 +93,11 @@ data CreateService = CreateService'
     -- | The tags to assign to the service. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key-value pair..
     tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The configuration for the URL endpoint type.
+    -- | The configuration for the URL endpoint type. When creating a route to a
+    -- service, Refactor Spaces automatically resolves the address in the
+    -- @UrlEndpointInput@ object URL when the Domain Name System (DNS)
+    -- time-to-live (TTL) expires, or every 60 seconds for TTLs less than 60
+    -- seconds.
     urlEndpoint :: Prelude.Maybe UrlEndpointInput,
     -- | The ID of the VPC.
     vpcId :: Prelude.Maybe Prelude.Text,
@@ -127,7 +131,11 @@ data CreateService = CreateService'
 -- 'tags', 'createService_tags' - The tags to assign to the service. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key-value pair..
 --
--- 'urlEndpoint', 'createService_urlEndpoint' - The configuration for the URL endpoint type.
+-- 'urlEndpoint', 'createService_urlEndpoint' - The configuration for the URL endpoint type. When creating a route to a
+-- service, Refactor Spaces automatically resolves the address in the
+-- @UrlEndpointInput@ object URL when the Domain Name System (DNS)
+-- time-to-live (TTL) expires, or every 60 seconds for TTLs less than 60
+-- seconds.
 --
 -- 'vpcId', 'createService_vpcId' - The ID of the VPC.
 --
@@ -185,7 +193,11 @@ createService_lambdaEndpoint = Lens.lens (\CreateService' {lambdaEndpoint} -> la
 createService_tags :: Lens.Lens' CreateService (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The configuration for the URL endpoint type.
+-- | The configuration for the URL endpoint type. When creating a route to a
+-- service, Refactor Spaces automatically resolves the address in the
+-- @UrlEndpointInput@ object URL when the Domain Name System (DNS)
+-- time-to-live (TTL) expires, or every 60 seconds for TTLs less than 60
+-- seconds.
 createService_urlEndpoint :: Lens.Lens' CreateService (Prelude.Maybe UrlEndpointInput)
 createService_urlEndpoint = Lens.lens (\CreateService' {urlEndpoint} -> urlEndpoint) (\s@CreateService' {} a -> s {urlEndpoint = a} :: CreateService)
 

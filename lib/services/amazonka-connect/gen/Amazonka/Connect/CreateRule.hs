@@ -14,13 +14,17 @@
 
 -- |
 -- Module      : Amazonka.Connect.CreateRule
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a rule for the specified Amazon Connect instance.
+--
+-- Use the
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html Rules Function language>
+-- to code conditions for the rule.
 module Amazonka.Connect.CreateRule
   ( -- * Creating a Request
     CreateRule (..),

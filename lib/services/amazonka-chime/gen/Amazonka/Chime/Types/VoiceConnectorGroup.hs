@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.VoiceConnectorGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,12 +34,12 @@ import qualified Amazonka.Prelude as Prelude
 data VoiceConnectorGroup = VoiceConnectorGroup'
   { -- | The Amazon Chime Voice Connector group creation time stamp, in ISO 8601
     -- format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The name of the Amazon Chime Voice Connector group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The updated Amazon Chime Voice Connector group time stamp, in ISO 8601
     -- format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the specified Amazon Chime Voice Connector group.
     voiceConnectorGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Chime Voice Connector group ID.

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.Types.DimensionValues
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,11 +33,23 @@ import qualified Amazonka.Prelude as Prelude
 data DimensionValues = DimensionValues'
   { -- | The names of the metadata types that you can use to filter and group
     -- your results. For example, @AZ@ returns a list of Availability Zones.
+    --
+    -- Not all dimensions are supported in each API. Refer to the documentation
+    -- for each specific API to see what is supported.
+    --
     -- @LINK_ACCOUNT_NAME@ and @SERVICE_CODE@ can only be used in
-    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html CostCategoryRule>.
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule>.
+    --
+    -- @ANOMALY_TOTAL_IMPACT_ABSOLUTE@ and @ANOMALY_TOTAL_IMPACT_PERCENTAGE@
+    -- can only be used in
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html AnomalySubscriptions>.
     key :: Prelude.Maybe Dimension,
     -- | The match options that you can use to filter your results.
-    -- @MatchOptions@ is only applicable for actions related to Cost Category.
+    --
+    -- @MatchOptions@ is only applicable for actions related to Cost Category
+    -- and Anomaly Subscriptions. Refer to the documentation for each specific
+    -- API to see what is supported.
+    --
     -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
     matchOptions :: Prelude.Maybe [MatchOption],
     -- | The metadata values that you can use to filter and group your results.
@@ -56,11 +68,23 @@ data DimensionValues = DimensionValues'
 --
 -- 'key', 'dimensionValues_key' - The names of the metadata types that you can use to filter and group
 -- your results. For example, @AZ@ returns a list of Availability Zones.
+--
+-- Not all dimensions are supported in each API. Refer to the documentation
+-- for each specific API to see what is supported.
+--
 -- @LINK_ACCOUNT_NAME@ and @SERVICE_CODE@ can only be used in
--- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html CostCategoryRule>.
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule>.
+--
+-- @ANOMALY_TOTAL_IMPACT_ABSOLUTE@ and @ANOMALY_TOTAL_IMPACT_PERCENTAGE@
+-- can only be used in
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html AnomalySubscriptions>.
 --
 -- 'matchOptions', 'dimensionValues_matchOptions' - The match options that you can use to filter your results.
--- @MatchOptions@ is only applicable for actions related to Cost Category.
+--
+-- @MatchOptions@ is only applicable for actions related to Cost Category
+-- and Anomaly Subscriptions. Refer to the documentation for each specific
+-- API to see what is supported.
+--
 -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
 --
 -- 'values', 'dimensionValues_values' - The metadata values that you can use to filter and group your results.
@@ -76,13 +100,25 @@ newDimensionValues =
 
 -- | The names of the metadata types that you can use to filter and group
 -- your results. For example, @AZ@ returns a list of Availability Zones.
+--
+-- Not all dimensions are supported in each API. Refer to the documentation
+-- for each specific API to see what is supported.
+--
 -- @LINK_ACCOUNT_NAME@ and @SERVICE_CODE@ can only be used in
--- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html CostCategoryRule>.
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule>.
+--
+-- @ANOMALY_TOTAL_IMPACT_ABSOLUTE@ and @ANOMALY_TOTAL_IMPACT_PERCENTAGE@
+-- can only be used in
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html AnomalySubscriptions>.
 dimensionValues_key :: Lens.Lens' DimensionValues (Prelude.Maybe Dimension)
 dimensionValues_key = Lens.lens (\DimensionValues' {key} -> key) (\s@DimensionValues' {} a -> s {key = a} :: DimensionValues)
 
 -- | The match options that you can use to filter your results.
--- @MatchOptions@ is only applicable for actions related to Cost Category.
+--
+-- @MatchOptions@ is only applicable for actions related to Cost Category
+-- and Anomaly Subscriptions. Refer to the documentation for each specific
+-- API to see what is supported.
+--
 -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
 dimensionValues_matchOptions :: Lens.Lens' DimensionValues (Prelude.Maybe [MatchOption])
 dimensionValues_matchOptions = Lens.lens (\DimensionValues' {matchOptions} -> matchOptions) (\s@DimensionValues' {} a -> s {matchOptions = a} :: DimensionValues) Prelude.. Lens.mapping Lens.coerced

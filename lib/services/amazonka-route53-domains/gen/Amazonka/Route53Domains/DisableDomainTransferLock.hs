@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.DisableDomainTransferLock
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,8 +40,8 @@ module Amazonka.Route53Domains.DisableDomainTransferLock
     newDisableDomainTransferLockResponse,
 
     -- * Response Lenses
-    disableDomainTransferLockResponse_httpStatus,
     disableDomainTransferLockResponse_operationId,
+    disableDomainTransferLockResponse_httpStatus,
   )
 where
 
@@ -95,8 +95,8 @@ instance Core.AWSRequest DisableDomainTransferLock where
     Response.receiveJSON
       ( \s h x ->
           DisableDomainTransferLockResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DisableDomainTransferLock where
@@ -139,12 +139,12 @@ instance Data.ToQuery DisableDomainTransferLock where
 --
 -- /See:/ 'newDisableDomainTransferLockResponse' smart constructor.
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | Identifier for tracking the progress of the request. To query the
+  { -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Prelude.Text
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -156,40 +156,36 @@ data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'disableDomainTransferLockResponse_httpStatus' - The response's http status code.
---
 -- 'operationId', 'disableDomainTransferLockResponse_operationId' - Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+--
+-- 'httpStatus', 'disableDomainTransferLockResponse_httpStatus' - The response's http status code.
 newDisableDomainTransferLockResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'operationId'
-  Prelude.Text ->
   DisableDomainTransferLockResponse
-newDisableDomainTransferLockResponse
-  pHttpStatus_
-  pOperationId_ =
-    DisableDomainTransferLockResponse'
-      { httpStatus =
-          pHttpStatus_,
-        operationId = pOperationId_
-      }
-
--- | The response's http status code.
-disableDomainTransferLockResponse_httpStatus :: Lens.Lens' DisableDomainTransferLockResponse Prelude.Int
-disableDomainTransferLockResponse_httpStatus = Lens.lens (\DisableDomainTransferLockResponse' {httpStatus} -> httpStatus) (\s@DisableDomainTransferLockResponse' {} a -> s {httpStatus = a} :: DisableDomainTransferLockResponse)
+newDisableDomainTransferLockResponse pHttpStatus_ =
+  DisableDomainTransferLockResponse'
+    { operationId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-disableDomainTransferLockResponse_operationId :: Lens.Lens' DisableDomainTransferLockResponse Prelude.Text
+disableDomainTransferLockResponse_operationId :: Lens.Lens' DisableDomainTransferLockResponse (Prelude.Maybe Prelude.Text)
 disableDomainTransferLockResponse_operationId = Lens.lens (\DisableDomainTransferLockResponse' {operationId} -> operationId) (\s@DisableDomainTransferLockResponse' {} a -> s {operationId = a} :: DisableDomainTransferLockResponse)
+
+-- | The response's http status code.
+disableDomainTransferLockResponse_httpStatus :: Lens.Lens' DisableDomainTransferLockResponse Prelude.Int
+disableDomainTransferLockResponse_httpStatus = Lens.lens (\DisableDomainTransferLockResponse' {httpStatus} -> httpStatus) (\s@DisableDomainTransferLockResponse' {} a -> s {httpStatus = a} :: DisableDomainTransferLockResponse)
 
 instance
   Prelude.NFData
     DisableDomainTransferLockResponse
   where
   rnf DisableDomainTransferLockResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

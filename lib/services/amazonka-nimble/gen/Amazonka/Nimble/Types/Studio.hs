@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.Studio
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,13 +39,13 @@ import qualified Amazonka.Prelude as Prelude
 -- log in to the Nimble Studio portal via IAM Identity Center and your
 -- identity source.
 --
--- The user role must have the AmazonNimbleStudio-StudioUser managed policy
--- attached for the portal to function properly.
---
--- The admin role must have the AmazonNimbleStudio-StudioAdmin managed
+-- The user role must have the @AmazonNimbleStudio-StudioUser@ managed
 -- policy attached for the portal to function properly.
 --
--- Your studio roles must trust the identity.nimble.amazonaws.com service
+-- The admin role must have the @AmazonNimbleStudio-StudioAdmin@ managed
+-- policy attached for the portal to function properly.
+--
+-- Your studio roles must trust the @identity.nimble.amazonaws.com@ service
 -- principal to function properly.
 --
 -- /See:/ 'newStudio' smart constructor.
@@ -56,15 +56,15 @@ data Studio = Studio'
     -- | The Amazon Resource Name (ARN) that is assigned to a studio resource and
     -- uniquely identifies it. ARNs are unique across all Regions.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The ISO timestamp in seconds for when the resource was created.
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | A friendly name for the studio.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Web Services Region where the studio resource is located.
     homeRegion :: Prelude.Maybe Prelude.Text,
     -- | The IAM Identity Center application client ID used to integrate with IAM
-    -- Identity Center to enable IAM Identity Center users to log in to Nimble
-    -- Studio portal.
+    -- Identity Center. This ID allows IAM Identity Center users to log in to
+    -- Nimble Studio portal.
     ssoClientId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the studio resource.
     state :: Prelude.Maybe StudioState,
@@ -82,11 +82,11 @@ data Studio = Studio'
     studioName :: Prelude.Maybe Prelude.Text,
     -- | The address of the web page for the studio.
     studioUrl :: Prelude.Maybe Prelude.Text,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- | A collection of labels, in the form of key-value pairs, that apply to
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The ISO timestamp in seconds for when the resource was updated.
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The IAM role that studio users assume when logging in to the Nimble
     -- Studio portal.
     userRoleArn :: Prelude.Maybe Prelude.Text
@@ -107,15 +107,15 @@ data Studio = Studio'
 -- 'arn', 'studio_arn' - The Amazon Resource Name (ARN) that is assigned to a studio resource and
 -- uniquely identifies it. ARNs are unique across all Regions.
 --
--- 'createdAt', 'studio_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
+-- 'createdAt', 'studio_createdAt' - The ISO timestamp in seconds for when the resource was created.
 --
 -- 'displayName', 'studio_displayName' - A friendly name for the studio.
 --
 -- 'homeRegion', 'studio_homeRegion' - The Amazon Web Services Region where the studio resource is located.
 --
 -- 'ssoClientId', 'studio_ssoClientId' - The IAM Identity Center application client ID used to integrate with IAM
--- Identity Center to enable IAM Identity Center users to log in to Nimble
--- Studio portal.
+-- Identity Center. This ID allows IAM Identity Center users to log in to
+-- Nimble Studio portal.
 --
 -- 'state', 'studio_state' - The current state of the studio resource.
 --
@@ -133,10 +133,10 @@ data Studio = Studio'
 --
 -- 'studioUrl', 'studio_studioUrl' - The address of the web page for the studio.
 --
--- 'tags', 'studio_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- 'tags', 'studio_tags' - A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 --
--- 'updatedAt', 'studio_updatedAt' - The Unix epoch timestamp in seconds for when the resource was updated.
+-- 'updatedAt', 'studio_updatedAt' - The ISO timestamp in seconds for when the resource was updated.
 --
 -- 'userRoleArn', 'studio_userRoleArn' - The IAM role that studio users assume when logging in to the Nimble
 -- Studio portal.
@@ -172,7 +172,7 @@ studio_adminRoleArn = Lens.lens (\Studio' {adminRoleArn} -> adminRoleArn) (\s@St
 studio_arn :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_arn = Lens.lens (\Studio' {arn} -> arn) (\s@Studio' {} a -> s {arn = a} :: Studio)
 
--- | The Unix epoch timestamp in seconds for when the resource was created.
+-- | The ISO timestamp in seconds for when the resource was created.
 studio_createdAt :: Lens.Lens' Studio (Prelude.Maybe Prelude.UTCTime)
 studio_createdAt = Lens.lens (\Studio' {createdAt} -> createdAt) (\s@Studio' {} a -> s {createdAt = a} :: Studio) Prelude.. Lens.mapping Data._Time
 
@@ -185,8 +185,8 @@ studio_homeRegion :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_homeRegion = Lens.lens (\Studio' {homeRegion} -> homeRegion) (\s@Studio' {} a -> s {homeRegion = a} :: Studio)
 
 -- | The IAM Identity Center application client ID used to integrate with IAM
--- Identity Center to enable IAM Identity Center users to log in to Nimble
--- Studio portal.
+-- Identity Center. This ID allows IAM Identity Center users to log in to
+-- Nimble Studio portal.
 studio_ssoClientId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_ssoClientId = Lens.lens (\Studio' {ssoClientId} -> ssoClientId) (\s@Studio' {} a -> s {ssoClientId = a} :: Studio)
 
@@ -220,12 +220,12 @@ studio_studioName = Lens.lens (\Studio' {studioName} -> studioName) (\s@Studio' 
 studio_studioUrl :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_studioUrl = Lens.lens (\Studio' {studioUrl} -> studioUrl) (\s@Studio' {} a -> s {studioUrl = a} :: Studio)
 
--- | A collection of labels, in the form of key:value pairs, that apply to
+-- | A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 studio_tags :: Lens.Lens' Studio (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 studio_tags = Lens.lens (\Studio' {tags} -> tags) (\s@Studio' {} a -> s {tags = a} :: Studio) Prelude.. Lens.mapping Lens.coerced
 
--- | The Unix epoch timestamp in seconds for when the resource was updated.
+-- | The ISO timestamp in seconds for when the resource was updated.
 studio_updatedAt :: Lens.Lens' Studio (Prelude.Maybe Prelude.UTCTime)
 studio_updatedAt = Lens.lens (\Studio' {updatedAt} -> updatedAt) (\s@Studio' {} a -> s {updatedAt = a} :: Studio) Prelude.. Lens.mapping Data._Time
 

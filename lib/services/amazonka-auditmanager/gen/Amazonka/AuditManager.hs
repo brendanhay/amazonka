@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,7 +37,7 @@
 --     An alphabetical list of all Audit Manager data types.
 --
 -- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html Common parameters>:
---     Parameters that all Query operations can use.
+--     Parameters that all operations can use.
 --
 -- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html Common errors>:
 --     Client and server errors that all operations can return.
@@ -473,6 +473,9 @@ module Amazonka.AuditManager
     -- ** DelegationStatus
     DelegationStatus (..),
 
+    -- ** DeleteResources
+    DeleteResources (..),
+
     -- ** EvidenceFinderBackfillStatus
     EvidenceFinderBackfillStatus (..),
 
@@ -643,6 +646,10 @@ module Amazonka.AuditManager
     -- ** DelegationMetadata
     DelegationMetadata (DelegationMetadata'),
     newDelegationMetadata,
+
+    -- ** DeregistrationPolicy
+    DeregistrationPolicy (DeregistrationPolicy'),
+    newDeregistrationPolicy,
 
     -- ** Evidence
     Evidence (Evidence'),

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.UpdateSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,7 @@ module Amazonka.AuditManager.UpdateSettings
     -- * Request Lenses
     updateSettings_defaultAssessmentReportsDestination,
     updateSettings_defaultProcessOwners,
+    updateSettings_deregistrationPolicy,
     updateSettings_evidenceFinderEnabled,
     updateSettings_kmsKey,
     updateSettings_snsTopic,
@@ -57,6 +58,10 @@ data UpdateSettings = UpdateSettings'
     defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
     -- | A list of the default audit owners.
     defaultProcessOwners :: Prelude.Maybe [Role],
+    -- | The deregistration policy for your Audit Manager data. You can use this
+    -- attribute to determine how your data is handled when you deregister
+    -- Audit Manager.
+    deregistrationPolicy :: Prelude.Maybe DeregistrationPolicy,
     -- | Specifies whether the evidence finder feature is enabled. Change this
     -- attribute to enable or disable evidence finder.
     --
@@ -68,11 +73,6 @@ data UpdateSettings = UpdateSettings'
     -- and then
     -- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html re-register>
     -- Audit Manager.
-    --
-    -- Disabling evidence finder is permanent, so consider this decision
-    -- carefully before you proceed. If you’re using Audit Manager as a
-    -- delegated administrator, keep in mind that this action applies to all
-    -- member accounts in your organization.
     evidenceFinderEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The KMS key details.
     kmsKey :: Prelude.Maybe Prelude.Text,
@@ -94,6 +94,10 @@ data UpdateSettings = UpdateSettings'
 --
 -- 'defaultProcessOwners', 'updateSettings_defaultProcessOwners' - A list of the default audit owners.
 --
+-- 'deregistrationPolicy', 'updateSettings_deregistrationPolicy' - The deregistration policy for your Audit Manager data. You can use this
+-- attribute to determine how your data is handled when you deregister
+-- Audit Manager.
+--
 -- 'evidenceFinderEnabled', 'updateSettings_evidenceFinderEnabled' - Specifies whether the evidence finder feature is enabled. Change this
 -- attribute to enable or disable evidence finder.
 --
@@ -106,11 +110,6 @@ data UpdateSettings = UpdateSettings'
 -- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html re-register>
 -- Audit Manager.
 --
--- Disabling evidence finder is permanent, so consider this decision
--- carefully before you proceed. If you’re using Audit Manager as a
--- delegated administrator, keep in mind that this action applies to all
--- member accounts in your organization.
---
 -- 'kmsKey', 'updateSettings_kmsKey' - The KMS key details.
 --
 -- 'snsTopic', 'updateSettings_snsTopic' - The Amazon Simple Notification Service (Amazon SNS) topic that Audit
@@ -122,6 +121,7 @@ newUpdateSettings =
     { defaultAssessmentReportsDestination =
         Prelude.Nothing,
       defaultProcessOwners = Prelude.Nothing,
+      deregistrationPolicy = Prelude.Nothing,
       evidenceFinderEnabled = Prelude.Nothing,
       kmsKey = Prelude.Nothing,
       snsTopic = Prelude.Nothing
@@ -135,6 +135,12 @@ updateSettings_defaultAssessmentReportsDestination = Lens.lens (\UpdateSettings'
 updateSettings_defaultProcessOwners :: Lens.Lens' UpdateSettings (Prelude.Maybe [Role])
 updateSettings_defaultProcessOwners = Lens.lens (\UpdateSettings' {defaultProcessOwners} -> defaultProcessOwners) (\s@UpdateSettings' {} a -> s {defaultProcessOwners = a} :: UpdateSettings) Prelude.. Lens.mapping Lens.coerced
 
+-- | The deregistration policy for your Audit Manager data. You can use this
+-- attribute to determine how your data is handled when you deregister
+-- Audit Manager.
+updateSettings_deregistrationPolicy :: Lens.Lens' UpdateSettings (Prelude.Maybe DeregistrationPolicy)
+updateSettings_deregistrationPolicy = Lens.lens (\UpdateSettings' {deregistrationPolicy} -> deregistrationPolicy) (\s@UpdateSettings' {} a -> s {deregistrationPolicy = a} :: UpdateSettings)
+
 -- | Specifies whether the evidence finder feature is enabled. Change this
 -- attribute to enable or disable evidence finder.
 --
@@ -146,11 +152,6 @@ updateSettings_defaultProcessOwners = Lens.lens (\UpdateSettings' {defaultProces
 -- and then
 -- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html re-register>
 -- Audit Manager.
---
--- Disabling evidence finder is permanent, so consider this decision
--- carefully before you proceed. If you’re using Audit Manager as a
--- delegated administrator, keep in mind that this action applies to all
--- member accounts in your organization.
 updateSettings_evidenceFinderEnabled :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Bool)
 updateSettings_evidenceFinderEnabled = Lens.lens (\UpdateSettings' {evidenceFinderEnabled} -> evidenceFinderEnabled) (\s@UpdateSettings' {} a -> s {evidenceFinderEnabled = a} :: UpdateSettings)
 
@@ -182,6 +183,7 @@ instance Prelude.Hashable UpdateSettings where
     _salt
       `Prelude.hashWithSalt` defaultAssessmentReportsDestination
       `Prelude.hashWithSalt` defaultProcessOwners
+      `Prelude.hashWithSalt` deregistrationPolicy
       `Prelude.hashWithSalt` evidenceFinderEnabled
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` snsTopic
@@ -190,6 +192,7 @@ instance Prelude.NFData UpdateSettings where
   rnf UpdateSettings' {..} =
     Prelude.rnf defaultAssessmentReportsDestination
       `Prelude.seq` Prelude.rnf defaultProcessOwners
+      `Prelude.seq` Prelude.rnf deregistrationPolicy
       `Prelude.seq` Prelude.rnf evidenceFinderEnabled
       `Prelude.seq` Prelude.rnf kmsKey
       `Prelude.seq` Prelude.rnf snsTopic
@@ -213,6 +216,8 @@ instance Data.ToJSON UpdateSettings where
               Prelude.<$> defaultAssessmentReportsDestination,
             ("defaultProcessOwners" Data..=)
               Prelude.<$> defaultProcessOwners,
+            ("deregistrationPolicy" Data..=)
+              Prelude.<$> deregistrationPolicy,
             ("evidenceFinderEnabled" Data..=)
               Prelude.<$> evidenceFinderEnabled,
             ("kmsKey" Data..=) Prelude.<$> kmsKey,

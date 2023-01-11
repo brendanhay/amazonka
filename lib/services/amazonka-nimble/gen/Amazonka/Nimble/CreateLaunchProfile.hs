@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.CreateLaunchProfile
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateLaunchProfile' smart constructor.
 data CreateLaunchProfile = CreateLaunchProfile'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- | A collection of labels, in the form of key-value pairs, that apply to
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the IDs of the EC2 subnets where streaming sessions will be
@@ -95,13 +95,13 @@ data CreateLaunchProfile = CreateLaunchProfile'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createLaunchProfile_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'description', 'createLaunchProfile_description' - The description.
 --
--- 'tags', 'createLaunchProfile_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- 'tags', 'createLaunchProfile_tags' - A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 --
 -- 'ec2SubnetIds', 'createLaunchProfile_ec2SubnetIds' - Specifies the IDs of the EC2 subnets where streaming sessions will be
@@ -148,9 +148,9 @@ newCreateLaunchProfile
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 createLaunchProfile_clientToken :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe Prelude.Text)
 createLaunchProfile_clientToken = Lens.lens (\CreateLaunchProfile' {clientToken} -> clientToken) (\s@CreateLaunchProfile' {} a -> s {clientToken = a} :: CreateLaunchProfile)
 
@@ -158,7 +158,7 @@ createLaunchProfile_clientToken = Lens.lens (\CreateLaunchProfile' {clientToken}
 createLaunchProfile_description :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe Prelude.Text)
 createLaunchProfile_description = Lens.lens (\CreateLaunchProfile' {description} -> description) (\s@CreateLaunchProfile' {} a -> s {description = a} :: CreateLaunchProfile) Prelude.. Lens.mapping Data._Sensitive
 
--- | A collection of labels, in the form of key:value pairs, that apply to
+-- | A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 createLaunchProfile_tags :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createLaunchProfile_tags = Lens.lens (\CreateLaunchProfile' {tags} -> tags) (\s@CreateLaunchProfile' {} a -> s {tags = a} :: CreateLaunchProfile) Prelude.. Lens.mapping Lens.coerced

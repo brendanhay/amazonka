@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -195,6 +195,7 @@ library
     Amazonka.FSx.Types.StorageVirtualMachineFilterName
     Amazonka.FSx.Types.StorageVirtualMachineLifecycle
     Amazonka.FSx.Types.StorageVirtualMachineRootVolumeSecurityStyle
+    Amazonka.FSx.Types.StorageVirtualMachineSubtype
     Amazonka.FSx.Types.SvmActiveDirectoryConfiguration
     Amazonka.FSx.Types.SvmEndpoint
     Amazonka.FSx.Types.SvmEndpoints

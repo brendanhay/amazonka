@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RolesAnywhere.Types.ProfileDetail
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newProfileDetail' smart constructor.
 data ProfileDetail = ProfileDetail'
   { -- | The ISO-8601 timestamp when the profile was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Web Services account that created the profile.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The number of seconds the vended session credentials are valid for.
@@ -57,7 +57,7 @@ data ProfileDetail = ProfileDetail'
     -- session credentials.
     sessionPolicy :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 timestamp when the profile was last updated.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    updatedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

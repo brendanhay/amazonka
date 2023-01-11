@@ -14,17 +14,16 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.GetDatalakeExceptionsExpiry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the expiration period and time-to-live (TTL) for which the
--- exception message will remain. Exceptions are stored by default, for a 2
--- week period of time from when a record was created in Security Lake.
--- This API does not take input parameters. This API does not take input
--- parameters.
+-- exception message will remain. Exceptions are stored by default, for 2
+-- weeks from when a record was created in Amazon Security Lake. This API
+-- does not take input parameters.
 module Amazonka.SecurityLake.GetDatalakeExceptionsExpiry
   ( -- * Creating a Request
     GetDatalakeExceptionsExpiry (..),

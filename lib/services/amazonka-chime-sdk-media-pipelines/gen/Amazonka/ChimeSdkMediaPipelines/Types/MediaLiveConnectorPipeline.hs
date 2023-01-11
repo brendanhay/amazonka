@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ChimeSdkMediaPipelines.Types.MediaLiveConnectorPipeline
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMediaLiveConnectorPipeline' smart constructor.
 data MediaLiveConnectorPipeline = MediaLiveConnectorPipeline'
   { -- | Thetime at which the connector pipeline was created.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The connector pipeline\'s ARN.
     mediaPipelineArn :: Prelude.Maybe Prelude.Text,
     -- | The connector pipeline\'s ID.
@@ -44,7 +44,7 @@ data MediaLiveConnectorPipeline = MediaLiveConnectorPipeline'
     -- | The connector pipeline\'s status.
     status :: Prelude.Maybe MediaPipelineStatus,
     -- | The time at which the connector pipeline was last updated.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

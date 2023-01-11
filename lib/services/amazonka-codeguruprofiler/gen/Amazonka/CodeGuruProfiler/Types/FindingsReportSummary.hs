@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruProfiler.Types.FindingsReportSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,12 +35,12 @@ data FindingsReportSummary = FindingsReportSummary'
     -- anomalous. This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    profileEndTime :: Prelude.Maybe Data.POSIX,
+    profileEndTime :: Prelude.Maybe Data.ISO8601,
     -- | The start time of the profile the analysis data is about. This is
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    profileStartTime :: Prelude.Maybe Data.POSIX,
+    profileStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the profiling group that is associated with the analysis
     -- data.
     profilingGroupName :: Prelude.Maybe Prelude.Text,

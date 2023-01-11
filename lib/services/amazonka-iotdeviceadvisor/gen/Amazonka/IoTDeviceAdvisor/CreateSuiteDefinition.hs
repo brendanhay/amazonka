@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,8 @@ module Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
     newCreateSuiteDefinition,
 
     -- * Request Lenses
-    createSuiteDefinition_suiteDefinitionConfiguration,
     createSuiteDefinition_tags,
+    createSuiteDefinition_suiteDefinitionConfiguration,
 
     -- * Destructuring the Response
     CreateSuiteDefinitionResponse (..),
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSuiteDefinition' smart constructor.
 data CreateSuiteDefinition = CreateSuiteDefinition'
-  { -- | Creates a Device Advisor test suite with suite definition configuration.
-    suiteDefinitionConfiguration :: Prelude.Maybe SuiteDefinitionConfiguration,
-    -- | The tags to be attached to the suite definition.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+  { -- | The tags to be attached to the suite definition.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Creates a Device Advisor test suite with suite definition configuration.
+    suiteDefinitionConfiguration :: SuiteDefinitionConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,25 +72,28 @@ data CreateSuiteDefinition = CreateSuiteDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suiteDefinitionConfiguration', 'createSuiteDefinition_suiteDefinitionConfiguration' - Creates a Device Advisor test suite with suite definition configuration.
---
 -- 'tags', 'createSuiteDefinition_tags' - The tags to be attached to the suite definition.
+--
+-- 'suiteDefinitionConfiguration', 'createSuiteDefinition_suiteDefinitionConfiguration' - Creates a Device Advisor test suite with suite definition configuration.
 newCreateSuiteDefinition ::
+  -- | 'suiteDefinitionConfiguration'
+  SuiteDefinitionConfiguration ->
   CreateSuiteDefinition
-newCreateSuiteDefinition =
-  CreateSuiteDefinition'
-    { suiteDefinitionConfiguration =
-        Prelude.Nothing,
-      tags = Prelude.Nothing
-    }
-
--- | Creates a Device Advisor test suite with suite definition configuration.
-createSuiteDefinition_suiteDefinitionConfiguration :: Lens.Lens' CreateSuiteDefinition (Prelude.Maybe SuiteDefinitionConfiguration)
-createSuiteDefinition_suiteDefinitionConfiguration = Lens.lens (\CreateSuiteDefinition' {suiteDefinitionConfiguration} -> suiteDefinitionConfiguration) (\s@CreateSuiteDefinition' {} a -> s {suiteDefinitionConfiguration = a} :: CreateSuiteDefinition)
+newCreateSuiteDefinition
+  pSuiteDefinitionConfiguration_ =
+    CreateSuiteDefinition'
+      { tags = Prelude.Nothing,
+        suiteDefinitionConfiguration =
+          pSuiteDefinitionConfiguration_
+      }
 
 -- | The tags to be attached to the suite definition.
 createSuiteDefinition_tags :: Lens.Lens' CreateSuiteDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSuiteDefinition_tags = Lens.lens (\CreateSuiteDefinition' {tags} -> tags) (\s@CreateSuiteDefinition' {} a -> s {tags = a} :: CreateSuiteDefinition) Prelude.. Lens.mapping Lens.coerced
+
+-- | Creates a Device Advisor test suite with suite definition configuration.
+createSuiteDefinition_suiteDefinitionConfiguration :: Lens.Lens' CreateSuiteDefinition SuiteDefinitionConfiguration
+createSuiteDefinition_suiteDefinitionConfiguration = Lens.lens (\CreateSuiteDefinition' {suiteDefinitionConfiguration} -> suiteDefinitionConfiguration) (\s@CreateSuiteDefinition' {} a -> s {suiteDefinitionConfiguration = a} :: CreateSuiteDefinition)
 
 instance Core.AWSRequest CreateSuiteDefinition where
   type
@@ -111,14 +114,13 @@ instance Core.AWSRequest CreateSuiteDefinition where
 
 instance Prelude.Hashable CreateSuiteDefinition where
   hashWithSalt _salt CreateSuiteDefinition' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` suiteDefinitionConfiguration
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateSuiteDefinition where
   rnf CreateSuiteDefinition' {..} =
-    Prelude.rnf suiteDefinitionConfiguration
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf suiteDefinitionConfiguration
 
 instance Data.ToHeaders CreateSuiteDefinition where
   toHeaders =
@@ -135,9 +137,11 @@ instance Data.ToJSON CreateSuiteDefinition where
   toJSON CreateSuiteDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("suiteDefinitionConfiguration" Data..=)
-              Prelude.<$> suiteDefinitionConfiguration,
-            ("tags" Data..=) Prelude.<$> tags
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just
+              ( "suiteDefinitionConfiguration"
+                  Data..= suiteDefinitionConfiguration
+              )
           ]
       )
 
@@ -149,14 +153,14 @@ instance Data.ToQuery CreateSuiteDefinition where
 
 -- | /See:/ 'newCreateSuiteDefinitionResponse' smart constructor.
 data CreateSuiteDefinitionResponse = CreateSuiteDefinitionResponse'
-  { -- | Creates a Device Advisor test suite with TimeStamp of when it was
-    -- created.
+  { -- | The timestamp of when the test suite was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | Creates a Device Advisor test suite with Amazon Resource Name (ARN).
+    -- | The Amazon Resource Name (ARN) of the test suite.
     suiteDefinitionArn :: Prelude.Maybe Prelude.Text,
-    -- | Creates a Device Advisor test suite with suite UUID.
+    -- | The UUID of the test suite created.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
-    -- | Creates a Device Advisor test suite with suite definition name.
+    -- | The suite definition name of the test suite. This is a required
+    -- parameter.
     suiteDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -171,14 +175,14 @@ data CreateSuiteDefinitionResponse = CreateSuiteDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'createSuiteDefinitionResponse_createdAt' - Creates a Device Advisor test suite with TimeStamp of when it was
--- created.
+-- 'createdAt', 'createSuiteDefinitionResponse_createdAt' - The timestamp of when the test suite was created.
 --
--- 'suiteDefinitionArn', 'createSuiteDefinitionResponse_suiteDefinitionArn' - Creates a Device Advisor test suite with Amazon Resource Name (ARN).
+-- 'suiteDefinitionArn', 'createSuiteDefinitionResponse_suiteDefinitionArn' - The Amazon Resource Name (ARN) of the test suite.
 --
--- 'suiteDefinitionId', 'createSuiteDefinitionResponse_suiteDefinitionId' - Creates a Device Advisor test suite with suite UUID.
+-- 'suiteDefinitionId', 'createSuiteDefinitionResponse_suiteDefinitionId' - The UUID of the test suite created.
 --
--- 'suiteDefinitionName', 'createSuiteDefinitionResponse_suiteDefinitionName' - Creates a Device Advisor test suite with suite definition name.
+-- 'suiteDefinitionName', 'createSuiteDefinitionResponse_suiteDefinitionName' - The suite definition name of the test suite. This is a required
+-- parameter.
 --
 -- 'httpStatus', 'createSuiteDefinitionResponse_httpStatus' - The response's http status code.
 newCreateSuiteDefinitionResponse ::
@@ -195,20 +199,20 @@ newCreateSuiteDefinitionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Creates a Device Advisor test suite with TimeStamp of when it was
--- created.
+-- | The timestamp of when the test suite was created.
 createSuiteDefinitionResponse_createdAt :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
 createSuiteDefinitionResponse_createdAt = Lens.lens (\CreateSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@CreateSuiteDefinitionResponse' {} a -> s {createdAt = a} :: CreateSuiteDefinitionResponse) Prelude.. Lens.mapping Data._Time
 
--- | Creates a Device Advisor test suite with Amazon Resource Name (ARN).
+-- | The Amazon Resource Name (ARN) of the test suite.
 createSuiteDefinitionResponse_suiteDefinitionArn :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 createSuiteDefinitionResponse_suiteDefinitionArn = Lens.lens (\CreateSuiteDefinitionResponse' {suiteDefinitionArn} -> suiteDefinitionArn) (\s@CreateSuiteDefinitionResponse' {} a -> s {suiteDefinitionArn = a} :: CreateSuiteDefinitionResponse)
 
--- | Creates a Device Advisor test suite with suite UUID.
+-- | The UUID of the test suite created.
 createSuiteDefinitionResponse_suiteDefinitionId :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 createSuiteDefinitionResponse_suiteDefinitionId = Lens.lens (\CreateSuiteDefinitionResponse' {suiteDefinitionId} -> suiteDefinitionId) (\s@CreateSuiteDefinitionResponse' {} a -> s {suiteDefinitionId = a} :: CreateSuiteDefinitionResponse)
 
--- | Creates a Device Advisor test suite with suite definition name.
+-- | The suite definition name of the test suite. This is a required
+-- parameter.
 createSuiteDefinitionResponse_suiteDefinitionName :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 createSuiteDefinitionResponse_suiteDefinitionName = Lens.lens (\CreateSuiteDefinitionResponse' {suiteDefinitionName} -> suiteDefinitionName) (\s@CreateSuiteDefinitionResponse' {} a -> s {suiteDefinitionName = a} :: CreateSuiteDefinitionResponse)
 

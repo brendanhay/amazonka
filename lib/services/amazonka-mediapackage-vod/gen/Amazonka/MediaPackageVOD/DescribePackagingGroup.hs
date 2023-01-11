@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MediaPackageVOD.DescribePackagingGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,6 +34,7 @@ module Amazonka.MediaPackageVOD.DescribePackagingGroup
     newDescribePackagingGroupResponse,
 
     -- * Response Lenses
+    describePackagingGroupResponse_approximateAssetCount,
     describePackagingGroupResponse_arn,
     describePackagingGroupResponse_authorization,
     describePackagingGroupResponse_domainName,
@@ -89,7 +90,8 @@ instance Core.AWSRequest DescribePackagingGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribePackagingGroupResponse'
-            Prelude.<$> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "approximateAssetCount")
+            Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "authorization")
             Prelude.<*> (x Data..?> "domainName")
             Prelude.<*> (x Data..?> "egressAccessLogs")
@@ -126,7 +128,9 @@ instance Data.ToQuery DescribePackagingGroup where
 
 -- | /See:/ 'newDescribePackagingGroupResponse' smart constructor.
 data DescribePackagingGroupResponse = DescribePackagingGroupResponse'
-  { -- | The ARN of the PackagingGroup.
+  { -- | The approximate asset count of the PackagingGroup.
+    approximateAssetCount :: Prelude.Maybe Prelude.Int,
+    -- | The ARN of the PackagingGroup.
     arn :: Prelude.Maybe Prelude.Text,
     authorization :: Prelude.Maybe Authorization,
     -- | The fully qualified domain name for Assets in the PackagingGroup.
@@ -148,6 +152,8 @@ data DescribePackagingGroupResponse = DescribePackagingGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'approximateAssetCount', 'describePackagingGroupResponse_approximateAssetCount' - The approximate asset count of the PackagingGroup.
+--
 -- 'arn', 'describePackagingGroupResponse_arn' - The ARN of the PackagingGroup.
 --
 -- 'authorization', 'describePackagingGroupResponse_authorization' - Undocumented member.
@@ -167,8 +173,9 @@ newDescribePackagingGroupResponse ::
   DescribePackagingGroupResponse
 newDescribePackagingGroupResponse pHttpStatus_ =
   DescribePackagingGroupResponse'
-    { arn =
+    { approximateAssetCount =
         Prelude.Nothing,
+      arn = Prelude.Nothing,
       authorization = Prelude.Nothing,
       domainName = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
@@ -176,6 +183,10 @@ newDescribePackagingGroupResponse pHttpStatus_ =
       tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The approximate asset count of the PackagingGroup.
+describePackagingGroupResponse_approximateAssetCount :: Lens.Lens' DescribePackagingGroupResponse (Prelude.Maybe Prelude.Int)
+describePackagingGroupResponse_approximateAssetCount = Lens.lens (\DescribePackagingGroupResponse' {approximateAssetCount} -> approximateAssetCount) (\s@DescribePackagingGroupResponse' {} a -> s {approximateAssetCount = a} :: DescribePackagingGroupResponse)
 
 -- | The ARN of the PackagingGroup.
 describePackagingGroupResponse_arn :: Lens.Lens' DescribePackagingGroupResponse (Prelude.Maybe Prelude.Text)
@@ -210,7 +221,8 @@ instance
     DescribePackagingGroupResponse
   where
   rnf DescribePackagingGroupResponse' {..} =
-    Prelude.rnf arn
+    Prelude.rnf approximateAssetCount
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf authorization
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf egressAccessLogs

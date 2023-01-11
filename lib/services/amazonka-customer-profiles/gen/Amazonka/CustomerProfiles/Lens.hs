@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,12 +64,14 @@ module Amazonka.CustomerProfiles.Lens
     createProfile_emailAddress,
     createProfile_firstName,
     createProfile_gender,
+    createProfile_genderString,
     createProfile_homePhoneNumber,
     createProfile_lastName,
     createProfile_mailingAddress,
     createProfile_middleName,
     createProfile_mobilePhoneNumber,
     createProfile_partyType,
+    createProfile_partyTypeString,
     createProfile_personalEmailAddress,
     createProfile_phoneNumber,
     createProfile_shippingAddress,
@@ -424,12 +426,14 @@ module Amazonka.CustomerProfiles.Lens
     updateProfile_emailAddress,
     updateProfile_firstName,
     updateProfile_gender,
+    updateProfile_genderString,
     updateProfile_homePhoneNumber,
     updateProfile_lastName,
     updateProfile_mailingAddress,
     updateProfile_middleName,
     updateProfile_mobilePhoneNumber,
     updateProfile_partyType,
+    updateProfile_partyTypeString,
     updateProfile_personalEmailAddress,
     updateProfile_phoneNumber,
     updateProfile_shippingAddress,

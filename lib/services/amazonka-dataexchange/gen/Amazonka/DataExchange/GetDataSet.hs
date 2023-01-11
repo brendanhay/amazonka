@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.GetDataSet
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -139,7 +139,7 @@ data GetDataSetResponse = GetDataSetResponse'
     -- | The type of asset that is added to a data set.
     assetType :: Prelude.Maybe AssetType,
     -- | The date and time that the data set was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The description for the data set.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the data set.
@@ -160,7 +160,7 @@ data GetDataSetResponse = GetDataSetResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time that the data set was last updated, in ISO 8601
     -- format.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

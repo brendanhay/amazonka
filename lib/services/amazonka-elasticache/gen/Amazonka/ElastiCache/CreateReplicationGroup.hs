@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.CreateReplicationGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -100,6 +100,7 @@ module Amazonka.ElastiCache.CreateReplicationGroup
     createReplicationGroup_snapshotWindow,
     createReplicationGroup_tags,
     createReplicationGroup_transitEncryptionEnabled,
+    createReplicationGroup_transitEncryptionMode,
     createReplicationGroup_userGroupIds,
     createReplicationGroup_replicationGroupId,
     createReplicationGroup_replicationGroupDescription,
@@ -306,7 +307,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
     dataTieringEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the cache engine to be used for the clusters in this
-    -- replication group. Must be Redis.
+    -- replication group. The value must be set to @Redis@.
     engine :: Prelude.Maybe Prelude.Text,
     -- | The version number of the cache engine to be used for the clusters in
     -- this replication group. To view the supported cache engine versions, use
@@ -478,10 +479,6 @@ data CreateReplicationGroup = CreateReplicationGroup'
     tags :: Prelude.Maybe [Tag],
     -- | A flag that enables in-transit encryption when set to @true@.
     --
-    -- You cannot modify the value of @TransitEncryptionEnabled@ after the
-    -- cluster is created. To enable in-transit encryption on a cluster you
-    -- must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
-    --
     -- This parameter is valid only if the @Engine@ parameter is @redis@, the
     -- @EngineVersion@ parameter is @3.2.6@, @4.x@ or later, and the cluster is
     -- being created in an Amazon VPC.
@@ -497,6 +494,19 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- For HIPAA compliance, you must specify @TransitEncryptionEnabled@ as
     -- @true@, an @AuthToken@, and a @CacheSubnetGroup@.
     transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | A setting that allows you to migrate your clients to use in-transit
+    -- encryption, with no downtime.
+    --
+    -- When setting @TransitEncryptionEnabled@ to @true@, you can set your
+    -- @TransitEncryptionMode@ to @preferred@ in the same request, to allow
+    -- both encrypted and unencrypted connections at the same time. Once you
+    -- migrate all your Redis clients to use encrypted connections you can
+    -- modify the value to @required@ to allow encrypted connections only.
+    --
+    -- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
+    -- requires you to first set the @TransitEncryptionMode@ to @preferred@
+    -- first, after that you can set @TransitEncryptionMode@ to @required@.
+    transitEncryptionMode :: Prelude.Maybe TransitEncryptionMode,
     -- | The user group to associate with the replication group.
     userGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The replication group identifier. This parameter is stored as a
@@ -703,7 +713,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
 --
 -- 'engine', 'createReplicationGroup_engine' - The name of the cache engine to be used for the clusters in this
--- replication group. Must be Redis.
+-- replication group. The value must be set to @Redis@.
 --
 -- 'engineVersion', 'createReplicationGroup_engineVersion' - The version number of the cache engine to be used for the clusters in
 -- this replication group. To view the supported cache engine versions, use
@@ -875,10 +885,6 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- 'transitEncryptionEnabled', 'createReplicationGroup_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@.
 --
--- You cannot modify the value of @TransitEncryptionEnabled@ after the
--- cluster is created. To enable in-transit encryption on a cluster you
--- must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
---
 -- This parameter is valid only if the @Engine@ parameter is @redis@, the
 -- @EngineVersion@ parameter is @3.2.6@, @4.x@ or later, and the cluster is
 -- being created in an Amazon VPC.
@@ -893,6 +899,19 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- For HIPAA compliance, you must specify @TransitEncryptionEnabled@ as
 -- @true@, an @AuthToken@, and a @CacheSubnetGroup@.
+--
+-- 'transitEncryptionMode', 'createReplicationGroup_transitEncryptionMode' - A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
+--
+-- When setting @TransitEncryptionEnabled@ to @true@, you can set your
+-- @TransitEncryptionMode@ to @preferred@ in the same request, to allow
+-- both encrypted and unencrypted connections at the same time. Once you
+-- migrate all your Redis clients to use encrypted connections you can
+-- modify the value to @required@ to allow encrypted connections only.
+--
+-- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
+-- requires you to first set the @TransitEncryptionMode@ to @preferred@
+-- first, after that you can set @TransitEncryptionMode@ to @required@.
 --
 -- 'userGroupIds', 'createReplicationGroup_userGroupIds' - The user group to associate with the replication group.
 --
@@ -952,6 +971,7 @@ newCreateReplicationGroup
         snapshotWindow = Prelude.Nothing,
         tags = Prelude.Nothing,
         transitEncryptionEnabled = Prelude.Nothing,
+        transitEncryptionMode = Prelude.Nothing,
         userGroupIds = Prelude.Nothing,
         replicationGroupId = pReplicationGroupId_,
         replicationGroupDescription =
@@ -1156,7 +1176,7 @@ createReplicationGroup_dataTieringEnabled :: Lens.Lens' CreateReplicationGroup (
 createReplicationGroup_dataTieringEnabled = Lens.lens (\CreateReplicationGroup' {dataTieringEnabled} -> dataTieringEnabled) (\s@CreateReplicationGroup' {} a -> s {dataTieringEnabled = a} :: CreateReplicationGroup)
 
 -- | The name of the cache engine to be used for the clusters in this
--- replication group. Must be Redis.
+-- replication group. The value must be set to @Redis@.
 createReplicationGroup_engine :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_engine = Lens.lens (\CreateReplicationGroup' {engine} -> engine) (\s@CreateReplicationGroup' {} a -> s {engine = a} :: CreateReplicationGroup)
 
@@ -1374,10 +1394,6 @@ createReplicationGroup_tags = Lens.lens (\CreateReplicationGroup' {tags} -> tags
 
 -- | A flag that enables in-transit encryption when set to @true@.
 --
--- You cannot modify the value of @TransitEncryptionEnabled@ after the
--- cluster is created. To enable in-transit encryption on a cluster you
--- must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
---
 -- This parameter is valid only if the @Engine@ parameter is @redis@, the
 -- @EngineVersion@ parameter is @3.2.6@, @4.x@ or later, and the cluster is
 -- being created in an Amazon VPC.
@@ -1394,6 +1410,21 @@ createReplicationGroup_tags = Lens.lens (\CreateReplicationGroup' {tags} -> tags
 -- @true@, an @AuthToken@, and a @CacheSubnetGroup@.
 createReplicationGroup_transitEncryptionEnabled :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Bool)
 createReplicationGroup_transitEncryptionEnabled = Lens.lens (\CreateReplicationGroup' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@CreateReplicationGroup' {} a -> s {transitEncryptionEnabled = a} :: CreateReplicationGroup)
+
+-- | A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
+--
+-- When setting @TransitEncryptionEnabled@ to @true@, you can set your
+-- @TransitEncryptionMode@ to @preferred@ in the same request, to allow
+-- both encrypted and unencrypted connections at the same time. Once you
+-- migrate all your Redis clients to use encrypted connections you can
+-- modify the value to @required@ to allow encrypted connections only.
+--
+-- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
+-- requires you to first set the @TransitEncryptionMode@ to @preferred@
+-- first, after that you can set @TransitEncryptionMode@ to @required@.
+createReplicationGroup_transitEncryptionMode :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe TransitEncryptionMode)
+createReplicationGroup_transitEncryptionMode = Lens.lens (\CreateReplicationGroup' {transitEncryptionMode} -> transitEncryptionMode) (\s@CreateReplicationGroup' {} a -> s {transitEncryptionMode = a} :: CreateReplicationGroup)
 
 -- | The user group to associate with the replication group.
 createReplicationGroup_userGroupIds :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -1467,6 +1498,7 @@ instance Prelude.Hashable CreateReplicationGroup where
       `Prelude.hashWithSalt` snapshotWindow
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` transitEncryptionMode
       `Prelude.hashWithSalt` userGroupIds
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` replicationGroupDescription
@@ -1517,6 +1549,8 @@ instance Prelude.NFData CreateReplicationGroup where
         tags
       `Prelude.seq` Prelude.rnf
         transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf
+        transitEncryptionMode
       `Prelude.seq` Prelude.rnf
         userGroupIds
       `Prelude.seq` Prelude.rnf
@@ -1604,6 +1638,8 @@ instance Data.ToQuery CreateReplicationGroup where
             (Data.toQueryList "Tag" Prelude.<$> tags),
         "TransitEncryptionEnabled"
           Data.=: transitEncryptionEnabled,
+        "TransitEncryptionMode"
+          Data.=: transitEncryptionMode,
         "UserGroupIds"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> userGroupIds),

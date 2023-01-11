@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetBucketStatistics
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -184,7 +184,7 @@ data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
     -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
     -- Macie most recently retrieved both bucket and object metadata from
     -- Amazon S3 for the buckets.
-    lastUpdated :: Prelude.Maybe Data.POSIX,
+    lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The total number of objects in the buckets.
     objectCount :: Prelude.Maybe Prelude.Integer,
     -- | The total storage size, in bytes, of the buckets.

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MwAA.Types.Environment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,7 +39,7 @@ data Environment = Environment'
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
     airflowConfigurationOptions :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))),
     -- | The Apache Airflow version on your environment. Valid values: @1.10.12@,
-    -- @2.0.2@, and @2.2.2@.
+    -- @2.0.2@, @2.2.2@, and @2.4.3@.
     airflowVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon MWAA environment.
     arn :: Prelude.Maybe Prelude.Text,
@@ -170,7 +170,7 @@ data Environment = Environment'
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 --
 -- 'airflowVersion', 'environment_airflowVersion' - The Apache Airflow version on your environment. Valid values: @1.10.12@,
--- @2.0.2@, and @2.2.2@.
+-- @2.0.2@, @2.2.2@, and @2.4.3@.
 --
 -- 'arn', 'environment_arn' - The Amazon Resource Name (ARN) of the Amazon MWAA environment.
 --
@@ -324,7 +324,7 @@ environment_airflowConfigurationOptions :: Lens.Lens' Environment (Prelude.Maybe
 environment_airflowConfigurationOptions = Lens.lens (\Environment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@Environment' {} a -> s {airflowConfigurationOptions = a} :: Environment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Apache Airflow version on your environment. Valid values: @1.10.12@,
--- @2.0.2@, and @2.2.2@.
+-- @2.0.2@, @2.2.2@, and @2.4.3@.
 environment_airflowVersion :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_airflowVersion = Lens.lens (\Environment' {airflowVersion} -> airflowVersion) (\s@Environment' {} a -> s {airflowVersion = a} :: Environment)
 

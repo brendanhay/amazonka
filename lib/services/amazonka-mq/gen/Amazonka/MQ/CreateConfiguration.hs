@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MQ.CreateConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -224,7 +224,7 @@ data CreateConfigurationResponse = CreateConfigurationResponse'
     -- The default is SIMPLE.
     authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | Required. The date and time of the configuration.
-    created :: Prelude.Maybe Data.POSIX,
+    created :: Prelude.Maybe Data.ISO8601,
     -- | Required. The unique ID that Amazon MQ generates for the configuration.
     id :: Prelude.Maybe Prelude.Text,
     -- | The latest revision of the configuration.

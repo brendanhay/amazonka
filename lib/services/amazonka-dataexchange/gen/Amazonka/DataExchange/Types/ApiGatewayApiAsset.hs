@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ApiGatewayApiAsset
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,7 +42,7 @@ data ApiGatewayApiAsset = ApiGatewayApiAsset'
     -- | The download URL of the API specification of the API asset.
     apiSpecificationDownloadUrl :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the upload URL expires, in ISO 8601 format.
-    apiSpecificationDownloadUrlExpiresAt :: Prelude.Maybe Data.POSIX,
+    apiSpecificationDownloadUrlExpiresAt :: Prelude.Maybe Data.ISO8601,
     -- | The protocol type of the API asset.
     protocolType :: Prelude.Maybe ProtocolType,
     -- | The stage of the API asset.

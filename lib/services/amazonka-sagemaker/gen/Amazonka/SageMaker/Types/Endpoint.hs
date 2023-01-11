@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.Endpoint
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,11 +43,9 @@ data Endpoint = Endpoint'
     -- | A list of the production variants hosted on the endpoint. Each
     -- production variant is a model.
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
-    -- | Array of @ProductionVariant@ objects, one for each model that you want
-    -- to host at this endpoint in shadow mode with production traffic
-    -- replicated from the model specified on @ProductionVariants@.If you use
-    -- this field, you can only specify one variant for @ProductionVariants@
-    -- and one variant for @ShadowProductionVariants@.
+    -- | A list of the shadow variants hosted on the endpoint. Each shadow
+    -- variant is a model in shadow mode with production traffic replicated
+    -- from the proudction variant.
     shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
     -- | A list of the tags associated with the endpoint. For more information,
     -- see
@@ -88,11 +86,9 @@ data Endpoint = Endpoint'
 -- 'productionVariants', 'endpoint_productionVariants' - A list of the production variants hosted on the endpoint. Each
 -- production variant is a model.
 --
--- 'shadowProductionVariants', 'endpoint_shadowProductionVariants' - Array of @ProductionVariant@ objects, one for each model that you want
--- to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
--- this field, you can only specify one variant for @ProductionVariants@
--- and one variant for @ShadowProductionVariants@.
+-- 'shadowProductionVariants', 'endpoint_shadowProductionVariants' - A list of the shadow variants hosted on the endpoint. Each shadow
+-- variant is a model in shadow mode with production traffic replicated
+-- from the proudction variant.
 --
 -- 'tags', 'endpoint_tags' - A list of the tags associated with the endpoint. For more information,
 -- see
@@ -166,11 +162,9 @@ endpoint_monitoringSchedules = Lens.lens (\Endpoint' {monitoringSchedules} -> mo
 endpoint_productionVariants :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
 endpoint_productionVariants = Lens.lens (\Endpoint' {productionVariants} -> productionVariants) (\s@Endpoint' {} a -> s {productionVariants = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | Array of @ProductionVariant@ objects, one for each model that you want
--- to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
--- this field, you can only specify one variant for @ProductionVariants@
--- and one variant for @ShadowProductionVariants@.
+-- | A list of the shadow variants hosted on the endpoint. Each shadow
+-- variant is a model in shadow mode with production traffic replicated
+-- from the proudction variant.
 endpoint_shadowProductionVariants :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
 endpoint_shadowProductionVariants = Lens.lens (\Endpoint' {shadowProductionVariants} -> shadowProductionVariants) (\s@Endpoint' {} a -> s {shadowProductionVariants = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 

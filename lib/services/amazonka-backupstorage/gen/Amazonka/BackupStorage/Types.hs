@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.BackupStorage.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -136,7 +136,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Prism for AccessDeniedException' errors.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -145,7 +145,7 @@ _AccessDeniedException =
 
 -- | Non-retryable exception. Attempted to create already existing object or
 -- chunk. This message contains a checksum of already presented data.
-_DataAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DataAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DataAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -154,7 +154,7 @@ _DataAlreadyExistsException =
 
 -- | Non-retryable exception, indicates client error (wrong argument passed
 -- to API). See exception message for details.
-_IllegalArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IllegalArgumentException =
   Core._MatchServiceError
     defaultService
@@ -163,7 +163,7 @@ _IllegalArgumentException =
 
 -- | Non-retryable exception. Indicates the KMS key usage is incorrect. See
 -- exception message for details.
-_KMSInvalidKeyUsageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidKeyUsageException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSInvalidKeyUsageException =
   Core._MatchServiceError
     defaultService
@@ -172,7 +172,7 @@ _KMSInvalidKeyUsageException =
 
 -- | Retryalble exception. Indicated issues while reading an input stream due
 -- to the networking issues or connection drop on the client side.
-_NotReadableInputStreamException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotReadableInputStreamException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotReadableInputStreamException =
   Core._MatchServiceError
     defaultService
@@ -181,7 +181,7 @@ _NotReadableInputStreamException =
 
 -- | Non-retryable exception. Attempted to make an operation on non-existing
 -- or expired resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -190,7 +190,7 @@ _ResourceNotFoundException =
 
 -- | Retryable exception. In general indicates internal failure that can be
 -- fixed by retry.
-_RetryableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RetryableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RetryableException =
   Core._MatchServiceError
     defaultService
@@ -198,7 +198,7 @@ _RetryableException =
     Prelude.. Core.hasStatus 500
 
 -- | Deprecated. To be removed from the model.
-_ServiceInternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceInternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceInternalException =
   Core._MatchServiceError
     defaultService
@@ -206,7 +206,7 @@ _ServiceInternalException =
     Prelude.. Core.hasStatus 500
 
 -- | Retryable exception, indicates internal server error.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -215,7 +215,7 @@ _ServiceUnavailableException =
 
 -- | Increased rate over throttling limits. Can be retried with exponential
 -- backoff.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ApiGatewayV2.Types.VpcLink
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newVpcLink' smart constructor.
 data VpcLink = VpcLink'
   { -- | The timestamp when the VPC link was created.
-    createdDate :: Prelude.Maybe Data.POSIX,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | Tags for the VPC link.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The status of the VPC link.

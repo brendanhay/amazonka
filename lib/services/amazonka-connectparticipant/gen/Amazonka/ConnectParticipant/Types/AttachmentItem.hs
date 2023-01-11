@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.Types.AttachmentItem
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,7 @@ data AttachmentItem = AttachmentItem'
     attachmentName :: Prelude.Maybe Prelude.Text,
     -- | Describes the MIME file type of the attachment. For a list of supported
     -- file types, see
-    -- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits Feature specifications>
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html Feature specifications>
     -- in the /Amazon Connect Administrator Guide/.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | Status of the attachment.
@@ -58,7 +58,7 @@ data AttachmentItem = AttachmentItem'
 --
 -- 'contentType', 'attachmentItem_contentType' - Describes the MIME file type of the attachment. For a list of supported
 -- file types, see
--- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits Feature specifications>
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html Feature specifications>
 -- in the /Amazon Connect Administrator Guide/.
 --
 -- 'status', 'attachmentItem_status' - Status of the attachment.
@@ -82,7 +82,7 @@ attachmentItem_attachmentName = Lens.lens (\AttachmentItem' {attachmentName} -> 
 
 -- | Describes the MIME file type of the attachment. For a list of supported
 -- file types, see
--- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits Feature specifications>
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html Feature specifications>
 -- in the /Amazon Connect Administrator Guide/.
 attachmentItem_contentType :: Lens.Lens' AttachmentItem (Prelude.Maybe Prelude.Text)
 attachmentItem_contentType = Lens.lens (\AttachmentItem' {contentType} -> contentType) (\s@AttachmentItem' {} a -> s {contentType = a} :: AttachmentItem)

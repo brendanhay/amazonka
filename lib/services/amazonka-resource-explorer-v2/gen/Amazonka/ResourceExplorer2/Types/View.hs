@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceExplorer2.Types.View
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ data View = View'
     -- | A structure that contains additional information about the view.
     includedProperties :: Prelude.Maybe [IncludedProperty],
     -- | The date and time when this view was last modified.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Web Services account that owns this view.
     owner :: Prelude.Maybe Prelude.Text,
     -- | An

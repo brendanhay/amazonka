@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.ExecuteCommand
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,10 @@
 -- for the policy statement, for example limit the actions to a specific
 -- cluster, you receive an @AccessDeniedException@ when there is a mismatch
 -- between the condition key value and the corresponding parameter value.
+--
+-- For information about required permissions and considerations, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.htm Using Amazon ECS Exec for debugging>
+-- in the /Amazon ECS Developer Guide/.
 module Amazonka.ECS.ExecuteCommand
   ( -- * Creating a Request
     ExecuteCommand (..),

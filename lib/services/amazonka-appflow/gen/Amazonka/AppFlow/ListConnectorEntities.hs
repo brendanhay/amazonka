@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AppFlow.ListConnectorEntities
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,12 +33,15 @@ module Amazonka.AppFlow.ListConnectorEntities
     listConnectorEntities_connectorProfileName,
     listConnectorEntities_connectorType,
     listConnectorEntities_entitiesPath,
+    listConnectorEntities_maxResults,
+    listConnectorEntities_nextToken,
 
     -- * Destructuring the Response
     ListConnectorEntitiesResponse (..),
     newListConnectorEntitiesResponse,
 
     -- * Response Lenses
+    listConnectorEntitiesResponse_nextToken,
     listConnectorEntitiesResponse_httpStatus,
     listConnectorEntitiesResponse_connectorEntityMap,
   )
@@ -68,7 +71,13 @@ data ListConnectorEntities = ListConnectorEntities'
     -- without the @entitiesPath@ parameter. If the connector supports entities
     -- at different roots, this initial request returns the list of roots.
     -- Otherwise, this request returns all entities supported by the provider.
-    entitiesPath :: Prelude.Maybe Prelude.Text
+    entitiesPath :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items that the operation returns in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that was provided by your prior @ListConnectorEntities@
+    -- operation if the response was too big for the page size. You specify
+    -- this token to get the next page of results in paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,6 +103,12 @@ data ListConnectorEntities = ListConnectorEntities'
 -- without the @entitiesPath@ parameter. If the connector supports entities
 -- at different roots, this initial request returns the list of roots.
 -- Otherwise, this request returns all entities supported by the provider.
+--
+-- 'maxResults', 'listConnectorEntities_maxResults' - The maximum number of items that the operation returns in the response.
+--
+-- 'nextToken', 'listConnectorEntities_nextToken' - A token that was provided by your prior @ListConnectorEntities@
+-- operation if the response was too big for the page size. You specify
+-- this token to get the next page of results in paginated response.
 newListConnectorEntities ::
   ListConnectorEntities
 newListConnectorEntities =
@@ -102,7 +117,9 @@ newListConnectorEntities =
         Prelude.Nothing,
       connectorProfileName = Prelude.Nothing,
       connectorType = Prelude.Nothing,
-      entitiesPath = Prelude.Nothing
+      entitiesPath = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | The version of the API that\'s used by the connector.
@@ -128,6 +145,16 @@ listConnectorEntities_connectorType = Lens.lens (\ListConnectorEntities' {connec
 listConnectorEntities_entitiesPath :: Lens.Lens' ListConnectorEntities (Prelude.Maybe Prelude.Text)
 listConnectorEntities_entitiesPath = Lens.lens (\ListConnectorEntities' {entitiesPath} -> entitiesPath) (\s@ListConnectorEntities' {} a -> s {entitiesPath = a} :: ListConnectorEntities)
 
+-- | The maximum number of items that the operation returns in the response.
+listConnectorEntities_maxResults :: Lens.Lens' ListConnectorEntities (Prelude.Maybe Prelude.Natural)
+listConnectorEntities_maxResults = Lens.lens (\ListConnectorEntities' {maxResults} -> maxResults) (\s@ListConnectorEntities' {} a -> s {maxResults = a} :: ListConnectorEntities)
+
+-- | A token that was provided by your prior @ListConnectorEntities@
+-- operation if the response was too big for the page size. You specify
+-- this token to get the next page of results in paginated response.
+listConnectorEntities_nextToken :: Lens.Lens' ListConnectorEntities (Prelude.Maybe Prelude.Text)
+listConnectorEntities_nextToken = Lens.lens (\ListConnectorEntities' {nextToken} -> nextToken) (\s@ListConnectorEntities' {} a -> s {nextToken = a} :: ListConnectorEntities)
+
 instance Core.AWSRequest ListConnectorEntities where
   type
     AWSResponse ListConnectorEntities =
@@ -138,7 +165,8 @@ instance Core.AWSRequest ListConnectorEntities where
     Response.receiveJSON
       ( \s h x ->
           ListConnectorEntitiesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Data..?> "connectorEntityMap"
                             Core..!@ Prelude.mempty
                         )
@@ -150,6 +178,8 @@ instance Prelude.Hashable ListConnectorEntities where
       `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` connectorType
       `Prelude.hashWithSalt` entitiesPath
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListConnectorEntities where
   rnf ListConnectorEntities' {..} =
@@ -157,6 +187,8 @@ instance Prelude.NFData ListConnectorEntities where
       `Prelude.seq` Prelude.rnf connectorProfileName
       `Prelude.seq` Prelude.rnf connectorType
       `Prelude.seq` Prelude.rnf entitiesPath
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConnectorEntities where
   toHeaders =
@@ -177,7 +209,9 @@ instance Data.ToJSON ListConnectorEntities where
             ("connectorProfileName" Data..=)
               Prelude.<$> connectorProfileName,
             ("connectorType" Data..=) Prelude.<$> connectorType,
-            ("entitiesPath" Data..=) Prelude.<$> entitiesPath
+            ("entitiesPath" Data..=) Prelude.<$> entitiesPath,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -189,7 +223,12 @@ instance Data.ToQuery ListConnectorEntities where
 
 -- | /See:/ 'newListConnectorEntitiesResponse' smart constructor.
 data ListConnectorEntitiesResponse = ListConnectorEntitiesResponse'
-  { -- | The response's http status code.
+  { -- | A token that you specify in your next @ListConnectorEntities@ operation
+    -- to get the next page of results in paginated response. The
+    -- @ListConnectorEntities@ operation provides this token if the response is
+    -- too big for the page size.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The response of @ListConnectorEntities@ lists entities grouped by
     -- category. This map\'s key represents the group name, and its value
@@ -206,6 +245,11 @@ data ListConnectorEntitiesResponse = ListConnectorEntitiesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listConnectorEntitiesResponse_nextToken' - A token that you specify in your next @ListConnectorEntities@ operation
+-- to get the next page of results in paginated response. The
+-- @ListConnectorEntities@ operation provides this token if the response is
+-- too big for the page size.
+--
 -- 'httpStatus', 'listConnectorEntitiesResponse_httpStatus' - The response's http status code.
 --
 -- 'connectorEntityMap', 'listConnectorEntitiesResponse_connectorEntityMap' - The response of @ListConnectorEntities@ lists entities grouped by
@@ -217,10 +261,18 @@ newListConnectorEntitiesResponse ::
   ListConnectorEntitiesResponse
 newListConnectorEntitiesResponse pHttpStatus_ =
   ListConnectorEntitiesResponse'
-    { httpStatus =
-        pHttpStatus_,
+    { nextToken =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_,
       connectorEntityMap = Prelude.mempty
     }
+
+-- | A token that you specify in your next @ListConnectorEntities@ operation
+-- to get the next page of results in paginated response. The
+-- @ListConnectorEntities@ operation provides this token if the response is
+-- too big for the page size.
+listConnectorEntitiesResponse_nextToken :: Lens.Lens' ListConnectorEntitiesResponse (Prelude.Maybe Prelude.Text)
+listConnectorEntitiesResponse_nextToken = Lens.lens (\ListConnectorEntitiesResponse' {nextToken} -> nextToken) (\s@ListConnectorEntitiesResponse' {} a -> s {nextToken = a} :: ListConnectorEntitiesResponse)
 
 -- | The response's http status code.
 listConnectorEntitiesResponse_httpStatus :: Lens.Lens' ListConnectorEntitiesResponse Prelude.Int
@@ -234,5 +286,6 @@ listConnectorEntitiesResponse_connectorEntityMap = Lens.lens (\ListConnectorEnti
 
 instance Prelude.NFData ListConnectorEntitiesResponse where
   rnf ListConnectorEntitiesResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf connectorEntityMap

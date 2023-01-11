@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.M2.UpdateEnvironment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the configuration details for a specific environment.
+-- Updates the configuration details for a specific runtime environment.
 module Amazonka.M2.UpdateEnvironment
   ( -- * Creating a Request
     UpdateEnvironment (..),
@@ -54,21 +54,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { -- | Indicates whether to update the environment during the maintenance
-    -- window. The default is false. Currently, Amazon Web Services Mainframe
-    -- Modernization accepts the @engineVersion@ parameter only if
+  { -- | Indicates whether to update the runtime environment during the
+    -- maintenance window. The default is false. Currently, Amazon Web Services
+    -- Mainframe Modernization accepts the @engineVersion@ parameter only if
     -- @applyDuringMaintenanceWindow@ is true. If any parameter other than
     -- @engineVersion@ is provided in @UpdateEnvironmentRequest@, it will fail
     -- if @applyDuringMaintenanceWindow@ is set to true.
     applyDuringMaintenanceWindow :: Prelude.Maybe Prelude.Bool,
-    -- | The desired capacity for the environment to update.
+    -- | The desired capacity for the runtime environment to update.
     desiredCapacity :: Prelude.Maybe Prelude.Natural,
-    -- | The version of the runtime engine for the environment.
+    -- | The version of the runtime engine for the runtime environment.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The instance type for the environment to update.
+    -- | The instance type for the runtime environment to update.
     instanceType :: Prelude.Maybe Prelude.Text,
-    -- | Configures a desired maintenance window for the environment. If you do
-    -- not provide a value, a random system-generated value will be assigned.
+    -- | Configures the maintenance window you want for the runtime environment.
+    -- If you do not provide a value, a random system-generated value will be
+    -- assigned.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the runtime environment that you want to
     -- update.
@@ -84,21 +85,22 @@ data UpdateEnvironment = UpdateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applyDuringMaintenanceWindow', 'updateEnvironment_applyDuringMaintenanceWindow' - Indicates whether to update the environment during the maintenance
--- window. The default is false. Currently, Amazon Web Services Mainframe
--- Modernization accepts the @engineVersion@ parameter only if
+-- 'applyDuringMaintenanceWindow', 'updateEnvironment_applyDuringMaintenanceWindow' - Indicates whether to update the runtime environment during the
+-- maintenance window. The default is false. Currently, Amazon Web Services
+-- Mainframe Modernization accepts the @engineVersion@ parameter only if
 -- @applyDuringMaintenanceWindow@ is true. If any parameter other than
 -- @engineVersion@ is provided in @UpdateEnvironmentRequest@, it will fail
 -- if @applyDuringMaintenanceWindow@ is set to true.
 --
--- 'desiredCapacity', 'updateEnvironment_desiredCapacity' - The desired capacity for the environment to update.
+-- 'desiredCapacity', 'updateEnvironment_desiredCapacity' - The desired capacity for the runtime environment to update.
 --
--- 'engineVersion', 'updateEnvironment_engineVersion' - The version of the runtime engine for the environment.
+-- 'engineVersion', 'updateEnvironment_engineVersion' - The version of the runtime engine for the runtime environment.
 --
--- 'instanceType', 'updateEnvironment_instanceType' - The instance type for the environment to update.
+-- 'instanceType', 'updateEnvironment_instanceType' - The instance type for the runtime environment to update.
 --
--- 'preferredMaintenanceWindow', 'updateEnvironment_preferredMaintenanceWindow' - Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
+-- 'preferredMaintenanceWindow', 'updateEnvironment_preferredMaintenanceWindow' - Configures the maintenance window you want for the runtime environment.
+-- If you do not provide a value, a random system-generated value will be
+-- assigned.
 --
 -- 'environmentId', 'updateEnvironment_environmentId' - The unique identifier of the runtime environment that you want to
 -- update.
@@ -117,29 +119,30 @@ newUpdateEnvironment pEnvironmentId_ =
       environmentId = pEnvironmentId_
     }
 
--- | Indicates whether to update the environment during the maintenance
--- window. The default is false. Currently, Amazon Web Services Mainframe
--- Modernization accepts the @engineVersion@ parameter only if
+-- | Indicates whether to update the runtime environment during the
+-- maintenance window. The default is false. Currently, Amazon Web Services
+-- Mainframe Modernization accepts the @engineVersion@ parameter only if
 -- @applyDuringMaintenanceWindow@ is true. If any parameter other than
 -- @engineVersion@ is provided in @UpdateEnvironmentRequest@, it will fail
 -- if @applyDuringMaintenanceWindow@ is set to true.
 updateEnvironment_applyDuringMaintenanceWindow :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Bool)
 updateEnvironment_applyDuringMaintenanceWindow = Lens.lens (\UpdateEnvironment' {applyDuringMaintenanceWindow} -> applyDuringMaintenanceWindow) (\s@UpdateEnvironment' {} a -> s {applyDuringMaintenanceWindow = a} :: UpdateEnvironment)
 
--- | The desired capacity for the environment to update.
+-- | The desired capacity for the runtime environment to update.
 updateEnvironment_desiredCapacity :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Natural)
 updateEnvironment_desiredCapacity = Lens.lens (\UpdateEnvironment' {desiredCapacity} -> desiredCapacity) (\s@UpdateEnvironment' {} a -> s {desiredCapacity = a} :: UpdateEnvironment)
 
--- | The version of the runtime engine for the environment.
+-- | The version of the runtime engine for the runtime environment.
 updateEnvironment_engineVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_engineVersion = Lens.lens (\UpdateEnvironment' {engineVersion} -> engineVersion) (\s@UpdateEnvironment' {} a -> s {engineVersion = a} :: UpdateEnvironment)
 
--- | The instance type for the environment to update.
+-- | The instance type for the runtime environment to update.
 updateEnvironment_instanceType :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_instanceType = Lens.lens (\UpdateEnvironment' {instanceType} -> instanceType) (\s@UpdateEnvironment' {} a -> s {instanceType = a} :: UpdateEnvironment)
 
--- | Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
+-- | Configures the maintenance window you want for the runtime environment.
+-- If you do not provide a value, a random system-generated value will be
+-- assigned.
 updateEnvironment_preferredMaintenanceWindow :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_preferredMaintenanceWindow = Lens.lens (\UpdateEnvironment' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@UpdateEnvironment' {} a -> s {preferredMaintenanceWindow = a} :: UpdateEnvironment)
 

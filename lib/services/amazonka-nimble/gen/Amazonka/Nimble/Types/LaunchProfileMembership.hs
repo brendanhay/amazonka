@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.LaunchProfileMembership
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,11 +25,11 @@ import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.LaunchProfilePersona
 import qualified Amazonka.Prelude as Prelude
 
--- | Launch profile membership enables your studio admins to delegate launch
--- profile access to other studio users in the Nimble Studio portal without
--- needing to write or maintain complex IAM policies. A launch profile
--- member is a user association from your studio identity source who is
--- granted permissions to a launch profile.
+-- | Studio admins can use launch profile membership to delegate launch
+-- profile access to studio users in the Nimble Studio portal without
+-- writing or maintaining complex IAM policies. A launch profile member is
+-- a user association from your studio identity source who is granted
+-- permissions to a launch profile.
 --
 -- A launch profile member (type USER) provides the following permissions
 -- to that launch profile:

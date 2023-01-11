@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.DataSet
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,7 @@ data DataSet = DataSet'
     storageType :: Prelude.Maybe Prelude.Text,
     -- | The logical identifier for a specific data set (in mainframe format).
     datasetName :: Prelude.Text,
-    -- | The type of dataset. Possible values include VSAM, IS, PS, GDG, PO, PS,
-    -- UNKNOWN etc.
+    -- | The type of dataset. The only supported value is VSAM.
     datasetOrg :: DatasetOrgAttributes,
     -- | The length of a record.
     recordLength :: RecordLength
@@ -64,8 +63,7 @@ data DataSet = DataSet'
 --
 -- 'datasetName', 'dataSet_datasetName' - The logical identifier for a specific data set (in mainframe format).
 --
--- 'datasetOrg', 'dataSet_datasetOrg' - The type of dataset. Possible values include VSAM, IS, PS, GDG, PO, PS,
--- UNKNOWN etc.
+-- 'datasetOrg', 'dataSet_datasetOrg' - The type of dataset. The only supported value is VSAM.
 --
 -- 'recordLength', 'dataSet_recordLength' - The length of a record.
 newDataSet ::
@@ -100,8 +98,7 @@ dataSet_storageType = Lens.lens (\DataSet' {storageType} -> storageType) (\s@Dat
 dataSet_datasetName :: Lens.Lens' DataSet Prelude.Text
 dataSet_datasetName = Lens.lens (\DataSet' {datasetName} -> datasetName) (\s@DataSet' {} a -> s {datasetName = a} :: DataSet)
 
--- | The type of dataset. Possible values include VSAM, IS, PS, GDG, PO, PS,
--- UNKNOWN etc.
+-- | The type of dataset. The only supported value is VSAM.
 dataSet_datasetOrg :: Lens.Lens' DataSet DatasetOrgAttributes
 dataSet_datasetOrg = Lens.lens (\DataSet' {datasetOrg} -> datasetOrg) (\s@DataSet' {} a -> s {datasetOrg = a} :: DataSet)
 

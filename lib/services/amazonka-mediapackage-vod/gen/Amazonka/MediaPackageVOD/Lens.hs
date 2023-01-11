@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.MediaPackageVOD.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -113,6 +113,7 @@ module Amazonka.MediaPackageVOD.Lens
 
     -- ** DescribePackagingGroup
     describePackagingGroup_id,
+    describePackagingGroupResponse_approximateAssetCount,
     describePackagingGroupResponse_arn,
     describePackagingGroupResponse_authorization,
     describePackagingGroupResponse_domainName,
@@ -160,6 +161,7 @@ module Amazonka.MediaPackageVOD.Lens
     -- ** UpdatePackagingGroup
     updatePackagingGroup_authorization,
     updatePackagingGroup_id,
+    updatePackagingGroupResponse_approximateAssetCount,
     updatePackagingGroupResponse_arn,
     updatePackagingGroupResponse_authorization,
     updatePackagingGroupResponse_domainName,
@@ -269,6 +271,7 @@ module Amazonka.MediaPackageVOD.Lens
     packagingConfiguration_tags,
 
     -- ** PackagingGroup
+    packagingGroup_approximateAssetCount,
     packagingGroup_arn,
     packagingGroup_authorization,
     packagingGroup_domainName,

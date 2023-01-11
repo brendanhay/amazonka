@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.CreateRestoreImageTask
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,11 +27,11 @@
 -- To use this API, you must have the required permissions. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions Permissions for storing and restoring AMIs using Amazon S3>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html Store and restore an AMI using Amazon S3>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.CreateRestoreImageTask
   ( -- * Creating a Request
     CreateRestoreImageTask (..),

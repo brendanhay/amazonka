@@ -14,13 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.GetSubscriber
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves subscription information for the specified subscription ID.
+-- Retrieves the subscription information for the specified subscription
+-- ID. You can get information about a specific subscriber.
 module Amazonka.SecurityLake.GetSubscriber
   ( -- * Creating a Request
     GetSubscriber (..),
@@ -49,7 +50,7 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newGetSubscriber' smart constructor.
 data GetSubscriber = GetSubscriber'
-  { -- | A value created by Security Lake that uniquely identifies your
+  { -- | A value created by Amazon Security Lake that uniquely identifies your
     -- @GetSubscriber@ API request.
     id :: Prelude.Text
   }
@@ -63,7 +64,7 @@ data GetSubscriber = GetSubscriber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'getSubscriber_id' - A value created by Security Lake that uniquely identifies your
+-- 'id', 'getSubscriber_id' - A value created by Amazon Security Lake that uniquely identifies your
 -- @GetSubscriber@ API request.
 newGetSubscriber ::
   -- | 'id'
@@ -71,7 +72,7 @@ newGetSubscriber ::
   GetSubscriber
 newGetSubscriber pId_ = GetSubscriber' {id = pId_}
 
--- | A value created by Security Lake that uniquely identifies your
+-- | A value created by Amazon Security Lake that uniquely identifies your
 -- @GetSubscriber@ API request.
 getSubscriber_id :: Lens.Lens' GetSubscriber Prelude.Text
 getSubscriber_id = Lens.lens (\GetSubscriber' {id} -> id) (\s@GetSubscriber' {} a -> s {id = a} :: GetSubscriber)
@@ -117,7 +118,7 @@ instance Data.ToQuery GetSubscriber where
 
 -- | /See:/ 'newGetSubscriberResponse' smart constructor.
 data GetSubscriberResponse = GetSubscriberResponse'
-  { -- | Subscription information for the specified subscription ID
+  { -- | The subscription information for the specified subscription ID.
     subscriber :: Prelude.Maybe SubscriberResource,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -132,7 +133,7 @@ data GetSubscriberResponse = GetSubscriberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriber', 'getSubscriberResponse_subscriber' - Subscription information for the specified subscription ID
+-- 'subscriber', 'getSubscriberResponse_subscriber' - The subscription information for the specified subscription ID.
 --
 -- 'httpStatus', 'getSubscriberResponse_httpStatus' - The response's http status code.
 newGetSubscriberResponse ::
@@ -146,7 +147,7 @@ newGetSubscriberResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Subscription information for the specified subscription ID
+-- | The subscription information for the specified subscription ID.
 getSubscriberResponse_subscriber :: Lens.Lens' GetSubscriberResponse (Prelude.Maybe SubscriberResource)
 getSubscriberResponse_subscriber = Lens.lens (\GetSubscriberResponse' {subscriber} -> subscriber) (\s@GetSubscriberResponse' {} a -> s {subscriber = a} :: GetSubscriberResponse)
 

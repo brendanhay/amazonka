@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,10 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 data SuiteRunConfiguration = SuiteRunConfiguration'
   { -- | TRUE if multiple test suites run in parallel.
     parallelRun :: Prelude.Maybe Prelude.Bool,
-    -- | Gets the primary device for suite run.
-    primaryDevice :: Prelude.Maybe DeviceUnderTest,
-    -- | Gets test case list.
-    selectedTestList :: Prelude.Maybe [Prelude.Text]
+    -- | Sets test case list.
+    selectedTestList :: Prelude.Maybe [Prelude.Text],
+    -- | Sets the primary device for the test suite run. This requires a thing
+    -- ARN or a certificate ARN.
+    primaryDevice :: DeviceUnderTest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,30 +49,34 @@ data SuiteRunConfiguration = SuiteRunConfiguration'
 --
 -- 'parallelRun', 'suiteRunConfiguration_parallelRun' - TRUE if multiple test suites run in parallel.
 --
--- 'primaryDevice', 'suiteRunConfiguration_primaryDevice' - Gets the primary device for suite run.
+-- 'selectedTestList', 'suiteRunConfiguration_selectedTestList' - Sets test case list.
 --
--- 'selectedTestList', 'suiteRunConfiguration_selectedTestList' - Gets test case list.
+-- 'primaryDevice', 'suiteRunConfiguration_primaryDevice' - Sets the primary device for the test suite run. This requires a thing
+-- ARN or a certificate ARN.
 newSuiteRunConfiguration ::
+  -- | 'primaryDevice'
+  DeviceUnderTest ->
   SuiteRunConfiguration
-newSuiteRunConfiguration =
+newSuiteRunConfiguration pPrimaryDevice_ =
   SuiteRunConfiguration'
     { parallelRun =
         Prelude.Nothing,
-      primaryDevice = Prelude.Nothing,
-      selectedTestList = Prelude.Nothing
+      selectedTestList = Prelude.Nothing,
+      primaryDevice = pPrimaryDevice_
     }
 
 -- | TRUE if multiple test suites run in parallel.
 suiteRunConfiguration_parallelRun :: Lens.Lens' SuiteRunConfiguration (Prelude.Maybe Prelude.Bool)
 suiteRunConfiguration_parallelRun = Lens.lens (\SuiteRunConfiguration' {parallelRun} -> parallelRun) (\s@SuiteRunConfiguration' {} a -> s {parallelRun = a} :: SuiteRunConfiguration)
 
--- | Gets the primary device for suite run.
-suiteRunConfiguration_primaryDevice :: Lens.Lens' SuiteRunConfiguration (Prelude.Maybe DeviceUnderTest)
-suiteRunConfiguration_primaryDevice = Lens.lens (\SuiteRunConfiguration' {primaryDevice} -> primaryDevice) (\s@SuiteRunConfiguration' {} a -> s {primaryDevice = a} :: SuiteRunConfiguration)
-
--- | Gets test case list.
+-- | Sets test case list.
 suiteRunConfiguration_selectedTestList :: Lens.Lens' SuiteRunConfiguration (Prelude.Maybe [Prelude.Text])
 suiteRunConfiguration_selectedTestList = Lens.lens (\SuiteRunConfiguration' {selectedTestList} -> selectedTestList) (\s@SuiteRunConfiguration' {} a -> s {selectedTestList = a} :: SuiteRunConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Sets the primary device for the test suite run. This requires a thing
+-- ARN or a certificate ARN.
+suiteRunConfiguration_primaryDevice :: Lens.Lens' SuiteRunConfiguration DeviceUnderTest
+suiteRunConfiguration_primaryDevice = Lens.lens (\SuiteRunConfiguration' {primaryDevice} -> primaryDevice) (\s@SuiteRunConfiguration' {} a -> s {primaryDevice = a} :: SuiteRunConfiguration)
 
 instance Data.FromJSON SuiteRunConfiguration where
   parseJSON =
@@ -80,31 +85,32 @@ instance Data.FromJSON SuiteRunConfiguration where
       ( \x ->
           SuiteRunConfiguration'
             Prelude.<$> (x Data..:? "parallelRun")
-            Prelude.<*> (x Data..:? "primaryDevice")
             Prelude.<*> ( x Data..:? "selectedTestList"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..: "primaryDevice")
       )
 
 instance Prelude.Hashable SuiteRunConfiguration where
   hashWithSalt _salt SuiteRunConfiguration' {..} =
     _salt `Prelude.hashWithSalt` parallelRun
-      `Prelude.hashWithSalt` primaryDevice
       `Prelude.hashWithSalt` selectedTestList
+      `Prelude.hashWithSalt` primaryDevice
 
 instance Prelude.NFData SuiteRunConfiguration where
   rnf SuiteRunConfiguration' {..} =
     Prelude.rnf parallelRun
-      `Prelude.seq` Prelude.rnf primaryDevice
       `Prelude.seq` Prelude.rnf selectedTestList
+      `Prelude.seq` Prelude.rnf primaryDevice
 
 instance Data.ToJSON SuiteRunConfiguration where
   toJSON SuiteRunConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("parallelRun" Data..=) Prelude.<$> parallelRun,
-            ("primaryDevice" Data..=) Prelude.<$> primaryDevice,
             ("selectedTestList" Data..=)
-              Prelude.<$> selectedTestList
+              Prelude.<$> selectedTestList,
+            Prelude.Just
+              ("primaryDevice" Data..= primaryDevice)
           ]
       )

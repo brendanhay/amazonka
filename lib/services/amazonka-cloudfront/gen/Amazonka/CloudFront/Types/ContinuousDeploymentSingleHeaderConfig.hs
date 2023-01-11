@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.ContinuousDeploymentSingleHeaderConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newContinuousDeploymentSingleHeaderConfig' smart constructor.
 data ContinuousDeploymentSingleHeaderConfig = ContinuousDeploymentSingleHeaderConfig'
   { -- | The request header name that you want CloudFront to send to your staging
-    -- distribution.
+    -- distribution. The header must contain the prefix @aws-cf-cd-@.
     header :: Prelude.Text,
     -- | The request header value.
     value :: Prelude.Text
@@ -48,7 +48,7 @@ data ContinuousDeploymentSingleHeaderConfig = ContinuousDeploymentSingleHeaderCo
 -- for backwards compatibility:
 --
 -- 'header', 'continuousDeploymentSingleHeaderConfig_header' - The request header name that you want CloudFront to send to your staging
--- distribution.
+-- distribution. The header must contain the prefix @aws-cf-cd-@.
 --
 -- 'value', 'continuousDeploymentSingleHeaderConfig_value' - The request header value.
 newContinuousDeploymentSingleHeaderConfig ::
@@ -67,7 +67,7 @@ newContinuousDeploymentSingleHeaderConfig
       }
 
 -- | The request header name that you want CloudFront to send to your staging
--- distribution.
+-- distribution. The header must contain the prefix @aws-cf-cd-@.
 continuousDeploymentSingleHeaderConfig_header :: Lens.Lens' ContinuousDeploymentSingleHeaderConfig Prelude.Text
 continuousDeploymentSingleHeaderConfig_header = Lens.lens (\ContinuousDeploymentSingleHeaderConfig' {header} -> header) (\s@ContinuousDeploymentSingleHeaderConfig' {} a -> s {header = a} :: ContinuousDeploymentSingleHeaderConfig)
 

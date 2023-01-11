@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.DeleteStudioMember
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteStudioMember' smart constructor.
 data DeleteStudioMember = DeleteStudioMember'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Text,
@@ -71,9 +71,9 @@ data DeleteStudioMember = DeleteStudioMember'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'deleteStudioMember_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'principalId', 'deleteStudioMember_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
@@ -92,9 +92,9 @@ newDeleteStudioMember pPrincipalId_ pStudioId_ =
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 deleteStudioMember_clientToken :: Lens.Lens' DeleteStudioMember (Prelude.Maybe Prelude.Text)
 deleteStudioMember_clientToken = Lens.lens (\DeleteStudioMember' {clientToken} -> clientToken) (\s@DeleteStudioMember' {} a -> s {clientToken = a} :: DeleteStudioMember)
 

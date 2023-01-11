@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1590,7 +1590,7 @@ defaultService =
 
 -- | Lightsail throws this exception when the user cannot be authenticated or
 -- uses invalid credentials to access a resource.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1598,7 +1598,7 @@ _AccessDeniedException =
 
 -- | Lightsail throws this exception when an account is still in the setup in
 -- progress state.
-_AccountSetupInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountSetupInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccountSetupInProgressException =
   Core._MatchServiceError
     defaultService
@@ -1611,28 +1611,28 @@ _AccountSetupInProgressException =
 -- (@us-east-1@) Amazon Web Services Region. Please set your Amazon Web
 -- Services Region configuration to @us-east-1@ to create, view, or edit
 -- these resources.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | Lightsail throws this exception when it cannot find a resource.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
     "NotFoundException"
 
 -- | Lightsail throws this exception when an operation fails to execute.
-_OperationFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationFailureException =
   Core._MatchServiceError
     defaultService
     "OperationFailureException"
 
 -- | A general service exception.
-_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceException =
   Core._MatchServiceError
     defaultService
@@ -1640,7 +1640,7 @@ _ServiceException =
 
 -- | Lightsail throws this exception when the user has not been
 -- authenticated.
-_UnauthenticatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthenticatedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthenticatedException =
   Core._MatchServiceError
     defaultService

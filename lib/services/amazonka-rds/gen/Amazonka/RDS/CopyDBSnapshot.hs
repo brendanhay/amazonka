@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.CopyDBSnapshot
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,6 +39,7 @@ module Amazonka.RDS.CopyDBSnapshot
     newCopyDBSnapshot,
 
     -- * Request Lenses
+    copyDBSnapshot_copyOptionGroup,
     copyDBSnapshot_copyTags,
     copyDBSnapshot_destinationRegion,
     copyDBSnapshot_kmsKeyId,
@@ -71,8 +72,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCopyDBSnapshot' smart constructor.
 data CopyDBSnapshot = CopyDBSnapshot'
-  { -- | A value that indicates whether to copy all tags from the source DB
-    -- snapshot to the target DB snapshot. By default, tags are not copied.
+  { -- | A value that indicates whether to copy the DB option group associated
+    -- with the source DB snapshot to the target Amazon Web Services account
+    -- and associate with the target DB snapshot. The associated option group
+    -- can be copied only with cross-account snapshot copy calls.
+    copyOptionGroup :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether to copy all tags from the source DB
+    -- snapshot to the target DB snapshot. By default, tags aren\'t copied.
     copyTags :: Prelude.Maybe Prelude.Bool,
     -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
     -- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
@@ -230,8 +236,13 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'copyOptionGroup', 'copyDBSnapshot_copyOptionGroup' - A value that indicates whether to copy the DB option group associated
+-- with the source DB snapshot to the target Amazon Web Services account
+-- and associate with the target DB snapshot. The associated option group
+-- can be copied only with cross-account snapshot copy calls.
+--
 -- 'copyTags', 'copyDBSnapshot_copyTags' - A value that indicates whether to copy all tags from the source DB
--- snapshot to the target DB snapshot. By default, tags are not copied.
+-- snapshot to the target DB snapshot. By default, tags aren\'t copied.
 --
 -- 'destinationRegion', 'copyDBSnapshot_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
 -- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
@@ -388,7 +399,8 @@ newCopyDBSnapshot
   pSourceDBSnapshotIdentifier_
   pTargetDBSnapshotIdentifier_ =
     CopyDBSnapshot'
-      { copyTags = Prelude.Nothing,
+      { copyOptionGroup = Prelude.Nothing,
+        copyTags = Prelude.Nothing,
         destinationRegion = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         optionGroupName = Prelude.Nothing,
@@ -401,8 +413,15 @@ newCopyDBSnapshot
           pTargetDBSnapshotIdentifier_
       }
 
+-- | A value that indicates whether to copy the DB option group associated
+-- with the source DB snapshot to the target Amazon Web Services account
+-- and associate with the target DB snapshot. The associated option group
+-- can be copied only with cross-account snapshot copy calls.
+copyDBSnapshot_copyOptionGroup :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Bool)
+copyDBSnapshot_copyOptionGroup = Lens.lens (\CopyDBSnapshot' {copyOptionGroup} -> copyOptionGroup) (\s@CopyDBSnapshot' {} a -> s {copyOptionGroup = a} :: CopyDBSnapshot)
+
 -- | A value that indicates whether to copy all tags from the source DB
--- snapshot to the target DB snapshot. By default, tags are not copied.
+-- snapshot to the target DB snapshot. By default, tags aren\'t copied.
 copyDBSnapshot_copyTags :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Bool)
 copyDBSnapshot_copyTags = Lens.lens (\CopyDBSnapshot' {copyTags} -> copyTags) (\s@CopyDBSnapshot' {} a -> s {copyTags = a} :: CopyDBSnapshot)
 
@@ -585,7 +604,8 @@ instance Core.AWSRequest CopyDBSnapshot where
 
 instance Prelude.Hashable CopyDBSnapshot where
   hashWithSalt _salt CopyDBSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` copyTags
+    _salt `Prelude.hashWithSalt` copyOptionGroup
+      `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` optionGroupName
@@ -597,7 +617,8 @@ instance Prelude.Hashable CopyDBSnapshot where
 
 instance Prelude.NFData CopyDBSnapshot where
   rnf CopyDBSnapshot' {..} =
-    Prelude.rnf copyTags
+    Prelude.rnf copyOptionGroup
+      `Prelude.seq` Prelude.rnf copyTags
       `Prelude.seq` Prelude.rnf destinationRegion
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf optionGroupName
@@ -620,6 +641,7 @@ instance Data.ToQuery CopyDBSnapshot where
           Data.=: ("CopyDBSnapshot" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "CopyOptionGroup" Data.=: copyOptionGroup,
         "CopyTags" Data.=: copyTags,
         "DestinationRegion" Data.=: destinationRegion,
         "KmsKeyId" Data.=: kmsKeyId,

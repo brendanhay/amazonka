@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -60,7 +60,9 @@ library
     Amazonka.ConnectParticipant.Types.ConnectionCredentials
     Amazonka.ConnectParticipant.Types.ConnectionType
     Amazonka.ConnectParticipant.Types.Item
+    Amazonka.ConnectParticipant.Types.MessageMetadata
     Amazonka.ConnectParticipant.Types.ParticipantRole
+    Amazonka.ConnectParticipant.Types.Receipt
     Amazonka.ConnectParticipant.Types.ScanDirection
     Amazonka.ConnectParticipant.Types.SortKey
     Amazonka.ConnectParticipant.Types.StartPosition

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListLaunchProfiles
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,8 @@ import qualified Amazonka.Response as Response
 data ListLaunchProfiles = ListLaunchProfiles'
   { -- | The max number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to request the next page of results.
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Maybe Prelude.Text,
@@ -79,7 +80,8 @@ data ListLaunchProfiles = ListLaunchProfiles'
 --
 -- 'maxResults', 'listLaunchProfiles_maxResults' - The max number of results to return in the response.
 --
--- 'nextToken', 'listLaunchProfiles_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'listLaunchProfiles_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
 -- 'principalId', 'listLaunchProfiles_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
@@ -103,7 +105,8 @@ newListLaunchProfiles pStudioId_ =
 listLaunchProfiles_maxResults :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Natural)
 listLaunchProfiles_maxResults = Lens.lens (\ListLaunchProfiles' {maxResults} -> maxResults) (\s@ListLaunchProfiles' {} a -> s {maxResults = a} :: ListLaunchProfiles)
 
--- | The token to request the next page of results.
+-- | The token for the next set of results, or null if there are no more
+-- results.
 listLaunchProfiles_nextToken :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Text)
 listLaunchProfiles_nextToken = Lens.lens (\ListLaunchProfiles' {nextToken} -> nextToken) (\s@ListLaunchProfiles' {} a -> s {nextToken = a} :: ListLaunchProfiles)
 

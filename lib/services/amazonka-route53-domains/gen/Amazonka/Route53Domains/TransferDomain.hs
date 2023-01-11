@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.TransferDomain
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,8 +84,8 @@ module Amazonka.Route53Domains.TransferDomain
     newTransferDomainResponse,
 
     -- * Response Lenses
-    transferDomainResponse_httpStatus,
     transferDomainResponse_operationId,
+    transferDomainResponse_httpStatus,
   )
 where
 
@@ -105,7 +105,7 @@ data TransferDomain = TransferDomain'
     -- current registrar.
     authCode :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Indicates whether the domain will be automatically renewed (true) or not
-    -- (false). Autorenewal only takes effect after the account is charged.
+    -- (false). Auto renewal only takes effect after the account is charged.
     --
     -- Default: true
     autoRenew :: Prelude.Maybe Prelude.Bool,
@@ -194,7 +194,7 @@ data TransferDomain = TransferDomain'
 -- current registrar.
 --
 -- 'autoRenew', 'transferDomain_autoRenew' - Indicates whether the domain will be automatically renewed (true) or not
--- (false). Autorenewal only takes effect after the account is charged.
+-- (false). Auto renewal only takes effect after the account is charged.
 --
 -- Default: true
 --
@@ -307,7 +307,7 @@ transferDomain_authCode :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Text
 transferDomain_authCode = Lens.lens (\TransferDomain' {authCode} -> authCode) (\s@TransferDomain' {} a -> s {authCode = a} :: TransferDomain) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
--- (false). Autorenewal only takes effect after the account is charged.
+-- (false). Auto renewal only takes effect after the account is charged.
 --
 -- Default: true
 transferDomain_autoRenew :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
@@ -413,8 +413,8 @@ instance Core.AWSRequest TransferDomain where
     Response.receiveJSON
       ( \s h x ->
           TransferDomainResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable TransferDomain where
@@ -496,12 +496,12 @@ instance Data.ToQuery TransferDomain where
 --
 -- /See:/ 'newTransferDomainResponse' smart constructor.
 data TransferDomainResponse = TransferDomainResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | Identifier for tracking the progress of the request. To query the
+  { -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Prelude.Text
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -513,34 +513,33 @@ data TransferDomainResponse = TransferDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'transferDomainResponse_httpStatus' - The response's http status code.
---
 -- 'operationId', 'transferDomainResponse_operationId' - Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+--
+-- 'httpStatus', 'transferDomainResponse_httpStatus' - The response's http status code.
 newTransferDomainResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'operationId'
-  Prelude.Text ->
   TransferDomainResponse
-newTransferDomainResponse pHttpStatus_ pOperationId_ =
+newTransferDomainResponse pHttpStatus_ =
   TransferDomainResponse'
-    { httpStatus = pHttpStatus_,
-      operationId = pOperationId_
+    { operationId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
+
+-- | Identifier for tracking the progress of the request. To query the
+-- operation status, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+transferDomainResponse_operationId :: Lens.Lens' TransferDomainResponse (Prelude.Maybe Prelude.Text)
+transferDomainResponse_operationId = Lens.lens (\TransferDomainResponse' {operationId} -> operationId) (\s@TransferDomainResponse' {} a -> s {operationId = a} :: TransferDomainResponse)
 
 -- | The response's http status code.
 transferDomainResponse_httpStatus :: Lens.Lens' TransferDomainResponse Prelude.Int
 transferDomainResponse_httpStatus = Lens.lens (\TransferDomainResponse' {httpStatus} -> httpStatus) (\s@TransferDomainResponse' {} a -> s {httpStatus = a} :: TransferDomainResponse)
 
--- | Identifier for tracking the progress of the request. To query the
--- operation status, use
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-transferDomainResponse_operationId :: Lens.Lens' TransferDomainResponse Prelude.Text
-transferDomainResponse_operationId = Lens.lens (\TransferDomainResponse' {operationId} -> operationId) (\s@TransferDomainResponse' {} a -> s {operationId = a} :: TransferDomainResponse)
-
 instance Prelude.NFData TransferDomainResponse where
   rnf TransferDomainResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

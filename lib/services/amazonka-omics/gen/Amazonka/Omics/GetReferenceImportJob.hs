@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.GetReferenceImportJob
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -152,13 +152,13 @@ instance Data.ToQuery GetReferenceImportJob where
 -- | /See:/ 'newGetReferenceImportJobResponse' smart constructor.
 data GetReferenceImportJobResponse = GetReferenceImportJobResponse'
   { -- | When the job completed.
-    completionTime :: Prelude.Maybe Data.POSIX,
+    completionTime :: Prelude.Maybe Data.ISO8601,
     -- | The job\'s status message.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | When the job was created.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The job\'s ID.
     id :: Prelude.Text,
     -- | The job\'s reference store ID.

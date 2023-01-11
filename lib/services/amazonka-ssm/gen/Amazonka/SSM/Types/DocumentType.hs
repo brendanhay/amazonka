@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types.DocumentType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,7 @@ module Amazonka.SSM.Types.DocumentType
         DocumentType_Policy,
         DocumentType_ProblemAnalysis,
         DocumentType_ProblemAnalysisTemplate,
+        DocumentType_QuickSetup,
         DocumentType_Session
       ),
   )
@@ -109,6 +110,9 @@ pattern DocumentType_ProblemAnalysis = DocumentType' "ProblemAnalysis"
 pattern DocumentType_ProblemAnalysisTemplate :: DocumentType
 pattern DocumentType_ProblemAnalysisTemplate = DocumentType' "ProblemAnalysisTemplate"
 
+pattern DocumentType_QuickSetup :: DocumentType
+pattern DocumentType_QuickSetup = DocumentType' "QuickSetup"
+
 pattern DocumentType_Session :: DocumentType
 pattern DocumentType_Session = DocumentType' "Session"
 
@@ -126,6 +130,7 @@ pattern DocumentType_Session = DocumentType' "Session"
   DocumentType_Policy,
   DocumentType_ProblemAnalysis,
   DocumentType_ProblemAnalysisTemplate,
+  DocumentType_QuickSetup,
   DocumentType_Session,
   DocumentType'
   #-}

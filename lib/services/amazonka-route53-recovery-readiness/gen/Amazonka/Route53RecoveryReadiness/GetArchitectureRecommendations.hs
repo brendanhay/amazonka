@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -174,7 +174,7 @@ instance Data.ToQuery GetArchitectureRecommendations where
 data GetArchitectureRecommendationsResponse = GetArchitectureRecommendationsResponse'
   { -- | The time that a recovery group was last assessed for recommendations, in
     -- UTC ISO-8601 format.
-    lastAuditTimestamp :: Prelude.Maybe Data.POSIX,
+    lastAuditTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of the recommendations for the customer\'s application.

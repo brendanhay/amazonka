@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.SageMaker
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -540,6 +540,9 @@ import Test.Tasty
 --         , requestListAlgorithms $
 --             newListAlgorithms
 --
+--         , requestListAliases $
+--             newListAliases
+--
 --         , requestListAppImageConfigs $
 --             newListAppImageConfigs
 --
@@ -869,6 +872,9 @@ import Test.Tasty
 --
 --         , requestUpdateImage $
 --             newUpdateImage
+--
+--         , requestUpdateImageVersion $
+--             newUpdateImageVersion
 --
 --         , requestUpdateInferenceExperiment $
 --             newUpdateInferenceExperiment
@@ -1437,6 +1443,9 @@ import Test.Tasty
 --         , responseListAlgorithms $
 --             newListAlgorithmsResponse
 --
+--         , responseListAliases $
+--             newListAliasesResponse
+--
 --         , responseListAppImageConfigs $
 --             newListAppImageConfigsResponse
 --
@@ -1766,6 +1775,9 @@ import Test.Tasty
 --
 --         , responseUpdateImage $
 --             newUpdateImageResponse
+--
+--         , responseUpdateImageVersion $
+--             newUpdateImageVersionResponse
 --
 --         , responseUpdateInferenceExperiment $
 --             newUpdateInferenceExperimentResponse
@@ -2849,6 +2861,12 @@ requestListAlgorithms =
     "ListAlgorithms"
     "fixture/ListAlgorithms.yaml"
 
+requestListAliases :: ListAliases -> TestTree
+requestListAliases =
+  req
+    "ListAliases"
+    "fixture/ListAliases.yaml"
+
 requestListAppImageConfigs :: ListAppImageConfigs -> TestTree
 requestListAppImageConfigs =
   req
@@ -3508,6 +3526,12 @@ requestUpdateImage =
   req
     "UpdateImage"
     "fixture/UpdateImage.yaml"
+
+requestUpdateImageVersion :: UpdateImageVersion -> TestTree
+requestUpdateImageVersion =
+  req
+    "UpdateImageVersion"
+    "fixture/UpdateImageVersion.yaml"
 
 requestUpdateInferenceExperiment :: UpdateInferenceExperiment -> TestTree
 requestUpdateInferenceExperiment =
@@ -4981,6 +5005,14 @@ responseListAlgorithms =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAlgorithms)
 
+responseListAliases :: ListAliasesResponse -> TestTree
+responseListAliases =
+  res
+    "ListAliasesResponse"
+    "fixture/ListAliasesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAliases)
+
 responseListAppImageConfigs :: ListAppImageConfigsResponse -> TestTree
 responseListAppImageConfigs =
   res
@@ -5860,6 +5892,14 @@ responseUpdateImage =
     "fixture/UpdateImageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateImage)
+
+responseUpdateImageVersion :: UpdateImageVersionResponse -> TestTree
+responseUpdateImageVersion =
+  res
+    "UpdateImageVersionResponse"
+    "fixture/UpdateImageVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateImageVersion)
 
 responseUpdateInferenceExperiment :: UpdateInferenceExperimentResponse -> TestTree
 responseUpdateInferenceExperiment =

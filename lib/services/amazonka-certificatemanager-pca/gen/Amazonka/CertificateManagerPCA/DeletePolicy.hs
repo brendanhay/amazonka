@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.DeletePolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,9 +32,9 @@
 -- not affected when you delete the policy.
 --
 -- The current policy can be shown with
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html GetPolicy>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetPolicy.html GetPolicy>
 -- and updated with
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html PutPolicy>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_PutPolicy.html PutPolicy>.
 --
 -- __About Policies__
 --
@@ -42,7 +42,7 @@
 --     customer account, to Amazon Web Services Organizations, or to an
 --     Amazon Web Services Organizations unit. Policies are under the
 --     control of a CA administrator. For more information, see
---     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html Using a Resource Based Policy with ACM Private CA>.
+--     <https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html Using a Resource Based Policy with Amazon Web Services Private CA>.
 --
 -- -   A policy permits a user of Certificate Manager (ACM) to issue ACM
 --     certificates signed by a CA in another account.
@@ -50,13 +50,13 @@
 -- -   For ACM to manage automatic renewal of these certificates, the ACM
 --     user must configure a Service Linked Role (SLR). The SLR allows the
 --     ACM service to assume the identity of the user, subject to
---     confirmation against the ACM Private CA policy. For more
---     information, see
+--     confirmation against the Amazon Web Services Private CA policy. For
+--     more information, see
 --     <https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html Using a Service Linked Role with ACM>.
 --
 -- -   Updates made in Amazon Web Services Resource Manager (RAM) are
 --     reflected in policies. For more information, see
---     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html Attach a Policy for Cross-Account Access>.
+--     <https://docs.aws.amazon.com/privateca/latest/userguide/pca-ram.html Attach a Policy for Cross-Account Access>.
 module Amazonka.CertificateManagerPCA.DeletePolicy
   ( -- * Creating a Request
     DeletePolicy (..),
@@ -83,7 +83,7 @@ import qualified Amazonka.Response as Response
 data DeletePolicy = DeletePolicy'
   { -- | The Amazon Resource Number (ARN) of the private CA that will have its
     -- policy deleted. You can find the CA\'s ARN by calling the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action. The ARN value must have the form
     -- @arn:aws:acm-pca:region:account:certificate-authority\/01234567-89ab-cdef-0123-0123456789ab@.
     resourceArn :: Prelude.Text
@@ -100,7 +100,7 @@ data DeletePolicy = DeletePolicy'
 --
 -- 'resourceArn', 'deletePolicy_resourceArn' - The Amazon Resource Number (ARN) of the private CA that will have its
 -- policy deleted. You can find the CA\'s ARN by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. The ARN value must have the form
 -- @arn:aws:acm-pca:region:account:certificate-authority\/01234567-89ab-cdef-0123-0123456789ab@.
 newDeletePolicy ::
@@ -112,7 +112,7 @@ newDeletePolicy pResourceArn_ =
 
 -- | The Amazon Resource Number (ARN) of the private CA that will have its
 -- policy deleted. You can find the CA\'s ARN by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. The ARN value must have the form
 -- @arn:aws:acm-pca:region:account:certificate-authority\/01234567-89ab-cdef-0123-0123456789ab@.
 deletePolicy_resourceArn :: Lens.Lens' DeletePolicy Prelude.Text

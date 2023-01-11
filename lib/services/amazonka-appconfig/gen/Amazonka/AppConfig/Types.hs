@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.AppConfig.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -355,7 +355,7 @@ defaultService =
 
 -- | The input fails to satisfy the constraints specified by an Amazon Web
 -- Services service.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -364,7 +364,7 @@ _BadRequestException =
 
 -- | The request could not be processed because of conflict in the current
 -- state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -372,7 +372,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | There was an internal failure in the AppConfig service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -380,7 +380,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The configuration size is too large.
-_PayloadTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PayloadTooLargeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PayloadTooLargeException =
   Core._MatchServiceError
     defaultService
@@ -388,7 +388,7 @@ _PayloadTooLargeException =
     Prelude.. Core.hasStatus 413
 
 -- | The requested resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -398,7 +398,7 @@ _ResourceNotFoundException =
 -- | The number of hosted configuration versions exceeds the limit for the
 -- AppConfig hosted configuration store. Delete one or more versions and
 -- try again.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService

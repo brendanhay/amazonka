@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SageMakerRuntime.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -104,7 +104,7 @@ defaultService =
 
 -- | Your request caused an exception with an internal dependency. Contact
 -- customer support.
-_InternalDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalDependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalDependencyException =
   Core._MatchServiceError
     defaultService
@@ -112,7 +112,7 @@ _InternalDependencyException =
     Prelude.. Core.hasStatus 530
 
 -- | An internal failure occurred.
-_InternalFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailure :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailure =
   Core._MatchServiceError
     defaultService
@@ -121,7 +121,7 @@ _InternalFailure =
 
 -- | Model (owned by the customer in the container) returned 4xx or 5xx error
 -- code.
-_ModelError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ModelError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ModelError =
   Core._MatchServiceError defaultService "ModelError"
     Prelude.. Core.hasStatus 424
@@ -129,7 +129,7 @@ _ModelError =
 -- | Either a serverless endpoint variant\'s resources are still being
 -- provisioned, or a multi-model endpoint is still downloading or loading
 -- the target model. Wait and try your request again.
-_ModelNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ModelNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ModelNotReadyException =
   Core._MatchServiceError
     defaultService
@@ -137,7 +137,7 @@ _ModelNotReadyException =
     Prelude.. Core.hasStatus 429
 
 -- | The service is unavailable. Try your call again.
-_ServiceUnavailable :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailable :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailable =
   Core._MatchServiceError
     defaultService
@@ -145,7 +145,7 @@ _ServiceUnavailable =
     Prelude.. Core.hasStatus 503
 
 -- | Inspect your request and try again.
-_ValidationError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationError =
   Core._MatchServiceError
     defaultService

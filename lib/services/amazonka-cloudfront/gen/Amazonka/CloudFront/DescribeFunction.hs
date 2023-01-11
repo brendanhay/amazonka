@@ -14,18 +14,18 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.DescribeFunction
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets configuration information and metadata about a CloudFront function,
--- but not the function’s code. To get a function’s code, use
+-- but not the function\'s code. To get a function\'s code, use
 -- @GetFunction@.
 --
 -- To get configuration information and metadata about a function, you must
--- provide the function’s name and stage. To get these values, you can use
+-- provide the function\'s name and stage. To get these values, you can use
 -- @ListFunctions@.
 module Amazonka.CloudFront.DescribeFunction
   ( -- * Creating a Request
@@ -57,7 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeFunction' smart constructor.
 data DescribeFunction = DescribeFunction'
-  { -- | The function’s stage, either @DEVELOPMENT@ or @LIVE@.
+  { -- | The function\'s stage, either @DEVELOPMENT@ or @LIVE@.
     stage :: Prelude.Maybe FunctionStage,
     -- | The name of the function that you are getting information about.
     name :: Prelude.Text
@@ -72,7 +72,7 @@ data DescribeFunction = DescribeFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stage', 'describeFunction_stage' - The function’s stage, either @DEVELOPMENT@ or @LIVE@.
+-- 'stage', 'describeFunction_stage' - The function\'s stage, either @DEVELOPMENT@ or @LIVE@.
 --
 -- 'name', 'describeFunction_name' - The name of the function that you are getting information about.
 newDescribeFunction ::
@@ -85,7 +85,7 @@ newDescribeFunction pName_ =
       name = pName_
     }
 
--- | The function’s stage, either @DEVELOPMENT@ or @LIVE@.
+-- | The function\'s stage, either @DEVELOPMENT@ or @LIVE@.
 describeFunction_stage :: Lens.Lens' DescribeFunction (Prelude.Maybe FunctionStage)
 describeFunction_stage = Lens.lens (\DescribeFunction' {stage} -> stage) (\s@DescribeFunction' {} a -> s {stage = a} :: DescribeFunction)
 

@@ -58,6 +58,7 @@ haskell_library(
         "gen/Amazonka/Kinesis/Types/StreamMode.hs",
         "gen/Amazonka/Kinesis/Types/StreamModeDetails.hs",
         "gen/Amazonka/Kinesis/Types/StreamStatus.hs",
+        "gen/Amazonka/Kinesis/Types/StreamSummary.hs",
         "gen/Amazonka/Kinesis/Types/SubscribeToShardEvent.hs",
         "gen/Amazonka/Kinesis/Types/Tag.hs",
         "gen/Amazonka/Kinesis/UpdateShardCount.hs",

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.LaunchProfileInitialization
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@ import Amazonka.Nimble.Types.LaunchProfileInitializationScript
 import Amazonka.Nimble.Types.LaunchProfilePlatform
 import qualified Amazonka.Prelude as Prelude
 
--- | A Launch Profile Initialization contains information required for a
+-- | A launch profile initialization contains information required for a
 -- workstation or server to connect to a launch profile.
 --
 -- This includes scripts, endpoints, security groups, subnets, and other
@@ -35,11 +35,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchProfileInitialization' smart constructor.
 data LaunchProfileInitialization = LaunchProfileInitialization'
-  { -- | A LaunchProfileInitializationActiveDirectory resource.
+  { -- | A @LaunchProfileInitializationActiveDirectory@ resource.
     activeDirectory :: Prelude.Maybe LaunchProfileInitializationActiveDirectory,
     -- | The EC2 security groups that control access to the studio component.
     ec2SecurityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The launch profile ID.
+    -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Maybe Prelude.Text,
     -- | The version number of the protocol that is used by the launch profile.
     -- The only valid version is \"2021-03-31\".
@@ -48,7 +49,7 @@ data LaunchProfileInitialization = LaunchProfileInitialization'
     launchPurpose :: Prelude.Maybe Prelude.Text,
     -- | The name for the launch profile.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The platform of the launch platform, either WINDOWS or LINUX.
+    -- | The platform of the launch platform, either Windows or Linux.
     platform :: Prelude.Maybe LaunchProfilePlatform,
     -- | The system initializtion scripts.
     systemInitializationScripts :: Prelude.Maybe [LaunchProfileInitializationScript],
@@ -65,11 +66,12 @@ data LaunchProfileInitialization = LaunchProfileInitialization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'activeDirectory', 'launchProfileInitialization_activeDirectory' - A LaunchProfileInitializationActiveDirectory resource.
+-- 'activeDirectory', 'launchProfileInitialization_activeDirectory' - A @LaunchProfileInitializationActiveDirectory@ resource.
 --
 -- 'ec2SecurityGroupIds', 'launchProfileInitialization_ec2SecurityGroupIds' - The EC2 security groups that control access to the studio component.
 --
--- 'launchProfileId', 'launchProfileInitialization_launchProfileId' - The launch profile ID.
+-- 'launchProfileId', 'launchProfileInitialization_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'launchProfileProtocolVersion', 'launchProfileInitialization_launchProfileProtocolVersion' - The version number of the protocol that is used by the launch profile.
 -- The only valid version is \"2021-03-31\".
@@ -78,7 +80,7 @@ data LaunchProfileInitialization = LaunchProfileInitialization'
 --
 -- 'name', 'launchProfileInitialization_name' - The name for the launch profile.
 --
--- 'platform', 'launchProfileInitialization_platform' - The platform of the launch platform, either WINDOWS or LINUX.
+-- 'platform', 'launchProfileInitialization_platform' - The platform of the launch platform, either Windows or Linux.
 --
 -- 'systemInitializationScripts', 'launchProfileInitialization_systemInitializationScripts' - The system initializtion scripts.
 --
@@ -99,7 +101,7 @@ newLaunchProfileInitialization =
       userInitializationScripts = Prelude.Nothing
     }
 
--- | A LaunchProfileInitializationActiveDirectory resource.
+-- | A @LaunchProfileInitializationActiveDirectory@ resource.
 launchProfileInitialization_activeDirectory :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe LaunchProfileInitializationActiveDirectory)
 launchProfileInitialization_activeDirectory = Lens.lens (\LaunchProfileInitialization' {activeDirectory} -> activeDirectory) (\s@LaunchProfileInitialization' {} a -> s {activeDirectory = a} :: LaunchProfileInitialization)
 
@@ -107,7 +109,8 @@ launchProfileInitialization_activeDirectory = Lens.lens (\LaunchProfileInitializ
 launchProfileInitialization_ec2SecurityGroupIds :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 launchProfileInitialization_ec2SecurityGroupIds = Lens.lens (\LaunchProfileInitialization' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@LaunchProfileInitialization' {} a -> s {ec2SecurityGroupIds = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Lens.coerced
 
--- | The launch profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 launchProfileInitialization_launchProfileId :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
 launchProfileInitialization_launchProfileId = Lens.lens (\LaunchProfileInitialization' {launchProfileId} -> launchProfileId) (\s@LaunchProfileInitialization' {} a -> s {launchProfileId = a} :: LaunchProfileInitialization)
 
@@ -124,7 +127,7 @@ launchProfileInitialization_launchPurpose = Lens.lens (\LaunchProfileInitializat
 launchProfileInitialization_name :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
 launchProfileInitialization_name = Lens.lens (\LaunchProfileInitialization' {name} -> name) (\s@LaunchProfileInitialization' {} a -> s {name = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Data._Sensitive
 
--- | The platform of the launch platform, either WINDOWS or LINUX.
+-- | The platform of the launch platform, either Windows or Linux.
 launchProfileInitialization_platform :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe LaunchProfilePlatform)
 launchProfileInitialization_platform = Lens.lens (\LaunchProfileInitialization' {platform} -> platform) (\s@LaunchProfileInitialization' {} a -> s {platform = a} :: LaunchProfileInitialization)
 

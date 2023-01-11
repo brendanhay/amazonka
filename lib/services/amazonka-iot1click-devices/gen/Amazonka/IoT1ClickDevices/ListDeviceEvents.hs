@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoT1ClickDevices.ListDeviceEvents
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,10 +66,10 @@ data ListDeviceEvents = ListDeviceEvents'
     deviceId :: Prelude.Text,
     -- | The start date for the device event query, in ISO8061 format. For
     -- example, 2018-03-28T15:45:12.880Z
-    fromTimeStamp :: Data.POSIX,
+    fromTimeStamp :: Data.ISO8601,
     -- | The end date for the device event query, in ISO8061 format. For example,
     -- 2018-03-28T15:45:12.880Z
-    toTimeStamp :: Data.POSIX
+    toTimeStamp :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

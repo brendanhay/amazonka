@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MediaStoreData.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -124,7 +124,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified container was not found for the specified account.
-_ContainerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContainerNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ContainerNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -132,14 +132,14 @@ _ContainerNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The service is temporarily unavailable.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
     "InternalServerError"
 
 -- | Could not perform an operation on an object that does not exist.
-_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ObjectNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -147,7 +147,7 @@ _ObjectNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The requested content range is not valid.
-_RequestedRangeNotSatisfiableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestedRangeNotSatisfiableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RequestedRangeNotSatisfiableException =
   Core._MatchServiceError
     defaultService

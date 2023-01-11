@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.StorageGateway.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -511,7 +511,7 @@ defaultService =
 
 -- | An internal server error has occurred during the request. For more
 -- information, see the error and message fields.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -519,7 +519,7 @@ _InternalServerError =
 
 -- | An exception occurred because an invalid gateway request was issued to
 -- the service. For more information, see the error and message fields.
-_InvalidGatewayRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidGatewayRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidGatewayRequestException =
   Core._MatchServiceError
     defaultService
@@ -527,7 +527,7 @@ _InvalidGatewayRequestException =
 
 -- | An internal server error has occurred because the service is
 -- unavailable. For more information, see the error and message fields.
-_ServiceUnavailableError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableError =
   Core._MatchServiceError
     defaultService

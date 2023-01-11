@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreateImageVersion
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,6 +29,14 @@ module Amazonka.SageMaker.CreateImageVersion
     newCreateImageVersion,
 
     -- * Request Lenses
+    createImageVersion_aliases,
+    createImageVersion_horovod,
+    createImageVersion_jobType,
+    createImageVersion_mLFramework,
+    createImageVersion_processor,
+    createImageVersion_programmingLang,
+    createImageVersion_releaseNotes,
+    createImageVersion_vendorGuidance,
     createImageVersion_baseImage,
     createImageVersion_clientToken,
     createImageVersion_imageName,
@@ -53,7 +61,48 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateImageVersion' smart constructor.
 data CreateImageVersion = CreateImageVersion'
-  { -- | The registry path of the container image to use as the starting point
+  { -- | A list of aliases created with the image version.
+    aliases :: Prelude.Maybe [Prelude.Text],
+    -- | Indicates Horovod compatibility.
+    horovod :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates SageMaker job type compatibility.
+    --
+    -- -   @TRAINING@: The image version is compatible with SageMaker training
+    --     jobs.
+    --
+    -- -   @INFERENCE@: The image version is compatible with SageMaker
+    --     inference jobs.
+    --
+    -- -   @NOTEBOOK_KERNEL@: The image version is compatible with SageMaker
+    --     notebook kernels.
+    jobType :: Prelude.Maybe JobType,
+    -- | The machine learning framework vended in the image version.
+    mLFramework :: Prelude.Maybe Prelude.Text,
+    -- | Indicates CPU or GPU compatibility.
+    --
+    -- -   @CPU@: The image version is compatible with CPU.
+    --
+    -- -   @GPU@: The image version is compatible with GPU.
+    processor :: Prelude.Maybe Processor,
+    -- | The supported programming language and its version.
+    programmingLang :: Prelude.Maybe Prelude.Text,
+    -- | The maintainer description of the image version.
+    releaseNotes :: Prelude.Maybe Prelude.Text,
+    -- | The stability of the image version, specified by the maintainer.
+    --
+    -- -   @NOT_PROVIDED@: The maintainers did not provide a status for image
+    --     version stability.
+    --
+    -- -   @STABLE@: The image version is stable.
+    --
+    -- -   @TO_BE_ARCHIVED@: The image version is set to be archived. Custom
+    --     image versions that are set to be archived are automatically
+    --     archived after three months.
+    --
+    -- -   @ARCHIVED@: The image version is archived. Archived image versions
+    --     are not searchable and are no longer actively supported.
+    vendorGuidance :: Prelude.Maybe VendorGuidance,
+    -- | The registry path of the container image to use as the starting point
     -- for this version. The path is an Amazon Elastic Container Registry (ECR)
     -- URI in the following format:
     --
@@ -75,6 +124,47 @@ data CreateImageVersion = CreateImageVersion'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'aliases', 'createImageVersion_aliases' - A list of aliases created with the image version.
+--
+-- 'horovod', 'createImageVersion_horovod' - Indicates Horovod compatibility.
+--
+-- 'jobType', 'createImageVersion_jobType' - Indicates SageMaker job type compatibility.
+--
+-- -   @TRAINING@: The image version is compatible with SageMaker training
+--     jobs.
+--
+-- -   @INFERENCE@: The image version is compatible with SageMaker
+--     inference jobs.
+--
+-- -   @NOTEBOOK_KERNEL@: The image version is compatible with SageMaker
+--     notebook kernels.
+--
+-- 'mLFramework', 'createImageVersion_mLFramework' - The machine learning framework vended in the image version.
+--
+-- 'processor', 'createImageVersion_processor' - Indicates CPU or GPU compatibility.
+--
+-- -   @CPU@: The image version is compatible with CPU.
+--
+-- -   @GPU@: The image version is compatible with GPU.
+--
+-- 'programmingLang', 'createImageVersion_programmingLang' - The supported programming language and its version.
+--
+-- 'releaseNotes', 'createImageVersion_releaseNotes' - The maintainer description of the image version.
+--
+-- 'vendorGuidance', 'createImageVersion_vendorGuidance' - The stability of the image version, specified by the maintainer.
+--
+-- -   @NOT_PROVIDED@: The maintainers did not provide a status for image
+--     version stability.
+--
+-- -   @STABLE@: The image version is stable.
+--
+-- -   @TO_BE_ARCHIVED@: The image version is set to be archived. Custom
+--     image versions that are set to be archived are automatically
+--     archived after three months.
+--
+-- -   @ARCHIVED@: The image version is archived. Archived image versions
+--     are not searchable and are no longer actively supported.
 --
 -- 'baseImage', 'createImageVersion_baseImage' - The registry path of the container image to use as the starting point
 -- for this version. The path is an Amazon Elastic Container Registry (ECR)
@@ -100,10 +190,75 @@ newCreateImageVersion
   pClientToken_
   pImageName_ =
     CreateImageVersion'
-      { baseImage = pBaseImage_,
+      { aliases = Prelude.Nothing,
+        horovod = Prelude.Nothing,
+        jobType = Prelude.Nothing,
+        mLFramework = Prelude.Nothing,
+        processor = Prelude.Nothing,
+        programmingLang = Prelude.Nothing,
+        releaseNotes = Prelude.Nothing,
+        vendorGuidance = Prelude.Nothing,
+        baseImage = pBaseImage_,
         clientToken = pClientToken_,
         imageName = pImageName_
       }
+
+-- | A list of aliases created with the image version.
+createImageVersion_aliases :: Lens.Lens' CreateImageVersion (Prelude.Maybe [Prelude.Text])
+createImageVersion_aliases = Lens.lens (\CreateImageVersion' {aliases} -> aliases) (\s@CreateImageVersion' {} a -> s {aliases = a} :: CreateImageVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates Horovod compatibility.
+createImageVersion_horovod :: Lens.Lens' CreateImageVersion (Prelude.Maybe Prelude.Bool)
+createImageVersion_horovod = Lens.lens (\CreateImageVersion' {horovod} -> horovod) (\s@CreateImageVersion' {} a -> s {horovod = a} :: CreateImageVersion)
+
+-- | Indicates SageMaker job type compatibility.
+--
+-- -   @TRAINING@: The image version is compatible with SageMaker training
+--     jobs.
+--
+-- -   @INFERENCE@: The image version is compatible with SageMaker
+--     inference jobs.
+--
+-- -   @NOTEBOOK_KERNEL@: The image version is compatible with SageMaker
+--     notebook kernels.
+createImageVersion_jobType :: Lens.Lens' CreateImageVersion (Prelude.Maybe JobType)
+createImageVersion_jobType = Lens.lens (\CreateImageVersion' {jobType} -> jobType) (\s@CreateImageVersion' {} a -> s {jobType = a} :: CreateImageVersion)
+
+-- | The machine learning framework vended in the image version.
+createImageVersion_mLFramework :: Lens.Lens' CreateImageVersion (Prelude.Maybe Prelude.Text)
+createImageVersion_mLFramework = Lens.lens (\CreateImageVersion' {mLFramework} -> mLFramework) (\s@CreateImageVersion' {} a -> s {mLFramework = a} :: CreateImageVersion)
+
+-- | Indicates CPU or GPU compatibility.
+--
+-- -   @CPU@: The image version is compatible with CPU.
+--
+-- -   @GPU@: The image version is compatible with GPU.
+createImageVersion_processor :: Lens.Lens' CreateImageVersion (Prelude.Maybe Processor)
+createImageVersion_processor = Lens.lens (\CreateImageVersion' {processor} -> processor) (\s@CreateImageVersion' {} a -> s {processor = a} :: CreateImageVersion)
+
+-- | The supported programming language and its version.
+createImageVersion_programmingLang :: Lens.Lens' CreateImageVersion (Prelude.Maybe Prelude.Text)
+createImageVersion_programmingLang = Lens.lens (\CreateImageVersion' {programmingLang} -> programmingLang) (\s@CreateImageVersion' {} a -> s {programmingLang = a} :: CreateImageVersion)
+
+-- | The maintainer description of the image version.
+createImageVersion_releaseNotes :: Lens.Lens' CreateImageVersion (Prelude.Maybe Prelude.Text)
+createImageVersion_releaseNotes = Lens.lens (\CreateImageVersion' {releaseNotes} -> releaseNotes) (\s@CreateImageVersion' {} a -> s {releaseNotes = a} :: CreateImageVersion)
+
+-- | The stability of the image version, specified by the maintainer.
+--
+-- -   @NOT_PROVIDED@: The maintainers did not provide a status for image
+--     version stability.
+--
+-- -   @STABLE@: The image version is stable.
+--
+-- -   @TO_BE_ARCHIVED@: The image version is set to be archived. Custom
+--     image versions that are set to be archived are automatically
+--     archived after three months.
+--
+-- -   @ARCHIVED@: The image version is archived. Archived image versions
+--     are not searchable and are no longer actively supported.
+createImageVersion_vendorGuidance :: Lens.Lens' CreateImageVersion (Prelude.Maybe VendorGuidance)
+createImageVersion_vendorGuidance = Lens.lens (\CreateImageVersion' {vendorGuidance} -> vendorGuidance) (\s@CreateImageVersion' {} a -> s {vendorGuidance = a} :: CreateImageVersion)
 
 -- | The registry path of the container image to use as the starting point
 -- for this version. The path is an Amazon Elastic Container Registry (ECR)
@@ -139,13 +294,29 @@ instance Core.AWSRequest CreateImageVersion where
 
 instance Prelude.Hashable CreateImageVersion where
   hashWithSalt _salt CreateImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` baseImage
+    _salt `Prelude.hashWithSalt` aliases
+      `Prelude.hashWithSalt` horovod
+      `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` mLFramework
+      `Prelude.hashWithSalt` processor
+      `Prelude.hashWithSalt` programmingLang
+      `Prelude.hashWithSalt` releaseNotes
+      `Prelude.hashWithSalt` vendorGuidance
+      `Prelude.hashWithSalt` baseImage
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` imageName
 
 instance Prelude.NFData CreateImageVersion where
   rnf CreateImageVersion' {..} =
-    Prelude.rnf baseImage
+    Prelude.rnf aliases
+      `Prelude.seq` Prelude.rnf horovod
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf mLFramework
+      `Prelude.seq` Prelude.rnf processor
+      `Prelude.seq` Prelude.rnf programmingLang
+      `Prelude.seq` Prelude.rnf releaseNotes
+      `Prelude.seq` Prelude.rnf vendorGuidance
+      `Prelude.seq` Prelude.rnf baseImage
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf imageName
 
@@ -168,7 +339,17 @@ instance Data.ToJSON CreateImageVersion where
   toJSON CreateImageVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("BaseImage" Data..= baseImage),
+          [ ("Aliases" Data..=) Prelude.<$> aliases,
+            ("Horovod" Data..=) Prelude.<$> horovod,
+            ("JobType" Data..=) Prelude.<$> jobType,
+            ("MLFramework" Data..=) Prelude.<$> mLFramework,
+            ("Processor" Data..=) Prelude.<$> processor,
+            ("ProgrammingLang" Data..=)
+              Prelude.<$> programmingLang,
+            ("ReleaseNotes" Data..=) Prelude.<$> releaseNotes,
+            ("VendorGuidance" Data..=)
+              Prelude.<$> vendorGuidance,
+            Prelude.Just ("BaseImage" Data..= baseImage),
             Prelude.Just ("ClientToken" Data..= clientToken),
             Prelude.Just ("ImageName" Data..= imageName)
           ]
@@ -182,7 +363,7 @@ instance Data.ToQuery CreateImageVersion where
 
 -- | /See:/ 'newCreateImageVersionResponse' smart constructor.
 data CreateImageVersionResponse = CreateImageVersionResponse'
-  { -- | The Amazon Resource Name (ARN) of the image version.
+  { -- | The ARN of the image version.
     imageVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -197,7 +378,7 @@ data CreateImageVersionResponse = CreateImageVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageVersionArn', 'createImageVersionResponse_imageVersionArn' - The Amazon Resource Name (ARN) of the image version.
+-- 'imageVersionArn', 'createImageVersionResponse_imageVersionArn' - The ARN of the image version.
 --
 -- 'httpStatus', 'createImageVersionResponse_httpStatus' - The response's http status code.
 newCreateImageVersionResponse ::
@@ -211,7 +392,7 @@ newCreateImageVersionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the image version.
+-- | The ARN of the image version.
 createImageVersionResponse_imageVersionArn :: Lens.Lens' CreateImageVersionResponse (Prelude.Maybe Prelude.Text)
 createImageVersionResponse_imageVersionArn = Lens.lens (\CreateImageVersionResponse' {imageVersionArn} -> imageVersionArn) (\s@CreateImageVersionResponse' {} a -> s {imageVersionArn = a} :: CreateImageVersionResponse)
 

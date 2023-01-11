@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Translate.Types.TranslationSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,7 +44,7 @@ data TranslationSettings = TranslationSettings'
     -- the formality setting for any unsupported target language.
     --
     -- For a list of target languages that support formality, see
-    -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html Setting Formality>
+    -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages Supported languages>
     -- in the Amazon Translate Developer Guide.
     formality :: Prelude.Maybe Formality,
     -- | Enable the profanity setting if you want Amazon Translate to mask
@@ -55,8 +55,8 @@ data TranslationSettings = TranslationSettings'
     -- profane word or phrase, regardless of the length or number of words.
     --
     -- Amazon Translate doesn\'t detect profanity in all of its supported
-    -- languages. For languages that support profanity detection, see
-    -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html Masking profanity>
+    -- languages. For languages that don\'t support profanity detection, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages Unsupported languages>
     -- in the Amazon Translate Developer Guide.
     --
     -- If you specify multiple target languages for the job, all the target
@@ -88,7 +88,7 @@ data TranslationSettings = TranslationSettings'
 -- the formality setting for any unsupported target language.
 --
 -- For a list of target languages that support formality, see
--- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html Setting Formality>
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages Supported languages>
 -- in the Amazon Translate Developer Guide.
 --
 -- 'profanity', 'translationSettings_profanity' - Enable the profanity setting if you want Amazon Translate to mask
@@ -99,8 +99,8 @@ data TranslationSettings = TranslationSettings'
 -- profane word or phrase, regardless of the length or number of words.
 --
 -- Amazon Translate doesn\'t detect profanity in all of its supported
--- languages. For languages that support profanity detection, see
--- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html Masking profanity>
+-- languages. For languages that don\'t support profanity detection, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages Unsupported languages>
 -- in the Amazon Translate Developer Guide.
 --
 -- If you specify multiple target languages for the job, all the target
@@ -128,7 +128,7 @@ newTranslationSettings =
 -- the formality setting for any unsupported target language.
 --
 -- For a list of target languages that support formality, see
--- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html Setting Formality>
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages Supported languages>
 -- in the Amazon Translate Developer Guide.
 translationSettings_formality :: Lens.Lens' TranslationSettings (Prelude.Maybe Formality)
 translationSettings_formality = Lens.lens (\TranslationSettings' {formality} -> formality) (\s@TranslationSettings' {} a -> s {formality = a} :: TranslationSettings)
@@ -141,8 +141,8 @@ translationSettings_formality = Lens.lens (\TranslationSettings' {formality} -> 
 -- profane word or phrase, regardless of the length or number of words.
 --
 -- Amazon Translate doesn\'t detect profanity in all of its supported
--- languages. For languages that support profanity detection, see
--- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html Masking profanity>
+-- languages. For languages that don\'t support profanity detection, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages Unsupported languages>
 -- in the Amazon Translate Developer Guide.
 --
 -- If you specify multiple target languages for the job, all the target

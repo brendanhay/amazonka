@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.PrivateNetworks.Types.DeviceIdentifier
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,7 @@ import Amazonka.PrivateNetworks.Types.DeviceIdentifierStatus
 -- /See:/ 'newDeviceIdentifier' smart constructor.
 data DeviceIdentifier = DeviceIdentifier'
   { -- | The creation time of this device identifier.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the device identifier.
     deviceIdentifierArn :: Prelude.Maybe Prelude.Text,
     -- | The Integrated Circuit Card Identifier of the device identifier.

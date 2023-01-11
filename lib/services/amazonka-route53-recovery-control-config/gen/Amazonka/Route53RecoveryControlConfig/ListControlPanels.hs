@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig.ListControlPanels
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of control panels in an account or in a cluster.
+--
+-- This operation returns paginated results.
 module Amazonka.Route53RecoveryControlConfig.ListControlPanels
   ( -- * Creating a Request
     ListControlPanels (..),
@@ -94,6 +96,28 @@ listControlPanels_maxResults = Lens.lens (\ListControlPanels' {maxResults} -> ma
 -- | The token that identifies which batch of results you want to see.
 listControlPanels_nextToken :: Lens.Lens' ListControlPanels (Prelude.Maybe Prelude.Text)
 listControlPanels_nextToken = Lens.lens (\ListControlPanels' {nextToken} -> nextToken) (\s@ListControlPanels' {} a -> s {nextToken = a} :: ListControlPanels)
+
+instance Core.AWSPager ListControlPanels where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listControlPanelsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listControlPanelsResponse_controlPanels
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listControlPanels_nextToken
+          Lens..~ rs
+          Lens.^? listControlPanelsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListControlPanels where
   type

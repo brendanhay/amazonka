@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Rekognition.GetLabelDetection
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,25 +27,68 @@
 -- StartLabelDetection which returns a job identifier (@JobId@). When the
 -- label detection operation finishes, Amazon Rekognition publishes a
 -- completion status to the Amazon Simple Notification Service topic
--- registered in the initial call to @StartlabelDetection@. To get the
--- results of the label detection operation, first check that the status
--- value published to the Amazon SNS topic is @SUCCEEDED@. If so, call
--- GetLabelDetection and pass the job identifier (@JobId@) from the initial
--- call to @StartLabelDetection@.
+-- registered in the initial call to @StartlabelDetection@.
+--
+-- To get the results of the label detection operation, first check that
+-- the status value published to the Amazon SNS topic is @SUCCEEDED@. If
+-- so, call GetLabelDetection and pass the job identifier (@JobId@) from
+-- the initial call to @StartLabelDetection@.
 --
 -- @GetLabelDetection@ returns an array of detected labels (@Labels@)
 -- sorted by the time the labels were detected. You can also sort by the
--- label name by specifying @NAME@ for the @SortBy@ input parameter.
+-- label name by specifying @NAME@ for the @SortBy@ input parameter. If
+-- there is no @NAME@ specified, the default sort is by timestamp.
 --
--- The labels returned include the label name, the percentage confidence in
--- the accuracy of the detected label, and the time the label was detected
--- in the video.
+-- You can select how results are aggregated by using the @AggregateBy@
+-- input parameter. The default aggregation method is @TIMESTAMPS@. You can
+-- also aggregate by @SEGMENTS@, which aggregates all instances of labels
+-- detected in a given segment.
 --
--- The returned labels also include bounding box information for common
--- objects, a hierarchical taxonomy of detected labels, and the version of
--- the label model used for detection.
+-- The returned Labels array may include the following attributes:
 --
--- Use MaxResults parameter to limit the number of labels returned. If
+-- -   Name - The name of the detected label.
+--
+-- -   Confidence - The level of confidence in the label assigned to a
+--     detected object.
+--
+-- -   Parents - The ancestor labels for a detected label.
+--     GetLabelDetection returns a hierarchical taxonomy of detected
+--     labels. For example, a detected car might be assigned the label car.
+--     The label car has two parent labels: Vehicle (its parent) and
+--     Transportation (its grandparent). The response includes the all
+--     ancestors for a label, where every ancestor is a unique label. In
+--     the previous example, Car, Vehicle, and Transportation are returned
+--     as unique labels in the response.
+--
+-- -   Aliases - Possible Aliases for the label.
+--
+-- -   Categories - The label categories that the detected label belongs
+--     to.
+--
+-- -   BoundingBox — Bounding boxes are described for all instances of
+--     detected common object labels, returned in an array of Instance
+--     objects. An Instance object contains a BoundingBox object,
+--     describing the location of the label on the input image. It also
+--     includes the confidence for the accuracy of the detected bounding
+--     box.
+--
+-- -   Timestamp - Time, in milliseconds from the start of the video, that
+--     the label was detected. For aggregation by @SEGMENTS@, the
+--     @StartTimestampMillis@, @EndTimestampMillis@, and @DurationMillis@
+--     structures are what define a segment. Although the “Timestamp”
+--     structure is still returned with each label, its value is set to be
+--     the same as @StartTimestampMillis@.
+--
+-- Timestamp and Bounding box information are returned for detected
+-- Instances, only if aggregation is done by @TIMESTAMPS@. If aggregating
+-- by @SEGMENTS@, information about detected instances isn’t returned.
+--
+-- The version of the label model used for the detection is also returned.
+--
+-- __Note @DominantColors@ isn\'t returned for @Instances@, although it is
+-- shown as part of the response in the sample seen below.__
+--
+-- Use @MaxResults@ parameter to limit the number of labels returned. If
 -- there are more results than specified in @MaxResults@, the value of
 -- @NextToken@ in the operation response contains a pagination token for
 -- getting the next set of results. To get the next page of results, call
@@ -57,6 +100,7 @@ module Amazonka.Rekognition.GetLabelDetection
     newGetLabelDetection,
 
     -- * Request Lenses
+    getLabelDetection_aggregateBy,
     getLabelDetection_maxResults,
     getLabelDetection_nextToken,
     getLabelDetection_sortBy,
@@ -87,7 +131,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLabelDetection' smart constructor.
 data GetLabelDetection = GetLabelDetection'
-  { -- | Maximum number of results to return per paginated call. The largest
+  { -- | Defines how to aggregate the returned results. Results can be aggregated
+    -- by timestamps or segments.
+    aggregateBy :: Prelude.Maybe LabelDetectionAggregateBy,
+    -- | Maximum number of results to return per paginated call. The largest
     -- value you can specify is 1000. If you specify a value greater than 1000,
     -- a maximum of 1000 results is returned. The default value is 1000.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -117,6 +164,9 @@ data GetLabelDetection = GetLabelDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aggregateBy', 'getLabelDetection_aggregateBy' - Defines how to aggregate the returned results. Results can be aggregated
+-- by timestamps or segments.
+--
 -- 'maxResults', 'getLabelDetection_maxResults' - Maximum number of results to return per paginated call. The largest
 -- value you can specify is 1000. If you specify a value greater than 1000,
 -- a maximum of 1000 results is returned. The default value is 1000.
@@ -141,11 +191,17 @@ newGetLabelDetection ::
   GetLabelDetection
 newGetLabelDetection pJobId_ =
   GetLabelDetection'
-    { maxResults = Prelude.Nothing,
+    { aggregateBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       sortBy = Prelude.Nothing,
       jobId = pJobId_
     }
+
+-- | Defines how to aggregate the returned results. Results can be aggregated
+-- by timestamps or segments.
+getLabelDetection_aggregateBy :: Lens.Lens' GetLabelDetection (Prelude.Maybe LabelDetectionAggregateBy)
+getLabelDetection_aggregateBy = Lens.lens (\GetLabelDetection' {aggregateBy} -> aggregateBy) (\s@GetLabelDetection' {} a -> s {aggregateBy = a} :: GetLabelDetection)
 
 -- | Maximum number of results to return per paginated call. The largest
 -- value you can specify is 1000. If you specify a value greater than 1000,
@@ -195,14 +251,16 @@ instance Core.AWSRequest GetLabelDetection where
 
 instance Prelude.Hashable GetLabelDetection where
   hashWithSalt _salt GetLabelDetection' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` aggregateBy
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetLabelDetection where
   rnf GetLabelDetection' {..} =
-    Prelude.rnf maxResults
+    Prelude.rnf aggregateBy
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf jobId
@@ -226,7 +284,8 @@ instance Data.ToJSON GetLabelDetection where
   toJSON GetLabelDetection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("AggregateBy" Data..=) Prelude.<$> aggregateBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SortBy" Data..=) Prelude.<$> sortBy,
             Prelude.Just ("JobId" Data..= jobId)

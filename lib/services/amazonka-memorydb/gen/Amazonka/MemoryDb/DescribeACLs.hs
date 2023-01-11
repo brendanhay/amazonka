@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeACLs
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of ACLs
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeACLs
   ( -- * Creating a Request
     DescribeACLs (..),
@@ -112,6 +114,25 @@ describeACLs_maxResults = Lens.lens (\DescribeACLs' {maxResults} -> maxResults) 
 -- the next page. Keep all other arguments unchanged.
 describeACLs_nextToken :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Text)
 describeACLs_nextToken = Lens.lens (\DescribeACLs' {nextToken} -> nextToken) (\s@DescribeACLs' {} a -> s {nextToken = a} :: DescribeACLs)
+
+instance Core.AWSPager DescribeACLs where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeACLsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeACLsResponse_aCLs Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeACLs_nextToken
+          Lens..~ rs
+          Lens.^? describeACLsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeACLs where
   type AWSResponse DescribeACLs = DescribeACLsResponse

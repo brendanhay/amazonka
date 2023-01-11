@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeEvents
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,8 @@
 -- group, or parameter group by providing the name as a parameter. By
 -- default, only the events occurring within the last hour are returned;
 -- however, you can retrieve up to 14 days\' worth of events if necessary.
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeEvents
   ( -- * Creating a Request
     DescribeEvents (..),
@@ -168,6 +170,26 @@ describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceTy
 -- ISO 8601 format. Example: 2017-03-30T07:03:49.555Z
 describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
 describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
+
+instance Core.AWSPager DescribeEvents where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeEventsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeEventsResponse_events Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeEvents_nextToken
+          Lens..~ rs
+          Lens.^? describeEventsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEvents where
   type

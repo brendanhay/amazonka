@@ -58,6 +58,7 @@ haskell_library(
         "gen/Amazonka/CloudWatch/Types/Datapoint.hs",
         "gen/Amazonka/CloudWatch/Types/Dimension.hs",
         "gen/Amazonka/CloudWatch/Types/DimensionFilter.hs",
+        "gen/Amazonka/CloudWatch/Types/EvaluationState.hs",
         "gen/Amazonka/CloudWatch/Types/HistoryItemType.hs",
         "gen/Amazonka/CloudWatch/Types/InsightRule.hs",
         "gen/Amazonka/CloudWatch/Types/InsightRuleContributor.hs",

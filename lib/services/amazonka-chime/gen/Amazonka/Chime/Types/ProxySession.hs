@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.ProxySession
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,9 +37,9 @@ data ProxySession = ProxySession'
   { -- | The proxy session capabilities.
     capabilities :: Prelude.Maybe [Capability],
     -- | The created time stamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The ended time stamp, in ISO 8601 format.
-    endedTimestamp :: Prelude.Maybe Data.POSIX,
+    endedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The number of minutes allowed for the proxy session.
     expiryMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The preference for matching the country or area code of the proxy phone
@@ -59,7 +59,7 @@ data ProxySession = ProxySession'
     -- | The status of the proxy session.
     status :: Prelude.Maybe ProxySessionStatus,
     -- | The updated time stamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Chime voice connector ID.
     voiceConnectorId :: Prelude.Maybe Prelude.Text
   }

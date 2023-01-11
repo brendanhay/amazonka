@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.DataPipeline.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -221,7 +221,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An internal service error occurred.
-_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceError =
   Core._MatchServiceError
     defaultService
@@ -231,14 +231,14 @@ _InternalServiceError =
 -- formatted, that the signature was generated with the correct
 -- credentials, and that you haven\'t exceeded any of the service limits
 -- for your account.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The specified pipeline has been deleted.
-_PipelineDeletedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PipelineDeletedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PipelineDeletedException =
   Core._MatchServiceError
     defaultService
@@ -246,14 +246,14 @@ _PipelineDeletedException =
 
 -- | The specified pipeline was not found. Verify that you used the correct
 -- user and account identifiers.
-_PipelineNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PipelineNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PipelineNotFoundException =
   Core._MatchServiceError
     defaultService
     "PipelineNotFoundException"
 
 -- | The specified task was not found.
-_TaskNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaskNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TaskNotFoundException =
   Core._MatchServiceError
     defaultService

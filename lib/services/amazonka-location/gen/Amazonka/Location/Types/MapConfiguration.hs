@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Location.Types.MapConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -94,6 +94,20 @@ data MapConfiguration = MapConfiguration'
     --     map that you see. This means that more tiles are retrieved than when
     --     using either vector or raster tiles alone. Your charges will include
     --     all tiles retrieved.
+    --
+    -- Valid
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data (Preview) map styles>:
+    --
+    -- -   @VectorOpenDataStandardLight@ – The Open Data Standard Light
+    --     (preview) map style provides a detailed basemap for the world
+    --     suitable for website and mobile application use. The map includes
+    --     highways major roads, minor roads, railways, water features, cities,
+    --     parks, landmarks, building footprints, and administrative
+    --     boundaries.
+    --
+    --     Open Data maps is in preview. We may add, change, or remove features
+    --     before announcing general availability. For more information, see
+    --     <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview Open Data is in preview release>.
     style :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -172,6 +186,20 @@ data MapConfiguration = MapConfiguration'
 --     map that you see. This means that more tiles are retrieved than when
 --     using either vector or raster tiles alone. Your charges will include
 --     all tiles retrieved.
+--
+-- Valid
+-- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data (Preview) map styles>:
+--
+-- -   @VectorOpenDataStandardLight@ – The Open Data Standard Light
+--     (preview) map style provides a detailed basemap for the world
+--     suitable for website and mobile application use. The map includes
+--     highways major roads, minor roads, railways, water features, cities,
+--     parks, landmarks, building footprints, and administrative
+--     boundaries.
+--
+--     Open Data maps is in preview. We may add, change, or remove features
+--     before announcing general availability. For more information, see
+--     <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview Open Data is in preview release>.
 newMapConfiguration ::
   -- | 'style'
   Prelude.Text ->
@@ -245,6 +273,20 @@ newMapConfiguration pStyle_ =
 --     map that you see. This means that more tiles are retrieved than when
 --     using either vector or raster tiles alone. Your charges will include
 --     all tiles retrieved.
+--
+-- Valid
+-- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data (Preview) map styles>:
+--
+-- -   @VectorOpenDataStandardLight@ – The Open Data Standard Light
+--     (preview) map style provides a detailed basemap for the world
+--     suitable for website and mobile application use. The map includes
+--     highways major roads, minor roads, railways, water features, cities,
+--     parks, landmarks, building footprints, and administrative
+--     boundaries.
+--
+--     Open Data maps is in preview. We may add, change, or remove features
+--     before announcing general availability. For more information, see
+--     <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview Open Data is in preview release>.
 mapConfiguration_style :: Lens.Lens' MapConfiguration Prelude.Text
 mapConfiguration_style = Lens.lens (\MapConfiguration' {style} -> style) (\s@MapConfiguration' {} a -> s {style = a} :: MapConfiguration)
 

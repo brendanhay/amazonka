@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceExplorer2.GetIndex
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -121,26 +121,27 @@ data GetIndexResponse = GetIndexResponse'
     -- of the index.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the index was originally created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The date and time when the index was last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | If this index is @Type=AGGREGATOR@, then this response value contains a
-    -- list of the Amazon Web Services Regions that replicate their content to
-    -- the index in this Region. Not present for a local index.
+    lastUpdatedAt :: Prelude.Maybe Data.ISO8601,
+    -- | This response value is present only if this index is @Type=AGGREGATOR@.
+    --
+    -- A list of the Amazon Web Services Regions that replicate their content
+    -- to the index in this Region.
     replicatingFrom :: Prelude.Maybe [Prelude.Text],
-    -- | Identifies the Amazon Web Services Region that has an index set to
-    -- @Type=AGGREGATOR@, if one exists. If it does, then the Region you called
-    -- this operation in replicates its index information to the Region
-    -- specified in this response value. Not present if there isn\'t an
-    -- aggregator index in the account.
+    -- | This response value is present only if this index is @Type=LOCAL@.
+    --
+    -- The Amazon Web Services Region that contains the aggregator index, if
+    -- one exists. If an aggregator index does exist then the Region in which
+    -- you called this operation replicates its index information to the Region
+    -- specified in this response value.
     replicatingTo :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates the current state of the index in this Amazon Web Services
-    -- Region.
+    -- | The current state of the index in this Amazon Web Services Region.
     state :: Prelude.Maybe IndexState,
     -- | Tag key and value pairs that are attached to the index.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies the type of the index in this Region. For information about
-    -- the aggregator index and how it differs from a local index, see
+    -- | The type of the index in this Region. For information about the
+    -- aggregator index and how it differs from a local index, see
     -- <https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html Turning on cross-Region search by creating an aggregator index>.
     type' :: Prelude.Maybe IndexType,
     -- | The response's http status code.
@@ -164,23 +165,24 @@ data GetIndexResponse = GetIndexResponse'
 --
 -- 'lastUpdatedAt', 'getIndexResponse_lastUpdatedAt' - The date and time when the index was last updated.
 --
--- 'replicatingFrom', 'getIndexResponse_replicatingFrom' - If this index is @Type=AGGREGATOR@, then this response value contains a
--- list of the Amazon Web Services Regions that replicate their content to
--- the index in this Region. Not present for a local index.
+-- 'replicatingFrom', 'getIndexResponse_replicatingFrom' - This response value is present only if this index is @Type=AGGREGATOR@.
 --
--- 'replicatingTo', 'getIndexResponse_replicatingTo' - Identifies the Amazon Web Services Region that has an index set to
--- @Type=AGGREGATOR@, if one exists. If it does, then the Region you called
--- this operation in replicates its index information to the Region
--- specified in this response value. Not present if there isn\'t an
--- aggregator index in the account.
+-- A list of the Amazon Web Services Regions that replicate their content
+-- to the index in this Region.
 --
--- 'state', 'getIndexResponse_state' - Indicates the current state of the index in this Amazon Web Services
--- Region.
+-- 'replicatingTo', 'getIndexResponse_replicatingTo' - This response value is present only if this index is @Type=LOCAL@.
+--
+-- The Amazon Web Services Region that contains the aggregator index, if
+-- one exists. If an aggregator index does exist then the Region in which
+-- you called this operation replicates its index information to the Region
+-- specified in this response value.
+--
+-- 'state', 'getIndexResponse_state' - The current state of the index in this Amazon Web Services Region.
 --
 -- 'tags', 'getIndexResponse_tags' - Tag key and value pairs that are attached to the index.
 --
--- 'type'', 'getIndexResponse_type' - Specifies the type of the index in this Region. For information about
--- the aggregator index and how it differs from a local index, see
+-- 'type'', 'getIndexResponse_type' - The type of the index in this Region. For information about the
+-- aggregator index and how it differs from a local index, see
 -- <https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html Turning on cross-Region search by creating an aggregator index>.
 --
 -- 'httpStatus', 'getIndexResponse_httpStatus' - The response's http status code.
@@ -215,22 +217,23 @@ getIndexResponse_createdAt = Lens.lens (\GetIndexResponse' {createdAt} -> create
 getIndexResponse_lastUpdatedAt :: Lens.Lens' GetIndexResponse (Prelude.Maybe Prelude.UTCTime)
 getIndexResponse_lastUpdatedAt = Lens.lens (\GetIndexResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetIndexResponse' {} a -> s {lastUpdatedAt = a} :: GetIndexResponse) Prelude.. Lens.mapping Data._Time
 
--- | If this index is @Type=AGGREGATOR@, then this response value contains a
--- list of the Amazon Web Services Regions that replicate their content to
--- the index in this Region. Not present for a local index.
+-- | This response value is present only if this index is @Type=AGGREGATOR@.
+--
+-- A list of the Amazon Web Services Regions that replicate their content
+-- to the index in this Region.
 getIndexResponse_replicatingFrom :: Lens.Lens' GetIndexResponse (Prelude.Maybe [Prelude.Text])
 getIndexResponse_replicatingFrom = Lens.lens (\GetIndexResponse' {replicatingFrom} -> replicatingFrom) (\s@GetIndexResponse' {} a -> s {replicatingFrom = a} :: GetIndexResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Identifies the Amazon Web Services Region that has an index set to
--- @Type=AGGREGATOR@, if one exists. If it does, then the Region you called
--- this operation in replicates its index information to the Region
--- specified in this response value. Not present if there isn\'t an
--- aggregator index in the account.
+-- | This response value is present only if this index is @Type=LOCAL@.
+--
+-- The Amazon Web Services Region that contains the aggregator index, if
+-- one exists. If an aggregator index does exist then the Region in which
+-- you called this operation replicates its index information to the Region
+-- specified in this response value.
 getIndexResponse_replicatingTo :: Lens.Lens' GetIndexResponse (Prelude.Maybe [Prelude.Text])
 getIndexResponse_replicatingTo = Lens.lens (\GetIndexResponse' {replicatingTo} -> replicatingTo) (\s@GetIndexResponse' {} a -> s {replicatingTo = a} :: GetIndexResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates the current state of the index in this Amazon Web Services
--- Region.
+-- | The current state of the index in this Amazon Web Services Region.
 getIndexResponse_state :: Lens.Lens' GetIndexResponse (Prelude.Maybe IndexState)
 getIndexResponse_state = Lens.lens (\GetIndexResponse' {state} -> state) (\s@GetIndexResponse' {} a -> s {state = a} :: GetIndexResponse)
 
@@ -238,8 +241,8 @@ getIndexResponse_state = Lens.lens (\GetIndexResponse' {state} -> state) (\s@Get
 getIndexResponse_tags :: Lens.Lens' GetIndexResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getIndexResponse_tags = Lens.lens (\GetIndexResponse' {tags} -> tags) (\s@GetIndexResponse' {} a -> s {tags = a} :: GetIndexResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the type of the index in this Region. For information about
--- the aggregator index and how it differs from a local index, see
+-- | The type of the index in this Region. For information about the
+-- aggregator index and how it differs from a local index, see
 -- <https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html Turning on cross-Region search by creating an aggregator index>.
 getIndexResponse_type :: Lens.Lens' GetIndexResponse (Prelude.Maybe IndexType)
 getIndexResponse_type = Lens.lens (\GetIndexResponse' {type'} -> type') (\s@GetIndexResponse' {} a -> s {type' = a} :: GetIndexResponse)

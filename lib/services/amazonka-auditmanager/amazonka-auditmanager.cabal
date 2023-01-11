@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -140,6 +140,8 @@ library
     Amazonka.AuditManager.Types.Delegation
     Amazonka.AuditManager.Types.DelegationMetadata
     Amazonka.AuditManager.Types.DelegationStatus
+    Amazonka.AuditManager.Types.DeleteResources
+    Amazonka.AuditManager.Types.DeregistrationPolicy
     Amazonka.AuditManager.Types.Evidence
     Amazonka.AuditManager.Types.EvidenceFinderBackfillStatus
     Amazonka.AuditManager.Types.EvidenceFinderEnablement

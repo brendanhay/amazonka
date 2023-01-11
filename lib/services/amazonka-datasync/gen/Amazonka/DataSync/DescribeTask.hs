@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataSync.DescribeTask
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -167,14 +167,15 @@ data DescribeTaskResponse = DescribeTaskResponse'
     cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the task was created.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the task execution that is syncing
-    -- files.
+    -- | The Amazon Resource Name (ARN) of the task execution that is
+    -- transferring files.
     currentTaskExecutionArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon Web Services storage
     -- resource\'s location.
     destinationLocationArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Names (ARNs) of the destination elastic network
-    -- interfaces (ENIs) that were created for your subnet.
+    -- | The Amazon Resource Names (ARNs) of the network interfaces created for
+    -- your destination location. For more information, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces Network interface requirements>.
     destinationNetworkInterfaceArns :: Prelude.Maybe [Prelude.Text],
     -- | Errors that DataSync encountered during execution of the task. You can
     -- use this error code to help troubleshoot issues.
@@ -182,36 +183,32 @@ data DescribeTaskResponse = DescribeTaskResponse'
     -- | Detailed description of an error that was encountered during the task
     -- execution. You can use this information to help troubleshoot issues.
     errorDetail :: Prelude.Maybe Prelude.Text,
-    -- | A list of filter rules that determines which files to exclude from a
-    -- task. The list should contain a single filter string that consists of
-    -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
-    -- pipe), for example, @\"\/folder1|\/folder2\"@.
+    -- | A list of filter rules that exclude specific data during your transfer.
+    -- For more information and examples, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
     excludes :: Prelude.Maybe [FilterRule],
-    -- | A list of filter rules that determines which files to include when
-    -- running a task. The pattern contains a single filter string that
-    -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe), for example, @\"\/folder1|\/folder2@\".
+    -- | A list of filter rules that include specific data during your transfer.
+    -- For more information and examples, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
     includes :: Prelude.Maybe [FilterRule],
     -- | The name of the task that was described.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The set of configuration options that control the behavior of a single
-    -- execution of the task that occurs when you call @StartTaskExecution@.
-    -- You can configure these options to preserve metadata such as user ID
-    -- (UID) and group (GID), file permissions, data integrity verification,
-    -- and so on.
+    -- | The configuration options that control the behavior of the
+    -- @StartTaskExecution@ operation. Some options include preserving file or
+    -- object metadata and verifying data integrity.
     --
-    -- For each individual task execution, you can override these options by
-    -- specifying the overriding @OverrideOptions@ value to
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>
-    -- operation.
+    -- You can override these options for each task execution. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>.
     options :: Prelude.Maybe Options,
     -- | The schedule used to periodically transfer files from a source to a
     -- destination location.
     schedule :: Prelude.Maybe TaskSchedule,
     -- | The Amazon Resource Name (ARN) of the source file system\'s location.
     sourceLocationArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Names (ARNs) of the source elastic network
-    -- interfaces (ENIs) that were created for your subnet.
+    -- | The Amazon Resource Names (ARNs) of the network interfaces created for
+    -- your source location. For more information, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces Network interface requirements>.
     sourceNetworkInterfaceArns :: Prelude.Maybe [Prelude.Text],
     -- | The status of the task that was described.
     --
@@ -241,14 +238,15 @@ data DescribeTaskResponse = DescribeTaskResponse'
 --
 -- 'creationTime', 'describeTaskResponse_creationTime' - The time that the task was created.
 --
--- 'currentTaskExecutionArn', 'describeTaskResponse_currentTaskExecutionArn' - The Amazon Resource Name (ARN) of the task execution that is syncing
--- files.
+-- 'currentTaskExecutionArn', 'describeTaskResponse_currentTaskExecutionArn' - The Amazon Resource Name (ARN) of the task execution that is
+-- transferring files.
 --
 -- 'destinationLocationArn', 'describeTaskResponse_destinationLocationArn' - The Amazon Resource Name (ARN) of the Amazon Web Services storage
 -- resource\'s location.
 --
--- 'destinationNetworkInterfaceArns', 'describeTaskResponse_destinationNetworkInterfaceArns' - The Amazon Resource Names (ARNs) of the destination elastic network
--- interfaces (ENIs) that were created for your subnet.
+-- 'destinationNetworkInterfaceArns', 'describeTaskResponse_destinationNetworkInterfaceArns' - The Amazon Resource Names (ARNs) of the network interfaces created for
+-- your destination location. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces Network interface requirements>.
 --
 -- 'errorCode', 'describeTaskResponse_errorCode' - Errors that DataSync encountered during execution of the task. You can
 -- use this error code to help troubleshoot issues.
@@ -256,36 +254,32 @@ data DescribeTaskResponse = DescribeTaskResponse'
 -- 'errorDetail', 'describeTaskResponse_errorDetail' - Detailed description of an error that was encountered during the task
 -- execution. You can use this information to help troubleshoot issues.
 --
--- 'excludes', 'describeTaskResponse_excludes' - A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example, @\"\/folder1|\/folder2\"@.
+-- 'excludes', 'describeTaskResponse_excludes' - A list of filter rules that exclude specific data during your transfer.
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 --
--- 'includes', 'describeTaskResponse_includes' - A list of filter rules that determines which files to include when
--- running a task. The pattern contains a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example, @\"\/folder1|\/folder2@\".
+-- 'includes', 'describeTaskResponse_includes' - A list of filter rules that include specific data during your transfer.
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 --
 -- 'name', 'describeTaskResponse_name' - The name of the task that was described.
 --
--- 'options', 'describeTaskResponse_options' - The set of configuration options that control the behavior of a single
--- execution of the task that occurs when you call @StartTaskExecution@.
--- You can configure these options to preserve metadata such as user ID
--- (UID) and group (GID), file permissions, data integrity verification,
--- and so on.
+-- 'options', 'describeTaskResponse_options' - The configuration options that control the behavior of the
+-- @StartTaskExecution@ operation. Some options include preserving file or
+-- object metadata and verifying data integrity.
 --
--- For each individual task execution, you can override these options by
--- specifying the overriding @OverrideOptions@ value to
--- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>
--- operation.
+-- You can override these options for each task execution. For more
+-- information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>.
 --
 -- 'schedule', 'describeTaskResponse_schedule' - The schedule used to periodically transfer files from a source to a
 -- destination location.
 --
 -- 'sourceLocationArn', 'describeTaskResponse_sourceLocationArn' - The Amazon Resource Name (ARN) of the source file system\'s location.
 --
--- 'sourceNetworkInterfaceArns', 'describeTaskResponse_sourceNetworkInterfaceArns' - The Amazon Resource Names (ARNs) of the source elastic network
--- interfaces (ENIs) that were created for your subnet.
+-- 'sourceNetworkInterfaceArns', 'describeTaskResponse_sourceNetworkInterfaceArns' - The Amazon Resource Names (ARNs) of the network interfaces created for
+-- your source location. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces Network interface requirements>.
 --
 -- 'status', 'describeTaskResponse_status' - The status of the task that was described.
 --
@@ -333,8 +327,8 @@ describeTaskResponse_cloudWatchLogGroupArn = Lens.lens (\DescribeTaskResponse' {
 describeTaskResponse_creationTime :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
 describeTaskResponse_creationTime = Lens.lens (\DescribeTaskResponse' {creationTime} -> creationTime) (\s@DescribeTaskResponse' {} a -> s {creationTime = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the task execution that is syncing
--- files.
+-- | The Amazon Resource Name (ARN) of the task execution that is
+-- transferring files.
 describeTaskResponse_currentTaskExecutionArn :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
 describeTaskResponse_currentTaskExecutionArn = Lens.lens (\DescribeTaskResponse' {currentTaskExecutionArn} -> currentTaskExecutionArn) (\s@DescribeTaskResponse' {} a -> s {currentTaskExecutionArn = a} :: DescribeTaskResponse)
 
@@ -343,8 +337,9 @@ describeTaskResponse_currentTaskExecutionArn = Lens.lens (\DescribeTaskResponse'
 describeTaskResponse_destinationLocationArn :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
 describeTaskResponse_destinationLocationArn = Lens.lens (\DescribeTaskResponse' {destinationLocationArn} -> destinationLocationArn) (\s@DescribeTaskResponse' {} a -> s {destinationLocationArn = a} :: DescribeTaskResponse)
 
--- | The Amazon Resource Names (ARNs) of the destination elastic network
--- interfaces (ENIs) that were created for your subnet.
+-- | The Amazon Resource Names (ARNs) of the network interfaces created for
+-- your destination location. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces Network interface requirements>.
 describeTaskResponse_destinationNetworkInterfaceArns :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe [Prelude.Text])
 describeTaskResponse_destinationNetworkInterfaceArns = Lens.lens (\DescribeTaskResponse' {destinationNetworkInterfaceArns} -> destinationNetworkInterfaceArns) (\s@DescribeTaskResponse' {} a -> s {destinationNetworkInterfaceArns = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -358,17 +353,15 @@ describeTaskResponse_errorCode = Lens.lens (\DescribeTaskResponse' {errorCode} -
 describeTaskResponse_errorDetail :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
 describeTaskResponse_errorDetail = Lens.lens (\DescribeTaskResponse' {errorDetail} -> errorDetail) (\s@DescribeTaskResponse' {} a -> s {errorDetail = a} :: DescribeTaskResponse)
 
--- | A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example, @\"\/folder1|\/folder2\"@.
+-- | A list of filter rules that exclude specific data during your transfer.
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 describeTaskResponse_excludes :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe [FilterRule])
 describeTaskResponse_excludes = Lens.lens (\DescribeTaskResponse' {excludes} -> excludes) (\s@DescribeTaskResponse' {} a -> s {excludes = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of filter rules that determines which files to include when
--- running a task. The pattern contains a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example, @\"\/folder1|\/folder2@\".
+-- | A list of filter rules that include specific data during your transfer.
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 describeTaskResponse_includes :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe [FilterRule])
 describeTaskResponse_includes = Lens.lens (\DescribeTaskResponse' {includes} -> includes) (\s@DescribeTaskResponse' {} a -> s {includes = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -376,16 +369,13 @@ describeTaskResponse_includes = Lens.lens (\DescribeTaskResponse' {includes} -> 
 describeTaskResponse_name :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
 describeTaskResponse_name = Lens.lens (\DescribeTaskResponse' {name} -> name) (\s@DescribeTaskResponse' {} a -> s {name = a} :: DescribeTaskResponse)
 
--- | The set of configuration options that control the behavior of a single
--- execution of the task that occurs when you call @StartTaskExecution@.
--- You can configure these options to preserve metadata such as user ID
--- (UID) and group (GID), file permissions, data integrity verification,
--- and so on.
+-- | The configuration options that control the behavior of the
+-- @StartTaskExecution@ operation. Some options include preserving file or
+-- object metadata and verifying data integrity.
 --
--- For each individual task execution, you can override these options by
--- specifying the overriding @OverrideOptions@ value to
--- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>
--- operation.
+-- You can override these options for each task execution. For more
+-- information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>.
 describeTaskResponse_options :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Options)
 describeTaskResponse_options = Lens.lens (\DescribeTaskResponse' {options} -> options) (\s@DescribeTaskResponse' {} a -> s {options = a} :: DescribeTaskResponse)
 
@@ -398,8 +388,9 @@ describeTaskResponse_schedule = Lens.lens (\DescribeTaskResponse' {schedule} -> 
 describeTaskResponse_sourceLocationArn :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
 describeTaskResponse_sourceLocationArn = Lens.lens (\DescribeTaskResponse' {sourceLocationArn} -> sourceLocationArn) (\s@DescribeTaskResponse' {} a -> s {sourceLocationArn = a} :: DescribeTaskResponse)
 
--- | The Amazon Resource Names (ARNs) of the source elastic network
--- interfaces (ENIs) that were created for your subnet.
+-- | The Amazon Resource Names (ARNs) of the network interfaces created for
+-- your source location. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces Network interface requirements>.
 describeTaskResponse_sourceNetworkInterfaceArns :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe [Prelude.Text])
 describeTaskResponse_sourceNetworkInterfaceArns = Lens.lens (\DescribeTaskResponse' {sourceNetworkInterfaceArns} -> sourceNetworkInterfaceArns) (\s@DescribeTaskResponse' {} a -> s {sourceNetworkInterfaceArns = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
 

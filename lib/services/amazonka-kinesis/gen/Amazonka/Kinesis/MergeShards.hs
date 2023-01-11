@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.MergeShards
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,13 +22,18 @@
 --
 -- Merges two adjacent shards in a Kinesis data stream and combines them
 -- into a single shard to reduce the stream\'s capacity to ingest and
--- transport data. Two shards are considered adjacent if the union of the
--- hash key ranges for the two shards form a contiguous set with no gaps.
--- For example, if you have two shards, one with a hash key range of
--- 276...381 and the other with a hash key range of 382...454, then you
--- could merge these two shards into a single shard that would have a hash
--- key range of 276...454. After the merge, the single child shard receives
--- data for all hash key values covered by the two parent shards.
+-- transport data. This API is only supported for the data streams with the
+-- provisioned capacity mode. Two shards are considered adjacent if the
+-- union of the hash key ranges for the two shards form a contiguous set
+-- with no gaps. For example, if you have two shards, one with a hash key
+-- range of 276...381 and the other with a hash key range of 382...454,
+-- then you could merge these two shards into a single shard that would
+-- have a hash key range of 276...454. After the merge, the single child
+-- shard receives data for all hash key values covered by the two parent
+-- shards.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- @MergeShards@ is called when there is a need to reduce the overall
 -- capacity of a stream because of excess capacity that is not being used.
@@ -67,6 +72,7 @@ module Amazonka.Kinesis.MergeShards
     newMergeShards,
 
     -- * Request Lenses
+    mergeShards_streamARN,
     mergeShards_streamName,
     mergeShards_shardToMerge,
     mergeShards_adjacentShardToMerge,
@@ -89,8 +95,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newMergeShards' smart constructor.
 data MergeShards = MergeShards'
-  { -- | The name of the stream for the merge.
-    streamName :: Prelude.Text,
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream for the merge.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The shard ID of the shard to combine with the adjacent shard for the
     -- merge.
     shardToMerge :: Prelude.Text,
@@ -107,6 +115,8 @@ data MergeShards = MergeShards'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'mergeShards_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'mergeShards_streamName' - The name of the stream for the merge.
 --
 -- 'shardToMerge', 'mergeShards_shardToMerge' - The shard ID of the shard to combine with the adjacent shard for the
@@ -114,25 +124,25 @@ data MergeShards = MergeShards'
 --
 -- 'adjacentShardToMerge', 'mergeShards_adjacentShardToMerge' - The shard ID of the adjacent shard for the merge.
 newMergeShards ::
-  -- | 'streamName'
-  Prelude.Text ->
   -- | 'shardToMerge'
   Prelude.Text ->
   -- | 'adjacentShardToMerge'
   Prelude.Text ->
   MergeShards
-newMergeShards
-  pStreamName_
-  pShardToMerge_
-  pAdjacentShardToMerge_ =
-    MergeShards'
-      { streamName = pStreamName_,
-        shardToMerge = pShardToMerge_,
-        adjacentShardToMerge = pAdjacentShardToMerge_
-      }
+newMergeShards pShardToMerge_ pAdjacentShardToMerge_ =
+  MergeShards'
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
+      shardToMerge = pShardToMerge_,
+      adjacentShardToMerge = pAdjacentShardToMerge_
+    }
+
+-- | The ARN of the stream.
+mergeShards_streamARN :: Lens.Lens' MergeShards (Prelude.Maybe Prelude.Text)
+mergeShards_streamARN = Lens.lens (\MergeShards' {streamARN} -> streamARN) (\s@MergeShards' {} a -> s {streamARN = a} :: MergeShards)
 
 -- | The name of the stream for the merge.
-mergeShards_streamName :: Lens.Lens' MergeShards Prelude.Text
+mergeShards_streamName :: Lens.Lens' MergeShards (Prelude.Maybe Prelude.Text)
 mergeShards_streamName = Lens.lens (\MergeShards' {streamName} -> streamName) (\s@MergeShards' {} a -> s {streamName = a} :: MergeShards)
 
 -- | The shard ID of the shard to combine with the adjacent shard for the
@@ -152,13 +162,15 @@ instance Core.AWSRequest MergeShards where
 
 instance Prelude.Hashable MergeShards where
   hashWithSalt _salt MergeShards' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` shardToMerge
       `Prelude.hashWithSalt` adjacentShardToMerge
 
 instance Prelude.NFData MergeShards where
   rnf MergeShards' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf shardToMerge
       `Prelude.seq` Prelude.rnf adjacentShardToMerge
 
@@ -181,7 +193,8 @@ instance Data.ToJSON MergeShards where
   toJSON MergeShards' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Data..= streamName),
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just ("ShardToMerge" Data..= shardToMerge),
             Prelude.Just
               ( "AdjacentShardToMerge"

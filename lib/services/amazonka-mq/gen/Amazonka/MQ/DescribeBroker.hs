@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MQ.DescribeBroker
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -204,7 +204,7 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
     -- | The list of all revisions for the specified configuration.
     configurations :: Prelude.Maybe Configurations,
     -- | The time when the broker was created.
-    created :: Prelude.Maybe Data.POSIX,
+    created :: Prelude.Maybe Data.ISO8601,
     -- | The broker\'s deployment mode.
     deploymentMode :: Prelude.Maybe DeploymentMode,
     -- | Encryption options for the broker. Does not apply to RabbitMQ brokers.

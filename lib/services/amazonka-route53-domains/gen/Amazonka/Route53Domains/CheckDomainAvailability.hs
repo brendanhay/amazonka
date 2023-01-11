@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.CheckDomainAvailability
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,8 +37,8 @@ module Amazonka.Route53Domains.CheckDomainAvailability
     newCheckDomainAvailabilityResponse,
 
     -- * Response Lenses
-    checkDomainAvailabilityResponse_httpStatus,
     checkDomainAvailabilityResponse_availability,
+    checkDomainAvailabilityResponse_httpStatus,
   )
 where
 
@@ -170,8 +170,8 @@ instance Core.AWSRequest CheckDomainAvailability where
     Response.receiveJSON
       ( \s h x ->
           CheckDomainAvailabilityResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "Availability")
+            Prelude.<$> (x Data..?> "Availability")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CheckDomainAvailability where
@@ -218,9 +218,7 @@ instance Data.ToQuery CheckDomainAvailability where
 --
 -- /See:/ 'newCheckDomainAvailabilityResponse' smart constructor.
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | Whether the domain name is available for registering.
+  { -- | Whether the domain name is available for registering.
     --
     -- You can register only domains designated as @AVAILABLE@.
     --
@@ -258,7 +256,9 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
     --
     -- [UNAVAILABLE_RESTRICTED]
     --     The domain name is forbidden.
-    availability :: DomainAvailability
+    availability :: Prelude.Maybe DomainAvailability,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -269,8 +269,6 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'httpStatus', 'checkDomainAvailabilityResponse_httpStatus' - The response's http status code.
 --
 -- 'availability', 'checkDomainAvailabilityResponse_availability' - Whether the domain name is available for registering.
 --
@@ -310,24 +308,18 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
 --
 -- [UNAVAILABLE_RESTRICTED]
 --     The domain name is forbidden.
+--
+-- 'httpStatus', 'checkDomainAvailabilityResponse_httpStatus' - The response's http status code.
 newCheckDomainAvailabilityResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'availability'
-  DomainAvailability ->
   CheckDomainAvailabilityResponse
-newCheckDomainAvailabilityResponse
-  pHttpStatus_
-  pAvailability_ =
-    CheckDomainAvailabilityResponse'
-      { httpStatus =
-          pHttpStatus_,
-        availability = pAvailability_
-      }
-
--- | The response's http status code.
-checkDomainAvailabilityResponse_httpStatus :: Lens.Lens' CheckDomainAvailabilityResponse Prelude.Int
-checkDomainAvailabilityResponse_httpStatus = Lens.lens (\CheckDomainAvailabilityResponse' {httpStatus} -> httpStatus) (\s@CheckDomainAvailabilityResponse' {} a -> s {httpStatus = a} :: CheckDomainAvailabilityResponse)
+newCheckDomainAvailabilityResponse pHttpStatus_ =
+  CheckDomainAvailabilityResponse'
+    { availability =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Whether the domain name is available for registering.
 --
@@ -367,13 +359,17 @@ checkDomainAvailabilityResponse_httpStatus = Lens.lens (\CheckDomainAvailability
 --
 -- [UNAVAILABLE_RESTRICTED]
 --     The domain name is forbidden.
-checkDomainAvailabilityResponse_availability :: Lens.Lens' CheckDomainAvailabilityResponse DomainAvailability
+checkDomainAvailabilityResponse_availability :: Lens.Lens' CheckDomainAvailabilityResponse (Prelude.Maybe DomainAvailability)
 checkDomainAvailabilityResponse_availability = Lens.lens (\CheckDomainAvailabilityResponse' {availability} -> availability) (\s@CheckDomainAvailabilityResponse' {} a -> s {availability = a} :: CheckDomainAvailabilityResponse)
+
+-- | The response's http status code.
+checkDomainAvailabilityResponse_httpStatus :: Lens.Lens' CheckDomainAvailabilityResponse Prelude.Int
+checkDomainAvailabilityResponse_httpStatus = Lens.lens (\CheckDomainAvailabilityResponse' {httpStatus} -> httpStatus) (\s@CheckDomainAvailabilityResponse' {} a -> s {httpStatus = a} :: CheckDomainAvailabilityResponse)
 
 instance
   Prelude.NFData
     CheckDomainAvailabilityResponse
   where
   rnf CheckDomainAvailabilityResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf availability
+    Prelude.rnf availability
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.JobEntry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data JobEntry = JobEntry'
     -- | The ARN for the job.
     arn :: Prelude.Text,
     -- | The date and time that the job was created, in ISO 8601 format.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | Details of the operation to be performed by the job, such as export
     -- destination details or import source details.
     details :: ResponseDetails,
@@ -51,7 +51,7 @@ data JobEntry = JobEntry'
     -- | The job type.
     type' :: Type,
     -- | The date and time that the job was last updated, in ISO 8601 format.
-    updatedAt :: Data.POSIX
+    updatedAt :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

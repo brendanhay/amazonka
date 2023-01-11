@@ -14,13 +14,16 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.StopStreamEncryption
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables server-side encryption for a specified stream.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- Stopping encryption is an asynchronous operation. Upon receiving the
 -- request, Kinesis Data Streams returns immediately and sets the status of
@@ -46,6 +49,7 @@ module Amazonka.Kinesis.StopStreamEncryption
     newStopStreamEncryption,
 
     -- * Request Lenses
+    stopStreamEncryption_streamARN,
     stopStreamEncryption_streamName,
     stopStreamEncryption_encryptionType,
     stopStreamEncryption_keyId,
@@ -66,8 +70,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopStreamEncryption' smart constructor.
 data StopStreamEncryption = StopStreamEncryption'
-  { -- | The name of the stream on which to stop encrypting records.
-    streamName :: Prelude.Text,
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream on which to stop encrypting records.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The encryption type. The only valid value is @KMS@.
     encryptionType :: EncryptionType,
     -- | The GUID for the customer-managed Amazon Web Services KMS key to use for
@@ -100,6 +106,8 @@ data StopStreamEncryption = StopStreamEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'stopStreamEncryption_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'stopStreamEncryption_streamName' - The name of the stream on which to stop encrypting records.
 --
 -- 'encryptionType', 'stopStreamEncryption_encryptionType' - The encryption type. The only valid value is @KMS@.
@@ -123,25 +131,25 @@ data StopStreamEncryption = StopStreamEncryption'
 --
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
 newStopStreamEncryption ::
-  -- | 'streamName'
-  Prelude.Text ->
   -- | 'encryptionType'
   EncryptionType ->
   -- | 'keyId'
   Prelude.Text ->
   StopStreamEncryption
-newStopStreamEncryption
-  pStreamName_
-  pEncryptionType_
-  pKeyId_ =
-    StopStreamEncryption'
-      { streamName = pStreamName_,
-        encryptionType = pEncryptionType_,
-        keyId = pKeyId_
-      }
+newStopStreamEncryption pEncryptionType_ pKeyId_ =
+  StopStreamEncryption'
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
+      encryptionType = pEncryptionType_,
+      keyId = pKeyId_
+    }
+
+-- | The ARN of the stream.
+stopStreamEncryption_streamARN :: Lens.Lens' StopStreamEncryption (Prelude.Maybe Prelude.Text)
+stopStreamEncryption_streamARN = Lens.lens (\StopStreamEncryption' {streamARN} -> streamARN) (\s@StopStreamEncryption' {} a -> s {streamARN = a} :: StopStreamEncryption)
 
 -- | The name of the stream on which to stop encrypting records.
-stopStreamEncryption_streamName :: Lens.Lens' StopStreamEncryption Prelude.Text
+stopStreamEncryption_streamName :: Lens.Lens' StopStreamEncryption (Prelude.Maybe Prelude.Text)
 stopStreamEncryption_streamName = Lens.lens (\StopStreamEncryption' {streamName} -> streamName) (\s@StopStreamEncryption' {} a -> s {streamName = a} :: StopStreamEncryption)
 
 -- | The encryption type. The only valid value is @KMS@.
@@ -180,13 +188,15 @@ instance Core.AWSRequest StopStreamEncryption where
 
 instance Prelude.Hashable StopStreamEncryption where
   hashWithSalt _salt StopStreamEncryption' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData StopStreamEncryption where
   rnf StopStreamEncryption' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf encryptionType
       `Prelude.seq` Prelude.rnf keyId
 
@@ -209,7 +219,8 @@ instance Data.ToJSON StopStreamEncryption where
   toJSON StopStreamEncryption' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Data..= streamName),
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
               ("EncryptionType" Data..= encryptionType),
             Prelude.Just ("KeyId" Data..= keyId)

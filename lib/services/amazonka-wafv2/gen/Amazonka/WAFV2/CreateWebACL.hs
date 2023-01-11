@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.WAFV2.CreateWebACL
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -114,6 +114,9 @@ data CreateWebACL = CreateWebACL'
     --
     -- Example JSON:
     -- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
+    --
+    -- Public suffixes aren\'t allowed. For example, you can\'t use @usa.gov@
+    -- or @co.uk@ as token domains.
     tokenDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the web ACL. You cannot change the name of a web ACL after
     -- you create it.
@@ -192,6 +195,9 @@ data CreateWebACL = CreateWebACL'
 --
 -- Example JSON:
 -- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
+--
+-- Public suffixes aren\'t allowed. For example, you can\'t use @usa.gov@
+-- or @co.uk@ as token domains.
 --
 -- 'name', 'createWebACL_name' - The name of the web ACL. You cannot change the name of a web ACL after
 -- you create it.
@@ -299,6 +305,9 @@ createWebACL_tags = Lens.lens (\CreateWebACL' {tags} -> tags) (\s@CreateWebACL' 
 --
 -- Example JSON:
 -- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
+--
+-- Public suffixes aren\'t allowed. For example, you can\'t use @usa.gov@
+-- or @co.uk@ as token domains.
 createWebACL_tokenDomains :: Lens.Lens' CreateWebACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createWebACL_tokenDomains = Lens.lens (\CreateWebACL' {tokenDomains} -> tokenDomains) (\s@CreateWebACL' {} a -> s {tokenDomains = a} :: CreateWebACL) Prelude.. Lens.mapping Lens.coerced
 

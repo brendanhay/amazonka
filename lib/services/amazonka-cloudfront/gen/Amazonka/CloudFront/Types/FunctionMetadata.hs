@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.FunctionMetadata
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,7 +37,7 @@ data FunctionMetadata = FunctionMetadata'
     -- with @TestFunction@, and update it with @UpdateFunction@.
     --
     -- When a function is in the @LIVE@ stage, you can attach the function to a
-    -- distribution’s cache behavior, using the function’s ARN.
+    -- distribution\'s cache behavior, using the function\'s ARN.
     stage :: Prelude.Maybe FunctionStage,
     -- | The Amazon Resource Name (ARN) of the function. The ARN uniquely
     -- identifies the function.
@@ -63,7 +63,7 @@ data FunctionMetadata = FunctionMetadata'
 -- with @TestFunction@, and update it with @UpdateFunction@.
 --
 -- When a function is in the @LIVE@ stage, you can attach the function to a
--- distribution’s cache behavior, using the function’s ARN.
+-- distribution\'s cache behavior, using the function\'s ARN.
 --
 -- 'functionARN', 'functionMetadata_functionARN' - The Amazon Resource Name (ARN) of the function. The ARN uniquely
 -- identifies the function.
@@ -94,7 +94,7 @@ functionMetadata_createdTime = Lens.lens (\FunctionMetadata' {createdTime} -> cr
 -- with @TestFunction@, and update it with @UpdateFunction@.
 --
 -- When a function is in the @LIVE@ stage, you can attach the function to a
--- distribution’s cache behavior, using the function’s ARN.
+-- distribution\'s cache behavior, using the function\'s ARN.
 functionMetadata_stage :: Lens.Lens' FunctionMetadata (Prelude.Maybe FunctionStage)
 functionMetadata_stage = Lens.lens (\FunctionMetadata' {stage} -> stage) (\s@FunctionMetadata' {} a -> s {stage = a} :: FunctionMetadata)
 

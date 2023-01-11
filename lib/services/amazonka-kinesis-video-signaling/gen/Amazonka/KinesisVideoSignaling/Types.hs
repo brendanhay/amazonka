@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.KinesisVideoSignaling.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -118,7 +118,7 @@ defaultService =
 
 -- | Your request was throttled because you have exceeded the limit of
 -- allowed client calls. Try making the call later.
-_ClientLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClientLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -126,7 +126,7 @@ _ClientLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The value for this input parameter is invalid.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
@@ -134,7 +134,7 @@ _InvalidArgumentException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified client is invalid.
-_InvalidClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidClientException =
   Core._MatchServiceError
     defaultService
@@ -142,7 +142,7 @@ _InvalidClientException =
     Prelude.. Core.hasStatus 400
 
 -- | The caller is not authorized to perform this operation.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService
@@ -150,7 +150,7 @@ _NotAuthorizedException =
     Prelude.. Core.hasStatus 401
 
 -- | The specified resource is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -160,7 +160,7 @@ _ResourceNotFoundException =
 -- | If the client session is expired. Once the client is connected, the
 -- session is valid for 45 minutes. Client should reconnect to the channel
 -- to continue sending\/receiving messages.
-_SessionExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SessionExpiredException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SessionExpiredException =
   Core._MatchServiceError
     defaultService

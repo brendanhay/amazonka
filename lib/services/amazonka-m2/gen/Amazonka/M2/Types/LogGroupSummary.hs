@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.LogGroupSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,9 +24,9 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A subset of the attributes about a log group. In CloudWatch a log group
--- is a group of log streams that share the same retention, monitoring, and
--- access control settings.
+-- | A subset of the attributes that describe a log group. In CloudWatch a
+-- log group is a group of log streams that share the same retention,
+-- monitoring, and access control settings.
 --
 -- /See:/ 'newLogGroupSummary' smart constructor.
 data LogGroupSummary = LogGroupSummary'

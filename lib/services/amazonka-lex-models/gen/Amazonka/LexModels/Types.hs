@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.LexModels.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -476,7 +476,7 @@ defaultService =
 
 -- | Your IAM user or role does not have permission to call the Amazon Lex V2
 -- APIs required to migrate your bot.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -485,7 +485,7 @@ _AccessDeniedException =
 
 -- | The request is not well formed. For example, a value is invalid or a
 -- required field is missing. Check the field values, and try again.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -493,7 +493,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | There was a conflict processing the request. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -501,7 +501,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An internal Amazon Lex error occurred. Try your request again.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -509,7 +509,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The request exceeded a limit. Try your request again.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -518,7 +518,7 @@ _LimitExceededException =
 
 -- | The resource specified in the request was not found. Check the resource
 -- and try again.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -528,7 +528,7 @@ _NotFoundException =
 -- | The checksum of the resource that you are trying to change does not
 -- match the checksum in the request. Check the resource\'s checksum and
 -- try again.
-_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PreconditionFailedException =
   Core._MatchServiceError
     defaultService
@@ -547,7 +547,7 @@ _PreconditionFailedException =
 -- @\"resourceReference\": {@
 --
 -- @\"name\": string, \"version\": string } }@
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService

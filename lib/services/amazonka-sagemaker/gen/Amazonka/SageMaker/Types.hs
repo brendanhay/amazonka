@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -311,6 +311,9 @@ module Amazonka.SageMaker.Types
     -- * InstanceType
     InstanceType (..),
 
+    -- * JobType
+    JobType (..),
+
     -- * JoinSource
     JoinSource (..),
 
@@ -496,6 +499,9 @@ module Amazonka.SageMaker.Types
 
     -- * ProcessingS3UploadMode
     ProcessingS3UploadMode (..),
+
+    -- * Processor
+    Processor (..),
 
     -- * ProductionVariantAcceleratorType
     ProductionVariantAcceleratorType (..),
@@ -688,6 +694,9 @@ module Amazonka.SageMaker.Types
 
     -- * VariantStatus
     VariantStatus (..),
+
+    -- * VendorGuidance
+    VendorGuidance (..),
 
     -- * WarmPoolResourceStatus
     WarmPoolResourceStatus (..),
@@ -1537,6 +1546,7 @@ module Amazonka.SageMaker.Types
     newDomainSettingsForUpdate,
     domainSettingsForUpdate_executionRoleIdentityConfig,
     domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate,
+    domainSettingsForUpdate_securityGroupIds,
 
     -- * DriftCheckBaselines
     DriftCheckBaselines (..),
@@ -2095,6 +2105,7 @@ module Amazonka.SageMaker.Types
     newHyperParameterTuningJobConfig,
     hyperParameterTuningJobConfig_hyperParameterTuningJobObjective,
     hyperParameterTuningJobConfig_parameterRanges,
+    hyperParameterTuningJobConfig_randomSeed,
     hyperParameterTuningJobConfig_strategyConfig,
     hyperParameterTuningJobConfig_trainingJobEarlyStoppingType,
     hyperParameterTuningJobConfig_tuningJobCompletionCriteria,
@@ -3691,6 +3702,8 @@ module Amazonka.SageMaker.Types
     RStudioServerProDomainSettingsForUpdate (..),
     newRStudioServerProDomainSettingsForUpdate,
     rStudioServerProDomainSettingsForUpdate_defaultResourceSpec,
+    rStudioServerProDomainSettingsForUpdate_rStudioConnectUrl,
+    rStudioServerProDomainSettingsForUpdate_rStudioPackageManagerUrl,
     rStudioServerProDomainSettingsForUpdate_domainExecutionRoleArn,
 
     -- * RealTimeInferenceConfig
@@ -3733,6 +3746,7 @@ module Amazonka.SageMaker.Types
     recommendationJobInputConfig_resourceLimit,
     recommendationJobInputConfig_trafficPattern,
     recommendationJobInputConfig_volumeKmsKeyId,
+    recommendationJobInputConfig_vpcConfig,
     recommendationJobInputConfig_modelPackageVersionArn,
 
     -- * RecommendationJobOutputConfig
@@ -3758,6 +3772,12 @@ module Amazonka.SageMaker.Types
     newRecommendationJobStoppingConditions,
     recommendationJobStoppingConditions_maxInvocations,
     recommendationJobStoppingConditions_modelLatencyThresholds,
+
+    -- * RecommendationJobVpcConfig
+    RecommendationJobVpcConfig (..),
+    newRecommendationJobVpcConfig,
+    recommendationJobVpcConfig_securityGroupIds,
+    recommendationJobVpcConfig_subnets,
 
     -- * RecommendationMetrics
     RecommendationMetrics (..),
@@ -4782,6 +4802,7 @@ import Amazonka.SageMaker.Types.InstanceMetadataServiceConfiguration
 import Amazonka.SageMaker.Types.InstanceType
 import Amazonka.SageMaker.Types.IntegerParameterRange
 import Amazonka.SageMaker.Types.IntegerParameterRangeSpecification
+import Amazonka.SageMaker.Types.JobType
 import Amazonka.SageMaker.Types.JoinSource
 import Amazonka.SageMaker.Types.JupyterServerAppSettings
 import Amazonka.SageMaker.Types.KernelGatewayAppSettings
@@ -4995,6 +5016,7 @@ import Amazonka.SageMaker.Types.ProcessingS3InputMode
 import Amazonka.SageMaker.Types.ProcessingS3Output
 import Amazonka.SageMaker.Types.ProcessingS3UploadMode
 import Amazonka.SageMaker.Types.ProcessingStoppingCondition
+import Amazonka.SageMaker.Types.Processor
 import Amazonka.SageMaker.Types.ProductionVariant
 import Amazonka.SageMaker.Types.ProductionVariantAcceleratorType
 import Amazonka.SageMaker.Types.ProductionVariantCoreDumpConfig
@@ -5035,6 +5057,7 @@ import Amazonka.SageMaker.Types.RecommendationJobResourceLimit
 import Amazonka.SageMaker.Types.RecommendationJobStatus
 import Amazonka.SageMaker.Types.RecommendationJobStoppingConditions
 import Amazonka.SageMaker.Types.RecommendationJobType
+import Amazonka.SageMaker.Types.RecommendationJobVpcConfig
 import Amazonka.SageMaker.Types.RecommendationMetrics
 import Amazonka.SageMaker.Types.RecommendationStepType
 import Amazonka.SageMaker.Types.RecordWrapper
@@ -5168,6 +5191,7 @@ import Amazonka.SageMaker.Types.UserSettings
 import Amazonka.SageMaker.Types.VariantProperty
 import Amazonka.SageMaker.Types.VariantPropertyType
 import Amazonka.SageMaker.Types.VariantStatus
+import Amazonka.SageMaker.Types.VendorGuidance
 import Amazonka.SageMaker.Types.Vertex
 import Amazonka.SageMaker.Types.VpcConfig
 import Amazonka.SageMaker.Types.WarmPoolResourceStatus
@@ -5251,14 +5275,14 @@ defaultService =
 
 -- | There was a conflict when you attempted to modify a SageMaker entity
 -- such as an @Experiment@ or @Artifact@.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | Resource being accessed is in use.
-_ResourceInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUse :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUse =
   Core._MatchServiceError
     defaultService
@@ -5266,14 +5290,14 @@ _ResourceInUse =
 
 -- | You have exceeded an SageMaker resource limit. For example, you might
 -- have too many training jobs created.
-_ResourceLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceLimitExceeded =
   Core._MatchServiceError
     defaultService
     "ResourceLimitExceeded"
 
 -- | Resource being access is not found.
-_ResourceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFound =
   Core._MatchServiceError
     defaultService

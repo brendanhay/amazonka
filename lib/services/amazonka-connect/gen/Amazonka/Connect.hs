@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Connect
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,9 +28,6 @@
 -- You can connect programmatically to an Amazon Web Services service by
 -- using an endpoint. For a list of Amazon Connect endpoints, see
 -- <https://docs.aws.amazon.com/general/latest/gr/connect_region.html Amazon Connect Endpoints>.
---
--- Working with flows? Check out the
--- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html Amazon Connect Flow language>.
 module Amazonka.Connect
   ( -- * Service Configuration
     defaultService,
@@ -977,6 +974,12 @@ module Amazonka.Connect
     UpdateInstanceStorageConfigResponse (UpdateInstanceStorageConfigResponse'),
     newUpdateInstanceStorageConfigResponse,
 
+    -- ** UpdateParticipantRoleConfig
+    UpdateParticipantRoleConfig (UpdateParticipantRoleConfig'),
+    newUpdateParticipantRoleConfig,
+    UpdateParticipantRoleConfigResponse (UpdateParticipantRoleConfigResponse'),
+    newUpdateParticipantRoleConfigResponse,
+
     -- ** UpdatePhoneNumber
     UpdatePhoneNumber (UpdatePhoneNumber'),
     newUpdatePhoneNumber,
@@ -1198,6 +1201,12 @@ module Amazonka.Connect
     -- ** NotificationDeliveryType
     NotificationDeliveryType (..),
 
+    -- ** ParticipantTimerAction
+    ParticipantTimerAction (..),
+
+    -- ** ParticipantTimerType
+    ParticipantTimerType (..),
+
     -- ** PhoneNumberCountryCode
     PhoneNumberCountryCode (..),
 
@@ -1231,6 +1240,9 @@ module Amazonka.Connect
     -- ** SearchableQueueType
     SearchableQueueType (..),
 
+    -- ** SortOrder
+    SortOrder (..),
+
     -- ** SourceType
     SourceType (..),
 
@@ -1248,6 +1260,9 @@ module Amazonka.Connect
 
     -- ** TaskTemplateStatus
     TaskTemplateStatus (..),
+
+    -- ** TimerEligibleParticipantRoles
+    TimerEligibleParticipantRoles (..),
 
     -- ** TrafficDistributionGroupStatus
     TrafficDistributionGroupStatus (..),
@@ -1318,6 +1333,10 @@ module Amazonka.Connect
     ChatMessage (ChatMessage'),
     newChatMessage,
 
+    -- ** ChatParticipantRoleConfig
+    ChatParticipantRoleConfig (ChatParticipantRoleConfig'),
+    newChatParticipantRoleConfig,
+
     -- ** ChatStreamingConfiguration
     ChatStreamingConfiguration (ChatStreamingConfiguration'),
     newChatStreamingConfiguration,
@@ -1369,6 +1388,10 @@ module Amazonka.Connect
     -- ** CurrentMetricResult
     CurrentMetricResult (CurrentMetricResult'),
     newCurrentMetricResult,
+
+    -- ** CurrentMetricSortCriteria
+    CurrentMetricSortCriteria (CurrentMetricSortCriteria'),
+    newCurrentMetricSortCriteria,
 
     -- ** DateReference
     DateReference (DateReference'),
@@ -1541,6 +1564,14 @@ module Amazonka.Connect
     -- ** ParticipantDetails
     ParticipantDetails (ParticipantDetails'),
     newParticipantDetails,
+
+    -- ** ParticipantTimerConfiguration
+    ParticipantTimerConfiguration (ParticipantTimerConfiguration'),
+    newParticipantTimerConfiguration,
+
+    -- ** ParticipantTimerValue
+    ParticipantTimerValue (ParticipantTimerValue'),
+    newParticipantTimerValue,
 
     -- ** PhoneNumberQuickConnectConfig
     PhoneNumberQuickConnectConfig (PhoneNumberQuickConnectConfig'),
@@ -1749,6 +1780,10 @@ module Amazonka.Connect
     -- ** TrafficDistributionGroupSummary
     TrafficDistributionGroupSummary (TrafficDistributionGroupSummary'),
     newTrafficDistributionGroupSummary,
+
+    -- ** UpdateParticipantRoleConfigChannelInfo
+    UpdateParticipantRoleConfigChannelInfo (UpdateParticipantRoleConfigChannelInfo'),
+    newUpdateParticipantRoleConfigChannelInfo,
 
     -- ** UrlReference
     UrlReference (UrlReference'),
@@ -1967,6 +2002,7 @@ import Amazonka.Connect.UpdateContactSchedule
 import Amazonka.Connect.UpdateHoursOfOperation
 import Amazonka.Connect.UpdateInstanceAttribute
 import Amazonka.Connect.UpdateInstanceStorageConfig
+import Amazonka.Connect.UpdateParticipantRoleConfig
 import Amazonka.Connect.UpdatePhoneNumber
 import Amazonka.Connect.UpdateQueueHoursOfOperation
 import Amazonka.Connect.UpdateQueueMaxContacts

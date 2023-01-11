@@ -88,6 +88,7 @@ haskell_library(
         "gen/Amazonka/ECS/Types/ContainerService.hs",
         "gen/Amazonka/ECS/Types/ContainerStateChange.hs",
         "gen/Amazonka/ECS/Types/Deployment.hs",
+        "gen/Amazonka/ECS/Types/DeploymentAlarms.hs",
         "gen/Amazonka/ECS/Types/DeploymentCircuitBreaker.hs",
         "gen/Amazonka/ECS/Types/DeploymentConfiguration.hs",
         "gen/Amazonka/ECS/Types/DeploymentController.hs",

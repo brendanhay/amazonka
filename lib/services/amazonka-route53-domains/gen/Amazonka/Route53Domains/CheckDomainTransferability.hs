@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.CheckDomainTransferability
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,8 @@ module Amazonka.Route53Domains.CheckDomainTransferability
     newCheckDomainTransferabilityResponse,
 
     -- * Response Lenses
-    checkDomainTransferabilityResponse_httpStatus,
     checkDomainTransferabilityResponse_transferability,
+    checkDomainTransferabilityResponse_httpStatus,
   )
 where
 
@@ -153,8 +153,8 @@ instance Core.AWSRequest CheckDomainTransferability where
     Response.receiveJSON
       ( \s h x ->
           CheckDomainTransferabilityResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "Transferability")
+            Prelude.<$> (x Data..?> "Transferability")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CheckDomainTransferability where
@@ -201,11 +201,11 @@ instance Data.ToQuery CheckDomainTransferability where
 --
 -- /See:/ 'newCheckDomainTransferabilityResponse' smart constructor.
 data CheckDomainTransferabilityResponse = CheckDomainTransferabilityResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | A complex type that contains information about whether the specified
+  { -- | A complex type that contains information about whether the specified
     -- domain can be transferred to Route 53.
-    transferability :: DomainTransferability
+    transferability :: Prelude.Maybe DomainTransferability,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -217,38 +217,34 @@ data CheckDomainTransferabilityResponse = CheckDomainTransferabilityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'checkDomainTransferabilityResponse_httpStatus' - The response's http status code.
---
 -- 'transferability', 'checkDomainTransferabilityResponse_transferability' - A complex type that contains information about whether the specified
 -- domain can be transferred to Route 53.
+--
+-- 'httpStatus', 'checkDomainTransferabilityResponse_httpStatus' - The response's http status code.
 newCheckDomainTransferabilityResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'transferability'
-  DomainTransferability ->
   CheckDomainTransferabilityResponse
-newCheckDomainTransferabilityResponse
-  pHttpStatus_
-  pTransferability_ =
-    CheckDomainTransferabilityResponse'
-      { httpStatus =
-          pHttpStatus_,
-        transferability = pTransferability_
-      }
+newCheckDomainTransferabilityResponse pHttpStatus_ =
+  CheckDomainTransferabilityResponse'
+    { transferability =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A complex type that contains information about whether the specified
+-- domain can be transferred to Route 53.
+checkDomainTransferabilityResponse_transferability :: Lens.Lens' CheckDomainTransferabilityResponse (Prelude.Maybe DomainTransferability)
+checkDomainTransferabilityResponse_transferability = Lens.lens (\CheckDomainTransferabilityResponse' {transferability} -> transferability) (\s@CheckDomainTransferabilityResponse' {} a -> s {transferability = a} :: CheckDomainTransferabilityResponse)
 
 -- | The response's http status code.
 checkDomainTransferabilityResponse_httpStatus :: Lens.Lens' CheckDomainTransferabilityResponse Prelude.Int
 checkDomainTransferabilityResponse_httpStatus = Lens.lens (\CheckDomainTransferabilityResponse' {httpStatus} -> httpStatus) (\s@CheckDomainTransferabilityResponse' {} a -> s {httpStatus = a} :: CheckDomainTransferabilityResponse)
-
--- | A complex type that contains information about whether the specified
--- domain can be transferred to Route 53.
-checkDomainTransferabilityResponse_transferability :: Lens.Lens' CheckDomainTransferabilityResponse DomainTransferability
-checkDomainTransferabilityResponse_transferability = Lens.lens (\CheckDomainTransferabilityResponse' {transferability} -> transferability) (\s@CheckDomainTransferabilityResponse' {} a -> s {transferability = a} :: CheckDomainTransferabilityResponse)
 
 instance
   Prelude.NFData
     CheckDomainTransferabilityResponse
   where
   rnf CheckDomainTransferabilityResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf transferability
+    Prelude.rnf transferability
+      `Prelude.seq` Prelude.rnf httpStatus

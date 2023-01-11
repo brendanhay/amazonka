@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.AWSHealth.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -306,21 +306,21 @@ defaultService =
 -- again. To get the current status, use the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html DescribeHealthServiceStatusForOrganization>
 -- operation.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | The specified pagination token (@nextToken@) is not valid.
-_InvalidPaginationToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationToken :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPaginationToken =
   Core._MatchServiceError
     defaultService
     "InvalidPaginationToken"
 
 -- | The specified locale is not supported.
-_UnsupportedLocale :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedLocale :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedLocale =
   Core._MatchServiceError
     defaultService

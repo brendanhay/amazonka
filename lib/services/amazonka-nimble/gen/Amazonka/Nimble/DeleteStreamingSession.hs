@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.DeleteStreamingSession
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,10 +23,10 @@
 -- Deletes streaming session resource.
 --
 -- After invoking this operation, use GetStreamingSession to poll the
--- resource until it transitions to a DELETED state.
+-- resource until it transitions to a @DELETED@ state.
 --
 -- A streaming session will count against your streaming session quota
--- until it is marked DELETED.
+-- until it is marked @DELETED@.
 module Amazonka.Nimble.DeleteStreamingSession
   ( -- * Creating a Request
     DeleteStreamingSession (..),
@@ -58,9 +58,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteStreamingSession' smart constructor.
 data DeleteStreamingSession = DeleteStreamingSession'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The streaming session ID.
     sessionId :: Prelude.Text,
@@ -78,9 +78,9 @@ data DeleteStreamingSession = DeleteStreamingSession'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'deleteStreamingSession_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'sessionId', 'deleteStreamingSession_sessionId' - The streaming session ID.
 --
@@ -100,9 +100,9 @@ newDeleteStreamingSession pSessionId_ pStudioId_ =
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 deleteStreamingSession_clientToken :: Lens.Lens' DeleteStreamingSession (Prelude.Maybe Prelude.Text)
 deleteStreamingSession_clientToken = Lens.lens (\DeleteStreamingSession' {clientToken} -> clientToken) (\s@DeleteStreamingSession' {} a -> s {clientToken = a} :: DeleteStreamingSession)
 

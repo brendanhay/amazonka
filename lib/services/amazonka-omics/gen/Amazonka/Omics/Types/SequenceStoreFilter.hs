@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.Types.SequenceStoreFilter
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSequenceStoreFilter' smart constructor.
 data SequenceStoreFilter = SequenceStoreFilter'
   { -- | The filter\'s start date.
-    createdAfter :: Prelude.Maybe Data.POSIX,
+    createdAfter :: Prelude.Maybe Data.ISO8601,
     -- | The filter\'s end date.
-    createdBefore :: Prelude.Maybe Data.POSIX,
+    createdBefore :: Prelude.Maybe Data.ISO8601,
     -- | A name to filter on.
     name :: Prelude.Maybe Prelude.Text
   }

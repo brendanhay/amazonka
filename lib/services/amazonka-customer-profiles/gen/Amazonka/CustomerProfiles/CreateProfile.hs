@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.CreateProfile
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,12 +42,14 @@ module Amazonka.CustomerProfiles.CreateProfile
     createProfile_emailAddress,
     createProfile_firstName,
     createProfile_gender,
+    createProfile_genderString,
     createProfile_homePhoneNumber,
     createProfile_lastName,
     createProfile_mailingAddress,
     createProfile_middleName,
     createProfile_mobilePhoneNumber,
     createProfile_partyType,
+    createProfile_partyTypeString,
     createProfile_personalEmailAddress,
     createProfile_phoneNumber,
     createProfile_shippingAddress,
@@ -99,6 +101,8 @@ data CreateProfile = CreateProfile'
     firstName :: Prelude.Maybe Prelude.Text,
     -- | The gender with which the customer identifies.
     gender :: Prelude.Maybe Gender,
+    -- | An alternative to @Gender@ which accepts any string as input.
+    genderString :: Prelude.Maybe Prelude.Text,
     -- | The customer’s home phone number.
     homePhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The customer’s last name.
@@ -111,6 +115,8 @@ data CreateProfile = CreateProfile'
     mobilePhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The type of profile used to describe the customer.
     partyType :: Prelude.Maybe PartyType,
+    -- | An alternative to @PartyType@ which accepts any string as input.
+    partyTypeString :: Prelude.Maybe Prelude.Text,
     -- | The customer’s personal email address.
     personalEmailAddress :: Prelude.Maybe Prelude.Text,
     -- | The customer’s phone number, which has not been specified as a mobile,
@@ -157,6 +163,8 @@ data CreateProfile = CreateProfile'
 --
 -- 'gender', 'createProfile_gender' - The gender with which the customer identifies.
 --
+-- 'genderString', 'createProfile_genderString' - An alternative to @Gender@ which accepts any string as input.
+--
 -- 'homePhoneNumber', 'createProfile_homePhoneNumber' - The customer’s home phone number.
 --
 -- 'lastName', 'createProfile_lastName' - The customer’s last name.
@@ -168,6 +176,8 @@ data CreateProfile = CreateProfile'
 -- 'mobilePhoneNumber', 'createProfile_mobilePhoneNumber' - The customer’s mobile phone number.
 --
 -- 'partyType', 'createProfile_partyType' - The type of profile used to describe the customer.
+--
+-- 'partyTypeString', 'createProfile_partyTypeString' - An alternative to @PartyType@ which accepts any string as input.
 --
 -- 'personalEmailAddress', 'createProfile_personalEmailAddress' - The customer’s personal email address.
 --
@@ -195,12 +205,14 @@ newCreateProfile pDomainName_ =
       emailAddress = Prelude.Nothing,
       firstName = Prelude.Nothing,
       gender = Prelude.Nothing,
+      genderString = Prelude.Nothing,
       homePhoneNumber = Prelude.Nothing,
       lastName = Prelude.Nothing,
       mailingAddress = Prelude.Nothing,
       middleName = Prelude.Nothing,
       mobilePhoneNumber = Prelude.Nothing,
       partyType = Prelude.Nothing,
+      partyTypeString = Prelude.Nothing,
       personalEmailAddress = Prelude.Nothing,
       phoneNumber = Prelude.Nothing,
       shippingAddress = Prelude.Nothing,
@@ -257,6 +269,10 @@ createProfile_firstName = Lens.lens (\CreateProfile' {firstName} -> firstName) (
 createProfile_gender :: Lens.Lens' CreateProfile (Prelude.Maybe Gender)
 createProfile_gender = Lens.lens (\CreateProfile' {gender} -> gender) (\s@CreateProfile' {} a -> s {gender = a} :: CreateProfile)
 
+-- | An alternative to @Gender@ which accepts any string as input.
+createProfile_genderString :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Text)
+createProfile_genderString = Lens.lens (\CreateProfile' {genderString} -> genderString) (\s@CreateProfile' {} a -> s {genderString = a} :: CreateProfile)
+
 -- | The customer’s home phone number.
 createProfile_homePhoneNumber :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Text)
 createProfile_homePhoneNumber = Lens.lens (\CreateProfile' {homePhoneNumber} -> homePhoneNumber) (\s@CreateProfile' {} a -> s {homePhoneNumber = a} :: CreateProfile)
@@ -280,6 +296,10 @@ createProfile_mobilePhoneNumber = Lens.lens (\CreateProfile' {mobilePhoneNumber}
 -- | The type of profile used to describe the customer.
 createProfile_partyType :: Lens.Lens' CreateProfile (Prelude.Maybe PartyType)
 createProfile_partyType = Lens.lens (\CreateProfile' {partyType} -> partyType) (\s@CreateProfile' {} a -> s {partyType = a} :: CreateProfile)
+
+-- | An alternative to @PartyType@ which accepts any string as input.
+createProfile_partyTypeString :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Text)
+createProfile_partyTypeString = Lens.lens (\CreateProfile' {partyTypeString} -> partyTypeString) (\s@CreateProfile' {} a -> s {partyTypeString = a} :: CreateProfile)
 
 -- | The customer’s personal email address.
 createProfile_personalEmailAddress :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Text)
@@ -326,12 +346,14 @@ instance Prelude.Hashable CreateProfile where
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` genderString
       `Prelude.hashWithSalt` homePhoneNumber
       `Prelude.hashWithSalt` lastName
       `Prelude.hashWithSalt` mailingAddress
       `Prelude.hashWithSalt` middleName
       `Prelude.hashWithSalt` mobilePhoneNumber
       `Prelude.hashWithSalt` partyType
+      `Prelude.hashWithSalt` partyTypeString
       `Prelude.hashWithSalt` personalEmailAddress
       `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` shippingAddress
@@ -351,15 +373,19 @@ instance Prelude.NFData CreateProfile where
       `Prelude.seq` Prelude.rnf emailAddress
       `Prelude.seq` Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf genderString
       `Prelude.seq` Prelude.rnf homePhoneNumber
       `Prelude.seq` Prelude.rnf lastName
       `Prelude.seq` Prelude.rnf mailingAddress
       `Prelude.seq` Prelude.rnf middleName
       `Prelude.seq` Prelude.rnf mobilePhoneNumber
       `Prelude.seq` Prelude.rnf partyType
-      `Prelude.seq` Prelude.rnf personalEmailAddress
+      `Prelude.seq` Prelude.rnf partyTypeString
+      `Prelude.seq` Prelude.rnf
+        personalEmailAddress
       `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf shippingAddress
+      `Prelude.seq` Prelude.rnf
+        shippingAddress
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders CreateProfile where
@@ -393,6 +419,7 @@ instance Data.ToJSON CreateProfile where
             ("EmailAddress" Data..=) Prelude.<$> emailAddress,
             ("FirstName" Data..=) Prelude.<$> firstName,
             ("Gender" Data..=) Prelude.<$> gender,
+            ("GenderString" Data..=) Prelude.<$> genderString,
             ("HomePhoneNumber" Data..=)
               Prelude.<$> homePhoneNumber,
             ("LastName" Data..=) Prelude.<$> lastName,
@@ -402,6 +429,8 @@ instance Data.ToJSON CreateProfile where
             ("MobilePhoneNumber" Data..=)
               Prelude.<$> mobilePhoneNumber,
             ("PartyType" Data..=) Prelude.<$> partyType,
+            ("PartyTypeString" Data..=)
+              Prelude.<$> partyTypeString,
             ("PersonalEmailAddress" Data..=)
               Prelude.<$> personalEmailAddress,
             ("PhoneNumber" Data..=) Prelude.<$> phoneNumber,

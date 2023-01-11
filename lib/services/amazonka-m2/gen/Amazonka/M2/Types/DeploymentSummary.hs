@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.DeploymentSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,7 +39,7 @@ data DeploymentSummary = DeploymentSummary'
     creationTime :: Data.POSIX,
     -- | The unique identifier of the deployment.
     deploymentId :: Prelude.Text,
-    -- | The unique identifier of the environment.
+    -- | The unique identifier of the runtime environment.
     environmentId :: Prelude.Text,
     -- | The current status of the deployment.
     status :: DeploymentLifecycle
@@ -64,7 +64,7 @@ data DeploymentSummary = DeploymentSummary'
 --
 -- 'deploymentId', 'deploymentSummary_deploymentId' - The unique identifier of the deployment.
 --
--- 'environmentId', 'deploymentSummary_environmentId' - The unique identifier of the environment.
+-- 'environmentId', 'deploymentSummary_environmentId' - The unique identifier of the runtime environment.
 --
 -- 'status', 'deploymentSummary_status' - The current status of the deployment.
 newDeploymentSummary ::
@@ -118,7 +118,7 @@ deploymentSummary_creationTime = Lens.lens (\DeploymentSummary' {creationTime} -
 deploymentSummary_deploymentId :: Lens.Lens' DeploymentSummary Prelude.Text
 deploymentSummary_deploymentId = Lens.lens (\DeploymentSummary' {deploymentId} -> deploymentId) (\s@DeploymentSummary' {} a -> s {deploymentId = a} :: DeploymentSummary)
 
--- | The unique identifier of the environment.
+-- | The unique identifier of the runtime environment.
 deploymentSummary_environmentId :: Lens.Lens' DeploymentSummary Prelude.Text
 deploymentSummary_environmentId = Lens.lens (\DeploymentSummary' {environmentId} -> environmentId) (\s@DeploymentSummary' {} a -> s {environmentId = a} :: DeploymentSummary)
 

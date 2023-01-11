@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoTFleetWise.CreateCampaign
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -102,7 +102,7 @@ data CreateCampaign = CreateCampaign'
     -- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
     -- after the campaign expires.
     --
-    -- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
+    -- Default: 253402214400 (December 31, 9999, 00:00:00 UTC)
     expiryTime :: Prelude.Maybe Data.POSIX,
     -- | (Optional) How long (in milliseconds) to collect raw data after a
     -- triggering event initiates the collection. If it\'s not specified, @0@
@@ -184,7 +184,7 @@ data CreateCampaign = CreateCampaign'
 -- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
 -- after the campaign expires.
 --
--- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
+-- Default: 253402214400 (December 31, 9999, 00:00:00 UTC)
 --
 -- 'postTriggerCollectionDuration', 'createCampaign_postTriggerCollectionDuration' - (Optional) How long (in milliseconds) to collect raw data after a
 -- triggering event initiates the collection. If it\'s not specified, @0@
@@ -295,7 +295,7 @@ createCampaign_diagnosticsMode = Lens.lens (\CreateCampaign' {diagnosticsMode} -
 -- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
 -- after the campaign expires.
 --
--- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
+-- Default: 253402214400 (December 31, 9999, 00:00:00 UTC)
 createCampaign_expiryTime :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.UTCTime)
 createCampaign_expiryTime = Lens.lens (\CreateCampaign' {expiryTime} -> expiryTime) (\s@CreateCampaign' {} a -> s {expiryTime = a} :: CreateCampaign) Prelude.. Lens.mapping Data._Time
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.PutRecord
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,9 @@
 -- subsequent processing, one record at a time. Each shard can support
 -- writes up to 1,000 records per second, up to a maximum data write total
 -- of 1 MiB per second.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- You must specify the name of the stream that captures, stores, and
 -- transports the data; a partition key; and the data blob itself.
@@ -75,6 +78,7 @@ module Amazonka.Kinesis.PutRecord
     -- * Request Lenses
     putRecord_explicitHashKey,
     putRecord_sequenceNumberForOrdering,
+    putRecord_streamARN,
     putRecord_streamName,
     putRecord_data,
     putRecord_partitionKey,
@@ -113,8 +117,10 @@ data PutRecord = PutRecord'
     -- this parameter is not set, records are coarsely ordered based on arrival
     -- time.
     sequenceNumberForOrdering :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream to put the data record into.
-    streamName :: Prelude.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The data blob to put into the record, which is base64-encoded when the
     -- blob is serialized. When the data blob (the payload before
     -- base64-encoding) is added to the partition key size, the total size must
@@ -151,6 +157,8 @@ data PutRecord = PutRecord'
 -- this parameter is not set, records are coarsely ordered based on arrival
 -- time.
 --
+-- 'streamARN', 'putRecord_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'putRecord_streamName' - The name of the stream to put the data record into.
 --
 -- 'data'', 'putRecord_data' - The data blob to put into the record, which is base64-encoded when the
@@ -172,18 +180,17 @@ data PutRecord = PutRecord'
 -- mechanism, all data records with the same partition key map to the same
 -- shard within the stream.
 newPutRecord ::
-  -- | 'streamName'
-  Prelude.Text ->
   -- | 'data''
   Prelude.ByteString ->
   -- | 'partitionKey'
   Prelude.Text ->
   PutRecord
-newPutRecord pStreamName_ pData_ pPartitionKey_ =
+newPutRecord pData_ pPartitionKey_ =
   PutRecord'
     { explicitHashKey = Prelude.Nothing,
       sequenceNumberForOrdering = Prelude.Nothing,
-      streamName = pStreamName_,
+      streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
       data' = Data._Base64 Lens.# pData_,
       partitionKey = pPartitionKey_
     }
@@ -202,8 +209,12 @@ putRecord_explicitHashKey = Lens.lens (\PutRecord' {explicitHashKey} -> explicit
 putRecord_sequenceNumberForOrdering :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
 putRecord_sequenceNumberForOrdering = Lens.lens (\PutRecord' {sequenceNumberForOrdering} -> sequenceNumberForOrdering) (\s@PutRecord' {} a -> s {sequenceNumberForOrdering = a} :: PutRecord)
 
+-- | The ARN of the stream.
+putRecord_streamARN :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
+putRecord_streamARN = Lens.lens (\PutRecord' {streamARN} -> streamARN) (\s@PutRecord' {} a -> s {streamARN = a} :: PutRecord)
+
 -- | The name of the stream to put the data record into.
-putRecord_streamName :: Lens.Lens' PutRecord Prelude.Text
+putRecord_streamName :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
 putRecord_streamName = Lens.lens (\PutRecord' {streamName} -> streamName) (\s@PutRecord' {} a -> s {streamName = a} :: PutRecord)
 
 -- | The data blob to put into the record, which is base64-encoded when the
@@ -247,6 +258,7 @@ instance Prelude.Hashable PutRecord where
   hashWithSalt _salt PutRecord' {..} =
     _salt `Prelude.hashWithSalt` explicitHashKey
       `Prelude.hashWithSalt` sequenceNumberForOrdering
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` partitionKey
@@ -255,6 +267,7 @@ instance Prelude.NFData PutRecord where
   rnf PutRecord' {..} =
     Prelude.rnf explicitHashKey
       `Prelude.seq` Prelude.rnf sequenceNumberForOrdering
+      `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf data'
       `Prelude.seq` Prelude.rnf partitionKey
@@ -280,7 +293,8 @@ instance Data.ToJSON PutRecord where
               Prelude.<$> explicitHashKey,
             ("SequenceNumberForOrdering" Data..=)
               Prelude.<$> sequenceNumberForOrdering,
-            Prelude.Just ("StreamName" Data..= streamName),
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just ("Data" Data..= data'),
             Prelude.Just ("PartitionKey" Data..= partitionKey)
           ]

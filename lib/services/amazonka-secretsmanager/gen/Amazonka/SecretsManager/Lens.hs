@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,6 +63,7 @@ module Amazonka.SecretsManager.Lens
     describeSecretResponse_lastChangedDate,
     describeSecretResponse_lastRotatedDate,
     describeSecretResponse_name,
+    describeSecretResponse_nextRotationDate,
     describeSecretResponse_owningService,
     describeSecretResponse_primaryRegion,
     describeSecretResponse_replicationStatus,
@@ -118,6 +119,7 @@ module Amazonka.SecretsManager.Lens
 
     -- ** ListSecrets
     listSecrets_filters,
+    listSecrets_includePlannedDeletion,
     listSecrets_maxResults,
     listSecrets_nextToken,
     listSecrets_sortOrder,
@@ -250,6 +252,7 @@ module Amazonka.SecretsManager.Lens
     secretListEntry_lastChangedDate,
     secretListEntry_lastRotatedDate,
     secretListEntry_name,
+    secretListEntry_nextRotationDate,
     secretListEntry_owningService,
     secretListEntry_primaryRegion,
     secretListEntry_rotationEnabled,

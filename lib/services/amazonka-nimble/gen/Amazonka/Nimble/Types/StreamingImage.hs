@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StreamingImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,13 +36,14 @@ import qualified Amazonka.Prelude as Prelude
 -- Amazon provides a number of streaming images that include popular
 -- 3rd-party software.
 --
--- You can create your own streaming images using an Amazon Elastic Compute
--- Cloud (Amazon EC2) machine image that you create for this purpose. You
--- can also include software that your users require.
+-- You can create your own streaming images using an Amazon EC2 machine
+-- image that you create for this purpose. You can also include software
+-- that your users require.
 --
 -- /See:/ 'newStreamingImage' smart constructor.
 data StreamingImage = StreamingImage'
-  { -- | The ARN of the resource.
+  { -- | The Amazon Resource Name (ARN) that is assigned to a studio resource and
+    -- uniquely identifies it. ARNs are unique across all Regions.
     arn :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description of the streaming image.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -55,11 +56,11 @@ data StreamingImage = StreamingImage'
     eulaIds :: Prelude.Maybe [Prelude.Text],
     -- | A friendly name for a streaming image resource.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The owner of the streaming image, either the studioId that contains the
-    -- streaming image, or \'amazon\' for images that are provided by Amazon
+    -- | The owner of the streaming image, either the @studioId@ that contains
+    -- the streaming image, or @amazon@ for images that are provided by Amazon
     -- Nimble Studio.
     owner :: Prelude.Maybe Prelude.Text,
-    -- | The platform of the streaming image, either WINDOWS or LINUX.
+    -- | The platform of the streaming image, either Windows or Linux.
     platform :: Prelude.Maybe Prelude.Text,
     -- | The current state.
     state :: Prelude.Maybe StreamingImageState,
@@ -69,7 +70,7 @@ data StreamingImage = StreamingImage'
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the streaming image.
     streamingImageId :: Prelude.Maybe Prelude.Text,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- | A collection of labels, in the form of key-value pairs, that apply to
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
@@ -83,7 +84,8 @@ data StreamingImage = StreamingImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'streamingImage_arn' - The ARN of the resource.
+-- 'arn', 'streamingImage_arn' - The Amazon Resource Name (ARN) that is assigned to a studio resource and
+-- uniquely identifies it. ARNs are unique across all Regions.
 --
 -- 'description', 'streamingImage_description' - A human-readable description of the streaming image.
 --
@@ -96,11 +98,11 @@ data StreamingImage = StreamingImage'
 --
 -- 'name', 'streamingImage_name' - A friendly name for a streaming image resource.
 --
--- 'owner', 'streamingImage_owner' - The owner of the streaming image, either the studioId that contains the
--- streaming image, or \'amazon\' for images that are provided by Amazon
+-- 'owner', 'streamingImage_owner' - The owner of the streaming image, either the @studioId@ that contains
+-- the streaming image, or @amazon@ for images that are provided by Amazon
 -- Nimble Studio.
 --
--- 'platform', 'streamingImage_platform' - The platform of the streaming image, either WINDOWS or LINUX.
+-- 'platform', 'streamingImage_platform' - The platform of the streaming image, either Windows or Linux.
 --
 -- 'state', 'streamingImage_state' - The current state.
 --
@@ -110,7 +112,7 @@ data StreamingImage = StreamingImage'
 --
 -- 'streamingImageId', 'streamingImage_streamingImageId' - The ID of the streaming image.
 --
--- 'tags', 'streamingImage_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- 'tags', 'streamingImage_tags' - A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 newStreamingImage ::
   StreamingImage
@@ -131,7 +133,8 @@ newStreamingImage =
       tags = Prelude.Nothing
     }
 
--- | The ARN of the resource.
+-- | The Amazon Resource Name (ARN) that is assigned to a studio resource and
+-- uniquely identifies it. ARNs are unique across all Regions.
 streamingImage_arn :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
 streamingImage_arn = Lens.lens (\StreamingImage' {arn} -> arn) (\s@StreamingImage' {} a -> s {arn = a} :: StreamingImage)
 
@@ -156,13 +159,13 @@ streamingImage_eulaIds = Lens.lens (\StreamingImage' {eulaIds} -> eulaIds) (\s@S
 streamingImage_name :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
 streamingImage_name = Lens.lens (\StreamingImage' {name} -> name) (\s@StreamingImage' {} a -> s {name = a} :: StreamingImage) Prelude.. Lens.mapping Data._Sensitive
 
--- | The owner of the streaming image, either the studioId that contains the
--- streaming image, or \'amazon\' for images that are provided by Amazon
+-- | The owner of the streaming image, either the @studioId@ that contains
+-- the streaming image, or @amazon@ for images that are provided by Amazon
 -- Nimble Studio.
 streamingImage_owner :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
 streamingImage_owner = Lens.lens (\StreamingImage' {owner} -> owner) (\s@StreamingImage' {} a -> s {owner = a} :: StreamingImage)
 
--- | The platform of the streaming image, either WINDOWS or LINUX.
+-- | The platform of the streaming image, either Windows or Linux.
 streamingImage_platform :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
 streamingImage_platform = Lens.lens (\StreamingImage' {platform} -> platform) (\s@StreamingImage' {} a -> s {platform = a} :: StreamingImage)
 
@@ -182,7 +185,7 @@ streamingImage_statusMessage = Lens.lens (\StreamingImage' {statusMessage} -> st
 streamingImage_streamingImageId :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
 streamingImage_streamingImageId = Lens.lens (\StreamingImage' {streamingImageId} -> streamingImageId) (\s@StreamingImage' {} a -> s {streamingImageId = a} :: StreamingImage)
 
--- | A collection of labels, in the form of key:value pairs, that apply to
+-- | A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 streamingImage_tags :: Lens.Lens' StreamingImage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 streamingImage_tags = Lens.lens (\StreamingImage' {tags} -> tags) (\s@StreamingImage' {} a -> s {tags = a} :: StreamingImage) Prelude.. Lens.mapping Lens.coerced

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.ResourceConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,8 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.InstanceGroup
 import Amazonka.SageMaker.Types.TrainingInstanceType
 
--- | Describes the resources, including ML compute instances and ML storage
--- volumes, to use for model training.
+-- | Describes the resources, including machine learning (ML) compute
+-- instances and ML storage volumes, to use for model training.
 --
 -- /See:/ 'newResourceConfig' smart constructor.
 data ResourceConfig = ResourceConfig'
@@ -37,6 +37,25 @@ data ResourceConfig = ResourceConfig'
     -- | The configuration of a heterogeneous cluster in JSON format.
     instanceGroups :: Prelude.Maybe [InstanceGroup],
     -- | The ML compute instance type.
+    --
+    -- SageMaker Training on Amazon Elastic Compute Cloud (EC2) P4de instances
+    -- is in preview release starting December 9th, 2022.
+    --
+    -- <http://aws.amazon.com/ec2/instance-types/p4/ Amazon EC2 P4de instances>
+    -- (currently in preview) are powered by 8 NVIDIA A100 GPUs with 80GB
+    -- high-performance HBM2e GPU memory, which accelerate the speed of
+    -- training ML models that need to be trained on large datasets of
+    -- high-resolution data. In this preview release, Amazon SageMaker supports
+    -- ML training jobs on P4de instances (@ml.p4de.24xlarge@) to reduce model
+    -- training time. The @ml.p4de.24xlarge@ instances are available in the
+    -- following Amazon Web Services Regions.
+    --
+    -- -   US East (N. Virginia) (us-east-1)
+    --
+    -- -   US West (Oregon) (us-west-2)
+    --
+    -- To request quota limit increase and start using P4de instances, contact
+    -- the SageMaker Training service team through your account team.
     instanceType :: Prelude.Maybe TrainingInstanceType,
     -- | The duration of time in seconds to retain configured resources in a warm
     -- pool for subsequent training jobs.
@@ -112,6 +131,25 @@ data ResourceConfig = ResourceConfig'
 -- 'instanceGroups', 'resourceConfig_instanceGroups' - The configuration of a heterogeneous cluster in JSON format.
 --
 -- 'instanceType', 'resourceConfig_instanceType' - The ML compute instance type.
+--
+-- SageMaker Training on Amazon Elastic Compute Cloud (EC2) P4de instances
+-- is in preview release starting December 9th, 2022.
+--
+-- <http://aws.amazon.com/ec2/instance-types/p4/ Amazon EC2 P4de instances>
+-- (currently in preview) are powered by 8 NVIDIA A100 GPUs with 80GB
+-- high-performance HBM2e GPU memory, which accelerate the speed of
+-- training ML models that need to be trained on large datasets of
+-- high-resolution data. In this preview release, Amazon SageMaker supports
+-- ML training jobs on P4de instances (@ml.p4de.24xlarge@) to reduce model
+-- training time. The @ml.p4de.24xlarge@ instances are available in the
+-- following Amazon Web Services Regions.
+--
+-- -   US East (N. Virginia) (us-east-1)
+--
+-- -   US West (Oregon) (us-west-2)
+--
+-- To request quota limit increase and start using P4de instances, contact
+-- the SageMaker Training service team through your account team.
 --
 -- 'keepAlivePeriodInSeconds', 'resourceConfig_keepAlivePeriodInSeconds' - The duration of time in seconds to retain configured resources in a warm
 -- pool for subsequent training jobs.
@@ -193,6 +231,25 @@ resourceConfig_instanceGroups :: Lens.Lens' ResourceConfig (Prelude.Maybe [Insta
 resourceConfig_instanceGroups = Lens.lens (\ResourceConfig' {instanceGroups} -> instanceGroups) (\s@ResourceConfig' {} a -> s {instanceGroups = a} :: ResourceConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ML compute instance type.
+--
+-- SageMaker Training on Amazon Elastic Compute Cloud (EC2) P4de instances
+-- is in preview release starting December 9th, 2022.
+--
+-- <http://aws.amazon.com/ec2/instance-types/p4/ Amazon EC2 P4de instances>
+-- (currently in preview) are powered by 8 NVIDIA A100 GPUs with 80GB
+-- high-performance HBM2e GPU memory, which accelerate the speed of
+-- training ML models that need to be trained on large datasets of
+-- high-resolution data. In this preview release, Amazon SageMaker supports
+-- ML training jobs on P4de instances (@ml.p4de.24xlarge@) to reduce model
+-- training time. The @ml.p4de.24xlarge@ instances are available in the
+-- following Amazon Web Services Regions.
+--
+-- -   US East (N. Virginia) (us-east-1)
+--
+-- -   US West (Oregon) (us-west-2)
+--
+-- To request quota limit increase and start using P4de instances, contact
+-- the SageMaker Training service team through your account team.
 resourceConfig_instanceType :: Lens.Lens' ResourceConfig (Prelude.Maybe TrainingInstanceType)
 resourceConfig_instanceType = Lens.lens (\ResourceConfig' {instanceType} -> instanceType) (\s@ResourceConfig' {} a -> s {instanceType = a} :: ResourceConfig)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.ListPermissions
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,9 @@
 -- reside in the same Amazon Web Services account as the CA.
 --
 -- Permissions can be granted with the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreatePermission.html CreatePermission>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreatePermission.html CreatePermission>
 -- action and revoked with the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePermission.html DeletePermission>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html DeletePermission>
 -- action.
 --
 -- __About Permissions__
@@ -47,7 +47,7 @@
 --     renewals. Instead, the ACM certificate owner must set up a
 --     resource-based policy to enable cross-account issuance and renewals.
 --     For more information, see
---     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html Using a Resource Based Policy with ACM Private CA>.
+--     <https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html Using a Resource Based Policy with Amazon Web Services Private CA>.
 --
 -- This operation returns paginated results.
 module Amazonka.CertificateManagerPCA.ListPermissions
@@ -93,11 +93,11 @@ data ListPermissions = ListPermissions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Number (ARN) of the private CA to inspect. You can
     -- find the ARN by calling the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action. This must be of the form:
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
     -- You can get a private CA\'s ARN by running the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action.
     certificateAuthorityArn :: Prelude.Text
   }
@@ -123,11 +123,11 @@ data ListPermissions = ListPermissions'
 --
 -- 'certificateAuthorityArn', 'listPermissions_certificateAuthorityArn' - The Amazon Resource Number (ARN) of the private CA to inspect. You can
 -- find the ARN by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. This must be of the form:
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
 -- You can get a private CA\'s ARN by running the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action.
 newListPermissions ::
   -- | 'certificateAuthorityArn'
@@ -156,11 +156,11 @@ listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToke
 
 -- | The Amazon Resource Number (ARN) of the private CA to inspect. You can
 -- find the ARN by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. This must be of the form:
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
 -- You can get a private CA\'s ARN by running the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action.
 listPermissions_certificateAuthorityArn :: Lens.Lens' ListPermissions Prelude.Text
 listPermissions_certificateAuthorityArn = Lens.lens (\ListPermissions' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@ListPermissions' {} a -> s {certificateAuthorityArn = a} :: ListPermissions)

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.DeleteStudioSessionMapping
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
-    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+    -- in the /IAM Identity Center Identity Store API Reference/. Either
     -- @IdentityName@ or @IdentityId@ must be specified.
     identityId :: Prelude.Maybe Prelude.Text,
     -- | The name of the user name or group to remove from the Amazon EMR Studio.
@@ -61,8 +61,8 @@ data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /Amazon Web Services SSO Store API Reference/. Either
-    -- @IdentityName@ or @IdentityId@ must be specified.
+    -- in the /IAM Identity Center Store API Reference/. Either @IdentityName@
+    -- or @IdentityId@ must be specified.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EMR Studio.
     studioId :: Prelude.Text,
@@ -85,7 +85,7 @@ data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- in the /IAM Identity Center Identity Store API Reference/. Either
 -- @IdentityName@ or @IdentityId@ must be specified.
 --
 -- 'identityName', 'deleteStudioSessionMapping_identityName' - The name of the user name or group to remove from the Amazon EMR Studio.
@@ -93,8 +93,8 @@ data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Store API Reference/. Either
--- @IdentityName@ or @IdentityId@ must be specified.
+-- in the /IAM Identity Center Store API Reference/. Either @IdentityName@
+-- or @IdentityId@ must be specified.
 --
 -- 'studioId', 'deleteStudioSessionMapping_studioId' - The ID of the Amazon EMR Studio.
 --
@@ -122,7 +122,7 @@ newDeleteStudioSessionMapping
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- in the /IAM Identity Center Identity Store API Reference/. Either
 -- @IdentityName@ or @IdentityId@ must be specified.
 deleteStudioSessionMapping_identityId :: Lens.Lens' DeleteStudioSessionMapping (Prelude.Maybe Prelude.Text)
 deleteStudioSessionMapping_identityId = Lens.lens (\DeleteStudioSessionMapping' {identityId} -> identityId) (\s@DeleteStudioSessionMapping' {} a -> s {identityId = a} :: DeleteStudioSessionMapping)
@@ -132,8 +132,8 @@ deleteStudioSessionMapping_identityId = Lens.lens (\DeleteStudioSessionMapping' 
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Store API Reference/. Either
--- @IdentityName@ or @IdentityId@ must be specified.
+-- in the /IAM Identity Center Store API Reference/. Either @IdentityName@
+-- or @IdentityId@ must be specified.
 deleteStudioSessionMapping_identityName :: Lens.Lens' DeleteStudioSessionMapping (Prelude.Maybe Prelude.Text)
 deleteStudioSessionMapping_identityName = Lens.lens (\DeleteStudioSessionMapping' {identityName} -> identityName) (\s@DeleteStudioSessionMapping' {} a -> s {identityName = a} :: DeleteStudioSessionMapping)
 

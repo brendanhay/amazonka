@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Batch.Types.ComputeResourceUpdate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,7 +79,8 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- launched. For example, if your maximum percentage is 20%, the Spot price
     -- must be less than 20% of the current On-Demand price for that Amazon EC2
     -- instance. You always pay the lowest (market) price and never more than
-    -- your maximum percentage.
+    -- your maximum percentage. For most use cases, we recommend leaving this
+    -- field empty.
     --
     -- When updating a compute environment, changing the bid percentage
     -- requires an infrastructure update of the compute environment. For more
@@ -284,6 +285,17 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
     -- in the /Batch User Guide/.
+    --
+    -- Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones Local Zones>
+    -- in the /Amazon EC2 User Guide for Linux Instances/,
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html Amazon EKS and Amazon Web Services Local Zones>
+    -- in the /Amazon EKS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts>
+    -- in the /Amazon ECS Developer Guide/.
+    --
+    -- Batch on Fargate doesn\'t currently support Local Zones.
     subnets :: Prelude.Maybe [Prelude.Text],
     -- | Key-value pair tags to be applied to EC2 resources that are launched in
     -- the compute environment. For Batch, these take the form of
@@ -391,7 +403,8 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- launched. For example, if your maximum percentage is 20%, the Spot price
 -- must be less than 20% of the current On-Demand price for that Amazon EC2
 -- instance. You always pay the lowest (market) price and never more than
--- your maximum percentage.
+-- your maximum percentage. For most use cases, we recommend leaving this
+-- field empty.
 --
 -- When updating a compute environment, changing the bid percentage
 -- requires an infrastructure update of the compute environment. For more
@@ -597,6 +610,17 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
 -- in the /Batch User Guide/.
 --
+-- Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones Local Zones>
+-- in the /Amazon EC2 User Guide for Linux Instances/,
+-- <https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html Amazon EKS and Amazon Web Services Local Zones>
+-- in the /Amazon EKS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts>
+-- in the /Amazon ECS Developer Guide/.
+--
+-- Batch on Fargate doesn\'t currently support Local Zones.
+--
 -- 'tags', 'computeResourceUpdate_tags' - Key-value pair tags to be applied to EC2 resources that are launched in
 -- the compute environment. For Batch, these take the form of
 -- @\"String1\": \"String2\"@, where @String1@ is the tag key and @String2@
@@ -717,7 +741,8 @@ computeResourceUpdate_allocationStrategy = Lens.lens (\ComputeResourceUpdate' {a
 -- launched. For example, if your maximum percentage is 20%, the Spot price
 -- must be less than 20% of the current On-Demand price for that Amazon EC2
 -- instance. You always pay the lowest (market) price and never more than
--- your maximum percentage.
+-- your maximum percentage. For most use cases, we recommend leaving this
+-- field empty.
 --
 -- When updating a compute environment, changing the bid percentage
 -- requires an infrastructure update of the compute environment. For more
@@ -946,6 +971,17 @@ computeResourceUpdate_securityGroupIds = Lens.lens (\ComputeResourceUpdate' {sec
 -- information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
 -- in the /Batch User Guide/.
+--
+-- Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones Local Zones>
+-- in the /Amazon EC2 User Guide for Linux Instances/,
+-- <https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html Amazon EKS and Amazon Web Services Local Zones>
+-- in the /Amazon EKS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts>
+-- in the /Amazon ECS Developer Guide/.
+--
+-- Batch on Fargate doesn\'t currently support Local Zones.
 computeResourceUpdate_subnets :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
 computeResourceUpdate_subnets = Lens.lens (\ComputeResourceUpdate' {subnets} -> subnets) (\s@ComputeResourceUpdate' {} a -> s {subnets = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens.coerced
 

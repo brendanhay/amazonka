@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Support.DescribeSeverityLevels
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,7 @@
 --     plan to use the Amazon Web Services Support API.
 --
 -- -   If you call the Amazon Web Services Support API from an account that
---     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     doesn\'t have a Business, Enterprise On-Ramp, or Enterprise Support
 --     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.
@@ -60,10 +60,10 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newDescribeSeverityLevels' smart constructor.
 data DescribeSeverityLevels = DescribeSeverityLevels'
-  { -- | The ISO 639-1 code for the language in which Amazon Web Services
-    -- provides support. Amazon Web Services Support currently supports English
-    -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
-    -- explicitly for operations that take them.
+  { -- | The language in which Amazon Web Services Support handles the case.
+    -- Amazon Web Services Support currently supports English (\"en\") and
+    -- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+    -- @language@ parameter if you want support in that language.
     language :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,19 +76,19 @@ data DescribeSeverityLevels = DescribeSeverityLevels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'language', 'describeSeverityLevels_language' - The ISO 639-1 code for the language in which Amazon Web Services
--- provides support. Amazon Web Services Support currently supports English
--- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
--- explicitly for operations that take them.
+-- 'language', 'describeSeverityLevels_language' - The language in which Amazon Web Services Support handles the case.
+-- Amazon Web Services Support currently supports English (\"en\") and
+-- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+-- @language@ parameter if you want support in that language.
 newDescribeSeverityLevels ::
   DescribeSeverityLevels
 newDescribeSeverityLevels =
   DescribeSeverityLevels' {language = Prelude.Nothing}
 
--- | The ISO 639-1 code for the language in which Amazon Web Services
--- provides support. Amazon Web Services Support currently supports English
--- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
--- explicitly for operations that take them.
+-- | The language in which Amazon Web Services Support handles the case.
+-- Amazon Web Services Support currently supports English (\"en\") and
+-- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+-- @language@ parameter if you want support in that language.
 describeSeverityLevels_language :: Lens.Lens' DescribeSeverityLevels (Prelude.Maybe Prelude.Text)
 describeSeverityLevels_language = Lens.lens (\DescribeSeverityLevels' {language} -> language) (\s@DescribeSeverityLevels' {} a -> s {language = a} :: DescribeSeverityLevels)
 

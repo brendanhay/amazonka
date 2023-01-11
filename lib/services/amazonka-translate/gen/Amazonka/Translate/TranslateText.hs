@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Translate.TranslateText
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -67,8 +67,8 @@ data TranslateText = TranslateText'
     -- request. You can use 1 terminology list at most in a @TranslateText@
     -- request. Terminology lists can contain a maximum of 256 terms.
     terminologyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The text to translate. The text string can be a maximum of 5,000 bytes
-    -- long. Depending on your character set, this may be fewer than 5,000
+    -- | The text to translate. The text string can be a maximum of 10,000 bytes
+    -- long. Depending on your character set, this may be fewer than 10,000
     -- characters.
     text :: Prelude.Text,
     -- | The language code for the language of the source text. The language must
@@ -108,8 +108,8 @@ data TranslateText = TranslateText'
 -- request. You can use 1 terminology list at most in a @TranslateText@
 -- request. Terminology lists can contain a maximum of 256 terms.
 --
--- 'text', 'translateText_text' - The text to translate. The text string can be a maximum of 5,000 bytes
--- long. Depending on your character set, this may be fewer than 5,000
+-- 'text', 'translateText_text' - The text to translate. The text string can be a maximum of 10,000 bytes
+-- long. Depending on your character set, this may be fewer than 10,000
 -- characters.
 --
 -- 'sourceLanguageCode', 'translateText_sourceLanguageCode' - The language code for the language of the source text. The language must
@@ -161,8 +161,8 @@ translateText_settings = Lens.lens (\TranslateText' {settings} -> settings) (\s@
 translateText_terminologyNames :: Lens.Lens' TranslateText (Prelude.Maybe [Prelude.Text])
 translateText_terminologyNames = Lens.lens (\TranslateText' {terminologyNames} -> terminologyNames) (\s@TranslateText' {} a -> s {terminologyNames = a} :: TranslateText) Prelude.. Lens.mapping Lens.coerced
 
--- | The text to translate. The text string can be a maximum of 5,000 bytes
--- long. Depending on your character set, this may be fewer than 5,000
+-- | The text to translate. The text string can be a maximum of 10,000 bytes
+-- long. Depending on your character set, this may be fewer than 10,000
 -- characters.
 translateText_text :: Lens.Lens' TranslateText Prelude.Text
 translateText_text = Lens.lens (\TranslateText' {text} -> text) (\s@TranslateText' {} a -> s {text = a} :: TranslateText)

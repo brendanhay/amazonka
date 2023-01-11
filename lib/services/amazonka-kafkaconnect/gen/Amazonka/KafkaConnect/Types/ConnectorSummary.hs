@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.KafkaConnect.Types.ConnectorSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,7 +47,7 @@ data ConnectorSummary = ConnectorSummary'
     -- | The state of the connector.
     connectorState :: Prelude.Maybe ConnectorState,
     -- | The time that the connector was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The current version of the connector.
     currentVersion :: Prelude.Maybe Prelude.Text,
     -- | The details of the Apache Kafka cluster to which the connector is

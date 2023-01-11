@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.AppFlow.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1478,7 +1478,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | AppFlow\/Requester has invalid or missing permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1488,7 +1488,7 @@ _AccessDeniedException =
 -- | There was a conflict when processing the request (for example, a flow
 -- with the given name already exists within the account. Check for
 -- conflicting resource names and try again.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -1496,7 +1496,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An error occurred when authenticating with the connector endpoint.
-_ConnectorAuthenticationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConnectorAuthenticationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConnectorAuthenticationException =
   Core._MatchServiceError
     defaultService
@@ -1504,7 +1504,7 @@ _ConnectorAuthenticationException =
     Prelude.. Core.hasStatus 401
 
 -- | An error occurred when retrieving data from the connector endpoint.
-_ConnectorServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConnectorServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConnectorServerException =
   Core._MatchServiceError
     defaultService
@@ -1513,7 +1513,7 @@ _ConnectorServerException =
 
 -- | An internal service error occurred during the processing of your
 -- request. Try again later.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -1522,7 +1522,7 @@ _InternalServerException =
 
 -- | The resource specified in the request (such as the source or destination
 -- connector profile) is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1531,7 +1531,7 @@ _ResourceNotFoundException =
 
 -- | The request would cause a service quota (such as the number of flows) to
 -- be exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1540,7 +1540,7 @@ _ServiceQuotaExceededException =
 
 -- | API calls have exceeded the maximum allowed API request rate per account
 -- and per Region.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1548,7 +1548,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The requested operation is not supported for the current flow.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService
@@ -1556,7 +1556,7 @@ _UnsupportedOperationException =
     Prelude.. Core.hasStatus 400
 
 -- | The request has invalid or missing parameters.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

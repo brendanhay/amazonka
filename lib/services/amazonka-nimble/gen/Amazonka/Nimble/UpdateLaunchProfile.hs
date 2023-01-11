@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.UpdateLaunchProfile
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,9 +57,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateLaunchProfile' smart constructor.
 data UpdateLaunchProfile = UpdateLaunchProfile'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -73,7 +73,8 @@ data UpdateLaunchProfile = UpdateLaunchProfile'
     -- | Unique identifiers for a collection of studio components that can be
     -- used with this launch profile.
     studioComponentIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Launch Profile ID.
+    -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -89,9 +90,9 @@ data UpdateLaunchProfile = UpdateLaunchProfile'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'updateLaunchProfile_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'description', 'updateLaunchProfile_description' - The description.
 --
@@ -105,7 +106,8 @@ data UpdateLaunchProfile = UpdateLaunchProfile'
 -- 'studioComponentIds', 'updateLaunchProfile_studioComponentIds' - Unique identifiers for a collection of studio components that can be
 -- used with this launch profile.
 --
--- 'launchProfileId', 'updateLaunchProfile_launchProfileId' - The Launch Profile ID.
+-- 'launchProfileId', 'updateLaunchProfile_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'studioId', 'updateLaunchProfile_studioId' - The studio ID.
 newUpdateLaunchProfile ::
@@ -127,9 +129,9 @@ newUpdateLaunchProfile pLaunchProfileId_ pStudioId_ =
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 updateLaunchProfile_clientToken :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe Prelude.Text)
 updateLaunchProfile_clientToken = Lens.lens (\UpdateLaunchProfile' {clientToken} -> clientToken) (\s@UpdateLaunchProfile' {} a -> s {clientToken = a} :: UpdateLaunchProfile)
 
@@ -155,7 +157,8 @@ updateLaunchProfile_streamConfiguration = Lens.lens (\UpdateLaunchProfile' {stre
 updateLaunchProfile_studioComponentIds :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateLaunchProfile_studioComponentIds = Lens.lens (\UpdateLaunchProfile' {studioComponentIds} -> studioComponentIds) (\s@UpdateLaunchProfile' {} a -> s {studioComponentIds = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | The Launch Profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 updateLaunchProfile_launchProfileId :: Lens.Lens' UpdateLaunchProfile Prelude.Text
 updateLaunchProfile_launchProfileId = Lens.lens (\UpdateLaunchProfile' {launchProfileId} -> launchProfileId) (\s@UpdateLaunchProfile' {} a -> s {launchProfileId = a} :: UpdateLaunchProfile)
 

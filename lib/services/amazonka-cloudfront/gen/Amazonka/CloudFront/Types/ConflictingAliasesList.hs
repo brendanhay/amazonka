@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.ConflictingAliasesList
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- and Amazon Web Services accounts that they are associated with. In the
 -- list, the distribution and account IDs are partially hidden, which
 -- allows you to identify the distributions and accounts that you own, but
--- helps to protect the information of ones that you don’t own.
+-- helps to protect the information of ones that you don\'t own.
 --
 -- /See:/ 'newConflictingAliasesList' smart constructor.
 data ConflictingAliasesList = ConflictingAliasesList'

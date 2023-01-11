@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,7 @@ module Amazonka.Kinesis.Types
     defaultService,
 
     -- * Errors
+    _AccessDeniedException,
     _ExpiredIteratorException,
     _ExpiredNextTokenException,
     _InternalFailureException,
@@ -92,6 +93,7 @@ module Amazonka.Kinesis.Types
     newEnhancedMonitoringOutput,
     enhancedMonitoringOutput_currentShardLevelMetrics,
     enhancedMonitoringOutput_desiredShardLevelMetrics,
+    enhancedMonitoringOutput_streamARN,
     enhancedMonitoringOutput_streamName,
 
     -- * HashKeyRange
@@ -188,6 +190,15 @@ module Amazonka.Kinesis.Types
     newStreamModeDetails,
     streamModeDetails_streamMode,
 
+    -- * StreamSummary
+    StreamSummary (..),
+    newStreamSummary,
+    streamSummary_streamCreationTimestamp,
+    streamSummary_streamModeDetails,
+    streamSummary_streamName,
+    streamSummary_streamARN,
+    streamSummary_streamStatus,
+
     -- * SubscribeToShardEvent
     SubscribeToShardEvent (..),
     newSubscribeToShardEvent,
@@ -230,6 +241,7 @@ import Amazonka.Kinesis.Types.StreamDescriptionSummary
 import Amazonka.Kinesis.Types.StreamMode
 import Amazonka.Kinesis.Types.StreamModeDetails
 import Amazonka.Kinesis.Types.StreamStatus
+import Amazonka.Kinesis.Types.StreamSummary
 import Amazonka.Kinesis.Types.SubscribeToShardEvent
 import Amazonka.Kinesis.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -311,15 +323,23 @@ defaultService =
         Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | Specifies that you do not have the permissions required to perform this
+-- operation.
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+
 -- | The provided iterator exceeds the maximum age allowed.
-_ExpiredIteratorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredIteratorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExpiredIteratorException =
   Core._MatchServiceError
     defaultService
     "ExpiredIteratorException"
 
 -- | The pagination token passed to the operation is expired.
-_ExpiredNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExpiredNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -327,7 +347,7 @@ _ExpiredNextTokenException =
 
 -- | The processing of the request failed because of an unknown error,
 -- exception, or failure.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -335,7 +355,7 @@ _InternalFailureException =
 
 -- | A specified parameter exceeds its restrictions, is not supported, or
 -- can\'t be used. For more information, see the returned message.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
@@ -343,7 +363,7 @@ _InvalidArgumentException =
 
 -- | The ciphertext references a key that doesn\'t exist or that you don\'t
 -- have access to.
-_KMSAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSAccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSAccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -351,7 +371,7 @@ _KMSAccessDeniedException =
 
 -- | The request was rejected because the specified customer master key (CMK)
 -- isn\'t enabled.
-_KMSDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSDisabledException =
   Core._MatchServiceError
     defaultService
@@ -361,7 +381,7 @@ _KMSDisabledException =
 -- isn\'t valid for this request. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
-_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSInvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -369,7 +389,7 @@ _KMSInvalidStateException =
 
 -- | The request was rejected because the specified entity or resource can\'t
 -- be found.
-_KMSNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -377,7 +397,7 @@ _KMSNotFoundException =
 
 -- | The Amazon Web Services access key ID needs a subscription for the
 -- service.
-_KMSOptInRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSOptInRequired :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSOptInRequired =
   Core._MatchServiceError
     defaultService
@@ -387,7 +407,7 @@ _KMSOptInRequired =
 -- about throttling, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
-_KMSThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -395,7 +415,7 @@ _KMSThrottlingException =
 
 -- | The requested resource exceeds the maximum number allowed, or the number
 -- of concurrent stream requests exceeds the maximum number allowed.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -408,7 +428,7 @@ _LimitExceededException =
 -- in the /Amazon Kinesis Data Streams Developer Guide/, and
 -- <https://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in Amazon Web Services>
 -- in the /Amazon Web Services General Reference/.
-_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
@@ -416,7 +436,7 @@ _ProvisionedThroughputExceededException =
 
 -- | The resource is not available for this operation. For successful
 -- operation, the resource must be in the @ACTIVE@ state.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -424,14 +444,16 @@ _ResourceInUseException =
 
 -- | The requested resource could not be found. The stream might not be
 -- specified correctly.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
--- |
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+-- | Specifies that you tried to invoke this API for a data stream with the
+-- on-demand capacity mode. This API is only supported for data streams
+-- with the provisioned capacity mode.
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

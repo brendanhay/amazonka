@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.S3.CopyObject
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -312,12 +312,12 @@ data CopyObject = CopyObject'
     -- | Copies the object if its entity tag (ETag) matches the specified tag.
     copySourceIfMatch :: Prelude.Maybe Prelude.Text,
     -- | Copies the object if it has been modified since the specified time.
-    copySourceIfModifiedSince :: Prelude.Maybe Data.ISO8601,
+    copySourceIfModifiedSince :: Prelude.Maybe Data.RFC822,
     -- | Copies the object if its entity tag (ETag) is different than the
     -- specified ETag.
     copySourceIfNoneMatch :: Prelude.Maybe Prelude.Text,
     -- | Copies the object if it hasn\'t been modified since the specified time.
-    copySourceIfUnmodifiedSince :: Prelude.Maybe Data.ISO8601,
+    copySourceIfUnmodifiedSince :: Prelude.Maybe Data.RFC822,
     -- | Specifies the algorithm to use when decrypting the source object (for
     -- example, AES256).
     copySourceSSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
@@ -338,7 +338,7 @@ data CopyObject = CopyObject'
     -- code @403 Forbidden@ (access denied).
     expectedSourceBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the object is no longer cacheable.
-    expires :: Prelude.Maybe Data.ISO8601,
+    expires :: Prelude.Maybe Data.RFC822,
     -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
     -- object.
     --

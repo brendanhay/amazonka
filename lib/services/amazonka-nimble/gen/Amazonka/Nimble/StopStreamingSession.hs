@@ -14,15 +14,15 @@
 
 -- |
 -- Module      : Amazonka.Nimble.StopStreamingSession
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Transitions sessions from the READY state into the STOPPED state. The
--- STOP_IN_PROGRESS state is the intermediate state between the READY and
--- STOPPED states.
+-- Transitions sessions from the @READY@ state into the @STOPPED@ state.
+-- The @STOP_IN_PROGRESS@ state is the intermediate state between the
+-- @READY@ and @STOPPED@ states.
 module Amazonka.Nimble.StopStreamingSession
   ( -- * Creating a Request
     StopStreamingSession (..),
@@ -30,6 +30,7 @@ module Amazonka.Nimble.StopStreamingSession
 
     -- * Request Lenses
     stopStreamingSession_clientToken,
+    stopStreamingSession_volumeRetentionMode,
     stopStreamingSession_sessionId,
     stopStreamingSession_studioId,
 
@@ -54,11 +55,14 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStopStreamingSession' smart constructor.
 data StopStreamingSession = StopStreamingSession'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The streaming session ID for the StopStreamingSessionRequest.
+    -- | Adds additional instructions to a streaming session stop action to
+    -- either retain the EBS volumes or delete the EBS volumes.
+    volumeRetentionMode :: Prelude.Maybe VolumeRetentionMode,
+    -- | The streaming session ID for the @StopStreamingSessionRequest@.
     sessionId :: Prelude.Text,
     -- | The studioId for the StopStreamingSessionRequest.
     studioId :: Prelude.Text
@@ -74,11 +78,14 @@ data StopStreamingSession = StopStreamingSession'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'stopStreamingSession_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
--- 'sessionId', 'stopStreamingSession_sessionId' - The streaming session ID for the StopStreamingSessionRequest.
+-- 'volumeRetentionMode', 'stopStreamingSession_volumeRetentionMode' - Adds additional instructions to a streaming session stop action to
+-- either retain the EBS volumes or delete the EBS volumes.
+--
+-- 'sessionId', 'stopStreamingSession_sessionId' - The streaming session ID for the @StopStreamingSessionRequest@.
 --
 -- 'studioId', 'stopStreamingSession_studioId' - The studioId for the StopStreamingSessionRequest.
 newStopStreamingSession ::
@@ -91,18 +98,24 @@ newStopStreamingSession pSessionId_ pStudioId_ =
   StopStreamingSession'
     { clientToken =
         Prelude.Nothing,
+      volumeRetentionMode = Prelude.Nothing,
       sessionId = pSessionId_,
       studioId = pStudioId_
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 stopStreamingSession_clientToken :: Lens.Lens' StopStreamingSession (Prelude.Maybe Prelude.Text)
 stopStreamingSession_clientToken = Lens.lens (\StopStreamingSession' {clientToken} -> clientToken) (\s@StopStreamingSession' {} a -> s {clientToken = a} :: StopStreamingSession)
 
--- | The streaming session ID for the StopStreamingSessionRequest.
+-- | Adds additional instructions to a streaming session stop action to
+-- either retain the EBS volumes or delete the EBS volumes.
+stopStreamingSession_volumeRetentionMode :: Lens.Lens' StopStreamingSession (Prelude.Maybe VolumeRetentionMode)
+stopStreamingSession_volumeRetentionMode = Lens.lens (\StopStreamingSession' {volumeRetentionMode} -> volumeRetentionMode) (\s@StopStreamingSession' {} a -> s {volumeRetentionMode = a} :: StopStreamingSession)
+
+-- | The streaming session ID for the @StopStreamingSessionRequest@.
 stopStreamingSession_sessionId :: Lens.Lens' StopStreamingSession Prelude.Text
 stopStreamingSession_sessionId = Lens.lens (\StopStreamingSession' {sessionId} -> sessionId) (\s@StopStreamingSession' {} a -> s {sessionId = a} :: StopStreamingSession)
 
@@ -127,12 +140,14 @@ instance Core.AWSRequest StopStreamingSession where
 instance Prelude.Hashable StopStreamingSession where
   hashWithSalt _salt StopStreamingSession' {..} =
     _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` volumeRetentionMode
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData StopStreamingSession where
   rnf StopStreamingSession' {..} =
     Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf volumeRetentionMode
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf studioId
 
@@ -145,7 +160,13 @@ instance Data.ToHeaders StopStreamingSession where
       ]
 
 instance Data.ToJSON StopStreamingSession where
-  toJSON = Prelude.const (Data.Object Prelude.mempty)
+  toJSON StopStreamingSession' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [ ("volumeRetentionMode" Data..=)
+              Prelude.<$> volumeRetentionMode
+          ]
+      )
 
 instance Data.ToPath StopStreamingSession where
   toPath StopStreamingSession' {..} =

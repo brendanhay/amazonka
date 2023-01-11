@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.DomainSettingsForUpdate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,7 +37,10 @@ data DomainSettingsForUpdate = DomainSettingsForUpdate'
     -- @InService@ or @Pending@ state.
     executionRoleIdentityConfig :: Prelude.Maybe ExecutionRoleIdentityConfig,
     -- | A collection of @RStudioServerPro@ Domain-level app settings to update.
-    rStudioServerProDomainSettingsForUpdate :: Prelude.Maybe RStudioServerProDomainSettingsForUpdate
+    rStudioServerProDomainSettingsForUpdate :: Prelude.Maybe RStudioServerProDomainSettingsForUpdate,
+    -- | The security groups for the Amazon Virtual Private Cloud that the
+    -- @Domain@ uses for communication between Domain-level apps and user apps.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +59,9 @@ data DomainSettingsForUpdate = DomainSettingsForUpdate'
 -- @InService@ or @Pending@ state.
 --
 -- 'rStudioServerProDomainSettingsForUpdate', 'domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate' - A collection of @RStudioServerPro@ Domain-level app settings to update.
+--
+-- 'securityGroupIds', 'domainSettingsForUpdate_securityGroupIds' - The security groups for the Amazon Virtual Private Cloud that the
+-- @Domain@ uses for communication between Domain-level apps and user apps.
 newDomainSettingsForUpdate ::
   DomainSettingsForUpdate
 newDomainSettingsForUpdate =
@@ -63,7 +69,8 @@ newDomainSettingsForUpdate =
     { executionRoleIdentityConfig =
         Prelude.Nothing,
       rStudioServerProDomainSettingsForUpdate =
-        Prelude.Nothing
+        Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing
     }
 
 -- | The configuration for attaching a SageMaker user profile name to the
@@ -78,16 +85,23 @@ domainSettingsForUpdate_executionRoleIdentityConfig = Lens.lens (\DomainSettings
 domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate :: Lens.Lens' DomainSettingsForUpdate (Prelude.Maybe RStudioServerProDomainSettingsForUpdate)
 domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate = Lens.lens (\DomainSettingsForUpdate' {rStudioServerProDomainSettingsForUpdate} -> rStudioServerProDomainSettingsForUpdate) (\s@DomainSettingsForUpdate' {} a -> s {rStudioServerProDomainSettingsForUpdate = a} :: DomainSettingsForUpdate)
 
+-- | The security groups for the Amazon Virtual Private Cloud that the
+-- @Domain@ uses for communication between Domain-level apps and user apps.
+domainSettingsForUpdate_securityGroupIds :: Lens.Lens' DomainSettingsForUpdate (Prelude.Maybe [Prelude.Text])
+domainSettingsForUpdate_securityGroupIds = Lens.lens (\DomainSettingsForUpdate' {securityGroupIds} -> securityGroupIds) (\s@DomainSettingsForUpdate' {} a -> s {securityGroupIds = a} :: DomainSettingsForUpdate) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable DomainSettingsForUpdate where
   hashWithSalt _salt DomainSettingsForUpdate' {..} =
     _salt
       `Prelude.hashWithSalt` executionRoleIdentityConfig
       `Prelude.hashWithSalt` rStudioServerProDomainSettingsForUpdate
+      `Prelude.hashWithSalt` securityGroupIds
 
 instance Prelude.NFData DomainSettingsForUpdate where
   rnf DomainSettingsForUpdate' {..} =
     Prelude.rnf executionRoleIdentityConfig
       `Prelude.seq` Prelude.rnf rStudioServerProDomainSettingsForUpdate
+      `Prelude.seq` Prelude.rnf securityGroupIds
 
 instance Data.ToJSON DomainSettingsForUpdate where
   toJSON DomainSettingsForUpdate' {..} =
@@ -96,6 +110,8 @@ instance Data.ToJSON DomainSettingsForUpdate where
           [ ("ExecutionRoleIdentityConfig" Data..=)
               Prelude.<$> executionRoleIdentityConfig,
             ("RStudioServerProDomainSettingsForUpdate" Data..=)
-              Prelude.<$> rStudioServerProDomainSettingsForUpdate
+              Prelude.<$> rStudioServerProDomainSettingsForUpdate,
+            ("SecurityGroupIds" Data..=)
+              Prelude.<$> securityGroupIds
           ]
       )

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.IoTData.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -120,7 +120,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified version does not match the version of the document.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -128,7 +128,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An unexpected error has occurred.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -136,7 +136,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -144,7 +144,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified combination of HTTP verb and URI is not supported.
-_MethodNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MethodNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MethodNotAllowedException =
   Core._MatchServiceError
     defaultService
@@ -152,7 +152,7 @@ _MethodNotAllowedException =
     Prelude.. Core.hasStatus 405
 
 -- | The payload exceeds the maximum size allowed.
-_RequestEntityTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestEntityTooLargeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RequestEntityTooLargeException =
   Core._MatchServiceError
     defaultService
@@ -160,7 +160,7 @@ _RequestEntityTooLargeException =
     Prelude.. Core.hasStatus 413
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -168,7 +168,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -176,7 +176,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The rate exceeds the limit.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -184,7 +184,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | You are not authorized to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService
@@ -192,7 +192,7 @@ _UnauthorizedException =
     Prelude.. Core.hasStatus 401
 
 -- | The document encoding is not supported.
-_UnsupportedDocumentEncodingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedDocumentEncodingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedDocumentEncodingException =
   Core._MatchServiceError
     defaultService

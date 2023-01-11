@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -926,7 +926,9 @@ module Amazonka.SSM.Types
     -- * DocumentRequires
     DocumentRequires (..),
     newDocumentRequires,
+    documentRequires_requireType,
     documentRequires_version,
+    documentRequires_versionName,
     documentRequires_name,
 
     -- * DocumentReviewCommentSource
@@ -2242,7 +2244,7 @@ defaultService =
 -- | Error returned if an attempt is made to register a patch group with a
 -- patch baseline that is already registered with a different patch
 -- baseline.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -2250,21 +2252,21 @@ _AlreadyExistsException =
 
 -- | You must disassociate a document from all managed nodes before you can
 -- delete it.
-_AssociatedInstances :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociatedInstances :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AssociatedInstances =
   Core._MatchServiceError
     defaultService
     "AssociatedInstances"
 
 -- | The specified association already exists.
-_AssociationAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociationAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AssociationAlreadyExists =
   Core._MatchServiceError
     defaultService
     "AssociationAlreadyExists"
 
 -- | The specified association doesn\'t exist.
-_AssociationDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociationDoesNotExist :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AssociationDoesNotExist =
   Core._MatchServiceError
     defaultService
@@ -2272,14 +2274,14 @@ _AssociationDoesNotExist =
 
 -- | The specified execution ID doesn\'t exist. Verify the ID number and try
 -- again.
-_AssociationExecutionDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociationExecutionDoesNotExist :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AssociationExecutionDoesNotExist =
   Core._MatchServiceError
     defaultService
     "AssociationExecutionDoesNotExist"
 
 -- | You can have at most 2,000 active associations.
-_AssociationLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociationLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AssociationLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -2287,7 +2289,7 @@ _AssociationLimitExceeded =
 
 -- | You have reached the maximum number versions allowed for an association.
 -- Each association has a limit of 1,000 versions.
-_AssociationVersionLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociationVersionLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AssociationVersionLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -2295,14 +2297,14 @@ _AssociationVersionLimitExceeded =
 
 -- | Indicates that the Change Manager change template used in the change
 -- request was rejected or is still in a pending state.
-_AutomationDefinitionNotApprovedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationDefinitionNotApprovedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AutomationDefinitionNotApprovedException =
   Core._MatchServiceError
     defaultService
     "AutomationDefinitionNotApprovedException"
 
 -- | An Automation runbook with the specified name couldn\'t be found.
-_AutomationDefinitionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationDefinitionNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AutomationDefinitionNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -2310,7 +2312,7 @@ _AutomationDefinitionNotFoundException =
 
 -- | An Automation runbook with the specified name and version couldn\'t be
 -- found.
-_AutomationDefinitionVersionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationDefinitionVersionNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AutomationDefinitionVersionNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -2318,7 +2320,7 @@ _AutomationDefinitionVersionNotFoundException =
 
 -- | The number of simultaneously running Automation executions exceeded the
 -- allowable limit.
-_AutomationExecutionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationExecutionLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AutomationExecutionLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -2326,7 +2328,7 @@ _AutomationExecutionLimitExceededException =
 
 -- | There is no automation execution information for the requested
 -- automation execution ID.
-_AutomationExecutionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationExecutionNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AutomationExecutionNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -2334,7 +2336,7 @@ _AutomationExecutionNotFoundException =
 
 -- | The specified step name and execution ID don\'t exist. Verify the
 -- information and try again.
-_AutomationStepNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationStepNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AutomationStepNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -2342,7 +2344,7 @@ _AutomationStepNotFoundException =
 
 -- | You specified too many custom compliance types. You can specify a
 -- maximum of 10 different types.
-_ComplianceTypeCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ComplianceTypeCountLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ComplianceTypeCountLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -2350,21 +2352,21 @@ _ComplianceTypeCountLimitExceededException =
 
 -- | You have exceeded the limit for custom schemas. Delete one or more
 -- custom schemas and try again.
-_CustomSchemaCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomSchemaCountLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CustomSchemaCountLimitExceededException =
   Core._MatchServiceError
     defaultService
     "CustomSchemaCountLimitExceededException"
 
 -- | The specified document already exists.
-_DocumentAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DocumentAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DocumentAlreadyExists =
   Core._MatchServiceError
     defaultService
     "DocumentAlreadyExists"
 
 -- | You can have at most 500 active SSM documents.
-_DocumentLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DocumentLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DocumentLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -2379,7 +2381,7 @@ _DocumentLimitExceeded =
 --
 -- If you need to increase the quota for privately or publicly shared
 -- Systems Manager documents, contact Amazon Web Services Support.
-_DocumentPermissionLimit :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DocumentPermissionLimit :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DocumentPermissionLimit =
   Core._MatchServiceError
     defaultService
@@ -2387,7 +2389,7 @@ _DocumentPermissionLimit =
 
 -- | The document has too many versions. Delete one or more document versions
 -- and try again.
-_DocumentVersionLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DocumentVersionLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DocumentVersionLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -2400,7 +2402,7 @@ _DocumentVersionLimitExceeded =
 -- Manager, see
 -- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm Systems Manager service quotas>
 -- in the /Amazon Web Services General Reference/.
-_DoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DoesNotExistException =
   Core._MatchServiceError
     defaultService
@@ -2408,7 +2410,7 @@ _DoesNotExistException =
 
 -- | The content of the association document matches another document. Change
 -- the content of the document and try again.
-_DuplicateDocumentContent :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateDocumentContent :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateDocumentContent =
   Core._MatchServiceError
     defaultService
@@ -2416,14 +2418,14 @@ _DuplicateDocumentContent =
 
 -- | The version name has already been used in this document. Specify a
 -- different version name, and then try again.
-_DuplicateDocumentVersionName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateDocumentVersionName :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateDocumentVersionName =
   Core._MatchServiceError
     defaultService
     "DuplicateDocumentVersionName"
 
 -- | You can\'t specify a managed node ID in more than one association.
-_DuplicateInstanceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateInstanceId :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateInstanceId =
   Core._MatchServiceError
     defaultService
@@ -2431,7 +2433,7 @@ _DuplicateInstanceId =
 
 -- | You attempted to register a @LAMBDA@ or @STEP_FUNCTIONS@ task in a
 -- region where the corresponding service isn\'t available.
-_FeatureNotAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FeatureNotAvailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _FeatureNotAvailableException =
   Core._MatchServiceError
     defaultService
@@ -2440,7 +2442,7 @@ _FeatureNotAvailableException =
 -- | A hierarchy can have a maximum of 15 levels. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html Requirements and constraints for parameter names>
 -- in the /Amazon Web Services Systems Manager User Guide/.
-_HierarchyLevelLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HierarchyLevelLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _HierarchyLevelLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -2449,7 +2451,7 @@ _HierarchyLevelLimitExceededException =
 -- | Parameter Store doesn\'t support changing a parameter type in a
 -- hierarchy. For example, you can\'t change a parameter from a @String@
 -- type to a @SecureString@ type. You must create a new, unique parameter.
-_HierarchyTypeMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HierarchyTypeMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _HierarchyTypeMismatchException =
   Core._MatchServiceError
     defaultService
@@ -2458,7 +2460,7 @@ _HierarchyTypeMismatchException =
 -- | Error returned when an idempotent operation is retried and the
 -- parameters don\'t match the original call to the API with the same
 -- idempotency token.
-_IdempotentParameterMismatch :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatch :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatch =
   Core._MatchServiceError
     defaultService
@@ -2467,14 +2469,14 @@ _IdempotentParameterMismatch =
 -- | There is a conflict in the policies specified for this parameter. You
 -- can\'t, for example, specify two Expiration policies for a parameter.
 -- Review your policies, and try again.
-_IncompatiblePolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncompatiblePolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IncompatiblePolicyException =
   Core._MatchServiceError
     defaultService
     "IncompatiblePolicyException"
 
 -- | An error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -2482,7 +2484,7 @@ _InternalServerError =
 
 -- | The activation isn\'t valid. The activation might have been deleted, or
 -- the ActivationId and the ActivationCode don\'t match.
-_InvalidActivation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidActivation :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidActivation =
   Core._MatchServiceError
     defaultService
@@ -2490,7 +2492,7 @@ _InvalidActivation =
 
 -- | The activation ID isn\'t valid. Verify the you entered the correct
 -- ActivationId or ActivationCode and try again.
-_InvalidActivationId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidActivationId :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidActivationId =
   Core._MatchServiceError
     defaultService
@@ -2499,21 +2501,21 @@ _InvalidActivationId =
 -- | The specified aggregator isn\'t valid for inventory groups. Verify that
 -- the aggregator uses a valid inventory type such as @AWS:Application@ or
 -- @AWS:InstanceInformation@.
-_InvalidAggregatorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAggregatorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAggregatorException =
   Core._MatchServiceError
     defaultService
     "InvalidAggregatorException"
 
 -- | The request doesn\'t meet the regular expression requirement.
-_InvalidAllowedPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAllowedPatternException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAllowedPatternException =
   Core._MatchServiceError
     defaultService
     "InvalidAllowedPatternException"
 
 -- | The association isn\'t valid or doesn\'t exist.
-_InvalidAssociation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAssociation :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAssociation =
   Core._MatchServiceError
     defaultService
@@ -2523,7 +2525,7 @@ _InvalidAssociation =
 -- view all versions of an association according to the association ID. Or,
 -- use the @$LATEST@ parameter to view the latest version of the
 -- association.
-_InvalidAssociationVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAssociationVersion :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAssociationVersion =
   Core._MatchServiceError
     defaultService
@@ -2532,28 +2534,28 @@ _InvalidAssociationVersion =
 -- | The supplied parameters for invoking the specified Automation runbook
 -- are incorrect. For example, they may not match the set of parameters
 -- permitted for the specified Automation document.
-_InvalidAutomationExecutionParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAutomationExecutionParametersException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAutomationExecutionParametersException =
   Core._MatchServiceError
     defaultService
     "InvalidAutomationExecutionParametersException"
 
 -- | The signal isn\'t valid for the current Automation execution.
-_InvalidAutomationSignalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAutomationSignalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAutomationSignalException =
   Core._MatchServiceError
     defaultService
     "InvalidAutomationSignalException"
 
 -- | The specified update status operation isn\'t valid.
-_InvalidAutomationStatusUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAutomationStatusUpdateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAutomationStatusUpdateException =
   Core._MatchServiceError
     defaultService
     "InvalidAutomationStatusUpdateException"
 
 -- | The specified command ID isn\'t valid. Verify the ID and try again.
-_InvalidCommandId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCommandId :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidCommandId =
   Core._MatchServiceError
     defaultService
@@ -2561,7 +2563,7 @@ _InvalidCommandId =
 
 -- | One or more of the parameters specified for the delete operation isn\'t
 -- valid. Verify all parameters and try again.
-_InvalidDeleteInventoryParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeleteInventoryParametersException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidDeleteInventoryParametersException =
   Core._MatchServiceError
     defaultService
@@ -2569,21 +2571,21 @@ _InvalidDeleteInventoryParametersException =
 
 -- | The ID specified for the delete operation doesn\'t exist or isn\'t
 -- valid. Verify the ID and try again.
-_InvalidDeletionIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeletionIdException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidDeletionIdException =
   Core._MatchServiceError
     defaultService
     "InvalidDeletionIdException"
 
 -- | The specified SSM document doesn\'t exist.
-_InvalidDocument :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocument :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidDocument =
   Core._MatchServiceError
     defaultService
     "InvalidDocument"
 
 -- | The content for the document isn\'t valid.
-_InvalidDocumentContent :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocumentContent :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidDocumentContent =
   Core._MatchServiceError
     defaultService
@@ -2591,14 +2593,14 @@ _InvalidDocumentContent =
 
 -- | You attempted to delete a document while it is still shared. You must
 -- stop sharing the document before you can delete it.
-_InvalidDocumentOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocumentOperation :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidDocumentOperation =
   Core._MatchServiceError
     defaultService
     "InvalidDocumentOperation"
 
 -- | The version of the document schema isn\'t supported.
-_InvalidDocumentSchemaVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocumentSchemaVersion :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidDocumentSchemaVersion =
   Core._MatchServiceError
     defaultService
@@ -2606,14 +2608,14 @@ _InvalidDocumentSchemaVersion =
 
 -- | The SSM document type isn\'t valid. Valid document types are described
 -- in the @DocumentType@ property.
-_InvalidDocumentType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocumentType :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidDocumentType =
   Core._MatchServiceError
     defaultService
     "InvalidDocumentType"
 
 -- | The document version isn\'t valid or doesn\'t exist.
-_InvalidDocumentVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocumentVersion :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidDocumentVersion =
   Core._MatchServiceError
     defaultService
@@ -2621,14 +2623,14 @@ _InvalidDocumentVersion =
 
 -- | The filter name isn\'t valid. Verify the you entered the correct name
 -- and try again.
-_InvalidFilter :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilter :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidFilter =
   Core._MatchServiceError
     defaultService
     "InvalidFilter"
 
 -- | The specified key isn\'t valid.
-_InvalidFilterKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilterKey :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidFilterKey =
   Core._MatchServiceError
     defaultService
@@ -2636,14 +2638,14 @@ _InvalidFilterKey =
 
 -- | The specified filter option isn\'t valid. Valid options are Equals and
 -- BeginsWith. For Path filter, valid options are Recursive and OneLevel.
-_InvalidFilterOption :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilterOption :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidFilterOption =
   Core._MatchServiceError
     defaultService
     "InvalidFilterOption"
 
 -- | The filter value isn\'t valid. Verify the value and try again.
-_InvalidFilterValue :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilterValue :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidFilterValue =
   Core._MatchServiceError
     defaultService
@@ -2662,21 +2664,21 @@ _InvalidFilterValue =
 -- -   The managed node isn\'t in valid state. Valid states are: @Running@,
 --     @Pending@, @Stopped@, and @Stopping@. Invalid states are:
 --     @Shutting-down@ and @Terminated@.
-_InvalidInstanceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInstanceId :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInstanceId =
   Core._MatchServiceError
     defaultService
     "InvalidInstanceId"
 
 -- | The specified filter value isn\'t valid.
-_InvalidInstanceInformationFilterValue :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInstanceInformationFilterValue :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInstanceInformationFilterValue =
   Core._MatchServiceError
     defaultService
     "InvalidInstanceInformationFilterValue"
 
 -- | The specified inventory group isn\'t valid.
-_InvalidInventoryGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInventoryGroupException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInventoryGroupException =
   Core._MatchServiceError
     defaultService
@@ -2684,35 +2686,35 @@ _InvalidInventoryGroupException =
 
 -- | You specified invalid keys or values in the @Context@ attribute for
 -- @InventoryItem@. Verify the keys and values, and try again.
-_InvalidInventoryItemContextException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInventoryItemContextException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInventoryItemContextException =
   Core._MatchServiceError
     defaultService
     "InvalidInventoryItemContextException"
 
 -- | The request isn\'t valid.
-_InvalidInventoryRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInventoryRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInventoryRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidInventoryRequestException"
 
 -- | One or more content items isn\'t valid.
-_InvalidItemContentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidItemContentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidItemContentException =
   Core._MatchServiceError
     defaultService
     "InvalidItemContentException"
 
 -- | The query key ID isn\'t valid.
-_InvalidKeyId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidKeyId :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidKeyId =
   Core._MatchServiceError
     defaultService
     "InvalidKeyId"
 
 -- | The specified token isn\'t valid.
-_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextToken :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextToken =
   Core._MatchServiceError
     defaultService
@@ -2721,7 +2723,7 @@ _InvalidNextToken =
 -- | One or more configuration items isn\'t valid. Verify that a valid Amazon
 -- Resource Name (ARN) was provided for an Amazon Simple Notification
 -- Service topic.
-_InvalidNotificationConfig :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNotificationConfig :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNotificationConfig =
   Core._MatchServiceError
     defaultService
@@ -2729,21 +2731,21 @@ _InvalidNotificationConfig =
 
 -- | The delete inventory option specified isn\'t valid. Verify the option
 -- and try again.
-_InvalidOptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOptionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidOptionException =
   Core._MatchServiceError
     defaultService
     "InvalidOptionException"
 
 -- | The S3 bucket doesn\'t exist.
-_InvalidOutputFolder :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOutputFolder :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidOutputFolder =
   Core._MatchServiceError
     defaultService
     "InvalidOutputFolder"
 
 -- | The output location isn\'t valid or doesn\'t exist.
-_InvalidOutputLocation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOutputLocation :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidOutputLocation =
   Core._MatchServiceError
     defaultService
@@ -2752,7 +2754,7 @@ _InvalidOutputLocation =
 -- | You must specify values for all required parameters in the Amazon Web
 -- Services Systems Manager document (SSM document). You can only supply
 -- values to parameters defined in the SSM document.
-_InvalidParameters :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameters :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameters =
   Core._MatchServiceError
     defaultService
@@ -2760,21 +2762,21 @@ _InvalidParameters =
 
 -- | The permission type isn\'t supported. /Share/ is the only supported
 -- permission type.
-_InvalidPermissionType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPermissionType :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPermissionType =
   Core._MatchServiceError
     defaultService
     "InvalidPermissionType"
 
 -- | The plugin name isn\'t valid.
-_InvalidPluginName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPluginName :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPluginName =
   Core._MatchServiceError
     defaultService
     "InvalidPluginName"
 
 -- | A policy attribute or its value is invalid.
-_InvalidPolicyAttributeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyAttributeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPolicyAttributeException =
   Core._MatchServiceError
     defaultService
@@ -2783,7 +2785,7 @@ _InvalidPolicyAttributeException =
 -- | The policy type isn\'t supported. Parameter Store supports the following
 -- policy types: Expiration, ExpirationNotification, and
 -- NoChangeNotification.
-_InvalidPolicyTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPolicyTypeException =
   Core._MatchServiceError
     defaultService
@@ -2791,7 +2793,7 @@ _InvalidPolicyTypeException =
 
 -- | The resource ID isn\'t valid. Verify that you entered the correct ID and
 -- try again.
-_InvalidResourceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceId :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidResourceId =
   Core._MatchServiceError
     defaultService
@@ -2799,14 +2801,14 @@ _InvalidResourceId =
 
 -- | The resource type isn\'t valid. For example, if you are attempting to
 -- tag an EC2 instance, the instance must be a registered managed node.
-_InvalidResourceType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceType :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidResourceType =
   Core._MatchServiceError
     defaultService
     "InvalidResourceType"
 
 -- | The specified inventory item result attribute isn\'t valid.
-_InvalidResultAttributeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResultAttributeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidResultAttributeException =
   Core._MatchServiceError
     defaultService
@@ -2818,7 +2820,7 @@ _InvalidResultAttributeException =
 -- notifications, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html Configuring Amazon SNS Notifications for Run Command>
 -- in the /Amazon Web Services Systems Manager User Guide/.
-_InvalidRole :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRole :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRole =
   Core._MatchServiceError
     defaultService
@@ -2826,42 +2828,42 @@ _InvalidRole =
 
 -- | The schedule is invalid. Verify your cron or rate expression and try
 -- again.
-_InvalidSchedule :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSchedule :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidSchedule =
   Core._MatchServiceError
     defaultService
     "InvalidSchedule"
 
 -- | The specified tag key or value isn\'t valid.
-_InvalidTag :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTag :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidTag =
   Core._MatchServiceError defaultService "InvalidTag"
 
 -- | The target isn\'t valid or doesn\'t exist. It might not be configured
 -- for Systems Manager or you might not have permission to perform the
 -- operation.
-_InvalidTarget :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTarget :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidTarget =
   Core._MatchServiceError
     defaultService
     "InvalidTarget"
 
 -- | TargetMap parameter isn\'t valid.
-_InvalidTargetMaps :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTargetMaps :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidTargetMaps =
   Core._MatchServiceError
     defaultService
     "InvalidTargetMaps"
 
 -- | The parameter type name isn\'t valid.
-_InvalidTypeNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTypeNameException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidTypeNameException =
   Core._MatchServiceError
     defaultService
     "InvalidTypeNameException"
 
 -- | The update isn\'t valid.
-_InvalidUpdate :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidUpdate :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidUpdate =
   Core._MatchServiceError
     defaultService
@@ -2870,28 +2872,28 @@ _InvalidUpdate =
 -- | The command ID and managed node ID you specified didn\'t match any
 -- invocations. Verify the command ID and the managed node ID and try
 -- again.
-_InvocationDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvocationDoesNotExist :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvocationDoesNotExist =
   Core._MatchServiceError
     defaultService
     "InvocationDoesNotExist"
 
 -- | The inventory item has invalid content.
-_ItemContentMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ItemContentMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ItemContentMismatchException =
   Core._MatchServiceError
     defaultService
     "ItemContentMismatchException"
 
 -- | The inventory item size has exceeded the size limit.
-_ItemSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ItemSizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ItemSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ItemSizeLimitExceededException"
 
 -- | The size limit of a document is 64 KB.
-_MaxDocumentSizeExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxDocumentSizeExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MaxDocumentSizeExceeded =
   Core._MatchServiceError
     defaultService
@@ -2901,14 +2903,14 @@ _MaxDocumentSizeExceeded =
 -- Verify that your account is configured either as a Systems Manager
 -- delegated administrator or that you are logged into the Organizations
 -- management account.
-_OpsItemAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemAccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsItemAccessDeniedException =
   Core._MatchServiceError
     defaultService
     "OpsItemAccessDeniedException"
 
 -- | The OpsItem already exists.
-_OpsItemAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsItemAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -2916,7 +2918,7 @@ _OpsItemAlreadyExistsException =
 
 -- | A specified parameter argument isn\'t valid. Verify the available
 -- arguments and try again.
-_OpsItemInvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemInvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsItemInvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -2925,21 +2927,21 @@ _OpsItemInvalidParameterException =
 -- | The request caused OpsItems to exceed one or more quotas. For
 -- information about OpsItem quotas, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits What are the resource limits for OpsCenter?>.
-_OpsItemLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsItemLimitExceededException =
   Core._MatchServiceError
     defaultService
     "OpsItemLimitExceededException"
 
 -- | The specified OpsItem ID doesn\'t exist. Verify the ID and try again.
-_OpsItemNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsItemNotFoundException =
   Core._MatchServiceError
     defaultService
     "OpsItemNotFoundException"
 
 -- | The Amazon Resource Name (ARN) is already associated with the OpsItem.
-_OpsItemRelatedItemAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemRelatedItemAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsItemRelatedItemAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -2947,21 +2949,21 @@ _OpsItemRelatedItemAlreadyExistsException =
 
 -- | The association wasn\'t found using the parameters you specified in the
 -- call. Verify the information and try again.
-_OpsItemRelatedItemAssociationNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemRelatedItemAssociationNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsItemRelatedItemAssociationNotFoundException =
   Core._MatchServiceError
     defaultService
     "OpsItemRelatedItemAssociationNotFoundException"
 
 -- | An OpsMetadata object already exists for the selected resource.
-_OpsMetadataAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsMetadataAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "OpsMetadataAlreadyExistsException"
 
 -- | One of the arguments passed is invalid.
-_OpsMetadataInvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataInvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsMetadataInvalidArgumentException =
   Core._MatchServiceError
     defaultService
@@ -2969,7 +2971,7 @@ _OpsMetadataInvalidArgumentException =
 
 -- | The OpsMetadata object exceeds the maximum number of OpsMetadata keys
 -- that you can assign to an application in Application Manager.
-_OpsMetadataKeyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataKeyLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsMetadataKeyLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -2978,14 +2980,14 @@ _OpsMetadataKeyLimitExceededException =
 -- | Your account reached the maximum number of OpsMetadata objects allowed
 -- by Application Manager. The maximum is 200 OpsMetadata objects. Delete
 -- one or more OpsMetadata object and try again.
-_OpsMetadataLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsMetadataLimitExceededException =
   Core._MatchServiceError
     defaultService
     "OpsMetadataLimitExceededException"
 
 -- | The OpsMetadata object doesn\'t exist.
-_OpsMetadataNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsMetadataNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -2993,14 +2995,14 @@ _OpsMetadataNotFoundException =
 
 -- | The system is processing too many concurrent updates. Wait a few moments
 -- and try again.
-_OpsMetadataTooManyUpdatesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataTooManyUpdatesException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OpsMetadataTooManyUpdatesException =
   Core._MatchServiceError
     defaultService
     "OpsMetadataTooManyUpdatesException"
 
 -- | The parameter already exists. You can\'t create duplicate parameters.
-_ParameterAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ParameterAlreadyExists =
   Core._MatchServiceError
     defaultService
@@ -3008,7 +3010,7 @@ _ParameterAlreadyExists =
 
 -- | You have exceeded the number of parameters for this Amazon Web Services
 -- account. Delete one or more parameters and try again.
-_ParameterLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ParameterLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -3031,28 +3033,28 @@ _ParameterLimitExceeded =
 -- or
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move Move a parameter label (CLI)>
 -- in the /Amazon Web Services Systems Manager User Guide/.
-_ParameterMaxVersionLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterMaxVersionLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ParameterMaxVersionLimitExceeded =
   Core._MatchServiceError
     defaultService
     "ParameterMaxVersionLimitExceeded"
 
 -- | The parameter couldn\'t be found. Verify the name and try again.
-_ParameterNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ParameterNotFound =
   Core._MatchServiceError
     defaultService
     "ParameterNotFound"
 
 -- | The parameter name isn\'t valid.
-_ParameterPatternMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterPatternMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ParameterPatternMismatchException =
   Core._MatchServiceError
     defaultService
     "ParameterPatternMismatchException"
 
 -- | A parameter version can have a maximum of ten labels.
-_ParameterVersionLabelLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterVersionLabelLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ParameterVersionLabelLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -3060,7 +3062,7 @@ _ParameterVersionLabelLimitExceeded =
 
 -- | The specified parameter version wasn\'t found. Verify the parameter name
 -- and version, and try again.
-_ParameterVersionNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterVersionNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ParameterVersionNotFound =
   Core._MatchServiceError
     defaultService
@@ -3068,14 +3070,14 @@ _ParameterVersionNotFound =
 
 -- | You specified more than the maximum number of allowed policies for the
 -- parameter. The maximum is 10.
-_PoliciesLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PoliciesLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PoliciesLimitExceededException =
   Core._MatchServiceError
     defaultService
     "PoliciesLimitExceededException"
 
 -- | A sync configuration with the same name already exists.
-_ResourceDataSyncAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceDataSyncAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -3083,28 +3085,28 @@ _ResourceDataSyncAlreadyExistsException =
 
 -- | Another @UpdateResourceDataSync@ request is being processed. Wait a few
 -- minutes and try again.
-_ResourceDataSyncConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceDataSyncConflictException =
   Core._MatchServiceError
     defaultService
     "ResourceDataSyncConflictException"
 
 -- | You have exceeded the allowed maximum sync configurations.
-_ResourceDataSyncCountExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncCountExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceDataSyncCountExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceDataSyncCountExceededException"
 
 -- | The specified sync configuration is invalid.
-_ResourceDataSyncInvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncInvalidConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceDataSyncInvalidConfigurationException =
   Core._MatchServiceError
     defaultService
     "ResourceDataSyncInvalidConfigurationException"
 
 -- | The specified sync name wasn\'t found.
-_ResourceDataSyncNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceDataSyncNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -3112,7 +3114,7 @@ _ResourceDataSyncNotFoundException =
 
 -- | Error returned if an attempt is made to delete a patch baseline that is
 -- registered for a patch group.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -3125,7 +3127,7 @@ _ResourceInUseException =
 -- For information about resource quotas in Systems Manager, see
 -- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm Systems Manager service quotas>
 -- in the /Amazon Web Services General Reference/.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -3134,7 +3136,7 @@ _ResourceLimitExceededException =
 -- | The hash provided in the call doesn\'t match the stored hash. This
 -- exception is thrown when trying to update an obsolete policy version or
 -- when multiple requests to update a policy are sent.
-_ResourcePolicyConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourcePolicyConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourcePolicyConflictException =
   Core._MatchServiceError
     defaultService
@@ -3142,7 +3144,7 @@ _ResourcePolicyConflictException =
 
 -- | One or more parameters specified for the call aren\'t valid. Verify the
 -- parameters and their values and try again.
-_ResourcePolicyInvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourcePolicyInvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourcePolicyInvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -3151,7 +3153,7 @@ _ResourcePolicyInvalidParameterException =
 -- | The PutResourcePolicy API action enforces two limits. A policy can\'t be
 -- greater than 1024 bytes in size. And only one policy can be attached to
 -- @OpsItemGroup@. Verify these limits and try again.
-_ResourcePolicyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourcePolicyLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourcePolicyLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -3160,21 +3162,21 @@ _ResourcePolicyLimitExceededException =
 -- | The specified service setting wasn\'t found. Either the service name or
 -- the setting hasn\'t been provisioned by the Amazon Web Services service
 -- team.
-_ServiceSettingNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceSettingNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceSettingNotFound =
   Core._MatchServiceError
     defaultService
     "ServiceSettingNotFound"
 
 -- | The updated status is the same as the current status.
-_StatusUnchanged :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StatusUnchanged :: Core.AsError a => Lens.Fold a Core.ServiceError
 _StatusUnchanged =
   Core._MatchServiceError
     defaultService
     "StatusUnchanged"
 
 -- | The sub-type count exceeded the limit for the inventory type.
-_SubTypeCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubTypeCountLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SubTypeCountLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -3183,7 +3185,7 @@ _SubTypeCountLimitExceededException =
 -- | You specified the @Safe@ option for the
 -- DeregisterTargetFromMaintenanceWindow operation, but the target is still
 -- referenced in a task.
-_TargetInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TargetInUseException =
   Core._MatchServiceError
     defaultService
@@ -3195,7 +3197,7 @@ _TargetInUseException =
 -- in the /Amazon Web Services Systems Manager User Guide/. This error is
 -- also returned if you attempt to start a session on a managed node that
 -- is located in a different account or Region
-_TargetNotConnected :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetNotConnected :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TargetNotConnected =
   Core._MatchServiceError
     defaultService
@@ -3203,7 +3205,7 @@ _TargetNotConnected =
 
 -- | The @Targets@ parameter includes too many tags. Remove one or more tags
 -- and try the command again.
-_TooManyTagsError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsError =
   Core._MatchServiceError
     defaultService
@@ -3211,7 +3213,7 @@ _TooManyTagsError =
 
 -- | There are concurrent updates for a resource that supports one update at
 -- a time.
-_TooManyUpdates :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyUpdates :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyUpdates =
   Core._MatchServiceError
     defaultService
@@ -3219,7 +3221,7 @@ _TooManyUpdates =
 
 -- | The size of inventory data has exceeded the total size limit for the
 -- resource.
-_TotalSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TotalSizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TotalSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -3227,7 +3229,7 @@ _TotalSizeLimitExceededException =
 
 -- | The calendar entry contained in the specified SSM document isn\'t
 -- supported.
-_UnsupportedCalendarException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedCalendarException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedCalendarException =
   Core._MatchServiceError
     defaultService
@@ -3239,7 +3241,7 @@ _UnsupportedCalendarException =
 -- instances. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html Enabling the advanced-instances tier>
 -- in the /Amazon Web Services Systems Manager User Guide/.
-_UnsupportedFeatureRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedFeatureRequiredException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedFeatureRequiredException =
   Core._MatchServiceError
     defaultService
@@ -3248,7 +3250,7 @@ _UnsupportedFeatureRequiredException =
 -- | The @Context@ attribute that you specified for the @InventoryItem@
 -- isn\'t allowed for this inventory type. You can only use the @Context@
 -- attribute with inventory types like @AWS:ComplianceItem@.
-_UnsupportedInventoryItemContextException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedInventoryItemContextException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedInventoryItemContextException =
   Core._MatchServiceError
     defaultService
@@ -3257,7 +3259,7 @@ _UnsupportedInventoryItemContextException =
 -- | Inventory item type schema version has to match supported versions in
 -- the service. Check output of GetInventorySchema to see the available
 -- schema version for each type.
-_UnsupportedInventorySchemaVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedInventorySchemaVersionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedInventorySchemaVersionException =
   Core._MatchServiceError
     defaultService
@@ -3265,14 +3267,14 @@ _UnsupportedInventorySchemaVersionException =
 
 -- | The operating systems you specified isn\'t supported, or the operation
 -- isn\'t supported for the operating system.
-_UnsupportedOperatingSystem :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperatingSystem :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedOperatingSystem =
   Core._MatchServiceError
     defaultService
     "UnsupportedOperatingSystem"
 
 -- | The parameter type isn\'t supported.
-_UnsupportedParameterType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedParameterType :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedParameterType =
   Core._MatchServiceError
     defaultService
@@ -3281,7 +3283,7 @@ _UnsupportedParameterType =
 -- | The document doesn\'t support the platform type of the given managed
 -- node ID(s). For example, you sent an document for a Windows managed node
 -- to a Linux node.
-_UnsupportedPlatformType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedPlatformType :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedPlatformType =
   Core._MatchServiceError
     defaultService

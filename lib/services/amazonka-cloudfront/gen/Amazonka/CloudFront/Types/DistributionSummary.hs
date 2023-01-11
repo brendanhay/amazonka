@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.DistributionSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,8 +90,8 @@ data DistributionSummary = DistributionSummary'
     priceClass :: PriceClass,
     -- | Whether the distribution is enabled to accept user requests for content.
     enabled :: Prelude.Bool,
-    -- | A complex type that determines the distribution’s SSL\/TLS configuration
-    -- for communicating with viewers.
+    -- | A complex type that determines the distribution\'s SSL\/TLS
+    -- configuration for communicating with viewers.
     viewerCertificate :: ViewerCertificate,
     -- | A complex type that identifies ways in which you want to restrict
     -- distribution of your content.
@@ -170,8 +170,8 @@ data DistributionSummary = DistributionSummary'
 --
 -- 'enabled', 'distributionSummary_enabled' - Whether the distribution is enabled to accept user requests for content.
 --
--- 'viewerCertificate', 'distributionSummary_viewerCertificate' - A complex type that determines the distribution’s SSL\/TLS configuration
--- for communicating with viewers.
+-- 'viewerCertificate', 'distributionSummary_viewerCertificate' - A complex type that determines the distribution\'s SSL\/TLS
+-- configuration for communicating with viewers.
 --
 -- 'restrictions', 'distributionSummary_restrictions' - A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
@@ -354,8 +354,8 @@ distributionSummary_priceClass = Lens.lens (\DistributionSummary' {priceClass} -
 distributionSummary_enabled :: Lens.Lens' DistributionSummary Prelude.Bool
 distributionSummary_enabled = Lens.lens (\DistributionSummary' {enabled} -> enabled) (\s@DistributionSummary' {} a -> s {enabled = a} :: DistributionSummary)
 
--- | A complex type that determines the distribution’s SSL\/TLS configuration
--- for communicating with viewers.
+-- | A complex type that determines the distribution\'s SSL\/TLS
+-- configuration for communicating with viewers.
 distributionSummary_viewerCertificate :: Lens.Lens' DistributionSummary ViewerCertificate
 distributionSummary_viewerCertificate = Lens.lens (\DistributionSummary' {viewerCertificate} -> viewerCertificate) (\s@DistributionSummary' {} a -> s {viewerCertificate = a} :: DistributionSummary)
 

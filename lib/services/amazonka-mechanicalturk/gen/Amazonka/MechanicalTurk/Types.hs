@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MechanicalTurk.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -346,7 +346,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Your request is invalid.
-_RequestError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RequestError =
   Core._MatchServiceError
     defaultService
@@ -354,7 +354,7 @@ _RequestError =
 
 -- | Amazon Mechanical Turk is temporarily unable to process your request.
 -- Try your call again.
-_ServiceFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceFault =
   Core._MatchServiceError
     defaultService

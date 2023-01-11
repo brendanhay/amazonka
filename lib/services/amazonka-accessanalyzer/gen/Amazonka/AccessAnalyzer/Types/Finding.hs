@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.Finding
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,11 +55,11 @@ data Finding = Finding'
     -- finding.
     condition :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | The time at which the finding was generated.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The time at which the resource was analyzed.
-    analyzedAt :: Data.POSIX,
+    analyzedAt :: Data.ISO8601,
     -- | The time at which the finding was updated.
-    updatedAt :: Data.POSIX,
+    updatedAt :: Data.ISO8601,
     -- | The current status of the finding.
     status :: FindingStatus,
     -- | The Amazon Web Services account ID that owns the resource.

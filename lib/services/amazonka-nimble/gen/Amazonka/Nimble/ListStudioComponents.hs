@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListStudioComponents
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the StudioComponents in a studio.
+-- Lists the @StudioComponents@ in a studio.
 --
 -- This operation returns paginated results.
 module Amazonka.Nimble.ListStudioComponents
@@ -58,7 +58,8 @@ import qualified Amazonka.Response as Response
 data ListStudioComponents = ListStudioComponents'
   { -- | The max number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to request the next page of results.
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the request to studio components that are in one of the given
     -- states.
@@ -81,7 +82,8 @@ data ListStudioComponents = ListStudioComponents'
 --
 -- 'maxResults', 'listStudioComponents_maxResults' - The max number of results to return in the response.
 --
--- 'nextToken', 'listStudioComponents_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'listStudioComponents_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
 -- 'states', 'listStudioComponents_states' - Filters the request to studio components that are in one of the given
 -- states.
@@ -107,7 +109,8 @@ newListStudioComponents pStudioId_ =
 listStudioComponents_maxResults :: Lens.Lens' ListStudioComponents (Prelude.Maybe Prelude.Natural)
 listStudioComponents_maxResults = Lens.lens (\ListStudioComponents' {maxResults} -> maxResults) (\s@ListStudioComponents' {} a -> s {maxResults = a} :: ListStudioComponents)
 
--- | The token to request the next page of results.
+-- | The token for the next set of results, or null if there are no more
+-- results.
 listStudioComponents_nextToken :: Lens.Lens' ListStudioComponents (Prelude.Maybe Prelude.Text)
 listStudioComponents_nextToken = Lens.lens (\ListStudioComponents' {nextToken} -> nextToken) (\s@ListStudioComponents' {} a -> s {nextToken = a} :: ListStudioComponents)
 

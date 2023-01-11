@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StreamConfigurationCreate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,13 @@ module Amazonka.Nimble.Types.StreamConfigurationCreate where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Nimble.Types.AutomaticTerminationMode
+import Amazonka.Nimble.Types.SessionPersistenceMode
+import Amazonka.Nimble.Types.StreamConfigurationSessionBackup
 import Amazonka.Nimble.Types.StreamConfigurationSessionStorage
 import Amazonka.Nimble.Types.StreamingClipboardMode
 import Amazonka.Nimble.Types.StreamingInstanceType
+import Amazonka.Nimble.Types.VolumeConfiguration
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for streaming workstations created using this launch
@@ -32,31 +36,62 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamConfigurationCreate' smart constructor.
 data StreamConfigurationCreate = StreamConfigurationCreate'
-  { -- | The length of time, in minutes, that a streaming session can be active
+  { -- | Indicates if a streaming session created from this launch profile should
+    -- be terminated automatically or retained without termination after being
+    -- in a @STOPPED@ state.
+    --
+    -- -   When @ACTIVATED@, the streaming session is scheduled for termination
+    --     after being in the @STOPPED@ state for the time specified in
+    --     @maxStoppedSessionLengthInMinutes@.
+    --
+    -- -   When @DEACTIVATED@, the streaming session can remain in the
+    --     @STOPPED@ state indefinitely.
+    --
+    -- This parameter is only allowed when @sessionPersistenceMode@ is
+    -- @ACTIVATED@. When allowed, the default value for this parameter is
+    -- @DEACTIVATED@.
+    automaticTerminationMode :: Prelude.Maybe AutomaticTerminationMode,
+    -- | The length of time, in minutes, that a streaming session can be active
     -- before it is stopped or terminated. After this point, Nimble Studio
     -- automatically terminates or stops the session. The default length of
     -- time is 690 minutes, and the maximum length of time is 30 days.
     maxSessionLengthInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | Integer that determines if you can start and stop your sessions and how
-    -- long a session can stay in the STOPPED state. The default value is 0.
+    -- long a session can stay in the @STOPPED@ state. The default value is 0.
     -- The maximum value is 5760.
     --
-    -- If the value is missing or set to 0, your sessions can’t be stopped. If
-    -- you then call @StopStreamingSession@, the session fails. If the time
-    -- that a session stays in the READY state exceeds the
+    -- This field is allowed only when @sessionPersistenceMode@ is @ACTIVATED@
+    -- and @automaticTerminationMode@ is @ACTIVATED@.
+    --
+    -- If the value is set to 0, your sessions can’t be @STOPPED@. If you then
+    -- call @StopStreamingSession@, the session fails. If the time that a
+    -- session stays in the @READY@ state exceeds the
     -- @maxSessionLengthInMinutes@ value, the session will automatically be
-    -- terminated (instead of stopped).
+    -- terminated (instead of @STOPPED@).
     --
     -- If the value is set to a positive number, the session can be stopped.
-    -- You can call @StopStreamingSession@ to stop sessions in the READY state.
-    -- If the time that a session stays in the READY state exceeds the
+    -- You can call @StopStreamingSession@ to stop sessions in the @READY@
+    -- state. If the time that a session stays in the @READY@ state exceeds the
     -- @maxSessionLengthInMinutes@ value, the session will automatically be
     -- stopped (instead of terminated).
     maxStoppedSessionLengthInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | (Optional) The upload storage for a streaming workstation that is
-    -- created using this launch profile.
+    -- | Configures how streaming sessions are backed up when launched from this
+    -- launch profile.
+    sessionBackup :: Prelude.Maybe StreamConfigurationSessionBackup,
+    -- | Determine if a streaming session created from this launch profile can
+    -- configure persistent storage. This means that @volumeConfiguration@ and
+    -- @automaticTerminationMode@ are configured.
+    sessionPersistenceMode :: Prelude.Maybe SessionPersistenceMode,
+    -- | The upload storage for a streaming workstation that is created using
+    -- this launch profile.
     sessionStorage :: Prelude.Maybe StreamConfigurationSessionStorage,
-    -- | Enable or disable the use of the system clipboard to copy and paste
+    -- | Custom volume configuration for the root volumes that are attached to
+    -- streaming sessions.
+    --
+    -- This parameter is only allowed when @sessionPersistenceMode@ is
+    -- @ACTIVATED@.
+    volumeConfiguration :: Prelude.Maybe VolumeConfiguration,
+    -- | Allows or deactivates the use of the system clipboard to copy and paste
     -- between the streaming session and streaming client.
     clipboardMode :: StreamingClipboardMode,
     -- | The EC2 instance types that users can select from when launching a
@@ -76,31 +111,62 @@ data StreamConfigurationCreate = StreamConfigurationCreate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'automaticTerminationMode', 'streamConfigurationCreate_automaticTerminationMode' - Indicates if a streaming session created from this launch profile should
+-- be terminated automatically or retained without termination after being
+-- in a @STOPPED@ state.
+--
+-- -   When @ACTIVATED@, the streaming session is scheduled for termination
+--     after being in the @STOPPED@ state for the time specified in
+--     @maxStoppedSessionLengthInMinutes@.
+--
+-- -   When @DEACTIVATED@, the streaming session can remain in the
+--     @STOPPED@ state indefinitely.
+--
+-- This parameter is only allowed when @sessionPersistenceMode@ is
+-- @ACTIVATED@. When allowed, the default value for this parameter is
+-- @DEACTIVATED@.
+--
 -- 'maxSessionLengthInMinutes', 'streamConfigurationCreate_maxSessionLengthInMinutes' - The length of time, in minutes, that a streaming session can be active
 -- before it is stopped or terminated. After this point, Nimble Studio
 -- automatically terminates or stops the session. The default length of
 -- time is 690 minutes, and the maximum length of time is 30 days.
 --
 -- 'maxStoppedSessionLengthInMinutes', 'streamConfigurationCreate_maxStoppedSessionLengthInMinutes' - Integer that determines if you can start and stop your sessions and how
--- long a session can stay in the STOPPED state. The default value is 0.
+-- long a session can stay in the @STOPPED@ state. The default value is 0.
 -- The maximum value is 5760.
 --
--- If the value is missing or set to 0, your sessions can’t be stopped. If
--- you then call @StopStreamingSession@, the session fails. If the time
--- that a session stays in the READY state exceeds the
+-- This field is allowed only when @sessionPersistenceMode@ is @ACTIVATED@
+-- and @automaticTerminationMode@ is @ACTIVATED@.
+--
+-- If the value is set to 0, your sessions can’t be @STOPPED@. If you then
+-- call @StopStreamingSession@, the session fails. If the time that a
+-- session stays in the @READY@ state exceeds the
 -- @maxSessionLengthInMinutes@ value, the session will automatically be
--- terminated (instead of stopped).
+-- terminated (instead of @STOPPED@).
 --
 -- If the value is set to a positive number, the session can be stopped.
--- You can call @StopStreamingSession@ to stop sessions in the READY state.
--- If the time that a session stays in the READY state exceeds the
+-- You can call @StopStreamingSession@ to stop sessions in the @READY@
+-- state. If the time that a session stays in the @READY@ state exceeds the
 -- @maxSessionLengthInMinutes@ value, the session will automatically be
 -- stopped (instead of terminated).
 --
--- 'sessionStorage', 'streamConfigurationCreate_sessionStorage' - (Optional) The upload storage for a streaming workstation that is
--- created using this launch profile.
+-- 'sessionBackup', 'streamConfigurationCreate_sessionBackup' - Configures how streaming sessions are backed up when launched from this
+-- launch profile.
 --
--- 'clipboardMode', 'streamConfigurationCreate_clipboardMode' - Enable or disable the use of the system clipboard to copy and paste
+-- 'sessionPersistenceMode', 'streamConfigurationCreate_sessionPersistenceMode' - Determine if a streaming session created from this launch profile can
+-- configure persistent storage. This means that @volumeConfiguration@ and
+-- @automaticTerminationMode@ are configured.
+--
+-- 'sessionStorage', 'streamConfigurationCreate_sessionStorage' - The upload storage for a streaming workstation that is created using
+-- this launch profile.
+--
+-- 'volumeConfiguration', 'streamConfigurationCreate_volumeConfiguration' - Custom volume configuration for the root volumes that are attached to
+-- streaming sessions.
+--
+-- This parameter is only allowed when @sessionPersistenceMode@ is
+-- @ACTIVATED@.
+--
+-- 'clipboardMode', 'streamConfigurationCreate_clipboardMode' - Allows or deactivates the use of the system clipboard to copy and paste
 -- between the streaming session and streaming client.
 --
 -- 'ec2InstanceTypes', 'streamConfigurationCreate_ec2InstanceTypes' - The EC2 instance types that users can select from when launching a
@@ -121,17 +187,38 @@ newStreamConfigurationCreate
   pEc2InstanceTypes_
   pStreamingImageIds_ =
     StreamConfigurationCreate'
-      { maxSessionLengthInMinutes =
+      { automaticTerminationMode =
           Prelude.Nothing,
+        maxSessionLengthInMinutes = Prelude.Nothing,
         maxStoppedSessionLengthInMinutes =
           Prelude.Nothing,
+        sessionBackup = Prelude.Nothing,
+        sessionPersistenceMode = Prelude.Nothing,
         sessionStorage = Prelude.Nothing,
+        volumeConfiguration = Prelude.Nothing,
         clipboardMode = pClipboardMode_,
         ec2InstanceTypes =
           Lens.coerced Lens.# pEc2InstanceTypes_,
         streamingImageIds =
           Lens.coerced Lens.# pStreamingImageIds_
       }
+
+-- | Indicates if a streaming session created from this launch profile should
+-- be terminated automatically or retained without termination after being
+-- in a @STOPPED@ state.
+--
+-- -   When @ACTIVATED@, the streaming session is scheduled for termination
+--     after being in the @STOPPED@ state for the time specified in
+--     @maxStoppedSessionLengthInMinutes@.
+--
+-- -   When @DEACTIVATED@, the streaming session can remain in the
+--     @STOPPED@ state indefinitely.
+--
+-- This parameter is only allowed when @sessionPersistenceMode@ is
+-- @ACTIVATED@. When allowed, the default value for this parameter is
+-- @DEACTIVATED@.
+streamConfigurationCreate_automaticTerminationMode :: Lens.Lens' StreamConfigurationCreate (Prelude.Maybe AutomaticTerminationMode)
+streamConfigurationCreate_automaticTerminationMode = Lens.lens (\StreamConfigurationCreate' {automaticTerminationMode} -> automaticTerminationMode) (\s@StreamConfigurationCreate' {} a -> s {automaticTerminationMode = a} :: StreamConfigurationCreate)
 
 -- | The length of time, in minutes, that a streaming session can be active
 -- before it is stopped or terminated. After this point, Nimble Studio
@@ -141,29 +228,51 @@ streamConfigurationCreate_maxSessionLengthInMinutes :: Lens.Lens' StreamConfigur
 streamConfigurationCreate_maxSessionLengthInMinutes = Lens.lens (\StreamConfigurationCreate' {maxSessionLengthInMinutes} -> maxSessionLengthInMinutes) (\s@StreamConfigurationCreate' {} a -> s {maxSessionLengthInMinutes = a} :: StreamConfigurationCreate)
 
 -- | Integer that determines if you can start and stop your sessions and how
--- long a session can stay in the STOPPED state. The default value is 0.
+-- long a session can stay in the @STOPPED@ state. The default value is 0.
 -- The maximum value is 5760.
 --
--- If the value is missing or set to 0, your sessions can’t be stopped. If
--- you then call @StopStreamingSession@, the session fails. If the time
--- that a session stays in the READY state exceeds the
+-- This field is allowed only when @sessionPersistenceMode@ is @ACTIVATED@
+-- and @automaticTerminationMode@ is @ACTIVATED@.
+--
+-- If the value is set to 0, your sessions can’t be @STOPPED@. If you then
+-- call @StopStreamingSession@, the session fails. If the time that a
+-- session stays in the @READY@ state exceeds the
 -- @maxSessionLengthInMinutes@ value, the session will automatically be
--- terminated (instead of stopped).
+-- terminated (instead of @STOPPED@).
 --
 -- If the value is set to a positive number, the session can be stopped.
--- You can call @StopStreamingSession@ to stop sessions in the READY state.
--- If the time that a session stays in the READY state exceeds the
+-- You can call @StopStreamingSession@ to stop sessions in the @READY@
+-- state. If the time that a session stays in the @READY@ state exceeds the
 -- @maxSessionLengthInMinutes@ value, the session will automatically be
 -- stopped (instead of terminated).
 streamConfigurationCreate_maxStoppedSessionLengthInMinutes :: Lens.Lens' StreamConfigurationCreate (Prelude.Maybe Prelude.Natural)
 streamConfigurationCreate_maxStoppedSessionLengthInMinutes = Lens.lens (\StreamConfigurationCreate' {maxStoppedSessionLengthInMinutes} -> maxStoppedSessionLengthInMinutes) (\s@StreamConfigurationCreate' {} a -> s {maxStoppedSessionLengthInMinutes = a} :: StreamConfigurationCreate)
 
--- | (Optional) The upload storage for a streaming workstation that is
--- created using this launch profile.
+-- | Configures how streaming sessions are backed up when launched from this
+-- launch profile.
+streamConfigurationCreate_sessionBackup :: Lens.Lens' StreamConfigurationCreate (Prelude.Maybe StreamConfigurationSessionBackup)
+streamConfigurationCreate_sessionBackup = Lens.lens (\StreamConfigurationCreate' {sessionBackup} -> sessionBackup) (\s@StreamConfigurationCreate' {} a -> s {sessionBackup = a} :: StreamConfigurationCreate)
+
+-- | Determine if a streaming session created from this launch profile can
+-- configure persistent storage. This means that @volumeConfiguration@ and
+-- @automaticTerminationMode@ are configured.
+streamConfigurationCreate_sessionPersistenceMode :: Lens.Lens' StreamConfigurationCreate (Prelude.Maybe SessionPersistenceMode)
+streamConfigurationCreate_sessionPersistenceMode = Lens.lens (\StreamConfigurationCreate' {sessionPersistenceMode} -> sessionPersistenceMode) (\s@StreamConfigurationCreate' {} a -> s {sessionPersistenceMode = a} :: StreamConfigurationCreate)
+
+-- | The upload storage for a streaming workstation that is created using
+-- this launch profile.
 streamConfigurationCreate_sessionStorage :: Lens.Lens' StreamConfigurationCreate (Prelude.Maybe StreamConfigurationSessionStorage)
 streamConfigurationCreate_sessionStorage = Lens.lens (\StreamConfigurationCreate' {sessionStorage} -> sessionStorage) (\s@StreamConfigurationCreate' {} a -> s {sessionStorage = a} :: StreamConfigurationCreate)
 
--- | Enable or disable the use of the system clipboard to copy and paste
+-- | Custom volume configuration for the root volumes that are attached to
+-- streaming sessions.
+--
+-- This parameter is only allowed when @sessionPersistenceMode@ is
+-- @ACTIVATED@.
+streamConfigurationCreate_volumeConfiguration :: Lens.Lens' StreamConfigurationCreate (Prelude.Maybe VolumeConfiguration)
+streamConfigurationCreate_volumeConfiguration = Lens.lens (\StreamConfigurationCreate' {volumeConfiguration} -> volumeConfiguration) (\s@StreamConfigurationCreate' {} a -> s {volumeConfiguration = a} :: StreamConfigurationCreate)
+
+-- | Allows or deactivates the use of the system clipboard to copy and paste
 -- between the streaming session and streaming client.
 streamConfigurationCreate_clipboardMode :: Lens.Lens' StreamConfigurationCreate StreamingClipboardMode
 streamConfigurationCreate_clipboardMode = Lens.lens (\StreamConfigurationCreate' {clipboardMode} -> clipboardMode) (\s@StreamConfigurationCreate' {} a -> s {clipboardMode = a} :: StreamConfigurationCreate)
@@ -181,18 +290,26 @@ streamConfigurationCreate_streamingImageIds = Lens.lens (\StreamConfigurationCre
 instance Prelude.Hashable StreamConfigurationCreate where
   hashWithSalt _salt StreamConfigurationCreate' {..} =
     _salt
+      `Prelude.hashWithSalt` automaticTerminationMode
       `Prelude.hashWithSalt` maxSessionLengthInMinutes
       `Prelude.hashWithSalt` maxStoppedSessionLengthInMinutes
+      `Prelude.hashWithSalt` sessionBackup
+      `Prelude.hashWithSalt` sessionPersistenceMode
       `Prelude.hashWithSalt` sessionStorage
+      `Prelude.hashWithSalt` volumeConfiguration
       `Prelude.hashWithSalt` clipboardMode
       `Prelude.hashWithSalt` ec2InstanceTypes
       `Prelude.hashWithSalt` streamingImageIds
 
 instance Prelude.NFData StreamConfigurationCreate where
   rnf StreamConfigurationCreate' {..} =
-    Prelude.rnf maxSessionLengthInMinutes
+    Prelude.rnf automaticTerminationMode
+      `Prelude.seq` Prelude.rnf maxSessionLengthInMinutes
       `Prelude.seq` Prelude.rnf maxStoppedSessionLengthInMinutes
+      `Prelude.seq` Prelude.rnf sessionBackup
+      `Prelude.seq` Prelude.rnf sessionPersistenceMode
       `Prelude.seq` Prelude.rnf sessionStorage
+      `Prelude.seq` Prelude.rnf volumeConfiguration
       `Prelude.seq` Prelude.rnf clipboardMode
       `Prelude.seq` Prelude.rnf ec2InstanceTypes
       `Prelude.seq` Prelude.rnf streamingImageIds
@@ -201,12 +318,19 @@ instance Data.ToJSON StreamConfigurationCreate where
   toJSON StreamConfigurationCreate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("maxSessionLengthInMinutes" Data..=)
+          [ ("automaticTerminationMode" Data..=)
+              Prelude.<$> automaticTerminationMode,
+            ("maxSessionLengthInMinutes" Data..=)
               Prelude.<$> maxSessionLengthInMinutes,
             ("maxStoppedSessionLengthInMinutes" Data..=)
               Prelude.<$> maxStoppedSessionLengthInMinutes,
+            ("sessionBackup" Data..=) Prelude.<$> sessionBackup,
+            ("sessionPersistenceMode" Data..=)
+              Prelude.<$> sessionPersistenceMode,
             ("sessionStorage" Data..=)
               Prelude.<$> sessionStorage,
+            ("volumeConfiguration" Data..=)
+              Prelude.<$> volumeConfiguration,
             Prelude.Just ("clipboardMode" Data..= clipboardMode),
             Prelude.Just
               ("ec2InstanceTypes" Data..= ec2InstanceTypes),

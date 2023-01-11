@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.Origin
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,10 +60,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOrigin' smart constructor.
 data Origin = Origin'
   { -- | The number of times that CloudFront attempts to connect to the origin.
-    -- The minimum number is 1, the maximum is 3, and the default (if you don’t
-    -- specify otherwise) is 3.
+    -- The minimum number is 1, the maximum is 3, and the default (if you
+    -- don\'t specify otherwise) is 3.
     --
-    -- For a custom origin (including an Amazon S3 bucket that’s configured
+    -- For a custom origin (including an Amazon S3 bucket that\'s configured
     -- with static website hosting), this value also specifies the number of
     -- times that CloudFront attempts to get a response from the origin, in the
     -- case of an
@@ -75,7 +75,7 @@ data Origin = Origin'
     connectionAttempts :: Prelude.Maybe Prelude.Int,
     -- | The number of seconds that CloudFront waits when trying to establish a
     -- connection to the origin. The minimum timeout is 1 second, the maximum
-    -- is 10 seconds, and the default (if you don’t specify otherwise) is 10
+    -- is 10 seconds, and the default (if you don\'t specify otherwise) is 10
     -- seconds.
     --
     -- For more information, see
@@ -143,10 +143,10 @@ data Origin = Origin'
 -- for backwards compatibility:
 --
 -- 'connectionAttempts', 'origin_connectionAttempts' - The number of times that CloudFront attempts to connect to the origin.
--- The minimum number is 1, the maximum is 3, and the default (if you don’t
--- specify otherwise) is 3.
+-- The minimum number is 1, the maximum is 3, and the default (if you
+-- don\'t specify otherwise) is 3.
 --
--- For a custom origin (including an Amazon S3 bucket that’s configured
+-- For a custom origin (including an Amazon S3 bucket that\'s configured
 -- with static website hosting), this value also specifies the number of
 -- times that CloudFront attempts to get a response from the origin, in the
 -- case of an
@@ -158,7 +158,7 @@ data Origin = Origin'
 --
 -- 'connectionTimeout', 'origin_connectionTimeout' - The number of seconds that CloudFront waits when trying to establish a
 -- connection to the origin. The minimum timeout is 1 second, the maximum
--- is 10 seconds, and the default (if you don’t specify otherwise) is 10
+-- is 10 seconds, and the default (if you don\'t specify otherwise) is 10
 -- seconds.
 --
 -- For more information, see
@@ -234,10 +234,10 @@ newOrigin pId_ pDomainName_ =
     }
 
 -- | The number of times that CloudFront attempts to connect to the origin.
--- The minimum number is 1, the maximum is 3, and the default (if you don’t
--- specify otherwise) is 3.
+-- The minimum number is 1, the maximum is 3, and the default (if you
+-- don\'t specify otherwise) is 3.
 --
--- For a custom origin (including an Amazon S3 bucket that’s configured
+-- For a custom origin (including an Amazon S3 bucket that\'s configured
 -- with static website hosting), this value also specifies the number of
 -- times that CloudFront attempts to get a response from the origin, in the
 -- case of an
@@ -251,7 +251,7 @@ origin_connectionAttempts = Lens.lens (\Origin' {connectionAttempts} -> connecti
 
 -- | The number of seconds that CloudFront waits when trying to establish a
 -- connection to the origin. The minimum timeout is 1 second, the maximum
--- is 10 seconds, and the default (if you don’t specify otherwise) is 10
+-- is 10 seconds, and the default (if you don\'t specify otherwise) is 10
 -- seconds.
 --
 -- For more information, see

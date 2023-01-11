@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Types.DeploymentCircuitBreaker
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,9 +43,9 @@ data DeploymentCircuitBreaker = DeploymentCircuitBreaker'
     -- service.
     enable :: Prelude.Bool,
     -- | Determines whether to configure Amazon ECS to roll back the service if a
-    -- service deployment fails. If rollback is enabled, when a service
-    -- deployment fails, the service is rolled back to the last deployment that
-    -- completed successfully.
+    -- service deployment fails. If rollback is on, when a service deployment
+    -- fails, the service is rolled back to the last deployment that completed
+    -- successfully.
     rollback :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +62,9 @@ data DeploymentCircuitBreaker = DeploymentCircuitBreaker'
 -- service.
 --
 -- 'rollback', 'deploymentCircuitBreaker_rollback' - Determines whether to configure Amazon ECS to roll back the service if a
--- service deployment fails. If rollback is enabled, when a service
--- deployment fails, the service is rolled back to the last deployment that
--- completed successfully.
+-- service deployment fails. If rollback is on, when a service deployment
+-- fails, the service is rolled back to the last deployment that completed
+-- successfully.
 newDeploymentCircuitBreaker ::
   -- | 'enable'
   Prelude.Bool ->
@@ -83,9 +83,9 @@ deploymentCircuitBreaker_enable :: Lens.Lens' DeploymentCircuitBreaker Prelude.B
 deploymentCircuitBreaker_enable = Lens.lens (\DeploymentCircuitBreaker' {enable} -> enable) (\s@DeploymentCircuitBreaker' {} a -> s {enable = a} :: DeploymentCircuitBreaker)
 
 -- | Determines whether to configure Amazon ECS to roll back the service if a
--- service deployment fails. If rollback is enabled, when a service
--- deployment fails, the service is rolled back to the last deployment that
--- completed successfully.
+-- service deployment fails. If rollback is on, when a service deployment
+-- fails, the service is rolled back to the last deployment that completed
+-- successfully.
 deploymentCircuitBreaker_rollback :: Lens.Lens' DeploymentCircuitBreaker Prelude.Bool
 deploymentCircuitBreaker_rollback = Lens.lens (\DeploymentCircuitBreaker' {rollback} -> rollback) (\s@DeploymentCircuitBreaker' {} a -> s {rollback = a} :: DeploymentCircuitBreaker)
 

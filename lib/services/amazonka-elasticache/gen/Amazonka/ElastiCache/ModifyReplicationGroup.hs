@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.ModifyReplicationGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,6 +58,8 @@ module Amazonka.ElastiCache.ModifyReplicationGroup
     modifyReplicationGroup_snapshotRetentionLimit,
     modifyReplicationGroup_snapshotWindow,
     modifyReplicationGroup_snapshottingClusterId,
+    modifyReplicationGroup_transitEncryptionEnabled,
+    modifyReplicationGroup_transitEncryptionMode,
     modifyReplicationGroup_userGroupIdsToAdd,
     modifyReplicationGroup_userGroupIdsToRemove,
     modifyReplicationGroup_replicationGroupId,
@@ -240,6 +242,24 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     -- replication group. This parameter cannot be set for Redis (cluster mode
     -- enabled) replication groups.
     snapshottingClusterId :: Prelude.Maybe Prelude.Text,
+    -- | A flag that enables in-transit encryption when set to true. If you are
+    -- enabling in-transit encryption for an existing cluster, you must also
+    -- set @TransitEncryptionMode@ to @preferred@.
+    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | A setting that allows you to migrate your clients to use in-transit
+    -- encryption, with no downtime.
+    --
+    -- You must set @TransitEncryptionEnabled@ to @true@, for your existing
+    -- cluster, and set @TransitEncryptionMode@ to @preferred@ in the same
+    -- request to allow both encrypted and unencrypted connections at the same
+    -- time. Once you migrate all your Redis clients to use encrypted
+    -- connections you can set the value to @required@ to allow encrypted
+    -- connections only.
+    --
+    -- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
+    -- requires you to first set the @TransitEncryptionMode@ to @preferred@
+    -- first, after that you can set @TransitEncryptionMode@ to @required@.
+    transitEncryptionMode :: Prelude.Maybe TransitEncryptionMode,
     -- | The ID of the user group you are associating with the replication group.
     userGroupIdsToAdd :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the user group to disassociate from the replication group,
@@ -415,6 +435,24 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 -- replication group. This parameter cannot be set for Redis (cluster mode
 -- enabled) replication groups.
 --
+-- 'transitEncryptionEnabled', 'modifyReplicationGroup_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. If you are
+-- enabling in-transit encryption for an existing cluster, you must also
+-- set @TransitEncryptionMode@ to @preferred@.
+--
+-- 'transitEncryptionMode', 'modifyReplicationGroup_transitEncryptionMode' - A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
+--
+-- You must set @TransitEncryptionEnabled@ to @true@, for your existing
+-- cluster, and set @TransitEncryptionMode@ to @preferred@ in the same
+-- request to allow both encrypted and unencrypted connections at the same
+-- time. Once you migrate all your Redis clients to use encrypted
+-- connections you can set the value to @required@ to allow encrypted
+-- connections only.
+--
+-- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
+-- requires you to first set the @TransitEncryptionMode@ to @preferred@
+-- first, after that you can set @TransitEncryptionMode@ to @required@.
+--
 -- 'userGroupIdsToAdd', 'modifyReplicationGroup_userGroupIdsToAdd' - The ID of the user group you are associating with the replication group.
 --
 -- 'userGroupIdsToRemove', 'modifyReplicationGroup_userGroupIdsToRemove' - The ID of the user group to disassociate from the replication group,
@@ -452,6 +490,8 @@ newModifyReplicationGroup pReplicationGroupId_ =
       snapshotRetentionLimit = Prelude.Nothing,
       snapshotWindow = Prelude.Nothing,
       snapshottingClusterId = Prelude.Nothing,
+      transitEncryptionEnabled = Prelude.Nothing,
+      transitEncryptionMode = Prelude.Nothing,
       userGroupIdsToAdd = Prelude.Nothing,
       userGroupIdsToRemove = Prelude.Nothing,
       replicationGroupId = pReplicationGroupId_
@@ -659,6 +699,28 @@ modifyReplicationGroup_snapshotWindow = Lens.lens (\ModifyReplicationGroup' {sna
 modifyReplicationGroup_snapshottingClusterId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_snapshottingClusterId = Lens.lens (\ModifyReplicationGroup' {snapshottingClusterId} -> snapshottingClusterId) (\s@ModifyReplicationGroup' {} a -> s {snapshottingClusterId = a} :: ModifyReplicationGroup)
 
+-- | A flag that enables in-transit encryption when set to true. If you are
+-- enabling in-transit encryption for an existing cluster, you must also
+-- set @TransitEncryptionMode@ to @preferred@.
+modifyReplicationGroup_transitEncryptionEnabled :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
+modifyReplicationGroup_transitEncryptionEnabled = Lens.lens (\ModifyReplicationGroup' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@ModifyReplicationGroup' {} a -> s {transitEncryptionEnabled = a} :: ModifyReplicationGroup)
+
+-- | A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
+--
+-- You must set @TransitEncryptionEnabled@ to @true@, for your existing
+-- cluster, and set @TransitEncryptionMode@ to @preferred@ in the same
+-- request to allow both encrypted and unencrypted connections at the same
+-- time. Once you migrate all your Redis clients to use encrypted
+-- connections you can set the value to @required@ to allow encrypted
+-- connections only.
+--
+-- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
+-- requires you to first set the @TransitEncryptionMode@ to @preferred@
+-- first, after that you can set @TransitEncryptionMode@ to @required@.
+modifyReplicationGroup_transitEncryptionMode :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe TransitEncryptionMode)
+modifyReplicationGroup_transitEncryptionMode = Lens.lens (\ModifyReplicationGroup' {transitEncryptionMode} -> transitEncryptionMode) (\s@ModifyReplicationGroup' {} a -> s {transitEncryptionMode = a} :: ModifyReplicationGroup)
+
 -- | The ID of the user group you are associating with the replication group.
 modifyReplicationGroup_userGroupIdsToAdd :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
 modifyReplicationGroup_userGroupIdsToAdd = Lens.lens (\ModifyReplicationGroup' {userGroupIdsToAdd} -> userGroupIdsToAdd) (\s@ModifyReplicationGroup' {} a -> s {userGroupIdsToAdd = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens.coerced
@@ -713,6 +775,8 @@ instance Prelude.Hashable ModifyReplicationGroup where
       `Prelude.hashWithSalt` snapshotRetentionLimit
       `Prelude.hashWithSalt` snapshotWindow
       `Prelude.hashWithSalt` snapshottingClusterId
+      `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` transitEncryptionMode
       `Prelude.hashWithSalt` userGroupIdsToAdd
       `Prelude.hashWithSalt` userGroupIdsToRemove
       `Prelude.hashWithSalt` replicationGroupId
@@ -745,6 +809,10 @@ instance Prelude.NFData ModifyReplicationGroup where
       `Prelude.seq` Prelude.rnf snapshotWindow
       `Prelude.seq` Prelude.rnf
         snapshottingClusterId
+      `Prelude.seq` Prelude.rnf
+        transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf
+        transitEncryptionMode
       `Prelude.seq` Prelude.rnf
         userGroupIdsToAdd
       `Prelude.seq` Prelude.rnf
@@ -809,6 +877,10 @@ instance Data.ToQuery ModifyReplicationGroup where
         "SnapshotWindow" Data.=: snapshotWindow,
         "SnapshottingClusterId"
           Data.=: snapshottingClusterId,
+        "TransitEncryptionEnabled"
+          Data.=: transitEncryptionEnabled,
+        "TransitEncryptionMode"
+          Data.=: transitEncryptionMode,
         "UserGroupIdsToAdd"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"

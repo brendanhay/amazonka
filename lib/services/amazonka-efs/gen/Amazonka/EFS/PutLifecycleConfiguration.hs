@@ -14,28 +14,28 @@
 
 -- |
 -- Module      : Amazonka.EFS.PutLifecycleConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use this action to manage EFS lifecycle management and intelligent
--- tiering. A @LifecycleConfiguration@ consists of one or more
+-- Use this action to manage EFS lifecycle management and EFS
+-- Intelligent-Tiering. A @LifecycleConfiguration@ consists of one or more
 -- @LifecyclePolicy@ objects that define the following:
 --
 -- -   __EFS Lifecycle management__ - When Amazon EFS automatically
---     transitions files in a file system into the lower-cost Infrequent
---     Access (IA) storage class.
+--     transitions files in a file system into the lower-cost EFS
+--     Infrequent Access (IA) storage class.
 --
 --     To enable EFS Lifecycle management, set the value of
 --     @TransitionToIA@ to one of the available options.
 --
--- -   __EFS Intelligent tiering__ - When Amazon EFS automatically
+-- -   __EFS Intelligent-Tiering__ - When Amazon EFS automatically
 --     transitions files from IA back into the file system\'s primary
---     storage class (Standard or One Zone Standard.
+--     storage class (EFS Standard or EFS One Zone Standard).
 --
---     To enable EFS Intelligent Tiering, set the value of
+--     To enable EFS Intelligent-Tiering, set the value of
 --     @TransitionToPrimaryStorageClass@ to @AFTER_1_ACCESS@.
 --
 -- For more information, see
@@ -47,13 +47,13 @@
 -- @PutLifecycleConfiguration@ call modifies the existing configuration. A
 -- @PutLifecycleConfiguration@ call with an empty @LifecyclePolicies@ array
 -- in the request body deletes any existing @LifecycleConfiguration@ and
--- turns off lifecycle management and intelligent tiering for the file
+-- turns off lifecycle management and EFS Intelligent-Tiering for the file
 -- system.
 --
 -- In the request, specify the following:
 --
 -- -   The ID for the file system for which you are enabling, disabling, or
---     modifying lifecycle management and intelligent tiering.
+--     modifying lifecycle management and EFS Intelligent-Tiering.
 --
 -- -   A @LifecyclePolicies@ array of @LifecyclePolicy@ objects that define
 --     when files are moved into IA storage, and when they are moved back

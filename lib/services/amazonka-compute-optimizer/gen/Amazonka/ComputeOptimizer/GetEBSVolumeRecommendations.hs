@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -77,7 +77,7 @@ data GetEBSVolumeRecommendations = GetEBSVolumeRecommendations'
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to advance to the next page of volume recommendations.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the volumes for which to return
@@ -149,7 +149,7 @@ getEBSVolumeRecommendations_filters = Lens.lens (\GetEBSVolumeRecommendations' {
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
-getEBSVolumeRecommendations_maxResults :: Lens.Lens' GetEBSVolumeRecommendations (Prelude.Maybe Prelude.Int)
+getEBSVolumeRecommendations_maxResults :: Lens.Lens' GetEBSVolumeRecommendations (Prelude.Maybe Prelude.Natural)
 getEBSVolumeRecommendations_maxResults = Lens.lens (\GetEBSVolumeRecommendations' {maxResults} -> maxResults) (\s@GetEBSVolumeRecommendations' {} a -> s {maxResults = a} :: GetEBSVolumeRecommendations)
 
 -- | The token to advance to the next page of volume recommendations.

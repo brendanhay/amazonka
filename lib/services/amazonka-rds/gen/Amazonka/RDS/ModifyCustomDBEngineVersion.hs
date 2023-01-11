@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.ModifyCustomDBEngineVersion
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,6 +53,7 @@ module Amazonka.RDS.ModifyCustomDBEngineVersion
     dbEngineVersion_createTime,
     dbEngineVersion_customDBEngineVersionManifest,
     dbEngineVersion_dbEngineDescription,
+    dbEngineVersion_dbEngineMediaType,
     dbEngineVersion_dbEngineVersionArn,
     dbEngineVersion_dbEngineVersionDescription,
     dbEngineVersion_dbParameterGroupFamily,
@@ -62,15 +63,18 @@ module Amazonka.RDS.ModifyCustomDBEngineVersion
     dbEngineVersion_engine,
     dbEngineVersion_engineVersion,
     dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_image,
     dbEngineVersion_kmsKeyId,
     dbEngineVersion_majorEngineVersion,
     dbEngineVersion_status,
+    dbEngineVersion_supportedCACertificateIdentifiers,
     dbEngineVersion_supportedCharacterSets,
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_supportedFeatureNames,
     dbEngineVersion_supportedNcharCharacterSets,
     dbEngineVersion_supportedTimezones,
     dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportsCertificateRotationWithoutRestart,
     dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_supportsLogExportsToCloudwatchLogs,
     dbEngineVersion_supportsParallelQuery,

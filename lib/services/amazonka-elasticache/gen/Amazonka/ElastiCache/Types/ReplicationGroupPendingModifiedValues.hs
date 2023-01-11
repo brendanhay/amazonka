@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.Types.ReplicationGroupPendingModifiedValues
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,7 @@ import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
 import Amazonka.ElastiCache.Types.PendingAutomaticFailoverStatus
 import Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration
 import Amazonka.ElastiCache.Types.ReshardingStatus
+import Amazonka.ElastiCache.Types.TransitEncryptionMode
 import Amazonka.ElastiCache.Types.UserGroupsUpdateStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -47,6 +48,11 @@ data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValu
     primaryClusterId :: Prelude.Maybe Prelude.Text,
     -- | The status of an online resharding operation.
     resharding :: Prelude.Maybe ReshardingStatus,
+    -- | A flag that enables in-transit encryption when set to true.
+    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | A setting that allows you to migrate your clients to use in-transit
+    -- encryption, with no downtime.
+    transitEncryptionMode :: Prelude.Maybe TransitEncryptionMode,
     -- | The user group being modified.
     userGroups :: Prelude.Maybe UserGroupsUpdateStatus
   }
@@ -73,6 +79,11 @@ data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValu
 --
 -- 'resharding', 'replicationGroupPendingModifiedValues_resharding' - The status of an online resharding operation.
 --
+-- 'transitEncryptionEnabled', 'replicationGroupPendingModifiedValues_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true.
+--
+-- 'transitEncryptionMode', 'replicationGroupPendingModifiedValues_transitEncryptionMode' - A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
+--
 -- 'userGroups', 'replicationGroupPendingModifiedValues_userGroups' - The user group being modified.
 newReplicationGroupPendingModifiedValues ::
   ReplicationGroupPendingModifiedValues
@@ -86,6 +97,10 @@ newReplicationGroupPendingModifiedValues =
         Prelude.Nothing,
       primaryClusterId = Prelude.Nothing,
       resharding = Prelude.Nothing,
+      transitEncryptionEnabled =
+        Prelude.Nothing,
+      transitEncryptionMode =
+        Prelude.Nothing,
       userGroups = Prelude.Nothing
     }
 
@@ -112,6 +127,15 @@ replicationGroupPendingModifiedValues_primaryClusterId = Lens.lens (\Replication
 replicationGroupPendingModifiedValues_resharding :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe ReshardingStatus)
 replicationGroupPendingModifiedValues_resharding = Lens.lens (\ReplicationGroupPendingModifiedValues' {resharding} -> resharding) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {resharding = a} :: ReplicationGroupPendingModifiedValues)
 
+-- | A flag that enables in-transit encryption when set to true.
+replicationGroupPendingModifiedValues_transitEncryptionEnabled :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe Prelude.Bool)
+replicationGroupPendingModifiedValues_transitEncryptionEnabled = Lens.lens (\ReplicationGroupPendingModifiedValues' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {transitEncryptionEnabled = a} :: ReplicationGroupPendingModifiedValues)
+
+-- | A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
+replicationGroupPendingModifiedValues_transitEncryptionMode :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe TransitEncryptionMode)
+replicationGroupPendingModifiedValues_transitEncryptionMode = Lens.lens (\ReplicationGroupPendingModifiedValues' {transitEncryptionMode} -> transitEncryptionMode) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {transitEncryptionMode = a} :: ReplicationGroupPendingModifiedValues)
+
 -- | The user group being modified.
 replicationGroupPendingModifiedValues_userGroups :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe UserGroupsUpdateStatus)
 replicationGroupPendingModifiedValues_userGroups = Lens.lens (\ReplicationGroupPendingModifiedValues' {userGroups} -> userGroups) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {userGroups = a} :: ReplicationGroupPendingModifiedValues)
@@ -130,6 +154,8 @@ instance
                   )
       Prelude.<*> (x Data..@? "PrimaryClusterId")
       Prelude.<*> (x Data..@? "Resharding")
+      Prelude.<*> (x Data..@? "TransitEncryptionEnabled")
+      Prelude.<*> (x Data..@? "TransitEncryptionMode")
       Prelude.<*> (x Data..@? "UserGroups")
 
 instance
@@ -144,6 +170,8 @@ instance
         `Prelude.hashWithSalt` logDeliveryConfigurations
         `Prelude.hashWithSalt` primaryClusterId
         `Prelude.hashWithSalt` resharding
+        `Prelude.hashWithSalt` transitEncryptionEnabled
+        `Prelude.hashWithSalt` transitEncryptionMode
         `Prelude.hashWithSalt` userGroups
 
 instance
@@ -156,4 +184,6 @@ instance
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
       `Prelude.seq` Prelude.rnf primaryClusterId
       `Prelude.seq` Prelude.rnf resharding
+      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf transitEncryptionMode
       `Prelude.seq` Prelude.rnf userGroups

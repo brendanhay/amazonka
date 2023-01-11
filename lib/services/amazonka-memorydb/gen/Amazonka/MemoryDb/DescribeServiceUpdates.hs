@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeServiceUpdates
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns details of the service updates
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeServiceUpdates
   ( -- * Creating a Request
     DescribeServiceUpdates (..),
@@ -133,6 +135,28 @@ describeServiceUpdates_serviceUpdateName = Lens.lens (\DescribeServiceUpdates' {
 -- | The status(es) of the service updates to filter on
 describeServiceUpdates_status :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe [ServiceUpdateStatus])
 describeServiceUpdates_status = Lens.lens (\DescribeServiceUpdates' {status} -> status) (\s@DescribeServiceUpdates' {} a -> s {status = a} :: DescribeServiceUpdates) Prelude.. Lens.mapping Lens.coerced
+
+instance Core.AWSPager DescribeServiceUpdates where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeServiceUpdatesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeServiceUpdatesResponse_serviceUpdates
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeServiceUpdates_nextToken
+          Lens..~ rs
+          Lens.^? describeServiceUpdatesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeServiceUpdates where
   type

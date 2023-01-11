@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.KinesisVideo.Types.NotificationDestinationConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotificationDestinationConfig' smart constructor.
 data NotificationDestinationConfig = NotificationDestinationConfig'
-  { -- | The Uniform Resource Idenifier (URI) that identifies where the images
+  { -- | The Uniform Resource Identifier (URI) that identifies where the images
     -- will be delivered.
     uri :: Prelude.Text
   }
@@ -43,7 +43,7 @@ data NotificationDestinationConfig = NotificationDestinationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uri', 'notificationDestinationConfig_uri' - The Uniform Resource Idenifier (URI) that identifies where the images
+-- 'uri', 'notificationDestinationConfig_uri' - The Uniform Resource Identifier (URI) that identifies where the images
 -- will be delivered.
 newNotificationDestinationConfig ::
   -- | 'uri'
@@ -52,7 +52,7 @@ newNotificationDestinationConfig ::
 newNotificationDestinationConfig pUri_ =
   NotificationDestinationConfig' {uri = pUri_}
 
--- | The Uniform Resource Idenifier (URI) that identifies where the images
+-- | The Uniform Resource Identifier (URI) that identifies where the images
 -- will be delivered.
 notificationDestinationConfig_uri :: Lens.Lens' NotificationDestinationConfig Prelude.Text
 notificationDestinationConfig_uri = Lens.lens (\NotificationDestinationConfig' {uri} -> uri) (\s@NotificationDestinationConfig' {} a -> s {uri = a} :: NotificationDestinationConfig)

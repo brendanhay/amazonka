@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListRealtimeLogConfigs
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,8 +60,8 @@ data ListRealtimeLogConfigs = ListRealtimeLogConfigs'
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of real-time log configurations. The response includes
     -- real-time log configurations in the list that occur after the marker. To
-    -- get the next page of the list, set this field’s value to the value of
-    -- @NextMarker@ from the current page’s response.
+    -- get the next page of the list, set this field\'s value to the value of
+    -- @NextMarker@ from the current page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of real-time log configurations that you want in the
     -- response.
@@ -80,8 +80,8 @@ data ListRealtimeLogConfigs = ListRealtimeLogConfigs'
 -- 'marker', 'listRealtimeLogConfigs_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of real-time log configurations. The response includes
 -- real-time log configurations in the list that occur after the marker. To
--- get the next page of the list, set this field’s value to the value of
--- @NextMarker@ from the current page’s response.
+-- get the next page of the list, set this field\'s value to the value of
+-- @NextMarker@ from the current page\'s response.
 --
 -- 'maxItems', 'listRealtimeLogConfigs_maxItems' - The maximum number of real-time log configurations that you want in the
 -- response.
@@ -96,8 +96,8 @@ newListRealtimeLogConfigs =
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of real-time log configurations. The response includes
 -- real-time log configurations in the list that occur after the marker. To
--- get the next page of the list, set this field’s value to the value of
--- @NextMarker@ from the current page’s response.
+-- get the next page of the list, set this field\'s value to the value of
+-- @NextMarker@ from the current page\'s response.
 listRealtimeLogConfigs_marker :: Lens.Lens' ListRealtimeLogConfigs (Prelude.Maybe Prelude.Text)
 listRealtimeLogConfigs_marker = Lens.lens (\ListRealtimeLogConfigs' {marker} -> marker) (\s@ListRealtimeLogConfigs' {} a -> s {marker = a} :: ListRealtimeLogConfigs)
 

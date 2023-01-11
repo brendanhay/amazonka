@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftData.GetStatementResult
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,11 @@
 --
 -- Fetches the temporarily cached result of an SQL statement. A token is
 -- returned to page through the statement results.
+--
+-- For more information about the Amazon Redshift Data API and CLI usage
+-- examples, see
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html Using the Amazon Redshift Data API>
+-- in the /Amazon Redshift Management Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.RedshiftData.GetStatementResult

@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -14,17 +14,17 @@
 -- Compute Optimizer is a service that analyzes the configuration and
 -- utilization metrics of your Amazon Web Services compute resources, such
 -- as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda
--- functions, and Amazon EBS volumes. It reports whether your resources are
--- optimal, and generates optimization recommendations to reduce the cost
--- and improve the performance of your workloads. Compute Optimizer also
--- provides recent utilization metric data, in addition to projected
--- utilization metric data for the recommendations, which you can use to
--- evaluate which recommendation provides the best price-performance
--- trade-off. The analysis of your usage patterns can help you decide when
--- to move or resize your running resources, and still meet your
--- performance and capacity requirements. For more information about
--- Compute Optimizer, including the required permissions to use the
--- service, see the
+-- functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It
+-- reports whether your resources are optimal, and generates optimization
+-- recommendations to reduce the cost and improve the performance of your
+-- workloads. Compute Optimizer also provides recent utilization metric
+-- data, in addition to projected utilization metric data for the
+-- recommendations, which you can use to evaluate which recommendation
+-- provides the best price-performance trade-off. The analysis of your
+-- usage patterns can help you decide when to move or resize your running
+-- resources, and still meet your performance and capacity requirements.
+-- For more information about Compute Optimizer, including the required
+-- permissions to use the service, see the
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/ Compute Optimizer User Guide>.
 module Amazonka.ComputeOptimizer
   ( -- * Service Configuration
@@ -72,7 +72,7 @@ module Amazonka.ComputeOptimizer
     DeleteRecommendationPreferencesResponse (DeleteRecommendationPreferencesResponse'),
     newDeleteRecommendationPreferencesResponse,
 
-    -- ** DescribeRecommendationExportJobs
+    -- ** DescribeRecommendationExportJobs (Paginated)
     DescribeRecommendationExportJobs (DescribeRecommendationExportJobs'),
     newDescribeRecommendationExportJobs,
     DescribeRecommendationExportJobsResponse (DescribeRecommendationExportJobsResponse'),
@@ -95,6 +95,12 @@ module Amazonka.ComputeOptimizer
     newExportEC2InstanceRecommendations,
     ExportEC2InstanceRecommendationsResponse (ExportEC2InstanceRecommendationsResponse'),
     newExportEC2InstanceRecommendationsResponse,
+
+    -- ** ExportECSServiceRecommendations
+    ExportECSServiceRecommendations (ExportECSServiceRecommendations'),
+    newExportECSServiceRecommendations,
+    ExportECSServiceRecommendationsResponse (ExportECSServiceRecommendationsResponse'),
+    newExportECSServiceRecommendationsResponse,
 
     -- ** ExportLambdaFunctionRecommendations
     ExportLambdaFunctionRecommendations (ExportLambdaFunctionRecommendations'),
@@ -126,6 +132,18 @@ module Amazonka.ComputeOptimizer
     GetEC2RecommendationProjectedMetricsResponse (GetEC2RecommendationProjectedMetricsResponse'),
     newGetEC2RecommendationProjectedMetricsResponse,
 
+    -- ** GetECSServiceRecommendationProjectedMetrics
+    GetECSServiceRecommendationProjectedMetrics (GetECSServiceRecommendationProjectedMetrics'),
+    newGetECSServiceRecommendationProjectedMetrics,
+    GetECSServiceRecommendationProjectedMetricsResponse (GetECSServiceRecommendationProjectedMetricsResponse'),
+    newGetECSServiceRecommendationProjectedMetricsResponse,
+
+    -- ** GetECSServiceRecommendations
+    GetECSServiceRecommendations (GetECSServiceRecommendations'),
+    newGetECSServiceRecommendations,
+    GetECSServiceRecommendationsResponse (GetECSServiceRecommendationsResponse'),
+    newGetECSServiceRecommendationsResponse,
+
     -- ** GetEffectiveRecommendationPreferences
     GetEffectiveRecommendationPreferences (GetEffectiveRecommendationPreferences'),
     newGetEffectiveRecommendationPreferences,
@@ -138,25 +156,25 @@ module Amazonka.ComputeOptimizer
     GetEnrollmentStatusResponse (GetEnrollmentStatusResponse'),
     newGetEnrollmentStatusResponse,
 
-    -- ** GetEnrollmentStatusesForOrganization
+    -- ** GetEnrollmentStatusesForOrganization (Paginated)
     GetEnrollmentStatusesForOrganization (GetEnrollmentStatusesForOrganization'),
     newGetEnrollmentStatusesForOrganization,
     GetEnrollmentStatusesForOrganizationResponse (GetEnrollmentStatusesForOrganizationResponse'),
     newGetEnrollmentStatusesForOrganizationResponse,
 
-    -- ** GetLambdaFunctionRecommendations
+    -- ** GetLambdaFunctionRecommendations (Paginated)
     GetLambdaFunctionRecommendations (GetLambdaFunctionRecommendations'),
     newGetLambdaFunctionRecommendations,
     GetLambdaFunctionRecommendationsResponse (GetLambdaFunctionRecommendationsResponse'),
     newGetLambdaFunctionRecommendationsResponse,
 
-    -- ** GetRecommendationPreferences
+    -- ** GetRecommendationPreferences (Paginated)
     GetRecommendationPreferences (GetRecommendationPreferences'),
     newGetRecommendationPreferences,
     GetRecommendationPreferencesResponse (GetRecommendationPreferencesResponse'),
     newGetRecommendationPreferencesResponse,
 
-    -- ** GetRecommendationSummaries
+    -- ** GetRecommendationSummaries (Paginated)
     GetRecommendationSummaries (GetRecommendationSummaries'),
     newGetRecommendationSummaries,
     GetRecommendationSummariesResponse (GetRecommendationSummariesResponse'),
@@ -176,6 +194,9 @@ module Amazonka.ComputeOptimizer
 
     -- * Types
 
+    -- ** AutoScalingConfiguration
+    AutoScalingConfiguration (..),
+
     -- ** CpuVendorArchitecture
     CpuVendorArchitecture (..),
 
@@ -194,6 +215,24 @@ module Amazonka.ComputeOptimizer
     -- ** EBSMetricName
     EBSMetricName (..),
 
+    -- ** ECSServiceLaunchType
+    ECSServiceLaunchType (..),
+
+    -- ** ECSServiceMetricName
+    ECSServiceMetricName (..),
+
+    -- ** ECSServiceMetricStatistic
+    ECSServiceMetricStatistic (..),
+
+    -- ** ECSServiceRecommendationFilterName
+    ECSServiceRecommendationFilterName (..),
+
+    -- ** ECSServiceRecommendationFinding
+    ECSServiceRecommendationFinding (..),
+
+    -- ** ECSServiceRecommendationFindingReasonCode
+    ECSServiceRecommendationFindingReasonCode (..),
+
     -- ** EnhancedInfrastructureMetrics
     EnhancedInfrastructureMetrics (..),
 
@@ -202,6 +241,9 @@ module Amazonka.ComputeOptimizer
 
     -- ** ExportableAutoScalingGroupField
     ExportableAutoScalingGroupField (..),
+
+    -- ** ExportableECSServiceField
+    ExportableECSServiceField (..),
 
     -- ** ExportableInstanceField
     ExportableInstanceField (..),
@@ -306,6 +348,14 @@ module Amazonka.ComputeOptimizer
     AutoScalingGroupRecommendationOption (AutoScalingGroupRecommendationOption'),
     newAutoScalingGroupRecommendationOption,
 
+    -- ** ContainerConfiguration
+    ContainerConfiguration (ContainerConfiguration'),
+    newContainerConfiguration,
+
+    -- ** ContainerRecommendation
+    ContainerRecommendation (ContainerRecommendation'),
+    newContainerRecommendation,
+
     -- ** CurrentPerformanceRiskRatings
     CurrentPerformanceRiskRatings (CurrentPerformanceRiskRatings'),
     newCurrentPerformanceRiskRatings,
@@ -317,6 +367,34 @@ module Amazonka.ComputeOptimizer
     -- ** EBSUtilizationMetric
     EBSUtilizationMetric (EBSUtilizationMetric'),
     newEBSUtilizationMetric,
+
+    -- ** ECSServiceProjectedMetric
+    ECSServiceProjectedMetric (ECSServiceProjectedMetric'),
+    newECSServiceProjectedMetric,
+
+    -- ** ECSServiceProjectedUtilizationMetric
+    ECSServiceProjectedUtilizationMetric (ECSServiceProjectedUtilizationMetric'),
+    newECSServiceProjectedUtilizationMetric,
+
+    -- ** ECSServiceRecommendation
+    ECSServiceRecommendation (ECSServiceRecommendation'),
+    newECSServiceRecommendation,
+
+    -- ** ECSServiceRecommendationFilter
+    ECSServiceRecommendationFilter (ECSServiceRecommendationFilter'),
+    newECSServiceRecommendationFilter,
+
+    -- ** ECSServiceRecommendationOption
+    ECSServiceRecommendationOption (ECSServiceRecommendationOption'),
+    newECSServiceRecommendationOption,
+
+    -- ** ECSServiceRecommendedOptionProjectedMetric
+    ECSServiceRecommendedOptionProjectedMetric (ECSServiceRecommendedOptionProjectedMetric'),
+    newECSServiceRecommendedOptionProjectedMetric,
+
+    -- ** ECSServiceUtilizationMetric
+    ECSServiceUtilizationMetric (ECSServiceUtilizationMetric'),
+    newECSServiceUtilizationMetric,
 
     -- ** EffectiveRecommendationPreferences
     EffectiveRecommendationPreferences (EffectiveRecommendationPreferences'),
@@ -378,6 +456,10 @@ module Amazonka.ComputeOptimizer
     LambdaFunctionUtilizationMetric (LambdaFunctionUtilizationMetric'),
     newLambdaFunctionUtilizationMetric,
 
+    -- ** MemorySizeConfiguration
+    MemorySizeConfiguration (MemorySizeConfiguration'),
+    newMemorySizeConfiguration,
+
     -- ** ProjectedMetric
     ProjectedMetric (ProjectedMetric'),
     newProjectedMetric,
@@ -426,6 +508,10 @@ module Amazonka.ComputeOptimizer
     Scope (Scope'),
     newScope,
 
+    -- ** ServiceConfiguration
+    ServiceConfiguration (ServiceConfiguration'),
+    newServiceConfiguration,
+
     -- ** Summary
     Summary (Summary'),
     newSummary,
@@ -453,11 +539,14 @@ import Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
 import Amazonka.ComputeOptimizer.ExportAutoScalingGroupRecommendations
 import Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations
 import Amazonka.ComputeOptimizer.ExportEC2InstanceRecommendations
+import Amazonka.ComputeOptimizer.ExportECSServiceRecommendations
 import Amazonka.ComputeOptimizer.ExportLambdaFunctionRecommendations
 import Amazonka.ComputeOptimizer.GetAutoScalingGroupRecommendations
 import Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
 import Amazonka.ComputeOptimizer.GetEC2InstanceRecommendations
 import Amazonka.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
+import Amazonka.ComputeOptimizer.GetECSServiceRecommendationProjectedMetrics
+import Amazonka.ComputeOptimizer.GetECSServiceRecommendations
 import Amazonka.ComputeOptimizer.GetEffectiveRecommendationPreferences
 import Amazonka.ComputeOptimizer.GetEnrollmentStatus
 import Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization

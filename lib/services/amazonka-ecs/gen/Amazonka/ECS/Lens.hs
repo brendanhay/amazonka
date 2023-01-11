@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -772,11 +772,17 @@ module Amazonka.ECS.Lens
     deployment_taskDefinition,
     deployment_updatedAt,
 
+    -- ** DeploymentAlarms
+    deploymentAlarms_alarmNames,
+    deploymentAlarms_enable,
+    deploymentAlarms_rollback,
+
     -- ** DeploymentCircuitBreaker
     deploymentCircuitBreaker_enable,
     deploymentCircuitBreaker_rollback,
 
     -- ** DeploymentConfiguration
+    deploymentConfiguration_alarms,
     deploymentConfiguration_deploymentCircuitBreaker,
     deploymentConfiguration_maximumPercent,
     deploymentConfiguration_minimumHealthyPercent,
@@ -927,7 +933,9 @@ module Amazonka.ECS.Lens
     -- ** NetworkBinding
     networkBinding_bindIP,
     networkBinding_containerPort,
+    networkBinding_containerPortRange,
     networkBinding_hostPort,
+    networkBinding_hostPortRange,
     networkBinding_protocol,
 
     -- ** NetworkConfiguration
@@ -953,6 +961,7 @@ module Amazonka.ECS.Lens
     -- ** PortMapping
     portMapping_appProtocol,
     portMapping_containerPort,
+    portMapping_containerPortRange,
     portMapping_hostPort,
     portMapping_name,
     portMapping_protocol,
@@ -1241,6 +1250,7 @@ import Amazonka.ECS.Types.ContainerOverride
 import Amazonka.ECS.Types.ContainerService
 import Amazonka.ECS.Types.ContainerStateChange
 import Amazonka.ECS.Types.Deployment
+import Amazonka.ECS.Types.DeploymentAlarms
 import Amazonka.ECS.Types.DeploymentCircuitBreaker
 import Amazonka.ECS.Types.DeploymentConfiguration
 import Amazonka.ECS.Types.DeploymentController

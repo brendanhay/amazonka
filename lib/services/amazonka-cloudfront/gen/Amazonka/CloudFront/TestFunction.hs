@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.TestFunction
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,15 +25,15 @@
 -- To test a function, you provide an /event object/ that represents an
 -- HTTP request or response that your CloudFront distribution could receive
 -- in production. CloudFront runs the function, passing it the event object
--- that you provided, and returns the function’s result (the modified event
--- object) in the response. The response also contains function logs and
--- error messages, if any exist. For more information about testing
+-- that you provided, and returns the function\'s result (the modified
+-- event object) in the response. The response also contains function logs
+-- and error messages, if any exist. For more information about testing
 -- functions, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function Testing functions>
 -- in the /Amazon CloudFront Developer Guide/.
 --
--- To test a function, you provide the function’s name and version (@ETag@
--- value) along with the event object. To get the function’s name and
+-- To test a function, you provide the function\'s name and version (@ETag@
+-- value) along with the event object. To get the function\'s name and
 -- version, you can use @ListFunctions@ and @DescribeFunction@.
 module Amazonka.CloudFront.TestFunction
   ( -- * Creating a Request

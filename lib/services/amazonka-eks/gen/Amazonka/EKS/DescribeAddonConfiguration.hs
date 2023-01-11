@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.DescribeAddonConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAddonConfiguration' smart constructor.
 data DescribeAddonConfiguration = DescribeAddonConfiguration'
-  { -- | The name of the add-on. The name must match one of the names returned by
+  { -- | The name of the add-on. The name must match one of the names that
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
-    -- .
+    -- returns.
     addonName :: Prelude.Text,
     -- | The version of the add-on. The version must match one of the versions
     -- returned by
@@ -72,9 +72,9 @@ data DescribeAddonConfiguration = DescribeAddonConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addonName', 'describeAddonConfiguration_addonName' - The name of the add-on. The name must match one of the names returned by
+-- 'addonName', 'describeAddonConfiguration_addonName' - The name of the add-on. The name must match one of the names that
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
--- .
+-- returns.
 --
 -- 'addonVersion', 'describeAddonConfiguration_addonVersion' - The version of the add-on. The version must match one of the versions
 -- returned by
@@ -95,9 +95,9 @@ newDescribeAddonConfiguration
         addonVersion = pAddonVersion_
       }
 
--- | The name of the add-on. The name must match one of the names returned by
+-- | The name of the add-on. The name must match one of the names that
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
--- .
+-- returns.
 describeAddonConfiguration_addonName :: Lens.Lens' DescribeAddonConfiguration Prelude.Text
 describeAddonConfiguration_addonName = Lens.lens (\DescribeAddonConfiguration' {addonName} -> addonName) (\s@DescribeAddonConfiguration' {} a -> s {addonName = a} :: DescribeAddonConfiguration)
 
@@ -165,8 +165,8 @@ data DescribeAddonConfigurationResponse = DescribeAddonConfigurationResponse'
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
     -- .
     addonVersion :: Prelude.Maybe Prelude.Text,
-    -- | A JSON schema used to validate provided configuration values when
-    -- creating or updating an addon.
+    -- | A JSON schema that\'s used to validate the configuration values that you
+    -- provide when an addon is created or updated.
     configurationSchema :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -188,8 +188,8 @@ data DescribeAddonConfigurationResponse = DescribeAddonConfigurationResponse'
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
 -- .
 --
--- 'configurationSchema', 'describeAddonConfigurationResponse_configurationSchema' - A JSON schema used to validate provided configuration values when
--- creating or updating an addon.
+-- 'configurationSchema', 'describeAddonConfigurationResponse_configurationSchema' - A JSON schema that\'s used to validate the configuration values that you
+-- provide when an addon is created or updated.
 --
 -- 'httpStatus', 'describeAddonConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeAddonConfigurationResponse ::
@@ -216,8 +216,8 @@ describeAddonConfigurationResponse_addonName = Lens.lens (\DescribeAddonConfigur
 describeAddonConfigurationResponse_addonVersion :: Lens.Lens' DescribeAddonConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeAddonConfigurationResponse_addonVersion = Lens.lens (\DescribeAddonConfigurationResponse' {addonVersion} -> addonVersion) (\s@DescribeAddonConfigurationResponse' {} a -> s {addonVersion = a} :: DescribeAddonConfigurationResponse)
 
--- | A JSON schema used to validate provided configuration values when
--- creating or updating an addon.
+-- | A JSON schema that\'s used to validate the configuration values that you
+-- provide when an addon is created or updated.
 describeAddonConfigurationResponse_configurationSchema :: Lens.Lens' DescribeAddonConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeAddonConfigurationResponse_configurationSchema = Lens.lens (\DescribeAddonConfigurationResponse' {configurationSchema} -> configurationSchema) (\s@DescribeAddonConfigurationResponse' {} a -> s {configurationSchema = a} :: DescribeAddonConfigurationResponse)
 

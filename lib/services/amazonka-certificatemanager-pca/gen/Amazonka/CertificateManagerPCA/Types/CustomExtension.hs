@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.Types.CustomExtension
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | Specifies the X.509 extension information for a certificate.
 --
 -- Extensions present in @CustomExtensions@ follow the @ApiPassthrough@
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations template rules>.
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations template rules>.
 --
 -- /See:/ 'newCustomExtension' smart constructor.
 data CustomExtension = CustomExtension'

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ApiGatewayV2.GetDeployment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -150,7 +150,7 @@ data GetDeploymentResponse = GetDeploymentResponse'
   { -- | Specifies whether a deployment was automatically released.
     autoDeployed :: Prelude.Maybe Prelude.Bool,
     -- | The date and time when the Deployment resource was created.
-    createdDate :: Prelude.Maybe Data.POSIX,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | The identifier for the deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The status of the deployment: PENDING, FAILED, or SUCCEEDED.

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types.RetentionSetting
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,14 +25,14 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityLake.Types.StorageClass
 
--- | Retention settings for the destination Amazon S3 buckets in Security
--- Lake.
+-- | Retention settings for the destination Amazon S3 buckets in Amazon
+-- Security Lake.
 --
 -- /See:/ 'newRetentionSetting' smart constructor.
 data RetentionSetting = RetentionSetting'
   { -- | The retention period specifies a fixed period of time during which the
     -- Security Lake object remains locked. You can specify the retention
-    -- period for one or more source in days.
+    -- period in days for one or more sources.
     retentionPeriod :: Prelude.Maybe Prelude.Natural,
     -- | The range of storage classes that you can choose from based on the data
     -- access, resiliency, and cost requirements of your workloads.
@@ -50,7 +50,7 @@ data RetentionSetting = RetentionSetting'
 --
 -- 'retentionPeriod', 'retentionSetting_retentionPeriod' - The retention period specifies a fixed period of time during which the
 -- Security Lake object remains locked. You can specify the retention
--- period for one or more source in days.
+-- period in days for one or more sources.
 --
 -- 'storageClass', 'retentionSetting_storageClass' - The range of storage classes that you can choose from based on the data
 -- access, resiliency, and cost requirements of your workloads.
@@ -65,7 +65,7 @@ newRetentionSetting =
 
 -- | The retention period specifies a fixed period of time during which the
 -- Security Lake object remains locked. You can specify the retention
--- period for one or more source in days.
+-- period in days for one or more sources.
 retentionSetting_retentionPeriod :: Lens.Lens' RetentionSetting (Prelude.Maybe Prelude.Natural)
 retentionSetting_retentionPeriod = Lens.lens (\RetentionSetting' {retentionPeriod} -> retentionPeriod) (\s@RetentionSetting' {} a -> s {retentionPeriod = a} :: RetentionSetting)
 

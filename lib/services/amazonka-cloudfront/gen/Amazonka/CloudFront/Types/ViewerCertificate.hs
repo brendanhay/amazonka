@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.ViewerCertificate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,10 +27,10 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A complex type that determines the distribution’s SSL\/TLS configuration
--- for communicating with viewers.
+-- | A complex type that determines the distribution\'s SSL\/TLS
+-- configuration for communicating with viewers.
 --
--- If the distribution doesn’t use @Aliases@ (also known as alternate
+-- If the distribution doesn\'t use @Aliases@ (also known as alternate
 -- domain names or CNAMEs)—that is, if the distribution uses the CloudFront
 -- domain name such as @d111111abcdef8.cloudfront.net@—set
 -- @CloudFrontDefaultCertificate@ to @true@ and leave all other fields
@@ -42,7 +42,7 @@ import qualified Amazonka.Prelude as Prelude
 -- -   Which viewers the distribution accepts HTTPS connections from: only
 --     viewers that support
 --     <https://en.wikipedia.org/wiki/Server_Name_Indication server name indication (SNI)>
---     (recommended), or all viewers including those that don’t support
+--     (recommended), or all viewers including those that don\'t support
 --     SNI.
 --
 --     -   To accept HTTPS connections from only viewers that support SNI,
@@ -50,9 +50,9 @@ import qualified Amazonka.Prelude as Prelude
 --         browsers and clients support SNI.
 --
 --     -   To accept HTTPS connections from all viewers, including those
---         that don’t support SNI, set @SSLSupportMethod@ to @vip@. This is
---         not recommended, and results in additional monthly charges from
---         CloudFront.
+--         that don\'t support SNI, set @SSLSupportMethod@ to @vip@. This
+--         is not recommended, and results in additional monthly charges
+--         from CloudFront.
 --
 -- -   The minimum SSL\/TLS protocol version that the distribution can use
 --     to communicate with viewers. To specify a minimum version, choose a
@@ -150,7 +150,7 @@ data ViewerCertificate = ViewerCertificate'
     --
     -- On the CloudFront console, this setting is called __Security Policy__.
     --
-    -- When you’re using SNI only (you set @SSLSupportMethod@ to @sni-only@),
+    -- When you\'re using SNI only (you set @SSLSupportMethod@ to @sni-only@),
     -- you must specify @TLSv1@ or higher.
     --
     -- If the distribution uses the CloudFront domain name such as
@@ -167,8 +167,8 @@ data ViewerCertificate = ViewerCertificate'
     --     This is recommended. Most browsers and clients support SNI.
     --
     -- -   @vip@ – The distribution accepts HTTPS connections from all viewers
-    --     including those that don’t support SNI. This is not recommended, and
-    --     results in additional monthly charges from CloudFront.
+    --     including those that don\'t support SNI. This is not recommended,
+    --     and results in additional monthly charges from CloudFront.
     --
     -- -   @static-ip@ - Do not specify this value unless your distribution has
     --     been enabled for this feature by the CloudFront team. If you have a
@@ -177,7 +177,7 @@ data ViewerCertificate = ViewerCertificate'
     --     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>.
     --
     -- If the distribution uses the CloudFront domain name such as
-    -- @d111111abcdef8.cloudfront.net@, don’t set a value for this field.
+    -- @d111111abcdef8.cloudfront.net@, don\'t set a value for this field.
     sSLSupportMethod :: Prelude.Maybe SSLSupportMethod
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -255,7 +255,7 @@ data ViewerCertificate = ViewerCertificate'
 --
 -- On the CloudFront console, this setting is called __Security Policy__.
 --
--- When you’re using SNI only (you set @SSLSupportMethod@ to @sni-only@),
+-- When you\'re using SNI only (you set @SSLSupportMethod@ to @sni-only@),
 -- you must specify @TLSv1@ or higher.
 --
 -- If the distribution uses the CloudFront domain name such as
@@ -272,8 +272,8 @@ data ViewerCertificate = ViewerCertificate'
 --     This is recommended. Most browsers and clients support SNI.
 --
 -- -   @vip@ – The distribution accepts HTTPS connections from all viewers
---     including those that don’t support SNI. This is not recommended, and
---     results in additional monthly charges from CloudFront.
+--     including those that don\'t support SNI. This is not recommended,
+--     and results in additional monthly charges from CloudFront.
 --
 -- -   @static-ip@ - Do not specify this value unless your distribution has
 --     been enabled for this feature by the CloudFront team. If you have a
@@ -282,7 +282,7 @@ data ViewerCertificate = ViewerCertificate'
 --     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>.
 --
 -- If the distribution uses the CloudFront domain name such as
--- @d111111abcdef8.cloudfront.net@, don’t set a value for this field.
+-- @d111111abcdef8.cloudfront.net@, don\'t set a value for this field.
 newViewerCertificate ::
   ViewerCertificate
 newViewerCertificate =
@@ -372,7 +372,7 @@ viewerCertificate_iAMCertificateId = Lens.lens (\ViewerCertificate' {iAMCertific
 --
 -- On the CloudFront console, this setting is called __Security Policy__.
 --
--- When you’re using SNI only (you set @SSLSupportMethod@ to @sni-only@),
+-- When you\'re using SNI only (you set @SSLSupportMethod@ to @sni-only@),
 -- you must specify @TLSv1@ or higher.
 --
 -- If the distribution uses the CloudFront domain name such as
@@ -391,8 +391,8 @@ viewerCertificate_minimumProtocolVersion = Lens.lens (\ViewerCertificate' {minim
 --     This is recommended. Most browsers and clients support SNI.
 --
 -- -   @vip@ – The distribution accepts HTTPS connections from all viewers
---     including those that don’t support SNI. This is not recommended, and
---     results in additional monthly charges from CloudFront.
+--     including those that don\'t support SNI. This is not recommended,
+--     and results in additional monthly charges from CloudFront.
 --
 -- -   @static-ip@ - Do not specify this value unless your distribution has
 --     been enabled for this feature by the CloudFront team. If you have a
@@ -401,7 +401,7 @@ viewerCertificate_minimumProtocolVersion = Lens.lens (\ViewerCertificate' {minim
 --     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>.
 --
 -- If the distribution uses the CloudFront domain name such as
--- @d111111abcdef8.cloudfront.net@, don’t set a value for this field.
+-- @d111111abcdef8.cloudfront.net@, don\'t set a value for this field.
 viewerCertificate_sSLSupportMethod :: Lens.Lens' ViewerCertificate (Prelude.Maybe SSLSupportMethod)
 viewerCertificate_sSLSupportMethod = Lens.lens (\ViewerCertificate' {sSLSupportMethod} -> sSLSupportMethod) (\s@ViewerCertificate' {} a -> s {sSLSupportMethod = a} :: ViewerCertificate)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.InferenceExperimentDataStorageConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,17 +25,18 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CaptureContentTypeHeader
 
--- | The Amazon S3 location and configuration for storing inference
--- experiment data.
+-- | The Amazon S3 location and configuration for storing inference request
+-- and response data.
 --
 -- /See:/ 'newInferenceExperimentDataStorageConfig' smart constructor.
 data InferenceExperimentDataStorageConfig = InferenceExperimentDataStorageConfig'
   { contentType :: Prelude.Maybe CaptureContentTypeHeader,
-    -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
-    -- Service key that Amazon SageMaker uses to encrypt captured data when
-    -- uploading to Amazon S3.
+    -- | The Amazon Web Services Key Management Service key that Amazon SageMaker
+    -- uses to encrypt captured data at rest using Amazon S3 server-side
+    -- encryption.
     kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 bucket where the inference experiment data is stored.
+    -- | The Amazon S3 bucket where the inference request and response data is
+    -- stored.
     destination :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,11 +51,12 @@ data InferenceExperimentDataStorageConfig = InferenceExperimentDataStorageConfig
 --
 -- 'contentType', 'inferenceExperimentDataStorageConfig_contentType' - Undocumented member.
 --
--- 'kmsKey', 'inferenceExperimentDataStorageConfig_kmsKey' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
--- Service key that Amazon SageMaker uses to encrypt captured data when
--- uploading to Amazon S3.
+-- 'kmsKey', 'inferenceExperimentDataStorageConfig_kmsKey' - The Amazon Web Services Key Management Service key that Amazon SageMaker
+-- uses to encrypt captured data at rest using Amazon S3 server-side
+-- encryption.
 --
--- 'destination', 'inferenceExperimentDataStorageConfig_destination' - The Amazon S3 bucket where the inference experiment data is stored.
+-- 'destination', 'inferenceExperimentDataStorageConfig_destination' - The Amazon S3 bucket where the inference request and response data is
+-- stored.
 newInferenceExperimentDataStorageConfig ::
   -- | 'destination'
   Prelude.Text ->
@@ -71,13 +73,14 @@ newInferenceExperimentDataStorageConfig pDestination_ =
 inferenceExperimentDataStorageConfig_contentType :: Lens.Lens' InferenceExperimentDataStorageConfig (Prelude.Maybe CaptureContentTypeHeader)
 inferenceExperimentDataStorageConfig_contentType = Lens.lens (\InferenceExperimentDataStorageConfig' {contentType} -> contentType) (\s@InferenceExperimentDataStorageConfig' {} a -> s {contentType = a} :: InferenceExperimentDataStorageConfig)
 
--- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
--- Service key that Amazon SageMaker uses to encrypt captured data when
--- uploading to Amazon S3.
+-- | The Amazon Web Services Key Management Service key that Amazon SageMaker
+-- uses to encrypt captured data at rest using Amazon S3 server-side
+-- encryption.
 inferenceExperimentDataStorageConfig_kmsKey :: Lens.Lens' InferenceExperimentDataStorageConfig (Prelude.Maybe Prelude.Text)
 inferenceExperimentDataStorageConfig_kmsKey = Lens.lens (\InferenceExperimentDataStorageConfig' {kmsKey} -> kmsKey) (\s@InferenceExperimentDataStorageConfig' {} a -> s {kmsKey = a} :: InferenceExperimentDataStorageConfig)
 
--- | The Amazon S3 bucket where the inference experiment data is stored.
+-- | The Amazon S3 bucket where the inference request and response data is
+-- stored.
 inferenceExperimentDataStorageConfig_destination :: Lens.Lens' InferenceExperimentDataStorageConfig Prelude.Text
 inferenceExperimentDataStorageConfig_destination = Lens.lens (\InferenceExperimentDataStorageConfig' {destination} -> destination) (\s@InferenceExperimentDataStorageConfig' {} a -> s {destination = a} :: InferenceExperimentDataStorageConfig)
 

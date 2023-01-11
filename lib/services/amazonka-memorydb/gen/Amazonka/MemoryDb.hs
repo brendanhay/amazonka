@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -111,6 +111,18 @@ module Amazonka.MemoryDb
 
     -- ** ParameterGroupQuotaExceededFault
     _ParameterGroupQuotaExceededFault,
+
+    -- ** ReservedNodeAlreadyExistsFault
+    _ReservedNodeAlreadyExistsFault,
+
+    -- ** ReservedNodeNotFoundFault
+    _ReservedNodeNotFoundFault,
+
+    -- ** ReservedNodeQuotaExceededFault
+    _ReservedNodeQuotaExceededFault,
+
+    -- ** ReservedNodesOfferingNotFoundFault
+    _ReservedNodesOfferingNotFoundFault,
 
     -- ** ServiceLinkedRoleNotFoundFault
     _ServiceLinkedRoleNotFoundFault,
@@ -262,61 +274,73 @@ module Amazonka.MemoryDb
     DeleteUserResponse (DeleteUserResponse'),
     newDeleteUserResponse,
 
-    -- ** DescribeACLs
+    -- ** DescribeACLs (Paginated)
     DescribeACLs (DescribeACLs'),
     newDescribeACLs,
     DescribeACLsResponse (DescribeACLsResponse'),
     newDescribeACLsResponse,
 
-    -- ** DescribeClusters
+    -- ** DescribeClusters (Paginated)
     DescribeClusters (DescribeClusters'),
     newDescribeClusters,
     DescribeClustersResponse (DescribeClustersResponse'),
     newDescribeClustersResponse,
 
-    -- ** DescribeEngineVersions
+    -- ** DescribeEngineVersions (Paginated)
     DescribeEngineVersions (DescribeEngineVersions'),
     newDescribeEngineVersions,
     DescribeEngineVersionsResponse (DescribeEngineVersionsResponse'),
     newDescribeEngineVersionsResponse,
 
-    -- ** DescribeEvents
+    -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
     newDescribeEvents,
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
 
-    -- ** DescribeParameterGroups
+    -- ** DescribeParameterGroups (Paginated)
     DescribeParameterGroups (DescribeParameterGroups'),
     newDescribeParameterGroups,
     DescribeParameterGroupsResponse (DescribeParameterGroupsResponse'),
     newDescribeParameterGroupsResponse,
 
-    -- ** DescribeParameters
+    -- ** DescribeParameters (Paginated)
     DescribeParameters (DescribeParameters'),
     newDescribeParameters,
     DescribeParametersResponse (DescribeParametersResponse'),
     newDescribeParametersResponse,
 
-    -- ** DescribeServiceUpdates
+    -- ** DescribeReservedNodes (Paginated)
+    DescribeReservedNodes (DescribeReservedNodes'),
+    newDescribeReservedNodes,
+    DescribeReservedNodesResponse (DescribeReservedNodesResponse'),
+    newDescribeReservedNodesResponse,
+
+    -- ** DescribeReservedNodesOfferings (Paginated)
+    DescribeReservedNodesOfferings (DescribeReservedNodesOfferings'),
+    newDescribeReservedNodesOfferings,
+    DescribeReservedNodesOfferingsResponse (DescribeReservedNodesOfferingsResponse'),
+    newDescribeReservedNodesOfferingsResponse,
+
+    -- ** DescribeServiceUpdates (Paginated)
     DescribeServiceUpdates (DescribeServiceUpdates'),
     newDescribeServiceUpdates,
     DescribeServiceUpdatesResponse (DescribeServiceUpdatesResponse'),
     newDescribeServiceUpdatesResponse,
 
-    -- ** DescribeSnapshots
+    -- ** DescribeSnapshots (Paginated)
     DescribeSnapshots (DescribeSnapshots'),
     newDescribeSnapshots,
     DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
     newDescribeSnapshotsResponse,
 
-    -- ** DescribeSubnetGroups
+    -- ** DescribeSubnetGroups (Paginated)
     DescribeSubnetGroups (DescribeSubnetGroups'),
     newDescribeSubnetGroups,
     DescribeSubnetGroupsResponse (DescribeSubnetGroupsResponse'),
     newDescribeSubnetGroupsResponse,
 
-    -- ** DescribeUsers
+    -- ** DescribeUsers (Paginated)
     DescribeUsers (DescribeUsers'),
     newDescribeUsers,
     DescribeUsersResponse (DescribeUsersResponse'),
@@ -339,6 +363,12 @@ module Amazonka.MemoryDb
     newListTags,
     ListTagsResponse (ListTagsResponse'),
     newListTagsResponse,
+
+    -- ** PurchaseReservedNodesOffering
+    PurchaseReservedNodesOffering (PurchaseReservedNodesOffering'),
+    newPurchaseReservedNodesOffering,
+    PurchaseReservedNodesOfferingResponse (PurchaseReservedNodesOfferingResponse'),
+    newPurchaseReservedNodesOfferingResponse,
 
     -- ** ResetParameterGroup
     ResetParameterGroup (ResetParameterGroup'),
@@ -483,9 +513,21 @@ module Amazonka.MemoryDb
     PendingModifiedServiceUpdate (PendingModifiedServiceUpdate'),
     newPendingModifiedServiceUpdate,
 
+    -- ** RecurringCharge
+    RecurringCharge (RecurringCharge'),
+    newRecurringCharge,
+
     -- ** ReplicaConfigurationRequest
     ReplicaConfigurationRequest (ReplicaConfigurationRequest'),
     newReplicaConfigurationRequest,
+
+    -- ** ReservedNode
+    ReservedNode (ReservedNode'),
+    newReservedNode,
+
+    -- ** ReservedNodesOffering
+    ReservedNodesOffering (ReservedNodesOffering'),
+    newReservedNodesOffering,
 
     -- ** ReshardingStatus
     ReshardingStatus (ReshardingStatus'),
@@ -569,6 +611,8 @@ import Amazonka.MemoryDb.DescribeEngineVersions
 import Amazonka.MemoryDb.DescribeEvents
 import Amazonka.MemoryDb.DescribeParameterGroups
 import Amazonka.MemoryDb.DescribeParameters
+import Amazonka.MemoryDb.DescribeReservedNodes
+import Amazonka.MemoryDb.DescribeReservedNodesOfferings
 import Amazonka.MemoryDb.DescribeServiceUpdates
 import Amazonka.MemoryDb.DescribeSnapshots
 import Amazonka.MemoryDb.DescribeSubnetGroups
@@ -577,6 +621,7 @@ import Amazonka.MemoryDb.FailoverShard
 import Amazonka.MemoryDb.Lens
 import Amazonka.MemoryDb.ListAllowedNodeTypeUpdates
 import Amazonka.MemoryDb.ListTags
+import Amazonka.MemoryDb.PurchaseReservedNodesOffering
 import Amazonka.MemoryDb.ResetParameterGroup
 import Amazonka.MemoryDb.TagResource
 import Amazonka.MemoryDb.Types

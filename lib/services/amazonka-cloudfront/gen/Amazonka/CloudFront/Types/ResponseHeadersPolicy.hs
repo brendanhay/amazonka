@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.ResponseHeadersPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,16 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 -- | A response headers policy.
 --
 -- A response headers policy contains information about a set of HTTP
--- response headers and their values.
+-- response headers.
 --
 -- After you create a response headers policy, you can use its ID to attach
 -- it to one or more cache behaviors in a CloudFront distribution. When
--- it’s attached to a cache behavior, CloudFront adds the headers in the
--- policy to HTTP responses that it sends for requests that match the cache
--- behavior.
+-- it\'s attached to a cache behavior, the response headers policy affects
+-- the HTTP headers that CloudFront includes in HTTP responses to requests
+-- that match the cache behavior. CloudFront adds or removes response
+-- headers according to the configuration of the response headers policy.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-response-headers.html Adding HTTP headers to CloudFront responses>
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html Adding or removing HTTP headers in CloudFront responses>
 -- in the /Amazon CloudFront Developer Guide/.
 --
 -- /See:/ 'newResponseHeadersPolicy' smart constructor.
@@ -47,11 +48,6 @@ data ResponseHeadersPolicy = ResponseHeadersPolicy'
     -- | The date and time when the response headers policy was last modified.
     lastModifiedTime :: Data.ISO8601,
     -- | A response headers policy configuration.
-    --
-    -- A response headers policy contains information about a set of HTTP
-    -- response headers and their values. CloudFront adds the headers in the
-    -- policy to HTTP responses that it sends for requests that match a cache
-    -- behavior that’s associated with the policy.
     responseHeadersPolicyConfig :: ResponseHeadersPolicyConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,11 +65,6 @@ data ResponseHeadersPolicy = ResponseHeadersPolicy'
 -- 'lastModifiedTime', 'responseHeadersPolicy_lastModifiedTime' - The date and time when the response headers policy was last modified.
 --
 -- 'responseHeadersPolicyConfig', 'responseHeadersPolicy_responseHeadersPolicyConfig' - A response headers policy configuration.
---
--- A response headers policy contains information about a set of HTTP
--- response headers and their values. CloudFront adds the headers in the
--- policy to HTTP responses that it sends for requests that match a cache
--- behavior that’s associated with the policy.
 newResponseHeadersPolicy ::
   -- | 'id'
   Prelude.Text ->
@@ -103,11 +94,6 @@ responseHeadersPolicy_lastModifiedTime :: Lens.Lens' ResponseHeadersPolicy Prelu
 responseHeadersPolicy_lastModifiedTime = Lens.lens (\ResponseHeadersPolicy' {lastModifiedTime} -> lastModifiedTime) (\s@ResponseHeadersPolicy' {} a -> s {lastModifiedTime = a} :: ResponseHeadersPolicy) Prelude.. Data._Time
 
 -- | A response headers policy configuration.
---
--- A response headers policy contains information about a set of HTTP
--- response headers and their values. CloudFront adds the headers in the
--- policy to HTTP responses that it sends for requests that match a cache
--- behavior that’s associated with the policy.
 responseHeadersPolicy_responseHeadersPolicyConfig :: Lens.Lens' ResponseHeadersPolicy ResponseHeadersPolicyConfig
 responseHeadersPolicy_responseHeadersPolicyConfig = Lens.lens (\ResponseHeadersPolicy' {responseHeadersPolicyConfig} -> responseHeadersPolicyConfig) (\s@ResponseHeadersPolicy' {} a -> s {responseHeadersPolicyConfig = a} :: ResponseHeadersPolicy)
 

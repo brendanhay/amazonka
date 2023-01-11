@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.CreateStudioComponent
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,9 +62,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateStudioComponent' smart constructor.
 data CreateStudioComponent = CreateStudioComponent'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The configuration of the studio component, based on component type.
     configuration :: Prelude.Maybe StudioComponentConfiguration,
@@ -75,18 +75,18 @@ data CreateStudioComponent = CreateStudioComponent'
     -- | Initialization scripts for studio components.
     initializationScripts :: Prelude.Maybe [StudioComponentInitializationScript],
     -- | An IAM role attached to a Studio Component that gives the studio
-    -- component access to AWS resources at anytime while the instance is
-    -- running.
+    -- component access to Amazon Web Services resources at anytime while the
+    -- instance is running.
     runtimeRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Parameters for the studio component scripts.
     scriptParameters :: Prelude.Maybe (Data.Sensitive [ScriptParameterKeyValue]),
     -- | An IAM role attached to Studio Component when the system initialization
-    -- script runs which give the studio component access to AWS resources when
-    -- the system initialization script runs.
+    -- script runs which give the studio component access to Amazon Web
+    -- Services resources when the system initialization script runs.
     secureInitializationRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The specific subtype of a studio component.
     subtype :: Prelude.Maybe StudioComponentSubtype,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- | A collection of labels, in the form of key-value pairs, that apply to
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the studio component.
@@ -107,9 +107,9 @@ data CreateStudioComponent = CreateStudioComponent'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createStudioComponent_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'configuration', 'createStudioComponent_configuration' - The configuration of the studio component, based on component type.
 --
@@ -120,18 +120,18 @@ data CreateStudioComponent = CreateStudioComponent'
 -- 'initializationScripts', 'createStudioComponent_initializationScripts' - Initialization scripts for studio components.
 --
 -- 'runtimeRoleArn', 'createStudioComponent_runtimeRoleArn' - An IAM role attached to a Studio Component that gives the studio
--- component access to AWS resources at anytime while the instance is
--- running.
+-- component access to Amazon Web Services resources at anytime while the
+-- instance is running.
 --
 -- 'scriptParameters', 'createStudioComponent_scriptParameters' - Parameters for the studio component scripts.
 --
 -- 'secureInitializationRoleArn', 'createStudioComponent_secureInitializationRoleArn' - An IAM role attached to Studio Component when the system initialization
--- script runs which give the studio component access to AWS resources when
--- the system initialization script runs.
+-- script runs which give the studio component access to Amazon Web
+-- Services resources when the system initialization script runs.
 --
 -- 'subtype', 'createStudioComponent_subtype' - The specific subtype of a studio component.
 --
--- 'tags', 'createStudioComponent_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- 'tags', 'createStudioComponent_tags' - A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 --
 -- 'name', 'createStudioComponent_name' - The name for the studio component.
@@ -166,9 +166,9 @@ newCreateStudioComponent pName_ pStudioId_ pType_ =
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 createStudioComponent_clientToken :: Lens.Lens' CreateStudioComponent (Prelude.Maybe Prelude.Text)
 createStudioComponent_clientToken = Lens.lens (\CreateStudioComponent' {clientToken} -> clientToken) (\s@CreateStudioComponent' {} a -> s {clientToken = a} :: CreateStudioComponent)
 
@@ -189,8 +189,8 @@ createStudioComponent_initializationScripts :: Lens.Lens' CreateStudioComponent 
 createStudioComponent_initializationScripts = Lens.lens (\CreateStudioComponent' {initializationScripts} -> initializationScripts) (\s@CreateStudioComponent' {} a -> s {initializationScripts = a} :: CreateStudioComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | An IAM role attached to a Studio Component that gives the studio
--- component access to AWS resources at anytime while the instance is
--- running.
+-- component access to Amazon Web Services resources at anytime while the
+-- instance is running.
 createStudioComponent_runtimeRoleArn :: Lens.Lens' CreateStudioComponent (Prelude.Maybe Prelude.Text)
 createStudioComponent_runtimeRoleArn = Lens.lens (\CreateStudioComponent' {runtimeRoleArn} -> runtimeRoleArn) (\s@CreateStudioComponent' {} a -> s {runtimeRoleArn = a} :: CreateStudioComponent)
 
@@ -199,8 +199,8 @@ createStudioComponent_scriptParameters :: Lens.Lens' CreateStudioComponent (Prel
 createStudioComponent_scriptParameters = Lens.lens (\CreateStudioComponent' {scriptParameters} -> scriptParameters) (\s@CreateStudioComponent' {} a -> s {scriptParameters = a} :: CreateStudioComponent) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | An IAM role attached to Studio Component when the system initialization
--- script runs which give the studio component access to AWS resources when
--- the system initialization script runs.
+-- script runs which give the studio component access to Amazon Web
+-- Services resources when the system initialization script runs.
 createStudioComponent_secureInitializationRoleArn :: Lens.Lens' CreateStudioComponent (Prelude.Maybe Prelude.Text)
 createStudioComponent_secureInitializationRoleArn = Lens.lens (\CreateStudioComponent' {secureInitializationRoleArn} -> secureInitializationRoleArn) (\s@CreateStudioComponent' {} a -> s {secureInitializationRoleArn = a} :: CreateStudioComponent)
 
@@ -208,7 +208,7 @@ createStudioComponent_secureInitializationRoleArn = Lens.lens (\CreateStudioComp
 createStudioComponent_subtype :: Lens.Lens' CreateStudioComponent (Prelude.Maybe StudioComponentSubtype)
 createStudioComponent_subtype = Lens.lens (\CreateStudioComponent' {subtype} -> subtype) (\s@CreateStudioComponent' {} a -> s {subtype = a} :: CreateStudioComponent)
 
--- | A collection of labels, in the form of key:value pairs, that apply to
+-- | A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 createStudioComponent_tags :: Lens.Lens' CreateStudioComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createStudioComponent_tags = Lens.lens (\CreateStudioComponent' {tags} -> tags) (\s@CreateStudioComponent' {} a -> s {tags = a} :: CreateStudioComponent) Prelude.. Lens.mapping Lens.coerced

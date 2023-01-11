@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.HyperParameterTuningJobConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,12 +35,19 @@ import Amazonka.SageMaker.Types.TuningJobCompletionCriteria
 --
 -- /See:/ 'newHyperParameterTuningJobConfig' smart constructor.
 data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
-  { -- | The HyperParameterTuningJobObjective object that specifies the objective
-    -- metric for this tuning job.
+  { -- | The HyperParameterTuningJobObjective specifies the objective metric used
+    -- to evaluate the performance of training jobs launched by this tuning
+    -- job.
     hyperParameterTuningJobObjective :: Prelude.Maybe HyperParameterTuningJobObjective,
     -- | The ParameterRanges object that specifies the ranges of hyperparameters
-    -- that this tuning job searches.
+    -- that this tuning job searches over to find the optimal configuration for
+    -- the highest model performance against your chosen objective metric.
     parameterRanges :: Prelude.Maybe ParameterRanges,
+    -- | A value used to initialize a pseudo-random number generator. Setting a
+    -- random seed and using the same seed later for the same tuning job will
+    -- allow hyperparameter optimization to find more a consistent
+    -- hyperparameter configuration between the two runs.
+    randomSeed :: Prelude.Maybe Prelude.Natural,
     -- | The configuration for the @Hyperband@ optimization strategy. This
     -- parameter should be provided only if @Hyperband@ is selected as the
     -- strategy for @HyperParameterTuningJobConfig@.
@@ -70,7 +77,8 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
     strategy :: HyperParameterTuningJobStrategyType,
     -- | The ResourceLimits object that specifies the maximum number of training
-    -- jobs and parallel training jobs for this tuning job.
+    -- and parallel training jobs that can be used for this hyperparameter
+    -- tuning job.
     resourceLimits :: ResourceLimits
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,11 +91,18 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hyperParameterTuningJobObjective', 'hyperParameterTuningJobConfig_hyperParameterTuningJobObjective' - The HyperParameterTuningJobObjective object that specifies the objective
--- metric for this tuning job.
+-- 'hyperParameterTuningJobObjective', 'hyperParameterTuningJobConfig_hyperParameterTuningJobObjective' - The HyperParameterTuningJobObjective specifies the objective metric used
+-- to evaluate the performance of training jobs launched by this tuning
+-- job.
 --
 -- 'parameterRanges', 'hyperParameterTuningJobConfig_parameterRanges' - The ParameterRanges object that specifies the ranges of hyperparameters
--- that this tuning job searches.
+-- that this tuning job searches over to find the optimal configuration for
+-- the highest model performance against your chosen objective metric.
+--
+-- 'randomSeed', 'hyperParameterTuningJobConfig_randomSeed' - A value used to initialize a pseudo-random number generator. Setting a
+-- random seed and using the same seed later for the same tuning job will
+-- allow hyperparameter optimization to find more a consistent
+-- hyperparameter configuration between the two runs.
 --
 -- 'strategyConfig', 'hyperParameterTuningJobConfig_strategyConfig' - The configuration for the @Hyperband@ optimization strategy. This
 -- parameter should be provided only if @Hyperband@ is selected as the
@@ -118,7 +133,8 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
 --
 -- 'resourceLimits', 'hyperParameterTuningJobConfig_resourceLimits' - The ResourceLimits object that specifies the maximum number of training
--- jobs and parallel training jobs for this tuning job.
+-- and parallel training jobs that can be used for this hyperparameter
+-- tuning job.
 newHyperParameterTuningJobConfig ::
   -- | 'strategy'
   HyperParameterTuningJobStrategyType ->
@@ -132,6 +148,7 @@ newHyperParameterTuningJobConfig
       { hyperParameterTuningJobObjective =
           Prelude.Nothing,
         parameterRanges = Prelude.Nothing,
+        randomSeed = Prelude.Nothing,
         strategyConfig = Prelude.Nothing,
         trainingJobEarlyStoppingType =
           Prelude.Nothing,
@@ -141,15 +158,24 @@ newHyperParameterTuningJobConfig
         resourceLimits = pResourceLimits_
       }
 
--- | The HyperParameterTuningJobObjective object that specifies the objective
--- metric for this tuning job.
+-- | The HyperParameterTuningJobObjective specifies the objective metric used
+-- to evaluate the performance of training jobs launched by this tuning
+-- job.
 hyperParameterTuningJobConfig_hyperParameterTuningJobObjective :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe HyperParameterTuningJobObjective)
 hyperParameterTuningJobConfig_hyperParameterTuningJobObjective = Lens.lens (\HyperParameterTuningJobConfig' {hyperParameterTuningJobObjective} -> hyperParameterTuningJobObjective) (\s@HyperParameterTuningJobConfig' {} a -> s {hyperParameterTuningJobObjective = a} :: HyperParameterTuningJobConfig)
 
 -- | The ParameterRanges object that specifies the ranges of hyperparameters
--- that this tuning job searches.
+-- that this tuning job searches over to find the optimal configuration for
+-- the highest model performance against your chosen objective metric.
 hyperParameterTuningJobConfig_parameterRanges :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe ParameterRanges)
 hyperParameterTuningJobConfig_parameterRanges = Lens.lens (\HyperParameterTuningJobConfig' {parameterRanges} -> parameterRanges) (\s@HyperParameterTuningJobConfig' {} a -> s {parameterRanges = a} :: HyperParameterTuningJobConfig)
+
+-- | A value used to initialize a pseudo-random number generator. Setting a
+-- random seed and using the same seed later for the same tuning job will
+-- allow hyperparameter optimization to find more a consistent
+-- hyperparameter configuration between the two runs.
+hyperParameterTuningJobConfig_randomSeed :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe Prelude.Natural)
+hyperParameterTuningJobConfig_randomSeed = Lens.lens (\HyperParameterTuningJobConfig' {randomSeed} -> randomSeed) (\s@HyperParameterTuningJobConfig' {} a -> s {randomSeed = a} :: HyperParameterTuningJobConfig)
 
 -- | The configuration for the @Hyperband@ optimization strategy. This
 -- parameter should be provided only if @Hyperband@ is selected as the
@@ -188,7 +214,8 @@ hyperParameterTuningJobConfig_strategy :: Lens.Lens' HyperParameterTuningJobConf
 hyperParameterTuningJobConfig_strategy = Lens.lens (\HyperParameterTuningJobConfig' {strategy} -> strategy) (\s@HyperParameterTuningJobConfig' {} a -> s {strategy = a} :: HyperParameterTuningJobConfig)
 
 -- | The ResourceLimits object that specifies the maximum number of training
--- jobs and parallel training jobs for this tuning job.
+-- and parallel training jobs that can be used for this hyperparameter
+-- tuning job.
 hyperParameterTuningJobConfig_resourceLimits :: Lens.Lens' HyperParameterTuningJobConfig ResourceLimits
 hyperParameterTuningJobConfig_resourceLimits = Lens.lens (\HyperParameterTuningJobConfig' {resourceLimits} -> resourceLimits) (\s@HyperParameterTuningJobConfig' {} a -> s {resourceLimits = a} :: HyperParameterTuningJobConfig)
 
@@ -200,6 +227,7 @@ instance Data.FromJSON HyperParameterTuningJobConfig where
           HyperParameterTuningJobConfig'
             Prelude.<$> (x Data..:? "HyperParameterTuningJobObjective")
             Prelude.<*> (x Data..:? "ParameterRanges")
+            Prelude.<*> (x Data..:? "RandomSeed")
             Prelude.<*> (x Data..:? "StrategyConfig")
             Prelude.<*> (x Data..:? "TrainingJobEarlyStoppingType")
             Prelude.<*> (x Data..:? "TuningJobCompletionCriteria")
@@ -215,6 +243,7 @@ instance
     _salt
       `Prelude.hashWithSalt` hyperParameterTuningJobObjective
       `Prelude.hashWithSalt` parameterRanges
+      `Prelude.hashWithSalt` randomSeed
       `Prelude.hashWithSalt` strategyConfig
       `Prelude.hashWithSalt` trainingJobEarlyStoppingType
       `Prelude.hashWithSalt` tuningJobCompletionCriteria
@@ -225,6 +254,7 @@ instance Prelude.NFData HyperParameterTuningJobConfig where
   rnf HyperParameterTuningJobConfig' {..} =
     Prelude.rnf hyperParameterTuningJobObjective
       `Prelude.seq` Prelude.rnf parameterRanges
+      `Prelude.seq` Prelude.rnf randomSeed
       `Prelude.seq` Prelude.rnf strategyConfig
       `Prelude.seq` Prelude.rnf trainingJobEarlyStoppingType
       `Prelude.seq` Prelude.rnf tuningJobCompletionCriteria
@@ -239,6 +269,7 @@ instance Data.ToJSON HyperParameterTuningJobConfig where
               Prelude.<$> hyperParameterTuningJobObjective,
             ("ParameterRanges" Data..=)
               Prelude.<$> parameterRanges,
+            ("RandomSeed" Data..=) Prelude.<$> randomSeed,
             ("StrategyConfig" Data..=)
               Prelude.<$> strategyConfig,
             ("TrainingJobEarlyStoppingType" Data..=)

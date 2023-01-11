@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.S3.Types.CopyObjectResult
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,7 @@ data CopyObjectResult = CopyObjectResult'
     -- the contents of an object, not its metadata.
     eTag :: Prelude.Maybe ETag,
     -- | Creation date of the object.
-    lastModified :: Prelude.Maybe Data.ISO8601
+    lastModified :: Prelude.Maybe Data.RFC822
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

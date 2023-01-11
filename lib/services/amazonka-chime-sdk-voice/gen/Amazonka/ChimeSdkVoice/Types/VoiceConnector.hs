@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ChimeSdkVoice.Types.VoiceConnector
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 -- | /See:/ 'newVoiceConnector' smart constructor.
 data VoiceConnector = VoiceConnector'
   { awsRegion :: Prelude.Maybe VoiceConnectorAwsRegion,
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     name :: Prelude.Maybe Prelude.Text,
     outboundHostName :: Prelude.Maybe Prelude.Text,
     requireEncryption :: Prelude.Maybe Prelude.Bool,
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601,
     voiceConnectorArn :: Prelude.Maybe Prelude.Text,
     voiceConnectorId :: Prelude.Maybe Prelude.Text
   }

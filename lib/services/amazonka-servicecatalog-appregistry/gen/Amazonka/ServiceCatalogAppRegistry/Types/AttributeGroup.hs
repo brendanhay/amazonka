@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ data AttributeGroup = AttributeGroup'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment the attribute group was
     -- created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The description of the attribute group that the user provides.
     description :: Prelude.Maybe Prelude.Text,
     -- | The globally unique attribute group identifier of the attribute group.
@@ -43,7 +43,7 @@ data AttributeGroup = AttributeGroup'
     -- | The ISO-8601 formatted timestamp of the moment the attribute group was
     -- last updated. This time is the same as the creationTime for a newly
     -- created attribute group.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the attribute group.
     name :: Prelude.Maybe Prelude.Text,
     -- | Key-value pairs you can use to associate with the attribute group.

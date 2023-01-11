@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeEngineVersions
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of the available Redis engine versions.
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeEngineVersions
   ( -- * Creating a Request
     DescribeEngineVersions (..),
@@ -136,6 +138,28 @@ describeEngineVersions_nextToken = Lens.lens (\DescribeEngineVersions' {nextToke
 -- | The name of a specific parameter group family to return details for.
 describeEngineVersions_parameterGroupFamily :: Lens.Lens' DescribeEngineVersions (Prelude.Maybe Prelude.Text)
 describeEngineVersions_parameterGroupFamily = Lens.lens (\DescribeEngineVersions' {parameterGroupFamily} -> parameterGroupFamily) (\s@DescribeEngineVersions' {} a -> s {parameterGroupFamily = a} :: DescribeEngineVersions)
+
+instance Core.AWSPager DescribeEngineVersions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeEngineVersionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeEngineVersionsResponse_engineVersions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeEngineVersions_nextToken
+          Lens..~ rs
+          Lens.^? describeEngineVersionsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEngineVersions where
   type

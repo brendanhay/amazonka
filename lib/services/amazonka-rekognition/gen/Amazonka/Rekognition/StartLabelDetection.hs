@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Rekognition.StartLabelDetection
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,6 +39,19 @@
 -- the status value published to the Amazon SNS topic is @SUCCEEDED@. If
 -- so, call GetLabelDetection and pass the job identifier (@JobId@) from
 -- the initial call to @StartLabelDetection@.
+--
+-- /Optional Parameters/
+--
+-- @StartLabelDetection@ has the @GENERAL_LABELS@ Feature applied by
+-- default. This feature allows you to provide filtering criteria to the
+-- @Settings@ parameter. You can filter with sets of individual labels or
+-- with label categories. You can specify inclusive filters, exclusive
+-- filters, or a combination of inclusive and exclusive filters. For more
+-- information on filtering, see
+-- <https://docs.aws.amazon.com/rekognition/latest/dg/labels-detecting-labels-video.html Detecting labels in a video>.
+--
+-- You can specify @MinConfidence@ to control the confidence threshold for
+-- the labels returned. The default is 50.
 module Amazonka.Rekognition.StartLabelDetection
   ( -- * Creating a Request
     StartLabelDetection (..),
@@ -46,9 +59,11 @@ module Amazonka.Rekognition.StartLabelDetection
 
     -- * Request Lenses
     startLabelDetection_clientRequestToken,
+    startLabelDetection_features,
     startLabelDetection_jobTag,
     startLabelDetection_minConfidence,
     startLabelDetection_notificationChannel,
+    startLabelDetection_settings,
     startLabelDetection_video,
 
     -- * Destructuring the Response
@@ -76,6 +91,9 @@ data StartLabelDetection = StartLabelDetection'
     -- returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidently started more than once.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The features to return after video analysis. You can specify that
+    -- GENERAL_LABELS are returned.
+    features :: Prelude.Maybe [LabelDetectionFeatureName],
     -- | An identifier you specify that\'s returned in the completion
     -- notification that\'s published to your Amazon Simple Notification
     -- Service topic. For example, you can use @JobTag@ to group related jobs
@@ -88,14 +106,19 @@ data StartLabelDetection = StartLabelDetection'
     -- Video doesn\'t return any labels with a confidence level lower than this
     -- specified value.
     --
-    -- If you don\'t specify @MinConfidence@, the operation returns labels with
-    -- confidence values greater than or equal to 50 percent.
+    -- If you don\'t specify @MinConfidence@, the operation returns labels and
+    -- bounding boxes (if detected) with confidence values greater than or
+    -- equal to 50 percent.
     minConfidence :: Prelude.Maybe Prelude.Double,
     -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
     -- the completion status of the label detection operation to. The Amazon
     -- SNS topic must have a topic name that begins with /AmazonRekognition/ if
     -- you are using the AmazonRekognitionServiceRole permissions policy.
     notificationChannel :: Prelude.Maybe NotificationChannel,
+    -- | The settings for a StartLabelDetection request.Contains the specified
+    -- parameters for the label detection request of an asynchronous label
+    -- analysis operation. Settings can include filters for GENERAL_LABELS.
+    settings :: Prelude.Maybe LabelDetectionSettings,
     -- | The video in which you want to detect labels. The video must be stored
     -- in an Amazon S3 bucket.
     video :: Video
@@ -115,6 +138,9 @@ data StartLabelDetection = StartLabelDetection'
 -- returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidently started more than once.
 --
+-- 'features', 'startLabelDetection_features' - The features to return after video analysis. You can specify that
+-- GENERAL_LABELS are returned.
+--
 -- 'jobTag', 'startLabelDetection_jobTag' - An identifier you specify that\'s returned in the completion
 -- notification that\'s published to your Amazon Simple Notification
 -- Service topic. For example, you can use @JobTag@ to group related jobs
@@ -127,13 +153,18 @@ data StartLabelDetection = StartLabelDetection'
 -- Video doesn\'t return any labels with a confidence level lower than this
 -- specified value.
 --
--- If you don\'t specify @MinConfidence@, the operation returns labels with
--- confidence values greater than or equal to 50 percent.
+-- If you don\'t specify @MinConfidence@, the operation returns labels and
+-- bounding boxes (if detected) with confidence values greater than or
+-- equal to 50 percent.
 --
 -- 'notificationChannel', 'startLabelDetection_notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
 -- the completion status of the label detection operation to. The Amazon
 -- SNS topic must have a topic name that begins with /AmazonRekognition/ if
 -- you are using the AmazonRekognitionServiceRole permissions policy.
+--
+-- 'settings', 'startLabelDetection_settings' - The settings for a StartLabelDetection request.Contains the specified
+-- parameters for the label detection request of an asynchronous label
+-- analysis operation. Settings can include filters for GENERAL_LABELS.
 --
 -- 'video', 'startLabelDetection_video' - The video in which you want to detect labels. The video must be stored
 -- in an Amazon S3 bucket.
@@ -145,9 +176,11 @@ newStartLabelDetection pVideo_ =
   StartLabelDetection'
     { clientRequestToken =
         Prelude.Nothing,
+      features = Prelude.Nothing,
       jobTag = Prelude.Nothing,
       minConfidence = Prelude.Nothing,
       notificationChannel = Prelude.Nothing,
+      settings = Prelude.Nothing,
       video = pVideo_
     }
 
@@ -157,6 +190,11 @@ newStartLabelDetection pVideo_ =
 -- accidently started more than once.
 startLabelDetection_clientRequestToken :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Text)
 startLabelDetection_clientRequestToken = Lens.lens (\StartLabelDetection' {clientRequestToken} -> clientRequestToken) (\s@StartLabelDetection' {} a -> s {clientRequestToken = a} :: StartLabelDetection)
+
+-- | The features to return after video analysis. You can specify that
+-- GENERAL_LABELS are returned.
+startLabelDetection_features :: Lens.Lens' StartLabelDetection (Prelude.Maybe [LabelDetectionFeatureName])
+startLabelDetection_features = Lens.lens (\StartLabelDetection' {features} -> features) (\s@StartLabelDetection' {} a -> s {features = a} :: StartLabelDetection) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier you specify that\'s returned in the completion
 -- notification that\'s published to your Amazon Simple Notification
@@ -172,8 +210,9 @@ startLabelDetection_jobTag = Lens.lens (\StartLabelDetection' {jobTag} -> jobTag
 -- Video doesn\'t return any labels with a confidence level lower than this
 -- specified value.
 --
--- If you don\'t specify @MinConfidence@, the operation returns labels with
--- confidence values greater than or equal to 50 percent.
+-- If you don\'t specify @MinConfidence@, the operation returns labels and
+-- bounding boxes (if detected) with confidence values greater than or
+-- equal to 50 percent.
 startLabelDetection_minConfidence :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Double)
 startLabelDetection_minConfidence = Lens.lens (\StartLabelDetection' {minConfidence} -> minConfidence) (\s@StartLabelDetection' {} a -> s {minConfidence = a} :: StartLabelDetection)
 
@@ -183,6 +222,12 @@ startLabelDetection_minConfidence = Lens.lens (\StartLabelDetection' {minConfide
 -- you are using the AmazonRekognitionServiceRole permissions policy.
 startLabelDetection_notificationChannel :: Lens.Lens' StartLabelDetection (Prelude.Maybe NotificationChannel)
 startLabelDetection_notificationChannel = Lens.lens (\StartLabelDetection' {notificationChannel} -> notificationChannel) (\s@StartLabelDetection' {} a -> s {notificationChannel = a} :: StartLabelDetection)
+
+-- | The settings for a StartLabelDetection request.Contains the specified
+-- parameters for the label detection request of an asynchronous label
+-- analysis operation. Settings can include filters for GENERAL_LABELS.
+startLabelDetection_settings :: Lens.Lens' StartLabelDetection (Prelude.Maybe LabelDetectionSettings)
+startLabelDetection_settings = Lens.lens (\StartLabelDetection' {settings} -> settings) (\s@StartLabelDetection' {} a -> s {settings = a} :: StartLabelDetection)
 
 -- | The video in which you want to detect labels. The video must be stored
 -- in an Amazon S3 bucket.
@@ -206,17 +251,21 @@ instance Core.AWSRequest StartLabelDetection where
 instance Prelude.Hashable StartLabelDetection where
   hashWithSalt _salt StartLabelDetection' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` features
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` video
 
 instance Prelude.NFData StartLabelDetection where
   rnf StartLabelDetection' {..} =
     Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf features
       `Prelude.seq` Prelude.rnf jobTag
       `Prelude.seq` Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf video
 
 instance Data.ToHeaders StartLabelDetection where
@@ -240,10 +289,12 @@ instance Data.ToJSON StartLabelDetection where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("Features" Data..=) Prelude.<$> features,
             ("JobTag" Data..=) Prelude.<$> jobTag,
             ("MinConfidence" Data..=) Prelude.<$> minConfidence,
             ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
+            ("Settings" Data..=) Prelude.<$> settings,
             Prelude.Just ("Video" Data..= video)
           ]
       )

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GamesParks.Types.SnapshotSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSnapshotSummary' smart constructor.
 data SnapshotSummary = SnapshotSummary'
   { -- | The timestamp of when the snapshot was created.
-    created :: Prelude.Maybe Data.POSIX,
+    created :: Prelude.Maybe Data.ISO8601,
     -- | The description of the snapshot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the snapshot.
     id :: Prelude.Maybe Prelude.Text,
     -- | Then timestamp of when the snapshot was last updated.
-    lastUpdated :: Prelude.Maybe Data.POSIX
+    lastUpdated :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

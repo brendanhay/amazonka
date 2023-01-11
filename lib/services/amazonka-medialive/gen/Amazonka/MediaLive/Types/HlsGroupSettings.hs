@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.HlsGroupSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -179,9 +179,10 @@ data HlsGroupSettings = HlsGroupSettings'
     -- | Indicates whether the output manifest should use floating point or
     -- integer values for segment duration.
     manifestDurationFormat :: Prelude.Maybe HlsManifestDurationFormat,
-    -- | When set, minimumSegmentLength is enforced by looking ahead and back
-    -- within the specified range for a nearby avail and extending the segment
-    -- size if needed.
+    -- | Minimum length of MPEG-2 Transport Stream segments in seconds. When set,
+    -- minimum segment length is enforced by looking ahead and back within the
+    -- specified range for a nearby avail and extending the segment size if
+    -- needed.
     minSegmentLength :: Prelude.Maybe Prelude.Natural,
     -- | If \"vod\", all segments are indexed and kept permanently in the
     -- destination and manifest. If \"live\", only the number segments
@@ -224,9 +225,9 @@ data HlsGroupSettings = HlsGroupSettings'
     -- regenerates the manifests it serves to players so a redundant manifest
     -- from MediaLive is irrelevant.
     redundantManifest :: Prelude.Maybe HlsRedundantManifest,
-    -- | Length of MPEG-2 Transport Stream segments to create (in seconds). Note
-    -- that segments will end on the next keyframe after this number of
-    -- seconds, so actual segment length may be longer.
+    -- | Length of MPEG-2 Transport Stream segments to create in seconds. Note
+    -- that segments will end on the next keyframe after this duration, so
+    -- actual segment length may be longer.
     segmentLength :: Prelude.Maybe Prelude.Natural,
     -- | useInputSegmentation has been deprecated. The configured segment size is
     -- always used.
@@ -389,9 +390,10 @@ data HlsGroupSettings = HlsGroupSettings'
 -- 'manifestDurationFormat', 'hlsGroupSettings_manifestDurationFormat' - Indicates whether the output manifest should use floating point or
 -- integer values for segment duration.
 --
--- 'minSegmentLength', 'hlsGroupSettings_minSegmentLength' - When set, minimumSegmentLength is enforced by looking ahead and back
--- within the specified range for a nearby avail and extending the segment
--- size if needed.
+-- 'minSegmentLength', 'hlsGroupSettings_minSegmentLength' - Minimum length of MPEG-2 Transport Stream segments in seconds. When set,
+-- minimum segment length is enforced by looking ahead and back within the
+-- specified range for a nearby avail and extending the segment size if
+-- needed.
 --
 -- 'mode', 'hlsGroupSettings_mode' - If \"vod\", all segments are indexed and kept permanently in the
 -- destination and manifest. If \"live\", only the number segments
@@ -434,9 +436,9 @@ data HlsGroupSettings = HlsGroupSettings'
 -- regenerates the manifests it serves to players so a redundant manifest
 -- from MediaLive is irrelevant.
 --
--- 'segmentLength', 'hlsGroupSettings_segmentLength' - Length of MPEG-2 Transport Stream segments to create (in seconds). Note
--- that segments will end on the next keyframe after this number of
--- seconds, so actual segment length may be longer.
+-- 'segmentLength', 'hlsGroupSettings_segmentLength' - Length of MPEG-2 Transport Stream segments to create in seconds. Note
+-- that segments will end on the next keyframe after this duration, so
+-- actual segment length may be longer.
 --
 -- 'segmentationMode', 'hlsGroupSettings_segmentationMode' - useInputSegmentation has been deprecated. The configured segment size is
 -- always used.
@@ -692,9 +694,10 @@ hlsGroupSettings_manifestCompression = Lens.lens (\HlsGroupSettings' {manifestCo
 hlsGroupSettings_manifestDurationFormat :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsManifestDurationFormat)
 hlsGroupSettings_manifestDurationFormat = Lens.lens (\HlsGroupSettings' {manifestDurationFormat} -> manifestDurationFormat) (\s@HlsGroupSettings' {} a -> s {manifestDurationFormat = a} :: HlsGroupSettings)
 
--- | When set, minimumSegmentLength is enforced by looking ahead and back
--- within the specified range for a nearby avail and extending the segment
--- size if needed.
+-- | Minimum length of MPEG-2 Transport Stream segments in seconds. When set,
+-- minimum segment length is enforced by looking ahead and back within the
+-- specified range for a nearby avail and extending the segment size if
+-- needed.
 hlsGroupSettings_minSegmentLength :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_minSegmentLength = Lens.lens (\HlsGroupSettings' {minSegmentLength} -> minSegmentLength) (\s@HlsGroupSettings' {} a -> s {minSegmentLength = a} :: HlsGroupSettings)
 
@@ -751,9 +754,9 @@ hlsGroupSettings_programDateTimePeriod = Lens.lens (\HlsGroupSettings' {programD
 hlsGroupSettings_redundantManifest :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsRedundantManifest)
 hlsGroupSettings_redundantManifest = Lens.lens (\HlsGroupSettings' {redundantManifest} -> redundantManifest) (\s@HlsGroupSettings' {} a -> s {redundantManifest = a} :: HlsGroupSettings)
 
--- | Length of MPEG-2 Transport Stream segments to create (in seconds). Note
--- that segments will end on the next keyframe after this number of
--- seconds, so actual segment length may be longer.
+-- | Length of MPEG-2 Transport Stream segments to create in seconds. Note
+-- that segments will end on the next keyframe after this duration, so
+-- actual segment length may be longer.
 hlsGroupSettings_segmentLength :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_segmentLength = Lens.lens (\HlsGroupSettings' {segmentLength} -> segmentLength) (\s@HlsGroupSettings' {} a -> s {segmentLength = a} :: HlsGroupSettings)
 

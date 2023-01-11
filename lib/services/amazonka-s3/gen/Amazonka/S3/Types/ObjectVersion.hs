@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.S3.Types.ObjectVersion
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,7 +42,7 @@ data ObjectVersion = ObjectVersion'
     -- | The object key.
     key :: Prelude.Maybe ObjectKey,
     -- | Date and time the object was last modified.
-    lastModified :: Prelude.Maybe Data.ISO8601,
+    lastModified :: Prelude.Maybe Data.RFC822,
     -- | Specifies the owner of the object.
     owner :: Prelude.Maybe Owner,
     -- | Size in bytes of the object.

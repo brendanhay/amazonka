@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.DescribeClassificationJob
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -168,7 +168,7 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the job was
     -- created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | An array of unique identifiers, one for each custom data identifier that
     -- the job uses when it analyzes data. This value is null if the job uses
     -- only managed data identifiers to analyze data.
@@ -229,7 +229,7 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
     -- started. If the job is a recurring job, this value indicates when the
     -- most recent run started or, if the job hasn\'t run yet, when the job was
     -- created.
-    lastRunTime :: Prelude.Maybe Data.POSIX,
+    lastRunTime :: Prelude.Maybe Data.ISO8601,
     -- | An array of unique identifiers, one for each managed data identifier
     -- that the job is explicitly configured to include (use) or exclude (not
     -- use) when it analyzes data. Inclusion or exclusion depends on the

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.ModelVariantConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import Amazonka.SageMaker.Types.ModelInfrastructureConfig
 --
 -- /See:/ 'newModelVariantConfig' smart constructor.
 data ModelVariantConfig = ModelVariantConfig'
-  { -- | The name of the model.
+  { -- | The name of the Amazon SageMaker Model entity.
     modelName :: Prelude.Text,
     -- | The name of the variant.
     variantName :: Prelude.Text,
@@ -47,7 +47,7 @@ data ModelVariantConfig = ModelVariantConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelName', 'modelVariantConfig_modelName' - The name of the model.
+-- 'modelName', 'modelVariantConfig_modelName' - The name of the Amazon SageMaker Model entity.
 --
 -- 'variantName', 'modelVariantConfig_variantName' - The name of the variant.
 --
@@ -71,7 +71,7 @@ newModelVariantConfig
         infrastructureConfig = pInfrastructureConfig_
       }
 
--- | The name of the model.
+-- | The name of the Amazon SageMaker Model entity.
 modelVariantConfig_modelName :: Lens.Lens' ModelVariantConfig Prelude.Text
 modelVariantConfig_modelName = Lens.lens (\ModelVariantConfig' {modelName} -> modelName) (\s@ModelVariantConfig' {} a -> s {modelName = a} :: ModelVariantConfig)
 

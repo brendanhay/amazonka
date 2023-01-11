@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AppConfig.Types.Deployment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,7 +37,7 @@ data Deployment = Deployment'
     -- environment, or the application when @StartDeployment@ was called.
     appliedExtensions :: Prelude.Maybe [AppliedExtension],
     -- | The time the deployment completed.
-    completedAt :: Prelude.Maybe Data.POSIX,
+    completedAt :: Prelude.Maybe Data.ISO8601,
     -- | Information about the source location of the configuration.
     configurationLocationUri :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration.
@@ -71,7 +71,7 @@ data Deployment = Deployment'
     -- | The percentage of targets for which the deployment is available.
     percentageComplete :: Prelude.Maybe Prelude.Double,
     -- | The time the deployment started.
-    startedAt :: Prelude.Maybe Data.POSIX,
+    startedAt :: Prelude.Maybe Data.ISO8601,
     -- | The state of the deployment.
     state :: Prelude.Maybe DeploymentState
   }

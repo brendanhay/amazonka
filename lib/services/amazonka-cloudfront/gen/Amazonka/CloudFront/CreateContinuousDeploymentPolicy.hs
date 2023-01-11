@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.CreateContinuousDeploymentPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,12 +25,12 @@
 --
 -- To use a continuous deployment policy, first use @CopyDistribution@ to
 -- create a staging distribution, then use @UpdateDistribution@ to modify
--- the staging distribution’s configuration.
+-- the staging distribution\'s configuration.
 --
 -- After you create and update a staging distribution, you can use a
 -- continuous deployment policy to incrementally move traffic to the
 -- staging distribution. This workflow enables you to test changes to a
--- distribution’s configuration before moving all of your domain’s
+-- distribution\'s configuration before moving all of your domain\'s
 -- production traffic to the new configuration.
 module Amazonka.CloudFront.CreateContinuousDeploymentPolicy
   ( -- * Creating a Request

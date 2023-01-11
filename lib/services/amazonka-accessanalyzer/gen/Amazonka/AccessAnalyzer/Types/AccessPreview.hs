@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.AccessPreview
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,7 +44,7 @@ data AccessPreview = AccessPreview'
     -- | A map of resource ARNs for the proposed resource configuration.
     configurations :: Prelude.HashMap Prelude.Text Configuration,
     -- | The time at which the access preview was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The status of the access preview.
     --
     -- -   @Creating@ - The access preview creation is in progress.

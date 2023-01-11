@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.Scte35InputScheduleActionSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Scte35InputMode
 import qualified Amazonka.Prelude as Prelude
 
--- | Settings for the \"scte35 input\" action
+-- | Scte35Input Schedule Action Settings
 --
 -- /See:/ 'newScte35InputScheduleActionSettings' smart constructor.
 data Scte35InputScheduleActionSettings = Scte35InputScheduleActionSettings'

@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.UpdateSubscriptionNotificationConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new subscription notification or add the existing subscription
--- notification setting for the specified subscription ID.
+-- Creates a new subscription notification or adds the existing
+-- subscription notification setting for the specified subscription ID.
 module Amazonka.SecurityLake.UpdateSubscriptionNotificationConfiguration
   ( -- * Creating a Request
     UpdateSubscriptionNotificationConfiguration (..),
@@ -57,7 +57,7 @@ import Amazonka.SecurityLake.Types
 -- | /See:/ 'newUpdateSubscriptionNotificationConfiguration' smart constructor.
 data UpdateSubscriptionNotificationConfiguration = UpdateSubscriptionNotificationConfiguration'
   { -- | Create a new subscription notification for the specified subscription ID
-    -- in Security Lake.
+    -- in Amazon Security Lake.
     createSqs :: Prelude.Maybe Prelude.Bool,
     -- | The key name for the subscription notification.
     httpsApiKeyName :: Prelude.Maybe Prelude.Text,
@@ -84,7 +84,7 @@ data UpdateSubscriptionNotificationConfiguration = UpdateSubscriptionNotificatio
 -- for backwards compatibility:
 --
 -- 'createSqs', 'updateSubscriptionNotificationConfiguration_createSqs' - Create a new subscription notification for the specified subscription ID
--- in Security Lake.
+-- in Amazon Security Lake.
 --
 -- 'httpsApiKeyName', 'updateSubscriptionNotificationConfiguration_httpsApiKeyName' - The key name for the subscription notification.
 --
@@ -120,7 +120,7 @@ newUpdateSubscriptionNotificationConfiguration
       }
 
 -- | Create a new subscription notification for the specified subscription ID
--- in Security Lake.
+-- in Amazon Security Lake.
 updateSubscriptionNotificationConfiguration_createSqs :: Lens.Lens' UpdateSubscriptionNotificationConfiguration (Prelude.Maybe Prelude.Bool)
 updateSubscriptionNotificationConfiguration_createSqs = Lens.lens (\UpdateSubscriptionNotificationConfiguration' {createSqs} -> createSqs) (\s@UpdateSubscriptionNotificationConfiguration' {} a -> s {createSqs = a} :: UpdateSubscriptionNotificationConfiguration)
 
@@ -248,7 +248,7 @@ instance
 
 -- | /See:/ 'newUpdateSubscriptionNotificationConfigurationResponse' smart constructor.
 data UpdateSubscriptionNotificationConfigurationResponse = UpdateSubscriptionNotificationConfigurationResponse'
-  { -- | Returns the Amazon resource name (ARN) of the queue.
+  { -- | Returns the ARN of the queue.
     queueArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -263,7 +263,7 @@ data UpdateSubscriptionNotificationConfigurationResponse = UpdateSubscriptionNot
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queueArn', 'updateSubscriptionNotificationConfigurationResponse_queueArn' - Returns the Amazon resource name (ARN) of the queue.
+-- 'queueArn', 'updateSubscriptionNotificationConfigurationResponse_queueArn' - Returns the ARN of the queue.
 --
 -- 'httpStatus', 'updateSubscriptionNotificationConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateSubscriptionNotificationConfigurationResponse ::
@@ -279,7 +279,7 @@ newUpdateSubscriptionNotificationConfigurationResponse
           pHttpStatus_
       }
 
--- | Returns the Amazon resource name (ARN) of the queue.
+-- | Returns the ARN of the queue.
 updateSubscriptionNotificationConfigurationResponse_queueArn :: Lens.Lens' UpdateSubscriptionNotificationConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateSubscriptionNotificationConfigurationResponse_queueArn = Lens.lens (\UpdateSubscriptionNotificationConfigurationResponse' {queueArn} -> queueArn) (\s@UpdateSubscriptionNotificationConfigurationResponse' {} a -> s {queueArn = a} :: UpdateSubscriptionNotificationConfigurationResponse)
 

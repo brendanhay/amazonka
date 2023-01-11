@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,20 +23,20 @@
 -- Creates an audit report that lists every time that your CA private key
 -- is used. The report is saved in the Amazon S3 bucket that you specify on
 -- input. The
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html IssueCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html IssueCertificate>
 -- and
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html RevokeCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html RevokeCertificate>
 -- actions use the private key.
 --
--- Both PCA and the IAM principal must have permission to write to the S3
--- bucket that you specify. If the IAM principal making the call does not
--- have permission to write to the bucket, then an exception is thrown. For
--- more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
+-- Both Amazon Web Services Private CA and the IAM principal must have
+-- permission to write to the S3 bucket that you specify. If the IAM
+-- principal making the call does not have permission to write to the
+-- bucket, then an exception is thrown. For more information, see
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
 --
--- ACM Private CA assets that are stored in Amazon S3 can be protected with
--- encryption. For more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption Encrypting Your Audit Reports>.
+-- Amazon Web Services Private CA assets that are stored in Amazon S3 can
+-- be protected with encryption. For more information, see
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption Encrypting Your Audit Reports>.
 --
 -- You can generate a maximum of one report every 30 minutes.
 module Amazonka.CertificateManagerPCA.CreateCertificateAuthorityAuditReport

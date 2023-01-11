@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Braket.GetQuantumTask
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -139,7 +139,7 @@ instance Data.ToQuery GetQuantumTask where
 -- | /See:/ 'newGetQuantumTaskResponse' smart constructor.
 data GetQuantumTaskResponse = GetQuantumTaskResponse'
   { -- | The time at which the task ended.
-    endedAt :: Prelude.Maybe Data.POSIX,
+    endedAt :: Prelude.Maybe Data.ISO8601,
     -- | The reason that a task failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the Amazon Braket job associated with the quantum task.
@@ -149,7 +149,7 @@ data GetQuantumTaskResponse = GetQuantumTaskResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The time at which the task was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The ARN of the device the task was run on.
     deviceArn :: Prelude.Text,
     -- | The parameters for the device on which the task ran.

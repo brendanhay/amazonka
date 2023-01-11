@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.Types.Qualifier
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Defines a @PolicyInformation@ qualifier. ACM Private CA supports the
+-- | Defines a @PolicyInformation@ qualifier. Amazon Web Services Private CA
+-- supports the
 -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4 certification practice statement (CPS) qualifier>
 -- defined in RFC 5280.
 --

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.CreateJobTemplate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -198,7 +198,7 @@ data CreateJobTemplateResponse = CreateJobTemplateResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | This output displays the date and time when the job template was
     -- created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | This output display the created job template ID.
     id :: Prelude.Maybe Prelude.Text,
     -- | This output displays the name of the created job template.

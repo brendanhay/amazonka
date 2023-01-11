@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Support.CreateCase
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,7 @@
 --     plan to use the Amazon Web Services Support API.
 --
 -- -   If you call the Amazon Web Services Support API from an account that
---     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     doesn\'t have a Business, Enterprise On-Ramp, or Enterprise Support
 --     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.
@@ -108,10 +108,10 @@ data CreateCase = CreateCase'
     -- | The type of issue for the case. You can specify @customer-service@ or
     -- @technical@. If you don\'t specify a value, the default is @technical@.
     issueType :: Prelude.Maybe Prelude.Text,
-    -- | The language in which Amazon Web Services Support handles the case. You
-    -- must specify the ISO 639-1 code for the @language@ parameter if you want
-    -- support in that language. Currently, English (\"en\") and Japanese
-    -- (\"ja\") are supported.
+    -- | The language in which Amazon Web Services Support handles the case.
+    -- Amazon Web Services Support currently supports English (\"en\") and
+    -- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+    -- @language@ parameter if you want support in that language.
     language :: Prelude.Maybe Prelude.Text,
     -- | The code for the Amazon Web Services service. You can use the
     -- DescribeServices operation to get the possible @serviceCode@ values.
@@ -165,10 +165,10 @@ data CreateCase = CreateCase'
 -- 'issueType', 'createCase_issueType' - The type of issue for the case. You can specify @customer-service@ or
 -- @technical@. If you don\'t specify a value, the default is @technical@.
 --
--- 'language', 'createCase_language' - The language in which Amazon Web Services Support handles the case. You
--- must specify the ISO 639-1 code for the @language@ parameter if you want
--- support in that language. Currently, English (\"en\") and Japanese
--- (\"ja\") are supported.
+-- 'language', 'createCase_language' - The language in which Amazon Web Services Support handles the case.
+-- Amazon Web Services Support currently supports English (\"en\") and
+-- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+-- @language@ parameter if you want support in that language.
 --
 -- 'serviceCode', 'createCase_serviceCode' - The code for the Amazon Web Services service. You can use the
 -- DescribeServices operation to get the possible @serviceCode@ values.
@@ -237,10 +237,10 @@ createCase_ccEmailAddresses = Lens.lens (\CreateCase' {ccEmailAddresses} -> ccEm
 createCase_issueType :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_issueType = Lens.lens (\CreateCase' {issueType} -> issueType) (\s@CreateCase' {} a -> s {issueType = a} :: CreateCase)
 
--- | The language in which Amazon Web Services Support handles the case. You
--- must specify the ISO 639-1 code for the @language@ parameter if you want
--- support in that language. Currently, English (\"en\") and Japanese
--- (\"ja\") are supported.
+-- | The language in which Amazon Web Services Support handles the case.
+-- Amazon Web Services Support currently supports English (\"en\") and
+-- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+-- @language@ parameter if you want support in that language.
 createCase_language :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_language = Lens.lens (\CreateCase' {language} -> language) (\s@CreateCase' {} a -> s {language = a} :: CreateCase)
 

@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -97,6 +97,7 @@ library
     Amazonka.Kinesis.Types.StreamMode
     Amazonka.Kinesis.Types.StreamModeDetails
     Amazonka.Kinesis.Types.StreamStatus
+    Amazonka.Kinesis.Types.StreamSummary
     Amazonka.Kinesis.Types.SubscribeToShardEvent
     Amazonka.Kinesis.Types.Tag
     Amazonka.Kinesis.UpdateShardCount

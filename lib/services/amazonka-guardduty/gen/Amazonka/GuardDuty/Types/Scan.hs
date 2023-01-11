@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GuardDuty.Types.Scan
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,7 +62,7 @@ data Scan = Scan'
     scanStatus :: Prelude.Maybe ScanStatus,
     -- | Represents total bytes that were scanned.
     totalBytes :: Prelude.Maybe Prelude.Natural,
-    -- | Represents the reason the scan was triggered.
+    -- | Specifies the reason why the scan was initiated.
     triggerDetails :: Prelude.Maybe TriggerDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -104,7 +104,7 @@ data Scan = Scan'
 --
 -- 'totalBytes', 'scan_totalBytes' - Represents total bytes that were scanned.
 --
--- 'triggerDetails', 'scan_triggerDetails' - Represents the reason the scan was triggered.
+-- 'triggerDetails', 'scan_triggerDetails' - Specifies the reason why the scan was initiated.
 newScan ::
   Scan
 newScan =
@@ -180,7 +180,7 @@ scan_scanStatus = Lens.lens (\Scan' {scanStatus} -> scanStatus) (\s@Scan' {} a -
 scan_totalBytes :: Lens.Lens' Scan (Prelude.Maybe Prelude.Natural)
 scan_totalBytes = Lens.lens (\Scan' {totalBytes} -> totalBytes) (\s@Scan' {} a -> s {totalBytes = a} :: Scan)
 
--- | Represents the reason the scan was triggered.
+-- | Specifies the reason why the scan was initiated.
 scan_triggerDetails :: Lens.Lens' Scan (Prelude.Maybe TriggerDetails)
 scan_triggerDetails = Lens.lens (\Scan' {triggerDetails} -> triggerDetails) (\s@Scan' {} a -> s {triggerDetails = a} :: Scan)
 

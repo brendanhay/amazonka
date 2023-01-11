@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceExplorer2.CreateIndex
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@
 --
 -- If this is the first Amazon Web Services Region in which you\'ve created
 -- an index for Resource Explorer, then this operation also
--- <https://docs.aws.amazon.com/arexug/mainline/security_iam_service-linked-roles.html creates a service-linked role>
+-- <https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html creates a service-linked role>
 -- in your Amazon Web Services account that allows Resource Explorer to
 -- enumerate your resources to populate the index.
 --
@@ -210,7 +210,7 @@ data CreateIndexResponse = CreateIndexResponse'
     -- DeleteIndex | GetIndex | UpdateIndexType | CreateView
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and timestamp when the index was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | Indicates the current state of the index. You can check for changes to
     -- the state for asynchronous operations by calling the GetIndex operation.
     --

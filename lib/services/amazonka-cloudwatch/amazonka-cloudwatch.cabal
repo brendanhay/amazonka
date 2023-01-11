@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -97,6 +97,7 @@ library
     Amazonka.CloudWatch.Types.Datapoint
     Amazonka.CloudWatch.Types.Dimension
     Amazonka.CloudWatch.Types.DimensionFilter
+    Amazonka.CloudWatch.Types.EvaluationState
     Amazonka.CloudWatch.Types.HistoryItemType
     Amazonka.CloudWatch.Types.InsightRule
     Amazonka.CloudWatch.Types.InsightRuleContributor

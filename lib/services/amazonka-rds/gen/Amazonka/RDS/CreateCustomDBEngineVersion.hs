@@ -14,69 +14,28 @@
 
 -- |
 -- Module      : Amazonka.RDS.CreateCustomDBEngineVersion
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a custom DB engine version (CEV). A CEV is a binary volume
--- snapshot of a database engine and specific AMI. The supported engines
--- are the following:
---
--- -   Oracle Database 12.1 Enterprise Edition with the January 2021 or
---     later RU\/RUR
---
--- -   Oracle Database 19c Enterprise Edition with the January 2021 or
---     later RU\/RUR
---
--- Amazon RDS, which is a fully managed service, supplies the Amazon
--- Machine Image (AMI) and database software. The Amazon RDS database
--- software is preinstalled, so you need only select a DB engine and
--- version, and create your database. With Amazon RDS Custom for Oracle,
--- you upload your database installation files in Amazon S3.
---
--- When you create a custom engine version, you specify the files in a JSON
--- document called a CEV manifest. This document describes installation
--- .zip files stored in Amazon S3. RDS Custom creates your CEV from the
--- installation files that you provided. This service model is called Bring
--- Your Own Media (BYOM).
---
--- Creation takes approximately two hours. If creation fails, RDS Custom
--- issues @RDS-EVENT-0196@ with the message
--- @Creation failed for custom engine version@, and includes details about
--- the failure. For example, the event prints missing files.
---
--- After you create the CEV, it is available for use. You can create
--- multiple CEVs, and create multiple RDS Custom instances from any CEV.
--- You can also change the status of a CEV to make it available or
--- inactive.
---
--- The MediaImport service that imports files from Amazon S3 to create CEVs
--- isn\'t integrated with Amazon Web Services CloudTrail. If you turn on
--- data logging for Amazon RDS in CloudTrail, calls to the
--- @CreateCustomDbEngineVersion@ event aren\'t logged. However, you might
--- see calls from the API gateway that accesses your Amazon S3 bucket.
--- These calls originate from the MediaImport service for the
--- @CreateCustomDbEngineVersion@ event.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.create Creating a CEV>
--- in the /Amazon RDS User Guide/.
+-- Creates a custom DB engine version (CEV).
 module Amazonka.RDS.CreateCustomDBEngineVersion
   ( -- * Creating a Request
     CreateCustomDBEngineVersion (..),
     newCreateCustomDBEngineVersion,
 
     -- * Request Lenses
+    createCustomDBEngineVersion_databaseInstallationFilesS3BucketName,
     createCustomDBEngineVersion_databaseInstallationFilesS3Prefix,
     createCustomDBEngineVersion_description,
+    createCustomDBEngineVersion_imageId,
+    createCustomDBEngineVersion_kmsKeyId,
+    createCustomDBEngineVersion_manifest,
     createCustomDBEngineVersion_tags,
     createCustomDBEngineVersion_engine,
     createCustomDBEngineVersion_engineVersion,
-    createCustomDBEngineVersion_databaseInstallationFilesS3BucketName,
-    createCustomDBEngineVersion_kmsKeyId,
-    createCustomDBEngineVersion_manifest,
 
     -- * Destructuring the Response
     DBEngineVersion (..),
@@ -86,6 +45,7 @@ module Amazonka.RDS.CreateCustomDBEngineVersion
     dbEngineVersion_createTime,
     dbEngineVersion_customDBEngineVersionManifest,
     dbEngineVersion_dbEngineDescription,
+    dbEngineVersion_dbEngineMediaType,
     dbEngineVersion_dbEngineVersionArn,
     dbEngineVersion_dbEngineVersionDescription,
     dbEngineVersion_dbParameterGroupFamily,
@@ -95,15 +55,18 @@ module Amazonka.RDS.CreateCustomDBEngineVersion
     dbEngineVersion_engine,
     dbEngineVersion_engineVersion,
     dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_image,
     dbEngineVersion_kmsKeyId,
     dbEngineVersion_majorEngineVersion,
     dbEngineVersion_status,
+    dbEngineVersion_supportedCACertificateIdentifiers,
     dbEngineVersion_supportedCharacterSets,
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_supportedFeatureNames,
     dbEngineVersion_supportedNcharCharacterSets,
     dbEngineVersion_supportedTimezones,
     dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportsCertificateRotationWithoutRestart,
     dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_supportsLogExportsToCloudwatchLogs,
     dbEngineVersion_supportsParallelQuery,
@@ -123,25 +86,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCustomDBEngineVersion' smart constructor.
 data CreateCustomDBEngineVersion = CreateCustomDBEngineVersion'
-  { -- | The Amazon S3 directory that contains the database installation files
+  { -- | The name of an Amazon S3 bucket that contains database installation
+    -- files for your CEV. For example, a valid bucket name is
+    -- @my-custom-installation-files@.
+    databaseInstallationFilesS3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 directory that contains the database installation files
     -- for your CEV. For example, a valid bucket name is @123456789012\/cev1@.
     -- If this setting isn\'t specified, no prefix is assumed.
     databaseInstallationFilesS3Prefix :: Prelude.Maybe Prelude.Text,
     -- | An optional description of your CEV.
     description :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe [Tag],
-    -- | The database engine to use for your custom engine version (CEV). The
-    -- only supported value is @custom-oracle-ee@.
-    engine :: Prelude.Text,
-    -- | The name of your CEV. The name format is 19./customized_string/. For
-    -- example, a valid CEV name is @19.my_cev1@. This setting is required for
-    -- RDS Custom for Oracle, but optional for Amazon RDS. The combination of
-    -- @Engine@ and @EngineVersion@ is unique per customer per Region.
-    engineVersion :: Prelude.Text,
-    -- | The name of an Amazon S3 bucket that contains database installation
-    -- files for your CEV. For example, a valid bucket name is
-    -- @my-custom-installation-files@.
-    databaseInstallationFilesS3BucketName :: Prelude.Text,
+    -- | The ID of the AMI. An AMI ID is required to create a CEV for RDS Custom
+    -- for SQL Server.
+    imageId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services KMS key identifier for an encrypted CEV. A
     -- symmetric encryption KMS key is required for RDS Custom, but optional
     -- for Amazon RDS.
@@ -155,7 +112,7 @@ data CreateCustomDBEngineVersion = CreateCustomDBEngineVersion'
     --
     -- You can choose the same symmetric encryption key when you create a CEV
     -- and a DB instance, or choose different keys.
-    kmsKeyId :: Prelude.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The CEV manifest, which is a JSON document that describes the
     -- installation .zip files stored in Amazon S3. Specify the name\/value
     -- pairs in a file or a quoted string. RDS Custom applies the patches in
@@ -182,7 +139,16 @@ data CreateCustomDBEngineVersion = CreateCustomDBEngineVersion'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest Creating the CEV manifest>
     -- in the /Amazon RDS User Guide/.
-    manifest :: Prelude.Text
+    manifest :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
+    -- | The database engine to use for your custom engine version (CEV). The
+    -- only supported value is @custom-oracle-ee@.
+    engine :: Prelude.Text,
+    -- | The name of your CEV. The name format is 19./customized_string/. For
+    -- example, a valid CEV name is @19.my_cev1@. This setting is required for
+    -- RDS Custom for Oracle, but optional for Amazon RDS. The combination of
+    -- @Engine@ and @EngineVersion@ is unique per customer per Region.
+    engineVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -194,25 +160,18 @@ data CreateCustomDBEngineVersion = CreateCustomDBEngineVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'databaseInstallationFilesS3BucketName', 'createCustomDBEngineVersion_databaseInstallationFilesS3BucketName' - The name of an Amazon S3 bucket that contains database installation
+-- files for your CEV. For example, a valid bucket name is
+-- @my-custom-installation-files@.
+--
 -- 'databaseInstallationFilesS3Prefix', 'createCustomDBEngineVersion_databaseInstallationFilesS3Prefix' - The Amazon S3 directory that contains the database installation files
 -- for your CEV. For example, a valid bucket name is @123456789012\/cev1@.
 -- If this setting isn\'t specified, no prefix is assumed.
 --
 -- 'description', 'createCustomDBEngineVersion_description' - An optional description of your CEV.
 --
--- 'tags', 'createCustomDBEngineVersion_tags' - Undocumented member.
---
--- 'engine', 'createCustomDBEngineVersion_engine' - The database engine to use for your custom engine version (CEV). The
--- only supported value is @custom-oracle-ee@.
---
--- 'engineVersion', 'createCustomDBEngineVersion_engineVersion' - The name of your CEV. The name format is 19./customized_string/. For
--- example, a valid CEV name is @19.my_cev1@. This setting is required for
--- RDS Custom for Oracle, but optional for Amazon RDS. The combination of
--- @Engine@ and @EngineVersion@ is unique per customer per Region.
---
--- 'databaseInstallationFilesS3BucketName', 'createCustomDBEngineVersion_databaseInstallationFilesS3BucketName' - The name of an Amazon S3 bucket that contains database installation
--- files for your CEV. For example, a valid bucket name is
--- @my-custom-installation-files@.
+-- 'imageId', 'createCustomDBEngineVersion_imageId' - The ID of the AMI. An AMI ID is required to create a CEV for RDS Custom
+-- for SQL Server.
 --
 -- 'kmsKeyId', 'createCustomDBEngineVersion_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted CEV. A
 -- symmetric encryption KMS key is required for RDS Custom, but optional
@@ -254,36 +213,44 @@ data CreateCustomDBEngineVersion = CreateCustomDBEngineVersion'
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest Creating the CEV manifest>
 -- in the /Amazon RDS User Guide/.
+--
+-- 'tags', 'createCustomDBEngineVersion_tags' - Undocumented member.
+--
+-- 'engine', 'createCustomDBEngineVersion_engine' - The database engine to use for your custom engine version (CEV). The
+-- only supported value is @custom-oracle-ee@.
+--
+-- 'engineVersion', 'createCustomDBEngineVersion_engineVersion' - The name of your CEV. The name format is 19./customized_string/. For
+-- example, a valid CEV name is @19.my_cev1@. This setting is required for
+-- RDS Custom for Oracle, but optional for Amazon RDS. The combination of
+-- @Engine@ and @EngineVersion@ is unique per customer per Region.
 newCreateCustomDBEngineVersion ::
   -- | 'engine'
   Prelude.Text ->
   -- | 'engineVersion'
   Prelude.Text ->
-  -- | 'databaseInstallationFilesS3BucketName'
-  Prelude.Text ->
-  -- | 'kmsKeyId'
-  Prelude.Text ->
-  -- | 'manifest'
-  Prelude.Text ->
   CreateCustomDBEngineVersion
 newCreateCustomDBEngineVersion
   pEngine_
-  pEngineVersion_
-  pDatabaseInstallationFilesS3BucketName_
-  pKMSKeyId_
-  pManifest_ =
+  pEngineVersion_ =
     CreateCustomDBEngineVersion'
-      { databaseInstallationFilesS3Prefix =
+      { databaseInstallationFilesS3BucketName =
+          Prelude.Nothing,
+        databaseInstallationFilesS3Prefix =
           Prelude.Nothing,
         description = Prelude.Nothing,
+        imageId = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        manifest = Prelude.Nothing,
         tags = Prelude.Nothing,
         engine = pEngine_,
-        engineVersion = pEngineVersion_,
-        databaseInstallationFilesS3BucketName =
-          pDatabaseInstallationFilesS3BucketName_,
-        kmsKeyId = pKMSKeyId_,
-        manifest = pManifest_
+        engineVersion = pEngineVersion_
       }
+
+-- | The name of an Amazon S3 bucket that contains database installation
+-- files for your CEV. For example, a valid bucket name is
+-- @my-custom-installation-files@.
+createCustomDBEngineVersion_databaseInstallationFilesS3BucketName :: Lens.Lens' CreateCustomDBEngineVersion (Prelude.Maybe Prelude.Text)
+createCustomDBEngineVersion_databaseInstallationFilesS3BucketName = Lens.lens (\CreateCustomDBEngineVersion' {databaseInstallationFilesS3BucketName} -> databaseInstallationFilesS3BucketName) (\s@CreateCustomDBEngineVersion' {} a -> s {databaseInstallationFilesS3BucketName = a} :: CreateCustomDBEngineVersion)
 
 -- | The Amazon S3 directory that contains the database installation files
 -- for your CEV. For example, a valid bucket name is @123456789012\/cev1@.
@@ -295,27 +262,10 @@ createCustomDBEngineVersion_databaseInstallationFilesS3Prefix = Lens.lens (\Crea
 createCustomDBEngineVersion_description :: Lens.Lens' CreateCustomDBEngineVersion (Prelude.Maybe Prelude.Text)
 createCustomDBEngineVersion_description = Lens.lens (\CreateCustomDBEngineVersion' {description} -> description) (\s@CreateCustomDBEngineVersion' {} a -> s {description = a} :: CreateCustomDBEngineVersion)
 
--- | Undocumented member.
-createCustomDBEngineVersion_tags :: Lens.Lens' CreateCustomDBEngineVersion (Prelude.Maybe [Tag])
-createCustomDBEngineVersion_tags = Lens.lens (\CreateCustomDBEngineVersion' {tags} -> tags) (\s@CreateCustomDBEngineVersion' {} a -> s {tags = a} :: CreateCustomDBEngineVersion) Prelude.. Lens.mapping Lens.coerced
-
--- | The database engine to use for your custom engine version (CEV). The
--- only supported value is @custom-oracle-ee@.
-createCustomDBEngineVersion_engine :: Lens.Lens' CreateCustomDBEngineVersion Prelude.Text
-createCustomDBEngineVersion_engine = Lens.lens (\CreateCustomDBEngineVersion' {engine} -> engine) (\s@CreateCustomDBEngineVersion' {} a -> s {engine = a} :: CreateCustomDBEngineVersion)
-
--- | The name of your CEV. The name format is 19./customized_string/. For
--- example, a valid CEV name is @19.my_cev1@. This setting is required for
--- RDS Custom for Oracle, but optional for Amazon RDS. The combination of
--- @Engine@ and @EngineVersion@ is unique per customer per Region.
-createCustomDBEngineVersion_engineVersion :: Lens.Lens' CreateCustomDBEngineVersion Prelude.Text
-createCustomDBEngineVersion_engineVersion = Lens.lens (\CreateCustomDBEngineVersion' {engineVersion} -> engineVersion) (\s@CreateCustomDBEngineVersion' {} a -> s {engineVersion = a} :: CreateCustomDBEngineVersion)
-
--- | The name of an Amazon S3 bucket that contains database installation
--- files for your CEV. For example, a valid bucket name is
--- @my-custom-installation-files@.
-createCustomDBEngineVersion_databaseInstallationFilesS3BucketName :: Lens.Lens' CreateCustomDBEngineVersion Prelude.Text
-createCustomDBEngineVersion_databaseInstallationFilesS3BucketName = Lens.lens (\CreateCustomDBEngineVersion' {databaseInstallationFilesS3BucketName} -> databaseInstallationFilesS3BucketName) (\s@CreateCustomDBEngineVersion' {} a -> s {databaseInstallationFilesS3BucketName = a} :: CreateCustomDBEngineVersion)
+-- | The ID of the AMI. An AMI ID is required to create a CEV for RDS Custom
+-- for SQL Server.
+createCustomDBEngineVersion_imageId :: Lens.Lens' CreateCustomDBEngineVersion (Prelude.Maybe Prelude.Text)
+createCustomDBEngineVersion_imageId = Lens.lens (\CreateCustomDBEngineVersion' {imageId} -> imageId) (\s@CreateCustomDBEngineVersion' {} a -> s {imageId = a} :: CreateCustomDBEngineVersion)
 
 -- | The Amazon Web Services KMS key identifier for an encrypted CEV. A
 -- symmetric encryption KMS key is required for RDS Custom, but optional
@@ -330,7 +280,7 @@ createCustomDBEngineVersion_databaseInstallationFilesS3BucketName = Lens.lens (\
 --
 -- You can choose the same symmetric encryption key when you create a CEV
 -- and a DB instance, or choose different keys.
-createCustomDBEngineVersion_kmsKeyId :: Lens.Lens' CreateCustomDBEngineVersion Prelude.Text
+createCustomDBEngineVersion_kmsKeyId :: Lens.Lens' CreateCustomDBEngineVersion (Prelude.Maybe Prelude.Text)
 createCustomDBEngineVersion_kmsKeyId = Lens.lens (\CreateCustomDBEngineVersion' {kmsKeyId} -> kmsKeyId) (\s@CreateCustomDBEngineVersion' {} a -> s {kmsKeyId = a} :: CreateCustomDBEngineVersion)
 
 -- | The CEV manifest, which is a JSON document that describes the
@@ -359,8 +309,24 @@ createCustomDBEngineVersion_kmsKeyId = Lens.lens (\CreateCustomDBEngineVersion' 
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest Creating the CEV manifest>
 -- in the /Amazon RDS User Guide/.
-createCustomDBEngineVersion_manifest :: Lens.Lens' CreateCustomDBEngineVersion Prelude.Text
+createCustomDBEngineVersion_manifest :: Lens.Lens' CreateCustomDBEngineVersion (Prelude.Maybe Prelude.Text)
 createCustomDBEngineVersion_manifest = Lens.lens (\CreateCustomDBEngineVersion' {manifest} -> manifest) (\s@CreateCustomDBEngineVersion' {} a -> s {manifest = a} :: CreateCustomDBEngineVersion)
+
+-- | Undocumented member.
+createCustomDBEngineVersion_tags :: Lens.Lens' CreateCustomDBEngineVersion (Prelude.Maybe [Tag])
+createCustomDBEngineVersion_tags = Lens.lens (\CreateCustomDBEngineVersion' {tags} -> tags) (\s@CreateCustomDBEngineVersion' {} a -> s {tags = a} :: CreateCustomDBEngineVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | The database engine to use for your custom engine version (CEV). The
+-- only supported value is @custom-oracle-ee@.
+createCustomDBEngineVersion_engine :: Lens.Lens' CreateCustomDBEngineVersion Prelude.Text
+createCustomDBEngineVersion_engine = Lens.lens (\CreateCustomDBEngineVersion' {engine} -> engine) (\s@CreateCustomDBEngineVersion' {} a -> s {engine = a} :: CreateCustomDBEngineVersion)
+
+-- | The name of your CEV. The name format is 19./customized_string/. For
+-- example, a valid CEV name is @19.my_cev1@. This setting is required for
+-- RDS Custom for Oracle, but optional for Amazon RDS. The combination of
+-- @Engine@ and @EngineVersion@ is unique per customer per Region.
+createCustomDBEngineVersion_engineVersion :: Lens.Lens' CreateCustomDBEngineVersion Prelude.Text
+createCustomDBEngineVersion_engineVersion = Lens.lens (\CreateCustomDBEngineVersion' {engineVersion} -> engineVersion) (\s@CreateCustomDBEngineVersion' {} a -> s {engineVersion = a} :: CreateCustomDBEngineVersion)
 
 instance Core.AWSRequest CreateCustomDBEngineVersion where
   type
@@ -376,25 +342,27 @@ instance Core.AWSRequest CreateCustomDBEngineVersion where
 instance Prelude.Hashable CreateCustomDBEngineVersion where
   hashWithSalt _salt CreateCustomDBEngineVersion' {..} =
     _salt
+      `Prelude.hashWithSalt` databaseInstallationFilesS3BucketName
       `Prelude.hashWithSalt` databaseInstallationFilesS3Prefix
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` manifest
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
-      `Prelude.hashWithSalt` databaseInstallationFilesS3BucketName
-      `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` manifest
 
 instance Prelude.NFData CreateCustomDBEngineVersion where
   rnf CreateCustomDBEngineVersion' {..} =
-    Prelude.rnf databaseInstallationFilesS3Prefix
+    Prelude.rnf databaseInstallationFilesS3BucketName
+      `Prelude.seq` Prelude.rnf databaseInstallationFilesS3Prefix
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf manifest
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf databaseInstallationFilesS3BucketName
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf manifest
 
 instance Data.ToHeaders CreateCustomDBEngineVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -411,16 +379,17 @@ instance Data.ToQuery CreateCustomDBEngineVersion where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DatabaseInstallationFilesS3BucketName"
+          Data.=: databaseInstallationFilesS3BucketName,
         "DatabaseInstallationFilesS3Prefix"
           Data.=: databaseInstallationFilesS3Prefix,
         "Description" Data.=: description,
+        "ImageId" Data.=: imageId,
+        "KMSKeyId" Data.=: kmsKeyId,
+        "Manifest" Data.=: manifest,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "Tag" Prelude.<$> tags),
         "Engine" Data.=: engine,
-        "EngineVersion" Data.=: engineVersion,
-        "DatabaseInstallationFilesS3BucketName"
-          Data.=: databaseInstallationFilesS3BucketName,
-        "KMSKeyId" Data.=: kmsKeyId,
-        "Manifest" Data.=: manifest
+        "EngineVersion" Data.=: engineVersion
       ]

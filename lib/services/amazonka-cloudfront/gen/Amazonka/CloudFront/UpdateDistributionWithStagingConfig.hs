@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.UpdateDistributionWithStagingConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,10 +29,10 @@
 -- You can use this operation in a continuous deployment workflow after you
 -- have tested configuration changes on the staging distribution. After
 -- using a continuous deployment policy to move a portion of your domain
--- name’s traffic to the staging distribution and verifying that it works
+-- name\'s traffic to the staging distribution and verifying that it works
 -- as intended, you can use this operation to copy the staging
--- distribution’s configuration to the primary distribution. This action
--- will disable the continuous deployment policy and move your domain’s
+-- distribution\'s configuration to the primary distribution. This action
+-- will disable the continuous deployment policy and move your domain\'s
 -- traffic back to the primary distribution.
 module Amazonka.CloudFront.UpdateDistributionWithStagingConfig
   ( -- * Creating a Request
@@ -195,7 +195,7 @@ instance
 -- | /See:/ 'newUpdateDistributionWithStagingConfigResponse' smart constructor.
 data UpdateDistributionWithStagingConfigResponse = UpdateDistributionWithStagingConfigResponse'
   { distribution :: Prelude.Maybe Distribution,
-    -- | The current version of the primary distribution (after it’s updated).
+    -- | The current version of the primary distribution (after it\'s updated).
     eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -212,7 +212,7 @@ data UpdateDistributionWithStagingConfigResponse = UpdateDistributionWithStaging
 --
 -- 'distribution', 'updateDistributionWithStagingConfigResponse_distribution' - Undocumented member.
 --
--- 'eTag', 'updateDistributionWithStagingConfigResponse_eTag' - The current version of the primary distribution (after it’s updated).
+-- 'eTag', 'updateDistributionWithStagingConfigResponse_eTag' - The current version of the primary distribution (after it\'s updated).
 --
 -- 'httpStatus', 'updateDistributionWithStagingConfigResponse_httpStatus' - The response's http status code.
 newUpdateDistributionWithStagingConfigResponse ::
@@ -232,7 +232,7 @@ newUpdateDistributionWithStagingConfigResponse
 updateDistributionWithStagingConfigResponse_distribution :: Lens.Lens' UpdateDistributionWithStagingConfigResponse (Prelude.Maybe Distribution)
 updateDistributionWithStagingConfigResponse_distribution = Lens.lens (\UpdateDistributionWithStagingConfigResponse' {distribution} -> distribution) (\s@UpdateDistributionWithStagingConfigResponse' {} a -> s {distribution = a} :: UpdateDistributionWithStagingConfigResponse)
 
--- | The current version of the primary distribution (after it’s updated).
+-- | The current version of the primary distribution (after it\'s updated).
 updateDistributionWithStagingConfigResponse_eTag :: Lens.Lens' UpdateDistributionWithStagingConfigResponse (Prelude.Maybe Prelude.Text)
 updateDistributionWithStagingConfigResponse_eTag = Lens.lens (\UpdateDistributionWithStagingConfigResponse' {eTag} -> eTag) (\s@UpdateDistributionWithStagingConfigResponse' {} a -> s {eTag = a} :: UpdateDistributionWithStagingConfigResponse)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.GetResponseHeadersPolicyConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,11 +23,11 @@
 -- Gets a response headers policy configuration.
 --
 -- To get a response headers policy configuration, you must provide the
--- policy’s identifier. If the response headers policy is attached to a
--- distribution’s cache behavior, you can get the policy’s identifier using
--- @ListDistributions@ or @GetDistribution@. If the response headers policy
--- is not attached to a cache behavior, you can get the identifier using
--- @ListResponseHeadersPolicies@.
+-- policy\'s identifier. If the response headers policy is attached to a
+-- distribution\'s cache behavior, you can get the policy\'s identifier
+-- using @ListDistributions@ or @GetDistribution@. If the response headers
+-- policy is not attached to a cache behavior, you can get the identifier
+-- using @ListResponseHeadersPolicies@.
 module Amazonka.CloudFront.GetResponseHeadersPolicyConfig
   ( -- * Creating a Request
     GetResponseHeadersPolicyConfig (..),
@@ -59,8 +59,8 @@ import qualified Amazonka.Response as Response
 data GetResponseHeadersPolicyConfig = GetResponseHeadersPolicyConfig'
   { -- | The identifier for the response headers policy.
     --
-    -- If the response headers policy is attached to a distribution’s cache
-    -- behavior, you can get the policy’s identifier using @ListDistributions@
+    -- If the response headers policy is attached to a distribution\'s cache
+    -- behavior, you can get the policy\'s identifier using @ListDistributions@
     -- or @GetDistribution@. If the response headers policy is not attached to
     -- a cache behavior, you can get the identifier using
     -- @ListResponseHeadersPolicies@.
@@ -78,8 +78,8 @@ data GetResponseHeadersPolicyConfig = GetResponseHeadersPolicyConfig'
 --
 -- 'id', 'getResponseHeadersPolicyConfig_id' - The identifier for the response headers policy.
 --
--- If the response headers policy is attached to a distribution’s cache
--- behavior, you can get the policy’s identifier using @ListDistributions@
+-- If the response headers policy is attached to a distribution\'s cache
+-- behavior, you can get the policy\'s identifier using @ListDistributions@
 -- or @GetDistribution@. If the response headers policy is not attached to
 -- a cache behavior, you can get the identifier using
 -- @ListResponseHeadersPolicies@.
@@ -92,8 +92,8 @@ newGetResponseHeadersPolicyConfig pId_ =
 
 -- | The identifier for the response headers policy.
 --
--- If the response headers policy is attached to a distribution’s cache
--- behavior, you can get the policy’s identifier using @ListDistributions@
+-- If the response headers policy is attached to a distribution\'s cache
+-- behavior, you can get the policy\'s identifier using @ListDistributions@
 -- or @GetDistribution@. If the response headers policy is not attached to
 -- a cache behavior, you can get the identifier using
 -- @ListResponseHeadersPolicies@.

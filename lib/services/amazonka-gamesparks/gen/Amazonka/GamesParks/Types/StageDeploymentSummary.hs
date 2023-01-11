@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GamesParks.Types.StageDeploymentSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data StageDeploymentSummary = StageDeploymentSummary'
     -- | The state of the deployment.
     deploymentState :: Prelude.Maybe DeploymentState,
     -- | The timestamp of when the deployment was last updated.
-    lastUpdated :: Prelude.Maybe Data.POSIX,
+    lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The identifier of the snapshot associated with the stage deployment.
     snapshotId :: Prelude.Maybe Prelude.Text
   }

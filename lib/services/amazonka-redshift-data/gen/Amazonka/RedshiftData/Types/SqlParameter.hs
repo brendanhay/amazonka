@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftData.Types.SqlParameter
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ data SqlParameter = SqlParameter'
   { -- | The name of the parameter.
     name :: Prelude.Text,
     -- | The value of the parameter. Amazon Redshift implicitly converts to the
-    -- proper data type. For more inforation, see
+    -- proper data type. For more information, see
     -- <https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html Data types>
     -- in the /Amazon Redshift Database Developer Guide/.
     value :: Prelude.Text
@@ -49,7 +49,7 @@ data SqlParameter = SqlParameter'
 -- 'name', 'sqlParameter_name' - The name of the parameter.
 --
 -- 'value', 'sqlParameter_value' - The value of the parameter. Amazon Redshift implicitly converts to the
--- proper data type. For more inforation, see
+-- proper data type. For more information, see
 -- <https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html Data types>
 -- in the /Amazon Redshift Database Developer Guide/.
 newSqlParameter ::
@@ -66,7 +66,7 @@ sqlParameter_name :: Lens.Lens' SqlParameter Prelude.Text
 sqlParameter_name = Lens.lens (\SqlParameter' {name} -> name) (\s@SqlParameter' {} a -> s {name = a} :: SqlParameter)
 
 -- | The value of the parameter. Amazon Redshift implicitly converts to the
--- proper data type. For more inforation, see
+-- proper data type. For more information, see
 -- <https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html Data types>
 -- in the /Amazon Redshift Database Developer Guide/.
 sqlParameter_value :: Lens.Lens' SqlParameter Prelude.Text

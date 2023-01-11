@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.MemoryDb
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -87,6 +87,12 @@ import Test.Tasty
 --         , requestDescribeParameters $
 --             newDescribeParameters
 --
+--         , requestDescribeReservedNodes $
+--             newDescribeReservedNodes
+--
+--         , requestDescribeReservedNodesOfferings $
+--             newDescribeReservedNodesOfferings
+--
 --         , requestDescribeServiceUpdates $
 --             newDescribeServiceUpdates
 --
@@ -107,6 +113,9 @@ import Test.Tasty
 --
 --         , requestListTags $
 --             newListTags
+--
+--         , requestPurchaseReservedNodesOffering $
+--             newPurchaseReservedNodesOffering
 --
 --         , requestResetParameterGroup $
 --             newResetParameterGroup
@@ -195,6 +204,12 @@ import Test.Tasty
 --         , responseDescribeParameters $
 --             newDescribeParametersResponse
 --
+--         , responseDescribeReservedNodes $
+--             newDescribeReservedNodesResponse
+--
+--         , responseDescribeReservedNodesOfferings $
+--             newDescribeReservedNodesOfferingsResponse
+--
 --         , responseDescribeServiceUpdates $
 --             newDescribeServiceUpdatesResponse
 --
@@ -215,6 +230,9 @@ import Test.Tasty
 --
 --         , responseListTags $
 --             newListTagsResponse
+--
+--         , responsePurchaseReservedNodesOffering $
+--             newPurchaseReservedNodesOfferingResponse
 --
 --         , responseResetParameterGroup $
 --             newResetParameterGroupResponse
@@ -365,6 +383,18 @@ requestDescribeParameters =
     "DescribeParameters"
     "fixture/DescribeParameters.yaml"
 
+requestDescribeReservedNodes :: DescribeReservedNodes -> TestTree
+requestDescribeReservedNodes =
+  req
+    "DescribeReservedNodes"
+    "fixture/DescribeReservedNodes.yaml"
+
+requestDescribeReservedNodesOfferings :: DescribeReservedNodesOfferings -> TestTree
+requestDescribeReservedNodesOfferings =
+  req
+    "DescribeReservedNodesOfferings"
+    "fixture/DescribeReservedNodesOfferings.yaml"
+
 requestDescribeServiceUpdates :: DescribeServiceUpdates -> TestTree
 requestDescribeServiceUpdates =
   req
@@ -406,6 +436,12 @@ requestListTags =
   req
     "ListTags"
     "fixture/ListTags.yaml"
+
+requestPurchaseReservedNodesOffering :: PurchaseReservedNodesOffering -> TestTree
+requestPurchaseReservedNodesOffering =
+  req
+    "PurchaseReservedNodesOffering"
+    "fixture/PurchaseReservedNodesOffering.yaml"
 
 requestResetParameterGroup :: ResetParameterGroup -> TestTree
 requestResetParameterGroup =
@@ -617,6 +653,22 @@ responseDescribeParameters =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeParameters)
 
+responseDescribeReservedNodes :: DescribeReservedNodesResponse -> TestTree
+responseDescribeReservedNodes =
+  res
+    "DescribeReservedNodesResponse"
+    "fixture/DescribeReservedNodesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedNodes)
+
+responseDescribeReservedNodesOfferings :: DescribeReservedNodesOfferingsResponse -> TestTree
+responseDescribeReservedNodesOfferings =
+  res
+    "DescribeReservedNodesOfferingsResponse"
+    "fixture/DescribeReservedNodesOfferingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedNodesOfferings)
+
 responseDescribeServiceUpdates :: DescribeServiceUpdatesResponse -> TestTree
 responseDescribeServiceUpdates =
   res
@@ -672,6 +724,14 @@ responseListTags =
     "fixture/ListTagsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTags)
+
+responsePurchaseReservedNodesOffering :: PurchaseReservedNodesOfferingResponse -> TestTree
+responsePurchaseReservedNodesOffering =
+  res
+    "PurchaseReservedNodesOfferingResponse"
+    "fixture/PurchaseReservedNodesOfferingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PurchaseReservedNodesOffering)
 
 responseResetParameterGroup :: ResetParameterGroupResponse -> TestTree
 responseResetParameterGroup =

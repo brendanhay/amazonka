@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.DecreaseStreamRetentionPeriod
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,9 @@
 -- Decreases the Kinesis data stream\'s retention period, which is the
 -- length of time data records are accessible after they are added to the
 -- stream. The minimum value of a stream\'s retention period is 24 hours.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- This operation may result in lost data. For example, if the stream\'s
 -- retention period is 48 hours and is decreased to 24 hours, any data
@@ -33,6 +36,7 @@ module Amazonka.Kinesis.DecreaseStreamRetentionPeriod
     newDecreaseStreamRetentionPeriod,
 
     -- * Request Lenses
+    decreaseStreamRetentionPeriod_streamARN,
     decreaseStreamRetentionPeriod_streamName,
     decreaseStreamRetentionPeriod_retentionPeriodHours,
 
@@ -54,8 +58,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDecreaseStreamRetentionPeriod' smart constructor.
 data DecreaseStreamRetentionPeriod = DecreaseStreamRetentionPeriod'
-  { -- | The name of the stream to modify.
-    streamName :: Prelude.Text,
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream to modify.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The new retention period of the stream, in hours. Must be less than the
     -- current retention period.
     retentionPeriodHours :: Prelude.Int
@@ -70,28 +76,32 @@ data DecreaseStreamRetentionPeriod = DecreaseStreamRetentionPeriod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'decreaseStreamRetentionPeriod_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'decreaseStreamRetentionPeriod_streamName' - The name of the stream to modify.
 --
 -- 'retentionPeriodHours', 'decreaseStreamRetentionPeriod_retentionPeriodHours' - The new retention period of the stream, in hours. Must be less than the
 -- current retention period.
 newDecreaseStreamRetentionPeriod ::
-  -- | 'streamName'
-  Prelude.Text ->
   -- | 'retentionPeriodHours'
   Prelude.Int ->
   DecreaseStreamRetentionPeriod
 newDecreaseStreamRetentionPeriod
-  pStreamName_
   pRetentionPeriodHours_ =
     DecreaseStreamRetentionPeriod'
-      { streamName =
-          pStreamName_,
+      { streamARN =
+          Prelude.Nothing,
+        streamName = Prelude.Nothing,
         retentionPeriodHours =
           pRetentionPeriodHours_
       }
 
+-- | The ARN of the stream.
+decreaseStreamRetentionPeriod_streamARN :: Lens.Lens' DecreaseStreamRetentionPeriod (Prelude.Maybe Prelude.Text)
+decreaseStreamRetentionPeriod_streamARN = Lens.lens (\DecreaseStreamRetentionPeriod' {streamARN} -> streamARN) (\s@DecreaseStreamRetentionPeriod' {} a -> s {streamARN = a} :: DecreaseStreamRetentionPeriod)
+
 -- | The name of the stream to modify.
-decreaseStreamRetentionPeriod_streamName :: Lens.Lens' DecreaseStreamRetentionPeriod Prelude.Text
+decreaseStreamRetentionPeriod_streamName :: Lens.Lens' DecreaseStreamRetentionPeriod (Prelude.Maybe Prelude.Text)
 decreaseStreamRetentionPeriod_streamName = Lens.lens (\DecreaseStreamRetentionPeriod' {streamName} -> streamName) (\s@DecreaseStreamRetentionPeriod' {} a -> s {streamName = a} :: DecreaseStreamRetentionPeriod)
 
 -- | The new retention period of the stream, in hours. Must be less than the
@@ -117,12 +127,14 @@ instance
     DecreaseStreamRetentionPeriod
   where
   hashWithSalt _salt DecreaseStreamRetentionPeriod' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` retentionPeriodHours
 
 instance Prelude.NFData DecreaseStreamRetentionPeriod where
   rnf DecreaseStreamRetentionPeriod' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf retentionPeriodHours
 
 instance Data.ToHeaders DecreaseStreamRetentionPeriod where
@@ -144,7 +156,8 @@ instance Data.ToJSON DecreaseStreamRetentionPeriod where
   toJSON DecreaseStreamRetentionPeriod' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Data..= streamName),
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
               ( "RetentionPeriodHours"
                   Data..= retentionPeriodHours

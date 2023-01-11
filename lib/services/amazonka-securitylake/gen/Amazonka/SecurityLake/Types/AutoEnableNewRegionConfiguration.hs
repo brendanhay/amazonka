@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types.AutoEnableNewRegionConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,14 +26,16 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityLake.Types.AwsLogSourceType
 import Amazonka.SecurityLake.Types.Region
 
--- | Automatically enable new organization accounts as member accounts from a
--- Security Lake administrator account.
+-- | Automatically enable new organization accounts as member accounts from
+-- an Amazon Security Lake administrator account.
 --
 -- /See:/ 'newAutoEnableNewRegionConfiguration' smart constructor.
 data AutoEnableNewRegionConfiguration = AutoEnableNewRegionConfiguration'
-  { -- | The Regions where Security Lake is auto enabled
+  { -- | The Amazon Web Services Regions where Security Lake is automatically
+    -- enabled.
     region :: Region,
-    -- | The Amazon Web Services sources which are auto enabled in Security Lake.
+    -- | The Amazon Web Services sources that are automatically enabled in
+    -- Security Lake.
     sources :: [AwsLogSourceType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,9 +48,11 @@ data AutoEnableNewRegionConfiguration = AutoEnableNewRegionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'region', 'autoEnableNewRegionConfiguration_region' - The Regions where Security Lake is auto enabled
+-- 'region', 'autoEnableNewRegionConfiguration_region' - The Amazon Web Services Regions where Security Lake is automatically
+-- enabled.
 --
--- 'sources', 'autoEnableNewRegionConfiguration_sources' - The Amazon Web Services sources which are auto enabled in Security Lake.
+-- 'sources', 'autoEnableNewRegionConfiguration_sources' - The Amazon Web Services sources that are automatically enabled in
+-- Security Lake.
 newAutoEnableNewRegionConfiguration ::
   -- | 'region'
   Region ->
@@ -60,11 +64,13 @@ newAutoEnableNewRegionConfiguration pRegion_ =
       sources = Prelude.mempty
     }
 
--- | The Regions where Security Lake is auto enabled
+-- | The Amazon Web Services Regions where Security Lake is automatically
+-- enabled.
 autoEnableNewRegionConfiguration_region :: Lens.Lens' AutoEnableNewRegionConfiguration Region
 autoEnableNewRegionConfiguration_region = Lens.lens (\AutoEnableNewRegionConfiguration' {region} -> region) (\s@AutoEnableNewRegionConfiguration' {} a -> s {region = a} :: AutoEnableNewRegionConfiguration)
 
--- | The Amazon Web Services sources which are auto enabled in Security Lake.
+-- | The Amazon Web Services sources that are automatically enabled in
+-- Security Lake.
 autoEnableNewRegionConfiguration_sources :: Lens.Lens' AutoEnableNewRegionConfiguration [AwsLogSourceType]
 autoEnableNewRegionConfiguration_sources = Lens.lens (\AutoEnableNewRegionConfiguration' {sources} -> sources) (\s@AutoEnableNewRegionConfiguration' {} a -> s {sources = a} :: AutoEnableNewRegionConfiguration) Prelude.. Lens.coerced
 

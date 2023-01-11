@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.EvidenceFinderEnablement
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,14 +35,13 @@ data EvidenceFinderEnablement = EvidenceFinderEnablement'
   { -- | The current status of the evidence data backfill process.
     --
     -- The backfill starts after you enable evidence finder. During this task,
-    -- Audit Manager populates an event data store with your past evidence data
-    -- so that your evidence can be queried.
+    -- Audit Manager populates an event data store with your past two years’
+    -- worth of evidence data so that your evidence can be queried.
     --
     -- -   @NOT_STARTED@ means that the backfill hasn’t started yet.
     --
     -- -   @IN_PROGRESS@ means that the backfill is in progress. This can take
-    --     up to 24 hours to complete, depending on the amount of evidence
-    --     data.
+    --     up to 7 days to complete, depending on the amount of evidence data.
     --
     -- -   @COMPLETED@ means that the backfill is complete. All of your past
     --     evidence is now queryable.
@@ -55,10 +54,10 @@ data EvidenceFinderEnablement = EvidenceFinderEnablement'
     --     evidence finder queries.
     --
     -- -   @ENABLED@ means that an event data store was successfully created
-    --     and evidence finder is enabled. We recommend that you wait 24 hours
-    --     until the event data store is backfilled with your past evidence
-    --     data. You can use evidence finder in the meantime, but not all data
-    --     might be available until the backfill is complete.
+    --     and evidence finder is enabled. We recommend that you wait 7 days
+    --     until the event data store is backfilled with your past two years’
+    --     worth of evidence data. You can use evidence finder in the meantime,
+    --     but not all data might be available until the backfill is complete.
     --
     -- -   @DISABLE_IN_PROGRESS@ means that you requested to disable evidence
     --     finder, and your request is pending the deletion of the event data
@@ -89,14 +88,13 @@ data EvidenceFinderEnablement = EvidenceFinderEnablement'
 -- 'backfillStatus', 'evidenceFinderEnablement_backfillStatus' - The current status of the evidence data backfill process.
 --
 -- The backfill starts after you enable evidence finder. During this task,
--- Audit Manager populates an event data store with your past evidence data
--- so that your evidence can be queried.
+-- Audit Manager populates an event data store with your past two years’
+-- worth of evidence data so that your evidence can be queried.
 --
 -- -   @NOT_STARTED@ means that the backfill hasn’t started yet.
 --
 -- -   @IN_PROGRESS@ means that the backfill is in progress. This can take
---     up to 24 hours to complete, depending on the amount of evidence
---     data.
+--     up to 7 days to complete, depending on the amount of evidence data.
 --
 -- -   @COMPLETED@ means that the backfill is complete. All of your past
 --     evidence is now queryable.
@@ -109,10 +107,10 @@ data EvidenceFinderEnablement = EvidenceFinderEnablement'
 --     evidence finder queries.
 --
 -- -   @ENABLED@ means that an event data store was successfully created
---     and evidence finder is enabled. We recommend that you wait 24 hours
---     until the event data store is backfilled with your past evidence
---     data. You can use evidence finder in the meantime, but not all data
---     might be available until the backfill is complete.
+--     and evidence finder is enabled. We recommend that you wait 7 days
+--     until the event data store is backfilled with your past two years’
+--     worth of evidence data. You can use evidence finder in the meantime,
+--     but not all data might be available until the backfill is complete.
 --
 -- -   @DISABLE_IN_PROGRESS@ means that you requested to disable evidence
 --     finder, and your request is pending the deletion of the event data
@@ -142,14 +140,13 @@ newEvidenceFinderEnablement =
 -- | The current status of the evidence data backfill process.
 --
 -- The backfill starts after you enable evidence finder. During this task,
--- Audit Manager populates an event data store with your past evidence data
--- so that your evidence can be queried.
+-- Audit Manager populates an event data store with your past two years’
+-- worth of evidence data so that your evidence can be queried.
 --
 -- -   @NOT_STARTED@ means that the backfill hasn’t started yet.
 --
 -- -   @IN_PROGRESS@ means that the backfill is in progress. This can take
---     up to 24 hours to complete, depending on the amount of evidence
---     data.
+--     up to 7 days to complete, depending on the amount of evidence data.
 --
 -- -   @COMPLETED@ means that the backfill is complete. All of your past
 --     evidence is now queryable.
@@ -164,10 +161,10 @@ evidenceFinderEnablement_backfillStatus = Lens.lens (\EvidenceFinderEnablement' 
 --     evidence finder queries.
 --
 -- -   @ENABLED@ means that an event data store was successfully created
---     and evidence finder is enabled. We recommend that you wait 24 hours
---     until the event data store is backfilled with your past evidence
---     data. You can use evidence finder in the meantime, but not all data
---     might be available until the backfill is complete.
+--     and evidence finder is enabled. We recommend that you wait 7 days
+--     until the event data store is backfilled with your past two years’
+--     worth of evidence data. You can use evidence finder in the meantime,
+--     but not all data might be available until the backfill is complete.
 --
 -- -   @DISABLE_IN_PROGRESS@ means that you requested to disable evidence
 --     finder, and your request is pending the deletion of the event data

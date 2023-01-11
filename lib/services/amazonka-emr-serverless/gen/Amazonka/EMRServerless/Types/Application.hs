@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMRServerless.Types.Application
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,9 +26,11 @@ import Amazonka.EMRServerless.Types.ApplicationState
 import Amazonka.EMRServerless.Types.Architecture
 import Amazonka.EMRServerless.Types.AutoStartConfig
 import Amazonka.EMRServerless.Types.AutoStopConfig
+import Amazonka.EMRServerless.Types.ImageConfiguration
 import Amazonka.EMRServerless.Types.InitialCapacityConfig
 import Amazonka.EMRServerless.Types.MaximumAllowedResources
 import Amazonka.EMRServerless.Types.NetworkConfiguration
+import Amazonka.EMRServerless.Types.WorkerTypeSpecification
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an application. EMR Serverless uses applications to
@@ -44,6 +46,8 @@ data Application = Application'
     -- | The configuration for an application to automatically stop after a
     -- certain amount of time being idle.
     autoStopConfiguration :: Prelude.Maybe AutoStopConfig,
+    -- | The image configuration applied to all worker types.
+    imageConfiguration :: Prelude.Maybe ImageConfiguration,
     -- | The initial capacity of the application.
     initialCapacity :: Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig),
     -- | The maximum capacity of the application. This is cumulative across all
@@ -60,11 +64,13 @@ data Application = Application'
     stateDetails :: Prelude.Maybe Prelude.Text,
     -- | The tags assigned to the application.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The specification applied to each worker type.
+    workerTypeSpecifications :: Prelude.Maybe (Prelude.HashMap Prelude.Text WorkerTypeSpecification),
     -- | The ID of the application.
     applicationId :: Prelude.Text,
     -- | The ARN of the application.
     arn :: Prelude.Text,
-    -- | The EMR release version associated with the application.
+    -- | The EMR release associated with the application.
     releaseLabel :: Prelude.Text,
     -- | The type of application, such as Spark or Hive.
     type' :: Prelude.Text,
@@ -93,6 +99,8 @@ data Application = Application'
 -- 'autoStopConfiguration', 'application_autoStopConfiguration' - The configuration for an application to automatically stop after a
 -- certain amount of time being idle.
 --
+-- 'imageConfiguration', 'application_imageConfiguration' - The image configuration applied to all worker types.
+--
 -- 'initialCapacity', 'application_initialCapacity' - The initial capacity of the application.
 --
 -- 'maximumCapacity', 'application_maximumCapacity' - The maximum capacity of the application. This is cumulative across all
@@ -109,11 +117,13 @@ data Application = Application'
 --
 -- 'tags', 'application_tags' - The tags assigned to the application.
 --
+-- 'workerTypeSpecifications', 'application_workerTypeSpecifications' - The specification applied to each worker type.
+--
 -- 'applicationId', 'application_applicationId' - The ID of the application.
 --
 -- 'arn', 'application_arn' - The ARN of the application.
 --
--- 'releaseLabel', 'application_releaseLabel' - The EMR release version associated with the application.
+-- 'releaseLabel', 'application_releaseLabel' - The EMR release associated with the application.
 --
 -- 'type'', 'application_type' - The type of application, such as Spark or Hive.
 --
@@ -150,12 +160,14 @@ newApplication
       { architecture = Prelude.Nothing,
         autoStartConfiguration = Prelude.Nothing,
         autoStopConfiguration = Prelude.Nothing,
+        imageConfiguration = Prelude.Nothing,
         initialCapacity = Prelude.Nothing,
         maximumCapacity = Prelude.Nothing,
         name = Prelude.Nothing,
         networkConfiguration = Prelude.Nothing,
         stateDetails = Prelude.Nothing,
         tags = Prelude.Nothing,
+        workerTypeSpecifications = Prelude.Nothing,
         applicationId = pApplicationId_,
         arn = pArn_,
         releaseLabel = pReleaseLabel_,
@@ -178,6 +190,10 @@ application_autoStartConfiguration = Lens.lens (\Application' {autoStartConfigur
 -- certain amount of time being idle.
 application_autoStopConfiguration :: Lens.Lens' Application (Prelude.Maybe AutoStopConfig)
 application_autoStopConfiguration = Lens.lens (\Application' {autoStopConfiguration} -> autoStopConfiguration) (\s@Application' {} a -> s {autoStopConfiguration = a} :: Application)
+
+-- | The image configuration applied to all worker types.
+application_imageConfiguration :: Lens.Lens' Application (Prelude.Maybe ImageConfiguration)
+application_imageConfiguration = Lens.lens (\Application' {imageConfiguration} -> imageConfiguration) (\s@Application' {} a -> s {imageConfiguration = a} :: Application)
 
 -- | The initial capacity of the application.
 application_initialCapacity :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig))
@@ -207,6 +223,10 @@ application_stateDetails = Lens.lens (\Application' {stateDetails} -> stateDetai
 application_tags :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 application_tags = Lens.lens (\Application' {tags} -> tags) (\s@Application' {} a -> s {tags = a} :: Application) Prelude.. Lens.mapping Lens.coerced
 
+-- | The specification applied to each worker type.
+application_workerTypeSpecifications :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text WorkerTypeSpecification))
+application_workerTypeSpecifications = Lens.lens (\Application' {workerTypeSpecifications} -> workerTypeSpecifications) (\s@Application' {} a -> s {workerTypeSpecifications = a} :: Application) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ID of the application.
 application_applicationId :: Lens.Lens' Application Prelude.Text
 application_applicationId = Lens.lens (\Application' {applicationId} -> applicationId) (\s@Application' {} a -> s {applicationId = a} :: Application)
@@ -215,7 +235,7 @@ application_applicationId = Lens.lens (\Application' {applicationId} -> applicat
 application_arn :: Lens.Lens' Application Prelude.Text
 application_arn = Lens.lens (\Application' {arn} -> arn) (\s@Application' {} a -> s {arn = a} :: Application)
 
--- | The EMR release version associated with the application.
+-- | The EMR release associated with the application.
 application_releaseLabel :: Lens.Lens' Application Prelude.Text
 application_releaseLabel = Lens.lens (\Application' {releaseLabel} -> releaseLabel) (\s@Application' {} a -> s {releaseLabel = a} :: Application)
 
@@ -244,6 +264,7 @@ instance Data.FromJSON Application where
             Prelude.<$> (x Data..:? "architecture")
             Prelude.<*> (x Data..:? "autoStartConfiguration")
             Prelude.<*> (x Data..:? "autoStopConfiguration")
+            Prelude.<*> (x Data..:? "imageConfiguration")
             Prelude.<*> ( x Data..:? "initialCapacity"
                             Data..!= Prelude.mempty
                         )
@@ -252,6 +273,9 @@ instance Data.FromJSON Application where
             Prelude.<*> (x Data..:? "networkConfiguration")
             Prelude.<*> (x Data..:? "stateDetails")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "workerTypeSpecifications"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..: "applicationId")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "releaseLabel")
@@ -266,12 +290,14 @@ instance Prelude.Hashable Application where
     _salt `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` autoStartConfiguration
       `Prelude.hashWithSalt` autoStopConfiguration
+      `Prelude.hashWithSalt` imageConfiguration
       `Prelude.hashWithSalt` initialCapacity
       `Prelude.hashWithSalt` maximumCapacity
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` networkConfiguration
       `Prelude.hashWithSalt` stateDetails
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` workerTypeSpecifications
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` releaseLabel
@@ -285,12 +311,14 @@ instance Prelude.NFData Application where
     Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf autoStartConfiguration
       `Prelude.seq` Prelude.rnf autoStopConfiguration
+      `Prelude.seq` Prelude.rnf imageConfiguration
       `Prelude.seq` Prelude.rnf initialCapacity
       `Prelude.seq` Prelude.rnf maximumCapacity
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf stateDetails
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf workerTypeSpecifications
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf releaseLabel

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.RDSData.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -182,7 +182,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -190,7 +190,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | There is an error in the call or in a SQL statement.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -198,7 +198,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | There are insufficient privileges to make the call.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -206,7 +206,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | An internal error occurred.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -215,7 +215,7 @@ _InternalServerErrorException =
 
 -- | The @resourceArn@, @secretArn@, or @transactionId@ value can\'t be
 -- found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -223,7 +223,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The service specified by the @resourceArn@ parameter is not available.
-_ServiceUnavailableError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableError =
   Core._MatchServiceError
     defaultService
@@ -231,7 +231,7 @@ _ServiceUnavailableError =
     Prelude.. Core.hasStatus 503
 
 -- | The execution of the SQL statement timed out.
-_StatementTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StatementTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _StatementTimeoutException =
   Core._MatchServiceError
     defaultService

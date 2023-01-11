@@ -14,15 +14,15 @@
 
 -- |
 -- Module      : Amazonka.M2.DeleteEnvironment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specific environment. The environment cannot contain deployed
--- applications. If it does, you must delete those applications before you
--- delete the environment.
+-- Deletes a specific runtime environment. The environment cannot contain
+-- deployed applications. If it does, you must delete those applications
+-- before you delete the environment.
 module Amazonka.M2.DeleteEnvironment
   ( -- * Creating a Request
     DeleteEnvironment (..),

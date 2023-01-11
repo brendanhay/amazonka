@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoTDeviceAdvisor.ListTagsForResource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The ARN of the IoT Device Advisor resource.
+  { -- | The resource ARN of the IoT Device Advisor resource. This can be
+    -- SuiteDefinition ARN or SuiteRun ARN.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +67,8 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The ARN of the IoT Device Advisor resource.
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The resource ARN of the IoT Device Advisor resource. This can be
+-- SuiteDefinition ARN or SuiteRun ARN.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -74,7 +76,8 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | The ARN of the IoT Device Advisor resource.
+-- | The resource ARN of the IoT Device Advisor resource. This can be
+-- SuiteDefinition ARN or SuiteRun ARN.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 

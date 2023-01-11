@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListDistributionsByCachePolicyId
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a list of distribution IDs for distributions that have a cache
--- behavior that’s associated with the specified cache policy.
+-- behavior that\'s associated with the specified cache policy.
 --
 -- You can optionally specify the maximum number of items to receive in the
 -- response. If the total number of items in the list exceeds the maximum
@@ -62,8 +62,8 @@ data ListDistributionsByCachePolicyId = ListDistributionsByCachePolicyId'
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of distribution IDs. The response includes distribution IDs in
     -- the list that occur after the marker. To get the next page of the list,
-    -- set this field’s value to the value of @NextMarker@ from the current
-    -- page’s response.
+    -- set this field\'s value to the value of @NextMarker@ from the current
+    -- page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of distribution IDs that you want in the response.
     maxItems :: Prelude.Maybe Prelude.Text,
@@ -84,8 +84,8 @@ data ListDistributionsByCachePolicyId = ListDistributionsByCachePolicyId'
 -- 'marker', 'listDistributionsByCachePolicyId_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
--- set this field’s value to the value of @NextMarker@ from the current
--- page’s response.
+-- set this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 --
 -- 'maxItems', 'listDistributionsByCachePolicyId_maxItems' - The maximum number of distribution IDs that you want in the response.
 --
@@ -106,8 +106,8 @@ newListDistributionsByCachePolicyId pCachePolicyId_ =
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
--- set this field’s value to the value of @NextMarker@ from the current
--- page’s response.
+-- set this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 listDistributionsByCachePolicyId_marker :: Lens.Lens' ListDistributionsByCachePolicyId (Prelude.Maybe Prelude.Text)
 listDistributionsByCachePolicyId_marker = Lens.lens (\ListDistributionsByCachePolicyId' {marker} -> marker) (\s@ListDistributionsByCachePolicyId' {} a -> s {marker = a} :: ListDistributionsByCachePolicyId)
 

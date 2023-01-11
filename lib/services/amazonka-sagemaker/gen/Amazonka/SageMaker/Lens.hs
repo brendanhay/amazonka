@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -286,6 +286,14 @@ module Amazonka.SageMaker.Lens
     createImageResponse_httpStatus,
 
     -- ** CreateImageVersion
+    createImageVersion_aliases,
+    createImageVersion_horovod,
+    createImageVersion_jobType,
+    createImageVersion_mLFramework,
+    createImageVersion_processor,
+    createImageVersion_programmingLang,
+    createImageVersion_releaseNotes,
+    createImageVersion_vendorGuidance,
     createImageVersion_baseImage,
     createImageVersion_clientToken,
     createImageVersion_imageName,
@@ -724,8 +732,9 @@ module Amazonka.SageMaker.Lens
     deleteImageResponse_httpStatus,
 
     -- ** DeleteImageVersion
-    deleteImageVersion_imageName,
+    deleteImageVersion_alias,
     deleteImageVersion_version,
+    deleteImageVersion_imageName,
     deleteImageVersionResponse_httpStatus,
 
     -- ** DeleteInferenceExperiment
@@ -1237,16 +1246,24 @@ module Amazonka.SageMaker.Lens
     describeImageResponse_httpStatus,
 
     -- ** DescribeImageVersion
+    describeImageVersion_alias,
     describeImageVersion_version,
     describeImageVersion_imageName,
     describeImageVersionResponse_baseImage,
     describeImageVersionResponse_containerImage,
     describeImageVersionResponse_creationTime,
     describeImageVersionResponse_failureReason,
+    describeImageVersionResponse_horovod,
     describeImageVersionResponse_imageArn,
     describeImageVersionResponse_imageVersionArn,
     describeImageVersionResponse_imageVersionStatus,
+    describeImageVersionResponse_jobType,
     describeImageVersionResponse_lastModifiedTime,
+    describeImageVersionResponse_mLFramework,
+    describeImageVersionResponse_processor,
+    describeImageVersionResponse_programmingLang,
+    describeImageVersionResponse_releaseNotes,
+    describeImageVersionResponse_vendorGuidance,
     describeImageVersionResponse_version,
     describeImageVersionResponse_httpStatus,
 
@@ -1825,6 +1842,16 @@ module Amazonka.SageMaker.Lens
     listAlgorithmsResponse_nextToken,
     listAlgorithmsResponse_httpStatus,
     listAlgorithmsResponse_algorithmSummaryList,
+
+    -- ** ListAliases
+    listAliases_alias,
+    listAliases_maxResults,
+    listAliases_nextToken,
+    listAliases_version,
+    listAliases_imageName,
+    listAliasesResponse_nextToken,
+    listAliasesResponse_sageMakerImageVersionAliases,
+    listAliasesResponse_httpStatus,
 
     -- ** ListAppImageConfigs
     listAppImageConfigs_creationTimeAfter,
@@ -2895,6 +2922,7 @@ module Amazonka.SageMaker.Lens
     updateDevices_devices,
 
     -- ** UpdateDomain
+    updateDomain_appSecurityGroupManagement,
     updateDomain_defaultSpaceSettings,
     updateDomain_defaultUserSettings,
     updateDomain_domainSettingsForUpdate,
@@ -2954,6 +2982,22 @@ module Amazonka.SageMaker.Lens
     updateImage_imageName,
     updateImageResponse_imageArn,
     updateImageResponse_httpStatus,
+
+    -- ** UpdateImageVersion
+    updateImageVersion_alias,
+    updateImageVersion_aliasesToAdd,
+    updateImageVersion_aliasesToDelete,
+    updateImageVersion_horovod,
+    updateImageVersion_jobType,
+    updateImageVersion_mLFramework,
+    updateImageVersion_processor,
+    updateImageVersion_programmingLang,
+    updateImageVersion_releaseNotes,
+    updateImageVersion_vendorGuidance,
+    updateImageVersion_version,
+    updateImageVersion_imageName,
+    updateImageVersionResponse_imageVersionArn,
+    updateImageVersionResponse_httpStatus,
 
     -- ** UpdateInferenceExperiment
     updateInferenceExperiment_dataStorageConfig,
@@ -3734,6 +3778,7 @@ module Amazonka.SageMaker.Lens
     -- ** DomainSettingsForUpdate
     domainSettingsForUpdate_executionRoleIdentityConfig,
     domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate,
+    domainSettingsForUpdate_securityGroupIds,
 
     -- ** DriftCheckBaselines
     driftCheckBaselines_bias,
@@ -4160,6 +4205,7 @@ module Amazonka.SageMaker.Lens
     -- ** HyperParameterTuningJobConfig
     hyperParameterTuningJobConfig_hyperParameterTuningJobObjective,
     hyperParameterTuningJobConfig_parameterRanges,
+    hyperParameterTuningJobConfig_randomSeed,
     hyperParameterTuningJobConfig_strategyConfig,
     hyperParameterTuningJobConfig_trainingJobEarlyStoppingType,
     hyperParameterTuningJobConfig_tuningJobCompletionCriteria,
@@ -5364,6 +5410,8 @@ module Amazonka.SageMaker.Lens
 
     -- ** RStudioServerProDomainSettingsForUpdate
     rStudioServerProDomainSettingsForUpdate_defaultResourceSpec,
+    rStudioServerProDomainSettingsForUpdate_rStudioConnectUrl,
+    rStudioServerProDomainSettingsForUpdate_rStudioPackageManagerUrl,
     rStudioServerProDomainSettingsForUpdate_domainExecutionRoleArn,
 
     -- ** RealTimeInferenceConfig
@@ -5396,6 +5444,7 @@ module Amazonka.SageMaker.Lens
     recommendationJobInputConfig_resourceLimit,
     recommendationJobInputConfig_trafficPattern,
     recommendationJobInputConfig_volumeKmsKeyId,
+    recommendationJobInputConfig_vpcConfig,
     recommendationJobInputConfig_modelPackageVersionArn,
 
     -- ** RecommendationJobOutputConfig
@@ -5413,6 +5462,10 @@ module Amazonka.SageMaker.Lens
     -- ** RecommendationJobStoppingConditions
     recommendationJobStoppingConditions_maxInvocations,
     recommendationJobStoppingConditions_modelLatencyThresholds,
+
+    -- ** RecommendationJobVpcConfig
+    recommendationJobVpcConfig_securityGroupIds,
+    recommendationJobVpcConfig_subnets,
 
     -- ** RecommendationMetrics
     recommendationMetrics_costPerHour,
@@ -6139,6 +6192,7 @@ import Amazonka.SageMaker.GetSearchSuggestions
 import Amazonka.SageMaker.ImportHubContent
 import Amazonka.SageMaker.ListActions
 import Amazonka.SageMaker.ListAlgorithms
+import Amazonka.SageMaker.ListAliases
 import Amazonka.SageMaker.ListAppImageConfigs
 import Amazonka.SageMaker.ListApps
 import Amazonka.SageMaker.ListArtifacts
@@ -6613,6 +6667,7 @@ import Amazonka.SageMaker.Types.RecommendationJobOutputConfig
 import Amazonka.SageMaker.Types.RecommendationJobPayloadConfig
 import Amazonka.SageMaker.Types.RecommendationJobResourceLimit
 import Amazonka.SageMaker.Types.RecommendationJobStoppingConditions
+import Amazonka.SageMaker.Types.RecommendationJobVpcConfig
 import Amazonka.SageMaker.Types.RecommendationMetrics
 import Amazonka.SageMaker.Types.RedshiftDatasetDefinition
 import Amazonka.SageMaker.Types.RegisterModelStepMetadata
@@ -6714,6 +6769,7 @@ import Amazonka.SageMaker.UpdateFeatureGroup
 import Amazonka.SageMaker.UpdateFeatureMetadata
 import Amazonka.SageMaker.UpdateHub
 import Amazonka.SageMaker.UpdateImage
+import Amazonka.SageMaker.UpdateImageVersion
 import Amazonka.SageMaker.UpdateInferenceExperiment
 import Amazonka.SageMaker.UpdateModelCard
 import Amazonka.SageMaker.UpdateModelPackage

@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -194,6 +194,7 @@ library
     Amazonka.Connect.Types.AvailableNumberSummary
     Amazonka.Connect.Types.Channel
     Amazonka.Connect.Types.ChatMessage
+    Amazonka.Connect.Types.ChatParticipantRoleConfig
     Amazonka.Connect.Types.ChatStreamingConfiguration
     Amazonka.Connect.Types.ClaimedPhoneNumberSummary
     Amazonka.Connect.Types.Comparison
@@ -215,6 +216,7 @@ library
     Amazonka.Connect.Types.CurrentMetricData
     Amazonka.Connect.Types.CurrentMetricName
     Amazonka.Connect.Types.CurrentMetricResult
+    Amazonka.Connect.Types.CurrentMetricSortCriteria
     Amazonka.Connect.Types.DateReference
     Amazonka.Connect.Types.DefaultVocabulary
     Amazonka.Connect.Types.Dimensions
@@ -273,6 +275,10 @@ library
     Amazonka.Connect.Types.NumberReference
     Amazonka.Connect.Types.OutboundCallerConfig
     Amazonka.Connect.Types.ParticipantDetails
+    Amazonka.Connect.Types.ParticipantTimerAction
+    Amazonka.Connect.Types.ParticipantTimerConfiguration
+    Amazonka.Connect.Types.ParticipantTimerType
+    Amazonka.Connect.Types.ParticipantTimerValue
     Amazonka.Connect.Types.PhoneNumberCountryCode
     Amazonka.Connect.Types.PhoneNumberQuickConnectConfig
     Amazonka.Connect.Types.PhoneNumberStatus
@@ -322,6 +328,7 @@ library
     Amazonka.Connect.Types.SecurityProfilesSearchFilter
     Amazonka.Connect.Types.SecurityProfileSummary
     Amazonka.Connect.Types.SendNotificationActionDefinition
+    Amazonka.Connect.Types.SortOrder
     Amazonka.Connect.Types.SourceType
     Amazonka.Connect.Types.Statistic
     Amazonka.Connect.Types.StorageType
@@ -340,11 +347,13 @@ library
     Amazonka.Connect.Types.TaskTemplateStatus
     Amazonka.Connect.Types.TelephonyConfig
     Amazonka.Connect.Types.Threshold
+    Amazonka.Connect.Types.TimerEligibleParticipantRoles
     Amazonka.Connect.Types.TrafficDistributionGroup
     Amazonka.Connect.Types.TrafficDistributionGroupStatus
     Amazonka.Connect.Types.TrafficDistributionGroupSummary
     Amazonka.Connect.Types.TrafficType
     Amazonka.Connect.Types.Unit
+    Amazonka.Connect.Types.UpdateParticipantRoleConfigChannelInfo
     Amazonka.Connect.Types.UrlReference
     Amazonka.Connect.Types.UseCase
     Amazonka.Connect.Types.UseCaseType
@@ -379,6 +388,7 @@ library
     Amazonka.Connect.UpdateHoursOfOperation
     Amazonka.Connect.UpdateInstanceAttribute
     Amazonka.Connect.UpdateInstanceStorageConfig
+    Amazonka.Connect.UpdateParticipantRoleConfig
     Amazonka.Connect.UpdatePhoneNumber
     Amazonka.Connect.UpdateQueueHoursOfOperation
     Amazonka.Connect.UpdateQueueMaxContacts

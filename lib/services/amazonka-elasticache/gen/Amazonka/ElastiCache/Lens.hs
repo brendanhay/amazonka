@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -153,6 +153,7 @@ module Amazonka.ElastiCache.Lens
     createReplicationGroup_snapshotWindow,
     createReplicationGroup_tags,
     createReplicationGroup_transitEncryptionEnabled,
+    createReplicationGroup_transitEncryptionMode,
     createReplicationGroup_userGroupIds,
     createReplicationGroup_replicationGroupId,
     createReplicationGroup_replicationGroupDescription,
@@ -558,6 +559,8 @@ module Amazonka.ElastiCache.Lens
     modifyReplicationGroup_snapshotRetentionLimit,
     modifyReplicationGroup_snapshotWindow,
     modifyReplicationGroup_snapshottingClusterId,
+    modifyReplicationGroup_transitEncryptionEnabled,
+    modifyReplicationGroup_transitEncryptionMode,
     modifyReplicationGroup_userGroupIdsToAdd,
     modifyReplicationGroup_userGroupIdsToRemove,
     modifyReplicationGroup_replicationGroupId,
@@ -700,6 +703,7 @@ module Amazonka.ElastiCache.Lens
     cacheCluster_snapshotRetentionLimit,
     cacheCluster_snapshotWindow,
     cacheCluster_transitEncryptionEnabled,
+    cacheCluster_transitEncryptionMode,
 
     -- ** CacheEngineVersion
     cacheEngineVersion_cacheEngineDescription,
@@ -948,6 +952,8 @@ module Amazonka.ElastiCache.Lens
     pendingModifiedValues_engineVersion,
     pendingModifiedValues_logDeliveryConfigurations,
     pendingModifiedValues_numCacheNodes,
+    pendingModifiedValues_transitEncryptionEnabled,
+    pendingModifiedValues_transitEncryptionMode,
 
     -- ** ProcessedUpdateAction
     processedUpdateAction_cacheClusterId,
@@ -993,6 +999,7 @@ module Amazonka.ElastiCache.Lens
     replicationGroup_snapshottingClusterId,
     replicationGroup_status,
     replicationGroup_transitEncryptionEnabled,
+    replicationGroup_transitEncryptionMode,
     replicationGroup_userGroupIds,
 
     -- ** ReplicationGroupPendingModifiedValues
@@ -1001,6 +1008,8 @@ module Amazonka.ElastiCache.Lens
     replicationGroupPendingModifiedValues_logDeliveryConfigurations,
     replicationGroupPendingModifiedValues_primaryClusterId,
     replicationGroupPendingModifiedValues_resharding,
+    replicationGroupPendingModifiedValues_transitEncryptionEnabled,
+    replicationGroupPendingModifiedValues_transitEncryptionMode,
     replicationGroupPendingModifiedValues_userGroups,
 
     -- ** ReservedCacheNode

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.KinesisVideo.Types.ChannelProtocol
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.ChannelProtocol
   ( ChannelProtocol
       ( ..,
         ChannelProtocol_HTTPS,
+        ChannelProtocol_WEBRTC,
         ChannelProtocol_WSS
       ),
   )
@@ -61,11 +62,15 @@ newtype ChannelProtocol = ChannelProtocol'
 pattern ChannelProtocol_HTTPS :: ChannelProtocol
 pattern ChannelProtocol_HTTPS = ChannelProtocol' "HTTPS"
 
+pattern ChannelProtocol_WEBRTC :: ChannelProtocol
+pattern ChannelProtocol_WEBRTC = ChannelProtocol' "WEBRTC"
+
 pattern ChannelProtocol_WSS :: ChannelProtocol
 pattern ChannelProtocol_WSS = ChannelProtocol' "WSS"
 
 {-# COMPLETE
   ChannelProtocol_HTTPS,
+  ChannelProtocol_WEBRTC,
   ChannelProtocol_WSS,
   ChannelProtocol'
   #-}

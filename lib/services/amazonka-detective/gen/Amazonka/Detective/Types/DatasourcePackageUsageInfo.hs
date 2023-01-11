@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Detective.Types.DatasourcePackageUsageInfo
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data DatasourcePackageUsageInfo = DatasourcePackageUsageInfo'
     -- | The data and time when the member account data volume was last updated.
     -- The value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    volumeUsageUpdateTime :: Prelude.Maybe Data.POSIX
+    volumeUsageUpdateTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

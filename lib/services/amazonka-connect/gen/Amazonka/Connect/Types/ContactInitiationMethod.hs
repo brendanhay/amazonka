@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Types.ContactInitiationMethod
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,9 @@ module Amazonka.Connect.Types.ContactInitiationMethod
       ( ..,
         ContactInitiationMethod_API,
         ContactInitiationMethod_CALLBACK,
+        ContactInitiationMethod_DISCONNECT,
         ContactInitiationMethod_INBOUND,
+        ContactInitiationMethod_MONITOR,
         ContactInitiationMethod_OUTBOUND,
         ContactInitiationMethod_QUEUE_TRANSFER,
         ContactInitiationMethod_TRANSFER
@@ -68,8 +70,14 @@ pattern ContactInitiationMethod_API = ContactInitiationMethod' "API"
 pattern ContactInitiationMethod_CALLBACK :: ContactInitiationMethod
 pattern ContactInitiationMethod_CALLBACK = ContactInitiationMethod' "CALLBACK"
 
+pattern ContactInitiationMethod_DISCONNECT :: ContactInitiationMethod
+pattern ContactInitiationMethod_DISCONNECT = ContactInitiationMethod' "DISCONNECT"
+
 pattern ContactInitiationMethod_INBOUND :: ContactInitiationMethod
 pattern ContactInitiationMethod_INBOUND = ContactInitiationMethod' "INBOUND"
+
+pattern ContactInitiationMethod_MONITOR :: ContactInitiationMethod
+pattern ContactInitiationMethod_MONITOR = ContactInitiationMethod' "MONITOR"
 
 pattern ContactInitiationMethod_OUTBOUND :: ContactInitiationMethod
 pattern ContactInitiationMethod_OUTBOUND = ContactInitiationMethod' "OUTBOUND"
@@ -83,7 +91,9 @@ pattern ContactInitiationMethod_TRANSFER = ContactInitiationMethod' "TRANSFER"
 {-# COMPLETE
   ContactInitiationMethod_API,
   ContactInitiationMethod_CALLBACK,
+  ContactInitiationMethod_DISCONNECT,
   ContactInitiationMethod_INBOUND,
+  ContactInitiationMethod_MONITOR,
   ContactInitiationMethod_OUTBOUND,
   ContactInitiationMethod_QUEUE_TRANSFER,
   ContactInitiationMethod_TRANSFER,

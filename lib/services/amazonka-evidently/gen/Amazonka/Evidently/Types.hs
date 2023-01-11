@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Evidently.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -601,7 +601,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient permissions to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -609,7 +609,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | A resource was in an inconsistent state during an update or a deletion.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -617,7 +617,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Unexpected error while processing the request. Retry the request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -625,7 +625,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The request references a resource that does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -633,7 +633,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request would cause a service quota to be exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -641,7 +641,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The service was unavailable. Retry the request.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -649,7 +649,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The request was denied because of request throttling. Retry the request.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -657,7 +657,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The value of a parameter in the request caused an error.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

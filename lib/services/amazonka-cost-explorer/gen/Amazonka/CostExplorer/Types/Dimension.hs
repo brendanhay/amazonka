@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.Types.Dimension
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@ module Amazonka.CostExplorer.Types.Dimension
       ( ..,
         Dimension_AGREEMENT_END_DATE_TIME_AFTER,
         Dimension_AGREEMENT_END_DATE_TIME_BEFORE,
+        Dimension_ANOMALY_TOTAL_IMPACT_ABSOLUTE,
+        Dimension_ANOMALY_TOTAL_IMPACT_PERCENTAGE,
         Dimension_AZ,
         Dimension_BILLING_ENTITY,
         Dimension_CACHE_ENGINE,
@@ -93,6 +95,12 @@ pattern Dimension_AGREEMENT_END_DATE_TIME_AFTER = Dimension' "AGREEMENT_END_DATE
 
 pattern Dimension_AGREEMENT_END_DATE_TIME_BEFORE :: Dimension
 pattern Dimension_AGREEMENT_END_DATE_TIME_BEFORE = Dimension' "AGREEMENT_END_DATE_TIME_BEFORE"
+
+pattern Dimension_ANOMALY_TOTAL_IMPACT_ABSOLUTE :: Dimension
+pattern Dimension_ANOMALY_TOTAL_IMPACT_ABSOLUTE = Dimension' "ANOMALY_TOTAL_IMPACT_ABSOLUTE"
+
+pattern Dimension_ANOMALY_TOTAL_IMPACT_PERCENTAGE :: Dimension
+pattern Dimension_ANOMALY_TOTAL_IMPACT_PERCENTAGE = Dimension' "ANOMALY_TOTAL_IMPACT_PERCENTAGE"
 
 pattern Dimension_AZ :: Dimension
 pattern Dimension_AZ = Dimension' "AZ"
@@ -187,6 +195,8 @@ pattern Dimension_USAGE_TYPE_GROUP = Dimension' "USAGE_TYPE_GROUP"
 {-# COMPLETE
   Dimension_AGREEMENT_END_DATE_TIME_AFTER,
   Dimension_AGREEMENT_END_DATE_TIME_BEFORE,
+  Dimension_ANOMALY_TOTAL_IMPACT_ABSOLUTE,
+  Dimension_ANOMALY_TOTAL_IMPACT_PERCENTAGE,
   Dimension_AZ,
   Dimension_BILLING_ENTITY,
   Dimension_CACHE_ENGINE,

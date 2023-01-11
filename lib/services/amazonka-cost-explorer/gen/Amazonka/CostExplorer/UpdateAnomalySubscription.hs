@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.UpdateAnomalySubscription
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,7 @@ module Amazonka.CostExplorer.UpdateAnomalySubscription
     updateAnomalySubscription_subscribers,
     updateAnomalySubscription_subscriptionName,
     updateAnomalySubscription_threshold,
+    updateAnomalySubscription_thresholdExpression,
     updateAnomalySubscription_subscriptionArn,
 
     -- * Destructuring the Response
@@ -63,8 +64,37 @@ data UpdateAnomalySubscription = UpdateAnomalySubscription'
     subscribers :: Prelude.Maybe [Subscriber],
     -- | The new name of the subscription.
     subscriptionName :: Prelude.Maybe Prelude.Text,
-    -- | The update to the threshold value for receiving notifications.
+    -- | (deprecated)
+    --
+    -- The update to the threshold value for receiving notifications.
+    --
+    -- This field has been deprecated. To update a threshold, use
+    -- ThresholdExpression. Continued use of Threshold will be treated as
+    -- shorthand syntax for a ThresholdExpression.
     threshold :: Prelude.Maybe Prelude.Double,
+    -- | The update to the
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+    -- object used to specify the anomalies that you want to generate alerts
+    -- for. This supports dimensions and nested expressions. The supported
+    -- dimensions are @ANOMALY_TOTAL_IMPACT_ABSOLUTE@ and
+    -- @ANOMALY_TOTAL_IMPACT_PERCENTAGE@. The supported nested expression types
+    -- are @AND@ and @OR@. The match option @GREATER_THAN_OR_EQUAL@ is
+    -- required. Values must be numbers between 0 and 10,000,000,000.
+    --
+    -- The following are examples of valid ThresholdExpressions:
+    --
+    -- -   Absolute threshold:
+    --     @{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }@
+    --
+    -- -   Percentage threshold:
+    --     @{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }@
+    --
+    -- -   @AND@ two thresholds together:
+    --     @{ \"And\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } } ] }@
+    --
+    -- -   @OR@ two thresholds together:
+    --     @{ \"Or\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } } ] }@
+    thresholdExpression :: Prelude.Maybe Expression,
     -- | A cost anomaly subscription Amazon Resource Name (ARN).
     subscriptionArn :: Prelude.Text
   }
@@ -87,7 +117,36 @@ data UpdateAnomalySubscription = UpdateAnomalySubscription'
 --
 -- 'subscriptionName', 'updateAnomalySubscription_subscriptionName' - The new name of the subscription.
 --
--- 'threshold', 'updateAnomalySubscription_threshold' - The update to the threshold value for receiving notifications.
+-- 'threshold', 'updateAnomalySubscription_threshold' - (deprecated)
+--
+-- The update to the threshold value for receiving notifications.
+--
+-- This field has been deprecated. To update a threshold, use
+-- ThresholdExpression. Continued use of Threshold will be treated as
+-- shorthand syntax for a ThresholdExpression.
+--
+-- 'thresholdExpression', 'updateAnomalySubscription_thresholdExpression' - The update to the
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+-- object used to specify the anomalies that you want to generate alerts
+-- for. This supports dimensions and nested expressions. The supported
+-- dimensions are @ANOMALY_TOTAL_IMPACT_ABSOLUTE@ and
+-- @ANOMALY_TOTAL_IMPACT_PERCENTAGE@. The supported nested expression types
+-- are @AND@ and @OR@. The match option @GREATER_THAN_OR_EQUAL@ is
+-- required. Values must be numbers between 0 and 10,000,000,000.
+--
+-- The following are examples of valid ThresholdExpressions:
+--
+-- -   Absolute threshold:
+--     @{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }@
+--
+-- -   Percentage threshold:
+--     @{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }@
+--
+-- -   @AND@ two thresholds together:
+--     @{ \"And\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } } ] }@
+--
+-- -   @OR@ two thresholds together:
+--     @{ \"Or\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } } ] }@
 --
 -- 'subscriptionArn', 'updateAnomalySubscription_subscriptionArn' - A cost anomaly subscription Amazon Resource Name (ARN).
 newUpdateAnomalySubscription ::
@@ -102,6 +161,7 @@ newUpdateAnomalySubscription pSubscriptionArn_ =
       subscribers = Prelude.Nothing,
       subscriptionName = Prelude.Nothing,
       threshold = Prelude.Nothing,
+      thresholdExpression = Prelude.Nothing,
       subscriptionArn = pSubscriptionArn_
     }
 
@@ -122,9 +182,40 @@ updateAnomalySubscription_subscribers = Lens.lens (\UpdateAnomalySubscription' {
 updateAnomalySubscription_subscriptionName :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe Prelude.Text)
 updateAnomalySubscription_subscriptionName = Lens.lens (\UpdateAnomalySubscription' {subscriptionName} -> subscriptionName) (\s@UpdateAnomalySubscription' {} a -> s {subscriptionName = a} :: UpdateAnomalySubscription)
 
--- | The update to the threshold value for receiving notifications.
+-- | (deprecated)
+--
+-- The update to the threshold value for receiving notifications.
+--
+-- This field has been deprecated. To update a threshold, use
+-- ThresholdExpression. Continued use of Threshold will be treated as
+-- shorthand syntax for a ThresholdExpression.
 updateAnomalySubscription_threshold :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe Prelude.Double)
 updateAnomalySubscription_threshold = Lens.lens (\UpdateAnomalySubscription' {threshold} -> threshold) (\s@UpdateAnomalySubscription' {} a -> s {threshold = a} :: UpdateAnomalySubscription)
+
+-- | The update to the
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+-- object used to specify the anomalies that you want to generate alerts
+-- for. This supports dimensions and nested expressions. The supported
+-- dimensions are @ANOMALY_TOTAL_IMPACT_ABSOLUTE@ and
+-- @ANOMALY_TOTAL_IMPACT_PERCENTAGE@. The supported nested expression types
+-- are @AND@ and @OR@. The match option @GREATER_THAN_OR_EQUAL@ is
+-- required. Values must be numbers between 0 and 10,000,000,000.
+--
+-- The following are examples of valid ThresholdExpressions:
+--
+-- -   Absolute threshold:
+--     @{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }@
+--
+-- -   Percentage threshold:
+--     @{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }@
+--
+-- -   @AND@ two thresholds together:
+--     @{ \"And\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } } ] }@
+--
+-- -   @OR@ two thresholds together:
+--     @{ \"Or\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } } ] }@
+updateAnomalySubscription_thresholdExpression :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe Expression)
+updateAnomalySubscription_thresholdExpression = Lens.lens (\UpdateAnomalySubscription' {thresholdExpression} -> thresholdExpression) (\s@UpdateAnomalySubscription' {} a -> s {thresholdExpression = a} :: UpdateAnomalySubscription)
 
 -- | A cost anomaly subscription Amazon Resource Name (ARN).
 updateAnomalySubscription_subscriptionArn :: Lens.Lens' UpdateAnomalySubscription Prelude.Text
@@ -151,6 +242,7 @@ instance Prelude.Hashable UpdateAnomalySubscription where
       `Prelude.hashWithSalt` subscribers
       `Prelude.hashWithSalt` subscriptionName
       `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` thresholdExpression
       `Prelude.hashWithSalt` subscriptionArn
 
 instance Prelude.NFData UpdateAnomalySubscription where
@@ -160,6 +252,7 @@ instance Prelude.NFData UpdateAnomalySubscription where
       `Prelude.seq` Prelude.rnf subscribers
       `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf thresholdExpression
       `Prelude.seq` Prelude.rnf subscriptionArn
 
 instance Data.ToHeaders UpdateAnomalySubscription where
@@ -188,6 +281,8 @@ instance Data.ToJSON UpdateAnomalySubscription where
             ("SubscriptionName" Data..=)
               Prelude.<$> subscriptionName,
             ("Threshold" Data..=) Prelude.<$> threshold,
+            ("ThresholdExpression" Data..=)
+              Prelude.<$> thresholdExpression,
             Prelude.Just
               ("SubscriptionArn" Data..= subscriptionArn)
           ]

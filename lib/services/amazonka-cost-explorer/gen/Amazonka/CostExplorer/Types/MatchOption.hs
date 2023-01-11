@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.Types.MatchOption
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,7 @@ module Amazonka.CostExplorer.Types.MatchOption
         MatchOption_CONTAINS,
         MatchOption_ENDS_WITH,
         MatchOption_EQUALS,
+        MatchOption_GREATER_THAN_OR_EQUAL,
         MatchOption_STARTS_WITH
       ),
   )
@@ -81,6 +82,9 @@ pattern MatchOption_ENDS_WITH = MatchOption' "ENDS_WITH"
 pattern MatchOption_EQUALS :: MatchOption
 pattern MatchOption_EQUALS = MatchOption' "EQUALS"
 
+pattern MatchOption_GREATER_THAN_OR_EQUAL :: MatchOption
+pattern MatchOption_GREATER_THAN_OR_EQUAL = MatchOption' "GREATER_THAN_OR_EQUAL"
+
 pattern MatchOption_STARTS_WITH :: MatchOption
 pattern MatchOption_STARTS_WITH = MatchOption' "STARTS_WITH"
 
@@ -91,6 +95,7 @@ pattern MatchOption_STARTS_WITH = MatchOption' "STARTS_WITH"
   MatchOption_CONTAINS,
   MatchOption_ENDS_WITH,
   MatchOption_EQUALS,
+  MatchOption_GREATER_THAN_OR_EQUAL,
   MatchOption_STARTS_WITH,
   MatchOption'
   #-}

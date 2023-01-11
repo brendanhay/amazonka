@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.AccessPreviewFinding
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data AccessPreviewFinding = AccessPreviewFinding'
     -- | The type of the resource that can be accessed in the finding.
     resourceType :: ResourceType,
     -- | The time at which the access preview finding was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | Provides context on how the access preview finding compares to existing
     -- access identified in IAM Access Analyzer.
     --

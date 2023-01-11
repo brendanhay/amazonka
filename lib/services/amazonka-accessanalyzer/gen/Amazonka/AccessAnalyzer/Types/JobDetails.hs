@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.JobDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newJobDetails' smart constructor.
 data JobDetails = JobDetails'
   { -- | A timestamp of when the job was completed.
-    completedOn :: Prelude.Maybe Data.POSIX,
+    completedOn :: Prelude.Maybe Data.ISO8601,
     -- | The job error for the policy generation request.
     jobError :: Prelude.Maybe JobError,
     -- | The @JobId@ that is returned by the @StartPolicyGeneration@ operation.
@@ -42,7 +42,7 @@ data JobDetails = JobDetails'
     -- | The status of the job request.
     status :: JobStatus,
     -- | A timestamp of when the job was started.
-    startedOn :: Data.POSIX
+    startedOn :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

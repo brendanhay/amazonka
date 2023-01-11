@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.DeleteInstance
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteInstance' smart constructor.
 data DeleteInstance = DeleteInstance'
-  { -- | A Boolean value to indicate whether to delete the enabled add-ons for
-    -- the disk.
+  { -- | A Boolean value to indicate whether to delete all add-ons for the
+    -- instance.
     forceDeleteAddOns :: Prelude.Maybe Prelude.Bool,
     -- | The name of the instance to delete.
     instanceName :: Prelude.Text
@@ -71,8 +71,8 @@ data DeleteInstance = DeleteInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'forceDeleteAddOns', 'deleteInstance_forceDeleteAddOns' - A Boolean value to indicate whether to delete the enabled add-ons for
--- the disk.
+-- 'forceDeleteAddOns', 'deleteInstance_forceDeleteAddOns' - A Boolean value to indicate whether to delete all add-ons for the
+-- instance.
 --
 -- 'instanceName', 'deleteInstance_instanceName' - The name of the instance to delete.
 newDeleteInstance ::
@@ -86,8 +86,8 @@ newDeleteInstance pInstanceName_ =
       instanceName = pInstanceName_
     }
 
--- | A Boolean value to indicate whether to delete the enabled add-ons for
--- the disk.
+-- | A Boolean value to indicate whether to delete all add-ons for the
+-- instance.
 deleteInstance_forceDeleteAddOns :: Lens.Lens' DeleteInstance (Prelude.Maybe Prelude.Bool)
 deleteInstance_forceDeleteAddOns = Lens.lens (\DeleteInstance' {forceDeleteAddOns} -> forceDeleteAddOns) (\s@DeleteInstance' {} a -> s {forceDeleteAddOns = a} :: DeleteInstance)
 

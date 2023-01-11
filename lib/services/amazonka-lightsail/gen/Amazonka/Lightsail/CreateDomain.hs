@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.CreateDomain
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,11 +59,6 @@ data CreateDomain = CreateDomain'
     -- Use the @TagResource@ action to tag a resource after it\'s created.
     tags :: Prelude.Maybe [Tag],
     -- | The domain name to manage (e.g., @example.com@).
-    --
-    -- You cannot register a new domain name using Lightsail. You must register
-    -- a domain name using Amazon Route 53 or another domain name registrar. If
-    -- you have already registered your domain, you can enter its name in this
-    -- parameter to manage the DNS records for that domain using Lightsail.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,11 +76,6 @@ data CreateDomain = CreateDomain'
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 --
 -- 'domainName', 'createDomain_domainName' - The domain name to manage (e.g., @example.com@).
---
--- You cannot register a new domain name using Lightsail. You must register
--- a domain name using Amazon Route 53 or another domain name registrar. If
--- you have already registered your domain, you can enter its name in this
--- parameter to manage the DNS records for that domain using Lightsail.
 newCreateDomain ::
   -- | 'domainName'
   Prelude.Text ->
@@ -103,11 +93,6 @@ createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
 createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The domain name to manage (e.g., @example.com@).
---
--- You cannot register a new domain name using Lightsail. You must register
--- a domain name using Amazon Route 53 or another domain name registrar. If
--- you have already registered your domain, you can enter its name in this
--- parameter to manage the DNS records for that domain using Lightsail.
 createDomain_domainName :: Lens.Lens' CreateDomain Prelude.Text
 createDomain_domainName = Lens.lens (\CreateDomain' {domainName} -> domainName) (\s@CreateDomain' {} a -> s {domainName = a} :: CreateDomain)
 

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.EFS.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -322,7 +322,7 @@ defaultService =
 
 -- | Returned if the access point that you are trying to create already
 -- exists, with the creation token you provided in the request.
-_AccessPointAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessPointAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessPointAlreadyExists =
   Core._MatchServiceError
     defaultService
@@ -333,7 +333,7 @@ _AccessPointAlreadyExists =
 -- maximum number of access points allowed per file system. For more
 -- informaton, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region>.
-_AccessPointLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessPointLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessPointLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -342,7 +342,7 @@ _AccessPointLimitExceeded =
 
 -- | Returned if the specified @AccessPointId@ value doesn\'t exist in the
 -- requester\'s Amazon Web Services account.
-_AccessPointNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessPointNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessPointNotFound =
   Core._MatchServiceError
     defaultService
@@ -353,7 +353,7 @@ _AccessPointNotFound =
 -- is different from the Availability Zone that was specified for One Zone
 -- storage. For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html Regional and One Zone storage redundancy>.
-_AvailabilityZonesMismatch :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AvailabilityZonesMismatch :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AvailabilityZonesMismatch =
   Core._MatchServiceError
     defaultService
@@ -362,14 +362,14 @@ _AvailabilityZonesMismatch =
 
 -- | Returned if the request is malformed or contains an error such as an
 -- invalid parameter value or a missing required parameter.
-_BadRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequest :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequest =
   Core._MatchServiceError defaultService "BadRequest"
     Prelude.. Core.hasStatus 400
 
 -- | The service timed out trying to fulfill the request, and the client
 -- should try the call again.
-_DependencyTimeout :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DependencyTimeout :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DependencyTimeout =
   Core._MatchServiceError
     defaultService
@@ -378,7 +378,7 @@ _DependencyTimeout =
 
 -- | Returned if the file system you are trying to create already exists,
 -- with the creation token you provided.
-_FileSystemAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileSystemAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
 _FileSystemAlreadyExists =
   Core._MatchServiceError
     defaultService
@@ -386,7 +386,7 @@ _FileSystemAlreadyExists =
     Prelude.. Core.hasStatus 409
 
 -- | Returned if a file system has mount targets.
-_FileSystemInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileSystemInUse :: Core.AsError a => Lens.Fold a Core.ServiceError
 _FileSystemInUse =
   Core._MatchServiceError
     defaultService
@@ -395,7 +395,7 @@ _FileSystemInUse =
 
 -- | Returned if the Amazon Web Services account has already created the
 -- maximum number of file systems allowed per account.
-_FileSystemLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileSystemLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _FileSystemLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -404,7 +404,7 @@ _FileSystemLimitExceeded =
 
 -- | Returned if the specified @FileSystemId@ value doesn\'t exist in the
 -- requester\'s Amazon Web Services account.
-_FileSystemNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FileSystemNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _FileSystemNotFound =
   Core._MatchServiceError
     defaultService
@@ -412,7 +412,7 @@ _FileSystemNotFound =
     Prelude.. Core.hasStatus 404
 
 -- | Returned if the file system\'s lifecycle state is not \"available\".
-_IncorrectFileSystemLifeCycleState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncorrectFileSystemLifeCycleState :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IncorrectFileSystemLifeCycleState =
   Core._MatchServiceError
     defaultService
@@ -421,7 +421,7 @@ _IncorrectFileSystemLifeCycleState =
 
 -- | Returned if the mount target is not in the correct state for the
 -- operation.
-_IncorrectMountTargetState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncorrectMountTargetState :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IncorrectMountTargetState =
   Core._MatchServiceError
     defaultService
@@ -434,7 +434,7 @@ _IncorrectMountTargetState =
 -- provisioned throughput of an existing file system, or when you attempt
 -- to change an existing file system from Bursting Throughput to
 -- Provisioned Throughput mode. Try again later.
-_InsufficientThroughputCapacity :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientThroughputCapacity :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InsufficientThroughputCapacity =
   Core._MatchServiceError
     defaultService
@@ -442,7 +442,7 @@ _InsufficientThroughputCapacity =
     Prelude.. Core.hasStatus 503
 
 -- | Returned if an error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -452,7 +452,7 @@ _InternalServerError =
 -- | Returned if the @FileSystemPolicy@ is malformed or contains an error
 -- such as a parameter value that is not valid or a missing required
 -- parameter. Returned in the case of a policy lockout safety check error.
-_InvalidPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPolicyException =
   Core._MatchServiceError
     defaultService
@@ -461,7 +461,7 @@ _InvalidPolicyException =
 
 -- | Returned if the request specified an @IpAddress@ that is already in use
 -- in the subnet.
-_IpAddressInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IpAddressInUse :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IpAddressInUse =
   Core._MatchServiceError
     defaultService
@@ -470,7 +470,7 @@ _IpAddressInUse =
 
 -- | Returned if the mount target would violate one of the specified
 -- restrictions based on the file system\'s existing mount targets.
-_MountTargetConflict :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MountTargetConflict :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MountTargetConflict =
   Core._MatchServiceError
     defaultService
@@ -479,7 +479,7 @@ _MountTargetConflict =
 
 -- | Returned if there is no mount target with the specified ID found in the
 -- caller\'s Amazon Web Services account.
-_MountTargetNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MountTargetNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MountTargetNotFound =
   Core._MatchServiceError
     defaultService
@@ -493,7 +493,7 @@ _MountTargetNotFound =
 -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Quotas>
 -- in the /Amazon VPC User Guide/ (see the __Network interfaces per
 -- Region__ entry in the __Network interfaces__ table).
-_NetworkInterfaceLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NetworkInterfaceLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NetworkInterfaceLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -502,7 +502,7 @@ _NetworkInterfaceLimitExceeded =
 
 -- | Returned if @IpAddress@ was not specified in the request and there are
 -- no free IP addresses in the subnet.
-_NoFreeAddressesInSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoFreeAddressesInSubnet :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoFreeAddressesInSubnet =
   Core._MatchServiceError
     defaultService
@@ -511,7 +511,7 @@ _NoFreeAddressesInSubnet =
 
 -- | Returned if the default file system policy is in effect for the EFS file
 -- system specified.
-_PolicyNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PolicyNotFound =
   Core._MatchServiceError
     defaultService
@@ -520,7 +520,7 @@ _PolicyNotFound =
 
 -- | Returned if the specified file system does not have a replication
 -- configuration.
-_ReplicationNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ReplicationNotFound =
   Core._MatchServiceError
     defaultService
@@ -529,7 +529,7 @@ _ReplicationNotFound =
 
 -- | Returned if the size of @SecurityGroups@ specified in the request is
 -- greater than five.
-_SecurityGroupLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SecurityGroupLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SecurityGroupLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -538,7 +538,7 @@ _SecurityGroupLimitExceeded =
 
 -- | Returned if one of the specified security groups doesn\'t exist in the
 -- subnet\'s virtual private cloud (VPC).
-_SecurityGroupNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SecurityGroupNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SecurityGroupNotFound =
   Core._MatchServiceError
     defaultService
@@ -547,7 +547,7 @@ _SecurityGroupNotFound =
 
 -- | Returned if there is no subnet with ID @SubnetId@ provided in the
 -- request.
-_SubnetNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SubnetNotFound =
   Core._MatchServiceError
     defaultService
@@ -557,7 +557,7 @@ _SubnetNotFound =
 -- | Returned when the @CreateAccessPoint@ API action is called too quickly
 -- and the number of Access Points on the file system is nearing the
 -- <https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region limit of 120>.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -567,7 +567,7 @@ _ThrottlingException =
 -- | Returned if the throughput mode or amount of provisioned throughput
 -- can\'t be changed because the throughput limit of 1024 MiB\/s has been
 -- reached.
-_ThroughputLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThroughputLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThroughputLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -576,7 +576,7 @@ _ThroughputLimitExceeded =
 
 -- | Returned if you don’t wait at least 24 hours before either changing the
 -- throughput mode, or decreasing the Provisioned Throughput value.
-_TooManyRequests :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequests :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequests =
   Core._MatchServiceError
     defaultService
@@ -585,7 +585,7 @@ _TooManyRequests =
 
 -- | Returned if the requested Amazon EFS functionality is not available in
 -- the specified Availability Zone.
-_UnsupportedAvailabilityZone :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedAvailabilityZone :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedAvailabilityZone =
   Core._MatchServiceError
     defaultService
@@ -594,7 +594,7 @@ _UnsupportedAvailabilityZone =
 
 -- | Returned if the Backup service is not available in the Amazon Web
 -- Services Region in which the request was made.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceExplorer2.DeleteIndex
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,12 @@
 -- These actions occur as asynchronous background tasks. You can check to
 -- see when the actions are complete by using the GetIndex operation and
 -- checking the @Status@ response value.
+--
+-- If the index you delete is the aggregator index for the Amazon Web
+-- Services account, you must wait 24 hours before you can promote another
+-- local index to be the aggregator index for the account. Users can\'t
+-- perform account-wide searches using Resource Explorer until another
+-- aggregator index is configured.
 module Amazonka.ResourceExplorer2.DeleteIndex
   ( -- * Creating a Request
     DeleteIndex (..),
@@ -142,7 +148,7 @@ data DeleteIndexResponse = DeleteIndexResponse'
     -- operation.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when you last updated this index.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.ISO8601,
     -- | Indicates the current state of the index.
     state :: Prelude.Maybe IndexState,
     -- | The response's http status code.

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceExplorer2.UpdateIndexType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 -- Changes the type of the index from one of the following types to the
 -- other. For more information about indexes and the role they perform in
 -- Amazon Web Services Resource Explorer, see
--- <https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region.html Turning on cross-Region search by creating an aggregator index>
+-- <https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html Turning on cross-Region search by creating an aggregator index>
 -- in the /Amazon Web Services Resource Explorer User Guide/.
 --
 -- -   __@AGGREGATOR@ index type__
@@ -217,7 +217,7 @@ data UpdateIndexTypeResponse = UpdateIndexTypeResponse'
     -- of the index that you updated.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and timestamp when the index was last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.ISO8601,
     -- | Indicates the state of the request to update the index. This operation
     -- is asynchronous. Call the GetIndex operation to check for changes.
     state :: Prelude.Maybe IndexState,

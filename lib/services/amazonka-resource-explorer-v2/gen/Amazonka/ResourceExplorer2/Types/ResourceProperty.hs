@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceExplorer2.Types.ResourceProperty
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data ResourceProperty = ResourceProperty'
     data' :: Prelude.Maybe Document,
     -- | The date and time that the information about this resource property was
     -- last updated.
-    lastReportedAt :: Prelude.Maybe Data.POSIX,
+    lastReportedAt :: Prelude.Maybe Data.ISO8601,
     -- | The name of this property of the resource.
     name :: Prelude.Maybe Prelude.Text
   }

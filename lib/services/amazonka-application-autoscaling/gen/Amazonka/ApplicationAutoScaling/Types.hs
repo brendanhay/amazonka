@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -71,6 +71,14 @@ module Amazonka.ApplicationAutoScaling.Types
     metricDimension_name,
     metricDimension_value,
 
+    -- * NotScaledReason
+    NotScaledReason (..),
+    newNotScaledReason,
+    notScaledReason_currentCapacity,
+    notScaledReason_maxCapacity,
+    notScaledReason_minCapacity,
+    notScaledReason_code,
+
     -- * PredefinedMetricSpecification
     PredefinedMetricSpecification (..),
     newPredefinedMetricSpecification,
@@ -100,6 +108,7 @@ module Amazonka.ApplicationAutoScaling.Types
     newScalingActivity,
     scalingActivity_details,
     scalingActivity_endTime,
+    scalingActivity_notScaledReasons,
     scalingActivity_statusMessage,
     scalingActivity_activityId,
     scalingActivity_serviceNamespace,
@@ -181,6 +190,7 @@ import Amazonka.ApplicationAutoScaling.Types.MetricAggregationType
 import Amazonka.ApplicationAutoScaling.Types.MetricDimension
 import Amazonka.ApplicationAutoScaling.Types.MetricStatistic
 import Amazonka.ApplicationAutoScaling.Types.MetricType
+import Amazonka.ApplicationAutoScaling.Types.NotScaledReason
 import Amazonka.ApplicationAutoScaling.Types.PolicyType
 import Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification
 import Amazonka.ApplicationAutoScaling.Types.ScalableDimension
@@ -275,7 +285,7 @@ defaultService =
 -- | Concurrent updates caused an exception, for example, if you request an
 -- update to an Application Auto Scaling resource that already has a
 -- pending update.
-_ConcurrentUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentUpdateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentUpdateException =
   Core._MatchServiceError
     defaultService
@@ -288,21 +298,21 @@ _ConcurrentUpdateException =
 -- call the CloudWatch
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms>
 -- on your behalf.
-_FailedResourceAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FailedResourceAccessException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _FailedResourceAccessException =
   Core._MatchServiceError
     defaultService
     "FailedResourceAccessException"
 
 -- | The service encountered an internal error.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
     "InternalServiceException"
 
 -- | The next token supplied was invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -310,7 +320,7 @@ _InvalidNextTokenException =
 
 -- | A per-account resource limit is exceeded. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html Application Auto Scaling service quotas>.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -322,7 +332,7 @@ _LimitExceededException =
 -- scalable dimension does not exist. For any operation that deletes or
 -- deregisters a resource, this exception is thrown if the resource cannot
 -- be found.
-_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ObjectNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -330,7 +340,7 @@ _ObjectNotFoundException =
 
 -- | An exception was thrown for a validation issue. Review the available
 -- parameters for the API request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

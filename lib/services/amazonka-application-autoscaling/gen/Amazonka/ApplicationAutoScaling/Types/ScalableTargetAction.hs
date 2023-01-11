@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,15 +36,14 @@ data ScalableTargetAction = ScalableTargetAction'
     -- higher limit, you can request an increase. For more information, consult
     -- the documentation for that service. For information about the default
     -- quotas for each service, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service endpoints and quotas>
     -- in the /Amazon Web Services General Reference/.
     maxCapacity :: Prelude.Maybe Prelude.Int,
     -- | The minimum capacity.
     --
-    -- For certain resources, the minimum value allowed is 0. This includes
-    -- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
-    -- clusters, EMR clusters, and custom resources. For all other resources,
-    -- the minimum value allowed is 1.
+    -- When the scheduled action runs, the resource will have at least this
+    -- much capacity, but it might have more depending on other settings, such
+    -- as the target utilization level of a target tracking scaling policy.
     minCapacity :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,15 +64,14 @@ data ScalableTargetAction = ScalableTargetAction'
 -- higher limit, you can request an increase. For more information, consult
 -- the documentation for that service. For information about the default
 -- quotas for each service, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service endpoints and quotas>
 -- in the /Amazon Web Services General Reference/.
 --
 -- 'minCapacity', 'scalableTargetAction_minCapacity' - The minimum capacity.
 --
--- For certain resources, the minimum value allowed is 0. This includes
--- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
--- clusters, EMR clusters, and custom resources. For all other resources,
--- the minimum value allowed is 1.
+-- When the scheduled action runs, the resource will have at least this
+-- much capacity, but it might have more depending on other settings, such
+-- as the target utilization level of a target tracking scaling policy.
 newScalableTargetAction ::
   ScalableTargetAction
 newScalableTargetAction =
@@ -91,17 +89,16 @@ newScalableTargetAction =
 -- higher limit, you can request an increase. For more information, consult
 -- the documentation for that service. For information about the default
 -- quotas for each service, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service endpoints and quotas>
 -- in the /Amazon Web Services General Reference/.
 scalableTargetAction_maxCapacity :: Lens.Lens' ScalableTargetAction (Prelude.Maybe Prelude.Int)
 scalableTargetAction_maxCapacity = Lens.lens (\ScalableTargetAction' {maxCapacity} -> maxCapacity) (\s@ScalableTargetAction' {} a -> s {maxCapacity = a} :: ScalableTargetAction)
 
 -- | The minimum capacity.
 --
--- For certain resources, the minimum value allowed is 0. This includes
--- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
--- clusters, EMR clusters, and custom resources. For all other resources,
--- the minimum value allowed is 1.
+-- When the scheduled action runs, the resource will have at least this
+-- much capacity, but it might have more depending on other settings, such
+-- as the target utilization level of a target tracking scaling policy.
 scalableTargetAction_minCapacity :: Lens.Lens' ScalableTargetAction (Prelude.Maybe Prelude.Int)
 scalableTargetAction_minCapacity = Lens.lens (\ScalableTargetAction' {minCapacity} -> minCapacity) (\s@ScalableTargetAction' {} a -> s {minCapacity = a} :: ScalableTargetAction)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.Types.ScalingPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- For more information about configuring scaling policies for a specific
 -- service, see
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html Getting started with Application Auto Scaling>
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/integrated-services-list.html Amazon Web Services services that you can use with Application Auto Scaling>
 -- in the /Application Auto Scaling User Guide/.
 --
 -- /See:/ 'newScalingPolicy' smart constructor.
@@ -152,7 +152,7 @@ data ScalingPolicy = ScalingPolicy'
     --     Aurora PostgreSQL-compatible edition.
     --
     -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an SageMaker model endpoint variant.
+    --     instances for a SageMaker model endpoint variant.
     --
     -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
     --     a custom resource provided by your own application or service.
@@ -187,6 +187,13 @@ data ScalingPolicy = ScalingPolicy'
     --     an Amazon Neptune DB cluster.
     scalableDimension :: ScalableDimension,
     -- | The scaling policy type.
+    --
+    -- The following policy types are supported:
+    --
+    -- @TargetTrackingScaling@—Not supported for Amazon EMR
+    --
+    -- @StepScaling@—Not supported for DynamoDB, Amazon Comprehend, Lambda,
+    -- Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
     policyType :: PolicyType,
     -- | The Unix timestamp for when the scaling policy was created.
     creationTime :: Data.POSIX
@@ -314,7 +321,7 @@ data ScalingPolicy = ScalingPolicy'
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
+--     instances for a SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -349,6 +356,13 @@ data ScalingPolicy = ScalingPolicy'
 --     an Amazon Neptune DB cluster.
 --
 -- 'policyType', 'scalingPolicy_policyType' - The scaling policy type.
+--
+-- The following policy types are supported:
+--
+-- @TargetTrackingScaling@—Not supported for Amazon EMR
+--
+-- @StepScaling@—Not supported for DynamoDB, Amazon Comprehend, Lambda,
+-- Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
 --
 -- 'creationTime', 'scalingPolicy_creationTime' - The Unix timestamp for when the scaling policy was created.
 newScalingPolicy ::
@@ -516,7 +530,7 @@ scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
+--     instances for a SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -553,6 +567,13 @@ scalingPolicy_scalableDimension :: Lens.Lens' ScalingPolicy ScalableDimension
 scalingPolicy_scalableDimension = Lens.lens (\ScalingPolicy' {scalableDimension} -> scalableDimension) (\s@ScalingPolicy' {} a -> s {scalableDimension = a} :: ScalingPolicy)
 
 -- | The scaling policy type.
+--
+-- The following policy types are supported:
+--
+-- @TargetTrackingScaling@—Not supported for Amazon EMR
+--
+-- @StepScaling@—Not supported for DynamoDB, Amazon Comprehend, Lambda,
+-- Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
 scalingPolicy_policyType :: Lens.Lens' ScalingPolicy PolicyType
 scalingPolicy_policyType = Lens.lens (\ScalingPolicy' {policyType} -> policyType) (\s@ScalingPolicy' {} a -> s {policyType = a} :: ScalingPolicy)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -140,6 +140,10 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
     -- a valid number based on the choice of metric. For example, if the metric
     -- is CPU utilization, then the target value is a percent value that
     -- represents how much of the CPU can be used before scaling out.
+    --
+    -- If the scaling policy specifies the @ALBRequestCountPerTarget@
+    -- predefined metric, specify the target utilization as the optimal average
+    -- request count per target during any one-minute interval.
     targetValue :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -261,6 +265,10 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
 -- a valid number based on the choice of metric. For example, if the metric
 -- is CPU utilization, then the target value is a percent value that
 -- represents how much of the CPU can be used before scaling out.
+--
+-- If the scaling policy specifies the @ALBRequestCountPerTarget@
+-- predefined metric, specify the target utilization as the optimal average
+-- request count per target during any one-minute interval.
 newTargetTrackingScalingPolicyConfiguration ::
   -- | 'targetValue'
   Prelude.Double ->
@@ -398,6 +406,10 @@ targetTrackingScalingPolicyConfiguration_scaleOutCooldown = Lens.lens (\TargetTr
 -- a valid number based on the choice of metric. For example, if the metric
 -- is CPU utilization, then the target value is a percent value that
 -- represents how much of the CPU can be used before scaling out.
+--
+-- If the scaling policy specifies the @ALBRequestCountPerTarget@
+-- predefined metric, specify the target utilization as the optimal average
+-- request count per target during any one-minute interval.
 targetTrackingScalingPolicyConfiguration_targetValue :: Lens.Lens' TargetTrackingScalingPolicyConfiguration Prelude.Double
 targetTrackingScalingPolicyConfiguration_targetValue = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {targetValue = a} :: TargetTrackingScalingPolicyConfiguration)
 

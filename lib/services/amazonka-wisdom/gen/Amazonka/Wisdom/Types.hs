@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Wisdom.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -423,7 +423,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -434,7 +434,7 @@ _AccessDeniedException =
 -- state of the resource. For example, if you\'re using a @Create@ API
 -- (such as @CreateAssistant@) that accepts name, a conflicting resource
 -- (usually with the same name) is being created or mutated.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -443,7 +443,7 @@ _ConflictException =
 
 -- | The provided @revisionId@ does not match, indicating the content has
 -- been modified since it was last read.
-_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PreconditionFailedException =
   Core._MatchServiceError
     defaultService
@@ -451,7 +451,7 @@ _PreconditionFailedException =
     Prelude.. Core.hasStatus 412
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -461,7 +461,7 @@ _ResourceNotFoundException =
 -- | You\'ve exceeded your service quota. To perform the requested action,
 -- remove some of the relevant resources, or use service quotas to request
 -- a service quota increase.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -470,7 +470,7 @@ _ServiceQuotaExceededException =
 
 -- | Amazon Connect Wisdom throws this exception if you have too many tags in
 -- your tag set.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
@@ -478,7 +478,7 @@ _TooManyTagsException =
     Prelude.. Core.hasStatus 400
 
 -- | The input fails to satisfy the constraints specified by a service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

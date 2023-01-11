@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ServiceCatalog.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -799,14 +799,14 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified resource is a duplicate.
-_DuplicateResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateResourceException =
   Core._MatchServiceError
     defaultService
     "DuplicateResourceException"
 
 -- | One or more parameters provided to the operation are not valid.
-_InvalidParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParametersException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParametersException =
   Core._MatchServiceError
     defaultService
@@ -815,7 +815,7 @@ _InvalidParametersException =
 -- | An attempt was made to modify a resource that is in a state that is not
 -- valid. Check your resources to ensure that they are in valid states
 -- before retrying the operation.
-_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -824,14 +824,14 @@ _InvalidStateException =
 -- | The current limits of the service would have been exceeded by this
 -- operation. Decrease your resource use or increase your service limits
 -- and retry the operation.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The operation is not supported.
-_OperationNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotSupportedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationNotSupportedException =
   Core._MatchServiceError
     defaultService
@@ -839,14 +839,14 @@ _OperationNotSupportedException =
 
 -- | A resource that is currently in use. Ensure that the resource is not in
 -- use and retry the operation.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
 -- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -856,7 +856,7 @@ _ResourceNotFoundException =
 -- migration process has not been performed for this account. Use the
 -- Amazon Web Services Management Console to perform the migration process
 -- before retrying the operation.
-_TagOptionNotMigratedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagOptionNotMigratedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TagOptionNotMigratedException =
   Core._MatchServiceError
     defaultService

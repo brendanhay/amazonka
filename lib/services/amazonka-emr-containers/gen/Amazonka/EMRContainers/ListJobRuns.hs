@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.ListJobRuns
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,9 +61,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListJobRuns' smart constructor.
 data ListJobRuns = ListJobRuns'
   { -- | The date and time after which the job runs were submitted.
-    createdAfter :: Prelude.Maybe Data.POSIX,
+    createdAfter :: Prelude.Maybe Data.ISO8601,
     -- | The date and time before which the job runs were submitted.
-    createdBefore :: Prelude.Maybe Data.POSIX,
+    createdBefore :: Prelude.Maybe Data.ISO8601,
     -- | The maximum number of job runs that can be listed.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The name of the job run.

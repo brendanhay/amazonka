@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.Types.JobTemplate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,7 @@ data JobTemplate = JobTemplate'
   { -- | The ARN of the job template.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the job template was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The user who created the job template.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The error message in case the decryption of job template fails.

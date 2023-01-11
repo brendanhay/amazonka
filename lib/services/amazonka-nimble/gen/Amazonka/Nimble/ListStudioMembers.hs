@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListStudioMembers
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,8 @@ import qualified Amazonka.Response as Response
 data ListStudioMembers = ListStudioMembers'
   { -- | The max number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to request the next page of results.
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -75,7 +76,8 @@ data ListStudioMembers = ListStudioMembers'
 --
 -- 'maxResults', 'listStudioMembers_maxResults' - The max number of results to return in the response.
 --
--- 'nextToken', 'listStudioMembers_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'listStudioMembers_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
 -- 'studioId', 'listStudioMembers_studioId' - The studio ID.
 newListStudioMembers ::
@@ -93,7 +95,8 @@ newListStudioMembers pStudioId_ =
 listStudioMembers_maxResults :: Lens.Lens' ListStudioMembers (Prelude.Maybe Prelude.Natural)
 listStudioMembers_maxResults = Lens.lens (\ListStudioMembers' {maxResults} -> maxResults) (\s@ListStudioMembers' {} a -> s {maxResults = a} :: ListStudioMembers)
 
--- | The token to request the next page of results.
+-- | The token for the next set of results, or null if there are no more
+-- results.
 listStudioMembers_nextToken :: Lens.Lens' ListStudioMembers (Prelude.Maybe Prelude.Text)
 listStudioMembers_nextToken = Lens.lens (\ListStudioMembers' {nextToken} -> nextToken) (\s@ListStudioMembers' {} a -> s {nextToken = a} :: ListStudioMembers)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.ActiveDirectoryConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,8 @@ import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
 import qualified Amazonka.Prelude as Prelude
 
--- | The configuration for a Microsoft Active Directory (Microsoft AD) studio
--- resource.
+-- | The configuration for a Directory Service for Microsoft Active Directory
+-- studio resource.
 --
 -- /See:/ 'newActiveDirectoryConfiguration' smart constructor.
 data ActiveDirectoryConfiguration = ActiveDirectoryConfiguration'

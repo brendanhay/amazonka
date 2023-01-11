@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StudioComponent
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,12 +47,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStudioComponent' smart constructor.
 data StudioComponent = StudioComponent'
-  { -- | The ARN of the resource.
+  { -- | The Amazon Resource Name (ARN) that is assigned to a studio resource and
+    -- uniquely identifies it. ARNs are unique across all Regions.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The configuration of the studio component, based on component type.
     configuration :: Prelude.Maybe StudioComponentConfiguration,
-    -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The ISO timestamp in seconds for when the resource was created.
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The user ID of the user that created the studio component.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description for the studio component resource.
@@ -64,14 +65,14 @@ data StudioComponent = StudioComponent'
     -- | A friendly name for the studio component resource.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An IAM role attached to a Studio Component that gives the studio
-    -- component access to AWS resources at anytime while the instance is
-    -- running.
+    -- component access to Amazon Web Services resources at anytime while the
+    -- instance is running.
     runtimeRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Parameters for the studio component scripts.
     scriptParameters :: Prelude.Maybe (Data.Sensitive [ScriptParameterKeyValue]),
     -- | An IAM role attached to Studio Component when the system initialization
-    -- script runs which give the studio component access to AWS resources when
-    -- the system initialization script runs.
+    -- script runs which give the studio component access to Amazon Web
+    -- Services resources when the system initialization script runs.
     secureInitializationRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The current state.
     state :: Prelude.Maybe StudioComponentState,
@@ -83,13 +84,13 @@ data StudioComponent = StudioComponent'
     studioComponentId :: Prelude.Maybe Prelude.Text,
     -- | The specific subtype of a studio component.
     subtype :: Prelude.Maybe StudioComponentSubtype,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- | A collection of labels, in the form of key-value pairs, that apply to
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of the studio component.
     type' :: Prelude.Maybe StudioComponentType,
-    -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The ISO timestamp in seconds for when the resource was updated.
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The user ID of the user that most recently updated the resource.
     updatedBy :: Prelude.Maybe Prelude.Text
   }
@@ -103,11 +104,12 @@ data StudioComponent = StudioComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'studioComponent_arn' - The ARN of the resource.
+-- 'arn', 'studioComponent_arn' - The Amazon Resource Name (ARN) that is assigned to a studio resource and
+-- uniquely identifies it. ARNs are unique across all Regions.
 --
 -- 'configuration', 'studioComponent_configuration' - The configuration of the studio component, based on component type.
 --
--- 'createdAt', 'studioComponent_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
+-- 'createdAt', 'studioComponent_createdAt' - The ISO timestamp in seconds for when the resource was created.
 --
 -- 'createdBy', 'studioComponent_createdBy' - The user ID of the user that created the studio component.
 --
@@ -120,14 +122,14 @@ data StudioComponent = StudioComponent'
 -- 'name', 'studioComponent_name' - A friendly name for the studio component resource.
 --
 -- 'runtimeRoleArn', 'studioComponent_runtimeRoleArn' - An IAM role attached to a Studio Component that gives the studio
--- component access to AWS resources at anytime while the instance is
--- running.
+-- component access to Amazon Web Services resources at anytime while the
+-- instance is running.
 --
 -- 'scriptParameters', 'studioComponent_scriptParameters' - Parameters for the studio component scripts.
 --
 -- 'secureInitializationRoleArn', 'studioComponent_secureInitializationRoleArn' - An IAM role attached to Studio Component when the system initialization
--- script runs which give the studio component access to AWS resources when
--- the system initialization script runs.
+-- script runs which give the studio component access to Amazon Web
+-- Services resources when the system initialization script runs.
 --
 -- 'state', 'studioComponent_state' - The current state.
 --
@@ -139,12 +141,12 @@ data StudioComponent = StudioComponent'
 --
 -- 'subtype', 'studioComponent_subtype' - The specific subtype of a studio component.
 --
--- 'tags', 'studioComponent_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- 'tags', 'studioComponent_tags' - A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 --
 -- 'type'', 'studioComponent_type' - The type of the studio component.
 --
--- 'updatedAt', 'studioComponent_updatedAt' - The Unix epoch timestamp in seconds for when the resource was updated.
+-- 'updatedAt', 'studioComponent_updatedAt' - The ISO timestamp in seconds for when the resource was updated.
 --
 -- 'updatedBy', 'studioComponent_updatedBy' - The user ID of the user that most recently updated the resource.
 newStudioComponent ::
@@ -173,7 +175,8 @@ newStudioComponent =
       updatedBy = Prelude.Nothing
     }
 
--- | The ARN of the resource.
+-- | The Amazon Resource Name (ARN) that is assigned to a studio resource and
+-- uniquely identifies it. ARNs are unique across all Regions.
 studioComponent_arn :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
 studioComponent_arn = Lens.lens (\StudioComponent' {arn} -> arn) (\s@StudioComponent' {} a -> s {arn = a} :: StudioComponent)
 
@@ -181,7 +184,7 @@ studioComponent_arn = Lens.lens (\StudioComponent' {arn} -> arn) (\s@StudioCompo
 studioComponent_configuration :: Lens.Lens' StudioComponent (Prelude.Maybe StudioComponentConfiguration)
 studioComponent_configuration = Lens.lens (\StudioComponent' {configuration} -> configuration) (\s@StudioComponent' {} a -> s {configuration = a} :: StudioComponent)
 
--- | The Unix epoch timestamp in seconds for when the resource was created.
+-- | The ISO timestamp in seconds for when the resource was created.
 studioComponent_createdAt :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.UTCTime)
 studioComponent_createdAt = Lens.lens (\StudioComponent' {createdAt} -> createdAt) (\s@StudioComponent' {} a -> s {createdAt = a} :: StudioComponent) Prelude.. Lens.mapping Data._Time
 
@@ -206,8 +209,8 @@ studioComponent_name :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
 studioComponent_name = Lens.lens (\StudioComponent' {name} -> name) (\s@StudioComponent' {} a -> s {name = a} :: StudioComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An IAM role attached to a Studio Component that gives the studio
--- component access to AWS resources at anytime while the instance is
--- running.
+-- component access to Amazon Web Services resources at anytime while the
+-- instance is running.
 studioComponent_runtimeRoleArn :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
 studioComponent_runtimeRoleArn = Lens.lens (\StudioComponent' {runtimeRoleArn} -> runtimeRoleArn) (\s@StudioComponent' {} a -> s {runtimeRoleArn = a} :: StudioComponent)
 
@@ -216,8 +219,8 @@ studioComponent_scriptParameters :: Lens.Lens' StudioComponent (Prelude.Maybe [S
 studioComponent_scriptParameters = Lens.lens (\StudioComponent' {scriptParameters} -> scriptParameters) (\s@StudioComponent' {} a -> s {scriptParameters = a} :: StudioComponent) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | An IAM role attached to Studio Component when the system initialization
--- script runs which give the studio component access to AWS resources when
--- the system initialization script runs.
+-- script runs which give the studio component access to Amazon Web
+-- Services resources when the system initialization script runs.
 studioComponent_secureInitializationRoleArn :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.Text)
 studioComponent_secureInitializationRoleArn = Lens.lens (\StudioComponent' {secureInitializationRoleArn} -> secureInitializationRoleArn) (\s@StudioComponent' {} a -> s {secureInitializationRoleArn = a} :: StudioComponent)
 
@@ -241,7 +244,7 @@ studioComponent_studioComponentId = Lens.lens (\StudioComponent' {studioComponen
 studioComponent_subtype :: Lens.Lens' StudioComponent (Prelude.Maybe StudioComponentSubtype)
 studioComponent_subtype = Lens.lens (\StudioComponent' {subtype} -> subtype) (\s@StudioComponent' {} a -> s {subtype = a} :: StudioComponent)
 
--- | A collection of labels, in the form of key:value pairs, that apply to
+-- | A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 studioComponent_tags :: Lens.Lens' StudioComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 studioComponent_tags = Lens.lens (\StudioComponent' {tags} -> tags) (\s@StudioComponent' {} a -> s {tags = a} :: StudioComponent) Prelude.. Lens.mapping Lens.coerced
@@ -250,7 +253,7 @@ studioComponent_tags = Lens.lens (\StudioComponent' {tags} -> tags) (\s@StudioCo
 studioComponent_type :: Lens.Lens' StudioComponent (Prelude.Maybe StudioComponentType)
 studioComponent_type = Lens.lens (\StudioComponent' {type'} -> type') (\s@StudioComponent' {} a -> s {type' = a} :: StudioComponent)
 
--- | The Unix epoch timestamp in seconds for when the resource was updated.
+-- | The ISO timestamp in seconds for when the resource was updated.
 studioComponent_updatedAt :: Lens.Lens' StudioComponent (Prelude.Maybe Prelude.UTCTime)
 studioComponent_updatedAt = Lens.lens (\StudioComponent' {updatedAt} -> updatedAt) (\s@StudioComponent' {} a -> s {updatedAt = a} :: StudioComponent) Prelude.. Lens.mapping Data._Time
 

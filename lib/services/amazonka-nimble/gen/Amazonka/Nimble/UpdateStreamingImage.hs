@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.UpdateStreamingImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,9 +54,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateStreamingImage' smart constructor.
 data UpdateStreamingImage = UpdateStreamingImage'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -78,9 +78,9 @@ data UpdateStreamingImage = UpdateStreamingImage'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'updateStreamingImage_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'description', 'updateStreamingImage_description' - The description.
 --
@@ -106,9 +106,9 @@ newUpdateStreamingImage pStreamingImageId_ pStudioId_ =
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 updateStreamingImage_clientToken :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
 updateStreamingImage_clientToken = Lens.lens (\UpdateStreamingImage' {clientToken} -> clientToken) (\s@UpdateStreamingImage' {} a -> s {clientToken = a} :: UpdateStreamingImage)
 

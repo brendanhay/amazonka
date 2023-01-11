@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StudioMembership
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 -- appear in the studio membership collection. Only studio admins appear in
 -- studio membership.
 --
--- When you add a user to studio membership with the persona ADMIN, upon
+-- When you add a user to studio membership with the ADMIN persona, upon
 -- logging in to the Nimble Studio portal, they are granted permissions
 -- specified by the Studio\'s Admin IAM role.
 --

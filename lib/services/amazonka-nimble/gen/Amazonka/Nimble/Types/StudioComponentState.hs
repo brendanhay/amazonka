@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StudioComponentState
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,31 +39,31 @@ import qualified Amazonka.Prelude as Prelude
 -- | The current state of the studio component resource.
 --
 -- While a studio component is being created, modified, or deleted, its
--- state will equal \"CREATE_IN_PROGRESS\", \"UPDATE_IN_PROGRESS\", or
--- \"DELETE_IN_PROGRESS\"
+-- state will be @CREATE_IN_PROGRESS@, @UPDATE_IN_PROGRESS@, or
+-- @DELETE_IN_PROGRESS@.
 --
--- These are called \'transition states\'.
+-- These are called /transition states/.
 --
 -- No modifications may be made to the studio component while it is in a
 -- transition state.
 --
 -- If creation of the resource fails, the state will change to
--- \`CREATE_FAILED\`. The resource StatusCode and StatusMessage will
+-- @CREATE_FAILED@. The resource @StatusCode@ and @StatusMessage@ will
 -- provide more information of why creation failed. The resource in this
 -- state will automatically be deleted from your account after a period of
 -- time.
 --
 -- If updating the resource fails, the state will change to
--- \`UPDATE_FAILED\`. The resource StatusCode and StatusMessage will
+-- @UPDATE_FAILED@. The resource @StatusCode@ and @StatusMessage@ will
 -- provide more information of why the update failed. The resource will be
 -- returned to the state it was in when the update request was invoked.
 --
 -- If deleting the resource fails, the state will change to
--- \`DELETE_FAILED\`. The resource StatusCode and StatusMessage will
+-- @DELETE_FAILED@. The resource @StatusCode@ and @StatusMessage@ will
 -- provide more information of why the update failed. The resource will be
 -- returned to the state it was in when the update request was invoked.
 -- After the resource is deleted successfully, it will change to the
--- \"DELETED\" state. The resource will no longer count against service
+-- @DELETED@ state. The resource will no longer count against service
 -- quotas and cannot be used or acted upon any futher. It will be removed
 -- from your account after a period of time.
 newtype StudioComponentState = StudioComponentState'

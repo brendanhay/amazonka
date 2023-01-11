@@ -14,32 +14,32 @@
 
 -- |
 -- Module      : Amazonka.Nimble.CreateStudio
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new Studio.
+-- Create a new studio.
 --
--- When creating a Studio, two IAM roles must be provided: the admin role
--- and the user Role. These roles are assumed by your users when they log
+-- When creating a studio, two IAM roles must be provided: the admin role
+-- and the user role. These roles are assumed by your users when they log
 -- in to the Nimble Studio portal.
 --
--- The user role must have the AmazonNimbleStudio-StudioUser managed policy
--- attached for the portal to function properly.
+-- The user role must have the @AmazonNimbleStudio-StudioUser@ managed
+-- policy attached for the portal to function properly.
 --
--- The Admin Role must have the AmazonNimbleStudio-StudioAdmin managed
+-- The admin role must have the @AmazonNimbleStudio-StudioAdmin@ managed
 -- policy attached for the portal to function properly.
 --
 -- You may optionally specify a KMS key in the
--- StudioEncryptionConfiguration.
+-- @StudioEncryptionConfiguration@.
 --
 -- In Nimble Studio, resource names, descriptions, initialization scripts,
 -- and other data you provide are always encrypted at rest using an KMS
 -- key. By default, this key is owned by Amazon Web Services and managed on
--- your behalf. You may provide your own KMS key when calling CreateStudio
--- to encrypt this data using a key you own and manage.
+-- your behalf. You may provide your own KMS key when calling
+-- @CreateStudio@ to encrypt this data using a key you own and manage.
 --
 -- When providing an KMS key during studio creation, Nimble Studio creates
 -- KMS grants in your account to provide your studio user and admin roles
@@ -85,16 +85,16 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateStudio' smart constructor.
 data CreateStudio = CreateStudio'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The studio encryption configuration.
     studioEncryptionConfiguration :: Prelude.Maybe StudioEncryptionConfiguration,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- | A collection of labels, in the form of key-value pairs, that apply to
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The IAM role that Studio Admins will assume when logging in to the
+    -- | The IAM role that studio admins will assume when logging in to the
     -- Nimble Studio portal.
     adminRoleArn :: Prelude.Text,
     -- | A friendly name for the studio.
@@ -102,7 +102,7 @@ data CreateStudio = CreateStudio'
     -- | The studio name that is used in the URL of the Nimble Studio portal when
     -- accessed by Nimble Studio users.
     studioName :: Prelude.Text,
-    -- | The IAM role that Studio Users will assume when logging in to the Nimble
+    -- | The IAM role that studio users will assume when logging in to the Nimble
     -- Studio portal.
     userRoleArn :: Prelude.Text
   }
@@ -117,16 +117,16 @@ data CreateStudio = CreateStudio'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createStudio_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'studioEncryptionConfiguration', 'createStudio_studioEncryptionConfiguration' - The studio encryption configuration.
 --
--- 'tags', 'createStudio_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- 'tags', 'createStudio_tags' - A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 --
--- 'adminRoleArn', 'createStudio_adminRoleArn' - The IAM role that Studio Admins will assume when logging in to the
+-- 'adminRoleArn', 'createStudio_adminRoleArn' - The IAM role that studio admins will assume when logging in to the
 -- Nimble Studio portal.
 --
 -- 'displayName', 'createStudio_displayName' - A friendly name for the studio.
@@ -134,7 +134,7 @@ data CreateStudio = CreateStudio'
 -- 'studioName', 'createStudio_studioName' - The studio name that is used in the URL of the Nimble Studio portal when
 -- accessed by Nimble Studio users.
 --
--- 'userRoleArn', 'createStudio_userRoleArn' - The IAM role that Studio Users will assume when logging in to the Nimble
+-- 'userRoleArn', 'createStudio_userRoleArn' - The IAM role that studio users will assume when logging in to the Nimble
 -- Studio portal.
 newCreateStudio ::
   -- | 'adminRoleArn'
@@ -162,9 +162,9 @@ newCreateStudio
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 createStudio_clientToken :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
 createStudio_clientToken = Lens.lens (\CreateStudio' {clientToken} -> clientToken) (\s@CreateStudio' {} a -> s {clientToken = a} :: CreateStudio)
 
@@ -172,12 +172,12 @@ createStudio_clientToken = Lens.lens (\CreateStudio' {clientToken} -> clientToke
 createStudio_studioEncryptionConfiguration :: Lens.Lens' CreateStudio (Prelude.Maybe StudioEncryptionConfiguration)
 createStudio_studioEncryptionConfiguration = Lens.lens (\CreateStudio' {studioEncryptionConfiguration} -> studioEncryptionConfiguration) (\s@CreateStudio' {} a -> s {studioEncryptionConfiguration = a} :: CreateStudio)
 
--- | A collection of labels, in the form of key:value pairs, that apply to
+-- | A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens.coerced
 
--- | The IAM role that Studio Admins will assume when logging in to the
+-- | The IAM role that studio admins will assume when logging in to the
 -- Nimble Studio portal.
 createStudio_adminRoleArn :: Lens.Lens' CreateStudio Prelude.Text
 createStudio_adminRoleArn = Lens.lens (\CreateStudio' {adminRoleArn} -> adminRoleArn) (\s@CreateStudio' {} a -> s {adminRoleArn = a} :: CreateStudio)
@@ -191,7 +191,7 @@ createStudio_displayName = Lens.lens (\CreateStudio' {displayName} -> displayNam
 createStudio_studioName :: Lens.Lens' CreateStudio Prelude.Text
 createStudio_studioName = Lens.lens (\CreateStudio' {studioName} -> studioName) (\s@CreateStudio' {} a -> s {studioName = a} :: CreateStudio)
 
--- | The IAM role that Studio Users will assume when logging in to the Nimble
+-- | The IAM role that studio users will assume when logging in to the Nimble
 -- Studio portal.
 createStudio_userRoleArn :: Lens.Lens' CreateStudio Prelude.Text
 createStudio_userRoleArn = Lens.lens (\CreateStudio' {userRoleArn} -> userRoleArn) (\s@CreateStudio' {} a -> s {userRoleArn = a} :: CreateStudio)

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListStreamingImages
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreamingImages' smart constructor.
 data ListStreamingImages = ListStreamingImages'
-  { -- | The token to request the next page of results.
+  { -- | The token for the next set of results, or null if there are no more
+    -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filter this request to streaming images with the given owner
     owner :: Prelude.Maybe Prelude.Text,
@@ -74,7 +75,8 @@ data ListStreamingImages = ListStreamingImages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStreamingImages_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'listStreamingImages_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
 -- 'owner', 'listStreamingImages_owner' - Filter this request to streaming images with the given owner
 --
@@ -90,7 +92,8 @@ newListStreamingImages pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The token to request the next page of results.
+-- | The token for the next set of results, or null if there are no more
+-- results.
 listStreamingImages_nextToken :: Lens.Lens' ListStreamingImages (Prelude.Maybe Prelude.Text)
 listStreamingImages_nextToken = Lens.lens (\ListStreamingImages' {nextToken} -> nextToken) (\s@ListStreamingImages' {} a -> s {nextToken = a} :: ListStreamingImages)
 

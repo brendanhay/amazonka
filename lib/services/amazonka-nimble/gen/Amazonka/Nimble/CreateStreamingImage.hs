@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.CreateStreamingImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateStreamingImage' smart constructor.
 data CreateStreamingImage = CreateStreamingImage'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description of the streaming image.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- | A collection of labels, in the form of key-value pairs, that apply to
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of an EC2 machine image with which to create this streaming
@@ -83,13 +83,13 @@ data CreateStreamingImage = CreateStreamingImage'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createStreamingImage_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'description', 'createStreamingImage_description' - A human-readable description of the streaming image.
 --
--- 'tags', 'createStreamingImage_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- 'tags', 'createStreamingImage_tags' - A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 --
 -- 'ec2ImageId', 'createStreamingImage_ec2ImageId' - The ID of an EC2 machine image with which to create this streaming
@@ -121,9 +121,9 @@ newCreateStreamingImage
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 createStreamingImage_clientToken :: Lens.Lens' CreateStreamingImage (Prelude.Maybe Prelude.Text)
 createStreamingImage_clientToken = Lens.lens (\CreateStreamingImage' {clientToken} -> clientToken) (\s@CreateStreamingImage' {} a -> s {clientToken = a} :: CreateStreamingImage)
 
@@ -131,7 +131,7 @@ createStreamingImage_clientToken = Lens.lens (\CreateStreamingImage' {clientToke
 createStreamingImage_description :: Lens.Lens' CreateStreamingImage (Prelude.Maybe Prelude.Text)
 createStreamingImage_description = Lens.lens (\CreateStreamingImage' {description} -> description) (\s@CreateStreamingImage' {} a -> s {description = a} :: CreateStreamingImage) Prelude.. Lens.mapping Data._Sensitive
 
--- | A collection of labels, in the form of key:value pairs, that apply to
+-- | A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 createStreamingImage_tags :: Lens.Lens' CreateStreamingImage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createStreamingImage_tags = Lens.lens (\CreateStreamingImage' {tags} -> tags) (\s@CreateStreamingImage' {} a -> s {tags = a} :: CreateStreamingImage) Prelude.. Lens.mapping Lens.coerced

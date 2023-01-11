@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -65,6 +65,7 @@ library
     Amazonka.Nimble.GetLaunchProfileMember
     Amazonka.Nimble.GetStreamingImage
     Amazonka.Nimble.GetStreamingSession
+    Amazonka.Nimble.GetStreamingSessionBackup
     Amazonka.Nimble.GetStreamingSessionStream
     Amazonka.Nimble.GetStudio
     Amazonka.Nimble.GetStudioComponent
@@ -75,6 +76,7 @@ library
     Amazonka.Nimble.ListLaunchProfileMembers
     Amazonka.Nimble.ListLaunchProfiles
     Amazonka.Nimble.ListStreamingImages
+    Amazonka.Nimble.ListStreamingSessionBackups
     Amazonka.Nimble.ListStreamingSessions
     Amazonka.Nimble.ListStudioComponents
     Amazonka.Nimble.ListStudioMembers
@@ -89,6 +91,7 @@ library
     Amazonka.Nimble.Types
     Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
     Amazonka.Nimble.Types.ActiveDirectoryConfiguration
+    Amazonka.Nimble.Types.AutomaticTerminationMode
     Amazonka.Nimble.Types.ComputeFarmConfiguration
     Amazonka.Nimble.Types.Eula
     Amazonka.Nimble.Types.EulaAcceptance
@@ -108,9 +111,12 @@ library
     Amazonka.Nimble.Types.NewLaunchProfileMember
     Amazonka.Nimble.Types.NewStudioMember
     Amazonka.Nimble.Types.ScriptParameterKeyValue
+    Amazonka.Nimble.Types.SessionBackupMode
+    Amazonka.Nimble.Types.SessionPersistenceMode
     Amazonka.Nimble.Types.SharedFileSystemConfiguration
     Amazonka.Nimble.Types.StreamConfiguration
     Amazonka.Nimble.Types.StreamConfigurationCreate
+    Amazonka.Nimble.Types.StreamConfigurationSessionBackup
     Amazonka.Nimble.Types.StreamConfigurationSessionStorage
     Amazonka.Nimble.Types.StreamingClipboardMode
     Amazonka.Nimble.Types.StreamingImage
@@ -120,6 +126,7 @@ library
     Amazonka.Nimble.Types.StreamingImageStatusCode
     Amazonka.Nimble.Types.StreamingInstanceType
     Amazonka.Nimble.Types.StreamingSession
+    Amazonka.Nimble.Types.StreamingSessionBackup
     Amazonka.Nimble.Types.StreamingSessionState
     Amazonka.Nimble.Types.StreamingSessionStatusCode
     Amazonka.Nimble.Types.StreamingSessionStorageMode
@@ -144,6 +151,8 @@ library
     Amazonka.Nimble.Types.StudioState
     Amazonka.Nimble.Types.StudioStatusCode
     Amazonka.Nimble.Types.ValidationResult
+    Amazonka.Nimble.Types.VolumeConfiguration
+    Amazonka.Nimble.Types.VolumeRetentionMode
     Amazonka.Nimble.UntagResource
     Amazonka.Nimble.UpdateLaunchProfile
     Amazonka.Nimble.UpdateLaunchProfileMember

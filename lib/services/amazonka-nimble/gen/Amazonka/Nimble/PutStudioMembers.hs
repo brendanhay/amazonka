@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.PutStudioMembers
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPutStudioMembers' smart constructor.
 data PutStudioMembers = PutStudioMembers'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the identity store.
     identityStoreId :: Prelude.Text,
@@ -74,9 +74,9 @@ data PutStudioMembers = PutStudioMembers'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'putStudioMembers_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'identityStoreId', 'putStudioMembers_identityStoreId' - The ID of the identity store.
 --
@@ -103,9 +103,9 @@ newPutStudioMembers
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 putStudioMembers_clientToken :: Lens.Lens' PutStudioMembers (Prelude.Maybe Prelude.Text)
 putStudioMembers_clientToken = Lens.lens (\PutStudioMembers' {clientToken} -> clientToken) (\s@PutStudioMembers' {} a -> s {clientToken = a} :: PutStudioMembers)
 

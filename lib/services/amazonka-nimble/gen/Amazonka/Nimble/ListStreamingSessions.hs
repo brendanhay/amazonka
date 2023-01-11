@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListStreamingSessions
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,7 +58,8 @@ import qualified Amazonka.Response as Response
 data ListStreamingSessions = ListStreamingSessions'
   { -- | Filters the request to streaming sessions created by the given user.
     createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The token to request the next page of results.
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the request to streaming session owned by the given user
     ownedBy :: Prelude.Maybe Prelude.Text,
@@ -79,7 +80,8 @@ data ListStreamingSessions = ListStreamingSessions'
 --
 -- 'createdBy', 'listStreamingSessions_createdBy' - Filters the request to streaming sessions created by the given user.
 --
--- 'nextToken', 'listStreamingSessions_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'listStreamingSessions_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
 -- 'ownedBy', 'listStreamingSessions_ownedBy' - Filters the request to streaming session owned by the given user
 --
@@ -103,7 +105,8 @@ newListStreamingSessions pStudioId_ =
 listStreamingSessions_createdBy :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
 listStreamingSessions_createdBy = Lens.lens (\ListStreamingSessions' {createdBy} -> createdBy) (\s@ListStreamingSessions' {} a -> s {createdBy = a} :: ListStreamingSessions)
 
--- | The token to request the next page of results.
+-- | The token for the next set of results, or null if there are no more
+-- results.
 listStreamingSessions_nextToken :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
 listStreamingSessions_nextToken = Lens.lens (\ListStreamingSessions' {nextToken} -> nextToken) (\s@ListStreamingSessions' {} a -> s {nextToken = a} :: ListStreamingSessions)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.GetLaunchProfile
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLaunchProfile' smart constructor.
 data GetLaunchProfile = GetLaunchProfile'
-  { -- | The Launch Profile ID.
+  { -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -65,7 +66,8 @@ data GetLaunchProfile = GetLaunchProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchProfileId', 'getLaunchProfile_launchProfileId' - The Launch Profile ID.
+-- 'launchProfileId', 'getLaunchProfile_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'studioId', 'getLaunchProfile_studioId' - The studio ID.
 newGetLaunchProfile ::
@@ -81,7 +83,8 @@ newGetLaunchProfile pLaunchProfileId_ pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The Launch Profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 getLaunchProfile_launchProfileId :: Lens.Lens' GetLaunchProfile Prelude.Text
 getLaunchProfile_launchProfileId = Lens.lens (\GetLaunchProfile' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfile' {} a -> s {launchProfileId = a} :: GetLaunchProfile)
 

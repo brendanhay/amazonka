@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StudioComponentInitializationScript
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,7 +33,7 @@ data StudioComponentInitializationScript = StudioComponentInitializationScript'
   { -- | The version number of the protocol that is used by the launch profile.
     -- The only valid version is \"2021-03-31\".
     launchProfileProtocolVersion :: Prelude.Maybe Prelude.Text,
-    -- | The platform of the initialization script, either WINDOWS or LINUX.
+    -- | The platform of the initialization script, either Windows or Linux.
     platform :: Prelude.Maybe LaunchProfilePlatform,
     -- | The method to use when running the initialization script.
     runContext :: Prelude.Maybe StudioComponentInitializationScriptRunContext,
@@ -53,7 +53,7 @@ data StudioComponentInitializationScript = StudioComponentInitializationScript'
 -- 'launchProfileProtocolVersion', 'studioComponentInitializationScript_launchProfileProtocolVersion' - The version number of the protocol that is used by the launch profile.
 -- The only valid version is \"2021-03-31\".
 --
--- 'platform', 'studioComponentInitializationScript_platform' - The platform of the initialization script, either WINDOWS or LINUX.
+-- 'platform', 'studioComponentInitializationScript_platform' - The platform of the initialization script, either Windows or Linux.
 --
 -- 'runContext', 'studioComponentInitializationScript_runContext' - The method to use when running the initialization script.
 --
@@ -74,7 +74,7 @@ newStudioComponentInitializationScript =
 studioComponentInitializationScript_launchProfileProtocolVersion :: Lens.Lens' StudioComponentInitializationScript (Prelude.Maybe Prelude.Text)
 studioComponentInitializationScript_launchProfileProtocolVersion = Lens.lens (\StudioComponentInitializationScript' {launchProfileProtocolVersion} -> launchProfileProtocolVersion) (\s@StudioComponentInitializationScript' {} a -> s {launchProfileProtocolVersion = a} :: StudioComponentInitializationScript)
 
--- | The platform of the initialization script, either WINDOWS or LINUX.
+-- | The platform of the initialization script, either Windows or Linux.
 studioComponentInitializationScript_platform :: Lens.Lens' StudioComponentInitializationScript (Prelude.Maybe LaunchProfilePlatform)
 studioComponentInitializationScript_platform = Lens.lens (\StudioComponentInitializationScript' {platform} -> platform) (\s@StudioComponentInitializationScript' {} a -> s {platform = a} :: StudioComponentInitializationScript)
 

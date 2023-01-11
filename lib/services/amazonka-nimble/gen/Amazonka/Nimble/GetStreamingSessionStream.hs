@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.GetStreamingSessionStream
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,9 +23,9 @@
 -- Gets a StreamingSessionStream for a streaming session.
 --
 -- Invoke this operation to poll the resource after invoking
--- CreateStreamingSessionStream.
+-- @CreateStreamingSessionStream@.
 --
--- After the StreamingSessionStream changes to the state READY, the url
+-- After the @StreamingSessionStream@ changes to the @READY@ state, the url
 -- property will contain a stream to be used with the DCV streaming client.
 module Amazonka.Nimble.GetStreamingSessionStream
   ( -- * Creating a Request

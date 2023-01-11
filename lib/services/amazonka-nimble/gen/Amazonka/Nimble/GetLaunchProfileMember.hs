@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.GetLaunchProfileMember
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,7 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLaunchProfileMember' smart constructor.
 data GetLaunchProfileMember = GetLaunchProfileMember'
-  { -- | The Launch Profile ID.
+  { -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Text,
     -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Text,
@@ -68,7 +69,8 @@ data GetLaunchProfileMember = GetLaunchProfileMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchProfileId', 'getLaunchProfileMember_launchProfileId' - The Launch Profile ID.
+-- 'launchProfileId', 'getLaunchProfileMember_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'principalId', 'getLaunchProfileMember_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
@@ -92,7 +94,8 @@ newGetLaunchProfileMember
         studioId = pStudioId_
       }
 
--- | The Launch Profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 getLaunchProfileMember_launchProfileId :: Lens.Lens' GetLaunchProfileMember Prelude.Text
 getLaunchProfileMember_launchProfileId = Lens.lens (\GetLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@GetLaunchProfileMember' {} a -> s {launchProfileId = a} :: GetLaunchProfileMember)
 

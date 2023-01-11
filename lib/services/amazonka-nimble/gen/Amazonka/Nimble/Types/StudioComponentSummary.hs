@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StudioComponentSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStudioComponentSummary' smart constructor.
 data StudioComponentSummary = StudioComponentSummary'
-  { -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+  { -- | The ISO timestamp in seconds for when the resource was created.
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The user ID of the user that created the studio component.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The description.
@@ -44,8 +44,8 @@ data StudioComponentSummary = StudioComponentSummary'
     subtype :: Prelude.Maybe StudioComponentSubtype,
     -- | The type of the studio component.
     type' :: Prelude.Maybe StudioComponentType,
-    -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The ISO timestamp in seconds for when the resource was updated.
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The user ID of the user that most recently updated the resource.
     updatedBy :: Prelude.Maybe Prelude.Text
   }
@@ -59,7 +59,7 @@ data StudioComponentSummary = StudioComponentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'studioComponentSummary_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
+-- 'createdAt', 'studioComponentSummary_createdAt' - The ISO timestamp in seconds for when the resource was created.
 --
 -- 'createdBy', 'studioComponentSummary_createdBy' - The user ID of the user that created the studio component.
 --
@@ -73,7 +73,7 @@ data StudioComponentSummary = StudioComponentSummary'
 --
 -- 'type'', 'studioComponentSummary_type' - The type of the studio component.
 --
--- 'updatedAt', 'studioComponentSummary_updatedAt' - The Unix epoch timestamp in seconds for when the resource was updated.
+-- 'updatedAt', 'studioComponentSummary_updatedAt' - The ISO timestamp in seconds for when the resource was updated.
 --
 -- 'updatedBy', 'studioComponentSummary_updatedBy' - The user ID of the user that most recently updated the resource.
 newStudioComponentSummary ::
@@ -92,7 +92,7 @@ newStudioComponentSummary =
       updatedBy = Prelude.Nothing
     }
 
--- | The Unix epoch timestamp in seconds for when the resource was created.
+-- | The ISO timestamp in seconds for when the resource was created.
 studioComponentSummary_createdAt :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.UTCTime)
 studioComponentSummary_createdAt = Lens.lens (\StudioComponentSummary' {createdAt} -> createdAt) (\s@StudioComponentSummary' {} a -> s {createdAt = a} :: StudioComponentSummary) Prelude.. Lens.mapping Data._Time
 
@@ -120,7 +120,7 @@ studioComponentSummary_subtype = Lens.lens (\StudioComponentSummary' {subtype} -
 studioComponentSummary_type :: Lens.Lens' StudioComponentSummary (Prelude.Maybe StudioComponentType)
 studioComponentSummary_type = Lens.lens (\StudioComponentSummary' {type'} -> type') (\s@StudioComponentSummary' {} a -> s {type' = a} :: StudioComponentSummary)
 
--- | The Unix epoch timestamp in seconds for when the resource was updated.
+-- | The ISO timestamp in seconds for when the resource was updated.
 studioComponentSummary_updatedAt :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.UTCTime)
 studioComponentSummary_updatedAt = Lens.lens (\StudioComponentSummary' {updatedAt} -> updatedAt) (\s@StudioComponentSummary' {} a -> s {updatedAt = a} :: StudioComponentSummary) Prelude.. Lens.mapping Data._Time
 

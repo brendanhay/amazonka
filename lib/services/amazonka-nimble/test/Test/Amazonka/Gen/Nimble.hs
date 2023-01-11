@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Nimble
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -90,6 +90,9 @@ import Test.Tasty
 --         , requestGetStreamingSession $
 --             newGetStreamingSession
 --
+--         , requestGetStreamingSessionBackup $
+--             newGetStreamingSessionBackup
+--
 --         , requestGetStreamingSessionStream $
 --             newGetStreamingSessionStream
 --
@@ -116,6 +119,9 @@ import Test.Tasty
 --
 --         , requestListStreamingImages $
 --             newListStreamingImages
+--
+--         , requestListStreamingSessionBackups $
+--             newListStreamingSessionBackups
 --
 --         , requestListStreamingSessions $
 --             newListStreamingSessions
@@ -234,6 +240,9 @@ import Test.Tasty
 --         , responseGetStreamingSession $
 --             newGetStreamingSessionResponse
 --
+--         , responseGetStreamingSessionBackup $
+--             newGetStreamingSessionBackupResponse
+--
 --         , responseGetStreamingSessionStream $
 --             newGetStreamingSessionStreamResponse
 --
@@ -260,6 +269,9 @@ import Test.Tasty
 --
 --         , responseListStreamingImages $
 --             newListStreamingImagesResponse
+--
+--         , responseListStreamingSessionBackups $
+--             newListStreamingSessionBackupsResponse
 --
 --         , responseListStreamingSessions $
 --             newListStreamingSessionsResponse
@@ -443,6 +455,12 @@ requestGetStreamingSession =
     "GetStreamingSession"
     "fixture/GetStreamingSession.yaml"
 
+requestGetStreamingSessionBackup :: GetStreamingSessionBackup -> TestTree
+requestGetStreamingSessionBackup =
+  req
+    "GetStreamingSessionBackup"
+    "fixture/GetStreamingSessionBackup.yaml"
+
 requestGetStreamingSessionStream :: GetStreamingSessionStream -> TestTree
 requestGetStreamingSessionStream =
   req
@@ -496,6 +514,12 @@ requestListStreamingImages =
   req
     "ListStreamingImages"
     "fixture/ListStreamingImages.yaml"
+
+requestListStreamingSessionBackups :: ListStreamingSessionBackups -> TestTree
+requestListStreamingSessionBackups =
+  req
+    "ListStreamingSessionBackups"
+    "fixture/ListStreamingSessionBackups.yaml"
 
 requestListStreamingSessions :: ListStreamingSessions -> TestTree
 requestListStreamingSessions =
@@ -769,6 +793,14 @@ responseGetStreamingSession =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetStreamingSession)
 
+responseGetStreamingSessionBackup :: GetStreamingSessionBackupResponse -> TestTree
+responseGetStreamingSessionBackup =
+  res
+    "GetStreamingSessionBackupResponse"
+    "fixture/GetStreamingSessionBackupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStreamingSessionBackup)
+
 responseGetStreamingSessionStream :: GetStreamingSessionStreamResponse -> TestTree
 responseGetStreamingSessionStream =
   res
@@ -840,6 +872,14 @@ responseListStreamingImages =
     "fixture/ListStreamingImagesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListStreamingImages)
+
+responseListStreamingSessionBackups :: ListStreamingSessionBackupsResponse -> TestTree
+responseListStreamingSessionBackups =
+  res
+    "ListStreamingSessionBackupsResponse"
+    "fixture/ListStreamingSessionBackupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStreamingSessionBackups)
 
 responseListStreamingSessions :: ListStreamingSessionsResponse -> TestTree
 responseListStreamingSessions =

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.LexRuntime.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -219,7 +219,7 @@ defaultService =
 -- | Either the Amazon Lex bot is still building, or one of the dependent
 -- services (Amazon Polly, AWS Lambda) failed with an internal service
 -- error.
-_BadGatewayException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadGatewayException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadGatewayException =
   Core._MatchServiceError
     defaultService
@@ -228,7 +228,7 @@ _BadGatewayException =
 
 -- | Request validation failed, there is no usable message in the context, or
 -- the bot build failed, is still in progress, or contains unbuilt changes.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -236,7 +236,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Two clients are using the same AWS account, Amazon Lex bot, and user ID.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -253,7 +253,7 @@ _ConflictException =
 --
 -- -   If a fulfillment Lambda function returns a @Delegate@ dialog action
 --     without removing any slot values.
-_DependencyFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DependencyFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DependencyFailedException =
   Core._MatchServiceError
     defaultService
@@ -261,7 +261,7 @@ _DependencyFailedException =
     Prelude.. Core.hasStatus 424
 
 -- | Internal service error. Retry the call.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -269,7 +269,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | Exceeded a limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -277,7 +277,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 429
 
 -- | This exception is not used.
-_LoopDetectedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LoopDetectedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LoopDetectedException =
   Core._MatchServiceError
     defaultService
@@ -285,7 +285,7 @@ _LoopDetectedException =
     Prelude.. Core.hasStatus 508
 
 -- | The accept header in the request does not have a valid value.
-_NotAcceptableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAcceptableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotAcceptableException =
   Core._MatchServiceError
     defaultService
@@ -294,7 +294,7 @@ _NotAcceptableException =
 
 -- | The resource (such as the Amazon Lex bot or an alias) that is referred
 -- to is not found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -302,7 +302,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The input speech is too long.
-_RequestTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RequestTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -310,7 +310,7 @@ _RequestTimeoutException =
     Prelude.. Core.hasStatus 408
 
 -- | The Content-Type header (@PostContent@ API) has an invalid value.
-_UnsupportedMediaTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedMediaTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedMediaTypeException =
   Core._MatchServiceError
     defaultService

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MediaPackageVOD.UpdatePackagingGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,7 @@ module Amazonka.MediaPackageVOD.UpdatePackagingGroup
     newUpdatePackagingGroupResponse,
 
     -- * Response Lenses
+    updatePackagingGroupResponse_approximateAssetCount,
     updatePackagingGroupResponse_arn,
     updatePackagingGroupResponse_authorization,
     updatePackagingGroupResponse_domainName,
@@ -104,7 +105,8 @@ instance Core.AWSRequest UpdatePackagingGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdatePackagingGroupResponse'
-            Prelude.<$> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "approximateAssetCount")
+            Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "authorization")
             Prelude.<*> (x Data..?> "domainName")
             Prelude.<*> (x Data..?> "egressAccessLogs")
@@ -153,7 +155,9 @@ instance Data.ToQuery UpdatePackagingGroup where
 
 -- | /See:/ 'newUpdatePackagingGroupResponse' smart constructor.
 data UpdatePackagingGroupResponse = UpdatePackagingGroupResponse'
-  { -- | The ARN of the PackagingGroup.
+  { -- | The approximate asset count of the PackagingGroup.
+    approximateAssetCount :: Prelude.Maybe Prelude.Int,
+    -- | The ARN of the PackagingGroup.
     arn :: Prelude.Maybe Prelude.Text,
     authorization :: Prelude.Maybe Authorization,
     -- | The fully qualified domain name for Assets in the PackagingGroup.
@@ -175,6 +179,8 @@ data UpdatePackagingGroupResponse = UpdatePackagingGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'approximateAssetCount', 'updatePackagingGroupResponse_approximateAssetCount' - The approximate asset count of the PackagingGroup.
+--
 -- 'arn', 'updatePackagingGroupResponse_arn' - The ARN of the PackagingGroup.
 --
 -- 'authorization', 'updatePackagingGroupResponse_authorization' - Undocumented member.
@@ -194,8 +200,9 @@ newUpdatePackagingGroupResponse ::
   UpdatePackagingGroupResponse
 newUpdatePackagingGroupResponse pHttpStatus_ =
   UpdatePackagingGroupResponse'
-    { arn =
+    { approximateAssetCount =
         Prelude.Nothing,
+      arn = Prelude.Nothing,
       authorization = Prelude.Nothing,
       domainName = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
@@ -203,6 +210,10 @@ newUpdatePackagingGroupResponse pHttpStatus_ =
       tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The approximate asset count of the PackagingGroup.
+updatePackagingGroupResponse_approximateAssetCount :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Prelude.Int)
+updatePackagingGroupResponse_approximateAssetCount = Lens.lens (\UpdatePackagingGroupResponse' {approximateAssetCount} -> approximateAssetCount) (\s@UpdatePackagingGroupResponse' {} a -> s {approximateAssetCount = a} :: UpdatePackagingGroupResponse)
 
 -- | The ARN of the PackagingGroup.
 updatePackagingGroupResponse_arn :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Prelude.Text)
@@ -234,7 +245,8 @@ updatePackagingGroupResponse_httpStatus = Lens.lens (\UpdatePackagingGroupRespon
 
 instance Prelude.NFData UpdatePackagingGroupResponse where
   rnf UpdatePackagingGroupResponse' {..} =
-    Prelude.rnf arn
+    Prelude.rnf approximateAssetCount
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf authorization
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf egressAccessLogs

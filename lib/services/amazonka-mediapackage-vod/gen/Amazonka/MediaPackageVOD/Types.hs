@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MediaPackageVOD.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -190,6 +190,7 @@ module Amazonka.MediaPackageVOD.Types
     -- * PackagingGroup
     PackagingGroup (..),
     newPackagingGroup,
+    packagingGroup_approximateAssetCount,
     packagingGroup_arn,
     packagingGroup_authorization,
     packagingGroup_domainName,
@@ -320,7 +321,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The client is not authorized to access the requested resource.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -328,7 +329,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | An unexpected error occurred.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -336,7 +337,7 @@ _InternalServerErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | The requested resource does not exist.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -344,7 +345,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | An unexpected error occurred.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -352,7 +353,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The client has exceeded their resource or throttling limits.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -360,7 +361,7 @@ _TooManyRequestsException =
     Prelude.. Core.hasStatus 429
 
 -- | The parameters sent in the request are not valid.
-_UnprocessableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnprocessableEntityException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnprocessableEntityException =
   Core._MatchServiceError
     defaultService

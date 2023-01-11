@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.UpdateOriginRequestPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@
 --
 -- 3.  Call @UpdateOriginRequestPolicy@ by providing the entire origin
 --     request policy configuration, including the fields that you modified
---     and those that you didn’t.
+--     and those that you didn\'t.
 module Amazonka.CloudFront.UpdateOriginRequestPolicy
   ( -- * Creating a Request
     UpdateOriginRequestPolicy (..),
@@ -67,13 +67,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateOriginRequestPolicy' smart constructor.
 data UpdateOriginRequestPolicy = UpdateOriginRequestPolicy'
   { -- | The version of the origin request policy that you are updating. The
-    -- version is returned in the origin request policy’s @ETag@ field in the
+    -- version is returned in the origin request policy\'s @ETag@ field in the
     -- response to @GetOriginRequestPolicyConfig@.
     ifMatch :: Prelude.Maybe Prelude.Text,
     -- | An origin request policy configuration.
     originRequestPolicyConfig :: OriginRequestPolicyConfig,
     -- | The unique identifier for the origin request policy that you are
-    -- updating. The identifier is returned in a cache behavior’s
+    -- updating. The identifier is returned in a cache behavior\'s
     -- @OriginRequestPolicyId@ field in the response to
     -- @GetDistributionConfig@.
     id :: Prelude.Text
@@ -89,13 +89,13 @@ data UpdateOriginRequestPolicy = UpdateOriginRequestPolicy'
 -- for backwards compatibility:
 --
 -- 'ifMatch', 'updateOriginRequestPolicy_ifMatch' - The version of the origin request policy that you are updating. The
--- version is returned in the origin request policy’s @ETag@ field in the
+-- version is returned in the origin request policy\'s @ETag@ field in the
 -- response to @GetOriginRequestPolicyConfig@.
 --
 -- 'originRequestPolicyConfig', 'updateOriginRequestPolicy_originRequestPolicyConfig' - An origin request policy configuration.
 --
 -- 'id', 'updateOriginRequestPolicy_id' - The unique identifier for the origin request policy that you are
--- updating. The identifier is returned in a cache behavior’s
+-- updating. The identifier is returned in a cache behavior\'s
 -- @OriginRequestPolicyId@ field in the response to
 -- @GetDistributionConfig@.
 newUpdateOriginRequestPolicy ::
@@ -116,7 +116,7 @@ newUpdateOriginRequestPolicy
       }
 
 -- | The version of the origin request policy that you are updating. The
--- version is returned in the origin request policy’s @ETag@ field in the
+-- version is returned in the origin request policy\'s @ETag@ field in the
 -- response to @GetOriginRequestPolicyConfig@.
 updateOriginRequestPolicy_ifMatch :: Lens.Lens' UpdateOriginRequestPolicy (Prelude.Maybe Prelude.Text)
 updateOriginRequestPolicy_ifMatch = Lens.lens (\UpdateOriginRequestPolicy' {ifMatch} -> ifMatch) (\s@UpdateOriginRequestPolicy' {} a -> s {ifMatch = a} :: UpdateOriginRequestPolicy)
@@ -126,7 +126,7 @@ updateOriginRequestPolicy_originRequestPolicyConfig :: Lens.Lens' UpdateOriginRe
 updateOriginRequestPolicy_originRequestPolicyConfig = Lens.lens (\UpdateOriginRequestPolicy' {originRequestPolicyConfig} -> originRequestPolicyConfig) (\s@UpdateOriginRequestPolicy' {} a -> s {originRequestPolicyConfig = a} :: UpdateOriginRequestPolicy)
 
 -- | The unique identifier for the origin request policy that you are
--- updating. The identifier is returned in a cache behavior’s
+-- updating. The identifier is returned in a cache behavior\'s
 -- @OriginRequestPolicyId@ field in the response to
 -- @GetDistributionConfig@.
 updateOriginRequestPolicy_id :: Lens.Lens' UpdateOriginRequestPolicy Prelude.Text

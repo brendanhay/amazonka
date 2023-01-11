@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1362,6 +1362,7 @@ module Amazonka.CloudFront.Lens
     responseHeadersPolicyConfig_comment,
     responseHeadersPolicyConfig_corsConfig,
     responseHeadersPolicyConfig_customHeadersConfig,
+    responseHeadersPolicyConfig_removeHeadersConfig,
     responseHeadersPolicyConfig_securityHeadersConfig,
     responseHeadersPolicyConfig_serverTimingHeadersConfig,
     responseHeadersPolicyConfig_name,
@@ -1404,6 +1405,13 @@ module Amazonka.CloudFront.Lens
     -- ** ResponseHeadersPolicyReferrerPolicy
     responseHeadersPolicyReferrerPolicy_override,
     responseHeadersPolicyReferrerPolicy_referrerPolicy,
+
+    -- ** ResponseHeadersPolicyRemoveHeader
+    responseHeadersPolicyRemoveHeader_header,
+
+    -- ** ResponseHeadersPolicyRemoveHeadersConfig
+    responseHeadersPolicyRemoveHeadersConfig_items,
+    responseHeadersPolicyRemoveHeadersConfig_quantity,
 
     -- ** ResponseHeadersPolicySecurityHeadersConfig
     responseHeadersPolicySecurityHeadersConfig_contentSecurityPolicy,
@@ -1769,6 +1777,8 @@ import Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeadersConfig
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyFrameOptions
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyList
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyReferrerPolicy
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyRemoveHeader
+import Amazonka.CloudFront.Types.ResponseHeadersPolicyRemoveHeadersConfig
 import Amazonka.CloudFront.Types.ResponseHeadersPolicySecurityHeadersConfig
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyServerTimingHeadersConfig
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyStrictTransportSecurity

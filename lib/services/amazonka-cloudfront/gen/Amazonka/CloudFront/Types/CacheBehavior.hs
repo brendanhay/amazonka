@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.CacheBehavior
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,9 +46,9 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- in the /Amazon CloudFront Developer Guide/.
 --
--- If you don’t want to specify any cache behaviors, include only an empty
--- @CacheBehaviors@ element. Don’t include an empty @CacheBehavior@ element
--- because this is invalid.
+-- If you don\'t want to specify any cache behaviors, include only an empty
+-- @CacheBehaviors@ element. Don\'t include an empty @CacheBehavior@
+-- element because this is invalid.
 --
 -- To delete all cache behaviors in an existing distribution, update the
 -- distribution configuration and include only an empty @CacheBehaviors@
@@ -207,9 +207,10 @@ data CacheBehavior = CacheBehavior'
     -- When a cache behavior contains trusted signers, CloudFront requires
     -- signed URLs or signed cookies for all requests that match the cache
     -- behavior. The URLs or cookies must be signed with the private key of a
-    -- CloudFront key pair in the trusted signer’s Amazon Web Services account.
-    -- The signed URL or cookie contains information about which public key
-    -- CloudFront should use to verify the signature. For more information, see
+    -- CloudFront key pair in the trusted signer\'s Amazon Web Services
+    -- account. The signed URL or cookie contains information about which
+    -- public key CloudFront should use to verify the signature. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
     -- in the /Amazon CloudFront Developer Guide/.
     trustedSigners :: Prelude.Maybe TrustedSigners,
@@ -255,7 +256,7 @@ data CacheBehavior = CacheBehavior'
     -- The only way to guarantee that viewers retrieve an object that was
     -- fetched from the origin using HTTPS is never to use any other protocol
     -- to fetch the object. If you have recently changed from HTTP to HTTPS, we
-    -- recommend that you clear your objects’ cache because cached objects are
+    -- recommend that you clear your objects\' cache because cached objects are
     -- protocol agnostic. That means that an edge location will return an
     -- object from the cache regardless of whether the current request protocol
     -- matches the protocol used previously. For more information, see
@@ -417,9 +418,10 @@ data CacheBehavior = CacheBehavior'
 -- When a cache behavior contains trusted signers, CloudFront requires
 -- signed URLs or signed cookies for all requests that match the cache
 -- behavior. The URLs or cookies must be signed with the private key of a
--- CloudFront key pair in the trusted signer’s Amazon Web Services account.
--- The signed URL or cookie contains information about which public key
--- CloudFront should use to verify the signature. For more information, see
+-- CloudFront key pair in the trusted signer\'s Amazon Web Services
+-- account. The signed URL or cookie contains information about which
+-- public key CloudFront should use to verify the signature. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
 -- in the /Amazon CloudFront Developer Guide/.
 --
@@ -465,7 +467,7 @@ data CacheBehavior = CacheBehavior'
 -- The only way to guarantee that viewers retrieve an object that was
 -- fetched from the origin using HTTPS is never to use any other protocol
 -- to fetch the object. If you have recently changed from HTTP to HTTPS, we
--- recommend that you clear your objects’ cache because cached objects are
+-- recommend that you clear your objects\' cache because cached objects are
 -- protocol agnostic. That means that an edge location will return an
 -- object from the cache regardless of whether the current request protocol
 -- matches the protocol used previously. For more information, see
@@ -679,9 +681,10 @@ cacheBehavior_trustedKeyGroups = Lens.lens (\CacheBehavior' {trustedKeyGroups} -
 -- When a cache behavior contains trusted signers, CloudFront requires
 -- signed URLs or signed cookies for all requests that match the cache
 -- behavior. The URLs or cookies must be signed with the private key of a
--- CloudFront key pair in the trusted signer’s Amazon Web Services account.
--- The signed URL or cookie contains information about which public key
--- CloudFront should use to verify the signature. For more information, see
+-- CloudFront key pair in the trusted signer\'s Amazon Web Services
+-- account. The signed URL or cookie contains information about which
+-- public key CloudFront should use to verify the signature. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
 -- in the /Amazon CloudFront Developer Guide/.
 cacheBehavior_trustedSigners :: Lens.Lens' CacheBehavior (Prelude.Maybe TrustedSigners)
@@ -733,7 +736,7 @@ cacheBehavior_targetOriginId = Lens.lens (\CacheBehavior' {targetOriginId} -> ta
 -- The only way to guarantee that viewers retrieve an object that was
 -- fetched from the origin using HTTPS is never to use any other protocol
 -- to fetch the object. If you have recently changed from HTTP to HTTPS, we
--- recommend that you clear your objects’ cache because cached objects are
+-- recommend that you clear your objects\' cache because cached objects are
 -- protocol agnostic. That means that an edge location will return an
 -- object from the cache regardless of whether the current request protocol
 -- matches the protocol used previously. For more information, see

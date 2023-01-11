@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.CreateCachePolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 -- Creates a cache policy.
 --
 -- After you create a cache policy, you can attach it to one or more cache
--- behaviors. When it’s attached to a cache behavior, the cache policy
+-- behaviors. When it\'s attached to a cache behavior, the cache policy
 -- determines the following:
 --
 -- -   The values that CloudFront includes in the /cache key/. These values
@@ -36,8 +36,8 @@
 --
 -- The headers, cookies, and query strings that are included in the cache
 -- key are automatically included in requests that CloudFront sends to the
--- origin. CloudFront sends a request when it can’t find an object in its
--- cache that matches the request’s cache key. If you want to send values
+-- origin. CloudFront sends a request when it can\'t find an object in its
+-- cache that matches the request\'s cache key. If you want to send values
 -- to the origin but /not/ include them in the cache key, use
 -- @OriginRequestPolicy@.
 --

@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListDistributionsByRealtimeLogConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of distributions that have a cache behavior that’s
+-- Gets a list of distributions that have a cache behavior that\'s
 -- associated with the specified real-time log configuration.
 --
 -- You can specify the real-time log configuration by its name or its
@@ -68,8 +68,8 @@ data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of distributions. The response includes distributions in the
     -- list that occur after the marker. To get the next page of the list, set
-    -- this field’s value to the value of @NextMarker@ from the current page’s
-    -- response.
+    -- this field\'s value to the value of @NextMarker@ from the current
+    -- page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of distributions that you want in the response.
     maxItems :: Prelude.Maybe Prelude.Text,
@@ -93,8 +93,8 @@ data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig
 -- 'marker', 'listDistributionsByRealtimeLogConfig_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distributions. The response includes distributions in the
 -- list that occur after the marker. To get the next page of the list, set
--- this field’s value to the value of @NextMarker@ from the current page’s
--- response.
+-- this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 --
 -- 'maxItems', 'listDistributionsByRealtimeLogConfig_maxItems' - The maximum number of distributions that you want in the response.
 --
@@ -119,8 +119,8 @@ newListDistributionsByRealtimeLogConfig =
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distributions. The response includes distributions in the
 -- list that occur after the marker. To get the next page of the list, set
--- this field’s value to the value of @NextMarker@ from the current page’s
--- response.
+-- this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 listDistributionsByRealtimeLogConfig_marker :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 listDistributionsByRealtimeLogConfig_marker = Lens.lens (\ListDistributionsByRealtimeLogConfig' {marker} -> marker) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {marker = a} :: ListDistributionsByRealtimeLogConfig)
 

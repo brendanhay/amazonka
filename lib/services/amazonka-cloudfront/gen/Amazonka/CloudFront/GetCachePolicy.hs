@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.GetCachePolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,15 +22,15 @@
 --
 -- Gets a cache policy, including the following metadata:
 --
--- -   The policy’s identifier.
+-- -   The policy\'s identifier.
 --
 -- -   The date and time when the policy was last modified.
 --
--- To get a cache policy, you must provide the policy’s identifier. If the
--- cache policy is attached to a distribution’s cache behavior, you can get
--- the policy’s identifier using @ListDistributions@ or @GetDistribution@.
--- If the cache policy is not attached to a cache behavior, you can get the
--- identifier using @ListCachePolicies@.
+-- To get a cache policy, you must provide the policy\'s identifier. If the
+-- cache policy is attached to a distribution\'s cache behavior, you can
+-- get the policy\'s identifier using @ListDistributions@ or
+-- @GetDistribution@. If the cache policy is not attached to a cache
+-- behavior, you can get the identifier using @ListCachePolicies@.
 module Amazonka.CloudFront.GetCachePolicy
   ( -- * Creating a Request
     GetCachePolicy (..),
@@ -61,7 +61,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetCachePolicy' smart constructor.
 data GetCachePolicy = GetCachePolicy'
   { -- | The unique identifier for the cache policy. If the cache policy is
-    -- attached to a distribution’s cache behavior, you can get the policy’s
+    -- attached to a distribution\'s cache behavior, you can get the policy\'s
     -- identifier using @ListDistributions@ or @GetDistribution@. If the cache
     -- policy is not attached to a cache behavior, you can get the identifier
     -- using @ListCachePolicies@.
@@ -78,7 +78,7 @@ data GetCachePolicy = GetCachePolicy'
 -- for backwards compatibility:
 --
 -- 'id', 'getCachePolicy_id' - The unique identifier for the cache policy. If the cache policy is
--- attached to a distribution’s cache behavior, you can get the policy’s
+-- attached to a distribution\'s cache behavior, you can get the policy\'s
 -- identifier using @ListDistributions@ or @GetDistribution@. If the cache
 -- policy is not attached to a cache behavior, you can get the identifier
 -- using @ListCachePolicies@.
@@ -89,7 +89,7 @@ newGetCachePolicy ::
 newGetCachePolicy pId_ = GetCachePolicy' {id = pId_}
 
 -- | The unique identifier for the cache policy. If the cache policy is
--- attached to a distribution’s cache behavior, you can get the policy’s
+-- attached to a distribution\'s cache behavior, you can get the policy\'s
 -- identifier using @ListDistributions@ or @GetDistribution@. If the cache
 -- policy is not attached to a cache behavior, you can get the identifier
 -- using @ListCachePolicies@.

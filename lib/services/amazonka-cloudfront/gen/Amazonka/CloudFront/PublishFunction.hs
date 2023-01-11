@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.PublishFunction
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,10 +26,10 @@
 -- in the @LIVE@ stage.
 --
 -- When a function is published to the @LIVE@ stage, you can attach the
--- function to a distribution’s cache behavior, using the function’s Amazon
--- Resource Name (ARN).
+-- function to a distribution\'s cache behavior, using the function\'s
+-- Amazon Resource Name (ARN).
 --
--- To publish a function, you must provide the function’s name and version
+-- To publish a function, you must provide the function\'s name and version
 -- (@ETag@ value). To get these values, you can use @ListFunctions@ and
 -- @DescribeFunction@.
 module Amazonka.CloudFront.PublishFunction

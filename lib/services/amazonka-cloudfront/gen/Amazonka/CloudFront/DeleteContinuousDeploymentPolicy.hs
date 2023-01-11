@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.DeleteContinuousDeploymentPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,7 @@
 --
 -- Deletes a continuous deployment policy.
 --
--- You cannot delete a continuous deployment policy that’s attached to a
+-- You cannot delete a continuous deployment policy that\'s attached to a
 -- primary distribution. First update your distribution to remove the
 -- continuous deployment policy, then you can delete the policy.
 module Amazonka.CloudFront.DeleteContinuousDeploymentPolicy

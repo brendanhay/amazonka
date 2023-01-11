@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.CreateResponseHeadersPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,15 +23,19 @@
 -- Creates a response headers policy.
 --
 -- A response headers policy contains information about a set of HTTP
--- response headers and their values. To create a response headers policy,
--- you provide some metadata about the policy, and a set of configurations
--- that specify the response headers.
+-- headers. To create a response headers policy, you provide some metadata
+-- about the policy and a set of configurations that specify the headers.
 --
 -- After you create a response headers policy, you can use its ID to attach
 -- it to one or more cache behaviors in a CloudFront distribution. When
--- it’s attached to a cache behavior, CloudFront adds the headers in the
--- policy to HTTP responses that it sends for requests that match the cache
--- behavior.
+-- it\'s attached to a cache behavior, the response headers policy affects
+-- the HTTP headers that CloudFront includes in HTTP responses to requests
+-- that match the cache behavior. CloudFront adds or removes response
+-- headers according to the configuration of the response headers policy.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html Adding or removing HTTP headers in CloudFront responses>
+-- in the /Amazon CloudFront Developer Guide/.
 module Amazonka.CloudFront.CreateResponseHeadersPolicy
   ( -- * Creating a Request
     CreateResponseHeadersPolicy (..),
@@ -63,7 +67,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateResponseHeadersPolicy' smart constructor.
 data CreateResponseHeadersPolicy = CreateResponseHeadersPolicy'
   { -- | Contains metadata about the response headers policy, and a set of
-    -- configurations that specify the response headers.
+    -- configurations that specify the HTTP headers.
     responseHeadersPolicyConfig :: ResponseHeadersPolicyConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,7 +81,7 @@ data CreateResponseHeadersPolicy = CreateResponseHeadersPolicy'
 -- for backwards compatibility:
 --
 -- 'responseHeadersPolicyConfig', 'createResponseHeadersPolicy_responseHeadersPolicyConfig' - Contains metadata about the response headers policy, and a set of
--- configurations that specify the response headers.
+-- configurations that specify the HTTP headers.
 newCreateResponseHeadersPolicy ::
   -- | 'responseHeadersPolicyConfig'
   ResponseHeadersPolicyConfig ->
@@ -90,7 +94,7 @@ newCreateResponseHeadersPolicy
       }
 
 -- | Contains metadata about the response headers policy, and a set of
--- configurations that specify the response headers.
+-- configurations that specify the HTTP headers.
 createResponseHeadersPolicy_responseHeadersPolicyConfig :: Lens.Lens' CreateResponseHeadersPolicy ResponseHeadersPolicyConfig
 createResponseHeadersPolicy_responseHeadersPolicyConfig = Lens.lens (\CreateResponseHeadersPolicy' {responseHeadersPolicyConfig} -> responseHeadersPolicyConfig) (\s@CreateResponseHeadersPolicy' {} a -> s {responseHeadersPolicyConfig = a} :: CreateResponseHeadersPolicy)
 

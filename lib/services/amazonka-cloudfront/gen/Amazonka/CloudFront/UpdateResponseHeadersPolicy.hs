@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.UpdateResponseHeadersPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,7 +26,7 @@
 -- replaced. You cannot update some policy fields independent of others. To
 -- update a response headers policy configuration:
 --
--- 1.  Use @GetResponseHeadersPolicyConfig@ to get the current policy’s
+-- 1.  Use @GetResponseHeadersPolicyConfig@ to get the current policy\'s
 --     configuration.
 --
 -- 2.  Modify the fields in the response headers policy configuration that
@@ -34,7 +34,7 @@
 --
 -- 3.  Call @UpdateResponseHeadersPolicy@, providing the entire response
 --     headers policy configuration, including the fields that you modified
---     and those that you didn’t.
+--     and those that you didn\'t.
 module Amazonka.CloudFront.UpdateResponseHeadersPolicy
   ( -- * Creating a Request
     UpdateResponseHeadersPolicy (..),
@@ -68,7 +68,7 @@ import qualified Amazonka.Response as Response
 data UpdateResponseHeadersPolicy = UpdateResponseHeadersPolicy'
   { -- | The version of the response headers policy that you are updating.
     --
-    -- The version is returned in the cache policy’s @ETag@ field in the
+    -- The version is returned in the cache policy\'s @ETag@ field in the
     -- response to @GetResponseHeadersPolicyConfig@.
     ifMatch :: Prelude.Maybe Prelude.Text,
     -- | A response headers policy configuration.
@@ -88,7 +88,7 @@ data UpdateResponseHeadersPolicy = UpdateResponseHeadersPolicy'
 --
 -- 'ifMatch', 'updateResponseHeadersPolicy_ifMatch' - The version of the response headers policy that you are updating.
 --
--- The version is returned in the cache policy’s @ETag@ field in the
+-- The version is returned in the cache policy\'s @ETag@ field in the
 -- response to @GetResponseHeadersPolicyConfig@.
 --
 -- 'responseHeadersPolicyConfig', 'updateResponseHeadersPolicy_responseHeadersPolicyConfig' - A response headers policy configuration.
@@ -113,7 +113,7 @@ newUpdateResponseHeadersPolicy
 
 -- | The version of the response headers policy that you are updating.
 --
--- The version is returned in the cache policy’s @ETag@ field in the
+-- The version is returned in the cache policy\'s @ETag@ field in the
 -- response to @GetResponseHeadersPolicyConfig@.
 updateResponseHeadersPolicy_ifMatch :: Lens.Lens' UpdateResponseHeadersPolicy (Prelude.Maybe Prelude.Text)
 updateResponseHeadersPolicy_ifMatch = Lens.lens (\UpdateResponseHeadersPolicy' {ifMatch} -> ifMatch) (\s@UpdateResponseHeadersPolicy' {} a -> s {ifMatch = a} :: UpdateResponseHeadersPolicy)

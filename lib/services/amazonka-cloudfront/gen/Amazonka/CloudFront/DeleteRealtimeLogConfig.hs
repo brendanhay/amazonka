@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.DeleteRealtimeLogConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,15 +22,15 @@
 --
 -- Deletes a real-time log configuration.
 --
--- You cannot delete a real-time log configuration if it’s attached to a
+-- You cannot delete a real-time log configuration if it\'s attached to a
 -- cache behavior. First update your distributions to remove the real-time
 -- log configuration from all cache behaviors, then delete the real-time
 -- log configuration.
 --
 -- To delete a real-time log configuration, you can provide the
--- configuration’s name or its Amazon Resource Name (ARN). You must provide
--- at least one. If you provide both, CloudFront uses the name to identify
--- the real-time log configuration to delete.
+-- configuration\'s name or its Amazon Resource Name (ARN). You must
+-- provide at least one. If you provide both, CloudFront uses the name to
+-- identify the real-time log configuration to delete.
 module Amazonka.CloudFront.DeleteRealtimeLogConfig
   ( -- * Creating a Request
     DeleteRealtimeLogConfig (..),

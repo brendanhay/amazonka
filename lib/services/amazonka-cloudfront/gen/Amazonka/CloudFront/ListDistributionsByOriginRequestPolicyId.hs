@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListDistributionsByOriginRequestPolicyId
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a list of distribution IDs for distributions that have a cache
--- behavior that’s associated with the specified origin request policy.
+-- behavior that\'s associated with the specified origin request policy.
 --
 -- You can optionally specify the maximum number of items to receive in the
 -- response. If the total number of items in the list exceeds the maximum
@@ -62,8 +62,8 @@ data ListDistributionsByOriginRequestPolicyId = ListDistributionsByOriginRequest
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of distribution IDs. The response includes distribution IDs in
     -- the list that occur after the marker. To get the next page of the list,
-    -- set this field’s value to the value of @NextMarker@ from the current
-    -- page’s response.
+    -- set this field\'s value to the value of @NextMarker@ from the current
+    -- page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of distribution IDs that you want in the response.
     maxItems :: Prelude.Maybe Prelude.Text,
@@ -84,8 +84,8 @@ data ListDistributionsByOriginRequestPolicyId = ListDistributionsByOriginRequest
 -- 'marker', 'listDistributionsByOriginRequestPolicyId_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
--- set this field’s value to the value of @NextMarker@ from the current
--- page’s response.
+-- set this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 --
 -- 'maxItems', 'listDistributionsByOriginRequestPolicyId_maxItems' - The maximum number of distribution IDs that you want in the response.
 --
@@ -108,8 +108,8 @@ newListDistributionsByOriginRequestPolicyId
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
--- set this field’s value to the value of @NextMarker@ from the current
--- page’s response.
+-- set this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 listDistributionsByOriginRequestPolicyId_marker :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Prelude.Maybe Prelude.Text)
 listDistributionsByOriginRequestPolicyId_marker = Lens.lens (\ListDistributionsByOriginRequestPolicyId' {marker} -> marker) (\s@ListDistributionsByOriginRequestPolicyId' {} a -> s {marker = a} :: ListDistributionsByOriginRequestPolicyId)
 

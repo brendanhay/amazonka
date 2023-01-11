@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListOriginRequestPolicies
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,8 +65,8 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of origin request policies. The response includes origin
     -- request policies in the list that occur after the marker. To get the
-    -- next page of the list, set this field’s value to the value of
-    -- @NextMarker@ from the current page’s response.
+    -- next page of the list, set this field\'s value to the value of
+    -- @NextMarker@ from the current page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of origin request policies that you want in the
     -- response.
@@ -94,8 +94,8 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
 -- 'marker', 'listOriginRequestPolicies_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of origin request policies. The response includes origin
 -- request policies in the list that occur after the marker. To get the
--- next page of the list, set this field’s value to the value of
--- @NextMarker@ from the current page’s response.
+-- next page of the list, set this field\'s value to the value of
+-- @NextMarker@ from the current page\'s response.
 --
 -- 'maxItems', 'listOriginRequestPolicies_maxItems' - The maximum number of origin request policies that you want in the
 -- response.
@@ -121,8 +121,8 @@ newListOriginRequestPolicies =
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of origin request policies. The response includes origin
 -- request policies in the list that occur after the marker. To get the
--- next page of the list, set this field’s value to the value of
--- @NextMarker@ from the current page’s response.
+-- next page of the list, set this field\'s value to the value of
+-- @NextMarker@ from the current page\'s response.
 listOriginRequestPolicies_marker :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe Prelude.Text)
 listOriginRequestPolicies_marker = Lens.lens (\ListOriginRequestPolicies' {marker} -> marker) (\s@ListOriginRequestPolicies' {} a -> s {marker = a} :: ListOriginRequestPolicies)
 

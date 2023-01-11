@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.CachePolicyConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- The headers, cookies, and query strings that are included in the cache
 -- key are automatically included in requests that CloudFront sends to the
--- origin. CloudFront sends a request when it can’t find a valid object in
--- its cache that matches the request’s cache key. If you want to send
+-- origin. CloudFront sends a request when it can\'t find a valid object in
+-- its cache that matches the request\'s cache key. If you want to send
 -- values to the origin but /not/ include them in the cache key, use
 -- @OriginRequestPolicy@.
 --
@@ -52,7 +52,7 @@ data CachePolicyConfig = CachePolicyConfig'
     -- | The default amount of time, in seconds, that you want objects to stay in
     -- the CloudFront cache before CloudFront sends another request to the
     -- origin to see if the object has been updated. CloudFront uses this value
-    -- as the object’s time to live (TTL) only when the origin does /not/ send
+    -- as the object\'s time to live (TTL) only when the origin does /not/ send
     -- @Cache-Control@ or @Expires@ headers with the object. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
@@ -104,7 +104,7 @@ data CachePolicyConfig = CachePolicyConfig'
 -- 'defaultTTL', 'cachePolicyConfig_defaultTTL' - The default amount of time, in seconds, that you want objects to stay in
 -- the CloudFront cache before CloudFront sends another request to the
 -- origin to see if the object has been updated. CloudFront uses this value
--- as the object’s time to live (TTL) only when the origin does /not/ send
+-- as the object\'s time to live (TTL) only when the origin does /not/ send
 -- @Cache-Control@ or @Expires@ headers with the object. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
@@ -163,7 +163,7 @@ cachePolicyConfig_comment = Lens.lens (\CachePolicyConfig' {comment} -> comment)
 -- | The default amount of time, in seconds, that you want objects to stay in
 -- the CloudFront cache before CloudFront sends another request to the
 -- origin to see if the object has been updated. CloudFront uses this value
--- as the object’s time to live (TTL) only when the origin does /not/ send
+-- as the object\'s time to live (TTL) only when the origin does /not/ send
 -- @Cache-Control@ or @Expires@ headers with the object. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>

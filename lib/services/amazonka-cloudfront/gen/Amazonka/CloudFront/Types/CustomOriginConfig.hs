@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.CustomOriginConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 data CustomOriginConfig = CustomOriginConfig'
   { -- | Specifies how long, in seconds, CloudFront persists its connection to
     -- the origin. The minimum timeout is 1 second, the maximum is 60 seconds,
-    -- and the default (if you don’t specify otherwise) is 5 seconds.
+    -- and the default (if you don\'t specify otherwise) is 5 seconds.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout>
@@ -44,7 +44,7 @@ data CustomOriginConfig = CustomOriginConfig'
     -- | Specifies how long, in seconds, CloudFront waits for a response from the
     -- origin. This is also known as the /origin response timeout/. The minimum
     -- timeout is 1 second, the maximum is 60 seconds, and the default (if you
-    -- don’t specify otherwise) is 30 seconds.
+    -- don\'t specify otherwise) is 30 seconds.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>
@@ -88,7 +88,7 @@ data CustomOriginConfig = CustomOriginConfig'
 --
 -- 'originKeepaliveTimeout', 'customOriginConfig_originKeepaliveTimeout' - Specifies how long, in seconds, CloudFront persists its connection to
 -- the origin. The minimum timeout is 1 second, the maximum is 60 seconds,
--- and the default (if you don’t specify otherwise) is 5 seconds.
+-- and the default (if you don\'t specify otherwise) is 5 seconds.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout>
@@ -97,7 +97,7 @@ data CustomOriginConfig = CustomOriginConfig'
 -- 'originReadTimeout', 'customOriginConfig_originReadTimeout' - Specifies how long, in seconds, CloudFront waits for a response from the
 -- origin. This is also known as the /origin response timeout/. The minimum
 -- timeout is 1 second, the maximum is 60 seconds, and the default (if you
--- don’t specify otherwise) is 30 seconds.
+-- don\'t specify otherwise) is 30 seconds.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>
@@ -151,7 +151,7 @@ newCustomOriginConfig
 
 -- | Specifies how long, in seconds, CloudFront persists its connection to
 -- the origin. The minimum timeout is 1 second, the maximum is 60 seconds,
--- and the default (if you don’t specify otherwise) is 5 seconds.
+-- and the default (if you don\'t specify otherwise) is 5 seconds.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout Origin Keep-alive Timeout>
@@ -162,7 +162,7 @@ customOriginConfig_originKeepaliveTimeout = Lens.lens (\CustomOriginConfig' {ori
 -- | Specifies how long, in seconds, CloudFront waits for a response from the
 -- origin. This is also known as the /origin response timeout/. The minimum
 -- timeout is 1 second, the maximum is 60 seconds, and the default (if you
--- don’t specify otherwise) is 30 seconds.
+-- don\'t specify otherwise) is 30 seconds.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>

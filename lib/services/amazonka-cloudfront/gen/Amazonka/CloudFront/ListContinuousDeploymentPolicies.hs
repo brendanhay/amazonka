@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListContinuousDeploymentPolicies
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,8 +61,8 @@ data ListContinuousDeploymentPolicies = ListContinuousDeploymentPolicies'
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of continuous deployment policies. The response includes
     -- policies in the list that occur after the marker. To get the next page
-    -- of the list, set this field’s value to the value of @NextMarker@ from
-    -- the current page’s response.
+    -- of the list, set this field\'s value to the value of @NextMarker@ from
+    -- the current page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of continuous deployment policies that you want
     -- returned in the response.
@@ -81,8 +81,8 @@ data ListContinuousDeploymentPolicies = ListContinuousDeploymentPolicies'
 -- 'marker', 'listContinuousDeploymentPolicies_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of continuous deployment policies. The response includes
 -- policies in the list that occur after the marker. To get the next page
--- of the list, set this field’s value to the value of @NextMarker@ from
--- the current page’s response.
+-- of the list, set this field\'s value to the value of @NextMarker@ from
+-- the current page\'s response.
 --
 -- 'maxItems', 'listContinuousDeploymentPolicies_maxItems' - The maximum number of continuous deployment policies that you want
 -- returned in the response.
@@ -98,8 +98,8 @@ newListContinuousDeploymentPolicies =
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of continuous deployment policies. The response includes
 -- policies in the list that occur after the marker. To get the next page
--- of the list, set this field’s value to the value of @NextMarker@ from
--- the current page’s response.
+-- of the list, set this field\'s value to the value of @NextMarker@ from
+-- the current page\'s response.
 listContinuousDeploymentPolicies_marker :: Lens.Lens' ListContinuousDeploymentPolicies (Prelude.Maybe Prelude.Text)
 listContinuousDeploymentPolicies_marker = Lens.lens (\ListContinuousDeploymentPolicies' {marker} -> marker) (\s@ListContinuousDeploymentPolicies' {} a -> s {marker = a} :: ListContinuousDeploymentPolicies)
 

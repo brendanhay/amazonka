@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListDistributionsByKeyGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,8 +62,8 @@ data ListDistributionsByKeyGroup = ListDistributionsByKeyGroup'
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of distribution IDs. The response includes distribution IDs in
     -- the list that occur after the marker. To get the next page of the list,
-    -- set this field’s value to the value of @NextMarker@ from the current
-    -- page’s response.
+    -- set this field\'s value to the value of @NextMarker@ from the current
+    -- page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of distribution IDs that you want in the response.
     maxItems :: Prelude.Maybe Prelude.Text,
@@ -84,8 +84,8 @@ data ListDistributionsByKeyGroup = ListDistributionsByKeyGroup'
 -- 'marker', 'listDistributionsByKeyGroup_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
--- set this field’s value to the value of @NextMarker@ from the current
--- page’s response.
+-- set this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 --
 -- 'maxItems', 'listDistributionsByKeyGroup_maxItems' - The maximum number of distribution IDs that you want in the response.
 --
@@ -106,8 +106,8 @@ newListDistributionsByKeyGroup pKeyGroupId_ =
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
--- set this field’s value to the value of @NextMarker@ from the current
--- page’s response.
+-- set this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 listDistributionsByKeyGroup_marker :: Lens.Lens' ListDistributionsByKeyGroup (Prelude.Maybe Prelude.Text)
 listDistributionsByKeyGroup_marker = Lens.lens (\ListDistributionsByKeyGroup' {marker} -> marker) (\s@ListDistributionsByKeyGroup' {} a -> s {marker = a} :: ListDistributionsByKeyGroup)
 

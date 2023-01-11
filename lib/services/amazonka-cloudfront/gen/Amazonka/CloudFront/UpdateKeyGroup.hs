@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.UpdateKeyGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@
 --     For example, add or remove public key IDs.
 --
 -- 3.  Call @UpdateKeyGroup@ with the entire key group object, including
---     the fields that you modified and those that you didn’t.
+--     the fields that you modified and those that you didn\'t.
 module Amazonka.CloudFront.UpdateKeyGroup
   ( -- * Creating a Request
     UpdateKeyGroup (..),
@@ -65,7 +65,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateKeyGroup' smart constructor.
 data UpdateKeyGroup = UpdateKeyGroup'
   { -- | The version of the key group that you are updating. The version is the
-    -- key group’s @ETag@ value.
+    -- key group\'s @ETag@ value.
     ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The key group configuration.
     keyGroupConfig :: KeyGroupConfig,
@@ -83,7 +83,7 @@ data UpdateKeyGroup = UpdateKeyGroup'
 -- for backwards compatibility:
 --
 -- 'ifMatch', 'updateKeyGroup_ifMatch' - The version of the key group that you are updating. The version is the
--- key group’s @ETag@ value.
+-- key group\'s @ETag@ value.
 --
 -- 'keyGroupConfig', 'updateKeyGroup_keyGroupConfig' - The key group configuration.
 --
@@ -102,7 +102,7 @@ newUpdateKeyGroup pKeyGroupConfig_ pId_ =
     }
 
 -- | The version of the key group that you are updating. The version is the
--- key group’s @ETag@ value.
+-- key group\'s @ETag@ value.
 updateKeyGroup_ifMatch :: Lens.Lens' UpdateKeyGroup (Prelude.Maybe Prelude.Text)
 updateKeyGroup_ifMatch = Lens.lens (\UpdateKeyGroup' {ifMatch} -> ifMatch) (\s@UpdateKeyGroup' {} a -> s {ifMatch = a} :: UpdateKeyGroup)
 

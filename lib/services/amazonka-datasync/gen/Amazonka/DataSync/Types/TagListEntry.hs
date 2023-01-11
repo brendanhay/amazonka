@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataSync.Types.TagListEntry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,11 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents a single entry in a list of Amazon Web Services resource
--- tags. @TagListEntry@ returns an array that contains a list of tasks when
--- the
--- <https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTagsForResource.html ListTagsForResource>
--- operation is called.
+-- | A key-value pair representing a single tag that\'s been applied to an
+-- Amazon Web Services resource.
 --
 -- /See:/ 'newTagListEntry' smart constructor.
 data TagListEntry = TagListEntry'

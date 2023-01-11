@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.DataSync.UntagResource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a tag from an Amazon Web Services resource.
+-- Removes tags from an Amazon Web Services resource.
 module Amazonka.DataSync.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -51,9 +51,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource to remove the tag from.
+  { -- | Specifies the Amazon Resource Name (ARN) of the resource to remove the
+    -- tags from.
     resourceArn :: Prelude.Text,
-    -- | The keys in the key-value pair in the tag to remove.
+    -- | Specifies the keys in the tags that you want to remove.
     keys :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,9 +67,10 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to remove the tag from.
+-- 'resourceArn', 'untagResource_resourceArn' - Specifies the Amazon Resource Name (ARN) of the resource to remove the
+-- tags from.
 --
--- 'keys', 'untagResource_keys' - The keys in the key-value pair in the tag to remove.
+-- 'keys', 'untagResource_keys' - Specifies the keys in the tags that you want to remove.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -81,11 +83,12 @@ newUntagResource pResourceArn_ pKeys_ =
       keys = Lens.coerced Lens.# pKeys_
     }
 
--- | The Amazon Resource Name (ARN) of the resource to remove the tag from.
+-- | Specifies the Amazon Resource Name (ARN) of the resource to remove the
+-- tags from.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | The keys in the key-value pair in the tag to remove.
+-- | Specifies the keys in the tags that you want to remove.
 untagResource_keys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
 untagResource_keys = Lens.lens (\UntagResource' {keys} -> keys) (\s@UntagResource' {} a -> s {keys = a} :: UntagResource) Prelude.. Lens.coerced
 

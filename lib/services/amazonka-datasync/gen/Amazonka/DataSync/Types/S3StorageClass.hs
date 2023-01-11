@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataSync.Types.S3StorageClass
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.DataSync.Types.S3StorageClass
       ( ..,
         S3StorageClass_DEEP_ARCHIVE,
         S3StorageClass_GLACIER,
+        S3StorageClass_GLACIER_INSTANT_RETRIEVAL,
         S3StorageClass_INTELLIGENT_TIERING,
         S3StorageClass_ONEZONE_IA,
         S3StorageClass_OUTPOSTS,
@@ -69,6 +70,9 @@ pattern S3StorageClass_DEEP_ARCHIVE = S3StorageClass' "DEEP_ARCHIVE"
 pattern S3StorageClass_GLACIER :: S3StorageClass
 pattern S3StorageClass_GLACIER = S3StorageClass' "GLACIER"
 
+pattern S3StorageClass_GLACIER_INSTANT_RETRIEVAL :: S3StorageClass
+pattern S3StorageClass_GLACIER_INSTANT_RETRIEVAL = S3StorageClass' "GLACIER_INSTANT_RETRIEVAL"
+
 pattern S3StorageClass_INTELLIGENT_TIERING :: S3StorageClass
 pattern S3StorageClass_INTELLIGENT_TIERING = S3StorageClass' "INTELLIGENT_TIERING"
 
@@ -87,6 +91,7 @@ pattern S3StorageClass_STANDARD_IA = S3StorageClass' "STANDARD_IA"
 {-# COMPLETE
   S3StorageClass_DEEP_ARCHIVE,
   S3StorageClass_GLACIER,
+  S3StorageClass_GLACIER_INSTANT_RETRIEVAL,
   S3StorageClass_INTELLIGENT_TIERING,
   S3StorageClass_ONEZONE_IA,
   S3StorageClass_OUTPOSTS,

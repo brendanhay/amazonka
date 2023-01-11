@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MQ.Types.BrokerSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ data BrokerSummary = BrokerSummary'
     -- | The broker\'s status.
     brokerState :: Prelude.Maybe BrokerState,
     -- | The time when the broker was created.
-    created :: Prelude.Maybe Data.POSIX,
+    created :: Prelude.Maybe Data.ISO8601,
     -- | The broker\'s instance type.
     hostInstanceType :: Prelude.Maybe Prelude.Text,
     -- | The broker\'s deployment mode.

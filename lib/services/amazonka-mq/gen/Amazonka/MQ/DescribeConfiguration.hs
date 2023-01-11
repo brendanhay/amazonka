@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MQ.DescribeConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -144,7 +144,7 @@ data DescribeConfigurationResponse = DescribeConfigurationResponse'
     -- The default is SIMPLE.
     authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | Required. The date and time of the configuration revision.
-    created :: Prelude.Maybe Data.POSIX,
+    created :: Prelude.Maybe Data.ISO8601,
     -- | Required. The description of the configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | Required. The type of broker engine. Currently, Amazon MQ supports

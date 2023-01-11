@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Athena.UpdateNotebook
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,10 +28,10 @@ module Amazonka.Athena.UpdateNotebook
 
     -- * Request Lenses
     updateNotebook_clientRequestToken,
-    updateNotebook_payload,
     updateNotebook_sessionId,
-    updateNotebook_type,
     updateNotebook_notebookId,
+    updateNotebook_payload,
+    updateNotebook_type,
 
     -- * Destructuring the Response
     UpdateNotebookResponse (..),
@@ -61,14 +61,14 @@ data UpdateNotebook = UpdateNotebook'
     -- Amazon Web Services CLI, you must provide this token or the action will
     -- fail.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The updated content for the notebook.
-    payload :: Prelude.Maybe Prelude.Text,
     -- | The ID of the session in which the notebook will be updated.
     sessionId :: Prelude.Maybe Prelude.Text,
-    -- | The notebook content type. Currently, the only valid type is @IPYNB@.
-    type' :: Prelude.Maybe NotebookType,
     -- | The ID of the notebook to update.
-    notebookId :: Prelude.Text
+    notebookId :: Prelude.Text,
+    -- | The updated content for the notebook.
+    payload :: Prelude.Text,
+    -- | The notebook content type. Currently, the only valid type is @IPYNB@.
+    type' :: NotebookType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,25 +89,29 @@ data UpdateNotebook = UpdateNotebook'
 -- Amazon Web Services CLI, you must provide this token or the action will
 -- fail.
 --
--- 'payload', 'updateNotebook_payload' - The updated content for the notebook.
---
 -- 'sessionId', 'updateNotebook_sessionId' - The ID of the session in which the notebook will be updated.
 --
--- 'type'', 'updateNotebook_type' - The notebook content type. Currently, the only valid type is @IPYNB@.
---
 -- 'notebookId', 'updateNotebook_notebookId' - The ID of the notebook to update.
+--
+-- 'payload', 'updateNotebook_payload' - The updated content for the notebook.
+--
+-- 'type'', 'updateNotebook_type' - The notebook content type. Currently, the only valid type is @IPYNB@.
 newUpdateNotebook ::
   -- | 'notebookId'
   Prelude.Text ->
+  -- | 'payload'
+  Prelude.Text ->
+  -- | 'type''
+  NotebookType ->
   UpdateNotebook
-newUpdateNotebook pNotebookId_ =
+newUpdateNotebook pNotebookId_ pPayload_ pType_ =
   UpdateNotebook'
     { clientRequestToken =
         Prelude.Nothing,
-      payload = Prelude.Nothing,
       sessionId = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      notebookId = pNotebookId_
+      notebookId = pNotebookId_,
+      payload = pPayload_,
+      type' = pType_
     }
 
 -- | A unique case-sensitive string used to ensure the request to create the
@@ -121,21 +125,21 @@ newUpdateNotebook pNotebookId_ =
 updateNotebook_clientRequestToken :: Lens.Lens' UpdateNotebook (Prelude.Maybe Prelude.Text)
 updateNotebook_clientRequestToken = Lens.lens (\UpdateNotebook' {clientRequestToken} -> clientRequestToken) (\s@UpdateNotebook' {} a -> s {clientRequestToken = a} :: UpdateNotebook)
 
--- | The updated content for the notebook.
-updateNotebook_payload :: Lens.Lens' UpdateNotebook (Prelude.Maybe Prelude.Text)
-updateNotebook_payload = Lens.lens (\UpdateNotebook' {payload} -> payload) (\s@UpdateNotebook' {} a -> s {payload = a} :: UpdateNotebook)
-
 -- | The ID of the session in which the notebook will be updated.
 updateNotebook_sessionId :: Lens.Lens' UpdateNotebook (Prelude.Maybe Prelude.Text)
 updateNotebook_sessionId = Lens.lens (\UpdateNotebook' {sessionId} -> sessionId) (\s@UpdateNotebook' {} a -> s {sessionId = a} :: UpdateNotebook)
 
--- | The notebook content type. Currently, the only valid type is @IPYNB@.
-updateNotebook_type :: Lens.Lens' UpdateNotebook (Prelude.Maybe NotebookType)
-updateNotebook_type = Lens.lens (\UpdateNotebook' {type'} -> type') (\s@UpdateNotebook' {} a -> s {type' = a} :: UpdateNotebook)
-
 -- | The ID of the notebook to update.
 updateNotebook_notebookId :: Lens.Lens' UpdateNotebook Prelude.Text
 updateNotebook_notebookId = Lens.lens (\UpdateNotebook' {notebookId} -> notebookId) (\s@UpdateNotebook' {} a -> s {notebookId = a} :: UpdateNotebook)
+
+-- | The updated content for the notebook.
+updateNotebook_payload :: Lens.Lens' UpdateNotebook Prelude.Text
+updateNotebook_payload = Lens.lens (\UpdateNotebook' {payload} -> payload) (\s@UpdateNotebook' {} a -> s {payload = a} :: UpdateNotebook)
+
+-- | The notebook content type. Currently, the only valid type is @IPYNB@.
+updateNotebook_type :: Lens.Lens' UpdateNotebook NotebookType
+updateNotebook_type = Lens.lens (\UpdateNotebook' {type'} -> type') (\s@UpdateNotebook' {} a -> s {type' = a} :: UpdateNotebook)
 
 instance Core.AWSRequest UpdateNotebook where
   type
@@ -153,18 +157,18 @@ instance Core.AWSRequest UpdateNotebook where
 instance Prelude.Hashable UpdateNotebook where
   hashWithSalt _salt UpdateNotebook' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` sessionId
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` notebookId
+      `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData UpdateNotebook where
   rnf UpdateNotebook' {..} =
     Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf payload
       `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf notebookId
+      `Prelude.seq` Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToHeaders UpdateNotebook where
   toHeaders =
@@ -187,10 +191,10 @@ instance Data.ToJSON UpdateNotebook where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Payload" Data..=) Prelude.<$> payload,
             ("SessionId" Data..=) Prelude.<$> sessionId,
-            ("Type" Data..=) Prelude.<$> type',
-            Prelude.Just ("NotebookId" Data..= notebookId)
+            Prelude.Just ("NotebookId" Data..= notebookId),
+            Prelude.Just ("Payload" Data..= payload),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Athena.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -643,7 +643,7 @@ defaultService =
 
 -- | Indicates a platform issue, which may be due to a transient condition or
 -- outage.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -651,7 +651,7 @@ _InternalServerException =
 
 -- | Indicates that something is wrong with the input to the request. For
 -- example, a required parameter may be missing or out of range.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -663,28 +663,28 @@ _InvalidRequestException =
 -- (@InternalServerException@). For example, if a user-created Lambda
 -- function is missing permissions, the Lambda @4XX@ exception is returned
 -- in a @MetadataException@.
-_MetadataException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MetadataException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MetadataException =
   Core._MatchServiceError
     defaultService
     "MetadataException"
 
 -- | A resource, such as a workgroup, was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The specified session already exists.
-_SessionAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SessionAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SessionAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "SessionAlreadyExistsException"
 
 -- | Indicates that the request was throttled.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

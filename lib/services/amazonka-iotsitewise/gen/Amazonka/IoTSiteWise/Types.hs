@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.IoTSiteWise.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1055,7 +1055,7 @@ defaultService =
 -- | Your request has conflicting operations. This can occur if you\'re
 -- trying to perform more than one operation on the same resource at the
 -- same time.
-_ConflictingOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictingOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictingOperationException =
   Core._MatchServiceError
     defaultService
@@ -1063,7 +1063,7 @@ _ConflictingOperationException =
     Prelude.. Core.hasStatus 409
 
 -- | IoT SiteWise can\'t process your request right now. Try again later.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -1073,7 +1073,7 @@ _InternalFailureException =
 -- | The request isn\'t valid. This can occur if your request contains
 -- malformed JSON or unsupported characters. Check your request and try
 -- again.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -1088,7 +1088,7 @@ _InvalidRequestException =
 -- For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
 -- in the /IoT SiteWise User Guide/.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1096,7 +1096,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 410
 
 -- | The resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -1104,7 +1104,7 @@ _ResourceAlreadyExistsException =
     Prelude.. Core.hasStatus 409
 
 -- | The requested resource can\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1112,7 +1112,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The requested service is unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -1126,7 +1126,7 @@ _ServiceUnavailableException =
 -- For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
 -- in the /IoT SiteWise User Guide/.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1137,7 +1137,7 @@ _ThrottlingException =
 -- For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions Tag naming limits and requirements>
 -- in the /Amazon Web Services General Reference/.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
@@ -1145,7 +1145,7 @@ _TooManyTagsException =
     Prelude.. Core.hasStatus 400
 
 -- | You are not authorized.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

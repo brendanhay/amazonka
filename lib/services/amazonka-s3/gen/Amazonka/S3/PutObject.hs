@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.S3.PutObject
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -292,7 +292,7 @@ data PutObject = PutObject'
     -- | The date and time at which the object is no longer cacheable. For more
     -- information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21>.
-    expires :: Prelude.Maybe Data.ISO8601,
+    expires :: Prelude.Maybe Data.RFC822,
     -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
     -- object.
     --

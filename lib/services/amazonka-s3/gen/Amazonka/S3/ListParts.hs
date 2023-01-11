@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.S3.ListParts
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -436,7 +436,7 @@ data ListPartsResponse = ListPartsResponse'
     -- The response will also include the @x-amz-abort-rule-id@ header that
     -- will provide the ID of the lifecycle configuration rule that defines
     -- this action.
-    abortDate :: Prelude.Maybe Data.ISO8601,
+    abortDate :: Prelude.Maybe Data.RFC822,
     -- | This header is returned along with the @x-amz-abort-date@ header. It
     -- identifies applicable lifecycle configuration rule that defines the
     -- action to abort incomplete multipart uploads.

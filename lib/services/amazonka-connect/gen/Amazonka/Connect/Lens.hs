@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -500,9 +500,11 @@ module Amazonka.Connect.Lens
     getCurrentMetricData_groupings,
     getCurrentMetricData_maxResults,
     getCurrentMetricData_nextToken,
+    getCurrentMetricData_sortCriteria,
     getCurrentMetricData_instanceId,
     getCurrentMetricData_filters,
     getCurrentMetricData_currentMetrics,
+    getCurrentMetricDataResponse_approximateTotalCount,
     getCurrentMetricDataResponse_dataSnapshotTime,
     getCurrentMetricDataResponse_metricResults,
     getCurrentMetricDataResponse_nextToken,
@@ -513,6 +515,7 @@ module Amazonka.Connect.Lens
     getCurrentUserData_nextToken,
     getCurrentUserData_instanceId,
     getCurrentUserData_filters,
+    getCurrentUserDataResponse_approximateTotalCount,
     getCurrentUserDataResponse_nextToken,
     getCurrentUserDataResponse_userDataList,
     getCurrentUserDataResponse_httpStatus,
@@ -1120,6 +1123,12 @@ module Amazonka.Connect.Lens
     updateInstanceStorageConfig_resourceType,
     updateInstanceStorageConfig_storageConfig,
 
+    -- ** UpdateParticipantRoleConfig
+    updateParticipantRoleConfig_instanceId,
+    updateParticipantRoleConfig_contactId,
+    updateParticipantRoleConfig_channelConfiguration,
+    updateParticipantRoleConfigResponse_httpStatus,
+
     -- ** UpdatePhoneNumber
     updatePhoneNumber_clientToken,
     updatePhoneNumber_phoneNumberId,
@@ -1295,6 +1304,7 @@ module Amazonka.Connect.Lens
 
     -- ** AgentStatusReference
     agentStatusReference_statusArn,
+    agentStatusReference_statusName,
     agentStatusReference_statusStartTimestamp,
 
     -- ** AgentStatusSummary
@@ -1326,6 +1336,9 @@ module Amazonka.Connect.Lens
     -- ** ChatMessage
     chatMessage_contentType,
     chatMessage_content,
+
+    -- ** ChatParticipantRoleConfig
+    chatParticipantRoleConfig_participantTimerConfigList,
 
     -- ** ChatStreamingConfiguration
     chatStreamingConfiguration_streamingEndpointArn,
@@ -1416,6 +1429,10 @@ module Amazonka.Connect.Lens
     currentMetricResult_collections,
     currentMetricResult_dimensions,
 
+    -- ** CurrentMetricSortCriteria
+    currentMetricSortCriteria_sortByMetric,
+    currentMetricSortCriteria_sortOrder,
+
     -- ** DateReference
     dateReference_name,
     dateReference_value,
@@ -1429,6 +1446,7 @@ module Amazonka.Connect.Lens
     -- ** Dimensions
     dimensions_channel,
     dimensions_queue,
+    dimensions_routingProfile,
 
     -- ** Distribution
     distribution_region,
@@ -1448,6 +1466,7 @@ module Amazonka.Connect.Lens
     -- ** Filters
     filters_channels,
     filters_queues,
+    filters_routingProfiles,
 
     -- ** HierarchyGroup
     hierarchyGroup_arn,
@@ -1639,6 +1658,15 @@ module Amazonka.Connect.Lens
 
     -- ** ParticipantDetails
     participantDetails_displayName,
+
+    -- ** ParticipantTimerConfiguration
+    participantTimerConfiguration_participantRole,
+    participantTimerConfiguration_timerType,
+    participantTimerConfiguration_timerValue,
+
+    -- ** ParticipantTimerValue
+    participantTimerValue_participantTimerAction,
+    participantTimerValue_participantTimerDurationInMinutes,
 
     -- ** PhoneNumberQuickConnectConfig
     phoneNumberQuickConnectConfig_phoneNumber,
@@ -1935,6 +1963,9 @@ module Amazonka.Connect.Lens
     trafficDistributionGroupSummary_name,
     trafficDistributionGroupSummary_status,
 
+    -- ** UpdateParticipantRoleConfigChannelInfo
+    updateParticipantRoleConfigChannelInfo_chat,
+
     -- ** UrlReference
     urlReference_name,
     urlReference_value,
@@ -1962,13 +1993,17 @@ module Amazonka.Connect.Lens
     userData_contacts,
     userData_hierarchyPath,
     userData_maxSlotsByChannel,
+    userData_nextStatus,
     userData_routingProfile,
     userData_status,
     userData_user,
 
     -- ** UserDataFilters
+    userDataFilters_agents,
     userDataFilters_contactFilter,
     userDataFilters_queues,
+    userDataFilters_routingProfiles,
+    userDataFilters_userHierarchyGroups,
 
     -- ** UserIdentityInfo
     userIdentityInfo_email,
@@ -2190,6 +2225,7 @@ import Amazonka.Connect.Types.AttachmentReference
 import Amazonka.Connect.Types.Attribute
 import Amazonka.Connect.Types.AvailableNumberSummary
 import Amazonka.Connect.Types.ChatMessage
+import Amazonka.Connect.Types.ChatParticipantRoleConfig
 import Amazonka.Connect.Types.ChatStreamingConfiguration
 import Amazonka.Connect.Types.ClaimedPhoneNumberSummary
 import Amazonka.Connect.Types.Contact
@@ -2203,6 +2239,7 @@ import Amazonka.Connect.Types.Credentials
 import Amazonka.Connect.Types.CurrentMetric
 import Amazonka.Connect.Types.CurrentMetricData
 import Amazonka.Connect.Types.CurrentMetricResult
+import Amazonka.Connect.Types.CurrentMetricSortCriteria
 import Amazonka.Connect.Types.DateReference
 import Amazonka.Connect.Types.DefaultVocabulary
 import Amazonka.Connect.Types.Dimensions
@@ -2246,6 +2283,8 @@ import Amazonka.Connect.Types.NotificationRecipientType
 import Amazonka.Connect.Types.NumberReference
 import Amazonka.Connect.Types.OutboundCallerConfig
 import Amazonka.Connect.Types.ParticipantDetails
+import Amazonka.Connect.Types.ParticipantTimerConfiguration
+import Amazonka.Connect.Types.ParticipantTimerValue
 import Amazonka.Connect.Types.PhoneNumberQuickConnectConfig
 import Amazonka.Connect.Types.PhoneNumberStatus
 import Amazonka.Connect.Types.PhoneNumberSummary
@@ -2298,6 +2337,7 @@ import Amazonka.Connect.Types.TelephonyConfig
 import Amazonka.Connect.Types.Threshold
 import Amazonka.Connect.Types.TrafficDistributionGroup
 import Amazonka.Connect.Types.TrafficDistributionGroupSummary
+import Amazonka.Connect.Types.UpdateParticipantRoleConfigChannelInfo
 import Amazonka.Connect.Types.UrlReference
 import Amazonka.Connect.Types.UseCase
 import Amazonka.Connect.Types.User
@@ -2328,6 +2368,7 @@ import Amazonka.Connect.UpdateContactSchedule
 import Amazonka.Connect.UpdateHoursOfOperation
 import Amazonka.Connect.UpdateInstanceAttribute
 import Amazonka.Connect.UpdateInstanceStorageConfig
+import Amazonka.Connect.UpdateParticipantRoleConfig
 import Amazonka.Connect.UpdatePhoneNumber
 import Amazonka.Connect.UpdateQueueHoursOfOperation
 import Amazonka.Connect.UpdateQueueMaxContacts

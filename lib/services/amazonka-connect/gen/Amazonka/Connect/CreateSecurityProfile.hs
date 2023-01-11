@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.CreateSecurityProfile
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,8 @@ data CreateSecurityProfile = CreateSecurityProfile'
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
     permissions :: Prelude.Maybe [Prelude.Text],
     -- | The list of resources that a security profile applies tag restrictions
-    -- to in Amazon Connect.
+    -- to in Amazon Connect. Following are acceptable ResourceNames: @User@ |
+    -- @SecurityProfile@ | @Queue@ | @RoutingProfile@
     tagRestrictedResources :: Prelude.Maybe [Prelude.Text],
     -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
@@ -100,7 +101,8 @@ data CreateSecurityProfile = CreateSecurityProfile'
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 --
 -- 'tagRestrictedResources', 'createSecurityProfile_tagRestrictedResources' - The list of resources that a security profile applies tag restrictions
--- to in Amazon Connect.
+-- to in Amazon Connect. Following are acceptable ResourceNames: @User@ |
+-- @SecurityProfile@ | @Queue@ | @RoutingProfile@
 --
 -- 'tags', 'createSecurityProfile_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
@@ -145,7 +147,8 @@ createSecurityProfile_permissions :: Lens.Lens' CreateSecurityProfile (Prelude.M
 createSecurityProfile_permissions = Lens.lens (\CreateSecurityProfile' {permissions} -> permissions) (\s@CreateSecurityProfile' {} a -> s {permissions = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of resources that a security profile applies tag restrictions
--- to in Amazon Connect.
+-- to in Amazon Connect. Following are acceptable ResourceNames: @User@ |
+-- @SecurityProfile@ | @Queue@ | @RoutingProfile@
 createSecurityProfile_tagRestrictedResources :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [Prelude.Text])
 createSecurityProfile_tagRestrictedResources = Lens.lens (\CreateSecurityProfile' {tagRestrictedResources} -> tagRestrictedResources) (\s@CreateSecurityProfile' {} a -> s {tagRestrictedResources = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 

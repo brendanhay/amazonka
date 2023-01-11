@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Types.UserData
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,6 +50,8 @@ data UserData = UserData'
     -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
     -- of the @RoutingProfile@ assigned to the agent.
     maxSlotsByChannel :: Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural),
+    -- | The Next status of the agent.
+    nextStatus :: Prelude.Maybe Prelude.Text,
     -- | Information about the routing profile that is assigned to the user.
     routingProfile :: Prelude.Maybe RoutingProfileReference,
     -- | The status of the agent that they manually set in their Contact Control
@@ -86,6 +88,8 @@ data UserData = UserData'
 -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
 -- of the @RoutingProfile@ assigned to the agent.
 --
+-- 'nextStatus', 'userData_nextStatus' - The Next status of the agent.
+--
 -- 'routingProfile', 'userData_routingProfile' - Information about the routing profile that is assigned to the user.
 --
 -- 'status', 'userData_status' - The status of the agent that they manually set in their Contact Control
@@ -103,6 +107,7 @@ newUserData =
       contacts = Prelude.Nothing,
       hierarchyPath = Prelude.Nothing,
       maxSlotsByChannel = Prelude.Nothing,
+      nextStatus = Prelude.Nothing,
       routingProfile = Prelude.Nothing,
       status = Prelude.Nothing,
       user = Prelude.Nothing
@@ -133,6 +138,10 @@ userData_hierarchyPath = Lens.lens (\UserData' {hierarchyPath} -> hierarchyPath)
 -- of the @RoutingProfile@ assigned to the agent.
 userData_maxSlotsByChannel :: Lens.Lens' UserData (Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural))
 userData_maxSlotsByChannel = Lens.lens (\UserData' {maxSlotsByChannel} -> maxSlotsByChannel) (\s@UserData' {} a -> s {maxSlotsByChannel = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Next status of the agent.
+userData_nextStatus :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
+userData_nextStatus = Lens.lens (\UserData' {nextStatus} -> nextStatus) (\s@UserData' {} a -> s {nextStatus = a} :: UserData)
 
 -- | Information about the routing profile that is assigned to the user.
 userData_routingProfile :: Lens.Lens' UserData (Prelude.Maybe RoutingProfileReference)
@@ -166,6 +175,7 @@ instance Data.FromJSON UserData where
             Prelude.<*> ( x Data..:? "MaxSlotsByChannel"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "NextStatus")
             Prelude.<*> (x Data..:? "RoutingProfile")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "User")
@@ -178,6 +188,7 @@ instance Prelude.Hashable UserData where
       `Prelude.hashWithSalt` contacts
       `Prelude.hashWithSalt` hierarchyPath
       `Prelude.hashWithSalt` maxSlotsByChannel
+      `Prelude.hashWithSalt` nextStatus
       `Prelude.hashWithSalt` routingProfile
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` user
@@ -189,6 +200,7 @@ instance Prelude.NFData UserData where
       `Prelude.seq` Prelude.rnf contacts
       `Prelude.seq` Prelude.rnf hierarchyPath
       `Prelude.seq` Prelude.rnf maxSlotsByChannel
+      `Prelude.seq` Prelude.rnf nextStatus
       `Prelude.seq` Prelude.rnf routingProfile
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf user

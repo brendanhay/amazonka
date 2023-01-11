@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Types.VocabularyLanguageCode
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,10 @@ module Amazonka.Connect.Types.VocabularyLanguageCode
         VocabularyLanguageCode_En_GB,
         VocabularyLanguageCode_En_IE,
         VocabularyLanguageCode_En_IN,
+        VocabularyLanguageCode_En_NZ,
         VocabularyLanguageCode_En_US,
         VocabularyLanguageCode_En_WL,
+        VocabularyLanguageCode_En_ZA,
         VocabularyLanguageCode_Es_ES,
         VocabularyLanguageCode_Es_US,
         VocabularyLanguageCode_Fr_CA,
@@ -101,11 +103,17 @@ pattern VocabularyLanguageCode_En_IE = VocabularyLanguageCode' "en-IE"
 pattern VocabularyLanguageCode_En_IN :: VocabularyLanguageCode
 pattern VocabularyLanguageCode_En_IN = VocabularyLanguageCode' "en-IN"
 
+pattern VocabularyLanguageCode_En_NZ :: VocabularyLanguageCode
+pattern VocabularyLanguageCode_En_NZ = VocabularyLanguageCode' "en-NZ"
+
 pattern VocabularyLanguageCode_En_US :: VocabularyLanguageCode
 pattern VocabularyLanguageCode_En_US = VocabularyLanguageCode' "en-US"
 
 pattern VocabularyLanguageCode_En_WL :: VocabularyLanguageCode
 pattern VocabularyLanguageCode_En_WL = VocabularyLanguageCode' "en-WL"
+
+pattern VocabularyLanguageCode_En_ZA :: VocabularyLanguageCode
+pattern VocabularyLanguageCode_En_ZA = VocabularyLanguageCode' "en-ZA"
 
 pattern VocabularyLanguageCode_Es_ES :: VocabularyLanguageCode
 pattern VocabularyLanguageCode_Es_ES = VocabularyLanguageCode' "es-ES"
@@ -149,8 +157,10 @@ pattern VocabularyLanguageCode_Zh_CN = VocabularyLanguageCode' "zh-CN"
   VocabularyLanguageCode_En_GB,
   VocabularyLanguageCode_En_IE,
   VocabularyLanguageCode_En_IN,
+  VocabularyLanguageCode_En_NZ,
   VocabularyLanguageCode_En_US,
   VocabularyLanguageCode_En_WL,
+  VocabularyLanguageCode_En_ZA,
   VocabularyLanguageCode_Es_ES,
   VocabularyLanguageCode_Es_US,
   VocabularyLanguageCode_Fr_CA,

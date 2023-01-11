@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Connect
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -461,6 +461,9 @@ import Test.Tasty
 --
 --         , requestUpdateInstanceStorageConfig $
 --             newUpdateInstanceStorageConfig
+--
+--         , requestUpdateParticipantRoleConfig $
+--             newUpdateParticipantRoleConfig
 --
 --         , requestUpdatePhoneNumber $
 --             newUpdatePhoneNumber
@@ -968,6 +971,9 @@ import Test.Tasty
 --
 --         , responseUpdateInstanceStorageConfig $
 --             newUpdateInstanceStorageConfigResponse
+--
+--         , responseUpdateParticipantRoleConfig $
+--             newUpdateParticipantRoleConfigResponse
 --
 --         , responseUpdatePhoneNumber $
 --             newUpdatePhoneNumberResponse
@@ -1912,6 +1918,12 @@ requestUpdateInstanceStorageConfig =
   req
     "UpdateInstanceStorageConfig"
     "fixture/UpdateInstanceStorageConfig.yaml"
+
+requestUpdateParticipantRoleConfig :: UpdateParticipantRoleConfig -> TestTree
+requestUpdateParticipantRoleConfig =
+  req
+    "UpdateParticipantRoleConfig"
+    "fixture/UpdateParticipantRoleConfig.yaml"
 
 requestUpdatePhoneNumber :: UpdatePhoneNumber -> TestTree
 requestUpdatePhoneNumber =
@@ -3212,6 +3224,14 @@ responseUpdateInstanceStorageConfig =
     "fixture/UpdateInstanceStorageConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateInstanceStorageConfig)
+
+responseUpdateParticipantRoleConfig :: UpdateParticipantRoleConfigResponse -> TestTree
+responseUpdateParticipantRoleConfig =
+  res
+    "UpdateParticipantRoleConfigResponse"
+    "fixture/UpdateParticipantRoleConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateParticipantRoleConfig)
 
 responseUpdatePhoneNumber :: UpdatePhoneNumberResponse -> TestTree
 responseUpdatePhoneNumber =

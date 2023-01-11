@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -472,6 +472,13 @@ module Amazonka.Transfer.Lens
     customStepDetails_target,
     customStepDetails_timeoutSeconds,
 
+    -- ** DecryptStepDetails
+    decryptStepDetails_name,
+    decryptStepDetails_overwriteExisting,
+    decryptStepDetails_sourceFileLocation,
+    decryptStepDetails_type,
+    decryptStepDetails_destinationFileLocation,
+
     -- ** DeleteStepDetails
     deleteStepDetails_name,
     deleteStepDetails_sourceFileLocation,
@@ -775,6 +782,7 @@ module Amazonka.Transfer.Lens
     -- ** WorkflowStep
     workflowStep_copyStepDetails,
     workflowStep_customStepDetails,
+    workflowStep_decryptStepDetails,
     workflowStep_deleteStepDetails,
     workflowStep_tagStepDetails,
     workflowStep_type,
@@ -833,6 +841,7 @@ import Amazonka.Transfer.TestIdentityProvider
 import Amazonka.Transfer.Types.As2ConnectorConfig
 import Amazonka.Transfer.Types.CopyStepDetails
 import Amazonka.Transfer.Types.CustomStepDetails
+import Amazonka.Transfer.Types.DecryptStepDetails
 import Amazonka.Transfer.Types.DeleteStepDetails
 import Amazonka.Transfer.Types.DescribedAccess
 import Amazonka.Transfer.Types.DescribedAgreement

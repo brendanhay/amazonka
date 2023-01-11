@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,6 +54,9 @@ module Amazonka.Transfer.Types
 
     -- * EncryptionAlg
     EncryptionAlg (..),
+
+    -- * EncryptionType
+    EncryptionType (..),
 
     -- * EndpointType
     EndpointType (..),
@@ -127,6 +130,15 @@ module Amazonka.Transfer.Types
     customStepDetails_sourceFileLocation,
     customStepDetails_target,
     customStepDetails_timeoutSeconds,
+
+    -- * DecryptStepDetails
+    DecryptStepDetails (..),
+    newDecryptStepDetails,
+    decryptStepDetails_name,
+    decryptStepDetails_overwriteExisting,
+    decryptStepDetails_sourceFileLocation,
+    decryptStepDetails_type,
+    decryptStepDetails_destinationFileLocation,
 
     -- * DeleteStepDetails
     DeleteStepDetails (..),
@@ -521,6 +533,7 @@ module Amazonka.Transfer.Types
     newWorkflowStep,
     workflowStep_copyStepDetails,
     workflowStep_customStepDetails,
+    workflowStep_decryptStepDetails,
     workflowStep_deleteStepDetails,
     workflowStep_tagStepDetails,
     workflowStep_type,
@@ -541,6 +554,7 @@ import Amazonka.Transfer.Types.CompressionEnum
 import Amazonka.Transfer.Types.CopyStepDetails
 import Amazonka.Transfer.Types.CustomStepDetails
 import Amazonka.Transfer.Types.CustomStepStatus
+import Amazonka.Transfer.Types.DecryptStepDetails
 import Amazonka.Transfer.Types.DeleteStepDetails
 import Amazonka.Transfer.Types.DescribedAccess
 import Amazonka.Transfer.Types.DescribedAgreement
@@ -556,6 +570,7 @@ import Amazonka.Transfer.Types.DescribedWorkflow
 import Amazonka.Transfer.Types.Domain
 import Amazonka.Transfer.Types.EfsFileLocation
 import Amazonka.Transfer.Types.EncryptionAlg
+import Amazonka.Transfer.Types.EncryptionType
 import Amazonka.Transfer.Types.EndpointDetails
 import Amazonka.Transfer.Types.EndpointType
 import Amazonka.Transfer.Types.ExecutionError
@@ -675,7 +690,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -684,7 +699,7 @@ _AccessDeniedException =
 -- | This exception is thrown when the @UpdateServer@ is called for a file
 -- transfer protocol-enabled server that has VPC as the endpoint type and
 -- the server\'s @VpcEndpointID@ is not in the available state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -692,28 +707,28 @@ _ConflictException =
 
 -- | This exception is thrown when an error occurs in the Amazon Web
 -- ServicesTransfer Family service.
-_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceError =
   Core._MatchServiceError
     defaultService
     "InternalServiceError"
 
 -- | The @NextToken@ parameter that was passed is invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | This exception is thrown when the client submits a malformed request.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The requested resource does not exist.
-_ResourceExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceExistsException =
   Core._MatchServiceError
     defaultService
@@ -721,7 +736,7 @@ _ResourceExistsException =
 
 -- | This exception is thrown when a resource is not found by the Amazon Web
 -- ServicesTransfer Family service.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -729,14 +744,14 @@ _ResourceNotFoundException =
 
 -- | The request has failed because the Amazon Web ServicesTransfer Family
 -- service is not available.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

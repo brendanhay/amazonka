@@ -11,20 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Transfer.Types.WorkflowStepType
+-- Module      : Amazonka.Transfer.Types.EncryptionType
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Transfer.Types.WorkflowStepType
-  ( WorkflowStepType
+module Amazonka.Transfer.Types.EncryptionType
+  ( EncryptionType
       ( ..,
-        WorkflowStepType_COPY,
-        WorkflowStepType_CUSTOM,
-        WorkflowStepType_DECRYPT,
-        WorkflowStepType_DELETE,
-        WorkflowStepType_TAG
+        EncryptionType_PGP
       ),
   )
 where
@@ -33,8 +29,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype WorkflowStepType = WorkflowStepType'
-  { fromWorkflowStepType ::
+newtype EncryptionType = EncryptionType'
+  { fromEncryptionType ::
       Data.Text
   }
   deriving stock
@@ -61,26 +57,10 @@ newtype WorkflowStepType = WorkflowStepType'
       Data.ToXML
     )
 
-pattern WorkflowStepType_COPY :: WorkflowStepType
-pattern WorkflowStepType_COPY = WorkflowStepType' "COPY"
-
-pattern WorkflowStepType_CUSTOM :: WorkflowStepType
-pattern WorkflowStepType_CUSTOM = WorkflowStepType' "CUSTOM"
-
-pattern WorkflowStepType_DECRYPT :: WorkflowStepType
-pattern WorkflowStepType_DECRYPT = WorkflowStepType' "DECRYPT"
-
-pattern WorkflowStepType_DELETE :: WorkflowStepType
-pattern WorkflowStepType_DELETE = WorkflowStepType' "DELETE"
-
-pattern WorkflowStepType_TAG :: WorkflowStepType
-pattern WorkflowStepType_TAG = WorkflowStepType' "TAG"
+pattern EncryptionType_PGP :: EncryptionType
+pattern EncryptionType_PGP = EncryptionType' "PGP"
 
 {-# COMPLETE
-  WorkflowStepType_COPY,
-  WorkflowStepType_CUSTOM,
-  WorkflowStepType_DECRYPT,
-  WorkflowStepType_DELETE,
-  WorkflowStepType_TAG,
-  WorkflowStepType'
+  EncryptionType_PGP,
+  EncryptionType'
   #-}

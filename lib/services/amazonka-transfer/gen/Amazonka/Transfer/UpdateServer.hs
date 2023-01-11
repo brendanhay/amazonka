@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.UpdateServer
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -243,8 +243,8 @@ data UpdateServer = UpdateServer'
     -- | Specifies the workflow ID for the workflow to assign and the execution
     -- role that\'s used for executing the workflow.
     --
-    -- In addition to a workflow to execute when a file is uploaded completely,
-    -- @WorkflowDetails@ can also contain a workflow ID (and execution role)
+    -- In additon to a workflow to execute when a file is uploaded completely,
+    -- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
     -- for a workflow to execute on partial upload. A partial upload occurs
     -- when a file is open when the session disconnects.
     --
@@ -445,8 +445,8 @@ data UpdateServer = UpdateServer'
 -- 'workflowDetails', 'updateServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In addition to a workflow to execute when a file is uploaded completely,
--- @WorkflowDetails@ can also contain a workflow ID (and execution role)
+-- In additon to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
 -- when a file is open when the session disconnects.
 --
@@ -678,8 +678,8 @@ updateServer_securityPolicyName = Lens.lens (\UpdateServer' {securityPolicyName}
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In addition to a workflow to execute when a file is uploaded completely,
--- @WorkflowDetails@ can also contain a workflow ID (and execution role)
+-- In additon to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
 -- when a file is open when the session disconnects.
 --

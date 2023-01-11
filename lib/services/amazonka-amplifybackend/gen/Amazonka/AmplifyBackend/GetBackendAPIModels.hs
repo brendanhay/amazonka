@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.AmplifyBackend.GetBackendAPIModels
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a model schema for existing backend API resource.
+-- Gets a model introspection schema for an existing backend API resource.
 module Amazonka.AmplifyBackend.GetBackendAPIModels
   ( -- * Creating a Request
     GetBackendAPIModels (..),
@@ -36,6 +36,7 @@ module Amazonka.AmplifyBackend.GetBackendAPIModels
     newGetBackendAPIModelsResponse,
 
     -- * Response Lenses
+    getBackendAPIModelsResponse_modelIntrospectionSchema,
     getBackendAPIModelsResponse_models,
     getBackendAPIModelsResponse_status,
     getBackendAPIModelsResponse_httpStatus,
@@ -116,7 +117,8 @@ instance Core.AWSRequest GetBackendAPIModels where
     Response.receiveJSON
       ( \s h x ->
           GetBackendAPIModelsResponse'
-            Prelude.<$> (x Data..?> "models")
+            Prelude.<$> (x Data..?> "modelIntrospectionSchema")
+            Prelude.<*> (x Data..?> "models")
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -166,7 +168,10 @@ instance Data.ToQuery GetBackendAPIModels where
 
 -- | /See:/ 'newGetBackendAPIModelsResponse' smart constructor.
 data GetBackendAPIModelsResponse = GetBackendAPIModelsResponse'
-  { -- | Stringified JSON of the datastore model.
+  { -- | Stringified JSON of the model introspection schema for an existing
+    -- backend API resource.
+    modelIntrospectionSchema :: Prelude.Maybe Prelude.Text,
+    -- | Stringified JSON of the datastore model.
     models :: Prelude.Maybe Prelude.Text,
     -- | The current status of the request.
     status :: Prelude.Maybe Status,
@@ -183,6 +188,9 @@ data GetBackendAPIModelsResponse = GetBackendAPIModelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'modelIntrospectionSchema', 'getBackendAPIModelsResponse_modelIntrospectionSchema' - Stringified JSON of the model introspection schema for an existing
+-- backend API resource.
+--
 -- 'models', 'getBackendAPIModelsResponse_models' - Stringified JSON of the datastore model.
 --
 -- 'status', 'getBackendAPIModelsResponse_status' - The current status of the request.
@@ -194,11 +202,17 @@ newGetBackendAPIModelsResponse ::
   GetBackendAPIModelsResponse
 newGetBackendAPIModelsResponse pHttpStatus_ =
   GetBackendAPIModelsResponse'
-    { models =
+    { modelIntrospectionSchema =
         Prelude.Nothing,
+      models = Prelude.Nothing,
       status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Stringified JSON of the model introspection schema for an existing
+-- backend API resource.
+getBackendAPIModelsResponse_modelIntrospectionSchema :: Lens.Lens' GetBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
+getBackendAPIModelsResponse_modelIntrospectionSchema = Lens.lens (\GetBackendAPIModelsResponse' {modelIntrospectionSchema} -> modelIntrospectionSchema) (\s@GetBackendAPIModelsResponse' {} a -> s {modelIntrospectionSchema = a} :: GetBackendAPIModelsResponse)
 
 -- | Stringified JSON of the datastore model.
 getBackendAPIModelsResponse_models :: Lens.Lens' GetBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
@@ -214,6 +228,7 @@ getBackendAPIModelsResponse_httpStatus = Lens.lens (\GetBackendAPIModelsResponse
 
 instance Prelude.NFData GetBackendAPIModelsResponse where
   rnf GetBackendAPIModelsResponse' {..} =
-    Prelude.rnf models
+    Prelude.rnf modelIntrospectionSchema
+      `Prelude.seq` Prelude.rnf models
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

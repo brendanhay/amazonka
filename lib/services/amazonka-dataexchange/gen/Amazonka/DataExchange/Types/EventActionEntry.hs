@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.EventActionEntry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,14 +37,14 @@ data EventActionEntry = EventActionEntry'
     -- | The Amazon Resource Name (ARN) for the event action.
     arn :: Prelude.Text,
     -- | The date and time that the event action was created, in ISO 8601 format.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | What occurs to start an action.
     event :: Event,
     -- | The unique identifier for the event action.
     id :: Prelude.Text,
     -- | The date and time that the event action was last updated, in ISO 8601
     -- format.
-    updatedAt :: Data.POSIX
+    updatedAt :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

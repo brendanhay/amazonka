@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ data ExportAssetToSignedUrlResponseDetails = ExportAssetToSignedUrlResponseDetai
   { -- | The signed URL for the export request.
     signedUrl :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the signed URL expires, in ISO 8601 format.
-    signedUrlExpiresAt :: Prelude.Maybe Data.POSIX,
+    signedUrlExpiresAt :: Prelude.Maybe Data.ISO8601,
     -- | The unique identifier for the asset associated with this export job.
     assetId :: Prelude.Text,
     -- | The unique identifier for the data set associated with this export job.

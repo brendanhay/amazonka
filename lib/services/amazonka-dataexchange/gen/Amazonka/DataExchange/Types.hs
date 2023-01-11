@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -647,7 +647,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access to the resource is denied.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -656,7 +656,7 @@ _AccessDeniedException =
 
 -- | The request couldn\'t be completed because it conflicted with the
 -- current state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -664,7 +664,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An exception occurred with the service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -672,7 +672,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The resource couldn\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -680,7 +680,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request has exceeded the quotas imposed by the service.
-_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -688,7 +688,7 @@ _ServiceLimitExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The limit on the number of requests per second was exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -696,7 +696,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The request was invalid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

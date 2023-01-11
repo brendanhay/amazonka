@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.KinesisVideoArchivedMedia.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -245,7 +245,7 @@ defaultService =
 -- exceeded a limit. Try making the call later. For information about
 -- limits, see
 -- <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
-_ClientLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClientLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -254,7 +254,7 @@ _ClientLimitExceededException =
 
 -- | A specified parameter exceeds its restrictions, is not supported, or
 -- can\'t be used.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
@@ -263,7 +263,7 @@ _InvalidArgumentException =
 
 -- | The codec private data in at least one of the tracks of the video stream
 -- is not valid for this operation.
-_InvalidCodecPrivateDataException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCodecPrivateDataException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidCodecPrivateDataException =
   Core._MatchServiceError
     defaultService
@@ -272,7 +272,7 @@ _InvalidCodecPrivateDataException =
 
 -- | One or more frames in the requested clip could not be parsed based on
 -- the specified codec.
-_InvalidMediaFrameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidMediaFrameException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidMediaFrameException =
   Core._MatchServiceError
     defaultService
@@ -281,7 +281,7 @@ _InvalidMediaFrameException =
 
 -- | No codec private data was found in at least one of tracks of the video
 -- stream.
-_MissingCodecPrivateDataException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingCodecPrivateDataException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MissingCodecPrivateDataException =
   Core._MatchServiceError
     defaultService
@@ -290,7 +290,7 @@ _MissingCodecPrivateDataException =
 
 -- | A streaming session was requested for a stream that does not retain data
 -- (that is, has a @DataRetentionInHours@ of 0).
-_NoDataRetentionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoDataRetentionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoDataRetentionException =
   Core._MatchServiceError
     defaultService
@@ -299,7 +299,7 @@ _NoDataRetentionException =
 
 -- | Status Code: 403, The caller is not authorized to perform an operation
 -- on the given stream, or the token has expired.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService
@@ -314,7 +314,7 @@ _NotAuthorizedException =
 -- @LIVE_REPLAY@is requested for a stream that has no fragments within the
 -- requested time range, or if a session with a @PlaybackMode@ of @LIVE@ is
 -- requested for a stream that has no fragments within the last 30 seconds.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -326,7 +326,7 @@ _ResourceNotFoundException =
 -- first fragment for a playback session. The codec ID for track 1 should
 -- be @V_MPEG\/ISO\/AVC@ and, optionally, the codec ID for track 2 should
 -- be @A_AAC@.
-_UnsupportedStreamMediaTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedStreamMediaTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedStreamMediaTypeException =
   Core._MatchServiceError
     defaultService

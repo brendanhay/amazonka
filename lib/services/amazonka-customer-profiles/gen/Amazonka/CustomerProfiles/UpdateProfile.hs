@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CustomerProfiles.UpdateProfile
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,12 +44,14 @@ module Amazonka.CustomerProfiles.UpdateProfile
     updateProfile_emailAddress,
     updateProfile_firstName,
     updateProfile_gender,
+    updateProfile_genderString,
     updateProfile_homePhoneNumber,
     updateProfile_lastName,
     updateProfile_mailingAddress,
     updateProfile_middleName,
     updateProfile_mobilePhoneNumber,
     updateProfile_partyType,
+    updateProfile_partyTypeString,
     updateProfile_personalEmailAddress,
     updateProfile_phoneNumber,
     updateProfile_shippingAddress,
@@ -102,6 +104,8 @@ data UpdateProfile = UpdateProfile'
     firstName :: Prelude.Maybe Prelude.Text,
     -- | The gender with which the customer identifies.
     gender :: Prelude.Maybe Gender,
+    -- | An alternative to @Gender@ which accepts any string as input.
+    genderString :: Prelude.Maybe Prelude.Text,
     -- | The customer’s home phone number.
     homePhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The customer’s last name.
@@ -114,6 +118,8 @@ data UpdateProfile = UpdateProfile'
     mobilePhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The type of profile used to describe the customer.
     partyType :: Prelude.Maybe PartyType,
+    -- | An alternative to @PartyType@ which accepts any string as input.
+    partyTypeString :: Prelude.Maybe Prelude.Text,
     -- | The customer’s personal email address.
     personalEmailAddress :: Prelude.Maybe Prelude.Text,
     -- | The customer’s phone number, which has not been specified as a mobile,
@@ -162,6 +168,8 @@ data UpdateProfile = UpdateProfile'
 --
 -- 'gender', 'updateProfile_gender' - The gender with which the customer identifies.
 --
+-- 'genderString', 'updateProfile_genderString' - An alternative to @Gender@ which accepts any string as input.
+--
 -- 'homePhoneNumber', 'updateProfile_homePhoneNumber' - The customer’s home phone number.
 --
 -- 'lastName', 'updateProfile_lastName' - The customer’s last name.
@@ -173,6 +181,8 @@ data UpdateProfile = UpdateProfile'
 -- 'mobilePhoneNumber', 'updateProfile_mobilePhoneNumber' - The customer’s mobile phone number.
 --
 -- 'partyType', 'updateProfile_partyType' - The type of profile used to describe the customer.
+--
+-- 'partyTypeString', 'updateProfile_partyTypeString' - An alternative to @PartyType@ which accepts any string as input.
 --
 -- 'personalEmailAddress', 'updateProfile_personalEmailAddress' - The customer’s personal email address.
 --
@@ -204,12 +214,14 @@ newUpdateProfile pDomainName_ pProfileId_ =
       emailAddress = Prelude.Nothing,
       firstName = Prelude.Nothing,
       gender = Prelude.Nothing,
+      genderString = Prelude.Nothing,
       homePhoneNumber = Prelude.Nothing,
       lastName = Prelude.Nothing,
       mailingAddress = Prelude.Nothing,
       middleName = Prelude.Nothing,
       mobilePhoneNumber = Prelude.Nothing,
       partyType = Prelude.Nothing,
+      partyTypeString = Prelude.Nothing,
       personalEmailAddress = Prelude.Nothing,
       phoneNumber = Prelude.Nothing,
       shippingAddress = Prelude.Nothing,
@@ -267,6 +279,10 @@ updateProfile_firstName = Lens.lens (\UpdateProfile' {firstName} -> firstName) (
 updateProfile_gender :: Lens.Lens' UpdateProfile (Prelude.Maybe Gender)
 updateProfile_gender = Lens.lens (\UpdateProfile' {gender} -> gender) (\s@UpdateProfile' {} a -> s {gender = a} :: UpdateProfile)
 
+-- | An alternative to @Gender@ which accepts any string as input.
+updateProfile_genderString :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
+updateProfile_genderString = Lens.lens (\UpdateProfile' {genderString} -> genderString) (\s@UpdateProfile' {} a -> s {genderString = a} :: UpdateProfile)
+
 -- | The customer’s home phone number.
 updateProfile_homePhoneNumber :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
 updateProfile_homePhoneNumber = Lens.lens (\UpdateProfile' {homePhoneNumber} -> homePhoneNumber) (\s@UpdateProfile' {} a -> s {homePhoneNumber = a} :: UpdateProfile)
@@ -290,6 +306,10 @@ updateProfile_mobilePhoneNumber = Lens.lens (\UpdateProfile' {mobilePhoneNumber}
 -- | The type of profile used to describe the customer.
 updateProfile_partyType :: Lens.Lens' UpdateProfile (Prelude.Maybe PartyType)
 updateProfile_partyType = Lens.lens (\UpdateProfile' {partyType} -> partyType) (\s@UpdateProfile' {} a -> s {partyType = a} :: UpdateProfile)
+
+-- | An alternative to @PartyType@ which accepts any string as input.
+updateProfile_partyTypeString :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
+updateProfile_partyTypeString = Lens.lens (\UpdateProfile' {partyTypeString} -> partyTypeString) (\s@UpdateProfile' {} a -> s {partyTypeString = a} :: UpdateProfile)
 
 -- | The customer’s personal email address.
 updateProfile_personalEmailAddress :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
@@ -340,12 +360,14 @@ instance Prelude.Hashable UpdateProfile where
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` genderString
       `Prelude.hashWithSalt` homePhoneNumber
       `Prelude.hashWithSalt` lastName
       `Prelude.hashWithSalt` mailingAddress
       `Prelude.hashWithSalt` middleName
       `Prelude.hashWithSalt` mobilePhoneNumber
       `Prelude.hashWithSalt` partyType
+      `Prelude.hashWithSalt` partyTypeString
       `Prelude.hashWithSalt` personalEmailAddress
       `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` shippingAddress
@@ -366,17 +388,22 @@ instance Prelude.NFData UpdateProfile where
       `Prelude.seq` Prelude.rnf emailAddress
       `Prelude.seq` Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf genderString
       `Prelude.seq` Prelude.rnf homePhoneNumber
       `Prelude.seq` Prelude.rnf lastName
       `Prelude.seq` Prelude.rnf mailingAddress
       `Prelude.seq` Prelude.rnf middleName
       `Prelude.seq` Prelude.rnf mobilePhoneNumber
       `Prelude.seq` Prelude.rnf partyType
-      `Prelude.seq` Prelude.rnf personalEmailAddress
+      `Prelude.seq` Prelude.rnf partyTypeString
+      `Prelude.seq` Prelude.rnf
+        personalEmailAddress
       `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf shippingAddress
+      `Prelude.seq` Prelude.rnf
+        shippingAddress
       `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf profileId
+      `Prelude.seq` Prelude.rnf
+        profileId
 
 instance Data.ToHeaders UpdateProfile where
   toHeaders =
@@ -409,6 +436,7 @@ instance Data.ToJSON UpdateProfile where
             ("EmailAddress" Data..=) Prelude.<$> emailAddress,
             ("FirstName" Data..=) Prelude.<$> firstName,
             ("Gender" Data..=) Prelude.<$> gender,
+            ("GenderString" Data..=) Prelude.<$> genderString,
             ("HomePhoneNumber" Data..=)
               Prelude.<$> homePhoneNumber,
             ("LastName" Data..=) Prelude.<$> lastName,
@@ -418,6 +446,8 @@ instance Data.ToJSON UpdateProfile where
             ("MobilePhoneNumber" Data..=)
               Prelude.<$> mobilePhoneNumber,
             ("PartyType" Data..=) Prelude.<$> partyType,
+            ("PartyTypeString" Data..=)
+              Prelude.<$> partyTypeString,
             ("PersonalEmailAddress" Data..=)
               Prelude.<$> personalEmailAddress,
             ("PhoneNumber" Data..=) Prelude.<$> phoneNumber,

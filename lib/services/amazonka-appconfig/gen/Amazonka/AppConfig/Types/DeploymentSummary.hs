@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AppConfig.Types.DeploymentSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDeploymentSummary' smart constructor.
 data DeploymentSummary = DeploymentSummary'
   { -- | Time the deployment completed.
-    completedAt :: Prelude.Maybe Data.POSIX,
+    completedAt :: Prelude.Maybe Data.ISO8601,
     -- | The name of the configuration.
     configurationName :: Prelude.Maybe Prelude.Text,
     -- | The version of the configuration.
@@ -52,7 +52,7 @@ data DeploymentSummary = DeploymentSummary'
     -- | The percentage of targets for which the deployment is available.
     percentageComplete :: Prelude.Maybe Prelude.Double,
     -- | Time the deployment started.
-    startedAt :: Prelude.Maybe Data.POSIX,
+    startedAt :: Prelude.Maybe Data.ISO8601,
     -- | The state of the deployment.
     state :: Prelude.Maybe DeploymentState
   }

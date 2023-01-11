@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.KinesisVideoMedia.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -117,7 +117,7 @@ defaultService =
 
 -- | Kinesis Video Streams has throttled the request because you have
 -- exceeded the limit of allowed client calls. Try making the call later.
-_ClientLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClientLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -126,7 +126,7 @@ _ClientLimitExceededException =
 
 -- | Kinesis Video Streams has throttled the request because you have
 -- exceeded the limit of allowed client connections.
-_ConnectionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConnectionLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConnectionLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -134,7 +134,7 @@ _ConnectionLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The value for this input parameter is invalid.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
@@ -145,7 +145,7 @@ _InvalidArgumentException =
 -- On receiving such an exception, the user must call @GetDataEndpoint@
 -- with @AccessMode@ set to \"READ\" and use the endpoint Kinesis Video
 -- returns in the next @GetMedia@ call.
-_InvalidEndpointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEndpointException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidEndpointException =
   Core._MatchServiceError
     defaultService
@@ -154,7 +154,7 @@ _InvalidEndpointException =
 
 -- | Status Code: 403, The caller is not authorized to perform an operation
 -- on the given stream, or the token has expired.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService
@@ -162,7 +162,7 @@ _NotAuthorizedException =
     Prelude.. Core.hasStatus 401
 
 -- | Status Code: 404, The stream with the given name does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

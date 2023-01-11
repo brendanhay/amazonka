@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Batch.Types.JobDetail
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,6 +61,10 @@ data JobDetail = JobDetail'
     -- jobs. Only one of @container@, @eksProperties@, or @nodeDetails@ is
     -- specified.
     eksProperties :: Prelude.Maybe EksPropertiesDetail,
+    -- | Indicates whether the job is canceled.
+    isCancelled :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the job is terminated.
+    isTerminated :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the job.
     jobArn :: Prelude.Maybe Prelude.Text,
     -- | An object that represents the details of a node that\'s associated with
@@ -158,6 +162,10 @@ data JobDetail = JobDetail'
 -- jobs. Only one of @container@, @eksProperties@, or @nodeDetails@ is
 -- specified.
 --
+-- 'isCancelled', 'jobDetail_isCancelled' - Indicates whether the job is canceled.
+--
+-- 'isTerminated', 'jobDetail_isTerminated' - Indicates whether the job is terminated.
+--
 -- 'jobArn', 'jobDetail_jobArn' - The Amazon Resource Name (ARN) of the job.
 --
 -- 'nodeDetails', 'jobDetail_nodeDetails' - An object that represents the details of a node that\'s associated with
@@ -248,6 +256,8 @@ newJobDetail
         dependsOn = Prelude.Nothing,
         eksAttempts = Prelude.Nothing,
         eksProperties = Prelude.Nothing,
+        isCancelled = Prelude.Nothing,
+        isTerminated = Prelude.Nothing,
         jobArn = Prelude.Nothing,
         nodeDetails = Prelude.Nothing,
         nodeProperties = Prelude.Nothing,
@@ -303,6 +313,14 @@ jobDetail_eksAttempts = Lens.lens (\JobDetail' {eksAttempts} -> eksAttempts) (\s
 -- specified.
 jobDetail_eksProperties :: Lens.Lens' JobDetail (Prelude.Maybe EksPropertiesDetail)
 jobDetail_eksProperties = Lens.lens (\JobDetail' {eksProperties} -> eksProperties) (\s@JobDetail' {} a -> s {eksProperties = a} :: JobDetail)
+
+-- | Indicates whether the job is canceled.
+jobDetail_isCancelled :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Bool)
+jobDetail_isCancelled = Lens.lens (\JobDetail' {isCancelled} -> isCancelled) (\s@JobDetail' {} a -> s {isCancelled = a} :: JobDetail)
+
+-- | Indicates whether the job is terminated.
+jobDetail_isTerminated :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Bool)
+jobDetail_isTerminated = Lens.lens (\JobDetail' {isTerminated} -> isTerminated) (\s@JobDetail' {} a -> s {isTerminated = a} :: JobDetail)
 
 -- | The Amazon Resource Name (ARN) of the job.
 jobDetail_jobArn :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Text)
@@ -420,6 +438,8 @@ instance Data.FromJSON JobDetail where
             Prelude.<*> (x Data..:? "dependsOn" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "eksAttempts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "eksProperties")
+            Prelude.<*> (x Data..:? "isCancelled")
+            Prelude.<*> (x Data..:? "isTerminated")
             Prelude.<*> (x Data..:? "jobArn")
             Prelude.<*> (x Data..:? "nodeDetails")
             Prelude.<*> (x Data..:? "nodeProperties")
@@ -452,6 +472,8 @@ instance Prelude.Hashable JobDetail where
       `Prelude.hashWithSalt` dependsOn
       `Prelude.hashWithSalt` eksAttempts
       `Prelude.hashWithSalt` eksProperties
+      `Prelude.hashWithSalt` isCancelled
+      `Prelude.hashWithSalt` isTerminated
       `Prelude.hashWithSalt` jobArn
       `Prelude.hashWithSalt` nodeDetails
       `Prelude.hashWithSalt` nodeProperties
@@ -481,6 +503,8 @@ instance Prelude.NFData JobDetail where
       `Prelude.seq` Prelude.rnf dependsOn
       `Prelude.seq` Prelude.rnf eksAttempts
       `Prelude.seq` Prelude.rnf eksProperties
+      `Prelude.seq` Prelude.rnf isCancelled
+      `Prelude.seq` Prelude.rnf isTerminated
       `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf nodeDetails
       `Prelude.seq` Prelude.rnf nodeProperties
@@ -497,7 +521,9 @@ instance Prelude.NFData JobDetail where
       `Prelude.seq` Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobQueue
-      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf
+        jobQueue
+      `Prelude.seq` Prelude.rnf
+        status
       `Prelude.seq` Prelude.rnf
         jobDefinition

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Batch.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -496,6 +496,8 @@ module Amazonka.Batch.Types
     jobDetail_dependsOn,
     jobDetail_eksAttempts,
     jobDetail_eksProperties,
+    jobDetail_isCancelled,
+    jobDetail_isTerminated,
     jobDetail_jobArn,
     jobDetail_nodeDetails,
     jobDetail_nodeProperties,
@@ -879,7 +881,7 @@ defaultService =
 -- using an action or resource on behalf of a user that doesn\'t have
 -- permissions to use the action or resource. Another cause is specifying
 -- an identifier that\'s not valid.
-_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClientException =
   Core._MatchServiceError
     defaultService
@@ -887,7 +889,7 @@ _ClientException =
     Prelude.. Core.hasStatus 400
 
 -- | These errors are usually caused by a server issue.
-_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServerException =
   Core._MatchServiceError
     defaultService

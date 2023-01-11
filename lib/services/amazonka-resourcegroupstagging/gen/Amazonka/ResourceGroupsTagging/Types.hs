@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceGroupsTagging.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -166,7 +166,7 @@ defaultService =
 
 -- | The target of the operation is currently being modified by a different
 -- request. Try again later.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -190,7 +190,7 @@ _ConcurrentModificationException =
 --
 -- -   You must have a tag policy attached to the organization root, an OU,
 --     or an account.
-_ConstraintViolationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConstraintViolationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConstraintViolationException =
   Core._MatchServiceError
     defaultService
@@ -198,7 +198,7 @@ _ConstraintViolationException =
 
 -- | The request processing failed because of an unknown error, exception, or
 -- failure. You can retry the request.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -218,7 +218,7 @@ _InternalServiceException =
 --     information, see
 --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report Additional Requirements for Organization-wide Tag Compliance Reports>
 --     in the /Organizations User Guide./
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -226,14 +226,14 @@ _InvalidParameterException =
 
 -- | A @PaginationToken@ is valid for a maximum of 15 minutes. Your request
 -- was denied because the specified @PaginationToken@ has expired.
-_PaginationTokenExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PaginationTokenExpiredException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PaginationTokenExpiredException =
   Core._MatchServiceError
     defaultService
     "PaginationTokenExpiredException"
 
 -- | The request was denied to limit the frequency of submitted requests.
-_ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottledException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottledException =
   Core._MatchServiceError
     defaultService

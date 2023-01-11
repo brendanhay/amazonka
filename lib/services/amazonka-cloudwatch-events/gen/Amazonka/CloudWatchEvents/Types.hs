@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CloudWatchEvents.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -726,7 +726,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | There is concurrent modification on a rule, target, archive, or replay.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -734,28 +734,28 @@ _ConcurrentModificationException =
 
 -- | An error occurred because a replay can be canceled only when the state
 -- is Running or Starting.
-_IllegalStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalStatusException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IllegalStatusException =
   Core._MatchServiceError
     defaultService
     "IllegalStatusException"
 
 -- | This exception occurs due to unexpected causes.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
     "InternalException"
 
 -- | The event pattern is not valid.
-_InvalidEventPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEventPatternException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidEventPatternException =
   Core._MatchServiceError
     defaultService
     "InvalidEventPatternException"
 
 -- | The specified state is not a valid state for an event source.
-_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -763,7 +763,7 @@ _InvalidStateException =
 
 -- | The request failed because it attempted to create resource beyond the
 -- allowed service quota.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -776,35 +776,35 @@ _LimitExceededException =
 -- rule. You cannot modify these managed rules by using @DisableRule@,
 -- @EnableRule@, @PutTargets@, @PutRule@, @TagResource@, or
 -- @UntagResource@.
-_ManagedRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ManagedRuleException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ManagedRuleException =
   Core._MatchServiceError
     defaultService
     "ManagedRuleException"
 
 -- | The operation you are attempting is not available in this region.
-_OperationDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationDisabledException =
   Core._MatchServiceError
     defaultService
     "OperationDisabledException"
 
 -- | The event bus policy is too long. For more information, see the limits.
-_PolicyLengthExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyLengthExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PolicyLengthExceededException =
   Core._MatchServiceError
     defaultService
     "PolicyLengthExceededException"
 
 -- | The resource you are trying to create already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
 
 -- | An entity that you specified does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

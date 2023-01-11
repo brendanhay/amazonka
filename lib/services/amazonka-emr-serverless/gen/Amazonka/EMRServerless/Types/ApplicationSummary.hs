@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMRServerless.Types.ApplicationSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data ApplicationSummary = ApplicationSummary'
     id :: Prelude.Text,
     -- | The ARN of the application.
     arn :: Prelude.Text,
-    -- | The EMR release version associated with the application.
+    -- | The EMR release associated with the application.
     releaseLabel :: Prelude.Text,
     -- | The type of application, such as Spark or Hive.
     type' :: Prelude.Text,
@@ -71,7 +71,7 @@ data ApplicationSummary = ApplicationSummary'
 --
 -- 'arn', 'applicationSummary_arn' - The ARN of the application.
 --
--- 'releaseLabel', 'applicationSummary_releaseLabel' - The EMR release version associated with the application.
+-- 'releaseLabel', 'applicationSummary_releaseLabel' - The EMR release associated with the application.
 --
 -- 'type'', 'applicationSummary_type' - The type of application, such as Spark or Hive.
 --
@@ -137,7 +137,7 @@ applicationSummary_id = Lens.lens (\ApplicationSummary' {id} -> id) (\s@Applicat
 applicationSummary_arn :: Lens.Lens' ApplicationSummary Prelude.Text
 applicationSummary_arn = Lens.lens (\ApplicationSummary' {arn} -> arn) (\s@ApplicationSummary' {} a -> s {arn = a} :: ApplicationSummary)
 
--- | The EMR release version associated with the application.
+-- | The EMR release associated with the application.
 applicationSummary_releaseLabel :: Lens.Lens' ApplicationSummary Prelude.Text
 applicationSummary_releaseLabel = Lens.lens (\ApplicationSummary' {releaseLabel} -> releaseLabel) (\s@ApplicationSummary' {} a -> s {releaseLabel = a} :: ApplicationSummary)
 

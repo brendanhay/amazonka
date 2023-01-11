@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -68,6 +68,8 @@ library
     Amazonka.EMRServerless.Types.Configuration
     Amazonka.EMRServerless.Types.ConfigurationOverrides
     Amazonka.EMRServerless.Types.Hive
+    Amazonka.EMRServerless.Types.ImageConfiguration
+    Amazonka.EMRServerless.Types.ImageConfigurationInput
     Amazonka.EMRServerless.Types.InitialCapacityConfig
     Amazonka.EMRServerless.Types.JobDriver
     Amazonka.EMRServerless.Types.JobRun
@@ -81,6 +83,8 @@ library
     Amazonka.EMRServerless.Types.SparkSubmit
     Amazonka.EMRServerless.Types.TotalResourceUtilization
     Amazonka.EMRServerless.Types.WorkerResourceConfig
+    Amazonka.EMRServerless.Types.WorkerTypeSpecification
+    Amazonka.EMRServerless.Types.WorkerTypeSpecificationInput
     Amazonka.EMRServerless.UntagResource
     Amazonka.EMRServerless.UpdateApplication
     Amazonka.EMRServerless.Waiters

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMRServerless.CreateApplication
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,11 +30,13 @@ module Amazonka.EMRServerless.CreateApplication
     createApplication_architecture,
     createApplication_autoStartConfiguration,
     createApplication_autoStopConfiguration,
+    createApplication_imageConfiguration,
     createApplication_initialCapacity,
     createApplication_maximumCapacity,
     createApplication_name,
     createApplication_networkConfiguration,
     createApplication_tags,
+    createApplication_workerTypeSpecifications,
     createApplication_releaseLabel,
     createApplication_type,
     createApplication_clientToken,
@@ -69,6 +71,10 @@ data CreateApplication = CreateApplication'
     -- | The configuration for an application to automatically stop after a
     -- certain amount of time being idle.
     autoStopConfiguration :: Prelude.Maybe AutoStopConfig,
+    -- | The image configuration for all worker types. You can either set this
+    -- parameter or @imageConfiguration@ for each worker type in
+    -- @workerTypeSpecifications@.
+    imageConfiguration :: Prelude.Maybe ImageConfigurationInput,
     -- | The capacity to initialize when the application is created.
     initialCapacity :: Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig),
     -- | The maximum capacity to allocate when the application is created. This
@@ -82,7 +88,15 @@ data CreateApplication = CreateApplication'
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The tags assigned to the application.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The EMR release version associated with the application.
+    -- | The key-value pairs that specify worker type to
+    -- @WorkerTypeSpecificationInput@. This parameter must contain all valid
+    -- worker types for a Spark or Hive application. Valid worker types include
+    -- @Driver@ and @Executor@ for Spark applications and @HiveDriver@ and
+    -- @TezTask@ for Hive applications. You can either set image details in
+    -- this parameter for each worker type, or in @imageConfiguration@ for all
+    -- worker types.
+    workerTypeSpecifications :: Prelude.Maybe (Prelude.HashMap Prelude.Text WorkerTypeSpecificationInput),
+    -- | The EMR release associated with the application.
     releaseLabel :: Prelude.Text,
     -- | The type of application you want to start, such as Spark or Hive.
     type' :: Prelude.Text,
@@ -108,6 +122,10 @@ data CreateApplication = CreateApplication'
 -- 'autoStopConfiguration', 'createApplication_autoStopConfiguration' - The configuration for an application to automatically stop after a
 -- certain amount of time being idle.
 --
+-- 'imageConfiguration', 'createApplication_imageConfiguration' - The image configuration for all worker types. You can either set this
+-- parameter or @imageConfiguration@ for each worker type in
+-- @workerTypeSpecifications@.
+--
 -- 'initialCapacity', 'createApplication_initialCapacity' - The capacity to initialize when the application is created.
 --
 -- 'maximumCapacity', 'createApplication_maximumCapacity' - The maximum capacity to allocate when the application is created. This
@@ -121,7 +139,15 @@ data CreateApplication = CreateApplication'
 --
 -- 'tags', 'createApplication_tags' - The tags assigned to the application.
 --
--- 'releaseLabel', 'createApplication_releaseLabel' - The EMR release version associated with the application.
+-- 'workerTypeSpecifications', 'createApplication_workerTypeSpecifications' - The key-value pairs that specify worker type to
+-- @WorkerTypeSpecificationInput@. This parameter must contain all valid
+-- worker types for a Spark or Hive application. Valid worker types include
+-- @Driver@ and @Executor@ for Spark applications and @HiveDriver@ and
+-- @TezTask@ for Hive applications. You can either set image details in
+-- this parameter for each worker type, or in @imageConfiguration@ for all
+-- worker types.
+--
+-- 'releaseLabel', 'createApplication_releaseLabel' - The EMR release associated with the application.
 --
 -- 'type'', 'createApplication_type' - The type of application you want to start, such as Spark or Hive.
 --
@@ -143,11 +169,13 @@ newCreateApplication
       { architecture = Prelude.Nothing,
         autoStartConfiguration = Prelude.Nothing,
         autoStopConfiguration = Prelude.Nothing,
+        imageConfiguration = Prelude.Nothing,
         initialCapacity = Prelude.Nothing,
         maximumCapacity = Prelude.Nothing,
         name = Prelude.Nothing,
         networkConfiguration = Prelude.Nothing,
         tags = Prelude.Nothing,
+        workerTypeSpecifications = Prelude.Nothing,
         releaseLabel = pReleaseLabel_,
         type' = pType_,
         clientToken = pClientToken_
@@ -166,6 +194,12 @@ createApplication_autoStartConfiguration = Lens.lens (\CreateApplication' {autoS
 -- certain amount of time being idle.
 createApplication_autoStopConfiguration :: Lens.Lens' CreateApplication (Prelude.Maybe AutoStopConfig)
 createApplication_autoStopConfiguration = Lens.lens (\CreateApplication' {autoStopConfiguration} -> autoStopConfiguration) (\s@CreateApplication' {} a -> s {autoStopConfiguration = a} :: CreateApplication)
+
+-- | The image configuration for all worker types. You can either set this
+-- parameter or @imageConfiguration@ for each worker type in
+-- @workerTypeSpecifications@.
+createApplication_imageConfiguration :: Lens.Lens' CreateApplication (Prelude.Maybe ImageConfigurationInput)
+createApplication_imageConfiguration = Lens.lens (\CreateApplication' {imageConfiguration} -> imageConfiguration) (\s@CreateApplication' {} a -> s {imageConfiguration = a} :: CreateApplication)
 
 -- | The capacity to initialize when the application is created.
 createApplication_initialCapacity :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig))
@@ -190,7 +224,17 @@ createApplication_networkConfiguration = Lens.lens (\CreateApplication' {network
 createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
--- | The EMR release version associated with the application.
+-- | The key-value pairs that specify worker type to
+-- @WorkerTypeSpecificationInput@. This parameter must contain all valid
+-- worker types for a Spark or Hive application. Valid worker types include
+-- @Driver@ and @Executor@ for Spark applications and @HiveDriver@ and
+-- @TezTask@ for Hive applications. You can either set image details in
+-- this parameter for each worker type, or in @imageConfiguration@ for all
+-- worker types.
+createApplication_workerTypeSpecifications :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text WorkerTypeSpecificationInput))
+createApplication_workerTypeSpecifications = Lens.lens (\CreateApplication' {workerTypeSpecifications} -> workerTypeSpecifications) (\s@CreateApplication' {} a -> s {workerTypeSpecifications = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
+
+-- | The EMR release associated with the application.
 createApplication_releaseLabel :: Lens.Lens' CreateApplication Prelude.Text
 createApplication_releaseLabel = Lens.lens (\CreateApplication' {releaseLabel} -> releaseLabel) (\s@CreateApplication' {} a -> s {releaseLabel = a} :: CreateApplication)
 
@@ -224,11 +268,13 @@ instance Prelude.Hashable CreateApplication where
     _salt `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` autoStartConfiguration
       `Prelude.hashWithSalt` autoStopConfiguration
+      `Prelude.hashWithSalt` imageConfiguration
       `Prelude.hashWithSalt` initialCapacity
       `Prelude.hashWithSalt` maximumCapacity
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` networkConfiguration
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` workerTypeSpecifications
       `Prelude.hashWithSalt` releaseLabel
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` clientToken
@@ -238,11 +284,13 @@ instance Prelude.NFData CreateApplication where
     Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf autoStartConfiguration
       `Prelude.seq` Prelude.rnf autoStopConfiguration
+      `Prelude.seq` Prelude.rnf imageConfiguration
       `Prelude.seq` Prelude.rnf initialCapacity
       `Prelude.seq` Prelude.rnf maximumCapacity
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf workerTypeSpecifications
       `Prelude.seq` Prelude.rnf releaseLabel
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf clientToken
@@ -267,6 +315,8 @@ instance Data.ToJSON CreateApplication where
               Prelude.<$> autoStartConfiguration,
             ("autoStopConfiguration" Data..=)
               Prelude.<$> autoStopConfiguration,
+            ("imageConfiguration" Data..=)
+              Prelude.<$> imageConfiguration,
             ("initialCapacity" Data..=)
               Prelude.<$> initialCapacity,
             ("maximumCapacity" Data..=)
@@ -275,6 +325,8 @@ instance Data.ToJSON CreateApplication where
             ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
             ("tags" Data..=) Prelude.<$> tags,
+            ("workerTypeSpecifications" Data..=)
+              Prelude.<$> workerTypeSpecifications,
             Prelude.Just ("releaseLabel" Data..= releaseLabel),
             Prelude.Just ("type" Data..= type'),
             Prelude.Just ("clientToken" Data..= clientToken)

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMRServerless.Types.JobRun
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,8 +68,7 @@ data JobRun = JobRun'
     state :: JobRunState,
     -- | The state details of the job run.
     stateDetails :: Prelude.Text,
-    -- | The EMR release version associated with the application your job is
-    -- running on.
+    -- | The EMR release associated with the application your job is running on.
     releaseLabel :: Prelude.Text,
     -- | The job driver for the job run.
     jobDriver :: JobDriver
@@ -118,8 +117,7 @@ data JobRun = JobRun'
 --
 -- 'stateDetails', 'jobRun_stateDetails' - The state details of the job run.
 --
--- 'releaseLabel', 'jobRun_releaseLabel' - The EMR release version associated with the application your job is
--- running on.
+-- 'releaseLabel', 'jobRun_releaseLabel' - The EMR release associated with the application your job is running on.
 --
 -- 'jobDriver', 'jobRun_jobDriver' - The job driver for the job run.
 newJobRun ::
@@ -242,8 +240,7 @@ jobRun_state = Lens.lens (\JobRun' {state} -> state) (\s@JobRun' {} a -> s {stat
 jobRun_stateDetails :: Lens.Lens' JobRun Prelude.Text
 jobRun_stateDetails = Lens.lens (\JobRun' {stateDetails} -> stateDetails) (\s@JobRun' {} a -> s {stateDetails = a} :: JobRun)
 
--- | The EMR release version associated with the application your job is
--- running on.
+-- | The EMR release associated with the application your job is running on.
 jobRun_releaseLabel :: Lens.Lens' JobRun Prelude.Text
 jobRun_releaseLabel = Lens.lens (\JobRun' {releaseLabel} -> releaseLabel) (\s@JobRun' {} a -> s {releaseLabel = a} :: JobRun)
 

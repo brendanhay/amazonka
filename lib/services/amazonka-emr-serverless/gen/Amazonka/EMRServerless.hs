@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.EMRServerless
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -189,6 +189,14 @@ module Amazonka.EMRServerless
     Hive (Hive'),
     newHive,
 
+    -- ** ImageConfiguration
+    ImageConfiguration (ImageConfiguration'),
+    newImageConfiguration,
+
+    -- ** ImageConfigurationInput
+    ImageConfigurationInput (ImageConfigurationInput'),
+    newImageConfigurationInput,
+
     -- ** InitialCapacityConfig
     InitialCapacityConfig (InitialCapacityConfig'),
     newInitialCapacityConfig,
@@ -236,6 +244,14 @@ module Amazonka.EMRServerless
     -- ** WorkerResourceConfig
     WorkerResourceConfig (WorkerResourceConfig'),
     newWorkerResourceConfig,
+
+    -- ** WorkerTypeSpecification
+    WorkerTypeSpecification (WorkerTypeSpecification'),
+    newWorkerTypeSpecification,
+
+    -- ** WorkerTypeSpecificationInput
+    WorkerTypeSpecificationInput (WorkerTypeSpecificationInput'),
+    newWorkerTypeSpecificationInput,
   )
 where
 

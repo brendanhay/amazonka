@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.EMRServerless.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,11 +25,13 @@ module Amazonka.EMRServerless.Lens
     createApplication_architecture,
     createApplication_autoStartConfiguration,
     createApplication_autoStopConfiguration,
+    createApplication_imageConfiguration,
     createApplication_initialCapacity,
     createApplication_maximumCapacity,
     createApplication_name,
     createApplication_networkConfiguration,
     createApplication_tags,
+    createApplication_workerTypeSpecifications,
     createApplication_releaseLabel,
     createApplication_type,
     createApplication_clientToken,
@@ -119,9 +121,11 @@ module Amazonka.EMRServerless.Lens
     updateApplication_architecture,
     updateApplication_autoStartConfiguration,
     updateApplication_autoStopConfiguration,
+    updateApplication_imageConfiguration,
     updateApplication_initialCapacity,
     updateApplication_maximumCapacity,
     updateApplication_networkConfiguration,
+    updateApplication_workerTypeSpecifications,
     updateApplication_applicationId,
     updateApplication_clientToken,
     updateApplicationResponse_httpStatus,
@@ -133,12 +137,14 @@ module Amazonka.EMRServerless.Lens
     application_architecture,
     application_autoStartConfiguration,
     application_autoStopConfiguration,
+    application_imageConfiguration,
     application_initialCapacity,
     application_maximumCapacity,
     application_name,
     application_networkConfiguration,
     application_stateDetails,
     application_tags,
+    application_workerTypeSpecifications,
     application_applicationId,
     application_arn,
     application_releaseLabel,
@@ -179,6 +185,13 @@ module Amazonka.EMRServerless.Lens
     hive_initQueryFile,
     hive_parameters,
     hive_query,
+
+    -- ** ImageConfiguration
+    imageConfiguration_resolvedImageDigest,
+    imageConfiguration_imageUri,
+
+    -- ** ImageConfigurationInput
+    imageConfigurationInput_imageUri,
 
     -- ** InitialCapacityConfig
     initialCapacityConfig_workerConfiguration,
@@ -256,6 +269,12 @@ module Amazonka.EMRServerless.Lens
     workerResourceConfig_disk,
     workerResourceConfig_cpu,
     workerResourceConfig_memory,
+
+    -- ** WorkerTypeSpecification
+    workerTypeSpecification_imageConfiguration,
+
+    -- ** WorkerTypeSpecificationInput
+    workerTypeSpecificationInput_imageConfiguration,
   )
 where
 
@@ -279,6 +298,8 @@ import Amazonka.EMRServerless.Types.AutoStopConfig
 import Amazonka.EMRServerless.Types.Configuration
 import Amazonka.EMRServerless.Types.ConfigurationOverrides
 import Amazonka.EMRServerless.Types.Hive
+import Amazonka.EMRServerless.Types.ImageConfiguration
+import Amazonka.EMRServerless.Types.ImageConfigurationInput
 import Amazonka.EMRServerless.Types.InitialCapacityConfig
 import Amazonka.EMRServerless.Types.JobDriver
 import Amazonka.EMRServerless.Types.JobRun
@@ -291,5 +312,7 @@ import Amazonka.EMRServerless.Types.S3MonitoringConfiguration
 import Amazonka.EMRServerless.Types.SparkSubmit
 import Amazonka.EMRServerless.Types.TotalResourceUtilization
 import Amazonka.EMRServerless.Types.WorkerResourceConfig
+import Amazonka.EMRServerless.Types.WorkerTypeSpecification
+import Amazonka.EMRServerless.Types.WorkerTypeSpecificationInput
 import Amazonka.EMRServerless.UntagResource
 import Amazonka.EMRServerless.UpdateApplication

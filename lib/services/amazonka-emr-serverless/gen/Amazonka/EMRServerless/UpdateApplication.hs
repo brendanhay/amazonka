@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMRServerless.UpdateApplication
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,9 +31,11 @@ module Amazonka.EMRServerless.UpdateApplication
     updateApplication_architecture,
     updateApplication_autoStartConfiguration,
     updateApplication_autoStopConfiguration,
+    updateApplication_imageConfiguration,
     updateApplication_initialCapacity,
     updateApplication_maximumCapacity,
     updateApplication_networkConfiguration,
+    updateApplication_workerTypeSpecifications,
     updateApplication_applicationId,
     updateApplication_clientToken,
 
@@ -65,6 +67,10 @@ data UpdateApplication = UpdateApplication'
     -- | The configuration for an application to automatically stop after a
     -- certain amount of time being idle.
     autoStopConfiguration :: Prelude.Maybe AutoStopConfig,
+    -- | The image configuration to be used for all worker types. You can either
+    -- set this parameter or @imageConfiguration@ for each worker type in
+    -- @WorkerTypeSpecificationInput@.
+    imageConfiguration :: Prelude.Maybe ImageConfigurationInput,
     -- | The capacity to initialize when the application is updated.
     initialCapacity :: Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig),
     -- | The maximum capacity to allocate when the application is updated. This
@@ -73,6 +79,14 @@ data UpdateApplication = UpdateApplication'
     -- one of the defined limits is hit.
     maximumCapacity :: Prelude.Maybe MaximumAllowedResources,
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    -- | The key-value pairs that specify worker type to
+    -- @WorkerTypeSpecificationInput@. This parameter must contain all valid
+    -- worker types for a Spark or Hive application. Valid worker types include
+    -- @Driver@ and @Executor@ for Spark applications and @HiveDriver@ and
+    -- @TezTask@ for Hive applications. You can either set image details in
+    -- this parameter for each worker type, or in @imageConfiguration@ for all
+    -- worker types.
+    workerTypeSpecifications :: Prelude.Maybe (Prelude.HashMap Prelude.Text WorkerTypeSpecificationInput),
     -- | The ID of the application to update.
     applicationId :: Prelude.Text,
     -- | The client idempotency token of the application to update. Its value
@@ -97,6 +111,10 @@ data UpdateApplication = UpdateApplication'
 -- 'autoStopConfiguration', 'updateApplication_autoStopConfiguration' - The configuration for an application to automatically stop after a
 -- certain amount of time being idle.
 --
+-- 'imageConfiguration', 'updateApplication_imageConfiguration' - The image configuration to be used for all worker types. You can either
+-- set this parameter or @imageConfiguration@ for each worker type in
+-- @WorkerTypeSpecificationInput@.
+--
 -- 'initialCapacity', 'updateApplication_initialCapacity' - The capacity to initialize when the application is updated.
 --
 -- 'maximumCapacity', 'updateApplication_maximumCapacity' - The maximum capacity to allocate when the application is updated. This
@@ -105,6 +123,14 @@ data UpdateApplication = UpdateApplication'
 -- one of the defined limits is hit.
 --
 -- 'networkConfiguration', 'updateApplication_networkConfiguration' - Undocumented member.
+--
+-- 'workerTypeSpecifications', 'updateApplication_workerTypeSpecifications' - The key-value pairs that specify worker type to
+-- @WorkerTypeSpecificationInput@. This parameter must contain all valid
+-- worker types for a Spark or Hive application. Valid worker types include
+-- @Driver@ and @Executor@ for Spark applications and @HiveDriver@ and
+-- @TezTask@ for Hive applications. You can either set image details in
+-- this parameter for each worker type, or in @imageConfiguration@ for all
+-- worker types.
 --
 -- 'applicationId', 'updateApplication_applicationId' - The ID of the application to update.
 --
@@ -121,9 +147,11 @@ newUpdateApplication pApplicationId_ pClientToken_ =
     { architecture = Prelude.Nothing,
       autoStartConfiguration = Prelude.Nothing,
       autoStopConfiguration = Prelude.Nothing,
+      imageConfiguration = Prelude.Nothing,
       initialCapacity = Prelude.Nothing,
       maximumCapacity = Prelude.Nothing,
       networkConfiguration = Prelude.Nothing,
+      workerTypeSpecifications = Prelude.Nothing,
       applicationId = pApplicationId_,
       clientToken = pClientToken_
     }
@@ -142,6 +170,12 @@ updateApplication_autoStartConfiguration = Lens.lens (\UpdateApplication' {autoS
 updateApplication_autoStopConfiguration :: Lens.Lens' UpdateApplication (Prelude.Maybe AutoStopConfig)
 updateApplication_autoStopConfiguration = Lens.lens (\UpdateApplication' {autoStopConfiguration} -> autoStopConfiguration) (\s@UpdateApplication' {} a -> s {autoStopConfiguration = a} :: UpdateApplication)
 
+-- | The image configuration to be used for all worker types. You can either
+-- set this parameter or @imageConfiguration@ for each worker type in
+-- @WorkerTypeSpecificationInput@.
+updateApplication_imageConfiguration :: Lens.Lens' UpdateApplication (Prelude.Maybe ImageConfigurationInput)
+updateApplication_imageConfiguration = Lens.lens (\UpdateApplication' {imageConfiguration} -> imageConfiguration) (\s@UpdateApplication' {} a -> s {imageConfiguration = a} :: UpdateApplication)
+
 -- | The capacity to initialize when the application is updated.
 updateApplication_initialCapacity :: Lens.Lens' UpdateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig))
 updateApplication_initialCapacity = Lens.lens (\UpdateApplication' {initialCapacity} -> initialCapacity) (\s@UpdateApplication' {} a -> s {initialCapacity = a} :: UpdateApplication) Prelude.. Lens.mapping Lens.coerced
@@ -156,6 +190,16 @@ updateApplication_maximumCapacity = Lens.lens (\UpdateApplication' {maximumCapac
 -- | Undocumented member.
 updateApplication_networkConfiguration :: Lens.Lens' UpdateApplication (Prelude.Maybe NetworkConfiguration)
 updateApplication_networkConfiguration = Lens.lens (\UpdateApplication' {networkConfiguration} -> networkConfiguration) (\s@UpdateApplication' {} a -> s {networkConfiguration = a} :: UpdateApplication)
+
+-- | The key-value pairs that specify worker type to
+-- @WorkerTypeSpecificationInput@. This parameter must contain all valid
+-- worker types for a Spark or Hive application. Valid worker types include
+-- @Driver@ and @Executor@ for Spark applications and @HiveDriver@ and
+-- @TezTask@ for Hive applications. You can either set image details in
+-- this parameter for each worker type, or in @imageConfiguration@ for all
+-- worker types.
+updateApplication_workerTypeSpecifications :: Lens.Lens' UpdateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text WorkerTypeSpecificationInput))
+updateApplication_workerTypeSpecifications = Lens.lens (\UpdateApplication' {workerTypeSpecifications} -> workerTypeSpecifications) (\s@UpdateApplication' {} a -> s {workerTypeSpecifications = a} :: UpdateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the application to update.
 updateApplication_applicationId :: Lens.Lens' UpdateApplication Prelude.Text
@@ -185,9 +229,11 @@ instance Prelude.Hashable UpdateApplication where
     _salt `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` autoStartConfiguration
       `Prelude.hashWithSalt` autoStopConfiguration
+      `Prelude.hashWithSalt` imageConfiguration
       `Prelude.hashWithSalt` initialCapacity
       `Prelude.hashWithSalt` maximumCapacity
       `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` workerTypeSpecifications
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` clientToken
 
@@ -196,9 +242,11 @@ instance Prelude.NFData UpdateApplication where
     Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf autoStartConfiguration
       `Prelude.seq` Prelude.rnf autoStopConfiguration
+      `Prelude.seq` Prelude.rnf imageConfiguration
       `Prelude.seq` Prelude.rnf initialCapacity
       `Prelude.seq` Prelude.rnf maximumCapacity
       `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf workerTypeSpecifications
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf clientToken
 
@@ -222,12 +270,16 @@ instance Data.ToJSON UpdateApplication where
               Prelude.<$> autoStartConfiguration,
             ("autoStopConfiguration" Data..=)
               Prelude.<$> autoStopConfiguration,
+            ("imageConfiguration" Data..=)
+              Prelude.<$> imageConfiguration,
             ("initialCapacity" Data..=)
               Prelude.<$> initialCapacity,
             ("maximumCapacity" Data..=)
               Prelude.<$> maximumCapacity,
             ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
+            ("workerTypeSpecifications" Data..=)
+              Prelude.<$> workerTypeSpecifications,
             Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )

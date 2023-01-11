@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SupportApp.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -132,7 +132,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have sufficient permission to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -159,7 +159,7 @@ _AccessDeniedException =
 -- -   Call the @RegisterSlackWorkspaceForOrganization@ API from a member
 --     account, but the management account hasn\'t registered that
 --     workspace yet for the organization.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -168,7 +168,7 @@ _ConflictException =
 
 -- | We can’t process your request right now because of a server issue. Try
 -- again later.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -177,7 +177,7 @@ _InternalServerException =
 
 -- | The specified resource is missing or doesn\'t exist, such as an account
 -- alias, Slack channel configuration, or Slack workspace configuration.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -188,7 +188,7 @@ _ResourceNotFoundException =
 -- example, your Service Quotas request to Amazon Web Services Support App
 -- might exceed the maximum number of workspaces or channels per account,
 -- or the maximum number of accounts per Slack channel.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -197,7 +197,7 @@ _ServiceQuotaExceededException =
 
 -- | Your request input doesn\'t meet the constraints that the Amazon Web
 -- Services Support App specifies.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

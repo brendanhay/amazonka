@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityHub
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -899,6 +899,146 @@ module Amazonka.SecurityHub
     -- ** AwsEc2InstanceNetworkInterfacesDetails
     AwsEc2InstanceNetworkInterfacesDetails (AwsEc2InstanceNetworkInterfacesDetails'),
     newAwsEc2InstanceNetworkInterfacesDetails,
+
+    -- ** AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails
+    AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails (AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails'),
+    newAwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails,
+
+    -- ** AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails
+    AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails (AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails'),
+    newAwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails
+    AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails (AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails'),
+    newAwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails,
+
+    -- ** AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
+    AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails (AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails'),
+    newAwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails,
+
+    -- ** AwsEc2LaunchTemplateDataCpuOptionsDetails
+    AwsEc2LaunchTemplateDataCpuOptionsDetails (AwsEc2LaunchTemplateDataCpuOptionsDetails'),
+    newAwsEc2LaunchTemplateDataCpuOptionsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataCreditSpecificationDetails
+    AwsEc2LaunchTemplateDataCreditSpecificationDetails (AwsEc2LaunchTemplateDataCreditSpecificationDetails'),
+    newAwsEc2LaunchTemplateDataCreditSpecificationDetails,
+
+    -- ** AwsEc2LaunchTemplateDataDetails
+    AwsEc2LaunchTemplateDataDetails (AwsEc2LaunchTemplateDataDetails'),
+    newAwsEc2LaunchTemplateDataDetails,
+
+    -- ** AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails
+    AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails (AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails'),
+    newAwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails,
+
+    -- ** AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails
+    AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails (AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails'),
+    newAwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails,
+
+    -- ** AwsEc2LaunchTemplateDataEnclaveOptionsDetails
+    AwsEc2LaunchTemplateDataEnclaveOptionsDetails (AwsEc2LaunchTemplateDataEnclaveOptionsDetails'),
+    newAwsEc2LaunchTemplateDataEnclaveOptionsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataHibernationOptionsDetails
+    AwsEc2LaunchTemplateDataHibernationOptionsDetails (AwsEc2LaunchTemplateDataHibernationOptionsDetails'),
+    newAwsEc2LaunchTemplateDataHibernationOptionsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataIamInstanceProfileDetails
+    AwsEc2LaunchTemplateDataIamInstanceProfileDetails (AwsEc2LaunchTemplateDataIamInstanceProfileDetails'),
+    newAwsEc2LaunchTemplateDataIamInstanceProfileDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails
+    AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails (AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails'),
+    newAwsEc2LaunchTemplateDataInstanceMarketOptionsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
+    AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails (AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails'),
+    newAwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails (AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails'),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails (AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails'),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails (AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails'),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceRequirementsDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsDetails (AwsEc2LaunchTemplateDataInstanceRequirementsDetails'),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails (AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails'),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails (AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails'),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails (AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails'),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails (AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails'),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails,
+
+    -- ** AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails (AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails'),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails,
+
+    -- ** AwsEc2LaunchTemplateDataLicenseSetDetails
+    AwsEc2LaunchTemplateDataLicenseSetDetails (AwsEc2LaunchTemplateDataLicenseSetDetails'),
+    newAwsEc2LaunchTemplateDataLicenseSetDetails,
+
+    -- ** AwsEc2LaunchTemplateDataMaintenanceOptionsDetails
+    AwsEc2LaunchTemplateDataMaintenanceOptionsDetails (AwsEc2LaunchTemplateDataMaintenanceOptionsDetails'),
+    newAwsEc2LaunchTemplateDataMaintenanceOptionsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataMetadataOptionsDetails
+    AwsEc2LaunchTemplateDataMetadataOptionsDetails (AwsEc2LaunchTemplateDataMetadataOptionsDetails'),
+    newAwsEc2LaunchTemplateDataMetadataOptionsDetails,
+
+    -- ** AwsEc2LaunchTemplateDataMonitoringDetails
+    AwsEc2LaunchTemplateDataMonitoringDetails (AwsEc2LaunchTemplateDataMonitoringDetails'),
+    newAwsEc2LaunchTemplateDataMonitoringDetails,
+
+    -- ** AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails (AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails'),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetDetails,
+
+    -- ** AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails (AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails'),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails,
+
+    -- ** AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails (AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails'),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails,
+
+    -- ** AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails (AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails'),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails,
+
+    -- ** AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails (AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails'),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails,
+
+    -- ** AwsEc2LaunchTemplateDataPlacementDetails
+    AwsEc2LaunchTemplateDataPlacementDetails (AwsEc2LaunchTemplateDataPlacementDetails'),
+    newAwsEc2LaunchTemplateDataPlacementDetails,
+
+    -- ** AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails
+    AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails (AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails'),
+    newAwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails,
+
+    -- ** AwsEc2LaunchTemplateDetails
+    AwsEc2LaunchTemplateDetails (AwsEc2LaunchTemplateDetails'),
+    newAwsEc2LaunchTemplateDetails,
 
     -- ** AwsEc2NetworkAclAssociation
     AwsEc2NetworkAclAssociation (AwsEc2NetworkAclAssociation'),
@@ -1852,6 +1992,14 @@ module Amazonka.SecurityHub
     AwsS3ObjectDetails (AwsS3ObjectDetails'),
     newAwsS3ObjectDetails,
 
+    -- ** AwsSageMakerNotebookInstanceDetails
+    AwsSageMakerNotebookInstanceDetails (AwsSageMakerNotebookInstanceDetails'),
+    newAwsSageMakerNotebookInstanceDetails,
+
+    -- ** AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails
+    AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails (AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails'),
+    newAwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails,
+
     -- ** AwsSecretsManagerSecretDetails
     AwsSecretsManagerSecretDetails (AwsSecretsManagerSecretDetails'),
     newAwsSecretsManagerSecretDetails,
@@ -1975,6 +2123,66 @@ module Amazonka.SecurityHub
     -- ** AwsWafWebAclRule
     AwsWafWebAclRule (AwsWafWebAclRule'),
     newAwsWafWebAclRule,
+
+    -- ** AwsWafv2ActionAllowDetails
+    AwsWafv2ActionAllowDetails (AwsWafv2ActionAllowDetails'),
+    newAwsWafv2ActionAllowDetails,
+
+    -- ** AwsWafv2ActionBlockDetails
+    AwsWafv2ActionBlockDetails (AwsWafv2ActionBlockDetails'),
+    newAwsWafv2ActionBlockDetails,
+
+    -- ** AwsWafv2CustomHttpHeader
+    AwsWafv2CustomHttpHeader (AwsWafv2CustomHttpHeader'),
+    newAwsWafv2CustomHttpHeader,
+
+    -- ** AwsWafv2CustomRequestHandlingDetails
+    AwsWafv2CustomRequestHandlingDetails (AwsWafv2CustomRequestHandlingDetails'),
+    newAwsWafv2CustomRequestHandlingDetails,
+
+    -- ** AwsWafv2CustomResponseDetails
+    AwsWafv2CustomResponseDetails (AwsWafv2CustomResponseDetails'),
+    newAwsWafv2CustomResponseDetails,
+
+    -- ** AwsWafv2RuleGroupDetails
+    AwsWafv2RuleGroupDetails (AwsWafv2RuleGroupDetails'),
+    newAwsWafv2RuleGroupDetails,
+
+    -- ** AwsWafv2RulesActionCaptchaDetails
+    AwsWafv2RulesActionCaptchaDetails (AwsWafv2RulesActionCaptchaDetails'),
+    newAwsWafv2RulesActionCaptchaDetails,
+
+    -- ** AwsWafv2RulesActionCountDetails
+    AwsWafv2RulesActionCountDetails (AwsWafv2RulesActionCountDetails'),
+    newAwsWafv2RulesActionCountDetails,
+
+    -- ** AwsWafv2RulesActionDetails
+    AwsWafv2RulesActionDetails (AwsWafv2RulesActionDetails'),
+    newAwsWafv2RulesActionDetails,
+
+    -- ** AwsWafv2RulesDetails
+    AwsWafv2RulesDetails (AwsWafv2RulesDetails'),
+    newAwsWafv2RulesDetails,
+
+    -- ** AwsWafv2VisibilityConfigDetails
+    AwsWafv2VisibilityConfigDetails (AwsWafv2VisibilityConfigDetails'),
+    newAwsWafv2VisibilityConfigDetails,
+
+    -- ** AwsWafv2WebAclActionDetails
+    AwsWafv2WebAclActionDetails (AwsWafv2WebAclActionDetails'),
+    newAwsWafv2WebAclActionDetails,
+
+    -- ** AwsWafv2WebAclCaptchaConfigDetails
+    AwsWafv2WebAclCaptchaConfigDetails (AwsWafv2WebAclCaptchaConfigDetails'),
+    newAwsWafv2WebAclCaptchaConfigDetails,
+
+    -- ** AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails
+    AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails (AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails'),
+    newAwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails,
+
+    -- ** AwsWafv2WebAclDetails
+    AwsWafv2WebAclDetails (AwsWafv2WebAclDetails'),
+    newAwsWafv2WebAclDetails,
 
     -- ** AwsXrayEncryptionConfigDetails
     AwsXrayEncryptionConfigDetails (AwsXrayEncryptionConfigDetails'),

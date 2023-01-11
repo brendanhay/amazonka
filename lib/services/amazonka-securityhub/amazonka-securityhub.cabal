@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -196,6 +196,41 @@ library
     Amazonka.SecurityHub.Types.AwsEc2InstanceDetails
     Amazonka.SecurityHub.Types.AwsEc2InstanceMetadataOptions
     Amazonka.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataCpuOptionsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataCreditSpecificationDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataEnclaveOptionsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataHibernationOptionsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataIamInstanceProfileDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataLicenseSetDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataMaintenanceOptionsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataMetadataOptionsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataMonitoringDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataPlacementDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails
+    Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDetails
     Amazonka.SecurityHub.Types.AwsEc2NetworkAclAssociation
     Amazonka.SecurityHub.Types.AwsEc2NetworkAclDetails
     Amazonka.SecurityHub.Types.AwsEc2NetworkAclEntry
@@ -436,6 +471,8 @@ library
     Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRuleCondition
     Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
     Amazonka.SecurityHub.Types.AwsS3ObjectDetails
+    Amazonka.SecurityHub.Types.AwsSageMakerNotebookInstanceDetails
+    Amazonka.SecurityHub.Types.AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails
     Amazonka.SecurityHub.Types.AwsSecretsManagerSecretDetails
     Amazonka.SecurityHub.Types.AwsSecretsManagerSecretRotationRules
     Amazonka.SecurityHub.Types.AwsSecurityFinding
@@ -465,6 +502,21 @@ library
     Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesActionDetails
     Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesDetails
     Amazonka.SecurityHub.Types.AwsWafRulePredicateListDetails
+    Amazonka.SecurityHub.Types.AwsWafv2ActionAllowDetails
+    Amazonka.SecurityHub.Types.AwsWafv2ActionBlockDetails
+    Amazonka.SecurityHub.Types.AwsWafv2CustomHttpHeader
+    Amazonka.SecurityHub.Types.AwsWafv2CustomRequestHandlingDetails
+    Amazonka.SecurityHub.Types.AwsWafv2CustomResponseDetails
+    Amazonka.SecurityHub.Types.AwsWafv2RuleGroupDetails
+    Amazonka.SecurityHub.Types.AwsWafv2RulesActionCaptchaDetails
+    Amazonka.SecurityHub.Types.AwsWafv2RulesActionCountDetails
+    Amazonka.SecurityHub.Types.AwsWafv2RulesActionDetails
+    Amazonka.SecurityHub.Types.AwsWafv2RulesDetails
+    Amazonka.SecurityHub.Types.AwsWafv2VisibilityConfigDetails
+    Amazonka.SecurityHub.Types.AwsWafv2WebAclActionDetails
+    Amazonka.SecurityHub.Types.AwsWafv2WebAclCaptchaConfigDetails
+    Amazonka.SecurityHub.Types.AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails
+    Amazonka.SecurityHub.Types.AwsWafv2WebAclDetails
     Amazonka.SecurityHub.Types.AwsWafWebAclDetails
     Amazonka.SecurityHub.Types.AwsWafWebAclRule
     Amazonka.SecurityHub.Types.AwsXrayEncryptionConfigDetails

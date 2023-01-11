@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Support.DescribeAttachment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@
 --     plan to use the Amazon Web Services Support API.
 --
 -- -   If you call the Amazon Web Services Support API from an account that
---     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     doesn\'t have a Business, Enterprise On-Ramp, or Enterprise Support
 --     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.

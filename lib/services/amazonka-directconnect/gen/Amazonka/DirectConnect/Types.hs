@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.DirectConnect.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -526,28 +526,28 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | One or more parameters are not valid.
-_DirectConnectClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectConnectClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DirectConnectClientException =
   Core._MatchServiceError
     defaultService
     "DirectConnectClientException"
 
 -- | A server-side error occurred.
-_DirectConnectServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectConnectServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DirectConnectServerException =
   Core._MatchServiceError
     defaultService
     "DirectConnectServerException"
 
 -- | A tag key was specified more than once.
-_DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateTagKeysException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateTagKeysException =
   Core._MatchServiceError
     defaultService
     "DuplicateTagKeysException"
 
 -- | You have reached the limit on the number of tags that can be assigned.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

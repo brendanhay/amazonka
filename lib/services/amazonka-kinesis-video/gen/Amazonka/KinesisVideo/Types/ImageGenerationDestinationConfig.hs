@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.KinesisVideo.Types.ImageGenerationDestinationConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageGenerationDestinationConfig' smart constructor.
 data ImageGenerationDestinationConfig = ImageGenerationDestinationConfig'
-  { -- | The Uniform Resource Idenifier (URI) that identifies where the images
+  { -- | The Uniform Resource Identifier (URI) that identifies where the images
     -- will be delivered.
     uri :: Prelude.Text,
     -- | The AWS Region of the S3 bucket where images will be delivered. This
@@ -46,7 +46,7 @@ data ImageGenerationDestinationConfig = ImageGenerationDestinationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uri', 'imageGenerationDestinationConfig_uri' - The Uniform Resource Idenifier (URI) that identifies where the images
+-- 'uri', 'imageGenerationDestinationConfig_uri' - The Uniform Resource Identifier (URI) that identifies where the images
 -- will be delivered.
 --
 -- 'destinationRegion', 'imageGenerationDestinationConfig_destinationRegion' - The AWS Region of the S3 bucket where images will be delivered. This
@@ -65,7 +65,7 @@ newImageGenerationDestinationConfig
         destinationRegion = pDestinationRegion_
       }
 
--- | The Uniform Resource Idenifier (URI) that identifies where the images
+-- | The Uniform Resource Identifier (URI) that identifies where the images
 -- will be delivered.
 imageGenerationDestinationConfig_uri :: Lens.Lens' ImageGenerationDestinationConfig Prelude.Text
 imageGenerationDestinationConfig_uri = Lens.lens (\ImageGenerationDestinationConfig' {uri} -> uri) (\s@ImageGenerationDestinationConfig' {} a -> s {uri = a} :: ImageGenerationDestinationConfig)

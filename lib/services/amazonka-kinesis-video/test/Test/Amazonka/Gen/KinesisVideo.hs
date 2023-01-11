@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.KinesisVideo
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,17 @@ import Test.Tasty
 --         , requestDeleteStream $
 --             newDeleteStream
 --
+--         , requestDescribeEdgeConfiguration $
+--             newDescribeEdgeConfiguration
+--
 --         , requestDescribeImageGenerationConfiguration $
 --             newDescribeImageGenerationConfiguration
+--
+--         , requestDescribeMappedResourceConfiguration $
+--             newDescribeMappedResourceConfiguration
+--
+--         , requestDescribeMediaStorageConfiguration $
+--             newDescribeMediaStorageConfiguration
 --
 --         , requestDescribeNotificationConfiguration $
 --             newDescribeNotificationConfiguration
@@ -69,6 +78,9 @@ import Test.Tasty
 --         , requestListTagsForStream $
 --             newListTagsForStream
 --
+--         , requestStartEdgeConfigurationUpdate $
+--             newStartEdgeConfigurationUpdate
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -86,6 +98,9 @@ import Test.Tasty
 --
 --         , requestUpdateImageGenerationConfiguration $
 --             newUpdateImageGenerationConfiguration
+--
+--         , requestUpdateMediaStorageConfiguration $
+--             newUpdateMediaStorageConfiguration
 --
 --         , requestUpdateNotificationConfiguration $
 --             newUpdateNotificationConfiguration
@@ -111,8 +126,17 @@ import Test.Tasty
 --         , responseDeleteStream $
 --             newDeleteStreamResponse
 --
+--         , responseDescribeEdgeConfiguration $
+--             newDescribeEdgeConfigurationResponse
+--
 --         , responseDescribeImageGenerationConfiguration $
 --             newDescribeImageGenerationConfigurationResponse
+--
+--         , responseDescribeMappedResourceConfiguration $
+--             newDescribeMappedResourceConfigurationResponse
+--
+--         , responseDescribeMediaStorageConfiguration $
+--             newDescribeMediaStorageConfigurationResponse
 --
 --         , responseDescribeNotificationConfiguration $
 --             newDescribeNotificationConfigurationResponse
@@ -141,6 +165,9 @@ import Test.Tasty
 --         , responseListTagsForStream $
 --             newListTagsForStreamResponse
 --
+--         , responseStartEdgeConfigurationUpdate $
+--             newStartEdgeConfigurationUpdateResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
 --
@@ -158,6 +185,9 @@ import Test.Tasty
 --
 --         , responseUpdateImageGenerationConfiguration $
 --             newUpdateImageGenerationConfigurationResponse
+--
+--         , responseUpdateMediaStorageConfiguration $
+--             newUpdateMediaStorageConfigurationResponse
 --
 --         , responseUpdateNotificationConfiguration $
 --             newUpdateNotificationConfigurationResponse
@@ -197,11 +227,29 @@ requestDeleteStream =
     "DeleteStream"
     "fixture/DeleteStream.yaml"
 
+requestDescribeEdgeConfiguration :: DescribeEdgeConfiguration -> TestTree
+requestDescribeEdgeConfiguration =
+  req
+    "DescribeEdgeConfiguration"
+    "fixture/DescribeEdgeConfiguration.yaml"
+
 requestDescribeImageGenerationConfiguration :: DescribeImageGenerationConfiguration -> TestTree
 requestDescribeImageGenerationConfiguration =
   req
     "DescribeImageGenerationConfiguration"
     "fixture/DescribeImageGenerationConfiguration.yaml"
+
+requestDescribeMappedResourceConfiguration :: DescribeMappedResourceConfiguration -> TestTree
+requestDescribeMappedResourceConfiguration =
+  req
+    "DescribeMappedResourceConfiguration"
+    "fixture/DescribeMappedResourceConfiguration.yaml"
+
+requestDescribeMediaStorageConfiguration :: DescribeMediaStorageConfiguration -> TestTree
+requestDescribeMediaStorageConfiguration =
+  req
+    "DescribeMediaStorageConfiguration"
+    "fixture/DescribeMediaStorageConfiguration.yaml"
 
 requestDescribeNotificationConfiguration :: DescribeNotificationConfiguration -> TestTree
 requestDescribeNotificationConfiguration =
@@ -257,6 +305,12 @@ requestListTagsForStream =
     "ListTagsForStream"
     "fixture/ListTagsForStream.yaml"
 
+requestStartEdgeConfigurationUpdate :: StartEdgeConfigurationUpdate -> TestTree
+requestStartEdgeConfigurationUpdate =
+  req
+    "StartEdgeConfigurationUpdate"
+    "fixture/StartEdgeConfigurationUpdate.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -292,6 +346,12 @@ requestUpdateImageGenerationConfiguration =
   req
     "UpdateImageGenerationConfiguration"
     "fixture/UpdateImageGenerationConfiguration.yaml"
+
+requestUpdateMediaStorageConfiguration :: UpdateMediaStorageConfiguration -> TestTree
+requestUpdateMediaStorageConfiguration =
+  req
+    "UpdateMediaStorageConfiguration"
+    "fixture/UpdateMediaStorageConfiguration.yaml"
 
 requestUpdateNotificationConfiguration :: UpdateNotificationConfiguration -> TestTree
 requestUpdateNotificationConfiguration =
@@ -345,6 +405,14 @@ responseDeleteStream =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteStream)
 
+responseDescribeEdgeConfiguration :: DescribeEdgeConfigurationResponse -> TestTree
+responseDescribeEdgeConfiguration =
+  res
+    "DescribeEdgeConfigurationResponse"
+    "fixture/DescribeEdgeConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeEdgeConfiguration)
+
 responseDescribeImageGenerationConfiguration :: DescribeImageGenerationConfigurationResponse -> TestTree
 responseDescribeImageGenerationConfiguration =
   res
@@ -352,6 +420,22 @@ responseDescribeImageGenerationConfiguration =
     "fixture/DescribeImageGenerationConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeImageGenerationConfiguration)
+
+responseDescribeMappedResourceConfiguration :: DescribeMappedResourceConfigurationResponse -> TestTree
+responseDescribeMappedResourceConfiguration =
+  res
+    "DescribeMappedResourceConfigurationResponse"
+    "fixture/DescribeMappedResourceConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMappedResourceConfiguration)
+
+responseDescribeMediaStorageConfiguration :: DescribeMediaStorageConfigurationResponse -> TestTree
+responseDescribeMediaStorageConfiguration =
+  res
+    "DescribeMediaStorageConfigurationResponse"
+    "fixture/DescribeMediaStorageConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMediaStorageConfiguration)
 
 responseDescribeNotificationConfiguration :: DescribeNotificationConfigurationResponse -> TestTree
 responseDescribeNotificationConfiguration =
@@ -425,6 +509,14 @@ responseListTagsForStream =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForStream)
 
+responseStartEdgeConfigurationUpdate :: StartEdgeConfigurationUpdateResponse -> TestTree
+responseStartEdgeConfigurationUpdate =
+  res
+    "StartEdgeConfigurationUpdateResponse"
+    "fixture/StartEdgeConfigurationUpdateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartEdgeConfigurationUpdate)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -472,6 +564,14 @@ responseUpdateImageGenerationConfiguration =
     "fixture/UpdateImageGenerationConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateImageGenerationConfiguration)
+
+responseUpdateMediaStorageConfiguration :: UpdateMediaStorageConfigurationResponse -> TestTree
+responseUpdateMediaStorageConfiguration =
+  res
+    "UpdateMediaStorageConfigurationResponse"
+    "fixture/UpdateMediaStorageConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMediaStorageConfiguration)
 
 responseUpdateNotificationConfiguration :: UpdateNotificationConfigurationResponse -> TestTree
 responseUpdateNotificationConfiguration =

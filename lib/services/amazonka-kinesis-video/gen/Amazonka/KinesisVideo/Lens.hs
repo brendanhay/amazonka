@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.KinesisVideo.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,11 +42,38 @@ module Amazonka.KinesisVideo.Lens
     deleteStream_streamARN,
     deleteStreamResponse_httpStatus,
 
+    -- ** DescribeEdgeConfiguration
+    describeEdgeConfiguration_streamARN,
+    describeEdgeConfiguration_streamName,
+    describeEdgeConfigurationResponse_creationTime,
+    describeEdgeConfigurationResponse_edgeConfig,
+    describeEdgeConfigurationResponse_failedStatusDetails,
+    describeEdgeConfigurationResponse_lastUpdatedTime,
+    describeEdgeConfigurationResponse_streamARN,
+    describeEdgeConfigurationResponse_streamName,
+    describeEdgeConfigurationResponse_syncStatus,
+    describeEdgeConfigurationResponse_httpStatus,
+
     -- ** DescribeImageGenerationConfiguration
     describeImageGenerationConfiguration_streamARN,
     describeImageGenerationConfiguration_streamName,
     describeImageGenerationConfigurationResponse_imageGenerationConfiguration,
     describeImageGenerationConfigurationResponse_httpStatus,
+
+    -- ** DescribeMappedResourceConfiguration
+    describeMappedResourceConfiguration_maxResults,
+    describeMappedResourceConfiguration_nextToken,
+    describeMappedResourceConfiguration_streamARN,
+    describeMappedResourceConfiguration_streamName,
+    describeMappedResourceConfigurationResponse_mappedResourceConfigurationList,
+    describeMappedResourceConfigurationResponse_nextToken,
+    describeMappedResourceConfigurationResponse_httpStatus,
+
+    -- ** DescribeMediaStorageConfiguration
+    describeMediaStorageConfiguration_channelARN,
+    describeMediaStorageConfiguration_channelName,
+    describeMediaStorageConfigurationResponse_mediaStorageConfiguration,
+    describeMediaStorageConfigurationResponse_httpStatus,
 
     -- ** DescribeNotificationConfiguration
     describeNotificationConfiguration_streamARN,
@@ -110,6 +137,19 @@ module Amazonka.KinesisVideo.Lens
     listTagsForStreamResponse_tags,
     listTagsForStreamResponse_httpStatus,
 
+    -- ** StartEdgeConfigurationUpdate
+    startEdgeConfigurationUpdate_streamARN,
+    startEdgeConfigurationUpdate_streamName,
+    startEdgeConfigurationUpdate_edgeConfig,
+    startEdgeConfigurationUpdateResponse_creationTime,
+    startEdgeConfigurationUpdateResponse_edgeConfig,
+    startEdgeConfigurationUpdateResponse_failedStatusDetails,
+    startEdgeConfigurationUpdateResponse_lastUpdatedTime,
+    startEdgeConfigurationUpdateResponse_streamARN,
+    startEdgeConfigurationUpdateResponse_streamName,
+    startEdgeConfigurationUpdateResponse_syncStatus,
+    startEdgeConfigurationUpdateResponse_httpStatus,
+
     -- ** TagResource
     tagResource_resourceARN,
     tagResource_tags,
@@ -146,6 +186,11 @@ module Amazonka.KinesisVideo.Lens
     updateImageGenerationConfiguration_streamName,
     updateImageGenerationConfigurationResponse_httpStatus,
 
+    -- ** UpdateMediaStorageConfiguration
+    updateMediaStorageConfiguration_channelARN,
+    updateMediaStorageConfiguration_mediaStorageConfiguration,
+    updateMediaStorageConfigurationResponse_httpStatus,
+
     -- ** UpdateNotificationConfiguration
     updateNotificationConfiguration_notificationConfiguration,
     updateNotificationConfiguration_streamARN,
@@ -181,6 +226,17 @@ module Amazonka.KinesisVideo.Lens
     channelNameCondition_comparisonOperator,
     channelNameCondition_comparisonValue,
 
+    -- ** DeletionConfig
+    deletionConfig_deleteAfterUpload,
+    deletionConfig_edgeRetentionInHours,
+    deletionConfig_localSizeConfig,
+
+    -- ** EdgeConfig
+    edgeConfig_deletionConfig,
+    edgeConfig_uploaderConfig,
+    edgeConfig_hubDeviceArn,
+    edgeConfig_recorderConfig,
+
     -- ** ImageGenerationConfiguration
     imageGenerationConfiguration_formatConfig,
     imageGenerationConfiguration_heightPixels,
@@ -195,6 +251,22 @@ module Amazonka.KinesisVideo.Lens
     imageGenerationDestinationConfig_uri,
     imageGenerationDestinationConfig_destinationRegion,
 
+    -- ** LocalSizeConfig
+    localSizeConfig_maxLocalMediaSizeInMB,
+    localSizeConfig_strategyOnFullSize,
+
+    -- ** MappedResourceConfigurationListItem
+    mappedResourceConfigurationListItem_arn,
+    mappedResourceConfigurationListItem_type,
+
+    -- ** MediaSourceConfig
+    mediaSourceConfig_mediaUriSecretArn,
+    mediaSourceConfig_mediaUriType,
+
+    -- ** MediaStorageConfiguration
+    mediaStorageConfiguration_streamARN,
+    mediaStorageConfiguration_status,
+
     -- ** NotificationConfiguration
     notificationConfiguration_status,
     notificationConfiguration_destinationConfig,
@@ -202,9 +274,17 @@ module Amazonka.KinesisVideo.Lens
     -- ** NotificationDestinationConfig
     notificationDestinationConfig_uri,
 
+    -- ** RecorderConfig
+    recorderConfig_scheduleConfig,
+    recorderConfig_mediaSourceConfig,
+
     -- ** ResourceEndpointListItem
     resourceEndpointListItem_protocol,
     resourceEndpointListItem_resourceEndpoint,
+
+    -- ** ScheduleConfig
+    scheduleConfig_scheduleExpression,
+    scheduleConfig_durationInSeconds,
 
     -- ** SingleMasterChannelEndpointConfiguration
     singleMasterChannelEndpointConfiguration_protocols,
@@ -231,6 +311,9 @@ module Amazonka.KinesisVideo.Lens
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** UploaderConfig
+    uploaderConfig_scheduleConfig,
   )
 where
 
@@ -238,7 +321,10 @@ import Amazonka.KinesisVideo.CreateSignalingChannel
 import Amazonka.KinesisVideo.CreateStream
 import Amazonka.KinesisVideo.DeleteSignalingChannel
 import Amazonka.KinesisVideo.DeleteStream
+import Amazonka.KinesisVideo.DescribeEdgeConfiguration
 import Amazonka.KinesisVideo.DescribeImageGenerationConfiguration
+import Amazonka.KinesisVideo.DescribeMappedResourceConfiguration
+import Amazonka.KinesisVideo.DescribeMediaStorageConfiguration
 import Amazonka.KinesisVideo.DescribeNotificationConfiguration
 import Amazonka.KinesisVideo.DescribeSignalingChannel
 import Amazonka.KinesisVideo.DescribeStream
@@ -248,24 +334,35 @@ import Amazonka.KinesisVideo.ListSignalingChannels
 import Amazonka.KinesisVideo.ListStreams
 import Amazonka.KinesisVideo.ListTagsForResource
 import Amazonka.KinesisVideo.ListTagsForStream
+import Amazonka.KinesisVideo.StartEdgeConfigurationUpdate
 import Amazonka.KinesisVideo.TagResource
 import Amazonka.KinesisVideo.TagStream
 import Amazonka.KinesisVideo.Types.ChannelInfo
 import Amazonka.KinesisVideo.Types.ChannelNameCondition
+import Amazonka.KinesisVideo.Types.DeletionConfig
+import Amazonka.KinesisVideo.Types.EdgeConfig
 import Amazonka.KinesisVideo.Types.ImageGenerationConfiguration
 import Amazonka.KinesisVideo.Types.ImageGenerationDestinationConfig
+import Amazonka.KinesisVideo.Types.LocalSizeConfig
+import Amazonka.KinesisVideo.Types.MappedResourceConfigurationListItem
+import Amazonka.KinesisVideo.Types.MediaSourceConfig
+import Amazonka.KinesisVideo.Types.MediaStorageConfiguration
 import Amazonka.KinesisVideo.Types.NotificationConfiguration
 import Amazonka.KinesisVideo.Types.NotificationDestinationConfig
+import Amazonka.KinesisVideo.Types.RecorderConfig
 import Amazonka.KinesisVideo.Types.ResourceEndpointListItem
+import Amazonka.KinesisVideo.Types.ScheduleConfig
 import Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
 import Amazonka.KinesisVideo.Types.SingleMasterConfiguration
 import Amazonka.KinesisVideo.Types.StreamInfo
 import Amazonka.KinesisVideo.Types.StreamNameCondition
 import Amazonka.KinesisVideo.Types.Tag
+import Amazonka.KinesisVideo.Types.UploaderConfig
 import Amazonka.KinesisVideo.UntagResource
 import Amazonka.KinesisVideo.UntagStream
 import Amazonka.KinesisVideo.UpdateDataRetention
 import Amazonka.KinesisVideo.UpdateImageGenerationConfiguration
+import Amazonka.KinesisVideo.UpdateMediaStorageConfiguration
 import Amazonka.KinesisVideo.UpdateNotificationConfiguration
 import Amazonka.KinesisVideo.UpdateSignalingChannel
 import Amazonka.KinesisVideo.UpdateStream

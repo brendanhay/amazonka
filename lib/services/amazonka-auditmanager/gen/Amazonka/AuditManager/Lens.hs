@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -423,6 +423,7 @@ module Amazonka.AuditManager.Lens
     -- ** UpdateSettings
     updateSettings_defaultAssessmentReportsDestination,
     updateSettings_defaultProcessOwners,
+    updateSettings_deregistrationPolicy,
     updateSettings_evidenceFinderEnabled,
     updateSettings_kmsKey,
     updateSettings_snsTopic,
@@ -717,6 +718,9 @@ module Amazonka.AuditManager.Lens
     delegationMetadata_roleArn,
     delegationMetadata_status,
 
+    -- ** DeregistrationPolicy
+    deregistrationPolicy_deleteResources,
+
     -- ** Evidence
     evidence_assessmentReportSelection,
     evidence_attributes,
@@ -819,6 +823,7 @@ module Amazonka.AuditManager.Lens
     -- ** Settings
     settings_defaultAssessmentReportsDestination,
     settings_defaultProcessOwners,
+    settings_deregistrationPolicy,
     settings_evidenceFinderEnablement,
     settings_isAwsOrgEnabled,
     settings_kmsKey,
@@ -923,6 +928,7 @@ import Amazonka.AuditManager.Types.CreateControlMappingSource
 import Amazonka.AuditManager.Types.CreateDelegationRequest
 import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.DelegationMetadata
+import Amazonka.AuditManager.Types.DeregistrationPolicy
 import Amazonka.AuditManager.Types.Evidence
 import Amazonka.AuditManager.Types.EvidenceFinderEnablement
 import Amazonka.AuditManager.Types.EvidenceInsights

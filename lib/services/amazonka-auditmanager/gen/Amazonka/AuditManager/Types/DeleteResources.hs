@@ -11,20 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.AuditManager.Types.ObjectTypeEnum
+-- Module      : Amazonka.AuditManager.Types.DeleteResources
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.AuditManager.Types.ObjectTypeEnum
-  ( ObjectTypeEnum
+module Amazonka.AuditManager.Types.DeleteResources
+  ( DeleteResources
       ( ..,
-        ObjectTypeEnum_ASSESSMENT,
-        ObjectTypeEnum_ASSESSMENT_REPORT,
-        ObjectTypeEnum_CONTROL,
-        ObjectTypeEnum_CONTROL_SET,
-        ObjectTypeEnum_DELEGATION
+        DeleteResources_ALL,
+        DeleteResources_DEFAULT
       ),
   )
 where
@@ -33,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype ObjectTypeEnum = ObjectTypeEnum'
-  { fromObjectTypeEnum ::
+newtype DeleteResources = DeleteResources'
+  { fromDeleteResources ::
       Data.Text
   }
   deriving stock
@@ -61,26 +58,14 @@ newtype ObjectTypeEnum = ObjectTypeEnum'
       Data.ToXML
     )
 
-pattern ObjectTypeEnum_ASSESSMENT :: ObjectTypeEnum
-pattern ObjectTypeEnum_ASSESSMENT = ObjectTypeEnum' "ASSESSMENT"
+pattern DeleteResources_ALL :: DeleteResources
+pattern DeleteResources_ALL = DeleteResources' "ALL"
 
-pattern ObjectTypeEnum_ASSESSMENT_REPORT :: ObjectTypeEnum
-pattern ObjectTypeEnum_ASSESSMENT_REPORT = ObjectTypeEnum' "ASSESSMENT_REPORT"
-
-pattern ObjectTypeEnum_CONTROL :: ObjectTypeEnum
-pattern ObjectTypeEnum_CONTROL = ObjectTypeEnum' "CONTROL"
-
-pattern ObjectTypeEnum_CONTROL_SET :: ObjectTypeEnum
-pattern ObjectTypeEnum_CONTROL_SET = ObjectTypeEnum' "CONTROL_SET"
-
-pattern ObjectTypeEnum_DELEGATION :: ObjectTypeEnum
-pattern ObjectTypeEnum_DELEGATION = ObjectTypeEnum' "DELEGATION"
+pattern DeleteResources_DEFAULT :: DeleteResources
+pattern DeleteResources_DEFAULT = DeleteResources' "DEFAULT"
 
 {-# COMPLETE
-  ObjectTypeEnum_ASSESSMENT,
-  ObjectTypeEnum_ASSESSMENT_REPORT,
-  ObjectTypeEnum_CONTROL,
-  ObjectTypeEnum_CONTROL_SET,
-  ObjectTypeEnum_DELEGATION,
-  ObjectTypeEnum'
+  DeleteResources_ALL,
+  DeleteResources_DEFAULT,
+  DeleteResources'
   #-}

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.SettingAttribute
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ module Amazonka.AuditManager.Types.SettingAttribute
         SettingAttribute_ALL,
         SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION,
         SettingAttribute_DEFAULT_PROCESS_OWNERS,
+        SettingAttribute_DEREGISTRATION_POLICY,
         SettingAttribute_EVIDENCE_FINDER_ENABLEMENT,
         SettingAttribute_IS_AWS_ORG_ENABLED,
         SettingAttribute_SNS_TOPIC
@@ -71,6 +72,9 @@ pattern SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION = SettingAttribu
 pattern SettingAttribute_DEFAULT_PROCESS_OWNERS :: SettingAttribute
 pattern SettingAttribute_DEFAULT_PROCESS_OWNERS = SettingAttribute' "DEFAULT_PROCESS_OWNERS"
 
+pattern SettingAttribute_DEREGISTRATION_POLICY :: SettingAttribute
+pattern SettingAttribute_DEREGISTRATION_POLICY = SettingAttribute' "DEREGISTRATION_POLICY"
+
 pattern SettingAttribute_EVIDENCE_FINDER_ENABLEMENT :: SettingAttribute
 pattern SettingAttribute_EVIDENCE_FINDER_ENABLEMENT = SettingAttribute' "EVIDENCE_FINDER_ENABLEMENT"
 
@@ -84,6 +88,7 @@ pattern SettingAttribute_SNS_TOPIC = SettingAttribute' "SNS_TOPIC"
   SettingAttribute_ALL,
   SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION,
   SettingAttribute_DEFAULT_PROCESS_OWNERS,
+  SettingAttribute_DEREGISTRATION_POLICY,
   SettingAttribute_EVIDENCE_FINDER_ENABLEMENT,
   SettingAttribute_IS_AWS_ORG_ENABLED,
   SettingAttribute_SNS_TOPIC,

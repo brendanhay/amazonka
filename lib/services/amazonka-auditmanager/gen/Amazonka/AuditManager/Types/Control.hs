@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.Control
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@ data Control = Control'
     -- | The data source types that determine where Audit Manager collects
     -- evidence from for the control.
     controlSources :: Prelude.Maybe Prelude.Text,
-    -- | Specifies when the control was created.
+    -- | The time when the control was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The IAM user or role that created the control.
     createdBy :: Prelude.Maybe Prelude.Text,
@@ -49,7 +49,7 @@ data Control = Control'
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the control.
     id :: Prelude.Maybe Prelude.Text,
-    -- | Specifies when the control was most recently updated.
+    -- | The time when the control was most recently updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The IAM user or role that most recently updated the control.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
@@ -84,7 +84,7 @@ data Control = Control'
 -- 'controlSources', 'control_controlSources' - The data source types that determine where Audit Manager collects
 -- evidence from for the control.
 --
--- 'createdAt', 'control_createdAt' - Specifies when the control was created.
+-- 'createdAt', 'control_createdAt' - The time when the control was created.
 --
 -- 'createdBy', 'control_createdBy' - The IAM user or role that created the control.
 --
@@ -92,7 +92,7 @@ data Control = Control'
 --
 -- 'id', 'control_id' - The unique identifier for the control.
 --
--- 'lastUpdatedAt', 'control_lastUpdatedAt' - Specifies when the control was most recently updated.
+-- 'lastUpdatedAt', 'control_lastUpdatedAt' - The time when the control was most recently updated.
 --
 -- 'lastUpdatedBy', 'control_lastUpdatedBy' - The IAM user or role that most recently updated the control.
 --
@@ -146,7 +146,7 @@ control_controlMappingSources = Lens.lens (\Control' {controlMappingSources} -> 
 control_controlSources :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_controlSources = Lens.lens (\Control' {controlSources} -> controlSources) (\s@Control' {} a -> s {controlSources = a} :: Control)
 
--- | Specifies when the control was created.
+-- | The time when the control was created.
 control_createdAt :: Lens.Lens' Control (Prelude.Maybe Prelude.UTCTime)
 control_createdAt = Lens.lens (\Control' {createdAt} -> createdAt) (\s@Control' {} a -> s {createdAt = a} :: Control) Prelude.. Lens.mapping Data._Time
 
@@ -162,7 +162,7 @@ control_description = Lens.lens (\Control' {description} -> description) (\s@Con
 control_id :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_id = Lens.lens (\Control' {id} -> id) (\s@Control' {} a -> s {id = a} :: Control)
 
--- | Specifies when the control was most recently updated.
+-- | The time when the control was most recently updated.
 control_lastUpdatedAt :: Lens.Lens' Control (Prelude.Maybe Prelude.UTCTime)
 control_lastUpdatedAt = Lens.lens (\Control' {lastUpdatedAt} -> lastUpdatedAt) (\s@Control' {} a -> s {lastUpdatedAt = a} :: Control) Prelude.. Lens.mapping Data._Time
 

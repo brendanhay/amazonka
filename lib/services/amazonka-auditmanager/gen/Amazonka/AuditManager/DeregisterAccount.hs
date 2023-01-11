@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.DeregisterAccount
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,42 +22,16 @@
 --
 -- Deregisters an account in Audit Manager.
 --
--- When you deregister your account from Audit Manager, your data isn’t
--- deleted. If you want to delete your resource data, you must perform that
--- task separately before you deregister your account. Either, you can do
--- this in the Audit Manager console. Or, you can use one of the delete API
--- operations that are provided by Audit Manager.
+-- Before you deregister, you can use the
+-- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html UpdateSettings>
+-- API operation to set your preferred data retention policy. By default,
+-- Audit Manager retains your data. If you want to delete your data, you
+-- can use the @DeregistrationPolicy@ attribute to request the deletion of
+-- your data.
 --
--- To delete your Audit Manager resource data, see the following
--- instructions:
---
--- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html DeleteAssessment>
---     (see also:
---     <https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html Deleting an assessment>
---     in the /Audit Manager User Guide/)
---
--- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html DeleteAssessmentFramework>
---     (see also:
---     <https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html Deleting a custom framework>
---     in the /Audit Manager User Guide/)
---
--- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html DeleteAssessmentFrameworkShare>
---     (see also:
---     <https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html Deleting a share request>
---     in the /Audit Manager User Guide/)
---
--- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html DeleteAssessmentReport>
---     (see also:
---     <https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps Deleting an assessment report>
---     in the /Audit Manager User Guide/)
---
--- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html DeleteControl>
---     (see also:
---     <https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html Deleting a custom control>
---     in the /Audit Manager User Guide/)
---
--- At this time, Audit Manager doesn\'t provide an option to delete
--- evidence. All available delete operations are listed above.
+-- For more information about data retention, see
+-- <https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html Data Protection>
+-- in the /Audit Manager User Guide/.
 module Amazonka.AuditManager.DeregisterAccount
   ( -- * Creating a Request
     DeregisterAccount (..),

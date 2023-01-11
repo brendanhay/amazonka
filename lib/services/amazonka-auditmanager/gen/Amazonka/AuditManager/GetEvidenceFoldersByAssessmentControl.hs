@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of evidence folders that are associated with a specified
--- control of an assessment in Audit Manager.
+-- control in an Audit Manager assessment.
 module Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl
   ( -- * Creating a Request
     GetEvidenceFoldersByAssessmentControl (..),

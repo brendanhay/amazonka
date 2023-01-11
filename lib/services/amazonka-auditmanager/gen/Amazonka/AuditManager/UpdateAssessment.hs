@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.UpdateAssessment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -200,8 +200,8 @@ instance Data.ToQuery UpdateAssessment where
 
 -- | /See:/ 'newUpdateAssessmentResponse' smart constructor.
 data UpdateAssessmentResponse = UpdateAssessmentResponse'
-  { -- | The response object for the @UpdateAssessmentRequest@ API. This is the
-    -- name of the updated assessment.
+  { -- | The response object for the @UpdateAssessment@ API. This is the name of
+    -- the updated assessment.
     assessment :: Prelude.Maybe Assessment,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -216,8 +216,8 @@ data UpdateAssessmentResponse = UpdateAssessmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessment', 'updateAssessmentResponse_assessment' - The response object for the @UpdateAssessmentRequest@ API. This is the
--- name of the updated assessment.
+-- 'assessment', 'updateAssessmentResponse_assessment' - The response object for the @UpdateAssessment@ API. This is the name of
+-- the updated assessment.
 --
 -- 'httpStatus', 'updateAssessmentResponse_httpStatus' - The response's http status code.
 newUpdateAssessmentResponse ::
@@ -231,8 +231,8 @@ newUpdateAssessmentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The response object for the @UpdateAssessmentRequest@ API. This is the
--- name of the updated assessment.
+-- | The response object for the @UpdateAssessment@ API. This is the name of
+-- the updated assessment.
 updateAssessmentResponse_assessment :: Lens.Lens' UpdateAssessmentResponse (Prelude.Maybe Assessment)
 updateAssessmentResponse_assessment = Lens.lens (\UpdateAssessmentResponse' {assessment} -> assessment) (\s@UpdateAssessmentResponse' {} a -> s {assessment = a} :: UpdateAssessmentResponse)
 

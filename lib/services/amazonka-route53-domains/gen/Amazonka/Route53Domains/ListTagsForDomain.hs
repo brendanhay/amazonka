@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.ListTagsForDomain
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,8 @@ module Amazonka.Route53Domains.ListTagsForDomain
     newListTagsForDomainResponse,
 
     -- * Response Lenses
-    listTagsForDomainResponse_httpStatus,
     listTagsForDomainResponse_tagList,
+    listTagsForDomainResponse_httpStatus,
   )
 where
 
@@ -90,8 +90,8 @@ instance Core.AWSRequest ListTagsForDomain where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForDomainResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..?> "TagList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "TagList" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTagsForDomain where
@@ -133,10 +133,10 @@ instance Data.ToQuery ListTagsForDomain where
 --
 -- /See:/ 'newListTagsForDomainResponse' smart constructor.
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | A list of the tags that are associated with the specified domain.
-    tagList :: [Tag]
+  { -- | A list of the tags that are associated with the specified domain.
+    tagList :: Prelude.Maybe [Tag],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -148,29 +148,29 @@ data ListTagsForDomainResponse = ListTagsForDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'listTagsForDomainResponse_httpStatus' - The response's http status code.
---
 -- 'tagList', 'listTagsForDomainResponse_tagList' - A list of the tags that are associated with the specified domain.
+--
+-- 'httpStatus', 'listTagsForDomainResponse_httpStatus' - The response's http status code.
 newListTagsForDomainResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   ListTagsForDomainResponse
 newListTagsForDomainResponse pHttpStatus_ =
   ListTagsForDomainResponse'
-    { httpStatus =
-        pHttpStatus_,
-      tagList = Prelude.mempty
+    { tagList =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
+
+-- | A list of the tags that are associated with the specified domain.
+listTagsForDomainResponse_tagList :: Lens.Lens' ListTagsForDomainResponse (Prelude.Maybe [Tag])
+listTagsForDomainResponse_tagList = Lens.lens (\ListTagsForDomainResponse' {tagList} -> tagList) (\s@ListTagsForDomainResponse' {} a -> s {tagList = a} :: ListTagsForDomainResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForDomainResponse_httpStatus :: Lens.Lens' ListTagsForDomainResponse Prelude.Int
 listTagsForDomainResponse_httpStatus = Lens.lens (\ListTagsForDomainResponse' {httpStatus} -> httpStatus) (\s@ListTagsForDomainResponse' {} a -> s {httpStatus = a} :: ListTagsForDomainResponse)
 
--- | A list of the tags that are associated with the specified domain.
-listTagsForDomainResponse_tagList :: Lens.Lens' ListTagsForDomainResponse [Tag]
-listTagsForDomainResponse_tagList = Lens.lens (\ListTagsForDomainResponse' {tagList} -> tagList) (\s@ListTagsForDomainResponse' {} a -> s {tagList = a} :: ListTagsForDomainResponse) Prelude.. Lens.coerced
-
 instance Prelude.NFData ListTagsForDomainResponse where
   rnf ListTagsForDomainResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tagList
+    Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf httpStatus

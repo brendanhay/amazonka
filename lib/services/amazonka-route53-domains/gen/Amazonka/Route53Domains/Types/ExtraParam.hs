@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.Types.ExtraParam
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -367,7 +367,7 @@ data ExtraParam = ExtraParam'
     -- [.sg]
     --     -   @SG_ID_NUMBER@
     --
-    -- [.co.uk, .me.uk, and .org.uk]
+    -- [.uk, .co.uk, .me.uk, and .org.uk]
     --     -   @UK_CONTACT_TYPE@
     --
     --         Valid values include the following:
@@ -761,7 +761,7 @@ data ExtraParam = ExtraParam'
 -- [.sg]
 --     -   @SG_ID_NUMBER@
 --
--- [.co.uk, .me.uk, and .org.uk]
+-- [.uk, .co.uk, .me.uk, and .org.uk]
 --     -   @UK_CONTACT_TYPE@
 --
 --         Valid values include the following:
@@ -1155,7 +1155,7 @@ newExtraParam pName_ pValue_ =
 -- [.sg]
 --     -   @SG_ID_NUMBER@
 --
--- [.co.uk, .me.uk, and .org.uk]
+-- [.uk, .co.uk, .me.uk, and .org.uk]
 --     -   @UK_CONTACT_TYPE@
 --
 --         Valid values include the following:

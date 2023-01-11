@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.UpdateDomainNameservers
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,8 +44,8 @@ module Amazonka.Route53Domains.UpdateDomainNameservers
     newUpdateDomainNameserversResponse,
 
     -- * Response Lenses
-    updateDomainNameserversResponse_httpStatus,
     updateDomainNameserversResponse_operationId,
+    updateDomainNameserversResponse_httpStatus,
   )
 where
 
@@ -125,8 +125,8 @@ instance Core.AWSRequest UpdateDomainNameservers where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainNameserversResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateDomainNameservers where
@@ -176,12 +176,12 @@ instance Data.ToQuery UpdateDomainNameservers where
 --
 -- /See:/ 'newUpdateDomainNameserversResponse' smart constructor.
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | Identifier for tracking the progress of the request. To query the
+  { -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Prelude.Text
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -193,40 +193,36 @@ data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'updateDomainNameserversResponse_httpStatus' - The response's http status code.
---
 -- 'operationId', 'updateDomainNameserversResponse_operationId' - Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+--
+-- 'httpStatus', 'updateDomainNameserversResponse_httpStatus' - The response's http status code.
 newUpdateDomainNameserversResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'operationId'
-  Prelude.Text ->
   UpdateDomainNameserversResponse
-newUpdateDomainNameserversResponse
-  pHttpStatus_
-  pOperationId_ =
-    UpdateDomainNameserversResponse'
-      { httpStatus =
-          pHttpStatus_,
-        operationId = pOperationId_
-      }
-
--- | The response's http status code.
-updateDomainNameserversResponse_httpStatus :: Lens.Lens' UpdateDomainNameserversResponse Prelude.Int
-updateDomainNameserversResponse_httpStatus = Lens.lens (\UpdateDomainNameserversResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainNameserversResponse' {} a -> s {httpStatus = a} :: UpdateDomainNameserversResponse)
+newUpdateDomainNameserversResponse pHttpStatus_ =
+  UpdateDomainNameserversResponse'
+    { operationId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-updateDomainNameserversResponse_operationId :: Lens.Lens' UpdateDomainNameserversResponse Prelude.Text
+updateDomainNameserversResponse_operationId :: Lens.Lens' UpdateDomainNameserversResponse (Prelude.Maybe Prelude.Text)
 updateDomainNameserversResponse_operationId = Lens.lens (\UpdateDomainNameserversResponse' {operationId} -> operationId) (\s@UpdateDomainNameserversResponse' {} a -> s {operationId = a} :: UpdateDomainNameserversResponse)
+
+-- | The response's http status code.
+updateDomainNameserversResponse_httpStatus :: Lens.Lens' UpdateDomainNameserversResponse Prelude.Int
+updateDomainNameserversResponse_httpStatus = Lens.lens (\UpdateDomainNameserversResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainNameserversResponse' {} a -> s {httpStatus = a} :: UpdateDomainNameserversResponse)
 
 instance
   Prelude.NFData
     UpdateDomainNameserversResponse
   where
   rnf UpdateDomainNameserversResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

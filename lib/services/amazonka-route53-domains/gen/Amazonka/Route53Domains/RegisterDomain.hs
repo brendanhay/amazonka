@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.RegisterDomain
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@
 --     automatically updates your domain registration with the names of
 --     these name servers.
 --
--- -   Enables autorenew, so your domain registration will renew
+-- -   Enables auto renew, so your domain registration will renew
 --     automatically each year. We\'ll notify you in advance of the renewal
 --     date so you can choose whether to renew the registration.
 --
@@ -76,8 +76,8 @@ module Amazonka.Route53Domains.RegisterDomain
     newRegisterDomainResponse,
 
     -- * Response Lenses
-    registerDomainResponse_httpStatus,
     registerDomainResponse_operationId,
+    registerDomainResponse_httpStatus,
   )
 where
 
@@ -94,7 +94,7 @@ import Amazonka.Route53Domains.Types
 -- /See:/ 'newRegisterDomain' smart constructor.
 data RegisterDomain = RegisterDomain'
   { -- | Indicates whether the domain will be automatically renewed (@true@) or
-    -- not (@false@). Autorenewal only takes effect after the account is
+    -- not (@false@). Auto renewal only takes effect after the account is
     -- charged.
     --
     -- Default: @true@
@@ -194,7 +194,7 @@ data RegisterDomain = RegisterDomain'
 -- for backwards compatibility:
 --
 -- 'autoRenew', 'registerDomain_autoRenew' - Indicates whether the domain will be automatically renewed (@true@) or
--- not (@false@). Autorenewal only takes effect after the account is
+-- not (@false@). Auto renewal only takes effect after the account is
 -- charged.
 --
 -- Default: @true@
@@ -314,7 +314,7 @@ newRegisterDomain
       }
 
 -- | Indicates whether the domain will be automatically renewed (@true@) or
--- not (@false@). Autorenewal only takes effect after the account is
+-- not (@false@). Auto renewal only takes effect after the account is
 -- charged.
 --
 -- Default: @true@
@@ -432,8 +432,8 @@ instance Core.AWSRequest RegisterDomain where
     Response.receiveJSON
       ( \s h x ->
           RegisterDomainResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RegisterDomain where
@@ -509,12 +509,12 @@ instance Data.ToQuery RegisterDomain where
 --
 -- /See:/ 'newRegisterDomainResponse' smart constructor.
 data RegisterDomainResponse = RegisterDomainResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | Identifier for tracking the progress of the request. To query the
+  { -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Prelude.Text
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -526,34 +526,33 @@ data RegisterDomainResponse = RegisterDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'registerDomainResponse_httpStatus' - The response's http status code.
---
 -- 'operationId', 'registerDomainResponse_operationId' - Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+--
+-- 'httpStatus', 'registerDomainResponse_httpStatus' - The response's http status code.
 newRegisterDomainResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'operationId'
-  Prelude.Text ->
   RegisterDomainResponse
-newRegisterDomainResponse pHttpStatus_ pOperationId_ =
+newRegisterDomainResponse pHttpStatus_ =
   RegisterDomainResponse'
-    { httpStatus = pHttpStatus_,
-      operationId = pOperationId_
+    { operationId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
+
+-- | Identifier for tracking the progress of the request. To query the
+-- operation status, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+registerDomainResponse_operationId :: Lens.Lens' RegisterDomainResponse (Prelude.Maybe Prelude.Text)
+registerDomainResponse_operationId = Lens.lens (\RegisterDomainResponse' {operationId} -> operationId) (\s@RegisterDomainResponse' {} a -> s {operationId = a} :: RegisterDomainResponse)
 
 -- | The response's http status code.
 registerDomainResponse_httpStatus :: Lens.Lens' RegisterDomainResponse Prelude.Int
 registerDomainResponse_httpStatus = Lens.lens (\RegisterDomainResponse' {httpStatus} -> httpStatus) (\s@RegisterDomainResponse' {} a -> s {httpStatus = a} :: RegisterDomainResponse)
 
--- | Identifier for tracking the progress of the request. To query the
--- operation status, use
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-registerDomainResponse_operationId :: Lens.Lens' RegisterDomainResponse Prelude.Text
-registerDomainResponse_operationId = Lens.lens (\RegisterDomainResponse' {operationId} -> operationId) (\s@RegisterDomainResponse' {} a -> s {operationId = a} :: RegisterDomainResponse)
-
 instance Prelude.NFData RegisterDomainResponse where
   rnf RegisterDomainResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

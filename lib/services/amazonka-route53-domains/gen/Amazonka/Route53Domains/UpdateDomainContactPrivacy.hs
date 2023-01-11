@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.UpdateDomainContactPrivacy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -62,8 +62,8 @@ module Amazonka.Route53Domains.UpdateDomainContactPrivacy
     newUpdateDomainContactPrivacyResponse,
 
     -- * Response Lenses
-    updateDomainContactPrivacyResponse_httpStatus,
     updateDomainContactPrivacyResponse_operationId,
+    updateDomainContactPrivacyResponse_httpStatus,
   )
 where
 
@@ -216,8 +216,8 @@ instance Core.AWSRequest UpdateDomainContactPrivacy where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainContactPrivacyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateDomainContactPrivacy where
@@ -271,11 +271,11 @@ instance Data.ToQuery UpdateDomainContactPrivacy where
 --
 -- /See:/ 'newUpdateDomainContactPrivacyResponse' smart constructor.
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | Identifier for tracking the progress of the request. To use this ID to
+  { -- | Identifier for tracking the progress of the request. To use this ID to
     -- query the operation status, use GetOperationDetail.
-    operationId :: Prelude.Text
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -287,38 +287,34 @@ data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'updateDomainContactPrivacyResponse_httpStatus' - The response's http status code.
---
 -- 'operationId', 'updateDomainContactPrivacyResponse_operationId' - Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
+--
+-- 'httpStatus', 'updateDomainContactPrivacyResponse_httpStatus' - The response's http status code.
 newUpdateDomainContactPrivacyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'operationId'
-  Prelude.Text ->
   UpdateDomainContactPrivacyResponse
-newUpdateDomainContactPrivacyResponse
-  pHttpStatus_
-  pOperationId_ =
-    UpdateDomainContactPrivacyResponse'
-      { httpStatus =
-          pHttpStatus_,
-        operationId = pOperationId_
-      }
+newUpdateDomainContactPrivacyResponse pHttpStatus_ =
+  UpdateDomainContactPrivacyResponse'
+    { operationId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Identifier for tracking the progress of the request. To use this ID to
+-- query the operation status, use GetOperationDetail.
+updateDomainContactPrivacyResponse_operationId :: Lens.Lens' UpdateDomainContactPrivacyResponse (Prelude.Maybe Prelude.Text)
+updateDomainContactPrivacyResponse_operationId = Lens.lens (\UpdateDomainContactPrivacyResponse' {operationId} -> operationId) (\s@UpdateDomainContactPrivacyResponse' {} a -> s {operationId = a} :: UpdateDomainContactPrivacyResponse)
 
 -- | The response's http status code.
 updateDomainContactPrivacyResponse_httpStatus :: Lens.Lens' UpdateDomainContactPrivacyResponse Prelude.Int
 updateDomainContactPrivacyResponse_httpStatus = Lens.lens (\UpdateDomainContactPrivacyResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainContactPrivacyResponse' {} a -> s {httpStatus = a} :: UpdateDomainContactPrivacyResponse)
-
--- | Identifier for tracking the progress of the request. To use this ID to
--- query the operation status, use GetOperationDetail.
-updateDomainContactPrivacyResponse_operationId :: Lens.Lens' UpdateDomainContactPrivacyResponse Prelude.Text
-updateDomainContactPrivacyResponse_operationId = Lens.lens (\UpdateDomainContactPrivacyResponse' {operationId} -> operationId) (\s@UpdateDomainContactPrivacyResponse' {} a -> s {operationId = a} :: UpdateDomainContactPrivacyResponse)
 
 instance
   Prelude.NFData
     UpdateDomainContactPrivacyResponse
   where
   rnf UpdateDomainContactPrivacyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

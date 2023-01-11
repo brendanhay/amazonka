@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.ListDomains
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,9 +41,9 @@ module Amazonka.Route53Domains.ListDomains
     newListDomainsResponse,
 
     -- * Response Lenses
+    listDomainsResponse_domains,
     listDomainsResponse_nextPageMarker,
     listDomainsResponse_httpStatus,
-    listDomainsResponse_domains,
   )
 where
 
@@ -161,7 +161,10 @@ instance Core.AWSPager ListDomains where
               Prelude.. Lens._Just
         ) =
       Prelude.Nothing
-    | Core.stop (rs Lens.^. listDomainsResponse_domains) =
+    | Core.stop
+        ( rs
+            Lens.^? listDomainsResponse_domains Prelude.. Lens._Just
+        ) =
       Prelude.Nothing
     | Prelude.otherwise =
       Prelude.Just Prelude.$
@@ -179,9 +182,9 @@ instance Core.AWSRequest ListDomains where
     Response.receiveJSON
       ( \s h x ->
           ListDomainsResponse'
-            Prelude.<$> (x Data..?> "NextPageMarker")
+            Prelude.<$> (x Data..?> "Domains" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextPageMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..?> "Domains" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListDomains where
@@ -235,14 +238,14 @@ instance Data.ToQuery ListDomains where
 --
 -- /See:/ 'newListDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { -- | If there are more domains than you specified for @MaxItems@ in the
+  { -- | A list of domains.
+    domains :: Prelude.Maybe [DomainSummary],
+    -- | If there are more domains than you specified for @MaxItems@ in the
     -- request, submit another request and include the value of
     -- @NextPageMarker@ in the value of @Marker@.
     nextPageMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | A list of domains.
-    domains :: [DomainSummary]
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -254,24 +257,27 @@ data ListDomainsResponse = ListDomainsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domains', 'listDomainsResponse_domains' - A list of domains.
+--
 -- 'nextPageMarker', 'listDomainsResponse_nextPageMarker' - If there are more domains than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of
 -- @NextPageMarker@ in the value of @Marker@.
 --
 -- 'httpStatus', 'listDomainsResponse_httpStatus' - The response's http status code.
---
--- 'domains', 'listDomainsResponse_domains' - A list of domains.
 newListDomainsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   ListDomainsResponse
 newListDomainsResponse pHttpStatus_ =
   ListDomainsResponse'
-    { nextPageMarker =
-        Prelude.Nothing,
-      httpStatus = pHttpStatus_,
-      domains = Prelude.mempty
+    { domains = Prelude.Nothing,
+      nextPageMarker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
+
+-- | A list of domains.
+listDomainsResponse_domains :: Lens.Lens' ListDomainsResponse (Prelude.Maybe [DomainSummary])
+listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more domains than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of
@@ -283,12 +289,8 @@ listDomainsResponse_nextPageMarker = Lens.lens (\ListDomainsResponse' {nextPageM
 listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int
 listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -> httpStatus) (\s@ListDomainsResponse' {} a -> s {httpStatus = a} :: ListDomainsResponse)
 
--- | A list of domains.
-listDomainsResponse_domains :: Lens.Lens' ListDomainsResponse [DomainSummary]
-listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Prelude.. Lens.coerced
-
 instance Prelude.NFData ListDomainsResponse where
   rnf ListDomainsResponse' {..} =
-    Prelude.rnf nextPageMarker
+    Prelude.rnf domains
+      `Prelude.seq` Prelude.rnf nextPageMarker
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domains

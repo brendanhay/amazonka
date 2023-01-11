@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.Route53Domains
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestAcceptDomainTransferFromAnotherAwsAccount $
 --             newAcceptDomainTransferFromAnotherAwsAccount
 --
+--         , requestAssociateDelegationSignerToDomain $
+--             newAssociateDelegationSignerToDomain
+--
 --         , requestCancelDomainTransferToAnotherAwsAccount $
 --             newCancelDomainTransferToAnotherAwsAccount
 --
@@ -50,6 +53,9 @@ import Test.Tasty
 --
 --         , requestDisableDomainTransferLock $
 --             newDisableDomainTransferLock
+--
+--         , requestDisassociateDelegationSignerFromDomain $
+--             newDisassociateDelegationSignerFromDomain
 --
 --         , requestEnableDomainAutoRenew $
 --             newEnableDomainAutoRenew
@@ -81,6 +87,9 @@ import Test.Tasty
 --         , requestListTagsForDomain $
 --             newListTagsForDomain
 --
+--         , requestPushDomain $
+--             newPushDomain
+--
 --         , requestRegisterDomain $
 --             newRegisterDomain
 --
@@ -92,6 +101,9 @@ import Test.Tasty
 --
 --         , requestResendContactReachabilityEmail $
 --             newResendContactReachabilityEmail
+--
+--         , requestResendOperationAuthorization $
+--             newResendOperationAuthorization
 --
 --         , requestRetrieveDomainAuthCode $
 --             newRetrieveDomainAuthCode
@@ -123,6 +135,9 @@ import Test.Tasty
 --         [ responseAcceptDomainTransferFromAnotherAwsAccount $
 --             newAcceptDomainTransferFromAnotherAwsAccountResponse
 --
+--         , responseAssociateDelegationSignerToDomain $
+--             newAssociateDelegationSignerToDomainResponse
+--
 --         , responseCancelDomainTransferToAnotherAwsAccount $
 --             newCancelDomainTransferToAnotherAwsAccountResponse
 --
@@ -143,6 +158,9 @@ import Test.Tasty
 --
 --         , responseDisableDomainTransferLock $
 --             newDisableDomainTransferLockResponse
+--
+--         , responseDisassociateDelegationSignerFromDomain $
+--             newDisassociateDelegationSignerFromDomainResponse
 --
 --         , responseEnableDomainAutoRenew $
 --             newEnableDomainAutoRenewResponse
@@ -174,6 +192,9 @@ import Test.Tasty
 --         , responseListTagsForDomain $
 --             newListTagsForDomainResponse
 --
+--         , responsePushDomain $
+--             newPushDomainResponse
+--
 --         , responseRegisterDomain $
 --             newRegisterDomainResponse
 --
@@ -185,6 +206,9 @@ import Test.Tasty
 --
 --         , responseResendContactReachabilityEmail $
 --             newResendContactReachabilityEmailResponse
+--
+--         , responseResendOperationAuthorization $
+--             newResendOperationAuthorizationResponse
 --
 --         , responseRetrieveDomainAuthCode $
 --             newRetrieveDomainAuthCodeResponse
@@ -220,6 +244,12 @@ requestAcceptDomainTransferFromAnotherAwsAccount =
   req
     "AcceptDomainTransferFromAnotherAwsAccount"
     "fixture/AcceptDomainTransferFromAnotherAwsAccount.yaml"
+
+requestAssociateDelegationSignerToDomain :: AssociateDelegationSignerToDomain -> TestTree
+requestAssociateDelegationSignerToDomain =
+  req
+    "AssociateDelegationSignerToDomain"
+    "fixture/AssociateDelegationSignerToDomain.yaml"
 
 requestCancelDomainTransferToAnotherAwsAccount :: CancelDomainTransferToAnotherAwsAccount -> TestTree
 requestCancelDomainTransferToAnotherAwsAccount =
@@ -262,6 +292,12 @@ requestDisableDomainTransferLock =
   req
     "DisableDomainTransferLock"
     "fixture/DisableDomainTransferLock.yaml"
+
+requestDisassociateDelegationSignerFromDomain :: DisassociateDelegationSignerFromDomain -> TestTree
+requestDisassociateDelegationSignerFromDomain =
+  req
+    "DisassociateDelegationSignerFromDomain"
+    "fixture/DisassociateDelegationSignerFromDomain.yaml"
 
 requestEnableDomainAutoRenew :: EnableDomainAutoRenew -> TestTree
 requestEnableDomainAutoRenew =
@@ -323,6 +359,12 @@ requestListTagsForDomain =
     "ListTagsForDomain"
     "fixture/ListTagsForDomain.yaml"
 
+requestPushDomain :: PushDomain -> TestTree
+requestPushDomain =
+  req
+    "PushDomain"
+    "fixture/PushDomain.yaml"
+
 requestRegisterDomain :: RegisterDomain -> TestTree
 requestRegisterDomain =
   req
@@ -346,6 +388,12 @@ requestResendContactReachabilityEmail =
   req
     "ResendContactReachabilityEmail"
     "fixture/ResendContactReachabilityEmail.yaml"
+
+requestResendOperationAuthorization :: ResendOperationAuthorization -> TestTree
+requestResendOperationAuthorization =
+  req
+    "ResendOperationAuthorization"
+    "fixture/ResendOperationAuthorization.yaml"
 
 requestRetrieveDomainAuthCode :: RetrieveDomainAuthCode -> TestTree
 requestRetrieveDomainAuthCode =
@@ -405,6 +453,14 @@ responseAcceptDomainTransferFromAnotherAwsAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AcceptDomainTransferFromAnotherAwsAccount)
 
+responseAssociateDelegationSignerToDomain :: AssociateDelegationSignerToDomainResponse -> TestTree
+responseAssociateDelegationSignerToDomain =
+  res
+    "AssociateDelegationSignerToDomainResponse"
+    "fixture/AssociateDelegationSignerToDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateDelegationSignerToDomain)
+
 responseCancelDomainTransferToAnotherAwsAccount :: CancelDomainTransferToAnotherAwsAccountResponse -> TestTree
 responseCancelDomainTransferToAnotherAwsAccount =
   res
@@ -460,6 +516,14 @@ responseDisableDomainTransferLock =
     "fixture/DisableDomainTransferLockResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisableDomainTransferLock)
+
+responseDisassociateDelegationSignerFromDomain :: DisassociateDelegationSignerFromDomainResponse -> TestTree
+responseDisassociateDelegationSignerFromDomain =
+  res
+    "DisassociateDelegationSignerFromDomainResponse"
+    "fixture/DisassociateDelegationSignerFromDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDelegationSignerFromDomain)
 
 responseEnableDomainAutoRenew :: EnableDomainAutoRenewResponse -> TestTree
 responseEnableDomainAutoRenew =
@@ -541,6 +605,14 @@ responseListTagsForDomain =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForDomain)
 
+responsePushDomain :: PushDomainResponse -> TestTree
+responsePushDomain =
+  res
+    "PushDomainResponse"
+    "fixture/PushDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PushDomain)
+
 responseRegisterDomain :: RegisterDomainResponse -> TestTree
 responseRegisterDomain =
   res
@@ -572,6 +644,14 @@ responseResendContactReachabilityEmail =
     "fixture/ResendContactReachabilityEmailResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ResendContactReachabilityEmail)
+
+responseResendOperationAuthorization :: ResendOperationAuthorizationResponse -> TestTree
+responseResendOperationAuthorization =
+  res
+    "ResendOperationAuthorizationResponse"
+    "fixture/ResendOperationAuthorizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResendOperationAuthorization)
 
 responseRetrieveDomainAuthCode :: RetrieveDomainAuthCodeResponse -> TestTree
 responseRetrieveDomainAuthCode =

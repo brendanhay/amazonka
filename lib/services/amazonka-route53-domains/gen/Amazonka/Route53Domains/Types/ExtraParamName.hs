@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.Types.ExtraParamName
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.Route53Domains.Types.ExtraParamName
       ( ..,
         ExtraParamName_AU_ID_NUMBER,
         ExtraParamName_AU_ID_TYPE,
+        ExtraParamName_AU_PRIORITY_TOKEN,
         ExtraParamName_BIRTH_CITY,
         ExtraParamName_BIRTH_COUNTRY,
         ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD,
@@ -91,6 +92,9 @@ pattern ExtraParamName_AU_ID_NUMBER = ExtraParamName' "AU_ID_NUMBER"
 
 pattern ExtraParamName_AU_ID_TYPE :: ExtraParamName
 pattern ExtraParamName_AU_ID_TYPE = ExtraParamName' "AU_ID_TYPE"
+
+pattern ExtraParamName_AU_PRIORITY_TOKEN :: ExtraParamName
+pattern ExtraParamName_AU_PRIORITY_TOKEN = ExtraParamName' "AU_PRIORITY_TOKEN"
 
 pattern ExtraParamName_BIRTH_CITY :: ExtraParamName
 pattern ExtraParamName_BIRTH_CITY = ExtraParamName' "BIRTH_CITY"
@@ -179,6 +183,7 @@ pattern ExtraParamName_VAT_NUMBER = ExtraParamName' "VAT_NUMBER"
 {-# COMPLETE
   ExtraParamName_AU_ID_NUMBER,
   ExtraParamName_AU_ID_TYPE,
+  ExtraParamName_AU_PRIORITY_TOKEN,
   ExtraParamName_BIRTH_CITY,
   ExtraParamName_BIRTH_COUNTRY,
   ExtraParamName_BIRTH_DATE_IN_YYYY_MM_DD,

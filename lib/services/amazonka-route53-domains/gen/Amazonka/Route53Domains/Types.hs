@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,7 @@ module Amazonka.Route53Domains.Types
     defaultService,
 
     -- * Errors
+    _DnssecLimitExceeded,
     _DomainLimitExceeded,
     _DuplicateRequest,
     _InvalidInput,
@@ -40,6 +41,9 @@ module Amazonka.Route53Domains.Types
     -- * ListDomainsAttributeName
     ListDomainsAttributeName (..),
 
+    -- * ListOperationsSortAttributeName
+    ListOperationsSortAttributeName (..),
+
     -- * OperationStatus
     OperationStatus (..),
 
@@ -55,6 +59,9 @@ module Amazonka.Route53Domains.Types
     -- * SortOrder
     SortOrder (..),
 
+    -- * StatusFlag
+    StatusFlag (..),
+
     -- * Transferable
     Transferable (..),
 
@@ -66,6 +73,12 @@ module Amazonka.Route53Domains.Types
     billingRecord_invoiceId,
     billingRecord_operation,
     billingRecord_price,
+
+    -- * Consent
+    Consent (..),
+    newConsent,
+    consent_maxPrice,
+    consent_currency,
 
     -- * ContactDetail
     ContactDetail (..),
@@ -84,6 +97,24 @@ module Amazonka.Route53Domains.Types
     contactDetail_phoneNumber,
     contactDetail_state,
     contactDetail_zipCode,
+
+    -- * DnssecKey
+    DnssecKey (..),
+    newDnssecKey,
+    dnssecKey_algorithm,
+    dnssecKey_digest,
+    dnssecKey_digestType,
+    dnssecKey_flags,
+    dnssecKey_id,
+    dnssecKey_keyTag,
+    dnssecKey_publicKey,
+
+    -- * DnssecSigningAttributes
+    DnssecSigningAttributes (..),
+    newDnssecSigningAttributes,
+    dnssecSigningAttributes_algorithm,
+    dnssecSigningAttributes_flags,
+    dnssecSigningAttributes_publicKey,
 
     -- * DomainPrice
     DomainPrice (..),
@@ -105,9 +136,9 @@ module Amazonka.Route53Domains.Types
     DomainSummary (..),
     newDomainSummary,
     domainSummary_autoRenew,
+    domainSummary_domainName,
     domainSummary_expiry,
     domainSummary_transferLock,
-    domainSummary_domainName,
 
     -- * DomainTransferability
     DomainTransferability (..),
@@ -136,10 +167,14 @@ module Amazonka.Route53Domains.Types
     -- * OperationSummary
     OperationSummary (..),
     newOperationSummary,
+    operationSummary_domainName,
+    operationSummary_lastUpdatedDate,
+    operationSummary_message,
     operationSummary_operationId,
     operationSummary_status,
-    operationSummary_type,
+    operationSummary_statusFlag,
     operationSummary_submittedDate,
+    operationSummary_type,
 
     -- * PriceWithCurrency
     PriceWithCurrency (..),
@@ -165,9 +200,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.BillingRecord
+import Amazonka.Route53Domains.Types.Consent
 import Amazonka.Route53Domains.Types.ContactDetail
 import Amazonka.Route53Domains.Types.ContactType
 import Amazonka.Route53Domains.Types.CountryCode
+import Amazonka.Route53Domains.Types.DnssecKey
+import Amazonka.Route53Domains.Types.DnssecSigningAttributes
 import Amazonka.Route53Domains.Types.DomainAvailability
 import Amazonka.Route53Domains.Types.DomainPrice
 import Amazonka.Route53Domains.Types.DomainSuggestion
@@ -177,6 +215,7 @@ import Amazonka.Route53Domains.Types.ExtraParam
 import Amazonka.Route53Domains.Types.ExtraParamName
 import Amazonka.Route53Domains.Types.FilterCondition
 import Amazonka.Route53Domains.Types.ListDomainsAttributeName
+import Amazonka.Route53Domains.Types.ListOperationsSortAttributeName
 import Amazonka.Route53Domains.Types.Nameserver
 import Amazonka.Route53Domains.Types.OperationStatus
 import Amazonka.Route53Domains.Types.OperationSummary
@@ -186,6 +225,7 @@ import Amazonka.Route53Domains.Types.PriceWithCurrency
 import Amazonka.Route53Domains.Types.ReachabilityStatus
 import Amazonka.Route53Domains.Types.SortCondition
 import Amazonka.Route53Domains.Types.SortOrder
+import Amazonka.Route53Domains.Types.StatusFlag
 import Amazonka.Route53Domains.Types.Tag
 import Amazonka.Route53Domains.Types.Transferable
 import qualified Amazonka.Sign.V4 as Sign
@@ -260,16 +300,26 @@ defaultService =
         Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | This error is returned if you call @AssociateDelegationSignerToDomain@
+-- when the specified domain has reached the maximum number of DS records.
+-- You can\'t add any additional DS records unless you delete an existing
+-- one first.
+_DnssecLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DnssecLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "DnssecLimitExceeded"
+
 -- | The number of domains has exceeded the allowed threshold for the
 -- account.
-_DomainLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DomainLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DomainLimitExceeded =
   Core._MatchServiceError
     defaultService
     "DomainLimitExceeded"
 
 -- | The request is already in progress for the domain.
-_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequest :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateRequest =
   Core._MatchServiceError
     defaultService
@@ -280,7 +330,7 @@ _DuplicateRequest =
 -- belong to the account that submitted the request. For
 -- @AcceptDomainTransferFromAnotherAwsAccount@, the password might be
 -- invalid.
-_InvalidInput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInput :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInput =
   Core._MatchServiceError
     defaultService
@@ -288,21 +338,21 @@ _InvalidInput =
 
 -- | The number of operations or jobs running exceeded the allowed threshold
 -- for the account.
-_OperationLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationLimitExceeded =
   Core._MatchServiceError
     defaultService
     "OperationLimitExceeded"
 
 -- | The top-level domain does not support this operation.
-_TLDRulesViolation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TLDRulesViolation :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TLDRulesViolation =
   Core._MatchServiceError
     defaultService
     "TLDRulesViolation"
 
 -- | Amazon Route 53 does not support this top-level domain (TLD).
-_UnsupportedTLD :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedTLD :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedTLD =
   Core._MatchServiceError
     defaultService

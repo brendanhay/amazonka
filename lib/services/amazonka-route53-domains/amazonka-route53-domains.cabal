@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -45,6 +45,7 @@ library
   exposed-modules:
     Amazonka.Route53Domains
     Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
+    Amazonka.Route53Domains.AssociateDelegationSignerToDomain
     Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount
     Amazonka.Route53Domains.CheckDomainAvailability
     Amazonka.Route53Domains.CheckDomainTransferability
@@ -52,6 +53,7 @@ library
     Amazonka.Route53Domains.DeleteTagsForDomain
     Amazonka.Route53Domains.DisableDomainAutoRenew
     Amazonka.Route53Domains.DisableDomainTransferLock
+    Amazonka.Route53Domains.DisassociateDelegationSignerFromDomain
     Amazonka.Route53Domains.EnableDomainAutoRenew
     Amazonka.Route53Domains.EnableDomainTransferLock
     Amazonka.Route53Domains.GetContactReachabilityStatus
@@ -63,18 +65,23 @@ library
     Amazonka.Route53Domains.ListOperations
     Amazonka.Route53Domains.ListPrices
     Amazonka.Route53Domains.ListTagsForDomain
+    Amazonka.Route53Domains.PushDomain
     Amazonka.Route53Domains.RegisterDomain
     Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
     Amazonka.Route53Domains.RenewDomain
     Amazonka.Route53Domains.ResendContactReachabilityEmail
+    Amazonka.Route53Domains.ResendOperationAuthorization
     Amazonka.Route53Domains.RetrieveDomainAuthCode
     Amazonka.Route53Domains.TransferDomain
     Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount
     Amazonka.Route53Domains.Types
     Amazonka.Route53Domains.Types.BillingRecord
+    Amazonka.Route53Domains.Types.Consent
     Amazonka.Route53Domains.Types.ContactDetail
     Amazonka.Route53Domains.Types.ContactType
     Amazonka.Route53Domains.Types.CountryCode
+    Amazonka.Route53Domains.Types.DnssecKey
+    Amazonka.Route53Domains.Types.DnssecSigningAttributes
     Amazonka.Route53Domains.Types.DomainAvailability
     Amazonka.Route53Domains.Types.DomainPrice
     Amazonka.Route53Domains.Types.DomainSuggestion
@@ -84,6 +91,7 @@ library
     Amazonka.Route53Domains.Types.ExtraParamName
     Amazonka.Route53Domains.Types.FilterCondition
     Amazonka.Route53Domains.Types.ListDomainsAttributeName
+    Amazonka.Route53Domains.Types.ListOperationsSortAttributeName
     Amazonka.Route53Domains.Types.Nameserver
     Amazonka.Route53Domains.Types.OperationStatus
     Amazonka.Route53Domains.Types.OperationSummary
@@ -93,6 +101,7 @@ library
     Amazonka.Route53Domains.Types.ReachabilityStatus
     Amazonka.Route53Domains.Types.SortCondition
     Amazonka.Route53Domains.Types.SortOrder
+    Amazonka.Route53Domains.Types.StatusFlag
     Amazonka.Route53Domains.Types.Tag
     Amazonka.Route53Domains.Types.Transferable
     Amazonka.Route53Domains.UpdateDomainContact

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.ListPrices
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -50,8 +50,8 @@ module Amazonka.Route53Domains.ListPrices
 
     -- * Response Lenses
     listPricesResponse_nextPageMarker,
-    listPricesResponse_httpStatus,
     listPricesResponse_prices,
+    listPricesResponse_httpStatus,
   )
 where
 
@@ -158,7 +158,10 @@ instance Core.AWSPager ListPrices where
               Prelude.. Lens._Just
         ) =
       Prelude.Nothing
-    | Core.stop (rs Lens.^. listPricesResponse_prices) =
+    | Core.stop
+        ( rs
+            Lens.^? listPricesResponse_prices Prelude.. Lens._Just
+        ) =
       Prelude.Nothing
     | Prelude.otherwise =
       Prelude.Just Prelude.$
@@ -177,8 +180,8 @@ instance Core.AWSRequest ListPrices where
       ( \s h x ->
           ListPricesResponse'
             Prelude.<$> (x Data..?> "NextPageMarker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Prices" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListPrices where
@@ -233,11 +236,11 @@ data ListPricesResponse = ListPricesResponse'
     -- Used only for all TLDs. If you specify a TLD, don\'t specify a
     -- @NextPageMarker@.
     nextPageMarker :: Prelude.Maybe Prelude.Text,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int,
     -- | A complex type that includes all the pricing information. If you specify
     -- a TLD, this array contains only the pricing for that TLD.
-    prices :: [DomainPrice]
+    prices :: Prelude.Maybe [DomainPrice],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -256,10 +259,10 @@ data ListPricesResponse = ListPricesResponse'
 -- Used only for all TLDs. If you specify a TLD, don\'t specify a
 -- @NextPageMarker@.
 --
--- 'httpStatus', 'listPricesResponse_httpStatus' - The response's http status code.
---
 -- 'prices', 'listPricesResponse_prices' - A complex type that includes all the pricing information. If you specify
 -- a TLD, this array contains only the pricing for that TLD.
+--
+-- 'httpStatus', 'listPricesResponse_httpStatus' - The response's http status code.
 newListPricesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -268,8 +271,8 @@ newListPricesResponse pHttpStatus_ =
   ListPricesResponse'
     { nextPageMarker =
         Prelude.Nothing,
-      httpStatus = pHttpStatus_,
-      prices = Prelude.mempty
+      prices = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
 -- | If there are more prices than you specified for @MaxItems@ in the
@@ -281,17 +284,17 @@ newListPricesResponse pHttpStatus_ =
 listPricesResponse_nextPageMarker :: Lens.Lens' ListPricesResponse (Prelude.Maybe Prelude.Text)
 listPricesResponse_nextPageMarker = Lens.lens (\ListPricesResponse' {nextPageMarker} -> nextPageMarker) (\s@ListPricesResponse' {} a -> s {nextPageMarker = a} :: ListPricesResponse)
 
+-- | A complex type that includes all the pricing information. If you specify
+-- a TLD, this array contains only the pricing for that TLD.
+listPricesResponse_prices :: Lens.Lens' ListPricesResponse (Prelude.Maybe [DomainPrice])
+listPricesResponse_prices = Lens.lens (\ListPricesResponse' {prices} -> prices) (\s@ListPricesResponse' {} a -> s {prices = a} :: ListPricesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listPricesResponse_httpStatus :: Lens.Lens' ListPricesResponse Prelude.Int
 listPricesResponse_httpStatus = Lens.lens (\ListPricesResponse' {httpStatus} -> httpStatus) (\s@ListPricesResponse' {} a -> s {httpStatus = a} :: ListPricesResponse)
 
--- | A complex type that includes all the pricing information. If you specify
--- a TLD, this array contains only the pricing for that TLD.
-listPricesResponse_prices :: Lens.Lens' ListPricesResponse [DomainPrice]
-listPricesResponse_prices = Lens.lens (\ListPricesResponse' {prices} -> prices) (\s@ListPricesResponse' {} a -> s {prices = a} :: ListPricesResponse) Prelude.. Lens.coerced
-
 instance Prelude.NFData ListPricesResponse where
   rnf ListPricesResponse' {..} =
     Prelude.rnf nextPageMarker
-      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf prices
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ChimeSdkVoice.Types.ProxySession
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 -- | /See:/ 'newProxySession' smart constructor.
 data ProxySession = ProxySession'
   { capabilities :: Prelude.Maybe [Capability],
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
-    endedTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
+    endedTimestamp :: Prelude.Maybe Data.ISO8601,
     expiryMinutes :: Prelude.Maybe Prelude.Natural,
     geoMatchLevel :: Prelude.Maybe GeoMatchLevel,
     geoMatchParams :: Prelude.Maybe GeoMatchParams,
@@ -43,7 +43,7 @@ data ProxySession = ProxySession'
     participants :: Prelude.Maybe [Participant],
     proxySessionId :: Prelude.Maybe Prelude.Text,
     status :: Prelude.Maybe ProxySessionStatus,
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601,
     voiceConnectorId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)

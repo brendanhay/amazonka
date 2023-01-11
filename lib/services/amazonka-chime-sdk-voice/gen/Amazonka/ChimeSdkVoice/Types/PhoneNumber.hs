@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ChimeSdkVoice.Types.PhoneNumber
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,15 +37,15 @@ data PhoneNumber = PhoneNumber'
     callingNameStatus :: Prelude.Maybe CallingNameStatus,
     capabilities :: Prelude.Maybe PhoneNumberCapabilities,
     country :: Prelude.Maybe Prelude.Text,
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
-    deletionTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
+    deletionTimestamp :: Prelude.Maybe Data.ISO8601,
     e164PhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     orderId :: Prelude.Maybe Prelude.Text,
     phoneNumberId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     productType :: Prelude.Maybe PhoneNumberProductType,
     status :: Prelude.Maybe PhoneNumberStatus,
     type' :: Prelude.Maybe PhoneNumberType,
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

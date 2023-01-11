@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ChimeSdkVoice.GetPhoneNumberSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,7 +93,7 @@ instance Data.ToQuery GetPhoneNumberSettings where
 -- | /See:/ 'newGetPhoneNumberSettingsResponse' smart constructor.
 data GetPhoneNumberSettingsResponse = GetPhoneNumberSettingsResponse'
   { callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    callingNameUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
+    callingNameUpdatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

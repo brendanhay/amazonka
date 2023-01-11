@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Rekognition.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -276,6 +276,7 @@ module Amazonka.Rekognition.Lens
     getFaceSearchResponse_httpStatus,
 
     -- ** GetLabelDetection
+    getLabelDetection_aggregateBy,
     getLabelDetection_maxResults,
     getLabelDetection_nextToken,
     getLabelDetection_sortBy,
@@ -470,9 +471,11 @@ module Amazonka.Rekognition.Lens
 
     -- ** StartLabelDetection
     startLabelDetection_clientRequestToken,
+    startLabelDetection_features,
     startLabelDetection_jobTag,
     startLabelDetection_minConfidence,
     startLabelDetection_notificationChannel,
+    startLabelDetection_settings,
     startLabelDetection_video,
     startLabelDetectionResponse_jobId,
     startLabelDetectionResponse_httpStatus,
@@ -856,8 +859,14 @@ module Amazonka.Rekognition.Lens
     labelCategory_name,
 
     -- ** LabelDetection
+    labelDetection_durationMillis,
+    labelDetection_endTimestampMillis,
     labelDetection_label,
+    labelDetection_startTimestampMillis,
     labelDetection_timestamp,
+
+    -- ** LabelDetectionSettings
+    labelDetectionSettings_generalLabels,
 
     -- ** Landmark
     landmark_type,
@@ -1230,6 +1239,7 @@ import Amazonka.Rekognition.Types.Label
 import Amazonka.Rekognition.Types.LabelAlias
 import Amazonka.Rekognition.Types.LabelCategory
 import Amazonka.Rekognition.Types.LabelDetection
+import Amazonka.Rekognition.Types.LabelDetectionSettings
 import Amazonka.Rekognition.Types.Landmark
 import Amazonka.Rekognition.Types.ModerationLabel
 import Amazonka.Rekognition.Types.MouthOpen

@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Rekognition.Types.VideoJobStatus
+-- Module      : Amazonka.Rekognition.Types.LabelDetectionAggregateBy
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Rekognition.Types.VideoJobStatus
-  ( VideoJobStatus
+module Amazonka.Rekognition.Types.LabelDetectionAggregateBy
+  ( LabelDetectionAggregateBy
       ( ..,
-        VideoJobStatus_FAILED,
-        VideoJobStatus_IN_PROGRESS,
-        VideoJobStatus_SUCCEEDED
+        LabelDetectionAggregateBy_SEGMENTS,
+        LabelDetectionAggregateBy_TIMESTAMPS
       ),
   )
 where
@@ -31,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype VideoJobStatus = VideoJobStatus'
-  { fromVideoJobStatus ::
+newtype LabelDetectionAggregateBy = LabelDetectionAggregateBy'
+  { fromLabelDetectionAggregateBy ::
       Data.Text
   }
   deriving stock
@@ -59,18 +58,14 @@ newtype VideoJobStatus = VideoJobStatus'
       Data.ToXML
     )
 
-pattern VideoJobStatus_FAILED :: VideoJobStatus
-pattern VideoJobStatus_FAILED = VideoJobStatus' "FAILED"
+pattern LabelDetectionAggregateBy_SEGMENTS :: LabelDetectionAggregateBy
+pattern LabelDetectionAggregateBy_SEGMENTS = LabelDetectionAggregateBy' "SEGMENTS"
 
-pattern VideoJobStatus_IN_PROGRESS :: VideoJobStatus
-pattern VideoJobStatus_IN_PROGRESS = VideoJobStatus' "IN_PROGRESS"
-
-pattern VideoJobStatus_SUCCEEDED :: VideoJobStatus
-pattern VideoJobStatus_SUCCEEDED = VideoJobStatus' "SUCCEEDED"
+pattern LabelDetectionAggregateBy_TIMESTAMPS :: LabelDetectionAggregateBy
+pattern LabelDetectionAggregateBy_TIMESTAMPS = LabelDetectionAggregateBy' "TIMESTAMPS"
 
 {-# COMPLETE
-  VideoJobStatus_FAILED,
-  VideoJobStatus_IN_PROGRESS,
-  VideoJobStatus_SUCCEEDED,
-  VideoJobStatus'
+  LabelDetectionAggregateBy_SEGMENTS,
+  LabelDetectionAggregateBy_TIMESTAMPS,
+  LabelDetectionAggregateBy'
   #-}

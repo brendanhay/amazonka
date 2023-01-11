@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Rekognition.Types.VideoJobStatus
+-- Module      : Amazonka.Rekognition.Types.LabelDetectionFeatureName
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Rekognition.Types.VideoJobStatus
-  ( VideoJobStatus
+module Amazonka.Rekognition.Types.LabelDetectionFeatureName
+  ( LabelDetectionFeatureName
       ( ..,
-        VideoJobStatus_FAILED,
-        VideoJobStatus_IN_PROGRESS,
-        VideoJobStatus_SUCCEEDED
+        LabelDetectionFeatureName_GENERAL_LABELS
       ),
   )
 where
@@ -31,8 +29,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype VideoJobStatus = VideoJobStatus'
-  { fromVideoJobStatus ::
+newtype LabelDetectionFeatureName = LabelDetectionFeatureName'
+  { fromLabelDetectionFeatureName ::
       Data.Text
   }
   deriving stock
@@ -59,18 +57,10 @@ newtype VideoJobStatus = VideoJobStatus'
       Data.ToXML
     )
 
-pattern VideoJobStatus_FAILED :: VideoJobStatus
-pattern VideoJobStatus_FAILED = VideoJobStatus' "FAILED"
-
-pattern VideoJobStatus_IN_PROGRESS :: VideoJobStatus
-pattern VideoJobStatus_IN_PROGRESS = VideoJobStatus' "IN_PROGRESS"
-
-pattern VideoJobStatus_SUCCEEDED :: VideoJobStatus
-pattern VideoJobStatus_SUCCEEDED = VideoJobStatus' "SUCCEEDED"
+pattern LabelDetectionFeatureName_GENERAL_LABELS :: LabelDetectionFeatureName
+pattern LabelDetectionFeatureName_GENERAL_LABELS = LabelDetectionFeatureName' "GENERAL_LABELS"
 
 {-# COMPLETE
-  VideoJobStatus_FAILED,
-  VideoJobStatus_IN_PROGRESS,
-  VideoJobStatus_SUCCEEDED,
-  VideoJobStatus'
+  LabelDetectionFeatureName_GENERAL_LABELS,
+  LabelDetectionFeatureName'
   #-}

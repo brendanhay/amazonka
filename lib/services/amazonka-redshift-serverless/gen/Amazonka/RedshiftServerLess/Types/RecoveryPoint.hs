@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftServerLess.Types.RecoveryPoint
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ data RecoveryPoint = RecoveryPoint'
     -- | The name of the namespace the recovery point is associated with.
     namespaceName :: Prelude.Maybe Prelude.Text,
     -- | The time the recovery point is created.
-    recoveryPointCreateTime :: Prelude.Maybe Data.POSIX,
+    recoveryPointCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The unique identifier of the recovery point.
     recoveryPointId :: Prelude.Maybe Prelude.Text,
     -- | The total size of the data in the recovery point in megabytes.

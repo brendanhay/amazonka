@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ManagedBlockChain.Types.Network
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,7 +38,7 @@ data Network = Network'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the network was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | Attributes of the blockchain framework for the network.
     description :: Prelude.Maybe Prelude.Text,
     -- | The blockchain framework that the network uses.

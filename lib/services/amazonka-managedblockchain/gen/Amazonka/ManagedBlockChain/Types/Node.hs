@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ManagedBlockChain.Types.Node
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@ data Node = Node'
     -- nodes.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the node was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | Attributes of the blockchain framework being used.
     frameworkAttributes :: Prelude.Maybe NodeFrameworkAttributes,
     -- | The unique identifier of the node.

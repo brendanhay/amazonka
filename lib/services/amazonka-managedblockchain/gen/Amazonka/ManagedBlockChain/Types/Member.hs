@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ManagedBlockChain.Types.Member
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,7 +39,7 @@ data Member = Member'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the member was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | An optional description for the member.
     description :: Prelude.Maybe Prelude.Text,
     -- | Attributes relevant to a member for the blockchain framework that the

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ManagedBlockChain.Types.Proposal
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data Proposal = Proposal'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the proposal was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | The description of the proposal.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the proposal expires. This is the @CreationDate@
@@ -48,7 +48,7 @@ data Proposal = Proposal'
     -- @ProposalThresholdPolicy@. After this date and time, if members haven\'t
     -- cast enough votes to determine the outcome according to the voting
     -- policy, the proposal is @EXPIRED@ and @Actions@ aren\'t carried out.
-    expirationDate :: Prelude.Maybe Data.POSIX,
+    expirationDate :: Prelude.Maybe Data.ISO8601,
     -- | The unique identifier of the network for which the proposal is made.
     networkId :: Prelude.Maybe Prelude.Text,
     -- | The current total of @NO@ votes cast on the proposal by members.

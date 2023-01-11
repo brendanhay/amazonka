@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.WorkSpaces.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -671,21 +671,21 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The user is not authorized to access a resource.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | One or more parameter values are not valid.
-_InvalidParameterValuesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValuesException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterValuesException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterValuesException"
 
 -- | The state of the resource is not valid for this operation.
-_InvalidResourceStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidResourceStateException =
   Core._MatchServiceError
     defaultService
@@ -693,56 +693,56 @@ _InvalidResourceStateException =
 
 -- | The properties of this WorkSpace are currently being modified. Try again
 -- in a moment.
-_OperationInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationInProgressException =
   Core._MatchServiceError
     defaultService
     "OperationInProgressException"
 
 -- | This operation is not supported.
-_OperationNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotSupportedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationNotSupportedException =
   Core._MatchServiceError
     defaultService
     "OperationNotSupportedException"
 
 -- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
 
 -- | The resource is associated with a directory.
-_ResourceAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAssociatedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAssociatedException =
   Core._MatchServiceError
     defaultService
     "ResourceAssociatedException"
 
 -- | The resource could not be created.
-_ResourceCreationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceCreationFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceCreationFailedException =
   Core._MatchServiceError
     defaultService
     "ResourceCreationFailedException"
 
 -- | Your resource limits have been exceeded.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceLimitExceededException"
 
 -- | The resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The specified resource is not available.
-_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -752,7 +752,7 @@ _ResourceUnavailableException =
 -- or your network configuration conflicts with the Amazon WorkSpaces
 -- management network IP range. For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html Configure a VPC for Amazon WorkSpaces>.
-_UnsupportedNetworkConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedNetworkConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedNetworkConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -762,7 +762,7 @@ _UnsupportedNetworkConfigurationException =
 -- For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html Required Configuration and Service Components for WorkSpaces>
 -- .
-_UnsupportedWorkspaceConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedWorkspaceConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedWorkspaceConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -773,7 +773,7 @@ _UnsupportedWorkspaceConfigurationException =
 -- workspaces_DefaultRole role before you can register a directory. For
 -- more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role Creating the workspaces_DefaultRole Role>.
-_WorkspacesDefaultRoleNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WorkspacesDefaultRoleNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WorkspacesDefaultRoleNotFoundException =
   Core._MatchServiceError
     defaultService

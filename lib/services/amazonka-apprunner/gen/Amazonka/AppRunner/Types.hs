@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.AppRunner.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -124,6 +124,7 @@ module Amazonka.AppRunner.Types
     newCodeConfigurationValues,
     codeConfigurationValues_buildCommand,
     codeConfigurationValues_port,
+    codeConfigurationValues_runtimeEnvironmentSecrets,
     codeConfigurationValues_runtimeEnvironmentVariables,
     codeConfigurationValues_startCommand,
     codeConfigurationValues_runtime,
@@ -186,6 +187,7 @@ module Amazonka.AppRunner.Types
     ImageConfiguration (..),
     newImageConfiguration,
     imageConfiguration_port,
+    imageConfiguration_runtimeEnvironmentSecrets,
     imageConfiguration_runtimeEnvironmentVariables,
     imageConfiguration_startCommand,
 
@@ -485,7 +487,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An unexpected service exception occurred.
-_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
@@ -493,7 +495,7 @@ _InternalServiceErrorException =
 
 -- | One or more input parameters aren\'t valid. Refer to the API action\'s
 -- document page, correct the input parameters, and try the action again.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -501,7 +503,7 @@ _InvalidRequestException =
 
 -- | You can\'t perform this action when the resource is in its current
 -- state.
-_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -509,7 +511,7 @@ _InvalidStateException =
 
 -- | A resource doesn\'t exist for the specified Amazon Resource Name (ARN)
 -- in your Amazon Web Services account.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -521,7 +523,7 @@ _ResourceNotFoundException =
 -- For App Runner per-resource quotas, see
 -- <https://docs.aws.amazon.com/general/latest/gr/apprunner.html App Runner endpoints and quotas>
 -- in the /Amazon Web Services General Reference/.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService

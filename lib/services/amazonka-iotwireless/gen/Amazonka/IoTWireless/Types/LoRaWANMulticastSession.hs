@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTWireless.Types.LoRaWANMulticastSession
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data LoRaWANMulticastSession = LoRaWANMulticastSession'
   { dlDr :: Prelude.Maybe Prelude.Natural,
     dlFreq :: Prelude.Maybe Prelude.Natural,
-    sessionStartTime :: Prelude.Maybe Data.POSIX,
+    sessionStartTime :: Prelude.Maybe Data.ISO8601,
     sessionTimeout :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)

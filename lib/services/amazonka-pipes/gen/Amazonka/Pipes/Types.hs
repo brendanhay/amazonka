@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Pipes.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -688,7 +688,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An action you attempted resulted in an exception.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -696,7 +696,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | This exception occurs due to unexpected causes.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
@@ -704,7 +704,7 @@ _InternalException =
     Prelude.. Core.hasStatus 500
 
 -- | An entity that you specified does not exist.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -712,7 +712,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | A quota has been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -720,7 +720,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | An action was throttled.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -729,7 +729,7 @@ _ThrottlingException =
 
 -- | Indicates that an error has occurred while performing a validate
 -- operation.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

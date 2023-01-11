@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.RAM.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -274,7 +274,7 @@ defaultService =
 -- | The client token input parameter was matched one used with a previous
 -- call to the operation, but at least one of the other input parameters is
 -- different from the previous call.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
@@ -282,7 +282,7 @@ _IdempotentParameterMismatchException =
     Prelude.. Core.hasStatus 400
 
 -- | The client token is not valid.
-_InvalidClientTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClientTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidClientTokenException =
   Core._MatchServiceError
     defaultService
@@ -290,7 +290,7 @@ _InvalidClientTokenException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified value for @MaxResults@ is not valid.
-_InvalidMaxResultsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidMaxResultsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidMaxResultsException =
   Core._MatchServiceError
     defaultService
@@ -298,7 +298,7 @@ _InvalidMaxResultsException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified value for @NextToken@ is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -306,7 +306,7 @@ _InvalidNextTokenException =
     Prelude.. Core.hasStatus 400
 
 -- | A parameter is not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -314,7 +314,7 @@ _InvalidParameterException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified resource type is not valid.
-_InvalidResourceTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidResourceTypeException =
   Core._MatchServiceError
     defaultService
@@ -322,7 +322,7 @@ _InvalidResourceTypeException =
     Prelude.. Core.hasStatus 400
 
 -- | The requested state transition is not valid.
-_InvalidStateTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateTransitionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidStateTransitionException =
   Core._MatchServiceError
     defaultService
@@ -330,7 +330,7 @@ _InvalidStateTransitionException =
     Prelude.. Core.hasStatus 400
 
 -- | The format of an Amazon Resource Name (ARN) is not valid.
-_MalformedArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedArnException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MalformedArnException =
   Core._MatchServiceError
     defaultService
@@ -338,7 +338,7 @@ _MalformedArnException =
     Prelude.. Core.hasStatus 400
 
 -- | A required input parameter is missing.
-_MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingRequiredParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MissingRequiredParameterException =
   Core._MatchServiceError
     defaultService
@@ -346,7 +346,7 @@ _MissingRequiredParameterException =
     Prelude.. Core.hasStatus 400
 
 -- | The requested operation is not permitted.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
@@ -354,7 +354,7 @@ _OperationNotPermittedException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified Amazon Resource Name (ARN) was not found.
-_ResourceArnNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceArnNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceArnNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -362,7 +362,7 @@ _ResourceArnNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified invitation was already accepted.
-_ResourceShareInvitationAlreadyAcceptedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceShareInvitationAlreadyAcceptedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceShareInvitationAlreadyAcceptedException =
   Core._MatchServiceError
     defaultService
@@ -370,7 +370,7 @@ _ResourceShareInvitationAlreadyAcceptedException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified invitation was already rejected.
-_ResourceShareInvitationAlreadyRejectedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceShareInvitationAlreadyRejectedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceShareInvitationAlreadyRejectedException =
   Core._MatchServiceError
     defaultService
@@ -379,7 +379,7 @@ _ResourceShareInvitationAlreadyRejectedException =
 
 -- | The specified Amazon Resource Name (ARN) for an invitation was not
 -- found.
-_ResourceShareInvitationArnNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceShareInvitationArnNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceShareInvitationArnNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -387,7 +387,7 @@ _ResourceShareInvitationArnNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified invitation is expired.
-_ResourceShareInvitationExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceShareInvitationExpiredException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceShareInvitationExpiredException =
   Core._MatchServiceError
     defaultService
@@ -396,7 +396,7 @@ _ResourceShareInvitationExpiredException =
 
 -- | This request would exceed the limit for resource shares for your
 -- account.
-_ResourceShareLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceShareLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceShareLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -404,7 +404,7 @@ _ResourceShareLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The service could not respond to the request due to an internal problem.
-_ServerInternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerInternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServerInternalException =
   Core._MatchServiceError
     defaultService
@@ -412,7 +412,7 @@ _ServerInternalException =
     Prelude.. Core.hasStatus 500
 
 -- | The service is not available.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -420,7 +420,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | This request would exceed the limit for tags for your account.
-_TagLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TagLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -428,7 +428,7 @@ _TagLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified tag key is a reserved word and can\'t be used.
-_TagPolicyViolationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagPolicyViolationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TagPolicyViolationException =
   Core._MatchServiceError
     defaultService
@@ -437,7 +437,7 @@ _TagPolicyViolationException =
 
 -- | You exceeded the rate at which you are allowed to perform this
 -- operation. Please try again later.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -445,7 +445,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | A specified resource was not found.
-_UnknownResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnknownResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnknownResourceException =
   Core._MatchServiceError
     defaultService

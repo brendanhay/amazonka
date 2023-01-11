@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.HoneyCode.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -306,7 +306,7 @@ defaultService =
 -- | You do not have sufficient access to perform this action. Check that the
 -- workbook is owned by you and your IAM policy allows access to the
 -- resource in the request.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -314,7 +314,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | The automation execution did not end successfully.
-_AutomationExecutionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationExecutionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AutomationExecutionException =
   Core._MatchServiceError
     defaultService
@@ -322,7 +322,7 @@ _AutomationExecutionException =
     Prelude.. Core.hasStatus 400
 
 -- | The automation execution timed out.
-_AutomationExecutionTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationExecutionTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AutomationExecutionTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -330,7 +330,7 @@ _AutomationExecutionTimeoutException =
     Prelude.. Core.hasStatus 504
 
 -- | There were unexpected errors from the server.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -338,7 +338,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The request timed out.
-_RequestTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RequestTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -347,7 +347,7 @@ _RequestTimeoutException =
 
 -- | A Workbook, Table, App, Screen or Screen Automation was not found with
 -- the given ID.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -355,7 +355,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request caused service quota to be breached.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -363,7 +363,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | Remote service is unreachable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -371,7 +371,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | Tps(transactions per second) rate reached.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -380,7 +380,7 @@ _ThrottlingException =
 
 -- | Request is invalid. The message in the response contains details on why
 -- the request is invalid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

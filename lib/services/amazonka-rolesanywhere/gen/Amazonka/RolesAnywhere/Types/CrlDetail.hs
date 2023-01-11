@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RolesAnywhere.Types.CrlDetail
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data CrlDetail = CrlDetail'
   { -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
     -- created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the certificate revocation list (CRL).
     crlArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the certificate revocation list (CRL) after a read or write
@@ -48,7 +48,7 @@ data CrlDetail = CrlDetail'
     trustAnchorArn :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
     -- last updated.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    updatedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

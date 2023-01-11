@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RolesAnywhere.Types.CredentialSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@ data CredentialSummary = CredentialSummary'
     -- | The ISO-8601 time stamp of when the certificate was last used in a
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation.
-    seenAt :: Prelude.Maybe Data.POSIX,
+    seenAt :: Prelude.Maybe Data.ISO8601,
     -- | The serial number of the certificate.
     serialNumber :: Prelude.Maybe Prelude.Text,
     -- | The PEM-encoded data of the certificate.

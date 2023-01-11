@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.FrameCaptureSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.FrameCaptureIntervalUnit
+import Amazonka.MediaLive.Types.TimecodeBurninSettings
 import qualified Amazonka.Prelude as Prelude
 
 -- | Frame Capture Settings
@@ -34,7 +35,9 @@ data FrameCaptureSettings = FrameCaptureSettings'
     -- captureIntervalUnits.
     captureInterval :: Prelude.Maybe Prelude.Natural,
     -- | Unit for the frame capture interval.
-    captureIntervalUnits :: Prelude.Maybe FrameCaptureIntervalUnit
+    captureIntervalUnits :: Prelude.Maybe FrameCaptureIntervalUnit,
+    -- | Timecode burn-in settings
+    timecodeBurninSettings :: Prelude.Maybe TimecodeBurninSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,13 +54,16 @@ data FrameCaptureSettings = FrameCaptureSettings'
 -- captureIntervalUnits.
 --
 -- 'captureIntervalUnits', 'frameCaptureSettings_captureIntervalUnits' - Unit for the frame capture interval.
+--
+-- 'timecodeBurninSettings', 'frameCaptureSettings_timecodeBurninSettings' - Timecode burn-in settings
 newFrameCaptureSettings ::
   FrameCaptureSettings
 newFrameCaptureSettings =
   FrameCaptureSettings'
     { captureInterval =
         Prelude.Nothing,
-      captureIntervalUnits = Prelude.Nothing
+      captureIntervalUnits = Prelude.Nothing,
+      timecodeBurninSettings = Prelude.Nothing
     }
 
 -- | The frequency at which to capture frames for inclusion in the output.
@@ -70,6 +76,10 @@ frameCaptureSettings_captureInterval = Lens.lens (\FrameCaptureSettings' {captur
 frameCaptureSettings_captureIntervalUnits :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe FrameCaptureIntervalUnit)
 frameCaptureSettings_captureIntervalUnits = Lens.lens (\FrameCaptureSettings' {captureIntervalUnits} -> captureIntervalUnits) (\s@FrameCaptureSettings' {} a -> s {captureIntervalUnits = a} :: FrameCaptureSettings)
 
+-- | Timecode burn-in settings
+frameCaptureSettings_timecodeBurninSettings :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe TimecodeBurninSettings)
+frameCaptureSettings_timecodeBurninSettings = Lens.lens (\FrameCaptureSettings' {timecodeBurninSettings} -> timecodeBurninSettings) (\s@FrameCaptureSettings' {} a -> s {timecodeBurninSettings = a} :: FrameCaptureSettings)
+
 instance Data.FromJSON FrameCaptureSettings where
   parseJSON =
     Data.withObject
@@ -78,17 +88,20 @@ instance Data.FromJSON FrameCaptureSettings where
           FrameCaptureSettings'
             Prelude.<$> (x Data..:? "captureInterval")
             Prelude.<*> (x Data..:? "captureIntervalUnits")
+            Prelude.<*> (x Data..:? "timecodeBurninSettings")
       )
 
 instance Prelude.Hashable FrameCaptureSettings where
   hashWithSalt _salt FrameCaptureSettings' {..} =
     _salt `Prelude.hashWithSalt` captureInterval
       `Prelude.hashWithSalt` captureIntervalUnits
+      `Prelude.hashWithSalt` timecodeBurninSettings
 
 instance Prelude.NFData FrameCaptureSettings where
   rnf FrameCaptureSettings' {..} =
     Prelude.rnf captureInterval
       `Prelude.seq` Prelude.rnf captureIntervalUnits
+      `Prelude.seq` Prelude.rnf timecodeBurninSettings
 
 instance Data.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =
@@ -97,6 +110,8 @@ instance Data.ToJSON FrameCaptureSettings where
           [ ("captureInterval" Data..=)
               Prelude.<$> captureInterval,
             ("captureIntervalUnits" Data..=)
-              Prelude.<$> captureIntervalUnits
+              Prelude.<$> captureIntervalUnits,
+            ("timecodeBurninSettings" Data..=)
+              Prelude.<$> timecodeBurninSettings
           ]
       )

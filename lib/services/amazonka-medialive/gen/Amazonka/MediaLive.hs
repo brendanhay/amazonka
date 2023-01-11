@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -557,6 +557,9 @@ module Amazonka.MediaLive
 
     -- ** DeviceUpdateStatus
     DeviceUpdateStatus (..),
+
+    -- ** DolbyEProgramSelection
+    DolbyEProgramSelection (..),
 
     -- ** DvbSdtOutputSdt
     DvbSdtOutputSdt (..),
@@ -1197,6 +1200,12 @@ module Amazonka.MediaLive
     -- ** TemporalFilterStrength
     TemporalFilterStrength (..),
 
+    -- ** TimecodeBurninFontSize
+    TimecodeBurninFontSize (..),
+
+    -- ** TimecodeBurninPosition
+    TimecodeBurninPosition (..),
+
     -- ** TimecodeConfigSource
     TimecodeConfigSource (..),
 
@@ -1275,6 +1284,10 @@ module Amazonka.MediaLive
     -- ** AudioDescription
     AudioDescription (AudioDescription'),
     newAudioDescription,
+
+    -- ** AudioDolbyEDecode
+    AudioDolbyEDecode (AudioDolbyEDecode'),
+    newAudioDolbyEDecode,
 
     -- ** AudioHlsRenditionSelection
     AudioHlsRenditionSelection (AudioHlsRenditionSelection'),
@@ -2079,6 +2092,10 @@ module Amazonka.MediaLive
     -- ** TemporalFilterSettings
     TemporalFilterSettings (TemporalFilterSettings'),
     newTemporalFilterSettings,
+
+    -- ** TimecodeBurninSettings
+    TimecodeBurninSettings (TimecodeBurninSettings'),
+    newTimecodeBurninSettings,
 
     -- ** TimecodeConfig
     TimecodeConfig (TimecodeConfig'),

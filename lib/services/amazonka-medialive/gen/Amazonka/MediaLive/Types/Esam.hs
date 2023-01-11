@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.Esam
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Settings for the Esam
+-- | Esam
 --
 -- /See:/ 'newEsam' smart constructor.
 data Esam = Esam'
@@ -32,14 +32,9 @@ data Esam = Esam'
     -- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
     -- does not apply to OOB messages.
     adAvailOffset :: Prelude.Maybe Prelude.Int,
-    -- | Password if credentials are required to access the POIS endpoint. This
-    -- is a reference to an AWS parameter store name from which the password
-    -- can be retrieved. AWS Parameter store format: \"ssm:\/\/\"
+    -- | Documentation update needed
     passwordParam :: Prelude.Maybe Prelude.Text,
-    -- | Username if credentials are required to access the POIS endpoint. This
-    -- can be either a plaintext username, or a reference to an AWS parameter
-    -- store name from which the username can be retrieved. AWS Parameter store
-    -- format: \"ssm:\/\/\"
+    -- | Documentation update needed
     username :: Prelude.Maybe Prelude.Text,
     -- | Optional data sent as zoneIdentity to identify the MediaLive channel to
     -- the POIS.
@@ -66,14 +61,9 @@ data Esam = Esam'
 -- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
 -- does not apply to OOB messages.
 --
--- 'passwordParam', 'esam_passwordParam' - Password if credentials are required to access the POIS endpoint. This
--- is a reference to an AWS parameter store name from which the password
--- can be retrieved. AWS Parameter store format: \"ssm:\/\/\"
+-- 'passwordParam', 'esam_passwordParam' - Documentation update needed
 --
--- 'username', 'esam_username' - Username if credentials are required to access the POIS endpoint. This
--- can be either a plaintext username, or a reference to an AWS parameter
--- store name from which the username can be retrieved. AWS Parameter store
--- format: \"ssm:\/\/\"
+-- 'username', 'esam_username' - Documentation update needed
 --
 -- 'zoneIdentity', 'esam_zoneIdentity' - Optional data sent as zoneIdentity to identify the MediaLive channel to
 -- the POIS.
@@ -106,16 +96,11 @@ newEsam pAcquisitionPointId_ pPoisEndpoint_ =
 esam_adAvailOffset :: Lens.Lens' Esam (Prelude.Maybe Prelude.Int)
 esam_adAvailOffset = Lens.lens (\Esam' {adAvailOffset} -> adAvailOffset) (\s@Esam' {} a -> s {adAvailOffset = a} :: Esam)
 
--- | Password if credentials are required to access the POIS endpoint. This
--- is a reference to an AWS parameter store name from which the password
--- can be retrieved. AWS Parameter store format: \"ssm:\/\/\"
+-- | Documentation update needed
 esam_passwordParam :: Lens.Lens' Esam (Prelude.Maybe Prelude.Text)
 esam_passwordParam = Lens.lens (\Esam' {passwordParam} -> passwordParam) (\s@Esam' {} a -> s {passwordParam = a} :: Esam)
 
--- | Username if credentials are required to access the POIS endpoint. This
--- can be either a plaintext username, or a reference to an AWS parameter
--- store name from which the username can be retrieved. AWS Parameter store
--- format: \"ssm:\/\/\"
+-- | Documentation update needed
 esam_username :: Lens.Lens' Esam (Prelude.Maybe Prelude.Text)
 esam_username = Lens.lens (\Esam' {username} -> username) (\s@Esam' {} a -> s {username = a} :: Esam)
 

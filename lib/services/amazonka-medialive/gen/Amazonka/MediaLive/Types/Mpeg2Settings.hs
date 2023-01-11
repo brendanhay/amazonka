@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.Mpeg2Settings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,6 +33,7 @@ import Amazonka.MediaLive.Types.Mpeg2GopSizeUnits
 import Amazonka.MediaLive.Types.Mpeg2ScanType
 import Amazonka.MediaLive.Types.Mpeg2SubGopLength
 import Amazonka.MediaLive.Types.Mpeg2TimecodeInsertionBehavior
+import Amazonka.MediaLive.Types.TimecodeBurninSettings
 import qualified Amazonka.Prelude as Prelude
 
 -- | Mpeg2 Settings
@@ -102,6 +103,8 @@ data Mpeg2Settings = Mpeg2Settings'
     -- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames
     -- in each sub-GOP, to improve visual quality.
     subgopLength :: Prelude.Maybe Mpeg2SubGopLength,
+    -- | Timecode burn-in settings
+    timecodeBurninSettings :: Prelude.Maybe TimecodeBurninSettings,
     -- | Determines how MediaLive inserts timecodes in the output video. For
     -- detailed information about setting up the input and the output for a
     -- timecode, see the section on \\\"MediaLive Features - Timecode
@@ -190,6 +193,8 @@ data Mpeg2Settings = Mpeg2Settings'
 -- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames
 -- in each sub-GOP, to improve visual quality.
 --
+-- 'timecodeBurninSettings', 'mpeg2Settings_timecodeBurninSettings' - Timecode burn-in settings
+--
 -- 'timecodeInsertion', 'mpeg2Settings_timecodeInsertion' - Determines how MediaLive inserts timecodes in the output video. For
 -- detailed information about setting up the input and the output for a
 -- timecode, see the section on \\\"MediaLive Features - Timecode
@@ -227,6 +232,7 @@ newMpeg2Settings
         gopSizeUnits = Prelude.Nothing,
         scanType = Prelude.Nothing,
         subgopLength = Prelude.Nothing,
+        timecodeBurninSettings = Prelude.Nothing,
         timecodeInsertion = Prelude.Nothing,
         framerateNumerator = pFramerateNumerator_,
         framerateDenominator = pFramerateDenominator_
@@ -321,6 +327,10 @@ mpeg2Settings_scanType = Lens.lens (\Mpeg2Settings' {scanType} -> scanType) (\s@
 mpeg2Settings_subgopLength :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2SubGopLength)
 mpeg2Settings_subgopLength = Lens.lens (\Mpeg2Settings' {subgopLength} -> subgopLength) (\s@Mpeg2Settings' {} a -> s {subgopLength = a} :: Mpeg2Settings)
 
+-- | Timecode burn-in settings
+mpeg2Settings_timecodeBurninSettings :: Lens.Lens' Mpeg2Settings (Prelude.Maybe TimecodeBurninSettings)
+mpeg2Settings_timecodeBurninSettings = Lens.lens (\Mpeg2Settings' {timecodeBurninSettings} -> timecodeBurninSettings) (\s@Mpeg2Settings' {} a -> s {timecodeBurninSettings = a} :: Mpeg2Settings)
+
 -- | Determines how MediaLive inserts timecodes in the output video. For
 -- detailed information about setting up the input and the output for a
 -- timecode, see the section on \\\"MediaLive Features - Timecode
@@ -360,6 +370,7 @@ instance Data.FromJSON Mpeg2Settings where
             Prelude.<*> (x Data..:? "gopSizeUnits")
             Prelude.<*> (x Data..:? "scanType")
             Prelude.<*> (x Data..:? "subgopLength")
+            Prelude.<*> (x Data..:? "timecodeBurninSettings")
             Prelude.<*> (x Data..:? "timecodeInsertion")
             Prelude.<*> (x Data..: "framerateNumerator")
             Prelude.<*> (x Data..: "framerateDenominator")
@@ -380,6 +391,7 @@ instance Prelude.Hashable Mpeg2Settings where
       `Prelude.hashWithSalt` gopSizeUnits
       `Prelude.hashWithSalt` scanType
       `Prelude.hashWithSalt` subgopLength
+      `Prelude.hashWithSalt` timecodeBurninSettings
       `Prelude.hashWithSalt` timecodeInsertion
       `Prelude.hashWithSalt` framerateNumerator
       `Prelude.hashWithSalt` framerateDenominator
@@ -399,6 +411,7 @@ instance Prelude.NFData Mpeg2Settings where
       `Prelude.seq` Prelude.rnf gopSizeUnits
       `Prelude.seq` Prelude.rnf scanType
       `Prelude.seq` Prelude.rnf subgopLength
+      `Prelude.seq` Prelude.rnf timecodeBurninSettings
       `Prelude.seq` Prelude.rnf timecodeInsertion
       `Prelude.seq` Prelude.rnf framerateNumerator
       `Prelude.seq` Prelude.rnf framerateDenominator
@@ -424,6 +437,8 @@ instance Data.ToJSON Mpeg2Settings where
             ("gopSizeUnits" Data..=) Prelude.<$> gopSizeUnits,
             ("scanType" Data..=) Prelude.<$> scanType,
             ("subgopLength" Data..=) Prelude.<$> subgopLength,
+            ("timecodeBurninSettings" Data..=)
+              Prelude.<$> timecodeBurninSettings,
             ("timecodeInsertion" Data..=)
               Prelude.<$> timecodeInsertion,
             Prelude.Just

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.Types.CacheCluster
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,7 @@ import Amazonka.ElastiCache.Types.NetworkType
 import Amazonka.ElastiCache.Types.NotificationConfiguration
 import Amazonka.ElastiCache.Types.PendingModifiedValues
 import Amazonka.ElastiCache.Types.SecurityGroupMembership
+import Amazonka.ElastiCache.Types.TransitEncryptionMode
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all of the attributes of a specific cluster.
@@ -272,15 +273,14 @@ data CacheCluster = CacheCluster'
     snapshotWindow :: Prelude.Maybe Prelude.Text,
     -- | A flag that enables in-transit encryption when set to @true@.
     --
-    -- You cannot modify the value of @TransitEncryptionEnabled@ after the
-    -- cluster is created. To enable in-transit encryption on a cluster you
-    -- must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
-    --
     -- __Required:__ Only available when creating a replication group in an
     -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
     --
     -- Default: @false@
-    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool
+    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | A setting that allows you to migrate your clients to use in-transit
+    -- encryption, with no downtime.
+    transitEncryptionMode :: Prelude.Maybe TransitEncryptionMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -527,14 +527,13 @@ data CacheCluster = CacheCluster'
 --
 -- 'transitEncryptionEnabled', 'cacheCluster_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@.
 --
--- You cannot modify the value of @TransitEncryptionEnabled@ after the
--- cluster is created. To enable in-transit encryption on a cluster you
--- must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
---
 -- __Required:__ Only available when creating a replication group in an
 -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
 --
 -- Default: @false@
+--
+-- 'transitEncryptionMode', 'cacheCluster_transitEncryptionMode' - A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
 newCacheCluster ::
   CacheCluster
 newCacheCluster =
@@ -570,7 +569,8 @@ newCacheCluster =
       securityGroups = Prelude.Nothing,
       snapshotRetentionLimit = Prelude.Nothing,
       snapshotWindow = Prelude.Nothing,
-      transitEncryptionEnabled = Prelude.Nothing
+      transitEncryptionEnabled = Prelude.Nothing,
+      transitEncryptionMode = Prelude.Nothing
     }
 
 -- | The ARN (Amazon Resource Name) of the cache cluster.
@@ -870,16 +870,17 @@ cacheCluster_snapshotWindow = Lens.lens (\CacheCluster' {snapshotWindow} -> snap
 
 -- | A flag that enables in-transit encryption when set to @true@.
 --
--- You cannot modify the value of @TransitEncryptionEnabled@ after the
--- cluster is created. To enable in-transit encryption on a cluster you
--- must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
---
 -- __Required:__ Only available when creating a replication group in an
 -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
 --
 -- Default: @false@
 cacheCluster_transitEncryptionEnabled :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Bool)
 cacheCluster_transitEncryptionEnabled = Lens.lens (\CacheCluster' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@CacheCluster' {} a -> s {transitEncryptionEnabled = a} :: CacheCluster)
+
+-- | A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
+cacheCluster_transitEncryptionMode :: Lens.Lens' CacheCluster (Prelude.Maybe TransitEncryptionMode)
+cacheCluster_transitEncryptionMode = Lens.lens (\CacheCluster' {transitEncryptionMode} -> transitEncryptionMode) (\s@CacheCluster' {} a -> s {transitEncryptionMode = a} :: CacheCluster)
 
 instance Data.FromXML CacheCluster where
   parseXML x =
@@ -927,6 +928,7 @@ instance Data.FromXML CacheCluster where
       Prelude.<*> (x Data..@? "SnapshotRetentionLimit")
       Prelude.<*> (x Data..@? "SnapshotWindow")
       Prelude.<*> (x Data..@? "TransitEncryptionEnabled")
+      Prelude.<*> (x Data..@? "TransitEncryptionMode")
 
 instance Prelude.Hashable CacheCluster where
   hashWithSalt _salt CacheCluster' {..} =
@@ -962,6 +964,7 @@ instance Prelude.Hashable CacheCluster where
       `Prelude.hashWithSalt` snapshotRetentionLimit
       `Prelude.hashWithSalt` snapshotWindow
       `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` transitEncryptionMode
 
 instance Prelude.NFData CacheCluster where
   rnf CacheCluster' {..} =
@@ -1009,3 +1012,5 @@ instance Prelude.NFData CacheCluster where
         snapshotWindow
       `Prelude.seq` Prelude.rnf
         transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf
+        transitEncryptionMode

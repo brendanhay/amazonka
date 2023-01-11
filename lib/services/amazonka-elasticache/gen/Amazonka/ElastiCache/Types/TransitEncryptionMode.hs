@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ElastiCache.Types.AuthenticationType
+-- Module      : Amazonka.ElastiCache.Types.TransitEncryptionMode
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ElastiCache.Types.AuthenticationType
-  ( AuthenticationType
+module Amazonka.ElastiCache.Types.TransitEncryptionMode
+  ( TransitEncryptionMode
       ( ..,
-        AuthenticationType_Iam,
-        AuthenticationType_No_password,
-        AuthenticationType_Password
+        TransitEncryptionMode_Preferred,
+        TransitEncryptionMode_Required
       ),
   )
 where
@@ -31,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype AuthenticationType = AuthenticationType'
-  { fromAuthenticationType ::
+newtype TransitEncryptionMode = TransitEncryptionMode'
+  { fromTransitEncryptionMode ::
       Data.Text
   }
   deriving stock
@@ -59,18 +58,14 @@ newtype AuthenticationType = AuthenticationType'
       Data.ToXML
     )
 
-pattern AuthenticationType_Iam :: AuthenticationType
-pattern AuthenticationType_Iam = AuthenticationType' "iam"
+pattern TransitEncryptionMode_Preferred :: TransitEncryptionMode
+pattern TransitEncryptionMode_Preferred = TransitEncryptionMode' "preferred"
 
-pattern AuthenticationType_No_password :: AuthenticationType
-pattern AuthenticationType_No_password = AuthenticationType' "no-password"
-
-pattern AuthenticationType_Password :: AuthenticationType
-pattern AuthenticationType_Password = AuthenticationType' "password"
+pattern TransitEncryptionMode_Required :: TransitEncryptionMode
+pattern TransitEncryptionMode_Required = TransitEncryptionMode' "required"
 
 {-# COMPLETE
-  AuthenticationType_Iam,
-  AuthenticationType_No_password,
-  AuthenticationType_Password,
-  AuthenticationType'
+  TransitEncryptionMode_Preferred,
+  TransitEncryptionMode_Required,
+  TransitEncryptionMode'
   #-}

@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -200,11 +200,14 @@ library
     Amazonka.RDS.Types.BlueGreenDeployment
     Amazonka.RDS.Types.BlueGreenDeploymentTask
     Amazonka.RDS.Types.Certificate
+    Amazonka.RDS.Types.CertificateDetails
     Amazonka.RDS.Types.CharacterSet
+    Amazonka.RDS.Types.ClientPasswordAuthType
     Amazonka.RDS.Types.CloudwatchLogsExportConfiguration
     Amazonka.RDS.Types.ClusterPendingModifiedValues
     Amazonka.RDS.Types.ConnectionPoolConfiguration
     Amazonka.RDS.Types.ConnectionPoolConfigurationInfo
+    Amazonka.RDS.Types.CustomDBEngineVersionAMI
     Amazonka.RDS.Types.CustomEngineVersionStatus
     Amazonka.RDS.Types.DBCluster
     Amazonka.RDS.Types.DBClusterBacktrack
@@ -258,6 +261,7 @@ library
     Amazonka.RDS.Types.GlobalClusterMember
     Amazonka.RDS.Types.IAMAuthMode
     Amazonka.RDS.Types.IPRange
+    Amazonka.RDS.Types.MasterUserSecret
     Amazonka.RDS.Types.MinimumEngineVersionPerAllowedValue
     Amazonka.RDS.Types.Option
     Amazonka.RDS.Types.OptionConfiguration

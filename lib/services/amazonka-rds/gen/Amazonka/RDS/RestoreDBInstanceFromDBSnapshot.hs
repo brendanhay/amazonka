@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.RestoreDBInstanceFromDBSnapshot
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -284,7 +284,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- in the /Amazon RDS User Guide/.
     --
     -- For more information about CoIPs, see
-    -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+    -- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
     -- in the /Amazon Web Services Outposts User Guide/.
     enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
@@ -649,7 +649,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 --
 -- 'enableIAMDatabaseAuthentication', 'restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
@@ -1082,7 +1082,7 @@ restoreDBInstanceFromDBSnapshot_enableCloudwatchLogsExports = Lens.lens (\Restor
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {enableCustomerOwnedIp} -> enableCustomerOwnedIp) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {enableCustomerOwnedIp = a} :: RestoreDBInstanceFromDBSnapshot)

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.RestoreDBInstanceToPointInTime
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -231,7 +231,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- in the /Amazon RDS User Guide/.
     --
     -- For more information about CoIPs, see
-    -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+    -- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
     -- in the /Amazon Web Services Outposts User Guide/.
     enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
@@ -582,7 +582,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 --
 -- 'enableIAMDatabaseAuthentication', 'restoreDBInstanceToPointInTime_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
@@ -1002,7 +1002,7 @@ restoreDBInstanceToPointInTime_enableCloudwatchLogsExports = Lens.lens (\Restore
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 restoreDBInstanceToPointInTime_enableCustomerOwnedIp :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceToPointInTime_enableCustomerOwnedIp = Lens.lens (\RestoreDBInstanceToPointInTime' {enableCustomerOwnedIp} -> enableCustomerOwnedIp) (\s@RestoreDBInstanceToPointInTime' {} a -> s {enableCustomerOwnedIp = a} :: RestoreDBInstanceToPointInTime)

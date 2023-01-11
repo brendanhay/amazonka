@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -109,6 +109,7 @@ module Amazonka.RDS.Lens
     copyDBParameterGroupResponse_httpStatus,
 
     -- ** CopyDBSnapshot
+    copyDBSnapshot_copyOptionGroup,
     copyDBSnapshot_copyTags,
     copyDBSnapshot_destinationRegion,
     copyDBSnapshot_kmsKeyId,
@@ -140,17 +141,19 @@ module Amazonka.RDS.Lens
     createBlueGreenDeploymentResponse_httpStatus,
 
     -- ** CreateCustomDBEngineVersion
+    createCustomDBEngineVersion_databaseInstallationFilesS3BucketName,
     createCustomDBEngineVersion_databaseInstallationFilesS3Prefix,
     createCustomDBEngineVersion_description,
+    createCustomDBEngineVersion_imageId,
+    createCustomDBEngineVersion_kmsKeyId,
+    createCustomDBEngineVersion_manifest,
     createCustomDBEngineVersion_tags,
     createCustomDBEngineVersion_engine,
     createCustomDBEngineVersion_engineVersion,
-    createCustomDBEngineVersion_databaseInstallationFilesS3BucketName,
-    createCustomDBEngineVersion_kmsKeyId,
-    createCustomDBEngineVersion_manifest,
     dbEngineVersion_createTime,
     dbEngineVersion_customDBEngineVersionManifest,
     dbEngineVersion_dbEngineDescription,
+    dbEngineVersion_dbEngineMediaType,
     dbEngineVersion_dbEngineVersionArn,
     dbEngineVersion_dbEngineVersionDescription,
     dbEngineVersion_dbParameterGroupFamily,
@@ -160,15 +163,18 @@ module Amazonka.RDS.Lens
     dbEngineVersion_engine,
     dbEngineVersion_engineVersion,
     dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_image,
     dbEngineVersion_kmsKeyId,
     dbEngineVersion_majorEngineVersion,
     dbEngineVersion_status,
+    dbEngineVersion_supportedCACertificateIdentifiers,
     dbEngineVersion_supportedCharacterSets,
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_supportedFeatureNames,
     dbEngineVersion_supportedNcharCharacterSets,
     dbEngineVersion_supportedTimezones,
     dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportsCertificateRotationWithoutRestart,
     dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_supportsLogExportsToCloudwatchLogs,
     dbEngineVersion_supportsParallelQuery,
@@ -203,7 +209,9 @@ module Amazonka.RDS.Lens
     createDBCluster_globalClusterIdentifier,
     createDBCluster_iops,
     createDBCluster_kmsKeyId,
+    createDBCluster_manageMasterUserPassword,
     createDBCluster_masterUserPassword,
+    createDBCluster_masterUserSecretKmsKeyId,
     createDBCluster_masterUsername,
     createDBCluster_monitoringInterval,
     createDBCluster_monitoringRoleArn,
@@ -267,6 +275,7 @@ module Amazonka.RDS.Lens
     createDBInstance_availabilityZone,
     createDBInstance_backupRetentionPeriod,
     createDBInstance_backupTarget,
+    createDBInstance_cACertificateIdentifier,
     createDBInstance_characterSetName,
     createDBInstance_copyTagsToSnapshot,
     createDBInstance_customIamInstanceProfile,
@@ -286,7 +295,9 @@ module Amazonka.RDS.Lens
     createDBInstance_iops,
     createDBInstance_kmsKeyId,
     createDBInstance_licenseModel,
+    createDBInstance_manageMasterUserPassword,
     createDBInstance_masterUserPassword,
+    createDBInstance_masterUserSecretKmsKeyId,
     createDBInstance_masterUsername,
     createDBInstance_maxAllocatedStorage,
     createDBInstance_monitoringInterval,
@@ -330,6 +341,7 @@ module Amazonka.RDS.Lens
     createDBInstanceReadReplica_domain,
     createDBInstanceReadReplica_domainIAMRoleName,
     createDBInstanceReadReplica_enableCloudwatchLogsExports,
+    createDBInstanceReadReplica_enableCustomerOwnedIp,
     createDBInstanceReadReplica_enableIAMDatabaseAuthentication,
     createDBInstanceReadReplica_enablePerformanceInsights,
     createDBInstanceReadReplica_iops,
@@ -454,6 +466,7 @@ module Amazonka.RDS.Lens
     dbEngineVersion_createTime,
     dbEngineVersion_customDBEngineVersionManifest,
     dbEngineVersion_dbEngineDescription,
+    dbEngineVersion_dbEngineMediaType,
     dbEngineVersion_dbEngineVersionArn,
     dbEngineVersion_dbEngineVersionDescription,
     dbEngineVersion_dbParameterGroupFamily,
@@ -463,15 +476,18 @@ module Amazonka.RDS.Lens
     dbEngineVersion_engine,
     dbEngineVersion_engineVersion,
     dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_image,
     dbEngineVersion_kmsKeyId,
     dbEngineVersion_majorEngineVersion,
     dbEngineVersion_status,
+    dbEngineVersion_supportedCACertificateIdentifiers,
     dbEngineVersion_supportedCharacterSets,
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_supportedFeatureNames,
     dbEngineVersion_supportedNcharCharacterSets,
     dbEngineVersion_supportedTimezones,
     dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportsCertificateRotationWithoutRestart,
     dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_supportsLogExportsToCloudwatchLogs,
     dbEngineVersion_supportsParallelQuery,
@@ -1014,6 +1030,7 @@ module Amazonka.RDS.Lens
     dbEngineVersion_createTime,
     dbEngineVersion_customDBEngineVersionManifest,
     dbEngineVersion_dbEngineDescription,
+    dbEngineVersion_dbEngineMediaType,
     dbEngineVersion_dbEngineVersionArn,
     dbEngineVersion_dbEngineVersionDescription,
     dbEngineVersion_dbParameterGroupFamily,
@@ -1023,15 +1040,18 @@ module Amazonka.RDS.Lens
     dbEngineVersion_engine,
     dbEngineVersion_engineVersion,
     dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_image,
     dbEngineVersion_kmsKeyId,
     dbEngineVersion_majorEngineVersion,
     dbEngineVersion_status,
+    dbEngineVersion_supportedCACertificateIdentifiers,
     dbEngineVersion_supportedCharacterSets,
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_supportedFeatureNames,
     dbEngineVersion_supportedNcharCharacterSets,
     dbEngineVersion_supportedTimezones,
     dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportsCertificateRotationWithoutRestart,
     dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_supportsLogExportsToCloudwatchLogs,
     dbEngineVersion_supportsParallelQuery,
@@ -1060,7 +1080,9 @@ module Amazonka.RDS.Lens
     modifyDBCluster_enablePerformanceInsights,
     modifyDBCluster_engineVersion,
     modifyDBCluster_iops,
+    modifyDBCluster_manageMasterUserPassword,
     modifyDBCluster_masterUserPassword,
+    modifyDBCluster_masterUserSecretKmsKeyId,
     modifyDBCluster_monitoringInterval,
     modifyDBCluster_monitoringRoleArn,
     modifyDBCluster_networkType,
@@ -1071,6 +1093,7 @@ module Amazonka.RDS.Lens
     modifyDBCluster_port,
     modifyDBCluster_preferredBackupWindow,
     modifyDBCluster_preferredMaintenanceWindow,
+    modifyDBCluster_rotateMasterUserPassword,
     modifyDBCluster_scalingConfiguration,
     modifyDBCluster_serverlessV2ScalingConfiguration,
     modifyDBCluster_storageType,
@@ -1134,7 +1157,9 @@ module Amazonka.RDS.Lens
     modifyDBInstance_engineVersion,
     modifyDBInstance_iops,
     modifyDBInstance_licenseModel,
+    modifyDBInstance_manageMasterUserPassword,
     modifyDBInstance_masterUserPassword,
+    modifyDBInstance_masterUserSecretKmsKeyId,
     modifyDBInstance_maxAllocatedStorage,
     modifyDBInstance_monitoringInterval,
     modifyDBInstance_monitoringRoleArn,
@@ -1151,6 +1176,7 @@ module Amazonka.RDS.Lens
     modifyDBInstance_publiclyAccessible,
     modifyDBInstance_replicaMode,
     modifyDBInstance_resumeFullAutomationModeMinutes,
+    modifyDBInstance_rotateMasterUserPassword,
     modifyDBInstance_storageThroughput,
     modifyDBInstance_storageType,
     modifyDBInstance_tdeCredentialArn,
@@ -1334,6 +1360,9 @@ module Amazonka.RDS.Lens
     restoreDBClusterFromS3_enableIAMDatabaseAuthentication,
     restoreDBClusterFromS3_engineVersion,
     restoreDBClusterFromS3_kmsKeyId,
+    restoreDBClusterFromS3_manageMasterUserPassword,
+    restoreDBClusterFromS3_masterUserPassword,
+    restoreDBClusterFromS3_masterUserSecretKmsKeyId,
     restoreDBClusterFromS3_networkType,
     restoreDBClusterFromS3_optionGroupName,
     restoreDBClusterFromS3_port,
@@ -1347,7 +1376,6 @@ module Amazonka.RDS.Lens
     restoreDBClusterFromS3_dbClusterIdentifier,
     restoreDBClusterFromS3_engine,
     restoreDBClusterFromS3_masterUsername,
-    restoreDBClusterFromS3_masterUserPassword,
     restoreDBClusterFromS3_sourceEngine,
     restoreDBClusterFromS3_sourceEngineVersion,
     restoreDBClusterFromS3_s3BucketName,
@@ -1474,7 +1502,9 @@ module Amazonka.RDS.Lens
     restoreDBInstanceFromS3_iops,
     restoreDBInstanceFromS3_kmsKeyId,
     restoreDBInstanceFromS3_licenseModel,
+    restoreDBInstanceFromS3_manageMasterUserPassword,
     restoreDBInstanceFromS3_masterUserPassword,
+    restoreDBInstanceFromS3_masterUserSecretKmsKeyId,
     restoreDBInstanceFromS3_masterUsername,
     restoreDBInstanceFromS3_maxAllocatedStorage,
     restoreDBInstanceFromS3_monitoringInterval,
@@ -1692,6 +1722,10 @@ module Amazonka.RDS.Lens
     certificate_validFrom,
     certificate_validTill,
 
+    -- ** CertificateDetails
+    certificateDetails_cAIdentifier,
+    certificateDetails_validTill,
+
     -- ** CharacterSet
     characterSet_characterSetDescription,
     characterSet_characterSetName,
@@ -1723,6 +1757,10 @@ module Amazonka.RDS.Lens
     connectionPoolConfigurationInfo_maxConnectionsPercent,
     connectionPoolConfigurationInfo_maxIdleConnectionsPercent,
     connectionPoolConfigurationInfo_sessionPinningFilters,
+
+    -- ** CustomDBEngineVersionAMI
+    customDBEngineVersionAMI_imageId,
+    customDBEngineVersionAMI_status,
 
     -- ** DBCluster
     dbCluster_activityStreamKinesisStreamName,
@@ -1771,6 +1809,7 @@ module Amazonka.RDS.Lens
     dbCluster_iops,
     dbCluster_kmsKeyId,
     dbCluster_latestRestorableTime,
+    dbCluster_masterUserSecret,
     dbCluster_masterUsername,
     dbCluster_monitoringInterval,
     dbCluster_monitoringRoleArn,
@@ -1877,6 +1916,7 @@ module Amazonka.RDS.Lens
     dbEngineVersion_createTime,
     dbEngineVersion_customDBEngineVersionManifest,
     dbEngineVersion_dbEngineDescription,
+    dbEngineVersion_dbEngineMediaType,
     dbEngineVersion_dbEngineVersionArn,
     dbEngineVersion_dbEngineVersionDescription,
     dbEngineVersion_dbParameterGroupFamily,
@@ -1886,15 +1926,18 @@ module Amazonka.RDS.Lens
     dbEngineVersion_engine,
     dbEngineVersion_engineVersion,
     dbEngineVersion_exportableLogTypes,
+    dbEngineVersion_image,
     dbEngineVersion_kmsKeyId,
     dbEngineVersion_majorEngineVersion,
     dbEngineVersion_status,
+    dbEngineVersion_supportedCACertificateIdentifiers,
     dbEngineVersion_supportedCharacterSets,
     dbEngineVersion_supportedEngineModes,
     dbEngineVersion_supportedFeatureNames,
     dbEngineVersion_supportedNcharCharacterSets,
     dbEngineVersion_supportedTimezones,
     dbEngineVersion_supportsBabelfish,
+    dbEngineVersion_supportsCertificateRotationWithoutRestart,
     dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_supportsLogExportsToCloudwatchLogs,
     dbEngineVersion_supportsParallelQuery,
@@ -1919,6 +1962,7 @@ module Amazonka.RDS.Lens
     dbInstance_backupRetentionPeriod,
     dbInstance_backupTarget,
     dbInstance_cACertificateIdentifier,
+    dbInstance_certificateDetails,
     dbInstance_characterSetName,
     dbInstance_copyTagsToSnapshot,
     dbInstance_customIamInstanceProfile,
@@ -1950,6 +1994,7 @@ module Amazonka.RDS.Lens
     dbInstance_latestRestorableTime,
     dbInstance_licenseModel,
     dbInstance_listenerEndpoint,
+    dbInstance_masterUserSecret,
     dbInstance_masterUsername,
     dbInstance_maxAllocatedStorage,
     dbInstance_monitoringInterval,
@@ -2259,6 +2304,11 @@ module Amazonka.RDS.Lens
     iPRange_cidrip,
     iPRange_status,
 
+    -- ** MasterUserSecret
+    masterUserSecret_kmsKeyId,
+    masterUserSecret_secretArn,
+    masterUserSecret_secretStatus,
+
     -- ** MinimumEngineVersionPerAllowedValue
     minimumEngineVersionPerAllowedValue_allowedValue,
     minimumEngineVersionPerAllowedValue_minimumEngineVersion,
@@ -2284,12 +2334,15 @@ module Amazonka.RDS.Lens
 
     -- ** OptionGroup
     optionGroup_allowsVpcAndNonVpcInstanceMemberships,
+    optionGroup_copyTimestamp,
     optionGroup_engineName,
     optionGroup_majorEngineVersion,
     optionGroup_optionGroupArn,
     optionGroup_optionGroupDescription,
     optionGroup_optionGroupName,
     optionGroup_options,
+    optionGroup_sourceAccountId,
+    optionGroup_sourceOptionGroup,
     optionGroup_vpcId,
 
     -- ** OptionGroupMembership
@@ -2297,6 +2350,7 @@ module Amazonka.RDS.Lens
     optionGroupMembership_status,
 
     -- ** OptionGroupOption
+    optionGroupOption_copyableCrossAccount,
     optionGroupOption_defaultPort,
     optionGroupOption_description,
     optionGroupOption_engineName,
@@ -2542,6 +2596,7 @@ module Amazonka.RDS.Lens
 
     -- ** UserAuthConfig
     userAuthConfig_authScheme,
+    userAuthConfig_clientPasswordAuthType,
     userAuthConfig_description,
     userAuthConfig_iAMAuth,
     userAuthConfig_secretArn,
@@ -2549,6 +2604,7 @@ module Amazonka.RDS.Lens
 
     -- ** UserAuthConfigInfo
     userAuthConfigInfo_authScheme,
+    userAuthConfigInfo_clientPasswordAuthType,
     userAuthConfigInfo_description,
     userAuthConfigInfo_iAMAuth,
     userAuthConfigInfo_secretArn,
@@ -2720,11 +2776,13 @@ import Amazonka.RDS.Types.AvailableProcessorFeature
 import Amazonka.RDS.Types.BlueGreenDeployment
 import Amazonka.RDS.Types.BlueGreenDeploymentTask
 import Amazonka.RDS.Types.Certificate
+import Amazonka.RDS.Types.CertificateDetails
 import Amazonka.RDS.Types.CharacterSet
 import Amazonka.RDS.Types.CloudwatchLogsExportConfiguration
 import Amazonka.RDS.Types.ClusterPendingModifiedValues
 import Amazonka.RDS.Types.ConnectionPoolConfiguration
 import Amazonka.RDS.Types.ConnectionPoolConfigurationInfo
+import Amazonka.RDS.Types.CustomDBEngineVersionAMI
 import Amazonka.RDS.Types.DBCluster
 import Amazonka.RDS.Types.DBClusterBacktrack
 import Amazonka.RDS.Types.DBClusterEndpoint
@@ -2770,6 +2828,7 @@ import Amazonka.RDS.Types.Filter
 import Amazonka.RDS.Types.GlobalCluster
 import Amazonka.RDS.Types.GlobalClusterMember
 import Amazonka.RDS.Types.IPRange
+import Amazonka.RDS.Types.MasterUserSecret
 import Amazonka.RDS.Types.MinimumEngineVersionPerAllowedValue
 import Amazonka.RDS.Types.Option
 import Amazonka.RDS.Types.OptionConfiguration

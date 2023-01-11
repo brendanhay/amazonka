@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.StartExportTask
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -107,26 +107,26 @@ data StartExportTask = StartExportTask'
     -- | The ID of the Amazon Web Services KMS key to use to encrypt the snapshot
     -- exported to Amazon S3. The Amazon Web Services KMS key identifier is the
     -- key ARN, key ID, alias ARN, or alias name for the KMS key. The caller of
-    -- this operation must be authorized to execute the following operations.
-    -- These can be set in the Amazon Web Services KMS key policy:
+    -- this operation must be authorized to run the following operations. These
+    -- can be set in the Amazon Web Services KMS key policy:
     --
-    -- -   GrantOperation.Encrypt
+    -- -   kms:Encrypt
     --
-    -- -   GrantOperation.Decrypt
+    -- -   kms:Decrypt
     --
-    -- -   GrantOperation.GenerateDataKey
+    -- -   kms:GenerateDataKey
     --
-    -- -   GrantOperation.GenerateDataKeyWithoutPlaintext
+    -- -   kms:GenerateDataKeyWithoutPlaintext
     --
-    -- -   GrantOperation.ReEncryptFrom
+    -- -   kms:ReEncryptFrom
     --
-    -- -   GrantOperation.ReEncryptTo
+    -- -   kms:ReEncryptTo
     --
-    -- -   GrantOperation.CreateGrant
+    -- -   kms:CreateGrant
     --
-    -- -   GrantOperation.DescribeKey
+    -- -   kms:DescribeKey
     --
-    -- -   GrantOperation.RetireGrant
+    -- -   kms:RetireGrant
     kmsKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -174,26 +174,26 @@ data StartExportTask = StartExportTask'
 -- 'kmsKeyId', 'startExportTask_kmsKeyId' - The ID of the Amazon Web Services KMS key to use to encrypt the snapshot
 -- exported to Amazon S3. The Amazon Web Services KMS key identifier is the
 -- key ARN, key ID, alias ARN, or alias name for the KMS key. The caller of
--- this operation must be authorized to execute the following operations.
--- These can be set in the Amazon Web Services KMS key policy:
+-- this operation must be authorized to run the following operations. These
+-- can be set in the Amazon Web Services KMS key policy:
 --
--- -   GrantOperation.Encrypt
+-- -   kms:Encrypt
 --
--- -   GrantOperation.Decrypt
+-- -   kms:Decrypt
 --
--- -   GrantOperation.GenerateDataKey
+-- -   kms:GenerateDataKey
 --
--- -   GrantOperation.GenerateDataKeyWithoutPlaintext
+-- -   kms:GenerateDataKeyWithoutPlaintext
 --
--- -   GrantOperation.ReEncryptFrom
+-- -   kms:ReEncryptFrom
 --
--- -   GrantOperation.ReEncryptTo
+-- -   kms:ReEncryptTo
 --
--- -   GrantOperation.CreateGrant
+-- -   kms:CreateGrant
 --
--- -   GrantOperation.DescribeKey
+-- -   kms:DescribeKey
 --
--- -   GrantOperation.RetireGrant
+-- -   kms:RetireGrant
 newStartExportTask ::
   -- | 'exportTaskIdentifier'
   Prelude.Text ->
@@ -269,26 +269,26 @@ startExportTask_iamRoleArn = Lens.lens (\StartExportTask' {iamRoleArn} -> iamRol
 -- | The ID of the Amazon Web Services KMS key to use to encrypt the snapshot
 -- exported to Amazon S3. The Amazon Web Services KMS key identifier is the
 -- key ARN, key ID, alias ARN, or alias name for the KMS key. The caller of
--- this operation must be authorized to execute the following operations.
--- These can be set in the Amazon Web Services KMS key policy:
+-- this operation must be authorized to run the following operations. These
+-- can be set in the Amazon Web Services KMS key policy:
 --
--- -   GrantOperation.Encrypt
+-- -   kms:Encrypt
 --
--- -   GrantOperation.Decrypt
+-- -   kms:Decrypt
 --
--- -   GrantOperation.GenerateDataKey
+-- -   kms:GenerateDataKey
 --
--- -   GrantOperation.GenerateDataKeyWithoutPlaintext
+-- -   kms:GenerateDataKeyWithoutPlaintext
 --
--- -   GrantOperation.ReEncryptFrom
+-- -   kms:ReEncryptFrom
 --
--- -   GrantOperation.ReEncryptTo
+-- -   kms:ReEncryptTo
 --
--- -   GrantOperation.CreateGrant
+-- -   kms:CreateGrant
 --
--- -   GrantOperation.DescribeKey
+-- -   kms:DescribeKey
 --
--- -   GrantOperation.RetireGrant
+-- -   kms:RetireGrant
 startExportTask_kmsKeyId :: Lens.Lens' StartExportTask Prelude.Text
 startExportTask_kmsKeyId = Lens.lens (\StartExportTask' {kmsKeyId} -> kmsKeyId) (\s@StartExportTask' {} a -> s {kmsKeyId = a} :: StartExportTask)
 

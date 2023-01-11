@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.RestoreDBInstanceFromS3
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,9 @@ module Amazonka.RDS.RestoreDBInstanceFromS3
     restoreDBInstanceFromS3_iops,
     restoreDBInstanceFromS3_kmsKeyId,
     restoreDBInstanceFromS3_licenseModel,
+    restoreDBInstanceFromS3_manageMasterUserPassword,
     restoreDBInstanceFromS3_masterUserPassword,
+    restoreDBInstanceFromS3_masterUserSecretKmsKeyId,
     restoreDBInstanceFromS3_masterUsername,
     restoreDBInstanceFromS3_maxAllocatedStorage,
     restoreDBInstanceFromS3_monitoringInterval,
@@ -205,11 +207,65 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The license model for this DB instance. Use @general-public-license@.
     licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to manage the master user password with
+    -- Amazon Web Services Secrets Manager.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- Constraints:
+    --
+    -- -   Can\'t manage the master user password with Amazon Web Services
+    --     Secrets Manager if @MasterUserPassword@ is specified.
+    manageMasterUserPassword :: Prelude.Maybe Prelude.Bool,
     -- | The password for the master user. The password can include any printable
     -- ASCII character except \"\/\", \"\"\", or \"\@\".
     --
+    -- Constraints: Can\'t be specified if @ManageMasterUserPassword@ is turned
+    -- on.
+    --
+    -- __MariaDB__
+    --
     -- Constraints: Must contain from 8 to 41 characters.
+    --
+    -- __Microsoft SQL Server__
+    --
+    -- Constraints: Must contain from 8 to 128 characters.
+    --
+    -- __MySQL__
+    --
+    -- Constraints: Must contain from 8 to 41 characters.
+    --
+    -- __Oracle__
+    --
+    -- Constraints: Must contain from 8 to 30 characters.
+    --
+    -- __PostgreSQL__
+    --
+    -- Constraints: Must contain from 8 to 128 characters.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+    -- automatically generated and managed in Amazon Web Services Secrets
+    -- Manager.
+    --
+    -- This setting is valid only if the master user password is managed by RDS
+    -- in Amazon Web Services Secrets Manager for the DB instance.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the KMS key. To use a KMS key in a different
+    -- Amazon Web Services account, specify the key ARN or alias ARN.
+    --
+    -- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+    -- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+    -- secret is in a different Amazon Web Services account, then you can\'t
+    -- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+    -- must use a customer managed KMS key.
+    --
+    -- There is a default KMS key for your Amazon Web Services account. Your
+    -- Amazon Web Services account has a different default KMS key for each
+    -- Amazon Web Services Region.
+    masterUserSecretKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name for the master user.
     --
     -- Constraints:
@@ -548,10 +604,64 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 --
 -- 'licenseModel', 'restoreDBInstanceFromS3_licenseModel' - The license model for this DB instance. Use @general-public-license@.
 --
+-- 'manageMasterUserPassword', 'restoreDBInstanceFromS3_manageMasterUserPassword' - A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+--
 -- 'masterUserPassword', 'restoreDBInstanceFromS3_masterUserPassword' - The password for the master user. The password can include any printable
 -- ASCII character except \"\/\", \"\"\", or \"\@\".
 --
+-- Constraints: Can\'t be specified if @ManageMasterUserPassword@ is turned
+-- on.
+--
+-- __MariaDB__
+--
 -- Constraints: Must contain from 8 to 41 characters.
+--
+-- __Microsoft SQL Server__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+--
+-- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __Oracle__
+--
+-- Constraints: Must contain from 8 to 30 characters.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+--
+-- 'masterUserSecretKmsKeyId', 'restoreDBInstanceFromS3_masterUserSecretKmsKeyId' - The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB instance.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+-- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+-- secret is in a different Amazon Web Services account, then you can\'t
+-- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+-- must use a customer managed KMS key.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
 --
 -- 'masterUsername', 'restoreDBInstanceFromS3_masterUsername' - The name for the master user.
 --
@@ -819,7 +929,9 @@ newRestoreDBInstanceFromS3
         iops = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         licenseModel = Prelude.Nothing,
+        manageMasterUserPassword = Prelude.Nothing,
         masterUserPassword = Prelude.Nothing,
+        masterUserSecretKmsKeyId = Prelude.Nothing,
         masterUsername = Prelude.Nothing,
         maxAllocatedStorage = Prelude.Nothing,
         monitoringInterval = Prelude.Nothing,
@@ -988,12 +1100,70 @@ restoreDBInstanceFromS3_kmsKeyId = Lens.lens (\RestoreDBInstanceFromS3' {kmsKeyI
 restoreDBInstanceFromS3_licenseModel :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromS3_licenseModel = Lens.lens (\RestoreDBInstanceFromS3' {licenseModel} -> licenseModel) (\s@RestoreDBInstanceFromS3' {} a -> s {licenseModel = a} :: RestoreDBInstanceFromS3)
 
+-- | A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+restoreDBInstanceFromS3_manageMasterUserPassword :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_manageMasterUserPassword = Lens.lens (\RestoreDBInstanceFromS3' {manageMasterUserPassword} -> manageMasterUserPassword) (\s@RestoreDBInstanceFromS3' {} a -> s {manageMasterUserPassword = a} :: RestoreDBInstanceFromS3)
+
 -- | The password for the master user. The password can include any printable
 -- ASCII character except \"\/\", \"\"\", or \"\@\".
 --
+-- Constraints: Can\'t be specified if @ManageMasterUserPassword@ is turned
+-- on.
+--
+-- __MariaDB__
+--
 -- Constraints: Must contain from 8 to 41 characters.
+--
+-- __Microsoft SQL Server__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+--
+-- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __Oracle__
+--
+-- Constraints: Must contain from 8 to 30 characters.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must contain from 8 to 128 characters.
 restoreDBInstanceFromS3_masterUserPassword :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromS3_masterUserPassword = Lens.lens (\RestoreDBInstanceFromS3' {masterUserPassword} -> masterUserPassword) (\s@RestoreDBInstanceFromS3' {} a -> s {masterUserPassword = a} :: RestoreDBInstanceFromS3)
+
+-- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB instance.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+-- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+-- secret is in a different Amazon Web Services account, then you can\'t
+-- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+-- must use a customer managed KMS key.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
+restoreDBInstanceFromS3_masterUserSecretKmsKeyId :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_masterUserSecretKmsKeyId = Lens.lens (\RestoreDBInstanceFromS3' {masterUserSecretKmsKeyId} -> masterUserSecretKmsKeyId) (\s@RestoreDBInstanceFromS3' {} a -> s {masterUserSecretKmsKeyId = a} :: RestoreDBInstanceFromS3)
 
 -- | The name for the master user.
 --
@@ -1309,7 +1479,9 @@ instance Prelude.Hashable RestoreDBInstanceFromS3 where
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` manageMasterUserPassword
       `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` masterUserSecretKmsKeyId
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` maxAllocatedStorage
       `Prelude.hashWithSalt` monitoringInterval
@@ -1358,7 +1530,11 @@ instance Prelude.NFData RestoreDBInstanceFromS3 where
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf
+        manageMasterUserPassword
       `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf
+        masterUserSecretKmsKeyId
       `Prelude.seq` Prelude.rnf masterUsername
       `Prelude.seq` Prelude.rnf
         maxAllocatedStorage
@@ -1456,7 +1632,11 @@ instance Data.ToQuery RestoreDBInstanceFromS3 where
         "Iops" Data.=: iops,
         "KmsKeyId" Data.=: kmsKeyId,
         "LicenseModel" Data.=: licenseModel,
+        "ManageMasterUserPassword"
+          Data.=: manageMasterUserPassword,
         "MasterUserPassword" Data.=: masterUserPassword,
+        "MasterUserSecretKmsKeyId"
+          Data.=: masterUserSecretKmsKeyId,
         "MasterUsername" Data.=: masterUsername,
         "MaxAllocatedStorage" Data.=: maxAllocatedStorage,
         "MonitoringInterval" Data.=: monitoringInterval,

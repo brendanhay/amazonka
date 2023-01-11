@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.DBEngineVersion
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.CharacterSet
+import Amazonka.RDS.Types.CustomDBEngineVersionAMI
 import Amazonka.RDS.Types.Tag
 import Amazonka.RDS.Types.Timezone
 import Amazonka.RDS.Types.UpgradeTarget
@@ -45,6 +46,9 @@ data DBEngineVersion = DBEngineVersion'
     customDBEngineVersionManifest :: Prelude.Maybe Prelude.Text,
     -- | The description of the database engine.
     dbEngineDescription :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates the source media provider of the AMI based on the
+    -- usage operation. Applicable for RDS Custom for SQL Server.
+    dbEngineMediaType :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the custom engine version.
     dbEngineVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The description of the database engine version.
@@ -68,6 +72,8 @@ data DBEngineVersion = DBEngineVersion'
     -- | The types of logs that the database engine has available for export to
     -- CloudWatch Logs.
     exportableLogTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The EC2 image
+    image :: Prelude.Maybe CustomDBEngineVersionAMI,
     -- | The Amazon Web Services KMS key identifier for an encrypted CEV. This
     -- parameter is required for RDS Custom, but optional for Amazon RDS.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
@@ -75,6 +81,14 @@ data DBEngineVersion = DBEngineVersion'
     majorEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | The status of the DB engine version, either @available@ or @deprecated@.
     status :: Prelude.Maybe Prelude.Text,
+    -- | A list of the supported CA certificate identifiers.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+    -- in the /Amazon Aurora User Guide/.
+    supportedCACertificateIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | A list of the character sets supported by this engine for the
     -- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
     supportedCharacterSets :: Prelude.Maybe [CharacterSet],
@@ -106,6 +120,9 @@ data DBEngineVersion = DBEngineVersion'
     -- | A value that indicates whether the engine version supports Babelfish for
     -- Aurora PostgreSQL.
     supportsBabelfish :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether the engine version supports rotating the
+    -- server certificate without rebooting the DB instance.
+    supportsCertificateRotationWithoutRestart :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether you can use Aurora global databases with
     -- a specific DB engine version.
     supportsGlobalDatabases :: Prelude.Maybe Prelude.Bool,
@@ -144,6 +161,9 @@ data DBEngineVersion = DBEngineVersion'
 --
 -- 'dbEngineDescription', 'dbEngineVersion_dbEngineDescription' - The description of the database engine.
 --
+-- 'dbEngineMediaType', 'dbEngineVersion_dbEngineMediaType' - A value that indicates the source media provider of the AMI based on the
+-- usage operation. Applicable for RDS Custom for SQL Server.
+--
 -- 'dbEngineVersionArn', 'dbEngineVersion_dbEngineVersionArn' - The ARN of the custom engine version.
 --
 -- 'dbEngineVersionDescription', 'dbEngineVersion_dbEngineVersionDescription' - The description of the database engine version.
@@ -167,12 +187,22 @@ data DBEngineVersion = DBEngineVersion'
 -- 'exportableLogTypes', 'dbEngineVersion_exportableLogTypes' - The types of logs that the database engine has available for export to
 -- CloudWatch Logs.
 --
+-- 'image', 'dbEngineVersion_image' - The EC2 image
+--
 -- 'kmsKeyId', 'dbEngineVersion_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted CEV. This
 -- parameter is required for RDS Custom, but optional for Amazon RDS.
 --
 -- 'majorEngineVersion', 'dbEngineVersion_majorEngineVersion' - The major engine version of the CEV.
 --
 -- 'status', 'dbEngineVersion_status' - The status of the DB engine version, either @available@ or @deprecated@.
+--
+-- 'supportedCACertificateIdentifiers', 'dbEngineVersion_supportedCACertificateIdentifiers' - A list of the supported CA certificate identifiers.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+-- in the /Amazon Aurora User Guide/.
 --
 -- 'supportedCharacterSets', 'dbEngineVersion_supportedCharacterSets' - A list of the character sets supported by this engine for the
 -- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
@@ -205,6 +235,9 @@ data DBEngineVersion = DBEngineVersion'
 -- 'supportsBabelfish', 'dbEngineVersion_supportsBabelfish' - A value that indicates whether the engine version supports Babelfish for
 -- Aurora PostgreSQL.
 --
+-- 'supportsCertificateRotationWithoutRestart', 'dbEngineVersion_supportsCertificateRotationWithoutRestart' - A value that indicates whether the engine version supports rotating the
+-- server certificate without rebooting the DB instance.
+--
 -- 'supportsGlobalDatabases', 'dbEngineVersion_supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with
 -- a specific DB engine version.
 --
@@ -227,6 +260,7 @@ newDBEngineVersion =
     { createTime = Prelude.Nothing,
       customDBEngineVersionManifest = Prelude.Nothing,
       dbEngineDescription = Prelude.Nothing,
+      dbEngineMediaType = Prelude.Nothing,
       dbEngineVersionArn = Prelude.Nothing,
       dbEngineVersionDescription = Prelude.Nothing,
       dbParameterGroupFamily = Prelude.Nothing,
@@ -237,15 +271,19 @@ newDBEngineVersion =
       engine = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       exportableLogTypes = Prelude.Nothing,
+      image = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       majorEngineVersion = Prelude.Nothing,
       status = Prelude.Nothing,
+      supportedCACertificateIdentifiers = Prelude.Nothing,
       supportedCharacterSets = Prelude.Nothing,
       supportedEngineModes = Prelude.Nothing,
       supportedFeatureNames = Prelude.Nothing,
       supportedNcharCharacterSets = Prelude.Nothing,
       supportedTimezones = Prelude.Nothing,
       supportsBabelfish = Prelude.Nothing,
+      supportsCertificateRotationWithoutRestart =
+        Prelude.Nothing,
       supportsGlobalDatabases = Prelude.Nothing,
       supportsLogExportsToCloudwatchLogs = Prelude.Nothing,
       supportsParallelQuery = Prelude.Nothing,
@@ -271,6 +309,11 @@ dbEngineVersion_customDBEngineVersionManifest = Lens.lens (\DBEngineVersion' {cu
 -- | The description of the database engine.
 dbEngineVersion_dbEngineDescription :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_dbEngineDescription = Lens.lens (\DBEngineVersion' {dbEngineDescription} -> dbEngineDescription) (\s@DBEngineVersion' {} a -> s {dbEngineDescription = a} :: DBEngineVersion)
+
+-- | A value that indicates the source media provider of the AMI based on the
+-- usage operation. Applicable for RDS Custom for SQL Server.
+dbEngineVersion_dbEngineMediaType :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_dbEngineMediaType = Lens.lens (\DBEngineVersion' {dbEngineMediaType} -> dbEngineMediaType) (\s@DBEngineVersion' {} a -> s {dbEngineMediaType = a} :: DBEngineVersion)
 
 -- | The ARN of the custom engine version.
 dbEngineVersion_dbEngineVersionArn :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
@@ -313,6 +356,10 @@ dbEngineVersion_engineVersion = Lens.lens (\DBEngineVersion' {engineVersion} -> 
 dbEngineVersion_exportableLogTypes :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Prelude.Text])
 dbEngineVersion_exportableLogTypes = Lens.lens (\DBEngineVersion' {exportableLogTypes} -> exportableLogTypes) (\s@DBEngineVersion' {} a -> s {exportableLogTypes = a} :: DBEngineVersion) Prelude.. Lens.mapping Lens.coerced
 
+-- | The EC2 image
+dbEngineVersion_image :: Lens.Lens' DBEngineVersion (Prelude.Maybe CustomDBEngineVersionAMI)
+dbEngineVersion_image = Lens.lens (\DBEngineVersion' {image} -> image) (\s@DBEngineVersion' {} a -> s {image = a} :: DBEngineVersion)
+
 -- | The Amazon Web Services KMS key identifier for an encrypted CEV. This
 -- parameter is required for RDS Custom, but optional for Amazon RDS.
 dbEngineVersion_kmsKeyId :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
@@ -325,6 +372,16 @@ dbEngineVersion_majorEngineVersion = Lens.lens (\DBEngineVersion' {majorEngineVe
 -- | The status of the DB engine version, either @available@ or @deprecated@.
 dbEngineVersion_status :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
 dbEngineVersion_status = Lens.lens (\DBEngineVersion' {status} -> status) (\s@DBEngineVersion' {} a -> s {status = a} :: DBEngineVersion)
+
+-- | A list of the supported CA certificate identifiers.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+-- in the /Amazon Aurora User Guide/.
+dbEngineVersion_supportedCACertificateIdentifiers :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Prelude.Text])
+dbEngineVersion_supportedCACertificateIdentifiers = Lens.lens (\DBEngineVersion' {supportedCACertificateIdentifiers} -> supportedCACertificateIdentifiers) (\s@DBEngineVersion' {} a -> s {supportedCACertificateIdentifiers = a} :: DBEngineVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of the character sets supported by this engine for the
 -- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
@@ -369,6 +426,11 @@ dbEngineVersion_supportedTimezones = Lens.lens (\DBEngineVersion' {supportedTime
 dbEngineVersion_supportsBabelfish :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
 dbEngineVersion_supportsBabelfish = Lens.lens (\DBEngineVersion' {supportsBabelfish} -> supportsBabelfish) (\s@DBEngineVersion' {} a -> s {supportsBabelfish = a} :: DBEngineVersion)
 
+-- | A value that indicates whether the engine version supports rotating the
+-- server certificate without rebooting the DB instance.
+dbEngineVersion_supportsCertificateRotationWithoutRestart :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
+dbEngineVersion_supportsCertificateRotationWithoutRestart = Lens.lens (\DBEngineVersion' {supportsCertificateRotationWithoutRestart} -> supportsCertificateRotationWithoutRestart) (\s@DBEngineVersion' {} a -> s {supportsCertificateRotationWithoutRestart = a} :: DBEngineVersion)
+
 -- | A value that indicates whether you can use Aurora global databases with
 -- a specific DB engine version.
 dbEngineVersion_supportsGlobalDatabases :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
@@ -403,6 +465,7 @@ instance Data.FromXML DBEngineVersion where
       Prelude.<$> (x Data..@? "CreateTime")
       Prelude.<*> (x Data..@? "CustomDBEngineVersionManifest")
       Prelude.<*> (x Data..@? "DBEngineDescription")
+      Prelude.<*> (x Data..@? "DBEngineMediaType")
       Prelude.<*> (x Data..@? "DBEngineVersionArn")
       Prelude.<*> (x Data..@? "DBEngineVersionDescription")
       Prelude.<*> (x Data..@? "DBParameterGroupFamily")
@@ -415,9 +478,14 @@ instance Data.FromXML DBEngineVersion where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
+      Prelude.<*> (x Data..@? "Image")
       Prelude.<*> (x Data..@? "KMSKeyId")
       Prelude.<*> (x Data..@? "MajorEngineVersion")
       Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> ( x Data..@? "SupportedCACertificateIdentifiers"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
       Prelude.<*> ( x Data..@? "SupportedCharacterSets"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CharacterSet")
@@ -439,6 +507,9 @@ instance Data.FromXML DBEngineVersion where
                       Prelude.>>= Core.may (Data.parseXMLList "Timezone")
                   )
       Prelude.<*> (x Data..@? "SupportsBabelfish")
+      Prelude.<*> ( x
+                      Data..@? "SupportsCertificateRotationWithoutRestart"
+                  )
       Prelude.<*> (x Data..@? "SupportsGlobalDatabases")
       Prelude.<*> (x Data..@? "SupportsLogExportsToCloudwatchLogs")
       Prelude.<*> (x Data..@? "SupportsParallelQuery")
@@ -456,6 +527,7 @@ instance Prelude.Hashable DBEngineVersion where
     _salt `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` customDBEngineVersionManifest
       `Prelude.hashWithSalt` dbEngineDescription
+      `Prelude.hashWithSalt` dbEngineMediaType
       `Prelude.hashWithSalt` dbEngineVersionArn
       `Prelude.hashWithSalt` dbEngineVersionDescription
       `Prelude.hashWithSalt` dbParameterGroupFamily
@@ -465,15 +537,18 @@ instance Prelude.Hashable DBEngineVersion where
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` exportableLogTypes
+      `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` majorEngineVersion
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` supportedCACertificateIdentifiers
       `Prelude.hashWithSalt` supportedCharacterSets
       `Prelude.hashWithSalt` supportedEngineModes
       `Prelude.hashWithSalt` supportedFeatureNames
       `Prelude.hashWithSalt` supportedNcharCharacterSets
       `Prelude.hashWithSalt` supportedTimezones
       `Prelude.hashWithSalt` supportsBabelfish
+      `Prelude.hashWithSalt` supportsCertificateRotationWithoutRestart
       `Prelude.hashWithSalt` supportsGlobalDatabases
       `Prelude.hashWithSalt` supportsLogExportsToCloudwatchLogs
       `Prelude.hashWithSalt` supportsParallelQuery
@@ -486,6 +561,7 @@ instance Prelude.NFData DBEngineVersion where
     Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf customDBEngineVersionManifest
       `Prelude.seq` Prelude.rnf dbEngineDescription
+      `Prelude.seq` Prelude.rnf dbEngineMediaType
       `Prelude.seq` Prelude.rnf dbEngineVersionArn
       `Prelude.seq` Prelude.rnf dbEngineVersionDescription
       `Prelude.seq` Prelude.rnf dbParameterGroupFamily
@@ -495,17 +571,26 @@ instance Prelude.NFData DBEngineVersion where
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf exportableLogTypes
+      `Prelude.seq` Prelude.rnf image
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf majorEngineVersion
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf supportedCharacterSets
-      `Prelude.seq` Prelude.rnf supportedEngineModes
-      `Prelude.seq` Prelude.rnf supportedFeatureNames
+      `Prelude.seq` Prelude.rnf
+        supportedCACertificateIdentifiers
+      `Prelude.seq` Prelude.rnf
+        supportedCharacterSets
+      `Prelude.seq` Prelude.rnf
+        supportedEngineModes
+      `Prelude.seq` Prelude.rnf
+        supportedFeatureNames
       `Prelude.seq` Prelude.rnf
         supportedNcharCharacterSets
-      `Prelude.seq` Prelude.rnf supportedTimezones
+      `Prelude.seq` Prelude.rnf
+        supportedTimezones
       `Prelude.seq` Prelude.rnf
         supportsBabelfish
+      `Prelude.seq` Prelude.rnf
+        supportsCertificateRotationWithoutRestart
       `Prelude.seq` Prelude.rnf
         supportsGlobalDatabases
       `Prelude.seq` Prelude.rnf

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig.Types.NewGatingRule
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ data NewGatingRule = NewGatingRule'
   { -- | Routing controls that can only be set or unset if the specified
     -- RuleConfig evaluates to true for the specified GatingControls. For
     -- example, say you have three gating controls, one for each of three
-    -- Amazon Web Services Regions. Now you specify AtLeast 2 as your
+    -- Amazon Web Services Regions. Now you specify ATLEAST 2 as your
     -- RuleConfig. With these settings, you can only change (set or unset) the
     -- routing controls that you have specified as TargetControls if that rule
     -- evaluates to true.
@@ -47,8 +47,8 @@ data NewGatingRule = NewGatingRule'
     -- that are evaluated by the rule configuration that you specify.
     gatingControls :: [Prelude.Text],
     -- | The criteria that you set for specific gating controls (routing
-    -- controls) that designates how many control states must be ON to allow
-    -- you to change (set or unset) the target control states.
+    -- controls) that designate how many control states must be ON to allow you
+    -- to change (set or unset) the target control states.
     ruleConfig :: RuleConfig,
     -- | An evaluation period, in milliseconds (ms), during which any request
     -- against the target routing controls will fail. This helps prevent
@@ -71,7 +71,7 @@ data NewGatingRule = NewGatingRule'
 -- 'targetControls', 'newGatingRule_targetControls' - Routing controls that can only be set or unset if the specified
 -- RuleConfig evaluates to true for the specified GatingControls. For
 -- example, say you have three gating controls, one for each of three
--- Amazon Web Services Regions. Now you specify AtLeast 2 as your
+-- Amazon Web Services Regions. Now you specify ATLEAST 2 as your
 -- RuleConfig. With these settings, you can only change (set or unset) the
 -- routing controls that you have specified as TargetControls if that rule
 -- evaluates to true.
@@ -86,8 +86,8 @@ data NewGatingRule = NewGatingRule'
 -- that are evaluated by the rule configuration that you specify.
 --
 -- 'ruleConfig', 'newGatingRule_ruleConfig' - The criteria that you set for specific gating controls (routing
--- controls) that designates how many control states must be ON to allow
--- you to change (set or unset) the target control states.
+-- controls) that designate how many control states must be ON to allow you
+-- to change (set or unset) the target control states.
 --
 -- 'waitPeriodMs', 'newGatingRule_waitPeriodMs' - An evaluation period, in milliseconds (ms), during which any request
 -- against the target routing controls will fail. This helps prevent
@@ -122,7 +122,7 @@ newNewGatingRule
 -- | Routing controls that can only be set or unset if the specified
 -- RuleConfig evaluates to true for the specified GatingControls. For
 -- example, say you have three gating controls, one for each of three
--- Amazon Web Services Regions. Now you specify AtLeast 2 as your
+-- Amazon Web Services Regions. Now you specify ATLEAST 2 as your
 -- RuleConfig. With these settings, you can only change (set or unset) the
 -- routing controls that you have specified as TargetControls if that rule
 -- evaluates to true.
@@ -143,8 +143,8 @@ newGatingRule_gatingControls :: Lens.Lens' NewGatingRule [Prelude.Text]
 newGatingRule_gatingControls = Lens.lens (\NewGatingRule' {gatingControls} -> gatingControls) (\s@NewGatingRule' {} a -> s {gatingControls = a} :: NewGatingRule) Prelude.. Lens.coerced
 
 -- | The criteria that you set for specific gating controls (routing
--- controls) that designates how many control states must be ON to allow
--- you to change (set or unset) the target control states.
+-- controls) that designate how many control states must be ON to allow you
+-- to change (set or unset) the target control states.
 newGatingRule_ruleConfig :: Lens.Lens' NewGatingRule RuleConfig
 newGatingRule_ruleConfig = Lens.lens (\NewGatingRule' {ruleConfig} -> ruleConfig) (\s@NewGatingRule' {} a -> s {ruleConfig = a} :: NewGatingRule)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig.ListAssociatedRoute53HealthChecks
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@
 --
 -- Returns an array of all Amazon Route 53 health checks associated with a
 -- specific routing control.
+--
+-- This operation returns paginated results.
 module Amazonka.Route53RecoveryControlConfig.ListAssociatedRoute53HealthChecks
   ( -- * Creating a Request
     ListAssociatedRoute53HealthChecks (..),
@@ -99,6 +101,31 @@ listAssociatedRoute53HealthChecks_nextToken = Lens.lens (\ListAssociatedRoute53H
 -- | The Amazon Resource Name (ARN) of the routing control.
 listAssociatedRoute53HealthChecks_routingControlArn :: Lens.Lens' ListAssociatedRoute53HealthChecks Prelude.Text
 listAssociatedRoute53HealthChecks_routingControlArn = Lens.lens (\ListAssociatedRoute53HealthChecks' {routingControlArn} -> routingControlArn) (\s@ListAssociatedRoute53HealthChecks' {} a -> s {routingControlArn = a} :: ListAssociatedRoute53HealthChecks)
+
+instance
+  Core.AWSPager
+    ListAssociatedRoute53HealthChecks
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listAssociatedRoute53HealthChecksResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listAssociatedRoute53HealthChecksResponse_healthCheckIds
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listAssociatedRoute53HealthChecks_nextToken
+          Lens..~ rs
+          Lens.^? listAssociatedRoute53HealthChecksResponse_nextToken
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

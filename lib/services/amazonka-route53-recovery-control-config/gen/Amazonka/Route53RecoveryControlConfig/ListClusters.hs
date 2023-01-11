@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig.ListClusters
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of all the clusters in an account.
+--
+-- This operation returns paginated results.
 module Amazonka.Route53RecoveryControlConfig.ListClusters
   ( -- * Creating a Request
     ListClusters (..),
@@ -84,6 +86,25 @@ listClusters_maxResults = Lens.lens (\ListClusters' {maxResults} -> maxResults) 
 -- | The token that identifies which batch of results you want to see.
 listClusters_nextToken :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
 listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s@ListClusters' {} a -> s {nextToken = a} :: ListClusters)
+
+instance Core.AWSPager ListClusters where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listClustersResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listClustersResponse_clusters Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listClusters_nextToken
+          Lens..~ rs
+          Lens.^? listClustersResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClusters where
   type AWSResponse ListClusters = ListClustersResponse

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig.Types.GatingRule
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@ import Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
 import Amazonka.Route53RecoveryControlConfig.Types.Status
 
 -- | A gating rule verifies that a gating routing control or set of gating
--- rounting controls, evaluates as true, based on a rule configuration that
+-- routing controls, evaluates as true, based on a rule configuration that
 -- you specify, which allows a set of routing control state changes to
 -- complete.
 --
@@ -48,7 +48,7 @@ data GatingRule = GatingRule'
     -- specify evaluates to true for the gating routing control. As a simple
     -- example, if you have a single gating control, it acts as an overall
     -- \"on\/off\" switch for a set of target routing controls. You can use
-    -- this to manually override automated fail over, for example.
+    -- this to manually override automated failover, for example.
     targetControls :: [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the control panel.
     controlPanelArn :: Prelude.Text,
@@ -60,8 +60,8 @@ data GatingRule = GatingRule'
     -- specify to determine if the target routing control states can be
     -- changed.
     gatingControls :: [Prelude.Text],
-    -- | The criteria that you set for gating routing controls that designates
-    -- how many of the routing control states must be ON to allow you to update
+    -- | The criteria that you set for gating routing controls that designate how
+    -- many of the routing control states must be ON to allow you to update
     -- target routing control states.
     ruleConfig :: RuleConfig,
     -- | An evaluation period, in milliseconds (ms), during which any request
@@ -91,7 +91,7 @@ data GatingRule = GatingRule'
 -- specify evaluates to true for the gating routing control. As a simple
 -- example, if you have a single gating control, it acts as an overall
 -- \"on\/off\" switch for a set of target routing controls. You can use
--- this to manually override automated fail over, for example.
+-- this to manually override automated failover, for example.
 --
 -- 'controlPanelArn', 'gatingRule_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel.
 --
@@ -103,8 +103,8 @@ data GatingRule = GatingRule'
 -- specify to determine if the target routing control states can be
 -- changed.
 --
--- 'ruleConfig', 'gatingRule_ruleConfig' - The criteria that you set for gating routing controls that designates
--- how many of the routing control states must be ON to allow you to update
+-- 'ruleConfig', 'gatingRule_ruleConfig' - The criteria that you set for gating routing controls that designate how
+-- many of the routing control states must be ON to allow you to update
 -- target routing control states.
 --
 -- 'waitPeriodMs', 'gatingRule_waitPeriodMs' - An evaluation period, in milliseconds (ms), during which any request
@@ -156,7 +156,7 @@ gatingRule_status = Lens.lens (\GatingRule' {status} -> status) (\s@GatingRule' 
 -- specify evaluates to true for the gating routing control. As a simple
 -- example, if you have a single gating control, it acts as an overall
 -- \"on\/off\" switch for a set of target routing controls. You can use
--- this to manually override automated fail over, for example.
+-- this to manually override automated failover, for example.
 gatingRule_targetControls :: Lens.Lens' GatingRule [Prelude.Text]
 gatingRule_targetControls = Lens.lens (\GatingRule' {targetControls} -> targetControls) (\s@GatingRule' {} a -> s {targetControls = a} :: GatingRule) Prelude.. Lens.coerced
 
@@ -176,8 +176,8 @@ gatingRule_safetyRuleArn = Lens.lens (\GatingRule' {safetyRuleArn} -> safetyRule
 gatingRule_gatingControls :: Lens.Lens' GatingRule [Prelude.Text]
 gatingRule_gatingControls = Lens.lens (\GatingRule' {gatingControls} -> gatingControls) (\s@GatingRule' {} a -> s {gatingControls = a} :: GatingRule) Prelude.. Lens.coerced
 
--- | The criteria that you set for gating routing controls that designates
--- how many of the routing control states must be ON to allow you to update
+-- | The criteria that you set for gating routing controls that designate how
+-- many of the routing control states must be ON to allow you to update
 -- target routing control states.
 gatingRule_ruleConfig :: Lens.Lens' GatingRule RuleConfig
 gatingRule_ruleConfig = Lens.lens (\GatingRule' {ruleConfig} -> ruleConfig) (\s@GatingRule' {} a -> s {ruleConfig = a} :: GatingRule)

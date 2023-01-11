@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IVS.Types.StreamSession
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,14 +38,14 @@ data StreamSession = StreamSession'
     channel :: Prelude.Maybe Channel,
     -- | Time when the channel went offline. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/. For live streams, this is @NULL@.
-    endTime :: Prelude.Maybe Data.POSIX,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The properties of the incoming RTMP stream for the stream.
     ingestConfiguration :: Prelude.Maybe IngestConfiguration,
     -- | The properties of recording the live stream.
     recordingConfiguration :: Prelude.Maybe RecordingConfiguration,
     -- | Time when the channel went live. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
-    startTime :: Prelude.Maybe Data.POSIX,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | Unique identifier for a live or previously live stream in the specified
     -- channel.
     streamId :: Prelude.Maybe Prelude.Text,

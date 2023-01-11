@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IVS.Types.StreamEvent
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data StreamEvent = StreamEvent'
   { -- | Time when the event occurred. This is an ISO 8601 timestamp; /note that
     -- this is returned as a string/.
-    eventTime :: Prelude.Maybe Data.POSIX,
+    eventTime :: Prelude.Maybe Data.ISO8601,
     -- | Name that identifies the stream event within a @type@.
     name :: Prelude.Maybe Prelude.Text,
     -- | Logical group for certain events.

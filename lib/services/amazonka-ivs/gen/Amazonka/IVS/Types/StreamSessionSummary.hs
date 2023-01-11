@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IVS.Types.StreamSessionSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data StreamSessionSummary = StreamSessionSummary'
   { -- | Time when the channel went offline. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/. For live streams, this is @NULL@.
-    endTime :: Prelude.Maybe Data.POSIX,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | If @true@, this stream encountered a quota breach or failure.
     hasErrorEvent :: Prelude.Maybe Prelude.Bool,
     -- | Time when the channel went live. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
-    startTime :: Prelude.Maybe Data.POSIX,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | Unique identifier for a live or previously live stream in the specified
     -- channel.
     streamId :: Prelude.Maybe Prelude.Text

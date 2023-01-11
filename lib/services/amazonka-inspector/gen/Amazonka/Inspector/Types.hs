@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Inspector.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -485,7 +485,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have required permissions to access the requested resource.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -493,7 +493,7 @@ _AccessDeniedException =
 
 -- | You started an assessment run, but one of the instances is already
 -- participating in another assessment run.
-_AgentsAlreadyRunningAssessmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AgentsAlreadyRunningAssessmentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AgentsAlreadyRunningAssessmentException =
   Core._MatchServiceError
     defaultService
@@ -501,14 +501,14 @@ _AgentsAlreadyRunningAssessmentException =
 
 -- | You cannot perform a specified action if an assessment run is currently
 -- in progress.
-_AssessmentRunInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssessmentRunInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AssessmentRunInProgressException =
   Core._MatchServiceError
     defaultService
     "AssessmentRunInProgressException"
 
 -- | Internal server error.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
@@ -516,7 +516,7 @@ _InternalException =
 
 -- | Amazon Inspector cannot assume the cross-account role that it needs to
 -- list your EC2 instances during the assessment run.
-_InvalidCrossAccountRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCrossAccountRoleException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidCrossAccountRoleException =
   Core._MatchServiceError
     defaultService
@@ -524,7 +524,7 @@ _InvalidCrossAccountRoleException =
 
 -- | The request was rejected because an invalid or out-of-range value was
 -- supplied for an input parameter.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -533,7 +533,7 @@ _InvalidInputException =
 -- | The request was rejected because it attempted to create resources beyond
 -- the current AWS account limits. The error code describes the limit
 -- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -541,7 +541,7 @@ _LimitExceededException =
 
 -- | The request was rejected because it referenced an entity that does not
 -- exist. The error code describes the entity.
-_NoSuchEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchEntityException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoSuchEntityException =
   Core._MatchServiceError
     defaultService
@@ -549,14 +549,14 @@ _NoSuchEntityException =
 
 -- | The request is rejected. The specified assessment template is currently
 -- generating an exclusions preview.
-_PreviewGenerationInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreviewGenerationInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PreviewGenerationInProgressException =
   Core._MatchServiceError
     defaultService
     "PreviewGenerationInProgressException"
 
 -- | The serice is temporary unavailable.
-_ServiceTemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceTemporarilyUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceTemporarilyUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -567,7 +567,7 @@ _ServiceTemporarilyUnavailableException =
 -- reporting was supported in Amazon Inspector. You can only generate
 -- reports for assessment runs that took place or will take place after
 -- generating reports in Amazon Inspector became available.
-_UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedFeatureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedFeatureException =
   Core._MatchServiceError
     defaultService

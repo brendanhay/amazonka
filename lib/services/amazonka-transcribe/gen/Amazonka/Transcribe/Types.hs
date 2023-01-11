@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Transcribe.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -542,7 +542,7 @@ defaultService =
 -- when the entity you\'re trying to delete doesn\'t exist or if it\'s in a
 -- non-terminal state (such as @IN PROGRESS@). See the exception message
 -- field for more information.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -550,7 +550,7 @@ _BadRequestException =
 
 -- | A resource already exists with this name. Resource names must be unique
 -- within an Amazon Web Services account.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -558,7 +558,7 @@ _ConflictException =
 
 -- | There was an internal error. Check the error message, correct the issue,
 -- and try your request again.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -567,7 +567,7 @@ _InternalFailureException =
 -- | You\'ve either sent too many requests or your input file is too long.
 -- Wait before retrying your request, or use a smaller file and try your
 -- request again.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -575,7 +575,7 @@ _LimitExceededException =
 
 -- | We can\'t find the requested resource. Check that the specified name is
 -- correct and try your request again.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService

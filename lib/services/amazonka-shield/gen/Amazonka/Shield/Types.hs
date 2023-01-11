@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Shield.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -393,7 +393,7 @@ defaultService =
 -- | Exception that indicates the specified @AttackId@ does not exist, or the
 -- requester does not have the appropriate permissions to access the
 -- @AttackId@.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -404,7 +404,7 @@ _AccessDeniedException =
 -- This error indicates the user did not have the appropriate permissions.
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html Granting a User Permissions to Pass a Role to an Amazon Web Services Service>.
-_AccessDeniedForDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedForDependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedForDependencyException =
   Core._MatchServiceError
     defaultService
@@ -412,7 +412,7 @@ _AccessDeniedForDependencyException =
 
 -- | Exception that indicates that a problem occurred with the service
 -- infrastructure. You can retry the request.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
@@ -420,7 +420,7 @@ _InternalErrorException =
 
 -- | Exception that indicates that the operation would not cause any change
 -- to occur.
-_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidOperationException =
   Core._MatchServiceError
     defaultService
@@ -429,7 +429,7 @@ _InvalidOperationException =
 -- | Exception that indicates that the @NextToken@ specified in the request
 -- is invalid. Submit the request using the @NextToken@ value that was
 -- returned in the prior response.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPaginationTokenException =
   Core._MatchServiceError
     defaultService
@@ -438,7 +438,7 @@ _InvalidPaginationTokenException =
 -- | Exception that indicates that the parameters passed to the API are
 -- invalid. If available, this exception includes details in additional
 -- properties.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -446,14 +446,14 @@ _InvalidParameterException =
 
 -- | Exception that indicates that the resource is invalid. You might not
 -- have access to the resource, or the resource might not exist.
-_InvalidResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidResourceException =
   Core._MatchServiceError
     defaultService
     "InvalidResourceException"
 
 -- | Exception that indicates that the operation would exceed a limit.
-_LimitsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitsExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitsExceededException =
   Core._MatchServiceError
     defaultService
@@ -463,14 +463,14 @@ _LimitsExceededException =
 -- 1-year commitment. You can change the @AutoRenew@ parameter during the
 -- last 30 days of your subscription. This exception indicates that you are
 -- attempting to change @AutoRenew@ prior to that period.
-_LockedSubscriptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LockedSubscriptionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LockedSubscriptionException =
   Core._MatchServiceError
     defaultService
     "LockedSubscriptionException"
 
 -- | The ARN of the role that you specified does not exist.
-_NoAssociatedRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoAssociatedRoleException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoAssociatedRoleException =
   Core._MatchServiceError
     defaultService
@@ -478,7 +478,7 @@ _NoAssociatedRoleException =
 
 -- | Exception that indicates that the resource state has been modified by
 -- another client. Retrieve the resource and then retry your request.
-_OptimisticLockException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OptimisticLockException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OptimisticLockException =
   Core._MatchServiceError
     defaultService
@@ -486,7 +486,7 @@ _OptimisticLockException =
 
 -- | Exception indicating the specified resource already exists. If
 -- available, this exception includes details in additional properties.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -494,7 +494,7 @@ _ResourceAlreadyExistsException =
 
 -- | Exception indicating the specified resource does not exist. If
 -- available, this exception includes details in additional properties.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

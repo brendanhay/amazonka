@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Types.DeploymentConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.ECS.Types.DeploymentConfiguration where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.ECS.Types.DeploymentAlarms
 import Amazonka.ECS.Types.DeploymentCircuitBreaker
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentConfiguration' smart constructor.
 data DeploymentConfiguration = DeploymentConfiguration'
-  { -- | The deployment circuit breaker can only be used for services using the
+  { -- | Information about the CloudWatch alarms.
+    alarms :: Prelude.Maybe DeploymentAlarms,
+    -- | The deployment circuit breaker can only be used for services using the
     -- rolling update (@ECS@) deployment type.
     --
     -- The __deployment circuit breaker__ determines whether a service
@@ -127,6 +130,8 @@ data DeploymentConfiguration = DeploymentConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'alarms', 'deploymentConfiguration_alarms' - Information about the CloudWatch alarms.
+--
 -- 'deploymentCircuitBreaker', 'deploymentConfiguration_deploymentCircuitBreaker' - The deployment circuit breaker can only be used for services using the
 -- rolling update (@ECS@) deployment type.
 --
@@ -216,11 +221,15 @@ newDeploymentConfiguration ::
   DeploymentConfiguration
 newDeploymentConfiguration =
   DeploymentConfiguration'
-    { deploymentCircuitBreaker =
-        Prelude.Nothing,
+    { alarms = Prelude.Nothing,
+      deploymentCircuitBreaker = Prelude.Nothing,
       maximumPercent = Prelude.Nothing,
       minimumHealthyPercent = Prelude.Nothing
     }
+
+-- | Information about the CloudWatch alarms.
+deploymentConfiguration_alarms :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe DeploymentAlarms)
+deploymentConfiguration_alarms = Lens.lens (\DeploymentConfiguration' {alarms} -> alarms) (\s@DeploymentConfiguration' {} a -> s {alarms = a} :: DeploymentConfiguration)
 
 -- | The deployment circuit breaker can only be used for services using the
 -- rolling update (@ECS@) deployment type.
@@ -320,21 +329,23 @@ instance Data.FromJSON DeploymentConfiguration where
       "DeploymentConfiguration"
       ( \x ->
           DeploymentConfiguration'
-            Prelude.<$> (x Data..:? "deploymentCircuitBreaker")
+            Prelude.<$> (x Data..:? "alarms")
+            Prelude.<*> (x Data..:? "deploymentCircuitBreaker")
             Prelude.<*> (x Data..:? "maximumPercent")
             Prelude.<*> (x Data..:? "minimumHealthyPercent")
       )
 
 instance Prelude.Hashable DeploymentConfiguration where
   hashWithSalt _salt DeploymentConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` deploymentCircuitBreaker
       `Prelude.hashWithSalt` maximumPercent
       `Prelude.hashWithSalt` minimumHealthyPercent
 
 instance Prelude.NFData DeploymentConfiguration where
   rnf DeploymentConfiguration' {..} =
-    Prelude.rnf deploymentCircuitBreaker
+    Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf deploymentCircuitBreaker
       `Prelude.seq` Prelude.rnf maximumPercent
       `Prelude.seq` Prelude.rnf minimumHealthyPercent
 
@@ -342,7 +353,8 @@ instance Data.ToJSON DeploymentConfiguration where
   toJSON DeploymentConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("deploymentCircuitBreaker" Data..=)
+          [ ("alarms" Data..=) Prelude.<$> alarms,
+            ("deploymentCircuitBreaker" Data..=)
               Prelude.<$> deploymentCircuitBreaker,
             ("maximumPercent" Data..=)
               Prelude.<$> maximumPercent,

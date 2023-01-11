@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ECS.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -497,6 +497,13 @@ module Amazonka.ECS.Types
     deployment_taskDefinition,
     deployment_updatedAt,
 
+    -- * DeploymentAlarms
+    DeploymentAlarms (..),
+    newDeploymentAlarms,
+    deploymentAlarms_alarmNames,
+    deploymentAlarms_enable,
+    deploymentAlarms_rollback,
+
     -- * DeploymentCircuitBreaker
     DeploymentCircuitBreaker (..),
     newDeploymentCircuitBreaker,
@@ -506,6 +513,7 @@ module Amazonka.ECS.Types
     -- * DeploymentConfiguration
     DeploymentConfiguration (..),
     newDeploymentConfiguration,
+    deploymentConfiguration_alarms,
     deploymentConfiguration_deploymentCircuitBreaker,
     deploymentConfiguration_maximumPercent,
     deploymentConfiguration_minimumHealthyPercent,
@@ -714,7 +722,9 @@ module Amazonka.ECS.Types
     newNetworkBinding,
     networkBinding_bindIP,
     networkBinding_containerPort,
+    networkBinding_containerPortRange,
     networkBinding_hostPort,
+    networkBinding_hostPortRange,
     networkBinding_protocol,
 
     -- * NetworkConfiguration
@@ -752,6 +762,7 @@ module Amazonka.ECS.Types
     newPortMapping,
     portMapping_appProtocol,
     portMapping_containerPort,
+    portMapping_containerPortRange,
     portMapping_hostPort,
     portMapping_name,
     portMapping_protocol,
@@ -1067,6 +1078,7 @@ import Amazonka.ECS.Types.ContainerOverride
 import Amazonka.ECS.Types.ContainerService
 import Amazonka.ECS.Types.ContainerStateChange
 import Amazonka.ECS.Types.Deployment
+import Amazonka.ECS.Types.DeploymentAlarms
 import Amazonka.ECS.Types.DeploymentCircuitBreaker
 import Amazonka.ECS.Types.DeploymentConfiguration
 import Amazonka.ECS.Types.DeploymentController
@@ -1250,7 +1262,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have authorization to perform the requested action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1259,7 +1271,7 @@ _AccessDeniedException =
 -- | You can apply up to 10 custom attributes for each resource. You can view
 -- the attributes of a resource with ListAttributes. You can remove
 -- existing attributes on a resource with DeleteAttributes.
-_AttributeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AttributeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AttributeLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1267,7 +1279,7 @@ _AttributeLimitExceededException =
 
 -- | Your Amazon Web Services account was blocked. For more information,
 -- contact <http://aws.amazon.com/contact-us/ Amazon Web Services Support>.
-_BlockedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BlockedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BlockedException =
   Core._MatchServiceError
     defaultService
@@ -1277,7 +1289,7 @@ _BlockedException =
 -- might be using an action or resource on behalf of a user that doesn\'t
 -- have permissions to use the action or resource,. Or, it might be
 -- specifying an identifier that isn\'t valid.
-_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClientException =
   Core._MatchServiceError
     defaultService
@@ -1286,7 +1298,7 @@ _ClientException =
 -- | You can\'t delete a cluster that has registered container instances.
 -- First, deregister the container instances before you can delete the
 -- cluster. For more information, see DeregisterContainerInstance.
-_ClusterContainsContainerInstancesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsContainerInstancesException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClusterContainsContainerInstancesException =
   Core._MatchServiceError
     defaultService
@@ -1295,14 +1307,14 @@ _ClusterContainsContainerInstancesException =
 -- | You can\'t delete a cluster that contains services. First, update the
 -- service to reduce its desired task count to 0, and then delete the
 -- service. For more information, see UpdateService and DeleteService.
-_ClusterContainsServicesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsServicesException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClusterContainsServicesException =
   Core._MatchServiceError
     defaultService
     "ClusterContainsServicesException"
 
 -- | You can\'t delete a cluster that has active tasks.
-_ClusterContainsTasksException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsTasksException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClusterContainsTasksException =
   Core._MatchServiceError
     defaultService
@@ -1310,7 +1322,7 @@ _ClusterContainsTasksException =
 
 -- | The specified cluster wasn\'t found. You can view your available
 -- clusters with ListClusters. Amazon ECS clusters are Region specific.
-_ClusterNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClusterNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1318,14 +1330,14 @@ _ClusterNotFoundException =
 
 -- | The specified parameter isn\'t valid. Review the available parameters
 -- for the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | The limit for the resource was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1336,14 +1348,14 @@ _LimitExceededException =
 -- information to proceed with an update. This could be because the agent
 -- running on the container instance is a previous or custom version that
 -- doesn\'t use our version information.
-_MissingVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingVersionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MissingVersionException =
   Core._MatchServiceError
     defaultService
     "MissingVersionException"
 
 -- | The specified namespace wasn\'t found.
-_NamespaceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NamespaceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NamespaceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1353,7 +1365,7 @@ _NamespaceNotFoundException =
 -- might be because the agent is already running the latest version or
 -- because it\'s so old that there\'s no update path to the current
 -- version.
-_NoUpdateAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoUpdateAvailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoUpdateAvailableException =
   Core._MatchServiceError
     defaultService
@@ -1361,35 +1373,35 @@ _NoUpdateAvailableException =
 
 -- | The specified platform version doesn\'t satisfy the required
 -- capabilities of the task definition.
-_PlatformTaskDefinitionIncompatibilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PlatformTaskDefinitionIncompatibilityException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PlatformTaskDefinitionIncompatibilityException =
   Core._MatchServiceError
     defaultService
     "PlatformTaskDefinitionIncompatibilityException"
 
 -- | The specified platform version doesn\'t exist.
-_PlatformUnknownException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PlatformUnknownException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PlatformUnknownException =
   Core._MatchServiceError
     defaultService
     "PlatformUnknownException"
 
 -- | The specified resource is in-use and can\'t be removed.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
 -- | The specified resource wasn\'t found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | These errors are usually caused by a server issue.
-_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServerException =
   Core._MatchServiceError
     defaultService
@@ -1398,7 +1410,7 @@ _ServerException =
 -- | The specified service isn\'t active. You can\'t update a service that\'s
 -- inactive. If you have previously deleted a service, you can re-create it
 -- with CreateService.
-_ServiceNotActiveException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceNotActiveException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceNotActiveException =
   Core._MatchServiceError
     defaultService
@@ -1407,7 +1419,7 @@ _ServiceNotActiveException =
 -- | The specified service wasn\'t found. You can view your available
 -- services with ListServices. Amazon ECS services are cluster specific and
 -- Region specific.
-_ServiceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1426,7 +1438,7 @@ _ServiceNotFoundException =
 -- For information about how to troubleshoot the issues, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html Troubleshooting issues with ECS Exec>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-_TargetNotConnectedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetNotConnectedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TargetNotConnectedException =
   Core._MatchServiceError
     defaultService
@@ -1435,7 +1447,7 @@ _TargetNotConnectedException =
 -- | The specified target wasn\'t found. You can view your available
 -- container instances with ListContainerInstances. Amazon ECS container
 -- instances are cluster-specific and Region-specific.
-_TargetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TargetNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1444,14 +1456,14 @@ _TargetNotFoundException =
 -- | The specified task set wasn\'t found. You can view your available task
 -- sets with DescribeTaskSets. Task sets are specific to each cluster,
 -- service and Region.
-_TaskSetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaskSetNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TaskSetNotFoundException =
   Core._MatchServiceError
     defaultService
     "TaskSetNotFoundException"
 
 -- | The specified task isn\'t supported in this Region.
-_UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedFeatureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedFeatureException =
   Core._MatchServiceError
     defaultService
@@ -1463,7 +1475,7 @@ _UnsupportedFeatureException =
 -- @PENDING@ or @STAGING@, the update process can get stuck in that state.
 -- However, when the agent reconnects, it resumes where it stopped
 -- previously.
-_UpdateInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UpdateInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UpdateInProgressException =
   Core._MatchServiceError
     defaultService

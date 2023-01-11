@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.UpdateNodegroupVersion
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,11 @@
 -- version by not specifying a Kubernetes version in the request. You can
 -- update to the latest AMI version of your cluster\'s current Kubernetes
 -- version by specifying your cluster\'s Kubernetes version in the request.
--- For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
+-- For information about Linux versions, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux AMI versions>
+-- in the /Amazon EKS User Guide/. For information about Windows versions,
+-- see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html Amazon EKS optimized Windows AMI versions>
 -- in the /Amazon EKS User Guide/.
 --
 -- You cannot roll back a node group to an earlier Kubernetes version or
@@ -95,12 +98,18 @@ data UpdateNodegroupVersion = UpdateNodegroupVersion'
     launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
     -- | The AMI version of the Amazon EKS optimized AMI to use for the update.
     -- By default, the latest available AMI version for the node group\'s
-    -- Kubernetes version is used. For more information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
-    -- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
-    -- your launch template uses a custom AMI, then don\'t specify
-    -- @releaseVersion@, or the node group update will fail. For more
-    -- information about using launch templates with Amazon EKS, see
+    -- Kubernetes version is used. For information about Linux versions, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux AMI versions>
+    -- in the /Amazon EKS User Guide/. Amazon EKS managed node groups support
+    -- the November 2022 and later releases of the Windows AMIs. For
+    -- information about Windows versions, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html Amazon EKS optimized Windows AMI versions>
+    -- in the /Amazon EKS User Guide/.
+    --
+    -- If you specify @launchTemplate@, and your launch template uses a custom
+    -- AMI, then don\'t specify @releaseVersion@, or the node group update will
+    -- fail. For more information about using launch templates with Amazon EKS,
+    -- see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
     -- in the /Amazon EKS User Guide/.
     releaseVersion :: Prelude.Maybe Prelude.Text,
@@ -144,12 +153,18 @@ data UpdateNodegroupVersion = UpdateNodegroupVersion'
 --
 -- 'releaseVersion', 'updateNodegroupVersion_releaseVersion' - The AMI version of the Amazon EKS optimized AMI to use for the update.
 -- By default, the latest available AMI version for the node group\'s
--- Kubernetes version is used. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
--- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
--- your launch template uses a custom AMI, then don\'t specify
--- @releaseVersion@, or the node group update will fail. For more
--- information about using launch templates with Amazon EKS, see
+-- Kubernetes version is used. For information about Linux versions, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux AMI versions>
+-- in the /Amazon EKS User Guide/. Amazon EKS managed node groups support
+-- the November 2022 and later releases of the Windows AMIs. For
+-- information about Windows versions, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html Amazon EKS optimized Windows AMI versions>
+-- in the /Amazon EKS User Guide/.
+--
+-- If you specify @launchTemplate@, and your launch template uses a custom
+-- AMI, then don\'t specify @releaseVersion@, or the node group update will
+-- fail. For more information about using launch templates with Amazon EKS,
+-- see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 --
@@ -207,12 +222,18 @@ updateNodegroupVersion_launchTemplate = Lens.lens (\UpdateNodegroupVersion' {lau
 
 -- | The AMI version of the Amazon EKS optimized AMI to use for the update.
 -- By default, the latest available AMI version for the node group\'s
--- Kubernetes version is used. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
--- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
--- your launch template uses a custom AMI, then don\'t specify
--- @releaseVersion@, or the node group update will fail. For more
--- information about using launch templates with Amazon EKS, see
+-- Kubernetes version is used. For information about Linux versions, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux AMI versions>
+-- in the /Amazon EKS User Guide/. Amazon EKS managed node groups support
+-- the November 2022 and later releases of the Windows AMIs. For
+-- information about Windows versions, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html Amazon EKS optimized Windows AMI versions>
+-- in the /Amazon EKS User Guide/.
+--
+-- If you specify @launchTemplate@, and your launch template uses a custom
+-- AMI, then don\'t specify @releaseVersion@, or the node group update will
+-- fail. For more information about using launch templates with Amazon EKS,
+-- see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 updateNodegroupVersion_releaseVersion :: Lens.Lens' UpdateNodegroupVersion (Prelude.Maybe Prelude.Text)

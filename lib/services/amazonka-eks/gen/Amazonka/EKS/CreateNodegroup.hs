@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.CreateNodegroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,10 +30,12 @@
 --
 -- An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and
 -- associated Amazon EC2 instances that are managed by Amazon Web Services
--- for an Amazon EKS cluster. Each node group uses a version of the Amazon
--- EKS optimized Amazon Linux 2 AMI. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html Managed Node Groups>
+-- for an Amazon EKS cluster. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html Managed node groups>
 -- in the /Amazon EKS User Guide/.
+--
+-- Windows AMI types are only supported for commercial Regions that support
+-- Windows Amazon EKS.
 module Amazonka.EKS.CreateNodegroup
   ( -- * Creating a Request
     CreateNodegroup (..),
@@ -79,13 +81,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNodegroup' smart constructor.
 data CreateNodegroup = CreateNodegroup'
-  { -- | The AMI type for your node group. GPU instance types should use the
-    -- @AL2_x86_64_GPU@ AMI type. Non-GPU instances should use the @AL2_x86_64@
-    -- AMI type. Arm instances should use the @AL2_ARM_64@ AMI type. All types
-    -- use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify
-    -- @launchTemplate@, and your launch template uses a custom AMI, then
-    -- don\'t specify @amiType@, or the node group deployment will fail. For
-    -- more information about using launch templates with Amazon EKS, see
+  { -- | The AMI type for your node group. If you specify @launchTemplate@, and
+    -- your launch template uses a custom AMI, then don\'t specify @amiType@,
+    -- or the node group deployment will fail. If your launch template uses a
+    -- Windows custom AMI, then add @eks:kube-proxy-windows@ to your Windows
+    -- nodes @rolearn@ in the @aws-auth@ @ConfigMap@. For more information
+    -- about using launch templates with Amazon EKS, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
     -- in the /Amazon EKS User Guide/.
     amiType :: Prelude.Maybe AMITypes,
@@ -95,23 +96,24 @@ data CreateNodegroup = CreateNodegroup'
     -- idempotency of the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The root device disk size (in GiB) for your node group instances. The
-    -- default disk size is 20 GiB. If you specify @launchTemplate@, then
-    -- don\'t specify @diskSize@, or the node group deployment will fail. For
-    -- more information about using launch templates with Amazon EKS, see
+    -- default disk size is 20 GiB for Linux and Bottlerocket. The default disk
+    -- size is 50 GiB for Windows. If you specify @launchTemplate@, then don\'t
+    -- specify @diskSize@, or the node group deployment will fail. For more
+    -- information about using launch templates with Amazon EKS, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
     -- in the /Amazon EKS User Guide/.
     diskSize :: Prelude.Maybe Prelude.Int,
     -- | Specify the instance types for a node group. If you specify a GPU
-    -- instance type, be sure to specify @AL2_x86_64_GPU@ with the @amiType@
-    -- parameter. If you specify @launchTemplate@, then you can specify zero or
-    -- one instance type in your launch template /or/ you can specify 0-20
-    -- instance types for @instanceTypes@. If however, you specify an instance
-    -- type in your launch template /and/ specify any @instanceTypes@, the node
-    -- group deployment will fail. If you don\'t specify an instance type in a
-    -- launch template or for @instanceTypes@, then @t3.medium@ is used, by
-    -- default. If you specify @Spot@ for @capacityType@, then we recommend
-    -- specifying multiple values for @instanceTypes@. For more information,
-    -- see
+    -- instance type, make sure to also specify an applicable GPU AMI type with
+    -- the @amiType@ parameter. If you specify @launchTemplate@, then you can
+    -- specify zero or one instance type in your launch template /or/ you can
+    -- specify 0-20 instance types for @instanceTypes@. If however, you specify
+    -- an instance type in your launch template /and/ specify any
+    -- @instanceTypes@, the node group deployment will fail. If you don\'t
+    -- specify an instance type in a launch template or for @instanceTypes@,
+    -- then @t3.medium@ is used, by default. If you specify @Spot@ for
+    -- @capacityType@, then we recommend specifying multiple values for
+    -- @instanceTypes@. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types Managed node group capacity types>
     -- and
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
@@ -127,19 +129,27 @@ data CreateNodegroup = CreateNodegroup'
     launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
     -- | The AMI version of the Amazon EKS optimized AMI to use with your node
     -- group. By default, the latest available AMI version for the node
-    -- group\'s current Kubernetes version is used. For more information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
-    -- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
-    -- your launch template uses a custom AMI, then don\'t specify
-    -- @releaseVersion@, or the node group deployment will fail. For more
-    -- information about using launch templates with Amazon EKS, see
+    -- group\'s current Kubernetes version is used. For information about Linux
+    -- versions, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux AMI versions>
+    -- in the /Amazon EKS User Guide/. Amazon EKS managed node groups support
+    -- the November 2022 and later releases of the Windows AMIs. For
+    -- information about Windows versions, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html Amazon EKS optimized Windows AMI versions>
+    -- in the /Amazon EKS User Guide/.
+    --
+    -- If you specify @launchTemplate@, and your launch template uses a custom
+    -- AMI, then don\'t specify @releaseVersion@, or the node group deployment
+    -- will fail. For more information about using launch templates with Amazon
+    -- EKS, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
     -- in the /Amazon EKS User Guide/.
     releaseVersion :: Prelude.Maybe Prelude.Text,
-    -- | The remote access (SSH) configuration to use with your node group. If
-    -- you specify @launchTemplate@, then don\'t specify @remoteAccess@, or the
-    -- node group deployment will fail. For more information about using launch
-    -- templates with Amazon EKS, see
+    -- | The remote access configuration to use with your node group. For Linux,
+    -- the protocol is SSH. For Windows, the protocol is RDP. If you specify
+    -- @launchTemplate@, then don\'t specify @remoteAccess@, or the node group
+    -- deployment will fail. For more information about using launch templates
+    -- with Amazon EKS, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
     -- in the /Amazon EKS User Guide/.
     remoteAccess :: Prelude.Maybe RemoteAccessConfig,
@@ -206,13 +216,12 @@ data CreateNodegroup = CreateNodegroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'amiType', 'createNodegroup_amiType' - The AMI type for your node group. GPU instance types should use the
--- @AL2_x86_64_GPU@ AMI type. Non-GPU instances should use the @AL2_x86_64@
--- AMI type. Arm instances should use the @AL2_ARM_64@ AMI type. All types
--- use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify
--- @launchTemplate@, and your launch template uses a custom AMI, then
--- don\'t specify @amiType@, or the node group deployment will fail. For
--- more information about using launch templates with Amazon EKS, see
+-- 'amiType', 'createNodegroup_amiType' - The AMI type for your node group. If you specify @launchTemplate@, and
+-- your launch template uses a custom AMI, then don\'t specify @amiType@,
+-- or the node group deployment will fail. If your launch template uses a
+-- Windows custom AMI, then add @eks:kube-proxy-windows@ to your Windows
+-- nodes @rolearn@ in the @aws-auth@ @ConfigMap@. For more information
+-- about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 --
@@ -222,23 +231,24 @@ data CreateNodegroup = CreateNodegroup'
 -- idempotency of the request.
 --
 -- 'diskSize', 'createNodegroup_diskSize' - The root device disk size (in GiB) for your node group instances. The
--- default disk size is 20 GiB. If you specify @launchTemplate@, then
--- don\'t specify @diskSize@, or the node group deployment will fail. For
--- more information about using launch templates with Amazon EKS, see
+-- default disk size is 20 GiB for Linux and Bottlerocket. The default disk
+-- size is 50 GiB for Windows. If you specify @launchTemplate@, then don\'t
+-- specify @diskSize@, or the node group deployment will fail. For more
+-- information about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 --
 -- 'instanceTypes', 'createNodegroup_instanceTypes' - Specify the instance types for a node group. If you specify a GPU
--- instance type, be sure to specify @AL2_x86_64_GPU@ with the @amiType@
--- parameter. If you specify @launchTemplate@, then you can specify zero or
--- one instance type in your launch template /or/ you can specify 0-20
--- instance types for @instanceTypes@. If however, you specify an instance
--- type in your launch template /and/ specify any @instanceTypes@, the node
--- group deployment will fail. If you don\'t specify an instance type in a
--- launch template or for @instanceTypes@, then @t3.medium@ is used, by
--- default. If you specify @Spot@ for @capacityType@, then we recommend
--- specifying multiple values for @instanceTypes@. For more information,
--- see
+-- instance type, make sure to also specify an applicable GPU AMI type with
+-- the @amiType@ parameter. If you specify @launchTemplate@, then you can
+-- specify zero or one instance type in your launch template /or/ you can
+-- specify 0-20 instance types for @instanceTypes@. If however, you specify
+-- an instance type in your launch template /and/ specify any
+-- @instanceTypes@, the node group deployment will fail. If you don\'t
+-- specify an instance type in a launch template or for @instanceTypes@,
+-- then @t3.medium@ is used, by default. If you specify @Spot@ for
+-- @capacityType@, then we recommend specifying multiple values for
+-- @instanceTypes@. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types Managed node group capacity types>
 -- and
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
@@ -254,19 +264,27 @@ data CreateNodegroup = CreateNodegroup'
 --
 -- 'releaseVersion', 'createNodegroup_releaseVersion' - The AMI version of the Amazon EKS optimized AMI to use with your node
 -- group. By default, the latest available AMI version for the node
--- group\'s current Kubernetes version is used. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
--- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
--- your launch template uses a custom AMI, then don\'t specify
--- @releaseVersion@, or the node group deployment will fail. For more
--- information about using launch templates with Amazon EKS, see
+-- group\'s current Kubernetes version is used. For information about Linux
+-- versions, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux AMI versions>
+-- in the /Amazon EKS User Guide/. Amazon EKS managed node groups support
+-- the November 2022 and later releases of the Windows AMIs. For
+-- information about Windows versions, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html Amazon EKS optimized Windows AMI versions>
+-- in the /Amazon EKS User Guide/.
+--
+-- If you specify @launchTemplate@, and your launch template uses a custom
+-- AMI, then don\'t specify @releaseVersion@, or the node group deployment
+-- will fail. For more information about using launch templates with Amazon
+-- EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 --
--- 'remoteAccess', 'createNodegroup_remoteAccess' - The remote access (SSH) configuration to use with your node group. If
--- you specify @launchTemplate@, then don\'t specify @remoteAccess@, or the
--- node group deployment will fail. For more information about using launch
--- templates with Amazon EKS, see
+-- 'remoteAccess', 'createNodegroup_remoteAccess' - The remote access configuration to use with your node group. For Linux,
+-- the protocol is SSH. For Windows, the protocol is RDP. If you specify
+-- @launchTemplate@, then don\'t specify @remoteAccess@, or the node group
+-- deployment will fail. For more information about using launch templates
+-- with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 --
@@ -354,13 +372,12 @@ newCreateNodegroup
         nodeRole = pNodeRole_
       }
 
--- | The AMI type for your node group. GPU instance types should use the
--- @AL2_x86_64_GPU@ AMI type. Non-GPU instances should use the @AL2_x86_64@
--- AMI type. Arm instances should use the @AL2_ARM_64@ AMI type. All types
--- use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify
--- @launchTemplate@, and your launch template uses a custom AMI, then
--- don\'t specify @amiType@, or the node group deployment will fail. For
--- more information about using launch templates with Amazon EKS, see
+-- | The AMI type for your node group. If you specify @launchTemplate@, and
+-- your launch template uses a custom AMI, then don\'t specify @amiType@,
+-- or the node group deployment will fail. If your launch template uses a
+-- Windows custom AMI, then add @eks:kube-proxy-windows@ to your Windows
+-- nodes @rolearn@ in the @aws-auth@ @ConfigMap@. For more information
+-- about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 createNodegroup_amiType :: Lens.Lens' CreateNodegroup (Prelude.Maybe AMITypes)
@@ -376,25 +393,26 @@ createNodegroup_clientRequestToken :: Lens.Lens' CreateNodegroup (Prelude.Maybe 
 createNodegroup_clientRequestToken = Lens.lens (\CreateNodegroup' {clientRequestToken} -> clientRequestToken) (\s@CreateNodegroup' {} a -> s {clientRequestToken = a} :: CreateNodegroup)
 
 -- | The root device disk size (in GiB) for your node group instances. The
--- default disk size is 20 GiB. If you specify @launchTemplate@, then
--- don\'t specify @diskSize@, or the node group deployment will fail. For
--- more information about using launch templates with Amazon EKS, see
+-- default disk size is 20 GiB for Linux and Bottlerocket. The default disk
+-- size is 50 GiB for Windows. If you specify @launchTemplate@, then don\'t
+-- specify @diskSize@, or the node group deployment will fail. For more
+-- information about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 createNodegroup_diskSize :: Lens.Lens' CreateNodegroup (Prelude.Maybe Prelude.Int)
 createNodegroup_diskSize = Lens.lens (\CreateNodegroup' {diskSize} -> diskSize) (\s@CreateNodegroup' {} a -> s {diskSize = a} :: CreateNodegroup)
 
 -- | Specify the instance types for a node group. If you specify a GPU
--- instance type, be sure to specify @AL2_x86_64_GPU@ with the @amiType@
--- parameter. If you specify @launchTemplate@, then you can specify zero or
--- one instance type in your launch template /or/ you can specify 0-20
--- instance types for @instanceTypes@. If however, you specify an instance
--- type in your launch template /and/ specify any @instanceTypes@, the node
--- group deployment will fail. If you don\'t specify an instance type in a
--- launch template or for @instanceTypes@, then @t3.medium@ is used, by
--- default. If you specify @Spot@ for @capacityType@, then we recommend
--- specifying multiple values for @instanceTypes@. For more information,
--- see
+-- instance type, make sure to also specify an applicable GPU AMI type with
+-- the @amiType@ parameter. If you specify @launchTemplate@, then you can
+-- specify zero or one instance type in your launch template /or/ you can
+-- specify 0-20 instance types for @instanceTypes@. If however, you specify
+-- an instance type in your launch template /and/ specify any
+-- @instanceTypes@, the node group deployment will fail. If you don\'t
+-- specify an instance type in a launch template or for @instanceTypes@,
+-- then @t3.medium@ is used, by default. If you specify @Spot@ for
+-- @capacityType@, then we recommend specifying multiple values for
+-- @instanceTypes@. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types Managed node group capacity types>
 -- and
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
@@ -416,21 +434,29 @@ createNodegroup_launchTemplate = Lens.lens (\CreateNodegroup' {launchTemplate} -
 
 -- | The AMI version of the Amazon EKS optimized AMI to use with your node
 -- group. By default, the latest available AMI version for the node
--- group\'s current Kubernetes version is used. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
--- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
--- your launch template uses a custom AMI, then don\'t specify
--- @releaseVersion@, or the node group deployment will fail. For more
--- information about using launch templates with Amazon EKS, see
+-- group\'s current Kubernetes version is used. For information about Linux
+-- versions, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux AMI versions>
+-- in the /Amazon EKS User Guide/. Amazon EKS managed node groups support
+-- the November 2022 and later releases of the Windows AMIs. For
+-- information about Windows versions, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html Amazon EKS optimized Windows AMI versions>
+-- in the /Amazon EKS User Guide/.
+--
+-- If you specify @launchTemplate@, and your launch template uses a custom
+-- AMI, then don\'t specify @releaseVersion@, or the node group deployment
+-- will fail. For more information about using launch templates with Amazon
+-- EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 createNodegroup_releaseVersion :: Lens.Lens' CreateNodegroup (Prelude.Maybe Prelude.Text)
 createNodegroup_releaseVersion = Lens.lens (\CreateNodegroup' {releaseVersion} -> releaseVersion) (\s@CreateNodegroup' {} a -> s {releaseVersion = a} :: CreateNodegroup)
 
--- | The remote access (SSH) configuration to use with your node group. If
--- you specify @launchTemplate@, then don\'t specify @remoteAccess@, or the
--- node group deployment will fail. For more information about using launch
--- templates with Amazon EKS, see
+-- | The remote access configuration to use with your node group. For Linux,
+-- the protocol is SSH. For Windows, the protocol is RDP. If you specify
+-- @launchTemplate@, then don\'t specify @remoteAccess@, or the node group
+-- deployment will fail. For more information about using launch templates
+-- with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
 createNodegroup_remoteAccess :: Lens.Lens' CreateNodegroup (Prelude.Maybe RemoteAccessConfig)

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.CreateAddon
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -70,8 +70,8 @@ data CreateAddon = CreateAddon'
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The set of configuration values for the add-on being created. Whatever
-    -- values provided here are validated against the schema from
+    -- | The set of configuration values for the add-on that\'s created. The
+    -- values that you provide are validated against the schema in
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
     -- .
     configurationValues :: Prelude.Maybe Prelude.Text,
@@ -115,9 +115,9 @@ data CreateAddon = CreateAddon'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the cluster to create the add-on for.
     clusterName :: Prelude.Text,
-    -- | The name of the add-on. The name must match one of the names returned by
+    -- | The name of the add-on. The name must match one of the names that
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
-    -- .
+    -- returns.
     addonName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -138,8 +138,8 @@ data CreateAddon = CreateAddon'
 -- 'clientRequestToken', 'createAddon_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
--- 'configurationValues', 'createAddon_configurationValues' - The set of configuration values for the add-on being created. Whatever
--- values provided here are validated against the schema from
+-- 'configurationValues', 'createAddon_configurationValues' - The set of configuration values for the add-on that\'s created. The
+-- values that you provide are validated against the schema in
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
 -- .
 --
@@ -183,9 +183,9 @@ data CreateAddon = CreateAddon'
 --
 -- 'clusterName', 'createAddon_clusterName' - The name of the cluster to create the add-on for.
 --
--- 'addonName', 'createAddon_addonName' - The name of the add-on. The name must match one of the names returned by
+-- 'addonName', 'createAddon_addonName' - The name of the add-on. The name must match one of the names that
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
--- .
+-- returns.
 newCreateAddon ::
   -- | 'clusterName'
   Prelude.Text ->
@@ -216,8 +216,8 @@ createAddon_addonVersion = Lens.lens (\CreateAddon' {addonVersion} -> addonVersi
 createAddon_clientRequestToken :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
 createAddon_clientRequestToken = Lens.lens (\CreateAddon' {clientRequestToken} -> clientRequestToken) (\s@CreateAddon' {} a -> s {clientRequestToken = a} :: CreateAddon)
 
--- | The set of configuration values for the add-on being created. Whatever
--- values provided here are validated against the schema from
+-- | The set of configuration values for the add-on that\'s created. The
+-- values that you provide are validated against the schema in
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
 -- .
 createAddon_configurationValues :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
@@ -271,9 +271,9 @@ createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} 
 createAddon_clusterName :: Lens.Lens' CreateAddon Prelude.Text
 createAddon_clusterName = Lens.lens (\CreateAddon' {clusterName} -> clusterName) (\s@CreateAddon' {} a -> s {clusterName = a} :: CreateAddon)
 
--- | The name of the add-on. The name must match one of the names returned by
+-- | The name of the add-on. The name must match one of the names that
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
--- .
+-- returns.
 createAddon_addonName :: Lens.Lens' CreateAddon Prelude.Text
 createAddon_addonName = Lens.lens (\CreateAddon' {addonName} -> addonName) (\s@CreateAddon' {} a -> s {addonName = a} :: CreateAddon)
 

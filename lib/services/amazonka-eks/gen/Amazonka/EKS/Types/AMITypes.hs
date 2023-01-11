@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.Types.AMITypes
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,11 @@ module Amazonka.EKS.Types.AMITypes
         AMITypes_BOTTLEROCKET_ARM_64_NVIDIA,
         AMITypes_BOTTLEROCKET_x86_64,
         AMITypes_BOTTLEROCKET_x86_64_NVIDIA,
-        AMITypes_CUSTOM
+        AMITypes_CUSTOM,
+        AMITypes_WINDOWS_CORE_2019_x86_64,
+        AMITypes_WINDOWS_CORE_2022_x86_64,
+        AMITypes_WINDOWS_FULL_2019_x86_64,
+        AMITypes_WINDOWS_FULL_2022_x86_64
       ),
   )
 where
@@ -88,6 +92,18 @@ pattern AMITypes_BOTTLEROCKET_x86_64_NVIDIA = AMITypes' "BOTTLEROCKET_x86_64_NVI
 pattern AMITypes_CUSTOM :: AMITypes
 pattern AMITypes_CUSTOM = AMITypes' "CUSTOM"
 
+pattern AMITypes_WINDOWS_CORE_2019_x86_64 :: AMITypes
+pattern AMITypes_WINDOWS_CORE_2019_x86_64 = AMITypes' "WINDOWS_CORE_2019_x86_64"
+
+pattern AMITypes_WINDOWS_CORE_2022_x86_64 :: AMITypes
+pattern AMITypes_WINDOWS_CORE_2022_x86_64 = AMITypes' "WINDOWS_CORE_2022_x86_64"
+
+pattern AMITypes_WINDOWS_FULL_2019_x86_64 :: AMITypes
+pattern AMITypes_WINDOWS_FULL_2019_x86_64 = AMITypes' "WINDOWS_FULL_2019_x86_64"
+
+pattern AMITypes_WINDOWS_FULL_2022_x86_64 :: AMITypes
+pattern AMITypes_WINDOWS_FULL_2022_x86_64 = AMITypes' "WINDOWS_FULL_2022_x86_64"
+
 {-# COMPLETE
   AMITypes_AL2_ARM_64,
   AMITypes_AL2_x86_64,
@@ -97,5 +113,9 @@ pattern AMITypes_CUSTOM = AMITypes' "CUSTOM"
   AMITypes_BOTTLEROCKET_x86_64,
   AMITypes_BOTTLEROCKET_x86_64_NVIDIA,
   AMITypes_CUSTOM,
+  AMITypes_WINDOWS_CORE_2019_x86_64,
+  AMITypes_WINDOWS_CORE_2022_x86_64,
+  AMITypes_WINDOWS_FULL_2019_x86_64,
+  AMITypes_WINDOWS_FULL_2022_x86_64,
   AMITypes'
   #-}

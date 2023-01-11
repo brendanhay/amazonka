@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EKS.UpdateAddon
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -63,9 +63,9 @@ data UpdateAddon = UpdateAddon'
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The set of configuration values for the add-on being created. Whatever
-    -- values provided here are validated against the schema from
-    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
+    -- | The set of configuration values for the add-on that\'s created. The
+    -- values that you provide are validated against the schema in
+    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>.
     configurationValues :: Prelude.Maybe Prelude.Text,
     -- | How to resolve field value conflicts for an Amazon EKS add-on if you\'ve
     -- changed a value from the Amazon EKS default value. Conflicts are handled
@@ -120,9 +120,9 @@ data UpdateAddon = UpdateAddon'
 -- 'clientRequestToken', 'updateAddon_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
--- 'configurationValues', 'updateAddon_configurationValues' - The set of configuration values for the add-on being created. Whatever
--- values provided here are validated against the schema from
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
+-- 'configurationValues', 'updateAddon_configurationValues' - The set of configuration values for the add-on that\'s created. The
+-- values that you provide are validated against the schema in
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>.
 --
 -- 'resolveConflicts', 'updateAddon_resolveConflicts' - How to resolve field value conflicts for an Amazon EKS add-on if you\'ve
 -- changed a value from the Amazon EKS default value. Conflicts are handled
@@ -186,9 +186,9 @@ updateAddon_addonVersion = Lens.lens (\UpdateAddon' {addonVersion} -> addonVersi
 updateAddon_clientRequestToken :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
 updateAddon_clientRequestToken = Lens.lens (\UpdateAddon' {clientRequestToken} -> clientRequestToken) (\s@UpdateAddon' {} a -> s {clientRequestToken = a} :: UpdateAddon)
 
--- | The set of configuration values for the add-on being created. Whatever
--- values provided here are validated against the schema from
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
+-- | The set of configuration values for the add-on that\'s created. The
+-- values that you provide are validated against the schema in
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>.
 updateAddon_configurationValues :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
 updateAddon_configurationValues = Lens.lens (\UpdateAddon' {configurationValues} -> configurationValues) (\s@UpdateAddon' {} a -> s {configurationValues = a} :: UpdateAddon)
 

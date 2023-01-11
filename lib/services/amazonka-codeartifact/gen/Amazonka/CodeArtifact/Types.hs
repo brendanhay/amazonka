@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CodeArtifact.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -338,7 +338,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The operation did not succeed because of an unauthorized access attempt.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -346,7 +346,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | The operation did not succeed because prerequisites are not met.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -355,7 +355,7 @@ _ConflictException =
 
 -- | The operation did not succeed because of an error that occurred inside
 -- CodeArtifact.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -364,7 +364,7 @@ _InternalServerException =
 
 -- | The operation did not succeed because the resource requested is not
 -- found in the service.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -373,7 +373,7 @@ _ResourceNotFoundException =
 
 -- | The operation did not succeed because it would have exceeded a service
 -- limit for your account.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -382,7 +382,7 @@ _ServiceQuotaExceededException =
 
 -- | The operation did not succeed because too many requests are sent to the
 -- service.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -391,7 +391,7 @@ _ThrottlingException =
 
 -- | The operation did not succeed because a parameter in the request was
 -- sent with an invalid value.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

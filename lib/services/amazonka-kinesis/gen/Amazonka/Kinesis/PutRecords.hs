@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.PutRecords
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,9 @@
 -- Writes multiple data records into a Kinesis data stream in a single call
 -- (also referred to as a @PutRecords@ request). Use this operation to send
 -- data into the stream for data ingestion and processing.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- Each @PutRecords@ request can support up to 500 records. Each record in
 -- the request can be as large as 1 MiB, up to a limit of 5 MiB for the
@@ -96,8 +99,9 @@ module Amazonka.Kinesis.PutRecords
     newPutRecords,
 
     -- * Request Lenses
-    putRecords_records,
+    putRecords_streamARN,
     putRecords_streamName,
+    putRecords_records,
 
     -- * Destructuring the Response
     PutRecordsResponse (..),
@@ -123,10 +127,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPutRecords' smart constructor.
 data PutRecords = PutRecords'
-  { -- | The records associated with the request.
-    records :: Prelude.NonEmpty PutRecordsRequestEntry,
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The stream name associated with the request.
-    streamName :: Prelude.Text
+    streamName :: Prelude.Maybe Prelude.Text,
+    -- | The records associated with the request.
+    records :: Prelude.NonEmpty PutRecordsRequestEntry
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -138,29 +144,33 @@ data PutRecords = PutRecords'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'records', 'putRecords_records' - The records associated with the request.
+-- 'streamARN', 'putRecords_streamARN' - The ARN of the stream.
 --
 -- 'streamName', 'putRecords_streamName' - The stream name associated with the request.
+--
+-- 'records', 'putRecords_records' - The records associated with the request.
 newPutRecords ::
   -- | 'records'
   Prelude.NonEmpty PutRecordsRequestEntry ->
-  -- | 'streamName'
-  Prelude.Text ->
   PutRecords
-newPutRecords pRecords_ pStreamName_ =
+newPutRecords pRecords_ =
   PutRecords'
-    { records =
-        Lens.coerced Lens.# pRecords_,
-      streamName = pStreamName_
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
+      records = Lens.coerced Lens.# pRecords_
     }
+
+-- | The ARN of the stream.
+putRecords_streamARN :: Lens.Lens' PutRecords (Prelude.Maybe Prelude.Text)
+putRecords_streamARN = Lens.lens (\PutRecords' {streamARN} -> streamARN) (\s@PutRecords' {} a -> s {streamARN = a} :: PutRecords)
+
+-- | The stream name associated with the request.
+putRecords_streamName :: Lens.Lens' PutRecords (Prelude.Maybe Prelude.Text)
+putRecords_streamName = Lens.lens (\PutRecords' {streamName} -> streamName) (\s@PutRecords' {} a -> s {streamName = a} :: PutRecords)
 
 -- | The records associated with the request.
 putRecords_records :: Lens.Lens' PutRecords (Prelude.NonEmpty PutRecordsRequestEntry)
 putRecords_records = Lens.lens (\PutRecords' {records} -> records) (\s@PutRecords' {} a -> s {records = a} :: PutRecords) Prelude.. Lens.coerced
-
--- | The stream name associated with the request.
-putRecords_streamName :: Lens.Lens' PutRecords Prelude.Text
-putRecords_streamName = Lens.lens (\PutRecords' {streamName} -> streamName) (\s@PutRecords' {} a -> s {streamName = a} :: PutRecords)
 
 instance Core.AWSRequest PutRecords where
   type AWSResponse PutRecords = PutRecordsResponse
@@ -178,13 +188,15 @@ instance Core.AWSRequest PutRecords where
 
 instance Prelude.Hashable PutRecords where
   hashWithSalt _salt PutRecords' {..} =
-    _salt `Prelude.hashWithSalt` records
+    _salt `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` records
 
 instance Prelude.NFData PutRecords where
   rnf PutRecords' {..} =
-    Prelude.rnf records
+    Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf records
 
 instance Data.ToHeaders PutRecords where
   toHeaders =
@@ -205,8 +217,9 @@ instance Data.ToJSON PutRecords where
   toJSON PutRecords' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Records" Data..= records),
-            Prelude.Just ("StreamName" Data..= streamName)
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
+            Prelude.Just ("Records" Data..= records)
           ]
       )
 

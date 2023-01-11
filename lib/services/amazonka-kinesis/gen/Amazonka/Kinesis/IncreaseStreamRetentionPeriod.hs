@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.IncreaseStreamRetentionPeriod
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,9 @@
 -- length of time data records are accessible after they are added to the
 -- stream. The maximum value of a stream\'s retention period is 8760 hours
 -- (365 days).
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- If you choose a longer stream retention period, this operation increases
 -- the time period during which records that have not yet expired are
@@ -38,6 +41,7 @@ module Amazonka.Kinesis.IncreaseStreamRetentionPeriod
     newIncreaseStreamRetentionPeriod,
 
     -- * Request Lenses
+    increaseStreamRetentionPeriod_streamARN,
     increaseStreamRetentionPeriod_streamName,
     increaseStreamRetentionPeriod_retentionPeriodHours,
 
@@ -59,8 +63,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newIncreaseStreamRetentionPeriod' smart constructor.
 data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'
-  { -- | The name of the stream to modify.
-    streamName :: Prelude.Text,
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream to modify.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The new retention period of the stream, in hours. Must be more than the
     -- current retention period.
     retentionPeriodHours :: Prelude.Int
@@ -75,28 +81,32 @@ data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'increaseStreamRetentionPeriod_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'increaseStreamRetentionPeriod_streamName' - The name of the stream to modify.
 --
 -- 'retentionPeriodHours', 'increaseStreamRetentionPeriod_retentionPeriodHours' - The new retention period of the stream, in hours. Must be more than the
 -- current retention period.
 newIncreaseStreamRetentionPeriod ::
-  -- | 'streamName'
-  Prelude.Text ->
   -- | 'retentionPeriodHours'
   Prelude.Int ->
   IncreaseStreamRetentionPeriod
 newIncreaseStreamRetentionPeriod
-  pStreamName_
   pRetentionPeriodHours_ =
     IncreaseStreamRetentionPeriod'
-      { streamName =
-          pStreamName_,
+      { streamARN =
+          Prelude.Nothing,
+        streamName = Prelude.Nothing,
         retentionPeriodHours =
           pRetentionPeriodHours_
       }
 
+-- | The ARN of the stream.
+increaseStreamRetentionPeriod_streamARN :: Lens.Lens' IncreaseStreamRetentionPeriod (Prelude.Maybe Prelude.Text)
+increaseStreamRetentionPeriod_streamARN = Lens.lens (\IncreaseStreamRetentionPeriod' {streamARN} -> streamARN) (\s@IncreaseStreamRetentionPeriod' {} a -> s {streamARN = a} :: IncreaseStreamRetentionPeriod)
+
 -- | The name of the stream to modify.
-increaseStreamRetentionPeriod_streamName :: Lens.Lens' IncreaseStreamRetentionPeriod Prelude.Text
+increaseStreamRetentionPeriod_streamName :: Lens.Lens' IncreaseStreamRetentionPeriod (Prelude.Maybe Prelude.Text)
 increaseStreamRetentionPeriod_streamName = Lens.lens (\IncreaseStreamRetentionPeriod' {streamName} -> streamName) (\s@IncreaseStreamRetentionPeriod' {} a -> s {streamName = a} :: IncreaseStreamRetentionPeriod)
 
 -- | The new retention period of the stream, in hours. Must be more than the
@@ -122,12 +132,14 @@ instance
     IncreaseStreamRetentionPeriod
   where
   hashWithSalt _salt IncreaseStreamRetentionPeriod' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` retentionPeriodHours
 
 instance Prelude.NFData IncreaseStreamRetentionPeriod where
   rnf IncreaseStreamRetentionPeriod' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf retentionPeriodHours
 
 instance Data.ToHeaders IncreaseStreamRetentionPeriod where
@@ -149,7 +161,8 @@ instance Data.ToJSON IncreaseStreamRetentionPeriod where
   toJSON IncreaseStreamRetentionPeriod' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Data..= streamName),
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
               ( "RetentionPeriodHours"
                   Data..= retentionPeriodHours

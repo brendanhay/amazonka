@@ -14,13 +14,16 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.GetRecords
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets data records from a Kinesis data stream\'s shard.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter in addition to the @ShardIterator@ parameter.
 --
 -- Specify a shard iterator using the @ShardIterator@ parameter. The shard
 -- iterator specifies the position in the shard from which you want to
@@ -92,6 +95,7 @@ module Amazonka.Kinesis.GetRecords
 
     -- * Request Lenses
     getRecords_limit,
+    getRecords_streamARN,
     getRecords_shardIterator,
 
     -- * Destructuring the Response
@@ -123,6 +127,8 @@ data GetRecords = GetRecords'
     -- 10,000. If you specify a value that is greater than 10,000, GetRecords
     -- throws @InvalidArgumentException@. The default value is 10,000.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The position in the shard from which you want to start sequentially
     -- reading data records. A shard iterator specifies this position using the
     -- sequence number of a data record in the shard.
@@ -142,6 +148,8 @@ data GetRecords = GetRecords'
 -- 10,000. If you specify a value that is greater than 10,000, GetRecords
 -- throws @InvalidArgumentException@. The default value is 10,000.
 --
+-- 'streamARN', 'getRecords_streamARN' - The ARN of the stream.
+--
 -- 'shardIterator', 'getRecords_shardIterator' - The position in the shard from which you want to start sequentially
 -- reading data records. A shard iterator specifies this position using the
 -- sequence number of a data record in the shard.
@@ -152,6 +160,7 @@ newGetRecords ::
 newGetRecords pShardIterator_ =
   GetRecords'
     { limit = Prelude.Nothing,
+      streamARN = Prelude.Nothing,
       shardIterator = pShardIterator_
     }
 
@@ -160,6 +169,10 @@ newGetRecords pShardIterator_ =
 -- throws @InvalidArgumentException@. The default value is 10,000.
 getRecords_limit :: Lens.Lens' GetRecords (Prelude.Maybe Prelude.Natural)
 getRecords_limit = Lens.lens (\GetRecords' {limit} -> limit) (\s@GetRecords' {} a -> s {limit = a} :: GetRecords)
+
+-- | The ARN of the stream.
+getRecords_streamARN :: Lens.Lens' GetRecords (Prelude.Maybe Prelude.Text)
+getRecords_streamARN = Lens.lens (\GetRecords' {streamARN} -> streamARN) (\s@GetRecords' {} a -> s {streamARN = a} :: GetRecords)
 
 -- | The position in the shard from which you want to start sequentially
 -- reading data records. A shard iterator specifies this position using the
@@ -185,11 +198,13 @@ instance Core.AWSRequest GetRecords where
 instance Prelude.Hashable GetRecords where
   hashWithSalt _salt GetRecords' {..} =
     _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` shardIterator
 
 instance Prelude.NFData GetRecords where
   rnf GetRecords' {..} =
     Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf shardIterator
 
 instance Data.ToHeaders GetRecords where
@@ -212,6 +227,7 @@ instance Data.ToJSON GetRecords where
     Data.object
       ( Prelude.catMaybes
           [ ("Limit" Data..=) Prelude.<$> limit,
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
             Prelude.Just
               ("ShardIterator" Data..= shardIterator)
           ]

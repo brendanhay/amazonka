@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.DescribeStream
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,9 @@
 -- DescribeStreamSummary API to get a summarized description of the
 -- specified Kinesis data stream and the ListShards API to list the shards
 -- in a specified data stream and obtain information about each shard.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- The information returned includes the stream name, Amazon Resource Name
 -- (ARN), creation time, enhanced metric configuration, and shard map. The
@@ -55,6 +58,7 @@ module Amazonka.Kinesis.DescribeStream
     -- * Request Lenses
     describeStream_exclusiveStartShardId,
     describeStream_limit,
+    describeStream_streamARN,
     describeStream_streamName,
 
     -- * Destructuring the Response
@@ -93,8 +97,10 @@ data DescribeStream = DescribeStream'
     -- value is 100. If you specify a value greater than 100, at most 100
     -- results are returned.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream to describe.
-    streamName :: Prelude.Text
+    streamName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,17 +126,18 @@ data DescribeStream = DescribeStream'
 -- value is 100. If you specify a value greater than 100, at most 100
 -- results are returned.
 --
+-- 'streamARN', 'describeStream_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'describeStream_streamName' - The name of the stream to describe.
 newDescribeStream ::
-  -- | 'streamName'
-  Prelude.Text ->
   DescribeStream
-newDescribeStream pStreamName_ =
+newDescribeStream =
   DescribeStream'
     { exclusiveStartShardId =
         Prelude.Nothing,
       limit = Prelude.Nothing,
-      streamName = pStreamName_
+      streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing
     }
 
 -- | The shard ID of the shard to start with.
@@ -151,8 +158,12 @@ describeStream_exclusiveStartShardId = Lens.lens (\DescribeStream' {exclusiveSta
 describeStream_limit :: Lens.Lens' DescribeStream (Prelude.Maybe Prelude.Natural)
 describeStream_limit = Lens.lens (\DescribeStream' {limit} -> limit) (\s@DescribeStream' {} a -> s {limit = a} :: DescribeStream)
 
+-- | The ARN of the stream.
+describeStream_streamARN :: Lens.Lens' DescribeStream (Prelude.Maybe Prelude.Text)
+describeStream_streamARN = Lens.lens (\DescribeStream' {streamARN} -> streamARN) (\s@DescribeStream' {} a -> s {streamARN = a} :: DescribeStream)
+
 -- | The name of the stream to describe.
-describeStream_streamName :: Lens.Lens' DescribeStream Prelude.Text
+describeStream_streamName :: Lens.Lens' DescribeStream (Prelude.Maybe Prelude.Text)
 describeStream_streamName = Lens.lens (\DescribeStream' {streamName} -> streamName) (\s@DescribeStream' {} a -> s {streamName = a} :: DescribeStream)
 
 instance Core.AWSPager DescribeStream where
@@ -199,12 +210,14 @@ instance Prelude.Hashable DescribeStream where
   hashWithSalt _salt DescribeStream' {..} =
     _salt `Prelude.hashWithSalt` exclusiveStartShardId
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData DescribeStream where
   rnf DescribeStream' {..} =
     Prelude.rnf exclusiveStartShardId
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamName
 
 instance Data.ToHeaders DescribeStream where
@@ -229,7 +242,8 @@ instance Data.ToJSON DescribeStream where
           [ ("ExclusiveStartShardId" Data..=)
               Prelude.<$> exclusiveStartShardId,
             ("Limit" Data..=) Prelude.<$> limit,
-            Prelude.Just ("StreamName" Data..= streamName)
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName
           ]
       )
 

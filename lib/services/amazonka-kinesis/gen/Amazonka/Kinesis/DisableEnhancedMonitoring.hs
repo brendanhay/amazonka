@@ -14,19 +14,23 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.DisableEnhancedMonitoring
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables enhanced monitoring.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 module Amazonka.Kinesis.DisableEnhancedMonitoring
   ( -- * Creating a Request
     DisableEnhancedMonitoring (..),
     newDisableEnhancedMonitoring,
 
     -- * Request Lenses
+    disableEnhancedMonitoring_streamARN,
     disableEnhancedMonitoring_streamName,
     disableEnhancedMonitoring_shardLevelMetrics,
 
@@ -37,6 +41,7 @@ module Amazonka.Kinesis.DisableEnhancedMonitoring
     -- * Response Lenses
     enhancedMonitoringOutput_currentShardLevelMetrics,
     enhancedMonitoringOutput_desiredShardLevelMetrics,
+    enhancedMonitoringOutput_streamARN,
     enhancedMonitoringOutput_streamName,
   )
 where
@@ -53,9 +58,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDisableEnhancedMonitoring' smart constructor.
 data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
-  { -- | The name of the Kinesis data stream for which to disable enhanced
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Kinesis data stream for which to disable enhanced
     -- monitoring.
-    streamName :: Prelude.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | List of shard-level metrics to disable.
     --
     -- The following are the valid shard-level metrics. The value \"@ALL@\"
@@ -92,6 +99,8 @@ data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'disableEnhancedMonitoring_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'disableEnhancedMonitoring_streamName' - The name of the Kinesis data stream for which to disable enhanced
 -- monitoring.
 --
@@ -120,19 +129,22 @@ data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 newDisableEnhancedMonitoring ::
-  -- | 'streamName'
-  Prelude.Text ->
   DisableEnhancedMonitoring
-newDisableEnhancedMonitoring pStreamName_ =
+newDisableEnhancedMonitoring =
   DisableEnhancedMonitoring'
-    { streamName =
-        pStreamName_,
+    { streamARN =
+        Prelude.Nothing,
+      streamName = Prelude.Nothing,
       shardLevelMetrics = Prelude.mempty
     }
 
+-- | The ARN of the stream.
+disableEnhancedMonitoring_streamARN :: Lens.Lens' DisableEnhancedMonitoring (Prelude.Maybe Prelude.Text)
+disableEnhancedMonitoring_streamARN = Lens.lens (\DisableEnhancedMonitoring' {streamARN} -> streamARN) (\s@DisableEnhancedMonitoring' {} a -> s {streamARN = a} :: DisableEnhancedMonitoring)
+
 -- | The name of the Kinesis data stream for which to disable enhanced
 -- monitoring.
-disableEnhancedMonitoring_streamName :: Lens.Lens' DisableEnhancedMonitoring Prelude.Text
+disableEnhancedMonitoring_streamName :: Lens.Lens' DisableEnhancedMonitoring (Prelude.Maybe Prelude.Text)
 disableEnhancedMonitoring_streamName = Lens.lens (\DisableEnhancedMonitoring' {streamName} -> streamName) (\s@DisableEnhancedMonitoring' {} a -> s {streamName = a} :: DisableEnhancedMonitoring)
 
 -- | List of shard-level metrics to disable.
@@ -174,12 +186,14 @@ instance Core.AWSRequest DisableEnhancedMonitoring where
 
 instance Prelude.Hashable DisableEnhancedMonitoring where
   hashWithSalt _salt DisableEnhancedMonitoring' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` shardLevelMetrics
 
 instance Prelude.NFData DisableEnhancedMonitoring where
   rnf DisableEnhancedMonitoring' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf shardLevelMetrics
 
 instance Data.ToHeaders DisableEnhancedMonitoring where
@@ -201,7 +215,8 @@ instance Data.ToJSON DisableEnhancedMonitoring where
   toJSON DisableEnhancedMonitoring' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Data..= streamName),
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
               ("ShardLevelMetrics" Data..= shardLevelMetrics)
           ]

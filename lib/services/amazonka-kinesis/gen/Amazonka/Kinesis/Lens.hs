@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -15,6 +15,7 @@ module Amazonka.Kinesis.Lens
   ( -- * Operations
 
     -- ** AddTagsToStream
+    addTagsToStream_streamARN,
     addTagsToStream_streamName,
     addTagsToStream_tags,
 
@@ -24,11 +25,13 @@ module Amazonka.Kinesis.Lens
     createStream_streamName,
 
     -- ** DecreaseStreamRetentionPeriod
+    decreaseStreamRetentionPeriod_streamARN,
     decreaseStreamRetentionPeriod_streamName,
     decreaseStreamRetentionPeriod_retentionPeriodHours,
 
     -- ** DeleteStream
     deleteStream_enforceConsumerDeletion,
+    deleteStream_streamARN,
     deleteStream_streamName,
 
     -- ** DeregisterStreamConsumer
@@ -46,6 +49,7 @@ module Amazonka.Kinesis.Lens
     -- ** DescribeStream
     describeStream_exclusiveStartShardId,
     describeStream_limit,
+    describeStream_streamARN,
     describeStream_streamName,
     describeStreamResponse_httpStatus,
     describeStreamResponse_streamDescription,
@@ -58,26 +62,32 @@ module Amazonka.Kinesis.Lens
     describeStreamConsumerResponse_consumerDescription,
 
     -- ** DescribeStreamSummary
+    describeStreamSummary_streamARN,
     describeStreamSummary_streamName,
     describeStreamSummaryResponse_httpStatus,
     describeStreamSummaryResponse_streamDescriptionSummary,
 
     -- ** DisableEnhancedMonitoring
+    disableEnhancedMonitoring_streamARN,
     disableEnhancedMonitoring_streamName,
     disableEnhancedMonitoring_shardLevelMetrics,
     enhancedMonitoringOutput_currentShardLevelMetrics,
     enhancedMonitoringOutput_desiredShardLevelMetrics,
+    enhancedMonitoringOutput_streamARN,
     enhancedMonitoringOutput_streamName,
 
     -- ** EnableEnhancedMonitoring
+    enableEnhancedMonitoring_streamARN,
     enableEnhancedMonitoring_streamName,
     enableEnhancedMonitoring_shardLevelMetrics,
     enhancedMonitoringOutput_currentShardLevelMetrics,
     enhancedMonitoringOutput_desiredShardLevelMetrics,
+    enhancedMonitoringOutput_streamARN,
     enhancedMonitoringOutput_streamName,
 
     -- ** GetRecords
     getRecords_limit,
+    getRecords_streamARN,
     getRecords_shardIterator,
     getRecordsResponse_childShards,
     getRecordsResponse_millisBehindLatest,
@@ -87,14 +97,16 @@ module Amazonka.Kinesis.Lens
 
     -- ** GetShardIterator
     getShardIterator_startingSequenceNumber,
-    getShardIterator_timestamp,
+    getShardIterator_streamARN,
     getShardIterator_streamName,
+    getShardIterator_timestamp,
     getShardIterator_shardId,
     getShardIterator_shardIteratorType,
     getShardIteratorResponse_shardIterator,
     getShardIteratorResponse_httpStatus,
 
     -- ** IncreaseStreamRetentionPeriod
+    increaseStreamRetentionPeriod_streamARN,
     increaseStreamRetentionPeriod_streamName,
     increaseStreamRetentionPeriod_retentionPeriodHours,
 
@@ -103,6 +115,7 @@ module Amazonka.Kinesis.Lens
     listShards_maxResults,
     listShards_nextToken,
     listShards_shardFilter,
+    listShards_streamARN,
     listShards_streamCreationTimestamp,
     listShards_streamName,
     listShardsResponse_nextToken,
@@ -121,6 +134,9 @@ module Amazonka.Kinesis.Lens
     -- ** ListStreams
     listStreams_exclusiveStartStreamName,
     listStreams_limit,
+    listStreams_nextToken,
+    listStreamsResponse_nextToken,
+    listStreamsResponse_streamSummaries,
     listStreamsResponse_httpStatus,
     listStreamsResponse_streamNames,
     listStreamsResponse_hasMoreStreams,
@@ -128,12 +144,14 @@ module Amazonka.Kinesis.Lens
     -- ** ListTagsForStream
     listTagsForStream_exclusiveStartTagKey,
     listTagsForStream_limit,
+    listTagsForStream_streamARN,
     listTagsForStream_streamName,
     listTagsForStreamResponse_httpStatus,
     listTagsForStreamResponse_tags,
     listTagsForStreamResponse_hasMoreTags,
 
     -- ** MergeShards
+    mergeShards_streamARN,
     mergeShards_streamName,
     mergeShards_shardToMerge,
     mergeShards_adjacentShardToMerge,
@@ -141,6 +159,7 @@ module Amazonka.Kinesis.Lens
     -- ** PutRecord
     putRecord_explicitHashKey,
     putRecord_sequenceNumberForOrdering,
+    putRecord_streamARN,
     putRecord_streamName,
     putRecord_data,
     putRecord_partitionKey,
@@ -150,8 +169,9 @@ module Amazonka.Kinesis.Lens
     putRecordResponse_sequenceNumber,
 
     -- ** PutRecords
-    putRecords_records,
+    putRecords_streamARN,
     putRecords_streamName,
+    putRecords_records,
     putRecordsResponse_encryptionType,
     putRecordsResponse_failedRecordCount,
     putRecordsResponse_httpStatus,
@@ -164,20 +184,24 @@ module Amazonka.Kinesis.Lens
     registerStreamConsumerResponse_consumer,
 
     -- ** RemoveTagsFromStream
+    removeTagsFromStream_streamARN,
     removeTagsFromStream_streamName,
     removeTagsFromStream_tagKeys,
 
     -- ** SplitShard
+    splitShard_streamARN,
     splitShard_streamName,
     splitShard_shardToSplit,
     splitShard_newStartingHashKey,
 
     -- ** StartStreamEncryption
+    startStreamEncryption_streamARN,
     startStreamEncryption_streamName,
     startStreamEncryption_encryptionType,
     startStreamEncryption_keyId,
 
     -- ** StopStreamEncryption
+    stopStreamEncryption_streamARN,
     stopStreamEncryption_streamName,
     stopStreamEncryption_encryptionType,
     stopStreamEncryption_keyId,
@@ -190,10 +214,12 @@ module Amazonka.Kinesis.Lens
     subscribeToShardResponse_eventStream,
 
     -- ** UpdateShardCount
+    updateShardCount_streamARN,
     updateShardCount_streamName,
     updateShardCount_targetShardCount,
     updateShardCount_scalingType,
     updateShardCountResponse_currentShardCount,
+    updateShardCountResponse_streamARN,
     updateShardCountResponse_streamName,
     updateShardCountResponse_targetShardCount,
     updateShardCountResponse_httpStatus,
@@ -228,6 +254,7 @@ module Amazonka.Kinesis.Lens
     -- ** EnhancedMonitoringOutput
     enhancedMonitoringOutput_currentShardLevelMetrics,
     enhancedMonitoringOutput_desiredShardLevelMetrics,
+    enhancedMonitoringOutput_streamARN,
     enhancedMonitoringOutput_streamName,
 
     -- ** HashKeyRange
@@ -302,6 +329,13 @@ module Amazonka.Kinesis.Lens
     -- ** StreamModeDetails
     streamModeDetails_streamMode,
 
+    -- ** StreamSummary
+    streamSummary_streamCreationTimestamp,
+    streamSummary_streamModeDetails,
+    streamSummary_streamName,
+    streamSummary_streamARN,
+    streamSummary_streamStatus,
+
     -- ** SubscribeToShardEvent
     subscribeToShardEvent_childShards,
     subscribeToShardEvent_records,
@@ -357,6 +391,7 @@ import Amazonka.Kinesis.Types.StartingPosition
 import Amazonka.Kinesis.Types.StreamDescription
 import Amazonka.Kinesis.Types.StreamDescriptionSummary
 import Amazonka.Kinesis.Types.StreamModeDetails
+import Amazonka.Kinesis.Types.StreamSummary
 import Amazonka.Kinesis.Types.SubscribeToShardEvent
 import Amazonka.Kinesis.Types.Tag
 import Amazonka.Kinesis.UpdateShardCount

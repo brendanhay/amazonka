@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.StorageConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,7 +26,7 @@ import Amazonka.M2.Types.EfsStorageConfiguration
 import Amazonka.M2.Types.FsxStorageConfiguration
 import qualified Amazonka.Prelude as Prelude
 
--- | Defines the storage configuration for an environment.
+-- | Defines the storage configuration for a runtime environment.
 --
 -- /See:/ 'newStorageConfiguration' smart constructor.
 data StorageConfiguration = StorageConfiguration'

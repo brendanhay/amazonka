@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.PendingMaintenance
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data PendingMaintenance = PendingMaintenance'
   { -- | The specific runtime engine that the maintenance schedule applies to.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The maintenance schedule for the engine version.
+    -- | The maintenance schedule for the runtime engine version.
     schedule :: Prelude.Maybe MaintenanceSchedule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +46,7 @@ data PendingMaintenance = PendingMaintenance'
 --
 -- 'engineVersion', 'pendingMaintenance_engineVersion' - The specific runtime engine that the maintenance schedule applies to.
 --
--- 'schedule', 'pendingMaintenance_schedule' - The maintenance schedule for the engine version.
+-- 'schedule', 'pendingMaintenance_schedule' - The maintenance schedule for the runtime engine version.
 newPendingMaintenance ::
   PendingMaintenance
 newPendingMaintenance =
@@ -60,7 +60,7 @@ newPendingMaintenance =
 pendingMaintenance_engineVersion :: Lens.Lens' PendingMaintenance (Prelude.Maybe Prelude.Text)
 pendingMaintenance_engineVersion = Lens.lens (\PendingMaintenance' {engineVersion} -> engineVersion) (\s@PendingMaintenance' {} a -> s {engineVersion = a} :: PendingMaintenance)
 
--- | The maintenance schedule for the engine version.
+-- | The maintenance schedule for the runtime engine version.
 pendingMaintenance_schedule :: Lens.Lens' PendingMaintenance (Prelude.Maybe MaintenanceSchedule)
 pendingMaintenance_schedule = Lens.lens (\PendingMaintenance' {schedule} -> schedule) (\s@PendingMaintenance' {} a -> s {schedule = a} :: PendingMaintenance)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.M2.GetApplicationVersion
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -163,7 +163,7 @@ data GetApplicationVersionResponse = GetApplicationVersionResponse'
     -- | The timestamp when the application version was created.
     creationTime :: Data.POSIX,
     -- | The content of the application definition. This is a JSON object that
-    -- contains the resource configuration\/definitions that identify an
+    -- contains the resource configuration and definitions that identify an
     -- application.
     definitionContent :: Prelude.Text,
     -- | The name of the application version.
@@ -192,7 +192,7 @@ data GetApplicationVersionResponse = GetApplicationVersionResponse'
 -- 'creationTime', 'getApplicationVersionResponse_creationTime' - The timestamp when the application version was created.
 --
 -- 'definitionContent', 'getApplicationVersionResponse_definitionContent' - The content of the application definition. This is a JSON object that
--- contains the resource configuration\/definitions that identify an
+-- contains the resource configuration and definitions that identify an
 -- application.
 --
 -- 'name', 'getApplicationVersionResponse_name' - The name of the application version.
@@ -253,7 +253,7 @@ getApplicationVersionResponse_creationTime :: Lens.Lens' GetApplicationVersionRe
 getApplicationVersionResponse_creationTime = Lens.lens (\GetApplicationVersionResponse' {creationTime} -> creationTime) (\s@GetApplicationVersionResponse' {} a -> s {creationTime = a} :: GetApplicationVersionResponse) Prelude.. Data._Time
 
 -- | The content of the application definition. This is a JSON object that
--- contains the resource configuration\/definitions that identify an
+-- contains the resource configuration and definitions that identify an
 -- application.
 getApplicationVersionResponse_definitionContent :: Lens.Lens' GetApplicationVersionResponse Prelude.Text
 getApplicationVersionResponse_definitionContent = Lens.lens (\GetApplicationVersionResponse' {definitionContent} -> definitionContent) (\s@GetApplicationVersionResponse' {} a -> s {definitionContent = a} :: GetApplicationVersionResponse)

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.M2.GetDataSetDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -158,14 +158,13 @@ data GetDataSetDetailsResponse = GetDataSetDetailsResponse'
     blocksize :: Prelude.Maybe Prelude.Int,
     -- | The timestamp when the data set was created.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
-    -- or unknown.
+    -- | The type of data set. The only supported value is VSAM.
     dataSetOrg :: Prelude.Maybe DatasetDetailOrgAttributes,
     -- | The last time the data set was referenced.
     lastReferencedTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the data set was updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
-    -- | The locaion where the data set is stored.
+    -- | The location where the data set is stored.
     location :: Prelude.Maybe Prelude.Text,
     -- | The length of records in the data set.
     recordLength :: Prelude.Maybe Prelude.Int,
@@ -188,14 +187,13 @@ data GetDataSetDetailsResponse = GetDataSetDetailsResponse'
 --
 -- 'creationTime', 'getDataSetDetailsResponse_creationTime' - The timestamp when the data set was created.
 --
--- 'dataSetOrg', 'getDataSetDetailsResponse_dataSetOrg' - The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
--- or unknown.
+-- 'dataSetOrg', 'getDataSetDetailsResponse_dataSetOrg' - The type of data set. The only supported value is VSAM.
 --
 -- 'lastReferencedTime', 'getDataSetDetailsResponse_lastReferencedTime' - The last time the data set was referenced.
 --
 -- 'lastUpdatedTime', 'getDataSetDetailsResponse_lastUpdatedTime' - The last time the data set was updated.
 --
--- 'location', 'getDataSetDetailsResponse_location' - The locaion where the data set is stored.
+-- 'location', 'getDataSetDetailsResponse_location' - The location where the data set is stored.
 --
 -- 'recordLength', 'getDataSetDetailsResponse_recordLength' - The length of records in the data set.
 --
@@ -232,8 +230,7 @@ getDataSetDetailsResponse_blocksize = Lens.lens (\GetDataSetDetailsResponse' {bl
 getDataSetDetailsResponse_creationTime :: Lens.Lens' GetDataSetDetailsResponse (Prelude.Maybe Prelude.UTCTime)
 getDataSetDetailsResponse_creationTime = Lens.lens (\GetDataSetDetailsResponse' {creationTime} -> creationTime) (\s@GetDataSetDetailsResponse' {} a -> s {creationTime = a} :: GetDataSetDetailsResponse) Prelude.. Lens.mapping Data._Time
 
--- | The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
--- or unknown.
+-- | The type of data set. The only supported value is VSAM.
 getDataSetDetailsResponse_dataSetOrg :: Lens.Lens' GetDataSetDetailsResponse (Prelude.Maybe DatasetDetailOrgAttributes)
 getDataSetDetailsResponse_dataSetOrg = Lens.lens (\GetDataSetDetailsResponse' {dataSetOrg} -> dataSetOrg) (\s@GetDataSetDetailsResponse' {} a -> s {dataSetOrg = a} :: GetDataSetDetailsResponse)
 
@@ -245,7 +242,7 @@ getDataSetDetailsResponse_lastReferencedTime = Lens.lens (\GetDataSetDetailsResp
 getDataSetDetailsResponse_lastUpdatedTime :: Lens.Lens' GetDataSetDetailsResponse (Prelude.Maybe Prelude.UTCTime)
 getDataSetDetailsResponse_lastUpdatedTime = Lens.lens (\GetDataSetDetailsResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@GetDataSetDetailsResponse' {} a -> s {lastUpdatedTime = a} :: GetDataSetDetailsResponse) Prelude.. Lens.mapping Data._Time
 
--- | The locaion where the data set is stored.
+-- | The location where the data set is stored.
 getDataSetDetailsResponse_location :: Lens.Lens' GetDataSetDetailsResponse (Prelude.Maybe Prelude.Text)
 getDataSetDetailsResponse_location = Lens.lens (\GetDataSetDetailsResponse' {location} -> location) (\s@GetDataSetDetailsResponse' {} a -> s {location = a} :: GetDataSetDetailsResponse)
 

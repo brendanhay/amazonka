@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.M2.ListApplications
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the applications associated with a specific Amazon Web Services
--- account. You can provide the unique identifier of a specific environment
--- in a query parameter to see all applications associated with that
--- environment.
+-- account. You can provide the unique identifier of a specific runtime
+-- environment in a query parameter to see all applications associated with
+-- that environment.
 --
 -- This operation returns paginated results.
 module Amazonka.M2.ListApplications
@@ -196,7 +196,7 @@ data ListApplicationsResponse = ListApplicationsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Returns a list of summary details for all the applications in an
+    -- | Returns a list of summary details for all the applications in a runtime
     -- environment.
     applications :: [ApplicationSummary]
   }
@@ -215,7 +215,7 @@ data ListApplicationsResponse = ListApplicationsResponse'
 --
 -- 'httpStatus', 'listApplicationsResponse_httpStatus' - The response's http status code.
 --
--- 'applications', 'listApplicationsResponse_applications' - Returns a list of summary details for all the applications in an
+-- 'applications', 'listApplicationsResponse_applications' - Returns a list of summary details for all the applications in a runtime
 -- environment.
 newListApplicationsResponse ::
   -- | 'httpStatus'
@@ -238,7 +238,7 @@ listApplicationsResponse_nextToken = Lens.lens (\ListApplicationsResponse' {next
 listApplicationsResponse_httpStatus :: Lens.Lens' ListApplicationsResponse Prelude.Int
 listApplicationsResponse_httpStatus = Lens.lens (\ListApplicationsResponse' {httpStatus} -> httpStatus) (\s@ListApplicationsResponse' {} a -> s {httpStatus = a} :: ListApplicationsResponse)
 
--- | Returns a list of summary details for all the applications in an
+-- | Returns a list of summary details for all the applications in a runtime
 -- environment.
 listApplicationsResponse_applications :: Lens.Lens' ListApplicationsResponse [ApplicationSummary]
 listApplicationsResponse_applications = Lens.lens (\ListApplicationsResponse' {applications} -> applications) (\s@ListApplicationsResponse' {} a -> s {applications = a} :: ListApplicationsResponse) Prelude.. Lens.coerced

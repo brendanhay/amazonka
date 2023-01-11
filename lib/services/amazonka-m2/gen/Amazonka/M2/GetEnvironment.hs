@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.M2.GetEnvironment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,6 +37,7 @@ module Amazonka.M2.GetEnvironment
     getEnvironmentResponse_actualCapacity,
     getEnvironmentResponse_description,
     getEnvironmentResponse_highAvailabilityConfig,
+    getEnvironmentResponse_kmsKeyId,
     getEnvironmentResponse_loadBalancerArn,
     getEnvironmentResponse_pendingMaintenance,
     getEnvironmentResponse_preferredMaintenanceWindow,
@@ -107,6 +108,7 @@ instance Core.AWSRequest GetEnvironment where
             Prelude.<$> (x Data..?> "actualCapacity")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "highAvailabilityConfig")
+            Prelude.<*> (x Data..?> "kmsKeyId")
             Prelude.<*> (x Data..?> "loadBalancerArn")
             Prelude.<*> (x Data..?> "pendingMaintenance")
             Prelude.<*> (x Data..?> "preferredMaintenanceWindow")
@@ -170,13 +172,16 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
     -- | The desired capacity of the high availability configuration for the
     -- runtime environment.
     highAvailabilityConfig :: Prelude.Maybe HighAvailabilityConfig,
+    -- | The identifier of a customer managed key.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the load balancer used with the
     -- runtime environment.
     loadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates the pending maintenance scheduled on this environment.
     pendingMaintenance :: Prelude.Maybe PendingMaintenance,
-    -- | Configures a desired maintenance window for the environment. If you do
-    -- not provide a value, a random system-generated value will be assigned.
+    -- | Configures the maintenance window you want for the runtime environment.
+    -- If you do not provide a value, a random system-generated value will be
+    -- assigned.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | Whether applications running in this runtime environment are publicly
     -- accessible.
@@ -201,7 +206,7 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
     environmentId :: Prelude.Text,
     -- | The type of instance underlying the runtime environment.
     instanceType :: Prelude.Text,
-    -- | The name of the runtime environment.
+    -- | The name of the runtime environment. Must be unique within the account.
     name :: Prelude.Text,
     -- | The unique identifiers of the security groups assigned to this runtime
     -- environment.
@@ -234,13 +239,16 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
 -- 'highAvailabilityConfig', 'getEnvironmentResponse_highAvailabilityConfig' - The desired capacity of the high availability configuration for the
 -- runtime environment.
 --
+-- 'kmsKeyId', 'getEnvironmentResponse_kmsKeyId' - The identifier of a customer managed key.
+--
 -- 'loadBalancerArn', 'getEnvironmentResponse_loadBalancerArn' - The Amazon Resource Name (ARN) for the load balancer used with the
 -- runtime environment.
 --
 -- 'pendingMaintenance', 'getEnvironmentResponse_pendingMaintenance' - Indicates the pending maintenance scheduled on this environment.
 --
--- 'preferredMaintenanceWindow', 'getEnvironmentResponse_preferredMaintenanceWindow' - Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
+-- 'preferredMaintenanceWindow', 'getEnvironmentResponse_preferredMaintenanceWindow' - Configures the maintenance window you want for the runtime environment.
+-- If you do not provide a value, a random system-generated value will be
+-- assigned.
 --
 -- 'publiclyAccessible', 'getEnvironmentResponse_publiclyAccessible' - Whether applications running in this runtime environment are publicly
 -- accessible.
@@ -265,7 +273,7 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
 --
 -- 'instanceType', 'getEnvironmentResponse_instanceType' - The type of instance underlying the runtime environment.
 --
--- 'name', 'getEnvironmentResponse_name' - The name of the runtime environment.
+-- 'name', 'getEnvironmentResponse_name' - The name of the runtime environment. Must be unique within the account.
 --
 -- 'securityGroupIds', 'getEnvironmentResponse_securityGroupIds' - The unique identifiers of the security groups assigned to this runtime
 -- environment.
@@ -314,6 +322,7 @@ newGetEnvironmentResponse
           Prelude.Nothing,
         description = Prelude.Nothing,
         highAvailabilityConfig = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         loadBalancerArn = Prelude.Nothing,
         pendingMaintenance = Prelude.Nothing,
         preferredMaintenanceWindow = Prelude.Nothing,
@@ -351,6 +360,10 @@ getEnvironmentResponse_description = Lens.lens (\GetEnvironmentResponse' {descri
 getEnvironmentResponse_highAvailabilityConfig :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe HighAvailabilityConfig)
 getEnvironmentResponse_highAvailabilityConfig = Lens.lens (\GetEnvironmentResponse' {highAvailabilityConfig} -> highAvailabilityConfig) (\s@GetEnvironmentResponse' {} a -> s {highAvailabilityConfig = a} :: GetEnvironmentResponse)
 
+-- | The identifier of a customer managed key.
+getEnvironmentResponse_kmsKeyId :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
+getEnvironmentResponse_kmsKeyId = Lens.lens (\GetEnvironmentResponse' {kmsKeyId} -> kmsKeyId) (\s@GetEnvironmentResponse' {} a -> s {kmsKeyId = a} :: GetEnvironmentResponse)
+
 -- | The Amazon Resource Name (ARN) for the load balancer used with the
 -- runtime environment.
 getEnvironmentResponse_loadBalancerArn :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
@@ -360,8 +373,9 @@ getEnvironmentResponse_loadBalancerArn = Lens.lens (\GetEnvironmentResponse' {lo
 getEnvironmentResponse_pendingMaintenance :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe PendingMaintenance)
 getEnvironmentResponse_pendingMaintenance = Lens.lens (\GetEnvironmentResponse' {pendingMaintenance} -> pendingMaintenance) (\s@GetEnvironmentResponse' {} a -> s {pendingMaintenance = a} :: GetEnvironmentResponse)
 
--- | Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
+-- | Configures the maintenance window you want for the runtime environment.
+-- If you do not provide a value, a random system-generated value will be
+-- assigned.
 getEnvironmentResponse_preferredMaintenanceWindow :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
 getEnvironmentResponse_preferredMaintenanceWindow = Lens.lens (\GetEnvironmentResponse' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@GetEnvironmentResponse' {} a -> s {preferredMaintenanceWindow = a} :: GetEnvironmentResponse)
 
@@ -410,7 +424,7 @@ getEnvironmentResponse_environmentId = Lens.lens (\GetEnvironmentResponse' {envi
 getEnvironmentResponse_instanceType :: Lens.Lens' GetEnvironmentResponse Prelude.Text
 getEnvironmentResponse_instanceType = Lens.lens (\GetEnvironmentResponse' {instanceType} -> instanceType) (\s@GetEnvironmentResponse' {} a -> s {instanceType = a} :: GetEnvironmentResponse)
 
--- | The name of the runtime environment.
+-- | The name of the runtime environment. Must be unique within the account.
 getEnvironmentResponse_name :: Lens.Lens' GetEnvironmentResponse Prelude.Text
 getEnvironmentResponse_name = Lens.lens (\GetEnvironmentResponse' {name} -> name) (\s@GetEnvironmentResponse' {} a -> s {name = a} :: GetEnvironmentResponse)
 
@@ -437,6 +451,7 @@ instance Prelude.NFData GetEnvironmentResponse where
     Prelude.rnf actualCapacity
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf highAvailabilityConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf loadBalancerArn
       `Prelude.seq` Prelude.rnf pendingMaintenance
       `Prelude.seq` Prelude.rnf preferredMaintenanceWindow

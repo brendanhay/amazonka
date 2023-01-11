@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.EnvironmentSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,14 +26,14 @@ import Amazonka.M2.Types.EngineType
 import Amazonka.M2.Types.EnvironmentLifecycle
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains a subset of the possible environment attributes. Used in the
--- environment list.
+-- | Contains a subset of the possible runtime environment attributes. Used
+-- in the environment list.
 --
 -- /See:/ 'newEnvironmentSummary' smart constructor.
 data EnvironmentSummary = EnvironmentSummary'
-  { -- | The timestamp when the environment was created.
+  { -- | The timestamp when the runtime environment was created.
     creationTime :: Data.POSIX,
-    -- | The target platform for the environment.
+    -- | The target platform for the runtime environment.
     engineType :: EngineType,
     -- | The version of the runtime engine.
     engineVersion :: Prelude.Text,
@@ -41,11 +41,11 @@ data EnvironmentSummary = EnvironmentSummary'
     environmentArn :: Prelude.Text,
     -- | The unique identifier of a particular runtime environment.
     environmentId :: Prelude.Text,
-    -- | The instance type of the environment.
+    -- | The instance type of the runtime environment.
     instanceType :: Prelude.Text,
-    -- | The name of the environment.
+    -- | The name of the runtime environment.
     name :: Prelude.Text,
-    -- | The status of the environment
+    -- | The status of the runtime environment
     status :: EnvironmentLifecycle
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,9 +58,9 @@ data EnvironmentSummary = EnvironmentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'environmentSummary_creationTime' - The timestamp when the environment was created.
+-- 'creationTime', 'environmentSummary_creationTime' - The timestamp when the runtime environment was created.
 --
--- 'engineType', 'environmentSummary_engineType' - The target platform for the environment.
+-- 'engineType', 'environmentSummary_engineType' - The target platform for the runtime environment.
 --
 -- 'engineVersion', 'environmentSummary_engineVersion' - The version of the runtime engine.
 --
@@ -68,11 +68,11 @@ data EnvironmentSummary = EnvironmentSummary'
 --
 -- 'environmentId', 'environmentSummary_environmentId' - The unique identifier of a particular runtime environment.
 --
--- 'instanceType', 'environmentSummary_instanceType' - The instance type of the environment.
+-- 'instanceType', 'environmentSummary_instanceType' - The instance type of the runtime environment.
 --
--- 'name', 'environmentSummary_name' - The name of the environment.
+-- 'name', 'environmentSummary_name' - The name of the runtime environment.
 --
--- 'status', 'environmentSummary_status' - The status of the environment
+-- 'status', 'environmentSummary_status' - The status of the runtime environment
 newEnvironmentSummary ::
   -- | 'creationTime'
   Prelude.UTCTime ->
@@ -112,11 +112,11 @@ newEnvironmentSummary
         status = pStatus_
       }
 
--- | The timestamp when the environment was created.
+-- | The timestamp when the runtime environment was created.
 environmentSummary_creationTime :: Lens.Lens' EnvironmentSummary Prelude.UTCTime
 environmentSummary_creationTime = Lens.lens (\EnvironmentSummary' {creationTime} -> creationTime) (\s@EnvironmentSummary' {} a -> s {creationTime = a} :: EnvironmentSummary) Prelude.. Data._Time
 
--- | The target platform for the environment.
+-- | The target platform for the runtime environment.
 environmentSummary_engineType :: Lens.Lens' EnvironmentSummary EngineType
 environmentSummary_engineType = Lens.lens (\EnvironmentSummary' {engineType} -> engineType) (\s@EnvironmentSummary' {} a -> s {engineType = a} :: EnvironmentSummary)
 
@@ -132,15 +132,15 @@ environmentSummary_environmentArn = Lens.lens (\EnvironmentSummary' {environment
 environmentSummary_environmentId :: Lens.Lens' EnvironmentSummary Prelude.Text
 environmentSummary_environmentId = Lens.lens (\EnvironmentSummary' {environmentId} -> environmentId) (\s@EnvironmentSummary' {} a -> s {environmentId = a} :: EnvironmentSummary)
 
--- | The instance type of the environment.
+-- | The instance type of the runtime environment.
 environmentSummary_instanceType :: Lens.Lens' EnvironmentSummary Prelude.Text
 environmentSummary_instanceType = Lens.lens (\EnvironmentSummary' {instanceType} -> instanceType) (\s@EnvironmentSummary' {} a -> s {instanceType = a} :: EnvironmentSummary)
 
--- | The name of the environment.
+-- | The name of the runtime environment.
 environmentSummary_name :: Lens.Lens' EnvironmentSummary Prelude.Text
 environmentSummary_name = Lens.lens (\EnvironmentSummary' {name} -> name) (\s@EnvironmentSummary' {} a -> s {name = a} :: EnvironmentSummary)
 
--- | The status of the environment
+-- | The status of the runtime environment
 environmentSummary_status :: Lens.Lens' EnvironmentSummary EnvironmentLifecycle
 environmentSummary_status = Lens.lens (\EnvironmentSummary' {status} -> status) (\s@EnvironmentSummary' {} a -> s {status = a} :: EnvironmentSummary)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Types.ApplicationLifecycle
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,7 @@ module Amazonka.M2.Types.ApplicationLifecycle
         ApplicationLifecycle_Created,
         ApplicationLifecycle_Creating,
         ApplicationLifecycle_Deleting,
+        ApplicationLifecycle_Deleting_From_Environment,
         ApplicationLifecycle_Failed,
         ApplicationLifecycle_Ready,
         ApplicationLifecycle_Running,
@@ -78,6 +79,9 @@ pattern ApplicationLifecycle_Creating = ApplicationLifecycle' "Creating"
 pattern ApplicationLifecycle_Deleting :: ApplicationLifecycle
 pattern ApplicationLifecycle_Deleting = ApplicationLifecycle' "Deleting"
 
+pattern ApplicationLifecycle_Deleting_From_Environment :: ApplicationLifecycle
+pattern ApplicationLifecycle_Deleting_From_Environment = ApplicationLifecycle' "Deleting From Environment"
+
 pattern ApplicationLifecycle_Failed :: ApplicationLifecycle
 pattern ApplicationLifecycle_Failed = ApplicationLifecycle' "Failed"
 
@@ -101,6 +105,7 @@ pattern ApplicationLifecycle_Stopping = ApplicationLifecycle' "Stopping"
   ApplicationLifecycle_Created,
   ApplicationLifecycle_Creating,
   ApplicationLifecycle_Deleting,
+  ApplicationLifecycle_Deleting_From_Environment,
   ApplicationLifecycle_Failed,
   ApplicationLifecycle_Ready,
   ApplicationLifecycle_Running,

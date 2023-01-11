@@ -14,15 +14,15 @@
 
 -- |
 -- Module      : Amazonka.M2.ListBatchJobDefinitions
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all the available batch job definitions based on the batch job
--- resources uploaded during the application creation. The listed batch job
--- definitions can then be used to start a batch job.
+-- resources uploaded during the application creation. You can use the
+-- batch job definitions in the list to start a batch job.
 --
 -- This operation returns paginated results.
 module Amazonka.M2.ListBatchJobDefinitions

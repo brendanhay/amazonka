@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MigrationHubReFactorSpaces.Types.LambdaEndpointInput
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaEndpointInput' smart constructor.
 data LambdaEndpointInput = LambdaEndpointInput'
-  { -- | The Amazon Resource Name (ARN) of the Lambda endpoint.
+  { -- | The Amazon Resource Name (ARN) of the Lambda function or alias.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +41,7 @@ data LambdaEndpointInput = LambdaEndpointInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'lambdaEndpointInput_arn' - The Amazon Resource Name (ARN) of the Lambda endpoint.
+-- 'arn', 'lambdaEndpointInput_arn' - The Amazon Resource Name (ARN) of the Lambda function or alias.
 newLambdaEndpointInput ::
   -- | 'arn'
   Prelude.Text ->
@@ -49,7 +49,7 @@ newLambdaEndpointInput ::
 newLambdaEndpointInput pArn_ =
   LambdaEndpointInput' {arn = pArn_}
 
--- | The Amazon Resource Name (ARN) of the Lambda endpoint.
+-- | The Amazon Resource Name (ARN) of the Lambda function or alias.
 lambdaEndpointInput_arn :: Lens.Lens' LambdaEndpointInput Prelude.Text
 lambdaEndpointInput_arn = Lens.lens (\LambdaEndpointInput' {arn} -> arn) (\s@LambdaEndpointInput' {} a -> s {arn = a} :: LambdaEndpointInput)
 

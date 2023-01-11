@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.GetEC2InstanceRecommendations
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,7 +82,7 @@ data GetEC2InstanceRecommendations = GetEC2InstanceRecommendations'
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to advance to the next page of instance recommendations.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An object to specify the preferences for the Amazon EC2 instance
@@ -163,7 +163,7 @@ getEC2InstanceRecommendations_instanceArns = Lens.lens (\GetEC2InstanceRecommend
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
-getEC2InstanceRecommendations_maxResults :: Lens.Lens' GetEC2InstanceRecommendations (Prelude.Maybe Prelude.Int)
+getEC2InstanceRecommendations_maxResults :: Lens.Lens' GetEC2InstanceRecommendations (Prelude.Maybe Prelude.Natural)
 getEC2InstanceRecommendations_maxResults = Lens.lens (\GetEC2InstanceRecommendations' {maxResults} -> maxResults) (\s@GetEC2InstanceRecommendations' {} a -> s {maxResults = a} :: GetEC2InstanceRecommendations)
 
 -- | The token to advance to the next page of instance recommendations.

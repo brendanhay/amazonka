@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,8 @@
 --
 -- To get the enrollment status of standalone accounts, use the
 -- GetEnrollmentStatus action.
+--
+-- This operation returns paginated results.
 module Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization
   ( -- * Creating a Request
     GetEnrollmentStatusesForOrganization (..),
@@ -65,7 +67,7 @@ data GetEnrollmentStatusesForOrganization = GetEnrollmentStatusesForOrganization
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to advance to the next page of account enrollment statuses.
     nextToken :: Prelude.Maybe Prelude.Text
   }
@@ -111,12 +113,37 @@ getEnrollmentStatusesForOrganization_filters = Lens.lens (\GetEnrollmentStatuses
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
-getEnrollmentStatusesForOrganization_maxResults :: Lens.Lens' GetEnrollmentStatusesForOrganization (Prelude.Maybe Prelude.Int)
+getEnrollmentStatusesForOrganization_maxResults :: Lens.Lens' GetEnrollmentStatusesForOrganization (Prelude.Maybe Prelude.Natural)
 getEnrollmentStatusesForOrganization_maxResults = Lens.lens (\GetEnrollmentStatusesForOrganization' {maxResults} -> maxResults) (\s@GetEnrollmentStatusesForOrganization' {} a -> s {maxResults = a} :: GetEnrollmentStatusesForOrganization)
 
 -- | The token to advance to the next page of account enrollment statuses.
 getEnrollmentStatusesForOrganization_nextToken :: Lens.Lens' GetEnrollmentStatusesForOrganization (Prelude.Maybe Prelude.Text)
 getEnrollmentStatusesForOrganization_nextToken = Lens.lens (\GetEnrollmentStatusesForOrganization' {nextToken} -> nextToken) (\s@GetEnrollmentStatusesForOrganization' {} a -> s {nextToken = a} :: GetEnrollmentStatusesForOrganization)
+
+instance
+  Core.AWSPager
+    GetEnrollmentStatusesForOrganization
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getEnrollmentStatusesForOrganizationResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getEnrollmentStatusesForOrganization_nextToken
+          Lens..~ rs
+            Lens.^? getEnrollmentStatusesForOrganizationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

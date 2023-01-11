@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,6 +64,17 @@ module Amazonka.ComputeOptimizer.Lens
     exportEC2InstanceRecommendationsResponse_s3Destination,
     exportEC2InstanceRecommendationsResponse_httpStatus,
 
+    -- ** ExportECSServiceRecommendations
+    exportECSServiceRecommendations_accountIds,
+    exportECSServiceRecommendations_fieldsToExport,
+    exportECSServiceRecommendations_fileFormat,
+    exportECSServiceRecommendations_filters,
+    exportECSServiceRecommendations_includeMemberAccounts,
+    exportECSServiceRecommendations_s3DestinationConfig,
+    exportECSServiceRecommendationsResponse_jobId,
+    exportECSServiceRecommendationsResponse_s3Destination,
+    exportECSServiceRecommendationsResponse_httpStatus,
+
     -- ** ExportLambdaFunctionRecommendations
     exportLambdaFunctionRecommendations_accountIds,
     exportLambdaFunctionRecommendations_fieldsToExport,
@@ -119,6 +130,26 @@ module Amazonka.ComputeOptimizer.Lens
     getEC2RecommendationProjectedMetrics_endTime,
     getEC2RecommendationProjectedMetricsResponse_recommendedOptionProjectedMetrics,
     getEC2RecommendationProjectedMetricsResponse_httpStatus,
+
+    -- ** GetECSServiceRecommendationProjectedMetrics
+    getECSServiceRecommendationProjectedMetrics_serviceArn,
+    getECSServiceRecommendationProjectedMetrics_stat,
+    getECSServiceRecommendationProjectedMetrics_period,
+    getECSServiceRecommendationProjectedMetrics_startTime,
+    getECSServiceRecommendationProjectedMetrics_endTime,
+    getECSServiceRecommendationProjectedMetricsResponse_recommendedOptionProjectedMetrics,
+    getECSServiceRecommendationProjectedMetricsResponse_httpStatus,
+
+    -- ** GetECSServiceRecommendations
+    getECSServiceRecommendations_accountIds,
+    getECSServiceRecommendations_filters,
+    getECSServiceRecommendations_maxResults,
+    getECSServiceRecommendations_nextToken,
+    getECSServiceRecommendations_serviceArns,
+    getECSServiceRecommendationsResponse_ecsServiceRecommendations,
+    getECSServiceRecommendationsResponse_errors,
+    getECSServiceRecommendationsResponse_nextToken,
+    getECSServiceRecommendationsResponse_httpStatus,
 
     -- ** GetEffectiveRecommendationPreferences
     getEffectiveRecommendationPreferences_resourceArn,
@@ -220,6 +251,16 @@ module Amazonka.ComputeOptimizer.Lens
     autoScalingGroupRecommendationOption_rank,
     autoScalingGroupRecommendationOption_savingsOpportunity,
 
+    -- ** ContainerConfiguration
+    containerConfiguration_containerName,
+    containerConfiguration_cpu,
+    containerConfiguration_memorySizeConfiguration,
+
+    -- ** ContainerRecommendation
+    containerRecommendation_containerName,
+    containerRecommendation_cpu,
+    containerRecommendation_memorySizeConfiguration,
+
     -- ** CurrentPerformanceRiskRatings
     currentPerformanceRiskRatings_high,
     currentPerformanceRiskRatings_low,
@@ -234,6 +275,52 @@ module Amazonka.ComputeOptimizer.Lens
     eBSUtilizationMetric_name,
     eBSUtilizationMetric_statistic,
     eBSUtilizationMetric_value,
+
+    -- ** ECSServiceProjectedMetric
+    eCSServiceProjectedMetric_lowerBoundValues,
+    eCSServiceProjectedMetric_name,
+    eCSServiceProjectedMetric_timestamps,
+    eCSServiceProjectedMetric_upperBoundValues,
+
+    -- ** ECSServiceProjectedUtilizationMetric
+    eCSServiceProjectedUtilizationMetric_lowerBoundValue,
+    eCSServiceProjectedUtilizationMetric_name,
+    eCSServiceProjectedUtilizationMetric_statistic,
+    eCSServiceProjectedUtilizationMetric_upperBoundValue,
+
+    -- ** ECSServiceRecommendation
+    eCSServiceRecommendation_accountId,
+    eCSServiceRecommendation_currentPerformanceRisk,
+    eCSServiceRecommendation_currentServiceConfiguration,
+    eCSServiceRecommendation_finding,
+    eCSServiceRecommendation_findingReasonCodes,
+    eCSServiceRecommendation_lastRefreshTimestamp,
+    eCSServiceRecommendation_launchType,
+    eCSServiceRecommendation_lookbackPeriodInDays,
+    eCSServiceRecommendation_serviceArn,
+    eCSServiceRecommendation_serviceRecommendationOptions,
+    eCSServiceRecommendation_utilizationMetrics,
+
+    -- ** ECSServiceRecommendationFilter
+    eCSServiceRecommendationFilter_name,
+    eCSServiceRecommendationFilter_values,
+
+    -- ** ECSServiceRecommendationOption
+    eCSServiceRecommendationOption_containerRecommendations,
+    eCSServiceRecommendationOption_cpu,
+    eCSServiceRecommendationOption_memory,
+    eCSServiceRecommendationOption_projectedUtilizationMetrics,
+    eCSServiceRecommendationOption_savingsOpportunity,
+
+    -- ** ECSServiceRecommendedOptionProjectedMetric
+    eCSServiceRecommendedOptionProjectedMetric_projectedMetrics,
+    eCSServiceRecommendedOptionProjectedMetric_recommendedCpuUnits,
+    eCSServiceRecommendedOptionProjectedMetric_recommendedMemorySize,
+
+    -- ** ECSServiceUtilizationMetric
+    eCSServiceUtilizationMetric_name,
+    eCSServiceUtilizationMetric_statistic,
+    eCSServiceUtilizationMetric_value,
 
     -- ** EffectiveRecommendationPreferences
     effectiveRecommendationPreferences_cpuVendorArchitectures,
@@ -327,6 +414,10 @@ module Amazonka.ComputeOptimizer.Lens
     lambdaFunctionUtilizationMetric_statistic,
     lambdaFunctionUtilizationMetric_value,
 
+    -- ** MemorySizeConfiguration
+    memorySizeConfiguration_memory,
+    memorySizeConfiguration_memoryReservation,
+
     -- ** ProjectedMetric
     projectedMetric_name,
     projectedMetric_timestamps,
@@ -388,6 +479,13 @@ module Amazonka.ComputeOptimizer.Lens
     scope_name,
     scope_value,
 
+    -- ** ServiceConfiguration
+    serviceConfiguration_autoScalingConfiguration,
+    serviceConfiguration_containerConfigurations,
+    serviceConfiguration_cpu,
+    serviceConfiguration_memory,
+    serviceConfiguration_taskDefinitionArn,
+
     -- ** Summary
     summary_name,
     summary_reasonCodeSummaries,
@@ -430,11 +528,14 @@ import Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
 import Amazonka.ComputeOptimizer.ExportAutoScalingGroupRecommendations
 import Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations
 import Amazonka.ComputeOptimizer.ExportEC2InstanceRecommendations
+import Amazonka.ComputeOptimizer.ExportECSServiceRecommendations
 import Amazonka.ComputeOptimizer.ExportLambdaFunctionRecommendations
 import Amazonka.ComputeOptimizer.GetAutoScalingGroupRecommendations
 import Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
 import Amazonka.ComputeOptimizer.GetEC2InstanceRecommendations
 import Amazonka.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
+import Amazonka.ComputeOptimizer.GetECSServiceRecommendationProjectedMetrics
+import Amazonka.ComputeOptimizer.GetECSServiceRecommendations
 import Amazonka.ComputeOptimizer.GetEffectiveRecommendationPreferences
 import Amazonka.ComputeOptimizer.GetEnrollmentStatus
 import Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization
@@ -446,9 +547,18 @@ import Amazonka.ComputeOptimizer.Types.AccountEnrollmentStatus
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
+import Amazonka.ComputeOptimizer.Types.ContainerConfiguration
+import Amazonka.ComputeOptimizer.Types.ContainerRecommendation
 import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRiskRatings
 import Amazonka.ComputeOptimizer.Types.EBSFilter
 import Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.ECSServiceProjectedMetric
+import Amazonka.ComputeOptimizer.Types.ECSServiceProjectedUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendation
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationFilter
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationOption
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendedOptionProjectedMetric
+import Amazonka.ComputeOptimizer.Types.ECSServiceUtilizationMetric
 import Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
 import Amazonka.ComputeOptimizer.Types.EnrollmentFilter
 import Amazonka.ComputeOptimizer.Types.EstimatedMonthlySavings
@@ -464,6 +574,7 @@ import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendation
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFilter
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.MemorySizeConfiguration
 import Amazonka.ComputeOptimizer.Types.ProjectedMetric
 import Amazonka.ComputeOptimizer.Types.ReasonCodeSummary
 import Amazonka.ComputeOptimizer.Types.RecommendationExportJob
@@ -476,6 +587,7 @@ import Amazonka.ComputeOptimizer.Types.S3Destination
 import Amazonka.ComputeOptimizer.Types.S3DestinationConfig
 import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.Scope
+import Amazonka.ComputeOptimizer.Types.ServiceConfiguration
 import Amazonka.ComputeOptimizer.Types.Summary
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import Amazonka.ComputeOptimizer.Types.VolumeConfiguration

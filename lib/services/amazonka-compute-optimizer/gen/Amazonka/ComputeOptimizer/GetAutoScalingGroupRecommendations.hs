@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.GetAutoScalingGroupRecommendations
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,7 +82,7 @@ data GetAutoScalingGroupRecommendations = GetAutoScalingGroupRecommendations'
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to advance to the next page of Auto Scaling group
     -- recommendations.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -166,7 +166,7 @@ getAutoScalingGroupRecommendations_filters = Lens.lens (\GetAutoScalingGroupReco
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
-getAutoScalingGroupRecommendations_maxResults :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe Prelude.Int)
+getAutoScalingGroupRecommendations_maxResults :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe Prelude.Natural)
 getAutoScalingGroupRecommendations_maxResults = Lens.lens (\GetAutoScalingGroupRecommendations' {maxResults} -> maxResults) (\s@GetAutoScalingGroupRecommendations' {} a -> s {maxResults = a} :: GetAutoScalingGroupRecommendations)
 
 -- | The token to advance to the next page of Auto Scaling group

@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -49,11 +49,14 @@ library
     Amazonka.ComputeOptimizer.ExportAutoScalingGroupRecommendations
     Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations
     Amazonka.ComputeOptimizer.ExportEC2InstanceRecommendations
+    Amazonka.ComputeOptimizer.ExportECSServiceRecommendations
     Amazonka.ComputeOptimizer.ExportLambdaFunctionRecommendations
     Amazonka.ComputeOptimizer.GetAutoScalingGroupRecommendations
     Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
     Amazonka.ComputeOptimizer.GetEC2InstanceRecommendations
     Amazonka.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
+    Amazonka.ComputeOptimizer.GetECSServiceRecommendationProjectedMetrics
+    Amazonka.ComputeOptimizer.GetECSServiceRecommendations
     Amazonka.ComputeOptimizer.GetEffectiveRecommendationPreferences
     Amazonka.ComputeOptimizer.GetEnrollmentStatus
     Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization
@@ -64,9 +67,12 @@ library
     Amazonka.ComputeOptimizer.PutRecommendationPreferences
     Amazonka.ComputeOptimizer.Types
     Amazonka.ComputeOptimizer.Types.AccountEnrollmentStatus
+    Amazonka.ComputeOptimizer.Types.AutoScalingConfiguration
     Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
     Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation
     Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
+    Amazonka.ComputeOptimizer.Types.ContainerConfiguration
+    Amazonka.ComputeOptimizer.Types.ContainerRecommendation
     Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture
     Amazonka.ComputeOptimizer.Types.Currency
     Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
@@ -76,12 +82,26 @@ library
     Amazonka.ComputeOptimizer.Types.EBSFinding
     Amazonka.ComputeOptimizer.Types.EBSMetricName
     Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
+    Amazonka.ComputeOptimizer.Types.ECSServiceLaunchType
+    Amazonka.ComputeOptimizer.Types.ECSServiceMetricName
+    Amazonka.ComputeOptimizer.Types.ECSServiceMetricStatistic
+    Amazonka.ComputeOptimizer.Types.ECSServiceProjectedMetric
+    Amazonka.ComputeOptimizer.Types.ECSServiceProjectedUtilizationMetric
+    Amazonka.ComputeOptimizer.Types.ECSServiceRecommendation
+    Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationFilter
+    Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationFilterName
+    Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationFinding
+    Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationFindingReasonCode
+    Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationOption
+    Amazonka.ComputeOptimizer.Types.ECSServiceRecommendedOptionProjectedMetric
+    Amazonka.ComputeOptimizer.Types.ECSServiceUtilizationMetric
     Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
     Amazonka.ComputeOptimizer.Types.EnhancedInfrastructureMetrics
     Amazonka.ComputeOptimizer.Types.EnrollmentFilter
     Amazonka.ComputeOptimizer.Types.EnrollmentFilterName
     Amazonka.ComputeOptimizer.Types.EstimatedMonthlySavings
     Amazonka.ComputeOptimizer.Types.ExportableAutoScalingGroupField
+    Amazonka.ComputeOptimizer.Types.ExportableECSServiceField
     Amazonka.ComputeOptimizer.Types.ExportableInstanceField
     Amazonka.ComputeOptimizer.Types.ExportableLambdaFunctionField
     Amazonka.ComputeOptimizer.Types.ExportableVolumeField
@@ -114,6 +134,7 @@ library
     Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFinding
     Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode
     Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
+    Amazonka.ComputeOptimizer.Types.MemorySizeConfiguration
     Amazonka.ComputeOptimizer.Types.MetricName
     Amazonka.ComputeOptimizer.Types.MetricStatistic
     Amazonka.ComputeOptimizer.Types.MigrationEffort
@@ -134,6 +155,7 @@ library
     Amazonka.ComputeOptimizer.Types.SavingsOpportunity
     Amazonka.ComputeOptimizer.Types.Scope
     Amazonka.ComputeOptimizer.Types.ScopeName
+    Amazonka.ComputeOptimizer.Types.ServiceConfiguration
     Amazonka.ComputeOptimizer.Types.Status
     Amazonka.ComputeOptimizer.Types.Summary
     Amazonka.ComputeOptimizer.Types.UtilizationMetric

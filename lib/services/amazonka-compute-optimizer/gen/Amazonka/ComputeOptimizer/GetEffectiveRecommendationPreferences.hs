@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.GetEffectiveRecommendationPreferences
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -200,7 +200,7 @@ data GetEffectiveRecommendationPreferencesResponse = GetEffectiveRecommendationP
     -- value in the response of the GetEC2InstanceRecommendations actions.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html Enhanced infrastructure metrics>
     -- in the /Compute Optimizer User Guide/.
     externalMetricsPreference :: Prelude.Maybe ExternalMetricsPreference,
     -- | The response's http status code.
@@ -247,7 +247,7 @@ data GetEffectiveRecommendationPreferencesResponse = GetEffectiveRecommendationP
 -- value in the response of the GetEC2InstanceRecommendations actions.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html Enhanced infrastructure metrics>
 -- in the /Compute Optimizer User Guide/.
 --
 -- 'httpStatus', 'getEffectiveRecommendationPreferencesResponse_httpStatus' - The response's http status code.
@@ -298,7 +298,7 @@ getEffectiveRecommendationPreferencesResponse_enhancedInfrastructureMetrics = Le
 -- value in the response of the GetEC2InstanceRecommendations actions.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Enhanced infrastructure metrics>
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html Enhanced infrastructure metrics>
 -- in the /Compute Optimizer User Guide/.
 getEffectiveRecommendationPreferencesResponse_externalMetricsPreference :: Lens.Lens' GetEffectiveRecommendationPreferencesResponse (Prelude.Maybe ExternalMetricsPreference)
 getEffectiveRecommendationPreferencesResponse_externalMetricsPreference = Lens.lens (\GetEffectiveRecommendationPreferencesResponse' {externalMetricsPreference} -> externalMetricsPreference) (\s@GetEffectiveRecommendationPreferencesResponse' {} a -> s {externalMetricsPreference = a} :: GetEffectiveRecommendationPreferencesResponse)

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.GetRecommendationPreferences
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,8 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html Activating enhanced infrastructure metrics>
 -- in the /Compute Optimizer User Guide/.
+--
+-- This operation returns paginated results.
 module Amazonka.ComputeOptimizer.GetRecommendationPreferences
   ( -- * Creating a Request
     GetRecommendationPreferences (..),
@@ -68,7 +70,7 @@ data GetRecommendationPreferences = GetRecommendationPreferences'
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to advance to the next page of recommendation preferences.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the scope of the recommendation preference to
@@ -145,7 +147,7 @@ newGetRecommendationPreferences pResourceType_ =
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
-getRecommendationPreferences_maxResults :: Lens.Lens' GetRecommendationPreferences (Prelude.Maybe Prelude.Int)
+getRecommendationPreferences_maxResults :: Lens.Lens' GetRecommendationPreferences (Prelude.Maybe Prelude.Natural)
 getRecommendationPreferences_maxResults = Lens.lens (\GetRecommendationPreferences' {maxResults} -> maxResults) (\s@GetRecommendationPreferences' {} a -> s {maxResults = a} :: GetRecommendationPreferences)
 
 -- | The token to advance to the next page of recommendation preferences.
@@ -174,6 +176,28 @@ getRecommendationPreferences_scope = Lens.lens (\GetRecommendationPreferences' {
 -- @AutoScalingGroup@.
 getRecommendationPreferences_resourceType :: Lens.Lens' GetRecommendationPreferences ResourceType
 getRecommendationPreferences_resourceType = Lens.lens (\GetRecommendationPreferences' {resourceType} -> resourceType) (\s@GetRecommendationPreferences' {} a -> s {resourceType = a} :: GetRecommendationPreferences)
+
+instance Core.AWSPager GetRecommendationPreferences where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getRecommendationPreferencesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getRecommendationPreferencesResponse_recommendationPreferencesDetails
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getRecommendationPreferences_nextToken
+          Lens..~ rs
+          Lens.^? getRecommendationPreferencesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRecommendationPreferences where
   type

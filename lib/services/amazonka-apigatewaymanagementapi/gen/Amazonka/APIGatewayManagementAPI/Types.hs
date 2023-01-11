@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.APIGatewayManagementAPI.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -110,7 +110,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The caller is not authorized to invoke this operation.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -118,7 +118,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | The connection with the provided id no longer exists.
-_GoneException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GoneException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _GoneException =
   Core._MatchServiceError
     defaultService
@@ -127,7 +127,7 @@ _GoneException =
 
 -- | The client is sending more than the allowed number of requests per unit
 -- of time or the WebSocket client side buffer is full.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -135,7 +135,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 429
 
 -- | The data has exceeded the maximum size allowed.
-_PayloadTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PayloadTooLargeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PayloadTooLargeException =
   Core._MatchServiceError
     defaultService

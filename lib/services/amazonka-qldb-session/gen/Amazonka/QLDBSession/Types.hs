@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.QLDBSession.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -225,14 +225,14 @@ defaultService =
 
 -- | Returned if the request is malformed or contains an error such as an
 -- invalid parameter value or a missing required parameter.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
     "BadRequestException"
 
 -- | Returned when the request exceeds the processing capacity of the ledger.
-_CapacityExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CapacityExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CapacityExceededException =
   Core._MatchServiceError
     defaultService
@@ -240,7 +240,7 @@ _CapacityExceededException =
 
 -- | Returned if the session doesn\'t exist anymore because it timed out or
 -- expired.
-_InvalidSessionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSessionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidSessionException =
   Core._MatchServiceError
     defaultService
@@ -248,7 +248,7 @@ _InvalidSessionException =
 
 -- | Returned if a resource limit such as number of active sessions is
 -- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -257,14 +257,14 @@ _LimitExceededException =
 -- | Returned when a transaction cannot be written to the journal due to a
 -- failure in the verification phase of /optimistic concurrency control/
 -- (OCC).
-_OccConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OccConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OccConflictException =
   Core._MatchServiceError
     defaultService
     "OccConflictException"
 
 -- | Returned when the rate of requests exceeds the allowed throughput.
-_RateExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RateExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RateExceededException =
   Core._MatchServiceError
     defaultService

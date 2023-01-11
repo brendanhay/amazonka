@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,7 @@ import Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus
 -- /See:/ 'newHumanLoopSummary' smart constructor.
 data HumanLoopSummary = HumanLoopSummary'
   { -- | When Amazon Augmented AI created the human loop.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The reason why the human loop failed. A failure reason is returned when
     -- the status of the human loop is @Failed@.
     failureReason :: Prelude.Maybe Prelude.Text,

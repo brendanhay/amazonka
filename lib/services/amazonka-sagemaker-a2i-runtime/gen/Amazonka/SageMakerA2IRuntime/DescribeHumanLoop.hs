@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMakerA2IRuntime.DescribeHumanLoop
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -137,7 +137,7 @@ data DescribeHumanLoopResponse = DescribeHumanLoopResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The creation time when Amazon Augmented AI created the human loop.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The status of the human loop.
     humanLoopStatus :: HumanLoopStatus,
     -- | The name of the human loop. The name must be lowercase, unique within

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SageMakerA2IRuntime.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -146,7 +146,7 @@ defaultService =
 -- | Your request has the same name as another active human loop but has
 -- different input data. You cannot start two human loops with the same
 -- name and different input data.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -155,7 +155,7 @@ _ConflictException =
 
 -- | We couldn\'t process your request because of an issue with the server.
 -- Try again later.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -165,7 +165,7 @@ _InternalServerException =
 -- | We couldn\'t find the requested resource. Check that your resources
 -- exists and were created in the same AWS Region as your request, and try
 -- your request again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -181,7 +181,7 @@ _ResourceNotFoundException =
 -- Center. To request an increase, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Quotas>
 -- in the /AWS General Reference/.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -189,7 +189,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | You exceeded the maximum number of requests.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -197,7 +197,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The request isn\'t valid. Check the syntax and try again.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

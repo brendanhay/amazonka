@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,9 +66,23 @@ module Amazonka.ConnectParticipant.Types
     item_contentType,
     item_displayName,
     item_id,
+    item_messageMetadata,
     item_participantId,
     item_participantRole,
     item_type,
+
+    -- * MessageMetadata
+    MessageMetadata (..),
+    newMessageMetadata,
+    messageMetadata_messageId,
+    messageMetadata_receipts,
+
+    -- * Receipt
+    Receipt (..),
+    newReceipt,
+    receipt_deliveredTimestamp,
+    receipt_readTimestamp,
+    receipt_recipientParticipantId,
 
     -- * StartPosition
     StartPosition (..),
@@ -98,7 +112,9 @@ import Amazonka.ConnectParticipant.Types.ChatItemType
 import Amazonka.ConnectParticipant.Types.ConnectionCredentials
 import Amazonka.ConnectParticipant.Types.ConnectionType
 import Amazonka.ConnectParticipant.Types.Item
+import Amazonka.ConnectParticipant.Types.MessageMetadata
 import Amazonka.ConnectParticipant.Types.ParticipantRole
+import Amazonka.ConnectParticipant.Types.Receipt
 import Amazonka.ConnectParticipant.Types.ScanDirection
 import Amazonka.ConnectParticipant.Types.SortKey
 import Amazonka.ConnectParticipant.Types.StartPosition
@@ -181,7 +197,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -189,7 +205,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | An attachment with that identifier is already being uploaded.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -198,7 +214,7 @@ _ConflictException =
 
 -- | This exception occurs when there is an internal failure in the Amazon
 -- Connect service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -206,7 +222,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The number of attachments per contact exceeds the quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -214,7 +230,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -222,7 +238,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The input fails to satisfy the constraints specified by Amazon Connect.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

@@ -14,14 +14,16 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.CreateParticipantConnection
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates the participant\'s connection. Note that ParticipantToken is
--- used for invoking this API instead of ConnectionToken.
+-- Creates the participant\'s connection.
+--
+-- @ParticipantToken@ is used for invoking this API instead of
+-- @ConnectionToken@.
 --
 -- The participant token is valid for the lifetime of the participant –
 -- until they are part of a contact.
@@ -89,8 +91,9 @@ data CreateParticipantConnection = CreateParticipantConnection'
   { -- | Amazon Connect Participant is used to mark the participant as connected
     -- for message streaming.
     connectParticipant :: Prelude.Maybe Prelude.Bool,
-    -- | Type of connection information required.
-    type' :: Prelude.NonEmpty ConnectionType,
+    -- | Type of connection information required. This can be omitted if
+    -- @ConnectParticipant@ is @true@.
+    type' :: Prelude.Maybe (Prelude.NonEmpty ConnectionType),
     -- | This is a header parameter.
     --
     -- The ParticipantToken as obtained from
@@ -111,7 +114,8 @@ data CreateParticipantConnection = CreateParticipantConnection'
 -- 'connectParticipant', 'createParticipantConnection_connectParticipant' - Amazon Connect Participant is used to mark the participant as connected
 -- for message streaming.
 --
--- 'type'', 'createParticipantConnection_type' - Type of connection information required.
+-- 'type'', 'createParticipantConnection_type' - Type of connection information required. This can be omitted if
+-- @ConnectParticipant@ is @true@.
 --
 -- 'participantToken', 'createParticipantConnection_participantToken' - This is a header parameter.
 --
@@ -119,29 +123,26 @@ data CreateParticipantConnection = CreateParticipantConnection'
 -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html StartChatContact>
 -- API response.
 newCreateParticipantConnection ::
-  -- | 'type''
-  Prelude.NonEmpty ConnectionType ->
   -- | 'participantToken'
   Prelude.Text ->
   CreateParticipantConnection
-newCreateParticipantConnection
-  pType_
-  pParticipantToken_ =
-    CreateParticipantConnection'
-      { connectParticipant =
-          Prelude.Nothing,
-        type' = Lens.coerced Lens.# pType_,
-        participantToken = pParticipantToken_
-      }
+newCreateParticipantConnection pParticipantToken_ =
+  CreateParticipantConnection'
+    { connectParticipant =
+        Prelude.Nothing,
+      type' = Prelude.Nothing,
+      participantToken = pParticipantToken_
+    }
 
 -- | Amazon Connect Participant is used to mark the participant as connected
 -- for message streaming.
 createParticipantConnection_connectParticipant :: Lens.Lens' CreateParticipantConnection (Prelude.Maybe Prelude.Bool)
 createParticipantConnection_connectParticipant = Lens.lens (\CreateParticipantConnection' {connectParticipant} -> connectParticipant) (\s@CreateParticipantConnection' {} a -> s {connectParticipant = a} :: CreateParticipantConnection)
 
--- | Type of connection information required.
-createParticipantConnection_type :: Lens.Lens' CreateParticipantConnection (Prelude.NonEmpty ConnectionType)
-createParticipantConnection_type = Lens.lens (\CreateParticipantConnection' {type'} -> type') (\s@CreateParticipantConnection' {} a -> s {type' = a} :: CreateParticipantConnection) Prelude.. Lens.coerced
+-- | Type of connection information required. This can be omitted if
+-- @ConnectParticipant@ is @true@.
+createParticipantConnection_type :: Lens.Lens' CreateParticipantConnection (Prelude.Maybe (Prelude.NonEmpty ConnectionType))
+createParticipantConnection_type = Lens.lens (\CreateParticipantConnection' {type'} -> type') (\s@CreateParticipantConnection' {} a -> s {type' = a} :: CreateParticipantConnection) Prelude.. Lens.mapping Lens.coerced
 
 -- | This is a header parameter.
 --
@@ -192,7 +193,7 @@ instance Data.ToJSON CreateParticipantConnection where
       ( Prelude.catMaybes
           [ ("ConnectParticipant" Data..=)
               Prelude.<$> connectParticipant,
-            Prelude.Just ("Type" Data..= type')
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )
 

@@ -14,14 +14,16 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.DisconnectParticipant
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disconnects a participant. Note that ConnectionToken is used for
--- invoking this API instead of ParticipantToken.
+-- Disconnects a participant.
+--
+-- @ConnectionToken@ is used for invoking this API instead of
+-- @ParticipantToken@.
 --
 -- The Amazon Connect Participant Service APIs do not use
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication>.
@@ -54,7 +56,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDisconnectParticipant' smart constructor.
 data DisconnectParticipant = DisconnectParticipant'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The authentication token associated with the participant\'s connection.
     connectionToken :: Prelude.Text
@@ -70,7 +74,9 @@ data DisconnectParticipant = DisconnectParticipant'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'disconnectParticipant_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'connectionToken', 'disconnectParticipant_connectionToken' - The authentication token associated with the participant\'s connection.
 newDisconnectParticipant ::
@@ -85,7 +91,9 @@ newDisconnectParticipant pConnectionToken_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 disconnectParticipant_clientToken :: Lens.Lens' DisconnectParticipant (Prelude.Maybe Prelude.Text)
 disconnectParticipant_clientToken = Lens.lens (\DisconnectParticipant' {clientToken} -> clientToken) (\s@DisconnectParticipant' {} a -> s {clientToken = a} :: DisconnectParticipant)
 

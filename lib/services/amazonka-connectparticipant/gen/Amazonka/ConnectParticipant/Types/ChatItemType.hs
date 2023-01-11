@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.Types.ChatItemType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,8 @@ module Amazonka.ConnectParticipant.Types.ChatItemType
         ChatItemType_CONNECTION_ACK,
         ChatItemType_EVENT,
         ChatItemType_MESSAGE,
+        ChatItemType_MESSAGE_DELIVERED,
+        ChatItemType_MESSAGE_READ,
         ChatItemType_PARTICIPANT_JOINED,
         ChatItemType_PARTICIPANT_LEFT,
         ChatItemType_TRANSFER_FAILED,
@@ -81,6 +83,12 @@ pattern ChatItemType_EVENT = ChatItemType' "EVENT"
 pattern ChatItemType_MESSAGE :: ChatItemType
 pattern ChatItemType_MESSAGE = ChatItemType' "MESSAGE"
 
+pattern ChatItemType_MESSAGE_DELIVERED :: ChatItemType
+pattern ChatItemType_MESSAGE_DELIVERED = ChatItemType' "MESSAGE_DELIVERED"
+
+pattern ChatItemType_MESSAGE_READ :: ChatItemType
+pattern ChatItemType_MESSAGE_READ = ChatItemType' "MESSAGE_READ"
+
 pattern ChatItemType_PARTICIPANT_JOINED :: ChatItemType
 pattern ChatItemType_PARTICIPANT_JOINED = ChatItemType' "PARTICIPANT_JOINED"
 
@@ -102,6 +110,8 @@ pattern ChatItemType_TYPING = ChatItemType' "TYPING"
   ChatItemType_CONNECTION_ACK,
   ChatItemType_EVENT,
   ChatItemType_MESSAGE,
+  ChatItemType_MESSAGE_DELIVERED,
+  ChatItemType_MESSAGE_READ,
   ChatItemType_PARTICIPANT_JOINED,
   ChatItemType_PARTICIPANT_LEFT,
   ChatItemType_TRANSFER_FAILED,

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Mobile.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -154,7 +154,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Account Action is required in order to continue the request.
-_AccountActionRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountActionRequiredException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccountActionRequiredException =
   Core._MatchServiceError
     defaultService
@@ -163,7 +163,7 @@ _AccountActionRequiredException =
 
 -- | The request cannot be processed because some parameter is not valid or
 -- the project state prevents the operation from being performed.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -172,7 +172,7 @@ _BadRequestException =
 
 -- | The service has encountered an unexpected error condition which prevents
 -- it from servicing the request.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -183,7 +183,7 @@ _InternalFailureException =
 -- has exceeded the maximum number of resources in some AWS service. You
 -- should create another sub-account using AWS Organizations or remove some
 -- resources and retry your request.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -191,7 +191,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 429
 
 -- | No entity can be found with the specified identifier.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -200,7 +200,7 @@ _NotFoundException =
 
 -- | The service is temporarily unavailable. The request should be retried
 -- after some time delay.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -209,7 +209,7 @@ _ServiceUnavailableException =
 
 -- | Too many requests have been received for this AWS account in too short a
 -- time. The request should be retried after some time delay.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -217,7 +217,7 @@ _TooManyRequestsException =
     Prelude.. Core.hasStatus 429
 
 -- | Credentials of the caller are insufficient to authorize the request.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.RStudioServerProDomainSettingsForUpdate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,10 @@ import Amazonka.SageMaker.Types.ResourceSpec
 -- /See:/ 'newRStudioServerProDomainSettingsForUpdate' smart constructor.
 data RStudioServerProDomainSettingsForUpdate = RStudioServerProDomainSettingsForUpdate'
   { defaultResourceSpec :: Prelude.Maybe ResourceSpec,
+    -- | A URL pointing to an RStudio Connect server.
+    rStudioConnectUrl :: Prelude.Maybe Prelude.Text,
+    -- | A URL pointing to an RStudio Package Manager server.
+    rStudioPackageManagerUrl :: Prelude.Maybe Prelude.Text,
     -- | The execution role for the @RStudioServerPro@ Domain-level app.
     domainExecutionRoleArn :: Prelude.Text
   }
@@ -46,6 +50,10 @@ data RStudioServerProDomainSettingsForUpdate = RStudioServerProDomainSettingsFor
 --
 -- 'defaultResourceSpec', 'rStudioServerProDomainSettingsForUpdate_defaultResourceSpec' - Undocumented member.
 --
+-- 'rStudioConnectUrl', 'rStudioServerProDomainSettingsForUpdate_rStudioConnectUrl' - A URL pointing to an RStudio Connect server.
+--
+-- 'rStudioPackageManagerUrl', 'rStudioServerProDomainSettingsForUpdate_rStudioPackageManagerUrl' - A URL pointing to an RStudio Package Manager server.
+--
 -- 'domainExecutionRoleArn', 'rStudioServerProDomainSettingsForUpdate_domainExecutionRoleArn' - The execution role for the @RStudioServerPro@ Domain-level app.
 newRStudioServerProDomainSettingsForUpdate ::
   -- | 'domainExecutionRoleArn'
@@ -56,6 +64,10 @@ newRStudioServerProDomainSettingsForUpdate
     RStudioServerProDomainSettingsForUpdate'
       { defaultResourceSpec =
           Prelude.Nothing,
+        rStudioConnectUrl =
+          Prelude.Nothing,
+        rStudioPackageManagerUrl =
+          Prelude.Nothing,
         domainExecutionRoleArn =
           pDomainExecutionRoleArn_
       }
@@ -63,6 +75,14 @@ newRStudioServerProDomainSettingsForUpdate
 -- | Undocumented member.
 rStudioServerProDomainSettingsForUpdate_defaultResourceSpec :: Lens.Lens' RStudioServerProDomainSettingsForUpdate (Prelude.Maybe ResourceSpec)
 rStudioServerProDomainSettingsForUpdate_defaultResourceSpec = Lens.lens (\RStudioServerProDomainSettingsForUpdate' {defaultResourceSpec} -> defaultResourceSpec) (\s@RStudioServerProDomainSettingsForUpdate' {} a -> s {defaultResourceSpec = a} :: RStudioServerProDomainSettingsForUpdate)
+
+-- | A URL pointing to an RStudio Connect server.
+rStudioServerProDomainSettingsForUpdate_rStudioConnectUrl :: Lens.Lens' RStudioServerProDomainSettingsForUpdate (Prelude.Maybe Prelude.Text)
+rStudioServerProDomainSettingsForUpdate_rStudioConnectUrl = Lens.lens (\RStudioServerProDomainSettingsForUpdate' {rStudioConnectUrl} -> rStudioConnectUrl) (\s@RStudioServerProDomainSettingsForUpdate' {} a -> s {rStudioConnectUrl = a} :: RStudioServerProDomainSettingsForUpdate)
+
+-- | A URL pointing to an RStudio Package Manager server.
+rStudioServerProDomainSettingsForUpdate_rStudioPackageManagerUrl :: Lens.Lens' RStudioServerProDomainSettingsForUpdate (Prelude.Maybe Prelude.Text)
+rStudioServerProDomainSettingsForUpdate_rStudioPackageManagerUrl = Lens.lens (\RStudioServerProDomainSettingsForUpdate' {rStudioPackageManagerUrl} -> rStudioPackageManagerUrl) (\s@RStudioServerProDomainSettingsForUpdate' {} a -> s {rStudioPackageManagerUrl = a} :: RStudioServerProDomainSettingsForUpdate)
 
 -- | The execution role for the @RStudioServerPro@ Domain-level app.
 rStudioServerProDomainSettingsForUpdate_domainExecutionRoleArn :: Lens.Lens' RStudioServerProDomainSettingsForUpdate Prelude.Text
@@ -76,6 +96,8 @@ instance
     _salt
     RStudioServerProDomainSettingsForUpdate' {..} =
       _salt `Prelude.hashWithSalt` defaultResourceSpec
+        `Prelude.hashWithSalt` rStudioConnectUrl
+        `Prelude.hashWithSalt` rStudioPackageManagerUrl
         `Prelude.hashWithSalt` domainExecutionRoleArn
 
 instance
@@ -84,6 +106,8 @@ instance
   where
   rnf RStudioServerProDomainSettingsForUpdate' {..} =
     Prelude.rnf defaultResourceSpec
+      `Prelude.seq` Prelude.rnf rStudioConnectUrl
+      `Prelude.seq` Prelude.rnf rStudioPackageManagerUrl
       `Prelude.seq` Prelude.rnf domainExecutionRoleArn
 
 instance
@@ -95,6 +119,10 @@ instance
       ( Prelude.catMaybes
           [ ("DefaultResourceSpec" Data..=)
               Prelude.<$> defaultResourceSpec,
+            ("RStudioConnectUrl" Data..=)
+              Prelude.<$> rStudioConnectUrl,
+            ("RStudioPackageManagerUrl" Data..=)
+              Prelude.<$> rStudioPackageManagerUrl,
             Prelude.Just
               ( "DomainExecutionRoleArn"
                   Data..= domainExecutionRoleArn

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreateApp
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -68,12 +68,14 @@ data CreateApp = CreateApp'
     -- values for a @KernelGateway@ app, the @CreateApp@ call fails with a
     -- request validation error.
     resourceSpec :: Prelude.Maybe ResourceSpec,
-    -- | The name of the space.
+    -- | The name of the space. If this value is not set, then @UserProfileName@
+    -- must be set.
     spaceName :: Prelude.Maybe Prelude.Text,
     -- | Each tag consists of a key and an optional value. Tag keys must be
     -- unique per resource.
     tags :: Prelude.Maybe [Tag],
-    -- | The user profile name.
+    -- | The user profile name. If this value is not set, then @SpaceName@ must
+    -- be set.
     userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The domain ID.
     domainId :: Prelude.Text,
@@ -102,12 +104,14 @@ data CreateApp = CreateApp'
 -- values for a @KernelGateway@ app, the @CreateApp@ call fails with a
 -- request validation error.
 --
--- 'spaceName', 'createApp_spaceName' - The name of the space.
+-- 'spaceName', 'createApp_spaceName' - The name of the space. If this value is not set, then @UserProfileName@
+-- must be set.
 --
 -- 'tags', 'createApp_tags' - Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
 --
--- 'userProfileName', 'createApp_userProfileName' - The user profile name.
+-- 'userProfileName', 'createApp_userProfileName' - The user profile name. If this value is not set, then @SpaceName@ must
+-- be set.
 --
 -- 'domainId', 'createApp_domainId' - The domain ID.
 --
@@ -145,7 +149,8 @@ newCreateApp pDomainId_ pAppType_ pAppName_ =
 createApp_resourceSpec :: Lens.Lens' CreateApp (Prelude.Maybe ResourceSpec)
 createApp_resourceSpec = Lens.lens (\CreateApp' {resourceSpec} -> resourceSpec) (\s@CreateApp' {} a -> s {resourceSpec = a} :: CreateApp)
 
--- | The name of the space.
+-- | The name of the space. If this value is not set, then @UserProfileName@
+-- must be set.
 createApp_spaceName :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
 createApp_spaceName = Lens.lens (\CreateApp' {spaceName} -> spaceName) (\s@CreateApp' {} a -> s {spaceName = a} :: CreateApp)
 
@@ -154,7 +159,8 @@ createApp_spaceName = Lens.lens (\CreateApp' {spaceName} -> spaceName) (\s@Creat
 createApp_tags :: Lens.Lens' CreateApp (Prelude.Maybe [Tag])
 createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping Lens.coerced
 
--- | The user profile name.
+-- | The user profile name. If this value is not set, then @SpaceName@ must
+-- be set.
 createApp_userProfileName :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
 createApp_userProfileName = Lens.lens (\CreateApp' {userProfileName} -> userProfileName) (\s@CreateApp' {} a -> s {userProfileName = a} :: CreateApp)
 

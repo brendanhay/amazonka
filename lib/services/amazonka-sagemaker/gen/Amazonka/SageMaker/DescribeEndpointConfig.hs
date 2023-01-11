@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeEndpointConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -158,11 +158,9 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
     -- | Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
     -- when storing it on the ML storage volume attached to the instance.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Array of @ProductionVariant@ objects. There is one for each model that
-    -- you want to host at this endpoint in shadow mode with production traffic
-    -- replicated from the model specified on @ProductionVariants@.If you use
-    -- this field, you can only specify one variant for @ProductionVariants@
-    -- and one variant for @ShadowProductionVariants@.
+    -- | An array of @ProductionVariant@ objects, one for each model that you
+    -- want to host at this endpoint in shadow mode with production traffic
+    -- replicated from the model specified on @ProductionVariants@.
     shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariant),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -197,11 +195,9 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
 -- 'kmsKeyId', 'describeEndpointConfigResponse_kmsKeyId' - Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
 -- when storing it on the ML storage volume attached to the instance.
 --
--- 'shadowProductionVariants', 'describeEndpointConfigResponse_shadowProductionVariants' - Array of @ProductionVariant@ objects. There is one for each model that
--- you want to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
--- this field, you can only specify one variant for @ProductionVariants@
--- and one variant for @ShadowProductionVariants@.
+-- 'shadowProductionVariants', 'describeEndpointConfigResponse_shadowProductionVariants' - An array of @ProductionVariant@ objects, one for each model that you
+-- want to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.
 --
 -- 'httpStatus', 'describeEndpointConfigResponse_httpStatus' - The response's http status code.
 --
@@ -266,11 +262,9 @@ describeEndpointConfigResponse_explainerConfig = Lens.lens (\DescribeEndpointCon
 describeEndpointConfigResponse_kmsKeyId :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe Prelude.Text)
 describeEndpointConfigResponse_kmsKeyId = Lens.lens (\DescribeEndpointConfigResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeEndpointConfigResponse' {} a -> s {kmsKeyId = a} :: DescribeEndpointConfigResponse)
 
--- | Array of @ProductionVariant@ objects. There is one for each model that
--- you want to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
--- this field, you can only specify one variant for @ProductionVariants@
--- and one variant for @ShadowProductionVariants@.
+-- | An array of @ProductionVariant@ objects, one for each model that you
+-- want to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.
 describeEndpointConfigResponse_shadowProductionVariants :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe (Prelude.NonEmpty ProductionVariant))
 describeEndpointConfigResponse_shadowProductionVariants = Lens.lens (\DescribeEndpointConfigResponse' {shadowProductionVariants} -> shadowProductionVariants) (\s@DescribeEndpointConfigResponse' {} a -> s {shadowProductionVariants = a} :: DescribeEndpointConfigResponse) Prelude.. Lens.mapping Lens.coerced
 

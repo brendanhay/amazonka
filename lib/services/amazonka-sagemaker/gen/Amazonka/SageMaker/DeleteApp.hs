@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DeleteApp
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,9 +49,11 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newDeleteApp' smart constructor.
 data DeleteApp = DeleteApp'
-  { -- | The name of the space.
+  { -- | The name of the space. If this value is not set, then @UserProfileName@
+    -- must be set.
     spaceName :: Prelude.Maybe Prelude.Text,
-    -- | The user profile name.
+    -- | The user profile name. If this value is not set, then @SpaceName@ must
+    -- be set.
     userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The domain ID.
     domainId :: Prelude.Text,
@@ -70,9 +72,11 @@ data DeleteApp = DeleteApp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spaceName', 'deleteApp_spaceName' - The name of the space.
+-- 'spaceName', 'deleteApp_spaceName' - The name of the space. If this value is not set, then @UserProfileName@
+-- must be set.
 --
--- 'userProfileName', 'deleteApp_userProfileName' - The user profile name.
+-- 'userProfileName', 'deleteApp_userProfileName' - The user profile name. If this value is not set, then @SpaceName@ must
+-- be set.
 --
 -- 'domainId', 'deleteApp_domainId' - The domain ID.
 --
@@ -96,11 +100,13 @@ newDeleteApp pDomainId_ pAppType_ pAppName_ =
       appName = pAppName_
     }
 
--- | The name of the space.
+-- | The name of the space. If this value is not set, then @UserProfileName@
+-- must be set.
 deleteApp_spaceName :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Text)
 deleteApp_spaceName = Lens.lens (\DeleteApp' {spaceName} -> spaceName) (\s@DeleteApp' {} a -> s {spaceName = a} :: DeleteApp)
 
--- | The user profile name.
+-- | The user profile name. If this value is not set, then @SpaceName@ must
+-- be set.
 deleteApp_userProfileName :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Text)
 deleteApp_userProfileName = Lens.lens (\DeleteApp' {userProfileName} -> userProfileName) (\s@DeleteApp' {} a -> s {userProfileName = a} :: DeleteApp)
 

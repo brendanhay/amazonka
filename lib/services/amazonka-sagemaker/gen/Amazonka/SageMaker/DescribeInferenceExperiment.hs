@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeInferenceExperiment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -156,12 +156,12 @@ instance Data.ToQuery DescribeInferenceExperiment where
 
 -- | /See:/ 'newDescribeInferenceExperimentResponse' smart constructor.
 data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
-  { -- | The timestamp at which the inference experiment was completed or will
-    -- complete.
+  { -- | The timestamp at which the inference experiment was completed.
     completionTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp at which you created the inference experiment.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon S3 storage configuration for the inference experiment.
+    -- | The Amazon S3 location and configuration for storing inference request
+    -- and response data.
     dataStorageConfig :: Prelude.Maybe InferenceExperimentDataStorageConfig,
     -- | The description of the inference experiment.
     description :: Prelude.Maybe Prelude.Text,
@@ -173,14 +173,20 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
     -- | The timestamp at which you last modified the inference experiment.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the IAM role that Amazon SageMaker can assume to access model
-    -- artifacts and container images.
+    -- artifacts and container images, and manage Amazon SageMaker Inference
+    -- endpoints for model deployment.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The duration for which the inference experiment ran or will run.
     schedule :: Prelude.Maybe InferenceExperimentSchedule,
-    -- | Shows which variant is a production variant and which variant is a
-    -- shadow variant. For shadow variants, also shows the sampling percentage.
+    -- | The configuration of @ShadowMode@ inference experiment type, which shows
+    -- the production variant that takes all the inference requests, and the
+    -- shadow variant to which Amazon SageMaker replicates a percentage of the
+    -- inference requests. For the shadow variant it also shows the percentage
+    -- of requests that Amazon SageMaker replicates.
     shadowModeConfig :: Prelude.Maybe ShadowModeConfig,
-    -- | The error message for the inference experiment status result.
+    -- | The error message or client-specified @Reason@ from the
+    -- StopInferenceExperiment API, that explains the status of the inference
+    -- experiment.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -195,8 +201,8 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
     --
     -- -   @Creating@ - Amazon SageMaker is creating your experiment.
     --
-    -- -   @Created@ - Amazon SageMaker has finished creating your experiment
-    --     and it will begin at the scheduled time.
+    -- -   @Created@ - Amazon SageMaker has finished the creation of your
+    --     experiment and will begin the experiment at the scheduled time.
     --
     -- -   @Updating@ - When you make changes to your experiment, your
     --     experiment shows as updating.
@@ -209,12 +215,13 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
     --
     -- -   @Completed@ - Your experiment has completed.
     --
-    -- -   @Cancelled@ - When you conclude your experiment early, it shows as
-    --     canceled.
+    -- -   @Cancelled@ - When you conclude your experiment early using the
+    --     StopInferenceExperiment API, or if any operation fails with an
+    --     unexpected error, it shows as cancelled.
     status :: InferenceExperimentStatus,
     -- | The metadata of the endpoint on which the inference experiment ran.
     endpointMetadata :: EndpointMetadata,
-    -- | Array of @ModelVariantConfigSummary@ objects. There is one for each
+    -- | An array of @ModelVariantConfigSummary@ objects. There is one for each
     -- variant in the inference experiment. Each @ModelVariantConfigSummary@
     -- object in the array describes the infrastructure configuration for
     -- deploying the corresponding variant.
@@ -230,12 +237,12 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'completionTime', 'describeInferenceExperimentResponse_completionTime' - The timestamp at which the inference experiment was completed or will
--- complete.
+-- 'completionTime', 'describeInferenceExperimentResponse_completionTime' - The timestamp at which the inference experiment was completed.
 --
 -- 'creationTime', 'describeInferenceExperimentResponse_creationTime' - The timestamp at which you created the inference experiment.
 --
--- 'dataStorageConfig', 'describeInferenceExperimentResponse_dataStorageConfig' - The Amazon S3 storage configuration for the inference experiment.
+-- 'dataStorageConfig', 'describeInferenceExperimentResponse_dataStorageConfig' - The Amazon S3 location and configuration for storing inference request
+-- and response data.
 --
 -- 'description', 'describeInferenceExperimentResponse_description' - The description of the inference experiment.
 --
@@ -247,14 +254,20 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
 -- 'lastModifiedTime', 'describeInferenceExperimentResponse_lastModifiedTime' - The timestamp at which you last modified the inference experiment.
 --
 -- 'roleArn', 'describeInferenceExperimentResponse_roleArn' - The ARN of the IAM role that Amazon SageMaker can assume to access model
--- artifacts and container images.
+-- artifacts and container images, and manage Amazon SageMaker Inference
+-- endpoints for model deployment.
 --
 -- 'schedule', 'describeInferenceExperimentResponse_schedule' - The duration for which the inference experiment ran or will run.
 --
--- 'shadowModeConfig', 'describeInferenceExperimentResponse_shadowModeConfig' - Shows which variant is a production variant and which variant is a
--- shadow variant. For shadow variants, also shows the sampling percentage.
+-- 'shadowModeConfig', 'describeInferenceExperimentResponse_shadowModeConfig' - The configuration of @ShadowMode@ inference experiment type, which shows
+-- the production variant that takes all the inference requests, and the
+-- shadow variant to which Amazon SageMaker replicates a percentage of the
+-- inference requests. For the shadow variant it also shows the percentage
+-- of requests that Amazon SageMaker replicates.
 --
--- 'statusReason', 'describeInferenceExperimentResponse_statusReason' - The error message for the inference experiment status result.
+-- 'statusReason', 'describeInferenceExperimentResponse_statusReason' - The error message or client-specified @Reason@ from the
+-- StopInferenceExperiment API, that explains the status of the inference
+-- experiment.
 --
 -- 'httpStatus', 'describeInferenceExperimentResponse_httpStatus' - The response's http status code.
 --
@@ -269,8 +282,8 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
 --
 -- -   @Creating@ - Amazon SageMaker is creating your experiment.
 --
--- -   @Created@ - Amazon SageMaker has finished creating your experiment
---     and it will begin at the scheduled time.
+-- -   @Created@ - Amazon SageMaker has finished the creation of your
+--     experiment and will begin the experiment at the scheduled time.
 --
 -- -   @Updating@ - When you make changes to your experiment, your
 --     experiment shows as updating.
@@ -283,12 +296,13 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
 --
 -- -   @Completed@ - Your experiment has completed.
 --
--- -   @Cancelled@ - When you conclude your experiment early, it shows as
---     canceled.
+-- -   @Cancelled@ - When you conclude your experiment early using the
+--     StopInferenceExperiment API, or if any operation fails with an
+--     unexpected error, it shows as cancelled.
 --
 -- 'endpointMetadata', 'describeInferenceExperimentResponse_endpointMetadata' - The metadata of the endpoint on which the inference experiment ran.
 --
--- 'modelVariants', 'describeInferenceExperimentResponse_modelVariants' - Array of @ModelVariantConfigSummary@ objects. There is one for each
+-- 'modelVariants', 'describeInferenceExperimentResponse_modelVariants' - An array of @ModelVariantConfigSummary@ objects. There is one for each
 -- variant in the inference experiment. Each @ModelVariantConfigSummary@
 -- object in the array describes the infrastructure configuration for
 -- deploying the corresponding variant.
@@ -334,8 +348,7 @@ newDescribeInferenceExperimentResponse
         modelVariants = Prelude.mempty
       }
 
--- | The timestamp at which the inference experiment was completed or will
--- complete.
+-- | The timestamp at which the inference experiment was completed.
 describeInferenceExperimentResponse_completionTime :: Lens.Lens' DescribeInferenceExperimentResponse (Prelude.Maybe Prelude.UTCTime)
 describeInferenceExperimentResponse_completionTime = Lens.lens (\DescribeInferenceExperimentResponse' {completionTime} -> completionTime) (\s@DescribeInferenceExperimentResponse' {} a -> s {completionTime = a} :: DescribeInferenceExperimentResponse) Prelude.. Lens.mapping Data._Time
 
@@ -343,7 +356,8 @@ describeInferenceExperimentResponse_completionTime = Lens.lens (\DescribeInferen
 describeInferenceExperimentResponse_creationTime :: Lens.Lens' DescribeInferenceExperimentResponse (Prelude.Maybe Prelude.UTCTime)
 describeInferenceExperimentResponse_creationTime = Lens.lens (\DescribeInferenceExperimentResponse' {creationTime} -> creationTime) (\s@DescribeInferenceExperimentResponse' {} a -> s {creationTime = a} :: DescribeInferenceExperimentResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon S3 storage configuration for the inference experiment.
+-- | The Amazon S3 location and configuration for storing inference request
+-- and response data.
 describeInferenceExperimentResponse_dataStorageConfig :: Lens.Lens' DescribeInferenceExperimentResponse (Prelude.Maybe InferenceExperimentDataStorageConfig)
 describeInferenceExperimentResponse_dataStorageConfig = Lens.lens (\DescribeInferenceExperimentResponse' {dataStorageConfig} -> dataStorageConfig) (\s@DescribeInferenceExperimentResponse' {} a -> s {dataStorageConfig = a} :: DescribeInferenceExperimentResponse)
 
@@ -363,7 +377,8 @@ describeInferenceExperimentResponse_lastModifiedTime :: Lens.Lens' DescribeInfer
 describeInferenceExperimentResponse_lastModifiedTime = Lens.lens (\DescribeInferenceExperimentResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeInferenceExperimentResponse' {} a -> s {lastModifiedTime = a} :: DescribeInferenceExperimentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the IAM role that Amazon SageMaker can assume to access model
--- artifacts and container images.
+-- artifacts and container images, and manage Amazon SageMaker Inference
+-- endpoints for model deployment.
 describeInferenceExperimentResponse_roleArn :: Lens.Lens' DescribeInferenceExperimentResponse (Prelude.Maybe Prelude.Text)
 describeInferenceExperimentResponse_roleArn = Lens.lens (\DescribeInferenceExperimentResponse' {roleArn} -> roleArn) (\s@DescribeInferenceExperimentResponse' {} a -> s {roleArn = a} :: DescribeInferenceExperimentResponse)
 
@@ -371,12 +386,17 @@ describeInferenceExperimentResponse_roleArn = Lens.lens (\DescribeInferenceExper
 describeInferenceExperimentResponse_schedule :: Lens.Lens' DescribeInferenceExperimentResponse (Prelude.Maybe InferenceExperimentSchedule)
 describeInferenceExperimentResponse_schedule = Lens.lens (\DescribeInferenceExperimentResponse' {schedule} -> schedule) (\s@DescribeInferenceExperimentResponse' {} a -> s {schedule = a} :: DescribeInferenceExperimentResponse)
 
--- | Shows which variant is a production variant and which variant is a
--- shadow variant. For shadow variants, also shows the sampling percentage.
+-- | The configuration of @ShadowMode@ inference experiment type, which shows
+-- the production variant that takes all the inference requests, and the
+-- shadow variant to which Amazon SageMaker replicates a percentage of the
+-- inference requests. For the shadow variant it also shows the percentage
+-- of requests that Amazon SageMaker replicates.
 describeInferenceExperimentResponse_shadowModeConfig :: Lens.Lens' DescribeInferenceExperimentResponse (Prelude.Maybe ShadowModeConfig)
 describeInferenceExperimentResponse_shadowModeConfig = Lens.lens (\DescribeInferenceExperimentResponse' {shadowModeConfig} -> shadowModeConfig) (\s@DescribeInferenceExperimentResponse' {} a -> s {shadowModeConfig = a} :: DescribeInferenceExperimentResponse)
 
--- | The error message for the inference experiment status result.
+-- | The error message or client-specified @Reason@ from the
+-- StopInferenceExperiment API, that explains the status of the inference
+-- experiment.
 describeInferenceExperimentResponse_statusReason :: Lens.Lens' DescribeInferenceExperimentResponse (Prelude.Maybe Prelude.Text)
 describeInferenceExperimentResponse_statusReason = Lens.lens (\DescribeInferenceExperimentResponse' {statusReason} -> statusReason) (\s@DescribeInferenceExperimentResponse' {} a -> s {statusReason = a} :: DescribeInferenceExperimentResponse)
 
@@ -401,8 +421,8 @@ describeInferenceExperimentResponse_type = Lens.lens (\DescribeInferenceExperime
 --
 -- -   @Creating@ - Amazon SageMaker is creating your experiment.
 --
--- -   @Created@ - Amazon SageMaker has finished creating your experiment
---     and it will begin at the scheduled time.
+-- -   @Created@ - Amazon SageMaker has finished the creation of your
+--     experiment and will begin the experiment at the scheduled time.
 --
 -- -   @Updating@ - When you make changes to your experiment, your
 --     experiment shows as updating.
@@ -415,8 +435,9 @@ describeInferenceExperimentResponse_type = Lens.lens (\DescribeInferenceExperime
 --
 -- -   @Completed@ - Your experiment has completed.
 --
--- -   @Cancelled@ - When you conclude your experiment early, it shows as
---     canceled.
+-- -   @Cancelled@ - When you conclude your experiment early using the
+--     StopInferenceExperiment API, or if any operation fails with an
+--     unexpected error, it shows as cancelled.
 describeInferenceExperimentResponse_status :: Lens.Lens' DescribeInferenceExperimentResponse InferenceExperimentStatus
 describeInferenceExperimentResponse_status = Lens.lens (\DescribeInferenceExperimentResponse' {status} -> status) (\s@DescribeInferenceExperimentResponse' {} a -> s {status = a} :: DescribeInferenceExperimentResponse)
 
@@ -424,7 +445,7 @@ describeInferenceExperimentResponse_status = Lens.lens (\DescribeInferenceExperi
 describeInferenceExperimentResponse_endpointMetadata :: Lens.Lens' DescribeInferenceExperimentResponse EndpointMetadata
 describeInferenceExperimentResponse_endpointMetadata = Lens.lens (\DescribeInferenceExperimentResponse' {endpointMetadata} -> endpointMetadata) (\s@DescribeInferenceExperimentResponse' {} a -> s {endpointMetadata = a} :: DescribeInferenceExperimentResponse)
 
--- | Array of @ModelVariantConfigSummary@ objects. There is one for each
+-- | An array of @ModelVariantConfigSummary@ objects. There is one for each
 -- variant in the inference experiment. Each @ModelVariantConfigSummary@
 -- object in the array describes the infrastructure configuration for
 -- deploying the corresponding variant.

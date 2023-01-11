@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.UpdateInferenceExperiment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,19 +57,24 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateInferenceExperiment' smart constructor.
 data UpdateInferenceExperiment = UpdateInferenceExperiment'
-  { -- | The Amazon S3 storage configuration for the inference experiment.
+  { -- | The Amazon S3 location and configuration for storing inference request
+    -- and response data.
     dataStorageConfig :: Prelude.Maybe InferenceExperimentDataStorageConfig,
     -- | The description of the inference experiment.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Array of @ModelVariantConfigSummary@ objects. There is one for each
-    -- variant, whose infrastructure configuration you want to update.
+    -- | An array of @ModelVariantConfig@ objects. There is one for each variant,
+    -- whose infrastructure configuration you want to update.
     modelVariants :: Prelude.Maybe (Prelude.NonEmpty ModelVariantConfig),
     -- | The duration for which the inference experiment will run. If the status
     -- of the inference experiment is @Created@, then you can update both the
     -- start and end dates. If the status of the inference experiment is
     -- @Running@, then you can update only the end date.
     schedule :: Prelude.Maybe InferenceExperimentSchedule,
-    -- | The Amazon S3 storage configuration for the inference experiment.
+    -- | The configuration of @ShadowMode@ inference experiment type. Use this
+    -- field to specify a production variant which takes all the inference
+    -- requests, and a shadow variant to which Amazon SageMaker replicates a
+    -- percentage of the inference requests. For the shadow variant also
+    -- specify the percentage of requests that Amazon SageMaker replicates.
     shadowModeConfig :: Prelude.Maybe ShadowModeConfig,
     -- | The name of the inference experiment to be updated.
     name :: Prelude.Text
@@ -84,19 +89,24 @@ data UpdateInferenceExperiment = UpdateInferenceExperiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataStorageConfig', 'updateInferenceExperiment_dataStorageConfig' - The Amazon S3 storage configuration for the inference experiment.
+-- 'dataStorageConfig', 'updateInferenceExperiment_dataStorageConfig' - The Amazon S3 location and configuration for storing inference request
+-- and response data.
 --
 -- 'description', 'updateInferenceExperiment_description' - The description of the inference experiment.
 --
--- 'modelVariants', 'updateInferenceExperiment_modelVariants' - Array of @ModelVariantConfigSummary@ objects. There is one for each
--- variant, whose infrastructure configuration you want to update.
+-- 'modelVariants', 'updateInferenceExperiment_modelVariants' - An array of @ModelVariantConfig@ objects. There is one for each variant,
+-- whose infrastructure configuration you want to update.
 --
 -- 'schedule', 'updateInferenceExperiment_schedule' - The duration for which the inference experiment will run. If the status
 -- of the inference experiment is @Created@, then you can update both the
 -- start and end dates. If the status of the inference experiment is
 -- @Running@, then you can update only the end date.
 --
--- 'shadowModeConfig', 'updateInferenceExperiment_shadowModeConfig' - The Amazon S3 storage configuration for the inference experiment.
+-- 'shadowModeConfig', 'updateInferenceExperiment_shadowModeConfig' - The configuration of @ShadowMode@ inference experiment type. Use this
+-- field to specify a production variant which takes all the inference
+-- requests, and a shadow variant to which Amazon SageMaker replicates a
+-- percentage of the inference requests. For the shadow variant also
+-- specify the percentage of requests that Amazon SageMaker replicates.
 --
 -- 'name', 'updateInferenceExperiment_name' - The name of the inference experiment to be updated.
 newUpdateInferenceExperiment ::
@@ -114,7 +124,8 @@ newUpdateInferenceExperiment pName_ =
       name = pName_
     }
 
--- | The Amazon S3 storage configuration for the inference experiment.
+-- | The Amazon S3 location and configuration for storing inference request
+-- and response data.
 updateInferenceExperiment_dataStorageConfig :: Lens.Lens' UpdateInferenceExperiment (Prelude.Maybe InferenceExperimentDataStorageConfig)
 updateInferenceExperiment_dataStorageConfig = Lens.lens (\UpdateInferenceExperiment' {dataStorageConfig} -> dataStorageConfig) (\s@UpdateInferenceExperiment' {} a -> s {dataStorageConfig = a} :: UpdateInferenceExperiment)
 
@@ -122,8 +133,8 @@ updateInferenceExperiment_dataStorageConfig = Lens.lens (\UpdateInferenceExperim
 updateInferenceExperiment_description :: Lens.Lens' UpdateInferenceExperiment (Prelude.Maybe Prelude.Text)
 updateInferenceExperiment_description = Lens.lens (\UpdateInferenceExperiment' {description} -> description) (\s@UpdateInferenceExperiment' {} a -> s {description = a} :: UpdateInferenceExperiment)
 
--- | Array of @ModelVariantConfigSummary@ objects. There is one for each
--- variant, whose infrastructure configuration you want to update.
+-- | An array of @ModelVariantConfig@ objects. There is one for each variant,
+-- whose infrastructure configuration you want to update.
 updateInferenceExperiment_modelVariants :: Lens.Lens' UpdateInferenceExperiment (Prelude.Maybe (Prelude.NonEmpty ModelVariantConfig))
 updateInferenceExperiment_modelVariants = Lens.lens (\UpdateInferenceExperiment' {modelVariants} -> modelVariants) (\s@UpdateInferenceExperiment' {} a -> s {modelVariants = a} :: UpdateInferenceExperiment) Prelude.. Lens.mapping Lens.coerced
 
@@ -134,7 +145,11 @@ updateInferenceExperiment_modelVariants = Lens.lens (\UpdateInferenceExperiment'
 updateInferenceExperiment_schedule :: Lens.Lens' UpdateInferenceExperiment (Prelude.Maybe InferenceExperimentSchedule)
 updateInferenceExperiment_schedule = Lens.lens (\UpdateInferenceExperiment' {schedule} -> schedule) (\s@UpdateInferenceExperiment' {} a -> s {schedule = a} :: UpdateInferenceExperiment)
 
--- | The Amazon S3 storage configuration for the inference experiment.
+-- | The configuration of @ShadowMode@ inference experiment type. Use this
+-- field to specify a production variant which takes all the inference
+-- requests, and a shadow variant to which Amazon SageMaker replicates a
+-- percentage of the inference requests. For the shadow variant also
+-- specify the percentage of requests that Amazon SageMaker replicates.
 updateInferenceExperiment_shadowModeConfig :: Lens.Lens' UpdateInferenceExperiment (Prelude.Maybe ShadowModeConfig)
 updateInferenceExperiment_shadowModeConfig = Lens.lens (\UpdateInferenceExperiment' {shadowModeConfig} -> shadowModeConfig) (\s@UpdateInferenceExperiment' {} a -> s {shadowModeConfig = a} :: UpdateInferenceExperiment)
 

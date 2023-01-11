@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.DataCaptureConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,8 @@ data DataCaptureConfig = DataCaptureConfig'
     -- enabled).
     enableCapture :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
-    -- Service key that SageMaker uses to encrypt data on the storage volume
-    -- attached to the ML compute instance that hosts the endpoint.
+    -- Service key that SageMaker uses to encrypt the captured data at rest
+    -- using Amazon S3 server-side encryption.
     --
     -- The KmsKeyId can be any of the following formats:
     --
@@ -80,8 +80,8 @@ data DataCaptureConfig = DataCaptureConfig'
 -- enabled).
 --
 -- 'kmsKeyId', 'dataCaptureConfig_kmsKeyId' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
--- Service key that SageMaker uses to encrypt data on the storage volume
--- attached to the ML compute instance that hosts the endpoint.
+-- Service key that SageMaker uses to encrypt the captured data at rest
+-- using Amazon S3 server-side encryption.
 --
 -- The KmsKeyId can be any of the following formats:
 --
@@ -138,8 +138,8 @@ dataCaptureConfig_enableCapture :: Lens.Lens' DataCaptureConfig (Prelude.Maybe P
 dataCaptureConfig_enableCapture = Lens.lens (\DataCaptureConfig' {enableCapture} -> enableCapture) (\s@DataCaptureConfig' {} a -> s {enableCapture = a} :: DataCaptureConfig)
 
 -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
--- Service key that SageMaker uses to encrypt data on the storage volume
--- attached to the ML compute instance that hosts the endpoint.
+-- Service key that SageMaker uses to encrypt the captured data at rest
+-- using Amazon S3 server-side encryption.
 --
 -- The KmsKeyId can be any of the following formats:
 --

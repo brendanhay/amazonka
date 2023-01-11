@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeAutoMLJob
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -175,7 +175,10 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
     autoMLJobConfig :: Prelude.Maybe AutoMLJobConfig,
     -- | Returns the job\'s objective.
     autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
-    -- | Returns the job\'s best @AutoMLCandidate@.
+    -- | The best model candidate selected by SageMaker Autopilot using both the
+    -- best objective metric and lowest
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html InferenceLatency>
+    -- for an experiment.
     bestCandidate :: Prelude.Maybe AutoMLCandidate,
     -- | Returns the end time of the AutoML job.
     endTime :: Prelude.Maybe Data.POSIX,
@@ -238,7 +241,10 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
 --
 -- 'autoMLJobObjective', 'describeAutoMLJobResponse_autoMLJobObjective' - Returns the job\'s objective.
 --
--- 'bestCandidate', 'describeAutoMLJobResponse_bestCandidate' - Returns the job\'s best @AutoMLCandidate@.
+-- 'bestCandidate', 'describeAutoMLJobResponse_bestCandidate' - The best model candidate selected by SageMaker Autopilot using both the
+-- best objective metric and lowest
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html InferenceLatency>
+-- for an experiment.
 --
 -- 'endTime', 'describeAutoMLJobResponse_endTime' - Returns the end time of the AutoML job.
 --
@@ -358,7 +364,10 @@ describeAutoMLJobResponse_autoMLJobConfig = Lens.lens (\DescribeAutoMLJobRespons
 describeAutoMLJobResponse_autoMLJobObjective :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobObjective)
 describeAutoMLJobResponse_autoMLJobObjective = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobObjective} -> autoMLJobObjective) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobObjective = a} :: DescribeAutoMLJobResponse)
 
--- | Returns the job\'s best @AutoMLCandidate@.
+-- | The best model candidate selected by SageMaker Autopilot using both the
+-- best objective metric and lowest
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html InferenceLatency>
+-- for an experiment.
 describeAutoMLJobResponse_bestCandidate :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLCandidate)
 describeAutoMLJobResponse_bestCandidate = Lens.lens (\DescribeAutoMLJobResponse' {bestCandidate} -> bestCandidate) (\s@DescribeAutoMLJobResponse' {} a -> s {bestCandidate = a} :: DescribeAutoMLJobResponse)
 

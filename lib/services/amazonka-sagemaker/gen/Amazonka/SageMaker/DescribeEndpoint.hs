@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeEndpoint
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -167,11 +167,9 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     -- | An array of ProductionVariantSummary objects, one for each model hosted
     -- behind this endpoint.
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
-    -- | Array of @ProductionVariant@ objects. There is one for each model that
+    -- | An array of ProductionVariantSummary objects, one for each model that
     -- you want to host at this endpoint in shadow mode with production traffic
-    -- replicated from the model specified on @ProductionVariants@.If you use
-    -- this field, you can only specify one variant for @ProductionVariants@
-    -- and one variant for @ShadowProductionVariants@.
+    -- replicated from the model specified on @ProductionVariants@.
     shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -248,11 +246,9 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- 'productionVariants', 'describeEndpointResponse_productionVariants' - An array of ProductionVariantSummary objects, one for each model hosted
 -- behind this endpoint.
 --
--- 'shadowProductionVariants', 'describeEndpointResponse_shadowProductionVariants' - Array of @ProductionVariant@ objects. There is one for each model that
+-- 'shadowProductionVariants', 'describeEndpointResponse_shadowProductionVariants' - An array of ProductionVariantSummary objects, one for each model that
 -- you want to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
--- this field, you can only specify one variant for @ProductionVariants@
--- and one variant for @ShadowProductionVariants@.
+-- replicated from the model specified on @ProductionVariants@.
 --
 -- 'httpStatus', 'describeEndpointResponse_httpStatus' - The response's http status code.
 --
@@ -375,11 +371,9 @@ describeEndpointResponse_pendingDeploymentSummary = Lens.lens (\DescribeEndpoint
 describeEndpointResponse_productionVariants :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
 describeEndpointResponse_productionVariants = Lens.lens (\DescribeEndpointResponse' {productionVariants} -> productionVariants) (\s@DescribeEndpointResponse' {} a -> s {productionVariants = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Array of @ProductionVariant@ objects. There is one for each model that
+-- | An array of ProductionVariantSummary objects, one for each model that
 -- you want to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
--- this field, you can only specify one variant for @ProductionVariants@
--- and one variant for @ShadowProductionVariants@.
+-- replicated from the model specified on @ProductionVariants@.
 describeEndpointResponse_shadowProductionVariants :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
 describeEndpointResponse_shadowProductionVariants = Lens.lens (\DescribeEndpointResponse' {shadowProductionVariants} -> shadowProductionVariants) (\s@DescribeEndpointResponse' {} a -> s {shadowProductionVariants = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Lens.coerced
 

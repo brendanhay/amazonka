@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreateInferenceExperiment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,9 +23,9 @@
 -- Creates an inference experiment using the configurations specified in
 -- the request.
 --
--- Use this API to schedule an experiment to compare model variants on a
--- Amazon SageMaker inference endpoint. For more information about
--- inference experiments, see
+-- Use this API to setup and schedule an experiment to compare model
+-- variants on a Amazon SageMaker inference endpoint. For more information
+-- about inference experiments, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html Shadow tests>.
 --
 -- Amazon SageMaker begins your experiment at the scheduled time and routes
@@ -73,9 +73,11 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateInferenceExperiment' smart constructor.
 data CreateInferenceExperiment = CreateInferenceExperiment'
-  { -- | The storage configuration for the inference experiment. This is an
-    -- optional parameter that you can use for data capture. For more
-    -- information, see
+  { -- | The Amazon S3 location and configuration for storing inference request
+    -- and response data.
+    --
+    -- This is an optional parameter that you can use for data capture. For
+    -- more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture data>.
     dataStorageConfig :: Prelude.Maybe InferenceExperimentDataStorageConfig,
     -- | A description for the inference experiment.
@@ -120,8 +122,8 @@ data CreateInferenceExperiment = CreateInferenceExperiment'
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsKey :: Prelude.Maybe Prelude.Text,
     -- | The duration for which you want the inference experiment to run. If you
-    -- don\'t specify this field, the experiment automatically concludes after
-    -- 7 days.
+    -- don\'t specify this field, the experiment automatically starts
+    -- immediately upon creation and concludes after 7 days.
     schedule :: Prelude.Maybe InferenceExperimentSchedule,
     -- | Array of key-value pairs. You can use tags to categorize your Amazon Web
     -- Services resources in different ways, for example, by purpose, owner, or
@@ -138,19 +140,22 @@ data CreateInferenceExperiment = CreateInferenceExperiment'
     --     <https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html Shadow tests>.
     type' :: InferenceExperimentType,
     -- | The ARN of the IAM role that Amazon SageMaker can assume to access model
-    -- artifacts and container images.
+    -- artifacts and container images, and manage Amazon SageMaker Inference
+    -- endpoints for model deployment.
     roleArn :: Prelude.Text,
     -- | The name of the Amazon SageMaker endpoint on which you want to run the
     -- inference experiment.
     endpointName :: Prelude.Text,
-    -- | Array of @ModelVariantConfigSummary@ objects. There is one for each
-    -- variant in the inference experiment. Each @ModelVariantConfigSummary@
-    -- object in the array describes the infrastructure configuration for the
-    -- corresponding variant.
+    -- | An array of @ModelVariantConfig@ objects. There is one for each variant
+    -- in the inference experiment. Each @ModelVariantConfig@ object in the
+    -- array describes the infrastructure configuration for the corresponding
+    -- variant.
     modelVariants :: Prelude.NonEmpty ModelVariantConfig,
-    -- | Shows which variant is the production variant and which variant is the
-    -- shadow variant. For the shadow variant, also shows the sampling
-    -- percentage.
+    -- | The configuration of @ShadowMode@ inference experiment type. Use this
+    -- field to specify a production variant which takes all the inference
+    -- requests, and a shadow variant to which Amazon SageMaker replicates a
+    -- percentage of the inference requests. For the shadow variant also
+    -- specify the percentage of requests that Amazon SageMaker replicates.
     shadowModeConfig :: ShadowModeConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -163,9 +168,11 @@ data CreateInferenceExperiment = CreateInferenceExperiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataStorageConfig', 'createInferenceExperiment_dataStorageConfig' - The storage configuration for the inference experiment. This is an
--- optional parameter that you can use for data capture. For more
--- information, see
+-- 'dataStorageConfig', 'createInferenceExperiment_dataStorageConfig' - The Amazon S3 location and configuration for storing inference request
+-- and response data.
+--
+-- This is an optional parameter that you can use for data capture. For
+-- more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture data>.
 --
 -- 'description', 'createInferenceExperiment_description' - A description for the inference experiment.
@@ -210,8 +217,8 @@ data CreateInferenceExperiment = CreateInferenceExperiment'
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
 -- 'schedule', 'createInferenceExperiment_schedule' - The duration for which you want the inference experiment to run. If you
--- don\'t specify this field, the experiment automatically concludes after
--- 7 days.
+-- don\'t specify this field, the experiment automatically starts
+-- immediately upon creation and concludes after 7 days.
 --
 -- 'tags', 'createInferenceExperiment_tags' - Array of key-value pairs. You can use tags to categorize your Amazon Web
 -- Services resources in different ways, for example, by purpose, owner, or
@@ -228,19 +235,22 @@ data CreateInferenceExperiment = CreateInferenceExperiment'
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html Shadow tests>.
 --
 -- 'roleArn', 'createInferenceExperiment_roleArn' - The ARN of the IAM role that Amazon SageMaker can assume to access model
--- artifacts and container images.
+-- artifacts and container images, and manage Amazon SageMaker Inference
+-- endpoints for model deployment.
 --
 -- 'endpointName', 'createInferenceExperiment_endpointName' - The name of the Amazon SageMaker endpoint on which you want to run the
 -- inference experiment.
 --
--- 'modelVariants', 'createInferenceExperiment_modelVariants' - Array of @ModelVariantConfigSummary@ objects. There is one for each
--- variant in the inference experiment. Each @ModelVariantConfigSummary@
--- object in the array describes the infrastructure configuration for the
--- corresponding variant.
+-- 'modelVariants', 'createInferenceExperiment_modelVariants' - An array of @ModelVariantConfig@ objects. There is one for each variant
+-- in the inference experiment. Each @ModelVariantConfig@ object in the
+-- array describes the infrastructure configuration for the corresponding
+-- variant.
 --
--- 'shadowModeConfig', 'createInferenceExperiment_shadowModeConfig' - Shows which variant is the production variant and which variant is the
--- shadow variant. For the shadow variant, also shows the sampling
--- percentage.
+-- 'shadowModeConfig', 'createInferenceExperiment_shadowModeConfig' - The configuration of @ShadowMode@ inference experiment type. Use this
+-- field to specify a production variant which takes all the inference
+-- requests, and a shadow variant to which Amazon SageMaker replicates a
+-- percentage of the inference requests. For the shadow variant also
+-- specify the percentage of requests that Amazon SageMaker replicates.
 newCreateInferenceExperiment ::
   -- | 'name'
   Prelude.Text ->
@@ -278,9 +288,11 @@ newCreateInferenceExperiment
         shadowModeConfig = pShadowModeConfig_
       }
 
--- | The storage configuration for the inference experiment. This is an
--- optional parameter that you can use for data capture. For more
--- information, see
+-- | The Amazon S3 location and configuration for storing inference request
+-- and response data.
+--
+-- This is an optional parameter that you can use for data capture. For
+-- more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture data>.
 createInferenceExperiment_dataStorageConfig :: Lens.Lens' CreateInferenceExperiment (Prelude.Maybe InferenceExperimentDataStorageConfig)
 createInferenceExperiment_dataStorageConfig = Lens.lens (\CreateInferenceExperiment' {dataStorageConfig} -> dataStorageConfig) (\s@CreateInferenceExperiment' {} a -> s {dataStorageConfig = a} :: CreateInferenceExperiment)
@@ -331,8 +343,8 @@ createInferenceExperiment_kmsKey :: Lens.Lens' CreateInferenceExperiment (Prelud
 createInferenceExperiment_kmsKey = Lens.lens (\CreateInferenceExperiment' {kmsKey} -> kmsKey) (\s@CreateInferenceExperiment' {} a -> s {kmsKey = a} :: CreateInferenceExperiment)
 
 -- | The duration for which you want the inference experiment to run. If you
--- don\'t specify this field, the experiment automatically concludes after
--- 7 days.
+-- don\'t specify this field, the experiment automatically starts
+-- immediately upon creation and concludes after 7 days.
 createInferenceExperiment_schedule :: Lens.Lens' CreateInferenceExperiment (Prelude.Maybe InferenceExperimentSchedule)
 createInferenceExperiment_schedule = Lens.lens (\CreateInferenceExperiment' {schedule} -> schedule) (\s@CreateInferenceExperiment' {} a -> s {schedule = a} :: CreateInferenceExperiment)
 
@@ -357,7 +369,8 @@ createInferenceExperiment_type :: Lens.Lens' CreateInferenceExperiment Inference
 createInferenceExperiment_type = Lens.lens (\CreateInferenceExperiment' {type'} -> type') (\s@CreateInferenceExperiment' {} a -> s {type' = a} :: CreateInferenceExperiment)
 
 -- | The ARN of the IAM role that Amazon SageMaker can assume to access model
--- artifacts and container images.
+-- artifacts and container images, and manage Amazon SageMaker Inference
+-- endpoints for model deployment.
 createInferenceExperiment_roleArn :: Lens.Lens' CreateInferenceExperiment Prelude.Text
 createInferenceExperiment_roleArn = Lens.lens (\CreateInferenceExperiment' {roleArn} -> roleArn) (\s@CreateInferenceExperiment' {} a -> s {roleArn = a} :: CreateInferenceExperiment)
 
@@ -366,16 +379,18 @@ createInferenceExperiment_roleArn = Lens.lens (\CreateInferenceExperiment' {role
 createInferenceExperiment_endpointName :: Lens.Lens' CreateInferenceExperiment Prelude.Text
 createInferenceExperiment_endpointName = Lens.lens (\CreateInferenceExperiment' {endpointName} -> endpointName) (\s@CreateInferenceExperiment' {} a -> s {endpointName = a} :: CreateInferenceExperiment)
 
--- | Array of @ModelVariantConfigSummary@ objects. There is one for each
--- variant in the inference experiment. Each @ModelVariantConfigSummary@
--- object in the array describes the infrastructure configuration for the
--- corresponding variant.
+-- | An array of @ModelVariantConfig@ objects. There is one for each variant
+-- in the inference experiment. Each @ModelVariantConfig@ object in the
+-- array describes the infrastructure configuration for the corresponding
+-- variant.
 createInferenceExperiment_modelVariants :: Lens.Lens' CreateInferenceExperiment (Prelude.NonEmpty ModelVariantConfig)
 createInferenceExperiment_modelVariants = Lens.lens (\CreateInferenceExperiment' {modelVariants} -> modelVariants) (\s@CreateInferenceExperiment' {} a -> s {modelVariants = a} :: CreateInferenceExperiment) Prelude.. Lens.coerced
 
--- | Shows which variant is the production variant and which variant is the
--- shadow variant. For the shadow variant, also shows the sampling
--- percentage.
+-- | The configuration of @ShadowMode@ inference experiment type. Use this
+-- field to specify a production variant which takes all the inference
+-- requests, and a shadow variant to which Amazon SageMaker replicates a
+-- percentage of the inference requests. For the shadow variant also
+-- specify the percentage of requests that Amazon SageMaker replicates.
 createInferenceExperiment_shadowModeConfig :: Lens.Lens' CreateInferenceExperiment ShadowModeConfig
 createInferenceExperiment_shadowModeConfig = Lens.lens (\CreateInferenceExperiment' {shadowModeConfig} -> shadowModeConfig) (\s@CreateInferenceExperiment' {} a -> s {shadowModeConfig = a} :: CreateInferenceExperiment)
 

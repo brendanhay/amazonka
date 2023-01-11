@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.StopInferenceExperiment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newStopInferenceExperiment' smart constructor.
 data StopInferenceExperiment = StopInferenceExperiment'
-  { -- | Array of @ModelVariantConfig@ objects. There is one for each variant
+  { -- | An array of @ModelVariantConfig@ objects. There is one for each variant
     -- that you want to deploy after the inference experiment stops. Each
     -- @ModelVariantConfig@ describes the infrastructure configuration for
     -- deploying the corresponding variant.
@@ -89,7 +89,7 @@ data StopInferenceExperiment = StopInferenceExperiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'desiredModelVariants', 'stopInferenceExperiment_desiredModelVariants' - Array of @ModelVariantConfig@ objects. There is one for each variant
+-- 'desiredModelVariants', 'stopInferenceExperiment_desiredModelVariants' - An array of @ModelVariantConfig@ objects. There is one for each variant
 -- that you want to deploy after the inference experiment stops. Each
 -- @ModelVariantConfig@ describes the infrastructure configuration for
 -- deploying the corresponding variant.
@@ -127,7 +127,7 @@ newStopInferenceExperiment pName_ =
       modelVariantActions = Prelude.mempty
     }
 
--- | Array of @ModelVariantConfig@ objects. There is one for each variant
+-- | An array of @ModelVariantConfig@ objects. There is one for each variant
 -- that you want to deploy after the inference experiment stops. Each
 -- @ModelVariantConfig@ describes the infrastructure configuration for
 -- deploying the corresponding variant.

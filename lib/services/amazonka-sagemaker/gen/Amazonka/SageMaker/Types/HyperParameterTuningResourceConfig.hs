@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.HyperParameterTuningResourceConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,12 +29,15 @@ import Amazonka.SageMaker.Types.TrainingInstanceType
 
 -- | The configuration of resources, including compute instances and storage
 -- volumes for use in training jobs launched by hyperparameter tuning jobs.
--- Specify one or more instance type and count and the allocation strategy
--- for instance selection.
+-- @HyperParameterTuningResourceConfig@ is similar to @ResourceConfig@, but
+-- has the additional @InstanceConfigs@ and @AllocationStrategy@ fields to
+-- allow for flexible instance management. Specify one or more instance
+-- types, count, and the allocation strategy for instance selection.
 --
--- @HyperParameterTuningResourceConfig@ supports all of the capabilities of
--- ResourceConfig with added functionality for flexible instance
--- management.
+-- @HyperParameterTuningResourceConfig@ supports the capabilities of
+-- @ResourceConfig@ with the exception of @KeepAlivePeriodInSeconds@.
+-- Hyperparameter tuning jobs use warm pools by default, which reuse
+-- clusters between training jobs.
 --
 -- /See:/ 'newHyperParameterTuningResourceConfig' smart constructor.
 data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'

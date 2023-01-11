@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -216,6 +216,7 @@ library
     Amazonka.SageMaker.Lens
     Amazonka.SageMaker.ListActions
     Amazonka.SageMaker.ListAlgorithms
+    Amazonka.SageMaker.ListAliases
     Amazonka.SageMaker.ListAppImageConfigs
     Amazonka.SageMaker.ListApps
     Amazonka.SageMaker.ListArtifacts
@@ -606,6 +607,7 @@ library
     Amazonka.SageMaker.Types.InstanceType
     Amazonka.SageMaker.Types.IntegerParameterRange
     Amazonka.SageMaker.Types.IntegerParameterRangeSpecification
+    Amazonka.SageMaker.Types.JobType
     Amazonka.SageMaker.Types.JoinSource
     Amazonka.SageMaker.Types.JupyterServerAppSettings
     Amazonka.SageMaker.Types.KernelGatewayAppSettings
@@ -819,6 +821,7 @@ library
     Amazonka.SageMaker.Types.ProcessingS3Output
     Amazonka.SageMaker.Types.ProcessingS3UploadMode
     Amazonka.SageMaker.Types.ProcessingStoppingCondition
+    Amazonka.SageMaker.Types.Processor
     Amazonka.SageMaker.Types.ProductionVariant
     Amazonka.SageMaker.Types.ProductionVariantAcceleratorType
     Amazonka.SageMaker.Types.ProductionVariantCoreDumpConfig
@@ -853,6 +856,7 @@ library
     Amazonka.SageMaker.Types.RecommendationJobStatus
     Amazonka.SageMaker.Types.RecommendationJobStoppingConditions
     Amazonka.SageMaker.Types.RecommendationJobType
+    Amazonka.SageMaker.Types.RecommendationJobVpcConfig
     Amazonka.SageMaker.Types.RecommendationMetrics
     Amazonka.SageMaker.Types.RecommendationStepType
     Amazonka.SageMaker.Types.RecordWrapper
@@ -992,6 +996,7 @@ library
     Amazonka.SageMaker.Types.VariantProperty
     Amazonka.SageMaker.Types.VariantPropertyType
     Amazonka.SageMaker.Types.VariantStatus
+    Amazonka.SageMaker.Types.VendorGuidance
     Amazonka.SageMaker.Types.Vertex
     Amazonka.SageMaker.Types.VpcConfig
     Amazonka.SageMaker.Types.WarmPoolResourceStatus
@@ -1016,6 +1021,7 @@ library
     Amazonka.SageMaker.UpdateFeatureMetadata
     Amazonka.SageMaker.UpdateHub
     Amazonka.SageMaker.UpdateImage
+    Amazonka.SageMaker.UpdateImageVersion
     Amazonka.SageMaker.UpdateInferenceExperiment
     Amazonka.SageMaker.UpdateModelCard
     Amazonka.SageMaker.UpdateModelPackage

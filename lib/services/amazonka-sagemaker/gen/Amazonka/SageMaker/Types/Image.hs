@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.Image
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data Image = Image'
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | When the image was created.
     creationTime :: Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the image.
+    -- | The ARN of the image.
     imageArn :: Prelude.Text,
     -- | The name of the image.
     imageName :: Prelude.Text,
@@ -68,7 +68,7 @@ data Image = Image'
 --
 -- 'creationTime', 'image_creationTime' - When the image was created.
 --
--- 'imageArn', 'image_imageArn' - The Amazon Resource Name (ARN) of the image.
+-- 'imageArn', 'image_imageArn' - The ARN of the image.
 --
 -- 'imageName', 'image_imageName' - The name of the image.
 --
@@ -122,7 +122,7 @@ image_failureReason = Lens.lens (\Image' {failureReason} -> failureReason) (\s@I
 image_creationTime :: Lens.Lens' Image Prelude.UTCTime
 image_creationTime = Lens.lens (\Image' {creationTime} -> creationTime) (\s@Image' {} a -> s {creationTime = a} :: Image) Prelude.. Data._Time
 
--- | The Amazon Resource Name (ARN) of the image.
+-- | The ARN of the image.
 image_imageArn :: Lens.Lens' Image Prelude.Text
 image_imageArn = Lens.lens (\Image' {imageArn} -> imageArn) (\s@Image' {} a -> s {imageArn = a} :: Image)
 

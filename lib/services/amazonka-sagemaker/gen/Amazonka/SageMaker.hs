@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1108,6 +1108,12 @@ module Amazonka.SageMaker
     ListAlgorithmsResponse (ListAlgorithmsResponse'),
     newListAlgorithmsResponse,
 
+    -- ** ListAliases (Paginated)
+    ListAliases (ListAliases'),
+    newListAliases,
+    ListAliasesResponse (ListAliasesResponse'),
+    newListAliasesResponse,
+
     -- ** ListAppImageConfigs (Paginated)
     ListAppImageConfigs (ListAppImageConfigs'),
     newListAppImageConfigs,
@@ -1768,6 +1774,12 @@ module Amazonka.SageMaker
     UpdateImageResponse (UpdateImageResponse'),
     newUpdateImageResponse,
 
+    -- ** UpdateImageVersion
+    UpdateImageVersion (UpdateImageVersion'),
+    newUpdateImageVersion,
+    UpdateImageVersionResponse (UpdateImageVersionResponse'),
+    newUpdateImageVersionResponse,
+
     -- ** UpdateInferenceExperiment
     UpdateInferenceExperiment (UpdateInferenceExperiment'),
     newUpdateInferenceExperiment,
@@ -2160,6 +2172,9 @@ module Amazonka.SageMaker
     -- ** InstanceType
     InstanceType (..),
 
+    -- ** JobType
+    JobType (..),
+
     -- ** JoinSource
     JoinSource (..),
 
@@ -2345,6 +2360,9 @@ module Amazonka.SageMaker
 
     -- ** ProcessingS3UploadMode
     ProcessingS3UploadMode (..),
+
+    -- ** Processor
+    Processor (..),
 
     -- ** ProductionVariantAcceleratorType
     ProductionVariantAcceleratorType (..),
@@ -2537,6 +2555,9 @@ module Amazonka.SageMaker
 
     -- ** VariantStatus
     VariantStatus (..),
+
+    -- ** VendorGuidance
+    VendorGuidance (..),
 
     -- ** WarmPoolResourceStatus
     WarmPoolResourceStatus (..),
@@ -4060,6 +4081,10 @@ module Amazonka.SageMaker
     RecommendationJobStoppingConditions (RecommendationJobStoppingConditions'),
     newRecommendationJobStoppingConditions,
 
+    -- ** RecommendationJobVpcConfig
+    RecommendationJobVpcConfig (RecommendationJobVpcConfig'),
+    newRecommendationJobVpcConfig,
+
     -- ** RecommendationMetrics
     RecommendationMetrics (RecommendationMetrics'),
     newRecommendationMetrics,
@@ -4578,6 +4603,7 @@ import Amazonka.SageMaker.ImportHubContent
 import Amazonka.SageMaker.Lens
 import Amazonka.SageMaker.ListActions
 import Amazonka.SageMaker.ListAlgorithms
+import Amazonka.SageMaker.ListAliases
 import Amazonka.SageMaker.ListAppImageConfigs
 import Amazonka.SageMaker.ListApps
 import Amazonka.SageMaker.ListArtifacts
@@ -4689,6 +4715,7 @@ import Amazonka.SageMaker.UpdateFeatureGroup
 import Amazonka.SageMaker.UpdateFeatureMetadata
 import Amazonka.SageMaker.UpdateHub
 import Amazonka.SageMaker.UpdateImage
+import Amazonka.SageMaker.UpdateImageVersion
 import Amazonka.SageMaker.UpdateInferenceExperiment
 import Amazonka.SageMaker.UpdateModelCard
 import Amazonka.SageMaker.UpdateModelPackage

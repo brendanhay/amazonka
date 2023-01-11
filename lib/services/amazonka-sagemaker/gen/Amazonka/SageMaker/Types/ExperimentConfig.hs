@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.ExperimentConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentConfig' smart constructor.
 data ExperimentConfig = ExperimentConfig'
-  { -- | The name of an existing experiment to associate the trial component
-    -- with.
+  { -- | The name of an existing experiment to associate with the trial
+    -- component.
     experimentName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the experiment run to associate the trial component with.
+    -- | The name of the experiment run to associate with the trial component.
     runName :: Prelude.Maybe Prelude.Text,
     -- | The display name for the trial component. If this key isn\'t specified,
     -- the display name is the trial component name.
@@ -57,10 +57,10 @@ data ExperimentConfig = ExperimentConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'experimentName', 'experimentConfig_experimentName' - The name of an existing experiment to associate the trial component
--- with.
+-- 'experimentName', 'experimentConfig_experimentName' - The name of an existing experiment to associate with the trial
+-- component.
 --
--- 'runName', 'experimentConfig_runName' - The name of the experiment run to associate the trial component with.
+-- 'runName', 'experimentConfig_runName' - The name of the experiment run to associate with the trial component.
 --
 -- 'trialComponentDisplayName', 'experimentConfig_trialComponentDisplayName' - The display name for the trial component. If this key isn\'t specified,
 -- the display name is the trial component name.
@@ -77,12 +77,12 @@ newExperimentConfig =
       trialName = Prelude.Nothing
     }
 
--- | The name of an existing experiment to associate the trial component
--- with.
+-- | The name of an existing experiment to associate with the trial
+-- component.
 experimentConfig_experimentName :: Lens.Lens' ExperimentConfig (Prelude.Maybe Prelude.Text)
 experimentConfig_experimentName = Lens.lens (\ExperimentConfig' {experimentName} -> experimentName) (\s@ExperimentConfig' {} a -> s {experimentName = a} :: ExperimentConfig)
 
--- | The name of the experiment run to associate the trial component with.
+-- | The name of the experiment run to associate with the trial component.
 experimentConfig_runName :: Lens.Lens' ExperimentConfig (Prelude.Maybe Prelude.Text)
 experimentConfig_runName = Lens.lens (\ExperimentConfig' {runName} -> runName) (\s@ExperimentConfig' {} a -> s {runName = a} :: ExperimentConfig)
 

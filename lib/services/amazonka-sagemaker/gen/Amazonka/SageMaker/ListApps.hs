@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.ListApps
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,9 +69,11 @@ data ListApps = ListApps'
     sortBy :: Prelude.Maybe AppSortKey,
     -- | The sort order for the results. The default is Ascending.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A parameter to search by space name.
+    -- | A parameter to search by space name. If @UserProfileNameEquals@ is set,
+    -- then this value cannot be set.
     spaceNameEquals :: Prelude.Maybe Prelude.Text,
-    -- | A parameter to search by user profile name.
+    -- | A parameter to search by user profile name. If @SpaceNameEquals@ is set,
+    -- then this value cannot be set.
     userProfileNameEquals :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,9 +97,11 @@ data ListApps = ListApps'
 --
 -- 'sortOrder', 'listApps_sortOrder' - The sort order for the results. The default is Ascending.
 --
--- 'spaceNameEquals', 'listApps_spaceNameEquals' - A parameter to search by space name.
+-- 'spaceNameEquals', 'listApps_spaceNameEquals' - A parameter to search by space name. If @UserProfileNameEquals@ is set,
+-- then this value cannot be set.
 --
--- 'userProfileNameEquals', 'listApps_userProfileNameEquals' - A parameter to search by user profile name.
+-- 'userProfileNameEquals', 'listApps_userProfileNameEquals' - A parameter to search by user profile name. If @SpaceNameEquals@ is set,
+-- then this value cannot be set.
 newListApps ::
   ListApps
 newListApps =
@@ -132,11 +136,13 @@ listApps_sortBy = Lens.lens (\ListApps' {sortBy} -> sortBy) (\s@ListApps' {} a -
 listApps_sortOrder :: Lens.Lens' ListApps (Prelude.Maybe SortOrder)
 listApps_sortOrder = Lens.lens (\ListApps' {sortOrder} -> sortOrder) (\s@ListApps' {} a -> s {sortOrder = a} :: ListApps)
 
--- | A parameter to search by space name.
+-- | A parameter to search by space name. If @UserProfileNameEquals@ is set,
+-- then this value cannot be set.
 listApps_spaceNameEquals :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
 listApps_spaceNameEquals = Lens.lens (\ListApps' {spaceNameEquals} -> spaceNameEquals) (\s@ListApps' {} a -> s {spaceNameEquals = a} :: ListApps)
 
--- | A parameter to search by user profile name.
+-- | A parameter to search by user profile name. If @SpaceNameEquals@ is set,
+-- then this value cannot be set.
 listApps_userProfileNameEquals :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
 listApps_userProfileNameEquals = Lens.lens (\ListApps' {userProfileNameEquals} -> userProfileNameEquals) (\s@ListApps' {} a -> s {userProfileNameEquals = a} :: ListApps)
 

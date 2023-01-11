@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreateImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,8 +65,8 @@ data CreateImage = CreateImage'
     tags :: Prelude.Maybe [Tag],
     -- | The name of the image. Must be unique to your account.
     imageName :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
-    -- SageMaker to perform tasks on your behalf.
+    -- | The ARN of an IAM role that enables Amazon SageMaker to perform tasks on
+    -- your behalf.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,8 +88,8 @@ data CreateImage = CreateImage'
 --
 -- 'imageName', 'createImage_imageName' - The name of the image. Must be unique to your account.
 --
--- 'roleArn', 'createImage_roleArn' - The Amazon Resource Name (ARN) of an IAM role that enables Amazon
--- SageMaker to perform tasks on your behalf.
+-- 'roleArn', 'createImage_roleArn' - The ARN of an IAM role that enables Amazon SageMaker to perform tasks on
+-- your behalf.
 newCreateImage ::
   -- | 'imageName'
   Prelude.Text ->
@@ -122,8 +122,8 @@ createImage_tags = Lens.lens (\CreateImage' {tags} -> tags) (\s@CreateImage' {} 
 createImage_imageName :: Lens.Lens' CreateImage Prelude.Text
 createImage_imageName = Lens.lens (\CreateImage' {imageName} -> imageName) (\s@CreateImage' {} a -> s {imageName = a} :: CreateImage)
 
--- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
--- SageMaker to perform tasks on your behalf.
+-- | The ARN of an IAM role that enables Amazon SageMaker to perform tasks on
+-- your behalf.
 createImage_roleArn :: Lens.Lens' CreateImage Prelude.Text
 createImage_roleArn = Lens.lens (\CreateImage' {roleArn} -> roleArn) (\s@CreateImage' {} a -> s {roleArn = a} :: CreateImage)
 
@@ -188,7 +188,7 @@ instance Data.ToQuery CreateImage where
 
 -- | /See:/ 'newCreateImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
-  { -- | The Amazon Resource Name (ARN) of the image.
+  { -- | The ARN of the image.
     imageArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -203,7 +203,7 @@ data CreateImageResponse = CreateImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageArn', 'createImageResponse_imageArn' - The Amazon Resource Name (ARN) of the image.
+-- 'imageArn', 'createImageResponse_imageArn' - The ARN of the image.
 --
 -- 'httpStatus', 'createImageResponse_httpStatus' - The response's http status code.
 newCreateImageResponse ::
@@ -216,7 +216,7 @@ newCreateImageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the image.
+-- | The ARN of the image.
 createImageResponse_imageArn :: Lens.Lens' CreateImageResponse (Prelude.Maybe Prelude.Text)
 createImageResponse_imageArn = Lens.lens (\CreateImageResponse' {imageArn} -> imageArn) (\s@CreateImageResponse' {} a -> s {imageArn = a} :: CreateImageResponse)
 

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.IoTEvents.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -637,7 +637,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An internal failure occurred.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -645,7 +645,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The request was invalid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -653,7 +653,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | A limit was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -661,7 +661,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 410
 
 -- | The resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -669,7 +669,7 @@ _ResourceAlreadyExistsException =
     Prelude.. Core.hasStatus 409
 
 -- | The resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -677,7 +677,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 409
 
 -- | The resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -685,7 +685,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The service is currently unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -693,7 +693,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The request could not be completed due to throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -701,7 +701,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The requested operation is not supported.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService

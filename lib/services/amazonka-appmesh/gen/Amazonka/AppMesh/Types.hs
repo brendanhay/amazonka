@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.AppMesh.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1286,7 +1286,7 @@ defaultService =
 
 -- | The request syntax was malformed. Check your request syntax and try
 -- again.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -1296,7 +1296,7 @@ _BadRequestException =
 -- | The request contains a client token that was used for a previous update
 -- resource call with different specifications. Try the request again with
 -- a new client token.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -1304,7 +1304,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | You don\'t have permissions to perform this action.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -1313,7 +1313,7 @@ _ForbiddenException =
 
 -- | The request processing has failed because of an unknown error,
 -- exception, or failure.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -1324,7 +1324,7 @@ _InternalServerErrorException =
 -- information, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html Service Limits>
 -- in the /App Mesh User Guide/.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1333,7 +1333,7 @@ _LimitExceededException =
 
 -- | The specified resource doesn\'t exist. Check your request syntax and try
 -- again.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1342,7 +1342,7 @@ _NotFoundException =
 
 -- | You can\'t delete the specified resource because it\'s in use or
 -- required by another resource.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -1350,7 +1350,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 409
 
 -- | The request has failed due to a temporary failure of the service.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -1360,7 +1360,7 @@ _ServiceUnavailableException =
 -- | The maximum request rate permitted by the App Mesh APIs has been
 -- exceeded for your account. For best results, use an increasing or
 -- variable sleep interval between requests.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -1371,7 +1371,7 @@ _TooManyRequestsException =
 -- resource. The current limit is 50 user tags per resource. You must
 -- reduce the number of tags in the request. None of the tags in this
 -- request were applied.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

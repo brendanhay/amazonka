@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ResilienceHub.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -528,7 +528,7 @@ defaultService =
 -- | You don\'t have permissions to perform the requested operation. The user
 -- or role that is making the request must have at least one IAM
 -- permissions policy attached that grants the required permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -540,7 +540,7 @@ _AccessDeniedException =
 -- propagate to the host serving the current request. A retry (with
 -- appropriate backoff logic) is the recommended response to this
 -- exception.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -549,7 +549,7 @@ _ConflictException =
 
 -- | This exception occurs when there is an internal failure in the AWS
 -- Resilience Hub service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -557,7 +557,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -567,7 +567,7 @@ _ResourceNotFoundException =
 -- | You have exceeded your service quota. To perform the requested action,
 -- remove some of the relevant resources, or use Service Quotas to request
 -- a service quota increase.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -575,7 +575,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The limit on the number of requests per second was exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -583,7 +583,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | Indicates that a request was not valid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

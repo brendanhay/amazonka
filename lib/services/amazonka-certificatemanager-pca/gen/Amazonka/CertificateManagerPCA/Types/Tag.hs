@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.Types.Tag
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 -- CAs. Each tag consists of a key and an optional value. You can associate
 -- up to 50 tags with a private CA. To add one or more tags to a private
 -- CA, call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_TagCertificateAuthority.html TagCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html TagCertificateAuthority>
 -- action. To remove a tag, call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UntagCertificateAuthority.html UntagCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html UntagCertificateAuthority>
 -- action.
 --
 -- /See:/ 'newTag' smart constructor.

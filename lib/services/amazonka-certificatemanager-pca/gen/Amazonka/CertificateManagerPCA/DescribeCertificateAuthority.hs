@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.DescribeCertificateAuthority
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,12 +25,13 @@
 -- its ARN (Amazon Resource Name). The output contains the status of your
 -- CA. This can be any of the following:
 --
--- -   @CREATING@ - ACM Private CA is creating your private certificate
---     authority.
+-- -   @CREATING@ - Amazon Web Services Private CA is creating your private
+--     certificate authority.
 --
 -- -   @PENDING_CERTIFICATE@ - The certificate is pending. You must use
---     your ACM Private CA-hosted or on-premises root or subordinate CA to
---     sign your private CA CSR and then import it into PCA.
+--     your Amazon Web Services Private CA-hosted or on-premises root or
+--     subordinate CA to sign your private CA CSR and then import it into
+--     Amazon Web Services Private CA.
 --
 -- -   @ACTIVE@ - Your private CA is active.
 --
@@ -75,7 +76,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeCertificateAuthority' smart constructor.
 data DescribeCertificateAuthority = DescribeCertificateAuthority'
   { -- | The Amazon Resource Name (ARN) that was returned when you called
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
@@ -92,7 +93,7 @@ data DescribeCertificateAuthority = DescribeCertificateAuthority'
 -- for backwards compatibility:
 --
 -- 'certificateAuthorityArn', 'describeCertificateAuthority_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
@@ -108,7 +109,7 @@ newDescribeCertificateAuthority
       }
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
@@ -176,7 +177,7 @@ instance Data.ToQuery DescribeCertificateAuthority where
 -- | /See:/ 'newDescribeCertificateAuthorityResponse' smart constructor.
 data DescribeCertificateAuthorityResponse = DescribeCertificateAuthorityResponse'
   { -- | A
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority>
     -- structure that contains information about your private CA.
     certificateAuthority :: Prelude.Maybe CertificateAuthority,
     -- | The response's http status code.
@@ -193,7 +194,7 @@ data DescribeCertificateAuthorityResponse = DescribeCertificateAuthorityResponse
 -- for backwards compatibility:
 --
 -- 'certificateAuthority', 'describeCertificateAuthorityResponse_certificateAuthority' - A
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority>
 -- structure that contains information about your private CA.
 --
 -- 'httpStatus', 'describeCertificateAuthorityResponse_httpStatus' - The response's http status code.
@@ -209,7 +210,7 @@ newDescribeCertificateAuthorityResponse pHttpStatus_ =
     }
 
 -- | A
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority>
 -- structure that contains information about your private CA.
 describeCertificateAuthorityResponse_certificateAuthority :: Lens.Lens' DescribeCertificateAuthorityResponse (Prelude.Maybe CertificateAuthority)
 describeCertificateAuthorityResponse_certificateAuthority = Lens.lens (\DescribeCertificateAuthorityResponse' {certificateAuthority} -> certificateAuthority) (\s@DescribeCertificateAuthorityResponse' {} a -> s {certificateAuthority = a} :: DescribeCertificateAuthorityResponse)

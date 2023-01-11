@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.UntagCertificateAuthority
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,9 +25,9 @@
 -- calling this action, the tag will be removed regardless of value. If you
 -- specify a value, the tag is removed only if it is associated with the
 -- specified value. To add tags to a private CA, use the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_TagCertificateAuthority.html TagCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html TagCertificateAuthority>.
 -- Call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html ListTags>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html ListTags>
 -- action to see what tags are associated with your CA.
 module Amazonka.CertificateManagerPCA.UntagCertificateAuthority
   ( -- * Creating a Request
@@ -55,7 +55,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUntagCertificateAuthority' smart constructor.
 data UntagCertificateAuthority = UntagCertificateAuthority'
   { -- | The Amazon Resource Name (ARN) that was returned when you called
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
@@ -74,7 +74,7 @@ data UntagCertificateAuthority = UntagCertificateAuthority'
 -- for backwards compatibility:
 --
 -- 'certificateAuthorityArn', 'untagCertificateAuthority_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
@@ -96,7 +96,7 @@ newUntagCertificateAuthority
       }
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @

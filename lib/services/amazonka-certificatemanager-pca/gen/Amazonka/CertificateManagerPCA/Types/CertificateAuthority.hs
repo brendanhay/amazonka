@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.Types.CertificateAuthority
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,13 +36,13 @@ import qualified Amazonka.Prelude as Prelude
 -- certificates verify that the entity named in the certificate __Subject__
 -- field owns or controls the public key contained in the __Subject Public
 -- Key Info__ field. Call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
 -- action to create your private CA. You must then call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificateAuthorityCertificate.html GetCertificateAuthorityCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCertificate.html GetCertificateAuthorityCertificate>
 -- action to retrieve a private CA certificate signing request (CSR). Sign
--- the CSR with your ACM Private CA-hosted or on-premises root or
--- subordinate CA certificate. Call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html ImportCertificateAuthorityCertificate>
+-- the CSR with your Amazon Web Services Private CA-hosted or on-premises
+-- root or subordinate CA certificate. Call the
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html ImportCertificateAuthorityCertificate>
 -- action to import the signed certificate into Certificate Manager (ACM).
 --
 -- /See:/ 'newCertificateAuthority' smart constructor.
@@ -78,7 +78,7 @@ data CertificateAuthority = CertificateAuthority'
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The period during which a deleted CA can be restored. For more
     -- information, see the @PermanentDeletionTimeInDays@ parameter of the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest>
     -- action.
     restorableUntil :: Prelude.Maybe Data.POSIX,
     -- | Information about the Online Certificate Status Protocol (OCSP)
@@ -140,7 +140,7 @@ data CertificateAuthority = CertificateAuthority'
 --
 -- 'restorableUntil', 'certificateAuthority_restorableUntil' - The period during which a deleted CA can be restored. For more
 -- information, see the @PermanentDeletionTimeInDays@ parameter of the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest>
 -- action.
 --
 -- 'revocationConfiguration', 'certificateAuthority_revocationConfiguration' - Information about the Online Certificate Status Protocol (OCSP)
@@ -229,7 +229,7 @@ certificateAuthority_ownerAccount = Lens.lens (\CertificateAuthority' {ownerAcco
 
 -- | The period during which a deleted CA can be restored. For more
 -- information, see the @PermanentDeletionTimeInDays@ parameter of the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest>
 -- action.
 certificateAuthority_restorableUntil :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
 certificateAuthority_restorableUntil = Lens.lens (\CertificateAuthority' {restorableUntil} -> restorableUntil) (\s@CertificateAuthority' {} a -> s {restorableUntil = a} :: CertificateAuthority) Prelude.. Lens.mapping Data._Time

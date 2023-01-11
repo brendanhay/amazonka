@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.DeleteCertificateAuthority
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 -- Deletes a private certificate authority (CA). You must provide the
 -- Amazon Resource Name (ARN) of the private CA that you want to delete.
 -- You can find the ARN by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action.
 --
 -- Deleting a CA will invalidate other CAs and certificates below it in
@@ -31,27 +31,27 @@
 --
 -- Before you can delete a CA that you have created and activated, you must
 -- disable it. To do this, call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
 -- action and set the __CertificateAuthorityStatus__ parameter to
 -- @DISABLED@.
 --
 -- Additionally, you can delete a CA if you are waiting for it to be
 -- created (that is, the status of the CA is @CREATING@). You can also
 -- delete it if the CA has been created but you haven\'t yet imported the
--- signed certificate into ACM Private CA (that is, the status of the CA is
--- @PENDING_CERTIFICATE@).
+-- signed certificate into Amazon Web Services Private CA (that is, the
+-- status of the CA is @PENDING_CERTIFICATE@).
 --
 -- When you successfully call
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthority.html DeleteCertificateAuthority>,
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html DeleteCertificateAuthority>,
 -- the CA\'s status changes to @DELETED@. However, the CA won\'t be
 -- permanently deleted until the restoration period has passed. By default,
 -- if you do not set the @PermanentDeletionTimeInDays@ parameter, the CA
 -- remains restorable for 30 days. You can set the parameter from 7 to 30
 -- days. The
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DescribeCertificateAuthority.html DescribeCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html DescribeCertificateAuthority>
 -- action returns the time remaining in the restoration window of a private
 -- CA in the @DELETED@ state. To restore an eligible CA, call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RestoreCertificateAuthority.html RestoreCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_RestoreCertificateAuthority.html RestoreCertificateAuthority>
 -- action.
 module Amazonka.CertificateManagerPCA.DeleteCertificateAuthority
   ( -- * Creating a Request
@@ -82,7 +82,7 @@ data DeleteCertificateAuthority = DeleteCertificateAuthority'
     -- This can be anywhere from 7 to 30 days, with 30 being the default.
     permanentDeletionTimeInDays :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) that was returned when you called
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must have the following form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
@@ -102,7 +102,7 @@ data DeleteCertificateAuthority = DeleteCertificateAuthority'
 -- This can be anywhere from 7 to 30 days, with 30 being the default.
 --
 -- 'certificateAuthorityArn', 'deleteCertificateAuthority_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
@@ -125,7 +125,7 @@ deleteCertificateAuthority_permanentDeletionTimeInDays :: Lens.Lens' DeleteCerti
 deleteCertificateAuthority_permanentDeletionTimeInDays = Lens.lens (\DeleteCertificateAuthority' {permanentDeletionTimeInDays} -> permanentDeletionTimeInDays) (\s@DeleteCertificateAuthority' {} a -> s {permanentDeletionTimeInDays = a} :: DeleteCertificateAuthority)
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.

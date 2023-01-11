@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.TagCertificateAuthority
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,10 +28,16 @@
 -- to identify a specific characteristic of that CA, or you can apply the
 -- same tag to multiple private CAs if you want to filter for a common
 -- relationship among those CAs. To remove one or more tags, use the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UntagCertificateAuthority.html UntagCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html UntagCertificateAuthority>
 -- action. Call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html ListTags>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html ListTags>
 -- action to see what tags are associated with your CA.
+--
+-- To attach tags to a private CA during the creation procedure, a CA
+-- administrator must first associate an inline IAM policy with the
+-- @CreateCertificateAuthority@ action and explicitly allow tagging. For
+-- more information, see
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/auth-InlinePolicies.html#policy-tag-ca Attaching tags to a CA at the time of creation>.
 module Amazonka.CertificateManagerPCA.TagCertificateAuthority
   ( -- * Creating a Request
     TagCertificateAuthority (..),
@@ -58,7 +64,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newTagCertificateAuthority' smart constructor.
 data TagCertificateAuthority = TagCertificateAuthority'
   { -- | The Amazon Resource Name (ARN) that was returned when you called
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
@@ -77,7 +83,7 @@ data TagCertificateAuthority = TagCertificateAuthority'
 -- for backwards compatibility:
 --
 -- 'certificateAuthorityArn', 'tagCertificateAuthority_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
@@ -99,7 +105,7 @@ newTagCertificateAuthority
       }
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @

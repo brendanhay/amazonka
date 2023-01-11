@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.Types.ApiPassthrough
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 -- must be selected, or else this parameter is ignored.
 --
 -- If conflicting or duplicate certificate information is supplied from
--- other sources, ACM Private CA applies
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations order of operation rules>
+-- other sources, Amazon Web Services Private CA applies
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations order of operation rules>
 -- to determine what information is used.
 --
 -- /See:/ 'newApiPassthrough' smart constructor.

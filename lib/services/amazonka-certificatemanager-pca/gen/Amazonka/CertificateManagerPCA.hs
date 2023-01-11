@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -11,10 +11,10 @@
 --
 -- Derived from API version @2017-08-22@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- This is the /Private Certificate Authority (PCA) API Reference/. It
--- provides descriptions, syntax, and usage examples for each of the
--- actions and data types involved in creating and managing a private
--- certificate authority (CA) for your organization.
+-- This is the /Amazon Web Services Private Certificate Authority API
+-- Reference/. It provides descriptions, syntax, and usage examples for
+-- each of the actions and data types involved in creating and managing a
+-- private certificate authority (CA) for your organization.
 --
 -- The documentation for each action shows the API request parameters and
 -- the JSON response. Alternatively, you can use one of the Amazon Web
@@ -22,19 +22,20 @@
 -- language or platform that you prefer. For more information, see
 -- <https://aws.amazon.com/tools/#SDKs Amazon Web Services SDKs>.
 --
--- Each ACM Private CA API operation has a quota that determines the number
--- of times the operation can be called per second. ACM Private CA
--- throttles API requests at different rates depending on the operation.
--- Throttling means that ACM Private CA rejects an otherwise valid request
--- because the request exceeds the operation\'s quota for the number of
--- requests per second. When a request is throttled, ACM Private CA returns
--- a
+-- Each Amazon Web Services Private CA API operation has a quota that
+-- determines the number of times the operation can be called per second.
+-- Amazon Web Services Private CA throttles API requests at different rates
+-- depending on the operation. Throttling means that Amazon Web Services
+-- Private CA rejects an otherwise valid request because the request
+-- exceeds the operation\'s quota for the number of requests per second.
+-- When a request is throttled, Amazon Web Services Private CA returns a
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/CommonErrors.html ThrottlingException>
--- error. ACM Private CA does not guarantee a minimum request rate for
--- APIs.
+-- error. Amazon Web Services Private CA does not guarantee a minimum
+-- request rate for APIs.
 --
--- To see an up-to-date list of your ACM Private CA quotas, or to request a
--- quota increase, log into your Amazon Web Services account and visit the
+-- To see an up-to-date list of your Amazon Web Services Private CA quotas,
+-- or to request a quota increase, log into your Amazon Web Services
+-- account and visit the
 -- <https://console.aws.amazon.com/servicequotas/ Service Quotas> console.
 module Amazonka.CertificateManagerPCA
   ( -- * Service Configuration

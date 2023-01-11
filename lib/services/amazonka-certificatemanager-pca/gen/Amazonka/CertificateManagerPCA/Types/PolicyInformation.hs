@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.Types.PolicyInformation
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyInformation' smart constructor.
 data PolicyInformation = PolicyInformation'
-  { -- | Modifies the given @CertPolicyId@ with a qualifier. ACM Private CA
-    -- supports the certification practice statement (CPS) qualifier.
+  { -- | Modifies the given @CertPolicyId@ with a qualifier. Amazon Web Services
+    -- Private CA supports the certification practice statement (CPS)
+    -- qualifier.
     policyQualifiers :: Prelude.Maybe (Prelude.NonEmpty PolicyQualifierInfo),
     -- | Specifies the object identifier (OID) of the certificate policy under
     -- which the certificate was issued. For more information, see NIST\'s
@@ -48,8 +49,9 @@ data PolicyInformation = PolicyInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyQualifiers', 'policyInformation_policyQualifiers' - Modifies the given @CertPolicyId@ with a qualifier. ACM Private CA
--- supports the certification practice statement (CPS) qualifier.
+-- 'policyQualifiers', 'policyInformation_policyQualifiers' - Modifies the given @CertPolicyId@ with a qualifier. Amazon Web Services
+-- Private CA supports the certification practice statement (CPS)
+-- qualifier.
 --
 -- 'certPolicyId', 'policyInformation_certPolicyId' - Specifies the object identifier (OID) of the certificate policy under
 -- which the certificate was issued. For more information, see NIST\'s
@@ -66,8 +68,9 @@ newPolicyInformation pCertPolicyId_ =
       certPolicyId = pCertPolicyId_
     }
 
--- | Modifies the given @CertPolicyId@ with a qualifier. ACM Private CA
--- supports the certification practice statement (CPS) qualifier.
+-- | Modifies the given @CertPolicyId@ with a qualifier. Amazon Web Services
+-- Private CA supports the certification practice statement (CPS)
+-- qualifier.
 policyInformation_policyQualifiers :: Lens.Lens' PolicyInformation (Prelude.Maybe (Prelude.NonEmpty PolicyQualifierInfo))
 policyInformation_policyQualifiers = Lens.lens (\PolicyInformation' {policyQualifiers} -> policyQualifiers) (\s@PolicyInformation' {} a -> s {policyQualifiers = a} :: PolicyInformation) Prelude.. Lens.mapping Lens.coerced
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.RestoreCertificateAuthority
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,22 +23,22 @@
 -- Restores a certificate authority (CA) that is in the @DELETED@ state.
 -- You can restore a CA during the period that you defined in the
 -- __PermanentDeletionTimeInDays__ parameter of the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthority.html DeleteCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html DeleteCertificateAuthority>
 -- action. Currently, you can specify 7 to 30 days. If you did not specify
 -- a __PermanentDeletionTimeInDays__ value, by default you can restore the
 -- CA at any time in a 30 day period. You can check the time remaining in
 -- the restoration period of a private CA in the @DELETED@ state by calling
 -- the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DescribeCertificateAuthority.html DescribeCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html DescribeCertificateAuthority>
 -- or
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- actions. The status of a restored CA is set to its pre-deletion status
 -- when the __RestoreCertificateAuthority__ action returns. To change its
 -- status to @ACTIVE@, call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
 -- action. If the private CA was in the @PENDING_CERTIFICATE@ state at
 -- deletion, you must use the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html ImportCertificateAuthorityCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html ImportCertificateAuthorityCertificate>
 -- action to import a certificate authority into the private CA before it
 -- can be activated. You cannot restore a CA after the restoration period
 -- has ended.
@@ -67,7 +67,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newRestoreCertificateAuthority' smart constructor.
 data RestoreCertificateAuthority = RestoreCertificateAuthority'
   { -- | The Amazon Resource Name (ARN) that was returned when you called the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
     -- action. This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
@@ -84,7 +84,7 @@ data RestoreCertificateAuthority = RestoreCertificateAuthority'
 -- for backwards compatibility:
 --
 -- 'certificateAuthorityArn', 'restoreCertificateAuthority_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
 -- action. This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
@@ -100,7 +100,7 @@ newRestoreCertificateAuthority
       }
 
 -- | The Amazon Resource Name (ARN) that was returned when you called the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
 -- action. This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.CreatePermission
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,9 +26,9 @@
 -- Amazon Web Services account as the CA.
 --
 -- You can list current permissions with the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListPermissions.html ListPermissions>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html ListPermissions>
 -- action and revoke them with the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePermission.html DeletePermission>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html DeletePermission>
 -- action.
 --
 -- __About Permissions__
@@ -46,7 +46,7 @@
 --     renewals. Instead, the ACM certificate owner must set up a
 --     resource-based policy to enable cross-account issuance and renewals.
 --     For more information, see
---     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html Using a Resource Based Policy with ACM Private CA>.
+--     <https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html Using a Resource Based Policy with Amazon Web Services Private CA>.
 module Amazonka.CertificateManagerPCA.CreatePermission
   ( -- * Creating a Request
     CreatePermission (..),
@@ -78,7 +78,7 @@ data CreatePermission = CreatePermission'
     sourceAccount :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the CA that grants the permissions.
     -- You can find the ARN by calling the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action. This must have the following form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
@@ -106,7 +106,7 @@ data CreatePermission = CreatePermission'
 --
 -- 'certificateAuthorityArn', 'createPermission_certificateAuthorityArn' - The Amazon Resource Name (ARN) of the CA that grants the permissions.
 -- You can find the ARN by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. This must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
@@ -143,7 +143,7 @@ createPermission_sourceAccount = Lens.lens (\CreatePermission' {sourceAccount} -
 
 -- | The Amazon Resource Name (ARN) of the CA that grants the permissions.
 -- You can find the ARN by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action. This must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.

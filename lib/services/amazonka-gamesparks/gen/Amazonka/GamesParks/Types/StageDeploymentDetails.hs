@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GamesParks.Types.StageDeploymentDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStageDeploymentDetails' smart constructor.
 data StageDeploymentDetails = StageDeploymentDetails'
   { -- | The timestamp of when the stage deployment was created.
-    created :: Prelude.Maybe Data.POSIX,
+    created :: Prelude.Maybe Data.ISO8601,
     -- | The type of action of the stage deployment.
     deploymentAction :: Prelude.Maybe DeploymentAction,
     -- | The identifier of the deployment.
@@ -42,7 +42,7 @@ data StageDeploymentDetails = StageDeploymentDetails'
     -- | The state of the deployment.
     deploymentState :: Prelude.Maybe DeploymentState,
     -- | The timestamp of when the deployment was last updated.
-    lastUpdated :: Prelude.Maybe Data.POSIX,
+    lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The identifier of the snapshot associated with the stage deployment.
     snapshotId :: Prelude.Maybe Prelude.Text
   }

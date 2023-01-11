@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GamesParks.Types.StageDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ data StageDetails = StageDetails'
   { -- | The Amazon Resource Name (ARN) of the stage.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the stage was created.
-    created :: Prelude.Maybe Data.POSIX,
+    created :: Prelude.Maybe Data.ISO8601,
     -- | The description of the stage.
     description :: Prelude.Maybe Prelude.Text,
     -- | The game key associated with the stage.
@@ -41,7 +41,7 @@ data StageDetails = StageDetails'
     -- to the GameSparks backend.
     gameKey :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the stage was last updated.
-    lastUpdated :: Prelude.Maybe Data.POSIX,
+    lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon CloudWatch log group for game runtimes deployed to the stage.
     logGroup :: Prelude.Maybe Prelude.Text,
     -- | The name of the stage.

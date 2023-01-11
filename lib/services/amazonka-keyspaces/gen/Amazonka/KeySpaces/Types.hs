@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.KeySpaces.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -233,7 +233,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -243,7 +243,7 @@ _AccessDeniedException =
 -- occur if you try to perform an action and the same or a different action
 -- is already in progress, or if you try to create a resource that already
 -- exists.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -251,7 +251,7 @@ _ConflictException =
 
 -- | Amazon Keyspaces was unable to fully process this request because of an
 -- internal server error.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -260,7 +260,7 @@ _InternalServerException =
 -- | The operation tried to access a keyspace or table that doesn\'t exist.
 -- The resource might not be specified correctly, or its status might not
 -- be @ACTIVE@.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -270,14 +270,14 @@ _ResourceNotFoundException =
 -- information on service quotas, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html Quotas>
 -- in the /Amazon Keyspaces Developer Guide/.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
     "ServiceQuotaExceededException"
 
 -- | The operation failed due to an invalid or malformed request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

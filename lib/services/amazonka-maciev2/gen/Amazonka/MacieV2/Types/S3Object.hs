@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.S3Object
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,7 +45,7 @@ data S3Object = S3Object'
     key :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the object
     -- was last modified.
-    lastModified :: Prelude.Maybe Data.POSIX,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | The path to the object, including the full key (name).
     path :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the object is publicly accessible due to the

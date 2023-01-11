@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.Member
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@ data Member = Member'
     -- | The date and time, in UTC and extended ISO 8601 format, when an Amazon
     -- Macie membership invitation was last sent to the account. This value is
     -- null if an invitation hasn\'t been sent to the account.
-    invitedAt :: Prelude.Maybe Data.POSIX,
+    invitedAt :: Prelude.Maybe Data.ISO8601,
     -- | (Deprecated) The Amazon Web Services account ID for the administrator
     -- account. This property has been replaced by the administratorAccountId
     -- property and is retained only for backward compatibility.
@@ -55,7 +55,7 @@ data Member = Member'
     -- | The date and time, in UTC and extended ISO 8601 format, of the most
     -- recent change to the status of the relationship between the account and
     -- the administrator account.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    updatedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

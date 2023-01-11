@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.AllowListSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ data AllowListSummary = AllowListSummary'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the allow
     -- list was created in Amazon Macie.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The custom description of the allow list.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the allow list.
@@ -41,7 +41,7 @@ data AllowListSummary = AllowListSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the allow
     -- list\'s settings were most recently changed in Amazon Macie.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    updatedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.ApiCallDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,10 +37,10 @@ data ApiCallDetails = ApiCallDetails'
     apiServiceName :: Prelude.Maybe Prelude.Text,
     -- | The first date and time, in UTC and extended ISO 8601 format, when any
     -- operation was invoked and produced the finding.
-    firstSeen :: Prelude.Maybe Data.POSIX,
+    firstSeen :: Prelude.Maybe Data.ISO8601,
     -- | The most recent date and time, in UTC and extended ISO 8601 format, when
     -- the specified operation (api) was invoked and produced the finding.
-    lastSeen :: Prelude.Maybe Data.POSIX
+    lastSeen :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

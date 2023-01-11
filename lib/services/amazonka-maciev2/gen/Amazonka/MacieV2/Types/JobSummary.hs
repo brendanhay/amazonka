@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.JobSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,7 @@ data JobSummary = JobSummary'
     bucketDefinitions :: Prelude.Maybe [S3BucketDefinitionForJob],
     -- | The date and time, in UTC and extended ISO 8601 format, when the job was
     -- created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The unique identifier for the job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the job. Possible values are:

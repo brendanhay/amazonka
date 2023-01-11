@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1469,7 +1469,7 @@ defaultService =
 
 -- | Provides information about an error that occurred due to insufficient
 -- access to a specified resource.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1478,7 +1478,7 @@ _AccessDeniedException =
 
 -- | Provides information about an error that occurred due to a versioning
 -- conflict for a specified resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -1487,7 +1487,7 @@ _ConflictException =
 
 -- | Provides information about an error that occurred due to an unknown
 -- internal server error, exception, or failure.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -1496,7 +1496,7 @@ _InternalServerException =
 
 -- | Provides information about an error that occurred because a specified
 -- resource wasn\'t found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1505,7 +1505,7 @@ _ResourceNotFoundException =
 
 -- | Provides information about an error that occurred due to one or more
 -- service quotas for an account.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1514,7 +1514,7 @@ _ServiceQuotaExceededException =
 
 -- | Provides information about an error that occurred because too many
 -- requests were sent during a certain amount of time.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1523,7 +1523,7 @@ _ThrottlingException =
 
 -- | Provides information about an error that occurred due to an
 -- unprocessable entity.
-_UnprocessableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnprocessableEntityException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnprocessableEntityException =
   Core._MatchServiceError
     defaultService
@@ -1532,7 +1532,7 @@ _UnprocessableEntityException =
 
 -- | Provides information about an error that occurred due to a syntax error
 -- in a request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

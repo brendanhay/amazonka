@@ -155,7 +155,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
-- `amazonka`: Take per-shape `timestampFormat` annotations into account.
+- `gen`: Take per-shape `timestampFormat` annotations into account.
 [\#882](https://github.com/brendanhay/amazonka/pull/882)
 - `amazonka-core`: Only consider 2xx and 304 responses as successful
 [\#835](https://github.com/brendanhay/amazonka/pull/835)

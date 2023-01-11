@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudWatch.Types.MetricAlarm
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.MetricAlarm where
 
 import Amazonka.CloudWatch.Types.ComparisonOperator
 import Amazonka.CloudWatch.Types.Dimension
+import Amazonka.CloudWatch.Types.EvaluationState
 import Amazonka.CloudWatch.Types.MetricDataQuery
 import Amazonka.CloudWatch.Types.StandardUnit
 import Amazonka.CloudWatch.Types.StateValue
@@ -66,6 +67,11 @@ data MetricAlarm = MetricAlarm'
     -- | The number of periods over which data is compared to the specified
     -- threshold.
     evaluationPeriods :: Prelude.Maybe Prelude.Natural,
+    -- | If the value of this field is @PARTIAL_DATA@, the alarm is being
+    -- evaluated based on only partial data. This happens if the query used for
+    -- the alarm returns more than 10,000 metrics. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html Create alarms on Metrics Insights queries>.
+    evaluationState :: Prelude.Maybe EvaluationState,
     -- | The percentile statistic for the metric associated with the alarm.
     -- Specify a value between p0.0 and p100.
     extendedStatistic :: Prelude.Maybe Prelude.Text,
@@ -94,7 +100,10 @@ data MetricAlarm = MetricAlarm'
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | An explanation for the alarm state, in JSON format.
     stateReasonData :: Prelude.Maybe Prelude.Text,
-    -- | The time stamp of the last update to the alarm state.
+    -- | The date and time that the alarm\'s @StateValue@ most recently changed.
+    stateTransitionedTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The time stamp of the last update to the value of either the
+    -- @StateValue@ or @EvaluationState@ parameters.
     stateUpdatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The state value for the alarm.
     stateValue :: Prelude.Maybe StateValue,
@@ -158,6 +167,11 @@ data MetricAlarm = MetricAlarm'
 -- 'evaluationPeriods', 'metricAlarm_evaluationPeriods' - The number of periods over which data is compared to the specified
 -- threshold.
 --
+-- 'evaluationState', 'metricAlarm_evaluationState' - If the value of this field is @PARTIAL_DATA@, the alarm is being
+-- evaluated based on only partial data. This happens if the query used for
+-- the alarm returns more than 10,000 metrics. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html Create alarms on Metrics Insights queries>.
+--
 -- 'extendedStatistic', 'metricAlarm_extendedStatistic' - The percentile statistic for the metric associated with the alarm.
 -- Specify a value between p0.0 and p100.
 --
@@ -186,7 +200,10 @@ data MetricAlarm = MetricAlarm'
 --
 -- 'stateReasonData', 'metricAlarm_stateReasonData' - An explanation for the alarm state, in JSON format.
 --
--- 'stateUpdatedTimestamp', 'metricAlarm_stateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
+-- 'stateTransitionedTimestamp', 'metricAlarm_stateTransitionedTimestamp' - The date and time that the alarm\'s @StateValue@ most recently changed.
+--
+-- 'stateUpdatedTimestamp', 'metricAlarm_stateUpdatedTimestamp' - The time stamp of the last update to the value of either the
+-- @StateValue@ or @EvaluationState@ parameters.
 --
 -- 'stateValue', 'metricAlarm_stateValue' - The state value for the alarm.
 --
@@ -221,6 +238,7 @@ newMetricAlarm =
       dimensions = Prelude.Nothing,
       evaluateLowSampleCountPercentile = Prelude.Nothing,
       evaluationPeriods = Prelude.Nothing,
+      evaluationState = Prelude.Nothing,
       extendedStatistic = Prelude.Nothing,
       insufficientDataActions = Prelude.Nothing,
       metricName = Prelude.Nothing,
@@ -230,6 +248,7 @@ newMetricAlarm =
       period = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       stateReasonData = Prelude.Nothing,
+      stateTransitionedTimestamp = Prelude.Nothing,
       stateUpdatedTimestamp = Prelude.Nothing,
       stateValue = Prelude.Nothing,
       statistic = Prelude.Nothing,
@@ -293,6 +312,13 @@ metricAlarm_evaluateLowSampleCountPercentile = Lens.lens (\MetricAlarm' {evaluat
 metricAlarm_evaluationPeriods :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Natural)
 metricAlarm_evaluationPeriods = Lens.lens (\MetricAlarm' {evaluationPeriods} -> evaluationPeriods) (\s@MetricAlarm' {} a -> s {evaluationPeriods = a} :: MetricAlarm)
 
+-- | If the value of this field is @PARTIAL_DATA@, the alarm is being
+-- evaluated based on only partial data. This happens if the query used for
+-- the alarm returns more than 10,000 metrics. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html Create alarms on Metrics Insights queries>.
+metricAlarm_evaluationState :: Lens.Lens' MetricAlarm (Prelude.Maybe EvaluationState)
+metricAlarm_evaluationState = Lens.lens (\MetricAlarm' {evaluationState} -> evaluationState) (\s@MetricAlarm' {} a -> s {evaluationState = a} :: MetricAlarm)
+
 -- | The percentile statistic for the metric associated with the alarm.
 -- Specify a value between p0.0 and p100.
 metricAlarm_extendedStatistic :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
@@ -339,7 +365,12 @@ metricAlarm_stateReason = Lens.lens (\MetricAlarm' {stateReason} -> stateReason)
 metricAlarm_stateReasonData :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
 metricAlarm_stateReasonData = Lens.lens (\MetricAlarm' {stateReasonData} -> stateReasonData) (\s@MetricAlarm' {} a -> s {stateReasonData = a} :: MetricAlarm)
 
--- | The time stamp of the last update to the alarm state.
+-- | The date and time that the alarm\'s @StateValue@ most recently changed.
+metricAlarm_stateTransitionedTimestamp :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.UTCTime)
+metricAlarm_stateTransitionedTimestamp = Lens.lens (\MetricAlarm' {stateTransitionedTimestamp} -> stateTransitionedTimestamp) (\s@MetricAlarm' {} a -> s {stateTransitionedTimestamp = a} :: MetricAlarm) Prelude.. Lens.mapping Data._Time
+
+-- | The time stamp of the last update to the value of either the
+-- @StateValue@ or @EvaluationState@ parameters.
 metricAlarm_stateUpdatedTimestamp :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.UTCTime)
 metricAlarm_stateUpdatedTimestamp = Lens.lens (\MetricAlarm' {stateUpdatedTimestamp} -> stateUpdatedTimestamp) (\s@MetricAlarm' {} a -> s {stateUpdatedTimestamp = a} :: MetricAlarm) Prelude.. Lens.mapping Data._Time
 
@@ -392,6 +423,7 @@ instance Data.FromXML MetricAlarm where
                   )
       Prelude.<*> (x Data..@? "EvaluateLowSampleCountPercentile")
       Prelude.<*> (x Data..@? "EvaluationPeriods")
+      Prelude.<*> (x Data..@? "EvaluationState")
       Prelude.<*> (x Data..@? "ExtendedStatistic")
       Prelude.<*> ( x Data..@? "InsufficientDataActions"
                       Core..!@ Prelude.mempty
@@ -408,6 +440,7 @@ instance Data.FromXML MetricAlarm where
       Prelude.<*> (x Data..@? "Period")
       Prelude.<*> (x Data..@? "StateReason")
       Prelude.<*> (x Data..@? "StateReasonData")
+      Prelude.<*> (x Data..@? "StateTransitionedTimestamp")
       Prelude.<*> (x Data..@? "StateUpdatedTimestamp")
       Prelude.<*> (x Data..@? "StateValue")
       Prelude.<*> (x Data..@? "Statistic")
@@ -429,6 +462,7 @@ instance Prelude.Hashable MetricAlarm where
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` evaluateLowSampleCountPercentile
       `Prelude.hashWithSalt` evaluationPeriods
+      `Prelude.hashWithSalt` evaluationState
       `Prelude.hashWithSalt` extendedStatistic
       `Prelude.hashWithSalt` insufficientDataActions
       `Prelude.hashWithSalt` metricName
@@ -438,6 +472,7 @@ instance Prelude.Hashable MetricAlarm where
       `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` stateReason
       `Prelude.hashWithSalt` stateReasonData
+      `Prelude.hashWithSalt` stateTransitionedTimestamp
       `Prelude.hashWithSalt` stateUpdatedTimestamp
       `Prelude.hashWithSalt` stateValue
       `Prelude.hashWithSalt` statistic
@@ -459,6 +494,7 @@ instance Prelude.NFData MetricAlarm where
       `Prelude.seq` Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf evaluateLowSampleCountPercentile
       `Prelude.seq` Prelude.rnf evaluationPeriods
+      `Prelude.seq` Prelude.rnf evaluationState
       `Prelude.seq` Prelude.rnf extendedStatistic
       `Prelude.seq` Prelude.rnf insufficientDataActions
       `Prelude.seq` Prelude.rnf metricName
@@ -469,12 +505,17 @@ instance Prelude.NFData MetricAlarm where
       `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf stateReasonData
       `Prelude.seq` Prelude.rnf
+        stateTransitionedTimestamp
+      `Prelude.seq` Prelude.rnf
         stateUpdatedTimestamp
       `Prelude.seq` Prelude.rnf stateValue
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf
+        statistic
+      `Prelude.seq` Prelude.rnf
+        threshold
       `Prelude.seq` Prelude.rnf
         thresholdMetricId
       `Prelude.seq` Prelude.rnf
         treatMissingData
-      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf
+        unit

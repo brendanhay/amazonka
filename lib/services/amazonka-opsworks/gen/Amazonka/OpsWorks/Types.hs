@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.OpsWorks.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -694,14 +694,14 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Indicates that a resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | Indicates that a request was not valid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

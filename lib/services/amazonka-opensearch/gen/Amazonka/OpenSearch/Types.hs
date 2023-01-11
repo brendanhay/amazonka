@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.OpenSearch.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -932,7 +932,7 @@ defaultService =
 
 -- | An error occurred because user does not have permissions to access the
 -- resource. Returns HTTP status code 403.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -940,7 +940,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | An error occurred while processing the request.
-_BaseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BaseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BaseException =
   Core._MatchServiceError
     defaultService
@@ -948,7 +948,7 @@ _BaseException =
 
 -- | An error occurred because the client attempts to remove a resource that
 -- is currently in use. Returns HTTP status code 409.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -957,7 +957,7 @@ _ConflictException =
 
 -- | An error occured because the client wanted to access a not supported
 -- operation. Gives http status code of 409.
-_DisabledOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DisabledOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DisabledOperationException =
   Core._MatchServiceError
     defaultService
@@ -967,7 +967,7 @@ _DisabledOperationException =
 -- | The request processing has failed because of an unknown error, exception
 -- or failure (the failure is internal to the service) . Gives http status
 -- code of 500.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
@@ -976,7 +976,7 @@ _InternalException =
 
 -- | The request processing has failed because of invalid pagination token
 -- provided by customer. Returns an HTTP status code of 400.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPaginationTokenException =
   Core._MatchServiceError
     defaultService
@@ -985,7 +985,7 @@ _InvalidPaginationTokenException =
 
 -- | An exception for trying to create or access sub-resource that is either
 -- invalid or not supported. Gives http status code of 409.
-_InvalidTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidTypeException =
   Core._MatchServiceError
     defaultService
@@ -994,7 +994,7 @@ _InvalidTypeException =
 
 -- | An exception for trying to create more than allowed resources or
 -- sub-resources. Gives http status code of 409.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1003,7 +1003,7 @@ _LimitExceededException =
 
 -- | An exception for creating a resource that already exists. Gives http
 -- status code of 400.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -1012,7 +1012,7 @@ _ResourceAlreadyExistsException =
 
 -- | An exception for accessing or deleting a resource that does not exist.
 -- Gives http status code of 400.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1021,7 +1021,7 @@ _ResourceNotFoundException =
 
 -- | An exception for missing \/ invalid input fields. Gives http status code
 -- of 400.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

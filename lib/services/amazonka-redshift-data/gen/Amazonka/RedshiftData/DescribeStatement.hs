@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftData.DescribeStatement
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,11 @@
 -- the Amazon Redshift Data API. The information includes when the query
 -- started, when it finished, the query status, the number of rows
 -- returned, and the SQL statement.
+--
+-- For more information about the Amazon Redshift Data API and CLI usage
+-- examples, see
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html Using the Amazon Redshift Data API>
+-- in the /Amazon Redshift Management Guide/.
 module Amazonka.RedshiftData.DescribeStatement
   ( -- * Creating a Request
     DescribeStatement (..),

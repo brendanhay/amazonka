@@ -14,13 +14,18 @@
 
 -- |
 -- Module      : Amazonka.RedshiftData.CancelStatement
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels a running query. To be canceled, a query must be running.
+--
+-- For more information about the Amazon Redshift Data API and CLI usage
+-- examples, see
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html Using the Amazon Redshift Data API>
+-- in the /Amazon Redshift Management Guide/.
 module Amazonka.RedshiftData.CancelStatement
   ( -- * Creating a Request
     CancelStatement (..),

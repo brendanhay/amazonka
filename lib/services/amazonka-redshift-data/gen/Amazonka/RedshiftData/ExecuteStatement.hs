@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftData.ExecuteStatement
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,12 +37,18 @@
 --     operation is required. When connecting to a serverless workgroup,
 --     specify the workgroup name and database name. Also, permission to
 --     call the @redshift-serverless:GetCredentials@ operation is required.
+--
+-- For more information about the Amazon Redshift Data API and CLI usage
+-- examples, see
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html Using the Amazon Redshift Data API>
+-- in the /Amazon Redshift Management Guide/.
 module Amazonka.RedshiftData.ExecuteStatement
   ( -- * Creating a Request
     ExecuteStatement (..),
     newExecuteStatement,
 
     -- * Request Lenses
+    executeStatement_clientToken,
     executeStatement_clusterIdentifier,
     executeStatement_dbUser,
     executeStatement_parameters,
@@ -79,7 +85,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExecuteStatement' smart constructor.
 data ExecuteStatement = ExecuteStatement'
-  { -- | The cluster identifier. This parameter is required when connecting to a
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The cluster identifier. This parameter is required when connecting to a
     -- cluster and authenticating using either Secrets Manager or temporary
     -- credentials.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
@@ -117,6 +126,9 @@ data ExecuteStatement = ExecuteStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'executeStatement_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+--
 -- 'clusterIdentifier', 'executeStatement_clusterIdentifier' - The cluster identifier. This parameter is required when connecting to a
 -- cluster and authenticating using either Secrets Manager or temporary
 -- credentials.
@@ -151,8 +163,8 @@ newExecuteStatement ::
   ExecuteStatement
 newExecuteStatement pDatabase_ pSql_ =
   ExecuteStatement'
-    { clusterIdentifier =
-        Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      clusterIdentifier = Prelude.Nothing,
       dbUser = Prelude.Nothing,
       parameters = Prelude.Nothing,
       secretArn = Prelude.Nothing,
@@ -162,6 +174,11 @@ newExecuteStatement pDatabase_ pSql_ =
       database = pDatabase_,
       sql = pSql_
     }
+
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+executeStatement_clientToken :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
+executeStatement_clientToken = Lens.lens (\ExecuteStatement' {clientToken} -> clientToken) (\s@ExecuteStatement' {} a -> s {clientToken = a} :: ExecuteStatement)
 
 -- | The cluster identifier. This parameter is required when connecting to a
 -- cluster and authenticating using either Secrets Manager or temporary
@@ -230,7 +247,8 @@ instance Core.AWSRequest ExecuteStatement where
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` secretArn
@@ -242,7 +260,8 @@ instance Prelude.Hashable ExecuteStatement where
 
 instance Prelude.NFData ExecuteStatement where
   rnf ExecuteStatement' {..} =
-    Prelude.rnf clusterIdentifier
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf secretArn
@@ -271,7 +290,8 @@ instance Data.ToJSON ExecuteStatement where
   toJSON ExecuteStatement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ClusterIdentifier" Data..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
             ("DbUser" Data..=) Prelude.<$> dbUser,
             ("Parameters" Data..=) Prelude.<$> parameters,

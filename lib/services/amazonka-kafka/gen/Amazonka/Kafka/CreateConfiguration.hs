@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kafka.CreateConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -199,7 +199,7 @@ data CreateConfigurationResponse = CreateConfigurationResponse'
   { -- | The Amazon Resource Name (ARN) of the configuration.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time when the configuration was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | Latest revision of the configuration.
     latestRevision :: Prelude.Maybe ConfigurationRevision,
     -- | The name of the configuration.

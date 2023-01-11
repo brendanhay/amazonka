@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kafka.DescribeConfigurationRevision
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -157,7 +157,7 @@ data DescribeConfigurationRevisionResponse = DescribeConfigurationRevisionRespon
   { -- | The Amazon Resource Name (ARN) of the configuration.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time when the configuration was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The description of the configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | The revision number.

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Braket.GetJob
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -160,7 +160,7 @@ data GetJobResponse = GetJobResponse'
     -- Braket job.
     deviceConfig :: Prelude.Maybe DeviceConfig,
     -- | The date and time that the Amazon Braket job ended.
-    endedAt :: Prelude.Maybe Data.POSIX,
+    endedAt :: Prelude.Maybe Data.ISO8601,
     -- | Details about the type and time events occurred related to the Amazon
     -- Braket job.
     events :: Prelude.Maybe [JobEventDetails],
@@ -176,7 +176,7 @@ data GetJobResponse = GetJobResponse'
     -- where it is located.
     inputDataConfig :: Prelude.Maybe [InputFileConfig],
     -- | The date and time that the Amazon Braket job was started.
-    startedAt :: Prelude.Maybe Data.POSIX,
+    startedAt :: Prelude.Maybe Data.ISO8601,
     -- | The user-defined criteria that specifies when to stop a job running.
     stoppingCondition :: Prelude.Maybe JobStoppingCondition,
     -- | A tag object that consists of a key and an optional value, used to
@@ -189,7 +189,7 @@ data GetJobResponse = GetJobResponse'
     -- and training, and the user-defined metrics used to evaluation the job.
     algorithmSpecification :: AlgorithmSpecification,
     -- | The date and time that the Amazon Braket job was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The resource instances to use while running the hybrid job on Amazon
     -- Braket.
     instanceConfig :: InstanceConfig,

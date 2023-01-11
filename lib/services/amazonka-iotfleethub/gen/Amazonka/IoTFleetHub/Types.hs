@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.IoTFleetHub.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -119,7 +119,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The request conflicts with the current state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -127,7 +127,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An unexpected error has occurred.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -135,7 +135,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -143,7 +143,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | A limit has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -151,7 +151,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 410
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -159,7 +159,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The rate exceeds the limit.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

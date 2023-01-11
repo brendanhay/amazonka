@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ElasticTranscoder.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -452,7 +452,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | General authentication failure. The request was not signed correctly.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -460,7 +460,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | Prism for IncompatibleVersionException' errors.
-_IncompatibleVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncompatibleVersionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IncompatibleVersionException =
   Core._MatchServiceError
     defaultService
@@ -469,7 +469,7 @@ _IncompatibleVersionException =
 
 -- | Elastic Transcoder encountered an unexpected exception while trying to
 -- fulfill the request.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -477,7 +477,7 @@ _InternalServiceException =
 
 -- | Too many operations for a given AWS account. For example, the number of
 -- pipelines exceeds the maximum allowed.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -486,7 +486,7 @@ _LimitExceededException =
 
 -- | The resource you are attempting to change is in use. For example, you
 -- are attempting to delete a pipeline that is currently in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -496,7 +496,7 @@ _ResourceInUseException =
 -- | The requested resource does not exist or is not available. For example,
 -- the pipeline to which you\'re trying to add a job doesn\'t exist or is
 -- still being created.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -504,7 +504,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | One or more required parameter values were not provided in the request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

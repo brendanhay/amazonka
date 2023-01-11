@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Schemas.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -174,7 +174,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Prism for BadRequestException' errors.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -182,7 +182,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Prism for ConflictException' errors.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -190,7 +190,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Prism for ForbiddenException' errors.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -198,7 +198,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | Prism for GoneException' errors.
-_GoneException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GoneException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _GoneException =
   Core._MatchServiceError
     defaultService
@@ -206,7 +206,7 @@ _GoneException =
     Prelude.. Core.hasStatus 410
 
 -- | Prism for InternalServerErrorException' errors.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -214,7 +214,7 @@ _InternalServerErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | Prism for NotFoundException' errors.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -222,7 +222,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Prism for PreconditionFailedException' errors.
-_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PreconditionFailedException =
   Core._MatchServiceError
     defaultService
@@ -230,7 +230,7 @@ _PreconditionFailedException =
     Prelude.. Core.hasStatus 412
 
 -- | Prism for ServiceUnavailableException' errors.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -238,7 +238,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | Prism for TooManyRequestsException' errors.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -246,7 +246,7 @@ _TooManyRequestsException =
     Prelude.. Core.hasStatus 429
 
 -- | Prism for UnauthorizedException' errors.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

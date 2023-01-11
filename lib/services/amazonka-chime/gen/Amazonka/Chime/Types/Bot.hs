@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.Bot
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,7 +37,7 @@ data Bot = Bot'
     -- | The bot type.
     botType :: Prelude.Maybe BotType,
     -- | The bot creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | When true, the bot is stopped from running in your account.
     disabled :: Prelude.Maybe Prelude.Bool,
     -- | The bot display name.
@@ -46,7 +46,7 @@ data Bot = Bot'
     -- event endpoint.
     securityToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The updated bot timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The unique ID for the bot user.
     userId :: Prelude.Maybe Prelude.Text
   }

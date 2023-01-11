@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.PhoneNumberAssociation
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPhoneNumberAssociation' smart constructor.
 data PhoneNumberAssociation = PhoneNumberAssociation'
   { -- | The timestamp of the phone number association, in ISO 8601 format.
-    associatedTimestamp :: Prelude.Maybe Data.POSIX,
+    associatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | Defines the association with an Amazon Chime account ID, user ID, Amazon
     -- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.
     name :: Prelude.Maybe PhoneNumberAssociationName,

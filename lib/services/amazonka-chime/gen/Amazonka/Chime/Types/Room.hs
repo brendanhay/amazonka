@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.Room
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,13 +33,13 @@ data Room = Room'
     -- | The identifier of the room creator.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The room creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The room name.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The room ID.
     roomId :: Prelude.Maybe Prelude.Text,
     -- | The room update timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

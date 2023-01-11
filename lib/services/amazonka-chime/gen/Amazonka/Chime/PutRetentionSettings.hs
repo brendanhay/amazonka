@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.PutRetentionSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -153,7 +153,7 @@ instance Data.ToQuery PutRetentionSettings where
 data PutRetentionSettingsResponse = PutRetentionSettingsResponse'
   { -- | The timestamp representing the time at which the specified items are
     -- permanently deleted, in ISO 8601 format.
-    initiateDeletionTimestamp :: Prelude.Maybe Data.POSIX,
+    initiateDeletionTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The retention settings.
     retentionSettings :: Prelude.Maybe RetentionSettings,
     -- | The response's http status code.

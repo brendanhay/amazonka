@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.PhoneNumberOrder
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPhoneNumberOrder' smart constructor.
 data PhoneNumberOrder = PhoneNumberOrder'
   { -- | The phone number order creation time stamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The ordered phone number details, such as the phone number in E.164
     -- format and the phone number status.
     orderedPhoneNumbers :: Prelude.Maybe [OrderedPhoneNumber],
@@ -43,7 +43,7 @@ data PhoneNumberOrder = PhoneNumberOrder'
     -- | The status of the phone number order.
     status :: Prelude.Maybe PhoneNumberOrderStatus,
     -- | The updated phone number order time stamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Location.GetMapGlyphs
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -84,6 +84,22 @@ data GetMapGlyphs = GetMapGlyphs'
     --     HybridHereExploreSatellite – @Fira GO Italic@ | @Fira GO Map@ |
     --     @Fira GO Map Bold@ | @Noto Sans CJK JP Bold@ |
     --     @Noto Sans CJK JP Light@ | @Noto Sans CJK JP Regular@
+    --
+    -- Valid font stacks for
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data (Preview)>
+    -- styles:
+    --
+    -- -   VectorOpenDataStandardLight –
+    --     @Amazon Ember Regular,Noto Sans Regular@ |
+    --     @Amazon Ember Bold,Noto Sans Bold@ |
+    --     @Amazon Ember Medium,Noto Sans Medium@ |
+    --     @Amazon Ember Regular Italic,Noto Sans Italic@ |
+    --     @Amazon Ember Condensed RC Regular,Noto Sans Regular@ |
+    --     @Amazon Ember Condensed RC Bold,Noto Sans Bold@
+    --
+    -- The fonts used by @VectorOpenDataStandardLight@ are combined fonts that
+    -- use @Amazon Ember@ for most glyphs but @Noto Sans@ for glyphs
+    -- unsupported by @Amazon Ember@.
     fontStack :: Prelude.Text,
     -- | A Unicode range of characters to download glyphs for. Each response will
     -- contain 256 characters. For example, 0–255 includes all characters from
@@ -134,6 +150,22 @@ data GetMapGlyphs = GetMapGlyphs'
 --     HybridHereExploreSatellite – @Fira GO Italic@ | @Fira GO Map@ |
 --     @Fira GO Map Bold@ | @Noto Sans CJK JP Bold@ |
 --     @Noto Sans CJK JP Light@ | @Noto Sans CJK JP Regular@
+--
+-- Valid font stacks for
+-- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data (Preview)>
+-- styles:
+--
+-- -   VectorOpenDataStandardLight –
+--     @Amazon Ember Regular,Noto Sans Regular@ |
+--     @Amazon Ember Bold,Noto Sans Bold@ |
+--     @Amazon Ember Medium,Noto Sans Medium@ |
+--     @Amazon Ember Regular Italic,Noto Sans Italic@ |
+--     @Amazon Ember Condensed RC Regular,Noto Sans Regular@ |
+--     @Amazon Ember Condensed RC Bold,Noto Sans Bold@
+--
+-- The fonts used by @VectorOpenDataStandardLight@ are combined fonts that
+-- use @Amazon Ember@ for most glyphs but @Noto Sans@ for glyphs
+-- unsupported by @Amazon Ember@.
 --
 -- 'fontUnicodeRange', 'getMapGlyphs_fontUnicodeRange' - A Unicode range of characters to download glyphs for. Each response will
 -- contain 256 characters. For example, 0–255 includes all characters from
@@ -190,6 +222,22 @@ newGetMapGlyphs
 --     HybridHereExploreSatellite – @Fira GO Italic@ | @Fira GO Map@ |
 --     @Fira GO Map Bold@ | @Noto Sans CJK JP Bold@ |
 --     @Noto Sans CJK JP Light@ | @Noto Sans CJK JP Regular@
+--
+-- Valid font stacks for
+-- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data (Preview)>
+-- styles:
+--
+-- -   VectorOpenDataStandardLight –
+--     @Amazon Ember Regular,Noto Sans Regular@ |
+--     @Amazon Ember Bold,Noto Sans Bold@ |
+--     @Amazon Ember Medium,Noto Sans Medium@ |
+--     @Amazon Ember Regular Italic,Noto Sans Italic@ |
+--     @Amazon Ember Condensed RC Regular,Noto Sans Regular@ |
+--     @Amazon Ember Condensed RC Bold,Noto Sans Bold@
+--
+-- The fonts used by @VectorOpenDataStandardLight@ are combined fonts that
+-- use @Amazon Ember@ for most glyphs but @Noto Sans@ for glyphs
+-- unsupported by @Amazon Ember@.
 getMapGlyphs_fontStack :: Lens.Lens' GetMapGlyphs Prelude.Text
 getMapGlyphs_fontStack = Lens.lens (\GetMapGlyphs' {fontStack} -> fontStack) (\s@GetMapGlyphs' {} a -> s {fontStack = a} :: GetMapGlyphs)
 

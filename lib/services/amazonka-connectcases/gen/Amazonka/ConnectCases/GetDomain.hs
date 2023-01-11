@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectCases.GetDomain
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -132,7 +132,7 @@ data GetDomainResponse = GetDomainResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The timestamp when the Cases domain was created.
-    createdTime :: Data.POSIX,
+    createdTime :: Data.ISO8601,
     -- | The Amazon Resource Name (ARN) for the Cases domain.
     domainArn :: Prelude.Text,
     -- | The unique identifier of the Cases domain.

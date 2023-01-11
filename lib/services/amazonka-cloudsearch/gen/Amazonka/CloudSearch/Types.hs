@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CloudSearch.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -425,7 +425,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An error occurred while processing the request.
-_BaseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BaseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BaseException =
   Core._MatchServiceError
     defaultService
@@ -433,7 +433,7 @@ _BaseException =
 
 -- | The request was rejected because it attempted an operation which is not
 -- enabled.
-_DisabledOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DisabledOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DisabledOperationException =
   Core._MatchServiceError
     defaultService
@@ -443,7 +443,7 @@ _DisabledOperationException =
 -- | An internal error occurred while processing the request. If this problem
 -- persists, report an issue from the
 -- <http://status.aws.amazon.com/ Service Health Dashboard>.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
@@ -452,7 +452,7 @@ _InternalException =
 
 -- | The request was rejected because it specified an invalid type
 -- definition.
-_InvalidTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidTypeException =
   Core._MatchServiceError
     defaultService
@@ -460,7 +460,7 @@ _InvalidTypeException =
     Prelude.. Core.hasStatus 409
 
 -- | The request was rejected because a resource limit has already been met.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -469,7 +469,7 @@ _LimitExceededException =
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -478,7 +478,7 @@ _ResourceAlreadyExistsException =
 
 -- | The request was rejected because it attempted to reference a resource
 -- that does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -486,7 +486,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 409
 
 -- | The request was rejected because it has invalid parameters.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

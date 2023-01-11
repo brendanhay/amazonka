@@ -43,13 +43,7 @@ substitute svc@Service {..} = do
   where
     meta :: Metadata Maybe -> Metadata Identity
     meta m@Metadata {..} =
-      m
-        { _timestampFormat = Identity ts,
-          _checksumFormat = _checksumFormat .! SHA256
-        }
-
-    ts :: Timestamp
-    ts = fromMaybe (timestamp (svc ^. protocol)) (svc ^. timestampFormat)
+      m { _checksumFormat = _checksumFormat .! SHA256 }
 
     operation ::
       Operation Maybe (RefF ()) a ->

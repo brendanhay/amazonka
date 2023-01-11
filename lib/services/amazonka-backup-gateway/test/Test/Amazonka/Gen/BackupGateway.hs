@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.BackupGateway
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,8 +42,17 @@ import Test.Tasty
 --         , requestDisassociateGatewayFromServer $
 --             newDisassociateGatewayFromServer
 --
+--         , requestGetBandwidthRateLimitSchedule $
+--             newGetBandwidthRateLimitSchedule
+--
 --         , requestGetGateway $
 --             newGetGateway
+--
+--         , requestGetHypervisor $
+--             newGetHypervisor
+--
+--         , requestGetHypervisorPropertyMappings $
+--             newGetHypervisorPropertyMappings
 --
 --         , requestGetVirtualMachine $
 --             newGetVirtualMachine
@@ -63,8 +72,17 @@ import Test.Tasty
 --         , requestListVirtualMachines $
 --             newListVirtualMachines
 --
+--         , requestPutBandwidthRateLimitSchedule $
+--             newPutBandwidthRateLimitSchedule
+--
+--         , requestPutHypervisorPropertyMappings $
+--             newPutHypervisorPropertyMappings
+--
 --         , requestPutMaintenanceStartTime $
 --             newPutMaintenanceStartTime
+--
+--         , requestStartVirtualMachinesMetadataSync $
+--             newStartVirtualMachinesMetadataSync
 --
 --         , requestTagResource $
 --             newTagResource
@@ -102,8 +120,17 @@ import Test.Tasty
 --         , responseDisassociateGatewayFromServer $
 --             newDisassociateGatewayFromServerResponse
 --
+--         , responseGetBandwidthRateLimitSchedule $
+--             newGetBandwidthRateLimitScheduleResponse
+--
 --         , responseGetGateway $
 --             newGetGatewayResponse
+--
+--         , responseGetHypervisor $
+--             newGetHypervisorResponse
+--
+--         , responseGetHypervisorPropertyMappings $
+--             newGetHypervisorPropertyMappingsResponse
 --
 --         , responseGetVirtualMachine $
 --             newGetVirtualMachineResponse
@@ -123,8 +150,17 @@ import Test.Tasty
 --         , responseListVirtualMachines $
 --             newListVirtualMachinesResponse
 --
+--         , responsePutBandwidthRateLimitSchedule $
+--             newPutBandwidthRateLimitScheduleResponse
+--
+--         , responsePutHypervisorPropertyMappings $
+--             newPutHypervisorPropertyMappingsResponse
+--
 --         , responsePutMaintenanceStartTime $
 --             newPutMaintenanceStartTimeResponse
+--
+--         , responseStartVirtualMachinesMetadataSync $
+--             newStartVirtualMachinesMetadataSyncResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -179,11 +215,29 @@ requestDisassociateGatewayFromServer =
     "DisassociateGatewayFromServer"
     "fixture/DisassociateGatewayFromServer.yaml"
 
+requestGetBandwidthRateLimitSchedule :: GetBandwidthRateLimitSchedule -> TestTree
+requestGetBandwidthRateLimitSchedule =
+  req
+    "GetBandwidthRateLimitSchedule"
+    "fixture/GetBandwidthRateLimitSchedule.yaml"
+
 requestGetGateway :: GetGateway -> TestTree
 requestGetGateway =
   req
     "GetGateway"
     "fixture/GetGateway.yaml"
+
+requestGetHypervisor :: GetHypervisor -> TestTree
+requestGetHypervisor =
+  req
+    "GetHypervisor"
+    "fixture/GetHypervisor.yaml"
+
+requestGetHypervisorPropertyMappings :: GetHypervisorPropertyMappings -> TestTree
+requestGetHypervisorPropertyMappings =
+  req
+    "GetHypervisorPropertyMappings"
+    "fixture/GetHypervisorPropertyMappings.yaml"
 
 requestGetVirtualMachine :: GetVirtualMachine -> TestTree
 requestGetVirtualMachine =
@@ -221,11 +275,29 @@ requestListVirtualMachines =
     "ListVirtualMachines"
     "fixture/ListVirtualMachines.yaml"
 
+requestPutBandwidthRateLimitSchedule :: PutBandwidthRateLimitSchedule -> TestTree
+requestPutBandwidthRateLimitSchedule =
+  req
+    "PutBandwidthRateLimitSchedule"
+    "fixture/PutBandwidthRateLimitSchedule.yaml"
+
+requestPutHypervisorPropertyMappings :: PutHypervisorPropertyMappings -> TestTree
+requestPutHypervisorPropertyMappings =
+  req
+    "PutHypervisorPropertyMappings"
+    "fixture/PutHypervisorPropertyMappings.yaml"
+
 requestPutMaintenanceStartTime :: PutMaintenanceStartTime -> TestTree
 requestPutMaintenanceStartTime =
   req
     "PutMaintenanceStartTime"
     "fixture/PutMaintenanceStartTime.yaml"
+
+requestStartVirtualMachinesMetadataSync :: StartVirtualMachinesMetadataSync -> TestTree
+requestStartVirtualMachinesMetadataSync =
+  req
+    "StartVirtualMachinesMetadataSync"
+    "fixture/StartVirtualMachinesMetadataSync.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -305,6 +377,14 @@ responseDisassociateGatewayFromServer =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateGatewayFromServer)
 
+responseGetBandwidthRateLimitSchedule :: GetBandwidthRateLimitScheduleResponse -> TestTree
+responseGetBandwidthRateLimitSchedule =
+  res
+    "GetBandwidthRateLimitScheduleResponse"
+    "fixture/GetBandwidthRateLimitScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetBandwidthRateLimitSchedule)
+
 responseGetGateway :: GetGatewayResponse -> TestTree
 responseGetGateway =
   res
@@ -312,6 +392,22 @@ responseGetGateway =
     "fixture/GetGatewayResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetGateway)
+
+responseGetHypervisor :: GetHypervisorResponse -> TestTree
+responseGetHypervisor =
+  res
+    "GetHypervisorResponse"
+    "fixture/GetHypervisorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetHypervisor)
+
+responseGetHypervisorPropertyMappings :: GetHypervisorPropertyMappingsResponse -> TestTree
+responseGetHypervisorPropertyMappings =
+  res
+    "GetHypervisorPropertyMappingsResponse"
+    "fixture/GetHypervisorPropertyMappingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetHypervisorPropertyMappings)
 
 responseGetVirtualMachine :: GetVirtualMachineResponse -> TestTree
 responseGetVirtualMachine =
@@ -361,6 +457,22 @@ responseListVirtualMachines =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListVirtualMachines)
 
+responsePutBandwidthRateLimitSchedule :: PutBandwidthRateLimitScheduleResponse -> TestTree
+responsePutBandwidthRateLimitSchedule =
+  res
+    "PutBandwidthRateLimitScheduleResponse"
+    "fixture/PutBandwidthRateLimitScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutBandwidthRateLimitSchedule)
+
+responsePutHypervisorPropertyMappings :: PutHypervisorPropertyMappingsResponse -> TestTree
+responsePutHypervisorPropertyMappings =
+  res
+    "PutHypervisorPropertyMappingsResponse"
+    "fixture/PutHypervisorPropertyMappingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutHypervisorPropertyMappings)
+
 responsePutMaintenanceStartTime :: PutMaintenanceStartTimeResponse -> TestTree
 responsePutMaintenanceStartTime =
   res
@@ -368,6 +480,14 @@ responsePutMaintenanceStartTime =
     "fixture/PutMaintenanceStartTimeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutMaintenanceStartTime)
+
+responseStartVirtualMachinesMetadataSync :: StartVirtualMachinesMetadataSyncResponse -> TestTree
+responseStartVirtualMachinesMetadataSync =
+  res
+    "StartVirtualMachinesMetadataSyncResponse"
+    "fixture/StartVirtualMachinesMetadataSyncResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartVirtualMachinesMetadataSync)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

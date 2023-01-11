@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,11 +88,29 @@ module Amazonka.BackupGateway
     DisassociateGatewayFromServerResponse (DisassociateGatewayFromServerResponse'),
     newDisassociateGatewayFromServerResponse,
 
+    -- ** GetBandwidthRateLimitSchedule
+    GetBandwidthRateLimitSchedule (GetBandwidthRateLimitSchedule'),
+    newGetBandwidthRateLimitSchedule,
+    GetBandwidthRateLimitScheduleResponse (GetBandwidthRateLimitScheduleResponse'),
+    newGetBandwidthRateLimitScheduleResponse,
+
     -- ** GetGateway
     GetGateway (GetGateway'),
     newGetGateway,
     GetGatewayResponse (GetGatewayResponse'),
     newGetGatewayResponse,
+
+    -- ** GetHypervisor
+    GetHypervisor (GetHypervisor'),
+    newGetHypervisor,
+    GetHypervisorResponse (GetHypervisorResponse'),
+    newGetHypervisorResponse,
+
+    -- ** GetHypervisorPropertyMappings
+    GetHypervisorPropertyMappings (GetHypervisorPropertyMappings'),
+    newGetHypervisorPropertyMappings,
+    GetHypervisorPropertyMappingsResponse (GetHypervisorPropertyMappingsResponse'),
+    newGetHypervisorPropertyMappingsResponse,
 
     -- ** GetVirtualMachine
     GetVirtualMachine (GetVirtualMachine'),
@@ -130,11 +148,29 @@ module Amazonka.BackupGateway
     ListVirtualMachinesResponse (ListVirtualMachinesResponse'),
     newListVirtualMachinesResponse,
 
+    -- ** PutBandwidthRateLimitSchedule
+    PutBandwidthRateLimitSchedule (PutBandwidthRateLimitSchedule'),
+    newPutBandwidthRateLimitSchedule,
+    PutBandwidthRateLimitScheduleResponse (PutBandwidthRateLimitScheduleResponse'),
+    newPutBandwidthRateLimitScheduleResponse,
+
+    -- ** PutHypervisorPropertyMappings
+    PutHypervisorPropertyMappings (PutHypervisorPropertyMappings'),
+    newPutHypervisorPropertyMappings,
+    PutHypervisorPropertyMappingsResponse (PutHypervisorPropertyMappingsResponse'),
+    newPutHypervisorPropertyMappingsResponse,
+
     -- ** PutMaintenanceStartTime
     PutMaintenanceStartTime (PutMaintenanceStartTime'),
     newPutMaintenanceStartTime,
     PutMaintenanceStartTimeResponse (PutMaintenanceStartTimeResponse'),
     newPutMaintenanceStartTimeResponse,
+
+    -- ** StartVirtualMachinesMetadataSync
+    StartVirtualMachinesMetadataSync (StartVirtualMachinesMetadataSync'),
+    newStartVirtualMachinesMetadataSync,
+    StartVirtualMachinesMetadataSyncResponse (StartVirtualMachinesMetadataSyncResponse'),
+    newStartVirtualMachinesMetadataSyncResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -180,6 +216,13 @@ module Amazonka.BackupGateway
     -- ** HypervisorState
     HypervisorState (..),
 
+    -- ** SyncMetadataStatus
+    SyncMetadataStatus (..),
+
+    -- ** BandwidthRateLimitInterval
+    BandwidthRateLimitInterval (BandwidthRateLimitInterval'),
+    newBandwidthRateLimitInterval,
+
     -- ** Gateway
     Gateway (Gateway'),
     newGateway,
@@ -191,6 +234,10 @@ module Amazonka.BackupGateway
     -- ** Hypervisor
     Hypervisor (Hypervisor'),
     newHypervisor,
+
+    -- ** HypervisorDetails
+    HypervisorDetails (HypervisorDetails'),
+    newHypervisorDetails,
 
     -- ** MaintenanceStartTime
     MaintenanceStartTime (MaintenanceStartTime'),
@@ -207,6 +254,14 @@ module Amazonka.BackupGateway
     -- ** VirtualMachineDetails
     VirtualMachineDetails (VirtualMachineDetails'),
     newVirtualMachineDetails,
+
+    -- ** VmwareTag
+    VmwareTag (VmwareTag'),
+    newVmwareTag,
+
+    -- ** VmwareToAwsTagMapping
+    VmwareToAwsTagMapping (VmwareToAwsTagMapping'),
+    newVmwareToAwsTagMapping,
   )
 where
 
@@ -215,7 +270,10 @@ import Amazonka.BackupGateway.CreateGateway
 import Amazonka.BackupGateway.DeleteGateway
 import Amazonka.BackupGateway.DeleteHypervisor
 import Amazonka.BackupGateway.DisassociateGatewayFromServer
+import Amazonka.BackupGateway.GetBandwidthRateLimitSchedule
 import Amazonka.BackupGateway.GetGateway
+import Amazonka.BackupGateway.GetHypervisor
+import Amazonka.BackupGateway.GetHypervisorPropertyMappings
 import Amazonka.BackupGateway.GetVirtualMachine
 import Amazonka.BackupGateway.ImportHypervisorConfiguration
 import Amazonka.BackupGateway.Lens
@@ -223,7 +281,10 @@ import Amazonka.BackupGateway.ListGateways
 import Amazonka.BackupGateway.ListHypervisors
 import Amazonka.BackupGateway.ListTagsForResource
 import Amazonka.BackupGateway.ListVirtualMachines
+import Amazonka.BackupGateway.PutBandwidthRateLimitSchedule
+import Amazonka.BackupGateway.PutHypervisorPropertyMappings
 import Amazonka.BackupGateway.PutMaintenanceStartTime
+import Amazonka.BackupGateway.StartVirtualMachinesMetadataSync
 import Amazonka.BackupGateway.TagResource
 import Amazonka.BackupGateway.TestHypervisorConfiguration
 import Amazonka.BackupGateway.Types

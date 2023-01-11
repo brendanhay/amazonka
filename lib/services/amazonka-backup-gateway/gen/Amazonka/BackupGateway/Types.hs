@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,6 +30,19 @@ module Amazonka.BackupGateway.Types
 
     -- * HypervisorState
     HypervisorState (..),
+
+    -- * SyncMetadataStatus
+    SyncMetadataStatus (..),
+
+    -- * BandwidthRateLimitInterval
+    BandwidthRateLimitInterval (..),
+    newBandwidthRateLimitInterval,
+    bandwidthRateLimitInterval_averageUploadRateLimitInBitsPerSec,
+    bandwidthRateLimitInterval_daysOfWeek,
+    bandwidthRateLimitInterval_endHourOfDay,
+    bandwidthRateLimitInterval_endMinuteOfHour,
+    bandwidthRateLimitInterval_startHourOfDay,
+    bandwidthRateLimitInterval_startMinuteOfHour,
 
     -- * Gateway
     Gateway (..),
@@ -60,6 +73,19 @@ module Amazonka.BackupGateway.Types
     hypervisor_kmsKeyArn,
     hypervisor_name,
     hypervisor_state,
+
+    -- * HypervisorDetails
+    HypervisorDetails (..),
+    newHypervisorDetails,
+    hypervisorDetails_host,
+    hypervisorDetails_hypervisorArn,
+    hypervisorDetails_kmsKeyArn,
+    hypervisorDetails_lastSuccessfulMetadataSyncTime,
+    hypervisorDetails_latestMetadataSyncStatus,
+    hypervisorDetails_latestMetadataSyncStatusMessage,
+    hypervisorDetails_logGroupArn,
+    hypervisorDetails_name,
+    hypervisorDetails_state,
 
     -- * MaintenanceStartTime
     MaintenanceStartTime (..),
@@ -94,18 +120,39 @@ module Amazonka.BackupGateway.Types
     virtualMachineDetails_name,
     virtualMachineDetails_path,
     virtualMachineDetails_resourceArn,
+    virtualMachineDetails_vmwareTags,
+
+    -- * VmwareTag
+    VmwareTag (..),
+    newVmwareTag,
+    vmwareTag_vmwareCategory,
+    vmwareTag_vmwareTagDescription,
+    vmwareTag_vmwareTagName,
+
+    -- * VmwareToAwsTagMapping
+    VmwareToAwsTagMapping (..),
+    newVmwareToAwsTagMapping,
+    vmwareToAwsTagMapping_awsTagKey,
+    vmwareToAwsTagMapping_awsTagValue,
+    vmwareToAwsTagMapping_vmwareCategory,
+    vmwareToAwsTagMapping_vmwareTagName,
   )
 where
 
+import Amazonka.BackupGateway.Types.BandwidthRateLimitInterval
 import Amazonka.BackupGateway.Types.Gateway
 import Amazonka.BackupGateway.Types.GatewayDetails
 import Amazonka.BackupGateway.Types.GatewayType
 import Amazonka.BackupGateway.Types.Hypervisor
+import Amazonka.BackupGateway.Types.HypervisorDetails
 import Amazonka.BackupGateway.Types.HypervisorState
 import Amazonka.BackupGateway.Types.MaintenanceStartTime
+import Amazonka.BackupGateway.Types.SyncMetadataStatus
 import Amazonka.BackupGateway.Types.Tag
 import Amazonka.BackupGateway.Types.VirtualMachine
 import Amazonka.BackupGateway.Types.VirtualMachineDetails
+import Amazonka.BackupGateway.Types.VmwareTag
+import Amazonka.BackupGateway.Types.VmwareToAwsTagMapping
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -182,14 +229,14 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The operation cannot proceed because you have insufficient permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | The operation cannot proceed because it is not supported.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -197,14 +244,14 @@ _ConflictException =
 
 -- | The operation did not succeed because an internal error occurred. Try
 -- again later.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
 
 -- | A resource that is required for the action wasn\'t found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -212,14 +259,14 @@ _ResourceNotFoundException =
 
 -- | TPS has been limited to protect against intentional or unintentional
 -- high request volumes.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
 
 -- | The operation did not succeed because a validation error occurred.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

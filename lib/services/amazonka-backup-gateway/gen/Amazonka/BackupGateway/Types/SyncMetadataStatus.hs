@@ -11,19 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.BackupGateway.Types.HypervisorState
+-- Module      : Amazonka.BackupGateway.Types.SyncMetadataStatus
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.BackupGateway.Types.HypervisorState
-  ( HypervisorState
+module Amazonka.BackupGateway.Types.SyncMetadataStatus
+  ( SyncMetadataStatus
       ( ..,
-        HypervisorState_ERROR,
-        HypervisorState_OFFLINE,
-        HypervisorState_ONLINE,
-        HypervisorState_PENDING
+        SyncMetadataStatus_CREATED,
+        SyncMetadataStatus_FAILED,
+        SyncMetadataStatus_PARTIALLY_FAILED,
+        SyncMetadataStatus_RUNNING,
+        SyncMetadataStatus_SUCCEEDED
       ),
   )
 where
@@ -32,8 +33,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype HypervisorState = HypervisorState'
-  { fromHypervisorState ::
+newtype SyncMetadataStatus = SyncMetadataStatus'
+  { fromSyncMetadataStatus ::
       Data.Text
   }
   deriving stock
@@ -60,22 +61,26 @@ newtype HypervisorState = HypervisorState'
       Data.ToXML
     )
 
-pattern HypervisorState_ERROR :: HypervisorState
-pattern HypervisorState_ERROR = HypervisorState' "ERROR"
+pattern SyncMetadataStatus_CREATED :: SyncMetadataStatus
+pattern SyncMetadataStatus_CREATED = SyncMetadataStatus' "CREATED"
 
-pattern HypervisorState_OFFLINE :: HypervisorState
-pattern HypervisorState_OFFLINE = HypervisorState' "OFFLINE"
+pattern SyncMetadataStatus_FAILED :: SyncMetadataStatus
+pattern SyncMetadataStatus_FAILED = SyncMetadataStatus' "FAILED"
 
-pattern HypervisorState_ONLINE :: HypervisorState
-pattern HypervisorState_ONLINE = HypervisorState' "ONLINE"
+pattern SyncMetadataStatus_PARTIALLY_FAILED :: SyncMetadataStatus
+pattern SyncMetadataStatus_PARTIALLY_FAILED = SyncMetadataStatus' "PARTIALLY_FAILED"
 
-pattern HypervisorState_PENDING :: HypervisorState
-pattern HypervisorState_PENDING = HypervisorState' "PENDING"
+pattern SyncMetadataStatus_RUNNING :: SyncMetadataStatus
+pattern SyncMetadataStatus_RUNNING = SyncMetadataStatus' "RUNNING"
+
+pattern SyncMetadataStatus_SUCCEEDED :: SyncMetadataStatus
+pattern SyncMetadataStatus_SUCCEEDED = SyncMetadataStatus' "SUCCEEDED"
 
 {-# COMPLETE
-  HypervisorState_ERROR,
-  HypervisorState_OFFLINE,
-  HypervisorState_ONLINE,
-  HypervisorState_PENDING,
-  HypervisorState'
+  SyncMetadataStatus_CREATED,
+  SyncMetadataStatus_FAILED,
+  SyncMetadataStatus_PARTIALLY_FAILED,
+  SyncMetadataStatus_RUNNING,
+  SyncMetadataStatus_SUCCEEDED,
+  SyncMetadataStatus'
   #-}

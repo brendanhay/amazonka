@@ -12,13 +12,14 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway.Types.VirtualMachineDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Amazonka.BackupGateway.Types.VirtualMachineDetails where
 
+import Amazonka.BackupGateway.Types.VmwareTag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -42,7 +43,10 @@ data VirtualMachineDetails = VirtualMachineDetails'
     path :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the virtual machine. For example,
     -- @arn:aws:backup-gateway:us-west-1:0000000000000:vm\/vm-0000ABCDEFGIJKL@.
-    resourceArn :: Prelude.Maybe Prelude.Text
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | These are the details of the VMware tags associated with the specified
+    -- virtual machine.
+    vmwareTags :: Prelude.Maybe [VmwareTag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +71,9 @@ data VirtualMachineDetails = VirtualMachineDetails'
 --
 -- 'resourceArn', 'virtualMachineDetails_resourceArn' - The Amazon Resource Name (ARN) of the virtual machine. For example,
 -- @arn:aws:backup-gateway:us-west-1:0000000000000:vm\/vm-0000ABCDEFGIJKL@.
+--
+-- 'vmwareTags', 'virtualMachineDetails_vmwareTags' - These are the details of the VMware tags associated with the specified
+-- virtual machine.
 newVirtualMachineDetails ::
   VirtualMachineDetails
 newVirtualMachineDetails =
@@ -76,7 +83,8 @@ newVirtualMachineDetails =
       lastBackupDate = Prelude.Nothing,
       name = Prelude.Nothing,
       path = Prelude.Nothing,
-      resourceArn = Prelude.Nothing
+      resourceArn = Prelude.Nothing,
+      vmwareTags = Prelude.Nothing
     }
 
 -- | The host name of the virtual machine.
@@ -105,6 +113,11 @@ virtualMachineDetails_path = Lens.lens (\VirtualMachineDetails' {path} -> path) 
 virtualMachineDetails_resourceArn :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.Text)
 virtualMachineDetails_resourceArn = Lens.lens (\VirtualMachineDetails' {resourceArn} -> resourceArn) (\s@VirtualMachineDetails' {} a -> s {resourceArn = a} :: VirtualMachineDetails)
 
+-- | These are the details of the VMware tags associated with the specified
+-- virtual machine.
+virtualMachineDetails_vmwareTags :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe [VmwareTag])
+virtualMachineDetails_vmwareTags = Lens.lens (\VirtualMachineDetails' {vmwareTags} -> vmwareTags) (\s@VirtualMachineDetails' {} a -> s {vmwareTags = a} :: VirtualMachineDetails) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON VirtualMachineDetails where
   parseJSON =
     Data.withObject
@@ -117,6 +130,7 @@ instance Data.FromJSON VirtualMachineDetails where
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Path")
             Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "VmwareTags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VirtualMachineDetails where
@@ -127,6 +141,7 @@ instance Prelude.Hashable VirtualMachineDetails where
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` vmwareTags
 
 instance Prelude.NFData VirtualMachineDetails where
   rnf VirtualMachineDetails' {..} =
@@ -136,3 +151,4 @@ instance Prelude.NFData VirtualMachineDetails where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf vmwareTags

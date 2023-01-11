@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.NetworkManager.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -643,6 +643,7 @@ module Amazonka.NetworkManager.Types
     -- * VpcOptions
     VpcOptions (..),
     newVpcOptions,
+    vpcOptions_applianceModeSupport,
     vpcOptions_ipv6Support,
   )
 where
@@ -812,7 +813,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -821,7 +822,7 @@ _AccessDeniedException =
 
 -- | There was a conflict processing the request. Updating or deleting the
 -- resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -829,7 +830,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Describes a core network policy exception.
-_CoreNetworkPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CoreNetworkPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CoreNetworkPolicyException =
   Core._MatchServiceError
     defaultService
@@ -837,7 +838,7 @@ _CoreNetworkPolicyException =
     Prelude.. Core.hasStatus 400
 
 -- | The request has failed due to an internal error.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -845,7 +846,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -853,7 +854,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | A service limit was exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -861,7 +862,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -869,7 +870,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The input fails to satisfy the constraints.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

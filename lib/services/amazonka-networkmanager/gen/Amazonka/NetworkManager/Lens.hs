@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.NetworkManager.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1086,6 +1086,7 @@ module Amazonka.NetworkManager.Lens
     vpcAttachment_subnetArns,
 
     -- ** VpcOptions
+    vpcOptions_applianceModeSupport,
     vpcOptions_ipv6Support,
   )
 where

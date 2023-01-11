@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.Types.ExportReadSetJobDetail
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExportReadSetJobDetail' smart constructor.
 data ExportReadSetJobDetail = ExportReadSetJobDetail'
   { -- | When the job completed.
-    completionTime :: Prelude.Maybe Data.POSIX,
+    completionTime :: Prelude.Maybe Data.ISO8601,
     -- | When the job was created.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The job\'s destination in Amazon S3.
     destination :: Prelude.Text,
     -- | The job\'s ID.

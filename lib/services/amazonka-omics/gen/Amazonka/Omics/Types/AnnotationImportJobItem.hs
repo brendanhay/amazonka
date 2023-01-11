@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.Types.AnnotationImportJobItem
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAnnotationImportJobItem' smart constructor.
 data AnnotationImportJobItem = AnnotationImportJobItem'
   { -- | When the job completed.
-    completionTime :: Prelude.Maybe Data.POSIX,
+    completionTime :: Prelude.Maybe Data.ISO8601,
     -- | The job\'s left normalization setting.
     runLeftNormalization :: Prelude.Maybe Prelude.Bool,
     -- | When the job was created.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The job\'s destination annotation store.
     destinationName :: Prelude.Text,
     -- | The job\'s ID.
@@ -44,7 +44,7 @@ data AnnotationImportJobItem = AnnotationImportJobItem'
     -- | The job\'s status.
     status :: JobStatus,
     -- | When the job was updated.
-    updateTime :: Data.POSIX
+    updateTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

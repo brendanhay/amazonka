@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.GetRunTask
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -148,7 +148,7 @@ data GetRunTaskResponse = GetRunTaskResponse'
   { -- | The task\'s CPU usage.
     cpus :: Prelude.Maybe Prelude.Natural,
     -- | When the task was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The task\'s log stream.
     logStream :: Prelude.Maybe Prelude.Text,
     -- | The task\'s memory setting.
@@ -156,13 +156,13 @@ data GetRunTaskResponse = GetRunTaskResponse'
     -- | The task\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The task\'s start time.
-    startTime :: Prelude.Maybe Data.POSIX,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The task\'s status.
     status :: Prelude.Maybe TaskStatus,
     -- | The task\'s status message.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The task\'s stop time.
-    stopTime :: Prelude.Maybe Data.POSIX,
+    stopTime :: Prelude.Maybe Data.ISO8601,
     -- | The task\'s ID.
     taskId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.

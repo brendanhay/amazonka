@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.Types.ReadSetListItem
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,7 +45,7 @@ data ReadSetListItem = ReadSetListItem'
     -- | The read set\'s ARN.
     arn :: Prelude.Text,
     -- | When the read set was created.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The read set\'s file type.
     fileType :: FileType,
     -- | The read set\'s ID.

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.GetAnnotationStore
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -149,7 +149,7 @@ data GetAnnotationStoreResponse = GetAnnotationStoreResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | When the store was created.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The store\'s description.
     description :: Prelude.Text,
     -- | The store\'s ID.
@@ -171,7 +171,7 @@ data GetAnnotationStoreResponse = GetAnnotationStoreResponse'
     -- | The store\'s tags.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | When the store was updated.
-    updateTime :: Data.POSIX
+    updateTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

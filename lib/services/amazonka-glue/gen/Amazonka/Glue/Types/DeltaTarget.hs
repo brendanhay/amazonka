@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Glue.Types.DeltaTarget
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,6 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data DeltaTarget = DeltaTarget'
   { -- | The name of the connection to use to connect to the Delta table target.
     connectionName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the crawler will create native tables, to allow
+    -- integration with query engines that support querying of the Delta
+    -- transaction log directly.
+    createNativeDeltaTable :: Prelude.Maybe Prelude.Bool,
     -- | A list of the Amazon S3 paths to the Delta tables.
     deltaTables :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether to write the manifest files to the Delta table path.
@@ -47,6 +51,10 @@ data DeltaTarget = DeltaTarget'
 --
 -- 'connectionName', 'deltaTarget_connectionName' - The name of the connection to use to connect to the Delta table target.
 --
+-- 'createNativeDeltaTable', 'deltaTarget_createNativeDeltaTable' - Specifies whether the crawler will create native tables, to allow
+-- integration with query engines that support querying of the Delta
+-- transaction log directly.
+--
 -- 'deltaTables', 'deltaTarget_deltaTables' - A list of the Amazon S3 paths to the Delta tables.
 --
 -- 'writeManifest', 'deltaTarget_writeManifest' - Specifies whether to write the manifest files to the Delta table path.
@@ -55,6 +63,7 @@ newDeltaTarget ::
 newDeltaTarget =
   DeltaTarget'
     { connectionName = Prelude.Nothing,
+      createNativeDeltaTable = Prelude.Nothing,
       deltaTables = Prelude.Nothing,
       writeManifest = Prelude.Nothing
     }
@@ -62,6 +71,12 @@ newDeltaTarget =
 -- | The name of the connection to use to connect to the Delta table target.
 deltaTarget_connectionName :: Lens.Lens' DeltaTarget (Prelude.Maybe Prelude.Text)
 deltaTarget_connectionName = Lens.lens (\DeltaTarget' {connectionName} -> connectionName) (\s@DeltaTarget' {} a -> s {connectionName = a} :: DeltaTarget)
+
+-- | Specifies whether the crawler will create native tables, to allow
+-- integration with query engines that support querying of the Delta
+-- transaction log directly.
+deltaTarget_createNativeDeltaTable :: Lens.Lens' DeltaTarget (Prelude.Maybe Prelude.Bool)
+deltaTarget_createNativeDeltaTable = Lens.lens (\DeltaTarget' {createNativeDeltaTable} -> createNativeDeltaTable) (\s@DeltaTarget' {} a -> s {createNativeDeltaTable = a} :: DeltaTarget)
 
 -- | A list of the Amazon S3 paths to the Delta tables.
 deltaTarget_deltaTables :: Lens.Lens' DeltaTarget (Prelude.Maybe [Prelude.Text])
@@ -78,6 +93,7 @@ instance Data.FromJSON DeltaTarget where
       ( \x ->
           DeltaTarget'
             Prelude.<$> (x Data..:? "ConnectionName")
+            Prelude.<*> (x Data..:? "CreateNativeDeltaTable")
             Prelude.<*> (x Data..:? "DeltaTables" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "WriteManifest")
       )
@@ -85,12 +101,14 @@ instance Data.FromJSON DeltaTarget where
 instance Prelude.Hashable DeltaTarget where
   hashWithSalt _salt DeltaTarget' {..} =
     _salt `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` createNativeDeltaTable
       `Prelude.hashWithSalt` deltaTables
       `Prelude.hashWithSalt` writeManifest
 
 instance Prelude.NFData DeltaTarget where
   rnf DeltaTarget' {..} =
     Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf createNativeDeltaTable
       `Prelude.seq` Prelude.rnf deltaTables
       `Prelude.seq` Prelude.rnf writeManifest
 
@@ -100,6 +118,8 @@ instance Data.ToJSON DeltaTarget where
       ( Prelude.catMaybes
           [ ("ConnectionName" Data..=)
               Prelude.<$> connectionName,
+            ("CreateNativeDeltaTable" Data..=)
+              Prelude.<$> createNativeDeltaTable,
             ("DeltaTables" Data..=) Prelude.<$> deltaTables,
             ("WriteManifest" Data..=) Prelude.<$> writeManifest
           ]

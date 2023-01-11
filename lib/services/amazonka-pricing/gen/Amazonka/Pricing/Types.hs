@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Pricing.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -127,7 +127,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The pagination token expired. Try again without a pagination token.
-_ExpiredNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExpiredNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -135,28 +135,28 @@ _ExpiredNextTokenException =
 
 -- | An error on the server occurred during the processing of your request.
 -- Try again later.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
     "InternalErrorException"
 
 -- | The pagination token is invalid. Try again without a pagination token.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | One or more parameters had an invalid value.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | The requested resource can\'t be found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService

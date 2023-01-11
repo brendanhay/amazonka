@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -64,6 +64,8 @@ library
     Amazonka.MemoryDb.DescribeEvents
     Amazonka.MemoryDb.DescribeParameterGroups
     Amazonka.MemoryDb.DescribeParameters
+    Amazonka.MemoryDb.DescribeReservedNodes
+    Amazonka.MemoryDb.DescribeReservedNodesOfferings
     Amazonka.MemoryDb.DescribeServiceUpdates
     Amazonka.MemoryDb.DescribeSnapshots
     Amazonka.MemoryDb.DescribeSubnetGroups
@@ -72,6 +74,7 @@ library
     Amazonka.MemoryDb.Lens
     Amazonka.MemoryDb.ListAllowedNodeTypeUpdates
     Amazonka.MemoryDb.ListTags
+    Amazonka.MemoryDb.PurchaseReservedNodesOffering
     Amazonka.MemoryDb.ResetParameterGroup
     Amazonka.MemoryDb.TagResource
     Amazonka.MemoryDb.Types
@@ -97,7 +100,10 @@ library
     Amazonka.MemoryDb.Types.ParameterGroup
     Amazonka.MemoryDb.Types.ParameterNameValue
     Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate
+    Amazonka.MemoryDb.Types.RecurringCharge
     Amazonka.MemoryDb.Types.ReplicaConfigurationRequest
+    Amazonka.MemoryDb.Types.ReservedNode
+    Amazonka.MemoryDb.Types.ReservedNodesOffering
     Amazonka.MemoryDb.Types.ReshardingStatus
     Amazonka.MemoryDb.Types.SecurityGroupMembership
     Amazonka.MemoryDb.Types.ServiceUpdate

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeSubnetGroups
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,8 @@
 --
 -- Returns a list of subnet group descriptions. If a subnet group name is
 -- specified, the list contains only the description of that group.
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeSubnetGroups
   ( -- * Creating a Request
     DescribeSubnetGroups (..),
@@ -113,6 +115,28 @@ describeSubnetGroups_nextToken = Lens.lens (\DescribeSubnetGroups' {nextToken} -
 -- | The name of the subnet group to return details for.
 describeSubnetGroups_subnetGroupName :: Lens.Lens' DescribeSubnetGroups (Prelude.Maybe Prelude.Text)
 describeSubnetGroups_subnetGroupName = Lens.lens (\DescribeSubnetGroups' {subnetGroupName} -> subnetGroupName) (\s@DescribeSubnetGroups' {} a -> s {subnetGroupName = a} :: DescribeSubnetGroups)
+
+instance Core.AWSPager DescribeSubnetGroups where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeSubnetGroupsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeSubnetGroupsResponse_subnetGroups
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeSubnetGroups_nextToken
+          Lens..~ rs
+          Lens.^? describeSubnetGroupsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSubnetGroups where
   type

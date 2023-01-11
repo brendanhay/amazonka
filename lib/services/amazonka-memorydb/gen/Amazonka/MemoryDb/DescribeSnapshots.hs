@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeSnapshots
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,8 @@
 -- DescribeSnapshots lists all of your snapshots; it can optionally
 -- describe a single snapshot, or just the snapshots associated with a
 -- particular cluster.
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeSnapshots
   ( -- * Creating a Request
     DescribeSnapshots (..),
@@ -163,6 +165,28 @@ describeSnapshots_snapshotName = Lens.lens (\DescribeSnapshots' {snapshotName} -
 -- manually created snapshots.
 describeSnapshots_source :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
 describeSnapshots_source = Lens.lens (\DescribeSnapshots' {source} -> source) (\s@DescribeSnapshots' {} a -> s {source = a} :: DescribeSnapshots)
+
+instance Core.AWSPager DescribeSnapshots where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeSnapshotsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeSnapshotsResponse_snapshots
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeSnapshots_nextToken
+          Lens..~ rs
+          Lens.^? describeSnapshotsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshots where
   type

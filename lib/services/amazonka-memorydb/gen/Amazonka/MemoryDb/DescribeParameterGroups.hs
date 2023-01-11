@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeParameterGroups
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 -- Returns a list of parameter group descriptions. If a parameter group
 -- name is specified, the list contains only the descriptions for that
 -- group.
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeParameterGroups
   ( -- * Creating a Request
     DescribeParameterGroups (..),
@@ -115,6 +117,28 @@ describeParameterGroups_nextToken = Lens.lens (\DescribeParameterGroups' {nextTo
 -- | The name of a specific parameter group to return details for.
 describeParameterGroups_parameterGroupName :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe Prelude.Text)
 describeParameterGroups_parameterGroupName = Lens.lens (\DescribeParameterGroups' {parameterGroupName} -> parameterGroupName) (\s@DescribeParameterGroups' {} a -> s {parameterGroupName = a} :: DescribeParameterGroups)
+
+instance Core.AWSPager DescribeParameterGroups where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeParameterGroupsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeParameterGroupsResponse_parameterGroups
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeParameterGroups_nextToken
+          Lens..~ rs
+          Lens.^? describeParameterGroupsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeParameterGroups where
   type

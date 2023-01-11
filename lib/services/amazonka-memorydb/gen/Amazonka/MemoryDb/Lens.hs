@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -181,6 +181,29 @@ module Amazonka.MemoryDb.Lens
     describeParametersResponse_parameters,
     describeParametersResponse_httpStatus,
 
+    -- ** DescribeReservedNodes
+    describeReservedNodes_duration,
+    describeReservedNodes_maxResults,
+    describeReservedNodes_nextToken,
+    describeReservedNodes_nodeType,
+    describeReservedNodes_offeringType,
+    describeReservedNodes_reservationId,
+    describeReservedNodes_reservedNodesOfferingId,
+    describeReservedNodesResponse_nextToken,
+    describeReservedNodesResponse_reservedNodes,
+    describeReservedNodesResponse_httpStatus,
+
+    -- ** DescribeReservedNodesOfferings
+    describeReservedNodesOfferings_duration,
+    describeReservedNodesOfferings_maxResults,
+    describeReservedNodesOfferings_nextToken,
+    describeReservedNodesOfferings_nodeType,
+    describeReservedNodesOfferings_offeringType,
+    describeReservedNodesOfferings_reservedNodesOfferingId,
+    describeReservedNodesOfferingsResponse_nextToken,
+    describeReservedNodesOfferingsResponse_reservedNodesOfferings,
+    describeReservedNodesOfferingsResponse_httpStatus,
+
     -- ** DescribeServiceUpdates
     describeServiceUpdates_clusterNames,
     describeServiceUpdates_maxResults,
@@ -235,6 +258,14 @@ module Amazonka.MemoryDb.Lens
     listTags_resourceArn,
     listTagsResponse_tagList,
     listTagsResponse_httpStatus,
+
+    -- ** PurchaseReservedNodesOffering
+    purchaseReservedNodesOffering_nodeCount,
+    purchaseReservedNodesOffering_reservationId,
+    purchaseReservedNodesOffering_tags,
+    purchaseReservedNodesOffering_reservedNodesOfferingId,
+    purchaseReservedNodesOfferingResponse_reservedNode,
+    purchaseReservedNodesOfferingResponse_httpStatus,
 
     -- ** ResetParameterGroup
     resetParameterGroup_allParameters,
@@ -426,8 +457,33 @@ module Amazonka.MemoryDb.Lens
     pendingModifiedServiceUpdate_serviceUpdateName,
     pendingModifiedServiceUpdate_status,
 
+    -- ** RecurringCharge
+    recurringCharge_recurringChargeAmount,
+    recurringCharge_recurringChargeFrequency,
+
     -- ** ReplicaConfigurationRequest
     replicaConfigurationRequest_replicaCount,
+
+    -- ** ReservedNode
+    reservedNode_arn,
+    reservedNode_duration,
+    reservedNode_fixedPrice,
+    reservedNode_nodeCount,
+    reservedNode_nodeType,
+    reservedNode_offeringType,
+    reservedNode_recurringCharges,
+    reservedNode_reservationId,
+    reservedNode_reservedNodesOfferingId,
+    reservedNode_startTime,
+    reservedNode_state,
+
+    -- ** ReservedNodesOffering
+    reservedNodesOffering_duration,
+    reservedNodesOffering_fixedPrice,
+    reservedNodesOffering_nodeType,
+    reservedNodesOffering_offeringType,
+    reservedNodesOffering_recurringCharges,
+    reservedNodesOffering_reservedNodesOfferingId,
 
     -- ** ReshardingStatus
     reshardingStatus_slotMigration,
@@ -532,6 +588,8 @@ import Amazonka.MemoryDb.DescribeEngineVersions
 import Amazonka.MemoryDb.DescribeEvents
 import Amazonka.MemoryDb.DescribeParameterGroups
 import Amazonka.MemoryDb.DescribeParameters
+import Amazonka.MemoryDb.DescribeReservedNodes
+import Amazonka.MemoryDb.DescribeReservedNodesOfferings
 import Amazonka.MemoryDb.DescribeServiceUpdates
 import Amazonka.MemoryDb.DescribeSnapshots
 import Amazonka.MemoryDb.DescribeSubnetGroups
@@ -539,6 +597,7 @@ import Amazonka.MemoryDb.DescribeUsers
 import Amazonka.MemoryDb.FailoverShard
 import Amazonka.MemoryDb.ListAllowedNodeTypeUpdates
 import Amazonka.MemoryDb.ListTags
+import Amazonka.MemoryDb.PurchaseReservedNodesOffering
 import Amazonka.MemoryDb.ResetParameterGroup
 import Amazonka.MemoryDb.TagResource
 import Amazonka.MemoryDb.Types.ACL
@@ -559,7 +618,10 @@ import Amazonka.MemoryDb.Types.Parameter
 import Amazonka.MemoryDb.Types.ParameterGroup
 import Amazonka.MemoryDb.Types.ParameterNameValue
 import Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate
+import Amazonka.MemoryDb.Types.RecurringCharge
 import Amazonka.MemoryDb.Types.ReplicaConfigurationRequest
+import Amazonka.MemoryDb.Types.ReservedNode
+import Amazonka.MemoryDb.Types.ReservedNodesOffering
 import Amazonka.MemoryDb.Types.ReshardingStatus
 import Amazonka.MemoryDb.Types.SecurityGroupMembership
 import Amazonka.MemoryDb.Types.ServiceUpdate

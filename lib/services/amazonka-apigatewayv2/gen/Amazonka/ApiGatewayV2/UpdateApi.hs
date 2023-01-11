@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ApiGatewayV2.UpdateApi
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -400,7 +400,7 @@ data UpdateApiResponse = UpdateApiResponse'
     -- | A CORS configuration. Supported only for HTTP APIs.
     corsConfiguration :: Prelude.Maybe Cors,
     -- | The timestamp when the API was created.
-    createdDate :: Prelude.Maybe Data.POSIX,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | The description of the API.
     description :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether clients can invoke your API by using the default

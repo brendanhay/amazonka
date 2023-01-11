@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ApiGatewayV2.GetStage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -174,7 +174,7 @@ data GetStageResponse = GetStageResponse'
     -- WebSocket APIs.
     clientCertificateId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the stage was created.
-    createdDate :: Prelude.Maybe Data.POSIX,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | Default route settings for the stage.
     defaultRouteSettings :: Prelude.Maybe RouteSettings,
     -- | The identifier of the Deployment that the Stage is associated with.
@@ -186,7 +186,7 @@ data GetStageResponse = GetStageResponse'
     -- for stages with autoDeploy enabled.
     lastDeploymentStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the stage was last updated.
-    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.ISO8601,
     -- | Route settings for the stage, by routeKey.
     routeSettings :: Prelude.Maybe (Prelude.HashMap Prelude.Text RouteSettings),
     -- | The name of the stage.

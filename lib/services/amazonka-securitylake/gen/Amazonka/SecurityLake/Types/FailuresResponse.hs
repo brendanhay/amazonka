@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types.FailuresResponse
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,14 +25,14 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityLake.Types.Failures
 
--- | Response element for actions which make changes namely create, update,
+-- | Response element for actions that make changes, namely create, update,
 -- or delete actions.
 --
 -- /See:/ 'newFailuresResponse' smart constructor.
 data FailuresResponse = FailuresResponse'
   { -- | List of all failures.
     failures :: Prelude.Maybe [Failures],
-    -- | List of Regions where the failure occurred.
+    -- | List of Amazon Web Services Regions where the failure occurred.
     region :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data FailuresResponse = FailuresResponse'
 --
 -- 'failures', 'failuresResponse_failures' - List of all failures.
 --
--- 'region', 'failuresResponse_region' - List of Regions where the failure occurred.
+-- 'region', 'failuresResponse_region' - List of Amazon Web Services Regions where the failure occurred.
 newFailuresResponse ::
   FailuresResponse
 newFailuresResponse =
@@ -60,7 +60,7 @@ newFailuresResponse =
 failuresResponse_failures :: Lens.Lens' FailuresResponse (Prelude.Maybe [Failures])
 failuresResponse_failures = Lens.lens (\FailuresResponse' {failures} -> failures) (\s@FailuresResponse' {} a -> s {failures = a} :: FailuresResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | List of Regions where the failure occurred.
+-- | List of Amazon Web Services Regions where the failure occurred.
 failuresResponse_region :: Lens.Lens' FailuresResponse (Prelude.Maybe Prelude.Text)
 failuresResponse_region = Lens.lens (\FailuresResponse' {region} -> region) (\s@FailuresResponse' {} a -> s {region = a} :: FailuresResponse)
 

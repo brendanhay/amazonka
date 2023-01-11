@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types.LakeConfigurationRequest
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,12 +26,12 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityLake.Types.Region
 import Amazonka.SecurityLake.Types.RetentionSetting
 
--- | Provides details of lake configuration object in Amazon Security Lake.
+-- | Provides details of Amazon Security Lake configuration object.
 --
 -- /See:/ 'newLakeConfigurationRequest' smart constructor.
 data LakeConfigurationRequest = LakeConfigurationRequest'
-  { -- | The type of encryption key used by Security Lake to encrypt the lake
-    -- configuration object.
+  { -- | The type of encryption key used by Amazon Security Lake to encrypt the
+    -- Security Lake configuration object.
     encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | Replication enables automatic, asynchronous copying of objects across
     -- Amazon S3 buckets. Amazon S3 buckets that are configured for object
@@ -45,8 +45,8 @@ data LakeConfigurationRequest = LakeConfigurationRequest'
     -- that should contribute to the central rollup Region.
     replicationDestinationRegions :: Prelude.Maybe [Region],
     -- | Replication settings for the Amazon S3 buckets. This parameter uses the
-    -- IAM role created by you that is managed by Security Lake, to ensure the
-    -- replication setting is correct.
+    -- Identity and Access Management (IAM) role you created that is managed by
+    -- Security Lake, to ensure the replication setting is correct.
     replicationRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Retention settings for the destination Amazon S3 buckets.
     retentionSettings :: Prelude.Maybe [RetentionSetting],
@@ -65,8 +65,8 @@ data LakeConfigurationRequest = LakeConfigurationRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionKey', 'lakeConfigurationRequest_encryptionKey' - The type of encryption key used by Security Lake to encrypt the lake
--- configuration object.
+-- 'encryptionKey', 'lakeConfigurationRequest_encryptionKey' - The type of encryption key used by Amazon Security Lake to encrypt the
+-- Security Lake configuration object.
 --
 -- 'replicationDestinationRegions', 'lakeConfigurationRequest_replicationDestinationRegions' - Replication enables automatic, asynchronous copying of objects across
 -- Amazon S3 buckets. Amazon S3 buckets that are configured for object
@@ -80,8 +80,8 @@ data LakeConfigurationRequest = LakeConfigurationRequest'
 -- that should contribute to the central rollup Region.
 --
 -- 'replicationRoleArn', 'lakeConfigurationRequest_replicationRoleArn' - Replication settings for the Amazon S3 buckets. This parameter uses the
--- IAM role created by you that is managed by Security Lake, to ensure the
--- replication setting is correct.
+-- Identity and Access Management (IAM) role you created that is managed by
+-- Security Lake, to ensure the replication setting is correct.
 --
 -- 'retentionSettings', 'lakeConfigurationRequest_retentionSettings' - Retention settings for the destination Amazon S3 buckets.
 --
@@ -100,8 +100,8 @@ newLakeConfigurationRequest =
       tagsMap = Prelude.Nothing
     }
 
--- | The type of encryption key used by Security Lake to encrypt the lake
--- configuration object.
+-- | The type of encryption key used by Amazon Security Lake to encrypt the
+-- Security Lake configuration object.
 lakeConfigurationRequest_encryptionKey :: Lens.Lens' LakeConfigurationRequest (Prelude.Maybe Prelude.Text)
 lakeConfigurationRequest_encryptionKey = Lens.lens (\LakeConfigurationRequest' {encryptionKey} -> encryptionKey) (\s@LakeConfigurationRequest' {} a -> s {encryptionKey = a} :: LakeConfigurationRequest)
 
@@ -119,8 +119,8 @@ lakeConfigurationRequest_replicationDestinationRegions :: Lens.Lens' LakeConfigu
 lakeConfigurationRequest_replicationDestinationRegions = Lens.lens (\LakeConfigurationRequest' {replicationDestinationRegions} -> replicationDestinationRegions) (\s@LakeConfigurationRequest' {} a -> s {replicationDestinationRegions = a} :: LakeConfigurationRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | Replication settings for the Amazon S3 buckets. This parameter uses the
--- IAM role created by you that is managed by Security Lake, to ensure the
--- replication setting is correct.
+-- Identity and Access Management (IAM) role you created that is managed by
+-- Security Lake, to ensure the replication setting is correct.
 lakeConfigurationRequest_replicationRoleArn :: Lens.Lens' LakeConfigurationRequest (Prelude.Maybe Prelude.Text)
 lakeConfigurationRequest_replicationRoleArn = Lens.lens (\LakeConfigurationRequest' {replicationRoleArn} -> replicationRoleArn) (\s@LakeConfigurationRequest' {} a -> s {replicationRoleArn = a} :: LakeConfigurationRequest)
 

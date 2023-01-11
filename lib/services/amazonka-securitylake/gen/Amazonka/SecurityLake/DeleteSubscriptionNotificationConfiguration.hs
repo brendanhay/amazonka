@@ -14,15 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.DeleteSubscriptionNotificationConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified notification subscription in Security Lake.
--- Deletes the specified subscription notifications from the specified
--- organization.
+-- Deletes the specified notification subscription in Amazon Security Lake
+-- for the organization you specify.
 module Amazonka.SecurityLake.DeleteSubscriptionNotificationConfiguration
   ( -- * Creating a Request
     DeleteSubscriptionNotificationConfiguration (..),
@@ -50,7 +49,7 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newDeleteSubscriptionNotificationConfiguration' smart constructor.
 data DeleteSubscriptionNotificationConfiguration = DeleteSubscriptionNotificationConfiguration'
-  { -- | The subscription ID of the Amazon Security Lake subscriber account.
+  { -- | The ID of the Security Lake subscriber account.
     subscriptionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +62,7 @@ data DeleteSubscriptionNotificationConfiguration = DeleteSubscriptionNotificatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriptionId', 'deleteSubscriptionNotificationConfiguration_subscriptionId' - The subscription ID of the Amazon Security Lake subscriber account.
+-- 'subscriptionId', 'deleteSubscriptionNotificationConfiguration_subscriptionId' - The ID of the Security Lake subscriber account.
 newDeleteSubscriptionNotificationConfiguration ::
   -- | 'subscriptionId'
   Prelude.Text ->
@@ -75,7 +74,7 @@ newDeleteSubscriptionNotificationConfiguration
           pSubscriptionId_
       }
 
--- | The subscription ID of the Amazon Security Lake subscriber account.
+-- | The ID of the Security Lake subscriber account.
 deleteSubscriptionNotificationConfiguration_subscriptionId :: Lens.Lens' DeleteSubscriptionNotificationConfiguration Prelude.Text
 deleteSubscriptionNotificationConfiguration_subscriptionId = Lens.lens (\DeleteSubscriptionNotificationConfiguration' {subscriptionId} -> subscriptionId) (\s@DeleteSubscriptionNotificationConfiguration' {} a -> s {subscriptionId = a} :: DeleteSubscriptionNotificationConfiguration)
 

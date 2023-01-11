@@ -14,14 +14,15 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.GetDatalakeStatus
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve the Security Lake configuration object for the specified
--- account ID. This API does not take input parameters.
+-- Retrieves a snapshot of the current Region, including whether Amazon
+-- Security Lake is enabled for those accounts and which sources Security
+-- Lake is collecting data from.
 --
 -- This operation returns paginated results.
 module Amazonka.SecurityLake.GetDatalakeStatus
@@ -55,17 +56,21 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newGetDatalakeStatus' smart constructor.
 data GetDatalakeStatus = GetDatalakeStatus'
-  { -- | The account IDs for which a static snapshot of the current Region,
-    -- including enabled accounts and log sources is retrieved.
+  { -- | The Amazon Web Services account ID for which a static snapshot of the
+    -- current Amazon Web Services Region, including enabled accounts and log
+    -- sources, is retrieved.
     accountSet :: Prelude.Maybe [Prelude.Text],
     -- | The maximum limit of accounts for which the static snapshot of the
-    -- current Region including enabled accounts and log sources is retrieved.
+    -- current Region, including enabled accounts and log sources, is
+    -- retrieved.
     maxAccountResults :: Prelude.Maybe Prelude.Int,
-    -- | If nextToken is returned, there are more results available. The value of
-    -- nextToken is a unique pagination token for each page. Make the call
-    -- again using the returned token to retrieve the next page. Keep all other
-    -- arguments unchanged. Each pagination token expires after 24 hours. Using
-    -- an expired pagination token will return an HTTP 400 InvalidToken error.
+    -- | Lists if there are more results available. The value of nextToken is a
+    -- unique pagination token for each page. Repeat the call using the
+    -- returned token to retrieve the next page. Keep all other arguments
+    -- unchanged.
+    --
+    -- Each pagination token expires after 24 hours. Using an expired
+    -- pagination token will return an HTTP 400 InvalidToken error.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,17 +83,21 @@ data GetDatalakeStatus = GetDatalakeStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountSet', 'getDatalakeStatus_accountSet' - The account IDs for which a static snapshot of the current Region,
--- including enabled accounts and log sources is retrieved.
+-- 'accountSet', 'getDatalakeStatus_accountSet' - The Amazon Web Services account ID for which a static snapshot of the
+-- current Amazon Web Services Region, including enabled accounts and log
+-- sources, is retrieved.
 --
 -- 'maxAccountResults', 'getDatalakeStatus_maxAccountResults' - The maximum limit of accounts for which the static snapshot of the
--- current Region including enabled accounts and log sources is retrieved.
+-- current Region, including enabled accounts and log sources, is
+-- retrieved.
 --
--- 'nextToken', 'getDatalakeStatus_nextToken' - If nextToken is returned, there are more results available. The value of
--- nextToken is a unique pagination token for each page. Make the call
--- again using the returned token to retrieve the next page. Keep all other
--- arguments unchanged. Each pagination token expires after 24 hours. Using
--- an expired pagination token will return an HTTP 400 InvalidToken error.
+-- 'nextToken', 'getDatalakeStatus_nextToken' - Lists if there are more results available. The value of nextToken is a
+-- unique pagination token for each page. Repeat the call using the
+-- returned token to retrieve the next page. Keep all other arguments
+-- unchanged.
+--
+-- Each pagination token expires after 24 hours. Using an expired
+-- pagination token will return an HTTP 400 InvalidToken error.
 newGetDatalakeStatus ::
   GetDatalakeStatus
 newGetDatalakeStatus =
@@ -98,21 +107,25 @@ newGetDatalakeStatus =
       nextToken = Prelude.Nothing
     }
 
--- | The account IDs for which a static snapshot of the current Region,
--- including enabled accounts and log sources is retrieved.
+-- | The Amazon Web Services account ID for which a static snapshot of the
+-- current Amazon Web Services Region, including enabled accounts and log
+-- sources, is retrieved.
 getDatalakeStatus_accountSet :: Lens.Lens' GetDatalakeStatus (Prelude.Maybe [Prelude.Text])
 getDatalakeStatus_accountSet = Lens.lens (\GetDatalakeStatus' {accountSet} -> accountSet) (\s@GetDatalakeStatus' {} a -> s {accountSet = a} :: GetDatalakeStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum limit of accounts for which the static snapshot of the
--- current Region including enabled accounts and log sources is retrieved.
+-- current Region, including enabled accounts and log sources, is
+-- retrieved.
 getDatalakeStatus_maxAccountResults :: Lens.Lens' GetDatalakeStatus (Prelude.Maybe Prelude.Int)
 getDatalakeStatus_maxAccountResults = Lens.lens (\GetDatalakeStatus' {maxAccountResults} -> maxAccountResults) (\s@GetDatalakeStatus' {} a -> s {maxAccountResults = a} :: GetDatalakeStatus)
 
--- | If nextToken is returned, there are more results available. The value of
--- nextToken is a unique pagination token for each page. Make the call
--- again using the returned token to retrieve the next page. Keep all other
--- arguments unchanged. Each pagination token expires after 24 hours. Using
--- an expired pagination token will return an HTTP 400 InvalidToken error.
+-- | Lists if there are more results available. The value of nextToken is a
+-- unique pagination token for each page. Repeat the call using the
+-- returned token to retrieve the next page. Keep all other arguments
+-- unchanged.
+--
+-- Each pagination token expires after 24 hours. Using an expired
+-- pagination token will return an HTTP 400 InvalidToken error.
 getDatalakeStatus_nextToken :: Lens.Lens' GetDatalakeStatus (Prelude.Maybe Prelude.Text)
 getDatalakeStatus_nextToken = Lens.lens (\GetDatalakeStatus' {nextToken} -> nextToken) (\s@GetDatalakeStatus' {} a -> s {nextToken = a} :: GetDatalakeStatus)
 
@@ -196,11 +209,13 @@ instance Data.ToQuery GetDatalakeStatus where
 
 -- | /See:/ 'newGetDatalakeStatusResponse' smart constructor.
 data GetDatalakeStatusResponse = GetDatalakeStatusResponse'
-  { -- | If nextToken is returned, there are more results available. The value of
-    -- nextToken is a unique pagination token for each page. Make the call
-    -- again using the returned token to retrieve the next page. Keep all other
-    -- arguments unchanged. Each pagination token expires after 24 hours. Using
-    -- an expired pagination token will return an HTTP 400 InvalidToken error.
+  { -- | Lists if there are more results available. The value of nextToken is a
+    -- unique pagination token for each page. Repeat the call using the
+    -- returned token to retrieve the next page. Keep all other arguments
+    -- unchanged.
+    --
+    -- Each pagination token expires after 24 hours. Using an expired
+    -- pagination token will return an HTTP 400 InvalidToken error.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -217,11 +232,13 @@ data GetDatalakeStatusResponse = GetDatalakeStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getDatalakeStatusResponse_nextToken' - If nextToken is returned, there are more results available. The value of
--- nextToken is a unique pagination token for each page. Make the call
--- again using the returned token to retrieve the next page. Keep all other
--- arguments unchanged. Each pagination token expires after 24 hours. Using
--- an expired pagination token will return an HTTP 400 InvalidToken error.
+-- 'nextToken', 'getDatalakeStatusResponse_nextToken' - Lists if there are more results available. The value of nextToken is a
+-- unique pagination token for each page. Repeat the call using the
+-- returned token to retrieve the next page. Keep all other arguments
+-- unchanged.
+--
+-- Each pagination token expires after 24 hours. Using an expired
+-- pagination token will return an HTTP 400 InvalidToken error.
 --
 -- 'httpStatus', 'getDatalakeStatusResponse_httpStatus' - The response's http status code.
 --
@@ -238,11 +255,13 @@ newGetDatalakeStatusResponse pHttpStatus_ =
       accountSourcesList = Prelude.mempty
     }
 
--- | If nextToken is returned, there are more results available. The value of
--- nextToken is a unique pagination token for each page. Make the call
--- again using the returned token to retrieve the next page. Keep all other
--- arguments unchanged. Each pagination token expires after 24 hours. Using
--- an expired pagination token will return an HTTP 400 InvalidToken error.
+-- | Lists if there are more results available. The value of nextToken is a
+-- unique pagination token for each page. Repeat the call using the
+-- returned token to retrieve the next page. Keep all other arguments
+-- unchanged.
+--
+-- Each pagination token expires after 24 hours. Using an expired
+-- pagination token will return an HTTP 400 InvalidToken error.
 getDatalakeStatusResponse_nextToken :: Lens.Lens' GetDatalakeStatusResponse (Prelude.Maybe Prelude.Text)
 getDatalakeStatusResponse_nextToken = Lens.lens (\GetDatalakeStatusResponse' {nextToken} -> nextToken) (\s@GetDatalakeStatusResponse' {} a -> s {nextToken = a} :: GetDatalakeStatusResponse)
 

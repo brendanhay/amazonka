@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types.AccountSources
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,21 +26,22 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityLake.Types.LogsStatus
 import Amazonka.SecurityLake.Types.OcsfEventClass
 
--- | Security Lake can collect logs and events from supported Amazon Web
--- Services services and custom sources.
+-- | Amazon Security Lake collects logs and events from supported Amazon Web
+-- Services and custom sources. For the list of supported Amazon Web
+-- Services, see the
+-- <https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html Amazon Security Lake User Guide>.
 --
 -- /See:/ 'newAccountSources' smart constructor.
 data AccountSources = AccountSources'
   { -- | Initializes a new instance of the Event class.
     eventClass :: Prelude.Maybe OcsfEventClass,
-    -- | Log status for the Security Lake account.
+    -- | The log status for the Security Lake account.
     logsStatus :: Prelude.Maybe [LogsStatus],
-    -- | Account ID of the Security Lake account for which logs are collected.
+    -- | The ID of the Security Lake account for which logs are collected.
     account :: Prelude.Text,
-    -- | The supported Amazon Web Services services from which logs and events
-    -- are collected. Amazon Security Lake supports logs and events collection
-    -- for natively-supported Amazon Web Services services. For more
-    -- information, see the Amazon Security Lake User Guide.
+    -- | The supported Amazon Web Services from which logs and events are
+    -- collected. Amazon Security Lake supports log and event collection for
+    -- natively supported Amazon Web Services.
     sourceType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,14 +56,13 @@ data AccountSources = AccountSources'
 --
 -- 'eventClass', 'accountSources_eventClass' - Initializes a new instance of the Event class.
 --
--- 'logsStatus', 'accountSources_logsStatus' - Log status for the Security Lake account.
+-- 'logsStatus', 'accountSources_logsStatus' - The log status for the Security Lake account.
 --
--- 'account', 'accountSources_account' - Account ID of the Security Lake account for which logs are collected.
+-- 'account', 'accountSources_account' - The ID of the Security Lake account for which logs are collected.
 --
--- 'sourceType', 'accountSources_sourceType' - The supported Amazon Web Services services from which logs and events
--- are collected. Amazon Security Lake supports logs and events collection
--- for natively-supported Amazon Web Services services. For more
--- information, see the Amazon Security Lake User Guide.
+-- 'sourceType', 'accountSources_sourceType' - The supported Amazon Web Services from which logs and events are
+-- collected. Amazon Security Lake supports log and event collection for
+-- natively supported Amazon Web Services.
 newAccountSources ::
   -- | 'account'
   Prelude.Text ->
@@ -81,18 +81,17 @@ newAccountSources pAccount_ pSourceType_ =
 accountSources_eventClass :: Lens.Lens' AccountSources (Prelude.Maybe OcsfEventClass)
 accountSources_eventClass = Lens.lens (\AccountSources' {eventClass} -> eventClass) (\s@AccountSources' {} a -> s {eventClass = a} :: AccountSources)
 
--- | Log status for the Security Lake account.
+-- | The log status for the Security Lake account.
 accountSources_logsStatus :: Lens.Lens' AccountSources (Prelude.Maybe [LogsStatus])
 accountSources_logsStatus = Lens.lens (\AccountSources' {logsStatus} -> logsStatus) (\s@AccountSources' {} a -> s {logsStatus = a} :: AccountSources) Prelude.. Lens.mapping Lens.coerced
 
--- | Account ID of the Security Lake account for which logs are collected.
+-- | The ID of the Security Lake account for which logs are collected.
 accountSources_account :: Lens.Lens' AccountSources Prelude.Text
 accountSources_account = Lens.lens (\AccountSources' {account} -> account) (\s@AccountSources' {} a -> s {account = a} :: AccountSources)
 
--- | The supported Amazon Web Services services from which logs and events
--- are collected. Amazon Security Lake supports logs and events collection
--- for natively-supported Amazon Web Services services. For more
--- information, see the Amazon Security Lake User Guide.
+-- | The supported Amazon Web Services from which logs and events are
+-- collected. Amazon Security Lake supports log and event collection for
+-- natively supported Amazon Web Services.
 accountSources_sourceType :: Lens.Lens' AccountSources Prelude.Text
 accountSources_sourceType = Lens.lens (\AccountSources' {sourceType} -> sourceType) (\s@AccountSources' {} a -> s {sourceType = a} :: AccountSources)
 

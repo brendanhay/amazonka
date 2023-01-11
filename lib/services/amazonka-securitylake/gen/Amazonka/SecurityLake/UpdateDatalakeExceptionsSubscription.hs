@@ -14,13 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.UpdateDatalakeExceptionsSubscription
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update the subscription notification for exception notification.
+-- Updates the specified notification subscription in Amazon Security Lake
+-- for the organization you specify.
 module Amazonka.SecurityLake.UpdateDatalakeExceptionsSubscription
   ( -- * Creating a Request
     UpdateDatalakeExceptionsSubscription (..),
@@ -49,7 +50,7 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newUpdateDatalakeExceptionsSubscription' smart constructor.
 data UpdateDatalakeExceptionsSubscription = UpdateDatalakeExceptionsSubscription'
-  { -- | The account which is subscribed to receive exception notifications.
+  { -- | The account that is subscribed to receive exception notifications.
     notificationEndpoint :: Prelude.Text,
     -- | The subscription protocol to which exception messages are posted.
     subscriptionProtocol :: SubscriptionProtocolType
@@ -64,7 +65,7 @@ data UpdateDatalakeExceptionsSubscription = UpdateDatalakeExceptionsSubscription
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationEndpoint', 'updateDatalakeExceptionsSubscription_notificationEndpoint' - The account which is subscribed to receive exception notifications.
+-- 'notificationEndpoint', 'updateDatalakeExceptionsSubscription_notificationEndpoint' - The account that is subscribed to receive exception notifications.
 --
 -- 'subscriptionProtocol', 'updateDatalakeExceptionsSubscription_subscriptionProtocol' - The subscription protocol to which exception messages are posted.
 newUpdateDatalakeExceptionsSubscription ::
@@ -83,7 +84,7 @@ newUpdateDatalakeExceptionsSubscription
           pSubscriptionProtocol_
       }
 
--- | The account which is subscribed to receive exception notifications.
+-- | The account that is subscribed to receive exception notifications.
 updateDatalakeExceptionsSubscription_notificationEndpoint :: Lens.Lens' UpdateDatalakeExceptionsSubscription Prelude.Text
 updateDatalakeExceptionsSubscription_notificationEndpoint = Lens.lens (\UpdateDatalakeExceptionsSubscription' {notificationEndpoint} -> notificationEndpoint) (\s@UpdateDatalakeExceptionsSubscription' {} a -> s {notificationEndpoint = a} :: UpdateDatalakeExceptionsSubscription)
 

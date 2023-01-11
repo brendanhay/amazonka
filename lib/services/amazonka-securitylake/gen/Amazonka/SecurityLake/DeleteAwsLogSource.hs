@@ -14,33 +14,30 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.DeleteAwsLogSource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a natively-supported Amazon Web Services service as a Amazon
--- Security Lake source. When you remove the source, Security Lake stops
--- collecting data from that source, and subscribers can no longer consume
--- new data from the source. Subscribers can still consume data that Amazon
--- Security Lake collected from the source before disablement.
+-- Removes a natively supported Amazon Web Service as an Amazon Security
+-- Lake source. When you remove the source, Security Lake stops collecting
+-- data from that source, and subscribers can no longer consume new data
+-- from the source. Subscribers can still consume data that Security Lake
+-- collected from the source before disablement.
 --
--- You can choose any source type in any Region for accounts that are
--- either part of a trusted organization or standalone accounts. At least
--- one of the three dimensions is a mandatory input to this API. However,
--- any combination of the three dimensions can be supplied to this API.
+-- You can choose any source type in any Amazon Web Services Region for
+-- either accounts that are part of a trusted organization or standalone
+-- accounts. At least one of the three dimensions is a mandatory input to
+-- this API. However, you can supply any combination of the three
+-- dimensions to this API.
 --
--- By default, dimension refers to the entire set. This is overridden when
--- you supply any one of the inputs. For instance, when members is not
--- specified, the API disables all Security Lake member accounts for
--- sources. Similarly, when Regions are not specified, Security Lake is
+-- By default, a dimension refers to the entire set. This is overridden
+-- when you supply any one of the inputs. For instance, when you do not
+-- specify members, the API disables all Security Lake member accounts for
+-- sources. Similarly, when you do not specify Regions, Security Lake is
 -- disabled for all the Regions where Security Lake is available as a
 -- service.
---
--- You can use this API to remove a natively-supported Amazon Web Services
--- service as a source. Use @DeregisterCustomData@ to remove a custom
--- source.
 --
 -- When you don\'t provide a dimension, Security Lake assumes that the
 -- missing dimension refers to the entire set. For example, if you don\'t
@@ -78,8 +75,8 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newDeleteAwsLogSource' smart constructor.
 data DeleteAwsLogSource = DeleteAwsLogSource'
-  { -- | Removes the specific Amazon Web Services sources from all Regions and
-    -- source types.
+  { -- | Removes the specific Amazon Web Services sources from specific accounts
+    -- and specific Regions.
     disableAllDimensions :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text [Prelude.Text])),
     -- | Removes all Amazon Web Services sources from specific accounts or
     -- Regions.
@@ -87,8 +84,9 @@ data DeleteAwsLogSource = DeleteAwsLogSource'
     -- | Remove a specific Amazon Web Services source from specific accounts or
     -- Regions.
     disableTwoDimensions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | This is a mandatory input. Specifies the input order to disable
-    -- dimensions in Security Lake, namely Region, source type, and member.
+    -- | This is a mandatory input. Specify the input order to disable dimensions
+    -- in Security Lake, namely Region (Amazon Web Services Region code, source
+    -- type, and member (account ID of a specific Amazon Web Services account).
     inputOrder :: [Dimension]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,8 +99,8 @@ data DeleteAwsLogSource = DeleteAwsLogSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disableAllDimensions', 'deleteAwsLogSource_disableAllDimensions' - Removes the specific Amazon Web Services sources from all Regions and
--- source types.
+-- 'disableAllDimensions', 'deleteAwsLogSource_disableAllDimensions' - Removes the specific Amazon Web Services sources from specific accounts
+-- and specific Regions.
 --
 -- 'disableSingleDimension', 'deleteAwsLogSource_disableSingleDimension' - Removes all Amazon Web Services sources from specific accounts or
 -- Regions.
@@ -110,8 +108,9 @@ data DeleteAwsLogSource = DeleteAwsLogSource'
 -- 'disableTwoDimensions', 'deleteAwsLogSource_disableTwoDimensions' - Remove a specific Amazon Web Services source from specific accounts or
 -- Regions.
 --
--- 'inputOrder', 'deleteAwsLogSource_inputOrder' - This is a mandatory input. Specifies the input order to disable
--- dimensions in Security Lake, namely Region, source type, and member.
+-- 'inputOrder', 'deleteAwsLogSource_inputOrder' - This is a mandatory input. Specify the input order to disable dimensions
+-- in Security Lake, namely Region (Amazon Web Services Region code, source
+-- type, and member (account ID of a specific Amazon Web Services account).
 newDeleteAwsLogSource ::
   DeleteAwsLogSource
 newDeleteAwsLogSource =
@@ -123,8 +122,8 @@ newDeleteAwsLogSource =
       inputOrder = Prelude.mempty
     }
 
--- | Removes the specific Amazon Web Services sources from all Regions and
--- source types.
+-- | Removes the specific Amazon Web Services sources from specific accounts
+-- and specific Regions.
 deleteAwsLogSource_disableAllDimensions :: Lens.Lens' DeleteAwsLogSource (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text [Prelude.Text])))
 deleteAwsLogSource_disableAllDimensions = Lens.lens (\DeleteAwsLogSource' {disableAllDimensions} -> disableAllDimensions) (\s@DeleteAwsLogSource' {} a -> s {disableAllDimensions = a} :: DeleteAwsLogSource) Prelude.. Lens.mapping Lens.coerced
 
@@ -138,8 +137,9 @@ deleteAwsLogSource_disableSingleDimension = Lens.lens (\DeleteAwsLogSource' {dis
 deleteAwsLogSource_disableTwoDimensions :: Lens.Lens' DeleteAwsLogSource (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 deleteAwsLogSource_disableTwoDimensions = Lens.lens (\DeleteAwsLogSource' {disableTwoDimensions} -> disableTwoDimensions) (\s@DeleteAwsLogSource' {} a -> s {disableTwoDimensions = a} :: DeleteAwsLogSource) Prelude.. Lens.mapping Lens.coerced
 
--- | This is a mandatory input. Specifies the input order to disable
--- dimensions in Security Lake, namely Region, source type, and member.
+-- | This is a mandatory input. Specify the input order to disable dimensions
+-- in Security Lake, namely Region (Amazon Web Services Region code, source
+-- type, and member (account ID of a specific Amazon Web Services account).
 deleteAwsLogSource_inputOrder :: Lens.Lens' DeleteAwsLogSource [Dimension]
 deleteAwsLogSource_inputOrder = Lens.lens (\DeleteAwsLogSource' {inputOrder} -> inputOrder) (\s@DeleteAwsLogSource' {} a -> s {inputOrder = a} :: DeleteAwsLogSource) Prelude.. Lens.coerced
 
@@ -208,7 +208,7 @@ data DeleteAwsLogSourceResponse = DeleteAwsLogSourceResponse'
   { -- | Deletion of the Amazon Web Services sources failed as the account is not
     -- a part of the organization.
     failed :: Prelude.Maybe [Prelude.Text],
-    -- | Deletion of the Amazon Web Services sources is in-progress.
+    -- | Deletion of the Amazon Web Services sources is in progress.
     processing :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -226,7 +226,7 @@ data DeleteAwsLogSourceResponse = DeleteAwsLogSourceResponse'
 -- 'failed', 'deleteAwsLogSourceResponse_failed' - Deletion of the Amazon Web Services sources failed as the account is not
 -- a part of the organization.
 --
--- 'processing', 'deleteAwsLogSourceResponse_processing' - Deletion of the Amazon Web Services sources is in-progress.
+-- 'processing', 'deleteAwsLogSourceResponse_processing' - Deletion of the Amazon Web Services sources is in progress.
 --
 -- 'httpStatus', 'deleteAwsLogSourceResponse_httpStatus' - The response's http status code.
 newDeleteAwsLogSourceResponse ::
@@ -246,7 +246,7 @@ newDeleteAwsLogSourceResponse pHttpStatus_ =
 deleteAwsLogSourceResponse_failed :: Lens.Lens' DeleteAwsLogSourceResponse (Prelude.Maybe [Prelude.Text])
 deleteAwsLogSourceResponse_failed = Lens.lens (\DeleteAwsLogSourceResponse' {failed} -> failed) (\s@DeleteAwsLogSourceResponse' {} a -> s {failed = a} :: DeleteAwsLogSourceResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Deletion of the Amazon Web Services sources is in-progress.
+-- | Deletion of the Amazon Web Services sources is in progress.
 deleteAwsLogSourceResponse_processing :: Lens.Lens' DeleteAwsLogSourceResponse (Prelude.Maybe [Prelude.Text])
 deleteAwsLogSourceResponse_processing = Lens.lens (\DeleteAwsLogSourceResponse' {processing} -> processing) (\s@DeleteAwsLogSourceResponse' {} a -> s {processing = a} :: DeleteAwsLogSourceResponse) Prelude.. Lens.mapping Lens.coerced
 

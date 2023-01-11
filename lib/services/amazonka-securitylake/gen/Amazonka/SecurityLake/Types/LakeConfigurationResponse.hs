@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types.LakeConfigurationResponse
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,26 +27,26 @@ import Amazonka.SecurityLake.Types.Region
 import Amazonka.SecurityLake.Types.RetentionSetting
 import Amazonka.SecurityLake.Types.SettingsStatus
 
--- | Provides details of lake configuration object in Amazon Security Lake.
+-- | Provides details of Amazon Security Lake lake configuration object.
 --
 -- /See:/ 'newLakeConfigurationResponse' smart constructor.
 data LakeConfigurationResponse = LakeConfigurationResponse'
-  { -- | The type of encryption key used by Security Lake to encrypt the lake
-    -- configuration
+  { -- | The type of encryption key used by secure the Security Lake
+    -- configuration object.
     encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | Replication enables automatic, asynchronous copying of objects across
     -- Amazon S3 buckets. Amazon S3 buckets that are configured for object
-    -- replication can be owned by the same AWS account or by different
-    -- accounts. You can replicate objects to a single destination bucket or to
-    -- multiple destination buckets. The destination buckets can be in
-    -- different Amazon Web Services Regions or within the same Region as the
-    -- source bucket.
+    -- replication can be owned by the same Amazon Web Services account or by
+    -- different accounts. You can replicate objects to a single destination
+    -- bucket or to multiple destination buckets. The destination buckets can
+    -- be in different Amazon Web Services Regions or within the same Region as
+    -- the source bucket.
     --
     -- Set up one or more rollup Regions by providing the Region or Regions
     -- that should contribute to the central rollup Region.
     replicationDestinationRegions :: Prelude.Maybe [Region],
     -- | Replication settings for the Amazon S3 buckets. This parameter uses the
-    -- IAM role created by you that is managed by Security Lake, to ensure the
+    -- IAM role you created that is managed by Security Lake, to ensure the
     -- replication setting is correct.
     replicationRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Retention settings for the destination Amazon S3 buckets.
@@ -75,22 +75,22 @@ data LakeConfigurationResponse = LakeConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionKey', 'lakeConfigurationResponse_encryptionKey' - The type of encryption key used by Security Lake to encrypt the lake
--- configuration
+-- 'encryptionKey', 'lakeConfigurationResponse_encryptionKey' - The type of encryption key used by secure the Security Lake
+-- configuration object.
 --
 -- 'replicationDestinationRegions', 'lakeConfigurationResponse_replicationDestinationRegions' - Replication enables automatic, asynchronous copying of objects across
 -- Amazon S3 buckets. Amazon S3 buckets that are configured for object
--- replication can be owned by the same AWS account or by different
--- accounts. You can replicate objects to a single destination bucket or to
--- multiple destination buckets. The destination buckets can be in
--- different Amazon Web Services Regions or within the same Region as the
--- source bucket.
+-- replication can be owned by the same Amazon Web Services account or by
+-- different accounts. You can replicate objects to a single destination
+-- bucket or to multiple destination buckets. The destination buckets can
+-- be in different Amazon Web Services Regions or within the same Region as
+-- the source bucket.
 --
 -- Set up one or more rollup Regions by providing the Region or Regions
 -- that should contribute to the central rollup Region.
 --
 -- 'replicationRoleArn', 'lakeConfigurationResponse_replicationRoleArn' - Replication settings for the Amazon S3 buckets. This parameter uses the
--- IAM role created by you that is managed by Security Lake, to ensure the
+-- IAM role you created that is managed by Security Lake, to ensure the
 -- replication setting is correct.
 --
 -- 'retentionSettings', 'lakeConfigurationResponse_retentionSettings' - Retention settings for the destination Amazon S3 buckets.
@@ -121,18 +121,18 @@ newLakeConfigurationResponse =
       tagsMap = Prelude.Nothing
     }
 
--- | The type of encryption key used by Security Lake to encrypt the lake
--- configuration
+-- | The type of encryption key used by secure the Security Lake
+-- configuration object.
 lakeConfigurationResponse_encryptionKey :: Lens.Lens' LakeConfigurationResponse (Prelude.Maybe Prelude.Text)
 lakeConfigurationResponse_encryptionKey = Lens.lens (\LakeConfigurationResponse' {encryptionKey} -> encryptionKey) (\s@LakeConfigurationResponse' {} a -> s {encryptionKey = a} :: LakeConfigurationResponse)
 
 -- | Replication enables automatic, asynchronous copying of objects across
 -- Amazon S3 buckets. Amazon S3 buckets that are configured for object
--- replication can be owned by the same AWS account or by different
--- accounts. You can replicate objects to a single destination bucket or to
--- multiple destination buckets. The destination buckets can be in
--- different Amazon Web Services Regions or within the same Region as the
--- source bucket.
+-- replication can be owned by the same Amazon Web Services account or by
+-- different accounts. You can replicate objects to a single destination
+-- bucket or to multiple destination buckets. The destination buckets can
+-- be in different Amazon Web Services Regions or within the same Region as
+-- the source bucket.
 --
 -- Set up one or more rollup Regions by providing the Region or Regions
 -- that should contribute to the central rollup Region.
@@ -140,7 +140,7 @@ lakeConfigurationResponse_replicationDestinationRegions :: Lens.Lens' LakeConfig
 lakeConfigurationResponse_replicationDestinationRegions = Lens.lens (\LakeConfigurationResponse' {replicationDestinationRegions} -> replicationDestinationRegions) (\s@LakeConfigurationResponse' {} a -> s {replicationDestinationRegions = a} :: LakeConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Replication settings for the Amazon S3 buckets. This parameter uses the
--- IAM role created by you that is managed by Security Lake, to ensure the
+-- IAM role you created that is managed by Security Lake, to ensure the
 -- replication setting is correct.
 lakeConfigurationResponse_replicationRoleArn :: Lens.Lens' LakeConfigurationResponse (Prelude.Maybe Prelude.Text)
 lakeConfigurationResponse_replicationRoleArn = Lens.lens (\LakeConfigurationResponse' {replicationRoleArn} -> replicationRoleArn) (\s@LakeConfigurationResponse' {} a -> s {replicationRoleArn = a} :: LakeConfigurationResponse)

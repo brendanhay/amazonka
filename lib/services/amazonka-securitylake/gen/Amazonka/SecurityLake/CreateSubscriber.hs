@@ -14,14 +14,15 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.CreateSubscriber
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a subscription permission for accounts that are already enabled
--- in Security Lake.
+-- in Amazon Security Lake. You can create a subscriber with access to data
+-- in the current Amazon Web Services Region.
 module Amazonka.SecurityLake.CreateSubscriber
   ( -- * Creating a Request
     CreateSubscriber (..),
@@ -60,21 +61,20 @@ import Amazonka.SecurityLake.Types
 data CreateSubscriber = CreateSubscriber'
   { -- | The Amazon S3 or Lake Formation access type.
     accessTypes :: Prelude.Maybe [AccessType],
-    -- | The subscriber descriptions for the subscriber account in Amazon
-    -- Security Lake.
+    -- | The description for your subscriber account in Security Lake.
     subscriberDescription :: Prelude.Maybe Prelude.Text,
-    -- | The third party Amazon Web Services account ID used to access your data.
+    -- | The Amazon Web Services account ID used to access your data.
     accountId :: Prelude.Text,
-    -- | The external ID of the subscriber. External ID allows the user that is
-    -- assuming the role to assert the circumstances in which they are
-    -- operating. It also provides a way for the account owner to permit the
-    -- role to be assumed only under specific circumstances.
+    -- | The external ID of the subscriber. This lets the user that is assuming
+    -- the role assert the circumstances in which they are operating. It also
+    -- provides a way for the account owner to permit the role to be assumed
+    -- only under specific circumstances.
     externalId :: Prelude.Text,
-    -- | The supported Amazon Web Services services from which logs and events
-    -- are collected. Amazon Security Lake supports logs and events collection
-    -- for natively-supported Amazon Web Services services.
+    -- | The supported Amazon Web Services from which logs and events are
+    -- collected. Security Lake supports log and event collection for natively
+    -- supported Amazon Web Services.
     sourceTypes :: [SourceType],
-    -- | The name of your Amazon Security Lake subscriber account.
+    -- | The name of your Security Lake subscriber account.
     subscriberName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,21 +89,20 @@ data CreateSubscriber = CreateSubscriber'
 --
 -- 'accessTypes', 'createSubscriber_accessTypes' - The Amazon S3 or Lake Formation access type.
 --
--- 'subscriberDescription', 'createSubscriber_subscriberDescription' - The subscriber descriptions for the subscriber account in Amazon
--- Security Lake.
+-- 'subscriberDescription', 'createSubscriber_subscriberDescription' - The description for your subscriber account in Security Lake.
 --
--- 'accountId', 'createSubscriber_accountId' - The third party Amazon Web Services account ID used to access your data.
+-- 'accountId', 'createSubscriber_accountId' - The Amazon Web Services account ID used to access your data.
 --
--- 'externalId', 'createSubscriber_externalId' - The external ID of the subscriber. External ID allows the user that is
--- assuming the role to assert the circumstances in which they are
--- operating. It also provides a way for the account owner to permit the
--- role to be assumed only under specific circumstances.
+-- 'externalId', 'createSubscriber_externalId' - The external ID of the subscriber. This lets the user that is assuming
+-- the role assert the circumstances in which they are operating. It also
+-- provides a way for the account owner to permit the role to be assumed
+-- only under specific circumstances.
 --
--- 'sourceTypes', 'createSubscriber_sourceTypes' - The supported Amazon Web Services services from which logs and events
--- are collected. Amazon Security Lake supports logs and events collection
--- for natively-supported Amazon Web Services services.
+-- 'sourceTypes', 'createSubscriber_sourceTypes' - The supported Amazon Web Services from which logs and events are
+-- collected. Security Lake supports log and event collection for natively
+-- supported Amazon Web Services.
 --
--- 'subscriberName', 'createSubscriber_subscriberName' - The name of your Amazon Security Lake subscriber account.
+-- 'subscriberName', 'createSubscriber_subscriberName' - The name of your Security Lake subscriber account.
 newCreateSubscriber ::
   -- | 'accountId'
   Prelude.Text ->
@@ -129,29 +128,28 @@ newCreateSubscriber
 createSubscriber_accessTypes :: Lens.Lens' CreateSubscriber (Prelude.Maybe [AccessType])
 createSubscriber_accessTypes = Lens.lens (\CreateSubscriber' {accessTypes} -> accessTypes) (\s@CreateSubscriber' {} a -> s {accessTypes = a} :: CreateSubscriber) Prelude.. Lens.mapping Lens.coerced
 
--- | The subscriber descriptions for the subscriber account in Amazon
--- Security Lake.
+-- | The description for your subscriber account in Security Lake.
 createSubscriber_subscriberDescription :: Lens.Lens' CreateSubscriber (Prelude.Maybe Prelude.Text)
 createSubscriber_subscriberDescription = Lens.lens (\CreateSubscriber' {subscriberDescription} -> subscriberDescription) (\s@CreateSubscriber' {} a -> s {subscriberDescription = a} :: CreateSubscriber)
 
--- | The third party Amazon Web Services account ID used to access your data.
+-- | The Amazon Web Services account ID used to access your data.
 createSubscriber_accountId :: Lens.Lens' CreateSubscriber Prelude.Text
 createSubscriber_accountId = Lens.lens (\CreateSubscriber' {accountId} -> accountId) (\s@CreateSubscriber' {} a -> s {accountId = a} :: CreateSubscriber)
 
--- | The external ID of the subscriber. External ID allows the user that is
--- assuming the role to assert the circumstances in which they are
--- operating. It also provides a way for the account owner to permit the
--- role to be assumed only under specific circumstances.
+-- | The external ID of the subscriber. This lets the user that is assuming
+-- the role assert the circumstances in which they are operating. It also
+-- provides a way for the account owner to permit the role to be assumed
+-- only under specific circumstances.
 createSubscriber_externalId :: Lens.Lens' CreateSubscriber Prelude.Text
 createSubscriber_externalId = Lens.lens (\CreateSubscriber' {externalId} -> externalId) (\s@CreateSubscriber' {} a -> s {externalId = a} :: CreateSubscriber)
 
--- | The supported Amazon Web Services services from which logs and events
--- are collected. Amazon Security Lake supports logs and events collection
--- for natively-supported Amazon Web Services services.
+-- | The supported Amazon Web Services from which logs and events are
+-- collected. Security Lake supports log and event collection for natively
+-- supported Amazon Web Services.
 createSubscriber_sourceTypes :: Lens.Lens' CreateSubscriber [SourceType]
 createSubscriber_sourceTypes = Lens.lens (\CreateSubscriber' {sourceTypes} -> sourceTypes) (\s@CreateSubscriber' {} a -> s {sourceTypes = a} :: CreateSubscriber) Prelude.. Lens.coerced
 
--- | The name of your Amazon Security Lake subscriber account.
+-- | The name of your Security Lake subscriber account.
 createSubscriber_subscriberName :: Lens.Lens' CreateSubscriber Prelude.Text
 createSubscriber_subscriberName = Lens.lens (\CreateSubscriber' {subscriberName} -> subscriberName) (\s@CreateSubscriber' {} a -> s {subscriberName = a} :: CreateSubscriber)
 
@@ -224,19 +222,19 @@ instance Data.ToQuery CreateSubscriber where
 
 -- | /See:/ 'newCreateSubscriberResponse' smart constructor.
 data CreateSubscriberResponse = CreateSubscriberResponse'
-  { -- | The Amazon Resource Name (ARN) created by the user to provide to the
+  { -- | The Amazon Resource Name (ARN) created by you to provide to the
     -- subscriber. For more information about ARNs and how to use them in
-    -- policies, see IAM identifiers in the IAM User Guide.
+    -- policies, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers in the Identity and Access Management (IAM) User Guide>.
+    -- .
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the Amazon S3 bucket.
+    -- | The ARN for the Amazon S3 bucket.
     s3BucketArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the Amazon Simple Notification
-    -- Service.
+    -- | The ARN for the Amazon Simple Notification Service.
     snsArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The @subscriptionId@ that was created by the @CreateSubscriber@ API
-    -- call.
+    -- | The @subscriptionId@ created by the @CreateSubscriber@ API call.
     subscriptionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -249,19 +247,19 @@ data CreateSubscriberResponse = CreateSubscriberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'createSubscriberResponse_roleArn' - The Amazon Resource Name (ARN) created by the user to provide to the
+-- 'roleArn', 'createSubscriberResponse_roleArn' - The Amazon Resource Name (ARN) created by you to provide to the
 -- subscriber. For more information about ARNs and how to use them in
--- policies, see IAM identifiers in the IAM User Guide.
+-- policies, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers in the Identity and Access Management (IAM) User Guide>.
+-- .
 --
--- 's3BucketArn', 'createSubscriberResponse_s3BucketArn' - The Amazon Resource Name (ARN) for the Amazon S3 bucket.
+-- 's3BucketArn', 'createSubscriberResponse_s3BucketArn' - The ARN for the Amazon S3 bucket.
 --
--- 'snsArn', 'createSubscriberResponse_snsArn' - The Amazon Resource Name (ARN) for the Amazon Simple Notification
--- Service.
+-- 'snsArn', 'createSubscriberResponse_snsArn' - The ARN for the Amazon Simple Notification Service.
 --
 -- 'httpStatus', 'createSubscriberResponse_httpStatus' - The response's http status code.
 --
--- 'subscriptionId', 'createSubscriberResponse_subscriptionId' - The @subscriptionId@ that was created by the @CreateSubscriber@ API
--- call.
+-- 'subscriptionId', 'createSubscriberResponse_subscriptionId' - The @subscriptionId@ created by the @CreateSubscriber@ API call.
 newCreateSubscriberResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -280,18 +278,19 @@ newCreateSubscriberResponse
         subscriptionId = pSubscriptionId_
       }
 
--- | The Amazon Resource Name (ARN) created by the user to provide to the
+-- | The Amazon Resource Name (ARN) created by you to provide to the
 -- subscriber. For more information about ARNs and how to use them in
--- policies, see IAM identifiers in the IAM User Guide.
+-- policies, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers in the Identity and Access Management (IAM) User Guide>.
+-- .
 createSubscriberResponse_roleArn :: Lens.Lens' CreateSubscriberResponse (Prelude.Maybe Prelude.Text)
 createSubscriberResponse_roleArn = Lens.lens (\CreateSubscriberResponse' {roleArn} -> roleArn) (\s@CreateSubscriberResponse' {} a -> s {roleArn = a} :: CreateSubscriberResponse)
 
--- | The Amazon Resource Name (ARN) for the Amazon S3 bucket.
+-- | The ARN for the Amazon S3 bucket.
 createSubscriberResponse_s3BucketArn :: Lens.Lens' CreateSubscriberResponse (Prelude.Maybe Prelude.Text)
 createSubscriberResponse_s3BucketArn = Lens.lens (\CreateSubscriberResponse' {s3BucketArn} -> s3BucketArn) (\s@CreateSubscriberResponse' {} a -> s {s3BucketArn = a} :: CreateSubscriberResponse)
 
--- | The Amazon Resource Name (ARN) for the Amazon Simple Notification
--- Service.
+-- | The ARN for the Amazon Simple Notification Service.
 createSubscriberResponse_snsArn :: Lens.Lens' CreateSubscriberResponse (Prelude.Maybe Prelude.Text)
 createSubscriberResponse_snsArn = Lens.lens (\CreateSubscriberResponse' {snsArn} -> snsArn) (\s@CreateSubscriberResponse' {} a -> s {snsArn = a} :: CreateSubscriberResponse)
 
@@ -299,8 +298,7 @@ createSubscriberResponse_snsArn = Lens.lens (\CreateSubscriberResponse' {snsArn}
 createSubscriberResponse_httpStatus :: Lens.Lens' CreateSubscriberResponse Prelude.Int
 createSubscriberResponse_httpStatus = Lens.lens (\CreateSubscriberResponse' {httpStatus} -> httpStatus) (\s@CreateSubscriberResponse' {} a -> s {httpStatus = a} :: CreateSubscriberResponse)
 
--- | The @subscriptionId@ that was created by the @CreateSubscriber@ API
--- call.
+-- | The @subscriptionId@ created by the @CreateSubscriber@ API call.
 createSubscriberResponse_subscriptionId :: Lens.Lens' CreateSubscriberResponse Prelude.Text
 createSubscriberResponse_subscriptionId = Lens.lens (\CreateSubscriberResponse' {subscriptionId} -> subscriptionId) (\s@CreateSubscriberResponse' {} a -> s {subscriptionId = a} :: CreateSubscriberResponse)
 

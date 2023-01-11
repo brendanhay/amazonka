@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types.ProtocolAndNotificationEndpoint
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,12 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Notifications in Security Lake which dictates how notifications are
--- posted at the endpoint.
+-- | Protocol used in Amazon Security Lake that dictates how notifications
+-- are posted at the endpoint.
 --
 -- /See:/ 'newProtocolAndNotificationEndpoint' smart constructor.
 data ProtocolAndNotificationEndpoint = ProtocolAndNotificationEndpoint'
-  { -- | The account which is subscribed to receive exception notifications.
+  { -- | The account that is subscribed to receive exception notifications.
     endpoint :: Prelude.Maybe Prelude.Text,
     -- | The protocol to which notification messages are posted.
     protocol :: Prelude.Maybe Prelude.Text
@@ -44,7 +44,7 @@ data ProtocolAndNotificationEndpoint = ProtocolAndNotificationEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpoint', 'protocolAndNotificationEndpoint_endpoint' - The account which is subscribed to receive exception notifications.
+-- 'endpoint', 'protocolAndNotificationEndpoint_endpoint' - The account that is subscribed to receive exception notifications.
 --
 -- 'protocol', 'protocolAndNotificationEndpoint_protocol' - The protocol to which notification messages are posted.
 newProtocolAndNotificationEndpoint ::
@@ -56,7 +56,7 @@ newProtocolAndNotificationEndpoint =
       protocol = Prelude.Nothing
     }
 
--- | The account which is subscribed to receive exception notifications.
+-- | The account that is subscribed to receive exception notifications.
 protocolAndNotificationEndpoint_endpoint :: Lens.Lens' ProtocolAndNotificationEndpoint (Prelude.Maybe Prelude.Text)
 protocolAndNotificationEndpoint_endpoint = Lens.lens (\ProtocolAndNotificationEndpoint' {endpoint} -> endpoint) (\s@ProtocolAndNotificationEndpoint' {} a -> s {endpoint = a} :: ProtocolAndNotificationEndpoint)
 

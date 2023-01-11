@@ -14,18 +14,15 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.UpdateDatalake
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Security Lake allows you to specify where to store your security
--- data and for how long. You can specify a rollup Region to consolidate
--- data from multiple regions.
---
--- You can update the properties of a Region or source. Input can either be
--- directly specified to the API.
+-- Specifies where to store your security data and for how long. You can
+-- add a rollup Region to consolidate data from multiple Amazon Web
+-- Services Regions.
 module Amazonka.SecurityLake.UpdateDatalake
   ( -- * Creating a Request
     UpdateDatalake (..),
@@ -53,7 +50,8 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newUpdateDatalake' smart constructor.
 data UpdateDatalake = UpdateDatalake'
-  { -- | The configuration object
+  { -- | Specify the Region or Regions that will contribute data to the rollup
+    -- region.
     configurations :: Prelude.HashMap Region LakeConfigurationRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,13 +64,15 @@ data UpdateDatalake = UpdateDatalake'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurations', 'updateDatalake_configurations' - The configuration object
+-- 'configurations', 'updateDatalake_configurations' - Specify the Region or Regions that will contribute data to the rollup
+-- region.
 newUpdateDatalake ::
   UpdateDatalake
 newUpdateDatalake =
   UpdateDatalake' {configurations = Prelude.mempty}
 
--- | The configuration object
+-- | Specify the Region or Regions that will contribute data to the rollup
+-- region.
 updateDatalake_configurations :: Lens.Lens' UpdateDatalake (Prelude.HashMap Region LakeConfigurationRequest)
 updateDatalake_configurations = Lens.lens (\UpdateDatalake' {configurations} -> configurations) (\s@UpdateDatalake' {} a -> s {configurations = a} :: UpdateDatalake) Prelude.. Lens.coerced
 

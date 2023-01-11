@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.GetDatalakeAutoEnable
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the configuration that will be automatically set up for
--- accounts added to the organization after the organization has on boarded
+-- accounts added to the organization after the organization has onboarded
 -- to Amazon Security Lake. This API does not take input parameters.
 module Amazonka.SecurityLake.GetDatalakeAutoEnable
   ( -- * Creating a Request

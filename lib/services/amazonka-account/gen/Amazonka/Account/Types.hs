@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Account.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -134,7 +134,7 @@ defaultService =
 
 -- | The operation failed because the calling identity doesn\'t have the
 -- minimum required permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -143,7 +143,7 @@ _AccessDeniedException =
 
 -- | The operation failed because of an error internal to Amazon Web
 -- Services. Try your operation again later.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -152,7 +152,7 @@ _InternalServerException =
 
 -- | The operation failed because it specified a resource that can\'t be
 -- found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -161,7 +161,7 @@ _ResourceNotFoundException =
 
 -- | The operation failed because it was called too frequently and exceeded a
 -- throttle limit.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -169,7 +169,7 @@ _TooManyRequestsException =
     Prelude.. Core.hasStatus 429
 
 -- | The operation failed because one of the input parameters was invalid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

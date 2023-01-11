@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruProfiler.Types.AnomalyInstance
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,7 +33,7 @@ data AnomalyInstance = AnomalyInstance'
     -- anomalous. This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    endTime :: Prelude.Maybe Data.POSIX,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | Feedback type on a specific instance of anomaly submitted by the user.
     userFeedback :: Prelude.Maybe UserFeedback,
     -- | The universally unique identifier (UUID) of an instance of an anomaly in
@@ -43,7 +43,7 @@ data AnomalyInstance = AnomalyInstance'
     -- anomalous. This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    startTime :: Data.POSIX
+    startTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

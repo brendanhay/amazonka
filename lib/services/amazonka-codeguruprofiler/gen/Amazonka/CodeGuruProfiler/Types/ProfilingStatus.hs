@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruProfiler.Types.ProfilingStatus
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,11 +35,11 @@ data ProfilingStatus = ProfilingStatus'
   { -- | The date and time when the profiling agent most recently pinged back.
     -- Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
     -- represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
-    latestAgentOrchestratedAt :: Prelude.Maybe Data.POSIX,
+    latestAgentOrchestratedAt :: Prelude.Maybe Data.ISO8601,
     -- | The date and time when the most recent profile was received. Specify
     -- using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
     -- represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
-    latestAgentProfileReportedAt :: Prelude.Maybe Data.POSIX,
+    latestAgentProfileReportedAt :: Prelude.Maybe Data.ISO8601,
     -- | An
     -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AggregatedProfileTime.html AggregatedProfileTime>
     -- object that contains the aggregation period and start time for an

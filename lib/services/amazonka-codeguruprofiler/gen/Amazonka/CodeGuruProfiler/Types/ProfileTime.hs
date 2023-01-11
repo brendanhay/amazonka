@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruProfiler.Types.ProfileTime
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ data ProfileTime = ProfileTime'
   { -- | The start time of a profile. It is specified using the ISO 8601 format.
     -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
     -- 1, 2020 1:15:02 PM UTC.
-    start :: Prelude.Maybe Data.POSIX
+    start :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

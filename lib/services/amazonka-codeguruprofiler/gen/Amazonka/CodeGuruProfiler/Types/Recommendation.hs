@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruProfiler.Types.Recommendation
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,7 +39,7 @@ data Recommendation = Recommendation'
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    endTime :: Data.POSIX,
+    endTime :: Data.ISO8601,
     -- | The pattern that analysis recognized in the profile to make this
     -- recommendation.
     pattern' :: Pattern,
@@ -47,7 +47,7 @@ data Recommendation = Recommendation'
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    startTime :: Data.POSIX,
+    startTime :: Data.ISO8601,
     -- | List of the matches with most impact.
     topMatches :: [Match]
   }

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruProfiler.GetRecommendations
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -93,14 +93,14 @@ data GetRecommendations = GetRecommendations'
     -- specify @startTime@ and @endTime@. This is specified using the ISO 8601
     -- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
     -- past June 1, 2020 1:15:02 PM UTC.
-    endTime :: Data.POSIX,
+    endTime :: Data.ISO8601,
     -- | The name of the profiling group to get analysis data about.
     profilingGroupName :: Prelude.Text,
     -- | The end time of the profile to get analysis data about. You must specify
     -- @startTime@ and @endTime@. This is specified using the ISO 8601 format.
     -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
     -- 1, 2020 1:15:02 PM UTC.
-    startTime :: Data.POSIX
+    startTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -285,12 +285,12 @@ data GetRecommendationsResponse = GetRecommendationsResponse'
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    profileEndTime :: Data.POSIX,
+    profileEndTime :: Data.ISO8601,
     -- | The start time of the profile the analysis data is about. This is
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    profileStartTime :: Data.POSIX,
+    profileStartTime :: Data.ISO8601,
     -- | The name of the profiling group the analysis data is about.
     profilingGroupName :: Prelude.Text,
     -- | The list of recommendations that the analysis found for this profile.

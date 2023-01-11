@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.FSx.Types.CreateFileSystemOpenZFSConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -72,10 +72,10 @@ data CreateFileSystemOpenZFSConfiguration = CreateFileSystemOpenZFSConfiguration
     --     (Oregon), and Europe (Ireland) Amazon Web Services Regions.
     --
     -- For more information, see:
-    -- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/available-aws-regions.html Deployment type availability>
+    -- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions Deployment type availability>
     -- and
-    -- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/zfs-fs-performance.html File system performance>in
-    -- the/Amazon FSx for OpenZFS User Guide/.
+    -- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance File system performance>
+    -- in the /Amazon FSx for OpenZFS User Guide/.
     deploymentType :: OpenZFSDeploymentType,
     -- | Specifies the throughput of an Amazon FSx for OpenZFS file system,
     -- measured in megabytes per second (MB\/s). Valid values depend on the
@@ -144,10 +144,10 @@ data CreateFileSystemOpenZFSConfiguration = CreateFileSystemOpenZFSConfiguration
 --     (Oregon), and Europe (Ireland) Amazon Web Services Regions.
 --
 -- For more information, see:
--- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/available-aws-regions.html Deployment type availability>
+-- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions Deployment type availability>
 -- and
--- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/zfs-fs-performance.html File system performance>in
--- the/Amazon FSx for OpenZFS User Guide/.
+-- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance File system performance>
+-- in the /Amazon FSx for OpenZFS User Guide/.
 --
 -- 'throughputCapacity', 'createFileSystemOpenZFSConfiguration_throughputCapacity' - Specifies the throughput of an Amazon FSx for OpenZFS file system,
 -- measured in megabytes per second (MB\/s). Valid values depend on the
@@ -245,10 +245,10 @@ createFileSystemOpenZFSConfiguration_weeklyMaintenanceStartTime = Lens.lens (\Cr
 --     (Oregon), and Europe (Ireland) Amazon Web Services Regions.
 --
 -- For more information, see:
--- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/available-aws-regions.html Deployment type availability>
+-- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions Deployment type availability>
 -- and
--- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/zfs-fs-performance.html File system performance>in
--- the/Amazon FSx for OpenZFS User Guide/.
+-- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance File system performance>
+-- in the /Amazon FSx for OpenZFS User Guide/.
 createFileSystemOpenZFSConfiguration_deploymentType :: Lens.Lens' CreateFileSystemOpenZFSConfiguration OpenZFSDeploymentType
 createFileSystemOpenZFSConfiguration_deploymentType = Lens.lens (\CreateFileSystemOpenZFSConfiguration' {deploymentType} -> deploymentType) (\s@CreateFileSystemOpenZFSConfiguration' {} a -> s {deploymentType = a} :: CreateFileSystemOpenZFSConfiguration)
 

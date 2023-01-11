@@ -159,6 +159,7 @@ haskell_library(
         "gen/Amazonka/FSx/Types/StorageVirtualMachineFilterName.hs",
         "gen/Amazonka/FSx/Types/StorageVirtualMachineLifecycle.hs",
         "gen/Amazonka/FSx/Types/StorageVirtualMachineRootVolumeSecurityStyle.hs",
+        "gen/Amazonka/FSx/Types/StorageVirtualMachineSubtype.hs",
         "gen/Amazonka/FSx/Types/SvmActiveDirectoryConfiguration.hs",
         "gen/Amazonka/FSx/Types/SvmEndpoint.hs",
         "gen/Amazonka/FSx/Types/SvmEndpoints.hs",

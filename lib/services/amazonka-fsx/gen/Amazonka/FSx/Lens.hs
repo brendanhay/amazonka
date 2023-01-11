@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.FSx.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -891,6 +891,7 @@ module Amazonka.FSx.Lens
     storageVirtualMachine_resourceARN,
     storageVirtualMachine_rootVolumeSecurityStyle,
     storageVirtualMachine_storageVirtualMachineId,
+    storageVirtualMachine_subtype,
     storageVirtualMachine_tags,
     storageVirtualMachine_uuid,
 

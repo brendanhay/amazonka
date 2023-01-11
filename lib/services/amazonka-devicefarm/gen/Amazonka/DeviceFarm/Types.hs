@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.DeviceFarm.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -770,21 +770,21 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An invalid argument was specified.
-_ArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ArgumentException =
   Core._MatchServiceError
     defaultService
     "ArgumentException"
 
 -- | The requested object could not be deleted.
-_CannotDeleteException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CannotDeleteException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CannotDeleteException =
   Core._MatchServiceError
     defaultService
     "CannotDeleteException"
 
 -- | An entity with the same name already exists.
-_IdempotencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IdempotencyException =
   Core._MatchServiceError
     defaultService
@@ -793,7 +793,7 @@ _IdempotencyException =
 -- | An internal exception was raised in the service. Contact
 -- <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support\@amazon.com>
 -- if you see this error.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -801,14 +801,14 @@ _InternalServiceException =
 
 -- | There was an error with the update request, or you do not have
 -- sufficient permissions to update this VPC endpoint configuration.
-_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidOperationException =
   Core._MatchServiceError
     defaultService
     "InvalidOperationException"
 
 -- | A limit was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -816,28 +816,28 @@ _LimitExceededException =
 
 -- | Exception gets thrown when a user is not eligible to perform the
 -- specified transaction.
-_NotEligibleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotEligibleException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotEligibleException =
   Core._MatchServiceError
     defaultService
     "NotEligibleException"
 
 -- | The specified entity was not found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
     "NotFoundException"
 
 -- | There was a problem with the service account.
-_ServiceAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceAccountException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceAccountException =
   Core._MatchServiceError
     defaultService
     "ServiceAccountException"
 
 -- | The operation was not successful. Try again.
-_TagOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TagOperationException =
   Core._MatchServiceError
     defaultService
@@ -845,7 +845,7 @@ _TagOperationException =
 
 -- | The request doesn\'t comply with the AWS Identity and Access Management
 -- (IAM) tag policy. Correct your request and then retry it.
-_TagPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TagPolicyException =
   Core._MatchServiceError
     defaultService
@@ -853,7 +853,7 @@ _TagPolicyException =
 
 -- | The list of tags on the repository is over the limit. The maximum number
 -- of tags that can be applied to a repository is 50.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

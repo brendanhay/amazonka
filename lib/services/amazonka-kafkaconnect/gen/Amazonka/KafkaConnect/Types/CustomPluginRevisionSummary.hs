@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data CustomPluginRevisionSummary = CustomPluginRevisionSummary'
   { -- | The format of the plugin file.
     contentType :: Prelude.Maybe CustomPluginContentType,
     -- | The time that the custom plugin was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The description of the custom plugin.
     description :: Prelude.Maybe Prelude.Text,
     -- | Details about the custom plugin file.

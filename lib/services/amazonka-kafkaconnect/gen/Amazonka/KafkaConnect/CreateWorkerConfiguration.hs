@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.KafkaConnect.CreateWorkerConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -167,7 +167,7 @@ instance Data.ToQuery CreateWorkerConfiguration where
 -- | /See:/ 'newCreateWorkerConfigurationResponse' smart constructor.
 data CreateWorkerConfigurationResponse = CreateWorkerConfigurationResponse'
   { -- | The time that the worker configuration was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The latest revision of the worker configuration.
     latestRevision :: Prelude.Maybe WorkerConfigurationRevisionSummary,
     -- | The name of the worker configuration.

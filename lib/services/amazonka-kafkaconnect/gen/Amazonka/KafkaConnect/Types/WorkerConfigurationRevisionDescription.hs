@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newWorkerConfigurationRevisionDescription' smart constructor.
 data WorkerConfigurationRevisionDescription = WorkerConfigurationRevisionDescription'
   { -- | The time that the worker configuration was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The description of the worker configuration revision.
     description :: Prelude.Maybe Prelude.Text,
     -- | Base64 encoded contents of the connect-distributed.properties file.

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.KafkaConnect.DescribeConnector
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -168,7 +168,7 @@ data DescribeConnectorResponse = DescribeConnectorResponse'
     -- | The state of the connector.
     connectorState :: Prelude.Maybe ConnectorState,
     -- | The time the connector was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The current version of the connector.
     currentVersion :: Prelude.Maybe Prelude.Text,
     -- | The Apache Kafka cluster that the connector is connected to.

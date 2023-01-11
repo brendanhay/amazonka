@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.KafkaConnect.DescribeWorkerConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -135,7 +135,7 @@ instance Data.ToQuery DescribeWorkerConfiguration where
 -- | /See:/ 'newDescribeWorkerConfigurationResponse' smart constructor.
 data DescribeWorkerConfigurationResponse = DescribeWorkerConfigurationResponse'
   { -- | The time that the worker configuration was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The description of the worker configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | The latest revision of the custom configuration.

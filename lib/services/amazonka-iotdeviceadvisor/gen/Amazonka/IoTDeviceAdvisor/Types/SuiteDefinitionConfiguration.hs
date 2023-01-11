@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,24 +26,24 @@ import Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
 import Amazonka.IoTDeviceAdvisor.Types.Protocol
 import qualified Amazonka.Prelude as Prelude
 
--- | Gets Suite Definition Configuration.
+-- | Gets the suite definition configuration.
 --
 -- /See:/ 'newSuiteDefinitionConfiguration' smart constructor.
 data SuiteDefinitionConfiguration = SuiteDefinitionConfiguration'
-  { -- | Gets the device permission ARN.
-    devicePermissionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Gets the devices configured.
+  { -- | Gets the devices configured.
     devices :: Prelude.Maybe [DeviceUnderTest],
     -- | Gets the tests intended for qualification in a suite.
     intendedForQualification :: Prelude.Maybe Prelude.Bool,
     -- | Verifies if the test suite is a long duration test.
     isLongDurationTest :: Prelude.Maybe Prelude.Bool,
-    -- | Gets the MQTT protocol that is configured in the suite definition.
+    -- | Sets the MQTT protocol that is configured in the suite definition.
     protocol :: Prelude.Maybe Protocol,
-    -- | Gets test suite root group.
-    rootGroup :: Prelude.Maybe Prelude.Text,
-    -- | Gets Suite Definition Configuration name.
-    suiteDefinitionName :: Prelude.Maybe Prelude.Text
+    -- | Gets the suite definition name. This is a required parameter.
+    suiteDefinitionName :: Prelude.Text,
+    -- | Gets the test suite root group. This is a required parameter.
+    rootGroup :: Prelude.Text,
+    -- | Gets the device permission ARN. This is a required parameter.
+    devicePermissionRoleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,36 +55,42 @@ data SuiteDefinitionConfiguration = SuiteDefinitionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'devicePermissionRoleArn', 'suiteDefinitionConfiguration_devicePermissionRoleArn' - Gets the device permission ARN.
---
 -- 'devices', 'suiteDefinitionConfiguration_devices' - Gets the devices configured.
 --
 -- 'intendedForQualification', 'suiteDefinitionConfiguration_intendedForQualification' - Gets the tests intended for qualification in a suite.
 --
 -- 'isLongDurationTest', 'suiteDefinitionConfiguration_isLongDurationTest' - Verifies if the test suite is a long duration test.
 --
--- 'protocol', 'suiteDefinitionConfiguration_protocol' - Gets the MQTT protocol that is configured in the suite definition.
+-- 'protocol', 'suiteDefinitionConfiguration_protocol' - Sets the MQTT protocol that is configured in the suite definition.
 --
--- 'rootGroup', 'suiteDefinitionConfiguration_rootGroup' - Gets test suite root group.
+-- 'suiteDefinitionName', 'suiteDefinitionConfiguration_suiteDefinitionName' - Gets the suite definition name. This is a required parameter.
 --
--- 'suiteDefinitionName', 'suiteDefinitionConfiguration_suiteDefinitionName' - Gets Suite Definition Configuration name.
+-- 'rootGroup', 'suiteDefinitionConfiguration_rootGroup' - Gets the test suite root group. This is a required parameter.
+--
+-- 'devicePermissionRoleArn', 'suiteDefinitionConfiguration_devicePermissionRoleArn' - Gets the device permission ARN. This is a required parameter.
 newSuiteDefinitionConfiguration ::
+  -- | 'suiteDefinitionName'
+  Prelude.Text ->
+  -- | 'rootGroup'
+  Prelude.Text ->
+  -- | 'devicePermissionRoleArn'
+  Prelude.Text ->
   SuiteDefinitionConfiguration
-newSuiteDefinitionConfiguration =
-  SuiteDefinitionConfiguration'
-    { devicePermissionRoleArn =
-        Prelude.Nothing,
-      devices = Prelude.Nothing,
-      intendedForQualification = Prelude.Nothing,
-      isLongDurationTest = Prelude.Nothing,
-      protocol = Prelude.Nothing,
-      rootGroup = Prelude.Nothing,
-      suiteDefinitionName = Prelude.Nothing
-    }
-
--- | Gets the device permission ARN.
-suiteDefinitionConfiguration_devicePermissionRoleArn :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Prelude.Text)
-suiteDefinitionConfiguration_devicePermissionRoleArn = Lens.lens (\SuiteDefinitionConfiguration' {devicePermissionRoleArn} -> devicePermissionRoleArn) (\s@SuiteDefinitionConfiguration' {} a -> s {devicePermissionRoleArn = a} :: SuiteDefinitionConfiguration)
+newSuiteDefinitionConfiguration
+  pSuiteDefinitionName_
+  pRootGroup_
+  pDevicePermissionRoleArn_ =
+    SuiteDefinitionConfiguration'
+      { devices =
+          Prelude.Nothing,
+        intendedForQualification = Prelude.Nothing,
+        isLongDurationTest = Prelude.Nothing,
+        protocol = Prelude.Nothing,
+        suiteDefinitionName = pSuiteDefinitionName_,
+        rootGroup = pRootGroup_,
+        devicePermissionRoleArn =
+          pDevicePermissionRoleArn_
+      }
 
 -- | Gets the devices configured.
 suiteDefinitionConfiguration_devices :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe [DeviceUnderTest])
@@ -98,17 +104,21 @@ suiteDefinitionConfiguration_intendedForQualification = Lens.lens (\SuiteDefinit
 suiteDefinitionConfiguration_isLongDurationTest :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Prelude.Bool)
 suiteDefinitionConfiguration_isLongDurationTest = Lens.lens (\SuiteDefinitionConfiguration' {isLongDurationTest} -> isLongDurationTest) (\s@SuiteDefinitionConfiguration' {} a -> s {isLongDurationTest = a} :: SuiteDefinitionConfiguration)
 
--- | Gets the MQTT protocol that is configured in the suite definition.
+-- | Sets the MQTT protocol that is configured in the suite definition.
 suiteDefinitionConfiguration_protocol :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Protocol)
 suiteDefinitionConfiguration_protocol = Lens.lens (\SuiteDefinitionConfiguration' {protocol} -> protocol) (\s@SuiteDefinitionConfiguration' {} a -> s {protocol = a} :: SuiteDefinitionConfiguration)
 
--- | Gets test suite root group.
-suiteDefinitionConfiguration_rootGroup :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Prelude.Text)
+-- | Gets the suite definition name. This is a required parameter.
+suiteDefinitionConfiguration_suiteDefinitionName :: Lens.Lens' SuiteDefinitionConfiguration Prelude.Text
+suiteDefinitionConfiguration_suiteDefinitionName = Lens.lens (\SuiteDefinitionConfiguration' {suiteDefinitionName} -> suiteDefinitionName) (\s@SuiteDefinitionConfiguration' {} a -> s {suiteDefinitionName = a} :: SuiteDefinitionConfiguration)
+
+-- | Gets the test suite root group. This is a required parameter.
+suiteDefinitionConfiguration_rootGroup :: Lens.Lens' SuiteDefinitionConfiguration Prelude.Text
 suiteDefinitionConfiguration_rootGroup = Lens.lens (\SuiteDefinitionConfiguration' {rootGroup} -> rootGroup) (\s@SuiteDefinitionConfiguration' {} a -> s {rootGroup = a} :: SuiteDefinitionConfiguration)
 
--- | Gets Suite Definition Configuration name.
-suiteDefinitionConfiguration_suiteDefinitionName :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Prelude.Text)
-suiteDefinitionConfiguration_suiteDefinitionName = Lens.lens (\SuiteDefinitionConfiguration' {suiteDefinitionName} -> suiteDefinitionName) (\s@SuiteDefinitionConfiguration' {} a -> s {suiteDefinitionName = a} :: SuiteDefinitionConfiguration)
+-- | Gets the device permission ARN. This is a required parameter.
+suiteDefinitionConfiguration_devicePermissionRoleArn :: Lens.Lens' SuiteDefinitionConfiguration Prelude.Text
+suiteDefinitionConfiguration_devicePermissionRoleArn = Lens.lens (\SuiteDefinitionConfiguration' {devicePermissionRoleArn} -> devicePermissionRoleArn) (\s@SuiteDefinitionConfiguration' {} a -> s {devicePermissionRoleArn = a} :: SuiteDefinitionConfiguration)
 
 instance Data.FromJSON SuiteDefinitionConfiguration where
   parseJSON =
@@ -116,13 +126,13 @@ instance Data.FromJSON SuiteDefinitionConfiguration where
       "SuiteDefinitionConfiguration"
       ( \x ->
           SuiteDefinitionConfiguration'
-            Prelude.<$> (x Data..:? "devicePermissionRoleArn")
-            Prelude.<*> (x Data..:? "devices" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "devices" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "intendedForQualification")
             Prelude.<*> (x Data..:? "isLongDurationTest")
             Prelude.<*> (x Data..:? "protocol")
-            Prelude.<*> (x Data..:? "rootGroup")
-            Prelude.<*> (x Data..:? "suiteDefinitionName")
+            Prelude.<*> (x Data..: "suiteDefinitionName")
+            Prelude.<*> (x Data..: "rootGroup")
+            Prelude.<*> (x Data..: "devicePermissionRoleArn")
       )
 
 instance
@@ -130,39 +140,40 @@ instance
     SuiteDefinitionConfiguration
   where
   hashWithSalt _salt SuiteDefinitionConfiguration' {..} =
-    _salt
-      `Prelude.hashWithSalt` devicePermissionRoleArn
-      `Prelude.hashWithSalt` devices
+    _salt `Prelude.hashWithSalt` devices
       `Prelude.hashWithSalt` intendedForQualification
       `Prelude.hashWithSalt` isLongDurationTest
       `Prelude.hashWithSalt` protocol
-      `Prelude.hashWithSalt` rootGroup
       `Prelude.hashWithSalt` suiteDefinitionName
+      `Prelude.hashWithSalt` rootGroup
+      `Prelude.hashWithSalt` devicePermissionRoleArn
 
 instance Prelude.NFData SuiteDefinitionConfiguration where
   rnf SuiteDefinitionConfiguration' {..} =
-    Prelude.rnf devicePermissionRoleArn
-      `Prelude.seq` Prelude.rnf devices
+    Prelude.rnf devices
       `Prelude.seq` Prelude.rnf intendedForQualification
       `Prelude.seq` Prelude.rnf isLongDurationTest
       `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf rootGroup
       `Prelude.seq` Prelude.rnf suiteDefinitionName
+      `Prelude.seq` Prelude.rnf rootGroup
+      `Prelude.seq` Prelude.rnf devicePermissionRoleArn
 
 instance Data.ToJSON SuiteDefinitionConfiguration where
   toJSON SuiteDefinitionConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("devicePermissionRoleArn" Data..=)
-              Prelude.<$> devicePermissionRoleArn,
-            ("devices" Data..=) Prelude.<$> devices,
+          [ ("devices" Data..=) Prelude.<$> devices,
             ("intendedForQualification" Data..=)
               Prelude.<$> intendedForQualification,
             ("isLongDurationTest" Data..=)
               Prelude.<$> isLongDurationTest,
             ("protocol" Data..=) Prelude.<$> protocol,
-            ("rootGroup" Data..=) Prelude.<$> rootGroup,
-            ("suiteDefinitionName" Data..=)
-              Prelude.<$> suiteDefinitionName
+            Prelude.Just
+              ("suiteDefinitionName" Data..= suiteDefinitionName),
+            Prelude.Just ("rootGroup" Data..= rootGroup),
+            Prelude.Just
+              ( "devicePermissionRoleArn"
+                  Data..= devicePermissionRoleArn
+              )
           ]
       )

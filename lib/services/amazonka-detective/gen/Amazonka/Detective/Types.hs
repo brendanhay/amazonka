@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Detective.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,7 @@ module Amazonka.Detective.Types
     defaultService,
 
     -- * Errors
+    _AccessDeniedException,
     _ConflictException,
     _InternalServerException,
     _ResourceNotFoundException,
@@ -207,8 +208,17 @@ defaultService =
         Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | The request issuer does not have permission to access this resource or
+-- perform this operation.
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 403
+
 -- | The request attempted an invalid action.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -216,7 +226,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The request was valid but failed because of a problem with the service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -224,7 +234,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The request refers to a nonexistent resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -243,7 +253,7 @@ _ResourceNotFoundException =
 -- -   Detective is unable to verify the data rate for the member account.
 --     This is usually because the member account is not enrolled in Amazon
 --     GuardDuty.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -252,7 +262,7 @@ _ServiceQuotaExceededException =
 
 -- | The request cannot be completed because too many other requests are
 -- occurring at the same time.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -260,7 +270,7 @@ _TooManyRequestsException =
     Prelude.. Core.hasStatus 429
 
 -- | The request parameters are invalid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

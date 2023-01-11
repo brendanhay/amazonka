@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.Types.FilterNameStringType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ module Amazonka.SecretsManager.Types.FilterNameStringType
         FilterNameStringType_All,
         FilterNameStringType_Description,
         FilterNameStringType_Name,
+        FilterNameStringType_Owning_service,
         FilterNameStringType_Primary_region,
         FilterNameStringType_Tag_key,
         FilterNameStringType_Tag_value
@@ -71,6 +72,9 @@ pattern FilterNameStringType_Description = FilterNameStringType' "description"
 pattern FilterNameStringType_Name :: FilterNameStringType
 pattern FilterNameStringType_Name = FilterNameStringType' "name"
 
+pattern FilterNameStringType_Owning_service :: FilterNameStringType
+pattern FilterNameStringType_Owning_service = FilterNameStringType' "owning-service"
+
 pattern FilterNameStringType_Primary_region :: FilterNameStringType
 pattern FilterNameStringType_Primary_region = FilterNameStringType' "primary-region"
 
@@ -84,6 +88,7 @@ pattern FilterNameStringType_Tag_value = FilterNameStringType' "tag-value"
   FilterNameStringType_All,
   FilterNameStringType_Description,
   FilterNameStringType_Name,
+  FilterNameStringType_Owning_service,
   FilterNameStringType_Primary_region,
   FilterNameStringType_Tag_key,
   FilterNameStringType_Tag_value,

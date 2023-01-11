@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SSO.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -126,7 +126,7 @@ defaultService =
 
 -- | Indicates that a problem occurred with the input to the request. For
 -- example, a required parameter might be missing or out of range.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -134,7 +134,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified resource doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -143,7 +143,7 @@ _ResourceNotFoundException =
 
 -- | Indicates that the request is being made too frequently and is more than
 -- what the server can handle.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -152,7 +152,7 @@ _TooManyRequestsException =
 
 -- | Indicates that the request is not authorized. This can happen due to an
 -- invalid access token in the request.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

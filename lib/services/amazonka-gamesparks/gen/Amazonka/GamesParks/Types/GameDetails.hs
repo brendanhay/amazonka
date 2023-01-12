@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GamesParks.Types.GameDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,13 +32,13 @@ data GameDetails = GameDetails'
   { -- | The Amazon Resource Name (ARN) of this game.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date when the game was created.
-    created :: Prelude.Maybe Data.POSIX,
+    created :: Prelude.Maybe Data.ISO8601,
     -- | The description of the game.
     description :: Prelude.Maybe Prelude.Text,
     -- | Determines if the game can be deleted.
     enableTerminationProtection :: Prelude.Maybe Prelude.Bool,
     -- | The date when the game was last modified.
-    lastUpdated :: Prelude.Maybe Data.POSIX,
+    lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The name of the game.
     name :: Prelude.Maybe Prelude.Text,
     -- | The state of the game.

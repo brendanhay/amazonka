@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.DeregisterOrganizationAdminAccount
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@
 -- settings, you continue to have access to the evidence that you
 -- previously collected under that account. This is also the case when you
 -- deregister a delegated administrator from Organizations. However, Audit
--- Manager will stop collecting and attaching evidence to that delegated
+-- Manager stops collecting and attaching evidence to that delegated
 -- administrator account moving forward.
 --
 -- Keep in mind the following cleanup task if you use evidence finder:
@@ -40,11 +40,11 @@
 -- this task isn’t completed, the event data store remains in their
 -- account. In this case, we recommend that the original delegated
 -- administrator goes to CloudTrail Lake and manually
--- <https://docs.aws.amazon.com/userguide/awscloudtrail/latest/userguide/query-eds-disable-termination.html deletes the event data store>.
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html deletes the event data store>.
 --
 -- This cleanup task is necessary to ensure that you don\'t end up with
--- multiple event data stores. Audit Manager will ignore an unused event
--- data store after you remove or change a delegated administrator account.
+-- multiple event data stores. Audit Manager ignores an unused event data
+-- store after you remove or change a delegated administrator account.
 -- However, the unused event data store continues to incur storage costs
 -- from CloudTrail Lake if you don\'t delete it.
 --
@@ -84,7 +84,10 @@
 --     in the /Audit Manager User Guide/)
 --
 -- At this time, Audit Manager doesn\'t provide an option to delete
--- evidence. All available delete operations are listed above.
+-- evidence for a specific delegated administrator. Instead, when your
+-- management account deregisters Audit Manager, we perform a cleanup for
+-- the current delegated administrator account at the time of
+-- deregistration.
 module Amazonka.AuditManager.DeregisterOrganizationAdminAccount
   ( -- * Creating a Request
     DeregisterOrganizationAdminAccount (..),

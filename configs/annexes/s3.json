@@ -4,14 +4,35 @@
     },
     "documentation": "Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites. The service aims to maximize benefits of scale and to pass those benefits on to developers.",
     "shapes": {
+        "AbortDate": {
+            "timestampFormat": "rfc822"
+        },
         "CompletedPartList": {
             "min": 1
+        },
+        "CopySourceIfModifiedSince": {
+            "timestampFormat": "rfc822"
+        },
+        "CopySourceIfUnmodifiedSince": {
+            "timestampFormat": "rfc822"
+        },
+        "Expires": {
+            "timestampFormat": "rfc822"
         },
         "GetBucketLocationOutput": {
             "required": [
                 "LocationConstraint"
             ],
             "payload": "LocationConstraint"
+        },
+        "IfModifiedSince": {
+            "timestampFormat": "rfc822"
+        },
+        "IfUnmodifiedSince": {
+            "timestampFormat": "rfc822"
+        },
+        "LastModified": {
+            "timestampFormat": "rfc822"
         },
         "ObjectStorageClass": {
             "enum": [

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListLaunchProfileMembers
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,9 +57,11 @@ import qualified Amazonka.Response as Response
 data ListLaunchProfileMembers = ListLaunchProfileMembers'
   { -- | The max number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to request the next page of results.
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Launch Profile ID.
+    -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -76,9 +78,11 @@ data ListLaunchProfileMembers = ListLaunchProfileMembers'
 --
 -- 'maxResults', 'listLaunchProfileMembers_maxResults' - The max number of results to return in the response.
 --
--- 'nextToken', 'listLaunchProfileMembers_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'listLaunchProfileMembers_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
--- 'launchProfileId', 'listLaunchProfileMembers_launchProfileId' - The Launch Profile ID.
+-- 'launchProfileId', 'listLaunchProfileMembers_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'studioId', 'listLaunchProfileMembers_studioId' - The studio ID.
 newListLaunchProfileMembers ::
@@ -102,11 +106,13 @@ newListLaunchProfileMembers
 listLaunchProfileMembers_maxResults :: Lens.Lens' ListLaunchProfileMembers (Prelude.Maybe Prelude.Natural)
 listLaunchProfileMembers_maxResults = Lens.lens (\ListLaunchProfileMembers' {maxResults} -> maxResults) (\s@ListLaunchProfileMembers' {} a -> s {maxResults = a} :: ListLaunchProfileMembers)
 
--- | The token to request the next page of results.
+-- | The token for the next set of results, or null if there are no more
+-- results.
 listLaunchProfileMembers_nextToken :: Lens.Lens' ListLaunchProfileMembers (Prelude.Maybe Prelude.Text)
 listLaunchProfileMembers_nextToken = Lens.lens (\ListLaunchProfileMembers' {nextToken} -> nextToken) (\s@ListLaunchProfileMembers' {} a -> s {nextToken = a} :: ListLaunchProfileMembers)
 
--- | The Launch Profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 listLaunchProfileMembers_launchProfileId :: Lens.Lens' ListLaunchProfileMembers Prelude.Text
 listLaunchProfileMembers_launchProfileId = Lens.lens (\ListLaunchProfileMembers' {launchProfileId} -> launchProfileId) (\s@ListLaunchProfileMembers' {} a -> s {launchProfileId = a} :: ListLaunchProfileMembers)
 

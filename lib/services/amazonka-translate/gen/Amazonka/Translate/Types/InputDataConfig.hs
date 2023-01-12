@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Translate.Types.InputDataConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,14 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInputDataConfig' smart constructor.
 data InputDataConfig = InputDataConfig'
   { -- | The URI of the AWS S3 folder that contains the input files. Amazon
-    -- Translate translates all the files in the folder. The folder must be in
-    -- the same Region as the API endpoint you are calling.
-    --
-    -- The URI can also point to a single input document, or it can provide the
-    -- prefix for a collection of input documents. For example. if you use the
-    -- URI @S3:\/\/bucketName\/prefix@ and the prefix is a single file, Amazon
-    -- Translate uses that files as input. If more than one file begins with
-    -- the prefix, Amazon Translate uses all of them as input.
+    -- Translate translates all the files in the folder and all its
+    -- sub-folders. The folder must be in the same Region as the API endpoint
+    -- you are calling.
     s3Uri :: Prelude.Text,
     -- | Describes the format of the data that you submit to Amazon Translate as
     -- input. You can specify one of the following multipurpose internet mail
@@ -83,14 +78,9 @@ data InputDataConfig = InputDataConfig'
 -- for backwards compatibility:
 --
 -- 's3Uri', 'inputDataConfig_s3Uri' - The URI of the AWS S3 folder that contains the input files. Amazon
--- Translate translates all the files in the folder. The folder must be in
--- the same Region as the API endpoint you are calling.
---
--- The URI can also point to a single input document, or it can provide the
--- prefix for a collection of input documents. For example. if you use the
--- URI @S3:\/\/bucketName\/prefix@ and the prefix is a single file, Amazon
--- Translate uses that files as input. If more than one file begins with
--- the prefix, Amazon Translate uses all of them as input.
+-- Translate translates all the files in the folder and all its
+-- sub-folders. The folder must be in the same Region as the API endpoint
+-- you are calling.
 --
 -- 'contentType', 'inputDataConfig_contentType' - Describes the format of the data that you submit to Amazon Translate as
 -- input. You can specify one of the following multipurpose internet mail
@@ -136,14 +126,9 @@ newInputDataConfig pS3Uri_ pContentType_ =
     }
 
 -- | The URI of the AWS S3 folder that contains the input files. Amazon
--- Translate translates all the files in the folder. The folder must be in
--- the same Region as the API endpoint you are calling.
---
--- The URI can also point to a single input document, or it can provide the
--- prefix for a collection of input documents. For example. if you use the
--- URI @S3:\/\/bucketName\/prefix@ and the prefix is a single file, Amazon
--- Translate uses that files as input. If more than one file begins with
--- the prefix, Amazon Translate uses all of them as input.
+-- Translate translates all the files in the folder and all its
+-- sub-folders. The folder must be in the same Region as the API endpoint
+-- you are calling.
 inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@InputDataConfig' {} a -> s {s3Uri = a} :: InputDataConfig)
 

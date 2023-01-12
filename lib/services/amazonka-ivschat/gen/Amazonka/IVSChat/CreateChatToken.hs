@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IVSChat.CreateChatToken
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -224,13 +224,13 @@ instance Data.ToQuery CreateChatToken where
 data CreateChatTokenResponse = CreateChatTokenResponse'
   { -- | Time after which an end user\'s session is no longer valid. This is an
     -- ISO 8601 timestamp; /note that this is returned as a string/.
-    sessionExpirationTime :: Prelude.Maybe Data.POSIX,
+    sessionExpirationTime :: Prelude.Maybe Data.ISO8601,
     -- | The issued client token, encrypted.
     token :: Prelude.Maybe Prelude.Text,
     -- | Time after which the token is no longer valid and cannot be used to
     -- connect to a room. This is an ISO 8601 timestamp; /note that this is
     -- returned as a string/.
-    tokenExpirationTime :: Prelude.Maybe Data.POSIX,
+    tokenExpirationTime :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

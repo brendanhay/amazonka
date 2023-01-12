@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.UpdateDistribution
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,14 +39,14 @@
 --         unchanged. (Set the value of @IfMatch@ to the value of @ETag@,
 --         then remove the @ETag@ field.)
 --
---     -   You can’t change the value of @CallerReference@.
+--     -   You can\'t change the value of @CallerReference@.
 --
 -- 3.  Submit an @UpdateDistribution@ request, providing the distribution
 --     configuration. The new configuration replaces the existing
 --     configuration. The values that you specify in an
 --     @UpdateDistribution@ request are not merged into your existing
 --     configuration. Make sure to include all fields: the ones that you
---     modified and also the ones that you didn’t.
+--     modified and also the ones that you didn\'t.
 module Amazonka.CloudFront.UpdateDistribution
   ( -- * Creating a Request
     UpdateDistribution (..),

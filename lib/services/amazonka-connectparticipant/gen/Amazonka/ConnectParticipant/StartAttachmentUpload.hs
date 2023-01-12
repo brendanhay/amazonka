@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.StartAttachmentUpload
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,9 @@
 --
 -- Provides a pre-signed Amazon S3 URL in response for uploading the file
 -- directly to S3.
+--
+-- @ConnectionToken@ is used for invoking this API instead of
+-- @ParticipantToken@.
 --
 -- The Amazon Connect Participant Service APIs do not use
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication>.
@@ -60,14 +63,17 @@ import qualified Amazonka.Response as Response
 data StartAttachmentUpload = StartAttachmentUpload'
   { -- | Describes the MIME file type of the attachment. For a list of supported
     -- file types, see
-    -- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits Feature specifications>
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html Feature specifications>
     -- in the /Amazon Connect Administrator Guide/.
     contentType :: Prelude.Text,
     -- | The size of the attachment in bytes.
     attachmentSizeInBytes :: Prelude.Natural,
     -- | A case-sensitive name of the attachment being uploaded.
     attachmentName :: Prelude.Text,
-    -- | A unique case sensitive identifier to support idempotency of request.
+    -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Text,
     -- | The authentication token associated with the participant\'s connection.
     connectionToken :: Prelude.Text
@@ -84,14 +90,17 @@ data StartAttachmentUpload = StartAttachmentUpload'
 --
 -- 'contentType', 'startAttachmentUpload_contentType' - Describes the MIME file type of the attachment. For a list of supported
 -- file types, see
--- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits Feature specifications>
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html Feature specifications>
 -- in the /Amazon Connect Administrator Guide/.
 --
 -- 'attachmentSizeInBytes', 'startAttachmentUpload_attachmentSizeInBytes' - The size of the attachment in bytes.
 --
 -- 'attachmentName', 'startAttachmentUpload_attachmentName' - A case-sensitive name of the attachment being uploaded.
 --
--- 'clientToken', 'startAttachmentUpload_clientToken' - A unique case sensitive identifier to support idempotency of request.
+-- 'clientToken', 'startAttachmentUpload_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'connectionToken', 'startAttachmentUpload_connectionToken' - The authentication token associated with the participant\'s connection.
 newStartAttachmentUpload ::
@@ -122,7 +131,7 @@ newStartAttachmentUpload
 
 -- | Describes the MIME file type of the attachment. For a list of supported
 -- file types, see
--- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits Feature specifications>
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html Feature specifications>
 -- in the /Amazon Connect Administrator Guide/.
 startAttachmentUpload_contentType :: Lens.Lens' StartAttachmentUpload Prelude.Text
 startAttachmentUpload_contentType = Lens.lens (\StartAttachmentUpload' {contentType} -> contentType) (\s@StartAttachmentUpload' {} a -> s {contentType = a} :: StartAttachmentUpload)
@@ -135,7 +144,10 @@ startAttachmentUpload_attachmentSizeInBytes = Lens.lens (\StartAttachmentUpload'
 startAttachmentUpload_attachmentName :: Lens.Lens' StartAttachmentUpload Prelude.Text
 startAttachmentUpload_attachmentName = Lens.lens (\StartAttachmentUpload' {attachmentName} -> attachmentName) (\s@StartAttachmentUpload' {} a -> s {attachmentName = a} :: StartAttachmentUpload)
 
--- | A unique case sensitive identifier to support idempotency of request.
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 startAttachmentUpload_clientToken :: Lens.Lens' StartAttachmentUpload Prelude.Text
 startAttachmentUpload_clientToken = Lens.lens (\StartAttachmentUpload' {clientToken} -> clientToken) (\s@StartAttachmentUpload' {} a -> s {clientToken = a} :: StartAttachmentUpload)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.Types.AnnotationStoreItem
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAnnotationStoreItem' smart constructor.
 data AnnotationStoreItem = AnnotationStoreItem'
   { -- | The store\'s creation time.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The store\'s description.
     description :: Prelude.Text,
     -- | The store\'s ID.
@@ -55,7 +55,7 @@ data AnnotationStoreItem = AnnotationStoreItem'
     -- | The store\'s size in bytes.
     storeSizeBytes :: Prelude.Integer,
     -- | When the store was updated.
-    updateTime :: Data.POSIX
+    updateTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

@@ -45,25 +45,6 @@ instance FromJSON Signature where
 instance ToJSON Signature where
   toJSON = Aeson.String . sigToText
 
-data Timestamp
-  = RFC822
-  | ISO8601
-  | POSIX
-  deriving (Eq, Show, Generic)
-
-tsToText :: Timestamp -> Text
-tsToText = Text.pack . show
-
-instance FromJSON Timestamp where
-  parseJSON = Aeson.withText "timestamp" $ \case
-    "rfc822" -> pure RFC822
-    "iso8601" -> pure ISO8601
-    "unixTimestamp" -> pure POSIX
-    e -> fail ("Unknown Timestamp: " ++ Text.unpack e)
-
-instance ToJSON Timestamp where
-  toJSON = Aeson.toJSON . tsToText
-
 data Protocol
   = JSON
   | RestJSON
@@ -342,6 +323,7 @@ instance FromJSON (ShapeF ()) where
     i <- Aeson.parseJSON (Aeson.Object o)
     t <- o .: "type"
     m <- o .:? "enum"
+    ts <- o .:? "timestampFormat"
 
     case t of
       "list" -> List . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
@@ -354,7 +336,7 @@ instance FromJSON (ShapeF ()) where
       "blob" -> pure (Lit i Base64)
       "bytes" -> pure (Lit i Bytes)
       "boolean" -> pure (Lit i Bool)
-      "timestamp" -> pure (Lit i Time)
+      "timestamp" -> pure (Lit i (Time ts))
       "json" -> pure (Lit i Json)
       "string" -> pure (maybe (Lit i Text) f m)
         where
@@ -413,7 +395,6 @@ data Metadata f = Metadata
     _apiVersion :: Text,
     _signatureVersion :: Signature,
     _endpointPrefix :: Text,
-    _timestampFormat :: f Timestamp,
     _checksumFormat :: f Checksum,
     _xmlNamespace :: Maybe Text,
     _jsonVersion :: Maybe Text,
@@ -438,7 +419,6 @@ instance FromJSON (Metadata Maybe) where
       <*> o .: "apiVersion"
       <*> o .: "signatureVersion"
       <*> o .: "endpointPrefix"
-      <*> o .:? "timestampFormat"
       <*> o .:? "checksumFormat"
       <*> o .:? "xmlNamespace"
       <*> o .:? "jsonVersion"

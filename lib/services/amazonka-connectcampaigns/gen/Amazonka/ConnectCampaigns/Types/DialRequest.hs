@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectCampaigns.Types.DialRequest
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data DialRequest = DialRequest'
   { attributes :: Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
     clientToken :: Prelude.Text,
-    expirationTime :: Data.POSIX,
+    expirationTime :: Data.ISO8601,
     phoneNumber :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)

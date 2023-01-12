@@ -14,14 +14,14 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListStudios
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List studios in your Amazon Web Services account in the requested Amazon
--- Web Services Region.
+-- List studios in your Amazon Web Services accounts in the requested
+-- Amazon Web Services Region.
 --
 -- This operation returns paginated results.
 module Amazonka.Nimble.ListStudios
@@ -53,7 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStudios' smart constructor.
 data ListStudios = ListStudios'
-  { -- | The token to request the next page of results.
+  { -- | The token for the next set of results, or null if there are no more
+    -- results.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,13 +67,15 @@ data ListStudios = ListStudios'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStudios_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'listStudios_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 newListStudios ::
   ListStudios
 newListStudios =
   ListStudios' {nextToken = Prelude.Nothing}
 
--- | The token to request the next page of results.
+-- | The token for the next set of results, or null if there are no more
+-- results.
 listStudios_nextToken :: Lens.Lens' ListStudios (Prelude.Maybe Prelude.Text)
 listStudios_nextToken = Lens.lens (\ListStudios' {nextToken} -> nextToken) (\s@ListStudios' {} a -> s {nextToken = a} :: ListStudios)
 

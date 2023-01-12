@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.StartStreamEncryption
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,12 +39,16 @@
 -- status before all records written to the stream are encrypted. After you
 -- enable encryption, you can verify that encryption is applied by
 -- inspecting the API response from @PutRecord@ or @PutRecords@.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 module Amazonka.Kinesis.StartStreamEncryption
   ( -- * Creating a Request
     StartStreamEncryption (..),
     newStartStreamEncryption,
 
     -- * Request Lenses
+    startStreamEncryption_streamARN,
     startStreamEncryption_streamName,
     startStreamEncryption_encryptionType,
     startStreamEncryption_keyId,
@@ -65,8 +69,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartStreamEncryption' smart constructor.
 data StartStreamEncryption = StartStreamEncryption'
-  { -- | The name of the stream for which to start encrypting records.
-    streamName :: Prelude.Text,
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream for which to start encrypting records.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The encryption type to use. The only valid value is @KMS@.
     encryptionType :: EncryptionType,
     -- | The GUID for the customer-managed Amazon Web Services KMS key to use for
@@ -99,6 +105,8 @@ data StartStreamEncryption = StartStreamEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'startStreamEncryption_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'startStreamEncryption_streamName' - The name of the stream for which to start encrypting records.
 --
 -- 'encryptionType', 'startStreamEncryption_encryptionType' - The encryption type to use. The only valid value is @KMS@.
@@ -122,25 +130,25 @@ data StartStreamEncryption = StartStreamEncryption'
 --
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
 newStartStreamEncryption ::
-  -- | 'streamName'
-  Prelude.Text ->
   -- | 'encryptionType'
   EncryptionType ->
   -- | 'keyId'
   Prelude.Text ->
   StartStreamEncryption
-newStartStreamEncryption
-  pStreamName_
-  pEncryptionType_
-  pKeyId_ =
-    StartStreamEncryption'
-      { streamName = pStreamName_,
-        encryptionType = pEncryptionType_,
-        keyId = pKeyId_
-      }
+newStartStreamEncryption pEncryptionType_ pKeyId_ =
+  StartStreamEncryption'
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
+      encryptionType = pEncryptionType_,
+      keyId = pKeyId_
+    }
+
+-- | The ARN of the stream.
+startStreamEncryption_streamARN :: Lens.Lens' StartStreamEncryption (Prelude.Maybe Prelude.Text)
+startStreamEncryption_streamARN = Lens.lens (\StartStreamEncryption' {streamARN} -> streamARN) (\s@StartStreamEncryption' {} a -> s {streamARN = a} :: StartStreamEncryption)
 
 -- | The name of the stream for which to start encrypting records.
-startStreamEncryption_streamName :: Lens.Lens' StartStreamEncryption Prelude.Text
+startStreamEncryption_streamName :: Lens.Lens' StartStreamEncryption (Prelude.Maybe Prelude.Text)
 startStreamEncryption_streamName = Lens.lens (\StartStreamEncryption' {streamName} -> streamName) (\s@StartStreamEncryption' {} a -> s {streamName = a} :: StartStreamEncryption)
 
 -- | The encryption type to use. The only valid value is @KMS@.
@@ -179,13 +187,15 @@ instance Core.AWSRequest StartStreamEncryption where
 
 instance Prelude.Hashable StartStreamEncryption where
   hashWithSalt _salt StartStreamEncryption' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData StartStreamEncryption where
   rnf StartStreamEncryption' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf encryptionType
       `Prelude.seq` Prelude.rnf keyId
 
@@ -208,7 +218,8 @@ instance Data.ToJSON StartStreamEncryption where
   toJSON StartStreamEncryption' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Data..= streamName),
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
               ("EncryptionType" Data..= encryptionType),
             Prelude.Just ("KeyId" Data..= keyId)

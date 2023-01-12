@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.DataSync.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -361,6 +361,7 @@ module Amazonka.DataSync.Lens
     startTaskExecution_excludes,
     startTaskExecution_includes,
     startTaskExecution_overrideOptions,
+    startTaskExecution_tags,
     startTaskExecution_taskArn,
     startTaskExecutionResponse_taskExecutionArn,
     startTaskExecutionResponse_httpStatus,

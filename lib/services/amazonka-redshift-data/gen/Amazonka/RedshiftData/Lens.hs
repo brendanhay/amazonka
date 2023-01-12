@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftData.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -15,6 +15,7 @@ module Amazonka.RedshiftData.Lens
   ( -- * Operations
 
     -- ** BatchExecuteStatement
+    batchExecuteStatement_clientToken,
     batchExecuteStatement_clusterIdentifier,
     batchExecuteStatement_dbUser,
     batchExecuteStatement_secretArn,
@@ -77,6 +78,7 @@ module Amazonka.RedshiftData.Lens
     describeTableResponse_httpStatus,
 
     -- ** ExecuteStatement
+    executeStatement_clientToken,
     executeStatement_clusterIdentifier,
     executeStatement_dbUser,
     executeStatement_parameters,

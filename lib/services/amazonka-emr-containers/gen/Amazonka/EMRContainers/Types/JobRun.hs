@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.Types.JobRun
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,7 +42,7 @@ data JobRun = JobRun'
     -- configuration.
     configurationOverrides :: Prelude.Maybe ConfigurationOverrides,
     -- | The date and time when the job run was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The user who created the job run.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The execution role ARN of the job run.
@@ -50,7 +50,7 @@ data JobRun = JobRun'
     -- | The reasons why the job run has failed.
     failureReason :: Prelude.Maybe FailureReason,
     -- | The date and time when the job run has finished.
-    finishedAt :: Prelude.Maybe Data.POSIX,
+    finishedAt :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the job run.
     id :: Prelude.Maybe Prelude.Text,
     -- | Parameters of job driver for the job run.

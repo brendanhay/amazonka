@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.DeleteStudio
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteStudio' smart constructor.
 data DeleteStudio = DeleteStudio'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -69,9 +69,9 @@ data DeleteStudio = DeleteStudio'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'deleteStudio_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'studioId', 'deleteStudio_studioId' - The studio ID.
 newDeleteStudio ::
@@ -85,9 +85,9 @@ newDeleteStudio pStudioId_ =
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 deleteStudio_clientToken :: Lens.Lens' DeleteStudio (Prelude.Maybe Prelude.Text)
 deleteStudio_clientToken = Lens.lens (\DeleteStudio' {clientToken} -> clientToken) (\s@DeleteStudio' {} a -> s {clientToken = a} :: DeleteStudio)
 

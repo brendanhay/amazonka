@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Budgets.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -351,14 +351,14 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You are not authorized to use this operation with the given parameters.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | You\'ve exceeded the notification or subscriber limit.
-_CreationLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CreationLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CreationLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -366,14 +366,14 @@ _CreationLimitExceededException =
 
 -- | The budget name already exists. Budget names must be unique within an
 -- account.
-_DuplicateRecordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRecordException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateRecordException =
   Core._MatchServiceError
     defaultService
     "DuplicateRecordException"
 
 -- | The pagination token expired.
-_ExpiredNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExpiredNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -381,14 +381,14 @@ _ExpiredNextTokenException =
 
 -- | An error on the server occurred during the processing of your request.
 -- Try again later.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
     "InternalErrorException"
 
 -- | The pagination token is invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -396,14 +396,14 @@ _InvalidNextTokenException =
 
 -- | An error on the client occurred. Typically, the cause is an invalid
 -- input value.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | We can’t locate the resource that you specified.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -411,7 +411,7 @@ _NotFoundException =
 
 -- | The request was received and recognized by the server, but the server
 -- rejected that particular method for the requested resource.
-_ResourceLockedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLockedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceLockedException =
   Core._MatchServiceError
     defaultService
@@ -419,7 +419,7 @@ _ResourceLockedException =
 
 -- | The number of API requests has exceeded the maximum allowed API request
 -- throttling limit for the account.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

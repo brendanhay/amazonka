@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Signer.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -304,7 +304,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -314,7 +314,7 @@ _AccessDeniedException =
 -- | The request contains invalid parameters for the ARN or tags. This
 -- exception also occurs when you call a tagging API on a cancelled signing
 -- profile.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -322,7 +322,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource encountered a conflicting state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -330,7 +330,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An internal error occurred.
-_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
@@ -338,7 +338,7 @@ _InternalServiceErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | The signing profile was not found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -346,7 +346,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | A specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -354,7 +354,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The client is making a request that exceeds service limits.
-_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -364,7 +364,7 @@ _ServiceLimitExceededException =
 -- | The request was denied due to request throttling.
 --
 -- Instead of this error, @TooManyRequestsException@ should be used.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -374,7 +374,7 @@ _ThrottlingException =
 -- | The allowed number of job-signing requests has been exceeded.
 --
 -- This error supersedes the error @ThrottlingException@.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -382,7 +382,7 @@ _TooManyRequestsException =
     Prelude.. Core.hasStatus 429
 
 -- | You signing certificate could not be validated.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

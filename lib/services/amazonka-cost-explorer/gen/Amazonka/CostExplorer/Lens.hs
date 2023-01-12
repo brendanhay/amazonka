@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -347,6 +347,7 @@ module Amazonka.CostExplorer.Lens
     updateAnomalySubscription_subscribers,
     updateAnomalySubscription_subscriptionName,
     updateAnomalySubscription_threshold,
+    updateAnomalySubscription_thresholdExpression,
     updateAnomalySubscription_subscriptionArn,
     updateAnomalySubscriptionResponse_httpStatus,
     updateAnomalySubscriptionResponse_subscriptionArn,
@@ -402,9 +403,10 @@ module Amazonka.CostExplorer.Lens
     -- ** AnomalySubscription
     anomalySubscription_accountId,
     anomalySubscription_subscriptionArn,
+    anomalySubscription_threshold,
+    anomalySubscription_thresholdExpression,
     anomalySubscription_monitorArnList,
     anomalySubscription_subscribers,
-    anomalySubscription_threshold,
     anomalySubscription_frequency,
     anomalySubscription_subscriptionName,
 
@@ -607,7 +609,10 @@ module Amazonka.CostExplorer.Lens
     groupDefinition_type,
 
     -- ** Impact
+    impact_totalActualSpend,
+    impact_totalExpectedSpend,
     impact_totalImpact,
+    impact_totalImpactPercentage,
     impact_maxImpact,
 
     -- ** InstanceDetails

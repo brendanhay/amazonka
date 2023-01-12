@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.XRay.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -661,7 +661,7 @@ defaultService =
 -- revision. This exception is also if a policy revision id of 0 is
 -- provided via @PutResourcePolicy@ and a policy with the same name already
 -- exists.
-_InvalidPolicyRevisionIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyRevisionIdException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPolicyRevisionIdException =
   Core._MatchServiceError
     defaultService
@@ -669,7 +669,7 @@ _InvalidPolicyRevisionIdException =
     Prelude.. Core.hasStatus 400
 
 -- | The request is missing required parameters or has invalid parameters.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -677,7 +677,7 @@ _InvalidRequestException =
 
 -- | The provided resource policy would prevent the caller of this request
 -- from calling PutResourcePolicy in the future.
-_LockoutPreventionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LockoutPreventionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LockoutPreventionException =
   Core._MatchServiceError
     defaultService
@@ -685,7 +685,7 @@ _LockoutPreventionException =
     Prelude.. Core.hasStatus 400
 
 -- | Invalid policy document provided in request.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
     defaultService
@@ -694,7 +694,7 @@ _MalformedPolicyDocumentException =
 
 -- | Exceeded the maximum number of resource policies for a target Amazon Web
 -- Services account.
-_PolicyCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyCountLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PolicyCountLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -702,7 +702,7 @@ _PolicyCountLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | Exceeded the maximum size for a resource policy.
-_PolicySizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicySizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PolicySizeLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -711,7 +711,7 @@ _PolicySizeLimitExceededException =
 
 -- | The resource was not found. Verify that the name or Amazon Resource Name
 -- (ARN) of the resource is correct.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -719,14 +719,14 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | You have reached the maximum number of sampling rules.
-_RuleLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RuleLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RuleLimitExceededException =
   Core._MatchServiceError
     defaultService
     "RuleLimitExceededException"
 
 -- | The request exceeds the maximum number of requests per second.
-_ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottledException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottledException =
   Core._MatchServiceError
     defaultService
@@ -735,7 +735,7 @@ _ThrottledException =
 
 -- | You have exceeded the maximum number of tags you can apply to this
 -- resource.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

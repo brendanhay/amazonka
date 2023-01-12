@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.S3.HeadObject
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -191,13 +191,13 @@ data HeadObject = HeadObject'
     ifMatch :: Prelude.Maybe Prelude.Text,
     -- | Return the object only if it has been modified since the specified time;
     -- otherwise, return a 304 (not modified) error.
-    ifModifiedSince :: Prelude.Maybe Data.ISO8601,
+    ifModifiedSince :: Prelude.Maybe Data.RFC822,
     -- | Return the object only if its entity tag (ETag) is different from the
     -- one specified; otherwise, return a 304 (not modified) error.
     ifNoneMatch :: Prelude.Maybe Prelude.Text,
     -- | Return the object only if it has not been modified since the specified
     -- time; otherwise, return a 412 (precondition failed) error.
-    ifUnmodifiedSince :: Prelude.Maybe Data.ISO8601,
+    ifUnmodifiedSince :: Prelude.Maybe Data.RFC822,
     -- | Part number of the object being read. This is a positive integer between
     -- 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the
     -- part specified. Useful querying about the size of the part and the
@@ -638,9 +638,9 @@ data HeadObjectResponse = HeadObjectResponse'
     -- value of the @rule-id@ is URL-encoded.
     expiration :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the object is no longer cacheable.
-    expires :: Prelude.Maybe Data.ISO8601,
+    expires :: Prelude.Maybe Data.RFC822,
     -- | Creation date of the object.
-    lastModified :: Prelude.Maybe Data.ISO8601,
+    lastModified :: Prelude.Maybe Data.RFC822,
     -- | A map of metadata to store with the object in S3.
     metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | This is set to the number of metadata entries not returned in

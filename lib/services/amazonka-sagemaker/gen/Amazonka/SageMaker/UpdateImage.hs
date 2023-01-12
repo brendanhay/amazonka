@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.UpdateImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,8 +61,8 @@ data UpdateImage = UpdateImage'
     description :: Prelude.Maybe Prelude.Text,
     -- | The new display name for the image.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
-    -- SageMaker to perform tasks on your behalf.
+    -- | The new ARN for the IAM role that enables Amazon SageMaker to perform
+    -- tasks on your behalf.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the image to update.
     imageName :: Prelude.Text
@@ -84,8 +84,8 @@ data UpdateImage = UpdateImage'
 --
 -- 'displayName', 'updateImage_displayName' - The new display name for the image.
 --
--- 'roleArn', 'updateImage_roleArn' - The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
--- SageMaker to perform tasks on your behalf.
+-- 'roleArn', 'updateImage_roleArn' - The new ARN for the IAM role that enables Amazon SageMaker to perform
+-- tasks on your behalf.
 --
 -- 'imageName', 'updateImage_imageName' - The name of the image to update.
 newUpdateImage ::
@@ -114,8 +114,8 @@ updateImage_description = Lens.lens (\UpdateImage' {description} -> description)
 updateImage_displayName :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
 updateImage_displayName = Lens.lens (\UpdateImage' {displayName} -> displayName) (\s@UpdateImage' {} a -> s {displayName = a} :: UpdateImage)
 
--- | The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
--- SageMaker to perform tasks on your behalf.
+-- | The new ARN for the IAM role that enables Amazon SageMaker to perform
+-- tasks on your behalf.
 updateImage_roleArn :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
 updateImage_roleArn = Lens.lens (\UpdateImage' {roleArn} -> roleArn) (\s@UpdateImage' {} a -> s {roleArn = a} :: UpdateImage)
 
@@ -185,7 +185,7 @@ instance Data.ToQuery UpdateImage where
 
 -- | /See:/ 'newUpdateImageResponse' smart constructor.
 data UpdateImageResponse = UpdateImageResponse'
-  { -- | The Amazon Resource Name (ARN) of the image.
+  { -- | The ARN of the image.
     imageArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -200,7 +200,7 @@ data UpdateImageResponse = UpdateImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageArn', 'updateImageResponse_imageArn' - The Amazon Resource Name (ARN) of the image.
+-- 'imageArn', 'updateImageResponse_imageArn' - The ARN of the image.
 --
 -- 'httpStatus', 'updateImageResponse_httpStatus' - The response's http status code.
 newUpdateImageResponse ::
@@ -213,7 +213,7 @@ newUpdateImageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the image.
+-- | The ARN of the image.
 updateImageResponse_imageArn :: Lens.Lens' UpdateImageResponse (Prelude.Maybe Prelude.Text)
 updateImageResponse_imageArn = Lens.lens (\UpdateImageResponse' {imageArn} -> imageArn) (\s@UpdateImageResponse' {} a -> s {imageArn = a} :: UpdateImageResponse)
 

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Pi.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -206,21 +206,21 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The request failed due to an unknown error.
-_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceError =
   Core._MatchServiceError
     defaultService
     "InternalServiceError"
 
 -- | One of the arguments provided is invalid for this request.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
     "InvalidArgumentException"
 
 -- | The user is not authorized to perform this request.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService

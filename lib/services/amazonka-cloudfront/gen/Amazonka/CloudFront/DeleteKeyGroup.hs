@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.DeleteKeyGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,7 +26,7 @@
 -- First update your distributions to remove the key group from all cache
 -- behaviors, then delete the key group.
 --
--- To delete a key group, you must provide the key group’s identifier and
+-- To delete a key group, you must provide the key group\'s identifier and
 -- version. To get these values, use @ListKeyGroups@ followed by
 -- @GetKeyGroup@ or @GetKeyGroupConfig@.
 module Amazonka.CloudFront.DeleteKeyGroup
@@ -55,7 +55,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteKeyGroup' smart constructor.
 data DeleteKeyGroup = DeleteKeyGroup'
   { -- | The version of the key group that you are deleting. The version is the
-    -- key group’s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
+    -- key group\'s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
     -- @GetKeyGroupConfig@.
     ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the key group that you are deleting. To get the
@@ -73,7 +73,7 @@ data DeleteKeyGroup = DeleteKeyGroup'
 -- for backwards compatibility:
 --
 -- 'ifMatch', 'deleteKeyGroup_ifMatch' - The version of the key group that you are deleting. The version is the
--- key group’s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
+-- key group\'s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
 -- @GetKeyGroupConfig@.
 --
 -- 'id', 'deleteKeyGroup_id' - The identifier of the key group that you are deleting. To get the
@@ -89,7 +89,7 @@ newDeleteKeyGroup pId_ =
     }
 
 -- | The version of the key group that you are deleting. The version is the
--- key group’s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
+-- key group\'s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
 -- @GetKeyGroupConfig@.
 deleteKeyGroup_ifMatch :: Lens.Lens' DeleteKeyGroup (Prelude.Maybe Prelude.Text)
 deleteKeyGroup_ifMatch = Lens.lens (\DeleteKeyGroup' {ifMatch} -> ifMatch) (\s@DeleteKeyGroup' {} a -> s {ifMatch = a} :: DeleteKeyGroup)

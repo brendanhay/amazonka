@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.APIGateway.CreateStage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -79,7 +79,9 @@ import qualified Amazonka.Response as Response
 data CreateStage = CreateStage'
   { -- | Whether cache clustering is enabled for the stage.
     cacheClusterEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The stage\'s cache cluster size.
+    -- | The stage\'s cache capacity in GB. For more information about choosing a
+    -- cache size, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html Enabling API caching to enhance responsiveness>.
     cacheClusterSize :: Prelude.Maybe CacheClusterSize,
     -- | The canary deployment settings of this stage.
     canarySettings :: Prelude.Maybe CanarySettings,
@@ -118,7 +120,9 @@ data CreateStage = CreateStage'
 --
 -- 'cacheClusterEnabled', 'createStage_cacheClusterEnabled' - Whether cache clustering is enabled for the stage.
 --
--- 'cacheClusterSize', 'createStage_cacheClusterSize' - The stage\'s cache cluster size.
+-- 'cacheClusterSize', 'createStage_cacheClusterSize' - The stage\'s cache capacity in GB. For more information about choosing a
+-- cache size, see
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html Enabling API caching to enhance responsiveness>.
 --
 -- 'canarySettings', 'createStage_canarySettings' - The canary deployment settings of this stage.
 --
@@ -170,7 +174,9 @@ newCreateStage pRestApiId_ pStageName_ pDeploymentId_ =
 createStage_cacheClusterEnabled :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Bool)
 createStage_cacheClusterEnabled = Lens.lens (\CreateStage' {cacheClusterEnabled} -> cacheClusterEnabled) (\s@CreateStage' {} a -> s {cacheClusterEnabled = a} :: CreateStage)
 
--- | The stage\'s cache cluster size.
+-- | The stage\'s cache capacity in GB. For more information about choosing a
+-- cache size, see
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html Enabling API caching to enhance responsiveness>.
 createStage_cacheClusterSize :: Lens.Lens' CreateStage (Prelude.Maybe CacheClusterSize)
 createStage_cacheClusterSize = Lens.lens (\CreateStage' {cacheClusterSize} -> cacheClusterSize) (\s@CreateStage' {} a -> s {cacheClusterSize = a} :: CreateStage)
 

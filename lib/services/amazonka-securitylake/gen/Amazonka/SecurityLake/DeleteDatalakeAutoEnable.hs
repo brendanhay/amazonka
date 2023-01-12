@@ -14,22 +14,25 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.DeleteDatalakeAutoEnable
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Automatically delete Security Lake in the specified Regions to stop
--- ingesting security data. When you delete Amazon Security Lake from your
--- account, Security Lake is disabled in all Regions. Also, this API
--- automatically performs the off-boarding steps to off-board the account
--- from Security Lake . This includes ingesting security data from sources,
--- storing data, and making data accessible to subscribers. Security Lake
--- also deletes all the existing settings and resources that it stores or
--- maintains for your account in the current Region, including security log
--- and event data. For more information, see the Amazon Security Lake User
--- Guide.
+-- Automatically deletes Amazon Security Lake to stop collecting security
+-- data. When you delete Amazon Security Lake from your account, Security
+-- Lake is disabled in all Regions. Also, this API automatically takes
+-- steps to remove the account from Security Lake .
+--
+-- This operation disables security data collection from sources, deletes
+-- data stored, and stops making data accessible to subscribers. Security
+-- Lake also deletes all the existing settings and resources that it stores
+-- or maintains for your Amazon Web Services account in the current Region,
+-- including security log and event data. The @DeleteDatalake@ operation
+-- does not delete the Amazon S3 bucket, which is owned by your Amazon Web
+-- Services account. For more information, see the
+-- <https://docs.aws.amazon.com/security-lake/latest/userguide/disable-security-lake.html Amazon Security Lake User Guide>.
 module Amazonka.SecurityLake.DeleteDatalakeAutoEnable
   ( -- * Creating a Request
     DeleteDatalakeAutoEnable (..),
@@ -57,8 +60,8 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newDeleteDatalakeAutoEnable' smart constructor.
 data DeleteDatalakeAutoEnable = DeleteDatalakeAutoEnable'
-  { -- | Delete Amazon Security Lake with the specified configurations settings
-    -- to stop ingesting security data for new accounts in Security Lake.
+  { -- | Delete Amazon Security Lake with the specified configuration settings to
+    -- stop ingesting security data for new accounts in Security Lake.
     removeFromConfigurationForNewAccounts :: [AutoEnableNewRegionConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,8 +74,8 @@ data DeleteDatalakeAutoEnable = DeleteDatalakeAutoEnable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeFromConfigurationForNewAccounts', 'deleteDatalakeAutoEnable_removeFromConfigurationForNewAccounts' - Delete Amazon Security Lake with the specified configurations settings
--- to stop ingesting security data for new accounts in Security Lake.
+-- 'removeFromConfigurationForNewAccounts', 'deleteDatalakeAutoEnable_removeFromConfigurationForNewAccounts' - Delete Amazon Security Lake with the specified configuration settings to
+-- stop ingesting security data for new accounts in Security Lake.
 newDeleteDatalakeAutoEnable ::
   DeleteDatalakeAutoEnable
 newDeleteDatalakeAutoEnable =
@@ -81,8 +84,8 @@ newDeleteDatalakeAutoEnable =
         Prelude.mempty
     }
 
--- | Delete Amazon Security Lake with the specified configurations settings
--- to stop ingesting security data for new accounts in Security Lake.
+-- | Delete Amazon Security Lake with the specified configuration settings to
+-- stop ingesting security data for new accounts in Security Lake.
 deleteDatalakeAutoEnable_removeFromConfigurationForNewAccounts :: Lens.Lens' DeleteDatalakeAutoEnable [AutoEnableNewRegionConfiguration]
 deleteDatalakeAutoEnable_removeFromConfigurationForNewAccounts = Lens.lens (\DeleteDatalakeAutoEnable' {removeFromConfigurationForNewAccounts} -> removeFromConfigurationForNewAccounts) (\s@DeleteDatalakeAutoEnable' {} a -> s {removeFromConfigurationForNewAccounts = a} :: DeleteDatalakeAutoEnable) Prelude.. Lens.coerced
 

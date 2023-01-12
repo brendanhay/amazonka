@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.Nimble.ListEulaAcceptances
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List Eula Acceptances.
+-- List EULA acceptances.
 --
 -- This operation returns paginated results.
 module Amazonka.Nimble.ListEulaAcceptances
@@ -56,7 +56,8 @@ import qualified Amazonka.Response as Response
 data ListEulaAcceptances = ListEulaAcceptances'
   { -- | The list of EULA IDs that have been previously accepted.
     eulaIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to request the next page of results.
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -73,7 +74,8 @@ data ListEulaAcceptances = ListEulaAcceptances'
 --
 -- 'eulaIds', 'listEulaAcceptances_eulaIds' - The list of EULA IDs that have been previously accepted.
 --
--- 'nextToken', 'listEulaAcceptances_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'listEulaAcceptances_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
 -- 'studioId', 'listEulaAcceptances_studioId' - The studio ID.
 newListEulaAcceptances ::
@@ -91,7 +93,8 @@ newListEulaAcceptances pStudioId_ =
 listEulaAcceptances_eulaIds :: Lens.Lens' ListEulaAcceptances (Prelude.Maybe [Prelude.Text])
 listEulaAcceptances_eulaIds = Lens.lens (\ListEulaAcceptances' {eulaIds} -> eulaIds) (\s@ListEulaAcceptances' {} a -> s {eulaIds = a} :: ListEulaAcceptances) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to request the next page of results.
+-- | The token for the next set of results, or null if there are no more
+-- results.
 listEulaAcceptances_nextToken :: Lens.Lens' ListEulaAcceptances (Prelude.Maybe Prelude.Text)
 listEulaAcceptances_nextToken = Lens.lens (\ListEulaAcceptances' {nextToken} -> nextToken) (\s@ListEulaAcceptances' {} a -> s {nextToken = a} :: ListEulaAcceptances)
 

@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeParameters
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the detailed parameter list for a particular parameter group.
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeParameters
   ( -- * Creating a Request
     DescribeParameters (..),
@@ -114,6 +116,28 @@ describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> ne
 -- | he name of a specific parameter group to return details for.
 describeParameters_parameterGroupName :: Lens.Lens' DescribeParameters Prelude.Text
 describeParameters_parameterGroupName = Lens.lens (\DescribeParameters' {parameterGroupName} -> parameterGroupName) (\s@DescribeParameters' {} a -> s {parameterGroupName = a} :: DescribeParameters)
+
+instance Core.AWSPager DescribeParameters where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeParametersResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeParametersResponse_parameters
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeParameters_nextToken
+          Lens..~ rs
+          Lens.^? describeParametersResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeParameters where
   type

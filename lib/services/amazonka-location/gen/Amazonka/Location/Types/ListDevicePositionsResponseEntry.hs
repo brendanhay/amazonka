@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Location.Types.ListDevicePositionsResponseEntry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,7 +40,7 @@ data ListDevicePositionsResponseEntry = ListDevicePositionsResponseEntry'
     -- | The timestamp at which the device position was determined. Uses
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    sampleTime :: Data.POSIX
+    sampleTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

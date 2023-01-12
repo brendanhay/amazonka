@@ -14,14 +14,16 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.SendMessage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends a message. Note that ConnectionToken is used for invoking this API
--- instead of ParticipantToken.
+-- Sends a message.
+--
+-- @ConnectionToken@ is used for invoking this API instead of
+-- @ParticipantToken@.
 --
 -- The Amazon Connect Participant Service APIs do not use
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication>.
@@ -58,11 +60,20 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newSendMessage' smart constructor.
 data SendMessage = SendMessage'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of the content. Supported types are text\/plain.
+    -- | The type of the content. Supported types are @text\/plain@,
+    -- @text\/markdown@, and @application\/json@.
     contentType :: Prelude.Text,
     -- | The content of the message.
+    --
+    -- -   For @text\/plain@ and @text\/markdown@, the Length Constraints are
+    --     Minimum of 1, Maximum of 1024.
+    --
+    -- -   For @application\/json@, the Length Constraints are Minimum of 1,
+    --     Maximum of 12000.
     content :: Prelude.Text,
     -- | The authentication token associated with the connection.
     connectionToken :: Prelude.Text
@@ -78,11 +89,20 @@ data SendMessage = SendMessage'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'sendMessage_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
--- 'contentType', 'sendMessage_contentType' - The type of the content. Supported types are text\/plain.
+-- 'contentType', 'sendMessage_contentType' - The type of the content. Supported types are @text\/plain@,
+-- @text\/markdown@, and @application\/json@.
 --
 -- 'content', 'sendMessage_content' - The content of the message.
+--
+-- -   For @text\/plain@ and @text\/markdown@, the Length Constraints are
+--     Minimum of 1, Maximum of 1024.
+--
+-- -   For @application\/json@, the Length Constraints are Minimum of 1,
+--     Maximum of 12000.
 --
 -- 'connectionToken', 'sendMessage_connectionToken' - The authentication token associated with the connection.
 newSendMessage ::
@@ -105,15 +125,24 @@ newSendMessage
       }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 sendMessage_clientToken :: Lens.Lens' SendMessage (Prelude.Maybe Prelude.Text)
 sendMessage_clientToken = Lens.lens (\SendMessage' {clientToken} -> clientToken) (\s@SendMessage' {} a -> s {clientToken = a} :: SendMessage)
 
--- | The type of the content. Supported types are text\/plain.
+-- | The type of the content. Supported types are @text\/plain@,
+-- @text\/markdown@, and @application\/json@.
 sendMessage_contentType :: Lens.Lens' SendMessage Prelude.Text
 sendMessage_contentType = Lens.lens (\SendMessage' {contentType} -> contentType) (\s@SendMessage' {} a -> s {contentType = a} :: SendMessage)
 
 -- | The content of the message.
+--
+-- -   For @text\/plain@ and @text\/markdown@, the Length Constraints are
+--     Minimum of 1, Maximum of 1024.
+--
+-- -   For @application\/json@, the Length Constraints are Minimum of 1,
+--     Maximum of 12000.
 sendMessage_content :: Lens.Lens' SendMessage Prelude.Text
 sendMessage_content = Lens.lens (\SendMessage' {content} -> content) (\s@SendMessage' {} a -> s {content = a} :: SendMessage)
 

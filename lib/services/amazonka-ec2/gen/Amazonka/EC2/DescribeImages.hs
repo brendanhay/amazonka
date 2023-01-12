@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DescribeImages
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,8 @@
 -- reference a deregistered AMI are terminated, specifying the ID of the
 -- image will eventually return an error indicating that the AMI ID cannot
 -- be found.
+--
+-- This operation returns paginated results.
 module Amazonka.EC2.DescribeImages
   ( -- * Creating a Request
     DescribeImages (..),
@@ -43,6 +45,8 @@ module Amazonka.EC2.DescribeImages
     describeImages_filters,
     describeImages_imageIds,
     describeImages_includeDeprecated,
+    describeImages_maxResults,
+    describeImages_nextToken,
     describeImages_owners,
 
     -- * Destructuring the Response
@@ -51,6 +55,7 @@ module Amazonka.EC2.DescribeImages
 
     -- * Response Lenses
     describeImagesResponse_images,
+    describeImagesResponse_nextToken,
     describeImagesResponse_httpStatus,
   )
 where
@@ -194,6 +199,12 @@ data DescribeImages = DescribeImages'
     -- If you are the AMI owner, all deprecated AMIs appear in the response
     -- regardless of what you specify for this parameter.
     includeDeprecated :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Scopes the results to images with the specified owners. You can specify
     -- a combination of Amazon Web Services account IDs, @self@, @amazon@, and
     -- @aws-marketplace@. If you omit this parameter, the results include all
@@ -339,6 +350,12 @@ data DescribeImages = DescribeImages'
 -- If you are the AMI owner, all deprecated AMIs appear in the response
 -- regardless of what you specify for this parameter.
 --
+-- 'maxResults', 'describeImages_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
+-- 'nextToken', 'describeImages_nextToken' - The token for the next page of results.
+--
 -- 'owners', 'describeImages_owners' - Scopes the results to images with the specified owners. You can specify
 -- a combination of Amazon Web Services account IDs, @self@, @amazon@, and
 -- @aws-marketplace@. If you omit this parameter, the results include all
@@ -352,6 +369,8 @@ newDescribeImages =
       filters = Prelude.Nothing,
       imageIds = Prelude.Nothing,
       includeDeprecated = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       owners = Prelude.Nothing
     }
 
@@ -494,12 +513,42 @@ describeImages_imageIds = Lens.lens (\DescribeImages' {imageIds} -> imageIds) (\
 describeImages_includeDeprecated :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Bool)
 describeImages_includeDeprecated = Lens.lens (\DescribeImages' {includeDeprecated} -> includeDeprecated) (\s@DescribeImages' {} a -> s {includeDeprecated = a} :: DescribeImages)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeImages_maxResults :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Int)
+describeImages_maxResults = Lens.lens (\DescribeImages' {maxResults} -> maxResults) (\s@DescribeImages' {} a -> s {maxResults = a} :: DescribeImages)
+
+-- | The token for the next page of results.
+describeImages_nextToken :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Text)
+describeImages_nextToken = Lens.lens (\DescribeImages' {nextToken} -> nextToken) (\s@DescribeImages' {} a -> s {nextToken = a} :: DescribeImages)
+
 -- | Scopes the results to images with the specified owners. You can specify
 -- a combination of Amazon Web Services account IDs, @self@, @amazon@, and
 -- @aws-marketplace@. If you omit this parameter, the results include all
 -- images for which you have launch permissions, regardless of ownership.
 describeImages_owners :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
 describeImages_owners = Lens.lens (\DescribeImages' {owners} -> owners) (\s@DescribeImages' {} a -> s {owners = a} :: DescribeImages) Prelude.. Lens.mapping Lens.coerced
+
+instance Core.AWSPager DescribeImages where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeImagesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeImagesResponse_images Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeImages_nextToken
+          Lens..~ rs
+          Lens.^? describeImagesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImages where
   type
@@ -514,6 +563,7 @@ instance Core.AWSRequest DescribeImages where
             Prelude.<$> ( x Data..@? "imagesSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -524,6 +574,8 @@ instance Prelude.Hashable DescribeImages where
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` includeDeprecated
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` owners
 
 instance Prelude.NFData DescribeImages where
@@ -533,6 +585,8 @@ instance Prelude.NFData DescribeImages where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf imageIds
       `Prelude.seq` Prelude.rnf includeDeprecated
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf owners
 
 instance Data.ToHeaders DescribeImages where
@@ -558,6 +612,8 @@ instance Data.ToQuery DescribeImages where
         Data.toQuery
           (Data.toQueryList "ImageId" Prelude.<$> imageIds),
         "IncludeDeprecated" Data.=: includeDeprecated,
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         Data.toQuery
           (Data.toQueryList "Owner" Prelude.<$> owners)
       ]
@@ -566,6 +622,9 @@ instance Data.ToQuery DescribeImages where
 data DescribeImagesResponse = DescribeImagesResponse'
   { -- | Information about the images.
     images :: Prelude.Maybe [Image],
+    -- | The token to use to retrieve the next page of results. This value is
+    -- @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -581,6 +640,9 @@ data DescribeImagesResponse = DescribeImagesResponse'
 --
 -- 'images', 'describeImagesResponse_images' - Information about the images.
 --
+-- 'nextToken', 'describeImagesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+--
 -- 'httpStatus', 'describeImagesResponse_httpStatus' - The response's http status code.
 newDescribeImagesResponse ::
   -- | 'httpStatus'
@@ -589,12 +651,18 @@ newDescribeImagesResponse ::
 newDescribeImagesResponse pHttpStatus_ =
   DescribeImagesResponse'
     { images = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the images.
 describeImagesResponse_images :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe [Image])
 describeImagesResponse_images = Lens.lens (\DescribeImagesResponse' {images} -> images) (\s@DescribeImagesResponse' {} a -> s {images = a} :: DescribeImagesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+describeImagesResponse_nextToken :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe Prelude.Text)
+describeImagesResponse_nextToken = Lens.lens (\DescribeImagesResponse' {nextToken} -> nextToken) (\s@DescribeImagesResponse' {} a -> s {nextToken = a} :: DescribeImagesResponse)
 
 -- | The response's http status code.
 describeImagesResponse_httpStatus :: Lens.Lens' DescribeImagesResponse Prelude.Int
@@ -603,4 +671,5 @@ describeImagesResponse_httpStatus = Lens.lens (\DescribeImagesResponse' {httpSta
 instance Prelude.NFData DescribeImagesResponse where
   rnf DescribeImagesResponse' {..} =
     Prelude.rnf images
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

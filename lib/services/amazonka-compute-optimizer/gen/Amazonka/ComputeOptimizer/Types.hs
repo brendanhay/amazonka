@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,6 +28,9 @@ module Amazonka.ComputeOptimizer.Types
     _ServiceUnavailableException,
     _ThrottlingException,
 
+    -- * AutoScalingConfiguration
+    AutoScalingConfiguration (..),
+
     -- * CpuVendorArchitecture
     CpuVendorArchitecture (..),
 
@@ -46,6 +49,24 @@ module Amazonka.ComputeOptimizer.Types
     -- * EBSMetricName
     EBSMetricName (..),
 
+    -- * ECSServiceLaunchType
+    ECSServiceLaunchType (..),
+
+    -- * ECSServiceMetricName
+    ECSServiceMetricName (..),
+
+    -- * ECSServiceMetricStatistic
+    ECSServiceMetricStatistic (..),
+
+    -- * ECSServiceRecommendationFilterName
+    ECSServiceRecommendationFilterName (..),
+
+    -- * ECSServiceRecommendationFinding
+    ECSServiceRecommendationFinding (..),
+
+    -- * ECSServiceRecommendationFindingReasonCode
+    ECSServiceRecommendationFindingReasonCode (..),
+
     -- * EnhancedInfrastructureMetrics
     EnhancedInfrastructureMetrics (..),
 
@@ -54,6 +75,9 @@ module Amazonka.ComputeOptimizer.Types
 
     -- * ExportableAutoScalingGroupField
     ExportableAutoScalingGroupField (..),
+
+    -- * ExportableECSServiceField
+    ExportableECSServiceField (..),
 
     -- * ExportableInstanceField
     ExportableInstanceField (..),
@@ -184,6 +208,20 @@ module Amazonka.ComputeOptimizer.Types
     autoScalingGroupRecommendationOption_rank,
     autoScalingGroupRecommendationOption_savingsOpportunity,
 
+    -- * ContainerConfiguration
+    ContainerConfiguration (..),
+    newContainerConfiguration,
+    containerConfiguration_containerName,
+    containerConfiguration_cpu,
+    containerConfiguration_memorySizeConfiguration,
+
+    -- * ContainerRecommendation
+    ContainerRecommendation (..),
+    newContainerRecommendation,
+    containerRecommendation_containerName,
+    containerRecommendation_cpu,
+    containerRecommendation_memorySizeConfiguration,
+
     -- * CurrentPerformanceRiskRatings
     CurrentPerformanceRiskRatings (..),
     newCurrentPerformanceRiskRatings,
@@ -204,6 +242,66 @@ module Amazonka.ComputeOptimizer.Types
     eBSUtilizationMetric_name,
     eBSUtilizationMetric_statistic,
     eBSUtilizationMetric_value,
+
+    -- * ECSServiceProjectedMetric
+    ECSServiceProjectedMetric (..),
+    newECSServiceProjectedMetric,
+    eCSServiceProjectedMetric_lowerBoundValues,
+    eCSServiceProjectedMetric_name,
+    eCSServiceProjectedMetric_timestamps,
+    eCSServiceProjectedMetric_upperBoundValues,
+
+    -- * ECSServiceProjectedUtilizationMetric
+    ECSServiceProjectedUtilizationMetric (..),
+    newECSServiceProjectedUtilizationMetric,
+    eCSServiceProjectedUtilizationMetric_lowerBoundValue,
+    eCSServiceProjectedUtilizationMetric_name,
+    eCSServiceProjectedUtilizationMetric_statistic,
+    eCSServiceProjectedUtilizationMetric_upperBoundValue,
+
+    -- * ECSServiceRecommendation
+    ECSServiceRecommendation (..),
+    newECSServiceRecommendation,
+    eCSServiceRecommendation_accountId,
+    eCSServiceRecommendation_currentPerformanceRisk,
+    eCSServiceRecommendation_currentServiceConfiguration,
+    eCSServiceRecommendation_finding,
+    eCSServiceRecommendation_findingReasonCodes,
+    eCSServiceRecommendation_lastRefreshTimestamp,
+    eCSServiceRecommendation_launchType,
+    eCSServiceRecommendation_lookbackPeriodInDays,
+    eCSServiceRecommendation_serviceArn,
+    eCSServiceRecommendation_serviceRecommendationOptions,
+    eCSServiceRecommendation_utilizationMetrics,
+
+    -- * ECSServiceRecommendationFilter
+    ECSServiceRecommendationFilter (..),
+    newECSServiceRecommendationFilter,
+    eCSServiceRecommendationFilter_name,
+    eCSServiceRecommendationFilter_values,
+
+    -- * ECSServiceRecommendationOption
+    ECSServiceRecommendationOption (..),
+    newECSServiceRecommendationOption,
+    eCSServiceRecommendationOption_containerRecommendations,
+    eCSServiceRecommendationOption_cpu,
+    eCSServiceRecommendationOption_memory,
+    eCSServiceRecommendationOption_projectedUtilizationMetrics,
+    eCSServiceRecommendationOption_savingsOpportunity,
+
+    -- * ECSServiceRecommendedOptionProjectedMetric
+    ECSServiceRecommendedOptionProjectedMetric (..),
+    newECSServiceRecommendedOptionProjectedMetric,
+    eCSServiceRecommendedOptionProjectedMetric_projectedMetrics,
+    eCSServiceRecommendedOptionProjectedMetric_recommendedCpuUnits,
+    eCSServiceRecommendedOptionProjectedMetric_recommendedMemorySize,
+
+    -- * ECSServiceUtilizationMetric
+    ECSServiceUtilizationMetric (..),
+    newECSServiceUtilizationMetric,
+    eCSServiceUtilizationMetric_name,
+    eCSServiceUtilizationMetric_statistic,
+    eCSServiceUtilizationMetric_value,
 
     -- * EffectiveRecommendationPreferences
     EffectiveRecommendationPreferences (..),
@@ -327,6 +425,12 @@ module Amazonka.ComputeOptimizer.Types
     lambdaFunctionUtilizationMetric_statistic,
     lambdaFunctionUtilizationMetric_value,
 
+    -- * MemorySizeConfiguration
+    MemorySizeConfiguration (..),
+    newMemorySizeConfiguration,
+    memorySizeConfiguration_memory,
+    memorySizeConfiguration_memoryReservation,
+
     -- * ProjectedMetric
     ProjectedMetric (..),
     newProjectedMetric,
@@ -412,6 +516,15 @@ module Amazonka.ComputeOptimizer.Types
     scope_name,
     scope_value,
 
+    -- * ServiceConfiguration
+    ServiceConfiguration (..),
+    newServiceConfiguration,
+    serviceConfiguration_autoScalingConfiguration,
+    serviceConfiguration_containerConfigurations,
+    serviceConfiguration_cpu,
+    serviceConfiguration_memory,
+    serviceConfiguration_taskDefinitionArn,
+
     -- * Summary
     Summary (..),
     newSummary,
@@ -460,9 +573,12 @@ module Amazonka.ComputeOptimizer.Types
 where
 
 import Amazonka.ComputeOptimizer.Types.AccountEnrollmentStatus
+import Amazonka.ComputeOptimizer.Types.AutoScalingConfiguration
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
+import Amazonka.ComputeOptimizer.Types.ContainerConfiguration
+import Amazonka.ComputeOptimizer.Types.ContainerRecommendation
 import Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture
 import Amazonka.ComputeOptimizer.Types.Currency
 import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
@@ -472,6 +588,19 @@ import Amazonka.ComputeOptimizer.Types.EBSFilterName
 import Amazonka.ComputeOptimizer.Types.EBSFinding
 import Amazonka.ComputeOptimizer.Types.EBSMetricName
 import Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.ECSServiceLaunchType
+import Amazonka.ComputeOptimizer.Types.ECSServiceMetricName
+import Amazonka.ComputeOptimizer.Types.ECSServiceMetricStatistic
+import Amazonka.ComputeOptimizer.Types.ECSServiceProjectedMetric
+import Amazonka.ComputeOptimizer.Types.ECSServiceProjectedUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendation
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationFilter
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationFilterName
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationFinding
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationFindingReasonCode
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendationOption
+import Amazonka.ComputeOptimizer.Types.ECSServiceRecommendedOptionProjectedMetric
+import Amazonka.ComputeOptimizer.Types.ECSServiceUtilizationMetric
 import Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
 import Amazonka.ComputeOptimizer.Types.EnhancedInfrastructureMetrics
 import Amazonka.ComputeOptimizer.Types.EnrollmentFilter
@@ -479,6 +608,7 @@ import Amazonka.ComputeOptimizer.Types.EnrollmentFilterName
 import Amazonka.ComputeOptimizer.Types.EstimatedMonthlySavings
 import Amazonka.ComputeOptimizer.Types.ExportDestination
 import Amazonka.ComputeOptimizer.Types.ExportableAutoScalingGroupField
+import Amazonka.ComputeOptimizer.Types.ExportableECSServiceField
 import Amazonka.ComputeOptimizer.Types.ExportableInstanceField
 import Amazonka.ComputeOptimizer.Types.ExportableLambdaFunctionField
 import Amazonka.ComputeOptimizer.Types.ExportableVolumeField
@@ -510,6 +640,7 @@ import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFilterName
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFinding
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.MemorySizeConfiguration
 import Amazonka.ComputeOptimizer.Types.MetricName
 import Amazonka.ComputeOptimizer.Types.MetricStatistic
 import Amazonka.ComputeOptimizer.Types.MigrationEffort
@@ -530,6 +661,7 @@ import Amazonka.ComputeOptimizer.Types.S3DestinationConfig
 import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.Scope
 import Amazonka.ComputeOptimizer.Types.ScopeName
+import Amazonka.ComputeOptimizer.Types.ServiceConfiguration
 import Amazonka.ComputeOptimizer.Types.Status
 import Amazonka.ComputeOptimizer.Types.Summary
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
@@ -612,28 +744,28 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | An internal error has occurred. Try your call again.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
 
 -- | The value supplied for the input parameter is out of range or not valid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterValueException"
 
 -- | The request exceeds a limit of the service.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -641,35 +773,35 @@ _LimitExceededException =
 
 -- | The request must contain either a valid (registered) Amazon Web Services
 -- access key ID or X.509 certificate.
-_MissingAuthenticationToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingAuthenticationToken :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MissingAuthenticationToken =
   Core._MatchServiceError
     defaultService
     "MissingAuthenticationToken"
 
 -- | The account is not opted in to Compute Optimizer.
-_OptInRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OptInRequiredException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OptInRequiredException =
   Core._MatchServiceError
     defaultService
     "OptInRequiredException"
 
 -- | A resource that is required for the action doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The request has failed due to a temporary failure of the server.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

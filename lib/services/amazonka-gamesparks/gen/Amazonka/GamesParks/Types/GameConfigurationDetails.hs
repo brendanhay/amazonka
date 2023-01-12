@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GamesParks.Types.GameConfigurationDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,9 +34,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newGameConfigurationDetails' smart constructor.
 data GameConfigurationDetails = GameConfigurationDetails'
   { -- | The date when the game was created.
-    created :: Prelude.Maybe Data.POSIX,
+    created :: Prelude.Maybe Data.ISO8601,
     -- | The date when the game was last modified.
-    lastUpdated :: Prelude.Maybe Data.POSIX,
+    lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | Configuration data, organized by section name.
     sections :: Prelude.Maybe (Prelude.HashMap Prelude.Text Section)
   }

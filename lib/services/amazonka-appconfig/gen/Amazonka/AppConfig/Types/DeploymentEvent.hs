@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AppConfig.Types.DeploymentEvent
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,7 +44,7 @@ data DeploymentEvent = DeploymentEvent'
     -- stop of a bake period; and the start or completion of a rollback.
     eventType :: Prelude.Maybe DeploymentEventType,
     -- | The date and time the event occurred.
-    occurredAt :: Prelude.Maybe Data.POSIX,
+    occurredAt :: Prelude.Maybe Data.ISO8601,
     -- | The entity that triggered the deployment event. Events can be triggered
     -- by a user, AppConfig, an Amazon CloudWatch alarm, or an internal error.
     triggeredBy :: Prelude.Maybe TriggeredBy

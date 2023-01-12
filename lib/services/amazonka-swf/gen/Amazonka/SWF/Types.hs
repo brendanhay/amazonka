@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SWF.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1086,7 +1086,7 @@ defaultService =
 --
 -- If these parameters aren\'t set and no default parameters were defined
 -- in the workflow type, this error is displayed.
-_DefaultUndefinedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DefaultUndefinedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DefaultUndefinedFault =
   Core._MatchServiceError
     defaultService
@@ -1095,14 +1095,14 @@ _DefaultUndefinedFault =
 -- | Returned if the domain already exists. You may get this fault if you are
 -- registering a domain that is either already registered or deprecated, or
 -- if you undeprecate a domain that is currently registered.
-_DomainAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DomainAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DomainAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "DomainAlreadyExistsFault"
 
 -- | Returned when the specified domain has been deprecated.
-_DomainDeprecatedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DomainDeprecatedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DomainDeprecatedFault =
   Core._MatchServiceError
     defaultService
@@ -1111,7 +1111,7 @@ _DomainDeprecatedFault =
 -- | Returned by any operation if a system imposed limitation has been
 -- reached. To address this fault you should either clean up unused
 -- resources or increase the limit by contacting AWS.
-_LimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededFault =
   Core._MatchServiceError
     defaultService
@@ -1119,14 +1119,14 @@ _LimitExceededFault =
 
 -- | Returned when the caller doesn\'t have sufficient permissions to invoke
 -- the action.
-_OperationNotPermittedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationNotPermittedFault =
   Core._MatchServiceError
     defaultService
     "OperationNotPermittedFault"
 
 -- | You\'ve exceeded the number of tags allowed for a domain.
-_TooManyTagsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsFault =
   Core._MatchServiceError
     defaultService
@@ -1136,7 +1136,7 @@ _TooManyTagsFault =
 -- this fault if you are registering a type that is either already
 -- registered or deprecated, or if you undeprecate a type that is currently
 -- registered.
-_TypeAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TypeAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TypeAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -1144,7 +1144,7 @@ _TypeAlreadyExistsFault =
 
 -- | Returned when the specified activity or workflow type was already
 -- deprecated.
-_TypeDeprecatedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TypeDeprecatedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TypeDeprecatedFault =
   Core._MatchServiceError
     defaultService
@@ -1153,7 +1153,7 @@ _TypeDeprecatedFault =
 -- | Returned when the named resource cannot be found with in the scope of
 -- this operation (region or domain). This could happen if the named
 -- resource was never created or is no longer available for this operation.
-_UnknownResourceFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnknownResourceFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnknownResourceFault =
   Core._MatchServiceError
     defaultService
@@ -1161,7 +1161,7 @@ _UnknownResourceFault =
 
 -- | Returned by StartWorkflowExecution when an open execution with the same
 -- workflowId is already running in the specified domain.
-_WorkflowExecutionAlreadyStartedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WorkflowExecutionAlreadyStartedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _WorkflowExecutionAlreadyStartedFault =
   Core._MatchServiceError
     defaultService

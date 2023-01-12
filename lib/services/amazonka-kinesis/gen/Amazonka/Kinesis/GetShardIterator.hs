@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.GetShardIterator
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,9 @@
 --
 -- Gets an Amazon Kinesis shard iterator. A shard iterator expires 5
 -- minutes after it is returned to the requester.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- A shard iterator specifies the shard position from which to start
 -- reading data records sequentially. The position is specified using the
@@ -69,8 +72,9 @@ module Amazonka.Kinesis.GetShardIterator
 
     -- * Request Lenses
     getShardIterator_startingSequenceNumber,
-    getShardIterator_timestamp,
+    getShardIterator_streamARN,
     getShardIterator_streamName,
+    getShardIterator_timestamp,
     getShardIterator_shardId,
     getShardIterator_shardIteratorType,
 
@@ -100,6 +104,10 @@ data GetShardIterator = GetShardIterator'
     -- reading. Used with shard iterator type AT_SEQUENCE_NUMBER and
     -- AFTER_SEQUENCE_NUMBER.
     startingSequenceNumber :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon Kinesis data stream.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the data record from which to start reading. Used with
     -- shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date
     -- with precision in milliseconds. For example,
@@ -109,8 +117,6 @@ data GetShardIterator = GetShardIterator'
     -- horizon, the iterator returned is for the oldest untrimmed data record
     -- (TRIM_HORIZON).
     timestamp :: Prelude.Maybe Data.POSIX,
-    -- | The name of the Amazon Kinesis data stream.
-    streamName :: Prelude.Text,
     -- | The shard ID of the Kinesis Data Streams shard to get the iterator for.
     shardId :: Prelude.Text,
     -- | Determines how the shard iterator is used to start reading data records
@@ -150,6 +156,10 @@ data GetShardIterator = GetShardIterator'
 -- reading. Used with shard iterator type AT_SEQUENCE_NUMBER and
 -- AFTER_SEQUENCE_NUMBER.
 --
+-- 'streamARN', 'getShardIterator_streamARN' - The ARN of the stream.
+--
+-- 'streamName', 'getShardIterator_streamName' - The name of the Amazon Kinesis data stream.
+--
 -- 'timestamp', 'getShardIterator_timestamp' - The time stamp of the data record from which to start reading. Used with
 -- shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date
 -- with precision in milliseconds. For example,
@@ -158,8 +168,6 @@ data GetShardIterator = GetShardIterator'
 -- next (later) record. If the time stamp is older than the current trim
 -- horizon, the iterator returned is for the oldest untrimmed data record
 -- (TRIM_HORIZON).
---
--- 'streamName', 'getShardIterator_streamName' - The name of the Amazon Kinesis data stream.
 --
 -- 'shardId', 'getShardIterator_shardId' - The shard ID of the Kinesis Data Streams shard to get the iterator for.
 --
@@ -185,31 +193,35 @@ data GetShardIterator = GetShardIterator'
 -- -   LATEST - Start reading just after the most recent record in the
 --     shard, so that you always read the most recent data in the shard.
 newGetShardIterator ::
-  -- | 'streamName'
-  Prelude.Text ->
   -- | 'shardId'
   Prelude.Text ->
   -- | 'shardIteratorType'
   ShardIteratorType ->
   GetShardIterator
-newGetShardIterator
-  pStreamName_
-  pShardId_
-  pShardIteratorType_ =
-    GetShardIterator'
-      { startingSequenceNumber =
-          Prelude.Nothing,
-        timestamp = Prelude.Nothing,
-        streamName = pStreamName_,
-        shardId = pShardId_,
-        shardIteratorType = pShardIteratorType_
-      }
+newGetShardIterator pShardId_ pShardIteratorType_ =
+  GetShardIterator'
+    { startingSequenceNumber =
+        Prelude.Nothing,
+      streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
+      shardId = pShardId_,
+      shardIteratorType = pShardIteratorType_
+    }
 
 -- | The sequence number of the data record in the shard from which to start
 -- reading. Used with shard iterator type AT_SEQUENCE_NUMBER and
 -- AFTER_SEQUENCE_NUMBER.
 getShardIterator_startingSequenceNumber :: Lens.Lens' GetShardIterator (Prelude.Maybe Prelude.Text)
 getShardIterator_startingSequenceNumber = Lens.lens (\GetShardIterator' {startingSequenceNumber} -> startingSequenceNumber) (\s@GetShardIterator' {} a -> s {startingSequenceNumber = a} :: GetShardIterator)
+
+-- | The ARN of the stream.
+getShardIterator_streamARN :: Lens.Lens' GetShardIterator (Prelude.Maybe Prelude.Text)
+getShardIterator_streamARN = Lens.lens (\GetShardIterator' {streamARN} -> streamARN) (\s@GetShardIterator' {} a -> s {streamARN = a} :: GetShardIterator)
+
+-- | The name of the Amazon Kinesis data stream.
+getShardIterator_streamName :: Lens.Lens' GetShardIterator (Prelude.Maybe Prelude.Text)
+getShardIterator_streamName = Lens.lens (\GetShardIterator' {streamName} -> streamName) (\s@GetShardIterator' {} a -> s {streamName = a} :: GetShardIterator)
 
 -- | The time stamp of the data record from which to start reading. Used with
 -- shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date
@@ -221,10 +233,6 @@ getShardIterator_startingSequenceNumber = Lens.lens (\GetShardIterator' {startin
 -- (TRIM_HORIZON).
 getShardIterator_timestamp :: Lens.Lens' GetShardIterator (Prelude.Maybe Prelude.UTCTime)
 getShardIterator_timestamp = Lens.lens (\GetShardIterator' {timestamp} -> timestamp) (\s@GetShardIterator' {} a -> s {timestamp = a} :: GetShardIterator) Prelude.. Lens.mapping Data._Time
-
--- | The name of the Amazon Kinesis data stream.
-getShardIterator_streamName :: Lens.Lens' GetShardIterator Prelude.Text
-getShardIterator_streamName = Lens.lens (\GetShardIterator' {streamName} -> streamName) (\s@GetShardIterator' {} a -> s {streamName = a} :: GetShardIterator)
 
 -- | The shard ID of the Kinesis Data Streams shard to get the iterator for.
 getShardIterator_shardId :: Lens.Lens' GetShardIterator Prelude.Text
@@ -271,16 +279,18 @@ instance Core.AWSRequest GetShardIterator where
 instance Prelude.Hashable GetShardIterator where
   hashWithSalt _salt GetShardIterator' {..} =
     _salt `Prelude.hashWithSalt` startingSequenceNumber
-      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` shardId
       `Prelude.hashWithSalt` shardIteratorType
 
 instance Prelude.NFData GetShardIterator where
   rnf GetShardIterator' {..} =
     Prelude.rnf startingSequenceNumber
-      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf shardId
       `Prelude.seq` Prelude.rnf shardIteratorType
 
@@ -305,8 +315,9 @@ instance Data.ToJSON GetShardIterator where
       ( Prelude.catMaybes
           [ ("StartingSequenceNumber" Data..=)
               Prelude.<$> startingSequenceNumber,
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             ("Timestamp" Data..=) Prelude.<$> timestamp,
-            Prelude.Just ("StreamName" Data..= streamName),
             Prelude.Just ("ShardId" Data..= shardId),
             Prelude.Just
               ("ShardIteratorType" Data..= shardIteratorType)

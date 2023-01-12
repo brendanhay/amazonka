@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.GetWorkflow
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -179,7 +179,7 @@ data GetWorkflowResponse = GetWorkflowResponse'
   { -- | The workflow\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | When the workflow was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The workflow\'s definition.
     definition :: Prelude.Maybe Prelude.Text,
     -- | The workflow\'s description.

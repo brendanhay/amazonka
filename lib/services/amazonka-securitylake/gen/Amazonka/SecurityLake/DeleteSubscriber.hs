@@ -14,14 +14,15 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.DeleteSubscriber
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified subscription permissions to Security Lake. Deletes
--- the specified subscription permissions from the specified organization.
+-- Deletes the subscription permission for accounts that are already
+-- enabled in Amazon Security Lake. You can delete a subscriber and remove
+-- access to data in the current Amazon Web Services Region.
 module Amazonka.SecurityLake.DeleteSubscriber
   ( -- * Creating a Request
     DeleteSubscriber (..),

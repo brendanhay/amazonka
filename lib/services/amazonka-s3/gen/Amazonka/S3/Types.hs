@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.S3.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1368,7 +1368,7 @@ defaultService =
 -- | The requested bucket name is not available. The bucket namespace is
 -- shared by all users of the system. Select a different name and try
 -- again.
-_BucketAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BucketAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BucketAlreadyExists =
   Core._MatchServiceError
     defaultService
@@ -1380,40 +1380,40 @@ _BucketAlreadyExists =
 -- existing bucket that you already own in the North Virginia Region,
 -- Amazon S3 returns 200 OK and resets the bucket access control lists
 -- (ACLs).
-_BucketAlreadyOwnedByYou :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BucketAlreadyOwnedByYou :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BucketAlreadyOwnedByYou =
   Core._MatchServiceError
     defaultService
     "BucketAlreadyOwnedByYou"
 
 -- | Object is archived and inaccessible until restored.
-_InvalidObjectState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidObjectState :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidObjectState =
   Core._MatchServiceError
     defaultService
     "InvalidObjectState"
 
 -- | The specified bucket does not exist.
-_NoSuchBucket :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchBucket :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoSuchBucket =
   Core._MatchServiceError
     defaultService
     "NoSuchBucket"
 
 -- | The specified key does not exist.
-_NoSuchKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchKey :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoSuchKey =
   Core._MatchServiceError defaultService "NoSuchKey"
 
 -- | The specified multipart upload does not exist.
-_NoSuchUpload :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchUpload :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoSuchUpload =
   Core._MatchServiceError
     defaultService
     "NoSuchUpload"
 
 -- | This action is not allowed against this storage tier.
-_ObjectAlreadyInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectAlreadyInActiveTierError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ObjectAlreadyInActiveTierError =
   Core._MatchServiceError
     defaultService
@@ -1421,7 +1421,7 @@ _ObjectAlreadyInActiveTierError =
 
 -- | The source object of the COPY action is not in the active tier and is
 -- only stored in Amazon S3 Glacier.
-_ObjectNotInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotInActiveTierError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ObjectNotInActiveTierError =
   Core._MatchServiceError
     defaultService

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListCachePolicies
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,8 +65,8 @@ data ListCachePolicies = ListCachePolicies'
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of cache policies. The response includes cache policies in the
     -- list that occur after the marker. To get the next page of the list, set
-    -- this field’s value to the value of @NextMarker@ from the current page’s
-    -- response.
+    -- this field\'s value to the value of @NextMarker@ from the current
+    -- page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of cache policies that you want in the response.
     maxItems :: Prelude.Maybe Prelude.Text,
@@ -93,8 +93,8 @@ data ListCachePolicies = ListCachePolicies'
 -- 'marker', 'listCachePolicies_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of cache policies. The response includes cache policies in the
 -- list that occur after the marker. To get the next page of the list, set
--- this field’s value to the value of @NextMarker@ from the current page’s
--- response.
+-- this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 --
 -- 'maxItems', 'listCachePolicies_maxItems' - The maximum number of cache policies that you want in the response.
 --
@@ -118,8 +118,8 @@ newListCachePolicies =
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of cache policies. The response includes cache policies in the
 -- list that occur after the marker. To get the next page of the list, set
--- this field’s value to the value of @NextMarker@ from the current page’s
--- response.
+-- this field\'s value to the value of @NextMarker@ from the current
+-- page\'s response.
 listCachePolicies_marker :: Lens.Lens' ListCachePolicies (Prelude.Maybe Prelude.Text)
 listCachePolicies_marker = Lens.lens (\ListCachePolicies' {marker} -> marker) (\s@ListCachePolicies' {} a -> s {marker = a} :: ListCachePolicies)
 

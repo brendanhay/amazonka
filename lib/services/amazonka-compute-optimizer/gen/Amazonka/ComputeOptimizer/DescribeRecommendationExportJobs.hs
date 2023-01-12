@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,6 +26,8 @@
 -- ExportEC2InstanceRecommendations actions to request an export of your
 -- recommendations. Then use the DescribeRecommendationExportJobs action to
 -- view your export jobs.
+--
+-- This operation returns paginated results.
 module Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
   ( -- * Creating a Request
     DescribeRecommendationExportJobs (..),
@@ -74,7 +76,7 @@ data DescribeRecommendationExportJobs = DescribeRecommendationExportJobs'
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to advance to the next page of export jobs.
     nextToken :: Prelude.Maybe Prelude.Text
   }
@@ -137,12 +139,37 @@ describeRecommendationExportJobs_jobIds = Lens.lens (\DescribeRecommendationExpo
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
-describeRecommendationExportJobs_maxResults :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe Prelude.Int)
+describeRecommendationExportJobs_maxResults :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe Prelude.Natural)
 describeRecommendationExportJobs_maxResults = Lens.lens (\DescribeRecommendationExportJobs' {maxResults} -> maxResults) (\s@DescribeRecommendationExportJobs' {} a -> s {maxResults = a} :: DescribeRecommendationExportJobs)
 
 -- | The token to advance to the next page of export jobs.
 describeRecommendationExportJobs_nextToken :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe Prelude.Text)
 describeRecommendationExportJobs_nextToken = Lens.lens (\DescribeRecommendationExportJobs' {nextToken} -> nextToken) (\s@DescribeRecommendationExportJobs' {} a -> s {nextToken = a} :: DescribeRecommendationExportJobs)
+
+instance
+  Core.AWSPager
+    DescribeRecommendationExportJobs
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeRecommendationExportJobsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeRecommendationExportJobsResponse_recommendationExportJobs
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeRecommendationExportJobs_nextToken
+          Lens..~ rs
+          Lens.^? describeRecommendationExportJobsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

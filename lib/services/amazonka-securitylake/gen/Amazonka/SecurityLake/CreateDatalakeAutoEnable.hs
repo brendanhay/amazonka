@@ -14,17 +14,15 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.CreateDatalakeAutoEnable
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Automatically enable Security Lake in the specified Regions to begin
--- ingesting security data. When you choose to enable organization accounts
--- automatically, then Security Lake begins to enable new accounts as
--- member accounts as they are added to the organization. Security Lake
--- does not enable existing organization accounts that are not yet enabled.
+-- Automatically enables Amazon Security Lake for new member accounts in
+-- your organization. Security Lake is not automatically enabled for any
+-- existing member accounts in your organization.
 module Amazonka.SecurityLake.CreateDatalakeAutoEnable
   ( -- * Creating a Request
     CreateDatalakeAutoEnable (..),
@@ -52,8 +50,8 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newCreateDatalakeAutoEnable' smart constructor.
 data CreateDatalakeAutoEnable = CreateDatalakeAutoEnable'
-  { -- | Enable Amazon Security Lake with the specified configurations settings
-    -- to begin ingesting security data for new accounts in Security Lake.
+  { -- | Enable Security Lake with the specified configuration settings to begin
+    -- collecting security data for new accounts in your organization.
     configurationForNewAccounts :: [AutoEnableNewRegionConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,8 +64,8 @@ data CreateDatalakeAutoEnable = CreateDatalakeAutoEnable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationForNewAccounts', 'createDatalakeAutoEnable_configurationForNewAccounts' - Enable Amazon Security Lake with the specified configurations settings
--- to begin ingesting security data for new accounts in Security Lake.
+-- 'configurationForNewAccounts', 'createDatalakeAutoEnable_configurationForNewAccounts' - Enable Security Lake with the specified configuration settings to begin
+-- collecting security data for new accounts in your organization.
 newCreateDatalakeAutoEnable ::
   CreateDatalakeAutoEnable
 newCreateDatalakeAutoEnable =
@@ -76,8 +74,8 @@ newCreateDatalakeAutoEnable =
         Prelude.mempty
     }
 
--- | Enable Amazon Security Lake with the specified configurations settings
--- to begin ingesting security data for new accounts in Security Lake.
+-- | Enable Security Lake with the specified configuration settings to begin
+-- collecting security data for new accounts in your organization.
 createDatalakeAutoEnable_configurationForNewAccounts :: Lens.Lens' CreateDatalakeAutoEnable [AutoEnableNewRegionConfiguration]
 createDatalakeAutoEnable_configurationForNewAccounts = Lens.lens (\CreateDatalakeAutoEnable' {configurationForNewAccounts} -> configurationForNewAccounts) (\s@CreateDatalakeAutoEnable' {} a -> s {configurationForNewAccounts = a} :: CreateDatalakeAutoEnable) Prelude.. Lens.coerced
 

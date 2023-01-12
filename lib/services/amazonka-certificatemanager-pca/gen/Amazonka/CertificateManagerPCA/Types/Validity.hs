@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.Types.Validity
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
 -- 5280.
 --
--- ACM Private CA API consumes the @Validity@ data type differently in two
--- distinct parameters of the @IssueCertificate@ action. The required
--- parameter @IssueCertificate@:@Validity@ specifies the end of a
--- certificate\'s validity period. The optional parameter
+-- Amazon Web Services Private CA API consumes the @Validity@ data type
+-- differently in two distinct parameters of the @IssueCertificate@ action.
+-- The required parameter @IssueCertificate@:@Validity@ specifies the end
+-- of a certificate\'s validity period. The optional parameter
 -- @IssueCertificate@:@ValidityNotBefore@ specifies a customized starting
 -- time for the validity period.
 --
@@ -43,10 +43,10 @@ import qualified Amazonka.Prelude as Prelude
 data Validity = Validity'
   { -- | A long integer interpreted according to the value of @Type@, below.
     value :: Prelude.Natural,
-    -- | Determines how /ACM Private CA/ interprets the @Value@ parameter, an
-    -- integer. Supported validity types include those listed below. Type
-    -- definitions with values include a sample input value and the resulting
-    -- output.
+    -- | Determines how /Amazon Web Services Private CA/ interprets the @Value@
+    -- parameter, an integer. Supported validity types include those listed
+    -- below. Type definitions with values include a sample input value and the
+    -- resulting output.
     --
     -- @END_DATE@: The specific date and time when the certificate will expire,
     -- expressed using UTCTime (YYMMDDHHMMSS) or GeneralizedTime
@@ -92,10 +92,10 @@ data Validity = Validity'
 --
 -- 'value', 'validity_value' - A long integer interpreted according to the value of @Type@, below.
 --
--- 'type'', 'validity_type' - Determines how /ACM Private CA/ interprets the @Value@ parameter, an
--- integer. Supported validity types include those listed below. Type
--- definitions with values include a sample input value and the resulting
--- output.
+-- 'type'', 'validity_type' - Determines how /Amazon Web Services Private CA/ interprets the @Value@
+-- parameter, an integer. Supported validity types include those listed
+-- below. Type definitions with values include a sample input value and the
+-- resulting output.
 --
 -- @END_DATE@: The specific date and time when the certificate will expire,
 -- expressed using UTCTime (YYMMDDHHMMSS) or GeneralizedTime
@@ -140,10 +140,10 @@ newValidity pValue_ pType_ =
 validity_value :: Lens.Lens' Validity Prelude.Natural
 validity_value = Lens.lens (\Validity' {value} -> value) (\s@Validity' {} a -> s {value = a} :: Validity)
 
--- | Determines how /ACM Private CA/ interprets the @Value@ parameter, an
--- integer. Supported validity types include those listed below. Type
--- definitions with values include a sample input value and the resulting
--- output.
+-- | Determines how /Amazon Web Services Private CA/ interprets the @Value@
+-- parameter, an integer. Supported validity types include those listed
+-- below. Type definitions with values include a sample input value and the
+-- resulting output.
 --
 -- @END_DATE@: The specific date and time when the certificate will expire,
 -- expressed using UTCTime (YYMMDDHHMMSS) or GeneralizedTime

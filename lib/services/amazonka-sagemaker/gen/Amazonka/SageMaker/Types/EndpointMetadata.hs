@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.EndpointMetadata
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,8 @@ data EndpointMetadata = EndpointMetadata'
     -- | The status of the endpoint. For possible values of the status of an
     -- endpoint, see EndpointSummary$EndpointStatus.
     endpointStatus :: Prelude.Maybe EndpointStatus,
-    -- | If the status of the endpoint is @Failed@, this provides the reason why
-    -- it failed.
+    -- | If the status of the endpoint is @Failed@, or the status is @InService@
+    -- but update operation fails, this provides the reason why it failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the endpoint.
     endpointName :: Prelude.Text
@@ -55,8 +55,8 @@ data EndpointMetadata = EndpointMetadata'
 -- 'endpointStatus', 'endpointMetadata_endpointStatus' - The status of the endpoint. For possible values of the status of an
 -- endpoint, see EndpointSummary$EndpointStatus.
 --
--- 'failureReason', 'endpointMetadata_failureReason' - If the status of the endpoint is @Failed@, this provides the reason why
--- it failed.
+-- 'failureReason', 'endpointMetadata_failureReason' - If the status of the endpoint is @Failed@, or the status is @InService@
+-- but update operation fails, this provides the reason why it failed.
 --
 -- 'endpointName', 'endpointMetadata_endpointName' - The name of the endpoint.
 newEndpointMetadata ::
@@ -81,8 +81,8 @@ endpointMetadata_endpointConfigName = Lens.lens (\EndpointMetadata' {endpointCon
 endpointMetadata_endpointStatus :: Lens.Lens' EndpointMetadata (Prelude.Maybe EndpointStatus)
 endpointMetadata_endpointStatus = Lens.lens (\EndpointMetadata' {endpointStatus} -> endpointStatus) (\s@EndpointMetadata' {} a -> s {endpointStatus = a} :: EndpointMetadata)
 
--- | If the status of the endpoint is @Failed@, this provides the reason why
--- it failed.
+-- | If the status of the endpoint is @Failed@, or the status is @InService@
+-- but update operation fails, this provides the reason why it failed.
 endpointMetadata_failureReason :: Lens.Lens' EndpointMetadata (Prelude.Maybe Prelude.Text)
 endpointMetadata_failureReason = Lens.lens (\EndpointMetadata' {failureReason} -> failureReason) (\s@EndpointMetadata' {} a -> s {failureReason = a} :: EndpointMetadata)
 

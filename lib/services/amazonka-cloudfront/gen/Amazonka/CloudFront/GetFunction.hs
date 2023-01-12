@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.GetFunction
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 -- Gets the code of a CloudFront function. To get configuration information
 -- and metadata about a function, use @DescribeFunction@.
 --
--- To get a function’s code, you must provide the function’s name and
+-- To get a function\'s code, you must provide the function\'s name and
 -- stage. To get these values, you can use @ListFunctions@.
 module Amazonka.CloudFront.GetFunction
   ( -- * Creating a Request
@@ -56,7 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetFunction' smart constructor.
 data GetFunction = GetFunction'
-  { -- | The function’s stage, either @DEVELOPMENT@ or @LIVE@.
+  { -- | The function\'s stage, either @DEVELOPMENT@ or @LIVE@.
     stage :: Prelude.Maybe FunctionStage,
     -- | The name of the function whose code you are getting.
     name :: Prelude.Text
@@ -71,7 +71,7 @@ data GetFunction = GetFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stage', 'getFunction_stage' - The function’s stage, either @DEVELOPMENT@ or @LIVE@.
+-- 'stage', 'getFunction_stage' - The function\'s stage, either @DEVELOPMENT@ or @LIVE@.
 --
 -- 'name', 'getFunction_name' - The name of the function whose code you are getting.
 newGetFunction ::
@@ -84,7 +84,7 @@ newGetFunction pName_ =
       name = pName_
     }
 
--- | The function’s stage, either @DEVELOPMENT@ or @LIVE@.
+-- | The function\'s stage, either @DEVELOPMENT@ or @LIVE@.
 getFunction_stage :: Lens.Lens' GetFunction (Prelude.Maybe FunctionStage)
 getFunction_stage = Lens.lens (\GetFunction' {stage} -> stage) (\s@GetFunction' {} a -> s {stage = a} :: GetFunction)
 

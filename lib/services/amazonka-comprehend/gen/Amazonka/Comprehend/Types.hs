@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Comprehend.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -985,7 +985,7 @@ defaultService =
 
 -- | The number of documents in the request exceeds the limit of 25. Try your
 -- request again with fewer documents.
-_BatchSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchSizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BatchSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -993,14 +993,14 @@ _BatchSizeLimitExceededException =
 
 -- | Concurrent modification of the tags associated with an Amazon Comprehend
 -- resource is not supported.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | An internal server error occurred. Retry your request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -1008,21 +1008,21 @@ _InternalServerException =
 
 -- | The filter specified for the operation is invalid. Specify a different
 -- filter.
-_InvalidFilterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidFilterException =
   Core._MatchServiceError
     defaultService
     "InvalidFilterException"
 
 -- | The request is invalid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The specified job was not found. Check the job ID and try again.
-_JobNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_JobNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _JobNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1030,7 +1030,7 @@ _JobNotFoundException =
 
 -- | The KMS customer managed key (CMK) entered cannot be validated. Verify
 -- the key and re-enter it.
-_KmsKeyValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KmsKeyValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KmsKeyValidationException =
   Core._MatchServiceError
     defaultService
@@ -1038,7 +1038,7 @@ _KmsKeyValidationException =
 
 -- | The specified resource name is already in use. Use a different name and
 -- try your request again.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -1046,7 +1046,7 @@ _ResourceInUseException =
 
 -- | The maximum number of resources per account has been exceeded. Review
 -- the resources, and then try your request again.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1054,7 +1054,7 @@ _ResourceLimitExceededException =
 
 -- | The specified resource ARN was not found. Check the ARN and try your
 -- request again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1062,21 +1062,21 @@ _ResourceNotFoundException =
 
 -- | The specified resource is not available. Check the resource and try your
 -- request again.
-_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ResourceUnavailableException"
 
 -- | The size of the input text exceeds the limit. Use a smaller document.
-_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TextSizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TextSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
     "TextSizeLimitExceededException"
 
 -- | The number of requests exceeds the limit. Resubmit your request later.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -1084,7 +1084,7 @@ _TooManyRequestsException =
 
 -- | The request contains more tag keys than can be associated with a
 -- resource (50 tag keys per resource).
-_TooManyTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagKeysException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagKeysException =
   Core._MatchServiceError
     defaultService
@@ -1093,7 +1093,7 @@ _TooManyTagKeysException =
 -- | The request contains more tags than can be associated with a resource
 -- (50 tags per resource). The maximum number of tags includes both
 -- existing tags and those included in your current request.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
@@ -1104,7 +1104,7 @@ _TooManyTagsException =
 -- German, or Portuguese are accepted. For a list of supported languages,
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html Supported languages>
 -- in the Comprehend Developer Guide.
-_UnsupportedLanguageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedLanguageException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnsupportedLanguageException =
   Core._MatchServiceError
     defaultService

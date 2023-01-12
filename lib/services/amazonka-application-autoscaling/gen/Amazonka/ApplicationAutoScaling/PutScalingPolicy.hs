@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.PutScalingPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -91,8 +91,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-  { -- | The policy type. This parameter is required if you are creating a
-    -- scaling policy.
+  { -- | The scaling policy type. This parameter is required if you are creating
+    -- a scaling policy.
     --
     -- The following policy types are supported:
     --
@@ -119,6 +119,10 @@ data PutScalingPolicy = PutScalingPolicy'
     -- type is @TargetTrackingScaling@.
     targetTrackingScalingPolicyConfiguration :: Prelude.Maybe TargetTrackingScalingPolicyConfiguration,
     -- | The name of the scaling policy.
+    --
+    -- You cannot change the name of a scaling policy, but you can delete the
+    -- original scaling policy and create a new scaling policy with the same
+    -- settings and a different name.
     policyName :: Prelude.Text,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
@@ -224,7 +228,7 @@ data PutScalingPolicy = PutScalingPolicy'
     --     Aurora PostgreSQL-compatible edition.
     --
     -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an SageMaker model endpoint variant.
+    --     instances for a SageMaker model endpoint variant.
     --
     -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
     --     a custom resource provided by your own application or service.
@@ -269,8 +273,8 @@ data PutScalingPolicy = PutScalingPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyType', 'putScalingPolicy_policyType' - The policy type. This parameter is required if you are creating a
--- scaling policy.
+-- 'policyType', 'putScalingPolicy_policyType' - The scaling policy type. This parameter is required if you are creating
+-- a scaling policy.
 --
 -- The following policy types are supported:
 --
@@ -297,6 +301,10 @@ data PutScalingPolicy = PutScalingPolicy'
 -- type is @TargetTrackingScaling@.
 --
 -- 'policyName', 'putScalingPolicy_policyName' - The name of the scaling policy.
+--
+-- You cannot change the name of a scaling policy, but you can delete the
+-- original scaling policy and create a new scaling policy with the same
+-- settings and a different name.
 --
 -- 'serviceNamespace', 'putScalingPolicy_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -402,7 +410,7 @@ data PutScalingPolicy = PutScalingPolicy'
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
+--     instances for a SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -461,8 +469,8 @@ newPutScalingPolicy
         scalableDimension = pScalableDimension_
       }
 
--- | The policy type. This parameter is required if you are creating a
--- scaling policy.
+-- | The scaling policy type. This parameter is required if you are creating
+-- a scaling policy.
 --
 -- The following policy types are supported:
 --
@@ -495,6 +503,10 @@ putScalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' PutScali
 putScalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\PutScalingPolicy' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@PutScalingPolicy' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: PutScalingPolicy)
 
 -- | The name of the scaling policy.
+--
+-- You cannot change the name of a scaling policy, but you can delete the
+-- original scaling policy and create a new scaling policy with the same
+-- settings and a different name.
 putScalingPolicy_policyName :: Lens.Lens' PutScalingPolicy Prelude.Text
 putScalingPolicy_policyName = Lens.lens (\PutScalingPolicy' {policyName} -> policyName) (\s@PutScalingPolicy' {} a -> s {policyName = a} :: PutScalingPolicy)
 
@@ -606,7 +618,7 @@ putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> reso
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
+--     instances for a SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.

@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Rekognition
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -647,6 +647,12 @@ module Amazonka.Rekognition
     -- ** KnownGenderType
     KnownGenderType (..),
 
+    -- ** LabelDetectionAggregateBy
+    LabelDetectionAggregateBy (..),
+
+    -- ** LabelDetectionFeatureName
+    LabelDetectionFeatureName (..),
+
     -- ** LabelDetectionSortBy
     LabelDetectionSortBy (..),
 
@@ -946,6 +952,10 @@ module Amazonka.Rekognition
     -- ** LabelDetection
     LabelDetection (LabelDetection'),
     newLabelDetection,
+
+    -- ** LabelDetectionSettings
+    LabelDetectionSettings (LabelDetectionSettings'),
+    newLabelDetectionSettings,
 
     -- ** Landmark
     Landmark (Landmark'),

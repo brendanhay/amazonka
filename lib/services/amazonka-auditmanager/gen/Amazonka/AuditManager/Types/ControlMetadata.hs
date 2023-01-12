@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.ControlMetadata
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,11 +34,11 @@ data ControlMetadata = ControlMetadata'
     -- | The data source that determines where Audit Manager collects evidence
     -- from for the control.
     controlSources :: Prelude.Maybe Prelude.Text,
-    -- | Specifies when the control was created.
+    -- | The time when the control was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for the control.
     id :: Prelude.Maybe Prelude.Text,
-    -- | Specifies when the control was most recently updated.
+    -- | The time when the control was most recently updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the control.
     name :: Prelude.Maybe Prelude.Text
@@ -58,11 +58,11 @@ data ControlMetadata = ControlMetadata'
 -- 'controlSources', 'controlMetadata_controlSources' - The data source that determines where Audit Manager collects evidence
 -- from for the control.
 --
--- 'createdAt', 'controlMetadata_createdAt' - Specifies when the control was created.
+-- 'createdAt', 'controlMetadata_createdAt' - The time when the control was created.
 --
 -- 'id', 'controlMetadata_id' - The unique identifier for the control.
 --
--- 'lastUpdatedAt', 'controlMetadata_lastUpdatedAt' - Specifies when the control was most recently updated.
+-- 'lastUpdatedAt', 'controlMetadata_lastUpdatedAt' - The time when the control was most recently updated.
 --
 -- 'name', 'controlMetadata_name' - The name of the control.
 newControlMetadata ::
@@ -86,7 +86,7 @@ controlMetadata_arn = Lens.lens (\ControlMetadata' {arn} -> arn) (\s@ControlMeta
 controlMetadata_controlSources :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.Text)
 controlMetadata_controlSources = Lens.lens (\ControlMetadata' {controlSources} -> controlSources) (\s@ControlMetadata' {} a -> s {controlSources = a} :: ControlMetadata)
 
--- | Specifies when the control was created.
+-- | The time when the control was created.
 controlMetadata_createdAt :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.UTCTime)
 controlMetadata_createdAt = Lens.lens (\ControlMetadata' {createdAt} -> createdAt) (\s@ControlMetadata' {} a -> s {createdAt = a} :: ControlMetadata) Prelude.. Lens.mapping Data._Time
 
@@ -94,7 +94,7 @@ controlMetadata_createdAt = Lens.lens (\ControlMetadata' {createdAt} -> createdA
 controlMetadata_id :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.Text)
 controlMetadata_id = Lens.lens (\ControlMetadata' {id} -> id) (\s@ControlMetadata' {} a -> s {id = a} :: ControlMetadata)
 
--- | Specifies when the control was most recently updated.
+-- | The time when the control was most recently updated.
 controlMetadata_lastUpdatedAt :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.UTCTime)
 controlMetadata_lastUpdatedAt = Lens.lens (\ControlMetadata' {lastUpdatedAt} -> lastUpdatedAt) (\s@ControlMetadata' {} a -> s {lastUpdatedAt = a} :: ControlMetadata) Prelude.. Lens.mapping Data._Time
 

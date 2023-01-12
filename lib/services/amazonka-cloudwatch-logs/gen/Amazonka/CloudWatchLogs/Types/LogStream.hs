@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudWatchLogs.Types.LogStream
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,7 +44,9 @@ data LogStream = LogStream'
     -- from ingestion, but in rare situations might take longer.
     lastEventTimestamp :: Prelude.Maybe Prelude.Natural,
     -- | The ingestion time, expressed as the number of milliseconds after
-    -- @Jan 1, 1970 00:00:00 UTC@.
+    -- @Jan 1, 1970 00:00:00 UTC@ The @lastIngestionTime@ value updates on an
+    -- eventual consistency basis. It typically updates in less than an hour
+    -- after ingestion, but in rare situations might take longer.
     lastIngestionTime :: Prelude.Maybe Prelude.Natural,
     -- | The name of the log stream.
     logStreamName :: Prelude.Maybe Prelude.Text,
@@ -56,6 +58,11 @@ data LogStream = LogStream'
     -- is not affected.
     storedBytes :: Prelude.Maybe Prelude.Natural,
     -- | The sequence token.
+    --
+    -- The sequence token is now ignored in @PutLogEvents@ actions.
+    -- @PutLogEvents@ actions are always accepted regardless of receiving an
+    -- invalid sequence token. You don\'t need to obtain @uploadSequenceToken@
+    -- to use a @PutLogEvents@ action.
     uploadSequenceToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +90,9 @@ data LogStream = LogStream'
 -- from ingestion, but in rare situations might take longer.
 --
 -- 'lastIngestionTime', 'logStream_lastIngestionTime' - The ingestion time, expressed as the number of milliseconds after
--- @Jan 1, 1970 00:00:00 UTC@.
+-- @Jan 1, 1970 00:00:00 UTC@ The @lastIngestionTime@ value updates on an
+-- eventual consistency basis. It typically updates in less than an hour
+-- after ingestion, but in rare situations might take longer.
 --
 -- 'logStreamName', 'logStream_logStreamName' - The name of the log stream.
 --
@@ -95,6 +104,11 @@ data LogStream = LogStream'
 -- is not affected.
 --
 -- 'uploadSequenceToken', 'logStream_uploadSequenceToken' - The sequence token.
+--
+-- The sequence token is now ignored in @PutLogEvents@ actions.
+-- @PutLogEvents@ actions are always accepted regardless of receiving an
+-- invalid sequence token. You don\'t need to obtain @uploadSequenceToken@
+-- to use a @PutLogEvents@ action.
 newLogStream ::
   LogStream
 newLogStream =
@@ -132,7 +146,9 @@ logStream_lastEventTimestamp :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natu
 logStream_lastEventTimestamp = Lens.lens (\LogStream' {lastEventTimestamp} -> lastEventTimestamp) (\s@LogStream' {} a -> s {lastEventTimestamp = a} :: LogStream)
 
 -- | The ingestion time, expressed as the number of milliseconds after
--- @Jan 1, 1970 00:00:00 UTC@.
+-- @Jan 1, 1970 00:00:00 UTC@ The @lastIngestionTime@ value updates on an
+-- eventual consistency basis. It typically updates in less than an hour
+-- after ingestion, but in rare situations might take longer.
 logStream_lastIngestionTime :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
 logStream_lastIngestionTime = Lens.lens (\LogStream' {lastIngestionTime} -> lastIngestionTime) (\s@LogStream' {} a -> s {lastIngestionTime = a} :: LogStream)
 
@@ -150,6 +166,11 @@ logStream_storedBytes :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
 logStream_storedBytes = Lens.lens (\LogStream' {storedBytes} -> storedBytes) (\s@LogStream' {} a -> s {storedBytes = a} :: LogStream)
 
 -- | The sequence token.
+--
+-- The sequence token is now ignored in @PutLogEvents@ actions.
+-- @PutLogEvents@ actions are always accepted regardless of receiving an
+-- invalid sequence token. You don\'t need to obtain @uploadSequenceToken@
+-- to use a @PutLogEvents@ action.
 logStream_uploadSequenceToken :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Text)
 logStream_uploadSequenceToken = Lens.lens (\LogStream' {uploadSequenceToken} -> uploadSequenceToken) (\s@LogStream' {} a -> s {uploadSequenceToken = a} :: LogStream)
 

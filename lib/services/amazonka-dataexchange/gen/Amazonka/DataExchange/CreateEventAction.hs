@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.CreateEventAction
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -154,14 +154,14 @@ data CreateEventActionResponse = CreateEventActionResponse'
     -- | The ARN for the event action.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event action was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | What occurs to start an action.
     event :: Prelude.Maybe Event,
     -- | The unique identifier for the event action.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event action was last updated, in ISO 8601
     -- format.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Pinpoint.Types.ApplicationDateRangeKpiResponse
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -48,10 +48,10 @@ data ApplicationDateRangeKpiResponse = ApplicationDateRangeKpiResponse'
     kpiName :: Prelude.Text,
     -- | The last date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    endTime :: Data.POSIX,
+    endTime :: Data.ISO8601,
     -- | The first date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    startTime :: Data.POSIX,
+    startTime :: Data.ISO8601,
     -- | The unique identifier for the application that the metric applies to.
     applicationId :: Prelude.Text
   }

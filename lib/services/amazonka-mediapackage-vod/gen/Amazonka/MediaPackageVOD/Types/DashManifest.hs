@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaPackageVOD.Types.DashManifest
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -49,7 +49,10 @@ data DashManifest = DashManifest'
     -- | The source of scte markers used. When set to SEGMENTS, the scte markers
     -- are sourced from the segments of the ingested content. When set to
     -- MANIFEST, the scte markers are sourced from the manifest of the ingested
-    -- content.
+    -- content. The MANIFEST value is compatible with source HLS playlists
+    -- using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35
+    -- Elemental and SCTE-35 Daterange syntaxes are not supported with this
+    -- option.
     scteMarkersSource :: Prelude.Maybe ScteMarkersSource,
     streamSelection :: Prelude.Maybe StreamSelection
   }
@@ -80,7 +83,10 @@ data DashManifest = DashManifest'
 -- 'scteMarkersSource', 'dashManifest_scteMarkersSource' - The source of scte markers used. When set to SEGMENTS, the scte markers
 -- are sourced from the segments of the ingested content. When set to
 -- MANIFEST, the scte markers are sourced from the manifest of the ingested
--- content.
+-- content. The MANIFEST value is compatible with source HLS playlists
+-- using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35
+-- Elemental and SCTE-35 Daterange syntaxes are not supported with this
+-- option.
 --
 -- 'streamSelection', 'dashManifest_streamSelection' - Undocumented member.
 newDashManifest ::
@@ -120,7 +126,10 @@ dashManifest_profile = Lens.lens (\DashManifest' {profile} -> profile) (\s@DashM
 -- | The source of scte markers used. When set to SEGMENTS, the scte markers
 -- are sourced from the segments of the ingested content. When set to
 -- MANIFEST, the scte markers are sourced from the manifest of the ingested
--- content.
+-- content. The MANIFEST value is compatible with source HLS playlists
+-- using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35
+-- Elemental and SCTE-35 Daterange syntaxes are not supported with this
+-- option.
 dashManifest_scteMarkersSource :: Lens.Lens' DashManifest (Prelude.Maybe ScteMarkersSource)
 dashManifest_scteMarkersSource = Lens.lens (\DashManifest' {scteMarkersSource} -> scteMarkersSource) (\s@DashManifest' {} a -> s {scteMarkersSource = a} :: DashManifest)
 

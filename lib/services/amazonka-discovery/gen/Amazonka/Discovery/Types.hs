@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Discovery.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -341,21 +341,21 @@ defaultService =
 
 -- | The Amazon Web Services user account does not have permission to perform
 -- the action. Check the IAM policy associated with this account.
-_AuthorizationErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthorizationErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AuthorizationErrorException =
   Core._MatchServiceError
     defaultService
     "AuthorizationErrorException"
 
 -- |
-_ConflictErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictErrorException =
   Core._MatchServiceError
     defaultService
     "ConflictErrorException"
 
 -- | The home region is not set. Set the home region to continue.
-_HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HomeRegionNotSetException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _HomeRegionNotSetException =
   Core._MatchServiceError
     defaultService
@@ -363,7 +363,7 @@ _HomeRegionNotSetException =
 
 -- | One or more parameters are not valid. Verify the parameters and try
 -- again.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -371,14 +371,14 @@ _InvalidParameterException =
 
 -- | The value of one or more parameters are either invalid or out of range.
 -- Verify the parameter values and try again.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterValueException"
 
 -- | This operation is not permitted.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
@@ -389,7 +389,7 @@ _OperationNotPermittedException =
 -- you use the same request token but have two different import URLs, you
 -- can encounter this issue. If the import tasks are meant to be different,
 -- use a different @clientRequestToken@, and try again.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -397,14 +397,14 @@ _ResourceInUseException =
 
 -- | The specified configuration ID was not located. Verify the configuration
 -- ID and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The server experienced an internal error. Try again.
-_ServerInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerInternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServerInternalErrorException =
   Core._MatchServiceError
     defaultService

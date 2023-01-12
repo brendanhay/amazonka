@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Pinpoint.Types.JourneySchedule
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data JourneySchedule = JourneySchedule'
   { -- | The scheduled time, in ISO 8601 format, when the journey ended or will
     -- end.
-    endTime :: Prelude.Maybe Data.POSIX,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The scheduled time, in ISO 8601 format, when the journey began or will
     -- begin.
-    startTime :: Prelude.Maybe Data.POSIX,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The starting UTC offset for the journey schedule, if the value of the
     -- journey\'s LocalTime property is true. Valid values are: UTC, UTC+01,
     -- UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30,

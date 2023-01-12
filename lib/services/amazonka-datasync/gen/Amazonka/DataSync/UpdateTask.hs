@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataSync.UpdateTask
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -59,15 +59,13 @@ data UpdateTask = UpdateTask'
   { -- | The Amazon Resource Name (ARN) of the resource name of the Amazon
     -- CloudWatch log group.
     cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of filter rules that determines which files to exclude from a
-    -- task. The list should contain a single filter string that consists of
-    -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
-    -- pipe), for example, @\"\/folder1|\/folder2\"@.
+    -- | Specifies a list of filter rules that exclude specific data during your
+    -- transfer. For more information and examples, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
     excludes :: Prelude.Maybe [FilterRule],
-    -- | A list of filter rules that determines which files to include when
-    -- running a task. The pattern contains a single filter string that
-    -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
+    -- | Specifies a list of filter rules that include specific data during your
+    -- transfer. For more information and examples, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
     includes :: Prelude.Maybe [FilterRule],
     -- | The name of the task to update.
     name :: Prelude.Maybe Prelude.Text,
@@ -96,15 +94,13 @@ data UpdateTask = UpdateTask'
 -- 'cloudWatchLogGroupArn', 'updateTask_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) of the resource name of the Amazon
 -- CloudWatch log group.
 --
--- 'excludes', 'updateTask_excludes' - A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example, @\"\/folder1|\/folder2\"@.
+-- 'excludes', 'updateTask_excludes' - Specifies a list of filter rules that exclude specific data during your
+-- transfer. For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 --
--- 'includes', 'updateTask_includes' - A list of filter rules that determines which files to include when
--- running a task. The pattern contains a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
+-- 'includes', 'updateTask_includes' - Specifies a list of filter rules that include specific data during your
+-- transfer. For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 --
 -- 'name', 'updateTask_name' - The name of the task to update.
 --
@@ -140,17 +136,15 @@ newUpdateTask pTaskArn_ =
 updateTask_cloudWatchLogGroupArn :: Lens.Lens' UpdateTask (Prelude.Maybe Prelude.Text)
 updateTask_cloudWatchLogGroupArn = Lens.lens (\UpdateTask' {cloudWatchLogGroupArn} -> cloudWatchLogGroupArn) (\s@UpdateTask' {} a -> s {cloudWatchLogGroupArn = a} :: UpdateTask)
 
--- | A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example, @\"\/folder1|\/folder2\"@.
+-- | Specifies a list of filter rules that exclude specific data during your
+-- transfer. For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 updateTask_excludes :: Lens.Lens' UpdateTask (Prelude.Maybe [FilterRule])
 updateTask_excludes = Lens.lens (\UpdateTask' {excludes} -> excludes) (\s@UpdateTask' {} a -> s {excludes = a} :: UpdateTask) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of filter rules that determines which files to include when
--- running a task. The pattern contains a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
+-- | Specifies a list of filter rules that include specific data during your
+-- transfer. For more information and examples, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html Filtering data transferred by DataSync>.
 updateTask_includes :: Lens.Lens' UpdateTask (Prelude.Maybe [FilterRule])
 updateTask_includes = Lens.lens (\UpdateTask' {includes} -> includes) (\s@UpdateTask' {} a -> s {includes = a} :: UpdateTask) Prelude.. Lens.mapping Lens.coerced
 

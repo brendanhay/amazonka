@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.OptionGroupOption
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,10 @@ import Amazonka.RDS.Types.OptionVersion
 --
 -- /See:/ 'newOptionGroupOption' smart constructor.
 data OptionGroupOption = OptionGroupOption'
-  { -- | If the option requires a port, specifies the default port for the
+  { -- | Specifies whether the option can be copied across Amazon Web Services
+    -- accounts.
+    copyableCrossAccount :: Prelude.Maybe Prelude.Bool,
+    -- | If the option requires a port, specifies the default port for the
     -- option.
     defaultPort :: Prelude.Maybe Prelude.Int,
     -- | The description of the option.
@@ -85,6 +88,9 @@ data OptionGroupOption = OptionGroupOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'copyableCrossAccount', 'optionGroupOption_copyableCrossAccount' - Specifies whether the option can be copied across Amazon Web Services
+-- accounts.
+--
 -- 'defaultPort', 'optionGroupOption_defaultPort' - If the option requires a port, specifies the default port for the
 -- option.
 --
@@ -132,7 +138,9 @@ newOptionGroupOption ::
   OptionGroupOption
 newOptionGroupOption =
   OptionGroupOption'
-    { defaultPort = Prelude.Nothing,
+    { copyableCrossAccount =
+        Prelude.Nothing,
+      defaultPort = Prelude.Nothing,
       description = Prelude.Nothing,
       engineName = Prelude.Nothing,
       majorEngineVersion = Prelude.Nothing,
@@ -150,6 +158,11 @@ newOptionGroupOption =
       supportsOptionVersionDowngrade = Prelude.Nothing,
       vpcOnly = Prelude.Nothing
     }
+
+-- | Specifies whether the option can be copied across Amazon Web Services
+-- accounts.
+optionGroupOption_copyableCrossAccount :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Bool)
+optionGroupOption_copyableCrossAccount = Lens.lens (\OptionGroupOption' {copyableCrossAccount} -> copyableCrossAccount) (\s@OptionGroupOption' {} a -> s {copyableCrossAccount = a} :: OptionGroupOption)
 
 -- | If the option requires a port, specifies the default port for the
 -- option.
@@ -230,7 +243,8 @@ optionGroupOption_vpcOnly = Lens.lens (\OptionGroupOption' {vpcOnly} -> vpcOnly)
 instance Data.FromXML OptionGroupOption where
   parseXML x =
     OptionGroupOption'
-      Prelude.<$> (x Data..@? "DefaultPort")
+      Prelude.<$> (x Data..@? "CopyableCrossAccount")
+      Prelude.<*> (x Data..@? "DefaultPort")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "EngineName")
       Prelude.<*> (x Data..@? "MajorEngineVersion")
@@ -262,7 +276,8 @@ instance Data.FromXML OptionGroupOption where
 
 instance Prelude.Hashable OptionGroupOption where
   hashWithSalt _salt OptionGroupOption' {..} =
-    _salt `Prelude.hashWithSalt` defaultPort
+    _salt `Prelude.hashWithSalt` copyableCrossAccount
+      `Prelude.hashWithSalt` defaultPort
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` engineName
       `Prelude.hashWithSalt` majorEngineVersion
@@ -281,7 +296,8 @@ instance Prelude.Hashable OptionGroupOption where
 
 instance Prelude.NFData OptionGroupOption where
   rnf OptionGroupOption' {..} =
-    Prelude.rnf defaultPort
+    Prelude.rnf copyableCrossAccount
+      `Prelude.seq` Prelude.rnf defaultPort
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf engineName
       `Prelude.seq` Prelude.rnf majorEngineVersion

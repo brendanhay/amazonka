@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.Types.RevocationConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,26 +27,27 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Certificate revocation information used by the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
 -- and
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
 -- actions. Your private certificate authority (CA) can configure Online
 -- Certificate Status Protocol (OCSP) support and\/or maintain a
 -- certificate revocation list (CRL). OCSP returns validation information
 -- about certificates as requested by clients, and a CRL contains an
 -- updated list of certificates revoked by your CA. For more information,
 -- see
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html RevokeCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html RevokeCertificate>
 -- and
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/revocation-setup.html Setting up a certificate revocation method>
--- in the /Private Certificate Authority (PCA) User Guide/.
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/revocation-setup.html Setting up a certificate revocation method>
+-- in the /Amazon Web Services Private Certificate Authority User Guide/.
 --
 -- /See:/ 'newRevocationConfiguration' smart constructor.
 data RevocationConfiguration = RevocationConfiguration'
   { -- | Configuration of the certificate revocation list (CRL), if any,
     -- maintained by your private CA. A CRL is typically updated approximately
     -- 30 minutes after a certificate is revoked. If for any reason a CRL
-    -- update fails, ACM Private CA makes further attempts every 15 minutes.
+    -- update fails, Amazon Web Services Private CA makes further attempts
+    -- every 15 minutes.
     crlConfiguration :: Prelude.Maybe CrlConfiguration,
     -- | Configuration of Online Certificate Status Protocol (OCSP) support, if
     -- any, maintained by your private CA. When you revoke a certificate, OCSP
@@ -66,7 +67,8 @@ data RevocationConfiguration = RevocationConfiguration'
 -- 'crlConfiguration', 'revocationConfiguration_crlConfiguration' - Configuration of the certificate revocation list (CRL), if any,
 -- maintained by your private CA. A CRL is typically updated approximately
 -- 30 minutes after a certificate is revoked. If for any reason a CRL
--- update fails, ACM Private CA makes further attempts every 15 minutes.
+-- update fails, Amazon Web Services Private CA makes further attempts
+-- every 15 minutes.
 --
 -- 'ocspConfiguration', 'revocationConfiguration_ocspConfiguration' - Configuration of Online Certificate Status Protocol (OCSP) support, if
 -- any, maintained by your private CA. When you revoke a certificate, OCSP
@@ -83,7 +85,8 @@ newRevocationConfiguration =
 -- | Configuration of the certificate revocation list (CRL), if any,
 -- maintained by your private CA. A CRL is typically updated approximately
 -- 30 minutes after a certificate is revoked. If for any reason a CRL
--- update fails, ACM Private CA makes further attempts every 15 minutes.
+-- update fails, Amazon Web Services Private CA makes further attempts
+-- every 15 minutes.
 revocationConfiguration_crlConfiguration :: Lens.Lens' RevocationConfiguration (Prelude.Maybe CrlConfiguration)
 revocationConfiguration_crlConfiguration = Lens.lens (\RevocationConfiguration' {crlConfiguration} -> crlConfiguration) (\s@RevocationConfiguration' {} a -> s {crlConfiguration = a} :: RevocationConfiguration)
 

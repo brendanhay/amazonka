@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.StepFunctions.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -557,7 +557,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified activity does not exist.
-_ActivityDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActivityDoesNotExist :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ActivityDoesNotExist =
   Core._MatchServiceError
     defaultService
@@ -565,7 +565,7 @@ _ActivityDoesNotExist =
 
 -- | The maximum number of activities has been reached. Existing activities
 -- must be deleted before a new activity can be created.
-_ActivityLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActivityLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ActivityLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -573,7 +573,7 @@ _ActivityLimitExceeded =
 
 -- | The maximum number of workers concurrently polling for activity tasks
 -- has been reached.
-_ActivityWorkerLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActivityWorkerLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ActivityWorkerLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -583,14 +583,14 @@ _ActivityWorkerLimitExceeded =
 -- @input@).
 --
 -- Executions with the same @name@ and @input@ are considered idempotent.
-_ExecutionAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExecutionAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExecutionAlreadyExists =
   Core._MatchServiceError
     defaultService
     "ExecutionAlreadyExists"
 
 -- | The specified execution does not exist.
-_ExecutionDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExecutionDoesNotExist :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExecutionDoesNotExist =
   Core._MatchServiceError
     defaultService
@@ -598,54 +598,54 @@ _ExecutionDoesNotExist =
 
 -- | The maximum number of running executions has been reached. Running
 -- executions must end or be stopped before a new execution can be started.
-_ExecutionLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExecutionLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExecutionLimitExceeded =
   Core._MatchServiceError
     defaultService
     "ExecutionLimitExceeded"
 
 -- | The provided Amazon Resource Name (ARN) is not valid.
-_InvalidArn :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArn :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidArn =
   Core._MatchServiceError defaultService "InvalidArn"
 
 -- | The provided Amazon States Language definition is not valid.
-_InvalidDefinition :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDefinition :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidDefinition =
   Core._MatchServiceError
     defaultService
     "InvalidDefinition"
 
 -- | The provided JSON input data is not valid.
-_InvalidExecutionInput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidExecutionInput :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidExecutionInput =
   Core._MatchServiceError
     defaultService
     "InvalidExecutionInput"
 
 -- |
-_InvalidLoggingConfiguration :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidLoggingConfiguration :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidLoggingConfiguration =
   Core._MatchServiceError
     defaultService
     "InvalidLoggingConfiguration"
 
 -- | The provided name is not valid.
-_InvalidName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidName :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidName =
   Core._MatchServiceError
     defaultService
     "InvalidName"
 
 -- | The provided JSON output data is not valid.
-_InvalidOutput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOutput :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidOutput =
   Core._MatchServiceError
     defaultService
     "InvalidOutput"
 
 -- | The provided token is not valid.
-_InvalidToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidToken :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidToken =
   Core._MatchServiceError
     defaultService
@@ -653,7 +653,7 @@ _InvalidToken =
 
 -- | Your @tracingConfiguration@ key does not match, or @enabled@ has not
 -- been set to @true@ or @false@.
-_InvalidTracingConfiguration :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTracingConfiguration :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidTracingConfiguration =
   Core._MatchServiceError
     defaultService
@@ -661,7 +661,7 @@ _InvalidTracingConfiguration =
 
 -- | Request is missing a required parameter. This error occurs if both
 -- @definition@ and @roleArn@ are not specified.
-_MissingRequiredParameter :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingRequiredParameter :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MissingRequiredParameter =
   Core._MatchServiceError
     defaultService
@@ -669,7 +669,7 @@ _MissingRequiredParameter =
 
 -- | Could not find the referenced resource. Only state machine and activity
 -- ARNs are supported.
-_ResourceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFound =
   Core._MatchServiceError
     defaultService
@@ -677,21 +677,21 @@ _ResourceNotFound =
 
 -- | A state machine with the same name but a different definition or role
 -- ARN already exists.
-_StateMachineAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StateMachineAlreadyExists :: Core.AsError a => Lens.Fold a Core.ServiceError
 _StateMachineAlreadyExists =
   Core._MatchServiceError
     defaultService
     "StateMachineAlreadyExists"
 
 -- | The specified state machine is being deleted.
-_StateMachineDeleting :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StateMachineDeleting :: Core.AsError a => Lens.Fold a Core.ServiceError
 _StateMachineDeleting =
   Core._MatchServiceError
     defaultService
     "StateMachineDeleting"
 
 -- | The specified state machine does not exist.
-_StateMachineDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StateMachineDoesNotExist :: Core.AsError a => Lens.Fold a Core.ServiceError
 _StateMachineDoesNotExist =
   Core._MatchServiceError
     defaultService
@@ -699,28 +699,28 @@ _StateMachineDoesNotExist =
 
 -- | The maximum number of state machines has been reached. Existing state
 -- machines must be deleted before a new state machine can be created.
-_StateMachineLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StateMachineLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
 _StateMachineLimitExceeded =
   Core._MatchServiceError
     defaultService
     "StateMachineLimitExceeded"
 
 -- |
-_StateMachineTypeNotSupported :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StateMachineTypeNotSupported :: Core.AsError a => Lens.Fold a Core.ServiceError
 _StateMachineTypeNotSupported =
   Core._MatchServiceError
     defaultService
     "StateMachineTypeNotSupported"
 
 -- | Prism for TaskDoesNotExist' errors.
-_TaskDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaskDoesNotExist :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TaskDoesNotExist =
   Core._MatchServiceError
     defaultService
     "TaskDoesNotExist"
 
 -- | Prism for TaskTimedOut' errors.
-_TaskTimedOut :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaskTimedOut :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TaskTimedOut =
   Core._MatchServiceError
     defaultService
@@ -729,7 +729,7 @@ _TaskTimedOut =
 -- | You\'ve exceeded the number of tags allowed for a resource. See the
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html Limits Topic>
 -- in the Step Functions Developer Guide.
-_TooManyTags :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTags :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTags =
   Core._MatchServiceError
     defaultService
@@ -737,7 +737,7 @@ _TooManyTags =
 
 -- | The input does not satisfy the constraints specified by an Amazon Web
 -- Services service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

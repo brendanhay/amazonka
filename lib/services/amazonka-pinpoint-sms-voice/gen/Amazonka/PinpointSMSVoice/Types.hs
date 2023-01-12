@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.PinpointSMSVoice.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -178,7 +178,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The resource specified in your request already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -186,7 +186,7 @@ _AlreadyExistsException =
     Prelude.. Core.hasStatus 409
 
 -- | The input you provided is invalid.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -196,7 +196,7 @@ _BadRequestException =
 -- | The API encountered an unexpected error and couldn\'t complete the
 -- request. You might be able to successfully issue the request again in
 -- the future.
-_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
@@ -204,7 +204,7 @@ _InternalServiceErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | There are too many instances of the specified resource type.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -212,7 +212,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 412
 
 -- | The resource you attempted to access doesn\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -221,7 +221,7 @@ _NotFoundException =
 
 -- | You\'ve issued too many requests to the resource. Wait a few minutes,
 -- and then try again.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.ShadowModeConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,13 +25,16 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ShadowModelVariantConfig
 
--- | Shows which variant is a production variant and which variant is a
--- shadow variant. For shadow variants, also shows the sampling
--- percentages.
+-- | The configuration of @ShadowMode@ inference experiment type, which
+-- specifies a production variant to take all the inference requests, and a
+-- shadow variant to which Amazon SageMaker replicates a percentage of the
+-- inference requests. For the shadow variant it also specifies the
+-- percentage of requests that Amazon SageMaker replicates.
 --
 -- /See:/ 'newShadowModeConfig' smart constructor.
 data ShadowModeConfig = ShadowModeConfig'
-  { -- | The name of the production variant.
+  { -- | The name of the production variant, which takes all the inference
+    -- requests.
     sourceModelVariantName :: Prelude.Text,
     -- | List of shadow variant configurations.
     shadowModelVariants :: Prelude.NonEmpty ShadowModelVariantConfig
@@ -46,7 +49,8 @@ data ShadowModeConfig = ShadowModeConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceModelVariantName', 'shadowModeConfig_sourceModelVariantName' - The name of the production variant.
+-- 'sourceModelVariantName', 'shadowModeConfig_sourceModelVariantName' - The name of the production variant, which takes all the inference
+-- requests.
 --
 -- 'shadowModelVariants', 'shadowModeConfig_shadowModelVariants' - List of shadow variant configurations.
 newShadowModeConfig ::
@@ -65,7 +69,8 @@ newShadowModeConfig
           Lens.coerced Lens.# pShadowModelVariants_
       }
 
--- | The name of the production variant.
+-- | The name of the production variant, which takes all the inference
+-- requests.
 shadowModeConfig_sourceModelVariantName :: Lens.Lens' ShadowModeConfig Prelude.Text
 shadowModeConfig_sourceModelVariantName = Lens.lens (\ShadowModeConfig' {sourceModelVariantName} -> sourceModelVariantName) (\s@ShadowModeConfig' {} a -> s {sourceModelVariantName = a} :: ShadowModeConfig)
 

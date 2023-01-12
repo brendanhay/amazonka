@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Batch.Types.JobTimeout
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,12 @@ data JobTimeout = JobTimeout'
     -- attempt\'s @startedAt@ timestamp. After this time passes, Batch
     -- terminates your jobs if they aren\'t finished. The minimum value for the
     -- timeout is 60 seconds.
+    --
+    -- For array jobs, the timeout applies to the child jobs, not to the parent
+    -- array job.
+    --
+    -- For multi-node parallel (MNP) jobs, the timeout applies to the whole
+    -- job, not to the individual nodes.
     attemptDurationSeconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,6 +54,12 @@ data JobTimeout = JobTimeout'
 -- attempt\'s @startedAt@ timestamp. After this time passes, Batch
 -- terminates your jobs if they aren\'t finished. The minimum value for the
 -- timeout is 60 seconds.
+--
+-- For array jobs, the timeout applies to the child jobs, not to the parent
+-- array job.
+--
+-- For multi-node parallel (MNP) jobs, the timeout applies to the whole
+-- job, not to the individual nodes.
 newJobTimeout ::
   JobTimeout
 newJobTimeout =
@@ -60,6 +72,12 @@ newJobTimeout =
 -- attempt\'s @startedAt@ timestamp. After this time passes, Batch
 -- terminates your jobs if they aren\'t finished. The minimum value for the
 -- timeout is 60 seconds.
+--
+-- For array jobs, the timeout applies to the child jobs, not to the parent
+-- array job.
+--
+-- For multi-node parallel (MNP) jobs, the timeout applies to the whole
+-- job, not to the individual nodes.
 jobTimeout_attemptDurationSeconds :: Lens.Lens' JobTimeout (Prelude.Maybe Prelude.Int)
 jobTimeout_attemptDurationSeconds = Lens.lens (\JobTimeout' {attemptDurationSeconds} -> attemptDurationSeconds) (\s@JobTimeout' {} a -> s {attemptDurationSeconds = a} :: JobTimeout)
 

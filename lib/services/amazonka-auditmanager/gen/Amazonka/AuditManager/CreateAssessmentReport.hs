@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.CreateAssessmentReport
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,18 +61,18 @@ data CreateAssessmentReport = CreateAssessmentReport'
     -- parameter, Audit Manager generates a one-time report using only the
     -- evidence from the query output. This report does not include any
     -- assessment evidence that was manually
-    -- <https://docs.aws.amazon.com/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence added to a report using the console>,
+    -- <https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence added to a report using the console>,
     -- or
-    -- <https://docs.aws.amazon.com/APIReference-evidenceFinder/API_BatchAssociateAssessmentReportEvidence.html associated with a report using the API>.
+    -- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html associated with a report using the API>.
     --
     -- To use this parameter, the
-    -- <https://docs.aws.amazon.com/APIReference-evidenceFinder/API_EvidenceFinderSetup.html#auditmanager-Type-EvidenceFinderSetup-enablementStatus enablementStatus>
+    -- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_EvidenceFinderEnablement.html#auditmanager-Type-EvidenceFinderEnablement-enablementStatus enablementStatus>
     -- of evidence finder must be @ENABLED@.
     --
     -- For examples and help resolving @queryStatement@ validation exceptions,
     -- see
     -- <https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions Troubleshooting evidence finder issues>
-    -- in the AWS Audit Manager User Guide.
+    -- in the /Audit Manager User Guide./
     queryStatement :: Prelude.Maybe Prelude.Text,
     -- | The name of the new assessment report.
     name :: Prelude.Text,
@@ -98,18 +98,18 @@ data CreateAssessmentReport = CreateAssessmentReport'
 -- parameter, Audit Manager generates a one-time report using only the
 -- evidence from the query output. This report does not include any
 -- assessment evidence that was manually
--- <https://docs.aws.amazon.com/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence added to a report using the console>,
+-- <https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence added to a report using the console>,
 -- or
--- <https://docs.aws.amazon.com/APIReference-evidenceFinder/API_BatchAssociateAssessmentReportEvidence.html associated with a report using the API>.
+-- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html associated with a report using the API>.
 --
 -- To use this parameter, the
--- <https://docs.aws.amazon.com/APIReference-evidenceFinder/API_EvidenceFinderSetup.html#auditmanager-Type-EvidenceFinderSetup-enablementStatus enablementStatus>
+-- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_EvidenceFinderEnablement.html#auditmanager-Type-EvidenceFinderEnablement-enablementStatus enablementStatus>
 -- of evidence finder must be @ENABLED@.
 --
 -- For examples and help resolving @queryStatement@ validation exceptions,
 -- see
 -- <https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions Troubleshooting evidence finder issues>
--- in the AWS Audit Manager User Guide.
+-- in the /Audit Manager User Guide./
 --
 -- 'name', 'createAssessmentReport_name' - The name of the new assessment report.
 --
@@ -140,18 +140,18 @@ createAssessmentReport_description = Lens.lens (\CreateAssessmentReport' {descri
 -- parameter, Audit Manager generates a one-time report using only the
 -- evidence from the query output. This report does not include any
 -- assessment evidence that was manually
--- <https://docs.aws.amazon.com/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence added to a report using the console>,
+-- <https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence added to a report using the console>,
 -- or
--- <https://docs.aws.amazon.com/APIReference-evidenceFinder/API_BatchAssociateAssessmentReportEvidence.html associated with a report using the API>.
+-- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html associated with a report using the API>.
 --
 -- To use this parameter, the
--- <https://docs.aws.amazon.com/APIReference-evidenceFinder/API_EvidenceFinderSetup.html#auditmanager-Type-EvidenceFinderSetup-enablementStatus enablementStatus>
+-- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_EvidenceFinderEnablement.html#auditmanager-Type-EvidenceFinderEnablement-enablementStatus enablementStatus>
 -- of evidence finder must be @ENABLED@.
 --
 -- For examples and help resolving @queryStatement@ validation exceptions,
 -- see
 -- <https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions Troubleshooting evidence finder issues>
--- in the AWS Audit Manager User Guide.
+-- in the /Audit Manager User Guide./
 createAssessmentReport_queryStatement :: Lens.Lens' CreateAssessmentReport (Prelude.Maybe Prelude.Text)
 createAssessmentReport_queryStatement = Lens.lens (\CreateAssessmentReport' {queryStatement} -> queryStatement) (\s@CreateAssessmentReport' {} a -> s {queryStatement = a} :: CreateAssessmentReport)
 

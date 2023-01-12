@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.ImageVersion
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data ImageVersion = ImageVersion'
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | When the version was created.
     creationTime :: Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the image the version is based on.
+    -- | The ARN of the image the version is based on.
     imageArn :: Prelude.Text,
     -- | The ARN of the version.
     imageVersionArn :: Prelude.Text,
@@ -59,7 +59,7 @@ data ImageVersion = ImageVersion'
 --
 -- 'creationTime', 'imageVersion_creationTime' - When the version was created.
 --
--- 'imageArn', 'imageVersion_imageArn' - The Amazon Resource Name (ARN) of the image the version is based on.
+-- 'imageArn', 'imageVersion_imageArn' - The ARN of the image the version is based on.
 --
 -- 'imageVersionArn', 'imageVersion_imageVersionArn' - The ARN of the version.
 --
@@ -108,7 +108,7 @@ imageVersion_failureReason = Lens.lens (\ImageVersion' {failureReason} -> failur
 imageVersion_creationTime :: Lens.Lens' ImageVersion Prelude.UTCTime
 imageVersion_creationTime = Lens.lens (\ImageVersion' {creationTime} -> creationTime) (\s@ImageVersion' {} a -> s {creationTime = a} :: ImageVersion) Prelude.. Data._Time
 
--- | The Amazon Resource Name (ARN) of the image the version is based on.
+-- | The ARN of the image the version is based on.
 imageVersion_imageArn :: Lens.Lens' ImageVersion Prelude.Text
 imageVersion_imageArn = Lens.lens (\ImageVersion' {imageArn} -> imageArn) (\s@ImageVersion' {} a -> s {imageArn = a} :: ImageVersion)
 

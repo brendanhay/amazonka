@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityHub.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1025,6 +1025,294 @@ module Amazonka.SecurityHub.Types
     AwsEc2InstanceNetworkInterfacesDetails (..),
     newAwsEc2InstanceNetworkInterfacesDetails,
     awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId,
+
+    -- * AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails
+    AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails (..),
+    newAwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetDetails_deviceName,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetDetails_ebs,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetDetails_noDevice,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetDetails_virtualName,
+
+    -- * AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails
+    AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails (..),
+    newAwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails_deleteOnTermination,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails_encrypted,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails_iops,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails_kmsKeyId,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails_snapshotId,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails_throughput,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails_volumeSize,
+    awsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails_volumeType,
+
+    -- * AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails
+    AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails (..),
+    newAwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails,
+    awsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails_capacityReservationId,
+    awsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails_capacityReservationResourceGroupArn,
+
+    -- * AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
+    AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails (..),
+    newAwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails,
+    awsEc2LaunchTemplateDataCapacityReservationSpecificationDetails_capacityReservationPreference,
+    awsEc2LaunchTemplateDataCapacityReservationSpecificationDetails_capacityReservationTarget,
+
+    -- * AwsEc2LaunchTemplateDataCpuOptionsDetails
+    AwsEc2LaunchTemplateDataCpuOptionsDetails (..),
+    newAwsEc2LaunchTemplateDataCpuOptionsDetails,
+    awsEc2LaunchTemplateDataCpuOptionsDetails_coreCount,
+    awsEc2LaunchTemplateDataCpuOptionsDetails_threadsPerCore,
+
+    -- * AwsEc2LaunchTemplateDataCreditSpecificationDetails
+    AwsEc2LaunchTemplateDataCreditSpecificationDetails (..),
+    newAwsEc2LaunchTemplateDataCreditSpecificationDetails,
+    awsEc2LaunchTemplateDataCreditSpecificationDetails_cpuCredits,
+
+    -- * AwsEc2LaunchTemplateDataDetails
+    AwsEc2LaunchTemplateDataDetails (..),
+    newAwsEc2LaunchTemplateDataDetails,
+    awsEc2LaunchTemplateDataDetails_blockDeviceMappingSet,
+    awsEc2LaunchTemplateDataDetails_capacityReservationSpecification,
+    awsEc2LaunchTemplateDataDetails_cpuOptions,
+    awsEc2LaunchTemplateDataDetails_creditSpecification,
+    awsEc2LaunchTemplateDataDetails_disableApiStop,
+    awsEc2LaunchTemplateDataDetails_disableApiTermination,
+    awsEc2LaunchTemplateDataDetails_ebsOptimized,
+    awsEc2LaunchTemplateDataDetails_elasticGpuSpecificationSet,
+    awsEc2LaunchTemplateDataDetails_elasticInferenceAcceleratorSet,
+    awsEc2LaunchTemplateDataDetails_enclaveOptions,
+    awsEc2LaunchTemplateDataDetails_hibernationOptions,
+    awsEc2LaunchTemplateDataDetails_iamInstanceProfile,
+    awsEc2LaunchTemplateDataDetails_imageId,
+    awsEc2LaunchTemplateDataDetails_instanceInitiatedShutdownBehavior,
+    awsEc2LaunchTemplateDataDetails_instanceMarketOptions,
+    awsEc2LaunchTemplateDataDetails_instanceRequirements,
+    awsEc2LaunchTemplateDataDetails_instanceType,
+    awsEc2LaunchTemplateDataDetails_kernelId,
+    awsEc2LaunchTemplateDataDetails_keyName,
+    awsEc2LaunchTemplateDataDetails_licenseSet,
+    awsEc2LaunchTemplateDataDetails_maintenanceOptions,
+    awsEc2LaunchTemplateDataDetails_metadataOptions,
+    awsEc2LaunchTemplateDataDetails_monitoring,
+    awsEc2LaunchTemplateDataDetails_networkInterfaceSet,
+    awsEc2LaunchTemplateDataDetails_placement,
+    awsEc2LaunchTemplateDataDetails_privateDnsNameOptions,
+    awsEc2LaunchTemplateDataDetails_ramDiskId,
+    awsEc2LaunchTemplateDataDetails_securityGroupIdSet,
+    awsEc2LaunchTemplateDataDetails_securityGroupSet,
+    awsEc2LaunchTemplateDataDetails_userData,
+
+    -- * AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails
+    AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails (..),
+    newAwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails,
+    awsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails_type,
+
+    -- * AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails
+    AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails (..),
+    newAwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails,
+    awsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails_count,
+    awsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails_type,
+
+    -- * AwsEc2LaunchTemplateDataEnclaveOptionsDetails
+    AwsEc2LaunchTemplateDataEnclaveOptionsDetails (..),
+    newAwsEc2LaunchTemplateDataEnclaveOptionsDetails,
+    awsEc2LaunchTemplateDataEnclaveOptionsDetails_enabled,
+
+    -- * AwsEc2LaunchTemplateDataHibernationOptionsDetails
+    AwsEc2LaunchTemplateDataHibernationOptionsDetails (..),
+    newAwsEc2LaunchTemplateDataHibernationOptionsDetails,
+    awsEc2LaunchTemplateDataHibernationOptionsDetails_configured,
+
+    -- * AwsEc2LaunchTemplateDataIamInstanceProfileDetails
+    AwsEc2LaunchTemplateDataIamInstanceProfileDetails (..),
+    newAwsEc2LaunchTemplateDataIamInstanceProfileDetails,
+    awsEc2LaunchTemplateDataIamInstanceProfileDetails_arn,
+    awsEc2LaunchTemplateDataIamInstanceProfileDetails_name,
+
+    -- * AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails
+    AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceMarketOptionsDetails,
+    awsEc2LaunchTemplateDataInstanceMarketOptionsDetails_marketType,
+    awsEc2LaunchTemplateDataInstanceMarketOptionsDetails_spotOptions,
+
+    -- * AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
+    AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails,
+    awsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails_blockDurationMinutes,
+    awsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails_instanceInterruptionBehavior,
+    awsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails_maxPrice,
+    awsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails_spotInstanceType,
+    awsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails_validUntil,
+
+    -- * AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails,
+    awsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails_max,
+    awsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails_min,
+
+    -- * AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails,
+    awsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails_max,
+    awsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails_min,
+
+    -- * AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails,
+    awsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails_max,
+    awsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails_min,
+
+    -- * AwsEc2LaunchTemplateDataInstanceRequirementsDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsDetails,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_acceleratorCount,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_acceleratorManufacturers,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_acceleratorNames,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_acceleratorTotalMemoryMiB,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_acceleratorTypes,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_bareMetal,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_baselineEbsBandwidthMbps,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_burstablePerformance,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_cpuManufacturers,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_excludedInstanceTypes,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_instanceGenerations,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_localStorage,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_localStorageTypes,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_memoryGiBPerVCpu,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_memoryMiB,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_networkInterfaceCount,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_onDemandMaxPricePercentageOverLowestPrice,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_requireHibernateSupport,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_spotMaxPricePercentageOverLowestPrice,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_totalLocalStorageGB,
+    awsEc2LaunchTemplateDataInstanceRequirementsDetails_vCpuCount,
+
+    -- * AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails,
+    awsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails_max,
+    awsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails_min,
+
+    -- * AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails,
+    awsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails_max,
+    awsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails_min,
+
+    -- * AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails,
+    awsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails_max,
+    awsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails_min,
+
+    -- * AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails,
+    awsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails_max,
+    awsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails_min,
+
+    -- * AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails
+    AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails (..),
+    newAwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails,
+    awsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails_max,
+    awsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails_min,
+
+    -- * AwsEc2LaunchTemplateDataLicenseSetDetails
+    AwsEc2LaunchTemplateDataLicenseSetDetails (..),
+    newAwsEc2LaunchTemplateDataLicenseSetDetails,
+    awsEc2LaunchTemplateDataLicenseSetDetails_licenseConfigurationArn,
+
+    -- * AwsEc2LaunchTemplateDataMaintenanceOptionsDetails
+    AwsEc2LaunchTemplateDataMaintenanceOptionsDetails (..),
+    newAwsEc2LaunchTemplateDataMaintenanceOptionsDetails,
+    awsEc2LaunchTemplateDataMaintenanceOptionsDetails_autoRecovery,
+
+    -- * AwsEc2LaunchTemplateDataMetadataOptionsDetails
+    AwsEc2LaunchTemplateDataMetadataOptionsDetails (..),
+    newAwsEc2LaunchTemplateDataMetadataOptionsDetails,
+    awsEc2LaunchTemplateDataMetadataOptionsDetails_httpEndpoint,
+    awsEc2LaunchTemplateDataMetadataOptionsDetails_httpProtocolIpv6,
+    awsEc2LaunchTemplateDataMetadataOptionsDetails_httpPutResponseHopLimit,
+    awsEc2LaunchTemplateDataMetadataOptionsDetails_httpTokens,
+    awsEc2LaunchTemplateDataMetadataOptionsDetails_instanceMetadataTags,
+
+    -- * AwsEc2LaunchTemplateDataMonitoringDetails
+    AwsEc2LaunchTemplateDataMonitoringDetails (..),
+    newAwsEc2LaunchTemplateDataMonitoringDetails,
+    awsEc2LaunchTemplateDataMonitoringDetails_enabled,
+
+    -- * AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails (..),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetDetails,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_associateCarrierIpAddress,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_associatePublicIpAddress,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_deleteOnTermination,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_description,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_deviceIndex,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_groups,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_interfaceType,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_ipv4PrefixCount,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_ipv4Prefixes,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_ipv6AddressCount,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_ipv6Addresses,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_ipv6PrefixCount,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_ipv6Prefixes,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_networkCardIndex,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_networkInterfaceId,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_privateIpAddress,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_privateIpAddresses,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_secondaryPrivateIpAddressCount,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetDetails_subnetId,
+
+    -- * AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails (..),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails_ipv4Prefix,
+
+    -- * AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails (..),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails_ipv6Address,
+
+    -- * AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails (..),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails_ipv6Prefix,
+
+    -- * AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails (..),
+    newAwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails_primary,
+    awsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails_privateIpAddress,
+
+    -- * AwsEc2LaunchTemplateDataPlacementDetails
+    AwsEc2LaunchTemplateDataPlacementDetails (..),
+    newAwsEc2LaunchTemplateDataPlacementDetails,
+    awsEc2LaunchTemplateDataPlacementDetails_affinity,
+    awsEc2LaunchTemplateDataPlacementDetails_availabilityZone,
+    awsEc2LaunchTemplateDataPlacementDetails_groupName,
+    awsEc2LaunchTemplateDataPlacementDetails_hostId,
+    awsEc2LaunchTemplateDataPlacementDetails_hostResourceGroupArn,
+    awsEc2LaunchTemplateDataPlacementDetails_partitionNumber,
+    awsEc2LaunchTemplateDataPlacementDetails_spreadDomain,
+    awsEc2LaunchTemplateDataPlacementDetails_tenancy,
+
+    -- * AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails
+    AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails (..),
+    newAwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails,
+    awsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails_enableResourceNameDnsAAAARecord,
+    awsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails_enableResourceNameDnsARecord,
+    awsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails_hostnameType,
+
+    -- * AwsEc2LaunchTemplateDetails
+    AwsEc2LaunchTemplateDetails (..),
+    newAwsEc2LaunchTemplateDetails,
+    awsEc2LaunchTemplateDetails_defaultVersionNumber,
+    awsEc2LaunchTemplateDetails_id,
+    awsEc2LaunchTemplateDetails_latestVersionNumber,
+    awsEc2LaunchTemplateDetails_launchTemplateData,
+    awsEc2LaunchTemplateDetails_launchTemplateName,
 
     -- * AwsEc2NetworkAclAssociation
     AwsEc2NetworkAclAssociation (..),
@@ -3151,6 +3439,35 @@ module Amazonka.SecurityHub.Types
     awsS3ObjectDetails_serverSideEncryption,
     awsS3ObjectDetails_versionId,
 
+    -- * AwsSageMakerNotebookInstanceDetails
+    AwsSageMakerNotebookInstanceDetails (..),
+    newAwsSageMakerNotebookInstanceDetails,
+    awsSageMakerNotebookInstanceDetails_acceleratorTypes,
+    awsSageMakerNotebookInstanceDetails_additionalCodeRepositories,
+    awsSageMakerNotebookInstanceDetails_defaultCodeRepository,
+    awsSageMakerNotebookInstanceDetails_directInternetAccess,
+    awsSageMakerNotebookInstanceDetails_failureReason,
+    awsSageMakerNotebookInstanceDetails_instanceMetadataServiceConfiguration,
+    awsSageMakerNotebookInstanceDetails_instanceType,
+    awsSageMakerNotebookInstanceDetails_kmsKeyId,
+    awsSageMakerNotebookInstanceDetails_networkInterfaceId,
+    awsSageMakerNotebookInstanceDetails_notebookInstanceArn,
+    awsSageMakerNotebookInstanceDetails_notebookInstanceLifecycleConfigName,
+    awsSageMakerNotebookInstanceDetails_notebookInstanceName,
+    awsSageMakerNotebookInstanceDetails_notebookInstanceStatus,
+    awsSageMakerNotebookInstanceDetails_platformIdentifier,
+    awsSageMakerNotebookInstanceDetails_roleArn,
+    awsSageMakerNotebookInstanceDetails_rootAccess,
+    awsSageMakerNotebookInstanceDetails_securityGroups,
+    awsSageMakerNotebookInstanceDetails_subnetId,
+    awsSageMakerNotebookInstanceDetails_url,
+    awsSageMakerNotebookInstanceDetails_volumeSizeInGB,
+
+    -- * AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails
+    AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails (..),
+    newAwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails,
+    awsSageMakerNotebookInstanceMetadataServiceConfigurationDetails_minimumInstanceMetadataServiceVersion,
+
     -- * AwsSecretsManagerSecretDetails
     AwsSecretsManagerSecretDetails (..),
     newAwsSecretsManagerSecretDetails,
@@ -3530,6 +3847,110 @@ module Amazonka.SecurityHub.Types
     awsWafWebAclRule_priority,
     awsWafWebAclRule_ruleId,
     awsWafWebAclRule_type,
+
+    -- * AwsWafv2ActionAllowDetails
+    AwsWafv2ActionAllowDetails (..),
+    newAwsWafv2ActionAllowDetails,
+    awsWafv2ActionAllowDetails_customRequestHandling,
+
+    -- * AwsWafv2ActionBlockDetails
+    AwsWafv2ActionBlockDetails (..),
+    newAwsWafv2ActionBlockDetails,
+    awsWafv2ActionBlockDetails_customResponse,
+
+    -- * AwsWafv2CustomHttpHeader
+    AwsWafv2CustomHttpHeader (..),
+    newAwsWafv2CustomHttpHeader,
+    awsWafv2CustomHttpHeader_name,
+    awsWafv2CustomHttpHeader_value,
+
+    -- * AwsWafv2CustomRequestHandlingDetails
+    AwsWafv2CustomRequestHandlingDetails (..),
+    newAwsWafv2CustomRequestHandlingDetails,
+    awsWafv2CustomRequestHandlingDetails_insertHeaders,
+
+    -- * AwsWafv2CustomResponseDetails
+    AwsWafv2CustomResponseDetails (..),
+    newAwsWafv2CustomResponseDetails,
+    awsWafv2CustomResponseDetails_customResponseBodyKey,
+    awsWafv2CustomResponseDetails_responseCode,
+    awsWafv2CustomResponseDetails_responseHeaders,
+
+    -- * AwsWafv2RuleGroupDetails
+    AwsWafv2RuleGroupDetails (..),
+    newAwsWafv2RuleGroupDetails,
+    awsWafv2RuleGroupDetails_arn,
+    awsWafv2RuleGroupDetails_capacity,
+    awsWafv2RuleGroupDetails_description,
+    awsWafv2RuleGroupDetails_id,
+    awsWafv2RuleGroupDetails_name,
+    awsWafv2RuleGroupDetails_rules,
+    awsWafv2RuleGroupDetails_scope,
+    awsWafv2RuleGroupDetails_visibilityConfig,
+
+    -- * AwsWafv2RulesActionCaptchaDetails
+    AwsWafv2RulesActionCaptchaDetails (..),
+    newAwsWafv2RulesActionCaptchaDetails,
+    awsWafv2RulesActionCaptchaDetails_customRequestHandling,
+
+    -- * AwsWafv2RulesActionCountDetails
+    AwsWafv2RulesActionCountDetails (..),
+    newAwsWafv2RulesActionCountDetails,
+    awsWafv2RulesActionCountDetails_customRequestHandling,
+
+    -- * AwsWafv2RulesActionDetails
+    AwsWafv2RulesActionDetails (..),
+    newAwsWafv2RulesActionDetails,
+    awsWafv2RulesActionDetails_allow,
+    awsWafv2RulesActionDetails_block,
+    awsWafv2RulesActionDetails_captcha,
+    awsWafv2RulesActionDetails_count,
+
+    -- * AwsWafv2RulesDetails
+    AwsWafv2RulesDetails (..),
+    newAwsWafv2RulesDetails,
+    awsWafv2RulesDetails_action,
+    awsWafv2RulesDetails_name,
+    awsWafv2RulesDetails_overrideAction,
+    awsWafv2RulesDetails_priority,
+    awsWafv2RulesDetails_visibilityConfig,
+
+    -- * AwsWafv2VisibilityConfigDetails
+    AwsWafv2VisibilityConfigDetails (..),
+    newAwsWafv2VisibilityConfigDetails,
+    awsWafv2VisibilityConfigDetails_cloudWatchMetricsEnabled,
+    awsWafv2VisibilityConfigDetails_metricName,
+    awsWafv2VisibilityConfigDetails_sampledRequestsEnabled,
+
+    -- * AwsWafv2WebAclActionDetails
+    AwsWafv2WebAclActionDetails (..),
+    newAwsWafv2WebAclActionDetails,
+    awsWafv2WebAclActionDetails_allow,
+    awsWafv2WebAclActionDetails_block,
+
+    -- * AwsWafv2WebAclCaptchaConfigDetails
+    AwsWafv2WebAclCaptchaConfigDetails (..),
+    newAwsWafv2WebAclCaptchaConfigDetails,
+    awsWafv2WebAclCaptchaConfigDetails_immunityTimeProperty,
+
+    -- * AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails
+    AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails (..),
+    newAwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails,
+    awsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails_immunityTime,
+
+    -- * AwsWafv2WebAclDetails
+    AwsWafv2WebAclDetails (..),
+    newAwsWafv2WebAclDetails,
+    awsWafv2WebAclDetails_arn,
+    awsWafv2WebAclDetails_capacity,
+    awsWafv2WebAclDetails_captchaConfig,
+    awsWafv2WebAclDetails_defaultAction,
+    awsWafv2WebAclDetails_description,
+    awsWafv2WebAclDetails_id,
+    awsWafv2WebAclDetails_managedbyFirewallManager,
+    awsWafv2WebAclDetails_name,
+    awsWafv2WebAclDetails_rules,
+    awsWafv2WebAclDetails_visibilityConfig,
 
     -- * AwsXrayEncryptionConfigDetails
     AwsXrayEncryptionConfigDetails (..),
@@ -4027,6 +4448,7 @@ module Amazonka.SecurityHub.Types
     resourceDetails_awsDynamoDbTable,
     resourceDetails_awsEc2Eip,
     resourceDetails_awsEc2Instance,
+    resourceDetails_awsEc2LaunchTemplate,
     resourceDetails_awsEc2NetworkAcl,
     resourceDetails_awsEc2NetworkInterface,
     resourceDetails_awsEc2SecurityGroup,
@@ -4073,6 +4495,7 @@ module Amazonka.SecurityHub.Types
     resourceDetails_awsS3AccountPublicAccessBlock,
     resourceDetails_awsS3Bucket,
     resourceDetails_awsS3Object,
+    resourceDetails_awsSageMakerNotebookInstance,
     resourceDetails_awsSecretsManagerSecret,
     resourceDetails_awsSnsTopic,
     resourceDetails_awsSqsQueue,
@@ -4085,6 +4508,8 @@ module Amazonka.SecurityHub.Types
     resourceDetails_awsWafRule,
     resourceDetails_awsWafRuleGroup,
     resourceDetails_awsWafWebAcl,
+    resourceDetails_awsWafv2RuleGroup,
+    resourceDetails_awsWafv2WebAcl,
     resourceDetails_awsXrayEncryptionConfig,
     resourceDetails_container,
     resourceDetails_other,
@@ -4539,6 +4964,41 @@ import Amazonka.SecurityHub.Types.AwsEc2EipDetails
 import Amazonka.SecurityHub.Types.AwsEc2InstanceDetails
 import Amazonka.SecurityHub.Types.AwsEc2InstanceMetadataOptions
 import Amazonka.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataCpuOptionsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataCreditSpecificationDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataEnclaveOptionsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataHibernationOptionsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataIamInstanceProfileDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataLicenseSetDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataMaintenanceOptionsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataMetadataOptionsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataMonitoringDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataPlacementDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDetails
 import Amazonka.SecurityHub.Types.AwsEc2NetworkAclAssociation
 import Amazonka.SecurityHub.Types.AwsEc2NetworkAclDetails
 import Amazonka.SecurityHub.Types.AwsEc2NetworkAclEntry
@@ -4779,6 +5239,8 @@ import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRule
 import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRuleCondition
 import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
 import Amazonka.SecurityHub.Types.AwsS3ObjectDetails
+import Amazonka.SecurityHub.Types.AwsSageMakerNotebookInstanceDetails
+import Amazonka.SecurityHub.Types.AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails
 import Amazonka.SecurityHub.Types.AwsSecretsManagerSecretDetails
 import Amazonka.SecurityHub.Types.AwsSecretsManagerSecretRotationRules
 import Amazonka.SecurityHub.Types.AwsSecurityFinding
@@ -4810,6 +5272,21 @@ import Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesDetails
 import Amazonka.SecurityHub.Types.AwsWafRulePredicateListDetails
 import Amazonka.SecurityHub.Types.AwsWafWebAclDetails
 import Amazonka.SecurityHub.Types.AwsWafWebAclRule
+import Amazonka.SecurityHub.Types.AwsWafv2ActionAllowDetails
+import Amazonka.SecurityHub.Types.AwsWafv2ActionBlockDetails
+import Amazonka.SecurityHub.Types.AwsWafv2CustomHttpHeader
+import Amazonka.SecurityHub.Types.AwsWafv2CustomRequestHandlingDetails
+import Amazonka.SecurityHub.Types.AwsWafv2CustomResponseDetails
+import Amazonka.SecurityHub.Types.AwsWafv2RuleGroupDetails
+import Amazonka.SecurityHub.Types.AwsWafv2RulesActionCaptchaDetails
+import Amazonka.SecurityHub.Types.AwsWafv2RulesActionCountDetails
+import Amazonka.SecurityHub.Types.AwsWafv2RulesActionDetails
+import Amazonka.SecurityHub.Types.AwsWafv2RulesDetails
+import Amazonka.SecurityHub.Types.AwsWafv2VisibilityConfigDetails
+import Amazonka.SecurityHub.Types.AwsWafv2WebAclActionDetails
+import Amazonka.SecurityHub.Types.AwsWafv2WebAclCaptchaConfigDetails
+import Amazonka.SecurityHub.Types.AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails
+import Amazonka.SecurityHub.Types.AwsWafv2WebAclDetails
 import Amazonka.SecurityHub.Types.AwsXrayEncryptionConfigDetails
 import Amazonka.SecurityHub.Types.BatchUpdateFindingsUnprocessedFinding
 import Amazonka.SecurityHub.Types.BooleanFilter
@@ -5021,7 +5498,7 @@ defaultService =
 
 -- | You don\'t have permission to perform the action specified in the
 -- request.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -5029,17 +5506,15 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | Internal server error.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
     "InternalException"
     Prelude.. Core.hasStatus 500
 
--- | There is an issue with the account used to make the request. Either
--- Security Hub is not enabled for the account, or the account does not
--- have permission to perform this action.
-_InvalidAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+-- | The account doesn\'t have permission to perform this action.
+_InvalidAccessException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidAccessException =
   Core._MatchServiceError
     defaultService
@@ -5048,7 +5523,7 @@ _InvalidAccessException =
 
 -- | The request was rejected because you supplied an invalid or out-of-range
 -- value for an input parameter.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -5058,7 +5533,7 @@ _InvalidInputException =
 -- | The request was rejected because it attempted to create resources beyond
 -- the current Amazon Web Services account or throttling limits. The error
 -- code describes the limit exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -5067,7 +5542,7 @@ _LimitExceededException =
 
 -- | The resource specified in the request conflicts with an existing
 -- resource.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceConflictException =
   Core._MatchServiceError
     defaultService
@@ -5075,7 +5550,7 @@ _ResourceConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The request was rejected because we can\'t find the specified resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

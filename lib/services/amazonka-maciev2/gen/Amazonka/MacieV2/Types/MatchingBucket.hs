@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.MatchingBucket
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -75,7 +75,7 @@ data MatchingBucket = MatchingBucket'
     -- Macie most recently performed automated sensitive data discovery for the
     -- bucket. This value is null if automated sensitive data discovery is
     -- currently disabled for your account.
-    lastAutomatedDiscoveryTime :: Prelude.Maybe Data.POSIX,
+    lastAutomatedDiscoveryTime :: Prelude.Maybe Data.ISO8601,
     -- | The total number of objects in the bucket.
     objectCount :: Prelude.Maybe Prelude.Integer,
     -- | The total number of objects in the bucket, grouped by server-side

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.IotTwinMaker.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -604,7 +604,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access is denied.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -612,7 +612,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | A conflict occurred.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -620,7 +620,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The connector failed.
-_ConnectorFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConnectorFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConnectorFailureException =
   Core._MatchServiceError
     defaultService
@@ -628,7 +628,7 @@ _ConnectorFailureException =
     Prelude.. Core.hasStatus 424
 
 -- | The connector timed out.
-_ConnectorTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConnectorTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConnectorTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -636,7 +636,7 @@ _ConnectorTimeoutException =
     Prelude.. Core.hasStatus 424
 
 -- | An unexpected error has occurred.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -644,7 +644,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The query timeout exception.
-_QueryTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueryTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _QueryTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -652,7 +652,7 @@ _QueryTimeoutException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource wasn\'t found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -660,7 +660,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The service quota was exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -668,7 +668,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The rate exceeds the limit.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -676,7 +676,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The number of tags exceeds the limit.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
@@ -684,7 +684,7 @@ _TooManyTagsException =
     Prelude.. Core.hasStatus 400
 
 -- | Failed
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

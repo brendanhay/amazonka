@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.DescribeScalingActivities
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,10 @@
 --
 -- You can filter the results using @ResourceId@ and @ScalableDimension@.
 --
+-- For information about viewing scaling activities using the Amazon Web
+-- Services CLI, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html Scaling activities for Application Auto Scaling>.
+--
 -- This operation returns paginated results.
 module Amazonka.ApplicationAutoScaling.DescribeScalingActivities
   ( -- * Creating a Request
@@ -32,6 +36,7 @@ module Amazonka.ApplicationAutoScaling.DescribeScalingActivities
     newDescribeScalingActivities,
 
     -- * Request Lenses
+    describeScalingActivities_includeNotScaledActivities,
     describeScalingActivities_maxResults,
     describeScalingActivities_nextToken,
     describeScalingActivities_resourceId,
@@ -59,7 +64,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
-  { -- | The maximum number of scalable targets. This value can be between 1 and
+  { -- | Specifies whether to include activities that aren\'t scaled (/not scaled
+    -- activities/) in the response. Not scaled activities are activities that
+    -- aren\'t completed or started for various reasons, such as preventing
+    -- infinite scaling loops. For help interpreting the not scaled reason
+    -- details in the response, see
+    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html Scaling activities for Application Auto Scaling>.
+    includeNotScaledActivities :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of scalable targets. This value can be between 1 and
     -- 50. The default value is 50.
     --
     -- If this parameter is used, the operation returns up to @MaxResults@
@@ -171,7 +183,7 @@ data DescribeScalingActivities = DescribeScalingActivities'
     --     Aurora PostgreSQL-compatible edition.
     --
     -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an SageMaker model endpoint variant.
+    --     instances for a SageMaker model endpoint variant.
     --
     -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
     --     a custom resource provided by your own application or service.
@@ -219,6 +231,13 @@ data DescribeScalingActivities = DescribeScalingActivities'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'includeNotScaledActivities', 'describeScalingActivities_includeNotScaledActivities' - Specifies whether to include activities that aren\'t scaled (/not scaled
+-- activities/) in the response. Not scaled activities are activities that
+-- aren\'t completed or started for various reasons, such as preventing
+-- infinite scaling loops. For help interpreting the not scaled reason
+-- details in the response, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html Scaling activities for Application Auto Scaling>.
 --
 -- 'maxResults', 'describeScalingActivities_maxResults' - The maximum number of scalable targets. This value can be between 1 and
 -- 50. The default value is 50.
@@ -332,7 +351,7 @@ data DescribeScalingActivities = DescribeScalingActivities'
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
+--     instances for a SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -375,13 +394,23 @@ newDescribeScalingActivities ::
   DescribeScalingActivities
 newDescribeScalingActivities pServiceNamespace_ =
   DescribeScalingActivities'
-    { maxResults =
+    { includeNotScaledActivities =
         Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       resourceId = Prelude.Nothing,
       scalableDimension = Prelude.Nothing,
       serviceNamespace = pServiceNamespace_
     }
+
+-- | Specifies whether to include activities that aren\'t scaled (/not scaled
+-- activities/) in the response. Not scaled activities are activities that
+-- aren\'t completed or started for various reasons, such as preventing
+-- infinite scaling loops. For help interpreting the not scaled reason
+-- details in the response, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html Scaling activities for Application Auto Scaling>.
+describeScalingActivities_includeNotScaledActivities :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Bool)
+describeScalingActivities_includeNotScaledActivities = Lens.lens (\DescribeScalingActivities' {includeNotScaledActivities} -> includeNotScaledActivities) (\s@DescribeScalingActivities' {} a -> s {includeNotScaledActivities = a} :: DescribeScalingActivities)
 
 -- | The maximum number of scalable targets. This value can be between 1 and
 -- 50. The default value is 50.
@@ -501,7 +530,7 @@ describeScalingActivities_resourceId = Lens.lens (\DescribeScalingActivities' {r
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
+--     instances for a SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -584,7 +613,9 @@ instance Core.AWSRequest DescribeScalingActivities where
 
 instance Prelude.Hashable DescribeScalingActivities where
   hashWithSalt _salt DescribeScalingActivities' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` includeNotScaledActivities
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
@@ -592,7 +623,8 @@ instance Prelude.Hashable DescribeScalingActivities where
 
 instance Prelude.NFData DescribeScalingActivities where
   rnf DescribeScalingActivities' {..} =
-    Prelude.rnf maxResults
+    Prelude.rnf includeNotScaledActivities
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
@@ -617,7 +649,9 @@ instance Data.ToJSON DescribeScalingActivities where
   toJSON DescribeScalingActivities' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("IncludeNotScaledActivities" Data..=)
+              Prelude.<$> includeNotScaledActivities,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ResourceId" Data..=) Prelude.<$> resourceId,
             ("ScalableDimension" Data..=)

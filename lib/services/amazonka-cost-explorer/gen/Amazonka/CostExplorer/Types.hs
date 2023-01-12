@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CostExplorer.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -179,9 +179,10 @@ module Amazonka.CostExplorer.Types
     newAnomalySubscription,
     anomalySubscription_accountId,
     anomalySubscription_subscriptionArn,
+    anomalySubscription_threshold,
+    anomalySubscription_thresholdExpression,
     anomalySubscription_monitorArnList,
     anomalySubscription_subscribers,
-    anomalySubscription_threshold,
     anomalySubscription_frequency,
     anomalySubscription_subscriptionName,
 
@@ -450,7 +451,10 @@ module Amazonka.CostExplorer.Types
     -- * Impact
     Impact (..),
     newImpact,
+    impact_totalActualSpend,
+    impact_totalExpectedSpend,
     impact_totalImpact,
+    impact_totalImpactPercentage,
     impact_maxImpact,
 
     -- * InstanceDetails
@@ -1028,35 +1032,35 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The requested report expired. Update the date interval and try again.
-_BillExpirationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BillExpirationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BillExpirationException =
   Core._MatchServiceError
     defaultService
     "BillExpirationException"
 
 -- | The requested data is unavailable.
-_DataUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DataUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DataUnavailableException =
   Core._MatchServiceError
     defaultService
     "DataUnavailableException"
 
 -- | A request to generate a recommendation is already in progress.
-_GenerationExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GenerationExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _GenerationExistsException =
   Core._MatchServiceError
     defaultService
     "GenerationExistsException"
 
 -- | The pagination token is invalid. Try again without a pagination token.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | You made too many calls in a short period of time. Try again later.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1064,14 +1068,14 @@ _LimitExceededException =
 
 -- | Your request parameters changed between pages. Try again with the old
 -- parameters or without a pagination token.
-_RequestChangedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestChangedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RequestChangedException =
   Core._MatchServiceError
     defaultService
     "RequestChangedException"
 
 -- | The specified ARN in the request doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1079,7 +1083,7 @@ _ResourceNotFoundException =
 
 -- | You\'ve reached the limit on the number of resources you can create, or
 -- exceeded the size of an individual resource.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1087,21 +1091,21 @@ _ServiceQuotaExceededException =
 
 -- | Can occur if you specify a number of tags for a resource greater than
 -- the maximum 50 user tags per resource.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | The cost anomaly monitor does not exist for the account.
-_UnknownMonitorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnknownMonitorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnknownMonitorException =
   Core._MatchServiceError
     defaultService
     "UnknownMonitorException"
 
 -- | The cost anomaly subscription does not exist for the account.
-_UnknownSubscriptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnknownSubscriptionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnknownSubscriptionException =
   Core._MatchServiceError
     defaultService
@@ -1110,7 +1114,7 @@ _UnknownSubscriptionException =
 -- | Cost Explorer was unable to identify the usage unit. Provide
 -- @UsageType\/UsageTypeGroup@ filter selections that contain matching
 -- units, for example: @hours@.
-_UnresolvableUsageUnitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnresolvableUsageUnitException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnresolvableUsageUnitException =
   Core._MatchServiceError
     defaultService

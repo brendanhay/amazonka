@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.LaunchProfileInitializationActiveDirectory
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
 import qualified Amazonka.Prelude as Prelude
 
--- | The Launch Profile Initialization Active Directory contains information
+-- | The launch profile initialization Active Directory contains information
 -- required for the launch profile to connect to the Active Directory.
 --
 -- /See:/ 'newLaunchProfileInitializationActiveDirectory' smart constructor.

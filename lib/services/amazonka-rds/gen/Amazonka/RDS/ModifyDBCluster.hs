@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.ModifyDBCluster
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,9 @@ module Amazonka.RDS.ModifyDBCluster
     modifyDBCluster_enablePerformanceInsights,
     modifyDBCluster_engineVersion,
     modifyDBCluster_iops,
+    modifyDBCluster_manageMasterUserPassword,
     modifyDBCluster_masterUserPassword,
+    modifyDBCluster_masterUserSecretKmsKeyId,
     modifyDBCluster_monitoringInterval,
     modifyDBCluster_monitoringRoleArn,
     modifyDBCluster_networkType,
@@ -68,6 +70,7 @@ module Amazonka.RDS.ModifyDBCluster
     modifyDBCluster_port,
     modifyDBCluster_preferredBackupWindow,
     modifyDBCluster_preferredMaintenanceWindow,
+    modifyDBCluster_rotateMasterUserPassword,
     modifyDBCluster_scalingConfiguration,
     modifyDBCluster_serverlessV2ScalingConfiguration,
     modifyDBCluster_storageType,
@@ -344,13 +347,72 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- Valid for: Multi-AZ DB clusters only
     iops :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether to manage the master user password with
+    -- Amazon Web Services Secrets Manager.
+    --
+    -- If the DB cluster doesn\'t manage the master user password with Amazon
+    -- Web Services Secrets Manager, you can turn on this management. In this
+    -- case, you can\'t specify @MasterUserPassword@.
+    --
+    -- If the DB cluster already manages the master user password with Amazon
+    -- Web Services Secrets Manager, and you specify that the master user
+    -- password is not managed with Amazon Web Services Secrets Manager, then
+    -- you must specify @MasterUserPassword@. In this case, RDS deletes the
+    -- secret and uses the new password for the master user specified by
+    -- @MasterUserPassword@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon Aurora User Guide./
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+    manageMasterUserPassword :: Prelude.Maybe Prelude.Bool,
     -- | The new password for the master database user. This password can contain
     -- any printable ASCII character except \"\/\", \"\"\", or \"\@\".
     --
-    -- Constraints: Must contain from 8 to 41 characters.
+    -- Constraints:
+    --
+    -- -   Must contain from 8 to 41 characters.
+    --
+    -- -   Can\'t be specified if @ManageMasterUserPassword@ is turned on.
     --
     -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+    -- automatically generated and managed in Amazon Web Services Secrets
+    -- Manager.
+    --
+    -- This setting is valid only if both of the following conditions are met:
+    --
+    -- -   The DB cluster doesn\'t manage the master user password in Amazon
+    --     Web Services Secrets Manager.
+    --
+    --     If the DB cluster already manages the master user password in Amazon
+    --     Web Services Secrets Manager, you can\'t change the KMS key that is
+    --     used to encrypt the secret.
+    --
+    -- -   You are turning on @ManageMasterUserPassword@ to manage the master
+    --     user password in Amazon Web Services Secrets Manager.
+    --
+    --     If you are turning on @ManageMasterUserPassword@ and don\'t specify
+    --     @MasterUserSecretKmsKeyId@, then the @aws\/secretsmanager@ KMS key
+    --     is used to encrypt the secret. If the secret is in a different
+    --     Amazon Web Services account, then you can\'t use the
+    --     @aws\/secretsmanager@ KMS key to encrypt the secret, and you must
+    --     use a customer managed KMS key.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the KMS key. To use a KMS key in a different
+    -- Amazon Web Services account, specify the key ARN or alias ARN.
+    --
+    -- There is a default KMS key for your Amazon Web Services account. Your
+    -- Amazon Web Services account has a different default KMS key for each
+    -- Amazon Web Services Region.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+    masterUserSecretKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The interval, in seconds, between points when Enhanced Monitoring
     -- metrics are collected for the DB cluster. To turn off collecting
     -- Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -405,7 +467,7 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- Example: @my-cluster2@
     --
-    -- Valid for: Aurora DB clusters only
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     newDBClusterIdentifier' :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates that the DB cluster should be associated with the
     -- specified option group.
@@ -497,6 +559,26 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to rotate the secret managed by Amazon
+    -- Web Services Secrets Manager for the master user password.
+    --
+    -- This setting is valid only if the master user password is managed by RDS
+    -- in Amazon Web Services Secrets Manager for the DB cluster. The secret
+    -- value contains the updated password.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon Aurora User Guide./
+    --
+    -- Constraints:
+    --
+    -- -   You must apply the change immediately when rotating the master user
+    --     password.
+    --
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+    rotateMasterUserPassword :: Prelude.Maybe Prelude.Bool,
     -- | The scaling properties of the DB cluster. You can only modify scaling
     -- properties for DB clusters in @serverless@ DB engine mode.
     --
@@ -784,10 +866,69 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- Valid for: Multi-AZ DB clusters only
 --
+-- 'manageMasterUserPassword', 'modifyDBCluster_manageMasterUserPassword' - A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- If the DB cluster doesn\'t manage the master user password with Amazon
+-- Web Services Secrets Manager, you can turn on this management. In this
+-- case, you can\'t specify @MasterUserPassword@.
+--
+-- If the DB cluster already manages the master user password with Amazon
+-- Web Services Secrets Manager, and you specify that the master user
+-- password is not managed with Amazon Web Services Secrets Manager, then
+-- you must specify @MasterUserPassword@. In this case, RDS deletes the
+-- secret and uses the new password for the master user specified by
+-- @MasterUserPassword@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'masterUserPassword', 'modifyDBCluster_masterUserPassword' - The new password for the master database user. This password can contain
 -- any printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
--- Constraints: Must contain from 8 to 41 characters.
+-- Constraints:
+--
+-- -   Must contain from 8 to 41 characters.
+--
+-- -   Can\'t be specified if @ManageMasterUserPassword@ is turned on.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
+-- 'masterUserSecretKmsKeyId', 'modifyDBCluster_masterUserSecretKmsKeyId' - The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if both of the following conditions are met:
+--
+-- -   The DB cluster doesn\'t manage the master user password in Amazon
+--     Web Services Secrets Manager.
+--
+--     If the DB cluster already manages the master user password in Amazon
+--     Web Services Secrets Manager, you can\'t change the KMS key that is
+--     used to encrypt the secret.
+--
+-- -   You are turning on @ManageMasterUserPassword@ to manage the master
+--     user password in Amazon Web Services Secrets Manager.
+--
+--     If you are turning on @ManageMasterUserPassword@ and don\'t specify
+--     @MasterUserSecretKmsKeyId@, then the @aws\/secretsmanager@ KMS key
+--     is used to encrypt the secret. If the secret is in a different
+--     Amazon Web Services account, then you can\'t use the
+--     @aws\/secretsmanager@ KMS key to encrypt the secret, and you must
+--     use a customer managed KMS key.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
 --
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
@@ -845,7 +986,7 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- Example: @my-cluster2@
 --
--- Valid for: Aurora DB clusters only
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
 -- 'optionGroupName', 'modifyDBCluster_optionGroupName' - A value that indicates that the DB cluster should be associated with the
 -- specified option group.
@@ -937,6 +1078,26 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
+-- 'rotateMasterUserPassword', 'modifyDBCluster_rotateMasterUserPassword' - A value that indicates whether to rotate the secret managed by Amazon
+-- Web Services Secrets Manager for the master user password.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB cluster. The secret
+-- value contains the updated password.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+--
+-- Constraints:
+--
+-- -   You must apply the change immediately when rotating the master user
+--     password.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+--
 -- 'scalingConfiguration', 'modifyDBCluster_scalingConfiguration' - The scaling properties of the DB cluster. You can only modify scaling
 -- properties for DB clusters in @serverless@ DB engine mode.
 --
@@ -992,7 +1153,9 @@ newModifyDBCluster pDBClusterIdentifier_ =
       enablePerformanceInsights = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       iops = Prelude.Nothing,
+      manageMasterUserPassword = Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
+      masterUserSecretKmsKeyId = Prelude.Nothing,
       monitoringInterval = Prelude.Nothing,
       monitoringRoleArn = Prelude.Nothing,
       networkType = Prelude.Nothing,
@@ -1003,6 +1166,7 @@ newModifyDBCluster pDBClusterIdentifier_ =
       port = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
       preferredMaintenanceWindow = Prelude.Nothing,
+      rotateMasterUserPassword = Prelude.Nothing,
       scalingConfiguration = Prelude.Nothing,
       serverlessV2ScalingConfiguration = Prelude.Nothing,
       storageType = Prelude.Nothing,
@@ -1298,14 +1462,77 @@ modifyDBCluster_engineVersion = Lens.lens (\ModifyDBCluster' {engineVersion} -> 
 modifyDBCluster_iops :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Int)
 modifyDBCluster_iops = Lens.lens (\ModifyDBCluster' {iops} -> iops) (\s@ModifyDBCluster' {} a -> s {iops = a} :: ModifyDBCluster)
 
+-- | A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- If the DB cluster doesn\'t manage the master user password with Amazon
+-- Web Services Secrets Manager, you can turn on this management. In this
+-- case, you can\'t specify @MasterUserPassword@.
+--
+-- If the DB cluster already manages the master user password with Amazon
+-- Web Services Secrets Manager, and you specify that the master user
+-- password is not managed with Amazon Web Services Secrets Manager, then
+-- you must specify @MasterUserPassword@. In this case, RDS deletes the
+-- secret and uses the new password for the master user specified by
+-- @MasterUserPassword@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+modifyDBCluster_manageMasterUserPassword :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
+modifyDBCluster_manageMasterUserPassword = Lens.lens (\ModifyDBCluster' {manageMasterUserPassword} -> manageMasterUserPassword) (\s@ModifyDBCluster' {} a -> s {manageMasterUserPassword = a} :: ModifyDBCluster)
+
 -- | The new password for the master database user. This password can contain
 -- any printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
--- Constraints: Must contain from 8 to 41 characters.
+-- Constraints:
+--
+-- -   Must contain from 8 to 41 characters.
+--
+-- -   Can\'t be specified if @ManageMasterUserPassword@ is turned on.
 --
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 modifyDBCluster_masterUserPassword :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_masterUserPassword = Lens.lens (\ModifyDBCluster' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBCluster' {} a -> s {masterUserPassword = a} :: ModifyDBCluster)
+
+-- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if both of the following conditions are met:
+--
+-- -   The DB cluster doesn\'t manage the master user password in Amazon
+--     Web Services Secrets Manager.
+--
+--     If the DB cluster already manages the master user password in Amazon
+--     Web Services Secrets Manager, you can\'t change the KMS key that is
+--     used to encrypt the secret.
+--
+-- -   You are turning on @ManageMasterUserPassword@ to manage the master
+--     user password in Amazon Web Services Secrets Manager.
+--
+--     If you are turning on @ManageMasterUserPassword@ and don\'t specify
+--     @MasterUserSecretKmsKeyId@, then the @aws\/secretsmanager@ KMS key
+--     is used to encrypt the secret. If the secret is in a different
+--     Amazon Web Services account, then you can\'t use the
+--     @aws\/secretsmanager@ KMS key to encrypt the secret, and you must
+--     use a customer managed KMS key.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+modifyDBCluster_masterUserSecretKmsKeyId :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
+modifyDBCluster_masterUserSecretKmsKeyId = Lens.lens (\ModifyDBCluster' {masterUserSecretKmsKeyId} -> masterUserSecretKmsKeyId) (\s@ModifyDBCluster' {} a -> s {masterUserSecretKmsKeyId = a} :: ModifyDBCluster)
 
 -- | The interval, in seconds, between points when Enhanced Monitoring
 -- metrics are collected for the DB cluster. To turn off collecting
@@ -1367,7 +1594,7 @@ modifyDBCluster_networkType = Lens.lens (\ModifyDBCluster' {networkType} -> netw
 --
 -- Example: @my-cluster2@
 --
--- Valid for: Aurora DB clusters only
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 modifyDBCluster_newDBClusterIdentifier :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_newDBClusterIdentifier = Lens.lens (\ModifyDBCluster' {newDBClusterIdentifier'} -> newDBClusterIdentifier') (\s@ModifyDBCluster' {} a -> s {newDBClusterIdentifier' = a} :: ModifyDBCluster)
 
@@ -1473,6 +1700,28 @@ modifyDBCluster_preferredBackupWindow = Lens.lens (\ModifyDBCluster' {preferredB
 modifyDBCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_preferredMaintenanceWindow = Lens.lens (\ModifyDBCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBCluster)
 
+-- | A value that indicates whether to rotate the secret managed by Amazon
+-- Web Services Secrets Manager for the master user password.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB cluster. The secret
+-- value contains the updated password.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+--
+-- Constraints:
+--
+-- -   You must apply the change immediately when rotating the master user
+--     password.
+--
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
+modifyDBCluster_rotateMasterUserPassword :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
+modifyDBCluster_rotateMasterUserPassword = Lens.lens (\ModifyDBCluster' {rotateMasterUserPassword} -> rotateMasterUserPassword) (\s@ModifyDBCluster' {} a -> s {rotateMasterUserPassword = a} :: ModifyDBCluster)
+
 -- | The scaling properties of the DB cluster. You can only modify scaling
 -- properties for DB clusters in @serverless@ DB engine mode.
 --
@@ -1549,7 +1798,9 @@ instance Prelude.Hashable ModifyDBCluster where
       `Prelude.hashWithSalt` enablePerformanceInsights
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` manageMasterUserPassword
       `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` masterUserSecretKmsKeyId
       `Prelude.hashWithSalt` monitoringInterval
       `Prelude.hashWithSalt` monitoringRoleArn
       `Prelude.hashWithSalt` networkType
@@ -1560,6 +1811,7 @@ instance Prelude.Hashable ModifyDBCluster where
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` rotateMasterUserPassword
       `Prelude.hashWithSalt` scalingConfiguration
       `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
       `Prelude.hashWithSalt` storageType
@@ -1591,7 +1843,11 @@ instance Prelude.NFData ModifyDBCluster where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf
+        manageMasterUserPassword
+      `Prelude.seq` Prelude.rnf
         masterUserPassword
+      `Prelude.seq` Prelude.rnf
+        masterUserSecretKmsKeyId
       `Prelude.seq` Prelude.rnf
         monitoringInterval
       `Prelude.seq` Prelude.rnf
@@ -1612,6 +1868,8 @@ instance Prelude.NFData ModifyDBCluster where
         preferredBackupWindow
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf
+        rotateMasterUserPassword
       `Prelude.seq` Prelude.rnf
         scalingConfiguration
       `Prelude.seq` Prelude.rnf
@@ -1666,7 +1924,11 @@ instance Data.ToQuery ModifyDBCluster where
           Data.=: enablePerformanceInsights,
         "EngineVersion" Data.=: engineVersion,
         "Iops" Data.=: iops,
+        "ManageMasterUserPassword"
+          Data.=: manageMasterUserPassword,
         "MasterUserPassword" Data.=: masterUserPassword,
+        "MasterUserSecretKmsKeyId"
+          Data.=: masterUserSecretKmsKeyId,
         "MonitoringInterval" Data.=: monitoringInterval,
         "MonitoringRoleArn" Data.=: monitoringRoleArn,
         "NetworkType" Data.=: networkType,
@@ -1682,6 +1944,8 @@ instance Data.ToQuery ModifyDBCluster where
           Data.=: preferredBackupWindow,
         "PreferredMaintenanceWindow"
           Data.=: preferredMaintenanceWindow,
+        "RotateMasterUserPassword"
+          Data.=: rotateMasterUserPassword,
         "ScalingConfiguration" Data.=: scalingConfiguration,
         "ServerlessV2ScalingConfiguration"
           Data.=: serverlessV2ScalingConfiguration,

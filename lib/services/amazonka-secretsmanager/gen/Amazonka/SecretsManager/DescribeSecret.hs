@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.DescribeSecret
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -56,6 +56,7 @@ module Amazonka.SecretsManager.DescribeSecret
     describeSecretResponse_lastChangedDate,
     describeSecretResponse_lastRotatedDate,
     describeSecretResponse_name,
+    describeSecretResponse_nextRotationDate,
     describeSecretResponse_owningService,
     describeSecretResponse_primaryRegion,
     describeSecretResponse_replicationStatus,
@@ -134,6 +135,7 @@ instance Core.AWSRequest DescribeSecret where
             Prelude.<*> (x Data..?> "LastChangedDate")
             Prelude.<*> (x Data..?> "LastRotatedDate")
             Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "NextRotationDate")
             Prelude.<*> (x Data..?> "OwningService")
             Prelude.<*> (x Data..?> "PrimaryRegion")
             Prelude.<*> ( x Data..?> "ReplicationStatus"
@@ -217,6 +219,7 @@ data DescribeSecretResponse = DescribeSecretResponse'
     lastRotatedDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the secret.
     name :: Prelude.Maybe Prelude.Text,
+    nextRotationDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the service that created this secret. For more information,
     -- see
     -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html Secrets managed by other Amazon Web Services services>.
@@ -316,6 +319,8 @@ data DescribeSecretResponse = DescribeSecretResponse'
 --
 -- 'name', 'describeSecretResponse_name' - The name of the secret.
 --
+-- 'nextRotationDate', 'describeSecretResponse_nextRotationDate' - Undocumented member.
+--
 -- 'owningService', 'describeSecretResponse_owningService' - The ID of the service that created this secret. For more information,
 -- see
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html Secrets managed by other Amazon Web Services services>.
@@ -387,6 +392,7 @@ newDescribeSecretResponse pHttpStatus_ =
       lastChangedDate = Prelude.Nothing,
       lastRotatedDate = Prelude.Nothing,
       name = Prelude.Nothing,
+      nextRotationDate = Prelude.Nothing,
       owningService = Prelude.Nothing,
       primaryRegion = Prelude.Nothing,
       replicationStatus = Prelude.Nothing,
@@ -446,6 +452,10 @@ describeSecretResponse_lastRotatedDate = Lens.lens (\DescribeSecretResponse' {la
 -- | The name of the secret.
 describeSecretResponse_name :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
 describeSecretResponse_name = Lens.lens (\DescribeSecretResponse' {name} -> name) (\s@DescribeSecretResponse' {} a -> s {name = a} :: DescribeSecretResponse)
+
+-- | Undocumented member.
+describeSecretResponse_nextRotationDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
+describeSecretResponse_nextRotationDate = Lens.lens (\DescribeSecretResponse' {nextRotationDate} -> nextRotationDate) (\s@DescribeSecretResponse' {} a -> s {nextRotationDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the service that created this secret. For more information,
 -- see
@@ -533,6 +543,7 @@ instance Prelude.NFData DescribeSecretResponse where
       `Prelude.seq` Prelude.rnf lastChangedDate
       `Prelude.seq` Prelude.rnf lastRotatedDate
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextRotationDate
       `Prelude.seq` Prelude.rnf owningService
       `Prelude.seq` Prelude.rnf primaryRegion
       `Prelude.seq` Prelude.rnf replicationStatus

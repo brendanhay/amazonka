@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ServiceCatalogAppRegistry.Types.Resource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ data Resource = Resource'
   { -- | The Amazon resource name (ARN) of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time the resource was associated with the application.
-    associationTime :: Prelude.Maybe Data.POSIX,
+    associationTime :: Prelude.Maybe Data.ISO8601,
     -- | The service integration information about the resource.
     integrations :: Prelude.Maybe ResourceIntegrations,
     -- | The name of the resource.

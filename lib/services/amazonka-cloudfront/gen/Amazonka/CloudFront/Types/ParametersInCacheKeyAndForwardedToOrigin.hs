@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- The headers, cookies, and query strings that are included in the cache
 -- key are automatically included in requests that CloudFront sends to the
--- origin. CloudFront sends a request when it can’t find an object in its
--- cache that matches the request’s cache key. If you want to send values
+-- origin. CloudFront sends a request when it can\'t find an object in its
+-- cache that matches the request\'s cache key. If you want to send values
 -- to the origin but /not/ include them in the cache key, use
 -- @OriginRequestPolicy@.
 --
@@ -49,7 +49,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
     -- both of these fields is @true@ /and/ the viewer request includes the
     -- @Accept-Encoding@ header, then CloudFront does the following:
     --
-    -- -   Normalizes the value of the viewer’s @Accept-Encoding@ header
+    -- -   Normalizes the value of the viewer\'s @Accept-Encoding@ header
     --
     -- -   Includes the normalized header in the cache key
     --
@@ -69,7 +69,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
     --
     -- If both of these fields are @false@, then CloudFront treats the
     -- @Accept-Encoding@ header the same as any other HTTP header in the viewer
-    -- request. By default, it’s not included in the cache key and it’s not
+    -- request. By default, it\'s not included in the cache key and it\'s not
     -- included in origin requests. In this case, you can manually add
     -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
     enableAcceptEncodingBrotli :: Prelude.Maybe Prelude.Bool,
@@ -81,7 +81,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
     -- or both of these fields is @true@ /and/ the viewer request includes the
     -- @Accept-Encoding@ header, then CloudFront does the following:
     --
-    -- -   Normalizes the value of the viewer’s @Accept-Encoding@ header
+    -- -   Normalizes the value of the viewer\'s @Accept-Encoding@ header
     --
     -- -   Includes the normalized header in the cache key
     --
@@ -101,7 +101,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
     --
     -- If both of these fields are @false@, then CloudFront treats the
     -- @Accept-Encoding@ header the same as any other HTTP header in the viewer
-    -- request. By default, it’s not included in the cache key and it’s not
+    -- request. By default, it\'s not included in the cache key and it\'s not
     -- included in origin requests. In this case, you can manually add
     -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
     enableAcceptEncodingGzip :: Prelude.Bool,
@@ -137,7 +137,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
 -- both of these fields is @true@ /and/ the viewer request includes the
 -- @Accept-Encoding@ header, then CloudFront does the following:
 --
--- -   Normalizes the value of the viewer’s @Accept-Encoding@ header
+-- -   Normalizes the value of the viewer\'s @Accept-Encoding@ header
 --
 -- -   Includes the normalized header in the cache key
 --
@@ -157,7 +157,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
 --
 -- If both of these fields are @false@, then CloudFront treats the
 -- @Accept-Encoding@ header the same as any other HTTP header in the viewer
--- request. By default, it’s not included in the cache key and it’s not
+-- request. By default, it\'s not included in the cache key and it\'s not
 -- included in origin requests. In this case, you can manually add
 -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
 --
@@ -169,7 +169,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
 -- or both of these fields is @true@ /and/ the viewer request includes the
 -- @Accept-Encoding@ header, then CloudFront does the following:
 --
--- -   Normalizes the value of the viewer’s @Accept-Encoding@ header
+-- -   Normalizes the value of the viewer\'s @Accept-Encoding@ header
 --
 -- -   Includes the normalized header in the cache key
 --
@@ -189,7 +189,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
 --
 -- If both of these fields are @false@, then CloudFront treats the
 -- @Accept-Encoding@ header the same as any other HTTP header in the viewer
--- request. By default, it’s not included in the cache key and it’s not
+-- request. By default, it\'s not included in the cache key and it\'s not
 -- included in origin requests. In this case, you can manually add
 -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
 --
@@ -239,7 +239,7 @@ newParametersInCacheKeyAndForwardedToOrigin
 -- both of these fields is @true@ /and/ the viewer request includes the
 -- @Accept-Encoding@ header, then CloudFront does the following:
 --
--- -   Normalizes the value of the viewer’s @Accept-Encoding@ header
+-- -   Normalizes the value of the viewer\'s @Accept-Encoding@ header
 --
 -- -   Includes the normalized header in the cache key
 --
@@ -259,7 +259,7 @@ newParametersInCacheKeyAndForwardedToOrigin
 --
 -- If both of these fields are @false@, then CloudFront treats the
 -- @Accept-Encoding@ header the same as any other HTTP header in the viewer
--- request. By default, it’s not included in the cache key and it’s not
+-- request. By default, it\'s not included in the cache key and it\'s not
 -- included in origin requests. In this case, you can manually add
 -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
 parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli :: Lens.Lens' ParametersInCacheKeyAndForwardedToOrigin (Prelude.Maybe Prelude.Bool)
@@ -273,7 +273,7 @@ parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli = Lens.lens 
 -- or both of these fields is @true@ /and/ the viewer request includes the
 -- @Accept-Encoding@ header, then CloudFront does the following:
 --
--- -   Normalizes the value of the viewer’s @Accept-Encoding@ header
+-- -   Normalizes the value of the viewer\'s @Accept-Encoding@ header
 --
 -- -   Includes the normalized header in the cache key
 --
@@ -293,7 +293,7 @@ parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli = Lens.lens 
 --
 -- If both of these fields are @false@, then CloudFront treats the
 -- @Accept-Encoding@ header the same as any other HTTP header in the viewer
--- request. By default, it’s not included in the cache key and it’s not
+-- request. By default, it\'s not included in the cache key and it\'s not
 -- included in origin requests. In this case, you can manually add
 -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
 parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip :: Lens.Lens' ParametersInCacheKeyAndForwardedToOrigin Prelude.Bool

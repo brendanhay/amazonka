@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig.Types.NewAssertionRule
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,7 +39,7 @@ data NewAssertionRule = NewAssertionRule'
     -- | The criteria that you set for specific assertion controls (routing
     -- controls) that designate how many control states must be ON as the
     -- result of a transaction. For example, if you have three assertion
-    -- controls, you might specify ATLEAST 2for your rule configuration. This
+    -- controls, you might specify ATLEAST 2 for your rule configuration. This
     -- means that at least two assertion controls must be ON, so that at least
     -- two Amazon Web Services Regions have traffic flowing to them.
     ruleConfig :: RuleConfig,
@@ -72,7 +72,7 @@ data NewAssertionRule = NewAssertionRule'
 -- 'ruleConfig', 'newAssertionRule_ruleConfig' - The criteria that you set for specific assertion controls (routing
 -- controls) that designate how many control states must be ON as the
 -- result of a transaction. For example, if you have three assertion
--- controls, you might specify ATLEAST 2for your rule configuration. This
+-- controls, you might specify ATLEAST 2 for your rule configuration. This
 -- means that at least two assertion controls must be ON, so that at least
 -- two Amazon Web Services Regions have traffic flowing to them.
 --
@@ -121,7 +121,7 @@ newAssertionRule_assertedControls = Lens.lens (\NewAssertionRule' {assertedContr
 -- | The criteria that you set for specific assertion controls (routing
 -- controls) that designate how many control states must be ON as the
 -- result of a transaction. For example, if you have three assertion
--- controls, you might specify ATLEAST 2for your rule configuration. This
+-- controls, you might specify ATLEAST 2 for your rule configuration. This
 -- means that at least two assertion controls must be ON, so that at least
 -- two Amazon Web Services Regions have traffic flowing to them.
 newAssertionRule_ruleConfig :: Lens.Lens' NewAssertionRule RuleConfig

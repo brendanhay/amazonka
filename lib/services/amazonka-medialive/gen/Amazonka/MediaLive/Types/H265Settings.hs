@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.H265Settings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,6 +39,7 @@ import Amazonka.MediaLive.Types.H265ScanType
 import Amazonka.MediaLive.Types.H265SceneChangeDetect
 import Amazonka.MediaLive.Types.H265Tier
 import Amazonka.MediaLive.Types.H265TimecodeInsertionBehavior
+import Amazonka.MediaLive.Types.TimecodeBurninSettings
 import qualified Amazonka.Prelude as Prelude
 
 -- | H265 Settings
@@ -142,6 +143,8 @@ data H265Settings = H265Settings'
     slices :: Prelude.Maybe Prelude.Natural,
     -- | H.265 Tier.
     tier :: Prelude.Maybe H265Tier,
+    -- | Timecode burn-in settings
+    timecodeBurninSettings :: Prelude.Maybe TimecodeBurninSettings,
     -- | Determines how timecodes should be inserted into the video elementary
     -- stream. - \'disabled\': Do not include timecodes - \'picTimingSei\':
     -- Pass through picture timing SEI messages from the source specified in
@@ -260,6 +263,8 @@ data H265Settings = H265Settings'
 --
 -- 'tier', 'h265Settings_tier' - H.265 Tier.
 --
+-- 'timecodeBurninSettings', 'h265Settings_timecodeBurninSettings' - Timecode burn-in settings
+--
 -- 'timecodeInsertion', 'h265Settings_timecodeInsertion' - Determines how timecodes should be inserted into the video elementary
 -- stream. - \'disabled\': Do not include timecodes - \'picTimingSei\':
 -- Pass through picture timing SEI messages from the source specified in
@@ -306,6 +311,7 @@ newH265Settings
         sceneChangeDetect = Prelude.Nothing,
         slices = Prelude.Nothing,
         tier = Prelude.Nothing,
+        timecodeBurninSettings = Prelude.Nothing,
         timecodeInsertion = Prelude.Nothing,
         framerateNumerator = pFramerateNumerator_,
         framerateDenominator = pFramerateDenominator_
@@ -460,6 +466,10 @@ h265Settings_slices = Lens.lens (\H265Settings' {slices} -> slices) (\s@H265Sett
 h265Settings_tier :: Lens.Lens' H265Settings (Prelude.Maybe H265Tier)
 h265Settings_tier = Lens.lens (\H265Settings' {tier} -> tier) (\s@H265Settings' {} a -> s {tier = a} :: H265Settings)
 
+-- | Timecode burn-in settings
+h265Settings_timecodeBurninSettings :: Lens.Lens' H265Settings (Prelude.Maybe TimecodeBurninSettings)
+h265Settings_timecodeBurninSettings = Lens.lens (\H265Settings' {timecodeBurninSettings} -> timecodeBurninSettings) (\s@H265Settings' {} a -> s {timecodeBurninSettings = a} :: H265Settings)
+
 -- | Determines how timecodes should be inserted into the video elementary
 -- stream. - \'disabled\': Do not include timecodes - \'picTimingSei\':
 -- Pass through picture timing SEI messages from the source specified in
@@ -508,6 +518,7 @@ instance Data.FromJSON H265Settings where
             Prelude.<*> (x Data..:? "sceneChangeDetect")
             Prelude.<*> (x Data..:? "slices")
             Prelude.<*> (x Data..:? "tier")
+            Prelude.<*> (x Data..:? "timecodeBurninSettings")
             Prelude.<*> (x Data..:? "timecodeInsertion")
             Prelude.<*> (x Data..: "framerateNumerator")
             Prelude.<*> (x Data..: "framerateDenominator")
@@ -541,6 +552,7 @@ instance Prelude.Hashable H265Settings where
       `Prelude.hashWithSalt` sceneChangeDetect
       `Prelude.hashWithSalt` slices
       `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` timecodeBurninSettings
       `Prelude.hashWithSalt` timecodeInsertion
       `Prelude.hashWithSalt` framerateNumerator
       `Prelude.hashWithSalt` framerateDenominator
@@ -575,6 +587,8 @@ instance Prelude.NFData H265Settings where
         sceneChangeDetect
       `Prelude.seq` Prelude.rnf slices
       `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf
+        timecodeBurninSettings
       `Prelude.seq` Prelude.rnf
         timecodeInsertion
       `Prelude.seq` Prelude.rnf
@@ -622,6 +636,8 @@ instance Data.ToJSON H265Settings where
               Prelude.<$> sceneChangeDetect,
             ("slices" Data..=) Prelude.<$> slices,
             ("tier" Data..=) Prelude.<$> tier,
+            ("timecodeBurninSettings" Data..=)
+              Prelude.<$> timecodeBurninSettings,
             ("timecodeInsertion" Data..=)
               Prelude.<$> timecodeInsertion,
             Prelude.Just

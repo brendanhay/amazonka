@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -100,9 +100,19 @@ module Amazonka.ConnectParticipant.Lens
     item_contentType,
     item_displayName,
     item_id,
+    item_messageMetadata,
     item_participantId,
     item_participantRole,
     item_type,
+
+    -- ** MessageMetadata
+    messageMetadata_messageId,
+    messageMetadata_receipts,
+
+    -- ** Receipt
+    receipt_deliveredTimestamp,
+    receipt_readTimestamp,
+    receipt_recipientParticipantId,
 
     -- ** StartPosition
     startPosition_absoluteTime,
@@ -131,6 +141,8 @@ import Amazonka.ConnectParticipant.StartAttachmentUpload
 import Amazonka.ConnectParticipant.Types.AttachmentItem
 import Amazonka.ConnectParticipant.Types.ConnectionCredentials
 import Amazonka.ConnectParticipant.Types.Item
+import Amazonka.ConnectParticipant.Types.MessageMetadata
+import Amazonka.ConnectParticipant.Types.Receipt
 import Amazonka.ConnectParticipant.Types.StartPosition
 import Amazonka.ConnectParticipant.Types.UploadMetadata
 import Amazonka.ConnectParticipant.Types.Websocket

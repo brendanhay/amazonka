@@ -14,13 +14,17 @@
 
 -- |
 -- Module      : Amazonka.DataSync.TagResource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Applies a key-value pair to an Amazon Web Services resource.
+-- Applies a /tag/ to an Amazon Web Services resource. Tags are key-value
+-- pairs that can help you manage, filter, and search for your resources.
+--
+-- These include DataSync resources, such as locations, tasks, and task
+-- executions.
 module Amazonka.DataSync.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -51,9 +55,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource to apply the tag to.
+  { -- | Specifies the Amazon Resource Name (ARN) of the resource to apply the
+    -- tag to.
     resourceArn :: Prelude.Text,
-    -- | The tags to apply.
+    -- | Specifies the tags that you want to apply to the resource.
     tags :: [TagListEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,9 +71,10 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to apply the tag to.
+-- 'resourceArn', 'tagResource_resourceArn' - Specifies the Amazon Resource Name (ARN) of the resource to apply the
+-- tag to.
 --
--- 'tags', 'tagResource_tags' - The tags to apply.
+-- 'tags', 'tagResource_tags' - Specifies the tags that you want to apply to the resource.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -79,11 +85,12 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource to apply the tag to.
+-- | Specifies the Amazon Resource Name (ARN) of the resource to apply the
+-- tag to.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | The tags to apply.
+-- | Specifies the tags that you want to apply to the resource.
 tagResource_tags :: Lens.Lens' TagResource [TagListEntry]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

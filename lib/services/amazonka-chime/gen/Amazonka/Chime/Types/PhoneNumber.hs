@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.PhoneNumber
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,9 +46,9 @@ data PhoneNumber = PhoneNumber'
     -- | The phone number country. Format: ISO 3166-1 alpha-2.
     country :: Prelude.Maybe Prelude.Text,
     -- | The phone number creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The deleted phone number timestamp, in ISO 8601 format.
-    deletionTimestamp :: Prelude.Maybe Data.POSIX,
+    deletionTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The phone number, in E.164 format.
     e164PhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The phone number ID.
@@ -60,7 +60,7 @@ data PhoneNumber = PhoneNumber'
     -- | The phone number type.
     type' :: Prelude.Maybe PhoneNumberType,
     -- | The updated phone number timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

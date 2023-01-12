@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.ListSecrets
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,6 +55,7 @@ module Amazonka.SecretsManager.ListSecrets
 
     -- * Request Lenses
     listSecrets_filters,
+    listSecrets_includePlannedDeletion,
     listSecrets_maxResults,
     listSecrets_nextToken,
     listSecrets_sortOrder,
@@ -82,6 +83,7 @@ import Amazonka.SecretsManager.Types
 data ListSecrets = ListSecrets'
   { -- | The filters to apply to the list of secrets.
     filters :: Prelude.Maybe [Filter],
+    includePlannedDeletion :: Prelude.Maybe Prelude.Bool,
     -- | The number of results to include in the response.
     --
     -- If there are more results available, in the response, Secrets Manager
@@ -107,6 +109,8 @@ data ListSecrets = ListSecrets'
 --
 -- 'filters', 'listSecrets_filters' - The filters to apply to the list of secrets.
 --
+-- 'includePlannedDeletion', 'listSecrets_includePlannedDeletion' - Undocumented member.
+--
 -- 'maxResults', 'listSecrets_maxResults' - The number of results to include in the response.
 --
 -- If there are more results available, in the response, Secrets Manager
@@ -123,6 +127,7 @@ newListSecrets ::
 newListSecrets =
   ListSecrets'
     { filters = Prelude.Nothing,
+      includePlannedDeletion = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing
@@ -131,6 +136,10 @@ newListSecrets =
 -- | The filters to apply to the list of secrets.
 listSecrets_filters :: Lens.Lens' ListSecrets (Prelude.Maybe [Filter])
 listSecrets_filters = Lens.lens (\ListSecrets' {filters} -> filters) (\s@ListSecrets' {} a -> s {filters = a} :: ListSecrets) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listSecrets_includePlannedDeletion :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Bool)
+listSecrets_includePlannedDeletion = Lens.lens (\ListSecrets' {includePlannedDeletion} -> includePlannedDeletion) (\s@ListSecrets' {} a -> s {includePlannedDeletion = a} :: ListSecrets)
 
 -- | The number of results to include in the response.
 --
@@ -185,6 +194,7 @@ instance Core.AWSRequest ListSecrets where
 instance Prelude.Hashable ListSecrets where
   hashWithSalt _salt ListSecrets' {..} =
     _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` includePlannedDeletion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortOrder
@@ -192,6 +202,7 @@ instance Prelude.Hashable ListSecrets where
 instance Prelude.NFData ListSecrets where
   rnf ListSecrets' {..} =
     Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf includePlannedDeletion
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortOrder
@@ -214,6 +225,8 @@ instance Data.ToJSON ListSecrets where
     Data.object
       ( Prelude.catMaybes
           [ ("Filters" Data..=) Prelude.<$> filters,
+            ("IncludePlannedDeletion" Data..=)
+              Prelude.<$> includePlannedDeletion,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SortOrder" Data..=) Prelude.<$> sortOrder

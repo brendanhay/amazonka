@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig.ListRoutingControls
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,6 +25,8 @@
 -- that has one of two states: ON and OFF. You can map the routing control
 -- state to the state of an Amazon Route 53 health check, which can be used
 -- to control routing.
+--
+-- This operation returns paginated results.
 module Amazonka.Route53RecoveryControlConfig.ListRoutingControls
   ( -- * Creating a Request
     ListRoutingControls (..),
@@ -100,6 +102,28 @@ listRoutingControls_nextToken = Lens.lens (\ListRoutingControls' {nextToken} -> 
 -- | The Amazon Resource Name (ARN) of the control panel.
 listRoutingControls_controlPanelArn :: Lens.Lens' ListRoutingControls Prelude.Text
 listRoutingControls_controlPanelArn = Lens.lens (\ListRoutingControls' {controlPanelArn} -> controlPanelArn) (\s@ListRoutingControls' {} a -> s {controlPanelArn = a} :: ListRoutingControls)
+
+instance Core.AWSPager ListRoutingControls where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listRoutingControlsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listRoutingControlsResponse_routingControls
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listRoutingControls_nextToken
+          Lens..~ rs
+          Lens.^? listRoutingControlsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoutingControls where
   type

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.IVS.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -326,7 +326,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- |
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -334,7 +334,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- |
-_ChannelNotBroadcasting :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ChannelNotBroadcasting :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ChannelNotBroadcasting =
   Core._MatchServiceError
     defaultService
@@ -342,7 +342,7 @@ _ChannelNotBroadcasting =
     Prelude.. Core.hasStatus 404
 
 -- |
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -350,7 +350,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- |
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -358,7 +358,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- |
-_PendingVerification :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PendingVerification :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PendingVerification =
   Core._MatchServiceError
     defaultService
@@ -366,7 +366,7 @@ _PendingVerification =
     Prelude.. Core.hasStatus 403
 
 -- |
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -374,7 +374,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- |
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -382,7 +382,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- |
-_StreamUnavailable :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StreamUnavailable :: Core.AsError a => Lens.Fold a Core.ServiceError
 _StreamUnavailable =
   Core._MatchServiceError
     defaultService
@@ -390,7 +390,7 @@ _StreamUnavailable =
     Prelude.. Core.hasStatus 503
 
 -- |
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -398,7 +398,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- |
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

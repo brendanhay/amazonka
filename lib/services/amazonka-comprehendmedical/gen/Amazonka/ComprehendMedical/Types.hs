@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ComprehendMedical.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -418,7 +418,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An internal server error occurred. Retry your request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -426,7 +426,7 @@ _InternalServerException =
 
 -- | The input text was not in valid UTF-8 character encoding. Check your
 -- text then retry your request.
-_InvalidEncodingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEncodingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidEncodingException =
   Core._MatchServiceError
     defaultService
@@ -434,7 +434,7 @@ _InvalidEncodingException =
 
 -- | The request that you made is invalid. Check your request to determine
 -- why it\'s invalid and then retry the request.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -442,7 +442,7 @@ _InvalidRequestException =
 
 -- | The resource identified by the specified Amazon Resource Name (ARN) was
 -- not found. Check the ARN and try your request again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -450,7 +450,7 @@ _ResourceNotFoundException =
 
 -- | The Comprehend Medical; service is temporarily unavailable. Please wait
 -- and then retry your request.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -458,7 +458,7 @@ _ServiceUnavailableException =
 
 -- | The size of the text you submitted exceeds the size limit. Reduce the
 -- size of the text or use a smaller document and then retry your request.
-_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TextSizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TextSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -467,7 +467,7 @@ _TextSizeLimitExceededException =
 -- | You have made too many requests within a short period of time. Wait for
 -- a short time and then try your request again. Contact customer support
 -- for more information about a service limit increase.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -475,7 +475,7 @@ _TooManyRequestsException =
 
 -- | The filter that you specified for the operation is invalid. Check the
 -- filter values that you entered and try your request again.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

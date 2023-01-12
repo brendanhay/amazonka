@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.SessionContextAttributes
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data SessionContextAttributes = SessionContextAttributes'
   { -- | The date and time, in UTC and ISO 8601 format, when the credentials were
     -- issued.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | Specifies whether the credentials were authenticated with a multi-factor
     -- authentication (MFA) device.
     mfaAuthenticated :: Prelude.Maybe Prelude.Bool

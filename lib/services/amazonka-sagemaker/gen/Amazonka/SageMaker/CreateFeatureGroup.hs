@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreateFeatureGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -86,6 +86,9 @@ data CreateFeatureGroup = CreateFeatureGroup'
     --     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html bucket-level key>
     --     for SSE, you can reduce Amazon Web Services KMS requests costs by up
     --     to 99 percent.
+    --
+    -- -   Format for the offline store table. Supported formats are Glue
+    --     (Default) and <https://iceberg.apache.org/ Apache Iceberg>.
     --
     -- To learn more about this parameter, see OfflineStoreConfig.
     offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
@@ -184,6 +187,9 @@ data CreateFeatureGroup = CreateFeatureGroup'
 --     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html bucket-level key>
 --     for SSE, you can reduce Amazon Web Services KMS requests costs by up
 --     to 99 percent.
+--
+-- -   Format for the offline store table. Supported formats are Glue
+--     (Default) and <https://iceberg.apache.org/ Apache Iceberg>.
 --
 -- To learn more about this parameter, see OfflineStoreConfig.
 --
@@ -301,6 +307,9 @@ createFeatureGroup_description = Lens.lens (\CreateFeatureGroup' {description} -
 --     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html bucket-level key>
 --     for SSE, you can reduce Amazon Web Services KMS requests costs by up
 --     to 99 percent.
+--
+-- -   Format for the offline store table. Supported formats are Glue
+--     (Default) and <https://iceberg.apache.org/ Apache Iceberg>.
 --
 -- To learn more about this parameter, see OfflineStoreConfig.
 createFeatureGroup_offlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe OfflineStoreConfig)

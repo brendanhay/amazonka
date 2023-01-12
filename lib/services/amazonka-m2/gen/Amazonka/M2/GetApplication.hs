@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.M2.GetApplication
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,6 +37,7 @@ module Amazonka.M2.GetApplication
     getApplicationResponse_deployedVersion,
     getApplicationResponse_description,
     getApplicationResponse_environmentId,
+    getApplicationResponse_kmsKeyId,
     getApplicationResponse_lastStartTime,
     getApplicationResponse_listenerArns,
     getApplicationResponse_listenerPorts,
@@ -104,6 +105,7 @@ instance Core.AWSRequest GetApplication where
             Prelude.<$> (x Data..?> "deployedVersion")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "environmentId")
+            Prelude.<*> (x Data..?> "kmsKeyId")
             Prelude.<*> (x Data..?> "lastStartTime")
             Prelude.<*> (x Data..?> "listenerArns")
             Prelude.<*> (x Data..?> "listenerPorts")
@@ -154,16 +156,18 @@ data GetApplicationResponse = GetApplicationResponse'
     deployedVersion :: Prelude.Maybe DeployedVersionSummary,
     -- | The description of the application.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the environment where the application will be
-    -- deployed.
+    -- | The identifier of the runtime environment where you want to deploy the
+    -- application.
     environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the application was last started. Null until the
-    -- application has started running for the first time.
+    -- | The identifier of a customer managed key.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when you last started the application. Null until the
+    -- application runs for the first time.
     lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the network load balancer listener
     -- created in your Amazon Web Services account. Amazon Web Services
-    -- Mainframe Modernization creates this listener on your behalf the first
-    -- time you deploy an application.
+    -- Mainframe Modernization creates this listener for you the first time you
+    -- deploy an application.
     listenerArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The port associated with the network load balancer listener created in
     -- your Amazon Web Services account.
@@ -172,8 +176,8 @@ data GetApplicationResponse = GetApplicationResponse'
     -- Services account.
     loadBalancerDnsName :: Prelude.Maybe Prelude.Text,
     -- | The list of log summaries. Each log summary includes the log type as
-    -- well as the log group identifier. These are CloudWatch logs. The Amazon
-    -- Web Services Mainframe Modernization application log is pushed to
+    -- well as the log group identifier. These are CloudWatch logs. Amazon Web
+    -- Services Mainframe Modernization pushes the application log to
     -- CloudWatch under the customer\'s account.
     logGroups :: Prelude.Maybe [LogGroupSummary],
     -- | The reason for the reported status.
@@ -214,16 +218,18 @@ data GetApplicationResponse = GetApplicationResponse'
 --
 -- 'description', 'getApplicationResponse_description' - The description of the application.
 --
--- 'environmentId', 'getApplicationResponse_environmentId' - The identifier of the environment where the application will be
--- deployed.
+-- 'environmentId', 'getApplicationResponse_environmentId' - The identifier of the runtime environment where you want to deploy the
+-- application.
 --
--- 'lastStartTime', 'getApplicationResponse_lastStartTime' - The timestamp when the application was last started. Null until the
--- application has started running for the first time.
+-- 'kmsKeyId', 'getApplicationResponse_kmsKeyId' - The identifier of a customer managed key.
+--
+-- 'lastStartTime', 'getApplicationResponse_lastStartTime' - The timestamp when you last started the application. Null until the
+-- application runs for the first time.
 --
 -- 'listenerArns', 'getApplicationResponse_listenerArns' - The Amazon Resource Name (ARN) for the network load balancer listener
 -- created in your Amazon Web Services account. Amazon Web Services
--- Mainframe Modernization creates this listener on your behalf the first
--- time you deploy an application.
+-- Mainframe Modernization creates this listener for you the first time you
+-- deploy an application.
 --
 -- 'listenerPorts', 'getApplicationResponse_listenerPorts' - The port associated with the network load balancer listener created in
 -- your Amazon Web Services account.
@@ -232,8 +238,8 @@ data GetApplicationResponse = GetApplicationResponse'
 -- Services account.
 --
 -- 'logGroups', 'getApplicationResponse_logGroups' - The list of log summaries. Each log summary includes the log type as
--- well as the log group identifier. These are CloudWatch logs. The Amazon
--- Web Services Mainframe Modernization application log is pushed to
+-- well as the log group identifier. These are CloudWatch logs. Amazon Web
+-- Services Mainframe Modernization pushes the application log to
 -- CloudWatch under the customer\'s account.
 --
 -- 'statusReason', 'getApplicationResponse_statusReason' - The reason for the reported status.
@@ -290,6 +296,7 @@ newGetApplicationResponse
           Prelude.Nothing,
         description = Prelude.Nothing,
         environmentId = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         lastStartTime = Prelude.Nothing,
         listenerArns = Prelude.Nothing,
         listenerPorts = Prelude.Nothing,
@@ -316,20 +323,24 @@ getApplicationResponse_deployedVersion = Lens.lens (\GetApplicationResponse' {de
 getApplicationResponse_description :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
 getApplicationResponse_description = Lens.lens (\GetApplicationResponse' {description} -> description) (\s@GetApplicationResponse' {} a -> s {description = a} :: GetApplicationResponse)
 
--- | The identifier of the environment where the application will be
--- deployed.
+-- | The identifier of the runtime environment where you want to deploy the
+-- application.
 getApplicationResponse_environmentId :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
 getApplicationResponse_environmentId = Lens.lens (\GetApplicationResponse' {environmentId} -> environmentId) (\s@GetApplicationResponse' {} a -> s {environmentId = a} :: GetApplicationResponse)
 
--- | The timestamp when the application was last started. Null until the
--- application has started running for the first time.
+-- | The identifier of a customer managed key.
+getApplicationResponse_kmsKeyId :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_kmsKeyId = Lens.lens (\GetApplicationResponse' {kmsKeyId} -> kmsKeyId) (\s@GetApplicationResponse' {} a -> s {kmsKeyId = a} :: GetApplicationResponse)
+
+-- | The timestamp when you last started the application. Null until the
+-- application runs for the first time.
 getApplicationResponse_lastStartTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.UTCTime)
 getApplicationResponse_lastStartTime = Lens.lens (\GetApplicationResponse' {lastStartTime} -> lastStartTime) (\s@GetApplicationResponse' {} a -> s {lastStartTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the network load balancer listener
 -- created in your Amazon Web Services account. Amazon Web Services
--- Mainframe Modernization creates this listener on your behalf the first
--- time you deploy an application.
+-- Mainframe Modernization creates this listener for you the first time you
+-- deploy an application.
 getApplicationResponse_listenerArns :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getApplicationResponse_listenerArns = Lens.lens (\GetApplicationResponse' {listenerArns} -> listenerArns) (\s@GetApplicationResponse' {} a -> s {listenerArns = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -344,8 +355,8 @@ getApplicationResponse_loadBalancerDnsName :: Lens.Lens' GetApplicationResponse 
 getApplicationResponse_loadBalancerDnsName = Lens.lens (\GetApplicationResponse' {loadBalancerDnsName} -> loadBalancerDnsName) (\s@GetApplicationResponse' {} a -> s {loadBalancerDnsName = a} :: GetApplicationResponse)
 
 -- | The list of log summaries. Each log summary includes the log type as
--- well as the log group identifier. These are CloudWatch logs. The Amazon
--- Web Services Mainframe Modernization application log is pushed to
+-- well as the log group identifier. These are CloudWatch logs. Amazon Web
+-- Services Mainframe Modernization pushes the application log to
 -- CloudWatch under the customer\'s account.
 getApplicationResponse_logGroups :: Lens.Lens' GetApplicationResponse (Prelude.Maybe [LogGroupSummary])
 getApplicationResponse_logGroups = Lens.lens (\GetApplicationResponse' {logGroups} -> logGroups) (\s@GetApplicationResponse' {} a -> s {logGroups = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
@@ -400,6 +411,7 @@ instance Prelude.NFData GetApplicationResponse where
     Prelude.rnf deployedVersion
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf lastStartTime
       `Prelude.seq` Prelude.rnf listenerArns
       `Prelude.seq` Prelude.rnf listenerPorts

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.UpdateRealtimeLogConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,9 +35,9 @@
 --
 -- 3.  Call this API (@UpdateRealtimeLogConfig@) by providing the entire
 --     real-time log configuration, including the parameters that you
---     modified and those that you didn’t.
+--     modified and those that you didn\'t.
 --
--- You cannot update a real-time log configuration’s @Name@ or @ARN@.
+-- You cannot update a real-time log configuration\'s @Name@ or @ARN@.
 module Amazonka.CloudFront.UpdateRealtimeLogConfig
   ( -- * Creating a Request
     UpdateRealtimeLogConfig (..),

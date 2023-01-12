@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.AddTagsToStream
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,9 @@
 --
 -- Adds or updates tags for the specified Kinesis data stream. You can
 -- assign up to 50 tags to a data stream.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- If tags have already been assigned to the stream, @AddTagsToStream@
 -- overwrites any existing tags that correspond to the specified tag keys.
@@ -33,6 +36,7 @@ module Amazonka.Kinesis.AddTagsToStream
     newAddTagsToStream,
 
     -- * Request Lenses
+    addTagsToStream_streamARN,
     addTagsToStream_streamName,
     addTagsToStream_tags,
 
@@ -54,8 +58,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAddTagsToStream' smart constructor.
 data AddTagsToStream = AddTagsToStream'
-  { -- | The name of the stream.
-    streamName :: Prelude.Text,
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | A set of up to 10 key-value pairs to use to create the tags.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
@@ -69,21 +75,26 @@ data AddTagsToStream = AddTagsToStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'addTagsToStream_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'addTagsToStream_streamName' - The name of the stream.
 --
 -- 'tags', 'addTagsToStream_tags' - A set of up to 10 key-value pairs to use to create the tags.
 newAddTagsToStream ::
-  -- | 'streamName'
-  Prelude.Text ->
   AddTagsToStream
-newAddTagsToStream pStreamName_ =
+newAddTagsToStream =
   AddTagsToStream'
-    { streamName = pStreamName_,
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
       tags = Prelude.mempty
     }
 
+-- | The ARN of the stream.
+addTagsToStream_streamARN :: Lens.Lens' AddTagsToStream (Prelude.Maybe Prelude.Text)
+addTagsToStream_streamARN = Lens.lens (\AddTagsToStream' {streamARN} -> streamARN) (\s@AddTagsToStream' {} a -> s {streamARN = a} :: AddTagsToStream)
+
 -- | The name of the stream.
-addTagsToStream_streamName :: Lens.Lens' AddTagsToStream Prelude.Text
+addTagsToStream_streamName :: Lens.Lens' AddTagsToStream (Prelude.Maybe Prelude.Text)
 addTagsToStream_streamName = Lens.lens (\AddTagsToStream' {streamName} -> streamName) (\s@AddTagsToStream' {} a -> s {streamName = a} :: AddTagsToStream)
 
 -- | A set of up to 10 key-value pairs to use to create the tags.
@@ -101,12 +112,14 @@ instance Core.AWSRequest AddTagsToStream where
 
 instance Prelude.Hashable AddTagsToStream where
   hashWithSalt _salt AddTagsToStream' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData AddTagsToStream where
   rnf AddTagsToStream' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders AddTagsToStream where
@@ -128,7 +141,8 @@ instance Data.ToJSON AddTagsToStream where
   toJSON AddTagsToStream' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Data..= streamName),
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just ("Tags" Data..= tags)
           ]
       )

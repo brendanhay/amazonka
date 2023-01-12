@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.GetKeyGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,9 +23,9 @@
 -- Gets a key group, including the date and time when the key group was
 -- last modified.
 --
--- To get a key group, you must provide the key group’s identifier. If the
--- key group is referenced in a distribution’s cache behavior, you can get
--- the key group’s identifier using @ListDistributions@ or
+-- To get a key group, you must provide the key group\'s identifier. If the
+-- key group is referenced in a distribution\'s cache behavior, you can get
+-- the key group\'s identifier using @ListDistributions@ or
 -- @GetDistribution@. If the key group is not referenced in a cache
 -- behavior, you can get the identifier using @ListKeyGroups@.
 module Amazonka.CloudFront.GetKeyGroup

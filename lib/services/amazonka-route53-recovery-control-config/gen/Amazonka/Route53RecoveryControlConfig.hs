@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryControlConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -137,31 +137,31 @@ module Amazonka.Route53RecoveryControlConfig
     DescribeSafetyRuleResponse (DescribeSafetyRuleResponse'),
     newDescribeSafetyRuleResponse,
 
-    -- ** ListAssociatedRoute53HealthChecks
+    -- ** ListAssociatedRoute53HealthChecks (Paginated)
     ListAssociatedRoute53HealthChecks (ListAssociatedRoute53HealthChecks'),
     newListAssociatedRoute53HealthChecks,
     ListAssociatedRoute53HealthChecksResponse (ListAssociatedRoute53HealthChecksResponse'),
     newListAssociatedRoute53HealthChecksResponse,
 
-    -- ** ListClusters
+    -- ** ListClusters (Paginated)
     ListClusters (ListClusters'),
     newListClusters,
     ListClustersResponse (ListClustersResponse'),
     newListClustersResponse,
 
-    -- ** ListControlPanels
+    -- ** ListControlPanels (Paginated)
     ListControlPanels (ListControlPanels'),
     newListControlPanels,
     ListControlPanelsResponse (ListControlPanelsResponse'),
     newListControlPanelsResponse,
 
-    -- ** ListRoutingControls
+    -- ** ListRoutingControls (Paginated)
     ListRoutingControls (ListRoutingControls'),
     newListRoutingControls,
     ListRoutingControlsResponse (ListRoutingControlsResponse'),
     newListRoutingControlsResponse,
 
-    -- ** ListSafetyRules
+    -- ** ListSafetyRules (Paginated)
     ListSafetyRules (ListSafetyRules'),
     newListSafetyRules,
     ListSafetyRulesResponse (ListSafetyRulesResponse'),

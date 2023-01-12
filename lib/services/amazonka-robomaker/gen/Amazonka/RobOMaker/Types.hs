@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.RobOMaker.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -567,7 +567,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The failure percentage threshold percentage was met.
-_ConcurrentDeploymentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentDeploymentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentDeploymentException =
   Core._MatchServiceError
     defaultService
@@ -577,7 +577,7 @@ _ConcurrentDeploymentException =
 -- | The request uses the same client token as a previous, but non-identical
 -- request. Do not reuse a client token with different requests, unless the
 -- requests are identical.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
@@ -585,7 +585,7 @@ _IdempotentParameterMismatchException =
     Prelude.. Core.hasStatus 400
 
 -- | AWS RoboMaker experienced a service issue. Try your call again.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -595,7 +595,7 @@ _InternalServerException =
 -- | A parameter specified in a request is not valid, is unsupported, or
 -- cannot be used. The returned message provides an explanation of the
 -- error value.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -604,7 +604,7 @@ _InvalidParameterException =
 
 -- | The requested resource exceeds the maximum number allowed, or the number
 -- of concurrent stream requests exceeds the maximum number allowed.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -612,7 +612,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -620,7 +620,7 @@ _ResourceAlreadyExistsException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -628,7 +628,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | The request has failed due to a temporary failure of the server.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -637,7 +637,7 @@ _ServiceUnavailableException =
 
 -- | AWS RoboMaker is temporarily unable to process the request. Try your
 -- call again.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

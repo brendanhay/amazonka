@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Detective.Types.MemberDetail
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ data MemberDetail = MemberDetail'
     -- | For invited accounts, the date and time that Detective sent the
     -- invitation to the account. The value is an ISO8601 formatted string. For
     -- example, @2021-08-18T16:35:56.284Z@.
-    invitedTime :: Prelude.Maybe Data.POSIX,
+    invitedTime :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Web Services account identifier of the administrator account
     -- for the behavior graph.
     masterId :: Prelude.Maybe Prelude.Text,
@@ -86,7 +86,7 @@ data MemberDetail = MemberDetail'
     -- | The date and time when the graph utilization percentage was last
     -- updated. The value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    percentOfGraphUtilizationUpdatedTime :: Prelude.Maybe Data.POSIX,
+    percentOfGraphUtilizationUpdatedTime :: Prelude.Maybe Data.ISO8601,
     -- | The current membership status of the member account. The status can have
     -- one of the following values:
     --
@@ -126,7 +126,7 @@ data MemberDetail = MemberDetail'
     status :: Prelude.Maybe MemberStatus,
     -- | The date and time that the member account was last updated. The value is
     -- an ISO8601 formatted string. For example, @2021-08-18T16:35:56.284Z@.
-    updatedTime :: Prelude.Maybe Data.POSIX,
+    updatedTime :: Prelude.Maybe Data.ISO8601,
     -- | Details on the volume of usage for each data source package in a
     -- behavior graph.
     volumeUsageByDatasourcePackage :: Prelude.Maybe (Prelude.HashMap DatasourcePackage DatasourcePackageUsageInfo),
@@ -135,7 +135,7 @@ data MemberDetail = MemberDetail'
     -- | The data and time when the member account data volume was last updated.
     -- The value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    volumeUsageUpdatedTime :: Prelude.Maybe Data.POSIX
+    volumeUsageUpdatedTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

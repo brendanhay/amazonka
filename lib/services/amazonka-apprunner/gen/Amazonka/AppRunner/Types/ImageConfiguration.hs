@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AppRunner.Types.ImageConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,9 +33,23 @@ data ImageConfiguration = ImageConfiguration'
     --
     -- Default: @8080@
     port :: Prelude.Maybe Prelude.Text,
+    -- | An array of key-value pairs representing the secrets and parameters that
+    -- get referenced to your service as an environment variable. The supported
+    -- values are either the full Amazon Resource Name (ARN) of the Secrets
+    -- Manager secret or the full ARN of the parameter in the Amazon Web
+    -- Services Systems Manager Parameter Store.
+    --
+    -- -   If the Amazon Web Services Systems Manager Parameter Store parameter
+    --     exists in the same Amazon Web Services Region as the service that
+    --     you\'re launching, you can use either the full ARN or name of the
+    --     secret. If the parameter exists in a different Region, then the full
+    --     ARN must be specified.
+    --
+    -- -   Currently, cross account referencing of Amazon Web Services Systems
+    --     Manager Parameter Store parameter is not supported.
+    runtimeEnvironmentSecrets :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
     -- | Environment variables that are available to your running App Runner
-    -- service. An array of key-value pairs. Keys with a prefix of
-    -- @AWSAPPRUNNER@ are reserved for system use and aren\'t valid.
+    -- service. An array of key-value pairs.
     runtimeEnvironmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
     -- | An optional command that App Runner runs to start the application in the
     -- source image. If specified, this command overrides the Docker image’s
@@ -56,9 +70,23 @@ data ImageConfiguration = ImageConfiguration'
 --
 -- Default: @8080@
 --
+-- 'runtimeEnvironmentSecrets', 'imageConfiguration_runtimeEnvironmentSecrets' - An array of key-value pairs representing the secrets and parameters that
+-- get referenced to your service as an environment variable. The supported
+-- values are either the full Amazon Resource Name (ARN) of the Secrets
+-- Manager secret or the full ARN of the parameter in the Amazon Web
+-- Services Systems Manager Parameter Store.
+--
+-- -   If the Amazon Web Services Systems Manager Parameter Store parameter
+--     exists in the same Amazon Web Services Region as the service that
+--     you\'re launching, you can use either the full ARN or name of the
+--     secret. If the parameter exists in a different Region, then the full
+--     ARN must be specified.
+--
+-- -   Currently, cross account referencing of Amazon Web Services Systems
+--     Manager Parameter Store parameter is not supported.
+--
 -- 'runtimeEnvironmentVariables', 'imageConfiguration_runtimeEnvironmentVariables' - Environment variables that are available to your running App Runner
--- service. An array of key-value pairs. Keys with a prefix of
--- @AWSAPPRUNNER@ are reserved for system use and aren\'t valid.
+-- service. An array of key-value pairs.
 --
 -- 'startCommand', 'imageConfiguration_startCommand' - An optional command that App Runner runs to start the application in the
 -- source image. If specified, this command overrides the Docker image’s
@@ -68,6 +96,7 @@ newImageConfiguration ::
 newImageConfiguration =
   ImageConfiguration'
     { port = Prelude.Nothing,
+      runtimeEnvironmentSecrets = Prelude.Nothing,
       runtimeEnvironmentVariables = Prelude.Nothing,
       startCommand = Prelude.Nothing
     }
@@ -78,9 +107,25 @@ newImageConfiguration =
 imageConfiguration_port :: Lens.Lens' ImageConfiguration (Prelude.Maybe Prelude.Text)
 imageConfiguration_port = Lens.lens (\ImageConfiguration' {port} -> port) (\s@ImageConfiguration' {} a -> s {port = a} :: ImageConfiguration)
 
+-- | An array of key-value pairs representing the secrets and parameters that
+-- get referenced to your service as an environment variable. The supported
+-- values are either the full Amazon Resource Name (ARN) of the Secrets
+-- Manager secret or the full ARN of the parameter in the Amazon Web
+-- Services Systems Manager Parameter Store.
+--
+-- -   If the Amazon Web Services Systems Manager Parameter Store parameter
+--     exists in the same Amazon Web Services Region as the service that
+--     you\'re launching, you can use either the full ARN or name of the
+--     secret. If the parameter exists in a different Region, then the full
+--     ARN must be specified.
+--
+-- -   Currently, cross account referencing of Amazon Web Services Systems
+--     Manager Parameter Store parameter is not supported.
+imageConfiguration_runtimeEnvironmentSecrets :: Lens.Lens' ImageConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+imageConfiguration_runtimeEnvironmentSecrets = Lens.lens (\ImageConfiguration' {runtimeEnvironmentSecrets} -> runtimeEnvironmentSecrets) (\s@ImageConfiguration' {} a -> s {runtimeEnvironmentSecrets = a} :: ImageConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 -- | Environment variables that are available to your running App Runner
--- service. An array of key-value pairs. Keys with a prefix of
--- @AWSAPPRUNNER@ are reserved for system use and aren\'t valid.
+-- service. An array of key-value pairs.
 imageConfiguration_runtimeEnvironmentVariables :: Lens.Lens' ImageConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 imageConfiguration_runtimeEnvironmentVariables = Lens.lens (\ImageConfiguration' {runtimeEnvironmentVariables} -> runtimeEnvironmentVariables) (\s@ImageConfiguration' {} a -> s {runtimeEnvironmentVariables = a} :: ImageConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -97,6 +142,9 @@ instance Data.FromJSON ImageConfiguration where
       ( \x ->
           ImageConfiguration'
             Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> ( x Data..:? "RuntimeEnvironmentSecrets"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Data..:? "RuntimeEnvironmentVariables"
                             Data..!= Prelude.mempty
                         )
@@ -106,12 +154,14 @@ instance Data.FromJSON ImageConfiguration where
 instance Prelude.Hashable ImageConfiguration where
   hashWithSalt _salt ImageConfiguration' {..} =
     _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` runtimeEnvironmentSecrets
       `Prelude.hashWithSalt` runtimeEnvironmentVariables
       `Prelude.hashWithSalt` startCommand
 
 instance Prelude.NFData ImageConfiguration where
   rnf ImageConfiguration' {..} =
     Prelude.rnf port
+      `Prelude.seq` Prelude.rnf runtimeEnvironmentSecrets
       `Prelude.seq` Prelude.rnf runtimeEnvironmentVariables
       `Prelude.seq` Prelude.rnf startCommand
 
@@ -120,6 +170,8 @@ instance Data.ToJSON ImageConfiguration where
     Data.object
       ( Prelude.catMaybes
           [ ("Port" Data..=) Prelude.<$> port,
+            ("RuntimeEnvironmentSecrets" Data..=)
+              Prelude.<$> runtimeEnvironmentSecrets,
             ("RuntimeEnvironmentVariables" Data..=)
               Prelude.<$> runtimeEnvironmentVariables,
             ("StartCommand" Data..=) Prelude.<$> startCommand

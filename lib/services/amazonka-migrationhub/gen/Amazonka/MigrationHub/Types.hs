@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MigrationHub.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -183,7 +183,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -191,14 +191,14 @@ _AccessDeniedException =
 
 -- | Exception raised to indicate a successfully authorized action when the
 -- @DryRun@ flag is set to \"true\".
-_DryRunOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DryRunOperation :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DryRunOperation =
   Core._MatchServiceError
     defaultService
     "DryRunOperation"
 
 -- | The home region is not set. Set the home region to continue.
-_HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HomeRegionNotSetException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _HomeRegionNotSetException =
   Core._MatchServiceError
     defaultService
@@ -206,7 +206,7 @@ _HomeRegionNotSetException =
 
 -- | Exception raised when an internal, configuration, or dependency error is
 -- encountered.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -214,7 +214,7 @@ _InternalServerError =
 
 -- | Exception raised when the provided input violates a policy constraint or
 -- is entered in the wrong format or data type.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -224,7 +224,7 @@ _InvalidInputException =
 -- Service (Application Discovery Service); most likely due to a
 -- misconfigured policy or the @migrationhub-discovery@ role is missing or
 -- not configured correctly.
-_PolicyErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PolicyErrorException =
   Core._MatchServiceError
     defaultService
@@ -234,7 +234,7 @@ _PolicyErrorException =
 -- Discovery Service configuration, update stream, migration task, etc.)
 -- that does not exist in Application Discovery Service (Application
 -- Discovery Service) or in Migration Hub\'s repository.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -242,14 +242,14 @@ _ResourceNotFoundException =
 
 -- | Exception raised when there is an internal, configuration, or dependency
 -- error encountered.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -257,7 +257,7 @@ _ThrottlingException =
 
 -- | Exception raised to indicate a request was not authorized when the
 -- @DryRun@ flag is set to \"true\".
-_UnauthorizedOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedOperation :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedOperation =
   Core._MatchServiceError
     defaultService

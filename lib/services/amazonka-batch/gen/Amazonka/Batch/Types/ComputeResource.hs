@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Batch.Types.ComputeResource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -88,7 +88,8 @@ data ComputeResource = ComputeResource'
     -- price must be less than 20% of the current On-Demand price for that
     -- Amazon EC2 instance. You always pay the lowest (market) price and never
     -- more than your maximum percentage. If you leave this field empty, the
-    -- default value is 100% of the On-Demand price.
+    -- default value is 100% of the On-Demand price. For most use cases, we
+    -- recommend leaving this field empty.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources. Don\'t specify it.
@@ -262,6 +263,17 @@ data ComputeResource = ComputeResource'
     -- 16 subnets. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and subnets>
     -- in the /Amazon VPC User Guide/.
+    --
+    -- Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones Local Zones>
+    -- in the /Amazon EC2 User Guide for Linux Instances/,
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html Amazon EKS and Amazon Web Services Local Zones>
+    -- in the /Amazon EKS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts>
+    -- in the /Amazon ECS Developer Guide/.
+    --
+    -- Batch on Fargate doesn\'t currently support Local Zones.
     subnets :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -327,7 +339,8 @@ data ComputeResource = ComputeResource'
 -- price must be less than 20% of the current On-Demand price for that
 -- Amazon EC2 instance. You always pay the lowest (market) price and never
 -- more than your maximum percentage. If you leave this field empty, the
--- default value is 100% of the On-Demand price.
+-- default value is 100% of the On-Demand price. For most use cases, we
+-- recommend leaving this field empty.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources. Don\'t specify it.
@@ -501,6 +514,17 @@ data ComputeResource = ComputeResource'
 -- 16 subnets. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and subnets>
 -- in the /Amazon VPC User Guide/.
+--
+-- Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones Local Zones>
+-- in the /Amazon EC2 User Guide for Linux Instances/,
+-- <https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html Amazon EKS and Amazon Web Services Local Zones>
+-- in the /Amazon EKS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts>
+-- in the /Amazon ECS Developer Guide/.
+--
+-- Batch on Fargate doesn\'t currently support Local Zones.
 newComputeResource ::
   -- | 'type''
   CRType ->
@@ -584,7 +608,8 @@ computeResource_allocationStrategy = Lens.lens (\ComputeResource' {allocationStr
 -- price must be less than 20% of the current On-Demand price for that
 -- Amazon EC2 instance. You always pay the lowest (market) price and never
 -- more than your maximum percentage. If you leave this field empty, the
--- default value is 100% of the On-Demand price.
+-- default value is 100% of the On-Demand price. For most use cases, we
+-- recommend leaving this field empty.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources. Don\'t specify it.
@@ -788,6 +813,17 @@ computeResource_maxvCpus = Lens.lens (\ComputeResource' {maxvCpus} -> maxvCpus) 
 -- 16 subnets. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and subnets>
 -- in the /Amazon VPC User Guide/.
+--
+-- Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones Local Zones>
+-- in the /Amazon EC2 User Guide for Linux Instances/,
+-- <https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html Amazon EKS and Amazon Web Services Local Zones>
+-- in the /Amazon EKS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts>
+-- in the /Amazon ECS Developer Guide/.
+--
+-- Batch on Fargate doesn\'t currently support Local Zones.
 computeResource_subnets :: Lens.Lens' ComputeResource [Prelude.Text]
 computeResource_subnets = Lens.lens (\ComputeResource' {subnets} -> subnets) (\s@ComputeResource' {} a -> s {subnets = a} :: ComputeResource) Prelude.. Lens.coerced
 

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.UpdateLaunchProfileMember
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,11 +54,12 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateLaunchProfileMember' smart constructor.
 data UpdateLaunchProfileMember = UpdateLaunchProfileMember'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Launch Profile ID.
+    -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Text,
     -- | The persona.
     persona :: LaunchProfilePersona,
@@ -78,11 +79,12 @@ data UpdateLaunchProfileMember = UpdateLaunchProfileMember'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'updateLaunchProfileMember_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
--- 'launchProfileId', 'updateLaunchProfileMember_launchProfileId' - The Launch Profile ID.
+-- 'launchProfileId', 'updateLaunchProfileMember_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'persona', 'updateLaunchProfileMember_persona' - The persona.
 --
@@ -114,13 +116,14 @@ newUpdateLaunchProfileMember
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 updateLaunchProfileMember_clientToken :: Lens.Lens' UpdateLaunchProfileMember (Prelude.Maybe Prelude.Text)
 updateLaunchProfileMember_clientToken = Lens.lens (\UpdateLaunchProfileMember' {clientToken} -> clientToken) (\s@UpdateLaunchProfileMember' {} a -> s {clientToken = a} :: UpdateLaunchProfileMember)
 
--- | The Launch Profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 updateLaunchProfileMember_launchProfileId :: Lens.Lens' UpdateLaunchProfileMember Prelude.Text
 updateLaunchProfileMember_launchProfileId = Lens.lens (\UpdateLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@UpdateLaunchProfileMember' {} a -> s {launchProfileId = a} :: UpdateLaunchProfileMember)
 

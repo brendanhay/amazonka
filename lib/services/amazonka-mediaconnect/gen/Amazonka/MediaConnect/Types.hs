@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MediaConnect.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -654,7 +654,7 @@ defaultService =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_AddFlowOutputs420Exception :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AddFlowOutputs420Exception :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AddFlowOutputs420Exception =
   Core._MatchServiceError
     defaultService
@@ -664,7 +664,7 @@ _AddFlowOutputs420Exception =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -674,7 +674,7 @@ _BadRequestException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_CreateFlow420Exception :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CreateFlow420Exception :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CreateFlow420Exception =
   Core._MatchServiceError
     defaultService
@@ -684,7 +684,7 @@ _CreateFlow420Exception =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -694,7 +694,7 @@ _ForbiddenException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_GrantFlowEntitlements420Exception :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GrantFlowEntitlements420Exception :: Core.AsError a => Lens.Fold a Core.ServiceError
 _GrantFlowEntitlements420Exception =
   Core._MatchServiceError
     defaultService
@@ -704,7 +704,7 @@ _GrantFlowEntitlements420Exception =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -714,7 +714,7 @@ _InternalServerErrorException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -724,7 +724,7 @@ _NotFoundException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -734,7 +734,7 @@ _ServiceUnavailableException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

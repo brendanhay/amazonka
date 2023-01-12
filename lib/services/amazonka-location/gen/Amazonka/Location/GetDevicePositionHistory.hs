@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Location.GetDevicePositionHistory
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -69,7 +69,7 @@ data GetDevicePositionHistory = GetDevicePositionHistory'
     --
     -- -   The time specified for @EndTimeExclusive@ must be after the time for
     --     @StartTimeInclusive@.
-    endTimeExclusive :: Prelude.Maybe Data.POSIX,
+    endTimeExclusive :: Prelude.Maybe Data.ISO8601,
     -- | An optional limit for the number of device positions returned in a
     -- single call.
     --
@@ -89,7 +89,7 @@ data GetDevicePositionHistory = GetDevicePositionHistory'
     --
     -- -   The time specified for @StartTimeInclusive@ must be before
     --     @EndTimeExclusive@.
-    startTimeInclusive :: Prelude.Maybe Data.POSIX,
+    startTimeInclusive :: Prelude.Maybe Data.ISO8601,
     -- | The device whose position history you want to retrieve.
     deviceId :: Prelude.Text,
     -- | The tracker resource receiving the request for the device position

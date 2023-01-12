@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Braket.Types.JobEventDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,7 @@ data JobEventDetails = JobEventDetails'
     -- Braket job.
     message :: Prelude.Maybe Prelude.Text,
     -- | TThe type of event that occurred related to the Amazon Braket job.
-    timeOfEvent :: Prelude.Maybe Data.POSIX
+    timeOfEvent :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

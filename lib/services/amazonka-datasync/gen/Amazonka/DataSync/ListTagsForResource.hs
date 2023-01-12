@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.DataSync.ListTagsForResource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the tags associated with a specified resource.
+-- Returns all the tags associated with an Amazon Web Services resource.
 --
 -- This operation returns paginated results.
 module Amazonka.DataSync.ListTagsForResource
@@ -56,12 +56,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The maximum number of locations to return.
+  { -- | Specifies how many results that you want in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | An opaque string that indicates the position at which to begin the next
-    -- list of locations.
+    -- | Specifies an opaque string that indicates the position to begin the next
+    -- list of results in the response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource whose tags to list.
+    -- | Specifies the Amazon Resource Name (ARN) of the resource that you want
+    -- tag information on.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,12 +75,13 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listTagsForResource_maxResults' - The maximum number of locations to return.
+-- 'maxResults', 'listTagsForResource_maxResults' - Specifies how many results that you want in the response.
 --
--- 'nextToken', 'listTagsForResource_nextToken' - An opaque string that indicates the position at which to begin the next
--- list of locations.
+-- 'nextToken', 'listTagsForResource_nextToken' - Specifies an opaque string that indicates the position to begin the next
+-- list of results in the response.
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the resource whose tags to list.
+-- 'resourceArn', 'listTagsForResource_resourceArn' - Specifies the Amazon Resource Name (ARN) of the resource that you want
+-- tag information on.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -91,16 +93,17 @@ newListTagsForResource pResourceArn_ =
       resourceArn = pResourceArn_
     }
 
--- | The maximum number of locations to return.
+-- | Specifies how many results that you want in the response.
 listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
 listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
 
--- | An opaque string that indicates the position at which to begin the next
--- list of locations.
+-- | Specifies an opaque string that indicates the position to begin the next
+-- list of results in the response.
 listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
--- | The Amazon Resource Name (ARN) of the resource whose tags to list.
+-- | Specifies the Amazon Resource Name (ARN) of the resource that you want
+-- tag information on.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
@@ -188,10 +191,10 @@ instance Data.ToQuery ListTagsForResource where
 --
 -- /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | An opaque string that indicates the position at which to begin returning
-    -- the next list of resource tags.
+  { -- | The opaque string that indicates the position to begin the next list of
+    -- results in the response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Array of resource tags.
+    -- | An array of tags applied to the specified resource.
     tags :: Prelude.Maybe [TagListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -206,10 +209,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsForResourceResponse_nextToken' - An opaque string that indicates the position at which to begin returning
--- the next list of resource tags.
+-- 'nextToken', 'listTagsForResourceResponse_nextToken' - The opaque string that indicates the position to begin the next list of
+-- results in the response.
 --
--- 'tags', 'listTagsForResourceResponse_tags' - Array of resource tags.
+-- 'tags', 'listTagsForResourceResponse_tags' - An array of tags applied to the specified resource.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -224,12 +227,12 @@ newListTagsForResourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An opaque string that indicates the position at which to begin returning
--- the next list of resource tags.
+-- | The opaque string that indicates the position to begin the next list of
+-- results in the response.
 listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
 
--- | Array of resource tags.
+-- | An array of tags applied to the specified resource.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [TagListEntry])
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 

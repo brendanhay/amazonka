@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Glacier.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -375,7 +375,7 @@ defaultService =
 -- | Returned if there is insufficient capacity to process this expedited
 -- request. This error only applies to expedited retrievals and not to
 -- standard or bulk retrievals.
-_InsufficientCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientCapacityException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InsufficientCapacityException =
   Core._MatchServiceError
     defaultService
@@ -383,7 +383,7 @@ _InsufficientCapacityException =
     Prelude.. Core.hasStatus 400
 
 -- | Returned if a parameter of the request is incorrectly specified.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -392,7 +392,7 @@ _InvalidParameterValueException =
 
 -- | Returned if the request results in a vault or account limit being
 -- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -400,7 +400,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | Returned if a required header or parameter is missing from the request.
-_MissingParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MissingParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -410,7 +410,7 @@ _MissingParameterValueException =
 -- | Returned if a retrieval job would exceed the current data policy\'s
 -- retrieval rate limit. For more information about data retrieval
 -- policies,
-_PolicyEnforcedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyEnforcedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PolicyEnforcedException =
   Core._MatchServiceError
     defaultService
@@ -419,7 +419,7 @@ _PolicyEnforcedException =
 
 -- | Returned if, when uploading an archive, Amazon S3 Glacier times out
 -- while receiving the upload.
-_RequestTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RequestTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -428,7 +428,7 @@ _RequestTimeoutException =
 
 -- | Returned if the specified resource (such as a vault, upload ID, or job
 -- ID) doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -436,7 +436,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Returned if the service cannot complete the request.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService

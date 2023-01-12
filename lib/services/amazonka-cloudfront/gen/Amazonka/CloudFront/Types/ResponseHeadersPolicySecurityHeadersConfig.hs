@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.ResponseHeadersPolicySecurityHeadersConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -54,7 +54,7 @@ data ResponseHeadersPolicySecurityHeadersConfig = ResponseHeadersPolicySecurityH
     -- in the MDN Web Docs.
     contentTypeOptions :: Prelude.Maybe ResponseHeadersPolicyContentTypeOptions,
     -- | Determines whether CloudFront includes the @X-Frame-Options@ HTTP
-    -- response header and the header’s value.
+    -- response header and the header\'s value.
     --
     -- For more information about the @X-Frame-Options@ HTTP response header,
     -- see
@@ -62,7 +62,7 @@ data ResponseHeadersPolicySecurityHeadersConfig = ResponseHeadersPolicySecurityH
     -- in the MDN Web Docs.
     frameOptions :: Prelude.Maybe ResponseHeadersPolicyFrameOptions,
     -- | Determines whether CloudFront includes the @Referrer-Policy@ HTTP
-    -- response header and the header’s value.
+    -- response header and the header\'s value.
     --
     -- For more information about the @Referrer-Policy@ HTTP response header,
     -- see
@@ -70,7 +70,7 @@ data ResponseHeadersPolicySecurityHeadersConfig = ResponseHeadersPolicySecurityH
     -- in the MDN Web Docs.
     referrerPolicy :: Prelude.Maybe ResponseHeadersPolicyReferrerPolicy,
     -- | Determines whether CloudFront includes the @Strict-Transport-Security@
-    -- HTTP response header and the header’s value.
+    -- HTTP response header and the header\'s value.
     --
     -- For more information about the @Strict-Transport-Security@ HTTP response
     -- header, see
@@ -78,7 +78,7 @@ data ResponseHeadersPolicySecurityHeadersConfig = ResponseHeadersPolicySecurityH
     -- in the MDN Web Docs.
     strictTransportSecurity :: Prelude.Maybe ResponseHeadersPolicyStrictTransportSecurity,
     -- | Determines whether CloudFront includes the @X-XSS-Protection@ HTTP
-    -- response header and the header’s value.
+    -- response header and the header\'s value.
     --
     -- For more information about the @X-XSS-Protection@ HTTP response header,
     -- see
@@ -113,7 +113,7 @@ data ResponseHeadersPolicySecurityHeadersConfig = ResponseHeadersPolicySecurityH
 -- in the MDN Web Docs.
 --
 -- 'frameOptions', 'responseHeadersPolicySecurityHeadersConfig_frameOptions' - Determines whether CloudFront includes the @X-Frame-Options@ HTTP
--- response header and the header’s value.
+-- response header and the header\'s value.
 --
 -- For more information about the @X-Frame-Options@ HTTP response header,
 -- see
@@ -121,7 +121,7 @@ data ResponseHeadersPolicySecurityHeadersConfig = ResponseHeadersPolicySecurityH
 -- in the MDN Web Docs.
 --
 -- 'referrerPolicy', 'responseHeadersPolicySecurityHeadersConfig_referrerPolicy' - Determines whether CloudFront includes the @Referrer-Policy@ HTTP
--- response header and the header’s value.
+-- response header and the header\'s value.
 --
 -- For more information about the @Referrer-Policy@ HTTP response header,
 -- see
@@ -129,7 +129,7 @@ data ResponseHeadersPolicySecurityHeadersConfig = ResponseHeadersPolicySecurityH
 -- in the MDN Web Docs.
 --
 -- 'strictTransportSecurity', 'responseHeadersPolicySecurityHeadersConfig_strictTransportSecurity' - Determines whether CloudFront includes the @Strict-Transport-Security@
--- HTTP response header and the header’s value.
+-- HTTP response header and the header\'s value.
 --
 -- For more information about the @Strict-Transport-Security@ HTTP response
 -- header, see
@@ -137,7 +137,7 @@ data ResponseHeadersPolicySecurityHeadersConfig = ResponseHeadersPolicySecurityH
 -- in the MDN Web Docs.
 --
 -- 'xSSProtection', 'responseHeadersPolicySecurityHeadersConfig_xSSProtection' - Determines whether CloudFront includes the @X-XSS-Protection@ HTTP
--- response header and the header’s value.
+-- response header and the header\'s value.
 --
 -- For more information about the @X-XSS-Protection@ HTTP response header,
 -- see
@@ -180,7 +180,7 @@ responseHeadersPolicySecurityHeadersConfig_contentTypeOptions :: Lens.Lens' Resp
 responseHeadersPolicySecurityHeadersConfig_contentTypeOptions = Lens.lens (\ResponseHeadersPolicySecurityHeadersConfig' {contentTypeOptions} -> contentTypeOptions) (\s@ResponseHeadersPolicySecurityHeadersConfig' {} a -> s {contentTypeOptions = a} :: ResponseHeadersPolicySecurityHeadersConfig)
 
 -- | Determines whether CloudFront includes the @X-Frame-Options@ HTTP
--- response header and the header’s value.
+-- response header and the header\'s value.
 --
 -- For more information about the @X-Frame-Options@ HTTP response header,
 -- see
@@ -190,7 +190,7 @@ responseHeadersPolicySecurityHeadersConfig_frameOptions :: Lens.Lens' ResponseHe
 responseHeadersPolicySecurityHeadersConfig_frameOptions = Lens.lens (\ResponseHeadersPolicySecurityHeadersConfig' {frameOptions} -> frameOptions) (\s@ResponseHeadersPolicySecurityHeadersConfig' {} a -> s {frameOptions = a} :: ResponseHeadersPolicySecurityHeadersConfig)
 
 -- | Determines whether CloudFront includes the @Referrer-Policy@ HTTP
--- response header and the header’s value.
+-- response header and the header\'s value.
 --
 -- For more information about the @Referrer-Policy@ HTTP response header,
 -- see
@@ -200,7 +200,7 @@ responseHeadersPolicySecurityHeadersConfig_referrerPolicy :: Lens.Lens' Response
 responseHeadersPolicySecurityHeadersConfig_referrerPolicy = Lens.lens (\ResponseHeadersPolicySecurityHeadersConfig' {referrerPolicy} -> referrerPolicy) (\s@ResponseHeadersPolicySecurityHeadersConfig' {} a -> s {referrerPolicy = a} :: ResponseHeadersPolicySecurityHeadersConfig)
 
 -- | Determines whether CloudFront includes the @Strict-Transport-Security@
--- HTTP response header and the header’s value.
+-- HTTP response header and the header\'s value.
 --
 -- For more information about the @Strict-Transport-Security@ HTTP response
 -- header, see
@@ -210,7 +210,7 @@ responseHeadersPolicySecurityHeadersConfig_strictTransportSecurity :: Lens.Lens'
 responseHeadersPolicySecurityHeadersConfig_strictTransportSecurity = Lens.lens (\ResponseHeadersPolicySecurityHeadersConfig' {strictTransportSecurity} -> strictTransportSecurity) (\s@ResponseHeadersPolicySecurityHeadersConfig' {} a -> s {strictTransportSecurity = a} :: ResponseHeadersPolicySecurityHeadersConfig)
 
 -- | Determines whether CloudFront includes the @X-XSS-Protection@ HTTP
--- response header and the header’s value.
+-- response header and the header\'s value.
 --
 -- For more information about the @X-XSS-Protection@ HTTP response header,
 -- see

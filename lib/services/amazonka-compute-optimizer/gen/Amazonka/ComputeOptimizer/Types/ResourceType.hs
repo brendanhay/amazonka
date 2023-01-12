@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.Types.ResourceType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ module Amazonka.ComputeOptimizer.Types.ResourceType
         ResourceType_AutoScalingGroup,
         ResourceType_EbsVolume,
         ResourceType_Ec2Instance,
+        ResourceType_EcsService,
         ResourceType_LambdaFunction,
         ResourceType_NotApplicable
       ),
@@ -70,6 +71,9 @@ pattern ResourceType_EbsVolume = ResourceType' "EbsVolume"
 pattern ResourceType_Ec2Instance :: ResourceType
 pattern ResourceType_Ec2Instance = ResourceType' "Ec2Instance"
 
+pattern ResourceType_EcsService :: ResourceType
+pattern ResourceType_EcsService = ResourceType' "EcsService"
+
 pattern ResourceType_LambdaFunction :: ResourceType
 pattern ResourceType_LambdaFunction = ResourceType' "LambdaFunction"
 
@@ -80,6 +84,7 @@ pattern ResourceType_NotApplicable = ResourceType' "NotApplicable"
   ResourceType_AutoScalingGroup,
   ResourceType_EbsVolume,
   ResourceType_Ec2Instance,
+  ResourceType_EcsService,
   ResourceType_LambdaFunction,
   ResourceType_NotApplicable,
   ResourceType'

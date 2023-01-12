@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.Finding
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,7 +52,7 @@ data Finding = Finding'
     count :: Prelude.Maybe Prelude.Integer,
     -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
     -- Macie created the finding.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The description of the finding.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the finding. This is a random string that
@@ -86,7 +86,7 @@ data Finding = Finding'
     -- Macie last updated the finding. For sensitive data findings, this value
     -- is the same as the value for the createdAt property. All sensitive data
     -- findings are considered new.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    updatedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

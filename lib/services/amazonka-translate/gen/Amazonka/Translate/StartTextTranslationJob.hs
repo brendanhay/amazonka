@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Translate.StartTextTranslationJob
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,19 +22,16 @@
 --
 -- Starts an asynchronous batch translation job. Use batch translation jobs
 -- to translate large volumes of text across multiple documents at once.
--- For batch translation, the input documents must share the same source
--- language. You can specify one or more target languages. Batch
--- translation translates each input document into each of the target
--- languages. For more information, see
--- <https://docs.aws.amazon.com/translate/latest/dg/async.html Asynchronous batch processing>
+-- For batch translation, you can input documents with different source
+-- languages (specify @auto@ as the source language). You can specify one
+-- or more target languages. Batch translation translates each input
+-- document into each of the target languages. For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/async.html Asynchronous batch processing>.
 --
 -- Batch translation jobs can be described with the
 -- DescribeTextTranslationJob operation, listed with the
 -- ListTextTranslationJobs operation, and stopped with the
 -- StopTextTranslationJob operation.
---
--- Amazon Translate does not support batch translation of multiple source
--- languages at once.
 module Amazonka.Translate.StartTextTranslationJob
   ( -- * Creating a Request
     StartTextTranslationJob (..),
@@ -127,18 +124,19 @@ data StartTextTranslationJob = StartTextTranslationJob'
     -- <https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html Identity and access management>
     -- .
     dataAccessRoleArn :: Prelude.Text,
-    -- | The language code of the input language. For a list of language codes,
-    -- see
+    -- | The language code of the input language. Specify the language if all
+    -- input documents share the same language. If you don\'t know the language
+    -- of the source files, or your input documents contains different source
+    -- languages, select @auto@. Amazon Translate auto detects the source
+    -- language for each input document. For a list of supported language
+    -- codes, see
     -- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
-    --
-    -- Amazon Translate does not automatically detect a source language during
-    -- batch translation jobs.
     sourceLanguageCode :: Prelude.Text,
     -- | The target languages of the translation job. Enter up to 10 language
     -- codes. Each input file is translated into each target language.
     --
-    -- Each language code is two or five characters long. For a list of
-    -- language codes, see
+    -- Each language code is 2 or 5 characters long. For a list of language
+    -- codes, see
     -- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
     targetLanguageCodes :: Prelude.NonEmpty Prelude.Text,
     -- | A unique identifier for the request. This token is generated for you
@@ -209,18 +207,19 @@ data StartTextTranslationJob = StartTextTranslationJob'
 -- <https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html Identity and access management>
 -- .
 --
--- 'sourceLanguageCode', 'startTextTranslationJob_sourceLanguageCode' - The language code of the input language. For a list of language codes,
--- see
+-- 'sourceLanguageCode', 'startTextTranslationJob_sourceLanguageCode' - The language code of the input language. Specify the language if all
+-- input documents share the same language. If you don\'t know the language
+-- of the source files, or your input documents contains different source
+-- languages, select @auto@. Amazon Translate auto detects the source
+-- language for each input document. For a list of supported language
+-- codes, see
 -- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
---
--- Amazon Translate does not automatically detect a source language during
--- batch translation jobs.
 --
 -- 'targetLanguageCodes', 'startTextTranslationJob_targetLanguageCodes' - The target languages of the translation job. Enter up to 10 language
 -- codes. Each input file is translated into each target language.
 --
--- Each language code is two or five characters long. For a list of
--- language codes, see
+-- Each language code is 2 or 5 characters long. For a list of language
+-- codes, see
 -- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
 --
 -- 'clientToken', 'startTextTranslationJob_clientToken' - A unique identifier for the request. This token is generated for you
@@ -328,20 +327,21 @@ startTextTranslationJob_outputDataConfig = Lens.lens (\StartTextTranslationJob' 
 startTextTranslationJob_dataAccessRoleArn :: Lens.Lens' StartTextTranslationJob Prelude.Text
 startTextTranslationJob_dataAccessRoleArn = Lens.lens (\StartTextTranslationJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartTextTranslationJob' {} a -> s {dataAccessRoleArn = a} :: StartTextTranslationJob)
 
--- | The language code of the input language. For a list of language codes,
--- see
+-- | The language code of the input language. Specify the language if all
+-- input documents share the same language. If you don\'t know the language
+-- of the source files, or your input documents contains different source
+-- languages, select @auto@. Amazon Translate auto detects the source
+-- language for each input document. For a list of supported language
+-- codes, see
 -- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
---
--- Amazon Translate does not automatically detect a source language during
--- batch translation jobs.
 startTextTranslationJob_sourceLanguageCode :: Lens.Lens' StartTextTranslationJob Prelude.Text
 startTextTranslationJob_sourceLanguageCode = Lens.lens (\StartTextTranslationJob' {sourceLanguageCode} -> sourceLanguageCode) (\s@StartTextTranslationJob' {} a -> s {sourceLanguageCode = a} :: StartTextTranslationJob)
 
 -- | The target languages of the translation job. Enter up to 10 language
 -- codes. Each input file is translated into each target language.
 --
--- Each language code is two or five characters long. For a list of
--- language codes, see
+-- Each language code is 2 or 5 characters long. For a list of language
+-- codes, see
 -- <https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html Supported languages>.
 startTextTranslationJob_targetLanguageCodes :: Lens.Lens' StartTextTranslationJob (Prelude.NonEmpty Prelude.Text)
 startTextTranslationJob_targetLanguageCodes = Lens.lens (\StartTextTranslationJob' {targetLanguageCodes} -> targetLanguageCodes) (\s@StartTextTranslationJob' {} a -> s {targetLanguageCodes = a} :: StartTextTranslationJob) Prelude.. Lens.coerced

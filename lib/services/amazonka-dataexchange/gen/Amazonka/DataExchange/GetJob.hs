@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.GetJob
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -129,7 +129,7 @@ data GetJobResponse = GetJobResponse'
   { -- | The ARN for the job.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the job was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | Details about the job.
     details :: Prelude.Maybe ResponseDetails,
     -- | The errors associated with jobs.
@@ -141,7 +141,7 @@ data GetJobResponse = GetJobResponse'
     -- | The job type.
     type' :: Prelude.Maybe Type,
     -- | The date and time that the job was last updated, in ISO 8601 format.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

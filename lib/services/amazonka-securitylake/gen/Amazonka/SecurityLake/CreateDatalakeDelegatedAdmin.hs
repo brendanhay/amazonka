@@ -14,16 +14,16 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.CreateDatalakeDelegatedAdmin
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Designates the Security Lake administrator account for the organization.
--- This API can only be called by the organization management account. The
--- organization management account cannot be the delegated administrator
--- account.
+-- Designates the Amazon Security Lake delegated administrator account for
+-- the organization. This API can only be called by the organization
+-- management account. The organization management account cannot be the
+-- delegated administrator account.
 module Amazonka.SecurityLake.CreateDatalakeDelegatedAdmin
   ( -- * Creating a Request
     CreateDatalakeDelegatedAdmin (..),
@@ -51,7 +51,8 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newCreateDatalakeDelegatedAdmin' smart constructor.
 data CreateDatalakeDelegatedAdmin = CreateDatalakeDelegatedAdmin'
-  { -- | Account ID of the Security Lake delegated administrator.
+  { -- | The Amazon Web Services account ID of the Security Lake delegated
+    -- administrator.
     account :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +65,8 @@ data CreateDatalakeDelegatedAdmin = CreateDatalakeDelegatedAdmin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'account', 'createDatalakeDelegatedAdmin_account' - Account ID of the Security Lake delegated administrator.
+-- 'account', 'createDatalakeDelegatedAdmin_account' - The Amazon Web Services account ID of the Security Lake delegated
+-- administrator.
 newCreateDatalakeDelegatedAdmin ::
   -- | 'account'
   Prelude.Text ->
@@ -72,7 +74,8 @@ newCreateDatalakeDelegatedAdmin ::
 newCreateDatalakeDelegatedAdmin pAccount_ =
   CreateDatalakeDelegatedAdmin' {account = pAccount_}
 
--- | Account ID of the Security Lake delegated administrator.
+-- | The Amazon Web Services account ID of the Security Lake delegated
+-- administrator.
 createDatalakeDelegatedAdmin_account :: Lens.Lens' CreateDatalakeDelegatedAdmin Prelude.Text
 createDatalakeDelegatedAdmin_account = Lens.lens (\CreateDatalakeDelegatedAdmin' {account} -> account) (\s@CreateDatalakeDelegatedAdmin' {} a -> s {account = a} :: CreateDatalakeDelegatedAdmin)
 

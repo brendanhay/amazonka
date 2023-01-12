@@ -14,13 +14,15 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.ListSubscribers
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List all subscribers for the specific Security Lake account ID.
+-- List all subscribers for the specific Amazon Security Lake account ID.
+-- You can retrieve a list of subscriptions associated with a specific
+-- organization or Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.SecurityLake.ListSubscribers
@@ -55,8 +57,8 @@ import Amazonka.SecurityLake.Types
 data ListSubscribers = ListSubscribers'
   { -- | The maximum number of accounts for which the configuration is displayed.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | If nextToken is returned, there are more results available. You can make
-    -- the call again using the returned token to retrieve the next page.
+    -- | If nextToken is returned, there are more results available. You can
+    -- repeat the call using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,8 +73,8 @@ data ListSubscribers = ListSubscribers'
 --
 -- 'maxResults', 'listSubscribers_maxResults' - The maximum number of accounts for which the configuration is displayed.
 --
--- 'nextToken', 'listSubscribers_nextToken' - If nextToken is returned, there are more results available. You can make
--- the call again using the returned token to retrieve the next page.
+-- 'nextToken', 'listSubscribers_nextToken' - If nextToken is returned, there are more results available. You can
+-- repeat the call using the returned token to retrieve the next page.
 newListSubscribers ::
   ListSubscribers
 newListSubscribers =
@@ -85,8 +87,8 @@ newListSubscribers =
 listSubscribers_maxResults :: Lens.Lens' ListSubscribers (Prelude.Maybe Prelude.Int)
 listSubscribers_maxResults = Lens.lens (\ListSubscribers' {maxResults} -> maxResults) (\s@ListSubscribers' {} a -> s {maxResults = a} :: ListSubscribers)
 
--- | If nextToken is returned, there are more results available. You can make
--- the call again using the returned token to retrieve the next page.
+-- | If nextToken is returned, there are more results available. You can
+-- repeat the call using the returned token to retrieve the next page.
 listSubscribers_nextToken :: Lens.Lens' ListSubscribers (Prelude.Maybe Prelude.Text)
 listSubscribers_nextToken = Lens.lens (\ListSubscribers' {nextToken} -> nextToken) (\s@ListSubscribers' {} a -> s {nextToken = a} :: ListSubscribers)
 
@@ -157,12 +159,12 @@ instance Data.ToQuery ListSubscribers where
 
 -- | /See:/ 'newListSubscribersResponse' smart constructor.
 data ListSubscribersResponse = ListSubscribersResponse'
-  { -- | If nextToken is returned, there are more results available. You can make
-    -- the call again using the returned token to retrieve the next page.
+  { -- | If nextToken is returned, there are more results available. You can
+    -- repeat the call using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The subscribers available in the specified Security Lake account ID.
+    -- | The subscribers available for the specified Security Lake account ID.
     subscribers :: [SubscriberResource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -175,12 +177,12 @@ data ListSubscribersResponse = ListSubscribersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSubscribersResponse_nextToken' - If nextToken is returned, there are more results available. You can make
--- the call again using the returned token to retrieve the next page.
+-- 'nextToken', 'listSubscribersResponse_nextToken' - If nextToken is returned, there are more results available. You can
+-- repeat the call using the returned token to retrieve the next page.
 --
 -- 'httpStatus', 'listSubscribersResponse_httpStatus' - The response's http status code.
 --
--- 'subscribers', 'listSubscribersResponse_subscribers' - The subscribers available in the specified Security Lake account ID.
+-- 'subscribers', 'listSubscribersResponse_subscribers' - The subscribers available for the specified Security Lake account ID.
 newListSubscribersResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -193,8 +195,8 @@ newListSubscribersResponse pHttpStatus_ =
       subscribers = Prelude.mempty
     }
 
--- | If nextToken is returned, there are more results available. You can make
--- the call again using the returned token to retrieve the next page.
+-- | If nextToken is returned, there are more results available. You can
+-- repeat the call using the returned token to retrieve the next page.
 listSubscribersResponse_nextToken :: Lens.Lens' ListSubscribersResponse (Prelude.Maybe Prelude.Text)
 listSubscribersResponse_nextToken = Lens.lens (\ListSubscribersResponse' {nextToken} -> nextToken) (\s@ListSubscribersResponse' {} a -> s {nextToken = a} :: ListSubscribersResponse)
 
@@ -202,7 +204,7 @@ listSubscribersResponse_nextToken = Lens.lens (\ListSubscribersResponse' {nextTo
 listSubscribersResponse_httpStatus :: Lens.Lens' ListSubscribersResponse Prelude.Int
 listSubscribersResponse_httpStatus = Lens.lens (\ListSubscribersResponse' {httpStatus} -> httpStatus) (\s@ListSubscribersResponse' {} a -> s {httpStatus = a} :: ListSubscribersResponse)
 
--- | The subscribers available in the specified Security Lake account ID.
+-- | The subscribers available for the specified Security Lake account ID.
 listSubscribersResponse_subscribers :: Lens.Lens' ListSubscribersResponse [SubscriberResource]
 listSubscribersResponse_subscribers = Lens.lens (\ListSubscribersResponse' {subscribers} -> subscribers) (\s@ListSubscribersResponse' {} a -> s {subscribers = a} :: ListSubscribersResponse) Prelude.. Lens.coerced
 

@@ -14,15 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.CreateSubscriptionNotificationConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates the specified notification subscription in Security Lake.
--- Creates the specified subscription notifications from the specified
--- organization.
+-- Notifies the subscriber when new data is written to the data lake for
+-- the sources that the subscriber consumes in Security Lake.
 module Amazonka.SecurityLake.CreateSubscriptionNotificationConfiguration
   ( -- * Creating a Request
     CreateSubscriptionNotificationConfiguration (..),
@@ -57,21 +56,21 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newCreateSubscriptionNotificationConfiguration' smart constructor.
 data CreateSubscriptionNotificationConfiguration = CreateSubscriptionNotificationConfiguration'
-  { -- | Create a new subscription notification for the specified subscription ID
-    -- in Security Lake.
+  { -- | Create an Amazon Simple Queue Service queue.
     createSqs :: Prelude.Maybe Prelude.Bool,
-    -- | The key name for the subscription notification.
+    -- | The key name for the notification subscription.
     httpsApiKeyName :: Prelude.Maybe Prelude.Text,
-    -- | The key value for the subscription notification.
+    -- | The key value for the notification subscription.
     httpsApiKeyValue :: Prelude.Maybe Prelude.Text,
-    -- | The HTTPS method used for the subscription notification.
+    -- | The HTTPS method used for the notification subscription.
     httpsMethod :: Prelude.Maybe HttpsMethod,
-    -- | The Amazon Resource Name (ARN) specifying the role of the subscriber.
+    -- | The Amazon Resource Name (ARN) of the EventBridge API destinations IAM
+    -- role that you created.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The subscription endpoint in Security Lake.
+    -- | The subscription endpoint in Security Lake. If you prefer notification
+    -- with an HTTPs endpoint, populate this field.
     subscriptionEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The subscription ID for which the subscription notification is
-    -- specified.
+    -- | The subscription ID for the notification subscription\/
     subscriptionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,21 +83,21 @@ data CreateSubscriptionNotificationConfiguration = CreateSubscriptionNotificatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createSqs', 'createSubscriptionNotificationConfiguration_createSqs' - Create a new subscription notification for the specified subscription ID
--- in Security Lake.
+-- 'createSqs', 'createSubscriptionNotificationConfiguration_createSqs' - Create an Amazon Simple Queue Service queue.
 --
--- 'httpsApiKeyName', 'createSubscriptionNotificationConfiguration_httpsApiKeyName' - The key name for the subscription notification.
+-- 'httpsApiKeyName', 'createSubscriptionNotificationConfiguration_httpsApiKeyName' - The key name for the notification subscription.
 --
--- 'httpsApiKeyValue', 'createSubscriptionNotificationConfiguration_httpsApiKeyValue' - The key value for the subscription notification.
+-- 'httpsApiKeyValue', 'createSubscriptionNotificationConfiguration_httpsApiKeyValue' - The key value for the notification subscription.
 --
--- 'httpsMethod', 'createSubscriptionNotificationConfiguration_httpsMethod' - The HTTPS method used for the subscription notification.
+-- 'httpsMethod', 'createSubscriptionNotificationConfiguration_httpsMethod' - The HTTPS method used for the notification subscription.
 --
--- 'roleArn', 'createSubscriptionNotificationConfiguration_roleArn' - The Amazon Resource Name (ARN) specifying the role of the subscriber.
+-- 'roleArn', 'createSubscriptionNotificationConfiguration_roleArn' - The Amazon Resource Name (ARN) of the EventBridge API destinations IAM
+-- role that you created.
 --
--- 'subscriptionEndpoint', 'createSubscriptionNotificationConfiguration_subscriptionEndpoint' - The subscription endpoint in Security Lake.
+-- 'subscriptionEndpoint', 'createSubscriptionNotificationConfiguration_subscriptionEndpoint' - The subscription endpoint in Security Lake. If you prefer notification
+-- with an HTTPs endpoint, populate this field.
 --
--- 'subscriptionId', 'createSubscriptionNotificationConfiguration_subscriptionId' - The subscription ID for which the subscription notification is
--- specified.
+-- 'subscriptionId', 'createSubscriptionNotificationConfiguration_subscriptionId' - The subscription ID for the notification subscription\/
 newCreateSubscriptionNotificationConfiguration ::
   -- | 'subscriptionId'
   Prelude.Text ->
@@ -120,33 +119,33 @@ newCreateSubscriptionNotificationConfiguration
           pSubscriptionId_
       }
 
--- | Create a new subscription notification for the specified subscription ID
--- in Security Lake.
+-- | Create an Amazon Simple Queue Service queue.
 createSubscriptionNotificationConfiguration_createSqs :: Lens.Lens' CreateSubscriptionNotificationConfiguration (Prelude.Maybe Prelude.Bool)
 createSubscriptionNotificationConfiguration_createSqs = Lens.lens (\CreateSubscriptionNotificationConfiguration' {createSqs} -> createSqs) (\s@CreateSubscriptionNotificationConfiguration' {} a -> s {createSqs = a} :: CreateSubscriptionNotificationConfiguration)
 
--- | The key name for the subscription notification.
+-- | The key name for the notification subscription.
 createSubscriptionNotificationConfiguration_httpsApiKeyName :: Lens.Lens' CreateSubscriptionNotificationConfiguration (Prelude.Maybe Prelude.Text)
 createSubscriptionNotificationConfiguration_httpsApiKeyName = Lens.lens (\CreateSubscriptionNotificationConfiguration' {httpsApiKeyName} -> httpsApiKeyName) (\s@CreateSubscriptionNotificationConfiguration' {} a -> s {httpsApiKeyName = a} :: CreateSubscriptionNotificationConfiguration)
 
--- | The key value for the subscription notification.
+-- | The key value for the notification subscription.
 createSubscriptionNotificationConfiguration_httpsApiKeyValue :: Lens.Lens' CreateSubscriptionNotificationConfiguration (Prelude.Maybe Prelude.Text)
 createSubscriptionNotificationConfiguration_httpsApiKeyValue = Lens.lens (\CreateSubscriptionNotificationConfiguration' {httpsApiKeyValue} -> httpsApiKeyValue) (\s@CreateSubscriptionNotificationConfiguration' {} a -> s {httpsApiKeyValue = a} :: CreateSubscriptionNotificationConfiguration)
 
--- | The HTTPS method used for the subscription notification.
+-- | The HTTPS method used for the notification subscription.
 createSubscriptionNotificationConfiguration_httpsMethod :: Lens.Lens' CreateSubscriptionNotificationConfiguration (Prelude.Maybe HttpsMethod)
 createSubscriptionNotificationConfiguration_httpsMethod = Lens.lens (\CreateSubscriptionNotificationConfiguration' {httpsMethod} -> httpsMethod) (\s@CreateSubscriptionNotificationConfiguration' {} a -> s {httpsMethod = a} :: CreateSubscriptionNotificationConfiguration)
 
--- | The Amazon Resource Name (ARN) specifying the role of the subscriber.
+-- | The Amazon Resource Name (ARN) of the EventBridge API destinations IAM
+-- role that you created.
 createSubscriptionNotificationConfiguration_roleArn :: Lens.Lens' CreateSubscriptionNotificationConfiguration (Prelude.Maybe Prelude.Text)
 createSubscriptionNotificationConfiguration_roleArn = Lens.lens (\CreateSubscriptionNotificationConfiguration' {roleArn} -> roleArn) (\s@CreateSubscriptionNotificationConfiguration' {} a -> s {roleArn = a} :: CreateSubscriptionNotificationConfiguration)
 
--- | The subscription endpoint in Security Lake.
+-- | The subscription endpoint in Security Lake. If you prefer notification
+-- with an HTTPs endpoint, populate this field.
 createSubscriptionNotificationConfiguration_subscriptionEndpoint :: Lens.Lens' CreateSubscriptionNotificationConfiguration (Prelude.Maybe Prelude.Text)
 createSubscriptionNotificationConfiguration_subscriptionEndpoint = Lens.lens (\CreateSubscriptionNotificationConfiguration' {subscriptionEndpoint} -> subscriptionEndpoint) (\s@CreateSubscriptionNotificationConfiguration' {} a -> s {subscriptionEndpoint = a} :: CreateSubscriptionNotificationConfiguration)
 
--- | The subscription ID for which the subscription notification is
--- specified.
+-- | The subscription ID for the notification subscription\/
 createSubscriptionNotificationConfiguration_subscriptionId :: Lens.Lens' CreateSubscriptionNotificationConfiguration Prelude.Text
 createSubscriptionNotificationConfiguration_subscriptionId = Lens.lens (\CreateSubscriptionNotificationConfiguration' {subscriptionId} -> subscriptionId) (\s@CreateSubscriptionNotificationConfiguration' {} a -> s {subscriptionId = a} :: CreateSubscriptionNotificationConfiguration)
 
@@ -249,7 +248,7 @@ instance
 
 -- | /See:/ 'newCreateSubscriptionNotificationConfigurationResponse' smart constructor.
 data CreateSubscriptionNotificationConfigurationResponse = CreateSubscriptionNotificationConfigurationResponse'
-  { -- | Returns the Amazon resource name (ARN) of the queue.
+  { -- | Returns the Amazon Resource Name (ARN) of the queue.
     queueArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -264,7 +263,7 @@ data CreateSubscriptionNotificationConfigurationResponse = CreateSubscriptionNot
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queueArn', 'createSubscriptionNotificationConfigurationResponse_queueArn' - Returns the Amazon resource name (ARN) of the queue.
+-- 'queueArn', 'createSubscriptionNotificationConfigurationResponse_queueArn' - Returns the Amazon Resource Name (ARN) of the queue.
 --
 -- 'httpStatus', 'createSubscriptionNotificationConfigurationResponse_httpStatus' - The response's http status code.
 newCreateSubscriptionNotificationConfigurationResponse ::
@@ -280,7 +279,7 @@ newCreateSubscriptionNotificationConfigurationResponse
           pHttpStatus_
       }
 
--- | Returns the Amazon resource name (ARN) of the queue.
+-- | Returns the Amazon Resource Name (ARN) of the queue.
 createSubscriptionNotificationConfigurationResponse_queueArn :: Lens.Lens' CreateSubscriptionNotificationConfigurationResponse (Prelude.Maybe Prelude.Text)
 createSubscriptionNotificationConfigurationResponse_queueArn = Lens.lens (\CreateSubscriptionNotificationConfigurationResponse' {queueArn} -> queueArn) (\s@CreateSubscriptionNotificationConfigurationResponse' {} a -> s {queueArn = a} :: CreateSubscriptionNotificationConfigurationResponse)
 

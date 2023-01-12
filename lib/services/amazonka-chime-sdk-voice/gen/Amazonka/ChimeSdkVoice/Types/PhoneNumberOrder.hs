@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ChimeSdkVoice.Types.PhoneNumberOrder
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newPhoneNumberOrder' smart constructor.
 data PhoneNumberOrder = PhoneNumberOrder'
-  { createdTimestamp :: Prelude.Maybe Data.POSIX,
+  { createdTimestamp :: Prelude.Maybe Data.ISO8601,
     orderType :: Prelude.Maybe PhoneNumberOrderType,
     orderedPhoneNumbers :: Prelude.Maybe [OrderedPhoneNumber],
     phoneNumberOrderId :: Prelude.Maybe Prelude.Text,
     productType :: Prelude.Maybe PhoneNumberProductType,
     status :: Prelude.Maybe PhoneNumberOrderStatus,
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.Types.Item
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,7 @@ module Amazonka.ConnectParticipant.Types.Item where
 
 import Amazonka.ConnectParticipant.Types.AttachmentItem
 import Amazonka.ConnectParticipant.Types.ChatItemType
+import Amazonka.ConnectParticipant.Types.MessageMetadata
 import Amazonka.ConnectParticipant.Types.ParticipantRole
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
@@ -46,6 +47,9 @@ data Item = Item'
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the item.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The metadata related to the message. Currently this supports only
+    -- information related to message receipts.
+    messageMetadata :: Prelude.Maybe MessageMetadata,
     -- | The ID of the sender in the session.
     participantId :: Prelude.Maybe Prelude.Text,
     -- | The role of the sender. For example, is it a customer, agent, or system.
@@ -78,6 +82,9 @@ data Item = Item'
 --
 -- 'id', 'item_id' - The ID of the item.
 --
+-- 'messageMetadata', 'item_messageMetadata' - The metadata related to the message. Currently this supports only
+-- information related to message receipts.
+--
 -- 'participantId', 'item_participantId' - The ID of the sender in the session.
 --
 -- 'participantRole', 'item_participantRole' - The role of the sender. For example, is it a customer, agent, or system.
@@ -93,6 +100,7 @@ newItem =
       contentType = Prelude.Nothing,
       displayName = Prelude.Nothing,
       id = Prelude.Nothing,
+      messageMetadata = Prelude.Nothing,
       participantId = Prelude.Nothing,
       participantRole = Prelude.Nothing,
       type' = Prelude.Nothing
@@ -125,6 +133,11 @@ item_displayName = Lens.lens (\Item' {displayName} -> displayName) (\s@Item' {} 
 item_id :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
 item_id = Lens.lens (\Item' {id} -> id) (\s@Item' {} a -> s {id = a} :: Item)
 
+-- | The metadata related to the message. Currently this supports only
+-- information related to message receipts.
+item_messageMetadata :: Lens.Lens' Item (Prelude.Maybe MessageMetadata)
+item_messageMetadata = Lens.lens (\Item' {messageMetadata} -> messageMetadata) (\s@Item' {} a -> s {messageMetadata = a} :: Item)
+
 -- | The ID of the sender in the session.
 item_participantId :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
 item_participantId = Lens.lens (\Item' {participantId} -> participantId) (\s@Item' {} a -> s {participantId = a} :: Item)
@@ -149,6 +162,7 @@ instance Data.FromJSON Item where
             Prelude.<*> (x Data..:? "ContentType")
             Prelude.<*> (x Data..:? "DisplayName")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "MessageMetadata")
             Prelude.<*> (x Data..:? "ParticipantId")
             Prelude.<*> (x Data..:? "ParticipantRole")
             Prelude.<*> (x Data..:? "Type")
@@ -162,6 +176,7 @@ instance Prelude.Hashable Item where
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` messageMetadata
       `Prelude.hashWithSalt` participantId
       `Prelude.hashWithSalt` participantRole
       `Prelude.hashWithSalt` type'
@@ -174,6 +189,7 @@ instance Prelude.NFData Item where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf messageMetadata
       `Prelude.seq` Prelude.rnf participantId
       `Prelude.seq` Prelude.rnf participantRole
       `Prelude.seq` Prelude.rnf type'

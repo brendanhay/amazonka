@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.CreateDBInstanceReadReplica
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,6 +55,7 @@ module Amazonka.RDS.CreateDBInstanceReadReplica
     createDBInstanceReadReplica_domain,
     createDBInstanceReadReplica_domainIAMRoleName,
     createDBInstanceReadReplica_enableCloudwatchLogsExports,
+    createDBInstanceReadReplica_enableCustomerOwnedIp,
     createDBInstanceReadReplica_enableIAMDatabaseAuthentication,
     createDBInstanceReadReplica_enablePerformanceInsights,
     createDBInstanceReadReplica_iops,
@@ -222,6 +223,22 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --
     -- This setting doesn\'t apply to RDS Custom.
     enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
+    -- | A value that indicates whether to enable a customer-owned IP address
+    -- (CoIP) for an RDS on Outposts read replica.
+    --
+    -- A /CoIP/ provides local or external connectivity to resources in your
+    -- Outpost subnets through your on-premises network. For some use cases, a
+    -- CoIP can provide lower latency for connections to the read replica from
+    -- outside of its virtual private cloud (VPC) on your local network.
+    --
+    -- For more information about RDS on Outposts, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- For more information about CoIPs, see
+    -- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
+    -- in the /Amazon Web Services Outposts User Guide/.
+    enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
     -- Identity and Access Management (IAM) accounts to database accounts. By
     -- default, mapping isn\'t enabled.
@@ -683,6 +700,22 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- This setting doesn\'t apply to RDS Custom.
 --
+-- 'enableCustomerOwnedIp', 'createDBInstanceReadReplica_enableCustomerOwnedIp' - A value that indicates whether to enable a customer-owned IP address
+-- (CoIP) for an RDS on Outposts read replica.
+--
+-- A /CoIP/ provides local or external connectivity to resources in your
+-- Outpost subnets through your on-premises network. For some use cases, a
+-- CoIP can provide lower latency for connections to the read replica from
+-- outside of its virtual private cloud (VPC) on your local network.
+--
+-- For more information about RDS on Outposts, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
+-- in the /Amazon RDS User Guide/.
+--
+-- For more information about CoIPs, see
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
+-- in the /Amazon Web Services Outposts User Guide/.
+--
 -- 'enableIAMDatabaseAuthentication', 'createDBInstanceReadReplica_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
 -- default, mapping isn\'t enabled.
@@ -1034,6 +1067,7 @@ newCreateDBInstanceReadReplica
         domain = Prelude.Nothing,
         domainIAMRoleName = Prelude.Nothing,
         enableCloudwatchLogsExports = Prelude.Nothing,
+        enableCustomerOwnedIp = Prelude.Nothing,
         enableIAMDatabaseAuthentication =
           Prelude.Nothing,
         enablePerformanceInsights = Prelude.Nothing,
@@ -1208,6 +1242,24 @@ createDBInstanceReadReplica_domainIAMRoleName = Lens.lens (\CreateDBInstanceRead
 -- This setting doesn\'t apply to RDS Custom.
 createDBInstanceReadReplica_enableCloudwatchLogsExports :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Prelude.Text])
 createDBInstanceReadReplica_enableCloudwatchLogsExports = Lens.lens (\CreateDBInstanceReadReplica' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@CreateDBInstanceReadReplica' {} a -> s {enableCloudwatchLogsExports = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Lens.coerced
+
+-- | A value that indicates whether to enable a customer-owned IP address
+-- (CoIP) for an RDS on Outposts read replica.
+--
+-- A /CoIP/ provides local or external connectivity to resources in your
+-- Outpost subnets through your on-premises network. For some use cases, a
+-- CoIP can provide lower latency for connections to the read replica from
+-- outside of its virtual private cloud (VPC) on your local network.
+--
+-- For more information about RDS on Outposts, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
+-- in the /Amazon RDS User Guide/.
+--
+-- For more information about CoIPs, see
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
+-- in the /Amazon Web Services Outposts User Guide/.
+createDBInstanceReadReplica_enableCustomerOwnedIp :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_enableCustomerOwnedIp = Lens.lens (\CreateDBInstanceReadReplica' {enableCustomerOwnedIp} -> enableCustomerOwnedIp) (\s@CreateDBInstanceReadReplica' {} a -> s {enableCustomerOwnedIp = a} :: CreateDBInstanceReadReplica)
 
 -- | A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
@@ -1616,6 +1668,7 @@ instance Prelude.Hashable CreateDBInstanceReadReplica where
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` domainIAMRoleName
       `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` enableCustomerOwnedIp
       `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
       `Prelude.hashWithSalt` enablePerformanceInsights
       `Prelude.hashWithSalt` iops
@@ -1655,7 +1708,9 @@ instance Prelude.NFData CreateDBInstanceReadReplica where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf domainIAMRoleName
       `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
-      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf enableCustomerOwnedIp
+      `Prelude.seq` Prelude.rnf
+        enableIAMDatabaseAuthentication
       `Prelude.seq` Prelude.rnf enablePerformanceInsights
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf kmsKeyId
@@ -1727,6 +1782,8 @@ instance Data.ToQuery CreateDBInstanceReadReplica where
             ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
+        "EnableCustomerOwnedIp"
+          Data.=: enableCustomerOwnedIp,
         "EnableIAMDatabaseAuthentication"
           Data.=: enableIAMDatabaseAuthentication,
         "EnablePerformanceInsights"

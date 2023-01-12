@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.CreateEndpointConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -132,9 +132,9 @@ data CreateEndpointConfig = CreateEndpointConfig'
     -- For more information about local instance storage encryption, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Array of @ProductionVariant@ objects. There is one for each model that
-    -- you want to host at this endpoint in shadow mode with production traffic
-    -- replicated from the model specified on @ProductionVariants@.If you use
+    -- | An array of @ProductionVariant@ objects, one for each model that you
+    -- want to host at this endpoint in shadow mode with production traffic
+    -- replicated from the model specified on @ProductionVariants@. If you use
     -- this field, you can only specify one variant for @ProductionVariants@
     -- and one variant for @ShadowProductionVariants@.
     shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariant),
@@ -146,8 +146,8 @@ data CreateEndpointConfig = CreateEndpointConfig'
     -- | The name of the endpoint configuration. You specify this name in a
     -- CreateEndpoint request.
     endpointConfigName :: Prelude.Text,
-    -- | An list of @ProductionVariant@ objects, one for each model that you want
-    -- to host at this endpoint.
+    -- | An array of @ProductionVariant@ objects, one for each model that you
+    -- want to host at this endpoint.
     productionVariants :: Prelude.NonEmpty ProductionVariant
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -206,9 +206,9 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- For more information about local instance storage encryption, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
 --
--- 'shadowProductionVariants', 'createEndpointConfig_shadowProductionVariants' - Array of @ProductionVariant@ objects. There is one for each model that
--- you want to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
+-- 'shadowProductionVariants', 'createEndpointConfig_shadowProductionVariants' - An array of @ProductionVariant@ objects, one for each model that you
+-- want to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@. If you use
 -- this field, you can only specify one variant for @ProductionVariants@
 -- and one variant for @ShadowProductionVariants@.
 --
@@ -220,8 +220,8 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- 'endpointConfigName', 'createEndpointConfig_endpointConfigName' - The name of the endpoint configuration. You specify this name in a
 -- CreateEndpoint request.
 --
--- 'productionVariants', 'createEndpointConfig_productionVariants' - An list of @ProductionVariant@ objects, one for each model that you want
--- to host at this endpoint.
+-- 'productionVariants', 'createEndpointConfig_productionVariants' - An array of @ProductionVariant@ objects, one for each model that you
+-- want to host at this endpoint.
 newCreateEndpointConfig ::
   -- | 'endpointConfigName'
   Prelude.Text ->
@@ -298,9 +298,9 @@ createEndpointConfig_explainerConfig = Lens.lens (\CreateEndpointConfig' {explai
 createEndpointConfig_kmsKeyId :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe Prelude.Text)
 createEndpointConfig_kmsKeyId = Lens.lens (\CreateEndpointConfig' {kmsKeyId} -> kmsKeyId) (\s@CreateEndpointConfig' {} a -> s {kmsKeyId = a} :: CreateEndpointConfig)
 
--- | Array of @ProductionVariant@ objects. There is one for each model that
--- you want to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
+-- | An array of @ProductionVariant@ objects, one for each model that you
+-- want to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@. If you use
 -- this field, you can only specify one variant for @ProductionVariants@
 -- and one variant for @ShadowProductionVariants@.
 createEndpointConfig_shadowProductionVariants :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe (Prelude.NonEmpty ProductionVariant))
@@ -318,8 +318,8 @@ createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\
 createEndpointConfig_endpointConfigName :: Lens.Lens' CreateEndpointConfig Prelude.Text
 createEndpointConfig_endpointConfigName = Lens.lens (\CreateEndpointConfig' {endpointConfigName} -> endpointConfigName) (\s@CreateEndpointConfig' {} a -> s {endpointConfigName = a} :: CreateEndpointConfig)
 
--- | An list of @ProductionVariant@ objects, one for each model that you want
--- to host at this endpoint.
+-- | An array of @ProductionVariant@ objects, one for each model that you
+-- want to host at this endpoint.
 createEndpointConfig_productionVariants :: Lens.Lens' CreateEndpointConfig (Prelude.NonEmpty ProductionVariant)
 createEndpointConfig_productionVariants = Lens.lens (\CreateEndpointConfig' {productionVariants} -> productionVariants) (\s@CreateEndpointConfig' {} a -> s {productionVariants = a} :: CreateEndpointConfig) Prelude.. Lens.coerced
 

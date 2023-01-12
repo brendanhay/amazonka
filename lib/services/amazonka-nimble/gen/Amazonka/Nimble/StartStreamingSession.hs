@@ -14,21 +14,22 @@
 
 -- |
 -- Module      : Amazonka.Nimble.StartStreamingSession
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Transitions sessions from the STOPPED state into the READY state. The
--- START_IN_PROGRESS state is the intermediate state between the STOPPED
--- and READY states.
+-- Transitions sessions from the @STOPPED@ state into the @READY@ state.
+-- The @START_IN_PROGRESS@ state is the intermediate state between the
+-- @STOPPED@ and @READY@ states.
 module Amazonka.Nimble.StartStreamingSession
   ( -- * Creating a Request
     StartStreamingSession (..),
     newStartStreamingSession,
 
     -- * Request Lenses
+    startStreamingSession_backupId,
     startStreamingSession_clientToken,
     startStreamingSession_sessionId,
     startStreamingSession_studioId,
@@ -53,12 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartStreamingSession' smart constructor.
 data StartStreamingSession = StartStreamingSession'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+  { -- | The ID of the backup.
+    backupId :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The streaming session ID for the StartStreamingSessionRequest.
+    -- | The streaming session ID for the @StartStreamingSessionRequest@.
     sessionId :: Prelude.Text,
     -- | The studio ID for the StartStreamingSessionRequest.
     studioId :: Prelude.Text
@@ -73,12 +76,14 @@ data StartStreamingSession = StartStreamingSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'startStreamingSession_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- 'backupId', 'startStreamingSession_backupId' - The ID of the backup.
 --
--- 'sessionId', 'startStreamingSession_sessionId' - The streaming session ID for the StartStreamingSessionRequest.
+-- 'clientToken', 'startStreamingSession_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
+--
+-- 'sessionId', 'startStreamingSession_sessionId' - The streaming session ID for the @StartStreamingSessionRequest@.
 --
 -- 'studioId', 'startStreamingSession_studioId' - The studio ID for the StartStreamingSessionRequest.
 newStartStreamingSession ::
@@ -89,20 +94,24 @@ newStartStreamingSession ::
   StartStreamingSession
 newStartStreamingSession pSessionId_ pStudioId_ =
   StartStreamingSession'
-    { clientToken =
-        Prelude.Nothing,
+    { backupId = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       sessionId = pSessionId_,
       studioId = pStudioId_
     }
 
+-- | The ID of the backup.
+startStreamingSession_backupId :: Lens.Lens' StartStreamingSession (Prelude.Maybe Prelude.Text)
+startStreamingSession_backupId = Lens.lens (\StartStreamingSession' {backupId} -> backupId) (\s@StartStreamingSession' {} a -> s {backupId = a} :: StartStreamingSession)
+
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 startStreamingSession_clientToken :: Lens.Lens' StartStreamingSession (Prelude.Maybe Prelude.Text)
 startStreamingSession_clientToken = Lens.lens (\StartStreamingSession' {clientToken} -> clientToken) (\s@StartStreamingSession' {} a -> s {clientToken = a} :: StartStreamingSession)
 
--- | The streaming session ID for the StartStreamingSessionRequest.
+-- | The streaming session ID for the @StartStreamingSessionRequest@.
 startStreamingSession_sessionId :: Lens.Lens' StartStreamingSession Prelude.Text
 startStreamingSession_sessionId = Lens.lens (\StartStreamingSession' {sessionId} -> sessionId) (\s@StartStreamingSession' {} a -> s {sessionId = a} :: StartStreamingSession)
 
@@ -126,13 +135,15 @@ instance Core.AWSRequest StartStreamingSession where
 
 instance Prelude.Hashable StartStreamingSession where
   hashWithSalt _salt StartStreamingSession' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` backupId
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData StartStreamingSession where
   rnf StartStreamingSession' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf backupId
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf studioId
 
@@ -145,7 +156,11 @@ instance Data.ToHeaders StartStreamingSession where
       ]
 
 instance Data.ToJSON StartStreamingSession where
-  toJSON = Prelude.const (Data.Object Prelude.mempty)
+  toJSON StartStreamingSession' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [("backupId" Data..=) Prelude.<$> backupId]
+      )
 
 instance Data.ToPath StartStreamingSession where
   toPath StartStreamingSession' {..} =

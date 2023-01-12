@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.GetPhoneNumberSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -96,7 +96,7 @@ data GetPhoneNumberSettingsResponse = GetPhoneNumberSettingsResponse'
   { -- | The default outbound calling name for the account.
     callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The updated outbound calling name timestamp, in ISO 8601 format.
-    callingNameUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
+    callingNameUpdatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

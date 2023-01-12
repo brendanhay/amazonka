@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.PutResourcePolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,12 +60,13 @@ import Amazonka.SSM.Types
 -- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
   { -- | ID of the current policy version. The hash helps to prevent a situation
-    -- where multiple users attempt to overwrite a policy.
+    -- where multiple users attempt to overwrite a policy. You must provide
+    -- this hash when updating or deleting a policy.
     policyHash :: Prelude.Maybe Prelude.Text,
     -- | The policy ID.
     policyId :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name (ARN) of the resource to which the policies are
-    -- attached.
+    -- | Amazon Resource Name (ARN) of the resource to which you want to attach a
+    -- policy.
     resourceArn :: Prelude.Text,
     -- | A policy you want to associate with a resource.
     policy :: Prelude.Text
@@ -81,12 +82,13 @@ data PutResourcePolicy = PutResourcePolicy'
 -- for backwards compatibility:
 --
 -- 'policyHash', 'putResourcePolicy_policyHash' - ID of the current policy version. The hash helps to prevent a situation
--- where multiple users attempt to overwrite a policy.
+-- where multiple users attempt to overwrite a policy. You must provide
+-- this hash when updating or deleting a policy.
 --
 -- 'policyId', 'putResourcePolicy_policyId' - The policy ID.
 --
--- 'resourceArn', 'putResourcePolicy_resourceArn' - Amazon Resource Name (ARN) of the resource to which the policies are
--- attached.
+-- 'resourceArn', 'putResourcePolicy_resourceArn' - Amazon Resource Name (ARN) of the resource to which you want to attach a
+-- policy.
 --
 -- 'policy', 'putResourcePolicy_policy' - A policy you want to associate with a resource.
 newPutResourcePolicy ::
@@ -104,7 +106,8 @@ newPutResourcePolicy pResourceArn_ pPolicy_ =
     }
 
 -- | ID of the current policy version. The hash helps to prevent a situation
--- where multiple users attempt to overwrite a policy.
+-- where multiple users attempt to overwrite a policy. You must provide
+-- this hash when updating or deleting a policy.
 putResourcePolicy_policyHash :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
 putResourcePolicy_policyHash = Lens.lens (\PutResourcePolicy' {policyHash} -> policyHash) (\s@PutResourcePolicy' {} a -> s {policyHash = a} :: PutResourcePolicy)
 
@@ -112,8 +115,8 @@ putResourcePolicy_policyHash = Lens.lens (\PutResourcePolicy' {policyHash} -> po
 putResourcePolicy_policyId :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
 putResourcePolicy_policyId = Lens.lens (\PutResourcePolicy' {policyId} -> policyId) (\s@PutResourcePolicy' {} a -> s {policyId = a} :: PutResourcePolicy)
 
--- | Amazon Resource Name (ARN) of the resource to which the policies are
--- attached.
+-- | Amazon Resource Name (ARN) of the resource to which you want to attach a
+-- policy.
 putResourcePolicy_resourceArn :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_resourceArn = Lens.lens (\PutResourcePolicy' {resourceArn} -> resourceArn) (\s@PutResourcePolicy' {} a -> s {resourceArn = a} :: PutResourcePolicy)
 
@@ -184,9 +187,7 @@ instance Data.ToQuery PutResourcePolicy where
 
 -- | /See:/ 'newPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { -- | ID of the current policy version. The hash helps to prevent a situation
-    -- where multiple users attempt to overwrite a policy. You must provide
-    -- this hash when updating or deleting a policy.
+  { -- | ID of the current policy version.
     policyHash :: Prelude.Maybe Prelude.Text,
     -- | The policy ID. To update a policy, you must specify @PolicyId@ and
     -- @PolicyHash@.
@@ -204,9 +205,7 @@ data PutResourcePolicyResponse = PutResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyHash', 'putResourcePolicyResponse_policyHash' - ID of the current policy version. The hash helps to prevent a situation
--- where multiple users attempt to overwrite a policy. You must provide
--- this hash when updating or deleting a policy.
+-- 'policyHash', 'putResourcePolicyResponse_policyHash' - ID of the current policy version.
 --
 -- 'policyId', 'putResourcePolicyResponse_policyId' - The policy ID. To update a policy, you must specify @PolicyId@ and
 -- @PolicyHash@.
@@ -224,9 +223,7 @@ newPutResourcePolicyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | ID of the current policy version. The hash helps to prevent a situation
--- where multiple users attempt to overwrite a policy. You must provide
--- this hash when updating or deleting a policy.
+-- | ID of the current policy version.
 putResourcePolicyResponse_policyHash :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 putResourcePolicyResponse_policyHash = Lens.lens (\PutResourcePolicyResponse' {policyHash} -> policyHash) (\s@PutResourcePolicyResponse' {} a -> s {policyHash = a} :: PutResourcePolicyResponse)
 

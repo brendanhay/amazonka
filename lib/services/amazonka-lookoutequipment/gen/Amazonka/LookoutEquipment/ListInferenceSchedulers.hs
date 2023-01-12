@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutEquipment.ListInferenceSchedulers
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,7 @@ module Amazonka.LookoutEquipment.ListInferenceSchedulers
     listInferenceSchedulers_maxResults,
     listInferenceSchedulers_modelName,
     listInferenceSchedulers_nextToken,
+    listInferenceSchedulers_status,
 
     -- * Destructuring the Response
     ListInferenceSchedulersResponse (..),
@@ -62,7 +63,9 @@ data ListInferenceSchedulers = ListInferenceSchedulers'
     modelName :: Prelude.Maybe Prelude.Text,
     -- | An opaque pagination token indicating where to continue the listing of
     -- inference schedulers.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the current status of the inference schedulers to list.
+    status :: Prelude.Maybe InferenceSchedulerStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,6 +85,8 @@ data ListInferenceSchedulers = ListInferenceSchedulers'
 --
 -- 'nextToken', 'listInferenceSchedulers_nextToken' - An opaque pagination token indicating where to continue the listing of
 -- inference schedulers.
+--
+-- 'status', 'listInferenceSchedulers_status' - Specifies the current status of the inference schedulers to list.
 newListInferenceSchedulers ::
   ListInferenceSchedulers
 newListInferenceSchedulers =
@@ -90,7 +95,8 @@ newListInferenceSchedulers =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
       modelName = Prelude.Nothing,
-      nextToken = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The beginning of the name of the inference schedulers to be listed.
@@ -109,6 +115,10 @@ listInferenceSchedulers_modelName = Lens.lens (\ListInferenceSchedulers' {modelN
 -- inference schedulers.
 listInferenceSchedulers_nextToken :: Lens.Lens' ListInferenceSchedulers (Prelude.Maybe Prelude.Text)
 listInferenceSchedulers_nextToken = Lens.lens (\ListInferenceSchedulers' {nextToken} -> nextToken) (\s@ListInferenceSchedulers' {} a -> s {nextToken = a} :: ListInferenceSchedulers)
+
+-- | Specifies the current status of the inference schedulers to list.
+listInferenceSchedulers_status :: Lens.Lens' ListInferenceSchedulers (Prelude.Maybe InferenceSchedulerStatus)
+listInferenceSchedulers_status = Lens.lens (\ListInferenceSchedulers' {status} -> status) (\s@ListInferenceSchedulers' {} a -> s {status = a} :: ListInferenceSchedulers)
 
 instance Core.AWSRequest ListInferenceSchedulers where
   type
@@ -134,6 +144,7 @@ instance Prelude.Hashable ListInferenceSchedulers where
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ListInferenceSchedulers where
   rnf ListInferenceSchedulers' {..} =
@@ -141,6 +152,7 @@ instance Prelude.NFData ListInferenceSchedulers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelName
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToHeaders ListInferenceSchedulers where
   toHeaders =
@@ -165,7 +177,8 @@ instance Data.ToJSON ListInferenceSchedulers where
               Prelude.<$> inferenceSchedulerNameBeginsWith,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("ModelName" Data..=) Prelude.<$> modelName,
-            ("NextToken" Data..=) Prelude.<$> nextToken
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )
 

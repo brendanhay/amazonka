@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMakerA2IRuntime.ListHumanLoops
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,10 +60,10 @@ import Amazonka.SageMakerA2IRuntime.Types
 data ListHumanLoops = ListHumanLoops'
   { -- | (Optional) The timestamp of the date when you want the human loops to
     -- begin in ISO 8601 format. For example, @2020-02-24@.
-    creationTimeAfter :: Prelude.Maybe Data.POSIX,
+    creationTimeAfter :: Prelude.Maybe Data.ISO8601,
     -- | (Optional) The timestamp of the date before which you want the human
     -- loops to begin in ISO 8601 format. For example, @2020-02-24@.
-    creationTimeBefore :: Prelude.Maybe Data.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.ISO8601,
     -- | The total number of items to return. If the total number of available
     -- items is more than the value specified in @MaxResults@, then a
     -- @NextToken@ is returned in the output. You can use this token to display

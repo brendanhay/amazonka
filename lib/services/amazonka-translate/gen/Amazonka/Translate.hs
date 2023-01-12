@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Translate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -11,8 +11,8 @@
 --
 -- Derived from API version @2017-07-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Provides language translation for input text in the source language to
--- the specified target language.
+-- Provides translation of the input content from the source language to
+-- the target language.
 module Amazonka.Translate
   ( -- * Service Configuration
     defaultService,

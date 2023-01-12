@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.UpdateStudioSessionMapping
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -55,14 +55,14 @@ data UpdateStudioSessionMapping = UpdateStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
-    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+    -- in the /IAM Identity Center Identity Store API Reference/. Either
     -- @IdentityName@ or @IdentityId@ must be specified.
     identityId :: Prelude.Maybe Prelude.Text,
     -- | The name of the user or group to update. For more information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+    -- in the /IAM Identity Center Identity Store API Reference/. Either
     -- @IdentityName@ or @IdentityId@ must be specified.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EMR Studio.
@@ -88,14 +88,14 @@ data UpdateStudioSessionMapping = UpdateStudioSessionMapping'
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- in the /IAM Identity Center Identity Store API Reference/. Either
 -- @IdentityName@ or @IdentityId@ must be specified.
 --
 -- 'identityName', 'updateStudioSessionMapping_identityName' - The name of the user or group to update. For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- in the /IAM Identity Center Identity Store API Reference/. Either
 -- @IdentityName@ or @IdentityId@ must be specified.
 --
 -- 'studioId', 'updateStudioSessionMapping_studioId' - The ID of the Amazon EMR Studio.
@@ -130,7 +130,7 @@ newUpdateStudioSessionMapping
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- in the /IAM Identity Center Identity Store API Reference/. Either
 -- @IdentityName@ or @IdentityId@ must be specified.
 updateStudioSessionMapping_identityId :: Lens.Lens' UpdateStudioSessionMapping (Prelude.Maybe Prelude.Text)
 updateStudioSessionMapping_identityId = Lens.lens (\UpdateStudioSessionMapping' {identityId} -> identityId) (\s@UpdateStudioSessionMapping' {} a -> s {identityId = a} :: UpdateStudioSessionMapping)
@@ -139,7 +139,7 @@ updateStudioSessionMapping_identityId = Lens.lens (\UpdateStudioSessionMapping' 
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- in the /IAM Identity Center Identity Store API Reference/. Either
 -- @IdentityName@ or @IdentityId@ must be specified.
 updateStudioSessionMapping_identityName :: Lens.Lens' UpdateStudioSessionMapping (Prelude.Maybe Prelude.Text)
 updateStudioSessionMapping_identityName = Lens.lens (\UpdateStudioSessionMapping' {identityName} -> identityName) (\s@UpdateStudioSessionMapping' {} a -> s {identityName = a} :: UpdateStudioSessionMapping)

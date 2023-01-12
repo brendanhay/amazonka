@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.PrivateNetworks.Types.NetworkResource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,7 @@ data NetworkResource = NetworkResource'
   { -- | The attributes of the network resource.
     attributes :: Prelude.Maybe [NameValuePair],
     -- | The creation time of the network resource.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The description of the network resource.
     description :: Prelude.Maybe Prelude.Text,
     -- | The health of the network resource.

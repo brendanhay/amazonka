@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.InputDeviceConfigurableSettings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,6 +35,8 @@ data InputDeviceConfigurableSettings = InputDeviceConfigurableSettings'
     -- connected to both its input ports, and you want to use a specific
     -- source, specify the source.
     configuredInput :: Prelude.Maybe InputDeviceConfiguredInput,
+    -- | The Link device\'s buffer size (latency) in milliseconds (ms).
+    latencyMs :: Prelude.Maybe Prelude.Int,
     -- | The maximum bitrate in bits per second. Set a value here to throttle the
     -- bitrate of the source video.
     maxBitrate :: Prelude.Maybe Prelude.Int
@@ -55,6 +57,8 @@ data InputDeviceConfigurableSettings = InputDeviceConfigurableSettings'
 -- connected to both its input ports, and you want to use a specific
 -- source, specify the source.
 --
+-- 'latencyMs', 'inputDeviceConfigurableSettings_latencyMs' - The Link device\'s buffer size (latency) in milliseconds (ms).
+--
 -- 'maxBitrate', 'inputDeviceConfigurableSettings_maxBitrate' - The maximum bitrate in bits per second. Set a value here to throttle the
 -- bitrate of the source video.
 newInputDeviceConfigurableSettings ::
@@ -63,6 +67,7 @@ newInputDeviceConfigurableSettings =
   InputDeviceConfigurableSettings'
     { configuredInput =
         Prelude.Nothing,
+      latencyMs = Prelude.Nothing,
       maxBitrate = Prelude.Nothing
     }
 
@@ -73,6 +78,10 @@ newInputDeviceConfigurableSettings =
 -- source, specify the source.
 inputDeviceConfigurableSettings_configuredInput :: Lens.Lens' InputDeviceConfigurableSettings (Prelude.Maybe InputDeviceConfiguredInput)
 inputDeviceConfigurableSettings_configuredInput = Lens.lens (\InputDeviceConfigurableSettings' {configuredInput} -> configuredInput) (\s@InputDeviceConfigurableSettings' {} a -> s {configuredInput = a} :: InputDeviceConfigurableSettings)
+
+-- | The Link device\'s buffer size (latency) in milliseconds (ms).
+inputDeviceConfigurableSettings_latencyMs :: Lens.Lens' InputDeviceConfigurableSettings (Prelude.Maybe Prelude.Int)
+inputDeviceConfigurableSettings_latencyMs = Lens.lens (\InputDeviceConfigurableSettings' {latencyMs} -> latencyMs) (\s@InputDeviceConfigurableSettings' {} a -> s {latencyMs = a} :: InputDeviceConfigurableSettings)
 
 -- | The maximum bitrate in bits per second. Set a value here to throttle the
 -- bitrate of the source video.
@@ -87,6 +96,7 @@ instance
     _salt
     InputDeviceConfigurableSettings' {..} =
       _salt `Prelude.hashWithSalt` configuredInput
+        `Prelude.hashWithSalt` latencyMs
         `Prelude.hashWithSalt` maxBitrate
 
 instance
@@ -95,6 +105,7 @@ instance
   where
   rnf InputDeviceConfigurableSettings' {..} =
     Prelude.rnf configuredInput
+      `Prelude.seq` Prelude.rnf latencyMs
       `Prelude.seq` Prelude.rnf maxBitrate
 
 instance Data.ToJSON InputDeviceConfigurableSettings where
@@ -103,6 +114,7 @@ instance Data.ToJSON InputDeviceConfigurableSettings where
       ( Prelude.catMaybes
           [ ("configuredInput" Data..=)
               Prelude.<$> configuredInput,
+            ("latencyMs" Data..=) Prelude.<$> latencyMs,
             ("maxBitrate" Data..=) Prelude.<$> maxBitrate
           ]
       )

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.DMS.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1108,35 +1108,35 @@ defaultService =
 
 -- | DMS was denied access to the endpoint. Check that the role is correctly
 -- configured.
-_AccessDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedFault =
   Core._MatchServiceError
     defaultService
     "AccessDeniedFault"
 
 -- | The specified collector doesn\'t exist.
-_CollectorNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CollectorNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CollectorNotFoundFault =
   Core._MatchServiceError
     defaultService
     "CollectorNotFoundFault"
 
 -- | There are not enough resources allocated to the database migration.
-_InsufficientResourceCapacityFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientResourceCapacityFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InsufficientResourceCapacityFault =
   Core._MatchServiceError
     defaultService
     "InsufficientResourceCapacityFault"
 
 -- | The certificate was not valid.
-_InvalidCertificateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCertificateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidCertificateFault =
   Core._MatchServiceError
     defaultService
     "InvalidCertificateFault"
 
 -- | The action or operation requested isn\'t valid.
-_InvalidOperationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidOperationFault =
   Core._MatchServiceError
     defaultService
@@ -1144,14 +1144,14 @@ _InvalidOperationFault =
 
 -- | The resource is in a state that prevents it from being used for database
 -- migration.
-_InvalidResourceStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidResourceStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidResourceStateFault"
 
 -- | The subnet provided is invalid.
-_InvalidSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnet :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidSubnet =
   Core._MatchServiceError
     defaultService
@@ -1159,47 +1159,47 @@ _InvalidSubnet =
 
 -- | The ciphertext references a key that doesn\'t exist or that the DMS
 -- account doesn\'t have access to.
-_KMSAccessDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSAccessDeniedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSAccessDeniedFault =
   Core._MatchServiceError
     defaultService
     "KMSAccessDeniedFault"
 
 -- | The specified KMS key isn\'t enabled.
-_KMSDisabledFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSDisabledFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSDisabledFault =
   Core._MatchServiceError
     defaultService
     "KMSDisabledFault"
 
 -- | An Key Management Service (KMS) error is preventing access to KMS.
-_KMSFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSFault =
   Core._MatchServiceError defaultService "KMSFault"
 
 -- | The state of the specified KMS resource isn\'t valid for this request.
-_KMSInvalidStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSInvalidStateFault =
   Core._MatchServiceError
     defaultService
     "KMSInvalidStateFault"
 
 -- | DMS cannot access the KMS key.
-_KMSKeyNotAccessibleFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSKeyNotAccessibleFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSKeyNotAccessibleFault =
   Core._MatchServiceError
     defaultService
     "KMSKeyNotAccessibleFault"
 
 -- | The specified KMS entity or resource can\'t be found.
-_KMSNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSNotFoundFault =
   Core._MatchServiceError
     defaultService
     "KMSNotFoundFault"
 
 -- | This request triggered KMS request throttling.
-_KMSThrottlingFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSThrottlingFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _KMSThrottlingFault =
   Core._MatchServiceError
     defaultService
@@ -1207,35 +1207,35 @@ _KMSThrottlingFault =
 
 -- | The replication subnet group does not cover enough Availability Zones
 -- (AZs). Edit the replication subnet group and add more AZs.
-_ReplicationSubnetGroupDoesNotCoverEnoughAZs :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationSubnetGroupDoesNotCoverEnoughAZs :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs =
   Core._MatchServiceError
     defaultService
     "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
 
 -- | The resource you are attempting to create already exists.
-_ResourceAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsFault"
 
 -- | The resource could not be found.
-_ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundFault"
 
 -- | The quota for this resource quota has been exceeded.
-_ResourceQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "ResourceQuotaExceededFault"
 
 -- | Insufficient privileges are preventing access to an Amazon S3 object.
-_S3AccessDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_S3AccessDeniedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _S3AccessDeniedFault =
   Core._MatchServiceError
     defaultService
@@ -1243,42 +1243,42 @@ _S3AccessDeniedFault =
 
 -- | A specified Amazon S3 bucket, bucket folder, or other object can\'t be
 -- found.
-_S3ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_S3ResourceNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _S3ResourceNotFoundFault =
   Core._MatchServiceError
     defaultService
     "S3ResourceNotFoundFault"
 
 -- | The SNS topic is invalid.
-_SNSInvalidTopicFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SNSInvalidTopicFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SNSInvalidTopicFault =
   Core._MatchServiceError
     defaultService
     "SNSInvalidTopicFault"
 
 -- | You are not authorized for the SNS subscription.
-_SNSNoAuthorizationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SNSNoAuthorizationFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SNSNoAuthorizationFault =
   Core._MatchServiceError
     defaultService
     "SNSNoAuthorizationFault"
 
 -- | The storage quota has been exceeded.
-_StorageQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StorageQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _StorageQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "StorageQuotaExceededFault"
 
 -- | The specified subnet is already in use.
-_SubnetAlreadyInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetAlreadyInUse :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SubnetAlreadyInUse =
   Core._MatchServiceError
     defaultService
     "SubnetAlreadyInUse"
 
 -- | An upgrade dependency is preventing the database migration.
-_UpgradeDependencyFailureFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UpgradeDependencyFailureFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UpgradeDependencyFailureFault =
   Core._MatchServiceError
     defaultService

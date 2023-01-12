@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DisableImageDeprecation
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html Deprecate an AMI>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.DisableImageDeprecation
   ( -- * Creating a Request
     DisableImageDeprecation (..),

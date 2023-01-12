@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -12,13 +12,10 @@
 -- Derived from API version @2018-09-07@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon Connect is a cloud-based contact center solution that makes it
--- easy to set up and manage a customer contact center and provide reliable
--- customer engagement at any scale.
---
--- Amazon Connect enables customer contacts through voice or chat.
---
--- The APIs described here are used by chat participants, such as agents
--- and customers.
+-- easy to set up and manage a customer contact center. Amazon Connect
+-- enables customer contacts through voice or chat. Use the Amazon Connect
+-- Participant Service to manage chat participants, such as agents and
+-- customers.
 module Amazonka.ConnectParticipant
   ( -- * Service Configuration
     defaultService,
@@ -129,6 +126,14 @@ module Amazonka.ConnectParticipant
     -- ** Item
     Item (Item'),
     newItem,
+
+    -- ** MessageMetadata
+    MessageMetadata (MessageMetadata'),
+    newMessageMetadata,
+
+    -- ** Receipt
+    Receipt (Receipt'),
+    newReceipt,
 
     -- ** StartPosition
     StartPosition (StartPosition'),

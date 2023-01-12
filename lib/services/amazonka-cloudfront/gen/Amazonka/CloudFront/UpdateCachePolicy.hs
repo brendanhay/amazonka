@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.UpdateCachePolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,7 +33,7 @@
 --
 -- 3.  Call @UpdateCachePolicy@ by providing the entire cache policy
 --     configuration, including the fields that you modified and those that
---     you didn’t.
+--     you didn\'t.
 module Amazonka.CloudFront.UpdateCachePolicy
   ( -- * Creating a Request
     UpdateCachePolicy (..),
@@ -66,13 +66,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateCachePolicy' smart constructor.
 data UpdateCachePolicy = UpdateCachePolicy'
   { -- | The version of the cache policy that you are updating. The version is
-    -- returned in the cache policy’s @ETag@ field in the response to
+    -- returned in the cache policy\'s @ETag@ field in the response to
     -- @GetCachePolicyConfig@.
     ifMatch :: Prelude.Maybe Prelude.Text,
     -- | A cache policy configuration.
     cachePolicyConfig :: CachePolicyConfig,
     -- | The unique identifier for the cache policy that you are updating. The
-    -- identifier is returned in a cache behavior’s @CachePolicyId@ field in
+    -- identifier is returned in a cache behavior\'s @CachePolicyId@ field in
     -- the response to @GetDistributionConfig@.
     id :: Prelude.Text
   }
@@ -87,13 +87,13 @@ data UpdateCachePolicy = UpdateCachePolicy'
 -- for backwards compatibility:
 --
 -- 'ifMatch', 'updateCachePolicy_ifMatch' - The version of the cache policy that you are updating. The version is
--- returned in the cache policy’s @ETag@ field in the response to
+-- returned in the cache policy\'s @ETag@ field in the response to
 -- @GetCachePolicyConfig@.
 --
 -- 'cachePolicyConfig', 'updateCachePolicy_cachePolicyConfig' - A cache policy configuration.
 --
 -- 'id', 'updateCachePolicy_id' - The unique identifier for the cache policy that you are updating. The
--- identifier is returned in a cache behavior’s @CachePolicyId@ field in
+-- identifier is returned in a cache behavior\'s @CachePolicyId@ field in
 -- the response to @GetDistributionConfig@.
 newUpdateCachePolicy ::
   -- | 'cachePolicyConfig'
@@ -109,7 +109,7 @@ newUpdateCachePolicy pCachePolicyConfig_ pId_ =
     }
 
 -- | The version of the cache policy that you are updating. The version is
--- returned in the cache policy’s @ETag@ field in the response to
+-- returned in the cache policy\'s @ETag@ field in the response to
 -- @GetCachePolicyConfig@.
 updateCachePolicy_ifMatch :: Lens.Lens' UpdateCachePolicy (Prelude.Maybe Prelude.Text)
 updateCachePolicy_ifMatch = Lens.lens (\UpdateCachePolicy' {ifMatch} -> ifMatch) (\s@UpdateCachePolicy' {} a -> s {ifMatch = a} :: UpdateCachePolicy)
@@ -119,7 +119,7 @@ updateCachePolicy_cachePolicyConfig :: Lens.Lens' UpdateCachePolicy CachePolicyC
 updateCachePolicy_cachePolicyConfig = Lens.lens (\UpdateCachePolicy' {cachePolicyConfig} -> cachePolicyConfig) (\s@UpdateCachePolicy' {} a -> s {cachePolicyConfig = a} :: UpdateCachePolicy)
 
 -- | The unique identifier for the cache policy that you are updating. The
--- identifier is returned in a cache behavior’s @CachePolicyId@ field in
+-- identifier is returned in a cache behavior\'s @CachePolicyId@ field in
 -- the response to @GetDistributionConfig@.
 updateCachePolicy_id :: Lens.Lens' UpdateCachePolicy Prelude.Text
 updateCachePolicy_id = Lens.lens (\UpdateCachePolicy' {id} -> id) (\s@UpdateCachePolicy' {} a -> s {id = a} :: UpdateCachePolicy)

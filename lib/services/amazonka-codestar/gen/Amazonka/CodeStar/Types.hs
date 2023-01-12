@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CodeStar.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -207,28 +207,28 @@ defaultService =
 
 -- | Another modification is being made. That modification must complete
 -- before you can make your change.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | The next token is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | The service role is not valid.
-_InvalidServiceRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidServiceRoleException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidServiceRoleException =
   Core._MatchServiceError
     defaultService
     "InvalidServiceRoleException"
 
 -- | A resource limit has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -237,14 +237,14 @@ _LimitExceededException =
 -- | An AWS CodeStar project with the same ID already exists in this region
 -- for the AWS account. AWS CodeStar project IDs must be unique within a
 -- region for the AWS account.
-_ProjectAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProjectAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ProjectAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ProjectAlreadyExistsException"
 
 -- | Project configuration information is required but not specified.
-_ProjectConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProjectConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ProjectConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -253,28 +253,28 @@ _ProjectConfigurationException =
 -- | The project creation request was valid, but a nonspecific exception or
 -- error occurred during project creation. The project could not be created
 -- in AWS CodeStar.
-_ProjectCreationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProjectCreationFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ProjectCreationFailedException =
   Core._MatchServiceError
     defaultService
     "ProjectCreationFailedException"
 
 -- | The specified AWS CodeStar project was not found.
-_ProjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProjectNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ProjectNotFoundException =
   Core._MatchServiceError
     defaultService
     "ProjectNotFoundException"
 
 -- | The team member is already associated with a role in this project.
-_TeamMemberAlreadyAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TeamMemberAlreadyAssociatedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TeamMemberAlreadyAssociatedException =
   Core._MatchServiceError
     defaultService
     "TeamMemberAlreadyAssociatedException"
 
 -- | The specified team member was not found.
-_TeamMemberNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TeamMemberNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TeamMemberNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -283,21 +283,21 @@ _TeamMemberNotFoundException =
 -- | A user profile with that name already exists in this region for the AWS
 -- account. AWS CodeStar user profile names must be unique within a region
 -- for the AWS account.
-_UserProfileAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserProfileAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UserProfileAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "UserProfileAlreadyExistsException"
 
 -- | The user profile was not found.
-_UserProfileNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserProfileNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UserProfileNotFoundException =
   Core._MatchServiceError
     defaultService
     "UserProfileNotFoundException"
 
 -- | The specified input is either not valid, or it could not be validated.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

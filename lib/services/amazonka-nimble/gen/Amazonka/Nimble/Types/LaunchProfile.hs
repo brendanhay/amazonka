@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.LaunchProfile
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,21 +33,27 @@ import qualified Amazonka.Prelude as Prelude
 -- systems, and license server configurations, as well as instance types
 -- and Amazon Machine Images (AMIs).
 --
--- >  <p>Studio administrators create launch profiles in the Nimble Studio console. Artists can use their launch profiles to launch an instance from the Nimble Studio portal. Each user’s launch profile defines how they can launch a streaming session. By default, studio admins can use all launch profiles.</p>
+-- Studio administrators create launch profiles in the Nimble Studio
+-- console. Artists can use their launch profiles to launch an instance
+-- from the Nimble Studio portal. Each user’s launch profile defines how
+-- they can launch a streaming session. By default, studio admins can use
+-- all launch profiles.
 --
 -- /See:/ 'newLaunchProfile' smart constructor.
 data LaunchProfile = LaunchProfile'
-  { -- | The ARN of the resource.
+  { -- | The Amazon Resource Name (ARN) that is assigned to a studio resource and
+    -- uniquely identifies it. ARNs are unique across all Regions.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The ISO timestamp in seconds for when the resource was created.
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The user ID of the user that created the launch profile.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description of the launch profile.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Unique identifiers for a collection of EC2 subnets.
     ec2SubnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The launch profile ID.
+    -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Maybe Prelude.Text,
     -- | The version number of the protocol that is used by the launch profile.
     -- The only valid version is \"2021-03-31\".
@@ -65,11 +71,11 @@ data LaunchProfile = LaunchProfile'
     -- | Unique identifiers for a collection of studio components that can be
     -- used with this launch profile.
     studioComponentIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- | A collection of labels, in the form of key-value pairs, that apply to
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The ISO timestamp in seconds for when the resource was updated.
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The user ID of the user that most recently updated the resource.
     updatedBy :: Prelude.Maybe Prelude.Text,
     -- | The list of the latest validation results.
@@ -85,9 +91,10 @@ data LaunchProfile = LaunchProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'launchProfile_arn' - The ARN of the resource.
+-- 'arn', 'launchProfile_arn' - The Amazon Resource Name (ARN) that is assigned to a studio resource and
+-- uniquely identifies it. ARNs are unique across all Regions.
 --
--- 'createdAt', 'launchProfile_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
+-- 'createdAt', 'launchProfile_createdAt' - The ISO timestamp in seconds for when the resource was created.
 --
 -- 'createdBy', 'launchProfile_createdBy' - The user ID of the user that created the launch profile.
 --
@@ -95,7 +102,8 @@ data LaunchProfile = LaunchProfile'
 --
 -- 'ec2SubnetIds', 'launchProfile_ec2SubnetIds' - Unique identifiers for a collection of EC2 subnets.
 --
--- 'launchProfileId', 'launchProfile_launchProfileId' - The launch profile ID.
+-- 'launchProfileId', 'launchProfile_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'launchProfileProtocolVersions', 'launchProfile_launchProfileProtocolVersions' - The version number of the protocol that is used by the launch profile.
 -- The only valid version is \"2021-03-31\".
@@ -113,10 +121,10 @@ data LaunchProfile = LaunchProfile'
 -- 'studioComponentIds', 'launchProfile_studioComponentIds' - Unique identifiers for a collection of studio components that can be
 -- used with this launch profile.
 --
--- 'tags', 'launchProfile_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- 'tags', 'launchProfile_tags' - A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 --
--- 'updatedAt', 'launchProfile_updatedAt' - The Unix epoch timestamp in seconds for when the resource was updated.
+-- 'updatedAt', 'launchProfile_updatedAt' - The ISO timestamp in seconds for when the resource was updated.
 --
 -- 'updatedBy', 'launchProfile_updatedBy' - The user ID of the user that most recently updated the resource.
 --
@@ -144,11 +152,12 @@ newLaunchProfile =
       validationResults = Prelude.Nothing
     }
 
--- | The ARN of the resource.
+-- | The Amazon Resource Name (ARN) that is assigned to a studio resource and
+-- uniquely identifies it. ARNs are unique across all Regions.
 launchProfile_arn :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.Text)
 launchProfile_arn = Lens.lens (\LaunchProfile' {arn} -> arn) (\s@LaunchProfile' {} a -> s {arn = a} :: LaunchProfile)
 
--- | The Unix epoch timestamp in seconds for when the resource was created.
+-- | The ISO timestamp in seconds for when the resource was created.
 launchProfile_createdAt :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.UTCTime)
 launchProfile_createdAt = Lens.lens (\LaunchProfile' {createdAt} -> createdAt) (\s@LaunchProfile' {} a -> s {createdAt = a} :: LaunchProfile) Prelude.. Lens.mapping Data._Time
 
@@ -164,7 +173,8 @@ launchProfile_description = Lens.lens (\LaunchProfile' {description} -> descript
 launchProfile_ec2SubnetIds :: Lens.Lens' LaunchProfile (Prelude.Maybe [Prelude.Text])
 launchProfile_ec2SubnetIds = Lens.lens (\LaunchProfile' {ec2SubnetIds} -> ec2SubnetIds) (\s@LaunchProfile' {} a -> s {ec2SubnetIds = a} :: LaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | The launch profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 launchProfile_launchProfileId :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.Text)
 launchProfile_launchProfileId = Lens.lens (\LaunchProfile' {launchProfileId} -> launchProfileId) (\s@LaunchProfile' {} a -> s {launchProfileId = a} :: LaunchProfile)
 
@@ -198,12 +208,12 @@ launchProfile_streamConfiguration = Lens.lens (\LaunchProfile' {streamConfigurat
 launchProfile_studioComponentIds :: Lens.Lens' LaunchProfile (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 launchProfile_studioComponentIds = Lens.lens (\LaunchProfile' {studioComponentIds} -> studioComponentIds) (\s@LaunchProfile' {} a -> s {studioComponentIds = a} :: LaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | A collection of labels, in the form of key:value pairs, that apply to
+-- | A collection of labels, in the form of key-value pairs, that apply to
 -- this resource.
 launchProfile_tags :: Lens.Lens' LaunchProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 launchProfile_tags = Lens.lens (\LaunchProfile' {tags} -> tags) (\s@LaunchProfile' {} a -> s {tags = a} :: LaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | The Unix epoch timestamp in seconds for when the resource was updated.
+-- | The ISO timestamp in seconds for when the resource was updated.
 launchProfile_updatedAt :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.UTCTime)
 launchProfile_updatedAt = Lens.lens (\LaunchProfile' {updatedAt} -> updatedAt) (\s@LaunchProfile' {} a -> s {updatedAt = a} :: LaunchProfile) Prelude.. Lens.mapping Data._Time
 

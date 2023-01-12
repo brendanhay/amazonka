@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -431,6 +431,9 @@ module Amazonka.CloudFront
 
     -- ** TooManyRealtimeLogConfigs
     _TooManyRealtimeLogConfigs,
+
+    -- ** TooManyRemoveHeadersInResponseHeadersPolicy
+    _TooManyRemoveHeadersInResponseHeadersPolicy,
 
     -- ** TooManyResponseHeadersPolicies
     _TooManyResponseHeadersPolicies,
@@ -1716,6 +1719,14 @@ module Amazonka.CloudFront
     -- ** ResponseHeadersPolicyReferrerPolicy
     ResponseHeadersPolicyReferrerPolicy (ResponseHeadersPolicyReferrerPolicy'),
     newResponseHeadersPolicyReferrerPolicy,
+
+    -- ** ResponseHeadersPolicyRemoveHeader
+    ResponseHeadersPolicyRemoveHeader (ResponseHeadersPolicyRemoveHeader'),
+    newResponseHeadersPolicyRemoveHeader,
+
+    -- ** ResponseHeadersPolicyRemoveHeadersConfig
+    ResponseHeadersPolicyRemoveHeadersConfig (ResponseHeadersPolicyRemoveHeadersConfig'),
+    newResponseHeadersPolicyRemoveHeadersConfig,
 
     -- ** ResponseHeadersPolicySecurityHeadersConfig
     ResponseHeadersPolicySecurityHeadersConfig (ResponseHeadersPolicySecurityHeadersConfig'),

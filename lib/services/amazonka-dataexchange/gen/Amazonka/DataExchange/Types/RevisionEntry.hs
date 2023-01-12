@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DataExchange.Types.RevisionEntry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,7 +46,7 @@ data RevisionEntry = RevisionEntry'
     -- revoked.
     revoked :: Prelude.Maybe Prelude.Bool,
     -- | The date and time that the revision was revoked, in ISO 8601 format.
-    revokedAt :: Prelude.Maybe Data.POSIX,
+    revokedAt :: Prelude.Maybe Data.ISO8601,
     -- | The revision ID of the owned revision corresponding to the entitled
     -- revision being viewed. This parameter is returned when a revision owner
     -- is viewing the entitled copy of its owned revision.
@@ -54,7 +54,7 @@ data RevisionEntry = RevisionEntry'
     -- | The ARN for the revision.
     arn :: Prelude.Text,
     -- | The date and time that the revision was created, in ISO 8601 format.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The unique identifier for the data set associated with the data set
     -- revision.
     dataSetId :: Prelude.Text,
@@ -62,7 +62,7 @@ data RevisionEntry = RevisionEntry'
     id :: Prelude.Text,
     -- | The date and time that the revision was last updated, in ISO 8601
     -- format.
-    updatedAt :: Data.POSIX
+    updatedAt :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

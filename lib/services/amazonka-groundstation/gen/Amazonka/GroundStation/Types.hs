@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.GroundStation.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -516,7 +516,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Dependency encountered an error.
-_DependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DependencyException =
   Core._MatchServiceError
     defaultService
@@ -524,7 +524,7 @@ _DependencyException =
     Prelude.. Core.hasStatus 531
 
 -- | One or more parameters are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -532,7 +532,7 @@ _InvalidParameterException =
     Prelude.. Core.hasStatus 431
 
 -- | Account limits for this resource have been exceeded.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -540,7 +540,7 @@ _ResourceLimitExceededException =
     Prelude.. Core.hasStatus 429
 
 -- | Resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

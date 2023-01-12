@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.IoTDeviceAdvisor.UntagResource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,7 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The resource ARN of an IoT Device Advisor resource.
+  { -- | The resource ARN of an IoT Device Advisor resource. This can be
+    -- SuiteDefinition ARN or SuiteRun ARN.
     resourceArn :: Prelude.Text,
     -- | List of tag keys to remove from the IoT Device Advisor resource.
     tagKeys :: [Prelude.Text]
@@ -68,7 +69,8 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - The resource ARN of an IoT Device Advisor resource.
+-- 'resourceArn', 'untagResource_resourceArn' - The resource ARN of an IoT Device Advisor resource. This can be
+-- SuiteDefinition ARN or SuiteRun ARN.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - List of tag keys to remove from the IoT Device Advisor resource.
 newUntagResource ::
@@ -81,7 +83,8 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | The resource ARN of an IoT Device Advisor resource.
+-- | The resource ARN of an IoT Device Advisor resource. This can be
+-- SuiteDefinition ARN or SuiteRun ARN.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 

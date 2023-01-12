@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.StartStudioSSOConfigurationRepair
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,8 @@
 --
 -- If the studio does not have a valid IAM Identity Center configuration
 -- currently associated with it, then a new IAM Identity Center application
--- is created for the studio and the studio is changed to the READY state.
+-- is created for the studio and the studio is changed to the @READY@
+-- state.
 --
 -- After the IAM Identity Center application is repaired, you must use the
 -- Amazon Nimble Studio console to add administrators and users to your
@@ -62,9 +63,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartStudioSSOConfigurationRepair' smart constructor.
 data StartStudioSSOConfigurationRepair = StartStudioSSOConfigurationRepair'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -80,9 +81,9 @@ data StartStudioSSOConfigurationRepair = StartStudioSSOConfigurationRepair'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'startStudioSSOConfigurationRepair_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'studioId', 'startStudioSSOConfigurationRepair_studioId' - The studio ID.
 newStartStudioSSOConfigurationRepair ::
@@ -97,9 +98,9 @@ newStartStudioSSOConfigurationRepair pStudioId_ =
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 startStudioSSOConfigurationRepair_clientToken :: Lens.Lens' StartStudioSSOConfigurationRepair (Prelude.Maybe Prelude.Text)
 startStudioSSOConfigurationRepair_clientToken = Lens.lens (\StartStudioSSOConfigurationRepair' {clientToken} -> clientToken) (\s@StartStudioSSOConfigurationRepair' {} a -> s {clientToken = a} :: StartStudioSSOConfigurationRepair)
 

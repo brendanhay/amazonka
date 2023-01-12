@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ManagedBlockChain.Types.Invitation
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -39,13 +39,13 @@ data Invitation = Invitation'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the invitation was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | The date and time that the invitation expires. This is the
     -- @CreationDate@ plus the @ProposalDurationInHours@ that is specified in
     -- the @ProposalThresholdPolicy@. After this date and time, the invitee can
     -- no longer create a member and join the network using this
     -- @InvitationId@.
-    expirationDate :: Prelude.Maybe Data.POSIX,
+    expirationDate :: Prelude.Maybe Data.ISO8601,
     -- | The unique identifier for the invitation.
     invitationId :: Prelude.Maybe Prelude.Text,
     networkSummary :: Prelude.Maybe NetworkSummary,

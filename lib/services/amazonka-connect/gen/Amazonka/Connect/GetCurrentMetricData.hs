@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.GetCurrentMetricData
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,6 +35,7 @@ module Amazonka.Connect.GetCurrentMetricData
     getCurrentMetricData_groupings,
     getCurrentMetricData_maxResults,
     getCurrentMetricData_nextToken,
+    getCurrentMetricData_sortCriteria,
     getCurrentMetricData_instanceId,
     getCurrentMetricData_filters,
     getCurrentMetricData_currentMetrics,
@@ -44,6 +45,7 @@ module Amazonka.Connect.GetCurrentMetricData
     newGetCurrentMetricDataResponse,
 
     -- * Response Lenses
+    getCurrentMetricDataResponse_approximateTotalCount,
     getCurrentMetricDataResponse_dataSnapshotTime,
     getCurrentMetricDataResponse_metricResults,
     getCurrentMetricDataResponse_nextToken,
@@ -69,7 +71,9 @@ data GetCurrentMetricData = GetCurrentMetricData'
     --     VOICE, CHAT, and TASK channels are supported.
     --
     -- -   If you group by @ROUTING_PROFILE@, you must include either a queue
-    --     or routing profile filter.
+    --     or routing profile filter. In addition, a routing profile filter is
+    --     required for metrics @CONTACTS_SCHEDULED@, @CONTACTS_IN_QUEUE@, and
+    --     @ OLDEST_CONTACT_AGE@.
     --
     -- -   If no @Grouping@ is included in the request, a summary of metrics is
     --     returned.
@@ -84,14 +88,34 @@ data GetCurrentMetricData = GetCurrentMetricData'
     -- Subsequent requests that use the token must use the same request
     -- parameters as the request that generated the token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The way to sort the resulting response based on metrics. You can enter
+    -- one sort criteria. By default resources are sorted based on
+    -- @AGENTS_ONLINE@, @DESCENDING@. The metric collection is sorted based on
+    -- the input metrics.
+    --
+    -- Note the following:
+    --
+    -- -   Sorting on @SLOTS_ACTIVE@ and @SLOTS_AVAILABLE@ is not supported.
+    sortCriteria :: Prelude.Maybe [CurrentMetricSortCriteria],
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
-    -- | The queues, up to 100, or channels, to use to filter the metrics
-    -- returned. Metric data is retrieved only for the resources associated
-    -- with the queues or channels included in the filter. You can include both
-    -- queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK
-    -- channels are supported.
+    -- | The filters to apply to returned metrics. You can filter up to the
+    -- following limits:
+    --
+    -- -   Queues: 100
+    --
+    -- -   Routing profiles: 100
+    --
+    -- -   Channels: 3 (VOICE, CHAT, and TASK channels are supported.)
+    --
+    -- Metric data is retrieved only for the resources associated with the
+    -- queues or routing profiles, and by any channels included in the filter.
+    -- (You cannot filter by both queue AND routing profile.) You can include
+    -- both resource IDs and resource ARNs in the same request.
+    --
+    -- Currently tagging is only supported on the resources that are passed in
+    -- the filter.
     filters :: Filters,
     -- | The metrics to retrieve. Specify the name and unit for each metric. The
     -- following metrics are available. For a description of all the metrics,
@@ -207,7 +231,9 @@ data GetCurrentMetricData = GetCurrentMetricData'
 --     VOICE, CHAT, and TASK channels are supported.
 --
 -- -   If you group by @ROUTING_PROFILE@, you must include either a queue
---     or routing profile filter.
+--     or routing profile filter. In addition, a routing profile filter is
+--     required for metrics @CONTACTS_SCHEDULED@, @CONTACTS_IN_QUEUE@, and
+--     @ OLDEST_CONTACT_AGE@.
 --
 -- -   If no @Grouping@ is included in the request, a summary of metrics is
 --     returned.
@@ -222,14 +248,34 @@ data GetCurrentMetricData = GetCurrentMetricData'
 -- Subsequent requests that use the token must use the same request
 -- parameters as the request that generated the token.
 --
+-- 'sortCriteria', 'getCurrentMetricData_sortCriteria' - The way to sort the resulting response based on metrics. You can enter
+-- one sort criteria. By default resources are sorted based on
+-- @AGENTS_ONLINE@, @DESCENDING@. The metric collection is sorted based on
+-- the input metrics.
+--
+-- Note the following:
+--
+-- -   Sorting on @SLOTS_ACTIVE@ and @SLOTS_AVAILABLE@ is not supported.
+--
 -- 'instanceId', 'getCurrentMetricData_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 --
--- 'filters', 'getCurrentMetricData_filters' - The queues, up to 100, or channels, to use to filter the metrics
--- returned. Metric data is retrieved only for the resources associated
--- with the queues or channels included in the filter. You can include both
--- queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK
--- channels are supported.
+-- 'filters', 'getCurrentMetricData_filters' - The filters to apply to returned metrics. You can filter up to the
+-- following limits:
+--
+-- -   Queues: 100
+--
+-- -   Routing profiles: 100
+--
+-- -   Channels: 3 (VOICE, CHAT, and TASK channels are supported.)
+--
+-- Metric data is retrieved only for the resources associated with the
+-- queues or routing profiles, and by any channels included in the filter.
+-- (You cannot filter by both queue AND routing profile.) You can include
+-- both resource IDs and resource ARNs in the same request.
+--
+-- Currently tagging is only supported on the resources that are passed in
+-- the filter.
 --
 -- 'currentMetrics', 'getCurrentMetricData_currentMetrics' - The metrics to retrieve. Specify the name and unit for each metric. The
 -- following metrics are available. For a description of all the metrics,
@@ -336,6 +382,7 @@ newGetCurrentMetricData pInstanceId_ pFilters_ =
     { groupings = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortCriteria = Prelude.Nothing,
       instanceId = pInstanceId_,
       filters = pFilters_,
       currentMetrics = Prelude.mempty
@@ -349,7 +396,9 @@ newGetCurrentMetricData pInstanceId_ pFilters_ =
 --     VOICE, CHAT, and TASK channels are supported.
 --
 -- -   If you group by @ROUTING_PROFILE@, you must include either a queue
---     or routing profile filter.
+--     or routing profile filter. In addition, a routing profile filter is
+--     required for metrics @CONTACTS_SCHEDULED@, @CONTACTS_IN_QUEUE@, and
+--     @ OLDEST_CONTACT_AGE@.
 --
 -- -   If no @Grouping@ is included in the request, a summary of metrics is
 --     returned.
@@ -370,16 +419,38 @@ getCurrentMetricData_maxResults = Lens.lens (\GetCurrentMetricData' {maxResults}
 getCurrentMetricData_nextToken :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe Prelude.Text)
 getCurrentMetricData_nextToken = Lens.lens (\GetCurrentMetricData' {nextToken} -> nextToken) (\s@GetCurrentMetricData' {} a -> s {nextToken = a} :: GetCurrentMetricData)
 
+-- | The way to sort the resulting response based on metrics. You can enter
+-- one sort criteria. By default resources are sorted based on
+-- @AGENTS_ONLINE@, @DESCENDING@. The metric collection is sorted based on
+-- the input metrics.
+--
+-- Note the following:
+--
+-- -   Sorting on @SLOTS_ACTIVE@ and @SLOTS_AVAILABLE@ is not supported.
+getCurrentMetricData_sortCriteria :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe [CurrentMetricSortCriteria])
+getCurrentMetricData_sortCriteria = Lens.lens (\GetCurrentMetricData' {sortCriteria} -> sortCriteria) (\s@GetCurrentMetricData' {} a -> s {sortCriteria = a} :: GetCurrentMetricData) Prelude.. Lens.mapping Lens.coerced
+
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 getCurrentMetricData_instanceId :: Lens.Lens' GetCurrentMetricData Prelude.Text
 getCurrentMetricData_instanceId = Lens.lens (\GetCurrentMetricData' {instanceId} -> instanceId) (\s@GetCurrentMetricData' {} a -> s {instanceId = a} :: GetCurrentMetricData)
 
--- | The queues, up to 100, or channels, to use to filter the metrics
--- returned. Metric data is retrieved only for the resources associated
--- with the queues or channels included in the filter. You can include both
--- queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK
--- channels are supported.
+-- | The filters to apply to returned metrics. You can filter up to the
+-- following limits:
+--
+-- -   Queues: 100
+--
+-- -   Routing profiles: 100
+--
+-- -   Channels: 3 (VOICE, CHAT, and TASK channels are supported.)
+--
+-- Metric data is retrieved only for the resources associated with the
+-- queues or routing profiles, and by any channels included in the filter.
+-- (You cannot filter by both queue AND routing profile.) You can include
+-- both resource IDs and resource ARNs in the same request.
+--
+-- Currently tagging is only supported on the resources that are passed in
+-- the filter.
 getCurrentMetricData_filters :: Lens.Lens' GetCurrentMetricData Filters
 getCurrentMetricData_filters = Lens.lens (\GetCurrentMetricData' {filters} -> filters) (\s@GetCurrentMetricData' {} a -> s {filters = a} :: GetCurrentMetricData)
 
@@ -490,7 +561,8 @@ instance Core.AWSRequest GetCurrentMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetCurrentMetricDataResponse'
-            Prelude.<$> (x Data..?> "DataSnapshotTime")
+            Prelude.<$> (x Data..?> "ApproximateTotalCount")
+            Prelude.<*> (x Data..?> "DataSnapshotTime")
             Prelude.<*> (x Data..?> "MetricResults" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -501,6 +573,7 @@ instance Prelude.Hashable GetCurrentMetricData where
     _salt `Prelude.hashWithSalt` groupings
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` currentMetrics
@@ -510,6 +583,7 @@ instance Prelude.NFData GetCurrentMetricData where
     Prelude.rnf groupings
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf currentMetrics
@@ -532,6 +606,7 @@ instance Data.ToJSON GetCurrentMetricData where
           [ ("Groupings" Data..=) Prelude.<$> groupings,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortCriteria" Data..=) Prelude.<$> sortCriteria,
             Prelude.Just ("Filters" Data..= filters),
             Prelude.Just
               ("CurrentMetrics" Data..= currentMetrics)
@@ -548,7 +623,9 @@ instance Data.ToQuery GetCurrentMetricData where
 
 -- | /See:/ 'newGetCurrentMetricDataResponse' smart constructor.
 data GetCurrentMetricDataResponse = GetCurrentMetricDataResponse'
-  { -- | The time at which the metrics were retrieved and cached for pagination.
+  { -- | The total count of the result, regardless of the current page size.
+    approximateTotalCount :: Prelude.Maybe Prelude.Integer,
+    -- | The time at which the metrics were retrieved and cached for pagination.
     dataSnapshotTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the real-time metrics.
     metricResults :: Prelude.Maybe [CurrentMetricResult],
@@ -572,6 +649,8 @@ data GetCurrentMetricDataResponse = GetCurrentMetricDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'approximateTotalCount', 'getCurrentMetricDataResponse_approximateTotalCount' - The total count of the result, regardless of the current page size.
+--
 -- 'dataSnapshotTime', 'getCurrentMetricDataResponse_dataSnapshotTime' - The time at which the metrics were retrieved and cached for pagination.
 --
 -- 'metricResults', 'getCurrentMetricDataResponse_metricResults' - Information about the real-time metrics.
@@ -590,12 +669,17 @@ newGetCurrentMetricDataResponse ::
   GetCurrentMetricDataResponse
 newGetCurrentMetricDataResponse pHttpStatus_ =
   GetCurrentMetricDataResponse'
-    { dataSnapshotTime =
+    { approximateTotalCount =
         Prelude.Nothing,
+      dataSnapshotTime = Prelude.Nothing,
       metricResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The total count of the result, regardless of the current page size.
+getCurrentMetricDataResponse_approximateTotalCount :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe Prelude.Integer)
+getCurrentMetricDataResponse_approximateTotalCount = Lens.lens (\GetCurrentMetricDataResponse' {approximateTotalCount} -> approximateTotalCount) (\s@GetCurrentMetricDataResponse' {} a -> s {approximateTotalCount = a} :: GetCurrentMetricDataResponse)
 
 -- | The time at which the metrics were retrieved and cached for pagination.
 getCurrentMetricDataResponse_dataSnapshotTime :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe Prelude.UTCTime)
@@ -620,7 +704,8 @@ getCurrentMetricDataResponse_httpStatus = Lens.lens (\GetCurrentMetricDataRespon
 
 instance Prelude.NFData GetCurrentMetricDataResponse where
   rnf GetCurrentMetricDataResponse' {..} =
-    Prelude.rnf dataSnapshotTime
+    Prelude.rnf approximateTotalCount
+      `Prelude.seq` Prelude.rnf dataSnapshotTime
       `Prelude.seq` Prelude.rnf metricResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

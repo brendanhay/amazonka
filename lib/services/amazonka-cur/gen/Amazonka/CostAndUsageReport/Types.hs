@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CostAndUsageReport.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -148,7 +148,7 @@ defaultService =
 
 -- | A report with the specified name already exists in the account. Specify
 -- a different report name.
-_DuplicateReportNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateReportNameException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateReportNameException =
   Core._MatchServiceError
     defaultService
@@ -156,7 +156,7 @@ _DuplicateReportNameException =
 
 -- | An error on the server occurred during the processing of your request.
 -- Try again later.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
@@ -164,14 +164,14 @@ _InternalErrorException =
 
 -- | This account already has five reports defined. To define a new report,
 -- you must delete an existing report.
-_ReportLimitReachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReportLimitReachedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ReportLimitReachedException =
   Core._MatchServiceError
     defaultService
     "ReportLimitReachedException"
 
 -- | The input fails to satisfy the constraints specified by an AWS service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

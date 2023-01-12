@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.Types.RecommendationSourceType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,7 @@ module Amazonka.ComputeOptimizer.Types.RecommendationSourceType
         RecommendationSourceType_AutoScalingGroup,
         RecommendationSourceType_EbsVolume,
         RecommendationSourceType_Ec2Instance,
+        RecommendationSourceType_EcsService,
         RecommendationSourceType_LambdaFunction
       ),
   )
@@ -69,6 +70,9 @@ pattern RecommendationSourceType_EbsVolume = RecommendationSourceType' "EbsVolum
 pattern RecommendationSourceType_Ec2Instance :: RecommendationSourceType
 pattern RecommendationSourceType_Ec2Instance = RecommendationSourceType' "Ec2Instance"
 
+pattern RecommendationSourceType_EcsService :: RecommendationSourceType
+pattern RecommendationSourceType_EcsService = RecommendationSourceType' "EcsService"
+
 pattern RecommendationSourceType_LambdaFunction :: RecommendationSourceType
 pattern RecommendationSourceType_LambdaFunction = RecommendationSourceType' "LambdaFunction"
 
@@ -76,6 +80,7 @@ pattern RecommendationSourceType_LambdaFunction = RecommendationSourceType' "Lam
   RecommendationSourceType_AutoScalingGroup,
   RecommendationSourceType_EbsVolume,
   RecommendationSourceType_Ec2Instance,
+  RecommendationSourceType_EcsService,
   RecommendationSourceType_LambdaFunction,
   RecommendationSourceType'
   #-}

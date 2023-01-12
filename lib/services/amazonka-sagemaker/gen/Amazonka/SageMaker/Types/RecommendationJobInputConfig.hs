@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.RecommendationJobInputConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ import Amazonka.SageMaker.Types.EndpointInfo
 import Amazonka.SageMaker.Types.EndpointInputConfiguration
 import Amazonka.SageMaker.Types.RecommendationJobContainerConfig
 import Amazonka.SageMaker.Types.RecommendationJobResourceLimit
+import Amazonka.SageMaker.Types.RecommendationJobVpcConfig
 import Amazonka.SageMaker.Types.TrafficPattern
 
 -- | The input configuration of the recommendation job.
@@ -83,6 +84,9 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
     -- in the Amazon Web Services Key Management Service (Amazon Web Services
     -- KMS) documentation.
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Inference Recommender provisions SageMaker endpoints with access to VPC
+    -- in the inference recommendation job.
+    vpcConfig :: Prelude.Maybe RecommendationJobVpcConfig,
     -- | The Amazon Resource Name (ARN) of a versioned model package.
     modelPackageVersionArn :: Prelude.Text
   }
@@ -146,6 +150,9 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
 -- in the Amazon Web Services Key Management Service (Amazon Web Services
 -- KMS) documentation.
 --
+-- 'vpcConfig', 'recommendationJobInputConfig_vpcConfig' - Inference Recommender provisions SageMaker endpoints with access to VPC
+-- in the inference recommendation job.
+--
 -- 'modelPackageVersionArn', 'recommendationJobInputConfig_modelPackageVersionArn' - The Amazon Resource Name (ARN) of a versioned model package.
 newRecommendationJobInputConfig ::
   -- | 'modelPackageVersionArn'
@@ -162,6 +169,7 @@ newRecommendationJobInputConfig
         resourceLimit = Prelude.Nothing,
         trafficPattern = Prelude.Nothing,
         volumeKmsKeyId = Prelude.Nothing,
+        vpcConfig = Prelude.Nothing,
         modelPackageVersionArn =
           pModelPackageVersionArn_
       }
@@ -230,6 +238,11 @@ recommendationJobInputConfig_trafficPattern = Lens.lens (\RecommendationJobInput
 recommendationJobInputConfig_volumeKmsKeyId :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe Prelude.Text)
 recommendationJobInputConfig_volumeKmsKeyId = Lens.lens (\RecommendationJobInputConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@RecommendationJobInputConfig' {} a -> s {volumeKmsKeyId = a} :: RecommendationJobInputConfig)
 
+-- | Inference Recommender provisions SageMaker endpoints with access to VPC
+-- in the inference recommendation job.
+recommendationJobInputConfig_vpcConfig :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe RecommendationJobVpcConfig)
+recommendationJobInputConfig_vpcConfig = Lens.lens (\RecommendationJobInputConfig' {vpcConfig} -> vpcConfig) (\s@RecommendationJobInputConfig' {} a -> s {vpcConfig = a} :: RecommendationJobInputConfig)
+
 -- | The Amazon Resource Name (ARN) of a versioned model package.
 recommendationJobInputConfig_modelPackageVersionArn :: Lens.Lens' RecommendationJobInputConfig Prelude.Text
 recommendationJobInputConfig_modelPackageVersionArn = Lens.lens (\RecommendationJobInputConfig' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@RecommendationJobInputConfig' {} a -> s {modelPackageVersionArn = a} :: RecommendationJobInputConfig)
@@ -247,6 +260,7 @@ instance Data.FromJSON RecommendationJobInputConfig where
             Prelude.<*> (x Data..:? "ResourceLimit")
             Prelude.<*> (x Data..:? "TrafficPattern")
             Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "VpcConfig")
             Prelude.<*> (x Data..: "ModelPackageVersionArn")
       )
 
@@ -262,6 +276,7 @@ instance
       `Prelude.hashWithSalt` resourceLimit
       `Prelude.hashWithSalt` trafficPattern
       `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` modelPackageVersionArn
 
 instance Prelude.NFData RecommendationJobInputConfig where
@@ -273,6 +288,7 @@ instance Prelude.NFData RecommendationJobInputConfig where
       `Prelude.seq` Prelude.rnf resourceLimit
       `Prelude.seq` Prelude.rnf trafficPattern
       `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf modelPackageVersionArn
 
 instance Data.ToJSON RecommendationJobInputConfig where
@@ -291,6 +307,7 @@ instance Data.ToJSON RecommendationJobInputConfig where
               Prelude.<$> trafficPattern,
             ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
             Prelude.Just
               ( "ModelPackageVersionArn"
                   Data..= modelPackageVersionArn

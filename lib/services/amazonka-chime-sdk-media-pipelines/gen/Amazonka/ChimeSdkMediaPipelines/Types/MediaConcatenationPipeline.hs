@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ChimeSdkMediaPipelines.Types.MediaConcatenationPipeline
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMediaConcatenationPipeline' smart constructor.
 data MediaConcatenationPipeline = MediaConcatenationPipeline'
   { -- | The time at which the concatenation pipeline was created.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the media pipeline that you specify in the
     -- @SourceConfiguration@ object.
     mediaPipelineArn :: Prelude.Maybe Prelude.Text,
@@ -45,7 +45,7 @@ data MediaConcatenationPipeline = MediaConcatenationPipeline'
     -- | The status of the concatenation pipeline.
     status :: Prelude.Maybe MediaPipelineStatus,
     -- | The time at which the concatenation pipeline was last updated.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

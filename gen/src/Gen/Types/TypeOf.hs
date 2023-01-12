@@ -101,7 +101,7 @@ derivingOf = uniq . typ . typeOf
       Text -> derivingBase <> string
       Base64 -> derivingBase
       Bytes -> derivingBase
-      Time -> DOrd : derivingBase
+      Time _ -> DOrd : derivingBase
       Bool -> derivingBase <> enum
       Json -> [DEq, DShow, DGeneric, DHashable, DNFData]
 

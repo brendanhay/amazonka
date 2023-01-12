@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.LakeFormation.GetQueryStatistics
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -130,7 +130,7 @@ data GetQueryStatisticsResponse = GetQueryStatisticsResponse'
     -- | A @PlanningStatistics@ structure containing query planning statistics.
     planningStatistics :: Prelude.Maybe PlanningStatistics,
     -- | The time that the query was submitted.
-    querySubmissionTime :: Prelude.Maybe Data.POSIX,
+    querySubmissionTime :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

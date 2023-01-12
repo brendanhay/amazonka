@@ -14,32 +14,33 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.RevokeCertificate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes a certificate that was issued inside ACM Private CA. If you
--- enable a certificate revocation list (CRL) when you create or update
--- your private CA, information about the revoked certificates will be
--- included in the CRL. ACM Private CA writes the CRL to an S3 bucket that
--- you specify. A CRL is typically updated approximately 30 minutes after a
--- certificate is revoked. If for any reason the CRL update fails, ACM
--- Private CA attempts makes further attempts every 15 minutes. With Amazon
--- CloudWatch, you can create alarms for the metrics @CRLGenerated@ and
--- @MisconfiguredCRLBucket@. For more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCloudWatch.html Supported CloudWatch Metrics>.
+-- Revokes a certificate that was issued inside Amazon Web Services Private
+-- CA. If you enable a certificate revocation list (CRL) when you create or
+-- update your private CA, information about the revoked certificates will
+-- be included in the CRL. Amazon Web Services Private CA writes the CRL to
+-- an S3 bucket that you specify. A CRL is typically updated approximately
+-- 30 minutes after a certificate is revoked. If for any reason the CRL
+-- update fails, Amazon Web Services Private CA attempts makes further
+-- attempts every 15 minutes. With Amazon CloudWatch, you can create alarms
+-- for the metrics @CRLGenerated@ and @MisconfiguredCRLBucket@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/PcaCloudWatch.html Supported CloudWatch Metrics>.
 --
--- Both PCA and the IAM principal must have permission to write to the S3
--- bucket that you specify. If the IAM principal making the call does not
--- have permission to write to the bucket, then an exception is thrown. For
--- more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
+-- Both Amazon Web Services Private CA and the IAM principal must have
+-- permission to write to the S3 bucket that you specify. If the IAM
+-- principal making the call does not have permission to write to the
+-- bucket, then an exception is thrown. For more information, see
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
 --
--- ACM Private CA also writes revocation information to the audit report.
--- For more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>.
+-- Amazon Web Services Private CA also writes revocation information to the
+-- audit report. For more information, see
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>.
 --
 -- You cannot revoke a root CA self-signed certificate.
 module Amazonka.CertificateManagerPCA.RevokeCertificate
@@ -75,7 +76,7 @@ data RevokeCertificate = RevokeCertificate'
     certificateAuthorityArn :: Prelude.Text,
     -- | Serial number of the certificate to be revoked. This must be in
     -- hexadecimal format. You can retrieve the serial number by calling
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html GetCertificate>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html GetCertificate>
     -- with the Amazon Resource Name (ARN) of the certificate you want and the
     -- ARN of your private CA. The __GetCertificate__ action retrieves the
     -- certificate in the PEM format. You can use the following OpenSSL command
@@ -108,7 +109,7 @@ data RevokeCertificate = RevokeCertificate'
 --
 -- 'certificateSerial', 'revokeCertificate_certificateSerial' - Serial number of the certificate to be revoked. This must be in
 -- hexadecimal format. You can retrieve the serial number by calling
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html GetCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html GetCertificate>
 -- with the Amazon Resource Name (ARN) of the certificate you want and the
 -- ARN of your private CA. The __GetCertificate__ action retrieves the
 -- certificate in the PEM format. You can use the following OpenSSL command
@@ -150,7 +151,7 @@ revokeCertificate_certificateAuthorityArn = Lens.lens (\RevokeCertificate' {cert
 
 -- | Serial number of the certificate to be revoked. This must be in
 -- hexadecimal format. You can retrieve the serial number by calling
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html GetCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html GetCertificate>
 -- with the Amazon Resource Name (ARN) of the certificate you want and the
 -- ARN of your private CA. The __GetCertificate__ action retrieves the
 -- certificate in the PEM format. You can use the following OpenSSL command

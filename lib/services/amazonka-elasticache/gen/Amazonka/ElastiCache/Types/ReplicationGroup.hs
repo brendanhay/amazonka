@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.Types.ReplicationGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,6 +32,7 @@ import Amazonka.ElastiCache.Types.MultiAZStatus
 import Amazonka.ElastiCache.Types.NetworkType
 import Amazonka.ElastiCache.Types.NodeGroup
 import Amazonka.ElastiCache.Types.ReplicationGroupPendingModifiedValues
+import Amazonka.ElastiCache.Types.TransitEncryptionMode
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all of the attributes of a specific Redis replication group.
@@ -58,9 +59,9 @@ data ReplicationGroup = ReplicationGroup'
     authTokenEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The date the auth token was last modified
     authTokenLastModifiedDate :: Prelude.Maybe Data.ISO8601,
-    -- | If you are running Redis engine version 6.0 or later, set this parameter
-    -- to yes if you want to opt-in to the next auto minor version upgrade
-    -- campaign. This parameter is disabled for previous versions.
+    -- | If you are running Redis engine version 6.0 or later, set this
+    -- parameter to yes if you want to opt-in to the next auto minor version
+    -- upgrade campaign. This parameter is disabled for previous versions.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the status of automatic failover for this Redis replication
     -- group.
@@ -148,15 +149,14 @@ data ReplicationGroup = ReplicationGroup'
     status :: Prelude.Maybe Prelude.Text,
     -- | A flag that enables in-transit encryption when set to @true@.
     --
-    -- You cannot modify the value of @TransitEncryptionEnabled@ after the
-    -- cluster is created. To enable in-transit encryption on a cluster you
-    -- must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
-    --
     -- __Required:__ Only available when creating a replication group in an
     -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
     --
     -- Default: @false@
     transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | A setting that allows you to migrate your clients to use in-transit
+    -- encryption, with no downtime.
+    transitEncryptionMode :: Prelude.Maybe TransitEncryptionMode,
     -- | The ID of the user group associated to the replication group.
     userGroupIds :: Prelude.Maybe [Prelude.Text]
   }
@@ -190,9 +190,9 @@ data ReplicationGroup = ReplicationGroup'
 --
 -- 'authTokenLastModifiedDate', 'replicationGroup_authTokenLastModifiedDate' - The date the auth token was last modified
 --
--- 'autoMinorVersionUpgrade', 'replicationGroup_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this parameter
--- to yes if you want to opt-in to the next auto minor version upgrade
--- campaign. This parameter is disabled for previous versions.
+-- 'autoMinorVersionUpgrade', 'replicationGroup_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 --
 -- 'automaticFailover', 'replicationGroup_automaticFailover' - Indicates the status of automatic failover for this Redis replication
 -- group.
@@ -280,14 +280,13 @@ data ReplicationGroup = ReplicationGroup'
 --
 -- 'transitEncryptionEnabled', 'replicationGroup_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@.
 --
--- You cannot modify the value of @TransitEncryptionEnabled@ after the
--- cluster is created. To enable in-transit encryption on a cluster you
--- must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
---
 -- __Required:__ Only available when creating a replication group in an
 -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
 --
 -- Default: @false@
+--
+-- 'transitEncryptionMode', 'replicationGroup_transitEncryptionMode' - A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
 --
 -- 'userGroupIds', 'replicationGroup_userGroupIds' - The ID of the user group associated to the replication group.
 newReplicationGroup ::
@@ -322,6 +321,7 @@ newReplicationGroup =
       snapshottingClusterId = Prelude.Nothing,
       status = Prelude.Nothing,
       transitEncryptionEnabled = Prelude.Nothing,
+      transitEncryptionMode = Prelude.Nothing,
       userGroupIds = Prelude.Nothing
     }
 
@@ -353,9 +353,9 @@ replicationGroup_authTokenEnabled = Lens.lens (\ReplicationGroup' {authTokenEnab
 replicationGroup_authTokenLastModifiedDate :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.UTCTime)
 replicationGroup_authTokenLastModifiedDate = Lens.lens (\ReplicationGroup' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@ReplicationGroup' {} a -> s {authTokenLastModifiedDate = a} :: ReplicationGroup) Prelude.. Lens.mapping Data._Time
 
--- | If you are running Redis engine version 6.0 or later, set this parameter
--- to yes if you want to opt-in to the next auto minor version upgrade
--- campaign. This parameter is disabled for previous versions.
+-- | If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 replicationGroup_autoMinorVersionUpgrade :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
 replicationGroup_autoMinorVersionUpgrade = Lens.lens (\ReplicationGroup' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ReplicationGroup' {} a -> s {autoMinorVersionUpgrade = a} :: ReplicationGroup)
 
@@ -489,16 +489,17 @@ replicationGroup_status = Lens.lens (\ReplicationGroup' {status} -> status) (\s@
 
 -- | A flag that enables in-transit encryption when set to @true@.
 --
--- You cannot modify the value of @TransitEncryptionEnabled@ after the
--- cluster is created. To enable in-transit encryption on a cluster you
--- must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
---
 -- __Required:__ Only available when creating a replication group in an
 -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
 --
 -- Default: @false@
 replicationGroup_transitEncryptionEnabled :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
 replicationGroup_transitEncryptionEnabled = Lens.lens (\ReplicationGroup' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@ReplicationGroup' {} a -> s {transitEncryptionEnabled = a} :: ReplicationGroup)
+
+-- | A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
+replicationGroup_transitEncryptionMode :: Lens.Lens' ReplicationGroup (Prelude.Maybe TransitEncryptionMode)
+replicationGroup_transitEncryptionMode = Lens.lens (\ReplicationGroup' {transitEncryptionMode} -> transitEncryptionMode) (\s@ReplicationGroup' {} a -> s {transitEncryptionMode = a} :: ReplicationGroup)
 
 -- | The ID of the user group associated to the replication group.
 replicationGroup_userGroupIds :: Lens.Lens' ReplicationGroup (Prelude.Maybe [Prelude.Text])
@@ -547,6 +548,7 @@ instance Data.FromXML ReplicationGroup where
       Prelude.<*> (x Data..@? "SnapshottingClusterId")
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "TransitEncryptionEnabled")
+      Prelude.<*> (x Data..@? "TransitEncryptionMode")
       Prelude.<*> ( x Data..@? "UserGroupIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -581,6 +583,7 @@ instance Prelude.Hashable ReplicationGroup where
       `Prelude.hashWithSalt` snapshottingClusterId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` transitEncryptionMode
       `Prelude.hashWithSalt` userGroupIds
 
 instance Prelude.NFData ReplicationGroup where
@@ -622,5 +625,7 @@ instance Prelude.NFData ReplicationGroup where
         status
       `Prelude.seq` Prelude.rnf
         transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf
+        transitEncryptionMode
       `Prelude.seq` Prelude.rnf
         userGroupIds

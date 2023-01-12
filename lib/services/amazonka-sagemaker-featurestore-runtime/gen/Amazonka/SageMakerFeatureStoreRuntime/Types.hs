@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SageMakerFeatureStoreRuntime.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -141,7 +141,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have permission to perform an action.
-_AccessForbidden :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessForbidden :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessForbidden =
   Core._MatchServiceError
     defaultService
@@ -150,7 +150,7 @@ _AccessForbidden =
 
 -- | An internal failure occurred. Try your request again. If the problem
 -- persists, contact Amazon Web Services customer support.
-_InternalFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailure :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailure =
   Core._MatchServiceError
     defaultService
@@ -158,7 +158,7 @@ _InternalFailure =
     Prelude.. Core.hasStatus 500
 
 -- | A resource that is required to perform an action was not found.
-_ResourceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFound =
   Core._MatchServiceError
     defaultService
@@ -166,7 +166,7 @@ _ResourceNotFound =
     Prelude.. Core.hasStatus 404
 
 -- | The service is currently unavailable.
-_ServiceUnavailable :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailable :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailable =
   Core._MatchServiceError
     defaultService
@@ -174,7 +174,7 @@ _ServiceUnavailable =
     Prelude.. Core.hasStatus 503
 
 -- | There was an error validating your request.
-_ValidationError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationError =
   Core._MatchServiceError
     defaultService

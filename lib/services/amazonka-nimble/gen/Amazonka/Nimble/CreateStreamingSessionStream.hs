@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.CreateStreamingSessionStream
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 -- Creates a streaming session stream for a streaming session.
 --
 -- After invoking this API, invoke GetStreamingSessionStream with the
--- returned streamId to poll the resource until it is in state READY.
+-- returned streamId to poll the resource until it is in the @READY@ state.
 module Amazonka.Nimble.CreateStreamingSessionStream
   ( -- * Creating a Request
     CreateStreamingSessionStream (..),
@@ -56,9 +56,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateStreamingSessionStream' smart constructor.
 data CreateStreamingSessionStream = CreateStreamingSessionStream'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The expiration time in seconds.
     expirationInSeconds :: Prelude.Maybe Prelude.Natural,
@@ -78,9 +78,9 @@ data CreateStreamingSessionStream = CreateStreamingSessionStream'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createStreamingSessionStream_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'expirationInSeconds', 'createStreamingSessionStream_expirationInSeconds' - The expiration time in seconds.
 --
@@ -105,9 +105,9 @@ newCreateStreamingSessionStream
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 createStreamingSessionStream_clientToken :: Lens.Lens' CreateStreamingSessionStream (Prelude.Maybe Prelude.Text)
 createStreamingSessionStream_clientToken = Lens.lens (\CreateStreamingSessionStream' {clientToken} -> clientToken) (\s@CreateStreamingSessionStream' {} a -> s {clientToken = a} :: CreateStreamingSessionStream)
 

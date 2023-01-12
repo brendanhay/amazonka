@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EMRContainers.Types.VirtualCluster
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@ data VirtualCluster = VirtualCluster'
     -- | The container provider of the virtual cluster.
     containerProvider :: Prelude.Maybe ContainerProvider,
     -- | The date and time when the virtual cluster is created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the virtual cluster.
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the virtual cluster.

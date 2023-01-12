@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- scaling policy to use with Application Auto Scaling.
 --
 -- For information about the available metrics for a service, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html Amazon Web Services Services That Publish CloudWatch Metrics>
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html Amazon Web Services services that publish CloudWatch metrics>
 -- in the /Amazon CloudWatch User Guide/.
 --
 -- To create your customized metric specification:
@@ -39,7 +39,7 @@ import qualified Amazonka.Prelude as Prelude
 --     an existing metric, or a new metric that you create. To use your own
 --     metric, you must first publish the metric to CloudWatch. For more
 --     information, see
---     <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publish Custom Metrics>
+--     <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publish custom metrics>
 --     in the /Amazon CloudWatch User Guide/.
 --
 -- -   Choose a metric that changes proportionally with capacity. The value
@@ -48,8 +48,16 @@ import qualified Amazonka.Prelude as Prelude
 --     should decrease when capacity increases, and increase when capacity
 --     decreases.
 --
--- For more information about CloudWatch, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html Amazon CloudWatch Concepts>.
+-- For an example of how creating new metrics can be useful, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html Scaling based on Amazon SQS>
+-- in the /Amazon EC2 Auto Scaling User Guide/. This topic mentions Auto
+-- Scaling groups, but the same scenario for Amazon SQS can apply to the
+-- target tracking scaling policies that you create for a Spot Fleet by
+-- using the Application Auto Scaling API.
+--
+-- For more information about the CloudWatch terminology below, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html Amazon CloudWatch concepts>
+-- in the /Amazon CloudWatch User Guide/.
 --
 -- /See:/ 'newCustomizedMetricSpecification' smart constructor.
 data CustomizedMetricSpecification = CustomizedMetricSpecification'
@@ -58,9 +66,16 @@ data CustomizedMetricSpecification = CustomizedMetricSpecification'
     -- Conditional: If you published your metric with dimensions, you must
     -- specify the same dimensions in your scaling policy.
     dimensions :: Prelude.Maybe [MetricDimension],
-    -- | The unit of the metric.
+    -- | The unit of the metric. For a complete list of the units that CloudWatch
+    -- supports, see the
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html MetricDatum>
+    -- data type in the /Amazon CloudWatch API Reference/.
     unit :: Prelude.Maybe Prelude.Text,
-    -- | The name of the metric.
+    -- | The name of the metric. To get the exact metric name, namespace, and
+    -- dimensions, inspect the
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html Metric>
+    -- object that is returned by a call to
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html ListMetrics>.
     metricName :: Prelude.Text,
     -- | The namespace of the metric.
     namespace :: Prelude.Text,
@@ -82,9 +97,16 @@ data CustomizedMetricSpecification = CustomizedMetricSpecification'
 -- Conditional: If you published your metric with dimensions, you must
 -- specify the same dimensions in your scaling policy.
 --
--- 'unit', 'customizedMetricSpecification_unit' - The unit of the metric.
+-- 'unit', 'customizedMetricSpecification_unit' - The unit of the metric. For a complete list of the units that CloudWatch
+-- supports, see the
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html MetricDatum>
+-- data type in the /Amazon CloudWatch API Reference/.
 --
--- 'metricName', 'customizedMetricSpecification_metricName' - The name of the metric.
+-- 'metricName', 'customizedMetricSpecification_metricName' - The name of the metric. To get the exact metric name, namespace, and
+-- dimensions, inspect the
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html Metric>
+-- object that is returned by a call to
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html ListMetrics>.
 --
 -- 'namespace', 'customizedMetricSpecification_namespace' - The namespace of the metric.
 --
@@ -117,11 +139,18 @@ newCustomizedMetricSpecification
 customizedMetricSpecification_dimensions :: Lens.Lens' CustomizedMetricSpecification (Prelude.Maybe [MetricDimension])
 customizedMetricSpecification_dimensions = Lens.lens (\CustomizedMetricSpecification' {dimensions} -> dimensions) (\s@CustomizedMetricSpecification' {} a -> s {dimensions = a} :: CustomizedMetricSpecification) Prelude.. Lens.mapping Lens.coerced
 
--- | The unit of the metric.
+-- | The unit of the metric. For a complete list of the units that CloudWatch
+-- supports, see the
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html MetricDatum>
+-- data type in the /Amazon CloudWatch API Reference/.
 customizedMetricSpecification_unit :: Lens.Lens' CustomizedMetricSpecification (Prelude.Maybe Prelude.Text)
 customizedMetricSpecification_unit = Lens.lens (\CustomizedMetricSpecification' {unit} -> unit) (\s@CustomizedMetricSpecification' {} a -> s {unit = a} :: CustomizedMetricSpecification)
 
--- | The name of the metric.
+-- | The name of the metric. To get the exact metric name, namespace, and
+-- dimensions, inspect the
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html Metric>
+-- object that is returned by a call to
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html ListMetrics>.
 customizedMetricSpecification_metricName :: Lens.Lens' CustomizedMetricSpecification Prelude.Text
 customizedMetricSpecification_metricName = Lens.lens (\CustomizedMetricSpecification' {metricName} -> metricName) (\s@CustomizedMetricSpecification' {} a -> s {metricName = a} :: CustomizedMetricSpecification)
 

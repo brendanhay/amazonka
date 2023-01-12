@@ -101,6 +101,8 @@ haskell_library(
         "gen/Amazonka/AuditManager/Types/Delegation.hs",
         "gen/Amazonka/AuditManager/Types/DelegationMetadata.hs",
         "gen/Amazonka/AuditManager/Types/DelegationStatus.hs",
+        "gen/Amazonka/AuditManager/Types/DeleteResources.hs",
+        "gen/Amazonka/AuditManager/Types/DeregistrationPolicy.hs",
         "gen/Amazonka/AuditManager/Types/Evidence.hs",
         "gen/Amazonka/AuditManager/Types/EvidenceFinderBackfillStatus.hs",
         "gen/Amazonka/AuditManager/Types/EvidenceFinderEnablement.hs",

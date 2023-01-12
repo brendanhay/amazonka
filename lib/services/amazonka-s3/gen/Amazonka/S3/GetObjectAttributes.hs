@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.S3.GetObjectAttributes
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -462,7 +462,7 @@ data GetObjectAttributesResponse = GetObjectAttributesResponse'
     -- version of a resource found at a URL.
     eTag :: Prelude.Maybe ETag,
     -- | The creation date of the object.
-    lastModified :: Prelude.Maybe Data.ISO8601,
+    lastModified :: Prelude.Maybe Data.RFC822,
     -- | A collection of parts associated with a multipart upload.
     objectParts :: Prelude.Maybe GetObjectAttributesParts,
     -- | The size of the object in bytes.

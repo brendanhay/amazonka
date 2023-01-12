@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MarketplaceAnalytics.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -107,7 +107,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | This exception is thrown when an internal service error occurs.
-_MarketplaceCommerceAnalyticsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MarketplaceCommerceAnalyticsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MarketplaceCommerceAnalyticsException =
   Core._MatchServiceError
     defaultService

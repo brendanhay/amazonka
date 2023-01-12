@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.UpdateFunction
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,10 +22,10 @@
 --
 -- Updates a CloudFront function.
 --
--- You can update a function’s code or the comment that describes the
--- function. You cannot update a function’s name.
+-- You can update a function\'s code or the comment that describes the
+-- function. You cannot update a function\'s name.
 --
--- To update a function, you provide the function’s name and version
+-- To update a function, you provide the function\'s name and version
 -- (@ETag@ value) along with the updated function code. To get the name and
 -- version, you can use @ListFunctions@ and @DescribeFunction@.
 module Amazonka.CloudFront.UpdateFunction

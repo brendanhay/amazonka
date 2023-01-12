@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StudioStatusCode
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,7 @@ module Amazonka.Nimble.Types.StudioStatusCode
         StudioStatusCode_AWS_SSO_CONFIGURATION_REPAIRED,
         StudioStatusCode_AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS,
         StudioStatusCode_AWS_SSO_NOT_ENABLED,
+        StudioStatusCode_AWS_STS_REGION_DISABLED,
         StudioStatusCode_ENCRYPTION_KEY_ACCESS_DENIED,
         StudioStatusCode_ENCRYPTION_KEY_NOT_FOUND,
         StudioStatusCode_INTERNAL_ERROR,
@@ -87,6 +88,9 @@ pattern StudioStatusCode_AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS = StudioStatus
 pattern StudioStatusCode_AWS_SSO_NOT_ENABLED :: StudioStatusCode
 pattern StudioStatusCode_AWS_SSO_NOT_ENABLED = StudioStatusCode' "AWS_SSO_NOT_ENABLED"
 
+pattern StudioStatusCode_AWS_STS_REGION_DISABLED :: StudioStatusCode
+pattern StudioStatusCode_AWS_STS_REGION_DISABLED = StudioStatusCode' "AWS_STS_REGION_DISABLED"
+
 pattern StudioStatusCode_ENCRYPTION_KEY_ACCESS_DENIED :: StudioStatusCode
 pattern StudioStatusCode_ENCRYPTION_KEY_ACCESS_DENIED = StudioStatusCode' "ENCRYPTION_KEY_ACCESS_DENIED"
 
@@ -134,6 +138,7 @@ pattern StudioStatusCode_STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED = StudioStatu
   StudioStatusCode_AWS_SSO_CONFIGURATION_REPAIRED,
   StudioStatusCode_AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS,
   StudioStatusCode_AWS_SSO_NOT_ENABLED,
+  StudioStatusCode_AWS_STS_REGION_DISABLED,
   StudioStatusCode_ENCRYPTION_KEY_ACCESS_DENIED,
   StudioStatusCode_ENCRYPTION_KEY_NOT_FOUND,
   StudioStatusCode_INTERNAL_ERROR,

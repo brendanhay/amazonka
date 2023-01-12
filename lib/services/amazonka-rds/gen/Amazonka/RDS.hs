@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.RDS
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -242,6 +242,9 @@ module Amazonka.RDS
 
     -- ** DomainNotFoundFault
     _DomainNotFoundFault,
+
+    -- ** Ec2ImagePropertiesNotSupportedFault
+    _Ec2ImagePropertiesNotSupportedFault,
 
     -- ** EventSubscriptionQuotaExceededFault
     _EventSubscriptionQuotaExceededFault,
@@ -1340,6 +1343,9 @@ module Amazonka.RDS
     -- ** AutomationMode
     AutomationMode (..),
 
+    -- ** ClientPasswordAuthType
+    ClientPasswordAuthType (..),
+
     -- ** CustomEngineVersionStatus
     CustomEngineVersionStatus (..),
 
@@ -1409,6 +1415,10 @@ module Amazonka.RDS
     Certificate (Certificate'),
     newCertificate,
 
+    -- ** CertificateDetails
+    CertificateDetails (CertificateDetails'),
+    newCertificateDetails,
+
     -- ** CharacterSet
     CharacterSet (CharacterSet'),
     newCharacterSet,
@@ -1428,6 +1438,10 @@ module Amazonka.RDS
     -- ** ConnectionPoolConfigurationInfo
     ConnectionPoolConfigurationInfo (ConnectionPoolConfigurationInfo'),
     newConnectionPoolConfigurationInfo,
+
+    -- ** CustomDBEngineVersionAMI
+    CustomDBEngineVersionAMI (CustomDBEngineVersionAMI'),
+    newCustomDBEngineVersionAMI,
 
     -- ** DBCluster
     DBCluster (DBCluster'),
@@ -1608,6 +1622,10 @@ module Amazonka.RDS
     -- ** IPRange
     IPRange (IPRange'),
     newIPRange,
+
+    -- ** MasterUserSecret
+    MasterUserSecret (MasterUserSecret'),
+    newMasterUserSecret,
 
     -- ** MinimumEngineVersionPerAllowedValue
     MinimumEngineVersionPerAllowedValue (MinimumEngineVersionPerAllowedValue'),

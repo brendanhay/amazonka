@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Rekognition.DetectLabels
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -76,7 +76,7 @@
 -- -   Aliases - Possible Aliases for the label.
 --
 -- -   Categories - The label categories that the detected label belongs
---     to. A given label can belong to more than one category.
+--     to.
 --
 -- -   BoundingBox — Bounding boxes are described for all instances of
 --     detected common object labels, returned in an array of Instance
@@ -95,11 +95,11 @@
 --
 -- -   Dominant Color - An array of the dominant colors in the image.
 --
--- -   Foreground - Information about the Sharpness and Brightness of the
---     input image’s foreground.
+-- -   Foreground - Information about the sharpness, brightness, and
+--     dominant colors of the input image’s foreground.
 --
--- -   Background - Information about the Sharpness and Brightness of the
---     input image’s background.
+-- -   Background - Information about the sharpness, brightness, and
+--     dominant colors of the input image’s background.
 --
 -- The list of returned labels will include at least one label for every
 -- detected object, along with information about that label. In the

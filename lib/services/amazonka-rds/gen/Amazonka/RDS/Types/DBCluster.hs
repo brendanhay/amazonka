@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.DBCluster
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,6 +30,7 @@ import Amazonka.RDS.Types.DBClusterMember
 import Amazonka.RDS.Types.DBClusterOptionGroupStatus
 import Amazonka.RDS.Types.DBClusterRole
 import Amazonka.RDS.Types.DomainMembership
+import Amazonka.RDS.Types.MasterUserSecret
 import Amazonka.RDS.Types.ScalingConfigurationInfo
 import Amazonka.RDS.Types.ServerlessV2ScalingConfigurationInfo
 import Amazonka.RDS.Types.Tag
@@ -232,6 +233,15 @@ data DBCluster = DBCluster'
     -- | Specifies the latest time to which a database can be restored with
     -- point-in-time restore.
     latestRestorableTime :: Prelude.Maybe Data.ISO8601,
+    -- | Contains the secret managed by RDS in Amazon Web Services Secrets
+    -- Manager for the master user password.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon Aurora User Guide./
+    masterUserSecret :: Prelude.Maybe MasterUserSecret,
     -- | Contains the master username for the DB cluster.
     masterUsername :: Prelude.Maybe Prelude.Text,
     -- | The interval, in seconds, between points when Enhanced Monitoring
@@ -543,6 +553,15 @@ data DBCluster = DBCluster'
 -- 'latestRestorableTime', 'dbCluster_latestRestorableTime' - Specifies the latest time to which a database can be restored with
 -- point-in-time restore.
 --
+-- 'masterUserSecret', 'dbCluster_masterUserSecret' - Contains the secret managed by RDS in Amazon Web Services Secrets
+-- Manager for the master user password.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+--
 -- 'masterUsername', 'dbCluster_masterUsername' - Contains the master username for the DB cluster.
 --
 -- 'monitoringInterval', 'dbCluster_monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring
@@ -726,6 +745,7 @@ newDBCluster =
       iops = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       latestRestorableTime = Prelude.Nothing,
+      masterUserSecret = Prelude.Nothing,
       masterUsername = Prelude.Nothing,
       monitoringInterval = Prelude.Nothing,
       monitoringRoleArn = Prelude.Nothing,
@@ -1014,6 +1034,17 @@ dbCluster_kmsKeyId = Lens.lens (\DBCluster' {kmsKeyId} -> kmsKeyId) (\s@DBCluste
 dbCluster_latestRestorableTime :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.UTCTime)
 dbCluster_latestRestorableTime = Lens.lens (\DBCluster' {latestRestorableTime} -> latestRestorableTime) (\s@DBCluster' {} a -> s {latestRestorableTime = a} :: DBCluster) Prelude.. Lens.mapping Data._Time
 
+-- | Contains the secret managed by RDS in Amazon Web Services Secrets
+-- Manager for the master user password.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+dbCluster_masterUserSecret :: Lens.Lens' DBCluster (Prelude.Maybe MasterUserSecret)
+dbCluster_masterUserSecret = Lens.lens (\DBCluster' {masterUserSecret} -> masterUserSecret) (\s@DBCluster' {} a -> s {masterUserSecret = a} :: DBCluster)
+
 -- | Contains the master username for the DB cluster.
 dbCluster_masterUsername :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_masterUsername = Lens.lens (\DBCluster' {masterUsername} -> masterUsername) (\s@DBCluster' {} a -> s {masterUsername = a} :: DBCluster)
@@ -1263,6 +1294,7 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "Iops")
       Prelude.<*> (x Data..@? "KmsKeyId")
       Prelude.<*> (x Data..@? "LatestRestorableTime")
+      Prelude.<*> (x Data..@? "MasterUserSecret")
       Prelude.<*> (x Data..@? "MasterUsername")
       Prelude.<*> (x Data..@? "MonitoringInterval")
       Prelude.<*> (x Data..@? "MonitoringRoleArn")
@@ -1346,6 +1378,7 @@ instance Prelude.Hashable DBCluster where
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` latestRestorableTime
+      `Prelude.hashWithSalt` masterUserSecret
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` monitoringInterval
       `Prelude.hashWithSalt` monitoringRoleArn
@@ -1445,6 +1478,8 @@ instance Prelude.NFData DBCluster where
         kmsKeyId
       `Prelude.seq` Prelude.rnf
         latestRestorableTime
+      `Prelude.seq` Prelude.rnf
+        masterUserSecret
       `Prelude.seq` Prelude.rnf
         masterUsername
       `Prelude.seq` Prelude.rnf

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.GetEvidence
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -171,7 +171,7 @@ instance Data.ToQuery GetEvidence where
 
 -- | /See:/ 'newGetEvidenceResponse' smart constructor.
 data GetEvidenceResponse = GetEvidenceResponse'
-  { -- | The evidence that the @GetEvidenceResponse@ API returned.
+  { -- | The evidence that the @GetEvidence@ API returned.
     evidence :: Prelude.Maybe Evidence,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -186,7 +186,7 @@ data GetEvidenceResponse = GetEvidenceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evidence', 'getEvidenceResponse_evidence' - The evidence that the @GetEvidenceResponse@ API returned.
+-- 'evidence', 'getEvidenceResponse_evidence' - The evidence that the @GetEvidence@ API returned.
 --
 -- 'httpStatus', 'getEvidenceResponse_httpStatus' - The response's http status code.
 newGetEvidenceResponse ::
@@ -199,7 +199,7 @@ newGetEvidenceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The evidence that the @GetEvidenceResponse@ API returned.
+-- | The evidence that the @GetEvidence@ API returned.
 getEvidenceResponse_evidence :: Lens.Lens' GetEvidenceResponse (Prelude.Maybe Evidence)
 getEvidenceResponse_evidence = Lens.lens (\GetEvidenceResponse' {evidence} -> evidence) (\s@GetEvidenceResponse' {} a -> s {evidence = a} :: GetEvidenceResponse)
 

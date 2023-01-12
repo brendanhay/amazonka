@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MediaStore.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -158,42 +158,42 @@ defaultService =
 
 -- | The container that you specified in the request already exists or is
 -- being updated.
-_ContainerInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContainerInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ContainerInUseException =
   Core._MatchServiceError
     defaultService
     "ContainerInUseException"
 
 -- | The container that you specified in the request does not exist.
-_ContainerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContainerNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ContainerNotFoundException =
   Core._MatchServiceError
     defaultService
     "ContainerNotFoundException"
 
 -- | The CORS policy that you specified in the request does not exist.
-_CorsPolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CorsPolicyNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CorsPolicyNotFoundException =
   Core._MatchServiceError
     defaultService
     "CorsPolicyNotFoundException"
 
 -- | The service is temporarily unavailable.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
     "InternalServerError"
 
 -- | A service limit has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The policy that you specified in the request does not exist.
-_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PolicyNotFoundException =
   Core._MatchServiceError
     defaultService

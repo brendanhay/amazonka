@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Schemas.DescribeCodeBinding
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -178,9 +178,9 @@ instance Data.ToQuery DescribeCodeBinding where
 -- | /See:/ 'newDescribeCodeBindingResponse' smart constructor.
 data DescribeCodeBindingResponse = DescribeCodeBindingResponse'
   { -- | The time and date that the code binding was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    creationDate :: Prelude.Maybe Data.ISO8601,
     -- | The date and time that code bindings were modified.
-    lastModified :: Prelude.Maybe Data.POSIX,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | The version number of the schema.
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The current status of code binding generation.

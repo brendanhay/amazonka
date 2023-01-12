@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.RegisterImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -78,7 +78,7 @@
 -- information about how to obtain the platform details and billing
 -- information of an AMI, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understand AMI billing information>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.RegisterImage
   ( -- * Creating a Request
     RegisterImage (..),
@@ -131,8 +131,16 @@ data RegisterImage = RegisterImage'
     -- AMIs, the architecture specified in the manifest file.
     architecture :: Prelude.Maybe ArchitectureValues,
     -- | The billing product codes. Your account must be authorized to specify
-    -- billing product codes. Otherwise, you can use the Amazon Web Services
-    -- Marketplace to bill for the use of an AMI.
+    -- billing product codes.
+    --
+    -- If your account is not authorized to specify billing product codes, you
+    -- can publish AMIs that include billable software and list them on the
+    -- Amazon Web Services Marketplace. You must first register as a seller on
+    -- the Amazon Web Services Marketplace. For more information, see
+    -- <https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html Getting started as a seller>
+    -- and
+    -- <https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html AMI-based products>
+    -- in the /Amazon Web Services Marketplace Seller Guide/.
     billingProducts :: Prelude.Maybe [Prelude.Text],
     -- | The block device mapping entries.
     --
@@ -144,11 +152,11 @@ data RegisterImage = RegisterImage'
     -- that include local snapshots can be used to launch instances on the same
     -- Outpost only. For more information,
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
     -- | The boot mode of the AMI. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     bootMode :: Prelude.Maybe BootModeValues,
     -- | A description for your AMI.
     description :: Prelude.Maybe Prelude.Text,
@@ -175,7 +183,7 @@ data RegisterImage = RegisterImage'
     -- used when requesting instance metadata. In addition,
     -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     --
     -- If you set the value to @v2.0@, make sure that your AMI software can
     -- support IMDSv2.
@@ -198,7 +206,7 @@ data RegisterImage = RegisterImage'
     -- | Set to @v2.0@ to enable Trusted Platform Module (TPM) support. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     tpmSupport :: Prelude.Maybe TpmSupportValues,
     -- | Base64 representation of the non-volatile UEFI variable store. To
     -- retrieve the UEFI data, use the
@@ -207,7 +215,7 @@ data RegisterImage = RegisterImage'
     -- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
     -- GitHub. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     uefiData :: Prelude.Maybe Prelude.Text,
     -- | The type of virtualization (@hvm@ | @paravirtual@).
     --
@@ -236,8 +244,16 @@ data RegisterImage = RegisterImage'
 -- AMIs, the architecture specified in the manifest file.
 --
 -- 'billingProducts', 'registerImage_billingProducts' - The billing product codes. Your account must be authorized to specify
--- billing product codes. Otherwise, you can use the Amazon Web Services
--- Marketplace to bill for the use of an AMI.
+-- billing product codes.
+--
+-- If your account is not authorized to specify billing product codes, you
+-- can publish AMIs that include billable software and list them on the
+-- Amazon Web Services Marketplace. You must first register as a seller on
+-- the Amazon Web Services Marketplace. For more information, see
+-- <https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html Getting started as a seller>
+-- and
+-- <https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html AMI-based products>
+-- in the /Amazon Web Services Marketplace Seller Guide/.
 --
 -- 'blockDeviceMappings', 'registerImage_blockDeviceMappings' - The block device mapping entries.
 --
@@ -249,11 +265,11 @@ data RegisterImage = RegisterImage'
 -- that include local snapshots can be used to launch instances on the same
 -- Outpost only. For more information,
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'bootMode', 'registerImage_bootMode' - The boot mode of the AMI. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'description', 'registerImage_description' - A description for your AMI.
 --
@@ -280,7 +296,7 @@ data RegisterImage = RegisterImage'
 -- used when requesting instance metadata. In addition,
 -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- If you set the value to @v2.0@, make sure that your AMI software can
 -- support IMDSv2.
@@ -303,7 +319,7 @@ data RegisterImage = RegisterImage'
 -- 'tpmSupport', 'registerImage_tpmSupport' - Set to @v2.0@ to enable Trusted Platform Module (TPM) support. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'uefiData', 'registerImage_uefiData' - Base64 representation of the non-volatile UEFI variable store. To
 -- retrieve the UEFI data, use the
@@ -312,7 +328,7 @@ data RegisterImage = RegisterImage'
 -- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
 -- GitHub. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'virtualizationType', 'registerImage_virtualizationType' - The type of virtualization (@hvm@ | @paravirtual@).
 --
@@ -356,8 +372,16 @@ registerImage_architecture :: Lens.Lens' RegisterImage (Prelude.Maybe Architectu
 registerImage_architecture = Lens.lens (\RegisterImage' {architecture} -> architecture) (\s@RegisterImage' {} a -> s {architecture = a} :: RegisterImage)
 
 -- | The billing product codes. Your account must be authorized to specify
--- billing product codes. Otherwise, you can use the Amazon Web Services
--- Marketplace to bill for the use of an AMI.
+-- billing product codes.
+--
+-- If your account is not authorized to specify billing product codes, you
+-- can publish AMIs that include billable software and list them on the
+-- Amazon Web Services Marketplace. You must first register as a seller on
+-- the Amazon Web Services Marketplace. For more information, see
+-- <https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html Getting started as a seller>
+-- and
+-- <https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html AMI-based products>
+-- in the /Amazon Web Services Marketplace Seller Guide/.
 registerImage_billingProducts :: Lens.Lens' RegisterImage (Prelude.Maybe [Prelude.Text])
 registerImage_billingProducts = Lens.lens (\RegisterImage' {billingProducts} -> billingProducts) (\s@RegisterImage' {} a -> s {billingProducts = a} :: RegisterImage) Prelude.. Lens.mapping Lens.coerced
 
@@ -371,13 +395,13 @@ registerImage_billingProducts = Lens.lens (\RegisterImage' {billingProducts} -> 
 -- that include local snapshots can be used to launch instances on the same
 -- Outpost only. For more information,
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 registerImage_blockDeviceMappings :: Lens.Lens' RegisterImage (Prelude.Maybe [BlockDeviceMapping])
 registerImage_blockDeviceMappings = Lens.lens (\RegisterImage' {blockDeviceMappings} -> blockDeviceMappings) (\s@RegisterImage' {} a -> s {blockDeviceMappings = a} :: RegisterImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The boot mode of the AMI. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 registerImage_bootMode :: Lens.Lens' RegisterImage (Prelude.Maybe BootModeValues)
 registerImage_bootMode = Lens.lens (\RegisterImage' {bootMode} -> bootMode) (\s@RegisterImage' {} a -> s {bootMode = a} :: RegisterImage)
 
@@ -414,7 +438,7 @@ registerImage_imageLocation = Lens.lens (\RegisterImage' {imageLocation} -> imag
 -- used when requesting instance metadata. In addition,
 -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- If you set the value to @v2.0@, make sure that your AMI software can
 -- support IMDSv2.
@@ -447,7 +471,7 @@ registerImage_sriovNetSupport = Lens.lens (\RegisterImage' {sriovNetSupport} -> 
 -- | Set to @v2.0@ to enable Trusted Platform Module (TPM) support. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 registerImage_tpmSupport :: Lens.Lens' RegisterImage (Prelude.Maybe TpmSupportValues)
 registerImage_tpmSupport = Lens.lens (\RegisterImage' {tpmSupport} -> tpmSupport) (\s@RegisterImage' {} a -> s {tpmSupport = a} :: RegisterImage)
 
@@ -458,7 +482,7 @@ registerImage_tpmSupport = Lens.lens (\RegisterImage' {tpmSupport} -> tpmSupport
 -- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
 -- GitHub. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 registerImage_uefiData :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
 registerImage_uefiData = Lens.lens (\RegisterImage' {uefiData} -> uefiData) (\s@RegisterImage' {} a -> s {uefiData = a} :: RegisterImage)
 

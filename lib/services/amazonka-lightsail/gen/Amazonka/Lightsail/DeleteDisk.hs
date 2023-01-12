@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Lightsail.DeleteDisk
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -58,8 +58,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDisk' smart constructor.
 data DeleteDisk = DeleteDisk'
-  { -- | A Boolean value to indicate whether to delete the enabled add-ons for
-    -- the disk.
+  { -- | A Boolean value to indicate whether to delete all add-ons for the disk.
     forceDeleteAddOns :: Prelude.Maybe Prelude.Bool,
     -- | The unique name of the disk you want to delete (e.g., @my-disk@).
     diskName :: Prelude.Text
@@ -74,8 +73,7 @@ data DeleteDisk = DeleteDisk'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'forceDeleteAddOns', 'deleteDisk_forceDeleteAddOns' - A Boolean value to indicate whether to delete the enabled add-ons for
--- the disk.
+-- 'forceDeleteAddOns', 'deleteDisk_forceDeleteAddOns' - A Boolean value to indicate whether to delete all add-ons for the disk.
 --
 -- 'diskName', 'deleteDisk_diskName' - The unique name of the disk you want to delete (e.g., @my-disk@).
 newDeleteDisk ::
@@ -88,8 +86,7 @@ newDeleteDisk pDiskName_ =
       diskName = pDiskName_
     }
 
--- | A Boolean value to indicate whether to delete the enabled add-ons for
--- the disk.
+-- | A Boolean value to indicate whether to delete all add-ons for the disk.
 deleteDisk_forceDeleteAddOns :: Lens.Lens' DeleteDisk (Prelude.Maybe Prelude.Bool)
 deleteDisk_forceDeleteAddOns = Lens.lens (\DeleteDisk' {forceDeleteAddOns} -> forceDeleteAddOns) (\s@DeleteDisk' {} a -> s {forceDeleteAddOns = a} :: DeleteDisk)
 

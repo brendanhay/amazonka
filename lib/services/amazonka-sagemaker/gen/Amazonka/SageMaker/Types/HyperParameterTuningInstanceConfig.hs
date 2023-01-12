@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.HyperParameterTuningInstanceConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ data HyperParameterTuningInstanceConfig = HyperParameterTuningInstanceConfig'
     -- | The number of instances of the type specified by @InstanceType@. Choose
     -- an instance count larger than 1 for distributed training algorithms. See
     -- <https://docs.aws.amazon.com/data-parallel-use-api.html SageMaker distributed training jobs>
-    -- for more information.
+    -- for more informcration.
     instanceCount :: Prelude.Natural,
     -- | The volume size in GB of the data to be processed for hyperparameter
     -- optimization (optional).
@@ -69,7 +69,7 @@ data HyperParameterTuningInstanceConfig = HyperParameterTuningInstanceConfig'
 -- 'instanceCount', 'hyperParameterTuningInstanceConfig_instanceCount' - The number of instances of the type specified by @InstanceType@. Choose
 -- an instance count larger than 1 for distributed training algorithms. See
 -- <https://docs.aws.amazon.com/data-parallel-use-api.html SageMaker distributed training jobs>
--- for more information.
+-- for more informcration.
 --
 -- 'volumeSizeInGB', 'hyperParameterTuningInstanceConfig_volumeSizeInGB' - The volume size in GB of the data to be processed for hyperparameter
 -- optimization (optional).
@@ -104,7 +104,7 @@ hyperParameterTuningInstanceConfig_instanceType = Lens.lens (\HyperParameterTuni
 -- | The number of instances of the type specified by @InstanceType@. Choose
 -- an instance count larger than 1 for distributed training algorithms. See
 -- <https://docs.aws.amazon.com/data-parallel-use-api.html SageMaker distributed training jobs>
--- for more information.
+-- for more informcration.
 hyperParameterTuningInstanceConfig_instanceCount :: Lens.Lens' HyperParameterTuningInstanceConfig Prelude.Natural
 hyperParameterTuningInstanceConfig_instanceCount = Lens.lens (\HyperParameterTuningInstanceConfig' {instanceCount} -> instanceCount) (\s@HyperParameterTuningInstanceConfig' {} a -> s {instanceCount = a} :: HyperParameterTuningInstanceConfig)
 

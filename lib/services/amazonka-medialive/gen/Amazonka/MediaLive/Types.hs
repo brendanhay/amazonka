@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -144,6 +144,9 @@ module Amazonka.MediaLive.Types
 
     -- * DeviceUpdateStatus
     DeviceUpdateStatus (..),
+
+    -- * DolbyEProgramSelection
+    DolbyEProgramSelection (..),
 
     -- * DvbSdtOutputSdt
     DvbSdtOutputSdt (..),
@@ -784,6 +787,12 @@ module Amazonka.MediaLive.Types
     -- * TemporalFilterStrength
     TemporalFilterStrength (..),
 
+    -- * TimecodeBurninFontSize
+    TimecodeBurninFontSize (..),
+
+    -- * TimecodeBurninPosition
+    TimecodeBurninPosition (..),
+
     -- * TimecodeConfigSource
     TimecodeConfigSource (..),
 
@@ -910,6 +919,11 @@ module Amazonka.MediaLive.Types
     audioDescription_audioSelectorName,
     audioDescription_name,
 
+    -- * AudioDolbyEDecode
+    AudioDolbyEDecode (..),
+    newAudioDolbyEDecode,
+    audioDolbyEDecode_programSelection,
+
     -- * AudioHlsRenditionSelection
     AudioHlsRenditionSelection (..),
     newAudioHlsRenditionSelection,
@@ -970,6 +984,7 @@ module Amazonka.MediaLive.Types
     -- * AudioTrackSelection
     AudioTrackSelection (..),
     newAudioTrackSelection,
+    audioTrackSelection_dolbyEDecode,
     audioTrackSelection_tracks,
 
     -- * AudioWatermarkSettings
@@ -1392,6 +1407,7 @@ module Amazonka.MediaLive.Types
     newFrameCaptureSettings,
     frameCaptureSettings_captureInterval,
     frameCaptureSettings_captureIntervalUnits,
+    frameCaptureSettings_timecodeBurninSettings,
 
     -- * GlobalConfiguration
     GlobalConfiguration (..),
@@ -1458,6 +1474,7 @@ module Amazonka.MediaLive.Types
     h264Settings_subgopLength,
     h264Settings_syntax,
     h264Settings_temporalAq,
+    h264Settings_timecodeBurninSettings,
     h264Settings_timecodeInsertion,
 
     -- * H265ColorSpaceSettings
@@ -1503,6 +1520,7 @@ module Amazonka.MediaLive.Types
     h265Settings_sceneChangeDetect,
     h265Settings_slices,
     h265Settings_tier,
+    h265Settings_timecodeBurninSettings,
     h265Settings_timecodeInsertion,
     h265Settings_framerateNumerator,
     h265Settings_framerateDenominator,
@@ -1718,6 +1736,7 @@ module Amazonka.MediaLive.Types
     InputDeviceConfigurableSettings (..),
     newInputDeviceConfigurableSettings,
     inputDeviceConfigurableSettings_configuredInput,
+    inputDeviceConfigurableSettings_latencyMs,
     inputDeviceConfigurableSettings_maxBitrate,
 
     -- * InputDeviceHdSettings
@@ -1728,6 +1747,7 @@ module Amazonka.MediaLive.Types
     inputDeviceHdSettings_deviceState,
     inputDeviceHdSettings_framerate,
     inputDeviceHdSettings_height,
+    inputDeviceHdSettings_latencyMs,
     inputDeviceHdSettings_maxBitrate,
     inputDeviceHdSettings_scanType,
     inputDeviceHdSettings_width,
@@ -1775,6 +1795,7 @@ module Amazonka.MediaLive.Types
     inputDeviceUhdSettings_deviceState,
     inputDeviceUhdSettings_framerate,
     inputDeviceUhdSettings_height,
+    inputDeviceUhdSettings_latencyMs,
     inputDeviceUhdSettings_maxBitrate,
     inputDeviceUhdSettings_scanType,
     inputDeviceUhdSettings_width,
@@ -2049,6 +2070,7 @@ module Amazonka.MediaLive.Types
     mpeg2Settings_gopSizeUnits,
     mpeg2Settings_scanType,
     mpeg2Settings_subgopLength,
+    mpeg2Settings_timecodeBurninSettings,
     mpeg2Settings_timecodeInsertion,
     mpeg2Settings_framerateNumerator,
     mpeg2Settings_framerateDenominator,
@@ -2609,6 +2631,13 @@ module Amazonka.MediaLive.Types
     temporalFilterSettings_postFilterSharpening,
     temporalFilterSettings_strength,
 
+    -- * TimecodeBurninSettings
+    TimecodeBurninSettings (..),
+    newTimecodeBurninSettings,
+    timecodeBurninSettings_prefix,
+    timecodeBurninSettings_position,
+    timecodeBurninSettings_fontSize,
+
     -- * TimecodeConfig
     TimecodeConfig (..),
     newTimecodeConfig,
@@ -2763,6 +2792,7 @@ import Amazonka.MediaLive.Types.AudioCodecSettings
 import Amazonka.MediaLive.Types.AudioDescription
 import Amazonka.MediaLive.Types.AudioDescriptionAudioTypeControl
 import Amazonka.MediaLive.Types.AudioDescriptionLanguageCodeControl
+import Amazonka.MediaLive.Types.AudioDolbyEDecode
 import Amazonka.MediaLive.Types.AudioHlsRenditionSelection
 import Amazonka.MediaLive.Types.AudioLanguageSelection
 import Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy
@@ -2819,6 +2849,7 @@ import Amazonka.MediaLive.Types.ColorSpacePassthroughSettings
 import Amazonka.MediaLive.Types.ContentType
 import Amazonka.MediaLive.Types.DeviceSettingsSyncState
 import Amazonka.MediaLive.Types.DeviceUpdateStatus
+import Amazonka.MediaLive.Types.DolbyEProgramSelection
 import Amazonka.MediaLive.Types.DolbyVision81Settings
 import Amazonka.MediaLive.Types.DvbNitSettings
 import Amazonka.MediaLive.Types.DvbSdtOutputSdt
@@ -3199,6 +3230,9 @@ import Amazonka.MediaLive.Types.TeletextSourceSettings
 import Amazonka.MediaLive.Types.TemporalFilterPostFilterSharpening
 import Amazonka.MediaLive.Types.TemporalFilterSettings
 import Amazonka.MediaLive.Types.TemporalFilterStrength
+import Amazonka.MediaLive.Types.TimecodeBurninFontSize
+import Amazonka.MediaLive.Types.TimecodeBurninPosition
+import Amazonka.MediaLive.Types.TimecodeBurninSettings
 import Amazonka.MediaLive.Types.TimecodeConfig
 import Amazonka.MediaLive.Types.TimecodeConfigSource
 import Amazonka.MediaLive.Types.TransferringInputDeviceSummary
@@ -3300,7 +3334,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Placeholder documentation for BadGatewayException
-_BadGatewayException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadGatewayException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadGatewayException =
   Core._MatchServiceError
     defaultService
@@ -3308,7 +3342,7 @@ _BadGatewayException =
     Prelude.. Core.hasStatus 502
 
 -- | Placeholder documentation for BadRequestException
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -3316,7 +3350,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Placeholder documentation for ConflictException
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -3324,7 +3358,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Placeholder documentation for ForbiddenException
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -3332,7 +3366,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | Placeholder documentation for GatewayTimeoutException
-_GatewayTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GatewayTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _GatewayTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -3340,7 +3374,7 @@ _GatewayTimeoutException =
     Prelude.. Core.hasStatus 504
 
 -- | Placeholder documentation for InternalServerErrorException
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -3348,7 +3382,7 @@ _InternalServerErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | Placeholder documentation for NotFoundException
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -3356,7 +3390,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Placeholder documentation for TooManyRequestsException
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -3364,7 +3398,7 @@ _TooManyRequestsException =
     Prelude.. Core.hasStatus 429
 
 -- | Placeholder documentation for UnprocessableEntityException
-_UnprocessableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnprocessableEntityException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnprocessableEntityException =
   Core._MatchServiceError
     defaultService

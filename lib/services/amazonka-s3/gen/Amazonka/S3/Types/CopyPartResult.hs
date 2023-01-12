@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.S3.Types.CopyPartResult
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ data CopyPartResult = CopyPartResult'
     -- | Entity tag of the object.
     eTag :: Prelude.Maybe ETag,
     -- | Date and time at which the object was uploaded.
-    lastModified :: Prelude.Maybe Data.ISO8601
+    lastModified :: Prelude.Maybe Data.RFC822
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

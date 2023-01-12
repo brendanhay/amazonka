@@ -254,6 +254,8 @@ haskell_library(
         "gen/Amazonka/CloudFront/Types/ResponseHeadersPolicyFrameOptions.hs",
         "gen/Amazonka/CloudFront/Types/ResponseHeadersPolicyList.hs",
         "gen/Amazonka/CloudFront/Types/ResponseHeadersPolicyReferrerPolicy.hs",
+        "gen/Amazonka/CloudFront/Types/ResponseHeadersPolicyRemoveHeader.hs",
+        "gen/Amazonka/CloudFront/Types/ResponseHeadersPolicyRemoveHeadersConfig.hs",
         "gen/Amazonka/CloudFront/Types/ResponseHeadersPolicySecurityHeadersConfig.hs",
         "gen/Amazonka/CloudFront/Types/ResponseHeadersPolicyServerTimingHeadersConfig.hs",
         "gen/Amazonka/CloudFront/Types/ResponseHeadersPolicyStrictTransportSecurity.hs",

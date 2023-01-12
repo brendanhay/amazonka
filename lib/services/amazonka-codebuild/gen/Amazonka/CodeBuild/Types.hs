@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CodeBuild.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -815,21 +815,21 @@ defaultService =
 
 -- | An Amazon Web Services service limit was exceeded for the calling Amazon
 -- Web Services account.
-_AccountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccountLimitExceededException =
   Core._MatchServiceError
     defaultService
     "AccountLimitExceededException"
 
 -- | The input value that was provided is not valid.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | There was a problem with the underlying OAuth provider.
-_OAuthProviderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OAuthProviderException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OAuthProviderException =
   Core._MatchServiceError
     defaultService
@@ -837,14 +837,14 @@ _OAuthProviderException =
 
 -- | The specified Amazon Web Services resource cannot be created, because an
 -- Amazon Web Services resource with the same settings already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
 
 -- | The specified Amazon Web Services resource cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

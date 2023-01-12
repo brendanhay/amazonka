@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.APIGateway.Types.Stage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,7 +38,9 @@ data Stage = Stage'
     accessLogSettings :: Prelude.Maybe AccessLogSettings,
     -- | Specifies whether a cache cluster is enabled for the stage.
     cacheClusterEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The size of the cache cluster for the stage, if enabled.
+    -- | The stage\'s cache capacity in GB. For more information about choosing a
+    -- cache size, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html Enabling API caching to enhance responsiveness>.
     cacheClusterSize :: Prelude.Maybe CacheClusterSize,
     -- | The status of the cache cluster for the stage, if enabled.
     cacheClusterStatus :: Prelude.Maybe CacheClusterStatus,
@@ -92,7 +94,9 @@ data Stage = Stage'
 --
 -- 'cacheClusterEnabled', 'stage_cacheClusterEnabled' - Specifies whether a cache cluster is enabled for the stage.
 --
--- 'cacheClusterSize', 'stage_cacheClusterSize' - The size of the cache cluster for the stage, if enabled.
+-- 'cacheClusterSize', 'stage_cacheClusterSize' - The stage\'s cache capacity in GB. For more information about choosing a
+-- cache size, see
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html Enabling API caching to enhance responsiveness>.
 --
 -- 'cacheClusterStatus', 'stage_cacheClusterStatus' - The status of the cache cluster for the stage, if enabled.
 --
@@ -161,7 +165,9 @@ stage_accessLogSettings = Lens.lens (\Stage' {accessLogSettings} -> accessLogSet
 stage_cacheClusterEnabled :: Lens.Lens' Stage (Prelude.Maybe Prelude.Bool)
 stage_cacheClusterEnabled = Lens.lens (\Stage' {cacheClusterEnabled} -> cacheClusterEnabled) (\s@Stage' {} a -> s {cacheClusterEnabled = a} :: Stage)
 
--- | The size of the cache cluster for the stage, if enabled.
+-- | The stage\'s cache capacity in GB. For more information about choosing a
+-- cache size, see
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html Enabling API caching to enhance responsiveness>.
 stage_cacheClusterSize :: Lens.Lens' Stage (Prelude.Maybe CacheClusterSize)
 stage_cacheClusterSize = Lens.lens (\Stage' {cacheClusterSize} -> cacheClusterSize) (\s@Stage' {} a -> s {cacheClusterSize = a} :: Stage)
 

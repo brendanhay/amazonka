@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipeline
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,7 +37,7 @@ data MediaCapturePipeline = MediaCapturePipeline'
     -- @ChimeSdkMeeting@.
     chimeSdkMeetingConfiguration :: Prelude.Maybe ChimeSdkMeetingConfiguration,
     -- | The time at which the pipeline was created, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the media capture pipeline
     mediaPipelineArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of a media pipeline.
@@ -55,7 +55,7 @@ data MediaCapturePipeline = MediaCapturePipeline'
     -- | The status of the media pipeline.
     status :: Prelude.Maybe MediaPipelineStatus,
     -- | The time at which the pipeline was updated, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

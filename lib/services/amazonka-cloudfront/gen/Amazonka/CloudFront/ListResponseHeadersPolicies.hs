@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListResponseHeadersPolicies
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,8 +65,8 @@ data ListResponseHeadersPolicies = ListResponseHeadersPolicies'
   { -- | Use this field when paginating results to indicate where to begin in
     -- your list of response headers policies. The response includes response
     -- headers policies in the list that occur after the marker. To get the
-    -- next page of the list, set this field’s value to the value of
-    -- @NextMarker@ from the current page’s response.
+    -- next page of the list, set this field\'s value to the value of
+    -- @NextMarker@ from the current page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response headers policies that you want to get in
     -- the response.
@@ -94,8 +94,8 @@ data ListResponseHeadersPolicies = ListResponseHeadersPolicies'
 -- 'marker', 'listResponseHeadersPolicies_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of response headers policies. The response includes response
 -- headers policies in the list that occur after the marker. To get the
--- next page of the list, set this field’s value to the value of
--- @NextMarker@ from the current page’s response.
+-- next page of the list, set this field\'s value to the value of
+-- @NextMarker@ from the current page\'s response.
 --
 -- 'maxItems', 'listResponseHeadersPolicies_maxItems' - The maximum number of response headers policies that you want to get in
 -- the response.
@@ -121,8 +121,8 @@ newListResponseHeadersPolicies =
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of response headers policies. The response includes response
 -- headers policies in the list that occur after the marker. To get the
--- next page of the list, set this field’s value to the value of
--- @NextMarker@ from the current page’s response.
+-- next page of the list, set this field\'s value to the value of
+-- @NextMarker@ from the current page\'s response.
 listResponseHeadersPolicies_marker :: Lens.Lens' ListResponseHeadersPolicies (Prelude.Maybe Prelude.Text)
 listResponseHeadersPolicies_marker = Lens.lens (\ListResponseHeadersPolicies' {marker} -> marker) (\s@ListResponseHeadersPolicies' {} a -> s {marker = a} :: ListResponseHeadersPolicies)
 

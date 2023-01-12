@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ControlTower.Types.ControlOperation
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newControlOperation' smart constructor.
 data ControlOperation = ControlOperation'
   { -- | The time that the operation finished.
-    endTime :: Prelude.Maybe Data.POSIX,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | One of @ENABLE_CONTROL@ or @DISABLE_CONTROL@.
     operationType :: Prelude.Maybe ControlOperationType,
     -- | The time that the operation began.
-    startTime :: Prelude.Maybe Data.POSIX,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | One of @IN_PROGRESS@, @SUCEEDED@, or @FAILED@.
     status :: Prelude.Maybe ControlOperationStatus,
     -- | If the operation result is @FAILED@, this string contains a message

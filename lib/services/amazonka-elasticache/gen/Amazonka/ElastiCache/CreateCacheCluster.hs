@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.CreateCacheCluster
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -371,10 +371,7 @@ data CreateCacheCluster = CreateCacheCluster'
     snapshotWindow :: Prelude.Maybe Prelude.Text,
     -- | A list of tags to be added to this resource.
     tags :: Prelude.Maybe [Tag],
-    -- | A flag that enables in-transit encryption when set to true. You cannot
-    -- modify the value of TransitEncryptionEnabled after the cluster is
-    -- created. To enable in-transit encryption on a cluster you must set
-    -- @TransitEncryptionEnabled@ to true when you create a cluster.
+    -- | A flag that enables in-transit encryption when set to true.
     --
     -- Only available when creating a cache cluster in an Amazon VPC using
     -- Memcached version 1.6.12 or later.
@@ -688,10 +685,7 @@ data CreateCacheCluster = CreateCacheCluster'
 --
 -- 'tags', 'createCacheCluster_tags' - A list of tags to be added to this resource.
 --
--- 'transitEncryptionEnabled', 'createCacheCluster_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. You cannot
--- modify the value of TransitEncryptionEnabled after the cluster is
--- created. To enable in-transit encryption on a cluster you must set
--- @TransitEncryptionEnabled@ to true when you create a cluster.
+-- 'transitEncryptionEnabled', 'createCacheCluster_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true.
 --
 -- Only available when creating a cache cluster in an Amazon VPC using
 -- Memcached version 1.6.12 or later.
@@ -1087,10 +1081,7 @@ createCacheCluster_snapshotWindow = Lens.lens (\CreateCacheCluster' {snapshotWin
 createCacheCluster_tags :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Tag])
 createCacheCluster_tags = Lens.lens (\CreateCacheCluster' {tags} -> tags) (\s@CreateCacheCluster' {} a -> s {tags = a} :: CreateCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | A flag that enables in-transit encryption when set to true. You cannot
--- modify the value of TransitEncryptionEnabled after the cluster is
--- created. To enable in-transit encryption on a cluster you must set
--- @TransitEncryptionEnabled@ to true when you create a cluster.
+-- | A flag that enables in-transit encryption when set to true.
 --
 -- Only available when creating a cache cluster in an Amazon VPC using
 -- Memcached version 1.6.12 or later.

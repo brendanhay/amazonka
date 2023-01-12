@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ResourceExplorer2.CreateView
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@
 -- Results from queries that you make using this view include only
 -- resources that match the view\'s @Filters@. For more information about
 -- Amazon Web Services Resource Explorer views, see
--- <https://docs.aws.amazon.com/arexug/mainline/manage-views.html Managing views>
+-- <https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html Managing views>
 -- in the /Amazon Web Services Resource Explorer User Guide/.
 --
 -- Only the principals with an IAM identity-based policy that grants

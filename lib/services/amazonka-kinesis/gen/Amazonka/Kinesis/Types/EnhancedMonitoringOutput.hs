@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.Types.EnhancedMonitoringOutput
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,6 +36,8 @@ data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
     -- | Represents the list of all the metrics that would be in the enhanced
     -- state after the operation.
     desiredShardLevelMetrics :: Prelude.Maybe [MetricsName],
+    -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the Kinesis data stream.
     streamName :: Prelude.Maybe Prelude.Text
   }
@@ -55,6 +57,8 @@ data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
 -- 'desiredShardLevelMetrics', 'enhancedMonitoringOutput_desiredShardLevelMetrics' - Represents the list of all the metrics that would be in the enhanced
 -- state after the operation.
 --
+-- 'streamARN', 'enhancedMonitoringOutput_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'enhancedMonitoringOutput_streamName' - The name of the Kinesis data stream.
 newEnhancedMonitoringOutput ::
   EnhancedMonitoringOutput
@@ -63,6 +67,7 @@ newEnhancedMonitoringOutput =
     { currentShardLevelMetrics =
         Prelude.Nothing,
       desiredShardLevelMetrics = Prelude.Nothing,
+      streamARN = Prelude.Nothing,
       streamName = Prelude.Nothing
     }
 
@@ -75,6 +80,10 @@ enhancedMonitoringOutput_currentShardLevelMetrics = Lens.lens (\EnhancedMonitori
 -- state after the operation.
 enhancedMonitoringOutput_desiredShardLevelMetrics :: Lens.Lens' EnhancedMonitoringOutput (Prelude.Maybe [MetricsName])
 enhancedMonitoringOutput_desiredShardLevelMetrics = Lens.lens (\EnhancedMonitoringOutput' {desiredShardLevelMetrics} -> desiredShardLevelMetrics) (\s@EnhancedMonitoringOutput' {} a -> s {desiredShardLevelMetrics = a} :: EnhancedMonitoringOutput) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN of the stream.
+enhancedMonitoringOutput_streamARN :: Lens.Lens' EnhancedMonitoringOutput (Prelude.Maybe Prelude.Text)
+enhancedMonitoringOutput_streamARN = Lens.lens (\EnhancedMonitoringOutput' {streamARN} -> streamARN) (\s@EnhancedMonitoringOutput' {} a -> s {streamARN = a} :: EnhancedMonitoringOutput)
 
 -- | The name of the Kinesis data stream.
 enhancedMonitoringOutput_streamName :: Lens.Lens' EnhancedMonitoringOutput (Prelude.Maybe Prelude.Text)
@@ -92,6 +101,7 @@ instance Data.FromJSON EnhancedMonitoringOutput where
             Prelude.<*> ( x Data..:? "DesiredShardLevelMetrics"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "StreamARN")
             Prelude.<*> (x Data..:? "StreamName")
       )
 
@@ -100,10 +110,12 @@ instance Prelude.Hashable EnhancedMonitoringOutput where
     _salt
       `Prelude.hashWithSalt` currentShardLevelMetrics
       `Prelude.hashWithSalt` desiredShardLevelMetrics
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData EnhancedMonitoringOutput where
   rnf EnhancedMonitoringOutput' {..} =
     Prelude.rnf currentShardLevelMetrics
       `Prelude.seq` Prelude.rnf desiredShardLevelMetrics
+      `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamName

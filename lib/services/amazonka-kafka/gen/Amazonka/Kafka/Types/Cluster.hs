@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Kafka.Types.Cluster
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,7 +43,7 @@ data Cluster = Cluster'
     -- | Cluster Type.
     clusterType :: Prelude.Maybe ClusterType,
     -- | The time when the cluster was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The current version of the MSK cluster.
     currentVersion :: Prelude.Maybe Prelude.Text,
     -- | Information about the provisioned cluster.

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DescribeTrialComponent
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -194,8 +194,8 @@ data DescribeTrialComponentResponse = DescribeTrialComponentResponse'
     -- | The Amazon Resource Name (ARN) of the source and, optionally, the job
     -- type.
     source :: Prelude.Maybe TrialComponentSource,
-    -- | A list of the Amazon Resource Name (ARN) and, if applicable, job type
-    -- for multiple sources of an experiment run.
+    -- | A list of ARNs and, if applicable, job types for multiple sources of an
+    -- experiment run.
     sources :: Prelude.Maybe [TrialComponentSource],
     -- | When the component started.
     startTime :: Prelude.Maybe Data.POSIX,
@@ -252,8 +252,8 @@ data DescribeTrialComponentResponse = DescribeTrialComponentResponse'
 -- 'source', 'describeTrialComponentResponse_source' - The Amazon Resource Name (ARN) of the source and, optionally, the job
 -- type.
 --
--- 'sources', 'describeTrialComponentResponse_sources' - A list of the Amazon Resource Name (ARN) and, if applicable, job type
--- for multiple sources of an experiment run.
+-- 'sources', 'describeTrialComponentResponse_sources' - A list of ARNs and, if applicable, job types for multiple sources of an
+-- experiment run.
 --
 -- 'startTime', 'describeTrialComponentResponse_startTime' - When the component started.
 --
@@ -352,8 +352,8 @@ describeTrialComponentResponse_parameters = Lens.lens (\DescribeTrialComponentRe
 describeTrialComponentResponse_source :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe TrialComponentSource)
 describeTrialComponentResponse_source = Lens.lens (\DescribeTrialComponentResponse' {source} -> source) (\s@DescribeTrialComponentResponse' {} a -> s {source = a} :: DescribeTrialComponentResponse)
 
--- | A list of the Amazon Resource Name (ARN) and, if applicable, job type
--- for multiple sources of an experiment run.
+-- | A list of ARNs and, if applicable, job types for multiple sources of an
+-- experiment run.
 describeTrialComponentResponse_sources :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe [TrialComponentSource])
 describeTrialComponentResponse_sources = Lens.lens (\DescribeTrialComponentResponse' {sources} -> sources) (\s@DescribeTrialComponentResponse' {} a -> s {sources = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Lens.coerced
 

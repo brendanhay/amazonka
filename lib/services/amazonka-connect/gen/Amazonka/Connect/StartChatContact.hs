@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.StartChatContact
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -105,8 +105,12 @@ data StartChatContact = StartChatContact'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The initial message to be sent to the newly created chat.
     initialMessage :: Prelude.Maybe ChatMessage,
-    -- | The supported chat message content types. Content types can be
-    -- text\/plain or both text\/plain and text\/markdown.
+    -- | The supported chat message content types. Content types must always
+    -- contain @text\/plain@. You can then put any other supported type in the
+    -- list. For example, all the following lists are valid because they
+    -- contain @text\/plain@:
+    -- @[text\/plain, text\/markdown, application\/json]@,
+    -- @[text\/markdown, text\/plain]@, @[text\/plain, application\/json]@.
     supportedMessagingContentTypes :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
@@ -153,8 +157,12 @@ data StartChatContact = StartChatContact'
 --
 -- 'initialMessage', 'startChatContact_initialMessage' - The initial message to be sent to the newly created chat.
 --
--- 'supportedMessagingContentTypes', 'startChatContact_supportedMessagingContentTypes' - The supported chat message content types. Content types can be
--- text\/plain or both text\/plain and text\/markdown.
+-- 'supportedMessagingContentTypes', 'startChatContact_supportedMessagingContentTypes' - The supported chat message content types. Content types must always
+-- contain @text\/plain@. You can then put any other supported type in the
+-- list. For example, all the following lists are valid because they
+-- contain @text\/plain@:
+-- @[text\/plain, text\/markdown, application\/json]@,
+-- @[text\/markdown, text\/plain]@, @[text\/plain, application\/json]@.
 --
 -- 'instanceId', 'startChatContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -220,8 +228,12 @@ startChatContact_clientToken = Lens.lens (\StartChatContact' {clientToken} -> cl
 startChatContact_initialMessage :: Lens.Lens' StartChatContact (Prelude.Maybe ChatMessage)
 startChatContact_initialMessage = Lens.lens (\StartChatContact' {initialMessage} -> initialMessage) (\s@StartChatContact' {} a -> s {initialMessage = a} :: StartChatContact)
 
--- | The supported chat message content types. Content types can be
--- text\/plain or both text\/plain and text\/markdown.
+-- | The supported chat message content types. Content types must always
+-- contain @text\/plain@. You can then put any other supported type in the
+-- list. For example, all the following lists are valid because they
+-- contain @text\/plain@:
+-- @[text\/plain, text\/markdown, application\/json]@,
+-- @[text\/markdown, text\/plain]@, @[text\/plain, application\/json]@.
 startChatContact_supportedMessagingContentTypes :: Lens.Lens' StartChatContact (Prelude.Maybe [Prelude.Text])
 startChatContact_supportedMessagingContentTypes = Lens.lens (\StartChatContact' {supportedMessagingContentTypes} -> supportedMessagingContentTypes) (\s@StartChatContact' {} a -> s {supportedMessagingContentTypes = a} :: StartChatContact) Prelude.. Lens.mapping Lens.coerced
 

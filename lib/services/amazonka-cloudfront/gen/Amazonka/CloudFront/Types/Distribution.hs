@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.Distribution
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,20 +33,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDistribution' smart constructor.
 data Distribution = Distribution'
-  { -- | CloudFront automatically adds this field to the response if you’ve
-    -- configured a cache behavior in this distribution to serve private
-    -- content using key groups. This field contains a list of key groups and
-    -- the public keys in each key group that CloudFront can use to verify the
-    -- signatures of signed URLs or signed cookies.
+  { -- | This field contains a list of key groups and the public keys in each key
+    -- group that CloudFront can use to verify the signatures of signed URLs or
+    -- signed cookies.
     activeTrustedKeyGroups :: Prelude.Maybe ActiveTrustedKeyGroups,
     -- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
     --
-    -- CloudFront automatically adds this field to the response if you’ve
-    -- configured a cache behavior in this distribution to serve private
-    -- content using trusted signers. This field contains a list of Amazon Web
-    -- Services account IDs and the active CloudFront key pairs in each account
-    -- that CloudFront can use to verify the signatures of signed URLs or
-    -- signed cookies.
+    -- This field contains a list of Amazon Web Services account IDs and the
+    -- active CloudFront key pairs in each account that CloudFront can use to
+    -- verify the signatures of signed URLs or signed cookies.
     activeTrustedSigners :: Prelude.Maybe ActiveTrustedSigners,
     -- | Amazon Web Services services in China customers must file for an
     -- Internet Content Provider (ICP) recordal if they want to serve content
@@ -58,22 +53,22 @@ data Distribution = Distribution'
     -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
     -- in /Getting Started with Amazon Web Services services in China/.
     aliasICPRecordals :: Prelude.Maybe [AliasICPRecordal],
-    -- | The distribution’s identifier. For example: @E1U5RQF7T870K0@.
+    -- | The distribution\'s identifier. For example: @E1U5RQF7T870K0@.
     id :: Prelude.Text,
-    -- | The distribution’s Amazon Resource Name (ARN).
+    -- | The distribution\'s Amazon Resource Name (ARN).
     arn :: Prelude.Text,
-    -- | The distribution’s status. When the status is @Deployed@, the
-    -- distribution’s information is fully propagated to all CloudFront edge
+    -- | The distribution\'s status. When the status is @Deployed@, the
+    -- distribution\'s information is fully propagated to all CloudFront edge
     -- locations.
     status :: Prelude.Text,
     -- | The date and time when the distribution was last modified.
     lastModifiedTime :: Data.ISO8601,
     -- | The number of invalidation batches currently in progress.
     inProgressInvalidationBatches :: Prelude.Int,
-    -- | The distribution’s CloudFront domain name. For example:
+    -- | The distribution\'s CloudFront domain name. For example:
     -- @d111111abcdef8.cloudfront.net@.
     domainName :: Prelude.Text,
-    -- | The distribution’s configuration.
+    -- | The distribution\'s configuration.
     distributionConfig :: DistributionConfig
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -86,20 +81,15 @@ data Distribution = Distribution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'activeTrustedKeyGroups', 'distribution_activeTrustedKeyGroups' - CloudFront automatically adds this field to the response if you’ve
--- configured a cache behavior in this distribution to serve private
--- content using key groups. This field contains a list of key groups and
--- the public keys in each key group that CloudFront can use to verify the
--- signatures of signed URLs or signed cookies.
+-- 'activeTrustedKeyGroups', 'distribution_activeTrustedKeyGroups' - This field contains a list of key groups and the public keys in each key
+-- group that CloudFront can use to verify the signatures of signed URLs or
+-- signed cookies.
 --
 -- 'activeTrustedSigners', 'distribution_activeTrustedSigners' - We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
 --
--- CloudFront automatically adds this field to the response if you’ve
--- configured a cache behavior in this distribution to serve private
--- content using trusted signers. This field contains a list of Amazon Web
--- Services account IDs and the active CloudFront key pairs in each account
--- that CloudFront can use to verify the signatures of signed URLs or
--- signed cookies.
+-- This field contains a list of Amazon Web Services account IDs and the
+-- active CloudFront key pairs in each account that CloudFront can use to
+-- verify the signatures of signed URLs or signed cookies.
 --
 -- 'aliasICPRecordals', 'distribution_aliasICPRecordals' - Amazon Web Services services in China customers must file for an
 -- Internet Content Provider (ICP) recordal if they want to serve content
@@ -111,22 +101,22 @@ data Distribution = Distribution'
 -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
 -- in /Getting Started with Amazon Web Services services in China/.
 --
--- 'id', 'distribution_id' - The distribution’s identifier. For example: @E1U5RQF7T870K0@.
+-- 'id', 'distribution_id' - The distribution\'s identifier. For example: @E1U5RQF7T870K0@.
 --
--- 'arn', 'distribution_arn' - The distribution’s Amazon Resource Name (ARN).
+-- 'arn', 'distribution_arn' - The distribution\'s Amazon Resource Name (ARN).
 --
--- 'status', 'distribution_status' - The distribution’s status. When the status is @Deployed@, the
--- distribution’s information is fully propagated to all CloudFront edge
+-- 'status', 'distribution_status' - The distribution\'s status. When the status is @Deployed@, the
+-- distribution\'s information is fully propagated to all CloudFront edge
 -- locations.
 --
 -- 'lastModifiedTime', 'distribution_lastModifiedTime' - The date and time when the distribution was last modified.
 --
 -- 'inProgressInvalidationBatches', 'distribution_inProgressInvalidationBatches' - The number of invalidation batches currently in progress.
 --
--- 'domainName', 'distribution_domainName' - The distribution’s CloudFront domain name. For example:
+-- 'domainName', 'distribution_domainName' - The distribution\'s CloudFront domain name. For example:
 -- @d111111abcdef8.cloudfront.net@.
 --
--- 'distributionConfig', 'distribution_distributionConfig' - The distribution’s configuration.
+-- 'distributionConfig', 'distribution_distributionConfig' - The distribution\'s configuration.
 newDistribution ::
   -- | 'id'
   Prelude.Text ->
@@ -167,22 +157,17 @@ newDistribution
         distributionConfig = pDistributionConfig_
       }
 
--- | CloudFront automatically adds this field to the response if you’ve
--- configured a cache behavior in this distribution to serve private
--- content using key groups. This field contains a list of key groups and
--- the public keys in each key group that CloudFront can use to verify the
--- signatures of signed URLs or signed cookies.
+-- | This field contains a list of key groups and the public keys in each key
+-- group that CloudFront can use to verify the signatures of signed URLs or
+-- signed cookies.
 distribution_activeTrustedKeyGroups :: Lens.Lens' Distribution (Prelude.Maybe ActiveTrustedKeyGroups)
 distribution_activeTrustedKeyGroups = Lens.lens (\Distribution' {activeTrustedKeyGroups} -> activeTrustedKeyGroups) (\s@Distribution' {} a -> s {activeTrustedKeyGroups = a} :: Distribution)
 
 -- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
 --
--- CloudFront automatically adds this field to the response if you’ve
--- configured a cache behavior in this distribution to serve private
--- content using trusted signers. This field contains a list of Amazon Web
--- Services account IDs and the active CloudFront key pairs in each account
--- that CloudFront can use to verify the signatures of signed URLs or
--- signed cookies.
+-- This field contains a list of Amazon Web Services account IDs and the
+-- active CloudFront key pairs in each account that CloudFront can use to
+-- verify the signatures of signed URLs or signed cookies.
 distribution_activeTrustedSigners :: Lens.Lens' Distribution (Prelude.Maybe ActiveTrustedSigners)
 distribution_activeTrustedSigners = Lens.lens (\Distribution' {activeTrustedSigners} -> activeTrustedSigners) (\s@Distribution' {} a -> s {activeTrustedSigners = a} :: Distribution)
 
@@ -198,16 +183,16 @@ distribution_activeTrustedSigners = Lens.lens (\Distribution' {activeTrustedSign
 distribution_aliasICPRecordals :: Lens.Lens' Distribution (Prelude.Maybe [AliasICPRecordal])
 distribution_aliasICPRecordals = Lens.lens (\Distribution' {aliasICPRecordals} -> aliasICPRecordals) (\s@Distribution' {} a -> s {aliasICPRecordals = a} :: Distribution) Prelude.. Lens.mapping Lens.coerced
 
--- | The distribution’s identifier. For example: @E1U5RQF7T870K0@.
+-- | The distribution\'s identifier. For example: @E1U5RQF7T870K0@.
 distribution_id :: Lens.Lens' Distribution Prelude.Text
 distribution_id = Lens.lens (\Distribution' {id} -> id) (\s@Distribution' {} a -> s {id = a} :: Distribution)
 
--- | The distribution’s Amazon Resource Name (ARN).
+-- | The distribution\'s Amazon Resource Name (ARN).
 distribution_arn :: Lens.Lens' Distribution Prelude.Text
 distribution_arn = Lens.lens (\Distribution' {arn} -> arn) (\s@Distribution' {} a -> s {arn = a} :: Distribution)
 
--- | The distribution’s status. When the status is @Deployed@, the
--- distribution’s information is fully propagated to all CloudFront edge
+-- | The distribution\'s status. When the status is @Deployed@, the
+-- distribution\'s information is fully propagated to all CloudFront edge
 -- locations.
 distribution_status :: Lens.Lens' Distribution Prelude.Text
 distribution_status = Lens.lens (\Distribution' {status} -> status) (\s@Distribution' {} a -> s {status = a} :: Distribution)
@@ -220,12 +205,12 @@ distribution_lastModifiedTime = Lens.lens (\Distribution' {lastModifiedTime} -> 
 distribution_inProgressInvalidationBatches :: Lens.Lens' Distribution Prelude.Int
 distribution_inProgressInvalidationBatches = Lens.lens (\Distribution' {inProgressInvalidationBatches} -> inProgressInvalidationBatches) (\s@Distribution' {} a -> s {inProgressInvalidationBatches = a} :: Distribution)
 
--- | The distribution’s CloudFront domain name. For example:
+-- | The distribution\'s CloudFront domain name. For example:
 -- @d111111abcdef8.cloudfront.net@.
 distribution_domainName :: Lens.Lens' Distribution Prelude.Text
 distribution_domainName = Lens.lens (\Distribution' {domainName} -> domainName) (\s@Distribution' {} a -> s {domainName = a} :: Distribution)
 
--- | The distribution’s configuration.
+-- | The distribution\'s configuration.
 distribution_distributionConfig :: Lens.Lens' Distribution DistributionConfig
 distribution_distributionConfig = Lens.lens (\Distribution' {distributionConfig} -> distributionConfig) (\s@Distribution' {} a -> s {distributionConfig = a} :: Distribution)
 

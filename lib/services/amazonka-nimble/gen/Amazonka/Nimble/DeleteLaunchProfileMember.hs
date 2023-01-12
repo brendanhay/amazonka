@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.DeleteLaunchProfileMember
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,11 +52,12 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteLaunchProfileMember' smart constructor.
 data DeleteLaunchProfileMember = DeleteLaunchProfileMember'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Launch Profile ID.
+    -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Text,
     -- | The principal ID. This currently supports a IAM Identity Center UserId.
     principalId :: Prelude.Text,
@@ -74,11 +75,12 @@ data DeleteLaunchProfileMember = DeleteLaunchProfileMember'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'deleteLaunchProfileMember_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
--- 'launchProfileId', 'deleteLaunchProfileMember_launchProfileId' - The Launch Profile ID.
+-- 'launchProfileId', 'deleteLaunchProfileMember_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'principalId', 'deleteLaunchProfileMember_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
@@ -104,13 +106,14 @@ newDeleteLaunchProfileMember
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 deleteLaunchProfileMember_clientToken :: Lens.Lens' DeleteLaunchProfileMember (Prelude.Maybe Prelude.Text)
 deleteLaunchProfileMember_clientToken = Lens.lens (\DeleteLaunchProfileMember' {clientToken} -> clientToken) (\s@DeleteLaunchProfileMember' {} a -> s {clientToken = a} :: DeleteLaunchProfileMember)
 
--- | The Launch Profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 deleteLaunchProfileMember_launchProfileId :: Lens.Lens' DeleteLaunchProfileMember Prelude.Text
 deleteLaunchProfileMember_launchProfileId = Lens.lens (\DeleteLaunchProfileMember' {launchProfileId} -> launchProfileId) (\s@DeleteLaunchProfileMember' {} a -> s {launchProfileId = a} :: DeleteLaunchProfileMember)
 

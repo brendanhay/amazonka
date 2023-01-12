@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.M2.CreateDeployment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates and starts a deployment to deploy an application into an
+-- Creates and starts a deployment to deploy an application into a runtime
 -- environment.
 module Amazonka.M2.CreateDeployment
   ( -- * Creating a Request
@@ -64,8 +64,8 @@ data CreateDeployment = CreateDeployment'
     applicationId :: Prelude.Text,
     -- | The version of the application to deploy.
     applicationVersion :: Prelude.Natural,
-    -- | The identifier of the environment where this application will be
-    -- deployed.
+    -- | The identifier of the runtime environment where you want to deploy this
+    -- application.
     environmentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,8 +89,8 @@ data CreateDeployment = CreateDeployment'
 --
 -- 'applicationVersion', 'createDeployment_applicationVersion' - The version of the application to deploy.
 --
--- 'environmentId', 'createDeployment_environmentId' - The identifier of the environment where this application will be
--- deployed.
+-- 'environmentId', 'createDeployment_environmentId' - The identifier of the runtime environment where you want to deploy this
+-- application.
 newCreateDeployment ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -127,8 +127,8 @@ createDeployment_applicationId = Lens.lens (\CreateDeployment' {applicationId} -
 createDeployment_applicationVersion :: Lens.Lens' CreateDeployment Prelude.Natural
 createDeployment_applicationVersion = Lens.lens (\CreateDeployment' {applicationVersion} -> applicationVersion) (\s@CreateDeployment' {} a -> s {applicationVersion = a} :: CreateDeployment)
 
--- | The identifier of the environment where this application will be
--- deployed.
+-- | The identifier of the runtime environment where you want to deploy this
+-- application.
 createDeployment_environmentId :: Lens.Lens' CreateDeployment Prelude.Text
 createDeployment_environmentId = Lens.lens (\CreateDeployment' {environmentId} -> environmentId) (\s@CreateDeployment' {} a -> s {environmentId = a} :: CreateDeployment)
 

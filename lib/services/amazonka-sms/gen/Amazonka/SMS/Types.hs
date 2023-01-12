@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SMS.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -473,56 +473,56 @@ defaultService =
 
 -- | The user has the required permissions, so the request would have
 -- succeeded, but a dry run was performed.
-_DryRunOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DryRunOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DryRunOperationException =
   Core._MatchServiceError
     defaultService
     "DryRunOperationException"
 
 -- | An internal error occurred.
-_InternalError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalError =
   Core._MatchServiceError
     defaultService
     "InternalError"
 
 -- | A specified parameter is not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | A required parameter is missing.
-_MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingRequiredParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MissingRequiredParameterException =
   Core._MatchServiceError
     defaultService
     "MissingRequiredParameterException"
 
 -- | There are no connectors available.
-_NoConnectorsAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoConnectorsAvailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoConnectorsAvailableException =
   Core._MatchServiceError
     defaultService
     "NoConnectorsAvailableException"
 
 -- | This operation is not allowed.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
     "OperationNotPermittedException"
 
 -- | The specified replication job already exists.
-_ReplicationJobAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationJobAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ReplicationJobAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ReplicationJobAlreadyExistsException"
 
 -- | The specified replication job does not exist.
-_ReplicationJobNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationJobNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ReplicationJobNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -530,21 +530,21 @@ _ReplicationJobNotFoundException =
 
 -- | You have exceeded the number of on-demand replication runs you can
 -- request in a 24-hour period.
-_ReplicationRunLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationRunLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ReplicationRunLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ReplicationRunLimitExceededException"
 
 -- | The specified server cannot be replicated.
-_ServerCannotBeReplicatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerCannotBeReplicatedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServerCannotBeReplicatedException =
   Core._MatchServiceError
     defaultService
     "ServerCannotBeReplicatedException"
 
 -- | The service is temporarily unavailable.
-_TemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TemporarilyUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TemporarilyUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -552,7 +552,7 @@ _TemporarilyUnavailableException =
 
 -- | You lack permissions needed to perform this operation. Check your IAM
 -- policies, and ensure that you are using the correct access keys.
-_UnauthorizedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UnauthorizedOperationException =
   Core._MatchServiceError
     defaultService

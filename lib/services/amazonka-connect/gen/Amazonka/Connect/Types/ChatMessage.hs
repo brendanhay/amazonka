@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Types.ChatMessage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,9 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChatMessage' smart constructor.
 data ChatMessage = ChatMessage'
-  { -- | The type of the content. Supported types are @text\/plain@.
+  { -- | The type of the content. Supported types are @text\/plain@,
+    -- @text\/markdown@, and @application\/json@.
     contentType :: Prelude.Text,
     -- | The content of the chat message.
+    --
+    -- -   For @text\/plain@ and @text\/markdown@, the Length Constraints are
+    --     Minimum of 1, Maximum of 1024.
+    --
+    -- -   For @application\/json@, the Length Constraints are Minimum of 1,
+    --     Maximum of 12000.
     content :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +50,16 @@ data ChatMessage = ChatMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contentType', 'chatMessage_contentType' - The type of the content. Supported types are @text\/plain@.
+-- 'contentType', 'chatMessage_contentType' - The type of the content. Supported types are @text\/plain@,
+-- @text\/markdown@, and @application\/json@.
 --
 -- 'content', 'chatMessage_content' - The content of the chat message.
+--
+-- -   For @text\/plain@ and @text\/markdown@, the Length Constraints are
+--     Minimum of 1, Maximum of 1024.
+--
+-- -   For @application\/json@, the Length Constraints are Minimum of 1,
+--     Maximum of 12000.
 newChatMessage ::
   -- | 'contentType'
   Prelude.Text ->
@@ -58,11 +72,18 @@ newChatMessage pContentType_ pContent_ =
       content = pContent_
     }
 
--- | The type of the content. Supported types are @text\/plain@.
+-- | The type of the content. Supported types are @text\/plain@,
+-- @text\/markdown@, and @application\/json@.
 chatMessage_contentType :: Lens.Lens' ChatMessage Prelude.Text
 chatMessage_contentType = Lens.lens (\ChatMessage' {contentType} -> contentType) (\s@ChatMessage' {} a -> s {contentType = a} :: ChatMessage)
 
 -- | The content of the chat message.
+--
+-- -   For @text\/plain@ and @text\/markdown@, the Length Constraints are
+--     Minimum of 1, Maximum of 1024.
+--
+-- -   For @application\/json@, the Length Constraints are Minimum of 1,
+--     Maximum of 12000.
 chatMessage_content :: Lens.Lens' ChatMessage Prelude.Text
 chatMessage_content = Lens.lens (\ChatMessage' {content} -> content) (\s@ChatMessage' {} a -> s {content = a} :: ChatMessage)
 

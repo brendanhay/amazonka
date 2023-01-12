@@ -14,24 +14,24 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.ImportCertificateAuthorityCertificate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports a signed private CA certificate into ACM Private CA. This action
--- is used when you are using a chain of trust whose root is located
--- outside ACM Private CA. Before you can call this action, the following
--- preparations must in place:
+-- Imports a signed private CA certificate into Amazon Web Services Private
+-- CA. This action is used when you are using a chain of trust whose root
+-- is located outside Amazon Web Services Private CA. Before you can call
+-- this action, the following preparations must in place:
 --
--- 1.  In ACM Private CA, call the
---     <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
+-- 1.  In Amazon Web Services Private CA, call the
+--     <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
 --     action to create the private CA that you plan to back with the
 --     imported certificate.
 --
 -- 2.  Call the
---     <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificateAuthorityCsr.html GetCertificateAuthorityCsr>
+--     <https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html GetCertificateAuthorityCsr>
 --     action to generate a certificate signing request (CSR).
 --
 -- 3.  Sign the CSR using a root or intermediate CA hosted by either an
@@ -40,12 +40,14 @@
 -- 4.  Create a certificate chain and copy the signed certificate and the
 --     certificate chain to your working directory.
 --
--- ACM Private CA supports three scenarios for installing a CA certificate:
+-- Amazon Web Services Private CA supports three scenarios for installing a
+-- CA certificate:
 --
--- -   Installing a certificate for a root CA hosted by ACM Private CA.
+-- -   Installing a certificate for a root CA hosted by Amazon Web Services
+--     Private CA.
 --
 -- -   Installing a subordinate CA certificate whose parent authority is
---     hosted by ACM Private CA.
+--     hosted by Amazon Web Services Private CA.
 --
 -- -   Installing a subordinate CA certificate whose parent authority is
 --     externally hosted.
@@ -73,8 +75,8 @@
 --
 -- /Enforcement of Critical Constraints/
 --
--- ACM Private CA allows the following extensions to be marked critical in
--- the imported CA certificate or chain.
+-- Amazon Web Services Private CA allows the following extensions to be
+-- marked critical in the imported CA certificate or chain.
 --
 -- -   Basic constraints (/must/ be marked critical)
 --
@@ -100,8 +102,8 @@
 --
 -- -   Inhibit anyPolicy
 --
--- ACM Private CA rejects the following extensions when they are marked
--- critical in an imported CA certificate or chain.
+-- Amazon Web Services Private CA rejects the following extensions when
+-- they are marked critical in an imported CA certificate or chain.
 --
 -- -   Name constraints
 --
@@ -141,15 +143,16 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newImportCertificateAuthorityCertificate' smart constructor.
 data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertificate'
   { -- | A PEM-encoded file that contains all of your certificates, other than
-    -- the certificate you\'re importing, chaining up to your root CA. Your ACM
-    -- Private CA-hosted or on-premises root certificate is the last in the
-    -- chain, and each certificate in the chain signs the one preceding.
+    -- the certificate you\'re importing, chaining up to your root CA. Your
+    -- Amazon Web Services Private CA-hosted or on-premises root certificate is
+    -- the last in the chain, and each certificate in the chain signs the one
+    -- preceding.
     --
     -- This parameter must be supplied when you import a subordinate CA. When
     -- you import a root CA, there is no chain.
     certificateChain :: Prelude.Maybe Data.Base64,
     -- | The Amazon Resource Name (ARN) that was returned when you called
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
@@ -170,9 +173,10 @@ data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertifica
 -- for backwards compatibility:
 --
 -- 'certificateChain', 'importCertificateAuthorityCertificate_certificateChain' - A PEM-encoded file that contains all of your certificates, other than
--- the certificate you\'re importing, chaining up to your root CA. Your ACM
--- Private CA-hosted or on-premises root certificate is the last in the
--- chain, and each certificate in the chain signs the one preceding.
+-- the certificate you\'re importing, chaining up to your root CA. Your
+-- Amazon Web Services Private CA-hosted or on-premises root certificate is
+-- the last in the chain, and each certificate in the chain signs the one
+-- preceding.
 --
 -- This parameter must be supplied when you import a subordinate CA. When
 -- you import a root CA, there is no chain.--
@@ -182,7 +186,7 @@ data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertifica
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'certificateAuthorityArn', 'importCertificateAuthorityCertificate_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
@@ -213,9 +217,10 @@ newImportCertificateAuthorityCertificate
       }
 
 -- | A PEM-encoded file that contains all of your certificates, other than
--- the certificate you\'re importing, chaining up to your root CA. Your ACM
--- Private CA-hosted or on-premises root certificate is the last in the
--- chain, and each certificate in the chain signs the one preceding.
+-- the certificate you\'re importing, chaining up to your root CA. Your
+-- Amazon Web Services Private CA-hosted or on-premises root certificate is
+-- the last in the chain, and each certificate in the chain signs the one
+-- preceding.
 --
 -- This parameter must be supplied when you import a subordinate CA. When
 -- you import a root CA, there is no chain.--
@@ -227,7 +232,7 @@ importCertificateAuthorityCertificate_certificateChain :: Lens.Lens' ImportCerti
 importCertificateAuthorityCertificate_certificateChain = Lens.lens (\ImportCertificateAuthorityCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificateAuthorityCertificate' {} a -> s {certificateChain = a} :: ImportCertificateAuthorityCertificate) Prelude.. Lens.mapping Data._Base64
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Pinpoint.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -2346,7 +2346,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Provides information about an API request or response.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -2354,7 +2354,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Provides information about an API request or response.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -2362,7 +2362,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Provides information about an API request or response.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -2370,7 +2370,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | Provides information about an API request or response.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -2378,7 +2378,7 @@ _InternalServerErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | Provides information about an API request or response.
-_MethodNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MethodNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MethodNotAllowedException =
   Core._MatchServiceError
     defaultService
@@ -2386,7 +2386,7 @@ _MethodNotAllowedException =
     Prelude.. Core.hasStatus 405
 
 -- | Provides information about an API request or response.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -2394,7 +2394,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Provides information about an API request or response.
-_PayloadTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PayloadTooLargeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PayloadTooLargeException =
   Core._MatchServiceError
     defaultService
@@ -2402,7 +2402,7 @@ _PayloadTooLargeException =
     Prelude.. Core.hasStatus 413
 
 -- | Provides information about an API request or response.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

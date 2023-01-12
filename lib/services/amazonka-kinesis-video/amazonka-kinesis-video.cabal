@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -48,7 +48,10 @@ library
     Amazonka.KinesisVideo.CreateStream
     Amazonka.KinesisVideo.DeleteSignalingChannel
     Amazonka.KinesisVideo.DeleteStream
+    Amazonka.KinesisVideo.DescribeEdgeConfiguration
     Amazonka.KinesisVideo.DescribeImageGenerationConfiguration
+    Amazonka.KinesisVideo.DescribeMappedResourceConfiguration
+    Amazonka.KinesisVideo.DescribeMediaStorageConfiguration
     Amazonka.KinesisVideo.DescribeNotificationConfiguration
     Amazonka.KinesisVideo.DescribeSignalingChannel
     Amazonka.KinesisVideo.DescribeStream
@@ -59,6 +62,7 @@ library
     Amazonka.KinesisVideo.ListStreams
     Amazonka.KinesisVideo.ListTagsForResource
     Amazonka.KinesisVideo.ListTagsForStream
+    Amazonka.KinesisVideo.StartEdgeConfigurationUpdate
     Amazonka.KinesisVideo.TagResource
     Amazonka.KinesisVideo.TagStream
     Amazonka.KinesisVideo.Types
@@ -70,25 +74,39 @@ library
     Amazonka.KinesisVideo.Types.ChannelType
     Amazonka.KinesisVideo.Types.ComparisonOperator
     Amazonka.KinesisVideo.Types.ConfigurationStatus
+    Amazonka.KinesisVideo.Types.DeletionConfig
+    Amazonka.KinesisVideo.Types.EdgeConfig
     Amazonka.KinesisVideo.Types.Format
     Amazonka.KinesisVideo.Types.FormatConfigKey
     Amazonka.KinesisVideo.Types.ImageGenerationConfiguration
     Amazonka.KinesisVideo.Types.ImageGenerationDestinationConfig
     Amazonka.KinesisVideo.Types.ImageSelectorType
+    Amazonka.KinesisVideo.Types.LocalSizeConfig
+    Amazonka.KinesisVideo.Types.MappedResourceConfigurationListItem
+    Amazonka.KinesisVideo.Types.MediaSourceConfig
+    Amazonka.KinesisVideo.Types.MediaStorageConfiguration
+    Amazonka.KinesisVideo.Types.MediaStorageConfigurationStatus
+    Amazonka.KinesisVideo.Types.MediaUriType
     Amazonka.KinesisVideo.Types.NotificationConfiguration
     Amazonka.KinesisVideo.Types.NotificationDestinationConfig
+    Amazonka.KinesisVideo.Types.RecorderConfig
     Amazonka.KinesisVideo.Types.ResourceEndpointListItem
+    Amazonka.KinesisVideo.Types.ScheduleConfig
     Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
     Amazonka.KinesisVideo.Types.SingleMasterConfiguration
+    Amazonka.KinesisVideo.Types.StrategyOnFullSize
     Amazonka.KinesisVideo.Types.StreamInfo
     Amazonka.KinesisVideo.Types.StreamNameCondition
     Amazonka.KinesisVideo.Types.StreamStatus
+    Amazonka.KinesisVideo.Types.SyncStatus
     Amazonka.KinesisVideo.Types.Tag
     Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation
+    Amazonka.KinesisVideo.Types.UploaderConfig
     Amazonka.KinesisVideo.UntagResource
     Amazonka.KinesisVideo.UntagStream
     Amazonka.KinesisVideo.UpdateDataRetention
     Amazonka.KinesisVideo.UpdateImageGenerationConfiguration
+    Amazonka.KinesisVideo.UpdateMediaStorageConfiguration
     Amazonka.KinesisVideo.UpdateNotificationConfiguration
     Amazonka.KinesisVideo.UpdateSignalingChannel
     Amazonka.KinesisVideo.UpdateStream

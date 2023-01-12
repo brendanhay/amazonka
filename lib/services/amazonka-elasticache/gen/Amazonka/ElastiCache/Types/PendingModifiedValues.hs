@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.Types.PendingModifiedValues
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
 import Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration
+import Amazonka.ElastiCache.Types.TransitEncryptionMode
 import qualified Amazonka.Prelude as Prelude
 
 -- | A group of settings that are applied to the cluster in the future, or
@@ -47,7 +48,12 @@ data PendingModifiedValues = PendingModifiedValues'
     --
     -- For clusters running Redis, this value must be 1. For clusters running
     -- Memcached, this value must be between 1 and 40.
-    numCacheNodes :: Prelude.Maybe Prelude.Int
+    numCacheNodes :: Prelude.Maybe Prelude.Int,
+    -- | A flag that enables in-transit encryption when set to true.
+    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | A setting that allows you to migrate your clients to use in-transit
+    -- encryption, with no downtime.
+    transitEncryptionMode :: Prelude.Maybe TransitEncryptionMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,6 +81,11 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- For clusters running Redis, this value must be 1. For clusters running
 -- Memcached, this value must be between 1 and 40.
+--
+-- 'transitEncryptionEnabled', 'pendingModifiedValues_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true.
+--
+-- 'transitEncryptionMode', 'pendingModifiedValues_transitEncryptionMode' - A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
 newPendingModifiedValues ::
   PendingModifiedValues
 newPendingModifiedValues =
@@ -85,7 +96,9 @@ newPendingModifiedValues =
       cacheNodeType = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       logDeliveryConfigurations = Prelude.Nothing,
-      numCacheNodes = Prelude.Nothing
+      numCacheNodes = Prelude.Nothing,
+      transitEncryptionEnabled = Prelude.Nothing,
+      transitEncryptionMode = Prelude.Nothing
     }
 
 -- | The auth token status
@@ -117,6 +130,15 @@ pendingModifiedValues_logDeliveryConfigurations = Lens.lens (\PendingModifiedVal
 pendingModifiedValues_numCacheNodes :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
 pendingModifiedValues_numCacheNodes = Lens.lens (\PendingModifiedValues' {numCacheNodes} -> numCacheNodes) (\s@PendingModifiedValues' {} a -> s {numCacheNodes = a} :: PendingModifiedValues)
 
+-- | A flag that enables in-transit encryption when set to true.
+pendingModifiedValues_transitEncryptionEnabled :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Bool)
+pendingModifiedValues_transitEncryptionEnabled = Lens.lens (\PendingModifiedValues' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@PendingModifiedValues' {} a -> s {transitEncryptionEnabled = a} :: PendingModifiedValues)
+
+-- | A setting that allows you to migrate your clients to use in-transit
+-- encryption, with no downtime.
+pendingModifiedValues_transitEncryptionMode :: Lens.Lens' PendingModifiedValues (Prelude.Maybe TransitEncryptionMode)
+pendingModifiedValues_transitEncryptionMode = Lens.lens (\PendingModifiedValues' {transitEncryptionMode} -> transitEncryptionMode) (\s@PendingModifiedValues' {} a -> s {transitEncryptionMode = a} :: PendingModifiedValues)
+
 instance Data.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
@@ -132,6 +154,8 @@ instance Data.FromXML PendingModifiedValues where
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "NumCacheNodes")
+      Prelude.<*> (x Data..@? "TransitEncryptionEnabled")
+      Prelude.<*> (x Data..@? "TransitEncryptionMode")
 
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =
@@ -141,6 +165,8 @@ instance Prelude.Hashable PendingModifiedValues where
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` logDeliveryConfigurations
       `Prelude.hashWithSalt` numCacheNodes
+      `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` transitEncryptionMode
 
 instance Prelude.NFData PendingModifiedValues where
   rnf PendingModifiedValues' {..} =
@@ -150,3 +176,5 @@ instance Prelude.NFData PendingModifiedValues where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
       `Prelude.seq` Prelude.rnf numCacheNodes
+      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf transitEncryptionMode

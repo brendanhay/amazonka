@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.CreateDBInstance
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,6 +46,7 @@ module Amazonka.RDS.CreateDBInstance
     createDBInstance_availabilityZone,
     createDBInstance_backupRetentionPeriod,
     createDBInstance_backupTarget,
+    createDBInstance_cACertificateIdentifier,
     createDBInstance_characterSetName,
     createDBInstance_copyTagsToSnapshot,
     createDBInstance_customIamInstanceProfile,
@@ -65,7 +66,9 @@ module Amazonka.RDS.CreateDBInstance
     createDBInstance_iops,
     createDBInstance_kmsKeyId,
     createDBInstance_licenseModel,
+    createDBInstance_manageMasterUserPassword,
     createDBInstance_masterUserPassword,
+    createDBInstance_masterUserSecretKmsKeyId,
     createDBInstance_masterUsername,
     createDBInstance_maxAllocatedStorage,
     createDBInstance_monitoringInterval,
@@ -272,6 +275,17 @@ data CreateDBInstance = CreateDBInstance'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
     -- in the /Amazon RDS User Guide/.
     backupTarget :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the CA certificate identifier to use for the DB instance’s
+    -- server certificate.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+    -- in the /Amazon Aurora User Guide/.
+    cACertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | For supported engines, this value indicates that the DB instance should
     -- be associated with the specified @CharacterSet@.
     --
@@ -537,7 +551,7 @@ data CreateDBInstance = CreateDBInstance'
     -- in the /Amazon RDS User Guide/.
     --
     -- For more information about CoIPs, see
-    -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+    -- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
     -- in the /Amazon Web Services Outposts User Guide/.
     enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
@@ -672,6 +686,18 @@ data CreateDBInstance = CreateDBInstance'
     --
     -- Not applicable.
     licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to manage the master user password with
+    -- Amazon Web Services Secrets Manager.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- Constraints:
+    --
+    -- -   Can\'t manage the master user password with Amazon Web Services
+    --     Secrets Manager if @MasterUserPassword@ is specified.
+    manageMasterUserPassword :: Prelude.Maybe Prelude.Bool,
     -- | The password for the master user. The password can include any printable
     -- ASCII character except \"\/\", \"\"\", or \"\@\".
     --
@@ -679,6 +705,9 @@ data CreateDBInstance = CreateDBInstance'
     --
     -- Not applicable. The password for the master user is managed by the DB
     -- cluster.
+    --
+    -- Constraints: Can\'t be specified if @ManageMasterUserPassword@ is turned
+    -- on.
     --
     -- __MariaDB__
     --
@@ -700,6 +729,27 @@ data CreateDBInstance = CreateDBInstance'
     --
     -- Constraints: Must contain from 8 to 128 characters.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+    -- automatically generated and managed in Amazon Web Services Secrets
+    -- Manager.
+    --
+    -- This setting is valid only if the master user password is managed by RDS
+    -- in Amazon Web Services Secrets Manager for the DB instance.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the KMS key. To use a KMS key in a different
+    -- Amazon Web Services account, specify the key ARN or alias ARN.
+    --
+    -- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+    -- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+    -- secret is in a different Amazon Web Services account, then you can\'t
+    -- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+    -- must use a customer managed KMS key.
+    --
+    -- There is a default KMS key for your Amazon Web Services account. Your
+    -- Amazon Web Services account has a different default KMS key for each
+    -- Amazon Web Services Region.
+    masterUserSecretKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name for the master user.
     --
     -- __Amazon Aurora__
@@ -1271,6 +1321,17 @@ data CreateDBInstance = CreateDBInstance'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide/.
 --
+-- 'cACertificateIdentifier', 'createDBInstance_cACertificateIdentifier' - Specifies the CA certificate identifier to use for the DB instance’s
+-- server certificate.
+--
+-- This setting doesn\'t apply to RDS Custom.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+-- in the /Amazon Aurora User Guide/.
+--
 -- 'characterSetName', 'createDBInstance_characterSetName' - For supported engines, this value indicates that the DB instance should
 -- be associated with the specified @CharacterSet@.
 --
@@ -1536,7 +1597,7 @@ data CreateDBInstance = CreateDBInstance'
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 --
 -- 'enableIAMDatabaseAuthentication', 'createDBInstance_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
@@ -1671,6 +1732,18 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- Not applicable.
 --
+-- 'manageMasterUserPassword', 'createDBInstance_manageMasterUserPassword' - A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+--
 -- 'masterUserPassword', 'createDBInstance_masterUserPassword' - The password for the master user. The password can include any printable
 -- ASCII character except \"\/\", \"\"\", or \"\@\".
 --
@@ -1678,6 +1751,9 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- Not applicable. The password for the master user is managed by the DB
 -- cluster.
+--
+-- Constraints: Can\'t be specified if @ManageMasterUserPassword@ is turned
+-- on.
 --
 -- __MariaDB__
 --
@@ -1698,6 +1774,27 @@ data CreateDBInstance = CreateDBInstance'
 -- __PostgreSQL__
 --
 -- Constraints: Must contain from 8 to 128 characters.
+--
+-- 'masterUserSecretKmsKeyId', 'createDBInstance_masterUserSecretKmsKeyId' - The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB instance.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+-- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+-- secret is in a different Amazon Web Services account, then you can\'t
+-- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+-- must use a customer managed KMS key.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
 --
 -- 'masterUsername', 'createDBInstance_masterUsername' - The name for the master user.
 --
@@ -2121,6 +2218,7 @@ newCreateDBInstance
         availabilityZone = Prelude.Nothing,
         backupRetentionPeriod = Prelude.Nothing,
         backupTarget = Prelude.Nothing,
+        cACertificateIdentifier = Prelude.Nothing,
         characterSetName = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
         customIamInstanceProfile = Prelude.Nothing,
@@ -2140,7 +2238,9 @@ newCreateDBInstance
         iops = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         licenseModel = Prelude.Nothing,
+        manageMasterUserPassword = Prelude.Nothing,
         masterUserPassword = Prelude.Nothing,
+        masterUserSecretKmsKeyId = Prelude.Nothing,
         masterUsername = Prelude.Nothing,
         maxAllocatedStorage = Prelude.Nothing,
         monitoringInterval = Prelude.Nothing,
@@ -2335,6 +2435,19 @@ createDBInstance_backupRetentionPeriod = Lens.lens (\CreateDBInstance' {backupRe
 -- in the /Amazon RDS User Guide/.
 createDBInstance_backupTarget :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
 createDBInstance_backupTarget = Lens.lens (\CreateDBInstance' {backupTarget} -> backupTarget) (\s@CreateDBInstance' {} a -> s {backupTarget = a} :: CreateDBInstance)
+
+-- | Specifies the CA certificate identifier to use for the DB instance’s
+-- server certificate.
+--
+-- This setting doesn\'t apply to RDS Custom.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+-- in the /Amazon Aurora User Guide/.
+createDBInstance_cACertificateIdentifier :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
+createDBInstance_cACertificateIdentifier = Lens.lens (\CreateDBInstance' {cACertificateIdentifier} -> cACertificateIdentifier) (\s@CreateDBInstance' {} a -> s {cACertificateIdentifier = a} :: CreateDBInstance)
 
 -- | For supported engines, this value indicates that the DB instance should
 -- be associated with the specified @CharacterSet@.
@@ -2625,7 +2738,7 @@ createDBInstance_enableCloudwatchLogsExports = Lens.lens (\CreateDBInstance' {en
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 createDBInstance_enableCustomerOwnedIp :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Bool)
 createDBInstance_enableCustomerOwnedIp = Lens.lens (\CreateDBInstance' {enableCustomerOwnedIp} -> enableCustomerOwnedIp) (\s@CreateDBInstance' {} a -> s {enableCustomerOwnedIp = a} :: CreateDBInstance)
@@ -2774,6 +2887,20 @@ createDBInstance_kmsKeyId = Lens.lens (\CreateDBInstance' {kmsKeyId} -> kmsKeyId
 createDBInstance_licenseModel :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
 createDBInstance_licenseModel = Lens.lens (\CreateDBInstance' {licenseModel} -> licenseModel) (\s@CreateDBInstance' {} a -> s {licenseModel = a} :: CreateDBInstance)
 
+-- | A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+createDBInstance_manageMasterUserPassword :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Bool)
+createDBInstance_manageMasterUserPassword = Lens.lens (\CreateDBInstance' {manageMasterUserPassword} -> manageMasterUserPassword) (\s@CreateDBInstance' {} a -> s {manageMasterUserPassword = a} :: CreateDBInstance)
+
 -- | The password for the master user. The password can include any printable
 -- ASCII character except \"\/\", \"\"\", or \"\@\".
 --
@@ -2781,6 +2908,9 @@ createDBInstance_licenseModel = Lens.lens (\CreateDBInstance' {licenseModel} -> 
 --
 -- Not applicable. The password for the master user is managed by the DB
 -- cluster.
+--
+-- Constraints: Can\'t be specified if @ManageMasterUserPassword@ is turned
+-- on.
 --
 -- __MariaDB__
 --
@@ -2803,6 +2933,29 @@ createDBInstance_licenseModel = Lens.lens (\CreateDBInstance' {licenseModel} -> 
 -- Constraints: Must contain from 8 to 128 characters.
 createDBInstance_masterUserPassword :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
 createDBInstance_masterUserPassword = Lens.lens (\CreateDBInstance' {masterUserPassword} -> masterUserPassword) (\s@CreateDBInstance' {} a -> s {masterUserPassword = a} :: CreateDBInstance)
+
+-- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB instance.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+-- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+-- secret is in a different Amazon Web Services account, then you can\'t
+-- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+-- must use a customer managed KMS key.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
+createDBInstance_masterUserSecretKmsKeyId :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
+createDBInstance_masterUserSecretKmsKeyId = Lens.lens (\CreateDBInstance' {masterUserSecretKmsKeyId} -> masterUserSecretKmsKeyId) (\s@CreateDBInstance' {} a -> s {masterUserSecretKmsKeyId = a} :: CreateDBInstance)
 
 -- | The name for the master user.
 --
@@ -3284,6 +3437,7 @@ instance Prelude.Hashable CreateDBInstance where
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` backupTarget
+      `Prelude.hashWithSalt` cACertificateIdentifier
       `Prelude.hashWithSalt` characterSetName
       `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` customIamInstanceProfile
@@ -3303,7 +3457,9 @@ instance Prelude.Hashable CreateDBInstance where
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` manageMasterUserPassword
       `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` masterUserSecretKmsKeyId
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` maxAllocatedStorage
       `Prelude.hashWithSalt` monitoringInterval
@@ -3339,6 +3495,7 @@ instance Prelude.NFData CreateDBInstance where
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf backupTarget
+      `Prelude.seq` Prelude.rnf cACertificateIdentifier
       `Prelude.seq` Prelude.rnf characterSetName
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf customIamInstanceProfile
@@ -3352,7 +3509,8 @@ instance Prelude.NFData CreateDBInstance where
       `Prelude.seq` Prelude.rnf domainIAMRoleName
       `Prelude.seq` Prelude.rnf
         enableCloudwatchLogsExports
-      `Prelude.seq` Prelude.rnf enableCustomerOwnedIp
+      `Prelude.seq` Prelude.rnf
+        enableCustomerOwnedIp
       `Prelude.seq` Prelude.rnf
         enableIAMDatabaseAuthentication
       `Prelude.seq` Prelude.rnf
@@ -3363,7 +3521,11 @@ instance Prelude.NFData CreateDBInstance where
       `Prelude.seq` Prelude.rnf
         licenseModel
       `Prelude.seq` Prelude.rnf
+        manageMasterUserPassword
+      `Prelude.seq` Prelude.rnf
         masterUserPassword
+      `Prelude.seq` Prelude.rnf
+        masterUserSecretKmsKeyId
       `Prelude.seq` Prelude.rnf
         masterUsername
       `Prelude.seq` Prelude.rnf
@@ -3439,6 +3601,8 @@ instance Data.ToQuery CreateDBInstance where
         "BackupRetentionPeriod"
           Data.=: backupRetentionPeriod,
         "BackupTarget" Data.=: backupTarget,
+        "CACertificateIdentifier"
+          Data.=: cACertificateIdentifier,
         "CharacterSetName" Data.=: characterSetName,
         "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
         "CustomIamInstanceProfile"
@@ -3470,7 +3634,11 @@ instance Data.ToQuery CreateDBInstance where
         "Iops" Data.=: iops,
         "KmsKeyId" Data.=: kmsKeyId,
         "LicenseModel" Data.=: licenseModel,
+        "ManageMasterUserPassword"
+          Data.=: manageMasterUserPassword,
         "MasterUserPassword" Data.=: masterUserPassword,
+        "MasterUserSecretKmsKeyId"
+          Data.=: masterUserSecretKmsKeyId,
         "MasterUsername" Data.=: masterUsername,
         "MaxAllocatedStorage" Data.=: maxAllocatedStorage,
         "MonitoringInterval" Data.=: monitoringInterval,

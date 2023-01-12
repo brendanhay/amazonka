@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.ApplicationAutoScaling.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,6 +45,7 @@ module Amazonka.ApplicationAutoScaling.Lens
     describeScalableTargetsResponse_httpStatus,
 
     -- ** DescribeScalingActivities
+    describeScalingActivities_includeNotScaledActivities,
     describeScalingActivities_maxResults,
     describeScalingActivities_nextToken,
     describeScalingActivities_resourceId,
@@ -127,6 +128,12 @@ module Amazonka.ApplicationAutoScaling.Lens
     metricDimension_name,
     metricDimension_value,
 
+    -- ** NotScaledReason
+    notScaledReason_currentCapacity,
+    notScaledReason_maxCapacity,
+    notScaledReason_minCapacity,
+    notScaledReason_code,
+
     -- ** PredefinedMetricSpecification
     predefinedMetricSpecification_resourceLabel,
     predefinedMetricSpecification_predefinedMetricType,
@@ -148,6 +155,7 @@ module Amazonka.ApplicationAutoScaling.Lens
     -- ** ScalingActivity
     scalingActivity_details,
     scalingActivity_endTime,
+    scalingActivity_notScaledReasons,
     scalingActivity_statusMessage,
     scalingActivity_activityId,
     scalingActivity_serviceNamespace,
@@ -223,6 +231,7 @@ import Amazonka.ApplicationAutoScaling.RegisterScalableTarget
 import Amazonka.ApplicationAutoScaling.Types.Alarm
 import Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification
 import Amazonka.ApplicationAutoScaling.Types.MetricDimension
+import Amazonka.ApplicationAutoScaling.Types.NotScaledReason
 import Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification
 import Amazonka.ApplicationAutoScaling.Types.ScalableTarget
 import Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction

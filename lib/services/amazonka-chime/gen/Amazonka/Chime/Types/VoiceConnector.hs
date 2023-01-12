@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.VoiceConnector
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data VoiceConnector = VoiceConnector'
     -- Default: @us-east-1@.
     awsRegion :: Prelude.Maybe VoiceConnectorAwsRegion,
     -- | The Amazon Chime Voice Connector creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The name of the Amazon Chime Voice Connector.
     name :: Prelude.Maybe Prelude.Text,
     -- | The outbound host name for the Amazon Chime Voice Connector.
@@ -43,7 +43,7 @@ data VoiceConnector = VoiceConnector'
     -- Connector.
     requireEncryption :: Prelude.Maybe Prelude.Bool,
     -- | The updated Amazon Chime Voice Connector timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the specified Amazon Chime Voice Connector.
     voiceConnectorArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Chime Voice Connector ID.

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Transfer.Types.WorkflowStepType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.Transfer.Types.WorkflowStepType
       ( ..,
         WorkflowStepType_COPY,
         WorkflowStepType_CUSTOM,
+        WorkflowStepType_DECRYPT,
         WorkflowStepType_DELETE,
         WorkflowStepType_TAG
       ),
@@ -66,6 +67,9 @@ pattern WorkflowStepType_COPY = WorkflowStepType' "COPY"
 pattern WorkflowStepType_CUSTOM :: WorkflowStepType
 pattern WorkflowStepType_CUSTOM = WorkflowStepType' "CUSTOM"
 
+pattern WorkflowStepType_DECRYPT :: WorkflowStepType
+pattern WorkflowStepType_DECRYPT = WorkflowStepType' "DECRYPT"
+
 pattern WorkflowStepType_DELETE :: WorkflowStepType
 pattern WorkflowStepType_DELETE = WorkflowStepType' "DELETE"
 
@@ -75,6 +79,7 @@ pattern WorkflowStepType_TAG = WorkflowStepType' "TAG"
 {-# COMPLETE
   WorkflowStepType_COPY,
   WorkflowStepType_CUSTOM,
+  WorkflowStepType_DECRYPT,
   WorkflowStepType_DELETE,
   WorkflowStepType_TAG,
   WorkflowStepType'

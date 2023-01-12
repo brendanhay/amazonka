@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types.LogsStatus
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,11 +25,11 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityLake.Types.SourceStatus
 
--- | Log status for the Security Lake account.
+-- | Retrieves the Logs status for the Amazon Security Lake account.
 --
 -- /See:/ 'newLogsStatus' smart constructor.
 data LogsStatus = LogsStatus'
-  { -- | Health status of services including error codes and patterns.
+  { -- | The health status of services, including error codes and patterns.
     healthStatus :: SourceStatus,
     -- | Defines path the stored logs are available which has information on your
     -- systems, applications, and services.
@@ -45,7 +45,7 @@ data LogsStatus = LogsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'healthStatus', 'logsStatus_healthStatus' - Health status of services including error codes and patterns.
+-- 'healthStatus', 'logsStatus_healthStatus' - The health status of services, including error codes and patterns.
 --
 -- 'pathToLogs', 'logsStatus_pathToLogs' - Defines path the stored logs are available which has information on your
 -- systems, applications, and services.
@@ -61,7 +61,7 @@ newLogsStatus pHealthStatus_ pPathToLogs_ =
       pathToLogs = pPathToLogs_
     }
 
--- | Health status of services including error codes and patterns.
+-- | The health status of services, including error codes and patterns.
 logsStatus_healthStatus :: Lens.Lens' LogsStatus SourceStatus
 logsStatus_healthStatus = Lens.lens (\LogsStatus' {healthStatus} -> healthStatus) (\s@LogsStatus' {} a -> s {healthStatus = a} :: LogsStatus)
 

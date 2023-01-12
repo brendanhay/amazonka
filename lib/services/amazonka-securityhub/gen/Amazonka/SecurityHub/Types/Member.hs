@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityHub.Types.Member
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -37,7 +37,7 @@ data Member = Member'
     email :: Prelude.Maybe Prelude.Text,
     -- | A timestamp for the date and time when the invitation was sent to the
     -- member account.
-    invitedAt :: Prelude.Maybe Data.POSIX,
+    invitedAt :: Prelude.Maybe Data.ISO8601,
     -- | This is replaced by @AdministratorID@.
     --
     -- The Amazon Web Services account ID of the Security Hub administrator
@@ -74,7 +74,7 @@ data Member = Member'
     --     member account.
     memberStatus :: Prelude.Maybe Prelude.Text,
     -- | The timestamp for the date and time when the member account was updated.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    updatedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

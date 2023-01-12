@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StudioComponentStatusCode
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -40,12 +40,12 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The current status of the studio component resource.
 --
--- When the resource is in the \'READY\' state, the status code signals
--- what the last mutation made to the resource was.
+-- When the resource is in the @READY@ state, the status code signals what
+-- the last mutation made to the resource was.
 --
--- When the resource is in a CREATE_FAILED\/UPDATE_FAILED\/DELETE_FAILED
--- state, the status code signals what went wrong and why the mutation
--- failed.
+-- When the resource is in a @CREATE_FAILED@, @UPDATE_FAILED@, or
+-- @DELETE_FAILED@ state, the status code signals what went wrong and why
+-- the mutation failed.
 newtype StudioComponentStatusCode = StudioComponentStatusCode'
   { fromStudioComponentStatusCode ::
       Data.Text

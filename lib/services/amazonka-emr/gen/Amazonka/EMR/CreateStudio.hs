@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.CreateStudio
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,14 +82,14 @@ data CreateStudio = CreateStudio'
     -- of 256 characters.
     tags :: Prelude.Maybe [Tag],
     -- | The IAM user role that users and groups assume when logged in to an
-    -- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
-    -- Services SSO authentication. The permissions attached to the @UserRole@
-    -- can be scoped down for each user or group using session policies.
+    -- Amazon EMR Studio. Only specify a @UserRole@ when you use IAM Identity
+    -- Center authentication. The permissions attached to the @UserRole@ can be
+    -- scoped down for each user or group using session policies.
     userRole :: Prelude.Maybe Prelude.Text,
     -- | A descriptive name for the Amazon EMR Studio.
     name :: Prelude.Text,
-    -- | Specifies whether the Studio authenticates users using IAM or Amazon Web
-    -- Services SSO.
+    -- | Specifies whether the Studio authenticates users using IAM or IAM
+    -- Identity Center.
     authMode :: AuthMode,
     -- | The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate
     -- with the Studio.
@@ -146,14 +146,14 @@ data CreateStudio = CreateStudio'
 -- of 256 characters.
 --
 -- 'userRole', 'createStudio_userRole' - The IAM user role that users and groups assume when logged in to an
--- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
--- Services SSO authentication. The permissions attached to the @UserRole@
--- can be scoped down for each user or group using session policies.
+-- Amazon EMR Studio. Only specify a @UserRole@ when you use IAM Identity
+-- Center authentication. The permissions attached to the @UserRole@ can be
+-- scoped down for each user or group using session policies.
 --
 -- 'name', 'createStudio_name' - A descriptive name for the Amazon EMR Studio.
 --
--- 'authMode', 'createStudio_authMode' - Specifies whether the Studio authenticates users using IAM or Amazon Web
--- Services SSO.
+-- 'authMode', 'createStudio_authMode' - Specifies whether the Studio authenticates users using IAM or IAM
+-- Identity Center.
 --
 -- 'vpcId', 'createStudio_vpcId' - The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate
 -- with the Studio.
@@ -247,9 +247,9 @@ createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe [Tag])
 createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IAM user role that users and groups assume when logged in to an
--- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
--- Services SSO authentication. The permissions attached to the @UserRole@
--- can be scoped down for each user or group using session policies.
+-- Amazon EMR Studio. Only specify a @UserRole@ when you use IAM Identity
+-- Center authentication. The permissions attached to the @UserRole@ can be
+-- scoped down for each user or group using session policies.
 createStudio_userRole :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
 createStudio_userRole = Lens.lens (\CreateStudio' {userRole} -> userRole) (\s@CreateStudio' {} a -> s {userRole = a} :: CreateStudio)
 
@@ -257,8 +257,8 @@ createStudio_userRole = Lens.lens (\CreateStudio' {userRole} -> userRole) (\s@Cr
 createStudio_name :: Lens.Lens' CreateStudio Prelude.Text
 createStudio_name = Lens.lens (\CreateStudio' {name} -> name) (\s@CreateStudio' {} a -> s {name = a} :: CreateStudio)
 
--- | Specifies whether the Studio authenticates users using IAM or Amazon Web
--- Services SSO.
+-- | Specifies whether the Studio authenticates users using IAM or IAM
+-- Identity Center.
 createStudio_authMode :: Lens.Lens' CreateStudio AuthMode
 createStudio_authMode = Lens.lens (\CreateStudio' {authMode} -> authMode) (\s@CreateStudio' {} a -> s {authMode = a} :: CreateStudio)
 

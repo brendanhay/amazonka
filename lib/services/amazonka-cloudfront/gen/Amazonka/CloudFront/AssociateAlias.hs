@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.AssociateAlias
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 -- Associates an alias (also known as a CNAME or an alternate domain name)
 -- with a CloudFront distribution.
 --
--- With this operation you can move an alias that’s already in use on a
+-- With this operation you can move an alias that\'s already in use on a
 -- CloudFront distribution to a different distribution in one step. This
 -- prevents the downtime that could occur if you first remove the alias
 -- from one distribution and then separately add the alias to another
@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateAlias' smart constructor.
 data AssociateAlias = AssociateAlias'
-  { -- | The ID of the distribution that you’re associating the alias with.
+  { -- | The ID of the distribution that you\'re associating the alias with.
     targetDistributionId :: Prelude.Text,
     -- | The alias (also known as a CNAME) to add to the target distribution.
     alias :: Prelude.Text
@@ -75,7 +75,7 @@ data AssociateAlias = AssociateAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetDistributionId', 'associateAlias_targetDistributionId' - The ID of the distribution that you’re associating the alias with.
+-- 'targetDistributionId', 'associateAlias_targetDistributionId' - The ID of the distribution that you\'re associating the alias with.
 --
 -- 'alias', 'associateAlias_alias' - The alias (also known as a CNAME) to add to the target distribution.
 newAssociateAlias ::
@@ -91,7 +91,7 @@ newAssociateAlias pTargetDistributionId_ pAlias_ =
       alias = pAlias_
     }
 
--- | The ID of the distribution that you’re associating the alias with.
+-- | The ID of the distribution that you\'re associating the alias with.
 associateAlias_targetDistributionId :: Lens.Lens' AssociateAlias Prelude.Text
 associateAlias_targetDistributionId = Lens.lens (\AssociateAlias' {targetDistributionId} -> targetDistributionId) (\s@AssociateAlias' {} a -> s {targetDistributionId = a} :: AssociateAlias)
 

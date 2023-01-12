@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Support
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,64 +23,45 @@
 --     plan to use the Amazon Web Services Support API.
 --
 -- -   If you call the Amazon Web Services Support API from an account that
---     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     doesn\'t have a Business, Enterprise On-Ramp, or Enterprise Support
 --     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.
 --
--- The Amazon Web Services Support service also exposes a set of
--- <http://aws.amazon.com/premiumsupport/trustedadvisor/ Trusted Advisor>
--- features. You can retrieve a list of checks and their descriptions, get
--- check results, specify checks to refresh, and get the refresh status of
+-- You can also use the Amazon Web Services Support API to access features
+-- for
+-- <http://aws.amazon.com/premiumsupport/trustedadvisor/ Trusted Advisor>.
+-- You can return a list of checks and their descriptions, get check
+-- results, specify checks to refresh, and get the refresh status of
 -- checks.
 --
--- The following list describes the Amazon Web Services Support case
--- management operations:
+-- You can manage your support cases with the following Amazon Web Services
+-- Support API operations:
 --
--- -   Service names, issue categories, and available severity levels - The
---     DescribeServices and DescribeSeverityLevels operations return Amazon
---     Web Services service names, service codes, service categories, and
+-- -   The CreateCase, DescribeCases, DescribeAttachment, and ResolveCase
+--     operations create Amazon Web Services Support cases, retrieve
+--     information about cases, and resolve cases.
+--
+-- -   The DescribeCommunications, AddCommunicationToCase, and
+--     AddAttachmentsToSet operations retrieve and add communications and
+--     attachments to Amazon Web Services Support cases.
+--
+-- -   The DescribeServices and DescribeSeverityLevels operations return
+--     Amazon Web Service names, service codes, service categories, and
 --     problem severity levels. You use these values when you call the
 --     CreateCase operation.
 --
--- -   Case creation, case details, and case resolution - The CreateCase,
---     DescribeCases, DescribeAttachment, and ResolveCase operations create
---     Amazon Web Services Support cases, retrieve information about cases,
---     and resolve cases.
---
--- -   Case communication - The DescribeCommunications,
---     AddCommunicationToCase, and AddAttachmentsToSet operations retrieve
---     and add communications and attachments to Amazon Web Services
---     Support cases.
---
--- The following list describes the operations available from the Amazon
--- Web Services Support service for Trusted Advisor:
---
--- -   DescribeTrustedAdvisorChecks returns the list of checks that run
---     against your Amazon Web Services resources.
---
--- -   Using the @checkId@ for a specific check returned by
---     DescribeTrustedAdvisorChecks, you can call
---     DescribeTrustedAdvisorCheckResult to obtain the results for the
---     check that you specified.
---
--- -   DescribeTrustedAdvisorCheckSummaries returns summarized results for
---     one or more Trusted Advisor checks.
---
--- -   RefreshTrustedAdvisorCheck requests that Trusted Advisor rerun a
---     specified check.
---
--- -   DescribeTrustedAdvisorCheckRefreshStatuses reports the refresh
---     status of one or more checks.
+-- You can also use the Amazon Web Services Support API to call the Trusted
+-- Advisor operations. For more information, see
+-- <https://docs.aws.amazon.com/ Trusted Advisor> in the /Amazon Web
+-- Services Support User Guide/.
 --
 -- For authentication of requests, Amazon Web Services Support uses
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process>.
 --
--- See
--- <https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html About the Amazon Web Services Support API>
--- in the /Amazon Web Services Support User Guide/ for information about
--- how to use this service to create and manage your support cases, and how
--- to call Trusted Advisor for results of checks on your resources.
+-- For more information about this service and the endpoints to use, see
+-- <https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html About the Amazon Web Services Support API>
+-- in the /Amazon Web Services Support User Guide/.
 module Amazonka.Support
   ( -- * Service Configuration
     defaultService,

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.GamesParks.Types.GeneratedCodeJobDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data GeneratedCodeJobDetails = GeneratedCodeJobDetails'
     -- | The expiration date and time for the download URL.
     --
     -- The download URL us guaranteed to be available until at least this time.
-    expirationTime :: Prelude.Maybe Data.POSIX,
+    expirationTime :: Prelude.Maybe Data.ISO8601,
     -- | The identifier for the generated code job.
     generatedCodeJobId :: Prelude.Maybe Prelude.Text,
     -- | A presigned URL that can be used to download the generated code.

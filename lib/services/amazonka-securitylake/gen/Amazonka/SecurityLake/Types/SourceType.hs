@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.Types.SourceType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,16 +26,17 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityLake.Types.AwsLogSourceType
 
 -- | The supported source types from which logs and events are collected in
--- Amazon Security Lake.
+-- Amazon Security Lake. For the list of supported Amazon Web Services, see
+-- the
+-- <https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html Amazon Security Lake User Guide>.
 --
 -- /See:/ 'newSourceType' smart constructor.
 data SourceType = SourceType'
-  { -- | Amazon Security Lake supports logs and events collection for
-    -- natively-supported Amazon Web Services services. For more information,
-    -- see the Amazon Security Lake User Guide.
+  { -- | Amazon Security Lake supports log and event collection for natively
+    -- supported Amazon Web Services.
     awsSourceType :: Prelude.Maybe AwsLogSourceType,
-    -- | Amazon Security Lake supports custom source types. For the detailed
-    -- list, see the Amazon Security Lake User Guide.
+    -- | Amazon Security Lake supports custom source types. For a detailed list,
+    -- see the Amazon Security Lake User Guide.
     customSourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,12 +49,11 @@ data SourceType = SourceType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsSourceType', 'sourceType_awsSourceType' - Amazon Security Lake supports logs and events collection for
--- natively-supported Amazon Web Services services. For more information,
--- see the Amazon Security Lake User Guide.
+-- 'awsSourceType', 'sourceType_awsSourceType' - Amazon Security Lake supports log and event collection for natively
+-- supported Amazon Web Services.
 --
--- 'customSourceType', 'sourceType_customSourceType' - Amazon Security Lake supports custom source types. For the detailed
--- list, see the Amazon Security Lake User Guide.
+-- 'customSourceType', 'sourceType_customSourceType' - Amazon Security Lake supports custom source types. For a detailed list,
+-- see the Amazon Security Lake User Guide.
 newSourceType ::
   SourceType
 newSourceType =
@@ -62,14 +62,13 @@ newSourceType =
       customSourceType = Prelude.Nothing
     }
 
--- | Amazon Security Lake supports logs and events collection for
--- natively-supported Amazon Web Services services. For more information,
--- see the Amazon Security Lake User Guide.
+-- | Amazon Security Lake supports log and event collection for natively
+-- supported Amazon Web Services.
 sourceType_awsSourceType :: Lens.Lens' SourceType (Prelude.Maybe AwsLogSourceType)
 sourceType_awsSourceType = Lens.lens (\SourceType' {awsSourceType} -> awsSourceType) (\s@SourceType' {} a -> s {awsSourceType = a} :: SourceType)
 
--- | Amazon Security Lake supports custom source types. For the detailed
--- list, see the Amazon Security Lake User Guide.
+-- | Amazon Security Lake supports custom source types. For a detailed list,
+-- see the Amazon Security Lake User Guide.
 sourceType_customSourceType :: Lens.Lens' SourceType (Prelude.Maybe Prelude.Text)
 sourceType_customSourceType = Lens.lens (\SourceType' {customSourceType} -> customSourceType) (\s@SourceType' {} a -> s {customSourceType = a} :: SourceType)
 

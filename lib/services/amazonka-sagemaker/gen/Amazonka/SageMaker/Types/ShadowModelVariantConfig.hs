@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.ShadowModelVariantConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data ShadowModelVariantConfig = ShadowModelVariantConfig'
   { -- | The name of the shadow variant.
     shadowModelVariantName :: Prelude.Text,
-    -- | The percentage of inference requests that are replicated to the shadow
-    -- variant.
+    -- | The percentage of inference requests that Amazon SageMaker replicates
+    -- from the production variant to the shadow variant.
     samplingPercentage :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,8 +46,8 @@ data ShadowModelVariantConfig = ShadowModelVariantConfig'
 --
 -- 'shadowModelVariantName', 'shadowModelVariantConfig_shadowModelVariantName' - The name of the shadow variant.
 --
--- 'samplingPercentage', 'shadowModelVariantConfig_samplingPercentage' - The percentage of inference requests that are replicated to the shadow
--- variant.
+-- 'samplingPercentage', 'shadowModelVariantConfig_samplingPercentage' - The percentage of inference requests that Amazon SageMaker replicates
+-- from the production variant to the shadow variant.
 newShadowModelVariantConfig ::
   -- | 'shadowModelVariantName'
   Prelude.Text ->
@@ -67,8 +67,8 @@ newShadowModelVariantConfig
 shadowModelVariantConfig_shadowModelVariantName :: Lens.Lens' ShadowModelVariantConfig Prelude.Text
 shadowModelVariantConfig_shadowModelVariantName = Lens.lens (\ShadowModelVariantConfig' {shadowModelVariantName} -> shadowModelVariantName) (\s@ShadowModelVariantConfig' {} a -> s {shadowModelVariantName = a} :: ShadowModelVariantConfig)
 
--- | The percentage of inference requests that are replicated to the shadow
--- variant.
+-- | The percentage of inference requests that Amazon SageMaker replicates
+-- from the production variant to the shadow variant.
 shadowModelVariantConfig_samplingPercentage :: Lens.Lens' ShadowModelVariantConfig Prelude.Int
 shadowModelVariantConfig_samplingPercentage = Lens.lens (\ShadowModelVariantConfig' {samplingPercentage} -> samplingPercentage) (\s@ShadowModelVariantConfig' {} a -> s {samplingPercentage = a} :: ShadowModelVariantConfig)
 

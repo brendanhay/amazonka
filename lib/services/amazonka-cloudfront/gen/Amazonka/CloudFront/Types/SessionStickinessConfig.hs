@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.SessionStickinessConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSessionStickinessConfig' smart constructor.
 data SessionStickinessConfig = SessionStickinessConfig'
   { -- | The amount of time after which you want sessions to cease if no requests
-    -- are received. Allowed values are 300–3600 seconds (5–60 minutes).
+    -- are received. Allowed values are 300–3600 seconds (5–60 minutes).
     --
     -- The value must be less than or equal to @MaximumTTL@.
     idleTTL :: Prelude.Int,
@@ -55,7 +55,7 @@ data SessionStickinessConfig = SessionStickinessConfig'
 -- for backwards compatibility:
 --
 -- 'idleTTL', 'sessionStickinessConfig_idleTTL' - The amount of time after which you want sessions to cease if no requests
--- are received. Allowed values are 300–3600 seconds (5–60 minutes).
+-- are received. Allowed values are 300–3600 seconds (5–60 minutes).
 --
 -- The value must be less than or equal to @MaximumTTL@.
 --
@@ -77,7 +77,7 @@ newSessionStickinessConfig pIdleTTL_ pMaximumTTL_ =
     }
 
 -- | The amount of time after which you want sessions to cease if no requests
--- are received. Allowed values are 300–3600 seconds (5–60 minutes).
+-- are received. Allowed values are 300–3600 seconds (5–60 minutes).
 --
 -- The value must be less than or equal to @MaximumTTL@.
 sessionStickinessConfig_idleTTL :: Lens.Lens' SessionStickinessConfig Prelude.Int

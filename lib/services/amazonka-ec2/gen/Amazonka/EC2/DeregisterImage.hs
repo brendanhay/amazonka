@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.DeregisterImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@
 -- AMI is retained in the Recycle Bin for the specified retention period.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html Recycle Bin>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- When you deregister an AMI, it doesn\'t affect any instances that
 -- you\'ve already launched from the AMI. You\'ll continue to incur usage

@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.SSM.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1827,7 +1827,9 @@ module Amazonka.SSM.Lens
     documentParameter_type,
 
     -- ** DocumentRequires
+    documentRequires_requireType,
     documentRequires_version,
+    documentRequires_versionName,
     documentRequires_name,
 
     -- ** DocumentReviewCommentSource

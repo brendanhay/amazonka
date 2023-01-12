@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.EMR
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -160,6 +160,12 @@ module Amazonka.EMR
     newGetBlockPublicAccessConfiguration,
     GetBlockPublicAccessConfigurationResponse (GetBlockPublicAccessConfigurationResponse'),
     newGetBlockPublicAccessConfigurationResponse,
+
+    -- ** GetClusterSessionCredentials
+    GetClusterSessionCredentials (GetClusterSessionCredentials'),
+    newGetClusterSessionCredentials,
+    GetClusterSessionCredentialsResponse (GetClusterSessionCredentialsResponse'),
+    newGetClusterSessionCredentialsResponse,
 
     -- ** GetManagedScalingPolicy
     GetManagedScalingPolicy (GetManagedScalingPolicy'),
@@ -545,6 +551,10 @@ module Amazonka.EMR
     Configuration (Configuration'),
     newConfiguration,
 
+    -- ** Credentials
+    Credentials (Credentials'),
+    newCredentials,
+
     -- ** EbsBlockDevice
     EbsBlockDevice (EbsBlockDevice'),
     newEbsBlockDevice,
@@ -805,6 +815,10 @@ module Amazonka.EMR
     Tag (Tag'),
     newTag,
 
+    -- ** UsernamePassword
+    UsernamePassword (UsernamePassword'),
+    newUsernamePassword,
+
     -- ** VolumeSpecification
     VolumeSpecification (VolumeSpecification'),
     newVolumeSpecification,
@@ -830,6 +844,7 @@ import Amazonka.EMR.DescribeStep
 import Amazonka.EMR.DescribeStudio
 import Amazonka.EMR.GetAutoTerminationPolicy
 import Amazonka.EMR.GetBlockPublicAccessConfiguration
+import Amazonka.EMR.GetClusterSessionCredentials
 import Amazonka.EMR.GetManagedScalingPolicy
 import Amazonka.EMR.GetStudioSessionMapping
 import Amazonka.EMR.Lens

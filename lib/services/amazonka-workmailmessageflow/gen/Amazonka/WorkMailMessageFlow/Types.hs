@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.WorkMailMessageFlow.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -127,7 +127,7 @@ defaultService =
 --     information about policies, see
 --     <https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html Updating message content with AWS Lambda>
 --     in the /WorkMail Administrator Guide/.
-_InvalidContentLocation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidContentLocation :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidContentLocation =
   Core._MatchServiceError
     defaultService
@@ -135,7 +135,7 @@ _InvalidContentLocation =
 
 -- | The requested email is not eligible for update. This is usually the case
 -- for a redirected email.
-_MessageFrozen :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MessageFrozen :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MessageFrozen =
   Core._MatchServiceError
     defaultService
@@ -144,14 +144,14 @@ _MessageFrozen =
 -- | The requested email could not be updated due to an error in the MIME
 -- content. Check the error message for more information about what caused
 -- the error.
-_MessageRejected :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MessageRejected :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MessageRejected =
   Core._MatchServiceError
     defaultService
     "MessageRejected"
 
 -- | The requested email message is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

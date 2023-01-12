@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,6 +80,7 @@ module Amazonka.SecretsManager.Types
     secretListEntry_lastChangedDate,
     secretListEntry_lastRotatedDate,
     secretListEntry_name,
+    secretListEntry_nextRotationDate,
     secretListEntry_owningService,
     secretListEntry_primaryRegion,
     secretListEntry_rotationEnabled,
@@ -199,7 +200,7 @@ defaultService =
 
 -- | Secrets Manager can\'t decrypt the protected secret text using the
 -- provided KMS key.
-_DecryptionFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DecryptionFailure :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DecryptionFailure =
   Core._MatchServiceError
     defaultService
@@ -209,28 +210,28 @@ _DecryptionFailure =
 -- provided KMS key. Check that the KMS key is available, enabled, and not
 -- in an invalid state. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>.
-_EncryptionFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EncryptionFailure :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EncryptionFailure =
   Core._MatchServiceError
     defaultService
     "EncryptionFailure"
 
 -- | An error occurred on the server side.
-_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceError =
   Core._MatchServiceError
     defaultService
     "InternalServiceError"
 
 -- | The @NextToken@ value is invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | The parameter name or value is invalid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -249,7 +250,7 @@ _InvalidParameterException =
 -- -   The secret is managed by another service, and you must use that
 --     service to update it. For more information, see
 --     <https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html Secrets managed by other Amazon Web Services services>.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -257,14 +258,14 @@ _InvalidRequestException =
 
 -- | The request failed because it would exceed one of the Secrets Manager
 -- quotas.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The resource policy has syntax errors.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
     defaultService
@@ -272,7 +273,7 @@ _MalformedPolicyDocumentException =
 
 -- | The request failed because you did not complete all the prerequisite
 -- steps.
-_PreconditionNotMetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionNotMetException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PreconditionNotMetException =
   Core._MatchServiceError
     defaultService
@@ -280,21 +281,21 @@ _PreconditionNotMetException =
 
 -- | The @BlockPublicPolicy@ parameter is set to true, and the resource
 -- policy did not prevent broad access to the secret.
-_PublicPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PublicPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PublicPolicyException =
   Core._MatchServiceError
     defaultService
     "PublicPolicyException"
 
 -- | A resource with the ID you requested already exists.
-_ResourceExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceExistsException"
 
 -- | Secrets Manager can\'t find the resource that you asked for.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

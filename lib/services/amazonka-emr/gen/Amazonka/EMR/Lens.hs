@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -141,6 +141,13 @@ module Amazonka.EMR.Lens
     getBlockPublicAccessConfigurationResponse_httpStatus,
     getBlockPublicAccessConfigurationResponse_blockPublicAccessConfiguration,
     getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata,
+
+    -- ** GetClusterSessionCredentials
+    getClusterSessionCredentials_clusterId,
+    getClusterSessionCredentials_executionRoleArn,
+    getClusterSessionCredentialsResponse_credentials,
+    getClusterSessionCredentialsResponse_expiresAt,
+    getClusterSessionCredentialsResponse_httpStatus,
 
     -- ** GetManagedScalingPolicy
     getManagedScalingPolicy_clusterId,
@@ -501,6 +508,9 @@ module Amazonka.EMR.Lens
     configuration_classification,
     configuration_configurations,
     configuration_properties,
+
+    -- ** Credentials
+    credentials_usernamePassword,
 
     -- ** EbsBlockDevice
     ebsBlockDevice_device,
@@ -922,6 +932,10 @@ module Amazonka.EMR.Lens
     tag_key,
     tag_value,
 
+    -- ** UsernamePassword
+    usernamePassword_password,
+    usernamePassword_username,
+
     -- ** VolumeSpecification
     volumeSpecification_iops,
     volumeSpecification_throughput,
@@ -949,6 +963,7 @@ import Amazonka.EMR.DescribeStep
 import Amazonka.EMR.DescribeStudio
 import Amazonka.EMR.GetAutoTerminationPolicy
 import Amazonka.EMR.GetBlockPublicAccessConfiguration
+import Amazonka.EMR.GetClusterSessionCredentials
 import Amazonka.EMR.GetManagedScalingPolicy
 import Amazonka.EMR.GetStudioSessionMapping
 import Amazonka.EMR.ListBootstrapActions
@@ -998,6 +1013,7 @@ import Amazonka.EMR.Types.ClusterTimeline
 import Amazonka.EMR.Types.Command
 import Amazonka.EMR.Types.ComputeLimits
 import Amazonka.EMR.Types.Configuration
+import Amazonka.EMR.Types.Credentials
 import Amazonka.EMR.Types.EbsBlockDevice
 import Amazonka.EMR.Types.EbsBlockDeviceConfig
 import Amazonka.EMR.Types.EbsConfiguration
@@ -1063,6 +1079,7 @@ import Amazonka.EMR.Types.Studio
 import Amazonka.EMR.Types.StudioSummary
 import Amazonka.EMR.Types.SupportedProductConfig
 import Amazonka.EMR.Types.Tag
+import Amazonka.EMR.Types.UsernamePassword
 import Amazonka.EMR.Types.VolumeSpecification
 import Amazonka.EMR.UpdateStudio
 import Amazonka.EMR.UpdateStudioSessionMapping

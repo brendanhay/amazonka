@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.DLM.Types.LifecyclePolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,9 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLifecyclePolicy' smart constructor.
 data LifecyclePolicy = LifecyclePolicy'
   { -- | The local date and time when the lifecycle policy was created.
-    dateCreated :: Prelude.Maybe Data.POSIX,
+    dateCreated :: Prelude.Maybe Data.ISO8601,
     -- | The local date and time when the lifecycle policy was last modified.
-    dateModified :: Prelude.Maybe Data.POSIX,
+    dateModified :: Prelude.Maybe Data.ISO8601,
     -- | The description of the lifecycle policy.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role used to run the

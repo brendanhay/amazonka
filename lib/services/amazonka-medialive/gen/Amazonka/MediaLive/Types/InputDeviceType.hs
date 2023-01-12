@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Types.InputDeviceType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,8 @@
 module Amazonka.MediaLive.Types.InputDeviceType
   ( InputDeviceType
       ( ..,
-        InputDeviceType_HD
+        InputDeviceType_HD,
+        InputDeviceType_UHD
       ),
   )
 where
@@ -62,7 +63,11 @@ newtype InputDeviceType = InputDeviceType'
 pattern InputDeviceType_HD :: InputDeviceType
 pattern InputDeviceType_HD = InputDeviceType' "HD"
 
+pattern InputDeviceType_UHD :: InputDeviceType
+pattern InputDeviceType_UHD = InputDeviceType' "UHD"
+
 {-# COMPLETE
   InputDeviceType_HD,
+  InputDeviceType_UHD,
   InputDeviceType'
   #-}

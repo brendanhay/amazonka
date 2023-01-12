@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.UpdateContactFlowContent
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 -- Updates the specified flow.
 --
 -- You can also create and update flows using the
--- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html Amazon Connect Flow language>.
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html Amazon Connect Flow language>.
 module Amazonka.Connect.UpdateContactFlowContent
   ( -- * Creating a Request
     UpdateContactFlowContent (..),
@@ -55,8 +55,7 @@ data UpdateContactFlowContent = UpdateContactFlowContent'
     -- | The identifier of the flow.
     contactFlowId :: Prelude.Text,
     -- | The JSON string that represents flow\'s content. For an example, see
-    -- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html Example contact flow in Amazon Connect Flow language>
-    -- in the /Amazon Connect Administrator Guide/.
+    -- <https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html Example contact flow in Amazon Connect Flow language>.
     content :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,8 +73,7 @@ data UpdateContactFlowContent = UpdateContactFlowContent'
 -- 'contactFlowId', 'updateContactFlowContent_contactFlowId' - The identifier of the flow.
 --
 -- 'content', 'updateContactFlowContent_content' - The JSON string that represents flow\'s content. For an example, see
--- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html Example contact flow in Amazon Connect Flow language>
--- in the /Amazon Connect Administrator Guide/.
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html Example contact flow in Amazon Connect Flow language>.
 newUpdateContactFlowContent ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -104,8 +102,7 @@ updateContactFlowContent_contactFlowId :: Lens.Lens' UpdateContactFlowContent Pr
 updateContactFlowContent_contactFlowId = Lens.lens (\UpdateContactFlowContent' {contactFlowId} -> contactFlowId) (\s@UpdateContactFlowContent' {} a -> s {contactFlowId = a} :: UpdateContactFlowContent)
 
 -- | The JSON string that represents flow\'s content. For an example, see
--- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html Example contact flow in Amazon Connect Flow language>
--- in the /Amazon Connect Administrator Guide/.
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html Example contact flow in Amazon Connect Flow language>.
 updateContactFlowContent_content :: Lens.Lens' UpdateContactFlowContent Prelude.Text
 updateContactFlowContent_content = Lens.lens (\UpdateContactFlowContent' {content} -> content) (\s@UpdateContactFlowContent' {} a -> s {content = a} :: UpdateContactFlowContent)
 

@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.AppFlow.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -117,6 +117,9 @@ module Amazonka.AppFlow.Lens
     listConnectorEntities_connectorProfileName,
     listConnectorEntities_connectorType,
     listConnectorEntities_entitiesPath,
+    listConnectorEntities_maxResults,
+    listConnectorEntities_nextToken,
+    listConnectorEntitiesResponse_nextToken,
     listConnectorEntitiesResponse_httpStatus,
     listConnectorEntitiesResponse_connectorEntityMap,
 

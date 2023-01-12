@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.DeleteImageVersion
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,9 @@ module Amazonka.SageMaker.DeleteImageVersion
     newDeleteImageVersion,
 
     -- * Request Lenses
-    deleteImageVersion_imageName,
+    deleteImageVersion_alias,
     deleteImageVersion_version,
+    deleteImageVersion_imageName,
 
     -- * Destructuring the Response
     DeleteImageVersionResponse (..),
@@ -50,10 +51,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newDeleteImageVersion' smart constructor.
 data DeleteImageVersion = DeleteImageVersion'
-  { -- | The name of the image.
-    imageName :: Prelude.Text,
+  { -- | The alias of the image to delete.
+    alias :: Prelude.Maybe Prelude.Text,
     -- | The version to delete.
-    version :: Prelude.Natural
+    version :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the image to delete.
+    imageName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,28 +68,33 @@ data DeleteImageVersion = DeleteImageVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageName', 'deleteImageVersion_imageName' - The name of the image.
+-- 'alias', 'deleteImageVersion_alias' - The alias of the image to delete.
 --
 -- 'version', 'deleteImageVersion_version' - The version to delete.
+--
+-- 'imageName', 'deleteImageVersion_imageName' - The name of the image to delete.
 newDeleteImageVersion ::
   -- | 'imageName'
   Prelude.Text ->
-  -- | 'version'
-  Prelude.Natural ->
   DeleteImageVersion
-newDeleteImageVersion pImageName_ pVersion_ =
+newDeleteImageVersion pImageName_ =
   DeleteImageVersion'
-    { imageName = pImageName_,
-      version = pVersion_
+    { alias = Prelude.Nothing,
+      version = Prelude.Nothing,
+      imageName = pImageName_
     }
 
--- | The name of the image.
-deleteImageVersion_imageName :: Lens.Lens' DeleteImageVersion Prelude.Text
-deleteImageVersion_imageName = Lens.lens (\DeleteImageVersion' {imageName} -> imageName) (\s@DeleteImageVersion' {} a -> s {imageName = a} :: DeleteImageVersion)
+-- | The alias of the image to delete.
+deleteImageVersion_alias :: Lens.Lens' DeleteImageVersion (Prelude.Maybe Prelude.Text)
+deleteImageVersion_alias = Lens.lens (\DeleteImageVersion' {alias} -> alias) (\s@DeleteImageVersion' {} a -> s {alias = a} :: DeleteImageVersion)
 
 -- | The version to delete.
-deleteImageVersion_version :: Lens.Lens' DeleteImageVersion Prelude.Natural
+deleteImageVersion_version :: Lens.Lens' DeleteImageVersion (Prelude.Maybe Prelude.Natural)
 deleteImageVersion_version = Lens.lens (\DeleteImageVersion' {version} -> version) (\s@DeleteImageVersion' {} a -> s {version = a} :: DeleteImageVersion)
+
+-- | The name of the image to delete.
+deleteImageVersion_imageName :: Lens.Lens' DeleteImageVersion Prelude.Text
+deleteImageVersion_imageName = Lens.lens (\DeleteImageVersion' {imageName} -> imageName) (\s@DeleteImageVersion' {} a -> s {imageName = a} :: DeleteImageVersion)
 
 instance Core.AWSRequest DeleteImageVersion where
   type
@@ -103,13 +111,15 @@ instance Core.AWSRequest DeleteImageVersion where
 
 instance Prelude.Hashable DeleteImageVersion where
   hashWithSalt _salt DeleteImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` imageName
+    _salt `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` imageName
 
 instance Prelude.NFData DeleteImageVersion where
   rnf DeleteImageVersion' {..} =
-    Prelude.rnf imageName
+    Prelude.rnf alias
       `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf imageName
 
 instance Data.ToHeaders DeleteImageVersion where
   toHeaders =
@@ -130,8 +140,9 @@ instance Data.ToJSON DeleteImageVersion where
   toJSON DeleteImageVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ImageName" Data..= imageName),
-            Prelude.Just ("Version" Data..= version)
+          [ ("Alias" Data..=) Prelude.<$> alias,
+            ("Version" Data..=) Prelude.<$> version,
+            Prelude.Just ("ImageName" Data..= imageName)
           ]
       )
 

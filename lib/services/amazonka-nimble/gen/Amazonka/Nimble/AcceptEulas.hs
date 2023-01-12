@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.AcceptEulas
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newAcceptEulas' smart constructor.
 data AcceptEulas = AcceptEulas'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The EULA ID.
     eulaIds :: Prelude.Maybe [Prelude.Text],
@@ -72,9 +72,9 @@ data AcceptEulas = AcceptEulas'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'acceptEulas_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'eulaIds', 'acceptEulas_eulaIds' - The EULA ID.
 --
@@ -91,9 +91,9 @@ newAcceptEulas pStudioId_ =
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 acceptEulas_clientToken :: Lens.Lens' AcceptEulas (Prelude.Maybe Prelude.Text)
 acceptEulas_clientToken = Lens.lens (\AcceptEulas' {clientToken} -> clientToken) (\s@AcceptEulas' {} a -> s {clientToken = a} :: AcceptEulas)
 

@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,10 +47,10 @@ module Amazonka.Nimble.Lens
     -- ** CreateStreamingSession
     createStreamingSession_clientToken,
     createStreamingSession_ec2InstanceType,
-    createStreamingSession_launchProfileId,
     createStreamingSession_ownedBy,
     createStreamingSession_streamingImageId,
     createStreamingSession_tags,
+    createStreamingSession_launchProfileId,
     createStreamingSession_studioId,
     createStreamingSessionResponse_session,
     createStreamingSessionResponse_httpStatus,
@@ -185,6 +185,12 @@ module Amazonka.Nimble.Lens
     getStreamingSessionResponse_session,
     getStreamingSessionResponse_httpStatus,
 
+    -- ** GetStreamingSessionBackup
+    getStreamingSessionBackup_backupId,
+    getStreamingSessionBackup_studioId,
+    getStreamingSessionBackupResponse_streamingSessionBackup,
+    getStreamingSessionBackupResponse_httpStatus,
+
     -- ** GetStreamingSessionStream
     getStreamingSessionStream_sessionId,
     getStreamingSessionStream_streamId,
@@ -251,6 +257,14 @@ module Amazonka.Nimble.Lens
     listStreamingImagesResponse_streamingImages,
     listStreamingImagesResponse_httpStatus,
 
+    -- ** ListStreamingSessionBackups
+    listStreamingSessionBackups_nextToken,
+    listStreamingSessionBackups_ownedBy,
+    listStreamingSessionBackups_studioId,
+    listStreamingSessionBackupsResponse_nextToken,
+    listStreamingSessionBackupsResponse_streamingSessionBackups,
+    listStreamingSessionBackupsResponse_httpStatus,
+
     -- ** ListStreamingSessions
     listStreamingSessions_createdBy,
     listStreamingSessions_nextToken,
@@ -306,6 +320,7 @@ module Amazonka.Nimble.Lens
     putStudioMembersResponse_httpStatus,
 
     -- ** StartStreamingSession
+    startStreamingSession_backupId,
     startStreamingSession_clientToken,
     startStreamingSession_sessionId,
     startStreamingSession_studioId,
@@ -320,6 +335,7 @@ module Amazonka.Nimble.Lens
 
     -- ** StopStreamingSession
     stopStreamingSession_clientToken,
+    stopStreamingSession_volumeRetentionMode,
     stopStreamingSession_sessionId,
     stopStreamingSession_studioId,
     stopStreamingSessionResponse_session,
@@ -495,20 +511,32 @@ module Amazonka.Nimble.Lens
     sharedFileSystemConfiguration_windowsMountDrive,
 
     -- ** StreamConfiguration
+    streamConfiguration_automaticTerminationMode,
     streamConfiguration_maxSessionLengthInMinutes,
     streamConfiguration_maxStoppedSessionLengthInMinutes,
+    streamConfiguration_sessionBackup,
+    streamConfiguration_sessionPersistenceMode,
     streamConfiguration_sessionStorage,
+    streamConfiguration_volumeConfiguration,
     streamConfiguration_clipboardMode,
     streamConfiguration_ec2InstanceTypes,
     streamConfiguration_streamingImageIds,
 
     -- ** StreamConfigurationCreate
+    streamConfigurationCreate_automaticTerminationMode,
     streamConfigurationCreate_maxSessionLengthInMinutes,
     streamConfigurationCreate_maxStoppedSessionLengthInMinutes,
+    streamConfigurationCreate_sessionBackup,
+    streamConfigurationCreate_sessionPersistenceMode,
     streamConfigurationCreate_sessionStorage,
+    streamConfigurationCreate_volumeConfiguration,
     streamConfigurationCreate_clipboardMode,
     streamConfigurationCreate_ec2InstanceTypes,
     streamConfigurationCreate_streamingImageIds,
+
+    -- ** StreamConfigurationSessionBackup
+    streamConfigurationSessionBackup_maxBackupsToRetain,
+    streamConfigurationSessionBackup_mode,
 
     -- ** StreamConfigurationSessionStorage
     streamConfigurationSessionStorage_root,
@@ -535,14 +563,19 @@ module Amazonka.Nimble.Lens
 
     -- ** StreamingSession
     streamingSession_arn,
+    streamingSession_automaticTerminationMode,
+    streamingSession_backupMode,
     streamingSession_createdAt,
     streamingSession_createdBy,
     streamingSession_ec2InstanceType,
     streamingSession_launchProfileId,
+    streamingSession_maxBackupsToRetain,
     streamingSession_ownedBy,
     streamingSession_sessionId,
+    streamingSession_sessionPersistenceMode,
     streamingSession_startedAt,
     streamingSession_startedBy,
+    streamingSession_startedFromBackupId,
     streamingSession_state,
     streamingSession_statusCode,
     streamingSession_statusMessage,
@@ -554,6 +587,20 @@ module Amazonka.Nimble.Lens
     streamingSession_terminateAt,
     streamingSession_updatedAt,
     streamingSession_updatedBy,
+    streamingSession_volumeConfiguration,
+    streamingSession_volumeRetentionMode,
+
+    -- ** StreamingSessionBackup
+    streamingSessionBackup_arn,
+    streamingSessionBackup_backupId,
+    streamingSessionBackup_createdAt,
+    streamingSessionBackup_launchProfileId,
+    streamingSessionBackup_ownedBy,
+    streamingSessionBackup_sessionId,
+    streamingSessionBackup_state,
+    streamingSessionBackup_statusCode,
+    streamingSessionBackup_statusMessage,
+    streamingSessionBackup_tags,
 
     -- ** StreamingSessionStorageRoot
     streamingSessionStorageRoot_linux,
@@ -647,6 +694,11 @@ module Amazonka.Nimble.Lens
     validationResult_statusCode,
     validationResult_statusMessage,
     validationResult_type,
+
+    -- ** VolumeConfiguration
+    volumeConfiguration_iops,
+    volumeConfiguration_size,
+    volumeConfiguration_throughput,
   )
 where
 
@@ -671,6 +723,7 @@ import Amazonka.Nimble.GetLaunchProfileInitialization
 import Amazonka.Nimble.GetLaunchProfileMember
 import Amazonka.Nimble.GetStreamingImage
 import Amazonka.Nimble.GetStreamingSession
+import Amazonka.Nimble.GetStreamingSessionBackup
 import Amazonka.Nimble.GetStreamingSessionStream
 import Amazonka.Nimble.GetStudio
 import Amazonka.Nimble.GetStudioComponent
@@ -680,6 +733,7 @@ import Amazonka.Nimble.ListEulas
 import Amazonka.Nimble.ListLaunchProfileMembers
 import Amazonka.Nimble.ListLaunchProfiles
 import Amazonka.Nimble.ListStreamingImages
+import Amazonka.Nimble.ListStreamingSessionBackups
 import Amazonka.Nimble.ListStreamingSessions
 import Amazonka.Nimble.ListStudioComponents
 import Amazonka.Nimble.ListStudioMembers
@@ -708,10 +762,12 @@ import Amazonka.Nimble.Types.ScriptParameterKeyValue
 import Amazonka.Nimble.Types.SharedFileSystemConfiguration
 import Amazonka.Nimble.Types.StreamConfiguration
 import Amazonka.Nimble.Types.StreamConfigurationCreate
+import Amazonka.Nimble.Types.StreamConfigurationSessionBackup
 import Amazonka.Nimble.Types.StreamConfigurationSessionStorage
 import Amazonka.Nimble.Types.StreamingImage
 import Amazonka.Nimble.Types.StreamingImageEncryptionConfiguration
 import Amazonka.Nimble.Types.StreamingSession
+import Amazonka.Nimble.Types.StreamingSessionBackup
 import Amazonka.Nimble.Types.StreamingSessionStorageRoot
 import Amazonka.Nimble.Types.StreamingSessionStream
 import Amazonka.Nimble.Types.Studio
@@ -722,6 +778,7 @@ import Amazonka.Nimble.Types.StudioComponentSummary
 import Amazonka.Nimble.Types.StudioEncryptionConfiguration
 import Amazonka.Nimble.Types.StudioMembership
 import Amazonka.Nimble.Types.ValidationResult
+import Amazonka.Nimble.Types.VolumeConfiguration
 import Amazonka.Nimble.UntagResource
 import Amazonka.Nimble.UpdateLaunchProfile
 import Amazonka.Nimble.UpdateLaunchProfileMember

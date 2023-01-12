@@ -143,8 +143,7 @@ errorS n =
   let cxt = Exts.CxSingle () (Exts.TypeA () $ tycon "Core.AsError" `tyapp` tyvar "a")
       forall = Exts.TyForall () Nothing (Just cxt)
    in Exts.TypeSig () [ident n] . forall $
-        tycon "Lens.Getting"
-          `tyapp` (tyapp (tycon "Prelude.First") (tycon "Core.ServiceError"))
+        tycon "Lens.Fold"
           `tyapp` tyvar "a"
           `tyapp` tycon "Core.ServiceError"
 
@@ -912,7 +911,7 @@ external m f = directed False m (_fieldDirection f) f
 directed :: (HasMetadata a Identity, TypeOf b) => Bool -> a -> Maybe Direction -> b -> Type
 directed i m d (typeOf -> t) = case t of
   TType x _ -> tycon x
-  TLit x -> literal i (m ^. timestampFormat . _Identity) x
+  TLit x -> literal i (timestamp $ m ^. protocol) x
   TNatural -> tycon nat
   TStream -> tycon stream
   TSensitive x -> sensitive (go x)
@@ -956,7 +955,7 @@ mapping t e = infixE e "Prelude.." (go t)
 
 iso :: TType -> Maybe Exp
 iso = \case
-  TLit Time -> Just (var "Data._Time")
+  TLit (Time _) -> Just (var "Data._Time")
   TLit Base64 -> Just (var "Data._Base64")
   TMap {} -> Just (var "Lens.coerced")
   TList1 {} -> Just (var "Lens.coerced")
@@ -975,8 +974,8 @@ literal i ts = \case
   Base64
     | i -> tycon "Data.Base64"
     | otherwise -> tycon "Prelude.ByteString"
-  Time
-    | i -> tycon ("Data." <> tsToText ts)
+  Time shapeTs
+    | i -> tycon ("Data." <> tsToText (fromMaybe ts shapeTs))
     | otherwise -> tycon "Prelude.UTCTime"
   Json -> tycon "Prelude.ByteString"
 

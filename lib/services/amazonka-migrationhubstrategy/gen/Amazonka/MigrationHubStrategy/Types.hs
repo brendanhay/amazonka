@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MigrationHubStrategy.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -679,7 +679,7 @@ defaultService =
 -- | The AWS user account does not have permission to perform the action.
 -- Check the AWS Identity and Access Management (IAM) policy associated
 -- with this account.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -688,7 +688,7 @@ _AccessDeniedException =
 
 -- | Exception to indicate that there is an ongoing task when a new task is
 -- created. Return when once the existing tasks are complete.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -696,7 +696,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Dependency encountered an error.
-_DependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DependencyException =
   Core._MatchServiceError
     defaultService
@@ -704,7 +704,7 @@ _DependencyException =
     Prelude.. Core.hasStatus 500
 
 -- | The server experienced an internal error. Try again.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -712,7 +712,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The specified ID in the request is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -720,7 +720,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Exception to indicate that the service-linked role (SLR) is locked.
-_ServiceLinkedRoleLockClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLinkedRoleLockClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceLinkedRoleLockClientException =
   Core._MatchServiceError
     defaultService
@@ -729,7 +729,7 @@ _ServiceLinkedRoleLockClientException =
 
 -- | The AWS account has reached its quota of imports. Contact AWS Support to
 -- increase the quota for this account.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -737,7 +737,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -745,7 +745,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The request body isn\'t valid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

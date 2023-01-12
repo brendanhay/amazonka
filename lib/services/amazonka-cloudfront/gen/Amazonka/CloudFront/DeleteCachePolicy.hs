@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.DeleteCachePolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,11 +22,11 @@
 --
 -- Deletes a cache policy.
 --
--- You cannot delete a cache policy if it’s attached to a cache behavior.
+-- You cannot delete a cache policy if it\'s attached to a cache behavior.
 -- First update your distributions to remove the cache policy from all
 -- cache behaviors, then delete the cache policy.
 --
--- To delete a cache policy, you must provide the policy’s identifier and
+-- To delete a cache policy, you must provide the policy\'s identifier and
 -- version. To get these values, you can use @ListCachePolicies@ or
 -- @GetCachePolicy@.
 module Amazonka.CloudFront.DeleteCachePolicy
@@ -55,7 +55,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteCachePolicy' smart constructor.
 data DeleteCachePolicy = DeleteCachePolicy'
   { -- | The version of the cache policy that you are deleting. The version is
-    -- the cache policy’s @ETag@ value, which you can get using
+    -- the cache policy\'s @ETag@ value, which you can get using
     -- @ListCachePolicies@, @GetCachePolicy@, or @GetCachePolicyConfig@.
     ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the cache policy that you are deleting. To get
@@ -73,7 +73,7 @@ data DeleteCachePolicy = DeleteCachePolicy'
 -- for backwards compatibility:
 --
 -- 'ifMatch', 'deleteCachePolicy_ifMatch' - The version of the cache policy that you are deleting. The version is
--- the cache policy’s @ETag@ value, which you can get using
+-- the cache policy\'s @ETag@ value, which you can get using
 -- @ListCachePolicies@, @GetCachePolicy@, or @GetCachePolicyConfig@.
 --
 -- 'id', 'deleteCachePolicy_id' - The unique identifier for the cache policy that you are deleting. To get
@@ -89,7 +89,7 @@ newDeleteCachePolicy pId_ =
     }
 
 -- | The version of the cache policy that you are deleting. The version is
--- the cache policy’s @ETag@ value, which you can get using
+-- the cache policy\'s @ETag@ value, which you can get using
 -- @ListCachePolicies@, @GetCachePolicy@, or @GetCachePolicyConfig@.
 deleteCachePolicy_ifMatch :: Lens.Lens' DeleteCachePolicy (Prelude.Maybe Prelude.Text)
 deleteCachePolicy_ifMatch = Lens.lens (\DeleteCachePolicy' {ifMatch} -> ifMatch) (\s@DeleteCachePolicy' {} a -> s {ifMatch = a} :: DeleteCachePolicy)

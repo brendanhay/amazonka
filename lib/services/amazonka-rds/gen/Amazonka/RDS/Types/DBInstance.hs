@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.DBInstance
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,6 +27,7 @@ import Amazonka.RDS.Types.ActivityStreamMode
 import Amazonka.RDS.Types.ActivityStreamPolicyStatus
 import Amazonka.RDS.Types.ActivityStreamStatus
 import Amazonka.RDS.Types.AutomationMode
+import Amazonka.RDS.Types.CertificateDetails
 import Amazonka.RDS.Types.DBInstanceAutomatedBackupsReplication
 import Amazonka.RDS.Types.DBInstanceRole
 import Amazonka.RDS.Types.DBInstanceStatusInfo
@@ -35,6 +36,7 @@ import Amazonka.RDS.Types.DBSecurityGroupMembership
 import Amazonka.RDS.Types.DBSubnetGroup
 import Amazonka.RDS.Types.DomainMembership
 import Amazonka.RDS.Types.Endpoint
+import Amazonka.RDS.Types.MasterUserSecret
 import Amazonka.RDS.Types.OptionGroupMembership
 import Amazonka.RDS.Types.PendingModifiedValues
 import Amazonka.RDS.Types.ProcessorFeature
@@ -100,7 +102,15 @@ data DBInstance = DBInstance'
     -- Amazon Web Services Outposts or the Amazon Web Services Region.
     backupTarget :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the CA certificate for this DB instance.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+    -- in the /Amazon Aurora User Guide/.
     cACertificateIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The details of the DB instance\'s server certificate.
+    certificateDetails :: Prelude.Maybe CertificateDetails,
     -- | If present, specifies the name of the character set that this instance
     -- is associated with.
     characterSetName :: Prelude.Maybe Prelude.Text,
@@ -142,7 +152,7 @@ data DBInstance = DBInstance'
     -- in the /Amazon RDS User Guide/.
     --
     -- For more information about CoIPs, see
-    -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+    -- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
     -- in the /Amazon Web Services Outposts User Guide/.
     customerOwnedIpEnabled :: Prelude.Maybe Prelude.Bool,
     -- | If the DB instance is a member of a DB cluster, contains the name of the
@@ -263,6 +273,13 @@ data DBInstance = DBInstance'
     licenseModel :: Prelude.Maybe Prelude.Text,
     -- | Specifies the listener connection endpoint for SQL Server Always On.
     listenerEndpoint :: Prelude.Maybe Endpoint,
+    -- | Contains the secret managed by RDS in Amazon Web Services Secrets
+    -- Manager for the master user password.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide./
+    masterUserSecret :: Prelude.Maybe MasterUserSecret,
     -- | Contains the master username for the DB instance.
     masterUsername :: Prelude.Maybe Prelude.Text,
     -- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
@@ -474,6 +491,14 @@ data DBInstance = DBInstance'
 --
 -- 'cACertificateIdentifier', 'dbInstance_cACertificateIdentifier' - The identifier of the CA certificate for this DB instance.
 --
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+-- in the /Amazon Aurora User Guide/.
+--
+-- 'certificateDetails', 'dbInstance_certificateDetails' - The details of the DB instance\'s server certificate.
+--
 -- 'characterSetName', 'dbInstance_characterSetName' - If present, specifies the name of the character set that this instance
 -- is associated with.
 --
@@ -515,7 +540,7 @@ data DBInstance = DBInstance'
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 --
 -- 'dbClusterIdentifier', 'dbInstance_dbClusterIdentifier' - If the DB instance is a member of a DB cluster, contains the name of the
@@ -635,6 +660,13 @@ data DBInstance = DBInstance'
 -- apply to RDS Custom.
 --
 -- 'listenerEndpoint', 'dbInstance_listenerEndpoint' - Specifies the listener connection endpoint for SQL Server Always On.
+--
+-- 'masterUserSecret', 'dbInstance_masterUserSecret' - Contains the secret managed by RDS in Amazon Web Services Secrets
+-- Manager for the master user password.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
 --
 -- 'masterUsername', 'dbInstance_masterUsername' - Contains the master username for the DB instance.
 --
@@ -809,6 +841,7 @@ newDBInstance =
       backupRetentionPeriod = Prelude.Nothing,
       backupTarget = Prelude.Nothing,
       cACertificateIdentifier = Prelude.Nothing,
+      certificateDetails = Prelude.Nothing,
       characterSetName = Prelude.Nothing,
       copyTagsToSnapshot = Prelude.Nothing,
       customIamInstanceProfile = Prelude.Nothing,
@@ -841,6 +874,7 @@ newDBInstance =
       latestRestorableTime = Prelude.Nothing,
       licenseModel = Prelude.Nothing,
       listenerEndpoint = Prelude.Nothing,
+      masterUserSecret = Prelude.Nothing,
       masterUsername = Prelude.Nothing,
       maxAllocatedStorage = Prelude.Nothing,
       monitoringInterval = Prelude.Nothing,
@@ -952,8 +986,18 @@ dbInstance_backupTarget :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_backupTarget = Lens.lens (\DBInstance' {backupTarget} -> backupTarget) (\s@DBInstance' {} a -> s {backupTarget = a} :: DBInstance)
 
 -- | The identifier of the CA certificate for this DB instance.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB instance>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html Using SSL\/TLS to encrypt a connection to a DB cluster>
+-- in the /Amazon Aurora User Guide/.
 dbInstance_cACertificateIdentifier :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_cACertificateIdentifier = Lens.lens (\DBInstance' {cACertificateIdentifier} -> cACertificateIdentifier) (\s@DBInstance' {} a -> s {cACertificateIdentifier = a} :: DBInstance)
+
+-- | The details of the DB instance\'s server certificate.
+dbInstance_certificateDetails :: Lens.Lens' DBInstance (Prelude.Maybe CertificateDetails)
+dbInstance_certificateDetails = Lens.lens (\DBInstance' {certificateDetails} -> certificateDetails) (\s@DBInstance' {} a -> s {certificateDetails = a} :: DBInstance)
 
 -- | If present, specifies the name of the character set that this instance
 -- is associated with.
@@ -1002,7 +1046,7 @@ dbInstance_customIamInstanceProfile = Lens.lens (\DBInstance' {customIamInstance
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
--- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing Customer-owned IP addresses>
 -- in the /Amazon Web Services Outposts User Guide/.
 dbInstance_customerOwnedIpEnabled :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Bool)
 dbInstance_customerOwnedIpEnabled = Lens.lens (\DBInstance' {customerOwnedIpEnabled} -> customerOwnedIpEnabled) (\s@DBInstance' {} a -> s {customerOwnedIpEnabled = a} :: DBInstance)
@@ -1178,6 +1222,15 @@ dbInstance_licenseModel = Lens.lens (\DBInstance' {licenseModel} -> licenseModel
 -- | Specifies the listener connection endpoint for SQL Server Always On.
 dbInstance_listenerEndpoint :: Lens.Lens' DBInstance (Prelude.Maybe Endpoint)
 dbInstance_listenerEndpoint = Lens.lens (\DBInstance' {listenerEndpoint} -> listenerEndpoint) (\s@DBInstance' {} a -> s {listenerEndpoint = a} :: DBInstance)
+
+-- | Contains the secret managed by RDS in Amazon Web Services Secrets
+-- Manager for the master user password.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide./
+dbInstance_masterUserSecret :: Lens.Lens' DBInstance (Prelude.Maybe MasterUserSecret)
+dbInstance_masterUserSecret = Lens.lens (\DBInstance' {masterUserSecret} -> masterUserSecret) (\s@DBInstance' {} a -> s {masterUserSecret = a} :: DBInstance)
 
 -- | Contains the master username for the DB instance.
 dbInstance_masterUsername :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
@@ -1417,6 +1470,7 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "BackupRetentionPeriod")
       Prelude.<*> (x Data..@? "BackupTarget")
       Prelude.<*> (x Data..@? "CACertificateIdentifier")
+      Prelude.<*> (x Data..@? "CertificateDetails")
       Prelude.<*> (x Data..@? "CharacterSetName")
       Prelude.<*> (x Data..@? "CopyTagsToSnapshot")
       Prelude.<*> (x Data..@? "CustomIamInstanceProfile")
@@ -1466,6 +1520,7 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "LatestRestorableTime")
       Prelude.<*> (x Data..@? "LicenseModel")
       Prelude.<*> (x Data..@? "ListenerEndpoint")
+      Prelude.<*> (x Data..@? "MasterUserSecret")
       Prelude.<*> (x Data..@? "MasterUsername")
       Prelude.<*> (x Data..@? "MaxAllocatedStorage")
       Prelude.<*> (x Data..@? "MonitoringInterval")
@@ -1541,6 +1596,7 @@ instance Prelude.Hashable DBInstance where
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` backupTarget
       `Prelude.hashWithSalt` cACertificateIdentifier
+      `Prelude.hashWithSalt` certificateDetails
       `Prelude.hashWithSalt` characterSetName
       `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` customIamInstanceProfile
@@ -1572,6 +1628,7 @@ instance Prelude.Hashable DBInstance where
       `Prelude.hashWithSalt` latestRestorableTime
       `Prelude.hashWithSalt` licenseModel
       `Prelude.hashWithSalt` listenerEndpoint
+      `Prelude.hashWithSalt` masterUserSecret
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` maxAllocatedStorage
       `Prelude.hashWithSalt` monitoringInterval
@@ -1623,6 +1680,7 @@ instance Prelude.NFData DBInstance where
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf backupTarget
       `Prelude.seq` Prelude.rnf cACertificateIdentifier
+      `Prelude.seq` Prelude.rnf certificateDetails
       `Prelude.seq` Prelude.rnf characterSetName
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf
@@ -1631,7 +1689,8 @@ instance Prelude.NFData DBInstance where
         customerOwnedIpEnabled
       `Prelude.seq` Prelude.rnf
         dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf dbInstanceArn
+      `Prelude.seq` Prelude.rnf
+        dbInstanceArn
       `Prelude.seq` Prelude.rnf
         dbInstanceAutomatedBackupsReplications
       `Prelude.seq` Prelude.rnf
@@ -1682,6 +1741,8 @@ instance Prelude.NFData DBInstance where
         licenseModel
       `Prelude.seq` Prelude.rnf
         listenerEndpoint
+      `Prelude.seq` Prelude.rnf
+        masterUserSecret
       `Prelude.seq` Prelude.rnf
         masterUsername
       `Prelude.seq` Prelude.rnf

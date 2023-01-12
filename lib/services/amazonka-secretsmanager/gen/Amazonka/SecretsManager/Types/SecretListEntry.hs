@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecretsManager.Types.SecretListEntry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -65,6 +65,7 @@ data SecretListEntry = SecretListEntry'
     -- @\/prod\/databases\/dbserver1@ could represent the secret for a server
     -- named @dbserver1@ in the folder @databases@ in the folder @prod@.
     name :: Prelude.Maybe Prelude.Text,
+    nextRotationDate :: Prelude.Maybe Data.POSIX,
     -- | Returns the name of the service that created the secret.
     owningService :: Prelude.Maybe Prelude.Text,
     -- | The Region where Secrets Manager originated the secret.
@@ -138,6 +139,8 @@ data SecretListEntry = SecretListEntry'
 -- @\/prod\/databases\/dbserver1@ could represent the secret for a server
 -- named @dbserver1@ in the folder @databases@ in the folder @prod@.
 --
+-- 'nextRotationDate', 'secretListEntry_nextRotationDate' - Undocumented member.
+--
 -- 'owningService', 'secretListEntry_owningService' - Returns the name of the service that created the secret.
 --
 -- 'primaryRegion', 'secretListEntry_primaryRegion' - The Region where Secrets Manager originated the secret.
@@ -181,6 +184,7 @@ newSecretListEntry =
       lastChangedDate = Prelude.Nothing,
       lastRotatedDate = Prelude.Nothing,
       name = Prelude.Nothing,
+      nextRotationDate = Prelude.Nothing,
       owningService = Prelude.Nothing,
       primaryRegion = Prelude.Nothing,
       rotationEnabled = Prelude.Nothing,
@@ -238,6 +242,10 @@ secretListEntry_lastRotatedDate = Lens.lens (\SecretListEntry' {lastRotatedDate}
 -- named @dbserver1@ in the folder @databases@ in the folder @prod@.
 secretListEntry_name :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
 secretListEntry_name = Lens.lens (\SecretListEntry' {name} -> name) (\s@SecretListEntry' {} a -> s {name = a} :: SecretListEntry)
+
+-- | Undocumented member.
+secretListEntry_nextRotationDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
+secretListEntry_nextRotationDate = Lens.lens (\SecretListEntry' {nextRotationDate} -> nextRotationDate) (\s@SecretListEntry' {} a -> s {nextRotationDate = a} :: SecretListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | Returns the name of the service that created the secret.
 secretListEntry_owningService :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
@@ -299,6 +307,7 @@ instance Data.FromJSON SecretListEntry where
             Prelude.<*> (x Data..:? "LastChangedDate")
             Prelude.<*> (x Data..:? "LastRotatedDate")
             Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "NextRotationDate")
             Prelude.<*> (x Data..:? "OwningService")
             Prelude.<*> (x Data..:? "PrimaryRegion")
             Prelude.<*> (x Data..:? "RotationEnabled")
@@ -321,6 +330,7 @@ instance Prelude.Hashable SecretListEntry where
       `Prelude.hashWithSalt` lastChangedDate
       `Prelude.hashWithSalt` lastRotatedDate
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextRotationDate
       `Prelude.hashWithSalt` owningService
       `Prelude.hashWithSalt` primaryRegion
       `Prelude.hashWithSalt` rotationEnabled
@@ -340,6 +350,7 @@ instance Prelude.NFData SecretListEntry where
       `Prelude.seq` Prelude.rnf lastChangedDate
       `Prelude.seq` Prelude.rnf lastRotatedDate
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextRotationDate
       `Prelude.seq` Prelude.rnf owningService
       `Prelude.seq` Prelude.rnf primaryRegion
       `Prelude.seq` Prelude.rnf rotationEnabled

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.AmplifyBackend.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -448,7 +448,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An error returned if a request is not formed properly.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -456,7 +456,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | An error returned if there\'s a temporary issue with the service.
-_GatewayTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GatewayTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _GatewayTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -464,7 +464,7 @@ _GatewayTimeoutException =
     Prelude.. Core.hasStatus 504
 
 -- | An error returned when a specific resource type is not found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -473,7 +473,7 @@ _NotFoundException =
 
 -- | An error that is returned when a limit of a specific type has been
 -- exceeded.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

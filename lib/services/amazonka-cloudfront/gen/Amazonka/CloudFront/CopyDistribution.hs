@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.CopyDistribution
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,9 +26,9 @@
 -- continuous deployment workflow.
 --
 -- After you create a staging distribution, you can use
--- @UpdateDistribution@ to modify the staging distribution’s configuration.
--- Then you can use @CreateContinuousDeploymentPolicy@ to incrementally
--- move traffic to the staging distribution.
+-- @UpdateDistribution@ to modify the staging distribution\'s
+-- configuration. Then you can use @CreateContinuousDeploymentPolicy@ to
+-- incrementally move traffic to the staging distribution.
 module Amazonka.CloudFront.CopyDistribution
   ( -- * Creating a Request
     CopyDistribution (..),

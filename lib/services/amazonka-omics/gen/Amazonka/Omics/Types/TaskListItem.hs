@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.Types.TaskListItem
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,17 +32,17 @@ data TaskListItem = TaskListItem'
   { -- | The task\'s CPU count.
     cpus :: Prelude.Maybe Prelude.Natural,
     -- | When the task was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The task\'s memory.
     memory :: Prelude.Maybe Prelude.Natural,
     -- | The task\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | When the task started.
-    startTime :: Prelude.Maybe Data.POSIX,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The task\'s status.
     status :: Prelude.Maybe TaskStatus,
     -- | When the task stopped.
-    stopTime :: Prelude.Maybe Data.POSIX,
+    stopTime :: Prelude.Maybe Data.ISO8601,
     -- | The task\'s ID.
     taskId :: Prelude.Maybe Prelude.Text
   }

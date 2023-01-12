@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.EMR.AddJobFlowSteps
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,10 +27,7 @@
 -- complex, you may require more than 256 steps to process your data. You
 -- can bypass the 256-step limitation in various ways, including using SSH
 -- to connect to the master node and submitting queries directly to the
--- software running on the master node, such as Hive and Hadoop. For more
--- information on how to do this, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Cluster>
--- in the /Amazon EMR Management Guide/.
+-- software running on the master node, such as Hive and Hadoop.
 --
 -- A step specifies the location of a JAR file stored either on the master
 -- node of the cluster or in Amazon S3. Each step is performed by the main

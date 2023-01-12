@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftServerLess.Types.Snapshot
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,7 +60,7 @@ data Snapshot = Snapshot'
     -- | The Amazon Resource Name (ARN) of the snapshot.
     snapshotArn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the snapshot was created.
-    snapshotCreateTime :: Prelude.Maybe Data.POSIX,
+    snapshotCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the snapshot.
     snapshotName :: Prelude.Maybe Prelude.Text,
     -- | The amount of days until the snapshot is deleted.
@@ -68,7 +68,7 @@ data Snapshot = Snapshot'
     -- | The period of time, in days, of how long the snapshot is retained.
     snapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The timestamp of when data within the snapshot started getting retained.
-    snapshotRetentionStartTime :: Prelude.Maybe Data.POSIX,
+    snapshotRetentionStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The status of the snapshot.
     status :: Prelude.Maybe SnapshotStatus,
     -- | The total size, in megabytes, of how big the snapshot is.

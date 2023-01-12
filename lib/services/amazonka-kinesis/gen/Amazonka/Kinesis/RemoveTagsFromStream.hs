@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.RemoveTagsFromStream
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,9 @@
 -- Removes tags from the specified Kinesis data stream. Removed tags are
 -- deleted and cannot be recovered after this operation successfully
 -- completes.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- If you specify a tag that does not exist, it is ignored.
 --
@@ -34,6 +37,7 @@ module Amazonka.Kinesis.RemoveTagsFromStream
     newRemoveTagsFromStream,
 
     -- * Request Lenses
+    removeTagsFromStream_streamARN,
     removeTagsFromStream_streamName,
     removeTagsFromStream_tagKeys,
 
@@ -55,8 +59,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRemoveTagsFromStream' smart constructor.
 data RemoveTagsFromStream = RemoveTagsFromStream'
-  { -- | The name of the stream.
-    streamName :: Prelude.Text,
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | A list of tag keys. Each corresponding tag is removed from the stream.
     tagKeys :: Prelude.NonEmpty Prelude.Text
   }
@@ -70,23 +76,28 @@ data RemoveTagsFromStream = RemoveTagsFromStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'removeTagsFromStream_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'removeTagsFromStream_streamName' - The name of the stream.
 --
 -- 'tagKeys', 'removeTagsFromStream_tagKeys' - A list of tag keys. Each corresponding tag is removed from the stream.
 newRemoveTagsFromStream ::
-  -- | 'streamName'
-  Prelude.Text ->
   -- | 'tagKeys'
   Prelude.NonEmpty Prelude.Text ->
   RemoveTagsFromStream
-newRemoveTagsFromStream pStreamName_ pTagKeys_ =
+newRemoveTagsFromStream pTagKeys_ =
   RemoveTagsFromStream'
-    { streamName = pStreamName_,
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
       tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
+-- | The ARN of the stream.
+removeTagsFromStream_streamARN :: Lens.Lens' RemoveTagsFromStream (Prelude.Maybe Prelude.Text)
+removeTagsFromStream_streamARN = Lens.lens (\RemoveTagsFromStream' {streamARN} -> streamARN) (\s@RemoveTagsFromStream' {} a -> s {streamARN = a} :: RemoveTagsFromStream)
+
 -- | The name of the stream.
-removeTagsFromStream_streamName :: Lens.Lens' RemoveTagsFromStream Prelude.Text
+removeTagsFromStream_streamName :: Lens.Lens' RemoveTagsFromStream (Prelude.Maybe Prelude.Text)
 removeTagsFromStream_streamName = Lens.lens (\RemoveTagsFromStream' {streamName} -> streamName) (\s@RemoveTagsFromStream' {} a -> s {streamName = a} :: RemoveTagsFromStream)
 
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
@@ -104,12 +115,14 @@ instance Core.AWSRequest RemoveTagsFromStream where
 
 instance Prelude.Hashable RemoveTagsFromStream where
   hashWithSalt _salt RemoveTagsFromStream' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData RemoveTagsFromStream where
   rnf RemoveTagsFromStream' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf tagKeys
 
 instance Data.ToHeaders RemoveTagsFromStream where
@@ -131,7 +144,8 @@ instance Data.ToJSON RemoveTagsFromStream where
   toJSON RemoveTagsFromStream' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Data..= streamName),
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just ("TagKeys" Data..= tagKeys)
           ]
       )

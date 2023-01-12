@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.GetCurrentUserData
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,6 +38,7 @@ module Amazonka.Connect.GetCurrentUserData
     newGetCurrentUserDataResponse,
 
     -- * Response Lenses
+    getCurrentUserDataResponse_approximateTotalCount,
     getCurrentUserDataResponse_nextToken,
     getCurrentUserDataResponse_userDataList,
     getCurrentUserDataResponse_httpStatus,
@@ -63,9 +64,25 @@ data GetCurrentUserData = GetCurrentUserData'
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
-    -- | Filters up to 100 @Queues@, or up to 9 @ContactStates@. The user data is
-    -- retrieved only for those users who are associated with the queues and
-    -- have contacts that are in the specified @ContactState@.
+    -- | The filters to apply to returned user data. You can filter up to the
+    -- following limits:
+    --
+    -- -   Queues: 100
+    --
+    -- -   Routing profiles: 100
+    --
+    -- -   Agents: 100
+    --
+    -- -   Contact states: 9
+    --
+    -- -   User hierarchy groups: 1
+    --
+    -- The user data is retrieved for only the specified values\/resources in
+    -- the filter. A maximum of one filter can be passed from queues, routing
+    -- profiles, agents, and user hierarchy groups.
+    --
+    -- Currently tagging is only supported on the resources that are passed in
+    -- the filter.
     filters :: UserDataFilters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,9 +104,25 @@ data GetCurrentUserData = GetCurrentUserData'
 -- 'instanceId', 'getCurrentUserData_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 --
--- 'filters', 'getCurrentUserData_filters' - Filters up to 100 @Queues@, or up to 9 @ContactStates@. The user data is
--- retrieved only for those users who are associated with the queues and
--- have contacts that are in the specified @ContactState@.
+-- 'filters', 'getCurrentUserData_filters' - The filters to apply to returned user data. You can filter up to the
+-- following limits:
+--
+-- -   Queues: 100
+--
+-- -   Routing profiles: 100
+--
+-- -   Agents: 100
+--
+-- -   Contact states: 9
+--
+-- -   User hierarchy groups: 1
+--
+-- The user data is retrieved for only the specified values\/resources in
+-- the filter. A maximum of one filter can be passed from queues, routing
+-- profiles, agents, and user hierarchy groups.
+--
+-- Currently tagging is only supported on the resources that are passed in
+-- the filter.
 newGetCurrentUserData ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -119,9 +152,25 @@ getCurrentUserData_nextToken = Lens.lens (\GetCurrentUserData' {nextToken} -> ne
 getCurrentUserData_instanceId :: Lens.Lens' GetCurrentUserData Prelude.Text
 getCurrentUserData_instanceId = Lens.lens (\GetCurrentUserData' {instanceId} -> instanceId) (\s@GetCurrentUserData' {} a -> s {instanceId = a} :: GetCurrentUserData)
 
--- | Filters up to 100 @Queues@, or up to 9 @ContactStates@. The user data is
--- retrieved only for those users who are associated with the queues and
--- have contacts that are in the specified @ContactState@.
+-- | The filters to apply to returned user data. You can filter up to the
+-- following limits:
+--
+-- -   Queues: 100
+--
+-- -   Routing profiles: 100
+--
+-- -   Agents: 100
+--
+-- -   Contact states: 9
+--
+-- -   User hierarchy groups: 1
+--
+-- The user data is retrieved for only the specified values\/resources in
+-- the filter. A maximum of one filter can be passed from queues, routing
+-- profiles, agents, and user hierarchy groups.
+--
+-- Currently tagging is only supported on the resources that are passed in
+-- the filter.
 getCurrentUserData_filters :: Lens.Lens' GetCurrentUserData UserDataFilters
 getCurrentUserData_filters = Lens.lens (\GetCurrentUserData' {filters} -> filters) (\s@GetCurrentUserData' {} a -> s {filters = a} :: GetCurrentUserData)
 
@@ -135,7 +184,8 @@ instance Core.AWSRequest GetCurrentUserData where
     Response.receiveJSON
       ( \s h x ->
           GetCurrentUserDataResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "ApproximateTotalCount")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "UserDataList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -185,7 +235,9 @@ instance Data.ToQuery GetCurrentUserData where
 
 -- | /See:/ 'newGetCurrentUserDataResponse' smart constructor.
 data GetCurrentUserDataResponse = GetCurrentUserDataResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | The total count of the result, regardless of the current page size.
+    approximateTotalCount :: Prelude.Maybe Prelude.Integer,
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of the user data that is returned.
@@ -203,6 +255,8 @@ data GetCurrentUserDataResponse = GetCurrentUserDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'approximateTotalCount', 'getCurrentUserDataResponse_approximateTotalCount' - The total count of the result, regardless of the current page size.
+--
 -- 'nextToken', 'getCurrentUserDataResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
 --
@@ -215,11 +269,16 @@ newGetCurrentUserDataResponse ::
   GetCurrentUserDataResponse
 newGetCurrentUserDataResponse pHttpStatus_ =
   GetCurrentUserDataResponse'
-    { nextToken =
+    { approximateTotalCount =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       userDataList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The total count of the result, regardless of the current page size.
+getCurrentUserDataResponse_approximateTotalCount :: Lens.Lens' GetCurrentUserDataResponse (Prelude.Maybe Prelude.Integer)
+getCurrentUserDataResponse_approximateTotalCount = Lens.lens (\GetCurrentUserDataResponse' {approximateTotalCount} -> approximateTotalCount) (\s@GetCurrentUserDataResponse' {} a -> s {approximateTotalCount = a} :: GetCurrentUserDataResponse)
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
@@ -236,6 +295,7 @@ getCurrentUserDataResponse_httpStatus = Lens.lens (\GetCurrentUserDataResponse' 
 
 instance Prelude.NFData GetCurrentUserDataResponse where
   rnf GetCurrentUserDataResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf approximateTotalCount
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf userDataList
       `Prelude.seq` Prelude.rnf httpStatus

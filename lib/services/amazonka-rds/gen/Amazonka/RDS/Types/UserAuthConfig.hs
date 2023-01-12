@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.Types.UserAuthConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AuthScheme
+import Amazonka.RDS.Types.ClientPasswordAuthType
 import Amazonka.RDS.Types.IAMAuthMode
 
 -- | Specifies the details of authentication used by a proxy to log in as a
@@ -34,6 +35,8 @@ data UserAuthConfig = UserAuthConfig'
   { -- | The type of authentication that the proxy uses for connections from the
     -- proxy to the underlying database.
     authScheme :: Prelude.Maybe AuthScheme,
+    -- | The type of authentication the proxy uses for connections from clients.
+    clientPasswordAuthType :: Prelude.Maybe ClientPasswordAuthType,
     -- | A user-specified description about the authentication used by a proxy to
     -- log in as a specific database user.
     description :: Prelude.Maybe Prelude.Text,
@@ -62,6 +65,8 @@ data UserAuthConfig = UserAuthConfig'
 -- 'authScheme', 'userAuthConfig_authScheme' - The type of authentication that the proxy uses for connections from the
 -- proxy to the underlying database.
 --
+-- 'clientPasswordAuthType', 'userAuthConfig_clientPasswordAuthType' - The type of authentication the proxy uses for connections from clients.
+--
 -- 'description', 'userAuthConfig_description' - A user-specified description about the authentication used by a proxy to
 -- log in as a specific database user.
 --
@@ -80,6 +85,7 @@ newUserAuthConfig ::
 newUserAuthConfig =
   UserAuthConfig'
     { authScheme = Prelude.Nothing,
+      clientPasswordAuthType = Prelude.Nothing,
       description = Prelude.Nothing,
       iAMAuth = Prelude.Nothing,
       secretArn = Prelude.Nothing,
@@ -90,6 +96,10 @@ newUserAuthConfig =
 -- proxy to the underlying database.
 userAuthConfig_authScheme :: Lens.Lens' UserAuthConfig (Prelude.Maybe AuthScheme)
 userAuthConfig_authScheme = Lens.lens (\UserAuthConfig' {authScheme} -> authScheme) (\s@UserAuthConfig' {} a -> s {authScheme = a} :: UserAuthConfig)
+
+-- | The type of authentication the proxy uses for connections from clients.
+userAuthConfig_clientPasswordAuthType :: Lens.Lens' UserAuthConfig (Prelude.Maybe ClientPasswordAuthType)
+userAuthConfig_clientPasswordAuthType = Lens.lens (\UserAuthConfig' {clientPasswordAuthType} -> clientPasswordAuthType) (\s@UserAuthConfig' {} a -> s {clientPasswordAuthType = a} :: UserAuthConfig)
 
 -- | A user-specified description about the authentication used by a proxy to
 -- log in as a specific database user.
@@ -116,6 +126,7 @@ userAuthConfig_userName = Lens.lens (\UserAuthConfig' {userName} -> userName) (\
 instance Prelude.Hashable UserAuthConfig where
   hashWithSalt _salt UserAuthConfig' {..} =
     _salt `Prelude.hashWithSalt` authScheme
+      `Prelude.hashWithSalt` clientPasswordAuthType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` iAMAuth
       `Prelude.hashWithSalt` secretArn
@@ -124,6 +135,7 @@ instance Prelude.Hashable UserAuthConfig where
 instance Prelude.NFData UserAuthConfig where
   rnf UserAuthConfig' {..} =
     Prelude.rnf authScheme
+      `Prelude.seq` Prelude.rnf clientPasswordAuthType
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf iAMAuth
       `Prelude.seq` Prelude.rnf secretArn
@@ -133,6 +145,8 @@ instance Data.ToQuery UserAuthConfig where
   toQuery UserAuthConfig' {..} =
     Prelude.mconcat
       [ "AuthScheme" Data.=: authScheme,
+        "ClientPasswordAuthType"
+          Data.=: clientPasswordAuthType,
         "Description" Data.=: description,
         "IAMAuth" Data.=: iAMAuth,
         "SecretArn" Data.=: secretArn,

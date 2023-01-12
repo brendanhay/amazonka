@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.OriginRequestPolicyConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,7 +44,7 @@ import qualified Amazonka.Prelude as Prelude
 --     items from the viewer request and, in the case of headers,
 --     additional ones that are added by CloudFront.
 --
--- CloudFront sends a request when it can’t find an object in its cache
+-- CloudFront sends a request when it can\'t find an object in its cache
 -- that matches the request. If you want to send values to the origin and
 -- also include them in the cache key, use @CachePolicy@.
 --

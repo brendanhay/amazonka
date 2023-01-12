@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.CreateOriginRequestPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,8 @@
 -- Creates an origin request policy.
 --
 -- After you create an origin request policy, you can attach it to one or
--- more cache behaviors. When it’s attached to a cache behavior, the origin
--- request policy determines the values that CloudFront includes in
+-- more cache behaviors. When it\'s attached to a cache behavior, the
+-- origin request policy determines the values that CloudFront includes in
 -- requests that it sends to the origin. Each request that CloudFront sends
 -- to the origin includes the following:
 --
@@ -39,7 +39,7 @@
 --     items from the viewer request and, in the case of headers,
 --     additional ones that are added by CloudFront.
 --
--- CloudFront sends a request when it can’t find a valid object in its
+-- CloudFront sends a request when it can\'t find a valid object in its
 -- cache that matches the request. If you want to send values to the origin
 -- and also include them in the cache key, use @CachePolicy@.
 --

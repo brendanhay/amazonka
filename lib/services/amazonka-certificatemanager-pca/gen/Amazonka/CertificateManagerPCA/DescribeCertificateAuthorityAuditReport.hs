@@ -14,20 +14,20 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about a specific audit report created by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
 -- action. Audit information is created every time the certificate
 -- authority (CA) private key is used. The private key is used when you
 -- call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html IssueCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html IssueCertificate>
 -- action or the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html RevokeCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html RevokeCertificate>
 -- action.
 module Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
   ( -- * Creating a Request
@@ -67,7 +67,7 @@ data DescribeCertificateAuthorityAuditReport = DescribeCertificateAuthorityAudit
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
     certificateAuthorityArn :: Prelude.Text,
     -- | The report ID returned by calling the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
     -- action.
     auditReportId :: Prelude.Text
   }
@@ -87,7 +87,7 @@ data DescribeCertificateAuthorityAuditReport = DescribeCertificateAuthorityAudit
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
 --
 -- 'auditReportId', 'describeCertificateAuthorityAuditReport_auditReportId' - The report ID returned by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
 -- action.
 newDescribeCertificateAuthorityAuditReport ::
   -- | 'certificateAuthorityArn'
@@ -112,7 +112,7 @@ describeCertificateAuthorityAuditReport_certificateAuthorityArn :: Lens.Lens' De
 describeCertificateAuthorityAuditReport_certificateAuthorityArn = Lens.lens (\DescribeCertificateAuthorityAuditReport' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@DescribeCertificateAuthorityAuditReport' {} a -> s {certificateAuthorityArn = a} :: DescribeCertificateAuthorityAuditReport)
 
 -- | The report ID returned by calling the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
 -- action.
 describeCertificateAuthorityAuditReport_auditReportId :: Lens.Lens' DescribeCertificateAuthorityAuditReport Prelude.Text
 describeCertificateAuthorityAuditReport_auditReportId = Lens.lens (\DescribeCertificateAuthorityAuditReport' {auditReportId} -> auditReportId) (\s@DescribeCertificateAuthorityAuditReport' {} a -> s {auditReportId = a} :: DescribeCertificateAuthorityAuditReport)

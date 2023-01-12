@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ServiceCatalogAppRegistry.Types.Application
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,14 +35,14 @@ data Application = Application'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment when the application was
     -- created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The description of the application.
     description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the application.
     id :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment when the application was
     -- last updated.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the application. The name must be unique in the region in
     -- which you are creating the application.
     name :: Prelude.Maybe Prelude.Text,

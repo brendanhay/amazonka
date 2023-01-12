@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ConnectCases.Types.ContactContent
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,7 +32,7 @@ data ContactContent = ContactContent'
     channel :: Prelude.Text,
     -- | The difference between the @InitiationTimestamp@ and the
     -- @DisconnectTimestamp@ of the contact.
-    connectedToSystemTime :: Data.POSIX,
+    connectedToSystemTime :: Data.ISO8601,
     -- | A unique identifier of a contact in Amazon Connect.
     contactArn :: Prelude.Text
   }

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.MediaConvert.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -3674,7 +3674,7 @@ defaultService =
 
 -- | The service can\'t process your request because of a problem in the
 -- request. Please check your request form and syntax.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -3683,7 +3683,7 @@ _BadRequestException =
 
 -- | The service couldn\'t complete your request because there is a conflict
 -- with the current state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -3692,7 +3692,7 @@ _ConflictException =
 
 -- | You don\'t have permissions for this action with the credentials you
 -- sent.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -3701,7 +3701,7 @@ _ForbiddenException =
 
 -- | The service encountered an unexpected condition and can\'t fulfill your
 -- request.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -3709,7 +3709,7 @@ _InternalServerErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | The resource you requested doesn\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -3718,7 +3718,7 @@ _NotFoundException =
 
 -- | Too many requests have been sent in too short of a time. The service
 -- limits the rate at which it will accept requests.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

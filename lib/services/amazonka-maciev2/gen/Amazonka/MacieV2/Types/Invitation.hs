@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.Types.Invitation
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,7 @@ data Invitation = Invitation'
     invitationId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the
     -- invitation was sent.
-    invitedAt :: Prelude.Maybe Data.POSIX,
+    invitedAt :: Prelude.Maybe Data.ISO8601,
     -- | The status of the relationship between the account that sent the
     -- invitation and the account that received the invitation.
     relationshipStatus :: Prelude.Maybe RelationshipStatus

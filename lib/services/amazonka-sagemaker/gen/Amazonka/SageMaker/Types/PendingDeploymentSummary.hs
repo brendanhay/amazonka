@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.PendingDeploymentSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,13 +30,13 @@ import Amazonka.SageMaker.Types.PendingProductionVariantSummary
 --
 -- /See:/ 'newPendingDeploymentSummary' smart constructor.
 data PendingDeploymentSummary = PendingDeploymentSummary'
-  { -- | List of @PendingProductionVariantSummary@ objects.
+  { -- | An array of PendingProductionVariantSummary objects, one for each model
+    -- hosted behind this endpoint for the in-progress deployment.
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary),
-    -- | Array of @ProductionVariant@ objects, one for each model that you want
-    -- to host at this endpoint in shadow mode with production traffic
-    -- replicated from the model specified on @ProductionVariants@.If you use
-    -- this field, you can only specify one variant for @ProductionVariants@
-    -- and one variant for @ShadowProductionVariants@.
+    -- | An array of PendingProductionVariantSummary objects, one for each model
+    -- hosted behind this endpoint in shadow mode with production traffic
+    -- replicated from the model specified on @ProductionVariants@ for the
+    -- in-progress deployment.
     shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary),
     -- | The start time of the deployment.
     startTime :: Prelude.Maybe Data.POSIX,
@@ -53,13 +53,13 @@ data PendingDeploymentSummary = PendingDeploymentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productionVariants', 'pendingDeploymentSummary_productionVariants' - List of @PendingProductionVariantSummary@ objects.
+-- 'productionVariants', 'pendingDeploymentSummary_productionVariants' - An array of PendingProductionVariantSummary objects, one for each model
+-- hosted behind this endpoint for the in-progress deployment.
 --
--- 'shadowProductionVariants', 'pendingDeploymentSummary_shadowProductionVariants' - Array of @ProductionVariant@ objects, one for each model that you want
--- to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
--- this field, you can only specify one variant for @ProductionVariants@
--- and one variant for @ShadowProductionVariants@.
+-- 'shadowProductionVariants', 'pendingDeploymentSummary_shadowProductionVariants' - An array of PendingProductionVariantSummary objects, one for each model
+-- hosted behind this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@ for the
+-- in-progress deployment.
 --
 -- 'startTime', 'pendingDeploymentSummary_startTime' - The start time of the deployment.
 --
@@ -77,15 +77,15 @@ newPendingDeploymentSummary pEndpointConfigName_ =
       endpointConfigName = pEndpointConfigName_
     }
 
--- | List of @PendingProductionVariantSummary@ objects.
+-- | An array of PendingProductionVariantSummary objects, one for each model
+-- hosted behind this endpoint for the in-progress deployment.
 pendingDeploymentSummary_productionVariants :: Lens.Lens' PendingDeploymentSummary (Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary))
 pendingDeploymentSummary_productionVariants = Lens.lens (\PendingDeploymentSummary' {productionVariants} -> productionVariants) (\s@PendingDeploymentSummary' {} a -> s {productionVariants = a} :: PendingDeploymentSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | Array of @ProductionVariant@ objects, one for each model that you want
--- to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.If you use
--- this field, you can only specify one variant for @ProductionVariants@
--- and one variant for @ShadowProductionVariants@.
+-- | An array of PendingProductionVariantSummary objects, one for each model
+-- hosted behind this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@ for the
+-- in-progress deployment.
 pendingDeploymentSummary_shadowProductionVariants :: Lens.Lens' PendingDeploymentSummary (Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary))
 pendingDeploymentSummary_shadowProductionVariants = Lens.lens (\PendingDeploymentSummary' {shadowProductionVariants} -> shadowProductionVariants) (\s@PendingDeploymentSummary' {} a -> s {shadowProductionVariants = a} :: PendingDeploymentSummary) Prelude.. Lens.mapping Lens.coerced
 

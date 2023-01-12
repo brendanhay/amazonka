@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.ImageBuilder.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -666,7 +666,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You have exceeded the permitted request rate for the specific operation.
-_CallRateLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CallRateLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CallRateLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -677,7 +677,7 @@ _CallRateLimitExceededException =
 -- action or resource on behalf of a user that doesn\'t have permissions to
 -- use the action or resource, or specifying an invalid resource
 -- identifier.
-_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ClientException =
   Core._MatchServiceError
     defaultService
@@ -685,7 +685,7 @@ _ClientException =
     Prelude.. Core.hasStatus 400
 
 -- | You are not authorized to perform the requested operation.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -695,7 +695,7 @@ _ForbiddenException =
 -- | You have specified a client token for an operation using parameter
 -- values that differ from a previous request that used the same client
 -- token.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
@@ -703,7 +703,7 @@ _IdempotentParameterMismatchException =
     Prelude.. Core.hasStatus 400
 
 -- | You have provided an invalid pagination token in your request.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPaginationTokenException =
   Core._MatchServiceError
     defaultService
@@ -712,7 +712,7 @@ _InvalidPaginationTokenException =
 
 -- | You have specified two or more mutually exclusive parameters. Review the
 -- error message for details.
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterCombinationException =
   Core._MatchServiceError
     defaultService
@@ -721,7 +721,7 @@ _InvalidParameterCombinationException =
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -729,7 +729,7 @@ _InvalidParameterException =
     Prelude.. Core.hasStatus 400
 
 -- | The value that you provided for the specified parameter is invalid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -738,7 +738,7 @@ _InvalidParameterValueException =
 
 -- | You have made a request for an action that is not supported by the
 -- service.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -747,7 +747,7 @@ _InvalidRequestException =
 
 -- | Your version number is out of bounds or does not follow the required
 -- syntax.
-_InvalidVersionNumberException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidVersionNumberException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidVersionNumberException =
   Core._MatchServiceError
     defaultService
@@ -755,7 +755,7 @@ _InvalidVersionNumberException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource that you are trying to create already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -764,7 +764,7 @@ _ResourceAlreadyExistsException =
 
 -- | You have attempted to mutate or delete a resource with a dependency that
 -- prohibits this action. See the error message for more details.
-_ResourceDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceDependencyException =
   Core._MatchServiceError
     defaultService
@@ -773,7 +773,7 @@ _ResourceDependencyException =
 
 -- | The resource that you are trying to operate on is currently in use.
 -- Review the message details and retry later.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -781,7 +781,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 400
 
 -- | At least one of the resources referenced by your request does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -790,7 +790,7 @@ _ResourceNotFoundException =
 
 -- | This exception is thrown when the service encounters an unrecoverable
 -- exception.
-_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceException =
   Core._MatchServiceError
     defaultService
@@ -800,7 +800,7 @@ _ServiceException =
 -- | You have exceeded the number of permitted resources or operations for
 -- this service. For service quotas, see
 -- <https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder EC2 Image Builder endpoints and quotas>.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -808,7 +808,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The service is unable to process your request at this time.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService

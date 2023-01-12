@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.FpgaImage
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -43,6 +43,7 @@ data FpgaImage = FpgaImage'
     fpgaImageGlobalId :: Prelude.Maybe Prelude.Text,
     -- | The FPGA image identifier (AFI ID).
     fpgaImageId :: Prelude.Maybe Prelude.Text,
+    instanceTypes :: Prelude.Maybe [Prelude.Text],
     -- | The name of the AFI.
     name :: Prelude.Maybe Prelude.Text,
     -- | The alias of the AFI owner. Possible values include @self@, @amazon@,
@@ -86,6 +87,8 @@ data FpgaImage = FpgaImage'
 --
 -- 'fpgaImageId', 'fpgaImage_fpgaImageId' - The FPGA image identifier (AFI ID).
 --
+-- 'instanceTypes', 'fpgaImage_instanceTypes' - Undocumented member.
+--
 -- 'name', 'fpgaImage_name' - The name of the AFI.
 --
 -- 'ownerAlias', 'fpgaImage_ownerAlias' - The alias of the AFI owner. Possible values include @self@, @amazon@,
@@ -116,6 +119,7 @@ newFpgaImage =
       description = Prelude.Nothing,
       fpgaImageGlobalId = Prelude.Nothing,
       fpgaImageId = Prelude.Nothing,
+      instanceTypes = Prelude.Nothing,
       name = Prelude.Nothing,
       ownerAlias = Prelude.Nothing,
       ownerId = Prelude.Nothing,
@@ -147,6 +151,10 @@ fpgaImage_fpgaImageGlobalId = Lens.lens (\FpgaImage' {fpgaImageGlobalId} -> fpga
 -- | The FPGA image identifier (AFI ID).
 fpgaImage_fpgaImageId :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
 fpgaImage_fpgaImageId = Lens.lens (\FpgaImage' {fpgaImageId} -> fpgaImageId) (\s@FpgaImage' {} a -> s {fpgaImageId = a} :: FpgaImage)
+
+-- | Undocumented member.
+fpgaImage_instanceTypes :: Lens.Lens' FpgaImage (Prelude.Maybe [Prelude.Text])
+fpgaImage_instanceTypes = Lens.lens (\FpgaImage' {instanceTypes} -> instanceTypes) (\s@FpgaImage' {} a -> s {instanceTypes = a} :: FpgaImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the AFI.
 fpgaImage_name :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
@@ -198,6 +206,9 @@ instance Data.FromXML FpgaImage where
       Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "fpgaImageGlobalId")
       Prelude.<*> (x Data..@? "fpgaImageId")
+      Prelude.<*> ( x Data..@? "instanceTypes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
       Prelude.<*> (x Data..@? "name")
       Prelude.<*> (x Data..@? "ownerAlias")
       Prelude.<*> (x Data..@? "ownerId")
@@ -220,6 +231,7 @@ instance Prelude.Hashable FpgaImage where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fpgaImageGlobalId
       `Prelude.hashWithSalt` fpgaImageId
+      `Prelude.hashWithSalt` instanceTypes
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ownerAlias
       `Prelude.hashWithSalt` ownerId
@@ -238,6 +250,7 @@ instance Prelude.NFData FpgaImage where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf fpgaImageGlobalId
       `Prelude.seq` Prelude.rnf fpgaImageId
+      `Prelude.seq` Prelude.rnf instanceTypes
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ownerAlias
       `Prelude.seq` Prelude.rnf ownerId

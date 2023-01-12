@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RolesAnywhere.Types.SubjectDetail
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import Amazonka.RolesAnywhere.Types.InstanceProperty
 -- /See:/ 'newSubjectDetail' smart constructor.
 data SubjectDetail = SubjectDetail'
   { -- | The ISO-8601 timestamp when the subject was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The temporary session credentials vended at the last authenticating call
     -- with this Subject.
     credentials :: Prelude.Maybe [CredentialSummary],
@@ -41,13 +41,13 @@ data SubjectDetail = SubjectDetail'
     instanceProperties :: Prelude.Maybe [InstanceProperty],
     -- | The ISO-8601 timestamp of the last time this Subject requested temporary
     -- session credentials.
-    lastSeenAt :: Prelude.Maybe Data.POSIX,
+    lastSeenAt :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the resource.
     subjectArn :: Prelude.Maybe Prelude.Text,
     -- | The id of the resource
     subjectId :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 timestamp when the subject was last updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    updatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The x509 principal identifier of the authenticating certificate.
     x509Subject :: Prelude.Maybe Prelude.Text
   }

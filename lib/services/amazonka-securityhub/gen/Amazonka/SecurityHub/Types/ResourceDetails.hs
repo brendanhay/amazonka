@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SecurityHub.Types.ResourceDetails
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,6 +41,7 @@ import Amazonka.SecurityHub.Types.AwsCodeBuildProjectDetails
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableDetails
 import Amazonka.SecurityHub.Types.AwsEc2EipDetails
 import Amazonka.SecurityHub.Types.AwsEc2InstanceDetails
+import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDetails
 import Amazonka.SecurityHub.Types.AwsEc2NetworkAclDetails
 import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceDetails
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupDetails
@@ -87,6 +88,7 @@ import Amazonka.SecurityHub.Types.AwsRedshiftClusterDetails
 import Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails
 import Amazonka.SecurityHub.Types.AwsS3BucketDetails
 import Amazonka.SecurityHub.Types.AwsS3ObjectDetails
+import Amazonka.SecurityHub.Types.AwsSageMakerNotebookInstanceDetails
 import Amazonka.SecurityHub.Types.AwsSecretsManagerSecretDetails
 import Amazonka.SecurityHub.Types.AwsSnsTopicDetails
 import Amazonka.SecurityHub.Types.AwsSqsQueueDetails
@@ -99,6 +101,8 @@ import Amazonka.SecurityHub.Types.AwsWafRegionalWebAclDetails
 import Amazonka.SecurityHub.Types.AwsWafRuleDetails
 import Amazonka.SecurityHub.Types.AwsWafRuleGroupDetails
 import Amazonka.SecurityHub.Types.AwsWafWebAclDetails
+import Amazonka.SecurityHub.Types.AwsWafv2RuleGroupDetails
+import Amazonka.SecurityHub.Types.AwsWafv2WebAclDetails
 import Amazonka.SecurityHub.Types.AwsXrayEncryptionConfigDetails
 import Amazonka.SecurityHub.Types.ContainerDetails
 
@@ -157,6 +161,7 @@ data ResourceDetails = ResourceDetails'
     awsEc2Eip :: Prelude.Maybe AwsEc2EipDetails,
     -- | Details about an EC2 instance related to a finding.
     awsEc2Instance :: Prelude.Maybe AwsEc2InstanceDetails,
+    awsEc2LaunchTemplate :: Prelude.Maybe AwsEc2LaunchTemplateDetails,
     -- | Details about an EC2 network access control list (ACL).
     awsEc2NetworkAcl :: Prelude.Maybe AwsEc2NetworkAclDetails,
     -- | Details for an EC2 network interface.
@@ -258,6 +263,7 @@ data ResourceDetails = ResourceDetails'
     awsS3Bucket :: Prelude.Maybe AwsS3BucketDetails,
     -- | Details about an S3 object related to a finding.
     awsS3Object :: Prelude.Maybe AwsS3ObjectDetails,
+    awsSageMakerNotebookInstance :: Prelude.Maybe AwsSageMakerNotebookInstanceDetails,
     -- | Details about a Secrets Manager secret.
     awsSecretsManagerSecret :: Prelude.Maybe AwsSecretsManagerSecretDetails,
     -- | Details about an SNS topic.
@@ -284,6 +290,8 @@ data ResourceDetails = ResourceDetails'
     awsWafRuleGroup :: Prelude.Maybe AwsWafRuleGroupDetails,
     -- | Details for an WAF web ACL.
     awsWafWebAcl :: Prelude.Maybe AwsWafWebAclDetails,
+    awsWafv2RuleGroup :: Prelude.Maybe AwsWafv2RuleGroupDetails,
+    awsWafv2WebAcl :: Prelude.Maybe AwsWafv2WebAclDetails,
     -- | Information about the encryption configuration for X-Ray.
     awsXrayEncryptionConfig :: Prelude.Maybe AwsXrayEncryptionConfigDetails,
     -- | Details about a container resource related to a finding.
@@ -349,6 +357,8 @@ data ResourceDetails = ResourceDetails'
 -- 'awsEc2Eip', 'resourceDetails_awsEc2Eip' - Details about an Elastic IP address.
 --
 -- 'awsEc2Instance', 'resourceDetails_awsEc2Instance' - Details about an EC2 instance related to a finding.
+--
+-- 'awsEc2LaunchTemplate', 'resourceDetails_awsEc2LaunchTemplate' - Undocumented member.
 --
 -- 'awsEc2NetworkAcl', 'resourceDetails_awsEc2NetworkAcl' - Details about an EC2 network access control list (ACL).
 --
@@ -451,6 +461,8 @@ data ResourceDetails = ResourceDetails'
 --
 -- 'awsS3Object', 'resourceDetails_awsS3Object' - Details about an S3 object related to a finding.
 --
+-- 'awsSageMakerNotebookInstance', 'resourceDetails_awsSageMakerNotebookInstance' - Undocumented member.
+--
 -- 'awsSecretsManagerSecret', 'resourceDetails_awsSecretsManagerSecret' - Details about a Secrets Manager secret.
 --
 -- 'awsSnsTopic', 'resourceDetails_awsSnsTopic' - Details about an SNS topic.
@@ -476,6 +488,10 @@ data ResourceDetails = ResourceDetails'
 -- 'awsWafRuleGroup', 'resourceDetails_awsWafRuleGroup' - Details about an WAF rule group for global resources.
 --
 -- 'awsWafWebAcl', 'resourceDetails_awsWafWebAcl' - Details for an WAF web ACL.
+--
+-- 'awsWafv2RuleGroup', 'resourceDetails_awsWafv2RuleGroup' - Undocumented member.
+--
+-- 'awsWafv2WebAcl', 'resourceDetails_awsWafv2WebAcl' - Undocumented member.
 --
 -- 'awsXrayEncryptionConfig', 'resourceDetails_awsXrayEncryptionConfig' - Information about the encryption configuration for X-Ray.
 --
@@ -514,6 +530,7 @@ newResourceDetails =
       awsDynamoDbTable = Prelude.Nothing,
       awsEc2Eip = Prelude.Nothing,
       awsEc2Instance = Prelude.Nothing,
+      awsEc2LaunchTemplate = Prelude.Nothing,
       awsEc2NetworkAcl = Prelude.Nothing,
       awsEc2NetworkInterface = Prelude.Nothing,
       awsEc2SecurityGroup = Prelude.Nothing,
@@ -560,6 +577,7 @@ newResourceDetails =
       awsS3AccountPublicAccessBlock = Prelude.Nothing,
       awsS3Bucket = Prelude.Nothing,
       awsS3Object = Prelude.Nothing,
+      awsSageMakerNotebookInstance = Prelude.Nothing,
       awsSecretsManagerSecret = Prelude.Nothing,
       awsSnsTopic = Prelude.Nothing,
       awsSqsQueue = Prelude.Nothing,
@@ -572,6 +590,8 @@ newResourceDetails =
       awsWafRule = Prelude.Nothing,
       awsWafRuleGroup = Prelude.Nothing,
       awsWafWebAcl = Prelude.Nothing,
+      awsWafv2RuleGroup = Prelude.Nothing,
+      awsWafv2WebAcl = Prelude.Nothing,
       awsXrayEncryptionConfig = Prelude.Nothing,
       container = Prelude.Nothing,
       other = Prelude.Nothing
@@ -652,6 +672,10 @@ resourceDetails_awsEc2Eip = Lens.lens (\ResourceDetails' {awsEc2Eip} -> awsEc2Ei
 -- | Details about an EC2 instance related to a finding.
 resourceDetails_awsEc2Instance :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2InstanceDetails)
 resourceDetails_awsEc2Instance = Lens.lens (\ResourceDetails' {awsEc2Instance} -> awsEc2Instance) (\s@ResourceDetails' {} a -> s {awsEc2Instance = a} :: ResourceDetails)
+
+-- | Undocumented member.
+resourceDetails_awsEc2LaunchTemplate :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2LaunchTemplateDetails)
+resourceDetails_awsEc2LaunchTemplate = Lens.lens (\ResourceDetails' {awsEc2LaunchTemplate} -> awsEc2LaunchTemplate) (\s@ResourceDetails' {} a -> s {awsEc2LaunchTemplate = a} :: ResourceDetails)
 
 -- | Details about an EC2 network access control list (ACL).
 resourceDetails_awsEc2NetworkAcl :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2NetworkAclDetails)
@@ -846,6 +870,10 @@ resourceDetails_awsS3Bucket = Lens.lens (\ResourceDetails' {awsS3Bucket} -> awsS
 resourceDetails_awsS3Object :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsS3ObjectDetails)
 resourceDetails_awsS3Object = Lens.lens (\ResourceDetails' {awsS3Object} -> awsS3Object) (\s@ResourceDetails' {} a -> s {awsS3Object = a} :: ResourceDetails)
 
+-- | Undocumented member.
+resourceDetails_awsSageMakerNotebookInstance :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsSageMakerNotebookInstanceDetails)
+resourceDetails_awsSageMakerNotebookInstance = Lens.lens (\ResourceDetails' {awsSageMakerNotebookInstance} -> awsSageMakerNotebookInstance) (\s@ResourceDetails' {} a -> s {awsSageMakerNotebookInstance = a} :: ResourceDetails)
+
 -- | Details about a Secrets Manager secret.
 resourceDetails_awsSecretsManagerSecret :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsSecretsManagerSecretDetails)
 resourceDetails_awsSecretsManagerSecret = Lens.lens (\ResourceDetails' {awsSecretsManagerSecret} -> awsSecretsManagerSecret) (\s@ResourceDetails' {} a -> s {awsSecretsManagerSecret = a} :: ResourceDetails)
@@ -896,6 +924,14 @@ resourceDetails_awsWafRuleGroup = Lens.lens (\ResourceDetails' {awsWafRuleGroup}
 resourceDetails_awsWafWebAcl :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafWebAclDetails)
 resourceDetails_awsWafWebAcl = Lens.lens (\ResourceDetails' {awsWafWebAcl} -> awsWafWebAcl) (\s@ResourceDetails' {} a -> s {awsWafWebAcl = a} :: ResourceDetails)
 
+-- | Undocumented member.
+resourceDetails_awsWafv2RuleGroup :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafv2RuleGroupDetails)
+resourceDetails_awsWafv2RuleGroup = Lens.lens (\ResourceDetails' {awsWafv2RuleGroup} -> awsWafv2RuleGroup) (\s@ResourceDetails' {} a -> s {awsWafv2RuleGroup = a} :: ResourceDetails)
+
+-- | Undocumented member.
+resourceDetails_awsWafv2WebAcl :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafv2WebAclDetails)
+resourceDetails_awsWafv2WebAcl = Lens.lens (\ResourceDetails' {awsWafv2WebAcl} -> awsWafv2WebAcl) (\s@ResourceDetails' {} a -> s {awsWafv2WebAcl = a} :: ResourceDetails)
+
 -- | Information about the encryption configuration for X-Ray.
 resourceDetails_awsXrayEncryptionConfig :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsXrayEncryptionConfigDetails)
 resourceDetails_awsXrayEncryptionConfig = Lens.lens (\ResourceDetails' {awsXrayEncryptionConfig} -> awsXrayEncryptionConfig) (\s@ResourceDetails' {} a -> s {awsXrayEncryptionConfig = a} :: ResourceDetails)
@@ -941,6 +977,7 @@ instance Data.FromJSON ResourceDetails where
             Prelude.<*> (x Data..:? "AwsDynamoDbTable")
             Prelude.<*> (x Data..:? "AwsEc2Eip")
             Prelude.<*> (x Data..:? "AwsEc2Instance")
+            Prelude.<*> (x Data..:? "AwsEc2LaunchTemplate")
             Prelude.<*> (x Data..:? "AwsEc2NetworkAcl")
             Prelude.<*> (x Data..:? "AwsEc2NetworkInterface")
             Prelude.<*> (x Data..:? "AwsEc2SecurityGroup")
@@ -987,6 +1024,7 @@ instance Data.FromJSON ResourceDetails where
             Prelude.<*> (x Data..:? "AwsS3AccountPublicAccessBlock")
             Prelude.<*> (x Data..:? "AwsS3Bucket")
             Prelude.<*> (x Data..:? "AwsS3Object")
+            Prelude.<*> (x Data..:? "AwsSageMakerNotebookInstance")
             Prelude.<*> (x Data..:? "AwsSecretsManagerSecret")
             Prelude.<*> (x Data..:? "AwsSnsTopic")
             Prelude.<*> (x Data..:? "AwsSqsQueue")
@@ -999,6 +1037,8 @@ instance Data.FromJSON ResourceDetails where
             Prelude.<*> (x Data..:? "AwsWafRule")
             Prelude.<*> (x Data..:? "AwsWafRuleGroup")
             Prelude.<*> (x Data..:? "AwsWafWebAcl")
+            Prelude.<*> (x Data..:? "AwsWafv2RuleGroup")
+            Prelude.<*> (x Data..:? "AwsWafv2WebAcl")
             Prelude.<*> (x Data..:? "AwsXrayEncryptionConfig")
             Prelude.<*> (x Data..:? "Container")
             Prelude.<*> (x Data..:? "Other" Data..!= Prelude.mempty)
@@ -1024,6 +1064,7 @@ instance Prelude.Hashable ResourceDetails where
       `Prelude.hashWithSalt` awsDynamoDbTable
       `Prelude.hashWithSalt` awsEc2Eip
       `Prelude.hashWithSalt` awsEc2Instance
+      `Prelude.hashWithSalt` awsEc2LaunchTemplate
       `Prelude.hashWithSalt` awsEc2NetworkAcl
       `Prelude.hashWithSalt` awsEc2NetworkInterface
       `Prelude.hashWithSalt` awsEc2SecurityGroup
@@ -1070,6 +1111,7 @@ instance Prelude.Hashable ResourceDetails where
       `Prelude.hashWithSalt` awsS3AccountPublicAccessBlock
       `Prelude.hashWithSalt` awsS3Bucket
       `Prelude.hashWithSalt` awsS3Object
+      `Prelude.hashWithSalt` awsSageMakerNotebookInstance
       `Prelude.hashWithSalt` awsSecretsManagerSecret
       `Prelude.hashWithSalt` awsSnsTopic
       `Prelude.hashWithSalt` awsSqsQueue
@@ -1082,6 +1124,8 @@ instance Prelude.Hashable ResourceDetails where
       `Prelude.hashWithSalt` awsWafRule
       `Prelude.hashWithSalt` awsWafRuleGroup
       `Prelude.hashWithSalt` awsWafWebAcl
+      `Prelude.hashWithSalt` awsWafv2RuleGroup
+      `Prelude.hashWithSalt` awsWafv2WebAcl
       `Prelude.hashWithSalt` awsXrayEncryptionConfig
       `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` other
@@ -1106,6 +1150,7 @@ instance Prelude.NFData ResourceDetails where
       `Prelude.seq` Prelude.rnf awsDynamoDbTable
       `Prelude.seq` Prelude.rnf awsEc2Eip
       `Prelude.seq` Prelude.rnf awsEc2Instance
+      `Prelude.seq` Prelude.rnf awsEc2LaunchTemplate
       `Prelude.seq` Prelude.rnf awsEc2NetworkAcl
       `Prelude.seq` Prelude.rnf
         awsEc2NetworkInterface
@@ -1197,6 +1242,8 @@ instance Prelude.NFData ResourceDetails where
       `Prelude.seq` Prelude.rnf
         awsS3Object
       `Prelude.seq` Prelude.rnf
+        awsSageMakerNotebookInstance
+      `Prelude.seq` Prelude.rnf
         awsSecretsManagerSecret
       `Prelude.seq` Prelude.rnf
         awsSnsTopic
@@ -1220,6 +1267,10 @@ instance Prelude.NFData ResourceDetails where
         awsWafRuleGroup
       `Prelude.seq` Prelude.rnf
         awsWafWebAcl
+      `Prelude.seq` Prelude.rnf
+        awsWafv2RuleGroup
+      `Prelude.seq` Prelude.rnf
+        awsWafv2WebAcl
       `Prelude.seq` Prelude.rnf
         awsXrayEncryptionConfig
       `Prelude.seq` Prelude.rnf
@@ -1266,6 +1317,8 @@ instance Data.ToJSON ResourceDetails where
             ("AwsEc2Eip" Data..=) Prelude.<$> awsEc2Eip,
             ("AwsEc2Instance" Data..=)
               Prelude.<$> awsEc2Instance,
+            ("AwsEc2LaunchTemplate" Data..=)
+              Prelude.<$> awsEc2LaunchTemplate,
             ("AwsEc2NetworkAcl" Data..=)
               Prelude.<$> awsEc2NetworkAcl,
             ("AwsEc2NetworkInterface" Data..=)
@@ -1344,6 +1397,8 @@ instance Data.ToJSON ResourceDetails where
               Prelude.<$> awsS3AccountPublicAccessBlock,
             ("AwsS3Bucket" Data..=) Prelude.<$> awsS3Bucket,
             ("AwsS3Object" Data..=) Prelude.<$> awsS3Object,
+            ("AwsSageMakerNotebookInstance" Data..=)
+              Prelude.<$> awsSageMakerNotebookInstance,
             ("AwsSecretsManagerSecret" Data..=)
               Prelude.<$> awsSecretsManagerSecret,
             ("AwsSnsTopic" Data..=) Prelude.<$> awsSnsTopic,
@@ -1364,6 +1419,10 @@ instance Data.ToJSON ResourceDetails where
             ("AwsWafRuleGroup" Data..=)
               Prelude.<$> awsWafRuleGroup,
             ("AwsWafWebAcl" Data..=) Prelude.<$> awsWafWebAcl,
+            ("AwsWafv2RuleGroup" Data..=)
+              Prelude.<$> awsWafv2RuleGroup,
+            ("AwsWafv2WebAcl" Data..=)
+              Prelude.<$> awsWafv2WebAcl,
             ("AwsXrayEncryptionConfig" Data..=)
               Prelude.<$> awsXrayEncryptionConfig,
             ("Container" Data..=) Prelude.<$> container,

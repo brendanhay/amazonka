@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.RenewDomain
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,8 +45,8 @@ module Amazonka.Route53Domains.RenewDomain
     newRenewDomainResponse,
 
     -- * Response Lenses
-    renewDomainResponse_httpStatus,
     renewDomainResponse_operationId,
+    renewDomainResponse_httpStatus,
   )
 where
 
@@ -139,8 +139,8 @@ instance Core.AWSRequest RenewDomain where
     Response.receiveJSON
       ( \s h x ->
           RenewDomainResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RenewDomain where
@@ -190,12 +190,12 @@ instance Data.ToQuery RenewDomain where
 
 -- | /See:/ 'newRenewDomainResponse' smart constructor.
 data RenewDomainResponse = RenewDomainResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | Identifier for tracking the progress of the request. To query the
+  { -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Prelude.Text
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -207,34 +207,32 @@ data RenewDomainResponse = RenewDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'renewDomainResponse_httpStatus' - The response's http status code.
---
 -- 'operationId', 'renewDomainResponse_operationId' - Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+--
+-- 'httpStatus', 'renewDomainResponse_httpStatus' - The response's http status code.
 newRenewDomainResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'operationId'
-  Prelude.Text ->
   RenewDomainResponse
-newRenewDomainResponse pHttpStatus_ pOperationId_ =
+newRenewDomainResponse pHttpStatus_ =
   RenewDomainResponse'
-    { httpStatus = pHttpStatus_,
-      operationId = pOperationId_
+    { operationId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
+
+-- | Identifier for tracking the progress of the request. To query the
+-- operation status, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+renewDomainResponse_operationId :: Lens.Lens' RenewDomainResponse (Prelude.Maybe Prelude.Text)
+renewDomainResponse_operationId = Lens.lens (\RenewDomainResponse' {operationId} -> operationId) (\s@RenewDomainResponse' {} a -> s {operationId = a} :: RenewDomainResponse)
 
 -- | The response's http status code.
 renewDomainResponse_httpStatus :: Lens.Lens' RenewDomainResponse Prelude.Int
 renewDomainResponse_httpStatus = Lens.lens (\RenewDomainResponse' {httpStatus} -> httpStatus) (\s@RenewDomainResponse' {} a -> s {httpStatus = a} :: RenewDomainResponse)
 
--- | Identifier for tracking the progress of the request. To query the
--- operation status, use
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-renewDomainResponse_operationId :: Lens.Lens' RenewDomainResponse Prelude.Text
-renewDomainResponse_operationId = Lens.lens (\RenewDomainResponse' {operationId} -> operationId) (\s@RenewDomainResponse' {} a -> s {operationId = a} :: RenewDomainResponse)
-
 instance Prelude.NFData RenewDomainResponse where
   rnf RenewDomainResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

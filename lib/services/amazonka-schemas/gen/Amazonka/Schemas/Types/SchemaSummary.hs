@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Schemas.Types.SchemaSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSchemaSummary' smart constructor.
 data SchemaSummary = SchemaSummary'
   { -- | The date and time that schema was modified.
-    lastModified :: Prelude.Maybe Data.POSIX,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the schema.

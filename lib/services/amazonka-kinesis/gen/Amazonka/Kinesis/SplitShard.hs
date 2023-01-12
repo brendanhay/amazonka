@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Kinesis.SplitShard
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,11 @@
 -- increase the stream\'s capacity to ingest and transport data.
 -- @SplitShard@ is called when there is a need to increase the overall
 -- capacity of a stream because of an expected increase in the volume of
--- data records being ingested.
+-- data records being ingested. This API is only supported for the data
+-- streams with the provisioned capacity mode.
+--
+-- When invoking this API, it is recommended you use the @StreamARN@ input
+-- parameter rather than the @StreamName@ input parameter.
 --
 -- You can also use @SplitShard@ when a shard appears to be approaching its
 -- maximum utilization; for example, the producers sending data into the
@@ -77,6 +81,7 @@ module Amazonka.Kinesis.SplitShard
     newSplitShard,
 
     -- * Request Lenses
+    splitShard_streamARN,
     splitShard_streamName,
     splitShard_shardToSplit,
     splitShard_newStartingHashKey,
@@ -99,8 +104,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newSplitShard' smart constructor.
 data SplitShard = SplitShard'
-  { -- | The name of the stream for the shard split.
-    streamName :: Prelude.Text,
+  { -- | The ARN of the stream.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream for the shard split.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The shard ID of the shard to split.
     shardToSplit :: Prelude.Text,
     -- | A hash key value for the starting hash key of one of the child shards
@@ -123,6 +130,8 @@ data SplitShard = SplitShard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'splitShard_streamARN' - The ARN of the stream.
+--
 -- 'streamName', 'splitShard_streamName' - The name of the stream for the shard split.
 --
 -- 'shardToSplit', 'splitShard_shardToSplit' - The shard ID of the shard to split.
@@ -136,25 +145,25 @@ data SplitShard = SplitShard'
 -- All the lower hash key values in the range are distributed to the other
 -- child shard.
 newSplitShard ::
-  -- | 'streamName'
-  Prelude.Text ->
   -- | 'shardToSplit'
   Prelude.Text ->
   -- | 'newStartingHashKey''
   Prelude.Text ->
   SplitShard
-newSplitShard
-  pStreamName_
-  pShardToSplit_
-  pNewStartingHashKey_ =
-    SplitShard'
-      { streamName = pStreamName_,
-        shardToSplit = pShardToSplit_,
-        newStartingHashKey' = pNewStartingHashKey_
-      }
+newSplitShard pShardToSplit_ pNewStartingHashKey_ =
+  SplitShard'
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
+      shardToSplit = pShardToSplit_,
+      newStartingHashKey' = pNewStartingHashKey_
+    }
+
+-- | The ARN of the stream.
+splitShard_streamARN :: Lens.Lens' SplitShard (Prelude.Maybe Prelude.Text)
+splitShard_streamARN = Lens.lens (\SplitShard' {streamARN} -> streamARN) (\s@SplitShard' {} a -> s {streamARN = a} :: SplitShard)
 
 -- | The name of the stream for the shard split.
-splitShard_streamName :: Lens.Lens' SplitShard Prelude.Text
+splitShard_streamName :: Lens.Lens' SplitShard (Prelude.Maybe Prelude.Text)
 splitShard_streamName = Lens.lens (\SplitShard' {streamName} -> streamName) (\s@SplitShard' {} a -> s {streamName = a} :: SplitShard)
 
 -- | The shard ID of the shard to split.
@@ -180,13 +189,15 @@ instance Core.AWSRequest SplitShard where
 
 instance Prelude.Hashable SplitShard where
   hashWithSalt _salt SplitShard' {..} =
-    _salt `Prelude.hashWithSalt` streamName
+    _salt `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` shardToSplit
       `Prelude.hashWithSalt` newStartingHashKey'
 
 instance Prelude.NFData SplitShard where
   rnf SplitShard' {..} =
-    Prelude.rnf streamName
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf shardToSplit
       `Prelude.seq` Prelude.rnf newStartingHashKey'
 
@@ -209,7 +220,8 @@ instance Data.ToJSON SplitShard where
   toJSON SplitShard' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Data..= streamName),
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just ("ShardToSplit" Data..= shardToSplit),
             Prelude.Just
               ("NewStartingHashKey" Data..= newStartingHashKey')

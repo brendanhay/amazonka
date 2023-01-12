@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CognitoSync.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -194,7 +194,7 @@ defaultService =
 
 -- | An exception thrown when a bulk publish operation is requested less than
 -- 24 hours after a previous bulk publish operation completed successfully.
-_AlreadyStreamedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyStreamedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AlreadyStreamedException =
   Core._MatchServiceError
     defaultService
@@ -202,7 +202,7 @@ _AlreadyStreamedException =
     Prelude.. Core.hasStatus 400
 
 -- | Thrown if there are parallel requests to modify a resource.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -211,7 +211,7 @@ _ConcurrentModificationException =
 
 -- | An exception thrown when there is an IN_PROGRESS bulk publish operation
 -- for the given identity pool.
-_DuplicateRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateRequestException =
   Core._MatchServiceError
     defaultService
@@ -219,7 +219,7 @@ _DuplicateRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates an internal service error.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
@@ -227,7 +227,7 @@ _InternalErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | Prism for InvalidConfigurationException' errors.
-_InvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -235,7 +235,7 @@ _InvalidConfigurationException =
     Prelude.. Core.hasStatus 400
 
 -- | The AWS Lambda function returned invalid output or an exception.
-_InvalidLambdaFunctionOutputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidLambdaFunctionOutputException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidLambdaFunctionOutputException =
   Core._MatchServiceError
     defaultService
@@ -244,7 +244,7 @@ _InvalidLambdaFunctionOutputException =
 
 -- | Thrown when a request parameter does not comply with the associated
 -- constraints.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -252,7 +252,7 @@ _InvalidParameterException =
     Prelude.. Core.hasStatus 400
 
 -- | AWS Lambda throttled your account, please contact AWS Support
-_LambdaThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LambdaThrottledException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LambdaThrottledException =
   Core._MatchServiceError
     defaultService
@@ -261,7 +261,7 @@ _LambdaThrottledException =
 
 -- | Thrown when the limit on the number of objects or operations has been
 -- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -269,7 +269,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | Thrown when a user is not authorized to access the requested resource.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService
@@ -278,7 +278,7 @@ _NotAuthorizedException =
 
 -- | Thrown if an update can\'t be applied because the resource was changed
 -- by another call and this would result in a conflict.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceConflictException =
   Core._MatchServiceError
     defaultService
@@ -286,7 +286,7 @@ _ResourceConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Thrown if the resource doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -294,7 +294,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Thrown if the request is throttled.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

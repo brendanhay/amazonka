@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.Image
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -47,7 +47,7 @@ data Image = Image'
     blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
     -- | The boot mode of the image. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     bootMode :: Prelude.Maybe BootModeValues,
     -- | The date and time the image was created.
     creationDate :: Prelude.Maybe Prelude.Text,
@@ -68,7 +68,7 @@ data Image = Image'
     -- used when requesting instance metadata. In addition,
     -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     imdsSupport :: Prelude.Maybe ImdsSupportValues,
     -- | The kernel associated with the image, if any. Only applicable for
     -- machine images.
@@ -80,7 +80,7 @@ data Image = Image'
     -- | The platform details associated with the billing code of the AMI. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understand AMI billing information>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     platformDetails :: Prelude.Maybe Prelude.Text,
     -- | Any product codes associated with the AMI.
     productCodes :: Prelude.Maybe [ProductCode],
@@ -99,7 +99,7 @@ data Image = Image'
     -- | If the image is configured for NitroTPM support, the value is @v2.0@.
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- in the /Amazon EC2 User Guide/.
     tpmSupport :: Prelude.Maybe TpmSupportValues,
     -- | The operation of the Amazon EC2 instance and the billing code that is
     -- associated with the AMI. @usageOperation@ corresponds to the
@@ -152,7 +152,7 @@ data Image = Image'
 --
 -- 'bootMode', 'image_bootMode' - The boot mode of the image. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'creationDate', 'image_creationDate' - The date and time the image was created.
 --
@@ -173,7 +173,7 @@ data Image = Image'
 -- used when requesting instance metadata. In addition,
 -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'kernelId', 'image_kernelId' - The kernel associated with the image, if any. Only applicable for
 -- machine images.
@@ -185,7 +185,7 @@ data Image = Image'
 -- 'platformDetails', 'image_platformDetails' - The platform details associated with the billing code of the AMI. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understand AMI billing information>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'productCodes', 'image_productCodes' - Any product codes associated with the AMI.
 --
@@ -204,7 +204,7 @@ data Image = Image'
 -- 'tpmSupport', 'image_tpmSupport' - If the image is configured for NitroTPM support, the value is @v2.0@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'usageOperation', 'image_usageOperation' - The operation of the Amazon EC2 instance and the billing code that is
 -- associated with the AMI. @usageOperation@ corresponds to the
@@ -313,7 +313,7 @@ image_blockDeviceMappings = Lens.lens (\Image' {blockDeviceMappings} -> blockDev
 
 -- | The boot mode of the image. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 image_bootMode :: Lens.Lens' Image (Prelude.Maybe BootModeValues)
 image_bootMode = Lens.lens (\Image' {bootMode} -> bootMode) (\s@Image' {} a -> s {bootMode = a} :: Image)
 
@@ -346,7 +346,7 @@ image_imageOwnerAlias = Lens.lens (\Image' {imageOwnerAlias} -> imageOwnerAlias)
 -- used when requesting instance metadata. In addition,
 -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 image_imdsSupport :: Lens.Lens' Image (Prelude.Maybe ImdsSupportValues)
 image_imdsSupport = Lens.lens (\Image' {imdsSupport} -> imdsSupport) (\s@Image' {} a -> s {imdsSupport = a} :: Image)
 
@@ -366,7 +366,7 @@ image_platform = Lens.lens (\Image' {platform} -> platform) (\s@Image' {} a -> s
 -- | The platform details associated with the billing code of the AMI. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understand AMI billing information>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 image_platformDetails :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_platformDetails = Lens.lens (\Image' {platformDetails} -> platformDetails) (\s@Image' {} a -> s {platformDetails = a} :: Image)
 
@@ -399,7 +399,7 @@ image_tags = Lens.lens (\Image' {tags} -> tags) (\s@Image' {} a -> s {tags = a} 
 -- | If the image is configured for NitroTPM support, the value is @v2.0@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- in the /Amazon EC2 User Guide/.
 image_tpmSupport :: Lens.Lens' Image (Prelude.Maybe TpmSupportValues)
 image_tpmSupport = Lens.lens (\Image' {tpmSupport} -> tpmSupport) (\s@Image' {} a -> s {tpmSupport = a} :: Image)
 

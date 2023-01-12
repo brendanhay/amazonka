@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.GlobalAccelerator.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -388,21 +388,21 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The accelerator that you specified could not be disabled.
-_AcceleratorNotDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AcceleratorNotDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AcceleratorNotDisabledException =
   Core._MatchServiceError
     defaultService
     "AcceleratorNotDisabledException"
 
 -- | The accelerator that you specified doesn\'t exist.
-_AcceleratorNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AcceleratorNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AcceleratorNotFoundException =
   Core._MatchServiceError
     defaultService
     "AcceleratorNotFoundException"
 
 -- | You don\'t have access permission.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -411,7 +411,7 @@ _AccessDeniedException =
 -- | The listener that you specified has an endpoint group associated with
 -- it. You must remove all dependent resources from a listener before you
 -- can delete it.
-_AssociatedEndpointGroupFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociatedEndpointGroupFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AssociatedEndpointGroupFoundException =
   Core._MatchServiceError
     defaultService
@@ -420,49 +420,49 @@ _AssociatedEndpointGroupFoundException =
 -- | The accelerator that you specified has a listener associated with it.
 -- You must remove all dependent resources from an accelerator before you
 -- can delete it.
-_AssociatedListenerFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociatedListenerFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AssociatedListenerFoundException =
   Core._MatchServiceError
     defaultService
     "AssociatedListenerFoundException"
 
 -- | The CIDR that you specified was not found or is incorrect.
-_ByoipCidrNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ByoipCidrNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ByoipCidrNotFoundException =
   Core._MatchServiceError
     defaultService
     "ByoipCidrNotFoundException"
 
 -- | You can\'t use both of those options.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | The endpoint that you specified doesn\'t exist.
-_EndpointAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EndpointAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "EndpointAlreadyExistsException"
 
 -- | The endpoint group that you specified already exists.
-_EndpointGroupAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointGroupAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EndpointGroupAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "EndpointGroupAlreadyExistsException"
 
 -- | The endpoint group that you specified doesn\'t exist.
-_EndpointGroupNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointGroupNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EndpointGroupNotFoundException =
   Core._MatchServiceError
     defaultService
     "EndpointGroupNotFoundException"
 
 -- | The endpoint that you specified doesn\'t exist.
-_EndpointNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EndpointNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -470,28 +470,28 @@ _EndpointNotFoundException =
 
 -- | The CIDR that you specified is not valid for this action. For example,
 -- the state of the CIDR might be incorrect for this action.
-_IncorrectCidrStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncorrectCidrStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IncorrectCidrStateException =
   Core._MatchServiceError
     defaultService
     "IncorrectCidrStateException"
 
 -- | There was an internal error for Global Accelerator.
-_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
     "InternalServiceErrorException"
 
 -- | An argument that you specified is invalid.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
     "InvalidArgumentException"
 
 -- | There isn\'t another item to return.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -499,7 +499,7 @@ _InvalidNextTokenException =
 
 -- | The port numbers that you specified are not valid numbers or are not
 -- unique for this accelerator.
-_InvalidPortRangeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPortRangeException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidPortRangeException =
   Core._MatchServiceError
     defaultService
@@ -507,14 +507,14 @@ _InvalidPortRangeException =
 
 -- | Processing your request would cause you to exceed an Global Accelerator
 -- limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The listener that you specified doesn\'t exist.
-_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ListenerNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ListenerNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -522,7 +522,7 @@ _ListenerNotFoundException =
 
 -- | There\'s already a transaction in progress. Another transaction can\'t
 -- be processed.
-_TransactionInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TransactionInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _TransactionInProgressException =
   Core._MatchServiceError
     defaultService

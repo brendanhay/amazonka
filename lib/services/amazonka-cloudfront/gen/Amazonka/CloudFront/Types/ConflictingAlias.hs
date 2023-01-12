@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.ConflictingAlias
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,15 +25,15 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An alias (also called a CNAME) and the CloudFront distribution and
--- Amazon Web Services account ID that it’s associated with. The
+-- Amazon Web Services account ID that it\'s associated with. The
 -- distribution and account IDs are partially hidden, which allows you to
 -- identify the distributions and accounts that you own, but helps to
--- protect the information of ones that you don’t own.
+-- protect the information of ones that you don\'t own.
 --
 -- /See:/ 'newConflictingAlias' smart constructor.
 data ConflictingAlias = ConflictingAlias'
   { -- | The (partially hidden) ID of the Amazon Web Services account that owns
-    -- the distribution that’s associated with the alias.
+    -- the distribution that\'s associated with the alias.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | An alias (also called a CNAME).
     alias :: Prelude.Maybe Prelude.Text,
@@ -52,7 +52,7 @@ data ConflictingAlias = ConflictingAlias'
 -- for backwards compatibility:
 --
 -- 'accountId', 'conflictingAlias_accountId' - The (partially hidden) ID of the Amazon Web Services account that owns
--- the distribution that’s associated with the alias.
+-- the distribution that\'s associated with the alias.
 --
 -- 'alias', 'conflictingAlias_alias' - An alias (also called a CNAME).
 --
@@ -68,7 +68,7 @@ newConflictingAlias =
     }
 
 -- | The (partially hidden) ID of the Amazon Web Services account that owns
--- the distribution that’s associated with the alias.
+-- the distribution that\'s associated with the alias.
 conflictingAlias_accountId :: Lens.Lens' ConflictingAlias (Prelude.Maybe Prelude.Text)
 conflictingAlias_accountId = Lens.lens (\ConflictingAlias' {accountId} -> accountId) (\s@ConflictingAlias' {} a -> s {accountId = a} :: ConflictingAlias)
 

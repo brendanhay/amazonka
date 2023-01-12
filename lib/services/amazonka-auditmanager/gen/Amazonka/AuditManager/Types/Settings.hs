@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.Settings
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@
 module Amazonka.AuditManager.Types.Settings where
 
 import Amazonka.AuditManager.Types.AssessmentReportsDestination
+import Amazonka.AuditManager.Types.DeregistrationPolicy
 import Amazonka.AuditManager.Types.EvidenceFinderEnablement
 import Amazonka.AuditManager.Types.Role
 import qualified Amazonka.Core as Core
@@ -35,6 +36,10 @@ data Settings = Settings'
     defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
     -- | The designated default audit owners.
     defaultProcessOwners :: Prelude.Maybe [Role],
+    -- | The deregistration policy for your Audit Manager data. You can use this
+    -- attribute to determine how your data is handled when you deregister
+    -- Audit Manager.
+    deregistrationPolicy :: Prelude.Maybe DeregistrationPolicy,
     -- | The current evidence finder status and event data store details.
     evidenceFinderEnablement :: Prelude.Maybe EvidenceFinderEnablement,
     -- | Specifies whether Organizations is enabled.
@@ -58,6 +63,10 @@ data Settings = Settings'
 --
 -- 'defaultProcessOwners', 'settings_defaultProcessOwners' - The designated default audit owners.
 --
+-- 'deregistrationPolicy', 'settings_deregistrationPolicy' - The deregistration policy for your Audit Manager data. You can use this
+-- attribute to determine how your data is handled when you deregister
+-- Audit Manager.
+--
 -- 'evidenceFinderEnablement', 'settings_evidenceFinderEnablement' - The current evidence finder status and event data store details.
 --
 -- 'isAwsOrgEnabled', 'settings_isAwsOrgEnabled' - Specifies whether Organizations is enabled.
@@ -72,6 +81,7 @@ newSettings =
     { defaultAssessmentReportsDestination =
         Prelude.Nothing,
       defaultProcessOwners = Prelude.Nothing,
+      deregistrationPolicy = Prelude.Nothing,
       evidenceFinderEnablement = Prelude.Nothing,
       isAwsOrgEnabled = Prelude.Nothing,
       kmsKey = Prelude.Nothing,
@@ -85,6 +95,12 @@ settings_defaultAssessmentReportsDestination = Lens.lens (\Settings' {defaultAss
 -- | The designated default audit owners.
 settings_defaultProcessOwners :: Lens.Lens' Settings (Prelude.Maybe [Role])
 settings_defaultProcessOwners = Lens.lens (\Settings' {defaultProcessOwners} -> defaultProcessOwners) (\s@Settings' {} a -> s {defaultProcessOwners = a} :: Settings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The deregistration policy for your Audit Manager data. You can use this
+-- attribute to determine how your data is handled when you deregister
+-- Audit Manager.
+settings_deregistrationPolicy :: Lens.Lens' Settings (Prelude.Maybe DeregistrationPolicy)
+settings_deregistrationPolicy = Lens.lens (\Settings' {deregistrationPolicy} -> deregistrationPolicy) (\s@Settings' {} a -> s {deregistrationPolicy = a} :: Settings)
 
 -- | The current evidence finder status and event data store details.
 settings_evidenceFinderEnablement :: Lens.Lens' Settings (Prelude.Maybe EvidenceFinderEnablement)
@@ -112,6 +128,7 @@ instance Data.FromJSON Settings where
             Prelude.<*> ( x Data..:? "defaultProcessOwners"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "deregistrationPolicy")
             Prelude.<*> (x Data..:? "evidenceFinderEnablement")
             Prelude.<*> (x Data..:? "isAwsOrgEnabled")
             Prelude.<*> (x Data..:? "kmsKey")
@@ -123,6 +140,7 @@ instance Prelude.Hashable Settings where
     _salt
       `Prelude.hashWithSalt` defaultAssessmentReportsDestination
       `Prelude.hashWithSalt` defaultProcessOwners
+      `Prelude.hashWithSalt` deregistrationPolicy
       `Prelude.hashWithSalt` evidenceFinderEnablement
       `Prelude.hashWithSalt` isAwsOrgEnabled
       `Prelude.hashWithSalt` kmsKey
@@ -132,6 +150,7 @@ instance Prelude.NFData Settings where
   rnf Settings' {..} =
     Prelude.rnf defaultAssessmentReportsDestination
       `Prelude.seq` Prelude.rnf defaultProcessOwners
+      `Prelude.seq` Prelude.rnf deregistrationPolicy
       `Prelude.seq` Prelude.rnf evidenceFinderEnablement
       `Prelude.seq` Prelude.rnf isAwsOrgEnabled
       `Prelude.seq` Prelude.rnf kmsKey

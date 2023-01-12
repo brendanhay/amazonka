@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Detective.Types.Administrator
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ data Administrator = Administrator'
     -- | The date and time when the Detective administrator account was enabled.
     -- The value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    delegationTime :: Prelude.Maybe Data.POSIX,
+    delegationTime :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the organization behavior graph.
     graphArn :: Prelude.Maybe Prelude.Text
   }

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.UpdateContinuousDeploymentPolicy
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,7 +38,7 @@
 --
 -- 3.  Use @UpdateContinuousDeploymentPolicy@, providing the entire
 --     continuous deployment policy configuration, including the fields
---     that you modified and those that you didn’t.
+--     that you modified and those that you didn\'t.
 module Amazonka.CloudFront.UpdateContinuousDeploymentPolicy
   ( -- * Creating a Request
     UpdateContinuousDeploymentPolicy (..),

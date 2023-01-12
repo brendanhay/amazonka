@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.RDS.RestoreDBClusterFromS3
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,6 +61,9 @@ module Amazonka.RDS.RestoreDBClusterFromS3
     restoreDBClusterFromS3_enableIAMDatabaseAuthentication,
     restoreDBClusterFromS3_engineVersion,
     restoreDBClusterFromS3_kmsKeyId,
+    restoreDBClusterFromS3_manageMasterUserPassword,
+    restoreDBClusterFromS3_masterUserPassword,
+    restoreDBClusterFromS3_masterUserSecretKmsKeyId,
     restoreDBClusterFromS3_networkType,
     restoreDBClusterFromS3_optionGroupName,
     restoreDBClusterFromS3_port,
@@ -74,7 +77,6 @@ module Amazonka.RDS.RestoreDBClusterFromS3
     restoreDBClusterFromS3_dbClusterIdentifier,
     restoreDBClusterFromS3_engine,
     restoreDBClusterFromS3_masterUsername,
-    restoreDBClusterFromS3_masterUserPassword,
     restoreDBClusterFromS3_sourceEngine,
     restoreDBClusterFromS3_sourceEngineVersion,
     restoreDBClusterFromS3_s3BucketName,
@@ -219,6 +221,50 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
     -- account. Your Amazon Web Services account has a different default KMS
     -- key for each Amazon Web Services Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to manage the master user password with
+    -- Amazon Web Services Secrets Manager.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+    -- in the /Amazon Aurora User Guide./
+    --
+    -- Constraints:
+    --
+    -- -   Can\'t manage the master user password with Amazon Web Services
+    --     Secrets Manager if @MasterUserPassword@ is specified.
+    manageMasterUserPassword :: Prelude.Maybe Prelude.Bool,
+    -- | The password for the master database user. This password can contain any
+    -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
+    --
+    -- Constraints:
+    --
+    -- -   Must contain from 8 to 41 characters.
+    --
+    -- -   Can\'t be specified if @ManageMasterUserPassword@ is turned on.
+    masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+    -- automatically generated and managed in Amazon Web Services Secrets
+    -- Manager.
+    --
+    -- This setting is valid only if the master user password is managed by RDS
+    -- in Amazon Web Services Secrets Manager for the DB cluster.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the KMS key. To use a KMS key in a different
+    -- Amazon Web Services account, specify the key ARN or alias ARN.
+    --
+    -- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+    -- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+    -- secret is in a different Amazon Web Services account, then you can\'t
+    -- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+    -- must use a customer managed KMS key.
+    --
+    -- There is a default KMS key for your Amazon Web Services account. Your
+    -- Amazon Web Services account has a different default KMS key for each
+    -- Amazon Web Services Region.
+    masterUserSecretKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The network type of the DB cluster.
     --
     -- Valid values:
@@ -323,11 +369,6 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
     --
     -- -   Can\'t be a reserved word for the chosen database engine.
     masterUsername :: Prelude.Text,
-    -- | The password for the master database user. This password can contain any
-    -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
-    --
-    -- Constraints: Must contain from 8 to 41 characters.
-    masterUserPassword :: Prelude.Text,
     -- | The identifier for the database engine that was backed up to create the
     -- files stored in the Amazon S3 bucket.
     --
@@ -476,6 +517,50 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 -- account. Your Amazon Web Services account has a different default KMS
 -- key for each Amazon Web Services Region.
 --
+-- 'manageMasterUserPassword', 'restoreDBClusterFromS3_manageMasterUserPassword' - A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+--
+-- 'masterUserPassword', 'restoreDBClusterFromS3_masterUserPassword' - The password for the master database user. This password can contain any
+-- printable ASCII character except \"\/\", \"\"\", or \"\@\".
+--
+-- Constraints:
+--
+-- -   Must contain from 8 to 41 characters.
+--
+-- -   Can\'t be specified if @ManageMasterUserPassword@ is turned on.
+--
+-- 'masterUserSecretKmsKeyId', 'restoreDBClusterFromS3_masterUserSecretKmsKeyId' - The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB cluster.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+-- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+-- secret is in a different Amazon Web Services account, then you can\'t
+-- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+-- must use a customer managed KMS key.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
+--
 -- 'networkType', 'restoreDBClusterFromS3_networkType' - The network type of the DB cluster.
 --
 -- Valid values:
@@ -582,11 +667,6 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 --
 -- -   Can\'t be a reserved word for the chosen database engine.
 --
--- 'masterUserPassword', 'restoreDBClusterFromS3_masterUserPassword' - The password for the master database user. This password can contain any
--- printable ASCII character except \"\/\", \"\"\", or \"\@\".
---
--- Constraints: Must contain from 8 to 41 characters.
---
 -- 'sourceEngine', 'restoreDBClusterFromS3_sourceEngine' - The identifier for the database engine that was backed up to create the
 -- files stored in the Amazon S3 bucket.
 --
@@ -611,8 +691,6 @@ newRestoreDBClusterFromS3 ::
   Prelude.Text ->
   -- | 'masterUsername'
   Prelude.Text ->
-  -- | 'masterUserPassword'
-  Prelude.Text ->
   -- | 'sourceEngine'
   Prelude.Text ->
   -- | 'sourceEngineVersion'
@@ -626,7 +704,6 @@ newRestoreDBClusterFromS3
   pDBClusterIdentifier_
   pEngine_
   pMasterUsername_
-  pMasterUserPassword_
   pSourceEngine_
   pSourceEngineVersion_
   pS3BucketName_
@@ -648,6 +725,9 @@ newRestoreDBClusterFromS3
         enableIAMDatabaseAuthentication = Prelude.Nothing,
         engineVersion = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        manageMasterUserPassword = Prelude.Nothing,
+        masterUserPassword = Prelude.Nothing,
+        masterUserSecretKmsKeyId = Prelude.Nothing,
         networkType = Prelude.Nothing,
         optionGroupName = Prelude.Nothing,
         port = Prelude.Nothing,
@@ -661,7 +741,6 @@ newRestoreDBClusterFromS3
         dbClusterIdentifier = pDBClusterIdentifier_,
         engine = pEngine_,
         masterUsername = pMasterUsername_,
-        masterUserPassword = pMasterUserPassword_,
         sourceEngine = pSourceEngine_,
         sourceEngineVersion = pSourceEngineVersion_,
         s3BucketName = pS3BucketName_,
@@ -817,6 +896,56 @@ restoreDBClusterFromS3_engineVersion = Lens.lens (\RestoreDBClusterFromS3' {engi
 restoreDBClusterFromS3_kmsKeyId :: Lens.Lens' RestoreDBClusterFromS3 (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS3_kmsKeyId = Lens.lens (\RestoreDBClusterFromS3' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBClusterFromS3' {} a -> s {kmsKeyId = a} :: RestoreDBClusterFromS3)
 
+-- | A value that indicates whether to manage the master user password with
+-- Amazon Web Services Secrets Manager.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html Password management with Amazon Web Services Secrets Manager>
+-- in the /Amazon Aurora User Guide./
+--
+-- Constraints:
+--
+-- -   Can\'t manage the master user password with Amazon Web Services
+--     Secrets Manager if @MasterUserPassword@ is specified.
+restoreDBClusterFromS3_manageMasterUserPassword :: Lens.Lens' RestoreDBClusterFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBClusterFromS3_manageMasterUserPassword = Lens.lens (\RestoreDBClusterFromS3' {manageMasterUserPassword} -> manageMasterUserPassword) (\s@RestoreDBClusterFromS3' {} a -> s {manageMasterUserPassword = a} :: RestoreDBClusterFromS3)
+
+-- | The password for the master database user. This password can contain any
+-- printable ASCII character except \"\/\", \"\"\", or \"\@\".
+--
+-- Constraints:
+--
+-- -   Must contain from 8 to 41 characters.
+--
+-- -   Can\'t be specified if @ManageMasterUserPassword@ is turned on.
+restoreDBClusterFromS3_masterUserPassword :: Lens.Lens' RestoreDBClusterFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS3_masterUserPassword = Lens.lens (\RestoreDBClusterFromS3' {masterUserPassword} -> masterUserPassword) (\s@RestoreDBClusterFromS3' {} a -> s {masterUserPassword = a} :: RestoreDBClusterFromS3)
+
+-- | The Amazon Web Services KMS key identifier to encrypt a secret that is
+-- automatically generated and managed in Amazon Web Services Secrets
+-- Manager.
+--
+-- This setting is valid only if the master user password is managed by RDS
+-- in Amazon Web Services Secrets Manager for the DB cluster.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the KMS key. To use a KMS key in a different
+-- Amazon Web Services account, specify the key ARN or alias ARN.
+--
+-- If you don\'t specify @MasterUserSecretKmsKeyId@, then the
+-- @aws\/secretsmanager@ KMS key is used to encrypt the secret. If the
+-- secret is in a different Amazon Web Services account, then you can\'t
+-- use the @aws\/secretsmanager@ KMS key to encrypt the secret, and you
+-- must use a customer managed KMS key.
+--
+-- There is a default KMS key for your Amazon Web Services account. Your
+-- Amazon Web Services account has a different default KMS key for each
+-- Amazon Web Services Region.
+restoreDBClusterFromS3_masterUserSecretKmsKeyId :: Lens.Lens' RestoreDBClusterFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS3_masterUserSecretKmsKeyId = Lens.lens (\RestoreDBClusterFromS3' {masterUserSecretKmsKeyId} -> masterUserSecretKmsKeyId) (\s@RestoreDBClusterFromS3' {} a -> s {masterUserSecretKmsKeyId = a} :: RestoreDBClusterFromS3)
+
 -- | The network type of the DB cluster.
 --
 -- Valid values:
@@ -949,13 +1078,6 @@ restoreDBClusterFromS3_engine = Lens.lens (\RestoreDBClusterFromS3' {engine} -> 
 restoreDBClusterFromS3_masterUsername :: Lens.Lens' RestoreDBClusterFromS3 Prelude.Text
 restoreDBClusterFromS3_masterUsername = Lens.lens (\RestoreDBClusterFromS3' {masterUsername} -> masterUsername) (\s@RestoreDBClusterFromS3' {} a -> s {masterUsername = a} :: RestoreDBClusterFromS3)
 
--- | The password for the master database user. This password can contain any
--- printable ASCII character except \"\/\", \"\"\", or \"\@\".
---
--- Constraints: Must contain from 8 to 41 characters.
-restoreDBClusterFromS3_masterUserPassword :: Lens.Lens' RestoreDBClusterFromS3 Prelude.Text
-restoreDBClusterFromS3_masterUserPassword = Lens.lens (\RestoreDBClusterFromS3' {masterUserPassword} -> masterUserPassword) (\s@RestoreDBClusterFromS3' {} a -> s {masterUserPassword = a} :: RestoreDBClusterFromS3)
-
 -- | The identifier for the database engine that was backed up to create the
 -- files stored in the Amazon S3 bucket.
 --
@@ -1014,6 +1136,9 @@ instance Prelude.Hashable RestoreDBClusterFromS3 where
       `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` manageMasterUserPassword
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` masterUserSecretKmsKeyId
       `Prelude.hashWithSalt` networkType
       `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` port
@@ -1027,7 +1152,6 @@ instance Prelude.Hashable RestoreDBClusterFromS3 where
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` masterUsername
-      `Prelude.hashWithSalt` masterUserPassword
       `Prelude.hashWithSalt` sourceEngine
       `Prelude.hashWithSalt` sourceEngineVersion
       `Prelude.hashWithSalt` s3BucketName
@@ -1050,6 +1174,10 @@ instance Prelude.NFData RestoreDBClusterFromS3 where
       `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf manageMasterUserPassword
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf
+        masterUserSecretKmsKeyId
       `Prelude.seq` Prelude.rnf networkType
       `Prelude.seq` Prelude.rnf optionGroupName
       `Prelude.seq` Prelude.rnf port
@@ -1071,8 +1199,6 @@ instance Prelude.NFData RestoreDBClusterFromS3 where
         engine
       `Prelude.seq` Prelude.rnf
         masterUsername
-      `Prelude.seq` Prelude.rnf
-        masterUserPassword
       `Prelude.seq` Prelude.rnf
         sourceEngine
       `Prelude.seq` Prelude.rnf
@@ -1121,6 +1247,11 @@ instance Data.ToQuery RestoreDBClusterFromS3 where
           Data.=: enableIAMDatabaseAuthentication,
         "EngineVersion" Data.=: engineVersion,
         "KmsKeyId" Data.=: kmsKeyId,
+        "ManageMasterUserPassword"
+          Data.=: manageMasterUserPassword,
+        "MasterUserPassword" Data.=: masterUserPassword,
+        "MasterUserSecretKmsKeyId"
+          Data.=: masterUserSecretKmsKeyId,
         "NetworkType" Data.=: networkType,
         "OptionGroupName" Data.=: optionGroupName,
         "Port" Data.=: port,
@@ -1143,7 +1274,6 @@ instance Data.ToQuery RestoreDBClusterFromS3 where
         "DBClusterIdentifier" Data.=: dbClusterIdentifier,
         "Engine" Data.=: engine,
         "MasterUsername" Data.=: masterUsername,
-        "MasterUserPassword" Data.=: masterUserPassword,
         "SourceEngine" Data.=: sourceEngine,
         "SourceEngineVersion" Data.=: sourceEngineVersion,
         "S3BucketName" Data.=: s3BucketName,

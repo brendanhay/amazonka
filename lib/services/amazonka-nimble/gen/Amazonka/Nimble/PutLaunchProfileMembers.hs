@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.PutLaunchProfileMembers
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,13 +53,14 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPutLaunchProfileMembers' smart constructor.
 data PutLaunchProfileMembers = PutLaunchProfileMembers'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don’t specify a client token, the AWS
-    -- SDK automatically generates a client token and uses it for the request
-    -- to ensure idempotency.
+    -- idempotency of the request. If you don’t specify a client token, the
+    -- Amazon Web Services SDK automatically generates a client token and uses
+    -- it for the request to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the identity store.
     identityStoreId :: Prelude.Text,
-    -- | The Launch Profile ID.
+    -- | The ID of the launch profile used to control access from the streaming
+    -- session.
     launchProfileId :: Prelude.Text,
     -- | A list of members.
     members :: Prelude.NonEmpty NewLaunchProfileMember,
@@ -77,13 +78,14 @@ data PutLaunchProfileMembers = PutLaunchProfileMembers'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'putLaunchProfileMembers_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 --
 -- 'identityStoreId', 'putLaunchProfileMembers_identityStoreId' - The ID of the identity store.
 --
--- 'launchProfileId', 'putLaunchProfileMembers_launchProfileId' - The Launch Profile ID.
+-- 'launchProfileId', 'putLaunchProfileMembers_launchProfileId' - The ID of the launch profile used to control access from the streaming
+-- session.
 --
 -- 'members', 'putLaunchProfileMembers_members' - A list of members.
 --
@@ -113,9 +115,9 @@ newPutLaunchProfileMembers
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don’t specify a client token, the AWS
--- SDK automatically generates a client token and uses it for the request
--- to ensure idempotency.
+-- idempotency of the request. If you don’t specify a client token, the
+-- Amazon Web Services SDK automatically generates a client token and uses
+-- it for the request to ensure idempotency.
 putLaunchProfileMembers_clientToken :: Lens.Lens' PutLaunchProfileMembers (Prelude.Maybe Prelude.Text)
 putLaunchProfileMembers_clientToken = Lens.lens (\PutLaunchProfileMembers' {clientToken} -> clientToken) (\s@PutLaunchProfileMembers' {} a -> s {clientToken = a} :: PutLaunchProfileMembers)
 
@@ -123,7 +125,8 @@ putLaunchProfileMembers_clientToken = Lens.lens (\PutLaunchProfileMembers' {clie
 putLaunchProfileMembers_identityStoreId :: Lens.Lens' PutLaunchProfileMembers Prelude.Text
 putLaunchProfileMembers_identityStoreId = Lens.lens (\PutLaunchProfileMembers' {identityStoreId} -> identityStoreId) (\s@PutLaunchProfileMembers' {} a -> s {identityStoreId = a} :: PutLaunchProfileMembers)
 
--- | The Launch Profile ID.
+-- | The ID of the launch profile used to control access from the streaming
+-- session.
 putLaunchProfileMembers_launchProfileId :: Lens.Lens' PutLaunchProfileMembers Prelude.Text
 putLaunchProfileMembers_launchProfileId = Lens.lens (\PutLaunchProfileMembers' {launchProfileId} -> launchProfileId) (\s@PutLaunchProfileMembers' {} a -> s {launchProfileId = a} :: PutLaunchProfileMembers)
 

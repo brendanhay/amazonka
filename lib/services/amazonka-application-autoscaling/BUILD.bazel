@@ -24,6 +24,7 @@ haskell_library(
         "gen/Amazonka/ApplicationAutoScaling/Types/MetricDimension.hs",
         "gen/Amazonka/ApplicationAutoScaling/Types/MetricStatistic.hs",
         "gen/Amazonka/ApplicationAutoScaling/Types/MetricType.hs",
+        "gen/Amazonka/ApplicationAutoScaling/Types/NotScaledReason.hs",
         "gen/Amazonka/ApplicationAutoScaling/Types/PolicyType.hs",
         "gen/Amazonka/ApplicationAutoScaling/Types/PredefinedMetricSpecification.hs",
         "gen/Amazonka/ApplicationAutoScaling/Types/ScalableDimension.hs",

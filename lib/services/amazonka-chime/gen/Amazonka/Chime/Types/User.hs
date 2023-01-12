@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.User
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@ data User = User'
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Date and time when the user is invited to the Amazon Chime account, in
     -- ISO 8601 format.
-    invitedOn :: Prelude.Maybe Data.POSIX,
+    invitedOn :: Prelude.Maybe Data.ISO8601,
     -- | The license type for the user.
     licenseType :: Prelude.Maybe License,
     -- | The user\'s personal meeting PIN.
@@ -51,7 +51,7 @@ data User = User'
     -- | The primary phone number associated with the user.
     primaryProvisionedNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Date and time when the user is registered, in ISO 8601 format.
-    registeredOn :: Prelude.Maybe Data.POSIX,
+    registeredOn :: Prelude.Maybe Data.ISO8601,
     -- | The user invite status.
     userInvitationStatus :: Prelude.Maybe InviteStatus,
     -- | The user registration status.

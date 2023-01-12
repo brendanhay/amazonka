@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ComputeOptimizer.GetRecommendationSummaries
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,6 +35,11 @@
 --
 -- -   Lambda functions in an account that are @NotOptimized@, or
 --     @Optimized@.
+--
+-- -   Amazon ECS services in an account that are @Underprovisioned@,
+--     @Overprovisioned@, or @Optimized@.
+--
+-- This operation returns paginated results.
 module Amazonka.ComputeOptimizer.GetRecommendationSummaries
   ( -- * Creating a Request
     GetRecommendationSummaries (..),
@@ -80,7 +85,7 @@ data GetRecommendationSummaries = GetRecommendationSummaries'
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to advance to the next page of recommendation summaries.
     nextToken :: Prelude.Maybe Prelude.Text
   }
@@ -136,12 +141,34 @@ getRecommendationSummaries_accountIds = Lens.lens (\GetRecommendationSummaries' 
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
-getRecommendationSummaries_maxResults :: Lens.Lens' GetRecommendationSummaries (Prelude.Maybe Prelude.Int)
+getRecommendationSummaries_maxResults :: Lens.Lens' GetRecommendationSummaries (Prelude.Maybe Prelude.Natural)
 getRecommendationSummaries_maxResults = Lens.lens (\GetRecommendationSummaries' {maxResults} -> maxResults) (\s@GetRecommendationSummaries' {} a -> s {maxResults = a} :: GetRecommendationSummaries)
 
 -- | The token to advance to the next page of recommendation summaries.
 getRecommendationSummaries_nextToken :: Lens.Lens' GetRecommendationSummaries (Prelude.Maybe Prelude.Text)
 getRecommendationSummaries_nextToken = Lens.lens (\GetRecommendationSummaries' {nextToken} -> nextToken) (\s@GetRecommendationSummaries' {} a -> s {nextToken = a} :: GetRecommendationSummaries)
+
+instance Core.AWSPager GetRecommendationSummaries where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getRecommendationSummariesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getRecommendationSummariesResponse_recommendationSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getRecommendationSummaries_nextToken
+          Lens..~ rs
+          Lens.^? getRecommendationSummariesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRecommendationSummaries where
   type

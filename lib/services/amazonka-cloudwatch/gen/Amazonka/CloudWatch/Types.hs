@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.CloudWatch.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,6 +46,9 @@ module Amazonka.CloudWatch.Types
 
     -- * ComparisonOperator
     ComparisonOperator (..),
+
+    -- * EvaluationState
+    EvaluationState (..),
 
     -- * HistoryItemType
     HistoryItemType (..),
@@ -246,6 +249,7 @@ module Amazonka.CloudWatch.Types
     metricAlarm_dimensions,
     metricAlarm_evaluateLowSampleCountPercentile,
     metricAlarm_evaluationPeriods,
+    metricAlarm_evaluationState,
     metricAlarm_extendedStatistic,
     metricAlarm_insufficientDataActions,
     metricAlarm_metricName,
@@ -255,6 +259,7 @@ module Amazonka.CloudWatch.Types
     metricAlarm_period,
     metricAlarm_stateReason,
     metricAlarm_stateReasonData,
+    metricAlarm_stateTransitionedTimestamp,
     metricAlarm_stateUpdatedTimestamp,
     metricAlarm_stateValue,
     metricAlarm_statistic,
@@ -390,6 +395,7 @@ import Amazonka.CloudWatch.Types.DashboardValidationMessage
 import Amazonka.CloudWatch.Types.Datapoint
 import Amazonka.CloudWatch.Types.Dimension
 import Amazonka.CloudWatch.Types.DimensionFilter
+import Amazonka.CloudWatch.Types.EvaluationState
 import Amazonka.CloudWatch.Types.HistoryItemType
 import Amazonka.CloudWatch.Types.InsightRule
 import Amazonka.CloudWatch.Types.InsightRuleContributor
@@ -499,7 +505,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | More than one process tried to modify a resource at the same time.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -507,7 +513,7 @@ _ConcurrentModificationException =
     Prelude.. Core.hasStatus 429
 
 -- | Some part of the dashboard data is invalid.
-_DashboardInvalidInputError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DashboardInvalidInputError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DashboardInvalidInputError =
   Core._MatchServiceError
     defaultService
@@ -515,7 +521,7 @@ _DashboardInvalidInputError =
     Prelude.. Core.hasStatus 400
 
 -- | The specified dashboard does not exist.
-_DashboardNotFoundError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DashboardNotFoundError :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DashboardNotFoundError =
   Core._MatchServiceError
     defaultService
@@ -524,7 +530,7 @@ _DashboardNotFoundError =
 
 -- | Request processing has failed due to some unknown error, exception, or
 -- failure.
-_InternalServiceFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceFault =
   Core._MatchServiceError
     defaultService
@@ -532,7 +538,7 @@ _InternalServiceFault =
     Prelude.. Core.hasStatus 500
 
 -- | Data was not syntactically valid JSON.
-_InvalidFormatFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFormatFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidFormatFault =
   Core._MatchServiceError
     defaultService
@@ -540,7 +546,7 @@ _InvalidFormatFault =
     Prelude.. Core.hasStatus 400
 
 -- | The next token specified is invalid.
-_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextToken :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidNextToken =
   Core._MatchServiceError
     defaultService
@@ -548,7 +554,7 @@ _InvalidNextToken =
     Prelude.. Core.hasStatus 400
 
 -- | Parameters were used together that cannot be used together.
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterCombinationException =
   Core._MatchServiceError
     defaultService
@@ -556,7 +562,7 @@ _InvalidParameterCombinationException =
     Prelude.. Core.hasStatus 400
 
 -- | The value of an input parameter is bad or out-of-range.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -564,7 +570,7 @@ _InvalidParameterValueException =
     Prelude.. Core.hasStatus 400
 
 -- | The operation exceeded one or more limits.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -572,7 +578,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The quota for alarms for this customer has already been reached.
-_LimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededFault =
   Core._MatchServiceError
     defaultService
@@ -580,7 +586,7 @@ _LimitExceededFault =
     Prelude.. Core.hasStatus 400
 
 -- | An input parameter that is required is missing.
-_MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingRequiredParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MissingRequiredParameterException =
   Core._MatchServiceError
     defaultService
@@ -588,7 +594,7 @@ _MissingRequiredParameterException =
     Prelude.. Core.hasStatus 400
 
 -- | The named resource does not exist.
-_ResourceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFound =
   Core._MatchServiceError
     defaultService
@@ -596,7 +602,7 @@ _ResourceNotFound =
     Prelude.. Core.hasStatus 404
 
 -- | The named resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

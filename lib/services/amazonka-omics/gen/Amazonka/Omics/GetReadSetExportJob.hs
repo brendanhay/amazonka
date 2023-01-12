@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Omics.GetReadSetExportJob
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -152,7 +152,7 @@ instance Data.ToQuery GetReadSetExportJob where
 -- | /See:/ 'newGetReadSetExportJobResponse' smart constructor.
 data GetReadSetExportJobResponse = GetReadSetExportJobResponse'
   { -- | When the job completed.
-    completionTime :: Prelude.Maybe Data.POSIX,
+    completionTime :: Prelude.Maybe Data.ISO8601,
     -- | The job\'s read sets.
     readSets :: Prelude.Maybe [ExportReadSetDetail],
     -- | The job\'s status message.
@@ -160,7 +160,7 @@ data GetReadSetExportJobResponse = GetReadSetExportJobResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | When the job was created.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The job\'s destination in Amazon S3.
     destination :: Prelude.Text,
     -- | The job\'s ID.

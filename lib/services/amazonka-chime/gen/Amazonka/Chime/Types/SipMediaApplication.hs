@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Chime.Types.SipMediaApplication
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,7 +33,7 @@ data SipMediaApplication = SipMediaApplication'
   { -- | The AWS Region in which the SIP media application is created.
     awsRegion :: Prelude.Maybe Prelude.Text,
     -- | The SIP media application creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | List of endpoints for SIP media application. Currently, only one
     -- endpoint per SIP media application is permitted.
     endpoints :: Prelude.Maybe (Prelude.NonEmpty SipMediaApplicationEndpoint),
@@ -42,7 +42,7 @@ data SipMediaApplication = SipMediaApplication'
     -- | The SIP media application ID.
     sipMediaApplicationId :: Prelude.Maybe Prelude.Text,
     -- | The SIP media application updated timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX
+    updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

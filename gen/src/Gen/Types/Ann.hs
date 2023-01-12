@@ -95,6 +95,24 @@ derivingName = \case
   DNFData -> Nothing
   other -> Just (drop 1 (show other))
 
+data Timestamp
+  = RFC822
+  | ISO8601
+  | POSIX
+  deriving (Eq, Show, Generic)
+
+tsToText :: Timestamp -> Text
+tsToText = Text.pack . show
+
+instance FromJSON Timestamp where
+  parseJSON = Aeson.withText "timestamp" $ \case
+    "rfc822" -> pure RFC822
+    "iso8601" -> pure ISO8601
+    "unixTimestamp" -> pure POSIX
+    e -> fail ("Unknown Timestamp: " ++ Text.unpack e)
+
+instance ToJSON Timestamp where
+  toJSON = Aeson.toJSON . tsToText
 -- | Primitive types in AWS service definition files.
 --
 -- /See:/ 'Gen.Types.Service.ShapeF' for lists/maps/structs.
@@ -105,7 +123,7 @@ data Lit
   | Text
   | Base64
   | Bytes
-  | Time
+  | Time (Maybe Timestamp)
   | Bool
   | Json
   deriving (Eq, Show)

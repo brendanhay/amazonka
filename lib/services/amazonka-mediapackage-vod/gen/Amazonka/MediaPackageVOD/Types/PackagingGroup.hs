@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.MediaPackageVOD.Types.PackagingGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackagingGroup' smart constructor.
 data PackagingGroup = PackagingGroup'
-  { -- | The ARN of the PackagingGroup.
+  { -- | The approximate asset count of the PackagingGroup.
+    approximateAssetCount :: Prelude.Maybe Prelude.Int,
+    -- | The ARN of the PackagingGroup.
     arn :: Prelude.Maybe Prelude.Text,
     authorization :: Prelude.Maybe Authorization,
     -- | The fully qualified domain name for Assets in the PackagingGroup.
@@ -50,6 +52,8 @@ data PackagingGroup = PackagingGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'approximateAssetCount', 'packagingGroup_approximateAssetCount' - The approximate asset count of the PackagingGroup.
+--
 -- 'arn', 'packagingGroup_arn' - The ARN of the PackagingGroup.
 --
 -- 'authorization', 'packagingGroup_authorization' - Undocumented member.
@@ -65,13 +69,19 @@ newPackagingGroup ::
   PackagingGroup
 newPackagingGroup =
   PackagingGroup'
-    { arn = Prelude.Nothing,
+    { approximateAssetCount =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
       authorization = Prelude.Nothing,
       domainName = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
       id = Prelude.Nothing,
       tags = Prelude.Nothing
     }
+
+-- | The approximate asset count of the PackagingGroup.
+packagingGroup_approximateAssetCount :: Lens.Lens' PackagingGroup (Prelude.Maybe Prelude.Int)
+packagingGroup_approximateAssetCount = Lens.lens (\PackagingGroup' {approximateAssetCount} -> approximateAssetCount) (\s@PackagingGroup' {} a -> s {approximateAssetCount = a} :: PackagingGroup)
 
 -- | The ARN of the PackagingGroup.
 packagingGroup_arn :: Lens.Lens' PackagingGroup (Prelude.Maybe Prelude.Text)
@@ -103,7 +113,8 @@ instance Data.FromJSON PackagingGroup where
       "PackagingGroup"
       ( \x ->
           PackagingGroup'
-            Prelude.<$> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "approximateAssetCount")
+            Prelude.<*> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "authorization")
             Prelude.<*> (x Data..:? "domainName")
             Prelude.<*> (x Data..:? "egressAccessLogs")
@@ -113,7 +124,8 @@ instance Data.FromJSON PackagingGroup where
 
 instance Prelude.Hashable PackagingGroup where
   hashWithSalt _salt PackagingGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` approximateAssetCount
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` authorization
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` egressAccessLogs
@@ -122,7 +134,8 @@ instance Prelude.Hashable PackagingGroup where
 
 instance Prelude.NFData PackagingGroup where
   rnf PackagingGroup' {..} =
-    Prelude.rnf arn
+    Prelude.rnf approximateAssetCount
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf authorization
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf egressAccessLogs

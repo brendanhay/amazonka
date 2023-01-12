@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MemoryDb.DescribeClusters
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,6 +23,8 @@
 -- Returns information about all provisioned clusters if no cluster
 -- identifier is specified, or about a specific cluster if a cluster name
 -- is supplied.
+--
+-- This operation returns paginated results.
 module Amazonka.MemoryDb.DescribeClusters
   ( -- * Creating a Request
     DescribeClusters (..),
@@ -127,6 +129,28 @@ describeClusters_nextToken = Lens.lens (\DescribeClusters' {nextToken} -> nextTo
 -- information about the individual shard(s).
 describeClusters_showShardDetails :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Bool)
 describeClusters_showShardDetails = Lens.lens (\DescribeClusters' {showShardDetails} -> showShardDetails) (\s@DescribeClusters' {} a -> s {showShardDetails = a} :: DescribeClusters)
+
+instance Core.AWSPager DescribeClusters where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeClustersResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeClustersResponse_clusters
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeClusters_nextToken
+          Lens..~ rs
+          Lens.^? describeClustersResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusters where
   type

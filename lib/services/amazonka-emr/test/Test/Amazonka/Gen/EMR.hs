@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.Amazonka.Gen.EMR
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -83,6 +83,9 @@ import Test.Tasty
 --
 --         , requestGetBlockPublicAccessConfiguration $
 --             newGetBlockPublicAccessConfiguration
+--
+--         , requestGetClusterSessionCredentials $
+--             newGetClusterSessionCredentials
 --
 --         , requestGetManagedScalingPolicy $
 --             newGetManagedScalingPolicy
@@ -239,6 +242,9 @@ import Test.Tasty
 --
 --         , responseGetBlockPublicAccessConfiguration $
 --             newGetBlockPublicAccessConfigurationResponse
+--
+--         , responseGetClusterSessionCredentials $
+--             newGetClusterSessionCredentialsResponse
 --
 --         , responseGetManagedScalingPolicy $
 --             newGetManagedScalingPolicyResponse
@@ -454,6 +460,12 @@ requestGetBlockPublicAccessConfiguration =
   req
     "GetBlockPublicAccessConfiguration"
     "fixture/GetBlockPublicAccessConfiguration.yaml"
+
+requestGetClusterSessionCredentials :: GetClusterSessionCredentials -> TestTree
+requestGetClusterSessionCredentials =
+  req
+    "GetClusterSessionCredentials"
+    "fixture/GetClusterSessionCredentials.yaml"
 
 requestGetManagedScalingPolicy :: GetManagedScalingPolicy -> TestTree
 requestGetManagedScalingPolicy =
@@ -800,6 +812,14 @@ responseGetBlockPublicAccessConfiguration =
     "fixture/GetBlockPublicAccessConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetBlockPublicAccessConfiguration)
+
+responseGetClusterSessionCredentials :: GetClusterSessionCredentialsResponse -> TestTree
+responseGetClusterSessionCredentials =
+  res
+    "GetClusterSessionCredentialsResponse"
+    "fixture/GetClusterSessionCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetClusterSessionCredentials)
 
 responseGetManagedScalingPolicy :: GetManagedScalingPolicyResponse -> TestTree
 responseGetManagedScalingPolicy =

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruProfiler.BatchGetFrameMetricData
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -66,7 +66,7 @@ data BatchGetFrameMetricData = BatchGetFrameMetricData'
     -- This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    endTime :: Prelude.Maybe Data.POSIX,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The details of the metrics that are used to request a time series of
     -- values. The metric includes the name of the frame, the aggregation type
     -- to calculate the metric value for the frame, and the thread states to
@@ -80,7 +80,7 @@ data BatchGetFrameMetricData = BatchGetFrameMetricData'
     -- the time series values. This is specified using the ISO 8601 format. For
     -- example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
     -- 2020 1:15:02 PM UTC.
-    startTime :: Prelude.Maybe Data.POSIX,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The requested resolution of time steps for the returned time series of
     -- values. If the requested target resolution is not available due to data
     -- not being retained we provide a best effort result by falling back to
@@ -286,7 +286,7 @@ data BatchGetFrameMetricDataResponse = BatchGetFrameMetricDataResponse'
     -- This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    endTime :: Data.POSIX,
+    endTime :: Data.ISO8601,
     -- | List of instances, or time steps, in the time series. For example, if
     -- the @period@ is one day (@PT24H)@), and the @resolution@ is five minutes
     -- (@PT5M@), then there are 288 @endTimes@ in the list that are each five
@@ -311,7 +311,7 @@ data BatchGetFrameMetricDataResponse = BatchGetFrameMetricDataResponse'
     -- This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    startTime :: Data.POSIX,
+    startTime :: Data.ISO8601,
     -- | List of instances which remained unprocessed. This will create a missing
     -- time step in the list of end times.
     unprocessedEndTimes :: Prelude.HashMap Prelude.Text [TimestampStructure]

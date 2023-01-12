@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -49,7 +49,10 @@ library
     Amazonka.BackupGateway.DeleteGateway
     Amazonka.BackupGateway.DeleteHypervisor
     Amazonka.BackupGateway.DisassociateGatewayFromServer
+    Amazonka.BackupGateway.GetBandwidthRateLimitSchedule
     Amazonka.BackupGateway.GetGateway
+    Amazonka.BackupGateway.GetHypervisor
+    Amazonka.BackupGateway.GetHypervisorPropertyMappings
     Amazonka.BackupGateway.GetVirtualMachine
     Amazonka.BackupGateway.ImportHypervisorConfiguration
     Amazonka.BackupGateway.Lens
@@ -57,19 +60,27 @@ library
     Amazonka.BackupGateway.ListHypervisors
     Amazonka.BackupGateway.ListTagsForResource
     Amazonka.BackupGateway.ListVirtualMachines
+    Amazonka.BackupGateway.PutBandwidthRateLimitSchedule
+    Amazonka.BackupGateway.PutHypervisorPropertyMappings
     Amazonka.BackupGateway.PutMaintenanceStartTime
+    Amazonka.BackupGateway.StartVirtualMachinesMetadataSync
     Amazonka.BackupGateway.TagResource
     Amazonka.BackupGateway.TestHypervisorConfiguration
     Amazonka.BackupGateway.Types
+    Amazonka.BackupGateway.Types.BandwidthRateLimitInterval
     Amazonka.BackupGateway.Types.Gateway
     Amazonka.BackupGateway.Types.GatewayDetails
     Amazonka.BackupGateway.Types.GatewayType
     Amazonka.BackupGateway.Types.Hypervisor
+    Amazonka.BackupGateway.Types.HypervisorDetails
     Amazonka.BackupGateway.Types.HypervisorState
     Amazonka.BackupGateway.Types.MaintenanceStartTime
+    Amazonka.BackupGateway.Types.SyncMetadataStatus
     Amazonka.BackupGateway.Types.Tag
     Amazonka.BackupGateway.Types.VirtualMachine
     Amazonka.BackupGateway.Types.VirtualMachineDetails
+    Amazonka.BackupGateway.Types.VmwareTag
+    Amazonka.BackupGateway.Types.VmwareToAwsTagMapping
     Amazonka.BackupGateway.UntagResource
     Amazonka.BackupGateway.UpdateGatewayInformation
     Amazonka.BackupGateway.UpdateGatewaySoftwareNow

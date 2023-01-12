@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.IoTDeviceAdvisor.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -15,8 +15,8 @@ module Amazonka.IoTDeviceAdvisor.Lens
   ( -- * Operations
 
     -- ** CreateSuiteDefinition
-    createSuiteDefinition_suiteDefinitionConfiguration,
     createSuiteDefinition_tags,
+    createSuiteDefinition_suiteDefinitionConfiguration,
     createSuiteDefinitionResponse_createdAt,
     createSuiteDefinitionResponse_suiteDefinitionArn,
     createSuiteDefinitionResponse_suiteDefinitionId,
@@ -91,10 +91,11 @@ module Amazonka.IoTDeviceAdvisor.Lens
 
     -- ** StartSuiteRun
     startSuiteRun_suiteDefinitionVersion,
-    startSuiteRun_suiteRunConfiguration,
     startSuiteRun_tags,
     startSuiteRun_suiteDefinitionId,
+    startSuiteRun_suiteRunConfiguration,
     startSuiteRunResponse_createdAt,
+    startSuiteRunResponse_endpoint,
     startSuiteRunResponse_suiteRunArn,
     startSuiteRunResponse_suiteRunId,
     startSuiteRunResponse_httpStatus,
@@ -115,8 +116,8 @@ module Amazonka.IoTDeviceAdvisor.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateSuiteDefinition
-    updateSuiteDefinition_suiteDefinitionConfiguration,
     updateSuiteDefinition_suiteDefinitionId,
+    updateSuiteDefinition_suiteDefinitionConfiguration,
     updateSuiteDefinitionResponse_createdAt,
     updateSuiteDefinitionResponse_lastUpdatedAt,
     updateSuiteDefinitionResponse_suiteDefinitionArn,
@@ -137,13 +138,13 @@ module Amazonka.IoTDeviceAdvisor.Lens
     groupResult_tests,
 
     -- ** SuiteDefinitionConfiguration
-    suiteDefinitionConfiguration_devicePermissionRoleArn,
     suiteDefinitionConfiguration_devices,
     suiteDefinitionConfiguration_intendedForQualification,
     suiteDefinitionConfiguration_isLongDurationTest,
     suiteDefinitionConfiguration_protocol,
-    suiteDefinitionConfiguration_rootGroup,
     suiteDefinitionConfiguration_suiteDefinitionName,
+    suiteDefinitionConfiguration_rootGroup,
+    suiteDefinitionConfiguration_devicePermissionRoleArn,
 
     -- ** SuiteDefinitionInformation
     suiteDefinitionInformation_createdAt,
@@ -156,8 +157,8 @@ module Amazonka.IoTDeviceAdvisor.Lens
 
     -- ** SuiteRunConfiguration
     suiteRunConfiguration_parallelRun,
-    suiteRunConfiguration_primaryDevice,
     suiteRunConfiguration_selectedTestList,
+    suiteRunConfiguration_primaryDevice,
 
     -- ** SuiteRunInformation
     suiteRunInformation_createdAt,

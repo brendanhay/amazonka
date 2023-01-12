@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Glue.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -1021,6 +1021,7 @@ module Amazonka.Glue.Types
     DeltaTarget (..),
     newDeltaTarget,
     deltaTarget_connectionName,
+    deltaTarget_createNativeDeltaTable,
     deltaTarget_deltaTables,
     deltaTarget_writeManifest,
 
@@ -3043,35 +3044,35 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access to a resource was denied.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | A resource to be created or added already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "AlreadyExistsException"
 
 -- | Two processes are trying to modify a resource simultaneously.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | Too many jobs are being run concurrently.
-_ConcurrentRunsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentRunsExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentRunsExceededException =
   Core._MatchServiceError
     defaultService
     "ConcurrentRunsExceededException"
 
 -- | A specified condition was not satisfied.
-_ConditionCheckFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConditionCheckFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConditionCheckFailureException =
   Core._MatchServiceError
     defaultService
@@ -3079,14 +3080,14 @@ _ConditionCheckFailureException =
 
 -- | The @CreatePartitions@ API was called on a table that has indexes
 -- enabled.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | The specified crawler is not running.
-_CrawlerNotRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CrawlerNotRunningException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CrawlerNotRunningException =
   Core._MatchServiceError
     defaultService
@@ -3094,154 +3095,154 @@ _CrawlerNotRunningException =
 
 -- | The operation cannot be performed because the crawler is already
 -- running.
-_CrawlerRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CrawlerRunningException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CrawlerRunningException =
   Core._MatchServiceError
     defaultService
     "CrawlerRunningException"
 
 -- | The specified crawler is stopping.
-_CrawlerStoppingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CrawlerStoppingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _CrawlerStoppingException =
   Core._MatchServiceError
     defaultService
     "CrawlerStoppingException"
 
 -- | A specified entity does not exist
-_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EntityNotFoundException =
   Core._MatchServiceError
     defaultService
     "EntityNotFoundException"
 
 -- | An encryption operation failed.
-_GlueEncryptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlueEncryptionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _GlueEncryptionException =
   Core._MatchServiceError
     defaultService
     "GlueEncryptionException"
 
 -- | The same unique identifier was associated with two different records.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
 
 -- | The blueprint is in an invalid state to perform a requested operation.
-_IllegalBlueprintStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalBlueprintStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IllegalBlueprintStateException =
   Core._MatchServiceError
     defaultService
     "IllegalBlueprintStateException"
 
 -- | The session is in an invalid state to perform a requested operation.
-_IllegalSessionStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalSessionStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IllegalSessionStateException =
   Core._MatchServiceError
     defaultService
     "IllegalSessionStateException"
 
 -- | The workflow is in an invalid state to perform a requested operation.
-_IllegalWorkflowStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalWorkflowStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IllegalWorkflowStateException =
   Core._MatchServiceError
     defaultService
     "IllegalWorkflowStateException"
 
 -- | An internal service error occurred.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
     "InternalServiceException"
 
 -- | The input provided was not valid.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | An error that indicates your data is in an invalid state.
-_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidStateException =
   Core._MatchServiceError
     defaultService
     "InvalidStateException"
 
 -- | The machine learning transform is not ready to run.
-_MLTransformNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MLTransformNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _MLTransformNotReadyException =
   Core._MatchServiceError
     defaultService
     "MLTransformNotReadyException"
 
 -- | There is no applicable schedule.
-_NoScheduleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoScheduleException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _NoScheduleException =
   Core._MatchServiceError
     defaultService
     "NoScheduleException"
 
 -- | The operation timed out.
-_OperationTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OperationTimeoutException =
   Core._MatchServiceError
     defaultService
     "OperationTimeoutException"
 
 -- | Prism for PermissionTypeMismatchException' errors.
-_PermissionTypeMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PermissionTypeMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PermissionTypeMismatchException =
   Core._MatchServiceError
     defaultService
     "PermissionTypeMismatchException"
 
 -- | A resource was not ready for a transaction.
-_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotReadyException =
   Core._MatchServiceError
     defaultService
     "ResourceNotReadyException"
 
 -- | A resource numerical limit was exceeded.
-_ResourceNumberLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNumberLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNumberLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceNumberLimitExceededException"
 
 -- | The specified scheduler is not running.
-_SchedulerNotRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchedulerNotRunningException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SchedulerNotRunningException =
   Core._MatchServiceError
     defaultService
     "SchedulerNotRunningException"
 
 -- | The specified scheduler is already running.
-_SchedulerRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchedulerRunningException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SchedulerRunningException =
   Core._MatchServiceError
     defaultService
     "SchedulerRunningException"
 
 -- | The specified scheduler is transitioning.
-_SchedulerTransitioningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchedulerTransitioningException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SchedulerTransitioningException =
   Core._MatchServiceError
     defaultService
     "SchedulerTransitioningException"
 
 -- | A value could not be validated.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService
     "ValidationException"
 
 -- | There was a version conflict.
-_VersionMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_VersionMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _VersionMismatchException =
   Core._MatchServiceError
     defaultService

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.EC2InstanceConnect.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -110,14 +110,14 @@ defaultService =
 
 -- | Either your AWS credentials are not valid or you do not have access to
 -- the EC2 instance.
-_AuthException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AuthException =
   Core._MatchServiceError
     defaultService
     "AuthException"
 
 -- | The specified instance was not found.
-_EC2InstanceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2InstanceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EC2InstanceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -126,7 +126,7 @@ _EC2InstanceNotFoundException =
 -- | Unable to connect because the instance is not in a valid state.
 -- Connecting to a stopped or terminated instance is not supported. If the
 -- instance is stopped, start your instance, and try to connect again.
-_EC2InstanceStateInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2InstanceStateInvalidException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EC2InstanceStateInvalidException =
   Core._MatchServiceError
     defaultService
@@ -134,21 +134,21 @@ _EC2InstanceStateInvalidException =
 
 -- | The instance type is not supported for connecting via the serial
 -- console. Only Nitro instance types are currently supported.
-_EC2InstanceTypeInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2InstanceTypeInvalidException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EC2InstanceTypeInvalidException =
   Core._MatchServiceError
     defaultService
     "EC2InstanceTypeInvalidException"
 
 -- | The instance is currently unavailable. Wait a few minutes and try again.
-_EC2InstanceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2InstanceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EC2InstanceUnavailableException =
   Core._MatchServiceError
     defaultService
     "EC2InstanceUnavailableException"
 
 -- | One of the parameters is not valid.
-_InvalidArgsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgsException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidArgsException =
   Core._MatchServiceError
     defaultService
@@ -159,7 +159,7 @@ _InvalidArgsException =
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html EnableSerialConsoleAccess>
 -- in the /Amazon EC2 API Reference/.
-_SerialConsoleAccessDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SerialConsoleAccessDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SerialConsoleAccessDisabledException =
   Core._MatchServiceError
     defaultService
@@ -167,14 +167,14 @@ _SerialConsoleAccessDisabledException =
 
 -- | The instance currently has 1 active serial console session. Only 1
 -- session is supported at a time.
-_SerialConsoleSessionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SerialConsoleSessionLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SerialConsoleSessionLimitExceededException =
   Core._MatchServiceError
     defaultService
     "SerialConsoleSessionLimitExceededException"
 
 -- | Unable to start a serial console session. Please try again.
-_SerialConsoleSessionUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SerialConsoleSessionUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _SerialConsoleSessionUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -182,7 +182,7 @@ _SerialConsoleSessionUnavailableException =
 
 -- | The service encountered an error. Follow the instructions in the error
 -- message and try again.
-_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceException =
   Core._MatchServiceError
     defaultService
@@ -191,7 +191,7 @@ _ServiceException =
 -- | The requests were made too frequently and have been throttled. Wait a
 -- while and try again. To increase the limit on your request frequency,
 -- contact AWS Support.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

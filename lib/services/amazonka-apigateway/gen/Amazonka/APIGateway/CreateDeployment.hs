@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.APIGateway.CreateDeployment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,8 +64,9 @@ import qualified Amazonka.Response as Response
 data CreateDeployment = CreateDeployment'
   { -- | Enables a cache cluster for the Stage resource specified in the input.
     cacheClusterEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the cache cluster size for the Stage resource specified in the
-    -- input, if a cache cluster is enabled.
+    -- | The stage\'s cache capacity in GB. For more information about choosing a
+    -- cache size, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html Enabling API caching to enhance responsiveness>.
     cacheClusterSize :: Prelude.Maybe CacheClusterSize,
     -- | The input configuration for the canary deployment when the deployment is
     -- a canary release deployment.
@@ -99,8 +100,9 @@ data CreateDeployment = CreateDeployment'
 --
 -- 'cacheClusterEnabled', 'createDeployment_cacheClusterEnabled' - Enables a cache cluster for the Stage resource specified in the input.
 --
--- 'cacheClusterSize', 'createDeployment_cacheClusterSize' - Specifies the cache cluster size for the Stage resource specified in the
--- input, if a cache cluster is enabled.
+-- 'cacheClusterSize', 'createDeployment_cacheClusterSize' - The stage\'s cache capacity in GB. For more information about choosing a
+-- cache size, see
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html Enabling API caching to enhance responsiveness>.
 --
 -- 'canarySettings', 'createDeployment_canarySettings' - The input configuration for the canary deployment when the deployment is
 -- a canary release deployment.
@@ -142,8 +144,9 @@ newCreateDeployment pRestApiId_ =
 createDeployment_cacheClusterEnabled :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
 createDeployment_cacheClusterEnabled = Lens.lens (\CreateDeployment' {cacheClusterEnabled} -> cacheClusterEnabled) (\s@CreateDeployment' {} a -> s {cacheClusterEnabled = a} :: CreateDeployment)
 
--- | Specifies the cache cluster size for the Stage resource specified in the
--- input, if a cache cluster is enabled.
+-- | The stage\'s cache capacity in GB. For more information about choosing a
+-- cache size, see
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html Enabling API caching to enhance responsiveness>.
 createDeployment_cacheClusterSize :: Lens.Lens' CreateDeployment (Prelude.Maybe CacheClusterSize)
 createDeployment_cacheClusterSize = Lens.lens (\CreateDeployment' {cacheClusterSize} -> cacheClusterSize) (\s@CreateDeployment' {} a -> s {cacheClusterSize = a} :: CreateDeployment)
 

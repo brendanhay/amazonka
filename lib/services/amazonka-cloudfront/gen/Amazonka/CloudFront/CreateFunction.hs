@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.CreateFunction
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,14 +26,14 @@
 -- configuration information about the function. The response contains an
 -- Amazon Resource Name (ARN) that uniquely identifies the function.
 --
--- When you create a function, it’s in the @DEVELOPMENT@ stage. In this
+-- When you create a function, it\'s in the @DEVELOPMENT@ stage. In this
 -- stage, you can test the function with @TestFunction@, and update it with
 -- @UpdateFunction@.
 --
--- When you’re ready to use your function with a CloudFront distribution,
+-- When you\'re ready to use your function with a CloudFront distribution,
 -- use @PublishFunction@ to copy the function from the @DEVELOPMENT@ stage
--- to @LIVE@. When it’s live, you can attach the function to a
--- distribution’s cache behavior, using the function’s ARN.
+-- to @LIVE@. When it\'s live, you can attach the function to a
+-- distribution\'s cache behavior, using the function\'s ARN.
 module Amazonka.CloudFront.CreateFunction
   ( -- * Creating a Request
     CreateFunction (..),
@@ -69,7 +69,7 @@ data CreateFunction = CreateFunction'
   { -- | A name to identify the function.
     name :: Prelude.Text,
     -- | Configuration information about the function, including an optional
-    -- comment and the function’s runtime.
+    -- comment and the function\'s runtime.
     functionConfig :: FunctionConfig,
     -- | The function code. For more information about writing a CloudFront
     -- function, see
@@ -90,7 +90,7 @@ data CreateFunction = CreateFunction'
 -- 'name', 'createFunction_name' - A name to identify the function.
 --
 -- 'functionConfig', 'createFunction_functionConfig' - Configuration information about the function, including an optional
--- comment and the function’s runtime.
+-- comment and the function\'s runtime.
 --
 -- 'functionCode', 'createFunction_functionCode' - The function code. For more information about writing a CloudFront
 -- function, see
@@ -125,7 +125,7 @@ createFunction_name :: Lens.Lens' CreateFunction Prelude.Text
 createFunction_name = Lens.lens (\CreateFunction' {name} -> name) (\s@CreateFunction' {} a -> s {name = a} :: CreateFunction)
 
 -- | Configuration information about the function, including an optional
--- comment and the function’s runtime.
+-- comment and the function\'s runtime.
 createFunction_functionConfig :: Lens.Lens' CreateFunction FunctionConfig
 createFunction_functionConfig = Lens.lens (\CreateFunction' {functionConfig} -> functionConfig) (\s@CreateFunction' {} a -> s {functionConfig = a} :: CreateFunction)
 

@@ -74,7 +74,9 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 - `amazonka-ivschat`: Amazon IVS Chat is a scalable stream chat feature with a built-in moderation option designed to accompany live streaming video. [Overview](https://aws.amazon.com/ivs/features/chat/)
 - `amazonka-kendra`: An intelligent search service powered by machine learning (ML) for your websites and applications. [Overview](https://aws.amazon.com/kendra/)
 - `amazonka-keyspaces`: Amazon Keyspaces (for Apache Cassandra) is a scalable, highly available, and managed Apache Cassandra–compatible database service. [Overview](https://aws.amazon.com/keyspaces/)
+- `amazonka-kinesis-video-webrtc-storage`: [Overview](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_WebRTC_Storage.html)
 - `amazonka-lexv2-models`: Amazon Lex V2 is an AWS service for building conversational interfaces for applications using voice and text. This is the model building API. [Overview](https://docs.aws.amazon.com/lexv2/latest/dg/API_Types_Amazon_Lex_Model_Building_V2.html)
+- `amazonka-license-manager-linux-subscriptions`: AWS License Manager provides you with the capability to view and manage commercial Linux subscriptions which you own and run on AWS. [Overview](https://docs.aws.amazon.com/license-manager/latest/userguide/linux-subscriptions.html)
 - `amazonka-license-manager-user-subscriptions`: With License Manager, you can create user-based subscriptions to utilize licensed software with a per user subscription fee on Amazon EC2 instances. [Overview](https://docs.aws.amazon.com/license-manager/latest/userguide/user-based-subscriptions.html)
 - `amazonka-m2`: AWS Mainframe Modernization is a set of managed tools providing infrastructure and software for migrating, modernizing, and running mainframe applications. [Overview](https://aws.amazon.com/mainframe-modernization/)
 - `amazonka-migration-hub-refactor-spaces`: AWS Migration Hub Refactor Spaces is the starting point for incremental application refactoring to microservices. [Overview](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/what-is-mhub-refactor-spaces.html)
@@ -93,6 +95,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 - `amazonka-rolesanywhere`: You can use AWS Identity and Access Management Roles Anywhere to obtain temporary security credentials in IAM for workloads such as servers, containers, and applications that run outside of AWS. [Overview](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html)
 - `amazonka-rum`: With CloudWatch RUM (Real User Monitoring), you can perform real user monitoring to collect and view client-side data about your web application performance from actual user sessions in near real time. [Overview](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html)
 - `amazonka-sagemaker-geospatial`: Build, train, and deploy ML models using geospatial data. [Overview](https://aws.amazon.com/sagemaker/geospatial/)
+- `amazonka-sagemaker-metrics`: [Overview](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Operations_Amazon_SageMaker_Metrics_Service.html)
 - `amazonka-scheduler`: Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. [Overview](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html)
 - `amazonka-securitylake`: Amazon Security Lake automatically centralizes security data from cloud, on-premises, and custom sources into a purpose-built data lake stored in your account. [Overview](https://aws.amazon.com/security-lake/)
 - `amazonka-simspaceweaver`: A managed service that lets you create expansive simulation worlds at increased levels of complexity and scale. [Overview](https://aws.amazon.com/simspaceweaver/)
@@ -108,6 +111,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 - `amazonka-core`/`amazonka`: Various time-related data types and the `_Time` `Iso'` are re-exported by `Amazonka.Core` and therefore `Amazonka`.
 [\#884](https://github.com/brendanhay/amazonka/pull/884)
+- `amazonka-core`: service error matchers are now `AsError a => Fold a ServiceError` instead of `AsError a => Getting (First ServiceError) a ServiceError`. This makes them more flexible (e.g., usable with `Control.Lens.has`), but existing uses should be unaffected.
+[\#878](https://github.com/brendanhay/amazonka/pull/878)
 - `amazonka`: The `override :: Dual (Endo Service)` has been replaced by `overrides :: Service -> Service`.
 [\#870](https://github.com/brendanhay/amazonka/pull/870)
 - `amazonka-core`: `Endpoint` now has a `basePath :: RawPath`. Handy with `amazonka-apigatewaymanagementapi`.
@@ -157,6 +162,10 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
+- `amazonka-s3`: Properly format timestamps
+[\#881](https://github.com/brendanhay/amazonka/pull/881)
+- `gen`: Take per-shape `timestampFormat` annotations into account.
+[\#882](https://github.com/brendanhay/amazonka/pull/882)
 - `amazonka-core`: Only consider 2xx and 304 responses as successful
 [\#835](https://github.com/brendanhay/amazonka/pull/835)
 - `amazonka-core`: Allow customisation of S3 addressing styles like Boto 3 can (thanks @basvandijk, @ivb-supercede)

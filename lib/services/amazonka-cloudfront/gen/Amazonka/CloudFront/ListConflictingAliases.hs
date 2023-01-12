@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.ListConflictingAliases
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -26,7 +26,7 @@
 -- conflicting alias. In the returned list, the distribution and account
 -- IDs are partially hidden, which allows you to identify the distributions
 -- and accounts that you own, but helps to protect the information of ones
--- that you don’t own.
+-- that you don\'t own.
 --
 -- Use this operation to find aliases that are in use in CloudFront that
 -- conflict or overlap with the provided alias. For example, if you provide
@@ -84,8 +84,8 @@ data ListConflictingAliases = ListConflictingAliases'
   { -- | Use this field when paginating results to indicate where to begin in the
     -- list of conflicting aliases. The response includes conflicting aliases
     -- in the list that occur after the marker. To get the next page of the
-    -- list, set this field’s value to the value of @NextMarker@ from the
-    -- current page’s response.
+    -- list, set this field\'s value to the value of @NextMarker@ from the
+    -- current page\'s response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of conflicting aliases that you want in the response.
     maxItems :: Prelude.Maybe Prelude.Int,
@@ -108,8 +108,8 @@ data ListConflictingAliases = ListConflictingAliases'
 -- 'marker', 'listConflictingAliases_marker' - Use this field when paginating results to indicate where to begin in the
 -- list of conflicting aliases. The response includes conflicting aliases
 -- in the list that occur after the marker. To get the next page of the
--- list, set this field’s value to the value of @NextMarker@ from the
--- current page’s response.
+-- list, set this field\'s value to the value of @NextMarker@ from the
+-- current page\'s response.
 --
 -- 'maxItems', 'listConflictingAliases_maxItems' - The maximum number of conflicting aliases that you want in the response.
 --
@@ -134,8 +134,8 @@ newListConflictingAliases pDistributionId_ pAlias_ =
 -- | Use this field when paginating results to indicate where to begin in the
 -- list of conflicting aliases. The response includes conflicting aliases
 -- in the list that occur after the marker. To get the next page of the
--- list, set this field’s value to the value of @NextMarker@ from the
--- current page’s response.
+-- list, set this field\'s value to the value of @NextMarker@ from the
+-- current page\'s response.
 listConflictingAliases_marker :: Lens.Lens' ListConflictingAliases (Prelude.Maybe Prelude.Text)
 listConflictingAliases_marker = Lens.lens (\ListConflictingAliases' {marker} -> marker) (\s@ListConflictingAliases' {} a -> s {marker = a} :: ListConflictingAliases)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Transcribe.Types.LanguageCode
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -51,10 +51,12 @@ module Amazonka.Transcribe.Types.LanguageCode
         LanguageCode_Pt_BR,
         LanguageCode_Pt_PT,
         LanguageCode_Ru_RU,
+        LanguageCode_Sv_SE,
         LanguageCode_Ta_IN,
         LanguageCode_Te_IN,
         LanguageCode_Th_TH,
         LanguageCode_Tr_TR,
+        LanguageCode_Vi_VN,
         LanguageCode_Zh_CN,
         LanguageCode_Zh_TW
       ),
@@ -186,6 +188,9 @@ pattern LanguageCode_Pt_PT = LanguageCode' "pt-PT"
 pattern LanguageCode_Ru_RU :: LanguageCode
 pattern LanguageCode_Ru_RU = LanguageCode' "ru-RU"
 
+pattern LanguageCode_Sv_SE :: LanguageCode
+pattern LanguageCode_Sv_SE = LanguageCode' "sv-SE"
+
 pattern LanguageCode_Ta_IN :: LanguageCode
 pattern LanguageCode_Ta_IN = LanguageCode' "ta-IN"
 
@@ -197,6 +202,9 @@ pattern LanguageCode_Th_TH = LanguageCode' "th-TH"
 
 pattern LanguageCode_Tr_TR :: LanguageCode
 pattern LanguageCode_Tr_TR = LanguageCode' "tr-TR"
+
+pattern LanguageCode_Vi_VN :: LanguageCode
+pattern LanguageCode_Vi_VN = LanguageCode' "vi-VN"
 
 pattern LanguageCode_Zh_CN :: LanguageCode
 pattern LanguageCode_Zh_CN = LanguageCode' "zh-CN"
@@ -236,10 +244,12 @@ pattern LanguageCode_Zh_TW = LanguageCode' "zh-TW"
   LanguageCode_Pt_BR,
   LanguageCode_Pt_PT,
   LanguageCode_Ru_RU,
+  LanguageCode_Sv_SE,
   LanguageCode_Ta_IN,
   LanguageCode_Te_IN,
   LanguageCode_Th_TH,
   LanguageCode_Tr_TR,
+  LanguageCode_Vi_VN,
   LanguageCode_Zh_CN,
   LanguageCode_Zh_TW,
   LanguageCode'

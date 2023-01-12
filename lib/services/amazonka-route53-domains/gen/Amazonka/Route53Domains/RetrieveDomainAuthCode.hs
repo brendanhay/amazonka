@@ -14,14 +14,15 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.RetrieveDomainAuthCode
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the AuthCode for the domain. To transfer a domain
--- to another registrar, you provide this value to the new registrar.
+-- This operation returns the authorization code for the domain. To
+-- transfer a domain to another registrar, you provide this value to the
+-- new registrar.
 module Amazonka.Route53Domains.RetrieveDomainAuthCode
   ( -- * Creating a Request
     RetrieveDomainAuthCode (..),
@@ -35,8 +36,8 @@ module Amazonka.Route53Domains.RetrieveDomainAuthCode
     newRetrieveDomainAuthCodeResponse,
 
     -- * Response Lenses
-    retrieveDomainAuthCodeResponse_httpStatus,
     retrieveDomainAuthCodeResponse_authCode,
+    retrieveDomainAuthCodeResponse_httpStatus,
   )
 where
 
@@ -89,8 +90,8 @@ instance Core.AWSRequest RetrieveDomainAuthCode where
     Response.receiveJSON
       ( \s h x ->
           RetrieveDomainAuthCodeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "AuthCode")
+            Prelude.<$> (x Data..?> "AuthCode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RetrieveDomainAuthCode where
@@ -133,10 +134,10 @@ instance Data.ToQuery RetrieveDomainAuthCode where
 --
 -- /See:/ 'newRetrieveDomainAuthCodeResponse' smart constructor.
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | The authorization code for the domain.
-    authCode :: Data.Sensitive Prelude.Text
+  { -- | The authorization code for the domain.
+    authCode :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -148,37 +149,32 @@ data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'retrieveDomainAuthCodeResponse_httpStatus' - The response's http status code.
---
 -- 'authCode', 'retrieveDomainAuthCodeResponse_authCode' - The authorization code for the domain.
+--
+-- 'httpStatus', 'retrieveDomainAuthCodeResponse_httpStatus' - The response's http status code.
 newRetrieveDomainAuthCodeResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'authCode'
-  Prelude.Text ->
   RetrieveDomainAuthCodeResponse
-newRetrieveDomainAuthCodeResponse
-  pHttpStatus_
-  pAuthCode_ =
-    RetrieveDomainAuthCodeResponse'
-      { httpStatus =
-          pHttpStatus_,
-        authCode =
-          Data._Sensitive Lens.# pAuthCode_
-      }
+newRetrieveDomainAuthCodeResponse pHttpStatus_ =
+  RetrieveDomainAuthCodeResponse'
+    { authCode =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The authorization code for the domain.
+retrieveDomainAuthCodeResponse_authCode :: Lens.Lens' RetrieveDomainAuthCodeResponse (Prelude.Maybe Prelude.Text)
+retrieveDomainAuthCodeResponse_authCode = Lens.lens (\RetrieveDomainAuthCodeResponse' {authCode} -> authCode) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {authCode = a} :: RetrieveDomainAuthCodeResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 retrieveDomainAuthCodeResponse_httpStatus :: Lens.Lens' RetrieveDomainAuthCodeResponse Prelude.Int
 retrieveDomainAuthCodeResponse_httpStatus = Lens.lens (\RetrieveDomainAuthCodeResponse' {httpStatus} -> httpStatus) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {httpStatus = a} :: RetrieveDomainAuthCodeResponse)
-
--- | The authorization code for the domain.
-retrieveDomainAuthCodeResponse_authCode :: Lens.Lens' RetrieveDomainAuthCodeResponse Prelude.Text
-retrieveDomainAuthCodeResponse_authCode = Lens.lens (\RetrieveDomainAuthCodeResponse' {authCode} -> authCode) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {authCode = a} :: RetrieveDomainAuthCodeResponse) Prelude.. Data._Sensitive
 
 instance
   Prelude.NFData
     RetrieveDomainAuthCodeResponse
   where
   rnf RetrieveDomainAuthCodeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf authCode
+    Prelude.rnf authCode
+      `Prelude.seq` Prelude.rnf httpStatus

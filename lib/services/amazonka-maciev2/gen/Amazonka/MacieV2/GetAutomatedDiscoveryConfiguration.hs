@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetAutomatedDiscoveryConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -138,16 +138,16 @@ data GetAutomatedDiscoveryConfigurationResponse = GetAutomatedDiscoveryConfigura
     -- sensitive data discovery was most recently disabled for the account.
     -- This value is null if automated sensitive data discovery wasn\'t enabled
     -- and subsequently disabled for the account.
-    disabledAt :: Prelude.Maybe Data.POSIX,
+    disabledAt :: Prelude.Maybe Data.ISO8601,
     -- | The date and time, in UTC and extended ISO 8601 format, when automated
     -- sensitive data discovery was initially enabled for the account. This
     -- value is null if automated sensitive data discovery has never been
     -- enabled for the account.
-    firstEnabledAt :: Prelude.Maybe Data.POSIX,
+    firstEnabledAt :: Prelude.Maybe Data.ISO8601,
     -- | The date and time, in UTC and extended ISO 8601 format, when automated
     -- sensitive data discovery was most recently enabled or disabled for the
     -- account.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The unique identifier for the sensitivity inspection template that\'s
     -- used when performing automated sensitive data discovery for the account.
     -- The template specifies which allow lists, custom data identifiers, and

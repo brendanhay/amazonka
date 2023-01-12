@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Support.DescribeCases
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,7 +42,7 @@
 --     plan to use the Amazon Web Services Support API.
 --
 -- -   If you call the Amazon Web Services Support API from an account that
---     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     doesn\'t have a Business, Enterprise On-Ramp, or Enterprise Support
 --     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.
@@ -104,10 +104,10 @@ data DescribeCases = DescribeCases'
     -- | Specifies whether to include resolved support cases in the
     -- @DescribeCases@ response. By default, resolved cases aren\'t included.
     includeResolvedCases :: Prelude.Maybe Prelude.Bool,
-    -- | The ISO 639-1 code for the language in which Amazon Web Services
-    -- provides support. Amazon Web Services Support currently supports English
-    -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
-    -- explicitly for operations that take them.
+    -- | The language in which Amazon Web Services Support handles the case.
+    -- Amazon Web Services Support currently supports English (\"en\") and
+    -- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+    -- @language@ parameter if you want support in that language.
     language :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return before paginating.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -143,10 +143,10 @@ data DescribeCases = DescribeCases'
 -- 'includeResolvedCases', 'describeCases_includeResolvedCases' - Specifies whether to include resolved support cases in the
 -- @DescribeCases@ response. By default, resolved cases aren\'t included.
 --
--- 'language', 'describeCases_language' - The ISO 639-1 code for the language in which Amazon Web Services
--- provides support. Amazon Web Services Support currently supports English
--- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
--- explicitly for operations that take them.
+-- 'language', 'describeCases_language' - The language in which Amazon Web Services Support handles the case.
+-- Amazon Web Services Support currently supports English (\"en\") and
+-- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+-- @language@ parameter if you want support in that language.
 --
 -- 'maxResults', 'describeCases_maxResults' - The maximum number of results to return before paginating.
 --
@@ -197,10 +197,10 @@ describeCases_includeCommunications = Lens.lens (\DescribeCases' {includeCommuni
 describeCases_includeResolvedCases :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Bool)
 describeCases_includeResolvedCases = Lens.lens (\DescribeCases' {includeResolvedCases} -> includeResolvedCases) (\s@DescribeCases' {} a -> s {includeResolvedCases = a} :: DescribeCases)
 
--- | The ISO 639-1 code for the language in which Amazon Web Services
--- provides support. Amazon Web Services Support currently supports English
--- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
--- explicitly for operations that take them.
+-- | The language in which Amazon Web Services Support handles the case.
+-- Amazon Web Services Support currently supports English (\"en\") and
+-- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
+-- @language@ parameter if you want support in that language.
 describeCases_language :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Text)
 describeCases_language = Lens.lens (\DescribeCases' {language} -> language) (\s@DescribeCases' {} a -> s {language = a} :: DescribeCases)
 

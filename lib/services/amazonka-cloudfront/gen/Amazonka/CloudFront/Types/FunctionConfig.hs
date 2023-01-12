@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.CloudFront.Types.FunctionConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data FunctionConfig = FunctionConfig'
   { -- | A comment to describe the function.
     comment :: Prelude.Text,
-    -- | The function’s runtime environment. The only valid value is
+    -- | The function\'s runtime environment. The only valid value is
     -- @cloudfront-js-1.0@.
     runtime :: FunctionRuntime
   }
@@ -47,7 +47,7 @@ data FunctionConfig = FunctionConfig'
 --
 -- 'comment', 'functionConfig_comment' - A comment to describe the function.
 --
--- 'runtime', 'functionConfig_runtime' - The function’s runtime environment. The only valid value is
+-- 'runtime', 'functionConfig_runtime' - The function\'s runtime environment. The only valid value is
 -- @cloudfront-js-1.0@.
 newFunctionConfig ::
   -- | 'comment'
@@ -65,7 +65,7 @@ newFunctionConfig pComment_ pRuntime_ =
 functionConfig_comment :: Lens.Lens' FunctionConfig Prelude.Text
 functionConfig_comment = Lens.lens (\FunctionConfig' {comment} -> comment) (\s@FunctionConfig' {} a -> s {comment = a} :: FunctionConfig)
 
--- | The function’s runtime environment. The only valid value is
+-- | The function\'s runtime environment. The only valid value is
 -- @cloudfront-js-1.0@.
 functionConfig_runtime :: Lens.Lens' FunctionConfig FunctionRuntime
 functionConfig_runtime = Lens.lens (\FunctionConfig' {runtime} -> runtime) (\s@FunctionConfig' {} a -> s {runtime = a} :: FunctionConfig)

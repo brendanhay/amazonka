@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.Eula
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 data Eula = Eula'
   { -- | The EULA content.
     content :: Prelude.Maybe Prelude.Text,
-    -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The ISO timestamp in seconds for when the resource was created.
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The EULA ID.
     eulaId :: Prelude.Maybe Prelude.Text,
     -- | The name for the EULA.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    -- | The ISO timestamp in seconds for when the resource was updated.
+    updatedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,13 +51,13 @@ data Eula = Eula'
 --
 -- 'content', 'eula_content' - The EULA content.
 --
--- 'createdAt', 'eula_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
+-- 'createdAt', 'eula_createdAt' - The ISO timestamp in seconds for when the resource was created.
 --
 -- 'eulaId', 'eula_eulaId' - The EULA ID.
 --
 -- 'name', 'eula_name' - The name for the EULA.
 --
--- 'updatedAt', 'eula_updatedAt' - The Unix epoch timestamp in seconds for when the resource was updated.
+-- 'updatedAt', 'eula_updatedAt' - The ISO timestamp in seconds for when the resource was updated.
 newEula ::
   Eula
 newEula =
@@ -73,7 +73,7 @@ newEula =
 eula_content :: Lens.Lens' Eula (Prelude.Maybe Prelude.Text)
 eula_content = Lens.lens (\Eula' {content} -> content) (\s@Eula' {} a -> s {content = a} :: Eula)
 
--- | The Unix epoch timestamp in seconds for when the resource was created.
+-- | The ISO timestamp in seconds for when the resource was created.
 eula_createdAt :: Lens.Lens' Eula (Prelude.Maybe Prelude.UTCTime)
 eula_createdAt = Lens.lens (\Eula' {createdAt} -> createdAt) (\s@Eula' {} a -> s {createdAt = a} :: Eula) Prelude.. Lens.mapping Data._Time
 
@@ -85,7 +85,7 @@ eula_eulaId = Lens.lens (\Eula' {eulaId} -> eulaId) (\s@Eula' {} a -> s {eulaId 
 eula_name :: Lens.Lens' Eula (Prelude.Maybe Prelude.Text)
 eula_name = Lens.lens (\Eula' {name} -> name) (\s@Eula' {} a -> s {name = a} :: Eula)
 
--- | The Unix epoch timestamp in seconds for when the resource was updated.
+-- | The ISO timestamp in seconds for when the resource was updated.
 eula_updatedAt :: Lens.Lens' Eula (Prelude.Maybe Prelude.UTCTime)
 eula_updatedAt = Lens.lens (\Eula' {updatedAt} -> updatedAt) (\s@Eula' {} a -> s {updatedAt = a} :: Eula) Prelude.. Lens.mapping Data._Time
 

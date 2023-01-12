@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,9 @@ module Amazonka.Route53Domains
 
     -- * Errors
     -- $errors
+
+    -- ** DnssecLimitExceeded
+    _DnssecLimitExceeded,
 
     -- ** DomainLimitExceeded
     _DomainLimitExceeded,
@@ -48,6 +51,12 @@ module Amazonka.Route53Domains
     newAcceptDomainTransferFromAnotherAwsAccount,
     AcceptDomainTransferFromAnotherAwsAccountResponse (AcceptDomainTransferFromAnotherAwsAccountResponse'),
     newAcceptDomainTransferFromAnotherAwsAccountResponse,
+
+    -- ** AssociateDelegationSignerToDomain
+    AssociateDelegationSignerToDomain (AssociateDelegationSignerToDomain'),
+    newAssociateDelegationSignerToDomain,
+    AssociateDelegationSignerToDomainResponse (AssociateDelegationSignerToDomainResponse'),
+    newAssociateDelegationSignerToDomainResponse,
 
     -- ** CancelDomainTransferToAnotherAwsAccount
     CancelDomainTransferToAnotherAwsAccount (CancelDomainTransferToAnotherAwsAccount'),
@@ -90,6 +99,12 @@ module Amazonka.Route53Domains
     newDisableDomainTransferLock,
     DisableDomainTransferLockResponse (DisableDomainTransferLockResponse'),
     newDisableDomainTransferLockResponse,
+
+    -- ** DisassociateDelegationSignerFromDomain
+    DisassociateDelegationSignerFromDomain (DisassociateDelegationSignerFromDomain'),
+    newDisassociateDelegationSignerFromDomain,
+    DisassociateDelegationSignerFromDomainResponse (DisassociateDelegationSignerFromDomainResponse'),
+    newDisassociateDelegationSignerFromDomainResponse,
 
     -- ** EnableDomainAutoRenew
     EnableDomainAutoRenew (EnableDomainAutoRenew'),
@@ -151,6 +166,12 @@ module Amazonka.Route53Domains
     ListTagsForDomainResponse (ListTagsForDomainResponse'),
     newListTagsForDomainResponse,
 
+    -- ** PushDomain
+    PushDomain (PushDomain'),
+    newPushDomain,
+    PushDomainResponse (PushDomainResponse'),
+    newPushDomainResponse,
+
     -- ** RegisterDomain
     RegisterDomain (RegisterDomain'),
     newRegisterDomain,
@@ -174,6 +195,12 @@ module Amazonka.Route53Domains
     newResendContactReachabilityEmail,
     ResendContactReachabilityEmailResponse (ResendContactReachabilityEmailResponse'),
     newResendContactReachabilityEmailResponse,
+
+    -- ** ResendOperationAuthorization
+    ResendOperationAuthorization (ResendOperationAuthorization'),
+    newResendOperationAuthorization,
+    ResendOperationAuthorizationResponse (ResendOperationAuthorizationResponse'),
+    newResendOperationAuthorizationResponse,
 
     -- ** RetrieveDomainAuthCode
     RetrieveDomainAuthCode (RetrieveDomainAuthCode'),
@@ -240,6 +267,9 @@ module Amazonka.Route53Domains
     -- ** ListDomainsAttributeName
     ListDomainsAttributeName (..),
 
+    -- ** ListOperationsSortAttributeName
+    ListOperationsSortAttributeName (..),
+
     -- ** OperationStatus
     OperationStatus (..),
 
@@ -255,6 +285,9 @@ module Amazonka.Route53Domains
     -- ** SortOrder
     SortOrder (..),
 
+    -- ** StatusFlag
+    StatusFlag (..),
+
     -- ** Transferable
     Transferable (..),
 
@@ -262,9 +295,21 @@ module Amazonka.Route53Domains
     BillingRecord (BillingRecord'),
     newBillingRecord,
 
+    -- ** Consent
+    Consent (Consent'),
+    newConsent,
+
     -- ** ContactDetail
     ContactDetail (ContactDetail'),
     newContactDetail,
+
+    -- ** DnssecKey
+    DnssecKey (DnssecKey'),
+    newDnssecKey,
+
+    -- ** DnssecSigningAttributes
+    DnssecSigningAttributes (DnssecSigningAttributes'),
+    newDnssecSigningAttributes,
 
     -- ** DomainPrice
     DomainPrice (DomainPrice'),
@@ -313,6 +358,7 @@ module Amazonka.Route53Domains
 where
 
 import Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
+import Amazonka.Route53Domains.AssociateDelegationSignerToDomain
 import Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount
 import Amazonka.Route53Domains.CheckDomainAvailability
 import Amazonka.Route53Domains.CheckDomainTransferability
@@ -320,6 +366,7 @@ import Amazonka.Route53Domains.DeleteDomain
 import Amazonka.Route53Domains.DeleteTagsForDomain
 import Amazonka.Route53Domains.DisableDomainAutoRenew
 import Amazonka.Route53Domains.DisableDomainTransferLock
+import Amazonka.Route53Domains.DisassociateDelegationSignerFromDomain
 import Amazonka.Route53Domains.EnableDomainAutoRenew
 import Amazonka.Route53Domains.EnableDomainTransferLock
 import Amazonka.Route53Domains.GetContactReachabilityStatus
@@ -331,10 +378,12 @@ import Amazonka.Route53Domains.ListDomains
 import Amazonka.Route53Domains.ListOperations
 import Amazonka.Route53Domains.ListPrices
 import Amazonka.Route53Domains.ListTagsForDomain
+import Amazonka.Route53Domains.PushDomain
 import Amazonka.Route53Domains.RegisterDomain
 import Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
 import Amazonka.Route53Domains.RenewDomain
 import Amazonka.Route53Domains.ResendContactReachabilityEmail
+import Amazonka.Route53Domains.ResendOperationAuthorization
 import Amazonka.Route53Domains.RetrieveDomainAuthCode
 import Amazonka.Route53Domains.TransferDomain
 import Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount

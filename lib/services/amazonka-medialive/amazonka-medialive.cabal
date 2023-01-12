@@ -8,7 +8,7 @@ license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2022 Brendan Hay
+copyright:          Copyright (c) 2013-2023 Brendan Hay
 category:           AWS
 build-type:         Simple
 extra-source-files:
@@ -127,6 +127,7 @@ library
     Amazonka.MediaLive.Types.AudioDescription
     Amazonka.MediaLive.Types.AudioDescriptionAudioTypeControl
     Amazonka.MediaLive.Types.AudioDescriptionLanguageCodeControl
+    Amazonka.MediaLive.Types.AudioDolbyEDecode
     Amazonka.MediaLive.Types.AudioHlsRenditionSelection
     Amazonka.MediaLive.Types.AudioLanguageSelection
     Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy
@@ -183,6 +184,7 @@ library
     Amazonka.MediaLive.Types.ContentType
     Amazonka.MediaLive.Types.DeviceSettingsSyncState
     Amazonka.MediaLive.Types.DeviceUpdateStatus
+    Amazonka.MediaLive.Types.DolbyEProgramSelection
     Amazonka.MediaLive.Types.DolbyVision81Settings
     Amazonka.MediaLive.Types.DvbNitSettings
     Amazonka.MediaLive.Types.DvbSdtOutputSdt
@@ -563,6 +565,9 @@ library
     Amazonka.MediaLive.Types.TemporalFilterPostFilterSharpening
     Amazonka.MediaLive.Types.TemporalFilterSettings
     Amazonka.MediaLive.Types.TemporalFilterStrength
+    Amazonka.MediaLive.Types.TimecodeBurninFontSize
+    Amazonka.MediaLive.Types.TimecodeBurninPosition
+    Amazonka.MediaLive.Types.TimecodeBurninSettings
     Amazonka.MediaLive.Types.TimecodeConfig
     Amazonka.MediaLive.Types.TimecodeConfigSource
     Amazonka.MediaLive.Types.TransferringInputDeviceSummary

@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.BackupGateway.UpdateHypervisor
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,6 +30,7 @@ module Amazonka.BackupGateway.UpdateHypervisor
 
     -- * Request Lenses
     updateHypervisor_host,
+    updateHypervisor_logGroupArn,
     updateHypervisor_name,
     updateHypervisor_password,
     updateHypervisor_username,
@@ -58,6 +59,9 @@ data UpdateHypervisor = UpdateHypervisor'
   { -- | The updated host of the hypervisor. This can be either an IP address or
     -- a fully-qualified domain name (FQDN).
     host :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the group of gateways within the
+    -- requested log.
+    logGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The updated name for the hypervisor
     name :: Prelude.Maybe Prelude.Text,
     -- | The updated password for the hypervisor.
@@ -80,6 +84,9 @@ data UpdateHypervisor = UpdateHypervisor'
 -- 'host', 'updateHypervisor_host' - The updated host of the hypervisor. This can be either an IP address or
 -- a fully-qualified domain name (FQDN).
 --
+-- 'logGroupArn', 'updateHypervisor_logGroupArn' - The Amazon Resource Name (ARN) of the group of gateways within the
+-- requested log.
+--
 -- 'name', 'updateHypervisor_name' - The updated name for the hypervisor
 --
 -- 'password', 'updateHypervisor_password' - The updated password for the hypervisor.
@@ -94,6 +101,7 @@ newUpdateHypervisor ::
 newUpdateHypervisor pHypervisorArn_ =
   UpdateHypervisor'
     { host = Prelude.Nothing,
+      logGroupArn = Prelude.Nothing,
       name = Prelude.Nothing,
       password = Prelude.Nothing,
       username = Prelude.Nothing,
@@ -104,6 +112,11 @@ newUpdateHypervisor pHypervisorArn_ =
 -- a fully-qualified domain name (FQDN).
 updateHypervisor_host :: Lens.Lens' UpdateHypervisor (Prelude.Maybe Prelude.Text)
 updateHypervisor_host = Lens.lens (\UpdateHypervisor' {host} -> host) (\s@UpdateHypervisor' {} a -> s {host = a} :: UpdateHypervisor)
+
+-- | The Amazon Resource Name (ARN) of the group of gateways within the
+-- requested log.
+updateHypervisor_logGroupArn :: Lens.Lens' UpdateHypervisor (Prelude.Maybe Prelude.Text)
+updateHypervisor_logGroupArn = Lens.lens (\UpdateHypervisor' {logGroupArn} -> logGroupArn) (\s@UpdateHypervisor' {} a -> s {logGroupArn = a} :: UpdateHypervisor)
 
 -- | The updated name for the hypervisor
 updateHypervisor_name :: Lens.Lens' UpdateHypervisor (Prelude.Maybe Prelude.Text)
@@ -138,6 +151,7 @@ instance Core.AWSRequest UpdateHypervisor where
 instance Prelude.Hashable UpdateHypervisor where
   hashWithSalt _salt UpdateHypervisor' {..} =
     _salt `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` logGroupArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` username
@@ -146,6 +160,7 @@ instance Prelude.Hashable UpdateHypervisor where
 instance Prelude.NFData UpdateHypervisor where
   rnf UpdateHypervisor' {..} =
     Prelude.rnf host
+      `Prelude.seq` Prelude.rnf logGroupArn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf username
@@ -171,6 +186,7 @@ instance Data.ToJSON UpdateHypervisor where
     Data.object
       ( Prelude.catMaybes
           [ ("Host" Data..=) Prelude.<$> host,
+            ("LogGroupArn" Data..=) Prelude.<$> logGroupArn,
             ("Name" Data..=) Prelude.<$> name,
             ("Password" Data..=) Prelude.<$> password,
             ("Username" Data..=) Prelude.<$> username,

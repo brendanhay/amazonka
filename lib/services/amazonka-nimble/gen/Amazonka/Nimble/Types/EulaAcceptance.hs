@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.EulaAcceptance
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEulaAcceptance' smart constructor.
 data EulaAcceptance = EulaAcceptance'
-  { -- | The Unix epoch timestamp in seconds for when the EULA was accepted.
-    acceptedAt :: Prelude.Maybe Data.POSIX,
+  { -- | The ISO timestamp in seconds for when the EULA was accepted.
+    acceptedAt :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the person who accepted the EULA.
     acceptedBy :: Prelude.Maybe Prelude.Text,
     -- | The ID of the acceptee.
@@ -50,7 +50,7 @@ data EulaAcceptance = EulaAcceptance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'acceptedAt', 'eulaAcceptance_acceptedAt' - The Unix epoch timestamp in seconds for when the EULA was accepted.
+-- 'acceptedAt', 'eulaAcceptance_acceptedAt' - The ISO timestamp in seconds for when the EULA was accepted.
 --
 -- 'acceptedBy', 'eulaAcceptance_acceptedBy' - The ID of the person who accepted the EULA.
 --
@@ -70,7 +70,7 @@ newEulaAcceptance =
       eulaId = Prelude.Nothing
     }
 
--- | The Unix epoch timestamp in seconds for when the EULA was accepted.
+-- | The ISO timestamp in seconds for when the EULA was accepted.
 eulaAcceptance_acceptedAt :: Lens.Lens' EulaAcceptance (Prelude.Maybe Prelude.UTCTime)
 eulaAcceptance_acceptedAt = Lens.lens (\EulaAcceptance' {acceptedAt} -> acceptedAt) (\s@EulaAcceptance' {} a -> s {acceptedAt = a} :: EulaAcceptance) Prelude.. Lens.mapping Data._Time
 

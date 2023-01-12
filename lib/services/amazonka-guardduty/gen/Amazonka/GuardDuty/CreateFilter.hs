@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.GuardDuty.CreateFilter
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -61,7 +61,9 @@ data CreateFilter = CreateFilter'
     action :: Prelude.Maybe FilterAction,
     -- | The idempotency token for the create request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The description of the filter.
+    -- | The description of the filter. Valid special characters include period
+    -- (.), underscore (_), dash (-), and whitespace. The new line character is
+    -- considered to be an invalid input for description.
     description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the position of the filter in the list of current filters.
     -- Also specifies the order in which this filter is applied to the
@@ -72,9 +74,9 @@ data CreateFilter = CreateFilter'
     -- | The ID of the detector belonging to the GuardDuty account that you want
     -- to create a filter for.
     detectorId :: Prelude.Text,
-    -- | The name of the filter. Minimum length of 3. Maximum length of 64. Valid
-    -- characters include alphanumeric characters, dot (.), underscore (_), and
-    -- dash (-). Spaces are not allowed.
+    -- | The name of the filter. Valid characters include period (.), underscore
+    -- (_), dash (-), and alphanumeric characters. A whitespace is considered
+    -- to be an invalid character.
     name :: Prelude.Text,
     -- | Represents the criteria to be used in the filter for querying findings.
     --
@@ -219,7 +221,9 @@ data CreateFilter = CreateFilter'
 --
 -- 'clientToken', 'createFilter_clientToken' - The idempotency token for the create request.
 --
--- 'description', 'createFilter_description' - The description of the filter.
+-- 'description', 'createFilter_description' - The description of the filter. Valid special characters include period
+-- (.), underscore (_), dash (-), and whitespace. The new line character is
+-- considered to be an invalid input for description.
 --
 -- 'rank', 'createFilter_rank' - Specifies the position of the filter in the list of current filters.
 -- Also specifies the order in which this filter is applied to the
@@ -230,9 +234,9 @@ data CreateFilter = CreateFilter'
 -- 'detectorId', 'createFilter_detectorId' - The ID of the detector belonging to the GuardDuty account that you want
 -- to create a filter for.
 --
--- 'name', 'createFilter_name' - The name of the filter. Minimum length of 3. Maximum length of 64. Valid
--- characters include alphanumeric characters, dot (.), underscore (_), and
--- dash (-). Spaces are not allowed.
+-- 'name', 'createFilter_name' - The name of the filter. Valid characters include period (.), underscore
+-- (_), dash (-), and alphanumeric characters. A whitespace is considered
+-- to be an invalid character.
 --
 -- 'findingCriteria', 'createFilter_findingCriteria' - Represents the criteria to be used in the filter for querying findings.
 --
@@ -389,7 +393,9 @@ createFilter_action = Lens.lens (\CreateFilter' {action} -> action) (\s@CreateFi
 createFilter_clientToken :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
 createFilter_clientToken = Lens.lens (\CreateFilter' {clientToken} -> clientToken) (\s@CreateFilter' {} a -> s {clientToken = a} :: CreateFilter)
 
--- | The description of the filter.
+-- | The description of the filter. Valid special characters include period
+-- (.), underscore (_), dash (-), and whitespace. The new line character is
+-- considered to be an invalid input for description.
 createFilter_description :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
 createFilter_description = Lens.lens (\CreateFilter' {description} -> description) (\s@CreateFilter' {} a -> s {description = a} :: CreateFilter)
 
@@ -408,9 +414,9 @@ createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' 
 createFilter_detectorId :: Lens.Lens' CreateFilter Prelude.Text
 createFilter_detectorId = Lens.lens (\CreateFilter' {detectorId} -> detectorId) (\s@CreateFilter' {} a -> s {detectorId = a} :: CreateFilter)
 
--- | The name of the filter. Minimum length of 3. Maximum length of 64. Valid
--- characters include alphanumeric characters, dot (.), underscore (_), and
--- dash (-). Spaces are not allowed.
+-- | The name of the filter. Valid characters include period (.), underscore
+-- (_), dash (-), and alphanumeric characters. A whitespace is considered
+-- to be an invalid character.
 createFilter_name :: Lens.Lens' CreateFilter Prelude.Text
 createFilter_name = Lens.lens (\CreateFilter' {name} -> name) (\s@CreateFilter' {} a -> s {name = a} :: CreateFilter)
 

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Route53RecoveryCluster.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -128,28 +128,28 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have sufficient permissions to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | There was a conflict with this request. Try again.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | The cluster endpoint isn\'t available. Try another cluster endpoint.
-_EndpointTemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointTemporarilyUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _EndpointTemporarilyUnavailableException =
   Core._MatchServiceError
     defaultService
     "EndpointTemporarilyUnavailableException"
 
 -- | There was an unexpected error during processing of the request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -157,7 +157,7 @@ _InternalServerException =
 
 -- | The request references a routing control or control panel that was not
 -- found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -165,21 +165,21 @@ _ResourceNotFoundException =
 
 -- | The request can\'t update that many routing control states at the same
 -- time. Try again with fewer routing control states.
-_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ServiceLimitExceededException"
 
 -- | The request was denied because of request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
 
 -- | There was a validation error on the request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

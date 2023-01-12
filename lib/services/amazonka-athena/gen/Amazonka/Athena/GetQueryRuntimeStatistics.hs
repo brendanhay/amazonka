@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Athena.GetQueryRuntimeStatistics
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,10 @@
 --
 -- Returns query execution runtime statistics related to a single execution
 -- of a query if you have access to the workgroup in which the query ran.
--- The query execution runtime statistics is returned only when
+-- Query execution runtime statistics are returned only when
 -- QueryExecutionStatus$State is in a SUCCEEDED or FAILED state.
+-- Stage-level input and output row count and data size statistics are not
+-- shown when a query has row-level filters defined in Lake Formation.
 module Amazonka.Athena.GetQueryRuntimeStatistics
   ( -- * Creating a Request
     GetQueryRuntimeStatistics (..),

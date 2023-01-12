@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.M2.ListDataSets
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,9 @@
 --
 -- Lists the data sets imported for a specific application. In Amazon Web
 -- Services Mainframe Modernization, data sets are associated with
--- applications deployed on environments. This is known as importing data
--- sets. Currently, Amazon Web Services Mainframe Modernization can import
--- data sets into catalogs using
+-- applications deployed on runtime environments. This is known as
+-- importing data sets. Currently, Amazon Web Services Mainframe
+-- Modernization can import data sets into catalogs using
 -- <https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html CreateDataSetImportTask>.
 --
 -- This operation returns paginated results.
@@ -205,7 +205,7 @@ data ListDataSetsResponse = ListDataSetsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The list of data sets, containing ionformation including the creating
+    -- | The list of data sets, containing information including the creation
     -- time, the data set name, the data set organization, the data set format,
     -- and the last time the data set was referenced or updated.
     dataSets :: [DataSetSummary]
@@ -226,7 +226,7 @@ data ListDataSetsResponse = ListDataSetsResponse'
 --
 -- 'httpStatus', 'listDataSetsResponse_httpStatus' - The response's http status code.
 --
--- 'dataSets', 'listDataSetsResponse_dataSets' - The list of data sets, containing ionformation including the creating
+-- 'dataSets', 'listDataSetsResponse_dataSets' - The list of data sets, containing information including the creation
 -- time, the data set name, the data set organization, the data set format,
 -- and the last time the data set was referenced or updated.
 newListDataSetsResponse ::
@@ -250,7 +250,7 @@ listDataSetsResponse_nextToken = Lens.lens (\ListDataSetsResponse' {nextToken} -
 listDataSetsResponse_httpStatus :: Lens.Lens' ListDataSetsResponse Prelude.Int
 listDataSetsResponse_httpStatus = Lens.lens (\ListDataSetsResponse' {httpStatus} -> httpStatus) (\s@ListDataSetsResponse' {} a -> s {httpStatus = a} :: ListDataSetsResponse)
 
--- | The list of data sets, containing ionformation including the creating
+-- | The list of data sets, containing information including the creation
 -- time, the data set name, the data set organization, the data set format,
 -- and the last time the data set was referenced or updated.
 listDataSetsResponse_dataSets :: Lens.Lens' ListDataSetsResponse [DataSetSummary]

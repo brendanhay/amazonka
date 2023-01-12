@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.EC2.Types.ResourceType
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -92,6 +92,7 @@ module Amazonka.EC2.Types.ResourceType
         ResourceType_Verified_access_trust_provider,
         ResourceType_Volume,
         ResourceType_Vpc,
+        ResourceType_Vpc_block_public_access_exclusion,
         ResourceType_Vpc_endpoint,
         ResourceType_Vpc_endpoint_connection,
         ResourceType_Vpc_endpoint_connection_device_type,
@@ -355,6 +356,9 @@ pattern ResourceType_Volume = ResourceType' "volume"
 pattern ResourceType_Vpc :: ResourceType
 pattern ResourceType_Vpc = ResourceType' "vpc"
 
+pattern ResourceType_Vpc_block_public_access_exclusion :: ResourceType
+pattern ResourceType_Vpc_block_public_access_exclusion = ResourceType' "vpc-block-public-access-exclusion"
+
 pattern ResourceType_Vpc_endpoint :: ResourceType
 pattern ResourceType_Vpc_endpoint = ResourceType' "vpc-endpoint"
 
@@ -458,6 +462,7 @@ pattern ResourceType_Vpn_gateway = ResourceType' "vpn-gateway"
   ResourceType_Verified_access_trust_provider,
   ResourceType_Volume,
   ResourceType_Vpc,
+  ResourceType_Vpc_block_public_access_exclusion,
   ResourceType_Vpc_endpoint,
   ResourceType_Vpc_endpoint_connection,
   ResourceType_Vpc_endpoint_connection_device_type,

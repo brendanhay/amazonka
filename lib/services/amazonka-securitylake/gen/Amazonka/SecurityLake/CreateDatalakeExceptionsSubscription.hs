@@ -14,15 +14,14 @@
 
 -- |
 -- Module      : Amazonka.SecurityLake.CreateDatalakeExceptionsSubscription
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates the specified notification subscription in Security Lake.
--- Creates the specified subscription notifications in the specified
--- organization.
+-- Creates the specified notification subscription in Amazon Security Lake
+-- for the organization you specify.
 module Amazonka.SecurityLake.CreateDatalakeExceptionsSubscription
   ( -- * Creating a Request
     CreateDatalakeExceptionsSubscription (..),
@@ -51,10 +50,10 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newCreateDatalakeExceptionsSubscription' smart constructor.
 data CreateDatalakeExceptionsSubscription = CreateDatalakeExceptionsSubscription'
-  { -- | The account in which the exception notifications subscription is
-    -- created.
+  { -- | The Amazon Web Services account where you want to receive exception
+    -- notifications.
     notificationEndpoint :: Prelude.Text,
-    -- | The subscription protocol to which exception messages are posted.
+    -- | The subscription protocol to which exception notifications are posted.
     subscriptionProtocol :: SubscriptionProtocolType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,10 +66,10 @@ data CreateDatalakeExceptionsSubscription = CreateDatalakeExceptionsSubscription
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationEndpoint', 'createDatalakeExceptionsSubscription_notificationEndpoint' - The account in which the exception notifications subscription is
--- created.
+-- 'notificationEndpoint', 'createDatalakeExceptionsSubscription_notificationEndpoint' - The Amazon Web Services account where you want to receive exception
+-- notifications.
 --
--- 'subscriptionProtocol', 'createDatalakeExceptionsSubscription_subscriptionProtocol' - The subscription protocol to which exception messages are posted.
+-- 'subscriptionProtocol', 'createDatalakeExceptionsSubscription_subscriptionProtocol' - The subscription protocol to which exception notifications are posted.
 newCreateDatalakeExceptionsSubscription ::
   -- | 'notificationEndpoint'
   Prelude.Text ->
@@ -87,12 +86,12 @@ newCreateDatalakeExceptionsSubscription
           pSubscriptionProtocol_
       }
 
--- | The account in which the exception notifications subscription is
--- created.
+-- | The Amazon Web Services account where you want to receive exception
+-- notifications.
 createDatalakeExceptionsSubscription_notificationEndpoint :: Lens.Lens' CreateDatalakeExceptionsSubscription Prelude.Text
 createDatalakeExceptionsSubscription_notificationEndpoint = Lens.lens (\CreateDatalakeExceptionsSubscription' {notificationEndpoint} -> notificationEndpoint) (\s@CreateDatalakeExceptionsSubscription' {} a -> s {notificationEndpoint = a} :: CreateDatalakeExceptionsSubscription)
 
--- | The subscription protocol to which exception messages are posted.
+-- | The subscription protocol to which exception notifications are posted.
 createDatalakeExceptionsSubscription_subscriptionProtocol :: Lens.Lens' CreateDatalakeExceptionsSubscription SubscriptionProtocolType
 createDatalakeExceptionsSubscription_subscriptionProtocol = Lens.lens (\CreateDatalakeExceptionsSubscription' {subscriptionProtocol} -> subscriptionProtocol) (\s@CreateDatalakeExceptionsSubscription' {} a -> s {subscriptionProtocol = a} :: CreateDatalakeExceptionsSubscription)
 

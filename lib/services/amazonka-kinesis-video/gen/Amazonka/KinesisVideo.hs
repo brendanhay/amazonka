@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Amazonka.KinesisVideo
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -53,6 +53,9 @@ module Amazonka.KinesisVideo
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** StreamEdgeConfigurationNotFoundException
+    _StreamEdgeConfigurationNotFoundException,
+
     -- ** TagsPerResourceExceededLimitException
     _TagsPerResourceExceededLimitException,
 
@@ -89,11 +92,29 @@ module Amazonka.KinesisVideo
     DeleteStreamResponse (DeleteStreamResponse'),
     newDeleteStreamResponse,
 
+    -- ** DescribeEdgeConfiguration
+    DescribeEdgeConfiguration (DescribeEdgeConfiguration'),
+    newDescribeEdgeConfiguration,
+    DescribeEdgeConfigurationResponse (DescribeEdgeConfigurationResponse'),
+    newDescribeEdgeConfigurationResponse,
+
     -- ** DescribeImageGenerationConfiguration
     DescribeImageGenerationConfiguration (DescribeImageGenerationConfiguration'),
     newDescribeImageGenerationConfiguration,
     DescribeImageGenerationConfigurationResponse (DescribeImageGenerationConfigurationResponse'),
     newDescribeImageGenerationConfigurationResponse,
+
+    -- ** DescribeMappedResourceConfiguration (Paginated)
+    DescribeMappedResourceConfiguration (DescribeMappedResourceConfiguration'),
+    newDescribeMappedResourceConfiguration,
+    DescribeMappedResourceConfigurationResponse (DescribeMappedResourceConfigurationResponse'),
+    newDescribeMappedResourceConfigurationResponse,
+
+    -- ** DescribeMediaStorageConfiguration
+    DescribeMediaStorageConfiguration (DescribeMediaStorageConfiguration'),
+    newDescribeMediaStorageConfiguration,
+    DescribeMediaStorageConfigurationResponse (DescribeMediaStorageConfigurationResponse'),
+    newDescribeMediaStorageConfigurationResponse,
 
     -- ** DescribeNotificationConfiguration
     DescribeNotificationConfiguration (DescribeNotificationConfiguration'),
@@ -149,6 +170,12 @@ module Amazonka.KinesisVideo
     ListTagsForStreamResponse (ListTagsForStreamResponse'),
     newListTagsForStreamResponse,
 
+    -- ** StartEdgeConfigurationUpdate
+    StartEdgeConfigurationUpdate (StartEdgeConfigurationUpdate'),
+    newStartEdgeConfigurationUpdate,
+    StartEdgeConfigurationUpdateResponse (StartEdgeConfigurationUpdateResponse'),
+    newStartEdgeConfigurationUpdateResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -184,6 +211,12 @@ module Amazonka.KinesisVideo
     newUpdateImageGenerationConfiguration,
     UpdateImageGenerationConfigurationResponse (UpdateImageGenerationConfigurationResponse'),
     newUpdateImageGenerationConfigurationResponse,
+
+    -- ** UpdateMediaStorageConfiguration
+    UpdateMediaStorageConfiguration (UpdateMediaStorageConfiguration'),
+    newUpdateMediaStorageConfiguration,
+    UpdateMediaStorageConfigurationResponse (UpdateMediaStorageConfigurationResponse'),
+    newUpdateMediaStorageConfigurationResponse,
 
     -- ** UpdateNotificationConfiguration
     UpdateNotificationConfiguration (UpdateNotificationConfiguration'),
@@ -232,8 +265,20 @@ module Amazonka.KinesisVideo
     -- ** ImageSelectorType
     ImageSelectorType (..),
 
+    -- ** MediaStorageConfigurationStatus
+    MediaStorageConfigurationStatus (..),
+
+    -- ** MediaUriType
+    MediaUriType (..),
+
+    -- ** StrategyOnFullSize
+    StrategyOnFullSize (..),
+
     -- ** StreamStatus
     StreamStatus (..),
+
+    -- ** SyncStatus
+    SyncStatus (..),
 
     -- ** UpdateDataRetentionOperation
     UpdateDataRetentionOperation (..),
@@ -246,6 +291,14 @@ module Amazonka.KinesisVideo
     ChannelNameCondition (ChannelNameCondition'),
     newChannelNameCondition,
 
+    -- ** DeletionConfig
+    DeletionConfig (DeletionConfig'),
+    newDeletionConfig,
+
+    -- ** EdgeConfig
+    EdgeConfig (EdgeConfig'),
+    newEdgeConfig,
+
     -- ** ImageGenerationConfiguration
     ImageGenerationConfiguration (ImageGenerationConfiguration'),
     newImageGenerationConfiguration,
@@ -253,6 +306,22 @@ module Amazonka.KinesisVideo
     -- ** ImageGenerationDestinationConfig
     ImageGenerationDestinationConfig (ImageGenerationDestinationConfig'),
     newImageGenerationDestinationConfig,
+
+    -- ** LocalSizeConfig
+    LocalSizeConfig (LocalSizeConfig'),
+    newLocalSizeConfig,
+
+    -- ** MappedResourceConfigurationListItem
+    MappedResourceConfigurationListItem (MappedResourceConfigurationListItem'),
+    newMappedResourceConfigurationListItem,
+
+    -- ** MediaSourceConfig
+    MediaSourceConfig (MediaSourceConfig'),
+    newMediaSourceConfig,
+
+    -- ** MediaStorageConfiguration
+    MediaStorageConfiguration (MediaStorageConfiguration'),
+    newMediaStorageConfiguration,
 
     -- ** NotificationConfiguration
     NotificationConfiguration (NotificationConfiguration'),
@@ -262,9 +331,17 @@ module Amazonka.KinesisVideo
     NotificationDestinationConfig (NotificationDestinationConfig'),
     newNotificationDestinationConfig,
 
+    -- ** RecorderConfig
+    RecorderConfig (RecorderConfig'),
+    newRecorderConfig,
+
     -- ** ResourceEndpointListItem
     ResourceEndpointListItem (ResourceEndpointListItem'),
     newResourceEndpointListItem,
+
+    -- ** ScheduleConfig
+    ScheduleConfig (ScheduleConfig'),
+    newScheduleConfig,
 
     -- ** SingleMasterChannelEndpointConfiguration
     SingleMasterChannelEndpointConfiguration (SingleMasterChannelEndpointConfiguration'),
@@ -285,6 +362,10 @@ module Amazonka.KinesisVideo
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** UploaderConfig
+    UploaderConfig (UploaderConfig'),
+    newUploaderConfig,
   )
 where
 
@@ -292,7 +373,10 @@ import Amazonka.KinesisVideo.CreateSignalingChannel
 import Amazonka.KinesisVideo.CreateStream
 import Amazonka.KinesisVideo.DeleteSignalingChannel
 import Amazonka.KinesisVideo.DeleteStream
+import Amazonka.KinesisVideo.DescribeEdgeConfiguration
 import Amazonka.KinesisVideo.DescribeImageGenerationConfiguration
+import Amazonka.KinesisVideo.DescribeMappedResourceConfiguration
+import Amazonka.KinesisVideo.DescribeMediaStorageConfiguration
 import Amazonka.KinesisVideo.DescribeNotificationConfiguration
 import Amazonka.KinesisVideo.DescribeSignalingChannel
 import Amazonka.KinesisVideo.DescribeStream
@@ -303,6 +387,7 @@ import Amazonka.KinesisVideo.ListSignalingChannels
 import Amazonka.KinesisVideo.ListStreams
 import Amazonka.KinesisVideo.ListTagsForResource
 import Amazonka.KinesisVideo.ListTagsForStream
+import Amazonka.KinesisVideo.StartEdgeConfigurationUpdate
 import Amazonka.KinesisVideo.TagResource
 import Amazonka.KinesisVideo.TagStream
 import Amazonka.KinesisVideo.Types
@@ -310,6 +395,7 @@ import Amazonka.KinesisVideo.UntagResource
 import Amazonka.KinesisVideo.UntagStream
 import Amazonka.KinesisVideo.UpdateDataRetention
 import Amazonka.KinesisVideo.UpdateImageGenerationConfiguration
+import Amazonka.KinesisVideo.UpdateMediaStorageConfiguration
 import Amazonka.KinesisVideo.UpdateNotificationConfiguration
 import Amazonka.KinesisVideo.UpdateSignalingChannel
 import Amazonka.KinesisVideo.UpdateStream

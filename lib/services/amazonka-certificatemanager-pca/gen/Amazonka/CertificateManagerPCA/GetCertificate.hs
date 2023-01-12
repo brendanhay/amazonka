@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CertificateManagerPCA.GetCertificate
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,12 +22,12 @@
 --
 -- Retrieves a certificate from your private CA or one that has been shared
 -- with you. The ARN of the certificate is returned when you call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html IssueCertificate>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html IssueCertificate>
 -- action. You must specify both the ARN of your private CA and the ARN of
 -- the issued certificate when calling the __GetCertificate__ action. You
 -- can retrieve the certificate if it is in the __ISSUED__ state. You can
 -- call the
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
 -- action to create a report that contains information about all of the
 -- certificates issued and revoked by your private CA.
 module Amazonka.CertificateManagerPCA.GetCertificate
@@ -61,7 +61,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetCertificate' smart constructor.
 data GetCertificate = GetCertificate'
   { -- | The Amazon Resource Name (ARN) that was returned when you called
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
@@ -83,7 +83,7 @@ data GetCertificate = GetCertificate'
 -- for backwards compatibility:
 --
 -- 'certificateAuthorityArn', 'getCertificate_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
@@ -108,7 +108,7 @@ newGetCertificate
       }
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.

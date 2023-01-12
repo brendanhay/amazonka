@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.CodeGuruProfiler.ListProfileTimes
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -82,7 +82,7 @@ data ListProfileTimes = ListProfileTimes'
     -- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.
     orderBy :: Prelude.Maybe OrderBy,
     -- | The end time of the time range from which to list the profiles.
-    endTime :: Data.POSIX,
+    endTime :: Data.ISO8601,
     -- | The aggregation period. This specifies the period during which an
     -- aggregation profile collects posted agent profiles for a profiling
     -- group. There are 3 valid values.
@@ -96,7 +96,7 @@ data ListProfileTimes = ListProfileTimes'
     -- | The name of the profiling group.
     profilingGroupName :: Prelude.Text,
     -- | The start time of the time range from which to list the profiles.
-    startTime :: Data.POSIX
+    startTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.ControlMappingSource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,7 +45,7 @@ data ControlMappingSource = ControlMappingSource'
     -- | The setup option for the data source. This option reflects if the
     -- evidence collection is automated or manual.
     sourceSetUpOption :: Prelude.Maybe SourceSetUpOption,
-    -- | Specifies one of the five types of data sources for evidence collection.
+    -- | Specifies one of the five data source types for evidence collection.
     sourceType :: Prelude.Maybe SourceType,
     -- | The instructions for troubleshooting the control.
     troubleshootingText :: Prelude.Maybe Prelude.Text
@@ -73,7 +73,7 @@ data ControlMappingSource = ControlMappingSource'
 -- 'sourceSetUpOption', 'controlMappingSource_sourceSetUpOption' - The setup option for the data source. This option reflects if the
 -- evidence collection is automated or manual.
 --
--- 'sourceType', 'controlMappingSource_sourceType' - Specifies one of the five types of data sources for evidence collection.
+-- 'sourceType', 'controlMappingSource_sourceType' - Specifies one of the five data source types for evidence collection.
 --
 -- 'troubleshootingText', 'controlMappingSource_troubleshootingText' - The instructions for troubleshooting the control.
 newControlMappingSource ::
@@ -116,7 +116,7 @@ controlMappingSource_sourceName = Lens.lens (\ControlMappingSource' {sourceName}
 controlMappingSource_sourceSetUpOption :: Lens.Lens' ControlMappingSource (Prelude.Maybe SourceSetUpOption)
 controlMappingSource_sourceSetUpOption = Lens.lens (\ControlMappingSource' {sourceSetUpOption} -> sourceSetUpOption) (\s@ControlMappingSource' {} a -> s {sourceSetUpOption = a} :: ControlMappingSource)
 
--- | Specifies one of the five types of data sources for evidence collection.
+-- | Specifies one of the five data source types for evidence collection.
 controlMappingSource_sourceType :: Lens.Lens' ControlMappingSource (Prelude.Maybe SourceType)
 controlMappingSource_sourceType = Lens.lens (\ControlMappingSource' {sourceType} -> sourceType) (\s@ControlMappingSource' {} a -> s {sourceType = a} :: ControlMappingSource)
 

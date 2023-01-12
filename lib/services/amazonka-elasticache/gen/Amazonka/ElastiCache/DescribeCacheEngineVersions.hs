@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.DescribeCacheEngineVersions
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -64,7 +64,7 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
-    -- @redis6.x@ | @redis6.2@
+    -- @redis6.x@ | @redis6.2@ | @redis7@
     --
     -- Constraints:
     --
@@ -112,7 +112,7 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ | @redis6.2@
+-- @redis6.x@ | @redis6.2@ | @redis7@
 --
 -- Constraints:
 --
@@ -161,7 +161,7 @@ newDescribeCacheEngineVersions =
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ | @redis6.2@
+-- @redis6.x@ | @redis6.2@ | @redis7@
 --
 -- Constraints:
 --

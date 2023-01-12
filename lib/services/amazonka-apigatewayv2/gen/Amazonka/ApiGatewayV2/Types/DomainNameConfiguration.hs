@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ApiGatewayV2.Types.DomainNameConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -42,7 +42,7 @@ data DomainNameConfiguration = DomainNameConfiguration'
     certificateName :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the certificate that was used by edge-optimized
     -- endpoint for this domain name was uploaded.
-    certificateUploadDate :: Prelude.Maybe Data.POSIX,
+    certificateUploadDate :: Prelude.Maybe Data.ISO8601,
     -- | The status of the domain name migration. The valid values are AVAILABLE,
     -- UPDATING, PENDING_CERTIFICATE_REIMPORT, and
     -- PENDING_OWNERSHIP_VERIFICATION. If the status is UPDATING, the domain

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AmplifyUiBuilder.Types.Theme
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTheme' smart constructor.
 data Theme = Theme'
   { -- | The time that the theme was modified.
-    modifiedAt :: Prelude.Maybe Data.POSIX,
+    modifiedAt :: Prelude.Maybe Data.ISO8601,
     -- | Describes the properties that can be overriden to customize a theme.
     overrides :: Prelude.Maybe [ThemeValues],
     -- | One or more key-value pairs to use when tagging the theme.
@@ -39,7 +39,7 @@ data Theme = Theme'
     -- | The unique ID for the Amplify app associated with the theme.
     appId :: Prelude.Text,
     -- | The time that the theme was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The name of the backend environment that is a part of the Amplify app.
     environmentName :: Prelude.Text,
     -- | The ID for the theme.

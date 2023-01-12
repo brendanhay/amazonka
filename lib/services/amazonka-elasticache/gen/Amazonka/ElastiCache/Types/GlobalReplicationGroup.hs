@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.ElastiCache.Types.GlobalReplicationGroup
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -73,10 +73,7 @@ data GlobalReplicationGroup = GlobalReplicationGroup'
     members :: Prelude.Maybe [GlobalReplicationGroupMember],
     -- | The status of the Global datastore
     status :: Prelude.Maybe Prelude.Text,
-    -- | A flag that enables in-transit encryption when set to true. You cannot
-    -- modify the value of @TransitEncryptionEnabled@ after the cluster is
-    -- created. To enable in-transit encryption on a cluster you must set
-    -- @TransitEncryptionEnabled@ to true when you create a cluster.
+    -- | A flag that enables in-transit encryption when set to true.
     --
     -- __Required:__ Only available when creating a replication group in an
     -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
@@ -128,10 +125,7 @@ data GlobalReplicationGroup = GlobalReplicationGroup'
 --
 -- 'status', 'globalReplicationGroup_status' - The status of the Global datastore
 --
--- 'transitEncryptionEnabled', 'globalReplicationGroup_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. You cannot
--- modify the value of @TransitEncryptionEnabled@ after the cluster is
--- created. To enable in-transit encryption on a cluster you must set
--- @TransitEncryptionEnabled@ to true when you create a cluster.
+-- 'transitEncryptionEnabled', 'globalReplicationGroup_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true.
 --
 -- __Required:__ Only available when creating a replication group in an
 -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
@@ -214,10 +208,7 @@ globalReplicationGroup_members = Lens.lens (\GlobalReplicationGroup' {members} -
 globalReplicationGroup_status :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
 globalReplicationGroup_status = Lens.lens (\GlobalReplicationGroup' {status} -> status) (\s@GlobalReplicationGroup' {} a -> s {status = a} :: GlobalReplicationGroup)
 
--- | A flag that enables in-transit encryption when set to true. You cannot
--- modify the value of @TransitEncryptionEnabled@ after the cluster is
--- created. To enable in-transit encryption on a cluster you must set
--- @TransitEncryptionEnabled@ to true when you create a cluster.
+-- | A flag that enables in-transit encryption when set to true.
 --
 -- __Required:__ Only available when creating a replication group in an
 -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.

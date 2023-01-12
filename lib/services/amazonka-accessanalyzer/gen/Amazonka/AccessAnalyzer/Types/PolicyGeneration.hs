@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.PolicyGeneration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPolicyGeneration' smart constructor.
 data PolicyGeneration = PolicyGeneration'
   { -- | A timestamp of when the policy generation was completed.
-    completedOn :: Prelude.Maybe Data.POSIX,
+    completedOn :: Prelude.Maybe Data.ISO8601,
     -- | The @JobId@ that is returned by the @StartPolicyGeneration@ operation.
     -- The @JobId@ can be used with @GetGeneratedPolicy@ to retrieve the
     -- generated policies or used with @CancelPolicyGeneration@ to cancel the
@@ -42,7 +42,7 @@ data PolicyGeneration = PolicyGeneration'
     -- | The status of the policy generation request.
     status :: JobStatus,
     -- | A timestamp of when the policy generation started.
-    startedOn :: Data.POSIX
+    startedOn :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

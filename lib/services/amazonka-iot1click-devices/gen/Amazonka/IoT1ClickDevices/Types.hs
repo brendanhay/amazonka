@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.IoT1ClickDevices.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -143,7 +143,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Prism for ForbiddenException' errors.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -151,7 +151,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | Prism for InternalFailureException' errors.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -159,7 +159,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | Prism for InvalidRequestException' errors.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -167,7 +167,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Prism for PreconditionFailedException' errors.
-_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PreconditionFailedException =
   Core._MatchServiceError
     defaultService
@@ -175,7 +175,7 @@ _PreconditionFailedException =
     Prelude.. Core.hasStatus 412
 
 -- | Prism for RangeNotSatisfiableException' errors.
-_RangeNotSatisfiableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RangeNotSatisfiableException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RangeNotSatisfiableException =
   Core._MatchServiceError
     defaultService
@@ -183,7 +183,7 @@ _RangeNotSatisfiableException =
     Prelude.. Core.hasStatus 416
 
 -- | Prism for ResourceConflictException' errors.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceConflictException =
   Core._MatchServiceError
     defaultService
@@ -191,7 +191,7 @@ _ResourceConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Prism for ResourceNotFoundException' errors.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

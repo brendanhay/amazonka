@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.EBS.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -139,7 +139,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -150,7 +150,7 @@ _AccessDeniedException =
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance Optimizing performance of the EBS direct APIs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-_ConcurrentLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConcurrentLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -159,7 +159,7 @@ _ConcurrentLimitExceededException =
 
 -- | The request uses the same client token as a previous, but non-identical
 -- request.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -167,7 +167,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An internal error has occurred.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -176,7 +176,7 @@ _InternalServerException =
 
 -- | The number of API requests has exceed the maximum allowed API request
 -- throttling limit.
-_RequestThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestThrottledException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _RequestThrottledException =
   Core._MatchServiceError
     defaultService
@@ -184,7 +184,7 @@ _RequestThrottledException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -192,7 +192,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Your current service quotas do not allow you to perform this action.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -200,7 +200,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The input fails to satisfy the constraints of the EBS direct APIs.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

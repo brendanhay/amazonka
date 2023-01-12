@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.M2.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,6 +22,7 @@ module Amazonka.M2.Lens
     -- ** CreateApplication
     createApplication_clientToken,
     createApplication_description,
+    createApplication_kmsKeyId,
     createApplication_tags,
     createApplication_definition,
     createApplication_engineType,
@@ -51,6 +52,7 @@ module Amazonka.M2.Lens
     createEnvironment_description,
     createEnvironment_engineVersion,
     createEnvironment_highAvailabilityConfig,
+    createEnvironment_kmsKeyId,
     createEnvironment_preferredMaintenanceWindow,
     createEnvironment_publiclyAccessible,
     createEnvironment_securityGroupIds,
@@ -81,6 +83,7 @@ module Amazonka.M2.Lens
     getApplicationResponse_deployedVersion,
     getApplicationResponse_description,
     getApplicationResponse_environmentId,
+    getApplicationResponse_kmsKeyId,
     getApplicationResponse_lastStartTime,
     getApplicationResponse_listenerArns,
     getApplicationResponse_listenerPorts,
@@ -163,6 +166,7 @@ module Amazonka.M2.Lens
     getEnvironmentResponse_actualCapacity,
     getEnvironmentResponse_description,
     getEnvironmentResponse_highAvailabilityConfig,
+    getEnvironmentResponse_kmsKeyId,
     getEnvironmentResponse_loadBalancerArn,
     getEnvironmentResponse_pendingMaintenance,
     getEnvironmentResponse_preferredMaintenanceWindow,

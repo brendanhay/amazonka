@@ -14,15 +14,17 @@
 
 -- |
 -- Module      : Amazonka.ConnectParticipant.GetTranscript
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a transcript of the session, including details about any
--- attachments. Note that ConnectionToken is used for invoking this API
--- instead of ParticipantToken.
+-- attachments.
+--
+-- @ConnectionToken@ is used for invoking this API instead of
+-- @ParticipantToken@.
 --
 -- The Amazon Connect Participant Service APIs do not use
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication>.

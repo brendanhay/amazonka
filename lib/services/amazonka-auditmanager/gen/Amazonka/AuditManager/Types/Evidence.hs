@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.Evidence
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A record that contains the information needed to demonstrate compliance
 -- with the requirements specified by a control. Examples of evidence
--- include change activity triggered by a user, or a system configuration
+-- include change activity invoked by a user, or a system configuration
 -- snapshot.
 --
 -- /See:/ 'newEvidence' smart constructor.

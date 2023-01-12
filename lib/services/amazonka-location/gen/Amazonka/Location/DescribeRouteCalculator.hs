@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Location.DescribeRouteCalculator
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -153,7 +153,7 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     --
     -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
-    createTime :: Data.POSIX,
+    createTime :: Data.ISO8601,
     -- | The data provider of traffic and road network data. Indicates one of the
     -- available providers:
     --
@@ -171,7 +171,7 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     --
     -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
-    updateTime :: Data.POSIX
+    updateTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 

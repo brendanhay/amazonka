@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Nimble.Types.StudioComponentConfiguration
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStudioComponentConfiguration' smart constructor.
 data StudioComponentConfiguration = StudioComponentConfiguration'
-  { -- | The configuration for a Microsoft Active Directory (Microsoft AD) studio
-    -- resource.
+  { -- | The configuration for a Directory Service for Microsoft Active Directory
+    -- studio resource.
     activeDirectoryConfiguration :: Prelude.Maybe ActiveDirectoryConfiguration,
     -- | The configuration for a render farm that is associated with a studio
     -- resource.
@@ -55,8 +55,8 @@ data StudioComponentConfiguration = StudioComponentConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'activeDirectoryConfiguration', 'studioComponentConfiguration_activeDirectoryConfiguration' - The configuration for a Microsoft Active Directory (Microsoft AD) studio
--- resource.
+-- 'activeDirectoryConfiguration', 'studioComponentConfiguration_activeDirectoryConfiguration' - The configuration for a Directory Service for Microsoft Active Directory
+-- studio resource.
 --
 -- 'computeFarmConfiguration', 'studioComponentConfiguration_computeFarmConfiguration' - The configuration for a render farm that is associated with a studio
 -- resource.
@@ -78,8 +78,8 @@ newStudioComponentConfiguration =
         Prelude.Nothing
     }
 
--- | The configuration for a Microsoft Active Directory (Microsoft AD) studio
--- resource.
+-- | The configuration for a Directory Service for Microsoft Active Directory
+-- studio resource.
 studioComponentConfiguration_activeDirectoryConfiguration :: Lens.Lens' StudioComponentConfiguration (Prelude.Maybe ActiveDirectoryConfiguration)
 studioComponentConfiguration_activeDirectoryConfiguration = Lens.lens (\StudioComponentConfiguration' {activeDirectoryConfiguration} -> activeDirectoryConfiguration) (\s@StudioComponentConfiguration' {} a -> s {activeDirectoryConfiguration = a} :: StudioComponentConfiguration)
 

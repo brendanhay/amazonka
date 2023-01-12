@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.GuardDuty.UpdateFilter
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -57,7 +57,9 @@ data UpdateFilter = UpdateFilter'
   { -- | Specifies the action that is to be applied to the findings that match
     -- the filter.
     action :: Prelude.Maybe FilterAction,
-    -- | The description of the filter.
+    -- | The description of the filter. Valid special characters include period
+    -- (.), underscore (_), dash (-), and whitespace. The new line character is
+    -- considered to be an invalid input for description.
     description :: Prelude.Maybe Prelude.Text,
     -- | Represents the criteria to be used in the filter for querying findings.
     findingCriteria :: Prelude.Maybe FindingCriteria,
@@ -84,7 +86,9 @@ data UpdateFilter = UpdateFilter'
 -- 'action', 'updateFilter_action' - Specifies the action that is to be applied to the findings that match
 -- the filter.
 --
--- 'description', 'updateFilter_description' - The description of the filter.
+-- 'description', 'updateFilter_description' - The description of the filter. Valid special characters include period
+-- (.), underscore (_), dash (-), and whitespace. The new line character is
+-- considered to be an invalid input for description.
 --
 -- 'findingCriteria', 'updateFilter_findingCriteria' - Represents the criteria to be used in the filter for querying findings.
 --
@@ -117,7 +121,9 @@ newUpdateFilter pDetectorId_ pFilterName_ =
 updateFilter_action :: Lens.Lens' UpdateFilter (Prelude.Maybe FilterAction)
 updateFilter_action = Lens.lens (\UpdateFilter' {action} -> action) (\s@UpdateFilter' {} a -> s {action = a} :: UpdateFilter)
 
--- | The description of the filter.
+-- | The description of the filter. Valid special characters include period
+-- (.), underscore (_), dash (-), and whitespace. The new line character is
+-- considered to be an invalid input for description.
 updateFilter_description :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Text)
 updateFilter_description = Lens.lens (\UpdateFilter' {description} -> description) (\s@UpdateFilter' {} a -> s {description = a} :: UpdateFilter)
 

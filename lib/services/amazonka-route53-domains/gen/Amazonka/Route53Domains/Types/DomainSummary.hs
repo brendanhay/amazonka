@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Route53Domains.Types.DomainSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 data DomainSummary = DomainSummary'
   { -- | Indicates whether the domain is automatically renewed upon expiration.
     autoRenew :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the domain that the summary information applies to.
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | Expiration date of the domain in Unix time format and Coordinated
     -- Universal Time (UTC).
     expiry :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether a domain is locked from unauthorized transfer to
     -- another party.
-    transferLock :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the domain that the summary information applies to.
-    domainName :: Prelude.Text
+    transferLock :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,28 +51,30 @@ data DomainSummary = DomainSummary'
 --
 -- 'autoRenew', 'domainSummary_autoRenew' - Indicates whether the domain is automatically renewed upon expiration.
 --
+-- 'domainName', 'domainSummary_domainName' - The name of the domain that the summary information applies to.
+--
 -- 'expiry', 'domainSummary_expiry' - Expiration date of the domain in Unix time format and Coordinated
 -- Universal Time (UTC).
 --
 -- 'transferLock', 'domainSummary_transferLock' - Indicates whether a domain is locked from unauthorized transfer to
 -- another party.
---
--- 'domainName', 'domainSummary_domainName' - The name of the domain that the summary information applies to.
 newDomainSummary ::
-  -- | 'domainName'
-  Prelude.Text ->
   DomainSummary
-newDomainSummary pDomainName_ =
+newDomainSummary =
   DomainSummary'
     { autoRenew = Prelude.Nothing,
+      domainName = Prelude.Nothing,
       expiry = Prelude.Nothing,
-      transferLock = Prelude.Nothing,
-      domainName = pDomainName_
+      transferLock = Prelude.Nothing
     }
 
 -- | Indicates whether the domain is automatically renewed upon expiration.
 domainSummary_autoRenew :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Bool)
 domainSummary_autoRenew = Lens.lens (\DomainSummary' {autoRenew} -> autoRenew) (\s@DomainSummary' {} a -> s {autoRenew = a} :: DomainSummary)
+
+-- | The name of the domain that the summary information applies to.
+domainSummary_domainName :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
+domainSummary_domainName = Lens.lens (\DomainSummary' {domainName} -> domainName) (\s@DomainSummary' {} a -> s {domainName = a} :: DomainSummary)
 
 -- | Expiration date of the domain in Unix time format and Coordinated
 -- Universal Time (UTC).
@@ -84,10 +86,6 @@ domainSummary_expiry = Lens.lens (\DomainSummary' {expiry} -> expiry) (\s@Domain
 domainSummary_transferLock :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Bool)
 domainSummary_transferLock = Lens.lens (\DomainSummary' {transferLock} -> transferLock) (\s@DomainSummary' {} a -> s {transferLock = a} :: DomainSummary)
 
--- | The name of the domain that the summary information applies to.
-domainSummary_domainName :: Lens.Lens' DomainSummary Prelude.Text
-domainSummary_domainName = Lens.lens (\DomainSummary' {domainName} -> domainName) (\s@DomainSummary' {} a -> s {domainName = a} :: DomainSummary)
-
 instance Data.FromJSON DomainSummary where
   parseJSON =
     Data.withObject
@@ -95,21 +93,21 @@ instance Data.FromJSON DomainSummary where
       ( \x ->
           DomainSummary'
             Prelude.<$> (x Data..:? "AutoRenew")
+            Prelude.<*> (x Data..:? "DomainName")
             Prelude.<*> (x Data..:? "Expiry")
             Prelude.<*> (x Data..:? "TransferLock")
-            Prelude.<*> (x Data..: "DomainName")
       )
 
 instance Prelude.Hashable DomainSummary where
   hashWithSalt _salt DomainSummary' {..} =
     _salt `Prelude.hashWithSalt` autoRenew
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` expiry
       `Prelude.hashWithSalt` transferLock
-      `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DomainSummary where
   rnf DomainSummary' {..} =
     Prelude.rnf autoRenew
+      `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf expiry
       `Prelude.seq` Prelude.rnf transferLock
-      `Prelude.seq` Prelude.rnf domainName

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.Connect.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -121,6 +121,12 @@ module Amazonka.Connect.Types
     -- * NotificationDeliveryType
     NotificationDeliveryType (..),
 
+    -- * ParticipantTimerAction
+    ParticipantTimerAction (..),
+
+    -- * ParticipantTimerType
+    ParticipantTimerType (..),
+
     -- * PhoneNumberCountryCode
     PhoneNumberCountryCode (..),
 
@@ -154,6 +160,9 @@ module Amazonka.Connect.Types
     -- * SearchableQueueType
     SearchableQueueType (..),
 
+    -- * SortOrder
+    SortOrder (..),
+
     -- * SourceType
     SourceType (..),
 
@@ -171,6 +180,9 @@ module Amazonka.Connect.Types
 
     -- * TaskTemplateStatus
     TaskTemplateStatus (..),
+
+    -- * TimerEligibleParticipantRoles
+    TimerEligibleParticipantRoles (..),
 
     -- * TrafficDistributionGroupStatus
     TrafficDistributionGroupStatus (..),
@@ -231,6 +243,7 @@ module Amazonka.Connect.Types
     AgentStatusReference (..),
     newAgentStatusReference,
     agentStatusReference_statusArn,
+    agentStatusReference_statusName,
     agentStatusReference_statusStartTimestamp,
 
     -- * AgentStatusSummary
@@ -276,6 +289,11 @@ module Amazonka.Connect.Types
     newChatMessage,
     chatMessage_contentType,
     chatMessage_content,
+
+    -- * ChatParticipantRoleConfig
+    ChatParticipantRoleConfig (..),
+    newChatParticipantRoleConfig,
+    chatParticipantRoleConfig_participantTimerConfigList,
 
     -- * ChatStreamingConfiguration
     ChatStreamingConfiguration (..),
@@ -392,6 +410,12 @@ module Amazonka.Connect.Types
     currentMetricResult_collections,
     currentMetricResult_dimensions,
 
+    -- * CurrentMetricSortCriteria
+    CurrentMetricSortCriteria (..),
+    newCurrentMetricSortCriteria,
+    currentMetricSortCriteria_sortByMetric,
+    currentMetricSortCriteria_sortOrder,
+
     -- * DateReference
     DateReference (..),
     newDateReference,
@@ -411,6 +435,7 @@ module Amazonka.Connect.Types
     newDimensions,
     dimensions_channel,
     dimensions_queue,
+    dimensions_routingProfile,
 
     -- * Distribution
     Distribution (..),
@@ -440,6 +465,7 @@ module Amazonka.Connect.Types
     newFilters,
     filters_channels,
     filters_queues,
+    filters_routingProfiles,
 
     -- * HierarchyGroup
     HierarchyGroup (..),
@@ -701,6 +727,19 @@ module Amazonka.Connect.Types
     ParticipantDetails (..),
     newParticipantDetails,
     participantDetails_displayName,
+
+    -- * ParticipantTimerConfiguration
+    ParticipantTimerConfiguration (..),
+    newParticipantTimerConfiguration,
+    participantTimerConfiguration_participantRole,
+    participantTimerConfiguration_timerType,
+    participantTimerConfiguration_timerValue,
+
+    -- * ParticipantTimerValue
+    ParticipantTimerValue (..),
+    newParticipantTimerValue,
+    participantTimerValue_participantTimerAction,
+    participantTimerValue_participantTimerDurationInMinutes,
 
     -- * PhoneNumberQuickConnectConfig
     PhoneNumberQuickConnectConfig (..),
@@ -1101,6 +1140,11 @@ module Amazonka.Connect.Types
     trafficDistributionGroupSummary_name,
     trafficDistributionGroupSummary_status,
 
+    -- * UpdateParticipantRoleConfigChannelInfo
+    UpdateParticipantRoleConfigChannelInfo (..),
+    newUpdateParticipantRoleConfigChannelInfo,
+    updateParticipantRoleConfigChannelInfo_chat,
+
     -- * UrlReference
     UrlReference (..),
     newUrlReference,
@@ -1136,6 +1180,7 @@ module Amazonka.Connect.Types
     userData_contacts,
     userData_hierarchyPath,
     userData_maxSlotsByChannel,
+    userData_nextStatus,
     userData_routingProfile,
     userData_status,
     userData_user,
@@ -1143,8 +1188,11 @@ module Amazonka.Connect.Types
     -- * UserDataFilters
     UserDataFilters (..),
     newUserDataFilters,
+    userDataFilters_agents,
     userDataFilters_contactFilter,
     userDataFilters_queues,
+    userDataFilters_routingProfiles,
+    userDataFilters_userHierarchyGroups,
 
     -- * UserIdentityInfo
     UserIdentityInfo (..),
@@ -1262,6 +1310,7 @@ import Amazonka.Connect.Types.Attribute
 import Amazonka.Connect.Types.AvailableNumberSummary
 import Amazonka.Connect.Types.Channel
 import Amazonka.Connect.Types.ChatMessage
+import Amazonka.Connect.Types.ChatParticipantRoleConfig
 import Amazonka.Connect.Types.ChatStreamingConfiguration
 import Amazonka.Connect.Types.ClaimedPhoneNumberSummary
 import Amazonka.Connect.Types.Comparison
@@ -1283,6 +1332,7 @@ import Amazonka.Connect.Types.CurrentMetric
 import Amazonka.Connect.Types.CurrentMetricData
 import Amazonka.Connect.Types.CurrentMetricName
 import Amazonka.Connect.Types.CurrentMetricResult
+import Amazonka.Connect.Types.CurrentMetricSortCriteria
 import Amazonka.Connect.Types.DateReference
 import Amazonka.Connect.Types.DefaultVocabulary
 import Amazonka.Connect.Types.Dimensions
@@ -1341,6 +1391,10 @@ import Amazonka.Connect.Types.NotificationRecipientType
 import Amazonka.Connect.Types.NumberReference
 import Amazonka.Connect.Types.OutboundCallerConfig
 import Amazonka.Connect.Types.ParticipantDetails
+import Amazonka.Connect.Types.ParticipantTimerAction
+import Amazonka.Connect.Types.ParticipantTimerConfiguration
+import Amazonka.Connect.Types.ParticipantTimerType
+import Amazonka.Connect.Types.ParticipantTimerValue
 import Amazonka.Connect.Types.PhoneNumberCountryCode
 import Amazonka.Connect.Types.PhoneNumberQuickConnectConfig
 import Amazonka.Connect.Types.PhoneNumberStatus
@@ -1390,6 +1444,7 @@ import Amazonka.Connect.Types.SecurityProfileSearchSummary
 import Amazonka.Connect.Types.SecurityProfileSummary
 import Amazonka.Connect.Types.SecurityProfilesSearchFilter
 import Amazonka.Connect.Types.SendNotificationActionDefinition
+import Amazonka.Connect.Types.SortOrder
 import Amazonka.Connect.Types.SourceType
 import Amazonka.Connect.Types.Statistic
 import Amazonka.Connect.Types.StorageType
@@ -1408,11 +1463,13 @@ import Amazonka.Connect.Types.TaskTemplateMetadata
 import Amazonka.Connect.Types.TaskTemplateStatus
 import Amazonka.Connect.Types.TelephonyConfig
 import Amazonka.Connect.Types.Threshold
+import Amazonka.Connect.Types.TimerEligibleParticipantRoles
 import Amazonka.Connect.Types.TrafficDistributionGroup
 import Amazonka.Connect.Types.TrafficDistributionGroupStatus
 import Amazonka.Connect.Types.TrafficDistributionGroupSummary
 import Amazonka.Connect.Types.TrafficType
 import Amazonka.Connect.Types.Unit
+import Amazonka.Connect.Types.UpdateParticipantRoleConfigChannelInfo
 import Amazonka.Connect.Types.UrlReference
 import Amazonka.Connect.Types.UseCase
 import Amazonka.Connect.Types.UseCaseType
@@ -1510,7 +1567,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient permissions to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1518,7 +1575,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | The flow has not been published.
-_ContactFlowNotPublishedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContactFlowNotPublishedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ContactFlowNotPublishedException =
   Core._MatchServiceError
     defaultService
@@ -1527,7 +1584,7 @@ _ContactFlowNotPublishedException =
 
 -- | The contact with the specified ID is not active or does not exist.
 -- Applies to Voice calls only, not to Chat, Task, or Voice Callback.
-_ContactNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContactNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ContactNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1535,7 +1592,7 @@ _ContactNotFoundException =
     Prelude.. Core.hasStatus 410
 
 -- | Outbound calls to the destination number are not allowed.
-_DestinationNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DestinationNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DestinationNotAllowedException =
   Core._MatchServiceError
     defaultService
@@ -1543,7 +1600,7 @@ _DestinationNotAllowedException =
     Prelude.. Core.hasStatus 403
 
 -- | A resource with the specified name already exists.
-_DuplicateResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DuplicateResourceException =
   Core._MatchServiceError
     defaultService
@@ -1551,7 +1608,7 @@ _DuplicateResourceException =
     Prelude.. Core.hasStatus 409
 
 -- | An entity with the same name already exists.
-_IdempotencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _IdempotencyException =
   Core._MatchServiceError
     defaultService
@@ -1560,7 +1617,7 @@ _IdempotencyException =
 
 -- | Request processing failed because of an error or failure with the
 -- service.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -1568,7 +1625,7 @@ _InternalServiceException =
     Prelude.. Core.hasStatus 500
 
 -- | The flow is not valid.
-_InvalidContactFlowException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidContactFlowException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidContactFlowException =
   Core._MatchServiceError
     defaultService
@@ -1576,7 +1633,7 @@ _InvalidContactFlowException =
     Prelude.. Core.hasStatus 400
 
 -- | The problems with the module. Please fix before trying again.
-_InvalidContactFlowModuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidContactFlowModuleException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidContactFlowModuleException =
   Core._MatchServiceError
     defaultService
@@ -1584,7 +1641,7 @@ _InvalidContactFlowModuleException =
     Prelude.. Core.hasStatus 400
 
 -- | One or more of the specified parameters are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -1592,7 +1649,7 @@ _InvalidParameterException =
     Prelude.. Core.hasStatus 400
 
 -- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -1600,7 +1657,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The allowed limit for the resource has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1608,7 +1665,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 429
 
 -- | The contact is not permitted.
-_OutboundContactNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OutboundContactNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _OutboundContactNotPermittedException =
   Core._MatchServiceError
     defaultService
@@ -1616,7 +1673,7 @@ _OutboundContactNotPermittedException =
     Prelude.. Core.hasStatus 403
 
 -- | The property is not valid.
-_PropertyValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PropertyValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _PropertyValidationException =
   Core._MatchServiceError
     defaultService
@@ -1624,7 +1681,7 @@ _PropertyValidationException =
     Prelude.. Core.hasStatus 400
 
 -- | A resource already has that name.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceConflictException =
   Core._MatchServiceError
     defaultService
@@ -1632,7 +1689,7 @@ _ResourceConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | That resource is already in use. Please try another.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -1640,7 +1697,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 409
 
 -- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1648,7 +1705,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The resource is not ready.
-_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotReadyException =
   Core._MatchServiceError
     defaultService
@@ -1656,7 +1713,7 @@ _ResourceNotReadyException =
     Prelude.. Core.hasStatus 409
 
 -- | The service quota has been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1664,7 +1721,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The throttling limit has been exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1673,7 +1730,7 @@ _ThrottlingException =
 
 -- | No user with the specified credentials was found in the Amazon Connect
 -- instance.
-_UserNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _UserNotFoundException =
   Core._MatchServiceError
     defaultService

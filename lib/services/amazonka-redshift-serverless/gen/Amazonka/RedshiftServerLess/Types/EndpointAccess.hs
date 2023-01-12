@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftServerLess.Types.EndpointAccess
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -35,7 +35,7 @@ data EndpointAccess = EndpointAccess'
     -- | The Amazon Resource Name (ARN) of the VPC endpoint.
     endpointArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the endpoint was created.
-    endpointCreateTime :: Prelude.Maybe Data.POSIX,
+    endpointCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the VPC endpoint.
     endpointName :: Prelude.Maybe Prelude.Text,
     -- | The status of the VPC endpoint.

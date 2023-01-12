@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.AnalyzedResource
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -45,11 +45,11 @@ data AnalyzedResource = AnalyzedResource'
     -- | The type of the resource that was analyzed.
     resourceType :: ResourceType,
     -- | The time at which the finding was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The time at which the resource was analyzed.
-    analyzedAt :: Data.POSIX,
+    analyzedAt :: Data.ISO8601,
     -- | The time at which the finding was updated.
-    updatedAt :: Data.POSIX,
+    updatedAt :: Data.ISO8601,
     -- | Indicates whether the policy that generated the finding grants public
     -- access to the resource.
     isPublic :: Prelude.Bool,

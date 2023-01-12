@@ -14,13 +14,13 @@
 
 -- |
 -- Module      : Amazonka.DataSync.DeleteTask
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a task.
+-- Deletes an DataSync task.
 module Amazonka.DataSync.DeleteTask
   ( -- * Creating a Request
     DeleteTask (..),
@@ -50,7 +50,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteTask' smart constructor.
 data DeleteTask = DeleteTask'
-  { -- | The Amazon Resource Name (ARN) of the task to delete.
+  { -- | Specifies the Amazon Resource Name (ARN) of the task that you want to
+    -- delete.
     taskArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +64,8 @@ data DeleteTask = DeleteTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskArn', 'deleteTask_taskArn' - The Amazon Resource Name (ARN) of the task to delete.
+-- 'taskArn', 'deleteTask_taskArn' - Specifies the Amazon Resource Name (ARN) of the task that you want to
+-- delete.
 newDeleteTask ::
   -- | 'taskArn'
   Prelude.Text ->
@@ -71,7 +73,8 @@ newDeleteTask ::
 newDeleteTask pTaskArn_ =
   DeleteTask' {taskArn = pTaskArn_}
 
--- | The Amazon Resource Name (ARN) of the task to delete.
+-- | Specifies the Amazon Resource Name (ARN) of the task that you want to
+-- delete.
 deleteTask_taskArn :: Lens.Lens' DeleteTask Prelude.Text
 deleteTask_taskArn = Lens.lens (\DeleteTask' {taskArn} -> taskArn) (\s@DeleteTask' {} a -> s {taskArn = a} :: DeleteTask)
 

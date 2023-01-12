@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MwAA.CreateEnvironment
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -80,7 +80,7 @@ data CreateEnvironment = CreateEnvironment'
     airflowConfigurationOptions :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))),
     -- | The Apache Airflow version for your environment. If no value is
     -- specified, it defaults to the latest version. Valid values: @1.10.12@,
-    -- @2.0.2@, and @2.2.2@. To learn more, see
+    -- @2.0.2@, @2.2.2@, and @2.4.3@. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)>.
     airflowVersion :: Prelude.Maybe Prelude.Text,
     -- | The environment class type. Valid values: @mw1.small@, @mw1.medium@,
@@ -188,7 +188,7 @@ data CreateEnvironment = CreateEnvironment'
 --
 -- 'airflowVersion', 'createEnvironment_airflowVersion' - The Apache Airflow version for your environment. If no value is
 -- specified, it defaults to the latest version. Valid values: @1.10.12@,
--- @2.0.2@, and @2.2.2@. To learn more, see
+-- @2.0.2@, @2.2.2@, and @2.4.3@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)>.
 --
 -- 'environmentClass', 'createEnvironment_environmentClass' - The environment class type. Valid values: @mw1.small@, @mw1.medium@,
@@ -328,7 +328,7 @@ createEnvironment_airflowConfigurationOptions = Lens.lens (\CreateEnvironment' {
 
 -- | The Apache Airflow version for your environment. If no value is
 -- specified, it defaults to the latest version. Valid values: @1.10.12@,
--- @2.0.2@, and @2.2.2@. To learn more, see
+-- @2.0.2@, @2.2.2@, and @2.4.3@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)>.
 createEnvironment_airflowVersion :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_airflowVersion = Lens.lens (\CreateEnvironment' {airflowVersion} -> airflowVersion) (\s@CreateEnvironment' {} a -> s {airflowVersion = a} :: CreateEnvironment)

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.RealTimeInferenceConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,14 +25,14 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.InstanceType
 
--- | The infrastructure configuration for deploying the model to real-time
--- inference.
+-- | The infrastructure configuration for deploying the model to a real-time
+-- inference endpoint.
 --
 -- /See:/ 'newRealTimeInferenceConfig' smart constructor.
 data RealTimeInferenceConfig = RealTimeInferenceConfig'
-  { -- | The number of instances of the type specified by @InstanceType@.
+  { -- | The instance type the model is deployed to.
     instanceType :: InstanceType,
-    -- | The instance type the model is deployed to.
+    -- | The number of instances of the type specified by @InstanceType@.
     instanceCount :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,9 +45,9 @@ data RealTimeInferenceConfig = RealTimeInferenceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceType', 'realTimeInferenceConfig_instanceType' - The number of instances of the type specified by @InstanceType@.
+-- 'instanceType', 'realTimeInferenceConfig_instanceType' - The instance type the model is deployed to.
 --
--- 'instanceCount', 'realTimeInferenceConfig_instanceCount' - The instance type the model is deployed to.
+-- 'instanceCount', 'realTimeInferenceConfig_instanceCount' - The number of instances of the type specified by @InstanceType@.
 newRealTimeInferenceConfig ::
   -- | 'instanceType'
   InstanceType ->
@@ -63,11 +63,11 @@ newRealTimeInferenceConfig
         instanceCount = pInstanceCount_
       }
 
--- | The number of instances of the type specified by @InstanceType@.
+-- | The instance type the model is deployed to.
 realTimeInferenceConfig_instanceType :: Lens.Lens' RealTimeInferenceConfig InstanceType
 realTimeInferenceConfig_instanceType = Lens.lens (\RealTimeInferenceConfig' {instanceType} -> instanceType) (\s@RealTimeInferenceConfig' {} a -> s {instanceType = a} :: RealTimeInferenceConfig)
 
--- | The instance type the model is deployed to.
+-- | The number of instances of the type specified by @InstanceType@.
 realTimeInferenceConfig_instanceCount :: Lens.Lens' RealTimeInferenceConfig Prelude.Natural
 realTimeInferenceConfig_instanceCount = Lens.lens (\RealTimeInferenceConfig' {instanceCount} -> instanceCount) (\s@RealTimeInferenceConfig' {} a -> s {instanceCount = a} :: RealTimeInferenceConfig)
 

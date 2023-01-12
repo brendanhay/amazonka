@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.LookoutEquipment.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -241,6 +241,7 @@ module Amazonka.LookoutEquipment.Lens
     listInferenceSchedulers_maxResults,
     listInferenceSchedulers_modelName,
     listInferenceSchedulers_nextToken,
+    listInferenceSchedulers_status,
     listInferenceSchedulersResponse_inferenceSchedulerSummaries,
     listInferenceSchedulersResponse_nextToken,
     listInferenceSchedulersResponse_httpStatus,

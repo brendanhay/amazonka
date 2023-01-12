@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.MacieV2.GetResourceProfile
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -129,7 +129,7 @@ data GetResourceProfileResponse = GetResourceProfileResponse'
     -- Macie most recently recalculated sensitive data discovery statistics and
     -- details for the bucket. If the bucket\'s sensitivity score is calculated
     -- automatically, this includes the score.
-    profileUpdatedAt :: Prelude.Maybe Data.POSIX,
+    profileUpdatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The current sensitivity score for the bucket, ranging from -1 (no
     -- analysis due to an error) to 100 (sensitive). By default, this score is
     -- calculated automatically based on the amount of data that Amazon Macie

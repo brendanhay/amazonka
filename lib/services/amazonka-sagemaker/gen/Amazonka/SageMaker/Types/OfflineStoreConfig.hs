@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.SageMaker.Types.OfflineStoreConfig
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -44,8 +44,8 @@ data OfflineStoreConfig = OfflineStoreConfig'
     -- | Set to @True@ to disable the automatic creation of an Amazon Web
     -- Services Glue table when configuring an @OfflineStore@.
     disableGlueTableCreation :: Prelude.Maybe Prelude.Bool,
-    -- | Format for the offline store feature group. @Iceberg@ is the optimal
-    -- format for feature groups shared between offline and online stores.
+    -- | Format for the offline store table. Supported formats are Glue (Default)
+    -- and <https://iceberg.apache.org/ Apache Iceberg>.
     tableFormat :: Prelude.Maybe TableFormat,
     -- | The Amazon Simple Storage (Amazon S3) location of @OfflineStore@.
     s3StorageConfig :: S3StorageConfig
@@ -66,8 +66,8 @@ data OfflineStoreConfig = OfflineStoreConfig'
 -- 'disableGlueTableCreation', 'offlineStoreConfig_disableGlueTableCreation' - Set to @True@ to disable the automatic creation of an Amazon Web
 -- Services Glue table when configuring an @OfflineStore@.
 --
--- 'tableFormat', 'offlineStoreConfig_tableFormat' - Format for the offline store feature group. @Iceberg@ is the optimal
--- format for feature groups shared between offline and online stores.
+-- 'tableFormat', 'offlineStoreConfig_tableFormat' - Format for the offline store table. Supported formats are Glue (Default)
+-- and <https://iceberg.apache.org/ Apache Iceberg>.
 --
 -- 's3StorageConfig', 'offlineStoreConfig_s3StorageConfig' - The Amazon Simple Storage (Amazon S3) location of @OfflineStore@.
 newOfflineStoreConfig ::
@@ -93,8 +93,8 @@ offlineStoreConfig_dataCatalogConfig = Lens.lens (\OfflineStoreConfig' {dataCata
 offlineStoreConfig_disableGlueTableCreation :: Lens.Lens' OfflineStoreConfig (Prelude.Maybe Prelude.Bool)
 offlineStoreConfig_disableGlueTableCreation = Lens.lens (\OfflineStoreConfig' {disableGlueTableCreation} -> disableGlueTableCreation) (\s@OfflineStoreConfig' {} a -> s {disableGlueTableCreation = a} :: OfflineStoreConfig)
 
--- | Format for the offline store feature group. @Iceberg@ is the optimal
--- format for feature groups shared between offline and online stores.
+-- | Format for the offline store table. Supported formats are Glue (Default)
+-- and <https://iceberg.apache.org/ Apache Iceberg>.
 offlineStoreConfig_tableFormat :: Lens.Lens' OfflineStoreConfig (Prelude.Maybe TableFormat)
 offlineStoreConfig_tableFormat = Lens.lens (\OfflineStoreConfig' {tableFormat} -> tableFormat) (\s@OfflineStoreConfig' {} a -> s {tableFormat = a} :: OfflineStoreConfig)
 

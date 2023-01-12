@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.Braket.Types.JobSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newJobSummary' smart constructor.
 data JobSummary = JobSummary'
   { -- | The date and time that the Amazon Braket job ended.
-    endedAt :: Prelude.Maybe Data.POSIX,
+    endedAt :: Prelude.Maybe Data.ISO8601,
     -- | The date and time that the Amazon Braket job was started.
-    startedAt :: Prelude.Maybe Data.POSIX,
+    startedAt :: Prelude.Maybe Data.ISO8601,
     -- | A tag object that consists of a key and an optional value, used to
     -- manage metadata for Amazon Braket resources.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time that the Amazon Braket job was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | Provides summary information about the primary device used by an Amazon
     -- Braket job.
     device :: Prelude.Text,

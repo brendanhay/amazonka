@@ -6,7 +6,7 @@
 
 -- |
 -- Module      : Amazonka.MediaLive.Lens
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -703,6 +703,9 @@ module Amazonka.MediaLive.Lens
     audioDescription_audioSelectorName,
     audioDescription_name,
 
+    -- ** AudioDolbyEDecode
+    audioDolbyEDecode_programSelection,
+
     -- ** AudioHlsRenditionSelection
     audioHlsRenditionSelection_name,
     audioHlsRenditionSelection_groupId,
@@ -743,6 +746,7 @@ module Amazonka.MediaLive.Lens
     audioTrack_track,
 
     -- ** AudioTrackSelection
+    audioTrackSelection_dolbyEDecode,
     audioTrackSelection_tracks,
 
     -- ** AudioWatermarkSettings
@@ -1063,6 +1067,7 @@ module Amazonka.MediaLive.Lens
     -- ** FrameCaptureSettings
     frameCaptureSettings_captureInterval,
     frameCaptureSettings_captureIntervalUnits,
+    frameCaptureSettings_timecodeBurninSettings,
 
     -- ** GlobalConfiguration
     globalConfiguration_initialAudioGain,
@@ -1121,6 +1126,7 @@ module Amazonka.MediaLive.Lens
     h264Settings_subgopLength,
     h264Settings_syntax,
     h264Settings_temporalAq,
+    h264Settings_timecodeBurninSettings,
     h264Settings_timecodeInsertion,
 
     -- ** H265ColorSpaceSettings
@@ -1160,6 +1166,7 @@ module Amazonka.MediaLive.Lens
     h265Settings_sceneChangeDetect,
     h265Settings_slices,
     h265Settings_tier,
+    h265Settings_timecodeBurninSettings,
     h265Settings_timecodeInsertion,
     h265Settings_framerateNumerator,
     h265Settings_framerateDenominator,
@@ -1329,6 +1336,7 @@ module Amazonka.MediaLive.Lens
 
     -- ** InputDeviceConfigurableSettings
     inputDeviceConfigurableSettings_configuredInput,
+    inputDeviceConfigurableSettings_latencyMs,
     inputDeviceConfigurableSettings_maxBitrate,
 
     -- ** InputDeviceHdSettings
@@ -1337,6 +1345,7 @@ module Amazonka.MediaLive.Lens
     inputDeviceHdSettings_deviceState,
     inputDeviceHdSettings_framerate,
     inputDeviceHdSettings_height,
+    inputDeviceHdSettings_latencyMs,
     inputDeviceHdSettings_maxBitrate,
     inputDeviceHdSettings_scanType,
     inputDeviceHdSettings_width,
@@ -1374,6 +1383,7 @@ module Amazonka.MediaLive.Lens
     inputDeviceUhdSettings_deviceState,
     inputDeviceUhdSettings_framerate,
     inputDeviceUhdSettings_height,
+    inputDeviceUhdSettings_latencyMs,
     inputDeviceUhdSettings_maxBitrate,
     inputDeviceUhdSettings_scanType,
     inputDeviceUhdSettings_width,
@@ -1586,6 +1596,7 @@ module Amazonka.MediaLive.Lens
     mpeg2Settings_gopSizeUnits,
     mpeg2Settings_scanType,
     mpeg2Settings_subgopLength,
+    mpeg2Settings_timecodeBurninSettings,
     mpeg2Settings_timecodeInsertion,
     mpeg2Settings_framerateNumerator,
     mpeg2Settings_framerateDenominator,
@@ -2000,6 +2011,11 @@ module Amazonka.MediaLive.Lens
     temporalFilterSettings_postFilterSharpening,
     temporalFilterSettings_strength,
 
+    -- ** TimecodeBurninSettings
+    timecodeBurninSettings_prefix,
+    timecodeBurninSettings_position,
+    timecodeBurninSettings_fontSize,
+
     -- ** TimecodeConfig
     timecodeConfig_syncThreshold,
     timecodeConfig_source,
@@ -2150,6 +2166,7 @@ import Amazonka.MediaLive.Types.AribSourceSettings
 import Amazonka.MediaLive.Types.AudioChannelMapping
 import Amazonka.MediaLive.Types.AudioCodecSettings
 import Amazonka.MediaLive.Types.AudioDescription
+import Amazonka.MediaLive.Types.AudioDolbyEDecode
 import Amazonka.MediaLive.Types.AudioHlsRenditionSelection
 import Amazonka.MediaLive.Types.AudioLanguageSelection
 import Amazonka.MediaLive.Types.AudioNormalizationSettings
@@ -2351,6 +2368,7 @@ import Amazonka.MediaLive.Types.StopTimecode
 import Amazonka.MediaLive.Types.TeletextDestinationSettings
 import Amazonka.MediaLive.Types.TeletextSourceSettings
 import Amazonka.MediaLive.Types.TemporalFilterSettings
+import Amazonka.MediaLive.Types.TimecodeBurninSettings
 import Amazonka.MediaLive.Types.TimecodeConfig
 import Amazonka.MediaLive.Types.TransferringInputDeviceSummary
 import Amazonka.MediaLive.Types.TtmlDestinationSettings

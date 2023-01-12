@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.AssessmentControlSet
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,7 +46,7 @@ data AssessmentControlSet = AssessmentControlSet'
     manualEvidenceCount :: Prelude.Maybe Prelude.Int,
     -- | The roles that are associated with the control set.
     roles :: Prelude.Maybe [Role],
-    -- | Specifies the current status of the control set.
+    -- | The current status of the control set.
     status :: Prelude.Maybe ControlSetStatus,
     -- | The total number of evidence objects that are retrieved automatically
     -- for the control set.
@@ -76,7 +76,7 @@ data AssessmentControlSet = AssessmentControlSet'
 --
 -- 'roles', 'assessmentControlSet_roles' - The roles that are associated with the control set.
 --
--- 'status', 'assessmentControlSet_status' - Specifies the current status of the control set.
+-- 'status', 'assessmentControlSet_status' - The current status of the control set.
 --
 -- 'systemEvidenceCount', 'assessmentControlSet_systemEvidenceCount' - The total number of evidence objects that are retrieved automatically
 -- for the control set.
@@ -120,7 +120,7 @@ assessmentControlSet_manualEvidenceCount = Lens.lens (\AssessmentControlSet' {ma
 assessmentControlSet_roles :: Lens.Lens' AssessmentControlSet (Prelude.Maybe [Role])
 assessmentControlSet_roles = Lens.lens (\AssessmentControlSet' {roles} -> roles) (\s@AssessmentControlSet' {} a -> s {roles = a} :: AssessmentControlSet) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the current status of the control set.
+-- | The current status of the control set.
 assessmentControlSet_status :: Lens.Lens' AssessmentControlSet (Prelude.Maybe ControlSetStatus)
 assessmentControlSet_status = Lens.lens (\AssessmentControlSet' {status} -> status) (\s@AssessmentControlSet' {} a -> s {status = a} :: AssessmentControlSet)
 

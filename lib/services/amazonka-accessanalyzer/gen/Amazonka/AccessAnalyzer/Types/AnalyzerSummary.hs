@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AccessAnalyzer.Types.AnalyzerSummary
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -34,7 +34,7 @@ data AnalyzerSummary = AnalyzerSummary'
   { -- | The resource that was most recently analyzed by the analyzer.
     lastResourceAnalyzed :: Prelude.Maybe Prelude.Text,
     -- | The time at which the most recently analyzed resource was analyzed.
-    lastResourceAnalyzedAt :: Prelude.Maybe Data.POSIX,
+    lastResourceAnalyzedAt :: Prelude.Maybe Data.ISO8601,
     -- | The @statusReason@ provides more details about the current status of the
     -- analyzer. For example, if the creation for the analyzer fails, a
     -- @Failed@ status is returned. For an analyzer with organization as the
@@ -52,7 +52,7 @@ data AnalyzerSummary = AnalyzerSummary'
     -- the analyzer.
     type' :: Type,
     -- | A timestamp for the time at which the analyzer was created.
-    createdAt :: Data.POSIX,
+    createdAt :: Data.ISO8601,
     -- | The status of the analyzer. An @Active@ analyzer successfully monitors
     -- supported resources and generates new findings. The analyzer is
     -- @Disabled@ when a user action, such as removing trusted access for

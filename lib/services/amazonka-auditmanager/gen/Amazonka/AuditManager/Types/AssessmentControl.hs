@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.AuditManager.Types.AssessmentControl
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -38,7 +38,7 @@ data AssessmentControl = AssessmentControl'
     comments :: Prelude.Maybe [ControlComment],
     -- | The description of the control.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The amount of evidence that\'s generated for the control.
+    -- | The amount of evidence that\'s collected for the control.
     evidenceCount :: Prelude.Maybe Prelude.Int,
     -- | The list of data sources for the evidence.
     evidenceSources :: Prelude.Maybe [Prelude.Text],
@@ -67,7 +67,7 @@ data AssessmentControl = AssessmentControl'
 --
 -- 'description', 'assessmentControl_description' - The description of the control.
 --
--- 'evidenceCount', 'assessmentControl_evidenceCount' - The amount of evidence that\'s generated for the control.
+-- 'evidenceCount', 'assessmentControl_evidenceCount' - The amount of evidence that\'s collected for the control.
 --
 -- 'evidenceSources', 'assessmentControl_evidenceSources' - The list of data sources for the evidence.
 --
@@ -106,7 +106,7 @@ assessmentControl_comments = Lens.lens (\AssessmentControl' {comments} -> commen
 assessmentControl_description :: Lens.Lens' AssessmentControl (Prelude.Maybe Prelude.Text)
 assessmentControl_description = Lens.lens (\AssessmentControl' {description} -> description) (\s@AssessmentControl' {} a -> s {description = a} :: AssessmentControl)
 
--- | The amount of evidence that\'s generated for the control.
+-- | The amount of evidence that\'s collected for the control.
 assessmentControl_evidenceCount :: Lens.Lens' AssessmentControl (Prelude.Maybe Prelude.Int)
 assessmentControl_evidenceCount = Lens.lens (\AssessmentControl' {evidenceCount} -> evidenceCount) (\s@AssessmentControl' {} a -> s {evidenceCount = a} :: AssessmentControl)
 

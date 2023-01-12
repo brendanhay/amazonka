@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.S3.CreateMultipartUpload
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -345,7 +345,7 @@ data CreateMultipartUpload = CreateMultipartUpload'
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the object is no longer cacheable.
-    expires :: Prelude.Maybe Data.ISO8601,
+    expires :: Prelude.Maybe Data.RFC822,
     -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
     -- object.
     --
@@ -983,7 +983,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     -- The response also includes the @x-amz-abort-rule-id@ header that
     -- provides the ID of the lifecycle configuration rule that defines this
     -- action.
-    abortDate :: Prelude.Maybe Data.ISO8601,
+    abortDate :: Prelude.Maybe Data.RFC822,
     -- | This header is returned along with the @x-amz-abort-date@ header. It
     -- identifies the applicable lifecycle configuration rule that defines the
     -- action to abort incomplete multipart uploads.

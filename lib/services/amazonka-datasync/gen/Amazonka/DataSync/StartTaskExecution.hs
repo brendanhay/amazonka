@@ -14,21 +14,17 @@
 
 -- |
 -- Module      : Amazonka.DataSync.StartTaskExecution
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a specific invocation of a task. A @TaskExecution@ value
--- represents an individual run of a task. Each task can have at most one
--- @TaskExecution@ at a time.
+-- Starts an DataSync task. For each task, you can only run one task
+-- execution at a time.
 --
--- @TaskExecution@ has the following transition phases: INITIALIZING |
--- PREPARING | TRANSFERRING | VERIFYING | SUCCESS\/FAILURE.
---
--- For detailed information, see the Task Execution section in the
--- Components and Terminology topic in the /DataSync User Guide/.
+-- There are several phases to a task execution. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses Task execution statuses>.
 module Amazonka.DataSync.StartTaskExecution
   ( -- * Creating a Request
     StartTaskExecution (..),
@@ -38,6 +34,7 @@ module Amazonka.DataSync.StartTaskExecution
     startTaskExecution_excludes,
     startTaskExecution_includes,
     startTaskExecution_overrideOptions,
+    startTaskExecution_tags,
     startTaskExecution_taskArn,
 
     -- * Destructuring the Response
@@ -62,18 +59,25 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newStartTaskExecution' smart constructor.
 data StartTaskExecution = StartTaskExecution'
-  { -- | A list of filter rules that determines which files to exclude from a
-    -- task. The list contains a single filter string that consists of the
-    -- patterns to exclude. The patterns are delimited by \"|\" (that is, a
+  { -- | Specifies a list of filter rules that determines which files to exclude
+    -- from a task. The list contains a single filter string that consists of
+    -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
     -- pipe), for example, @\"\/folder1|\/folder2\"@.
     excludes :: Prelude.Maybe [FilterRule],
-    -- | A list of filter rules that determines which files to include when
-    -- running a task. The pattern should contain a single filter string that
-    -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
+    -- | Specifies a list of filter rules that determines which files to include
+    -- when running a task. The pattern should contain a single filter string
+    -- that consists of the patterns to include. The patterns are delimited by
+    -- \"|\" (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
     includes :: Prelude.Maybe [FilterRule],
     overrideOptions :: Prelude.Maybe Options,
-    -- | The Amazon Resource Name (ARN) of the task to start.
+    -- | Specifies the tags that you want to apply to the Amazon Resource Name
+    -- (ARN) representing the task execution.
+    --
+    -- /Tags/ are key-value pairs that help you manage, filter, and search for
+    -- your DataSync resources.
+    tags :: Prelude.Maybe [TagListEntry],
+    -- | Specifies the Amazon Resource Name (ARN) of the task that you want to
+    -- start.
     taskArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,19 +90,26 @@ data StartTaskExecution = StartTaskExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'excludes', 'startTaskExecution_excludes' - A list of filter rules that determines which files to exclude from a
--- task. The list contains a single filter string that consists of the
--- patterns to exclude. The patterns are delimited by \"|\" (that is, a
+-- 'excludes', 'startTaskExecution_excludes' - Specifies a list of filter rules that determines which files to exclude
+-- from a task. The list contains a single filter string that consists of
+-- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
 -- pipe), for example, @\"\/folder1|\/folder2\"@.
 --
--- 'includes', 'startTaskExecution_includes' - A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
+-- 'includes', 'startTaskExecution_includes' - Specifies a list of filter rules that determines which files to include
+-- when running a task. The pattern should contain a single filter string
+-- that consists of the patterns to include. The patterns are delimited by
+-- \"|\" (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
 --
 -- 'overrideOptions', 'startTaskExecution_overrideOptions' - Undocumented member.
 --
--- 'taskArn', 'startTaskExecution_taskArn' - The Amazon Resource Name (ARN) of the task to start.
+-- 'tags', 'startTaskExecution_tags' - Specifies the tags that you want to apply to the Amazon Resource Name
+-- (ARN) representing the task execution.
+--
+-- /Tags/ are key-value pairs that help you manage, filter, and search for
+-- your DataSync resources.
+--
+-- 'taskArn', 'startTaskExecution_taskArn' - Specifies the Amazon Resource Name (ARN) of the task that you want to
+-- start.
 newStartTaskExecution ::
   -- | 'taskArn'
   Prelude.Text ->
@@ -108,20 +119,21 @@ newStartTaskExecution pTaskArn_ =
     { excludes = Prelude.Nothing,
       includes = Prelude.Nothing,
       overrideOptions = Prelude.Nothing,
+      tags = Prelude.Nothing,
       taskArn = pTaskArn_
     }
 
--- | A list of filter rules that determines which files to exclude from a
--- task. The list contains a single filter string that consists of the
--- patterns to exclude. The patterns are delimited by \"|\" (that is, a
+-- | Specifies a list of filter rules that determines which files to exclude
+-- from a task. The list contains a single filter string that consists of
+-- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
 -- pipe), for example, @\"\/folder1|\/folder2\"@.
 startTaskExecution_excludes :: Lens.Lens' StartTaskExecution (Prelude.Maybe [FilterRule])
 startTaskExecution_excludes = Lens.lens (\StartTaskExecution' {excludes} -> excludes) (\s@StartTaskExecution' {} a -> s {excludes = a} :: StartTaskExecution) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
+-- | Specifies a list of filter rules that determines which files to include
+-- when running a task. The pattern should contain a single filter string
+-- that consists of the patterns to include. The patterns are delimited by
+-- \"|\" (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
 startTaskExecution_includes :: Lens.Lens' StartTaskExecution (Prelude.Maybe [FilterRule])
 startTaskExecution_includes = Lens.lens (\StartTaskExecution' {includes} -> includes) (\s@StartTaskExecution' {} a -> s {includes = a} :: StartTaskExecution) Prelude.. Lens.mapping Lens.coerced
 
@@ -129,7 +141,16 @@ startTaskExecution_includes = Lens.lens (\StartTaskExecution' {includes} -> incl
 startTaskExecution_overrideOptions :: Lens.Lens' StartTaskExecution (Prelude.Maybe Options)
 startTaskExecution_overrideOptions = Lens.lens (\StartTaskExecution' {overrideOptions} -> overrideOptions) (\s@StartTaskExecution' {} a -> s {overrideOptions = a} :: StartTaskExecution)
 
--- | The Amazon Resource Name (ARN) of the task to start.
+-- | Specifies the tags that you want to apply to the Amazon Resource Name
+-- (ARN) representing the task execution.
+--
+-- /Tags/ are key-value pairs that help you manage, filter, and search for
+-- your DataSync resources.
+startTaskExecution_tags :: Lens.Lens' StartTaskExecution (Prelude.Maybe [TagListEntry])
+startTaskExecution_tags = Lens.lens (\StartTaskExecution' {tags} -> tags) (\s@StartTaskExecution' {} a -> s {tags = a} :: StartTaskExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the Amazon Resource Name (ARN) of the task that you want to
+-- start.
 startTaskExecution_taskArn :: Lens.Lens' StartTaskExecution Prelude.Text
 startTaskExecution_taskArn = Lens.lens (\StartTaskExecution' {taskArn} -> taskArn) (\s@StartTaskExecution' {} a -> s {taskArn = a} :: StartTaskExecution)
 
@@ -152,6 +173,7 @@ instance Prelude.Hashable StartTaskExecution where
     _salt `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` overrideOptions
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` taskArn
 
 instance Prelude.NFData StartTaskExecution where
@@ -159,6 +181,7 @@ instance Prelude.NFData StartTaskExecution where
     Prelude.rnf excludes
       `Prelude.seq` Prelude.rnf includes
       `Prelude.seq` Prelude.rnf overrideOptions
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf taskArn
 
 instance Data.ToHeaders StartTaskExecution where
@@ -184,6 +207,7 @@ instance Data.ToJSON StartTaskExecution where
             ("Includes" Data..=) Prelude.<$> includes,
             ("OverrideOptions" Data..=)
               Prelude.<$> overrideOptions,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("TaskArn" Data..= taskArn)
           ]
       )
@@ -198,8 +222,7 @@ instance Data.ToQuery StartTaskExecution where
 --
 -- /See:/ 'newStartTaskExecutionResponse' smart constructor.
 data StartTaskExecutionResponse = StartTaskExecutionResponse'
-  { -- | The Amazon Resource Name (ARN) of the specific task execution that was
-    -- started.
+  { -- | The ARN of the running task execution.
     taskExecutionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -214,8 +237,7 @@ data StartTaskExecutionResponse = StartTaskExecutionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskExecutionArn', 'startTaskExecutionResponse_taskExecutionArn' - The Amazon Resource Name (ARN) of the specific task execution that was
--- started.
+-- 'taskExecutionArn', 'startTaskExecutionResponse_taskExecutionArn' - The ARN of the running task execution.
 --
 -- 'httpStatus', 'startTaskExecutionResponse_httpStatus' - The response's http status code.
 newStartTaskExecutionResponse ::
@@ -229,8 +251,7 @@ newStartTaskExecutionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the specific task execution that was
--- started.
+-- | The ARN of the running task execution.
 startTaskExecutionResponse_taskExecutionArn :: Lens.Lens' StartTaskExecutionResponse (Prelude.Maybe Prelude.Text)
 startTaskExecutionResponse_taskExecutionArn = Lens.lens (\StartTaskExecutionResponse' {taskExecutionArn} -> taskExecutionArn) (\s@StartTaskExecutionResponse' {} a -> s {taskExecutionArn = a} :: StartTaskExecutionResponse)
 

@@ -8,7 +8,7 @@
 
 -- |
 -- Module      : Amazonka.RedshiftData.Types
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -187,49 +187,49 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The number of active statements exceeds the limit.
-_ActiveStatementsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActiveStatementsExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ActiveStatementsExceededException =
   Core._MatchServiceError
     defaultService
     "ActiveStatementsExceededException"
 
 -- | An SQL statement encountered an environmental error while running.
-_BatchExecuteStatementException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchExecuteStatementException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _BatchExecuteStatementException =
   Core._MatchServiceError
     defaultService
     "BatchExecuteStatementException"
 
 -- | Connection to a database failed.
-_DatabaseConnectionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DatabaseConnectionException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _DatabaseConnectionException =
   Core._MatchServiceError
     defaultService
     "DatabaseConnectionException"
 
 -- | The SQL statement encountered an environmental error while running.
-_ExecuteStatementException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExecuteStatementException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ExecuteStatementException =
   Core._MatchServiceError
     defaultService
     "ExecuteStatementException"
 
 -- | The Amazon Redshift Data API operation failed due to invalid input.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
 
 -- | The Amazon Redshift Data API operation failed due to a missing resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The Amazon Redshift Data API operation failed due to invalid input.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

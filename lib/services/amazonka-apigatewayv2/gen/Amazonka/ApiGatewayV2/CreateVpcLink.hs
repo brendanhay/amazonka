@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.ApiGatewayV2.CreateVpcLink
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -186,7 +186,7 @@ instance Data.ToQuery CreateVpcLink where
 -- | /See:/ 'newCreateVpcLinkResponse' smart constructor.
 data CreateVpcLinkResponse = CreateVpcLinkResponse'
   { -- | The timestamp when the VPC link was created.
-    createdDate :: Prelude.Maybe Data.POSIX,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | The name of the VPC link.
     name :: Prelude.Maybe Prelude.Text,
     -- | A list of security group IDs for the VPC link.

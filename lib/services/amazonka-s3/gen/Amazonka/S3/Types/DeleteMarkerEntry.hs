@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Amazonka.S3.Types.DeleteMarkerEntry
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -36,7 +36,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry'
     -- | The object key.
     key :: Prelude.Maybe ObjectKey,
     -- | Date and time the object was last modified.
-    lastModified :: Prelude.Maybe Data.ISO8601,
+    lastModified :: Prelude.Maybe Data.RFC822,
     -- | The account that created the delete marker.>
     owner :: Prelude.Maybe Owner,
     -- | Version ID of an object.

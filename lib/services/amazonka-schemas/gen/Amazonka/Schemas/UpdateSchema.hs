@@ -14,7 +14,7 @@
 
 -- |
 -- Module      : Amazonka.Schemas.UpdateSchema
--- Copyright   : (c) 2013-2022 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -213,7 +213,7 @@ data UpdateSchemaResponse = UpdateSchemaResponse'
   { -- | The description of the schema.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date and time that schema was modified.
-    lastModified :: Prelude.Maybe Data.POSIX,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the schema.
@@ -224,7 +224,7 @@ data UpdateSchemaResponse = UpdateSchemaResponse'
     -- | The type of the schema.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The date the schema version was created.
-    versionCreatedDate :: Prelude.Maybe Data.POSIX,
+    versionCreatedDate :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }

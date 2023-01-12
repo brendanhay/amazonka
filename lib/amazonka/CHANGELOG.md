@@ -109,6 +109,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-core`/`amazonka`: Various time-related data types and the `_Time` `Iso'` are re-exported by `Amazonka.Core` and therefore `Amazonka`.
+[\#884](https://github.com/brendanhay/amazonka/pull/884)
 - `amazonka-core`: service error matchers are now `AsError a => Fold a ServiceError` instead of `AsError a => Getting (First ServiceError) a ServiceError`. This makes them more flexible (e.g., usable with `Control.Lens.has`), but existing uses should be unaffected.
 [\#878](https://github.com/brendanhay/amazonka/pull/878)
 - `amazonka`: The `override :: Dual (Endo Service)` has been replaced by `overrides :: Service -> Service`.

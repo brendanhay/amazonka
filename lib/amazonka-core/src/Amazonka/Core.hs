@@ -26,6 +26,7 @@ import Amazonka.Data.Base64 as Amazonka.Data
 import Amazonka.Data.Body as Amazonka.Data
 import Amazonka.Data.Log as Amazonka.Data
 import Amazonka.Data.Sensitive as Amazonka.Data
+import Amazonka.Data.Time as Amazonka.Data
 import Amazonka.Endpoint
 import Amazonka.Error
 import Amazonka.Pager

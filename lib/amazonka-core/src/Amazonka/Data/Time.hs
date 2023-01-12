@@ -61,7 +61,7 @@ _Time :: Iso' (Time a) UTCTime
 _Time = iso fromTime Time
 
 convert :: Time a -> Time b
-convert = Time . fromTime
+convert = coerce
 
 type RFC822 = Time 'RFC822Format
 

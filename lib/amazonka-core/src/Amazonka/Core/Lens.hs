@@ -25,6 +25,9 @@ module Amazonka.Core.Lens
     chunkedBody_length,
     chunkedBody_body,
 
+    -- * Amazonka.Data.Time
+    _Time,
+
     -- * Amazonka.Types
 
     -- ** Abbrev
@@ -117,5 +120,6 @@ module Amazonka.Core.Lens
 where
 
 import Amazonka.Data.Body
+import Amazonka.Data.Time
 import Amazonka.Types
 import Amazonka.Waiter

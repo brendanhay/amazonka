@@ -106,6 +106,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-core`/`amazonka`: Various time-related data types and the `_Time` `Iso'` are re-exported by `Amazonka.Core` and therefore `Amazonka`.
+[\#884](https://github.com/brendanhay/amazonka/pull/884)
 - `amazonka`: The `override :: Dual (Endo Service)` has been replaced by `overrides :: Service -> Service`.
 [\#870](https://github.com/brendanhay/amazonka/pull/870)
 - `amazonka-core`: `Endpoint` now has a `basePath :: RawPath`. Handy with `amazonka-apigatewaymanagementapi`.

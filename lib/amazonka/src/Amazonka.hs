@@ -392,7 +392,7 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- trying '_ServiceError'   (send $ newListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
 -- @
 --
--- Many of the individual @amazonka-*@ libraries export compatible 'Control.Lens.Getter's for
+-- Many of the individual @amazonka-*@ libraries export compatible 'Control.Lens.Fold's for
 -- matching service specific error codes and messages in the style above.
 -- See the @Error Matchers@ heading in each respective library for details.
 

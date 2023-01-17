@@ -115,7 +115,7 @@ httpRequest ::
   Env' withAuth ->
   Request a ->
   m (Either Error (ClientResponse (AWSResponse a)))
-httpRequest env@Env {..} cfgRq =
+httpRequest env@Env {hooks, manager, region} cfgRq =
   liftResourceT (transResourceT (`Exception.catches` handlers) go)
   where
     go = do
@@ -131,7 +131,12 @@ httpRequest env@Env {..} cfgRq =
 
       rs <- Client.Conduit.http clientRq manager
       liftIO $ Hooks.clientResponse hooks env (cfgRq, () <$ rs)
-      parsedRs <- response logger (service cfgRq) (proxy cfgRq) rs
+      parsedRs <-
+        response
+          (Hooks.rawResponseBody hooks env)
+          (service cfgRq)
+          (proxy cfgRq)
+          rs
       traverse_ (liftIO . Hooks.response hooks env . (cfgRq,)) parsedRs
       pure parsedRs
 

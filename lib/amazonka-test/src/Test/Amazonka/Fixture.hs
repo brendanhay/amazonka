@@ -89,12 +89,10 @@ testResponse ::
   ByteStringLazy ->
   IO (Either String (AWSResponse a))
 testResponse s p lbs = do
-  y <- runResourceT (response l s p rs)
+  y <- runResourceT (response pure s p rs)
 
   return $! first show (Client.responseBody <$> y)
   where
-    l _ _ = return ()
-
     rs =
       Client.Response
         { responseStatus = HTTP.status200,

@@ -44,7 +44,7 @@ import qualified Text.XML as XML
 receiveNull ::
   MonadResource m =>
   AWSResponse a ->
-  Logger ->
+  (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
   Proxy a ->
   ClientResponse ClientBody ->
@@ -56,7 +56,7 @@ receiveNull rs _ =
 receiveEmpty ::
   MonadResource m =>
   (Int -> ResponseHeaders -> () -> Either String (AWSResponse a)) ->
-  Logger ->
+  (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
   Proxy a ->
   ClientResponse ClientBody ->
@@ -69,7 +69,7 @@ receiveXMLWrapper ::
   MonadResource m =>
   Text ->
   (Int -> ResponseHeaders -> [XML.Node] -> Either String (AWSResponse a)) ->
-  Logger ->
+  (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
   Proxy a ->
   ClientResponse ClientBody ->
@@ -79,7 +79,7 @@ receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 receiveXML ::
   MonadResource m =>
   (Int -> ResponseHeaders -> [XML.Node] -> Either String (AWSResponse a)) ->
-  Logger ->
+  (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
   Proxy a ->
   ClientResponse ClientBody ->
@@ -89,7 +89,7 @@ receiveXML = deserialise decodeXML
 receiveJSON ::
   MonadResource m =>
   (Int -> ResponseHeaders -> Aeson.Object -> Either String (AWSResponse a)) ->
-  Logger ->
+  (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
   Proxy a ->
   ClientResponse ClientBody ->
@@ -99,7 +99,7 @@ receiveJSON = deserialise Aeson.eitherDecode'
 receiveBytes ::
   MonadResource m =>
   (Int -> ResponseHeaders -> ByteString -> Either String (AWSResponse a)) ->
-  Logger ->
+  (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
   Proxy a ->
   ClientResponse ClientBody ->
@@ -109,7 +109,7 @@ receiveBytes = deserialise (Right . LBS.toStrict)
 receiveBody ::
   MonadResource m =>
   (Int -> ResponseHeaders -> ResponseBody -> Either String (AWSResponse a)) ->
-  Logger ->
+  (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
   Proxy a ->
   ClientResponse ClientBody ->
@@ -123,22 +123,19 @@ deserialise ::
   MonadResource m =>
   (ByteStringLazy -> Either String b) ->
   (Int -> ResponseHeaders -> b -> Either String (AWSResponse a)) ->
-  Logger ->
+  (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
   Proxy a ->
   ClientResponse ClientBody ->
   m (Either Error (ClientResponse (AWSResponse a)))
-deserialise reader parser logger Service {..} _ rs =
+deserialise reader parser responseBodyHook Service {..} _ rs =
   Except.runExceptT $ do
     let status = Client.responseStatus rs
         headers = Client.responseHeaders rs
 
-    body <- sinkLBS (Client.responseBody rs)
+    body <- sinkLBS (Client.responseBody rs) >>= liftIO . responseBodyHook
 
     unless (check status) $ Except.throwE (error status headers body)
-
-    liftIO . logger Trace $
-      build ("[Raw Response Body] {\n" <> body <> "\n}")
 
     case reader body >>= parser (fromEnum status) headers of
       Right ok -> pure (ok <$ rs)

@@ -123,6 +123,9 @@
 --     Run Hook: clientResponse                         |
 --                  |                                   |
 --                  V                                   |
+--     Run Hook: rawResponseBody                        |
+--                  |                                   |
+--                  V                                   |
 --     Amazonka: was error? ------------------.         |
 --                  |            Yes          |         |
 --                  |                         V         |
@@ -154,6 +157,7 @@ module Amazonka.Env.Hooks
     signedRequestHook,
     clientRequestHook,
     clientResponseHook,
+    rawResponseBodyHook,
     requestRetryHook,
     awaitRetryHook,
     responseHook,
@@ -242,6 +246,9 @@ data Hooks = Hooks
       forall a.
       (AWSRequest a, Typeable a) =>
       Hook_ (Request a, ClientResponse ()),
+    -- | Called on the raw response body, after it has been sunk from
+    -- the @Network.HTTP.Client.'Network.HTTP.Client.Response'@.
+    rawResponseBody :: Hook ByteStringLazy,
     -- | Called when Amazonka decides to retry a failed request. The
     -- 'Text' argument is an error code like @"http_error"@,
     -- @"request_throttled_exception"@. Check the retry check
@@ -328,6 +335,14 @@ clientResponseHook ::
   Hooks
 clientResponseHook f hooks@Hooks {clientResponse} =
   hooks {clientResponse = f clientResponse}
+
+{-# INLINE rawResponseBodyHook #-}
+rawResponseBodyHook ::
+  (Hook ByteStringLazy -> Hook ByteStringLazy) ->
+  Hooks ->
+  Hooks
+rawResponseBodyHook f hooks@Hooks {rawResponseBody} =
+  hooks {rawResponseBody = f rawResponseBody}
 
 {-# INLINE requestRetryHook #-}
 requestRetryHook ::
@@ -498,6 +513,7 @@ addLoggingHooks
     { signedRequest,
       clientRequest,
       clientResponse,
+      rawResponseBody,
       requestRetry,
       awaitRetry,
       error
@@ -512,6 +528,9 @@ addLoggingHooks
         clientResponse = \env@Env {logger} t@(_, rs) -> do
           clientResponse env t
           logDebug logger rs,
+        rawResponseBody = \env@Env {logger} body -> do
+          body' <- rawResponseBody env body
+          body' <$ logTrace logger ("[Raw Response Body] {\n" <> body' <> "\n}"),
         requestRetry = \env@Env {logger} t@(_, name, retryStatus) -> do
           requestRetry env t
           logDebug logger . munwords $
@@ -533,7 +552,8 @@ addLoggingHooks
           error env t
           logError logger err
       }
-  where munwords = mconcat . intersperse " "
+    where
+      munwords = mconcat . intersperse " "
 
 -- | Empty 'Hooks' structure which returns everything unmodified.
 noHooks :: Hooks
@@ -545,6 +565,7 @@ noHooks =
       signedRequest = \_ _ -> pure (),
       clientRequest = const pure,
       clientResponse = \_ _ -> pure (),
+      rawResponseBody = const pure,
       requestRetry = \_ _ -> pure (),
       awaitRetry = \_ _ -> pure (),
       response = \_ _ -> pure (),

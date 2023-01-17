@@ -698,7 +698,8 @@ class AWSRequest a where
 
   response ::
     MonadResource m =>
-    Logger ->
+    -- | Raw response body hook.
+    (ByteStringLazy -> IO ByteStringLazy) ->
     Service ->
     Proxy a ->
     ClientResponse ClientBody ->

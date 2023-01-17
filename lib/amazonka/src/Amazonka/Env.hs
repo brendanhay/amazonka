@@ -44,6 +44,7 @@ where
 
 import Amazonka.Core.Lens.Internal (Lens)
 import Amazonka.Env.Hooks (Hooks, addLoggingHooks, noHooks)
+import Amazonka.Logger (Logger)
 import Amazonka.Prelude
 import Amazonka.Types hiding (timeout)
 import qualified Amazonka.Types as Service (Service (..))

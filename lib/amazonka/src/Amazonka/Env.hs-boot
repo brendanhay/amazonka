@@ -1,6 +1,7 @@
 module Amazonka.Env where
 
-import Amazonka.Types (Region, Logger, Service, Auth)
+import Amazonka.Logger (Logger)
+import Amazonka.Types (Region, Service, Auth)
 import Amazonka.Prelude
 import qualified Network.HTTP.Client as Client
 import {-# SOURCE #-} Amazonka.Env.Hooks (Hooks)

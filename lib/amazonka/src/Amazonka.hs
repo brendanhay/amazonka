@@ -397,8 +397,8 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- See the @Error Matchers@ heading in each respective library for details.
 
 -- $logging
--- The exposed logging interface is a primitive 'Logger' function which gets
--- threaded through service calls and serialisation routines. This allows the
+-- The exposed logging interface is a primitive 'Logger' function which the
+-- hooks system calls throughout the request/response process. This allows the
 -- library to output useful information and diagnostics.
 --
 -- The 'newLogger' function can be used to construct a simple logger which writes

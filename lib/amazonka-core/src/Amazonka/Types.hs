@@ -29,10 +29,6 @@ module Amazonka.Types
     authEnv_sessionToken,
     authEnv_expiration,
 
-    -- * Logging
-    LogLevel (..),
-    Logger,
-
     -- * Signing
     Algorithm,
     Meta (..),
@@ -452,38 +448,6 @@ endpoint_port f e@Endpoint {port} = f port <&> \port' -> e {port = port'}
 {-# INLINE endpoint_scope #-}
 endpoint_scope :: Lens' Endpoint ByteString
 endpoint_scope f e@Endpoint {scope} = f scope <&> \scope' -> e {scope = scope'}
-
-data LogLevel
-  = -- | Info messages supplied by the user - this level is not emitted by the library.
-    Info
-  | -- | Error messages only.
-    Error
-  | -- | Useful debug information + info + error levels.
-    Debug
-  | -- | Includes potentially sensitive signing metadata, and non-streaming response bodies.
-    Trace
-  deriving stock (Eq, Ord, Enum, Show, Generic)
-
-instance FromText LogLevel where
-  fromText = \case
-    "info" -> pure Info
-    "error" -> pure Error
-    "debug" -> pure Debug
-    "trace" -> pure Trace
-    other -> Left ("Failure parsing LogLevel from " ++ show other)
-
-instance ToText LogLevel where
-  toText = \case
-    Info -> "info"
-    Error -> "error"
-    Debug -> "debug"
-    Trace -> "trace"
-
-instance ToByteString LogLevel
-
--- | A function threaded through various request and serialisation routines
--- to log informational and debug messages.
-type Logger = LogLevel -> ByteStringBuilder -> IO ()
 
 -- | Constants and predicates used to create a 'RetryPolicy'.
 data Retry = Exponential

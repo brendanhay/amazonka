@@ -77,8 +77,10 @@ mkFields ::
   StructF (Shape Solved) ->
   [Field]
 mkFields (Lens.view metadata -> m) s st =
-  sortFields rs $
-    zipWith mk [1 ..] $ HashMap.toList (st ^. members)
+  sortFields rs
+    . zipWith mk [1 ..]
+    . List.sortOn fst
+    $ HashMap.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
     mk i (k, v) =

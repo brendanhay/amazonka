@@ -172,7 +172,7 @@ instance ToJSON Library where
             "operations"
               .= List.sortOn _opName (l ^.. operations . Lens.each),
             "shapes" .= List.sort (l ^.. shapes . Lens.each),
-            "waiters" .= (l ^.. waiters . Lens.each)
+            "waiters" .= List.sortOn _waitName (l ^.. waiters . Lens.each)
           ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.

@@ -6,7 +6,7 @@ import qualified Control.Comonad as Comonad
 import qualified Control.Lens as Lens
 import qualified Data.Char as Char
 import qualified Data.Foldable as Fold
-import qualified Data.Map.Strict as Map
+import qualified Data.HashMap.Strict as HashMap
 import Data.List (find)
 import qualified Data.List.NonEmpty as NE
 import qualified Data.Text as Text
@@ -802,8 +802,8 @@ requestF c meta h r is =
 
     selectedPlugins =
       -- Lookup a specific operationPlugins key before the wildcard.
-      Map.lookup (identifier r) (c ^. operationPlugins)
-        <|> Map.lookup (mkId "*") (c ^. operationPlugins)
+      HashMap.lookup (identifier r) (c ^. operationPlugins)
+        <|> HashMap.lookup (mkId "*") (c ^. operationPlugins)
 
     e = Exts.app v (Exts.app (var "overrides") (var $ meta ^. serviceConfig))
 

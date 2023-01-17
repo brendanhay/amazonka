@@ -8,7 +8,7 @@ where
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
-import qualified Data.Map.Strict as Map
+import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
 import qualified Data.Text as Text
 import Gen.AST.Override
@@ -16,8 +16,8 @@ import Gen.Prelude
 import Gen.Types
 
 data Env a = Env
-  { _overrides :: Map Id Override,
-    _memo :: Map Id (Shape a)
+  { _overrides :: HashMap Id Override,
+    _memo :: HashMap Id (Shape a)
   }
 
 $(Lens.makeLenses ''Env)
@@ -64,10 +64,10 @@ substitute svc@Service {..} = do
     -- operation with the same name.
     name :: Direction -> Id -> Id
     name Input n
-      | Map.member n _shapes = mkId (typeId (appendId n "'"))
+      | HashMap.member n _shapes = mkId (typeId (appendId n "'"))
       | otherwise = n
     name Output n
-      | Map.member rs _operations = mkId (typeId (appendId n "Response'"))
+      | HashMap.member rs _operations = mkId (typeId (appendId n "Response'"))
       | otherwise = rs
       where
         rs = mkId (typeId (appendId n "Response"))
@@ -124,10 +124,10 @@ addStatus Output _k = go
         where
           mstatus =
             List.find ((Just StatusCode ==) . Lens.view refLocation . snd) $
-              Map.toList (st ^. members)
+              HashMap.toList (st ^. members)
 
           missing =
-            st & required' %~ Lens.cons n & members %~ Map.insert n ref
+            st & required' %~ Lens.cons n & members %~ HashMap.insert n ref
 
           exists (name, _) =
             st & required' %~ Lens.cons name
@@ -144,19 +144,19 @@ addStatus Output _k = go
         other
 
 save :: Id -> Shape a -> MemoS a ()
-save n s = memo %= Map.insert n s
+save n s = memo %= HashMap.insert n s
 
 rename :: Id -> Id -> MemoS a ()
-rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
+rename x y = overrides %= HashMap.insert x (defaultOverride & renamedTo ?~ y)
 
-safe :: Show a => Id -> Map Id a -> Either String a
+safe :: Show a => Id -> HashMap Id a -> Either String a
 safe n ss =
   note
     ( "Missing shape " ++ Text.unpack (memberId n)
         ++ ", possible matches: "
         ++ partial n ss
     )
-    (Map.lookup n ss)
+    (HashMap.lookup n ss)
 
 verify ::
   (MonadState (Env a) m, MonadError String m) =>
@@ -164,7 +164,7 @@ verify ::
   String ->
   m ()
 verify n msg = do
-  p <- Lens.uses memo (Map.member n)
+  p <- Lens.uses memo (HashMap.member n)
 
   when p . Except.throwError $
     msg ++ " for " ++ Text.unpack (memberId n)

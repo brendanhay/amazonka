@@ -58,7 +58,7 @@ newtype ClientVersion = ClientVersion'
     )
 
 pattern ClientVersion_ :: ClientVersion
-pattern ClientVersion_ = ClientVersion' "5.3"
+pattern ClientVersion_ = ClientVersion' "5.1"
 
 {-# COMPLETE
   ClientVersion_,

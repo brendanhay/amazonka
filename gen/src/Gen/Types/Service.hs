@@ -7,7 +7,7 @@ import qualified Control.Comonad.Cofree as Cofree
 import qualified Control.Lens as Lens
 import Data.Aeson ((.!=), (.:), (.:?), (.=))
 import qualified Data.Aeson as Aeson
-import qualified Data.Map.Strict as Map
+import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
 import qualified Data.Text as Text
 import Gen.Prelude
@@ -248,7 +248,7 @@ instance FromJSON (Info -> MapF ()) where
 
 data StructF a = StructF
   { _structInfo :: Info,
-    _members :: Map Id (RefF a),
+    _members :: HashMap Id (RefF a),
     -- | List so it can be used for ordering.
     _required' :: [Id],
     _payload :: Maybe Id
@@ -272,11 +272,11 @@ instance FromJSON (Info -> StructF ()) where
     p <- o .:? "payload"
     return $ \i -> StructF i (body p ms) r p
     where
-      -- This ensures that the field referenced by a possible
+      -- This ensure that the field referenced by a possible
       -- "payload":<id> has a location set.
-      body :: Maybe Id -> Map Id (RefF a) -> Map Id (RefF a)
+      body :: Maybe Id -> HashMap Id (RefF a) -> HashMap Id (RefF a)
       body Nothing = id
-      body (Just p) = Map.mapWithKey f
+      body (Just p) = HashMap.mapWithKey f
         where
           f n r
             | p == n = r & refLocation ?~ Body
@@ -287,7 +287,7 @@ data ShapeF a
   | List (ListF a)
   | Map (MapF a)
   | Struct (StructF a)
-  | Enum Info (Map Id Text)
+  | Enum Info (HashMap Id Text)
   | Lit Info Lit
   deriving (Functor, Foldable, Traversable)
 
@@ -340,7 +340,7 @@ instance FromJSON (ShapeF ()) where
       "json" -> pure (Lit i Json)
       "string" -> pure (maybe (Lit i Text) f m)
         where
-          f = Enum i . Map.fromList . map (first mkId . renameBranch)
+          f = Enum i . HashMap.fromList . map (first mkId . renameBranch)
       _ -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data Operation f a b = Operation
@@ -440,9 +440,9 @@ serviceError m =
 data Service f a b c = Service
   { _metadata' :: Metadata f,
     _documentation :: Help,
-    _operations :: Map Id (Operation f a (Pager Id)),
-    _shapes :: Map Id b,
-    _waiters :: Map Id c,
+    _operations :: HashMap Id (Operation f a (Pager Id)),
+    _shapes :: HashMap Id b,
+    _waiters :: HashMap Id c,
     _retry :: Retry
   }
   deriving (Generic)
@@ -459,16 +459,16 @@ instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
       p <- o .:? "pagination" .!= mempty
       Service m
         <$> o .: "documentation"
-        <*> (o .: "operations" <&> fmap (pager p))
+        <*> (o .: "operations" <&> HashMap.map (pager p))
         <*> o .: "shapes"
         <*> o .:? "waiters" .!= mempty
         <*> parseRetry (m ^. serviceAbbrev) o
     where
       pager ::
-        Map Id (Pager Id) ->
+        HashMap Id (Pager Id) ->
         Operation f a () ->
         Operation f a (Pager Id)
-      pager ps o = o & opPager .~ Map.lookup (o ^. opName) ps
+      pager ps o = o & opPager .~ HashMap.lookup (o ^. opName) ps
 
 type Shape = Cofree ShapeF
 

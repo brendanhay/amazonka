@@ -46,7 +46,7 @@ data Override = Override
     -- | Optional fields
     _optionalFields :: [Id],
     -- | Rename fields
-    _renamedFields :: Map Id Id
+    _renamedFields :: HashMap Id Id
   }
   deriving (Eq, Show)
 
@@ -99,9 +99,9 @@ data Config = Config
     -- Using a wildcard key of @*@ in the configuration results in the plugins
     -- being applied to _all_ operations. The wildcard is only applied if no
     -- matching operation name is found in the map.
-    _operationPlugins :: Map Id [Text],
+    _operationPlugins :: HashMap Id [Text],
     _typeModules :: [NS],
-    _typeOverrides :: Map Id Override,
+    _typeOverrides :: HashMap Id Override,
     _ignoredWaiters :: HashSet Id,
     _ignoredPaginators :: HashSet Id,
     _extraDependencies :: [Text]

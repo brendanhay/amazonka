@@ -6,7 +6,7 @@ import qualified Control.Lens as Lens
 import Data.Aeson ((.=))
 import qualified Data.Aeson as Aeson
 import Data.Aeson.Types (Pair)
-import qualified Data.Function as Function
+import Data.Ord (comparing)
 import qualified Data.Set as Set
 import qualified Data.Text as Text
 import Gen.Prelude
@@ -113,9 +113,9 @@ data SData
 instance Ord SData where
   compare a b =
     case (a, b) of
-      (Prod _ x _, Prod _ y _) -> Function.on compare _prodName x y
-      (Sum _ x _, Sum _ y _) -> Function.on compare _sumName x y
-      (Fun _, Fun _) -> EQ
+      (Prod _ x _, Prod _ y _) -> comparing _prodName x y
+      (Sum _ x _, Sum _ y _) -> comparing _sumName x y
+      (Fun x, Fun y) -> comparing _funName x y
       (Prod {}, _) -> GT
       (_, Prod {}) -> LT
       (Sum {}, _) -> GT

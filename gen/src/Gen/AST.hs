@@ -189,17 +189,17 @@ solve ::
   Config ->
   t (Shape Prefixed) ->
   t (Shape Solved)
-solve cfg ss = State.evalState (go ss) (replaced typeOf cfg)
+solve cfg ss = State.evalState (go ss) types
   where
     go = traverse (annotate Solved id (pure . typeOf))
 
-    replaced :: (Replace -> a) -> Config -> HashMap Id a
-    replaced f =
+    types :: HashMap Id TType
+    types =
       HashMap.fromList
-        . map (_replaceName &&& f)
+        . map (_replaceName &&& typeOf)
         . HashMap.elems
         . vMapMaybe _replacedBy
-        . _typeOverrides
+        $ _typeOverrides cfg
 
 type MemoS a = StateT (HashMap Id a) (Either String)
 

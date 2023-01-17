@@ -7,7 +7,7 @@ import qualified Control.Lens as Lens
 import qualified Data.Char as Char
 import qualified Data.Foldable as Fold
 import qualified Data.HashMap.Strict as HashMap
-import Data.List (find)
+import Data.List (find, sortOn)
 import qualified Data.List.NonEmpty as NE
 import qualified Data.Text as Text
 import Gen.AST.Data.Field
@@ -227,7 +227,8 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
 
     chk =
       Exts.sfun (ident "check") [ident "e"] . Exts.GuardedRhss () $
-        mapMaybe policy (r ^.. retryPolicies . kvTraversal) ++ [otherE nothingE]
+        mapMaybe policy (sortOn fst . HashMap.toList $ r ^. retryPolicies)
+          ++ [otherE nothingE]
       where
         policy (k, v) = (`guardE` Exts.app justE (str k)) <$> policyE v
 
@@ -275,8 +276,8 @@ pagerD n p =
       --
       Next ks t ->
         Exts.GuardedRhss () $
-          stop (notationE (_tokenOutput t)) :
-          map (stop . notationE) (Fold.toList ks)
+          stop (notationE (_tokenOutput t))
+            : map (stop . notationE) (Fold.toList ks)
             ++ [other [t]]
       --
       Many k (t :| ts) ->
@@ -344,8 +345,8 @@ notationE' withLensIso = \case
     accessors f
       | not withLensIso = var (fieldLens f)
       | otherwise =
-        foldl' (\a b -> Exts.infixApp a "Prelude.." b) (var (fieldLens f)) $
-          lensIso (typeOf f)
+          foldl' (\a b -> Exts.infixApp a "Prelude.." b) (var (fieldLens f)) $
+            lensIso (typeOf f)
 
     lensIso = \case
       TList1 x -> Exts.app (var "Lens.to") (var "Prelude.toList") : lensIso x
@@ -407,16 +408,16 @@ responseE p r fs = Exts.app (responseF p r fs) bdy
     parseOne :: Field -> Exp
     parseOne f
       | fieldLit f =
-        if fieldIsParam f
-          then Exts.app (var "Prelude.pure") (var "x")
-          else -- Coerce is inserted here to handle newtypes such as Sensitive.
+          if fieldIsParam f
+            then Exts.app (var "Prelude.pure") (var "x")
+            else -- Coerce is inserted here to handle newtypes such as Sensitive.
 
-            Exts.app (var "Prelude.pure")
-              . Exts.paren
-              . Exts.app justE
-              . Exts.paren
-              . Exts.app (var "Prelude.coerce")
-              $ var "x"
+              Exts.app (var "Prelude.pure")
+                . Exts.paren
+                . Exts.app justE
+                . Exts.paren
+                . Exts.app (var "Prelude.coerce")
+                $ var "x"
       -- This ensures anything which is set as a payload,
       -- but is a primitive type is just consumed as a bytestring.
       | otherwise = parseAll
@@ -461,8 +462,8 @@ hashableD n fs =
     rhs
       | null fs = hashWithSaltE (Exts.var "_salt") (Exts.tuple [])
       | otherwise =
-        foldl' hashWithSaltE (Exts.var "_salt") $
-          var . fieldAccessor <$> fs
+          foldl' hashWithSaltE (Exts.var "_salt") $
+            var . fieldAccessor <$> fs
 
     hashWithSaltE l r = Exts.infixApp l "`Prelude.hashWithSalt`" r
 
@@ -626,11 +627,11 @@ parseXMLE p f = case outputNames p f of
 
     wrapSensitive
       | sensitive =
-        Exts.app
-          ( Exts.app
-              (var "Prelude.fmap")
-              (Exts.app (var "Prelude.fmap") (var "Data.Sensitive"))
-          )
+          Exts.app
+            ( Exts.app
+                (var "Prelude.fmap")
+                (Exts.app (var "Prelude.fmap") (var "Data.Sensitive"))
+            )
       | otherwise = id
 
     wrapMay
@@ -716,14 +717,14 @@ toGenericE :: Protocol -> QOp -> Text -> Exp -> Exp -> Field -> Exp
 toGenericE p toO toF toM toL f = case inputNames p f of
   NMap mn e k v
     | fieldMaybe f ->
-      flatE mn toO . Exts.app (var toF) $ Exts.appFun toM [str e, str k, str v, var "Prelude.<$>", a]
+        flatE mn toO . Exts.app (var toF) $ Exts.appFun toM [str e, str k, str v, var "Prelude.<$>", a]
     | otherwise ->
-      flatE mn toO $ Exts.appFun toM [str e, str k, str v, a]
+        flatE mn toO $ Exts.appFun toM [str e, str k, str v, a]
   NList mn i
     | fieldMaybe f ->
-      flatE mn toO . Exts.app (var toF) $ Exts.appFun toL [str i, var "Prelude.<$>", a]
+        flatE mn toO . Exts.app (var toF) $ Exts.appFun toL [str i, var "Prelude.<$>", a]
     | otherwise ->
-      flatE mn toO $ Exts.appFun toL [str i, a]
+        flatE mn toO $ Exts.appFun toL [str i, a]
   NName n ->
     encodeE n toO a
   where
@@ -821,11 +822,11 @@ requestF c meta h r is =
       _
         | p == Query,
           m == POST ->
-          Just "Query"
+            Just "Query"
       _
         | p == EC2,
           m == POST ->
-          Just "Query"
+            Just "Query"
       _ -> Nothing
 
     m = h ^. method
@@ -939,7 +940,7 @@ directed i m d (typeOf -> t) = case t of
       Just Output -> "Data.ResponseBody" -- Response stream.
       Just Input
         | m ^. signatureVersion == S3 ->
-          "Data.RequestBody" -- If the signer supports chunked encoding, both body types are accepted.
+            "Data.RequestBody" -- If the signer supports chunked encoding, both body types are accepted.
         | otherwise -> "Data.HashedBody" -- Otherwise only a pre-hashed body is accepted.
 
 mapping :: TType -> Exp -> Exp

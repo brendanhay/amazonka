@@ -1,16 +1,17 @@
 -- |
 -- Module      : Amazonka.Presign
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- This module contains functions for presigning requests using 'MonadIO' and
--- not one of the AWS specific transformers.
---
--- It is intended for use directly with "Amazonka.Auth" when only presigning
--- and no other AWS actions are required.
+-- It is intended for use directly with 'Amazonka.Auth.Auth' when only
+-- presigning and no other AWS actions are required.
+-- See 'Amazonka.Auth.withAuth' to extract an 'AuthEnv' from an 'Auth'.
+
+{-# LANGUAGE BangPatterns #-}
+
 module Amazonka.Presign where
 
 import Amazonka.Data
@@ -24,8 +25,8 @@ import qualified Network.HTTP.Types as HTTP
 --
 -- /See:/ 'presign', 'presignWith'
 presignURL ::
-  (MonadIO m, AWSRequest a) =>
-  Auth ->
+  (AWSRequest a) =>
+  AuthEnv ->
   Region ->
   -- | Signing time.
   UTCTime ->
@@ -33,18 +34,16 @@ presignURL ::
   Seconds ->
   -- | Request to presign.
   a ->
-  m ByteString
-presignURL a r e ts =
-  fmap clientRequestURL
-    . presign a r e ts
+  ByteString
+presignURL a r e ts = clientRequestURL . presign a r e ts
 
 -- | Presign an HTTP request that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
 --
 -- /See:/ 'presignWith', 'presignWithHeaders'
 presign ::
-  (MonadIO m, AWSRequest a) =>
-  Auth ->
+  (AWSRequest a) =>
+  AuthEnv ->
   Region ->
   -- | Signing time.
   UTCTime ->
@@ -52,7 +51,7 @@ presign ::
   Seconds ->
   -- | Request to presign.
   a ->
-  m ClientRequest
+  ClientRequest
 presign =
   presignWith id
 
@@ -61,10 +60,10 @@ presign =
 --
 -- /See:/ 'presignWithHeaders'
 presignWith ::
-  (MonadIO m, AWSRequest a) =>
+  (AWSRequest a) =>
   -- | Modify the default service configuration.
   (Service -> Service) ->
-  Auth ->
+  AuthEnv ->
   Region ->
   -- | Signing time.
   UTCTime ->
@@ -72,7 +71,7 @@ presignWith ::
   Seconds ->
   -- | Request to presign.
   a ->
-  m ClientRequest
+  ClientRequest
 presignWith = presignWithHeaders defaultHeaders
 
 -- | Modification to the headers that is applied by default (in 'presignWith');
@@ -83,13 +82,13 @@ defaultHeaders = filter ((/= hExpect) . fst)
 -- | A variant of 'presign' that allows modifying the default 'Headers'
 -- and the default 'Service' definition used to configure the request.
 presignWithHeaders ::
-  forall a m.
-  (MonadIO m, AWSRequest a) =>
+  forall a.
+  (AWSRequest a) =>
   -- | Modify the default headers.
   ([Header] -> [Header]) ->
   -- | Modify the default service configuration.
   (Service -> Service) ->
-  Auth ->
+  AuthEnv ->
   Region ->
   -- | Signing time.
   UTCTime ->
@@ -97,10 +96,10 @@ presignWithHeaders ::
   Seconds ->
   -- | Request to presign.
   a ->
-  m ClientRequest
-presignWithHeaders f g a r ts ex x =
-  withAuth a $ \ae ->
-    let rq@Request {headers} = request g x
-        rq' :: Request a
-        rq' = rq {headers = f headers}
-     in pure $! signedRequest $ requestPresign ex rq' ae r ts
+  ClientRequest
+presignWithHeaders f g ae r ts ex x =
+  let rq@Request {headers} = request g x
+      rq' :: Request a
+      rq' = rq {headers = f headers}
+      !creq = signedRequest $ requestPresign ex rq' ae r ts
+   in creq

@@ -1,12 +1,12 @@
 -- |
 -- Module      : Amazonka.Presign
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- It is intended for use directly with "Amazonka.Auth.Auth" when only
+-- It is intended for use directly with 'Amazonka.Auth.Auth' when only
 -- presigning and no other AWS actions are required.
 -- See 'Amazonka.Auth.withAuth' to extract an 'AuthEnv' from an 'Auth'.
 

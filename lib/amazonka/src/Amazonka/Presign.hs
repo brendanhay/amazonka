@@ -6,11 +6,9 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- This module contains functions for presigning requests using 'MonadIO' and
--- not one of the AWS specific transformers.
---
--- It is intended for use directly with "Amazonka.Auth" when only presigning
--- and no other AWS actions are required.
+-- It is intended for use directly with "Amazonka.Auth.Auth" when only
+-- presigning and no other AWS actions are required.
+-- See 'Amazonka.Auth.withAuth' to extract an 'AuthEnv' from an 'Auth'.
 
 {-# LANGUAGE BangPatterns #-}
 

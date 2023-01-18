@@ -18,6 +18,7 @@ module Amazonka.Auth
 
     -- ** Retrieving Authentication
     Auth (..),
+    withAuth,
 
     -- ** Automatically Fetching Credentials
     discover,

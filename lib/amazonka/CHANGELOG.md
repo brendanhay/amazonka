@@ -109,6 +109,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka`: Presigning functions do not require `MonadIO`.
+[\#885](https://github.com/brendanhay/amazonka/pull/885)
 - `gen` / `amazonka-*`: Sort generated code so that outputs are stable across regenerations.
 [\#890](https://github.com/brendanhay/amazonka/pull/890)
 - `amazonka-core`/`amazonka`: Various time-related data types and the `_Time` `Iso'` are re-exported by `Amazonka.Core` and therefore `Amazonka`.

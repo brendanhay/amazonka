@@ -130,6 +130,7 @@
 --                  |            Yes          |         |
 --                  |                         V         |
 --                  | No               Run Hook: error  |
+--                  |                    ('NotFinal')     |
 --                  |                         |         |
 --                  +-<-----------------------\'         |
 --                  V                                   |
@@ -137,11 +138,18 @@
 --                  |            Yes
 --                  | No
 --                  V
---     Run Hook: response
---                  |
---                  V
---     Amazonka: parse response
---                  |
+--     Amazonka: was error? ------------------.
+--                  |            Yes          |
+--                  |                         V
+--                  | No                      |
+--                  |                         |
+--     Run Hook: response              Run Hook: error
+--                  |                     ('Final')
+--                  |                         |
+--                  V                         |
+--     Amazonka: parse response               |
+--                  |                         |
+--                  +-<-----------------------\'
 --                  V
 --     Amazonka: return result
 -- @
@@ -149,6 +157,7 @@ module Amazonka.Env.Hooks
   ( Hook,
     Hook_,
     Hooks (..),
+    Finality (..),
 
     -- * Updating members of 'Hooks'
     requestHook,
@@ -197,9 +206,10 @@ import Amazonka.Types
     Signed (..),
   )
 import Amazonka.Waiter (Accept, Wait (..))
-import Control.Lens (Getting, (^?))
+import Control.Lens (Getting, has)
 import qualified Control.Retry as Retry
 import Data.List (intersperse)
+import Data.Monoid (Any)
 import Data.Typeable (Typeable, eqT, (:~:) (..))
 
 -- | A hook that returns an updated version of its arguments.
@@ -207,6 +217,13 @@ type Hook a = forall withAuth. Env' withAuth -> a -> IO a
 
 -- | A hook that cannot return an updated version of its argument.
 type Hook_ a = forall withAuth. Env' withAuth -> a -> IO ()
+
+-- | Indicates whether an error hook is potentially going to be
+-- retried.
+--
+-- /See:/ 'error'
+data Finality = NotFinal | Final
+  deriving stock (Bounded, Enum, Eq, Ord, Show, Generic)
 
 data Hooks = Hooks
   { -- | Called at the start of request processing, before the request
@@ -273,7 +290,14 @@ data Hooks = Hooks
       Hook_ (Request a, ClientResponse (AWSResponse a)),
     -- | Called whenever an AWS request returns an 'Error', even when
     -- the corresponding request is retried.
-    error :: forall a. (AWSRequest a, Typeable a) => Hook_ (Request a, Error)
+    --
+    -- On the final error after all retries, this hook will be called
+    -- twice: once with @NotFinal@ and once with @Final@. This
+    -- behavior may change in a future version.
+    error ::
+      forall a.
+      (AWSRequest a, Typeable a) =>
+      Hook_ (Finality, Request a, Error)
   }
 
 {-# INLINE requestHook #-}
@@ -384,8 +408,8 @@ responseHook f hooks@Hooks {response} =
 errorHook ::
   ( forall a.
     (AWSRequest a, Typeable a) =>
-    Hook_ (Request a, Error) ->
-    Hook_ (Request a, Error)
+    Hook_ (Finality, Request a, Error) ->
+    Hook_ (Finality, Request a, Error)
   ) ->
   Hooks ->
   Hooks
@@ -477,7 +501,7 @@ removeHooksFor oldHook = \env -> case eqT @a @b of
 --
 -- @
 -- -- Example: Prevent any error hooks from running against errors caused by a @PutObjectRequest@:
--- errorHook (removeHooksFor @(Request PutObjectRequest, Error)) :: Hooks -> Hooks
+-- errorHook (removeHooksFor @(Finality, Request PutObjectRequest, Error)) :: Hooks -> Hooks
 -- @
 removeHooksFor_ :: forall a b. (Typeable a, Typeable b) => Hook_ b -> Hook_ b
 removeHooksFor_ oldHook = \env a -> case eqT @a @b of
@@ -494,14 +518,20 @@ removeHooksFor_ oldHook = \env a -> case eqT @a @b of
 -- -- this silences a single type of error for a single call:
 -- send (env & #hooks %~ errorHook (silenceError DynamoDB._ConditionalCheckFailedException))
 -- @
+--
+-- @
+-- 'silenceError' :: Getter Error e     -> 'Hook_' ('Finality', Request a, Error) -> 'Hook_' ('Finality', Request a, Error)
+-- 'silenceError' :: Fold Error e       -> 'Hook_' ('Finality', Request a, Error) -> 'Hook_' ('Finality', Request a, Error)
+-- 'silenceError' :: Iso' Error e       -> 'Hook_' ('Finality', Request a, Error) -> 'Hook_' ('Finality', Request a, Error)
+-- 'silenceError' :: Lens' Error e      -> 'Hook_' ('Finality', Request a, Error) -> 'Hook_' ('Finality', Request a, Error)
+-- 'silenceError' :: Traversal' Error e -> 'Hook_' ('Finality', Request a, Error) -> 'Hook_' ('Finality', Request a, Error)
+-- @
 silenceError ::
-  Getting (First e) Error e ->
-  Hook_ (Request a, Error) ->
-  Hook_ (Request a, Error)
-silenceError g oldHook = \env t@(_, err) ->
-  case err ^? g of
-    Nothing -> oldHook env t
-    Just _ -> pure ()
+  Getting Any Error e ->
+  Hook_ (Finality, Request a, Error) ->
+  Hook_ (Finality, Request a, Error)
+silenceError g oldHook = \env t@(_, _, err) ->
+  if has g err then pure () else oldHook env t
 
 -- | Add default logging hooks. The default 'Env'' from
 -- 'Amazonka.Env.newEnv' already has logging hooks installed, so you
@@ -548,9 +578,11 @@ addLoggingHooks
               build (Retry.rsIterNumber retryStatus + 1),
               "attempts."
             ],
-        error = \env@Env {logger} t@(_, err) -> do
+        error = \env@Env {logger} t@(finality, _, err) -> do
           error env t
-          logError logger err
+          case finality of
+            NotFinal -> logDebug logger err
+            Final -> logError logger err
       }
     where
       munwords = mconcat . intersperse " "

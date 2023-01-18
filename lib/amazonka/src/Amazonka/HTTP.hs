@@ -20,6 +20,7 @@ where
 import Amazonka.Core.Lens.Internal (to, (^?), _Just)
 import Amazonka.Data.Body (isStreaming)
 import Amazonka.Env hiding (auth)
+import Amazonka.Env.Hooks (Finality (..))
 import qualified Amazonka.Env.Hooks as Hooks
 import Amazonka.Prelude
 import Amazonka.Types
@@ -69,7 +70,9 @@ retryRequest env@Env {hooks} rq = do
           serviceErr =
             _ServiceError . to serviceRetryCheck . _Just
 
-  Retry.retrying policy shouldRetry attempt
+  Retry.retrying policy shouldRetry attempt >>= \case
+    Left e -> Left e <$ liftIO (Hooks.error hooks env (Final, cfgRq, e))
+    Right a -> pure $ Right a
 
 awaitRequest ::
   ( MonadResource m,
@@ -99,10 +102,10 @@ awaitRequest env@Env {hooks} w rq = do
           AcceptFailure -> False
           AcceptRetry -> True
 
-  Retry.retrying policy check attempt <&> \case
-    (AcceptSuccess, _) -> Right AcceptSuccess
-    (_, Left e) -> Left e
-    (a, _) -> Right a
+  Retry.retrying policy check attempt >>= \case
+    (AcceptSuccess, _) -> pure $ Right AcceptSuccess
+    (_, Left e) -> Left e <$ liftIO (Hooks.error hooks env (Final, cfgRq, e))
+    (a, _) -> pure $ Right a
 
 -- | Make a one-shot request to AWS, using a configured 'Request'
 -- (which contains the 'Service', plus any overrides).
@@ -146,7 +149,7 @@ httpRequest env@Env {hooks, manager, region} cfgRq =
         Handler $ err . TransportError
       ]
       where
-        err e = Left e <$ Hooks.error hooks env (cfgRq, e)
+        err e = Left e <$ Hooks.error hooks env (NotFinal, cfgRq, e)
 
     proxy :: Request a -> Proxy a
     proxy _ = Proxy

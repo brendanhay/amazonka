@@ -37,7 +37,7 @@ import qualified Data.Scientific as Scientific
 import qualified Data.Text as Text
 import qualified Data.Time as Time
 import Data.Time.Clock.POSIX
-import Data.Time.Format (defaultTimeLocale, formatTime, iso8601DateFormat)
+import Data.Time.Format (defaultTimeLocale, formatTime)
 
 data Format
   = RFC822Format
@@ -80,7 +80,7 @@ instance TimeFormat RFC822 where
   format _ = "%a, %d %b %Y %H:%M:%S %Z"
 
 instance TimeFormat ISO8601 where
-  format _ = iso8601DateFormat (Just "%XZ")
+  format _ = "FT%XZ"
 
 instance TimeFormat BasicTime where
   format _ = "%Y%m%d"

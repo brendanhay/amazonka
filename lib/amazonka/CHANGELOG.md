@@ -166,6 +166,9 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
+- `amazonka-core`: Stop calling `iso8601DateFormat` and using `*` to mean `Data.Kind.Type`
+[\#885](https://github.com/brendanhay/amazonka/pull/885),
+[\#892](https://github.com/brendanhay/amazonka/pull/892)
 - `amazonka-s3`: Properly format timestamps
 [\#881](https://github.com/brendanhay/amazonka/pull/881)
 - `gen`: Take per-shape `timestampFormat` annotations into account.

@@ -80,7 +80,7 @@ instance TimeFormat RFC822 where
   format _ = "%a, %d %b %Y %H:%M:%S %Z"
 
 instance TimeFormat ISO8601 where
-  format _ = "FT%XZ"
+  format _ = "%FT%XZ"
 
 instance TimeFormat BasicTime where
   format _ = "%Y%m%d"

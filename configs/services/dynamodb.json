@@ -35,11 +35,6 @@
                 "underive": []
             }
         },
-        "GetItemOutput": {
-            "requiredFields": [
-                "Item"
-            ]
-        },
         "PutRequest": {
             "replacedBy": {
                 "name": "",

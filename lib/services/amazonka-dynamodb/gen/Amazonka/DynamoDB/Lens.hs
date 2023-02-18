@@ -222,8 +222,8 @@ module Amazonka.DynamoDB.Lens
     getItem_tableName,
     getItem_key,
     getItemResponse_consumedCapacity,
-    getItemResponse_httpStatus,
     getItemResponse_item,
+    getItemResponse_httpStatus,
 
     -- ** ImportTable
     importTable_clientToken,

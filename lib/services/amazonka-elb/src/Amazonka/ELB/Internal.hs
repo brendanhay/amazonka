@@ -21,6 +21,10 @@ import Amazonka.Data
 -- | This account identifier is used when attaching a policy to your S3 bucket
 -- allowing ELB to upload and write access logs.
 --
+-- For regions launched in August 2022 or later, you should instead
+-- provide a policy that grants permissions to the
+-- @logdelivery.elasticloadbalancing.amazonaws.com@ principal.
+--
 -- /See:/ <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy Attach a Policy to Your S3 Bucket>.
 getAccountId :: Region -> Maybe Text
 getAccountId = \case

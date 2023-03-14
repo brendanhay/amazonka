@@ -109,6 +109,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-core`/`amazonka-redshift`/`amazonka-route53`/`amazonka-s3`: Support Melbourne region (`ap-southeast-4`).
+[\#897](https://github.com/brendanhay/amazonka/pull/897)
 - `amazonka`: Presigning functions do not require `MonadIO`.
 [\#885](https://github.com/brendanhay/amazonka/pull/885)
 - `gen` / `amazonka-*`: Sort generated code so that outputs are stable across regenerations.

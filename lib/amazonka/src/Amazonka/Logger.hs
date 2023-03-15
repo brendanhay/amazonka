@@ -27,10 +27,13 @@ where
 
 import Amazonka.Data
 import Amazonka.Prelude
-import Amazonka.Types
 import qualified Control.Monad as Monad
 import qualified Data.ByteString.Builder as Build
 import qualified System.IO as IO
+
+-- | A logging function called by various default hooks to log
+-- informational and debug messages.
+type Logger = LogLevel -> ByteStringBuilder -> IO ()
 
 -- | This is a primitive logger which can be used to log builds to a 'Handle'.
 --
@@ -46,6 +49,34 @@ newLogger x hd =
     pure $ \y b ->
       Monad.when (x >= y) $
         Build.hPutBuilder hd (b <> "\n")
+
+data LogLevel
+  = -- | Info messages supplied by the user - this level is not emitted by the library.
+    Info
+  | -- | Error messages only.
+    Error
+  | -- | Useful debug information + info + error levels.
+    Debug
+  | -- | Includes potentially sensitive signing metadata, and non-streaming response bodies.
+    Trace
+  deriving stock (Eq, Ord, Enum, Show, Generic)
+
+instance FromText LogLevel where
+  fromText = \case
+    "info" -> pure Info
+    "error" -> pure Error
+    "debug" -> pure Debug
+    "trace" -> pure Trace
+    other -> Left ("Failure parsing LogLevel from " ++ show other)
+
+instance ToText LogLevel where
+  toText = \case
+    Info -> "info"
+    Error -> "error"
+    Debug -> "debug"
+    Trace -> "trace"
+
+instance ToByteString LogLevel
 
 logError, logInfo, logDebug, logTrace :: (MonadIO m, ToLog a) => Logger -> a -> m ()
 logError f = liftIO . f Error . build

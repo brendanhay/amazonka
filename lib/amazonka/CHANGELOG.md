@@ -5,6 +5,14 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Major Changes
 
+- A system of "hooks" was added in PR [\#875](https://github.com/brendanhay/amazonka/pull/875), allowing library clients to inject custom behavior at key points in the request/response cycle. Logging has been reimplemented in terms of these hooks, but they open up a lot of other customization options. Some examples of things that should now be possible:
+
+  - Injecting a [Trace ID for AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader) into each request before it is signed and sent,
+  - Selectively silencing logging for expected error messages, such as DynamoDB's `ConditionalCheckFailedException`, and
+  - Logging all requests Amazonka makes to a separate log, enabling audit of which IAM actions an program actually needs.
+
+  The hooks API is currently experimental, and may change in a later version. Full details and examples are in the `Amazonka.Env.Hooks` module.
+
 - The authentication code in `amazonka` got a full rewrite in PR [\#746](https://github.com/brendanhay/amazonka/pull/746).
 
   - On Windows, the {credential,config} files are read from `%USERPROFILE%\\.aws\\{credentials,config}` to [match the AWS SDK](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-file.html#creds-file-general-info).
@@ -119,6 +127,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 [\#884](https://github.com/brendanhay/amazonka/pull/884)
 - `amazonka-core`: service error matchers are now `AsError a => Fold a ServiceError` instead of `AsError a => Getting (First ServiceError) a ServiceError`. This makes them more flexible (e.g., usable with `Control.Lens.has`), but existing uses should be unaffected.
 [\#878](https://github.com/brendanhay/amazonka/pull/878)
+- `amazonka-core`: The `Logger` and `LogLevel` types and associated functions have been moved to `Amazonka.Logger`.
+[\#875](https://github.com/brendanhay/amazonka/pull/875)
 - `amazonka`: The `override :: Dual (Endo Service)` has been replaced by `overrides :: Service -> Service`.
 [\#870](https://github.com/brendanhay/amazonka/pull/870)
 - `amazonka-core`: `Endpoint` now has a `basePath :: RawPath`. Handy with `amazonka-apigatewaymanagementapi`.

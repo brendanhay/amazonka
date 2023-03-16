@@ -29,7 +29,7 @@ module Network.AWS.Internal.Logger
 
 import           Control.Monad
 import           Control.Monad.IO.Class
-import qualified Data.ByteString.Lazy.Builder as Build
+import qualified Data.ByteString.Builder as Build
 import           Data.Monoid
 import           Network.AWS.Data.Log
 import           Network.AWS.Types

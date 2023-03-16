@@ -160,7 +160,6 @@ import Control.Monad.Trans.AWS      (AWST)
 import Control.Monad.Trans.Class    (lift)
 import Control.Monad.Trans.Except   (ExceptT)
 import Control.Monad.Trans.Identity (IdentityT)
-import Control.Monad.Trans.List     (ListT)
 import Control.Monad.Trans.Maybe    (MaybeT)
 import Control.Monad.Trans.Reader   (ReaderT)
 import Control.Monad.Trans.Resource
@@ -204,7 +203,6 @@ instance MonadAWS AWS where
     liftAWS = id
 
 instance MonadAWS m => MonadAWS (IdentityT   m) where liftAWS = lift . liftAWS
-instance MonadAWS m => MonadAWS (ListT       m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (MaybeT      m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ExceptT   e m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ReaderT   r m) where liftAWS = lift . liftAWS

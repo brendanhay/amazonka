@@ -107,9 +107,15 @@ serviceError :: Abbrev
 serviceError a s h c m r =
     ServiceError' a s h (fromMaybe (getErrorCode s h) c) m (r <|> getRequestId h)
 
+-- Based on
+-- https://hackage.haskell.org/package/transformers-0.5.6.2/docs/src/Control.Monad.Trans.Error.html#line-98
+infixl 3 `altEither`
+altEither (Left _) v = v
+altEither v _ = v
+
 getRequestId :: [Header] -> Maybe RequestId
 getRequestId h =
-    either (const Nothing) Just (h .# hAMZRequestId <|> h .# hAMZNRequestId)
+    either (const Nothing) Just (h .# hAMZRequestId `altEither` h .# hAMZNRequestId)
 
 getErrorCode :: Status -> [Header] -> ErrorCode
 getErrorCode s h =
@@ -147,10 +153,10 @@ parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
     go x = serviceError a s h
         <$> code x
         <*> may (firstElement "Message"   x)
-        <*> may (firstElement "RequestId" x  <|> firstElement "RequestID" x)
+        <*> may (firstElement "RequestId" x  `altEither` firstElement "RequestID" x)
 
     code x = Just <$> (firstElement "Code" x >>= parseXML)
-         <|> return root
+         `altEither` return root
 
     root = errorCode <$> rootElementName bs
 

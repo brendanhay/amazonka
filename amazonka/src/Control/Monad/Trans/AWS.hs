@@ -243,8 +243,8 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
     restoreM     = defaultRestoreM
 
 instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
-    askUnliftIO = AWST' $ (\(UnliftIO f) -> UnliftIO $ f . unAWST)
-        <$> askUnliftIO
+    withRunInIO inner = (AWST' $ (\(UnliftIO f) -> UnliftIO $ f . unAWST) <$> askUnliftIO) >>= \u -> liftIO (inner (unliftIO u)) 
+
 
 instance MonadResource m => MonadResource (AWST' r m) where
     liftResourceT = lift . liftResourceT

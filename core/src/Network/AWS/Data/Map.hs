@@ -47,6 +47,9 @@ import           Network.AWS.Lens            (Iso', iso)
 import           Network.HTTP.Types          (ResponseHeaders)
 import           Text.XML                    (Node)
 
+import qualified Data.Aeson.KeyMap
+import qualified Data.Aeson.Key
+
 newtype Map k v = Map { toMap :: HashMap k v }
     deriving
         ( Functor
@@ -77,14 +80,14 @@ instance (Hashable k, Eq k) => IsList (Map k v) where
    toList   = Map.toList . toMap
 
 instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
-    parseJSON = withObject "HashMap" (fmap fromList . traverse f . toList)
+    parseJSON = withObject "HashMap" (fmap fromList . traverse f . map (first Data.Aeson.Key.toText) . toList)
       where
         f (k, v) = (,)
             <$> either fail return (fromText k)
             <*> parseJSON v
 
 instance (Eq k, Hashable k, ToText k, ToJSON v) => ToJSON (Map k v) where
-    toJSON = Object . fromList . map (bimap toText toJSON) . toList
+    toJSON = Object . Data.Aeson.KeyMap.fromList . map (bimap (Data.Aeson.Key.fromText . toText) toJSON) . toList
 
 instance (Eq k, Hashable k, ToByteString k, ToText v) => ToHeader (Map k v) where
     toHeader p = map (bimap k v) . toList

@@ -28,7 +28,7 @@ import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Conduit
-import           Data.HashMap.Strict          (HashMap)
+import           Data.HashMap.Strict          (HashMap, mapKeys)
 import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
@@ -43,6 +43,9 @@ import           Network.AWS.Data.XML         (encodeXML)
 import           Network.AWS.Lens             (AReview, Lens', lens, to, un)
 import           Network.HTTP.Conduit
 import           Text.XML                     (Element)
+
+import qualified Data.Aeson.KeyMap
+import qualified Data.Aeson.Key
 
 default (Builder)
 
@@ -195,7 +198,7 @@ instance ToHashedBody Element        where toHashed = toHashed . encodeXML
 instance ToHashedBody QueryString    where toHashed = toHashed . toBS
 
 instance ToHashedBody (HashMap Text Value) where
-    toHashed = toHashed . Object
+    toHashed = toHashed . Object . Data.Aeson.KeyMap.fromHashMap . mapKeys Data.Aeson.Key.fromText
 
 -- | Anything that can be converted to a streaming request 'Body'.
 class ToBody a where

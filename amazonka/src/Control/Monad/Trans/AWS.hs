@@ -168,6 +168,7 @@ import Control.Monad.State.Class
 import Control.Monad.Trans.Control
 import Control.Monad.Trans.Resource
 import Control.Monad.Writer.Class
+import Control.Monad (MonadPlus(..), (>=>), liftM)
 
 import Data.Conduit      hiding (await)
 import Data.Conduit.Lazy (MonadActive (..))

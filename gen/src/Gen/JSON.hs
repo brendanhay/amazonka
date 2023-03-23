@@ -1,13 +1,12 @@
 module Gen.JSON where
 
 import qualified Data.Aeson as Aeson
+import qualified Data.Aeson.KeyMap as Aeson.KeyMap
 import Data.Aeson.Types (Object, Value (..))
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as ByteString.Lazy
-import qualified Data.HashMap.Strict as HashMap
 import Gen.IO
 import Gen.Prelude
-import qualified Text.EDE as EDE
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
 
@@ -28,7 +27,9 @@ optional path = do
 objectErr :: ToJSON a => String -> a -> Either String Object
 objectErr n x =
   note ("Failed to extract JSON object from value " ++ n) $
-    EDE.fromValue (Aeson.toJSON x)
+    case Aeson.toJSON x of
+      Object m -> Just m
+      _other -> Nothing
 
 decode :: ByteString -> Either String Object
 decode = Aeson.eitherDecode' . ByteString.Lazy.fromStrict
@@ -40,7 +41,7 @@ merge :: [Object] -> Object
 merge = foldr go mempty
   where
     go :: Object -> Object -> Object
-    go = HashMap.unionWith value
+    go = Aeson.KeyMap.unionWith value
 
     value :: Value -> Value -> Value
     value l r =

@@ -6,7 +6,6 @@
 
     flake-utils = {
       url = "github:numtide/flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     pre-commit-hooks = {
@@ -33,24 +32,17 @@
 
         renameVersion = version: "ghc" + (pkgs.lib.replaceStrings [ "." ] [ "" ] version);
 
-        supportedGHCs =
-          let
-            ghcVersion = renameVersion pkgs.haskellPackages.ghc.version;
-            cases = {
-              ghc902 = pkgs.haskell.packages."ghc902";
-              ghc926 = pkgs.haskell.packages."ghc926";
-              ghc927 = pkgs.haskell.packages."ghc927";
-              ghc944 = pkgs.haskell.packages."ghc944";
-              ghc961 = pkgs.haskell.packages."ghc961";
-            };
-          in
-          { default = cases."${ghcVersion}"; } // cases;
+        supportedGHCs = {
+          ghc902 = pkgs.haskell.packages."ghc902";
+          ghc927 = pkgs.haskell.packages."ghc927";
+          ghc944 = pkgs.haskell.packages."ghc944";
+          ghc961 = pkgs.haskell.packages."ghc961";
+        };
 
         ghc902 = supportedGHCs.ghc902;
-        ghc926 = supportedGHCs.ghc926;
+        ghc927 = supportedGHCs.ghc927;
         ghc944 = supportedGHCs.ghc944;
         ghc961 = supportedGHCs.ghc961;
-        ghcDefault = supportedGHCs.default;
 
         mkDevShell = hsPkgs: pkgs.mkShell {
           name = "amazonka-${renameVersion hsPkgs.ghc.version}";
@@ -79,10 +71,9 @@
       {
         devShells = {
           ghc902 = mkDevShell ghc902;
-          ghc926 = mkDevShell ghc926;
           ghc944 = mkDevShell ghc944;
           ghc961 = mkDevShell ghc961;
-          default = mkDevShell ghcDefault;
+          default = mkDevShell ghc927;
         };
 
         checks = {

@@ -18,7 +18,7 @@ import qualified System.FilePath as FilePath
 import qualified System.IO as IO
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
-import qualified WordFrequency
+import qualified Gen.WordFrequency
 
 data Options = Options
   { botocoreDir :: FilePath,
@@ -57,7 +57,7 @@ main = do
       annexDir = configDir </> "annexes"
 
   frequencies <-
-    fmap WordFrequency.newTable (ByteString.readFile wordFrequencies) >>= \case
+    fmap Gen.WordFrequency.newTable (ByteString.readFile wordFrequencies) >>= \case
       Left err -> UnliftIO.throwString err
       Right ok -> pure ok
 
@@ -88,7 +88,7 @@ main = do
       -- version of a service definition and then check for the presence of a
       -- serviceAbbreviation key, otherwise falling back to word frequencies.
       let ascii = ByteString.Char8.split '-' (ByteString.Char8.pack name)
-          words = concatMap (WordFrequency.inferWords frequencies) ascii
+          words = concatMap (Gen.WordFrequency.inferWords frequencies) ascii
           abbrev = foldMap (upperHead . Text.Encoding.decodeUtf8) words
 
       ByteString.Lazy.writeFile annexFile

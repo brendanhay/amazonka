@@ -1,4 +1,4 @@
-module WordFrequency
+module Gen.WordFrequency
   ( Table,
     newTable,
     lookup,

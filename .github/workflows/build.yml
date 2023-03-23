@@ -62,6 +62,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.ghc }}-
 
+      - name: cabal build amazonka-gen
+        run: |
+          nix develop --print-build-logs --command \
+              bash -c 'cabal build amazonka-gen' '.#${{matrix.ghc}}'
+
       - name: cabal build amazonka-core amazonka
         run: |
           nix develop --print-build-logs --command \

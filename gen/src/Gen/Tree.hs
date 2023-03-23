@@ -7,6 +7,8 @@ where
 import qualified Control.Lens as Lens
 import Data.Aeson ((.=))
 import qualified Data.Aeson as Aeson
+import qualified Data.Aeson.KeyMap as Aeson.KeyMap
+import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.List as List
 import qualified Data.Set as Set
 import qualified Data.Text as Text
@@ -77,13 +79,13 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
               Dir "Test" $
                 [ Dir "Amazonka" $
                     [ touch (l ^. serviceAbbrev <> ".hs") testNamespaceTemplate $
-                        EDE.fromPairs
+                        fromPairs
                           [ "moduleName"
                               .= ("Test.Amazonka." <> l ^. serviceAbbrev)
                           ],
                       Dir svc $
                         [ touch "Internal.hs" testInternalTemplate $
-                            EDE.fromPairs
+                            fromPairs
                               [ "moduleName"
                                   .= ("Test.Amazonka." <> l ^. serviceAbbrev <> ".Internal")
                               ]
@@ -128,10 +130,10 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
     fixture o =
       [ touch (n <> "Response.proto") blankTemplate mempty,
         touch (n <> ".yaml") fixtureRequestTemplate $
-          EDE.fromPairs
-            [ "method" .= (o ^. opHttp . method),
-              "endpointPrefix" .= (l ^. endpointPrefix)
-            ]
+            fromPairs
+              [ "method" .= (o ^. opHttp . method),
+                "endpointPrefix" .= (l ^. endpointPrefix)
+              ]
       ]
       where
         n = typeId (_opName o)
@@ -215,27 +217,29 @@ module' :: ToJSON a => Module a -> DirTree (Either String Rendered)
 module' Module {..} =
   render (FilePath.takeFileName (nsToPath name)) template $ do
     x <- env >>= JSON.objectErr (show name)
-    pure $! x
-      <> EDE.fromPairs
-        [ "moduleName" .= name,
-          "moduleImports" .= imports,
-          "templateName" .= templateName name
-        ]
+    pure $! x <> fromPairs pairs
   where
     templateName (NS xs) = List.last xs
+
+    pairs =
+      [ "moduleName" .= name,
+        "moduleImports" .= imports,
+        "templateName" .= templateName name
+      ]
 
 bootModule' :: ToJSON a => Module a -> DirTree (Either String Rendered)
 bootModule' Module {..} =
   render (FilePath.takeFileName (nsToPath name) <> "-boot") template $ do
     x <- env >>= JSON.objectErr (show name)
-    pure $! x
-      <> EDE.fromPairs
-        [ "moduleName" .= name,
-          "moduleImports" .= imports,
-          "templateName" .= templateName name
-        ]
+    pure $! x <> fromPairs pairs
   where
     templateName (NS xs) = List.last xs
+
+    pairs =
+      [ "moduleName" .= name,
+        "moduleImports" .= imports,
+        "templateName" .= templateName name
+      ]
 
 render ::
   ToJSON a =>
@@ -244,12 +248,15 @@ render ::
   Either String a ->
   DirTree (Either String Rendered)
 render p tmpl a =
-  File p (a >>= JSON.objectErr p >>= EDE.eitherRender tmpl)
+  File p (a >>= JSON.objectErr p >>= EDE.eitherRender tmpl . Aeson.KeyMap.toHashMapText)
 
 touch :: Text -> Template -> Aeson.Object -> DirTree (Either String Touch)
 touch f tmpl env =
   File (Text.unpack f) $
-    bimap id Left (EDE.eitherRender tmpl env)
+     bimap id Left (EDE.eitherRender tmpl (Aeson.KeyMap.toHashMapText env))
 
 write :: DirTree (Either e b) -> DirTree (Either e (Either a b))
 write = fmap (second Right)
+
+fromPairs :: [Aeson.Types.Pair]  -> Aeson.Types.Object
+fromPairs = Aeson.KeyMap.fromHashMapText . EDE.fromPairs

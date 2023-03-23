@@ -11,7 +11,7 @@ import GHC.Generics ()
 import Gen.Prelude
 import Gen.Text
 
-defKey :: Text
+defKey :: IsString a => a
 defKey = "__default__"
 
 data When
@@ -105,7 +105,7 @@ parseRetry svc o = do
   -- definitions, just add them all rather than dealing
   -- with references.
   case r ^. Lens.at defKey of
-    Nothing -> fail $ "Missing: " ++ show defKey
+    Nothing -> fail $ "Missing object key: " ++ defKey
     Just x -> do
       Identity d <- Aeson.parseJSON (Aeson.Object x)
       case r ^. Lens.at (Text.toLower svc) of

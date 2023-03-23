@@ -23,7 +23,7 @@ description:
 source-repository head
   type:     git
   location: git://github.com/brendanhay/amazonka.git
-  subdir:   test
+  subdir:   lib/amazonka-test
 
 library
   default-language: Haskell2010

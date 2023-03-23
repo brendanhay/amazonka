@@ -77,10 +77,10 @@ tmp="$(mktemp -d -p "$PWD")"
 
 trap 'rm -rf "$tmp"' EXIT
 
-say "Using botocore $botocore."
-say "Using amazonka version $version."
-say "Generating models ${models[*]}."
-say "Using temporary directory $tmp."
+say "Using botocore $botocore"
+say "Using amazonka version $version"
+say "Generating models ${models[*]}"
+say "Using temporary directory $tmp"
 
 generator=(
 	--out="$tmp"

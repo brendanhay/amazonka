@@ -12,8 +12,19 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-bazel build @botocore//... //gen:gen-configs
+# Output a message to stderr.
+say() {
+	echo >&2 "$@"
+}
 
-exec ./bazel-bin/gen/gen-configs "$(bazel info output_base)/external/botocore" \
-  --configs ./configs \
-  --word-frequencies ./configs/word-frequencies
+botocore="vendor/botocore/botocore/data"
+configs="./configs"
+frequencies="./configs/word-frequencies"
+
+say "Using botocore $botocore"
+say "Using configs $configs"
+say "Using word frequencies $frequencies"
+
+exec cabal run amazonka-gen:exe:gen-configs -- "$botocore" \
+	--configs "$configs" \
+	--word-frequencies "$frequencies"

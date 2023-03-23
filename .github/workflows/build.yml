@@ -48,7 +48,8 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - run: |
+      - name: cabal update && cabal freeze
+        run: |
           nix develop --print-build-logs --command \
               bash -c 'cabal update && cabal freeze' '.#${{matrix.ghc}}'
 
@@ -61,10 +62,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.ghc }}-
 
-      - run: |
+      - name: cabal build amazonka-core amazonka
+        run: |
           nix develop --print-build-logs --command \
               bash -c 'cabal build amazonka-core amazonka' '.#${{matrix.ghc}}'
 
-      - run: |
+      - name: cabal build all
+        run: |
           nix develop --print-build-logs --command \
               bash -c 'cabal build all' '.#${{matrix.ghc}}'

@@ -27,7 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
-        ghc: [ghc961, ghc927]
+        ghc: [ghc961, ghc944, ghc927]
 
     runs-on: ${{ matrix.os }}
 

@@ -44,12 +44,12 @@ dist*
 .cookies
 *.log
 
-# Bazel
-.bazelrc.local
-/bazel-*
-
 # Direnv
+/.direnv
 .envrc.local
 
 # Stack
 .stack-work
+
+# Git Hooks
+.pre-commit-config.yaml

@@ -30,7 +30,7 @@ data Options = Options
     _optionVersions :: Versions,
     _optionModels :: [FilePath]
   }
-  deriving (Show)
+  deriving stock (Show)
 
 $(Lens.makeLenses ''Options)
 

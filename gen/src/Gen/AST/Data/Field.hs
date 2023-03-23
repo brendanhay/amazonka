@@ -30,7 +30,7 @@ data Field = Field
     _fieldNamespace :: Maybe Text,
     _fieldDirection :: Maybe Direction
   }
-  deriving (Show)
+  deriving stock (Show)
 
 $(Lens.makeLenses ''Field)
 

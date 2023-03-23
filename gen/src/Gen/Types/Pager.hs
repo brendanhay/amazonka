@@ -14,7 +14,7 @@ data Token a = Token
   { _tokenInput :: Notation a,
     _tokenOutput :: Notation a
   }
-  deriving (Eq, Show, Functor, Foldable)
+  deriving stock (Eq, Show, Functor, Foldable)
 
 $(Lens.makeLenses ''Token)
 
@@ -29,7 +29,7 @@ data Pager a
   = Next (NonEmpty (Notation a)) (Token a)
   | Many (Notation a) (NonEmpty (Token a))
   | Only (Token a)
-  deriving (Eq, Show, Functor, Foldable)
+  deriving stock (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Pager Id) where
   parseJSON =

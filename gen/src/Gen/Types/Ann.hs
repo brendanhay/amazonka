@@ -15,14 +15,14 @@ import Gen.Types.Id
 data Direction
   = Output
   | Input
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 instance Hashable Direction
 
 data Mode
   = Bi
   | Uni !Direction
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance Semigroup Mode where
   (Uni i) <> (Uni o)
@@ -37,7 +37,7 @@ data Relation = Relation
   { _relShared :: Int, -- FIXME: get around to using something more sensible.
     _relMode :: Mode
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeClassy ''Relation)
 
@@ -82,7 +82,7 @@ data Derive
   | DGeneric
   | DHashable
   | DNFData
-  deriving (Eq, Ord, Show, Generic)
+  deriving stock (Eq, Ord, Show, Generic)
 
 instance Hashable Derive
 
@@ -99,7 +99,7 @@ data Timestamp
   = RFC822
   | ISO8601
   | POSIX
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 tsToText :: Timestamp -> Text
 tsToText = Text.pack . show
@@ -126,7 +126,7 @@ data Lit
   | Time (Maybe Timestamp)
   | Bool
   | Json
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 data TypeF a
   = TType Text [Derive]
@@ -138,7 +138,7 @@ data TypeF a
   | TList (TypeF a)
   | TList1 (TypeF a)
   | TMap (TypeF a) (TypeF a)
-  deriving (Eq, Show, Functor)
+  deriving stock (Eq, Show, Functor)
 
 -- FIXME: Moving to a fixpoint required too many initial changes - revisit.
 type TType = TypeF Lit
@@ -147,7 +147,7 @@ data Related = Related
   { _annId :: Id,
     _annRelation :: Relation
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeClassy ''Related)
 
@@ -164,7 +164,7 @@ data Prefixed = Prefixed
   { _annRelated :: Related,
     _annPrefix :: Maybe Text
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeClassy ''Prefixed)
 
@@ -184,7 +184,7 @@ data Solved = Solved
   { _annPrefixed :: Prefixed,
     _annType :: TType
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeClassy ''Solved)
 

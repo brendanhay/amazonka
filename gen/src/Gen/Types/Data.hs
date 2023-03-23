@@ -24,7 +24,7 @@ data Fun = Fun'
     _funDecl :: Rendered,
     _funMeta :: Rendered
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance ToJSON Fun where
   toJSON Fun' {..} =
@@ -47,7 +47,7 @@ data Prod = Prod'
     _prodLenses :: [Fun],
     _prodDeps :: Set.Set Text
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 prodToJSON :: ToJSON a => Solved -> Prod -> HashMap Text a -> [Pair]
 prodToJSON s Prod' {..} is =
@@ -70,7 +70,7 @@ data Sum = Sum'
     _sumCtor :: Text,
     _sumCtors :: HashMap Text Text
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 sumToJSON :: Solved -> Sum -> [Text] -> [Pair]
 sumToJSON s Sum' {..} is =
@@ -90,7 +90,7 @@ data Gen = Gen'
     _genDoc :: Maybe Help,
     _genDecl :: Rendered
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance ToJSON Gen where
   toJSON Gen' {..} =
@@ -108,7 +108,7 @@ data SData
     Sum !Solved Sum [Text]
   | -- | A function declaration.
     Fun Fun
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance Ord SData where
   compare a b =
@@ -138,7 +138,7 @@ data WData = WData
     _waitOpName :: Id,
     _waitCtor :: Fun
   }
-  deriving (Show)
+  deriving stock (Show)
 
 $(Lens.makeLenses ''WData)
 

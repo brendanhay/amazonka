@@ -25,7 +25,7 @@ data Replace = Replace
   { _replaceName :: Id,
     _replaceUnderive :: [Derive]
   }
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 $(Lens.makeLenses ''Replace)
 
@@ -48,7 +48,7 @@ data Override = Override
     -- | Rename fields
     _renamedFields :: HashMap Id Id
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeLenses ''Override)
 
@@ -73,7 +73,7 @@ defaultOverride =
     }
 
 newtype Version (v :: Symbol) = Version {semver :: Text}
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance ToJSON (Version v) where
   toJSON (Version v) = Aeson.toJSON v
@@ -86,7 +86,7 @@ data Versions = Versions
   { _libraryVersion :: LibraryVer,
     _clientVersion :: ClientVer
   }
-  deriving (Show)
+  deriving stock (Show)
 
 $(Lens.makeClassy ''Versions)
 
@@ -232,7 +232,7 @@ data Model = Model
     _modelVersion :: UTCTime,
     _modelPath :: FilePath
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeLenses ''Model)
 

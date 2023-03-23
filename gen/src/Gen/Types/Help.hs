@@ -13,7 +13,8 @@ import System.IO.Unsafe (unsafePerformIO)
 import qualified Text.Pandoc as Pandoc
 
 newtype Help = Help {fromHelp :: Text}
-  deriving (Eq, Semigroup, Monoid)
+  deriving stock (Eq)
+  deriving newtype (Semigroup, Monoid)
 
 -- | Empty Show instance to avoid verbose debugging output.
 instance Show Help where

@@ -47,7 +47,7 @@ instance (Functor f, HasId a) => HasId (Cofree f a) where
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.
 data Id = Id Text Text
-  deriving (Show)
+  deriving stock (Show)
 
 instance Eq Id where
   Id x _ == Id y _ = x == y

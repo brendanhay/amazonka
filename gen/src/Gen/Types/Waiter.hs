@@ -17,7 +17,7 @@ data Match
   | PathAny
   | Status
   | Error
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 instance FromJSON Match where
   parseJSON = gParseJSON' camel
@@ -26,7 +26,7 @@ data Criteria
   = Retry
   | Success
   | Failure
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 instance FromJSON Criteria where
   parseJSON = gParseJSON' lower
@@ -35,7 +35,7 @@ data Expect
   = Status' !Integer
   | Textual !Text
   | Boolean !Bool
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance FromJSON Expect where
   parseJSON = \case
@@ -49,7 +49,7 @@ data Accept a = Accept
     _acceptCriteria :: Criteria,
     _acceptArgument :: Maybe (Notation a)
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeLenses ''Accept)
 
@@ -68,7 +68,7 @@ data Waiter a = Waiter
     _waitOperation :: Id,
     _waitAcceptors :: [Accept a]
   }
-  deriving (Show, Eq)
+  deriving stock (Eq, Show)
 
 $(Lens.makeLenses ''Waiter)
 

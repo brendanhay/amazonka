@@ -53,7 +53,7 @@ jobs:
           nix develop --print-build-logs --command \
               bash -c 'cabal update && cabal freeze' '.#${{matrix.ghc}}'
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: |
             ~/.cabal/store

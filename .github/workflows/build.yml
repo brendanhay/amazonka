@@ -80,9 +80,9 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
+          key: v1-${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
           restore-keys: |
-            ${{ runner.os }}-${{ matrix.ghc }}-
+            v1-${{ runner.os }}-${{ matrix.ghc }}-
           path: |
             ~/.cabal/store
             dist-newstyle

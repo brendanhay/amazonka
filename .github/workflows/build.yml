@@ -78,21 +78,35 @@ jobs:
           nix develop --print-build-logs --command \
               bash -c 'cabal update && cabal freeze' '.#${{matrix.ghc}}'
 
-      - uses: actions/cache@v3
+      - uses: actions/cache/restore@v3
+        id: restore-cache
         with:
-          path: |
-            ~/.cabal/store
-            dist-newstyle
           key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.ghc }}-
+          path: |
+            ~/.cabal/store
+            dist-newstyle
 
-      - name: cabal build amazonka-core amazonka
+      - name: cabal build core
         run: |
           nix develop --print-build-logs --command \
               bash -c 'cabal build amazonka-core amazonka' '.#${{matrix.ghc}}'
+
+      - name: cabal build s3
+        run: |
+          nix develop --print-build-logs --command \
+              bash -c 'cabal build amazonka-s3 amazonka-s3-encryption' '.#${{matrix.ghc}}'
 
       - name: cabal build all
         run: |
           nix develop --print-build-logs --command \
               bash -c 'cabal build all' '.#${{matrix.ghc}}'
+
+      - uses: actions/cache/save@v3
+        if: always()
+        with:
+          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
+          path: |
+            ~/.cabal/store
+            dist-newstyle

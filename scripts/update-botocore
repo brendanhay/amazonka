@@ -2,6 +2,4 @@
 
 set -euo pipefail
 
-cd "$(dirname "${BASH_SOURCE[0]}")/.."
-
-git subtree pull --prefix=vendor/botocore https://github.com/boto/botocore develop --squash
+exec nix flake lock --update-input botocore --commit-lock-file

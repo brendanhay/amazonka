@@ -92,8 +92,7 @@ jobs:
           nix develop --print-build-logs --command \
               bash -c 'cabal build amazonka-core amazonka' '.#${{matrix.ghc}}'
 
-      # XXX: temporarily disabled to get 'some' of the cache primed.
-      # - name: cabal build all
-      #   run: |
-      #     nix develop --print-build-logs --command \
-      #         bash -c 'cabal build all' '.#${{matrix.ghc}}'
+      - name: cabal build all
+        run: |
+          nix develop --print-build-logs --command \
+              bash -c 'cabal build all' '.#${{matrix.ghc}}'

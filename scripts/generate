@@ -60,7 +60,7 @@ format_and_replace() {
 export -f say
 export -f format_and_replace
 
-botocore="vendor/botocore/botocore/data"
+botocore="vendor/botocore"
 version="$(sed -n '0,/^version: */s///p' lib/amazonka/amazonka.cabal)"
 services="configs/services"
 models=()
@@ -97,8 +97,11 @@ for model in "${models[@]}"; do
 	generator+=("${botocore}/${model}")
 done
 
+# Create an output link for the botocore sources.
+nix build --out-link "$botocore" '.#botocore'
+
 # Generate new sources in tmp.
-cabal run amazonka-gen:exe:gen -- +RTS -qg0 -RTS "${generator[@]}"
+nix run '.#gen' -- +RTS -qg0 -RTS "${generator[@]}"
 
 # Run the format and copy/replace steps in parallel.
 parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*

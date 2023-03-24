@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "botocore": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1679594833,
+        "narHash": "sha256-ft5vFvwHIH8OcEkZvW68CYK+oqSjRgDSeQaVoxsn8gY=",
+        "owner": "boto",
+        "repo": "botocore",
+        "rev": "bd42779e9bfdf885a49c6227b034a47386f1f534",
+        "type": "github"
+      },
+      "original": {
+        "owner": "boto",
+        "repo": "botocore",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -112,6 +128,7 @@
     },
     "root": {
       "inputs": {
+        "botocore": "botocore",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks"

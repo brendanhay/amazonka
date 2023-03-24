@@ -53,3 +53,6 @@ dist*
 
 # Git Hooks
 .pre-commit-config.yaml
+
+# Botocore
+/vendor/botocore

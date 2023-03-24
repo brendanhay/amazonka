@@ -1,16 +1,16 @@
-cabal-version:      2.2
-name:               amazonka-gen
-version:            2.0
-synopsis:           Amazon Web Services SDK Generator.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2023 Brendan Hay
-category:           AWS
-build-type:         Simple
+cabal-version: 2.2
+name:          amazonka-gen
+version:       2.0
+synopsis:      Amazon Web Services SDK Generator.
+homepage:      https://github.com/brendanhay/amazonka
+bug-reports:   https://github.com/brendanhay/amazonka/issues
+license:       MPL-2.0
+license-file:  LICENSE
+author:        Brendan Hay
+maintainer:    Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:     Copyright (c) 2013-2023 Brendan Hay
+category:      AWS
+build-type:    Simple
 
 source-repository head
   type:     git
@@ -20,13 +20,11 @@ source-repository head
 common base
   default-language:   Haskell2010
   ghc-options:
-    -Wall
-    -Wunused-packages
-    -fwarn-incomplete-uni-patterns
-    -fwarn-incomplete-record-updates
-    -funbox-strict-fields
+    -Wall -Wunused-packages -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
   default-extensions:
+    NoImplicitPrelude
     ConstraintKinds
     DataKinds
     DefaultSignatures
@@ -45,8 +43,8 @@ common base
     GeneralizedNewtypeDeriving
     LambdaCase
     MultiParamTypeClasses
+    MultiWayIf
     NamedFieldPuns
-    NoImplicitPrelude
     OverloadedStrings
     PackageImports
     PatternSynonyms
@@ -59,71 +57,70 @@ common base
     TypeApplications
     TypeFamilies
     ViewPatterns
-    MultiWayIf
 
   build-depends:      base >=4.16 && <5
 
 library
-  import:             base
-  hs-source-dirs:     src
+  import:          base
+  hs-source-dirs:  src
   build-depends:
-    , directory-tree >= 0.12
-    , filepath >= 1.4
-    , lens > 4
-    , comonad >= 5
-    , free >= 5
-    , mtl >= 2.2
-    , transformers >= 0.5
-    , aeson >= 2.1
-    , case-insensitive >= 1.2
-    , bytestring >= 0.11
-    , text >= 1.2
-    , time >= 1.11
-    , containers >= 0.6
-    , unordered-containers >= 0.2
-    , hashable >= 1.4
-    , scientific >= 0.3
-    , ede >= 0.3
-    , unliftio >= 0.2
-    , pandoc >= 3
-    , attoparsec >= 0.14
-    , deriving-compat >= 0.6
-    , haskell-src-exts ^>= 1.23
+    , aeson                 >=2
+    , attoparsec            >=0.14
+    , bytestring            >=0.11
+    , case-insensitive      >=1.2
+    , comonad               >=5
+    , containers            >=0.6
+    , deriving-compat       >=0.6
+    , directory-tree        >=0.12
+    , ede                   >=0.3
+    , filepath              >=1.4
+    , free                  >=5
+    , hashable              >=1.4
+    , haskell-src-exts      ^>=1.23
+    , lens                  >=4.0
+    , mtl                   >=2.2
+    , pandoc
+    , scientific            >=0.3
+    , text                  >=1.2
+    , time                  >=1.11
+    , transformers          >=0.5
+    , unliftio              >=0.2
+    , unordered-containers  >=0.2
 
   exposed-modules:
-     Gen.AST
-     Gen.IO
-     Gen.Import
-     Gen.JSON
-     Gen.Prelude
-     Gen.Protocol
-     Gen.TH
-     Gen.Text
-     Gen.Tree
-     Gen.Types
-     Gen.Types.Ann
-     Gen.Types.Config
-     Gen.Types.Data
-     Gen.Types.Help
-     Gen.Types.Id
-     Gen.Types.Map
-     Gen.Types.NS
-     Gen.Types.Notation
-     Gen.Types.Pager
-     Gen.Types.Retry
-     Gen.Types.Service
-     Gen.Types.TypeOf
-     Gen.Types.URI
-     Gen.Types.Waiter
-     Gen.AST.Cofree
-     Gen.AST.Data
-     Gen.AST.Data.Field
-     Gen.AST.Data.Instance
-     Gen.AST.Data.Syntax
-     Gen.AST.Subst
-     Gen.AST.Prefix
-     Gen.AST.Override
-     Gen.WordFrequency
+    Gen.AST
+    Gen.AST.Cofree
+    Gen.AST.Data
+    Gen.AST.Data.Field
+    Gen.AST.Data.Instance
+    Gen.AST.Data.Syntax
+    Gen.AST.Override
+    Gen.AST.Prefix
+    Gen.AST.Subst
+    Gen.Import
+    Gen.IO
+    Gen.JSON
+    Gen.Prelude
+    Gen.Protocol
+    Gen.Text
+    Gen.TH
+    Gen.Tree
+    Gen.Types
+    Gen.Types.Ann
+    Gen.Types.Config
+    Gen.Types.Data
+    Gen.Types.Help
+    Gen.Types.Id
+    Gen.Types.Map
+    Gen.Types.Notation
+    Gen.Types.NS
+    Gen.Types.Pager
+    Gen.Types.Retry
+    Gen.Types.Service
+    Gen.Types.TypeOf
+    Gen.Types.URI
+    Gen.Types.Waiter
+    Gen.WordFrequency
 
 executable gen
   import:         base
@@ -131,14 +128,14 @@ executable gen
   main-is:        gen.hs
   ghc-options:    -threaded -rtsopts -with-rtsopts=-A128m
   build-depends:
-    , optparse-applicative >= 0.17
     , amazonka-gen
-    , unliftio
     , filepath
-    , time
-    , text
-    , mtl
     , lens
+    , mtl
+    , optparse-applicative  >=0.17
+    , text
+    , time
+    , unliftio
 
 executable gen-configs
   import:         base
@@ -147,10 +144,10 @@ executable gen-configs
   ghc-options:    -threaded -rtsopts -with-rtsopts=-A128m
   build-depends:
     , aeson
-    , containers
-    , bytestring
-    , unliftio
-    , filepath
-    , optparse-applicative >= 0.17
-    , text
     , amazonka-gen
+    , bytestring
+    , containers
+    , filepath
+    , optparse-applicative  >=0.17
+    , text
+    , unliftio

@@ -78,8 +78,7 @@ jobs:
           nix develop --print-build-logs --command \
               bash -c 'cabal update && cabal freeze' '.#${{matrix.ghc}}'
 
-      - uses: actions/cache/restore@v3
-        id: restore-cache
+      - uses: actions/cache@v3
         with:
           key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
           restore-keys: |
@@ -102,11 +101,3 @@ jobs:
         run: |
           nix develop --print-build-logs --command \
               bash -c 'cabal build all' '.#${{matrix.ghc}}'
-
-      - uses: actions/cache/save@v3
-        if: always()
-        with:
-          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
-          path: |
-            ~/.cabal/store
-            dist-newstyle

@@ -58,7 +58,7 @@ jobs:
           - os: ubuntu-latest
             ghc: ghc90
 
-          - os: maco-latest
+          - os: macos-latest
             ghc: ghc94
 
     runs-on: ${{ matrix.os }}

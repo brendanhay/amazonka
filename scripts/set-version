@@ -1,31 +1,48 @@
-#!/bin/sh -eux
+#!/usr/bin/env bash
+
+# Usage: set-version CORE_VERSION DEP_VERSION
+#
+# Bumps all core libraries to CORE_VERSION and their dependencies on
+# other amazonka libraries to DEP_VERSION.
 
 set -euo pipefail
 
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+# Output a message to stderr.
+say() {
+	echo >&2 "$@"
+}
+
 if [ $# -ne 2 ]; then
-  echo "Usage: bump-version <VERSION> <DEPENDENCY>"
-  exit 1
+	echo "Usage: bump-version CORE_VERSION DEP_VERSION"
+	exit 1
 fi
 
-pvp="$1"
-semantic="$2"
+core_version="$1"
+dep_version="$2"
 
-specs=(
-  examples/examples.cabal
-  lib/amazonka/amazonka.cabal
-  lib/amazonka-core/amazonka-core.cabal
-  lib/amazonka-test/amazonka-test.cabal
-  lib/amazonka-s3-encryption/amazonka-s3-encryption.cabal
+# Note: the version for the generated service's cabal file comes from
+# Paths_amazonka_gen.version - so ensure amazonka-gen is bumped.
+cabal_files=(
+	gen/amazonka-gen.cabal
+	examples/examples.cabal
+	lib/amazonka/amazonka.cabal
+	lib/amazonka-core/amazonka-core.cabal
+	lib/amazonka-test/amazonka-test.cabal
+	lib/amazonka-s3-encryption/amazonka-s3-encryption.cabal
 )
 
-echo "Bumping version to $pvp and dependencies to == $semantic ..."
+say "Setting version = $core_version and dependencies = $dep_version"
 
-for cabal in "${specs[@]}"; do
-  sed -e "s/^\(version: *\).*$/\1$pvp/;" \
-    -e "s/^\(.*amazonka-[a-z0-9]* *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" \
-    -e "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" "$cabal" >"$cabal.new"
+for cabal in "${cabal_files[@]}"; do
+	say "Updating $cabal"
 
-  mv "$cabal.new" "$cabal"
+	sed -e "s/^\(version: *\).*$/\1$core_version/;" \
+		-e "s/^\(.*amazonka-[a-z0-9]* *== *\)\([0-9\.]\+\*\)$/\1$dep_version.*/" \
+		-e "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$dep_version.*/" "$cabal" >"$cabal.new"
+
+	mv "$cabal.new" "$cabal"
 done
 
-echo "Done."
+say "Done."

@@ -12,13 +12,13 @@ import qualified Data.Set as Set
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text.Encoding
 import Gen.Prelude hiding (words)
+import qualified Gen.WordFrequency
 import Options.Applicative ((<**>))
 import qualified Options.Applicative as Options
 import qualified System.FilePath as FilePath
 import qualified System.IO as IO
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
-import qualified Gen.WordFrequency
 
 data Options = Options
   { botocoreDir :: FilePath,
@@ -37,14 +37,14 @@ parser =
       ( Options.long "configs"
           <> Options.metavar "PATH"
           <> Options.help "The parent config directory."
-          <> Options.value "config"
+          <> Options.value "configs"
           <> Options.showDefaultWith id
       )
     <*> Options.strOption
       ( Options.long "word-frequencies"
           <> Options.metavar "PATH"
           <> Options.help "An ordered list of words according to frequency."
-          <> Options.value "config/word-frequencies"
+          <> Options.value "configs/word-frequencies"
           <> Options.showDefaultWith id
       )
 

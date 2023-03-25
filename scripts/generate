@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Usage: generate [--commit] MODELS
 #
 # Runs amazonka-gen on the specified MODELS - which are directory names of the
@@ -60,13 +58,11 @@ format_and_replace() {
 export -f say
 export -f format_and_replace
 
-botocore="vendor/botocore"
-version="$(sed -n '0,/^version: */s///p' lib/amazonka/amazonka.cabal)"
-services="configs/services"
+botocore="${BOTOCORE:?}/botocore/data"
 models=()
 
 if [ $# -eq 0 ]; then
-	for model in "$services"/*.json; do
+	for model in configs/services/*.json; do
 		models+=("$(basename "$model" .json)")
 	done
 else
@@ -78,30 +74,20 @@ tmp="$(mktemp -d -p "$PWD")"
 trap 'rm -rf "$tmp"' EXIT
 
 say "Using botocore $botocore"
-say "Using amazonka version $version"
-say "Generating models ${models[*]}"
 say "Using temporary directory $tmp"
+say "Generating models ${models[*]}"
 
-generator=(
+args=(
 	--out="$tmp"
-	--library-version="${version}"
-	--client-version="${version}"
-	--services="$services"
-	--annexes="configs/annexes"
-	--templates="configs/templates"
-	--assets="configs/assets"
 	--retry="${botocore}/_retry.json"
 )
 
 for model in "${models[@]}"; do
-	generator+=("${botocore}/${model}")
+	args+=("${botocore}/${model}")
 done
 
-# Create an output link for the botocore sources.
-nix build --out-link "$botocore" '.#botocore'
-
 # Generate new sources in tmp.
-nix run '.#gen' -- +RTS -qg0 -RTS "${generator[@]}"
+nix run '.#gen' -- "${args[@]}"
 
 # Run the format and copy/replace steps in parallel.
 parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*

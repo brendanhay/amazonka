@@ -9,6 +9,7 @@ import qualified Control.Monad.State.Strict as State
 import qualified Data.List as List
 import qualified Data.Text as Text
 import qualified Data.Time as Time
+import qualified Data.Version as Version
 import qualified Gen.AST as AST
 import Gen.IO
 import qualified Gen.JSON as JSON
@@ -16,6 +17,7 @@ import Gen.Prelude
 import qualified Gen.Tree as Tree
 import Gen.Types hiding (config, info, retry, service)
 import qualified Options.Applicative as Options
+import qualified Paths_amazonka_gen
 import qualified System.FilePath as FilePath
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
@@ -27,10 +29,10 @@ data Options = Options
     _optionTemplates :: FilePath,
     _optionAssets :: FilePath,
     _optionRetry :: FilePath,
-    _optionVersions :: Versions,
+    _optionVersion :: Version,
     _optionModels :: [FilePath]
   }
-  deriving stock (Show)
+  deriving (Show)
 
 $(Lens.makeLenses ''Options)
 
@@ -41,50 +43,44 @@ parser =
       ( Options.long "out"
           <> Options.metavar "OUT-PATH"
           <> Options.help "Directory to place the generated library."
+          <> Options.value "tmp"
       )
     <*> Options.strOption
       ( Options.long "annexes"
           <> Options.metavar "PATH"
           <> Options.help "Directory containing botocore model annexes."
-          <> Options.value "config/annexes"
+          <> Options.value "configs/annexes"
       )
     <*> Options.strOption
       ( Options.long "services"
           <> Options.metavar "PATH"
           <> Options.help "Directory containing service configuration."
-          <> Options.value "config/services"
+          <> Options.value "configs/services"
       )
     <*> Options.strOption
       ( Options.long "templates"
           <> Options.metavar "PATH"
           <> Options.help "Directory containing ED-E templates."
-          <> Options.value "config/templates"
+          <> Options.value "configs/templates"
       )
     <*> Options.strOption
       ( Options.long "assets"
           <> Options.metavar "PATH"
           <> Options.help "Directory containing static files for generated libraries."
-          <> Options.value "config/assets"
+          <> Options.value "configs/assets"
       )
     <*> Options.strOption
       ( Options.long "retry"
           <> Options.metavar "PATH"
           <> Options.help "Path to the file containing retry definitions."
       )
-    <*> ( Versions
-            <$> Options.option
-              versionReader
-              ( Options.long "library-version"
-                  <> Options.metavar "VERSION"
-                  <> Options.help "Version of the library to generate."
-              )
-            <*> Options.option
-              versionReader
-              ( Options.long "client-version"
-                  <> Options.metavar "VERSION"
-                  <> Options.help "Client library version dependecy for examples."
-              )
-        )
+    <*> Options.option
+      versionReader
+      ( Options.long "version"
+          <> Options.metavar "VERSION"
+          <> Options.help "Version of the library to generate."
+          <> Options.value version
+      )
     <*> Options.some
       ( Options.strArgument
           ( Options.metavar "MODEL-PATH"
@@ -92,7 +88,10 @@ parser =
           )
       )
 
-versionReader :: Options.ReadM (Version v)
+version :: Version
+version = Version (Text.pack (Version.showVersion Paths_amazonka_gen.version))
+
+versionReader :: Options.ReadM Version
 versionReader = Options.eitherReader (Right . Version . Text.pack)
 
 options :: Options.ParserInfo Options
@@ -157,7 +156,8 @@ main = do
 
   forM_ (zip [1 ..] _optionModels) $ \(index, path) -> do
     title $
-      "[" ++ show (index :: Int)
+      "["
+        ++ show (index :: Int)
         ++ "/"
         ++ total
         ++ "] model:"
@@ -193,7 +193,7 @@ main = do
         ++ Text.unpack (service ^. serviceFullName)
         ++ "' API definition"
 
-    library <- hoistEither (AST.rewrite _optionVersions config service)
+    library <- hoistEither (AST.rewrite _optionVersion config service)
 
     say $
       "Synthesised '"
@@ -208,7 +208,7 @@ main = do
       "Rendered "
         ++ Text.unpack _libraryName
         ++ "-"
-        ++ Text.unpack (semver (library ^. libraryVersion))
+        ++ Text.unpack (semver (_version' library))
         ++ " package in "
         ++ root
 

@@ -20,11 +20,11 @@ import Gen.Types
 -- FIXME: Relations need to be updated by the solving step.
 
 rewrite ::
-  Versions ->
+  Version ->
   Config ->
   Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) ->
   Either String Library
-rewrite _versions' _config' s' = do
+rewrite _version' _config' s' = do
   rewrittenService <- rewriteService _config' (ignore _config' (deprecate s'))
   _service' <- renderShapes _config' rewrittenService
   let nodes :: [Text]
@@ -66,7 +66,7 @@ rewrite _versions' _config' s' = do
       _cuts' = Set.filter (uncurry (/=)) $ breakLoops edges nodes
 
   _instance' <- serviceData (_service' ^. metadata) (_service' ^. retry)
-  pure $ Library {_versions', _config', _service', _cuts', _instance'}
+  pure $ Library {_version', _config', _service', _cuts', _instance'}
 
 deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ HashMap.filter (not . Lens.view opDeprecated)
@@ -123,8 +123,8 @@ renderShapes cfg svc = do
   ys <- kvTraverseMaybe (const (shapeData svc)) (prune y)
   zs <- HashMap.traverseWithKey (waiterData svc x) (svc ^. waiters)
 
-  return
-    $! svc
+  return $!
+    svc
       { _operations = xs,
         _shapes = ys,
         _waiters = zs
@@ -176,7 +176,8 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
 
     safe n =
       note
-        ( "Missing shape " ++ Text.unpack (memberId n)
+        ( "Missing shape "
+            ++ Text.unpack (memberId n)
             ++ " when counting relations "
             ++ ", possible matches: "
             ++ partial n ss
@@ -224,8 +225,8 @@ separate os = State.runStateT (traverse go os)
       x <- remove Input (inputName o)
       y <- remove Output (outputName o)
 
-      pure
-        $! o
+      pure $!
+        o
           { _opInput = Identity (o ^. opInput . _Identity & refAnn .~ x),
             _opOutput = Identity (o ^. opOutput . _Identity & refAnn .~ y)
           }
@@ -237,7 +238,8 @@ separate os = State.runStateT (traverse go os)
       case HashMap.lookup n s of
         Nothing ->
           Except.throwError $
-            "Failure separating operation wrapper " ++ Text.unpack (memberId n)
+            "Failure separating operation wrapper "
+              ++ Text.unpack (memberId n)
               ++ " from "
               ++ show (HashMap.map (const ()) s)
         --

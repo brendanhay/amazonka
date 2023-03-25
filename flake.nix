@@ -40,23 +40,17 @@
           config.allowBroken = true;
         };
 
+        # The ghc compiler version patch level will be the latest that is available in nixpkgs.
+        ghc810 = pkgs.haskell.packages."ghc810";
+        ghc90 = pkgs.haskell.packages."ghc90";
+        ghc92 = pkgs.haskell.packages."ghc92";
+        ghc94 = pkgs.haskell.packages."ghc94";
+        ghc96 = pkgs.haskell.packages."ghc96";
+
+        # The default ghc to use when entering `nix shell` and building amazonka-gen.
+        ghcDefault = ghc94;
+
         renameVersion = version: "ghc" + (pkgs.lib.replaceStrings [ "." ] [ "" ] version);
-
-        # The ghc compiler version patch level will be the latest
-        # that is available in nixpkgs.
-        supportedGHCs = {
-          ghc80 = pkgs.haskell.packages."ghc80";
-          ghc90 = pkgs.haskell.packages."ghc90";
-          ghc92 = pkgs.haskell.packages."ghc92";
-          ghc94 = pkgs.haskell.packages."ghc94";
-          ghc96 = pkgs.haskell.packages."ghc96";
-        };
-
-        ghc80 = supportedGHCs.ghc80;
-        ghc90 = supportedGHCs.ghc90;
-        ghc92 = supportedGHCs.ghc92;
-        ghc94 = supportedGHCs.ghc94;
-        ghc96 = supportedGHCs.ghc96;
 
         mkDevShell = hsPkgs: pkgs.mkShell {
           name = "amazonka-${renameVersion hsPkgs.ghc.version}";
@@ -78,25 +72,21 @@
             pkgs.ormolu
           ];
 
-          shellHook = pre-commit.shellHook;
+          shellHook = pre-commit.shellHook + ''
+            export BOTOCORE=${botocore.outPath}
+            echo "botocore: $BOTOCORE"
+          '';
         };
 
         amazonka-gen =
-          pkgs.haskellPackages.developPackage {
+          ghcDefault.developPackage {
             root = ./gen;
             overrides = _hsFinal: hsPrev: {
               ede = pkgs.haskell.lib.dontCheck (pkgs.haskell.lib.dontHaddock hsPrev.ede);
+              pandoc = pkgs.haskell.lib.dontHaddock hsPrev.pandoc;
+              string-qq = pkgs.haskell.lib.dontCheck hsPrev.string-qq;
             };
           };
-
-        botocore-data = pkgs.stdenvNoCC.mkDerivation {
-          name = "botocore";
-          src = botocore;
-          phases = [ "installPhase" ];
-          installPhase = ''
-            cp -R $src/botocore/data $out
-          '';
-        };
 
       in
       {
@@ -117,15 +107,16 @@
         };
 
         packages = {
-          botocore = botocore-data;
           default = amazonka-gen;
         };
 
         devShells = {
+          ghc810 = mkDevShell ghc810;
           ghc90 = mkDevShell ghc90;
+          ghc92 = mkDevShell ghc92;
           ghc94 = mkDevShell ghc94;
           ghc96 = mkDevShell ghc96;
-          default = mkDevShell ghc92;
+          default = mkDevShell ghcDefault;
         };
       });
 }

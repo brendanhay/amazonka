@@ -121,12 +121,13 @@ library
     Gen.Types.URI
     Gen.Types.Waiter
     Gen.WordFrequency
+    Paths_amazonka_gen
 
 executable gen
   import:         base
   hs-source-dirs: bin
   main-is:        gen.hs
-  ghc-options:    -threaded -rtsopts -with-rtsopts=-A128m
+  ghc-options:    -threaded -rtsopts "-with-rtsopts=-A128m -I0 -qg0"
   build-depends:
     , amazonka-gen
     , filepath
@@ -141,7 +142,7 @@ executable gen-configs
   import:         base
   hs-source-dirs: bin
   main-is:        gen-configs.hs
-  ghc-options:    -threaded -rtsopts -with-rtsopts=-A128m
+  ghc-options:    -threaded -rtsopts "-with-rtsopts=-A128m -I0 -qg0"
   build-depends:
     , aeson
     , amazonka-gen

@@ -12,22 +12,6 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-# Output a message to stderr.
-say() {
-	echo >&2 "$@"
-}
+botocore="${BOTOCORE:?}/botocore/data"
 
-botocore="vendor/botocore/botocore/data"
-configs="./configs"
-frequencies="./configs/word-frequencies"
-
-say "Using botocore $botocore"
-say "Using configs $configs"
-say "Using word frequencies $frequencies"
-
-# Create an output link for the botocore sources.
-nix build --out-link "$botocore" '.#botocore'
-
-exec cabal run amazonka-gen:exe:gen-configs -- "$botocore" \
-	--configs "$configs" \
-	--word-frequencies "$frequencies"
+nix run '.#gen-configs' -- "$botocore"

@@ -42,17 +42,21 @@
 
         renameVersion = version: "ghc" + (pkgs.lib.replaceStrings [ "." ] [ "" ] version);
 
+        # The ghc compiler version patch level will be the latest
+        # that is available in nixpkgs.
         supportedGHCs = {
-          ghc902 = pkgs.haskell.packages."ghc902";
-          ghc927 = pkgs.haskell.packages."ghc927";
-          ghc944 = pkgs.haskell.packages."ghc944";
-          ghc961 = pkgs.haskell.packages."ghc961";
+          ghc80 = pkgs.haskell.packages."ghc80";
+          ghc90 = pkgs.haskell.packages."ghc90";
+          ghc92 = pkgs.haskell.packages."ghc92";
+          ghc94 = pkgs.haskell.packages."ghc94";
+          ghc96 = pkgs.haskell.packages."ghc96";
         };
 
-        ghc902 = supportedGHCs.ghc902;
-        ghc927 = supportedGHCs.ghc927;
-        ghc944 = supportedGHCs.ghc944;
-        ghc961 = supportedGHCs.ghc961;
+        ghc80 = supportedGHCs.ghc80;
+        ghc90 = supportedGHCs.ghc90;
+        ghc92 = supportedGHCs.ghc92;
+        ghc94 = supportedGHCs.ghc94;
+        ghc96 = supportedGHCs.ghc96;
 
         mkDevShell = hsPkgs: pkgs.mkShell {
           name = "amazonka-${renameVersion hsPkgs.ghc.version}";
@@ -118,10 +122,10 @@
         };
 
         devShells = {
-          ghc902 = mkDevShell ghc902;
-          ghc944 = mkDevShell ghc944;
-          ghc961 = mkDevShell ghc961;
-          default = mkDevShell ghc927;
+          ghc90 = mkDevShell ghc90;
+          ghc94 = mkDevShell ghc94;
+          ghc96 = mkDevShell ghc96;
+          default = mkDevShell ghc92;
         };
       });
 }

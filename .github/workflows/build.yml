@@ -66,6 +66,10 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      - if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: |-
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
+
       - uses: cachix/install-nix-action@v20
         with:
           nix_path: nixpkgs=channel:nixos-unstable

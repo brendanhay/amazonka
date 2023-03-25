@@ -52,8 +52,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        ghc: [ghc961, ghc944, ghc927]
+        include:
+          - os: ubuntu-latest
+            ghc: ghc96
+          - os: ubuntu-latest
+            ghc: ghc94
+          - os: ubuntu-latest
+            ghc: ghc90
+
+          - os: maco-latest
+            ghc: ghc94
 
     runs-on: ${{ matrix.os }}
 

@@ -290,6 +290,7 @@ getWebsiteEndpoint = \case
   Jakarta -> Just "s3-website.ap-southeast-3.amazonaws.com"
   Melbourne -> Just "s3-website.ap-southeast-4.amazonaws.com"
   Mumbai -> Just "s3-website.ap-south-1.amazonaws.com"
+  Hyderabad -> Just "s3-website.ap-south-2.amazonaws.com."
   Osaka -> Just "s3-website.ap-northeast-3.amazonaws.com"
   Seoul -> Just "s3-website.ap-northeast-2.amazonaws.com"
   Singapore -> Just "s3-website-ap-southeast-1.amazonaws.com"

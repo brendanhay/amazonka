@@ -117,6 +117,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-core`/`amazonka-redshift`/`amazonka-route53`/`amazonka-s3`: Support Hyderabad region (`ap-south-2`).
+[\#900](https://github.com/brendanhay/amazonka/pull/900)
 - `amazonka-core`/`amazonka-redshift`/`amazonka-route53`/`amazonka-s3`: Support Melbourne region (`ap-southeast-4`).
 [\#897](https://github.com/brendanhay/amazonka/pull/897)
 - `amazonka`: Presigning functions do not require `MonadIO`.

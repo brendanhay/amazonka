@@ -149,6 +149,6 @@ executable gen-configs
     , bytestring
     , containers
     , filepath
-    , optparse-applicative  >=0.17
+    , optparse-applicative
     , text
     , unliftio

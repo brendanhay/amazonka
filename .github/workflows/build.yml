@@ -34,7 +34,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: |
             trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
-            extra-substituters = https://hydra.iohk.io
+            extra-substituters = https://cache.iog.io
             experimental-features = nix-command flakes
 
       - uses: cachix/cachix-action@v12
@@ -52,11 +52,11 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            ghc: ghc96
+            ghc: ghc96 # Latest mainline GHC
           - os: ubuntu-latest
-            ghc: ghc94
+            ghc: ghc94 # Most industrially-relevant GHC
           - os: ubuntu-latest
-            ghc: ghc90
+            ghc: ghc90 # Catch errors due to simplified subsumption
 
           - os: macos-latest
             ghc: ghc94
@@ -73,7 +73,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: |
             trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
-            extra-substituters = https://hydra.iohk.io
+            extra-substituters = https://cache.iog.io
             experimental-features = nix-command flakes
 
       - uses: cachix/cachix-action@v12
@@ -105,9 +105,9 @@ jobs:
       - name: cabal build s3
         run: |
           nix develop --print-build-logs --command \
-              bash -c 'cabal build amazonka-s3 amazonka-s3-encryption' '.#${{matrix.ghc}}'
+              bash -c 'cabal build amazonka-s3-encryption' '.#${{matrix.ghc}}'
 
       - name: cabal build all
         run: |
           nix develop --print-build-logs --command \
-              bash -c 'cabal build all' '.#${{matrix.ghc}}'
+              bash -c 'cabal test all' '.#${{matrix.ghc}}'

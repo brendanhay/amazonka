@@ -15,7 +15,7 @@ say() {
 }
 
 if [ $# -ne 2 ]; then
-	echo "Usage: bump-version CORE_VERSION DEP_VERSION"
+	echo "Usage: set-version CORE_VERSION DEP_VERSION"
 	exit 1
 fi
 

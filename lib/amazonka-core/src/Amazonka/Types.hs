@@ -966,7 +966,6 @@ pattern Ningxia = Region' "cn-northwest-1"
   Jakarta,
   Melbourne,
   Mumbai,
-  Hyderabad,
   Osaka,
   Seoul,
   Singapore,

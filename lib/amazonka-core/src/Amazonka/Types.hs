@@ -132,7 +132,6 @@ module Amazonka.Types
         Jakarta,
         Melbourne,
         Mumbai,
-        Hyderabad,
         Osaka,
         Seoul,
         Singapore,
@@ -880,9 +879,6 @@ pattern Melbourne = Region' "ap-southeast-4"
 
 pattern Mumbai :: Region
 pattern Mumbai = Region' "ap-south-1"
-
-pattern Hyderabad :: Region
-pattern Hyderabad = Region' "ap-south-2"
 
 pattern Osaka :: Region
 pattern Osaka = Region' "ap-northeast-3"

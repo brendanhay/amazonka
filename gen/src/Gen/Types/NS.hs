@@ -5,7 +5,7 @@ import qualified Data.Text as Text
 import Gen.Prelude
 
 newtype NS = NS [Text]
-  deriving (Eq, Ord, Show)
+  deriving stock (Eq, Ord, Show)
 
 mkNS :: Text -> NS
 mkNS = NS . Text.splitOn "."

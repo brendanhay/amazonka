@@ -11,13 +11,13 @@ import GHC.Generics ()
 import Gen.Prelude
 import Gen.Text
 
-defKey :: Text
+defKey :: IsString a => a
 defKey = "__default__"
 
 data When
   = WhenStatus (Maybe Text) !Integer
   | WhenCRC32 !Text
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance FromJSON When where
   parseJSON = Aeson.withObject "When" (\o -> status o <|> crc o)
@@ -32,7 +32,7 @@ instance FromJSON When where
 data Policy
   = Socket [Text]
   | When When
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance FromJSON Policy where
   parseJSON = Aeson.withObject "Policy" $ \o -> sock o <|> resp o
@@ -45,7 +45,7 @@ data Delay = Delay
     _delayBase :: Rational,
     _delayGrowth :: Integer
   }
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 $(Lens.makeClassy ''Delay)
 
@@ -65,7 +65,7 @@ data Retry = Retry'
     _retryDelay :: Delay,
     _retryPolicies :: HashMap Text Policy
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeLenses ''Retry)
 
@@ -105,7 +105,7 @@ parseRetry svc o = do
   -- definitions, just add them all rather than dealing
   -- with references.
   case r ^. Lens.at defKey of
-    Nothing -> fail $ "Missing: " ++ show defKey
+    Nothing -> fail $ "Missing object key: " ++ defKey
     Just x -> do
       Identity d <- Aeson.parseJSON (Aeson.Object x)
       case r ^. Lens.at (Text.toLower svc) of

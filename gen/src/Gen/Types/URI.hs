@@ -16,7 +16,7 @@ import Gen.Types.Id
 data Segment
   = Tok Text
   | Var Id
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makePrisms ''Segment)
 
@@ -24,7 +24,7 @@ data URI = URI'
   { _uriPath :: [Segment],
     _uriQuery :: [Segment]
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeClassy ''URI)
 
@@ -63,7 +63,7 @@ data Method
   | PUT
   | DELETE
   | PATCH
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 instance FromJSON Method where
   parseJSON = gParseJSON' upper
@@ -85,7 +85,7 @@ data HTTP = HTTP
     _requestURI :: URI,
     _responseCode :: Int
   }
-  deriving (Show, Generic)
+  deriving stock (Show, Generic)
 
 $(Lens.makeClassy ''HTTP)
 

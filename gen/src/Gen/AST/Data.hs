@@ -491,7 +491,7 @@ notation m = go
 data PP
   = Print
   | None
-  deriving (Eq)
+  deriving stock (Eq)
 
 pp :: Pretty a => PP -> a -> Either String Rendered
 pp i d

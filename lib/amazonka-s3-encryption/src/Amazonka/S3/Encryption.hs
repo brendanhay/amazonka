@@ -95,6 +95,7 @@ import Amazonka.S3.Encryption.Types
 import Control.Lens
 import Crypto.PubKey.RSA.Types as RSA
 import Crypto.Random
+import Data.Typeable (Typeable)
 
 -- | Specify a KMS master key to use, with an initially empty material description.
 --
@@ -247,7 +248,9 @@ decryptInstructions key env x = do
 -- Throws 'EncryptionError', 'AWS.Error'.
 cleanupInstructions ::
   ( MonadResource m,
-    RemoveInstructions a
+    RemoveInstructions a,
+    Typeable (AWSResponse a),
+    Typeable a
   ) =>
   Env ->
   a ->

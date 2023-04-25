@@ -12,8 +12,6 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-bazel build @botocore//... //gen:gen-configs
+botocore="${BOTOCORE:?}/botocore/data"
 
-exec ./bazel-bin/gen/gen-configs "$(bazel info output_base)/external/botocore" \
-  --configs ./configs \
-  --word-frequencies ./configs/word-frequencies
+nix run '.#gen-configs' -- "$botocore"

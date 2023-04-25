@@ -3,44 +3,39 @@
 [![MPL2][license-badge]][license]
 [![Hackage][hackage-badge]][hackage]
 [![Build][build-badge]][actions]
-[![Gen][gen-badge]][actions]
-[![Docs][docs-badge]][actions]
 
 [license]: https://opensource.org/licenses/MPL-2.0
 [actions]: https://github.com/brendanhay/amazonka/actions
 [license-badge]: https://img.shields.io/badge/license-MPL%202.0-blue.svg
 [build-badge]: https://github.com/brendanhay/amazonka/workflows/build/badge.svg
-[gen-badge]: https://github.com/brendanhay/amazonka/workflows/gen/badge.svg
-[docs-badge]: https://github.com/brendanhay/amazonka/workflows/docs/badge.svg
 [hackage]: http://hackage.haskell.org/package/amazonka
 [hackage-badge]: https://img.shields.io/hackage/v/amazonka.svg
-
-[Amazonka]: https://www.brendanhay.nz/amazonka
-[Nix]: https://nixos.org/nix/
-[Bazel]: https://bazel.build
-[Bazel's label]: https://docs.bazel.build/versions/4.1.0/build-ref.html#labels
-[GHC]: https://www.haskell.org/ghc/
-[Direnv]: https://direnv.net
-[Direnv Wiki]: https://github.com/direnv/direnv/wiki
+[amazonka]: https://www.brendanhay.nz/amazonka
+[nix]: https://nixos.org/nix/
+[bazel]: https://bazel.build
+[bazel's label]: https://docs.bazel.build/versions/4.1.0/build-ref.html#labels
+[ghc]: https://www.haskell.org/ghc/
+[direnv]: https://direnv.net
+[direnv wiki]: https://github.com/direnv/direnv/wiki
 [hermetic]: https://sre.google/sre-book/release-engineering/#hermetic-builds-nqslhnid
 [lorri]: https://github.com/nix-community/lorri
 [botocore]: https://github.com/boto/botocore
 
 An Amazon Web Services SDK for Haskell with support for most public services. Parts of the code contained in this repository are auto-generated and automatically kept up to date with Amazon's latest service APIs.
 
-* You can find the latest Haddock documentation for each respective library on the [Amazonka] website.
-* A release changelog can be found in [lib/amazonka/CHANGELOG.md](lib/amazonka/CHANGELOG.md).
-* For problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
+- You can find the latest Haddock documentation for each respective library on the [Amazonka] website.
+- A release changelog can be found in [lib/amazonka/CHANGELOG.md](lib/amazonka/CHANGELOG.md).
+- For problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
 
-- [License](#license)
-- [Directory Layout](#directory-layout)
-- [Supported Platforms and GHC Versions](#supported-platforms-and-ghc-versions)
-- [Getting Started](#getting-started)
-- [Building the Project](#building-the-project)
-- [Building the Documentation](#building-the-documentation)
-- [Running the Code Generator](#running-the-code-generator)
-- [Code Formatting](#code-formatting)
-- [Third Party Packages](#third-party-packages)
+* [License](#license)
+* [Directory Layout](#directory-layout)
+* [Supported Platforms and GHC Versions](#supported-platforms-and-ghc-versions)
+* [Getting Started](#getting-started)
+* [Building the Project](#building-the-project)
+* [Building the Documentation](#building-the-documentation)
+* [Running the Code Generator](#running-the-code-generator)
+* [Code Formatting](#code-formatting)
+* [Third Party Packages](#third-party-packages)
 
 ## License
 
@@ -52,18 +47,18 @@ The AWS service descriptions are licensed under Apache 2.0. Source files derived
 
 This repository is organised into the following directory structure:
 
-* [`lib/amazonka`](lib/amazonka): The main library containing setup, authentication, and send logic. This will be your primary dependency.
-* `lib/service/amazonka-*`: A library per supported Amazon Web Service, you'll need to add a dependency on each selected service library.
-* [`lib/amazonka-core`](lib/amazonka-core): The `amazonka-core` library upon which each of the services depends.
-* [`lib/amazonka-test`](lib/amazonka-test): Common test functionality.
-* [`examples`](examples): Basic examples for using the service libraries.
-* [`configs`](configs): Service configuration, templates, and assets used by the code generator.
-* [`docs`](docs): The website documentation and related build code.
-* [`gen`](gen): The code and configuration generators.
-* [`nix`](nix): Nix configuration code for toolchain packages.
-* [`scripts`](scripts): Scripts to manage the project, such as the release lifecycle.
-* [`tools`](tools): Custom bazel rules.
-* [`third_party`](third_party): Third party packages and patches.
+- [`lib/amazonka`](lib/amazonka): The main library containing setup, authentication, and send logic. This will be your primary dependency.
+- `lib/service/amazonka-*`: A library per supported Amazon Web Service, you'll need to add a dependency on each selected service library.
+- [`lib/amazonka-core`](lib/amazonka-core): The `amazonka-core` library upon which each of the services depends.
+- [`lib/amazonka-test`](lib/amazonka-test): Common test functionality.
+- [`examples`](examples): Basic examples for using the service libraries.
+- [`configs`](configs): Service configuration, templates, and assets used by the code generator.
+- [`docs`](docs): The website documentation and related build code.
+- [`gen`](gen): The code and configuration generators.
+- [`nix`](nix): Nix configuration code for toolchain packages.
+- [`scripts`](scripts): Scripts to manage the project, such as the release lifecycle.
+- [`tools`](tools): Custom bazel rules.
+- [`third_party`](third_party): Third party packages and patches.
 
 ## Supported Platforms and GHC Versions
 

@@ -12,7 +12,7 @@ import Gen.Text
 import Gen.Types
 
 data Level = Flat | Nest
-  deriving (Show)
+  deriving stock (Show)
 
 suffix :: Protocol -> Text
 suffix = \case
@@ -27,7 +27,7 @@ data Names
   = NMap (Maybe Text) Text Text Text
   | NList (Maybe Text) Text
   | NName Text
-  deriving (Show)
+  deriving stock (Show)
 
 memberName :: Protocol -> Direction -> Id -> RefF (Shape a) -> Text
 memberName p d n r =

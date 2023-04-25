@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# Usage: pin-stackage
-#
-# Update the materialised //:stackage-snapshot.json from the `stack_snapshot`
-# defined in WORKSPACE.
-
-exec bazel run @stackage-unpinned//:pin

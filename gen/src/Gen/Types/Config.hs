@@ -25,7 +25,7 @@ data Replace = Replace
   { _replaceName :: Id,
     _replaceUnderive :: [Derive]
   }
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 $(Lens.makeLenses ''Replace)
 
@@ -48,7 +48,7 @@ data Override = Override
     -- | Rename fields
     _renamedFields :: HashMap Id Id
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeLenses ''Override)
 
@@ -72,23 +72,11 @@ defaultOverride =
       _renamedFields = mempty
     }
 
-newtype Version (v :: Symbol) = Version {semver :: Text}
-  deriving (Eq, Show)
+newtype Version = Version {semver :: Text}
+  deriving stock (Eq, Show)
 
-instance ToJSON (Version v) where
+instance ToJSON Version where
   toJSON (Version v) = Aeson.toJSON v
-
-type LibraryVer = Version "library"
-
-type ClientVer = Version "client"
-
-data Versions = Versions
-  { _libraryVersion :: LibraryVer,
-    _clientVersion :: ClientVer
-  }
-  deriving (Show)
-
-$(Lens.makeClassy ''Versions)
 
 data Config = Config
   { _libraryName :: Text,
@@ -123,7 +111,7 @@ instance FromJSON Config where
         <*> o .:? "extraDependencies" .!= mempty
 
 data Library = Library
-  { _versions' :: Versions,
+  { _version' :: Version,
     _config' :: Config,
     _service' :: Service Identity SData SData WData,
     -- | @(x, y)@ in cuts' means that:
@@ -144,9 +132,6 @@ instance HasService Library Identity SData SData WData where
 instance HasConfig Library where
   config = config'
 
-instance HasVersions Library where
-  versions = versions'
-
 instance ToJSON Library where
   toJSON l = Aeson.Object (x <> y)
     where
@@ -161,8 +146,8 @@ instance ToJSON Library where
             "libraryName" .= (l ^. libraryName),
             "libraryNamespace" .= (l ^. libraryNS),
             "libraryHyphenated" .= nsHyphenate (l ^. libraryNS),
-            "libraryVersion" .= (l ^. libraryVersion),
-            "clientVersion" .= (l ^. clientVersion),
+            "libraryVersion" .= _version' l,
+            "clientVersion" .= _version' l,
             "serviceInstance" .= (l ^. instance'),
             "typeModules" .= List.sort (l ^. typeModules),
             "operationModules" .= List.sort (l ^. operationModules),
@@ -201,10 +186,10 @@ exposedModules = Lens.to f
   where
     f x =
       let ns = x ^. libraryNS
-       in x ^. typesNS :
-          x ^. lensNS :
-          x ^. waitersNS :
-          x ^.. operations . Lens.each . Lens.to (operationNS ns . Lens.view opName)
+       in x ^. typesNS
+            : x ^. lensNS
+            : x ^. waitersNS
+            : x ^.. operations . Lens.each . Lens.to (operationNS ns . Lens.view opName)
 
 data Templates = Templates
   { cabalTemplate :: Template,
@@ -232,7 +217,7 @@ data Model = Model
     _modelVersion :: UTCTime,
     _modelPath :: FilePath
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 $(Lens.makeLenses ''Model)
 

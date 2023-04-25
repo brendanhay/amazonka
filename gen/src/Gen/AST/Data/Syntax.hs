@@ -141,8 +141,8 @@ lensD type' f = Exts.sfun (ident l) [] (unguarded rhs) Exts.noBinds
 errorS :: Text -> Decl
 errorS n =
   let cxt = Exts.CxSingle () (Exts.TypeA () $ tycon "Core.AsError" `tyapp` tyvar "a")
-      forall = Exts.TyForall () Nothing (Just cxt)
-   in Exts.TypeSig () [ident n] . forall $
+      forAll = Exts.TyForall () Nothing (Just cxt)
+   in Exts.TypeSig () [ident n] . forAll $
         tycon "Lens.Fold"
           `tyapp` tyvar "a"
           `tyapp` tycon "Core.ServiceError"

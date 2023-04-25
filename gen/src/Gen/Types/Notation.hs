@@ -11,7 +11,7 @@ data Key a
   = Key {fromKey :: a}
   | Each {fromKey :: a}
   | Last {fromKey :: a}
-  deriving (Eq, Show, Functor, Foldable)
+  deriving stock (Eq, Show, Functor, Foldable)
 
 data Notation a
   = Access (NonEmpty (Key a))
@@ -19,7 +19,7 @@ data Notation a
   | NonEmptyList (NonEmpty (Key a))
   | NonEmptyText (Key a)
   | Choice (Notation a) (Notation a)
-  deriving (Eq, Show, Functor, Foldable)
+  deriving stock (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Notation Id) where
   parseJSON = Aeson.withText "Notation" (either fail pure . parseNotation)

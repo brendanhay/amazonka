@@ -32,7 +32,7 @@ data Signature
   | V4
   | S3
   | S3V4
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 sigToText :: Signature -> Text
 sigToText = \case
@@ -52,7 +52,7 @@ data Protocol
   | Query
   | EC2
   | APIGateway
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 instance FromJSON Protocol where
   parseJSON = Aeson.withText "protocol" $ \case
@@ -86,7 +86,7 @@ timestamp = \case
 data Checksum
   = MD5
   | SHA256
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 instance FromJSON Checksum where
   parseJSON = gParseJSON' lower
@@ -101,7 +101,7 @@ data Location
   | Querystring
   | StatusCode
   | Body
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 instance FromJSON Location where
   parseJSON = gParseJSON' camel
@@ -113,7 +113,7 @@ data XML = XML'
   { _xmlPrefix :: Maybe Text,
     _xmlUri :: Text
   }
-  deriving (Eq, Show, Generic)
+  deriving stock (Eq, Show, Generic)
 
 $(Lens.makeLenses ''XML)
 
@@ -132,7 +132,7 @@ data RefF a = RefF
     _refXMLAttribute :: Bool,
     _refXMLNamespace :: Maybe XML
   }
-  deriving (Functor, Foldable, Traversable, Generic)
+  deriving stock (Functor, Foldable, Traversable, Generic)
 
 $(Deriving.deriveShow1 ''RefF)
 $(Deriving.deriveShow ''RefF)
@@ -162,7 +162,7 @@ data ErrorInfo = ErrorInfo
     _errStatus :: Int,
     _errSenderFault :: Bool
   }
-  deriving (Show, Generic)
+  deriving stock (Show, Generic)
 
 $(Lens.makeLenses ''ErrorInfo)
 
@@ -183,7 +183,7 @@ data Info = Info
     _infoException :: Bool,
     _infoError :: Maybe ErrorInfo
   }
-  deriving (Show, Generic)
+  deriving stock (Show, Generic)
 
 $(Lens.makeClassy ''Info)
 
@@ -206,7 +206,7 @@ data ListF a = ListF
   { _listInfo :: Info,
     _listItem :: RefF a
   }
-  deriving (Functor, Foldable, Traversable)
+  deriving stock (Functor, Foldable, Traversable)
 
 $(Deriving.deriveShow1 ''ListF)
 $(Deriving.deriveShow ''ListF)
@@ -228,7 +228,7 @@ data MapF a = MapF
     _mapKey :: RefF a,
     _mapValue :: RefF a
   }
-  deriving (Functor, Foldable, Traversable)
+  deriving stock (Functor, Foldable, Traversable)
 
 $(Deriving.deriveShow1 ''MapF)
 $(Deriving.deriveShow ''MapF)
@@ -253,7 +253,7 @@ data StructF a = StructF
     _required' :: [Id],
     _payload :: Maybe Id
   }
-  deriving (Functor, Foldable, Traversable)
+  deriving stock (Functor, Foldable, Traversable)
 
 $(Deriving.deriveShow1 ''StructF)
 $(Deriving.deriveShow ''StructF)
@@ -289,7 +289,7 @@ data ShapeF a
   | Struct (StructF a)
   | Enum Info (HashMap Id Text)
   | Lit Info Lit
-  deriving (Functor, Foldable, Traversable)
+  deriving stock (Functor, Foldable, Traversable)
 
 $(Deriving.deriveShow1 ''ShapeF)
 $(Deriving.deriveShow ''ShapeF)
@@ -400,7 +400,7 @@ data Metadata f = Metadata
     _jsonVersion :: Maybe Text,
     _targetPrefix :: Maybe Text
   }
-  deriving (Generic)
+  deriving stock (Generic)
 
 deriving instance Show (Metadata Maybe)
 
@@ -445,7 +445,7 @@ data Service f a b c = Service
     _waiters :: HashMap Id c,
     _retry :: Retry
   }
-  deriving (Generic)
+  deriving stock (Generic)
 
 $(Lens.makeClassy ''Service)
 

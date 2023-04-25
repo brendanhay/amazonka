@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Usage: generate [--commit] MODELS
 #
 # Runs amazonka-gen on the specified MODELS - which are directory names of the
@@ -17,109 +16,93 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 # Output a message to stderr.
 say() {
-  echo >&2 "$@"
+	echo >&2 "$@"
 }
 
 commit="false"
 
-case "${1:-}" in
+case "${1-}" in
 --commit)
-  if [[ "$(git diff --stat)" != "" ]]; then
-    say "Unable to use --commit when the git working tree is dirty."
-    exit 1
-  fi
+	if [[ "$(git diff --stat)" != "" ]]; then
+		say "Unable to use --commit when the git working tree is dirty."
+		exit 1
+	fi
 
-  commit="true"
-  shift
-  ;;
+	commit="true"
+	shift
+	;;
 esac
 
 # Format new sources in tmp and replace the corresponding amazonka-*/gen
 # directory in the source tree if successful.
 format_and_replace() {
-  local -r dir="$1"
+	local -r dir="$1"
 
-  say "Formatting $dir"
+	say "Formatting $dir"
 
-  find "$dir" -type f -name '*.cabal' -print0 |
-    xargs -0 cabal-fmt --inplace --indent=2
+	find "$dir" -type f -name '*.cabal' -print0 |
+		xargs -0 cabal-fmt --inplace --indent=2
 
-  find "$dir" -type f \( -name '*.hs' -o -name '*.hs-boot' \) -print0 |
-    xargs -0 ormolu --mode=inplace \
-      --ghc-opt='-XPatternSynonyms' \
-      --ghc-opt='-XTypeApplications'
+	find "$dir" -type f \( -name '*.hs' -o -name '*.hs-boot' \) -print0 |
+		xargs -0 ormolu --mode=inplace \
+			--ghc-opt='-XPatternSynonyms' \
+			--ghc-opt='-XTypeApplications'
 
-  # Delete corresponding amazonka-*/gen dirs from the source tree.
-  rm -rf "./lib/services/$(basename "$dir")/gen"
+	# Delete corresponding amazonka-*/gen dirs from the source tree.
+	rm -rf "./lib/services/$(basename "$dir")/gen"
 
-  # Copy formatted sources from tmp to the source tree.
-  cp -R "$dir" lib/services
+	# Copy formatted sources from tmp to the source tree.
+	cp -R "$dir" lib/services
 }
 
 # Export the functions for use in GNU parallel.
 export -f say
 export -f format_and_replace
 
-# Build the generator, obtain the botocore repository, and ensure buildozer exists.
-bazel build //gen @botocore//... @com_github_bazelbuild_buildtools//buildozer
-
-botocore="$(bazel info output_base)/external/botocore"
-version="$(sed -n '0,/^version: */s///p' lib/amazonka/amazonka.cabal)"
-services="configs/services"
+botocore="${BOTOCORE:?}/botocore/data"
 models=()
 
 if [ $# -eq 0 ]; then
-  for model in "$services"/*.json; do
-    models+=("$(basename "$model" .json)")
-  done
+	for model in configs/services/*.json; do
+		models+=("$(basename "$model" .json)")
+	done
 else
-  models=("$@")
+	models=("$@")
 fi
 
 tmp="$(mktemp -d -p "$PWD")"
 
 trap 'rm -rf "$tmp"' EXIT
 
-say "Using botocore $botocore."
-say "Using amazonka version $version."
-say "Generating models ${models[*]}."
-say "Using temporary directory $tmp."
+say "Using botocore $botocore"
+say "Using temporary directory $tmp"
+say "Generating models ${models[*]}"
 
-generator=(
-  --out="$tmp"
-  --library-version="${version}"
-  --client-version="${version}"
-  --services="$services"
-  --annexes="configs/annexes"
-  --templates="configs/templates"
-  --assets="configs/assets"
-  --retry="${botocore}/_retry.json"
+args=(
+	--out="$tmp"
+	--retry="${botocore}/_retry.json"
 )
 
 for model in "${models[@]}"; do
-  generator+=("${botocore}/${model}")
+	args+=("${botocore}/${model}")
 done
 
 # Generate new sources in tmp.
-./bazel-bin/gen/gen +RTS -qg0 -RTS "${generator[@]}"
+nix run '.#gen' -- "${args[@]}"
 
 # Run the format and copy/replace steps in parallel.
 parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
-
-# Generate BUILD files for every package.
-# Exit code 3 = Build OK, some tests failed/timed out
-./scripts/update-gazelle || [ $? == 3 ]
 
 set +e
 
 # If --commit was passed as the first argument, created a commit per service.
 if [ "$commit" = "true" ]; then
-  for service in lib/services/amazonka-*; do
+	for service in lib/services/amazonka-*; do
 
-    if git add "$service" >/dev/null 2>&1; then
-      git commit -m "$(basename "$service"): regenerating service"
-    fi
-  done
+		if git add "$service" >/dev/null 2>&1; then
+			git commit -m "$(basename "$service"): regenerating service"
+		fi
+	done
 fi
 
 say "Done."

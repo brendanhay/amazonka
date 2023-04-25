@@ -47,7 +47,7 @@
         ghc94 = pkgs.haskell.packages."ghc94";
         ghc96 = pkgs.haskell.packages."ghc96";
 
-        # The default ghc to use when entering `nix shell` and building amazonka-gen.
+        # The default ghc to use when entering `nix develop` and building amazonka-gen.
         ghcDefault = ghc94;
 
         renameVersion = version: "ghc" + (pkgs.lib.replaceStrings [ "." ] [ "" ] version);
@@ -70,6 +70,7 @@
             pkgs.hlint
             pkgs.nixpkgs-fmt
             pkgs.ormolu
+            pkgs.parallel
           ];
 
           shellHook = pre-commit.shellHook + ''

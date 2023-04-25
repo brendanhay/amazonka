@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Usage: generate [--commit] MODELS
 #
 # Runs amazonka-gen on the specified MODELS - which are directory names of the

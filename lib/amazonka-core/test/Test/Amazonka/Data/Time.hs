@@ -169,5 +169,5 @@ time =
     Time.parseTimeM True Time.defaultTimeLocale fmt ts
   where
     msg = "Unable to parse time: " ++ ts
-    fmt = Time.iso8601DateFormat (Just "%H:%M:%S")
+    fmt = "%FT%H:%M:%S"
     ts = "2014-11-07T04:42:13"

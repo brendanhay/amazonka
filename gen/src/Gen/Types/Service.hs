@@ -322,7 +322,7 @@ instance FromJSON (ShapeF ()) where
   parseJSON = Aeson.withObject "shape" $ \o -> do
     i <- Aeson.parseJSON (Aeson.Object o)
     t <- o .: "type"
-    m <- o .:? "enum"
+    enum <- o .:? "enum"
     ts <- o .:? "timestampFormat"
 
     case t of
@@ -338,9 +338,10 @@ instance FromJSON (ShapeF ()) where
       "boolean" -> pure (Lit i Bool)
       "timestamp" -> pure (Lit i (Time ts))
       "json" -> pure (Lit i Json)
-      "string" -> pure (maybe (Lit i Text) f m)
-        where
-          f = Enum i . HashMap.fromList . map (first mkId . renameBranch)
+      "string" -> pure $ case enum of
+        Nothing -> Lit i Text
+        Just values ->
+          Enum i . HashMap.fromList $ map (first mkId . renameEnumValue) values
       _ -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data Operation f a b = Operation

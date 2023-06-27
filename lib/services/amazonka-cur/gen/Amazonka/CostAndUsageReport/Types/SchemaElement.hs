@@ -20,7 +20,8 @@
 module Amazonka.CostAndUsageReport.Types.SchemaElement
   ( SchemaElement
       ( ..,
-        SchemaElement_RESOURCES
+        SchemaElement_RESOURCES,
+        SchemaElement_SPLIT_COST_ALLOCATION_DATA
       ),
   )
 where
@@ -61,7 +62,11 @@ newtype SchemaElement = SchemaElement'
 pattern SchemaElement_RESOURCES :: SchemaElement
 pattern SchemaElement_RESOURCES = SchemaElement' "RESOURCES"
 
+pattern SchemaElement_SPLIT_COST_ALLOCATION_DATA :: SchemaElement
+pattern SchemaElement_SPLIT_COST_ALLOCATION_DATA = SchemaElement' "SPLIT_COST_ALLOCATION_DATA"
+
 {-# COMPLETE
   SchemaElement_RESOURCES,
+  SchemaElement_SPLIT_COST_ALLOCATION_DATA,
   SchemaElement'
   #-}

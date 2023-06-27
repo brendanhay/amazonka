@@ -102,7 +102,8 @@ instance Core.AWSRequest ModifyReportDefinition where
 
 instance Prelude.Hashable ModifyReportDefinition where
   hashWithSalt _salt ModifyReportDefinition' {..} =
-    _salt `Prelude.hashWithSalt` reportName
+    _salt
+      `Prelude.hashWithSalt` reportName
       `Prelude.hashWithSalt` reportDefinition
 
 instance Prelude.NFData ModifyReportDefinition where

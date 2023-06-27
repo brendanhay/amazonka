@@ -26,6 +26,7 @@ module Amazonka.CostAndUsageReport.Types.AWSRegion
         AWSRegion_Ap_northeast_2,
         AWSRegion_Ap_northeast_3,
         AWSRegion_Ap_south_1,
+        AWSRegion_Ap_south_2,
         AWSRegion_Ap_southeast_1,
         AWSRegion_Ap_southeast_2,
         AWSRegion_Ap_southeast_3,
@@ -33,6 +34,7 @@ module Amazonka.CostAndUsageReport.Types.AWSRegion
         AWSRegion_Cn_north_1,
         AWSRegion_Cn_northwest_1,
         AWSRegion_Eu_central_1,
+        AWSRegion_Eu_central_2,
         AWSRegion_Eu_north_1,
         AWSRegion_Eu_south_1,
         AWSRegion_Eu_south_2,
@@ -101,6 +103,9 @@ pattern AWSRegion_Ap_northeast_3 = AWSRegion' "ap-northeast-3"
 pattern AWSRegion_Ap_south_1 :: AWSRegion
 pattern AWSRegion_Ap_south_1 = AWSRegion' "ap-south-1"
 
+pattern AWSRegion_Ap_south_2 :: AWSRegion
+pattern AWSRegion_Ap_south_2 = AWSRegion' "ap-south-2"
+
 pattern AWSRegion_Ap_southeast_1 :: AWSRegion
 pattern AWSRegion_Ap_southeast_1 = AWSRegion' "ap-southeast-1"
 
@@ -121,6 +126,9 @@ pattern AWSRegion_Cn_northwest_1 = AWSRegion' "cn-northwest-1"
 
 pattern AWSRegion_Eu_central_1 :: AWSRegion
 pattern AWSRegion_Eu_central_1 = AWSRegion' "eu-central-1"
+
+pattern AWSRegion_Eu_central_2 :: AWSRegion
+pattern AWSRegion_Eu_central_2 = AWSRegion' "eu-central-2"
 
 pattern AWSRegion_Eu_north_1 :: AWSRegion
 pattern AWSRegion_Eu_north_1 = AWSRegion' "eu-north-1"
@@ -168,6 +176,7 @@ pattern AWSRegion_Us_west_2 = AWSRegion' "us-west-2"
   AWSRegion_Ap_northeast_2,
   AWSRegion_Ap_northeast_3,
   AWSRegion_Ap_south_1,
+  AWSRegion_Ap_south_2,
   AWSRegion_Ap_southeast_1,
   AWSRegion_Ap_southeast_2,
   AWSRegion_Ap_southeast_3,
@@ -175,6 +184,7 @@ pattern AWSRegion_Us_west_2 = AWSRegion' "us-west-2"
   AWSRegion_Cn_north_1,
   AWSRegion_Cn_northwest_1,
   AWSRegion_Eu_central_1,
+  AWSRegion_Eu_central_2,
   AWSRegion_Eu_north_1,
   AWSRegion_Eu_south_1,
   AWSRegion_Eu_south_2,

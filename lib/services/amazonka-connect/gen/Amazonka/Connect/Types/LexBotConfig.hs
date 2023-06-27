@@ -75,7 +75,8 @@ instance Data.FromJSON LexBotConfig where
 
 instance Prelude.Hashable LexBotConfig where
   hashWithSalt _salt LexBotConfig' {..} =
-    _salt `Prelude.hashWithSalt` lexBot
+    _salt
+      `Prelude.hashWithSalt` lexBot
       `Prelude.hashWithSalt` lexV2Bot
 
 instance Prelude.NFData LexBotConfig where

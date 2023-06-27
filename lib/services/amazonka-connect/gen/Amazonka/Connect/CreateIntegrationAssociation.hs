@@ -69,8 +69,9 @@ data CreateIntegrationAssociation = CreateIntegrationAssociation'
     -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The type of information to be ingested.
     integrationType :: IntegrationType,
@@ -102,8 +103,9 @@ data CreateIntegrationAssociation = CreateIntegrationAssociation'
 -- 'tags', 'createIntegrationAssociation_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
--- 'instanceId', 'createIntegrationAssociation_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createIntegrationAssociation_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'integrationType', 'createIntegrationAssociation_integrationType' - The type of information to be ingested.
 --
@@ -154,8 +156,9 @@ createIntegrationAssociation_sourceType = Lens.lens (\CreateIntegrationAssociati
 createIntegrationAssociation_tags :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createIntegrationAssociation_tags = Lens.lens (\CreateIntegrationAssociation' {tags} -> tags) (\s@CreateIntegrationAssociation' {} a -> s {tags = a} :: CreateIntegrationAssociation) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createIntegrationAssociation_instanceId :: Lens.Lens' CreateIntegrationAssociation Prelude.Text
 createIntegrationAssociation_instanceId = Lens.lens (\CreateIntegrationAssociation' {instanceId} -> instanceId) (\s@CreateIntegrationAssociation' {} a -> s {instanceId = a} :: CreateIntegrationAssociation)
 
@@ -190,7 +193,8 @@ instance
     CreateIntegrationAssociation
   where
   hashWithSalt _salt CreateIntegrationAssociation' {..} =
-    _salt `Prelude.hashWithSalt` sourceApplicationName
+    _salt
+      `Prelude.hashWithSalt` sourceApplicationName
       `Prelude.hashWithSalt` sourceApplicationUrl
       `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` tags

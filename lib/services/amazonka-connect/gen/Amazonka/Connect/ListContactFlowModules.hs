@@ -64,8 +64,9 @@ data ListContactFlowModules = ListContactFlowModules'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,8 +87,9 @@ data ListContactFlowModules = ListContactFlowModules'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listContactFlowModules_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listContactFlowModules_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListContactFlowModules ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -115,8 +117,9 @@ listContactFlowModules_maxResults = Lens.lens (\ListContactFlowModules' {maxResu
 listContactFlowModules_nextToken :: Lens.Lens' ListContactFlowModules (Prelude.Maybe Prelude.Text)
 listContactFlowModules_nextToken = Lens.lens (\ListContactFlowModules' {nextToken} -> nextToken) (\s@ListContactFlowModules' {} a -> s {nextToken = a} :: ListContactFlowModules)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listContactFlowModules_instanceId :: Lens.Lens' ListContactFlowModules Prelude.Text
 listContactFlowModules_instanceId = Lens.lens (\ListContactFlowModules' {instanceId} -> instanceId) (\s@ListContactFlowModules' {} a -> s {instanceId = a} :: ListContactFlowModules)
 
@@ -125,22 +128,22 @@ instance Core.AWSPager ListContactFlowModules where
     | Core.stop
         ( rs
             Lens.^? listContactFlowModulesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listContactFlowModulesResponse_contactFlowModulesSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listContactFlowModules_nextToken
           Lens..~ rs
           Lens.^? listContactFlowModulesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContactFlowModules where
   type
@@ -152,7 +155,8 @@ instance Core.AWSRequest ListContactFlowModules where
     Response.receiveJSON
       ( \s h x ->
           ListContactFlowModulesResponse'
-            Prelude.<$> ( x Data..?> "ContactFlowModulesSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "ContactFlowModulesSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -161,7 +165,8 @@ instance Core.AWSRequest ListContactFlowModules where
 
 instance Prelude.Hashable ListContactFlowModules where
   hashWithSalt _salt ListContactFlowModules' {..} =
-    _salt `Prelude.hashWithSalt` contactFlowModuleState
+    _salt
+      `Prelude.hashWithSalt` contactFlowModuleState
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

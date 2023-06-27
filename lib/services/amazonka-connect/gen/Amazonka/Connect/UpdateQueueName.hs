@@ -56,8 +56,9 @@ data UpdateQueueName = UpdateQueueName'
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the queue.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text
@@ -76,8 +77,9 @@ data UpdateQueueName = UpdateQueueName'
 --
 -- 'name', 'updateQueueName_name' - The name of the queue.
 --
--- 'instanceId', 'updateQueueName_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateQueueName_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'queueId', 'updateQueueName_queueId' - The identifier for the queue.
 newUpdateQueueName ::
@@ -102,8 +104,9 @@ updateQueueName_description = Lens.lens (\UpdateQueueName' {description} -> desc
 updateQueueName_name :: Lens.Lens' UpdateQueueName (Prelude.Maybe Prelude.Text)
 updateQueueName_name = Lens.lens (\UpdateQueueName' {name} -> name) (\s@UpdateQueueName' {} a -> s {name = a} :: UpdateQueueName)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateQueueName_instanceId :: Lens.Lens' UpdateQueueName Prelude.Text
 updateQueueName_instanceId = Lens.lens (\UpdateQueueName' {instanceId} -> instanceId) (\s@UpdateQueueName' {} a -> s {instanceId = a} :: UpdateQueueName)
 
@@ -122,7 +125,8 @@ instance Core.AWSRequest UpdateQueueName where
 
 instance Prelude.Hashable UpdateQueueName where
   hashWithSalt _salt UpdateQueueName' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId

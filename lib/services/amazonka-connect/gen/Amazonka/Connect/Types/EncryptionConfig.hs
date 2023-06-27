@@ -34,6 +34,10 @@ data EncryptionConfig = EncryptionConfig'
     -- | The full ARN of the encryption key.
     --
     -- Be sure to provide the full ARN of the encryption key, not just the ID.
+    --
+    -- Amazon Connect supports only KMS keys with the default key spec of
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default SYMMETRIC_DEFAULT>
+    -- .
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,6 +55,10 @@ data EncryptionConfig = EncryptionConfig'
 -- 'keyId', 'encryptionConfig_keyId' - The full ARN of the encryption key.
 --
 -- Be sure to provide the full ARN of the encryption key, not just the ID.
+--
+-- Amazon Connect supports only KMS keys with the default key spec of
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default SYMMETRIC_DEFAULT>
+-- .
 newEncryptionConfig ::
   -- | 'encryptionType'
   EncryptionType ->
@@ -71,6 +79,10 @@ encryptionConfig_encryptionType = Lens.lens (\EncryptionConfig' {encryptionType}
 -- | The full ARN of the encryption key.
 --
 -- Be sure to provide the full ARN of the encryption key, not just the ID.
+--
+-- Amazon Connect supports only KMS keys with the default key spec of
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default SYMMETRIC_DEFAULT>
+-- .
 encryptionConfig_keyId :: Lens.Lens' EncryptionConfig Prelude.Text
 encryptionConfig_keyId = Lens.lens (\EncryptionConfig' {keyId} -> keyId) (\s@EncryptionConfig' {} a -> s {keyId = a} :: EncryptionConfig)
 
@@ -86,7 +98,8 @@ instance Data.FromJSON EncryptionConfig where
 
 instance Prelude.Hashable EncryptionConfig where
   hashWithSalt _salt EncryptionConfig' {..} =
-    _salt `Prelude.hashWithSalt` encryptionType
+    _salt
+      `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData EncryptionConfig where

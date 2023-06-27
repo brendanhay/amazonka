@@ -21,9 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- When a contact is being recorded, and the recording has been suspended
--- using SuspendContactRecording, this API resumes recording the call.
+-- using SuspendContactRecording, this API resumes recording the call or
+-- screen.
 --
--- Only voice recordings are supported at this time.
+-- Voice and screen recordings are supported.
 module Amazonka.Connect.ResumeContactRecording
   ( -- * Creating a Request
     ResumeContactRecording (..),
@@ -53,8 +54,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newResumeContactRecording' smart constructor.
 data ResumeContactRecording = ResumeContactRecording'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact.
     contactId :: Prelude.Text,
@@ -72,8 +74,9 @@ data ResumeContactRecording = ResumeContactRecording'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'resumeContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'resumeContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'resumeContactRecording_contactId' - The identifier of the contact.
 --
@@ -97,8 +100,9 @@ newResumeContactRecording
         initialContactId = pInitialContactId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 resumeContactRecording_instanceId :: Lens.Lens' ResumeContactRecording Prelude.Text
 resumeContactRecording_instanceId = Lens.lens (\ResumeContactRecording' {instanceId} -> instanceId) (\s@ResumeContactRecording' {} a -> s {instanceId = a} :: ResumeContactRecording)
 
@@ -126,7 +130,8 @@ instance Core.AWSRequest ResumeContactRecording where
 
 instance Prelude.Hashable ResumeContactRecording where
   hashWithSalt _salt ResumeContactRecording' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` initialContactId
 

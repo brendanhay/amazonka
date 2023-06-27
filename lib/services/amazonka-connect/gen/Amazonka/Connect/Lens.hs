@@ -14,6 +14,15 @@
 module Amazonka.Connect.Lens
   ( -- * Operations
 
+    -- ** ActivateEvaluationForm
+    activateEvaluationForm_instanceId,
+    activateEvaluationForm_evaluationFormId,
+    activateEvaluationForm_evaluationFormVersion,
+    activateEvaluationFormResponse_httpStatus,
+    activateEvaluationFormResponse_evaluationFormId,
+    activateEvaluationFormResponse_evaluationFormArn,
+    activateEvaluationFormResponse_evaluationFormVersion,
+
     -- ** AssociateApprovedOrigin
     associateApprovedOrigin_instanceId,
     associateApprovedOrigin_origin,
@@ -108,6 +117,17 @@ module Amazonka.Connect.Lens
     createContactFlowModuleResponse_id,
     createContactFlowModuleResponse_httpStatus,
 
+    -- ** CreateEvaluationForm
+    createEvaluationForm_clientToken,
+    createEvaluationForm_description,
+    createEvaluationForm_scoringStrategy,
+    createEvaluationForm_instanceId,
+    createEvaluationForm_title,
+    createEvaluationForm_items,
+    createEvaluationFormResponse_httpStatus,
+    createEvaluationFormResponse_evaluationFormId,
+    createEvaluationFormResponse_evaluationFormArn,
+
     -- ** CreateHoursOfOperation
     createHoursOfOperation_description,
     createHoursOfOperation_tags,
@@ -141,6 +161,25 @@ module Amazonka.Connect.Lens
     createIntegrationAssociationResponse_integrationAssociationArn,
     createIntegrationAssociationResponse_integrationAssociationId,
     createIntegrationAssociationResponse_httpStatus,
+
+    -- ** CreateParticipant
+    createParticipant_clientToken,
+    createParticipant_instanceId,
+    createParticipant_contactId,
+    createParticipant_participantDetails,
+    createParticipantResponse_participantCredentials,
+    createParticipantResponse_participantId,
+    createParticipantResponse_httpStatus,
+
+    -- ** CreatePrompt
+    createPrompt_description,
+    createPrompt_tags,
+    createPrompt_instanceId,
+    createPrompt_name,
+    createPrompt_s3Uri,
+    createPromptResponse_promptARN,
+    createPromptResponse_promptId,
+    createPromptResponse_httpStatus,
 
     -- ** CreateQueue
     createQueue_description,
@@ -270,14 +309,33 @@ module Amazonka.Connect.Lens
     createVocabularyResponse_vocabularyId,
     createVocabularyResponse_state,
 
+    -- ** DeactivateEvaluationForm
+    deactivateEvaluationForm_instanceId,
+    deactivateEvaluationForm_evaluationFormId,
+    deactivateEvaluationForm_evaluationFormVersion,
+    deactivateEvaluationFormResponse_httpStatus,
+    deactivateEvaluationFormResponse_evaluationFormId,
+    deactivateEvaluationFormResponse_evaluationFormArn,
+    deactivateEvaluationFormResponse_evaluationFormVersion,
+
+    -- ** DeleteContactEvaluation
+    deleteContactEvaluation_instanceId,
+    deleteContactEvaluation_evaluationId,
+
     -- ** DeleteContactFlow
     deleteContactFlow_instanceId,
     deleteContactFlow_contactFlowId,
+    deleteContactFlowResponse_httpStatus,
 
     -- ** DeleteContactFlowModule
     deleteContactFlowModule_instanceId,
     deleteContactFlowModule_contactFlowModuleId,
     deleteContactFlowModuleResponse_httpStatus,
+
+    -- ** DeleteEvaluationForm
+    deleteEvaluationForm_evaluationFormVersion,
+    deleteEvaluationForm_instanceId,
+    deleteEvaluationForm_evaluationFormId,
 
     -- ** DeleteHoursOfOperation
     deleteHoursOfOperation_instanceId,
@@ -289,6 +347,10 @@ module Amazonka.Connect.Lens
     -- ** DeleteIntegrationAssociation
     deleteIntegrationAssociation_instanceId,
     deleteIntegrationAssociation_integrationAssociationId,
+
+    -- ** DeletePrompt
+    deletePrompt_instanceId,
+    deletePrompt_promptId,
 
     -- ** DeleteQuickConnect
     deleteQuickConnect_instanceId,
@@ -344,6 +406,13 @@ module Amazonka.Connect.Lens
     describeContactResponse_contact,
     describeContactResponse_httpStatus,
 
+    -- ** DescribeContactEvaluation
+    describeContactEvaluation_instanceId,
+    describeContactEvaluation_evaluationId,
+    describeContactEvaluationResponse_httpStatus,
+    describeContactEvaluationResponse_evaluation,
+    describeContactEvaluationResponse_evaluationForm,
+
     -- ** DescribeContactFlow
     describeContactFlow_instanceId,
     describeContactFlow_contactFlowId,
@@ -355,6 +424,13 @@ module Amazonka.Connect.Lens
     describeContactFlowModule_contactFlowModuleId,
     describeContactFlowModuleResponse_contactFlowModule,
     describeContactFlowModuleResponse_httpStatus,
+
+    -- ** DescribeEvaluationForm
+    describeEvaluationForm_evaluationFormVersion,
+    describeEvaluationForm_instanceId,
+    describeEvaluationForm_evaluationFormId,
+    describeEvaluationFormResponse_httpStatus,
+    describeEvaluationFormResponse_evaluationForm,
 
     -- ** DescribeHoursOfOperation
     describeHoursOfOperation_instanceId,
@@ -384,6 +460,12 @@ module Amazonka.Connect.Lens
     describePhoneNumber_phoneNumberId,
     describePhoneNumberResponse_claimedPhoneNumberSummary,
     describePhoneNumberResponse_httpStatus,
+
+    -- ** DescribePrompt
+    describePrompt_instanceId,
+    describePrompt_promptId,
+    describePromptResponse_prompt,
+    describePromptResponse_httpStatus,
 
     -- ** DescribeQueue
     describeQueue_instanceId,
@@ -541,6 +623,25 @@ module Amazonka.Connect.Lens
     getMetricDataResponse_nextToken,
     getMetricDataResponse_httpStatus,
 
+    -- ** GetMetricDataV2
+    getMetricDataV2_groupings,
+    getMetricDataV2_maxResults,
+    getMetricDataV2_nextToken,
+    getMetricDataV2_resourceArn,
+    getMetricDataV2_startTime,
+    getMetricDataV2_endTime,
+    getMetricDataV2_filters,
+    getMetricDataV2_metrics,
+    getMetricDataV2Response_metricResults,
+    getMetricDataV2Response_nextToken,
+    getMetricDataV2Response_httpStatus,
+
+    -- ** GetPromptFile
+    getPromptFile_instanceId,
+    getPromptFile_promptId,
+    getPromptFileResponse_promptPresignedUrl,
+    getPromptFileResponse_httpStatus,
+
     -- ** GetTaskTemplate
     getTaskTemplate_snapshotVersion,
     getTaskTemplate_instanceId,
@@ -593,6 +694,14 @@ module Amazonka.Connect.Lens
     listBotsResponse_nextToken,
     listBotsResponse_httpStatus,
 
+    -- ** ListContactEvaluations
+    listContactEvaluations_nextToken,
+    listContactEvaluations_instanceId,
+    listContactEvaluations_contactId,
+    listContactEvaluationsResponse_nextToken,
+    listContactEvaluationsResponse_httpStatus,
+    listContactEvaluationsResponse_evaluationSummaryList,
+
     -- ** ListContactFlowModules
     listContactFlowModules_contactFlowModuleState,
     listContactFlowModules_maxResults,
@@ -628,6 +737,23 @@ module Amazonka.Connect.Lens
     listDefaultVocabulariesResponse_nextToken,
     listDefaultVocabulariesResponse_httpStatus,
     listDefaultVocabulariesResponse_defaultVocabularyList,
+
+    -- ** ListEvaluationFormVersions
+    listEvaluationFormVersions_maxResults,
+    listEvaluationFormVersions_nextToken,
+    listEvaluationFormVersions_instanceId,
+    listEvaluationFormVersions_evaluationFormId,
+    listEvaluationFormVersionsResponse_nextToken,
+    listEvaluationFormVersionsResponse_httpStatus,
+    listEvaluationFormVersionsResponse_evaluationFormVersionSummaryList,
+
+    -- ** ListEvaluationForms
+    listEvaluationForms_maxResults,
+    listEvaluationForms_nextToken,
+    listEvaluationForms_instanceId,
+    listEvaluationFormsResponse_nextToken,
+    listEvaluationFormsResponse_httpStatus,
+    listEvaluationFormsResponse_evaluationFormSummaryList,
 
     -- ** ListHoursOfOperations
     listHoursOfOperations_maxResults,
@@ -888,6 +1014,28 @@ module Amazonka.Connect.Lens
     searchAvailablePhoneNumbersResponse_nextToken,
     searchAvailablePhoneNumbersResponse_httpStatus,
 
+    -- ** SearchHoursOfOperations
+    searchHoursOfOperations_maxResults,
+    searchHoursOfOperations_nextToken,
+    searchHoursOfOperations_searchCriteria,
+    searchHoursOfOperations_searchFilter,
+    searchHoursOfOperations_instanceId,
+    searchHoursOfOperationsResponse_approximateTotalCount,
+    searchHoursOfOperationsResponse_hoursOfOperations,
+    searchHoursOfOperationsResponse_nextToken,
+    searchHoursOfOperationsResponse_httpStatus,
+
+    -- ** SearchPrompts
+    searchPrompts_maxResults,
+    searchPrompts_nextToken,
+    searchPrompts_searchCriteria,
+    searchPrompts_searchFilter,
+    searchPrompts_instanceId,
+    searchPromptsResponse_approximateTotalCount,
+    searchPromptsResponse_nextToken,
+    searchPromptsResponse_prompts,
+    searchPromptsResponse_httpStatus,
+
     -- ** SearchQueues
     searchQueues_maxResults,
     searchQueues_nextToken,
@@ -898,6 +1046,27 @@ module Amazonka.Connect.Lens
     searchQueuesResponse_nextToken,
     searchQueuesResponse_queues,
     searchQueuesResponse_httpStatus,
+
+    -- ** SearchQuickConnects
+    searchQuickConnects_maxResults,
+    searchQuickConnects_nextToken,
+    searchQuickConnects_searchCriteria,
+    searchQuickConnects_searchFilter,
+    searchQuickConnects_instanceId,
+    searchQuickConnectsResponse_approximateTotalCount,
+    searchQuickConnectsResponse_nextToken,
+    searchQuickConnectsResponse_quickConnects,
+    searchQuickConnectsResponse_httpStatus,
+
+    -- ** SearchResourceTags
+    searchResourceTags_maxResults,
+    searchResourceTags_nextToken,
+    searchResourceTags_resourceTypes,
+    searchResourceTags_searchCriteria,
+    searchResourceTags_instanceId,
+    searchResourceTagsResponse_nextToken,
+    searchResourceTagsResponse_tags,
+    searchResourceTagsResponse_httpStatus,
 
     -- ** SearchRoutingProfiles
     searchRoutingProfiles_maxResults,
@@ -948,14 +1117,26 @@ module Amazonka.Connect.Lens
     startChatContact_chatDurationInMinutes,
     startChatContact_clientToken,
     startChatContact_initialMessage,
+    startChatContact_persistentChat,
+    startChatContact_relatedContactId,
     startChatContact_supportedMessagingContentTypes,
     startChatContact_instanceId,
     startChatContact_contactFlowId,
     startChatContact_participantDetails,
     startChatContactResponse_contactId,
+    startChatContactResponse_continuedFromContactId,
     startChatContactResponse_participantId,
     startChatContactResponse_participantToken,
     startChatContactResponse_httpStatus,
+
+    -- ** StartContactEvaluation
+    startContactEvaluation_clientToken,
+    startContactEvaluation_instanceId,
+    startContactEvaluation_contactId,
+    startContactEvaluation_evaluationFormId,
+    startContactEvaluationResponse_httpStatus,
+    startContactEvaluationResponse_evaluationId,
+    startContactEvaluationResponse_evaluationArn,
 
     -- ** StartContactRecording
     startContactRecording_instanceId,
@@ -994,6 +1175,7 @@ module Amazonka.Connect.Lens
     startTaskContact_previousContactId,
     startTaskContact_quickConnectId,
     startTaskContact_references,
+    startTaskContact_relatedContactId,
     startTaskContact_scheduledTime,
     startTaskContact_taskTemplateId,
     startTaskContact_instanceId,
@@ -1017,6 +1199,15 @@ module Amazonka.Connect.Lens
     stopContactStreaming_contactId,
     stopContactStreaming_streamingId,
     stopContactStreamingResponse_httpStatus,
+
+    -- ** SubmitContactEvaluation
+    submitContactEvaluation_answers,
+    submitContactEvaluation_notes,
+    submitContactEvaluation_instanceId,
+    submitContactEvaluation_evaluationId,
+    submitContactEvaluationResponse_httpStatus,
+    submitContactEvaluationResponse_evaluationId,
+    submitContactEvaluationResponse_evaluationArn,
 
     -- ** SuspendContactRecording
     suspendContactRecording_instanceId,
@@ -1066,10 +1257,20 @@ module Amazonka.Connect.Lens
     updateContactAttributes_attributes,
     updateContactAttributesResponse_httpStatus,
 
+    -- ** UpdateContactEvaluation
+    updateContactEvaluation_answers,
+    updateContactEvaluation_notes,
+    updateContactEvaluation_instanceId,
+    updateContactEvaluation_evaluationId,
+    updateContactEvaluationResponse_httpStatus,
+    updateContactEvaluationResponse_evaluationId,
+    updateContactEvaluationResponse_evaluationArn,
+
     -- ** UpdateContactFlowContent
     updateContactFlowContent_instanceId,
     updateContactFlowContent_contactFlowId,
     updateContactFlowContent_content,
+    updateContactFlowContentResponse_httpStatus,
 
     -- ** UpdateContactFlowMetadata
     updateContactFlowMetadata_contactFlowState,
@@ -1077,6 +1278,7 @@ module Amazonka.Connect.Lens
     updateContactFlowMetadata_name,
     updateContactFlowMetadata_instanceId,
     updateContactFlowMetadata_contactFlowId,
+    updateContactFlowMetadataResponse_httpStatus,
 
     -- ** UpdateContactFlowModuleContent
     updateContactFlowModuleContent_instanceId,
@@ -1097,12 +1299,28 @@ module Amazonka.Connect.Lens
     updateContactFlowName_name,
     updateContactFlowName_instanceId,
     updateContactFlowName_contactFlowId,
+    updateContactFlowNameResponse_httpStatus,
 
     -- ** UpdateContactSchedule
     updateContactSchedule_instanceId,
     updateContactSchedule_contactId,
     updateContactSchedule_scheduledTime,
     updateContactScheduleResponse_httpStatus,
+
+    -- ** UpdateEvaluationForm
+    updateEvaluationForm_clientToken,
+    updateEvaluationForm_createNewVersion,
+    updateEvaluationForm_description,
+    updateEvaluationForm_scoringStrategy,
+    updateEvaluationForm_instanceId,
+    updateEvaluationForm_evaluationFormId,
+    updateEvaluationForm_evaluationFormVersion,
+    updateEvaluationForm_title,
+    updateEvaluationForm_items,
+    updateEvaluationFormResponse_httpStatus,
+    updateEvaluationFormResponse_evaluationFormId,
+    updateEvaluationFormResponse_evaluationFormArn,
+    updateEvaluationFormResponse_evaluationFormVersion,
 
     -- ** UpdateHoursOfOperation
     updateHoursOfOperation_config,
@@ -1136,6 +1354,16 @@ module Amazonka.Connect.Lens
     updatePhoneNumberResponse_phoneNumberArn,
     updatePhoneNumberResponse_phoneNumberId,
     updatePhoneNumberResponse_httpStatus,
+
+    -- ** UpdatePrompt
+    updatePrompt_description,
+    updatePrompt_name,
+    updatePrompt_s3Uri,
+    updatePrompt_instanceId,
+    updatePrompt_promptId,
+    updatePromptResponse_promptARN,
+    updatePromptResponse_promptId,
+    updatePromptResponse_httpStatus,
 
     -- ** UpdateQueueHoursOfOperation
     updateQueueHoursOfOperation_instanceId,
@@ -1368,7 +1596,9 @@ module Amazonka.Connect.Lens
     contact_name,
     contact_previousContactId,
     contact_queueInfo,
+    contact_relatedContactId,
     contact_scheduledTimestamp,
+    contact_wisdomInfo,
 
     -- ** ContactFilter
     contactFilter_contactStates,
@@ -1417,6 +1647,9 @@ module Amazonka.Connect.Lens
     credentials_refreshToken,
     credentials_refreshTokenExpiration,
 
+    -- ** CrossChannelBehavior
+    crossChannelBehavior_behaviorType,
+
     -- ** CurrentMetric
     currentMetric_name,
     currentMetric_unit,
@@ -1460,8 +1693,171 @@ module Amazonka.Connect.Lens
     encryptionConfig_encryptionType,
     encryptionConfig_keyId,
 
+    -- ** Evaluation
+    evaluation_scores,
+    evaluation_tags,
+    evaluation_evaluationId,
+    evaluation_evaluationArn,
+    evaluation_metadata,
+    evaluation_answers,
+    evaluation_notes,
+    evaluation_status,
+    evaluation_createdTime,
+    evaluation_lastModifiedTime,
+
+    -- ** EvaluationAnswerData
+    evaluationAnswerData_notApplicable,
+    evaluationAnswerData_numericValue,
+    evaluationAnswerData_stringValue,
+
+    -- ** EvaluationAnswerInput
+    evaluationAnswerInput_value,
+
+    -- ** EvaluationAnswerOutput
+    evaluationAnswerOutput_systemSuggestedValue,
+    evaluationAnswerOutput_value,
+
+    -- ** EvaluationForm
+    evaluationForm_description,
+    evaluationForm_scoringStrategy,
+    evaluationForm_tags,
+    evaluationForm_evaluationFormId,
+    evaluationForm_evaluationFormVersion,
+    evaluationForm_locked,
+    evaluationForm_evaluationFormArn,
+    evaluationForm_title,
+    evaluationForm_status,
+    evaluationForm_items,
+    evaluationForm_createdTime,
+    evaluationForm_createdBy,
+    evaluationForm_lastModifiedTime,
+    evaluationForm_lastModifiedBy,
+
+    -- ** EvaluationFormContent
+    evaluationFormContent_description,
+    evaluationFormContent_scoringStrategy,
+    evaluationFormContent_evaluationFormVersion,
+    evaluationFormContent_evaluationFormId,
+    evaluationFormContent_evaluationFormArn,
+    evaluationFormContent_title,
+    evaluationFormContent_items,
+
+    -- ** EvaluationFormItem
+    evaluationFormItem_question,
+    evaluationFormItem_section,
+
+    -- ** EvaluationFormNumericQuestionAutomation
+    evaluationFormNumericQuestionAutomation_propertyValue,
+
+    -- ** EvaluationFormNumericQuestionOption
+    evaluationFormNumericQuestionOption_automaticFail,
+    evaluationFormNumericQuestionOption_score,
+    evaluationFormNumericQuestionOption_minValue,
+    evaluationFormNumericQuestionOption_maxValue,
+
+    -- ** EvaluationFormNumericQuestionProperties
+    evaluationFormNumericQuestionProperties_automation,
+    evaluationFormNumericQuestionProperties_options,
+    evaluationFormNumericQuestionProperties_minValue,
+    evaluationFormNumericQuestionProperties_maxValue,
+
+    -- ** EvaluationFormQuestion
+    evaluationFormQuestion_instructions,
+    evaluationFormQuestion_notApplicableEnabled,
+    evaluationFormQuestion_questionTypeProperties,
+    evaluationFormQuestion_weight,
+    evaluationFormQuestion_title,
+    evaluationFormQuestion_refId,
+    evaluationFormQuestion_questionType,
+
+    -- ** EvaluationFormQuestionTypeProperties
+    evaluationFormQuestionTypeProperties_numeric,
+    evaluationFormQuestionTypeProperties_singleSelect,
+
+    -- ** EvaluationFormScoringStrategy
+    evaluationFormScoringStrategy_mode,
+    evaluationFormScoringStrategy_status,
+
+    -- ** EvaluationFormSection
+    evaluationFormSection_instructions,
+    evaluationFormSection_weight,
+    evaluationFormSection_title,
+    evaluationFormSection_refId,
+    evaluationFormSection_items,
+
+    -- ** EvaluationFormSingleSelectQuestionAutomation
+    evaluationFormSingleSelectQuestionAutomation_defaultOptionRefId,
+    evaluationFormSingleSelectQuestionAutomation_options,
+
+    -- ** EvaluationFormSingleSelectQuestionAutomationOption
+    evaluationFormSingleSelectQuestionAutomationOption_ruleCategory,
+
+    -- ** EvaluationFormSingleSelectQuestionOption
+    evaluationFormSingleSelectQuestionOption_automaticFail,
+    evaluationFormSingleSelectQuestionOption_score,
+    evaluationFormSingleSelectQuestionOption_refId,
+    evaluationFormSingleSelectQuestionOption_text,
+
+    -- ** EvaluationFormSingleSelectQuestionProperties
+    evaluationFormSingleSelectQuestionProperties_automation,
+    evaluationFormSingleSelectQuestionProperties_displayAs,
+    evaluationFormSingleSelectQuestionProperties_options,
+
+    -- ** EvaluationFormSummary
+    evaluationFormSummary_activeVersion,
+    evaluationFormSummary_lastActivatedBy,
+    evaluationFormSummary_lastActivatedTime,
+    evaluationFormSummary_evaluationFormId,
+    evaluationFormSummary_evaluationFormArn,
+    evaluationFormSummary_title,
+    evaluationFormSummary_createdTime,
+    evaluationFormSummary_createdBy,
+    evaluationFormSummary_lastModifiedTime,
+    evaluationFormSummary_lastModifiedBy,
+    evaluationFormSummary_latestVersion,
+
+    -- ** EvaluationFormVersionSummary
+    evaluationFormVersionSummary_evaluationFormArn,
+    evaluationFormVersionSummary_evaluationFormId,
+    evaluationFormVersionSummary_evaluationFormVersion,
+    evaluationFormVersionSummary_locked,
+    evaluationFormVersionSummary_status,
+    evaluationFormVersionSummary_createdTime,
+    evaluationFormVersionSummary_createdBy,
+    evaluationFormVersionSummary_lastModifiedTime,
+    evaluationFormVersionSummary_lastModifiedBy,
+
+    -- ** EvaluationMetadata
+    evaluationMetadata_contactAgentId,
+    evaluationMetadata_score,
+    evaluationMetadata_contactId,
+    evaluationMetadata_evaluatorArn,
+
+    -- ** EvaluationNote
+    evaluationNote_value,
+
+    -- ** EvaluationScore
+    evaluationScore_automaticFail,
+    evaluationScore_notApplicable,
+    evaluationScore_percentage,
+
+    -- ** EvaluationSummary
+    evaluationSummary_score,
+    evaluationSummary_evaluationId,
+    evaluationSummary_evaluationArn,
+    evaluationSummary_evaluationFormTitle,
+    evaluationSummary_evaluationFormId,
+    evaluationSummary_status,
+    evaluationSummary_evaluatorArn,
+    evaluationSummary_createdTime,
+    evaluationSummary_lastModifiedTime,
+
     -- ** EventBridgeActionDefinition
     eventBridgeActionDefinition_name,
+
+    -- ** FilterV2
+    filterV2_filterKey,
+    filterV2_filterValues,
 
     -- ** Filters
     filters_channels,
@@ -1553,6 +1949,14 @@ module Amazonka.Connect.Lens
     hoursOfOperationConfig_startTime,
     hoursOfOperationConfig_endTime,
 
+    -- ** HoursOfOperationSearchCriteria
+    hoursOfOperationSearchCriteria_andConditions,
+    hoursOfOperationSearchCriteria_orConditions,
+    hoursOfOperationSearchCriteria_stringCondition,
+
+    -- ** HoursOfOperationSearchFilter
+    hoursOfOperationSearchFilter_tagFilter,
+
     -- ** HoursOfOperationSummary
     hoursOfOperationSummary_arn,
     hoursOfOperationSummary_id,
@@ -1568,6 +1972,7 @@ module Amazonka.Connect.Lens
     instance_id,
     instance_identityManagementType,
     instance_inboundCallsEnabled,
+    instance_instanceAccessUrl,
     instance_instanceAlias,
     instance_instanceStatus,
     instance_outboundCallsEnabled,
@@ -1591,6 +1996,7 @@ module Amazonka.Connect.Lens
     instanceSummary_id,
     instanceSummary_identityManagementType,
     instanceSummary_inboundCallsEnabled,
+    instanceSummary_instanceAccessUrl,
     instanceSummary_instanceAlias,
     instanceSummary_instanceStatus,
     instanceSummary_outboundCallsEnabled,
@@ -1621,8 +2027,8 @@ module Amazonka.Connect.Lens
     kinesisVideoStreamConfig_encryptionConfig,
 
     -- ** LexBot
-    lexBot_lexRegion,
     lexBot_name,
+    lexBot_lexRegion,
 
     -- ** LexBotConfig
     lexBotConfig_lexBot,
@@ -1640,8 +2046,26 @@ module Amazonka.Connect.Lens
     listPhoneNumbersSummary_targetArn,
 
     -- ** MediaConcurrency
+    mediaConcurrency_crossChannelBehavior,
     mediaConcurrency_channel,
     mediaConcurrency_concurrency,
+
+    -- ** MetricDataV2
+    metricDataV2_metric,
+    metricDataV2_value,
+
+    -- ** MetricFilterV2
+    metricFilterV2_metricFilterKey,
+    metricFilterV2_metricFilterValues,
+
+    -- ** MetricResultV2
+    metricResultV2_collections,
+    metricResultV2_dimensions,
+
+    -- ** MetricV2
+    metricV2_metricFilters,
+    metricV2_name,
+    metricV2_threshold,
 
     -- ** NotificationRecipientType
     notificationRecipientType_userIds,
@@ -1651,6 +2075,9 @@ module Amazonka.Connect.Lens
     numberReference_name,
     numberReference_value,
 
+    -- ** NumericQuestionPropertyValueAutomation
+    numericQuestionPropertyValueAutomation_label,
+
     -- ** OutboundCallerConfig
     outboundCallerConfig_outboundCallerIdName,
     outboundCallerConfig_outboundCallerIdNumberId,
@@ -1658,6 +2085,10 @@ module Amazonka.Connect.Lens
 
     -- ** ParticipantDetails
     participantDetails_displayName,
+
+    -- ** ParticipantDetailsToAdd
+    participantDetailsToAdd_displayName,
+    participantDetailsToAdd_participantRole,
 
     -- ** ParticipantTimerConfiguration
     participantTimerConfiguration_participantRole,
@@ -1667,6 +2098,14 @@ module Amazonka.Connect.Lens
     -- ** ParticipantTimerValue
     participantTimerValue_participantTimerAction,
     participantTimerValue_participantTimerDurationInMinutes,
+
+    -- ** ParticipantTokenCredentials
+    participantTokenCredentials_expiry,
+    participantTokenCredentials_participantToken,
+
+    -- ** PersistentChat
+    persistentChat_rehydrationType,
+    persistentChat_sourceContactId,
 
     -- ** PhoneNumberQuickConnectConfig
     phoneNumberQuickConnectConfig_phoneNumber,
@@ -1681,6 +2120,21 @@ module Amazonka.Connect.Lens
     phoneNumberSummary_phoneNumber,
     phoneNumberSummary_phoneNumberCountryCode,
     phoneNumberSummary_phoneNumberType,
+
+    -- ** Prompt
+    prompt_description,
+    prompt_name,
+    prompt_promptARN,
+    prompt_promptId,
+    prompt_tags,
+
+    -- ** PromptSearchCriteria
+    promptSearchCriteria_andConditions,
+    promptSearchCriteria_orConditions,
+    promptSearchCriteria_stringCondition,
+
+    -- ** PromptSearchFilter
+    promptSearchFilter_tagFilter,
 
     -- ** PromptSummary
     promptSummary_arn,
@@ -1739,6 +2193,14 @@ module Amazonka.Connect.Lens
     quickConnectConfig_userConfig,
     quickConnectConfig_quickConnectType,
 
+    -- ** QuickConnectSearchCriteria
+    quickConnectSearchCriteria_andConditions,
+    quickConnectSearchCriteria_orConditions,
+    quickConnectSearchCriteria_stringCondition,
+
+    -- ** QuickConnectSearchFilter
+    quickConnectSearchFilter_tagFilter,
+
     -- ** QuickConnectSummary
     quickConnectSummary_arn,
     quickConnectSummary_id,
@@ -1762,6 +2224,9 @@ module Amazonka.Connect.Lens
 
     -- ** RequiredFieldInfo
     requiredFieldInfo_id,
+
+    -- ** ResourceTagsSearchCriteria
+    resourceTagsSearchCriteria_tagSearchCondition,
 
     -- ** RoutingProfile
     routingProfile_defaultOutboundQueueId,
@@ -1891,6 +2356,11 @@ module Amazonka.Connect.Lens
     sendNotificationActionDefinition_contentType,
     sendNotificationActionDefinition_recipient,
 
+    -- ** SingleSelectQuestionRuleCategoryAutomation
+    singleSelectQuestionRuleCategoryAutomation_category,
+    singleSelectQuestionRuleCategoryAutomation_condition,
+    singleSelectQuestionRuleCategoryAutomation_optionRefId,
+
     -- ** StringCondition
     stringCondition_comparisonType,
     stringCondition_fieldName,
@@ -1903,6 +2373,16 @@ module Amazonka.Connect.Lens
     -- ** TagCondition
     tagCondition_tagKey,
     tagCondition_tagValue,
+
+    -- ** TagSearchCondition
+    tagSearchCondition_tagKey,
+    tagSearchCondition_tagKeyComparisonType,
+    tagSearchCondition_tagValue,
+    tagSearchCondition_tagValueComparisonType,
+
+    -- ** TagSet
+    tagSet_key,
+    tagSet_value,
 
     -- ** TaskActionDefinition
     taskActionDefinition_description,
@@ -1946,6 +2426,10 @@ module Amazonka.Connect.Lens
     -- ** Threshold
     threshold_comparison,
     threshold_thresholdValue,
+
+    -- ** ThresholdV2
+    thresholdV2_comparison,
+    thresholdV2_thresholdValue,
 
     -- ** TrafficDistributionGroup
     trafficDistributionGroup_arn,
@@ -2078,9 +2562,13 @@ module Amazonka.Connect.Lens
 
     -- ** VoiceRecordingConfiguration
     voiceRecordingConfiguration_voiceRecordingTrack,
+
+    -- ** WisdomInfo
+    wisdomInfo_sessionArn,
   )
 where
 
+import Amazonka.Connect.ActivateEvaluationForm
 import Amazonka.Connect.AssociateApprovedOrigin
 import Amazonka.Connect.AssociateBot
 import Amazonka.Connect.AssociateDefaultVocabulary
@@ -2095,9 +2583,12 @@ import Amazonka.Connect.ClaimPhoneNumber
 import Amazonka.Connect.CreateAgentStatus
 import Amazonka.Connect.CreateContactFlow
 import Amazonka.Connect.CreateContactFlowModule
+import Amazonka.Connect.CreateEvaluationForm
 import Amazonka.Connect.CreateHoursOfOperation
 import Amazonka.Connect.CreateInstance
 import Amazonka.Connect.CreateIntegrationAssociation
+import Amazonka.Connect.CreateParticipant
+import Amazonka.Connect.CreatePrompt
 import Amazonka.Connect.CreateQueue
 import Amazonka.Connect.CreateQuickConnect
 import Amazonka.Connect.CreateRoutingProfile
@@ -2109,11 +2600,15 @@ import Amazonka.Connect.CreateUseCase
 import Amazonka.Connect.CreateUser
 import Amazonka.Connect.CreateUserHierarchyGroup
 import Amazonka.Connect.CreateVocabulary
+import Amazonka.Connect.DeactivateEvaluationForm
+import Amazonka.Connect.DeleteContactEvaluation
 import Amazonka.Connect.DeleteContactFlow
 import Amazonka.Connect.DeleteContactFlowModule
+import Amazonka.Connect.DeleteEvaluationForm
 import Amazonka.Connect.DeleteHoursOfOperation
 import Amazonka.Connect.DeleteInstance
 import Amazonka.Connect.DeleteIntegrationAssociation
+import Amazonka.Connect.DeletePrompt
 import Amazonka.Connect.DeleteQuickConnect
 import Amazonka.Connect.DeleteRule
 import Amazonka.Connect.DeleteSecurityProfile
@@ -2125,13 +2620,16 @@ import Amazonka.Connect.DeleteUserHierarchyGroup
 import Amazonka.Connect.DeleteVocabulary
 import Amazonka.Connect.DescribeAgentStatus
 import Amazonka.Connect.DescribeContact
+import Amazonka.Connect.DescribeContactEvaluation
 import Amazonka.Connect.DescribeContactFlow
 import Amazonka.Connect.DescribeContactFlowModule
+import Amazonka.Connect.DescribeEvaluationForm
 import Amazonka.Connect.DescribeHoursOfOperation
 import Amazonka.Connect.DescribeInstance
 import Amazonka.Connect.DescribeInstanceAttribute
 import Amazonka.Connect.DescribeInstanceStorageConfig
 import Amazonka.Connect.DescribePhoneNumber
+import Amazonka.Connect.DescribePrompt
 import Amazonka.Connect.DescribeQueue
 import Amazonka.Connect.DescribeQuickConnect
 import Amazonka.Connect.DescribeRoutingProfile
@@ -2157,15 +2655,20 @@ import Amazonka.Connect.GetCurrentMetricData
 import Amazonka.Connect.GetCurrentUserData
 import Amazonka.Connect.GetFederationToken
 import Amazonka.Connect.GetMetricData
+import Amazonka.Connect.GetMetricDataV2
+import Amazonka.Connect.GetPromptFile
 import Amazonka.Connect.GetTaskTemplate
 import Amazonka.Connect.GetTrafficDistribution
 import Amazonka.Connect.ListAgentStatuses
 import Amazonka.Connect.ListApprovedOrigins
 import Amazonka.Connect.ListBots
+import Amazonka.Connect.ListContactEvaluations
 import Amazonka.Connect.ListContactFlowModules
 import Amazonka.Connect.ListContactFlows
 import Amazonka.Connect.ListContactReferences
 import Amazonka.Connect.ListDefaultVocabularies
+import Amazonka.Connect.ListEvaluationFormVersions
+import Amazonka.Connect.ListEvaluationForms
 import Amazonka.Connect.ListHoursOfOperations
 import Amazonka.Connect.ListInstanceAttributes
 import Amazonka.Connect.ListInstanceStorageConfigs
@@ -2197,12 +2700,17 @@ import Amazonka.Connect.ReleasePhoneNumber
 import Amazonka.Connect.ReplicateInstance
 import Amazonka.Connect.ResumeContactRecording
 import Amazonka.Connect.SearchAvailablePhoneNumbers
+import Amazonka.Connect.SearchHoursOfOperations
+import Amazonka.Connect.SearchPrompts
 import Amazonka.Connect.SearchQueues
+import Amazonka.Connect.SearchQuickConnects
+import Amazonka.Connect.SearchResourceTags
 import Amazonka.Connect.SearchRoutingProfiles
 import Amazonka.Connect.SearchSecurityProfiles
 import Amazonka.Connect.SearchUsers
 import Amazonka.Connect.SearchVocabularies
 import Amazonka.Connect.StartChatContact
+import Amazonka.Connect.StartContactEvaluation
 import Amazonka.Connect.StartContactRecording
 import Amazonka.Connect.StartContactStreaming
 import Amazonka.Connect.StartOutboundVoiceContact
@@ -2210,6 +2718,7 @@ import Amazonka.Connect.StartTaskContact
 import Amazonka.Connect.StopContact
 import Amazonka.Connect.StopContactRecording
 import Amazonka.Connect.StopContactStreaming
+import Amazonka.Connect.SubmitContactEvaluation
 import Amazonka.Connect.SuspendContactRecording
 import Amazonka.Connect.TagResource
 import Amazonka.Connect.TransferContact
@@ -2236,6 +2745,7 @@ import Amazonka.Connect.Types.ContactFlowModuleSummary
 import Amazonka.Connect.Types.ContactFlowSummary
 import Amazonka.Connect.Types.ControlPlaneTagFilter
 import Amazonka.Connect.Types.Credentials
+import Amazonka.Connect.Types.CrossChannelBehavior
 import Amazonka.Connect.Types.CurrentMetric
 import Amazonka.Connect.Types.CurrentMetricData
 import Amazonka.Connect.Types.CurrentMetricResult
@@ -2246,7 +2756,32 @@ import Amazonka.Connect.Types.Dimensions
 import Amazonka.Connect.Types.Distribution
 import Amazonka.Connect.Types.EmailReference
 import Amazonka.Connect.Types.EncryptionConfig
+import Amazonka.Connect.Types.Evaluation
+import Amazonka.Connect.Types.EvaluationAnswerData
+import Amazonka.Connect.Types.EvaluationAnswerInput
+import Amazonka.Connect.Types.EvaluationAnswerOutput
+import Amazonka.Connect.Types.EvaluationForm
+import Amazonka.Connect.Types.EvaluationFormContent
+import Amazonka.Connect.Types.EvaluationFormItem
+import Amazonka.Connect.Types.EvaluationFormNumericQuestionAutomation
+import Amazonka.Connect.Types.EvaluationFormNumericQuestionOption
+import Amazonka.Connect.Types.EvaluationFormNumericQuestionProperties
+import Amazonka.Connect.Types.EvaluationFormQuestion
+import Amazonka.Connect.Types.EvaluationFormQuestionTypeProperties
+import Amazonka.Connect.Types.EvaluationFormScoringStrategy
+import Amazonka.Connect.Types.EvaluationFormSection
+import Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionAutomation
+import Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionAutomationOption
+import Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionOption
+import Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionProperties
+import Amazonka.Connect.Types.EvaluationFormSummary
+import Amazonka.Connect.Types.EvaluationFormVersionSummary
+import Amazonka.Connect.Types.EvaluationMetadata
+import Amazonka.Connect.Types.EvaluationNote
+import Amazonka.Connect.Types.EvaluationScore
+import Amazonka.Connect.Types.EvaluationSummary
 import Amazonka.Connect.Types.EventBridgeActionDefinition
+import Amazonka.Connect.Types.FilterV2
 import Amazonka.Connect.Types.Filters
 import Amazonka.Connect.Types.HierarchyGroup
 import Amazonka.Connect.Types.HierarchyGroupCondition
@@ -2263,6 +2798,8 @@ import Amazonka.Connect.Types.HistoricalMetricData
 import Amazonka.Connect.Types.HistoricalMetricResult
 import Amazonka.Connect.Types.HoursOfOperation
 import Amazonka.Connect.Types.HoursOfOperationConfig
+import Amazonka.Connect.Types.HoursOfOperationSearchCriteria
+import Amazonka.Connect.Types.HoursOfOperationSearchFilter
 import Amazonka.Connect.Types.HoursOfOperationSummary
 import Amazonka.Connect.Types.HoursOfOperationTimeSlice
 import Amazonka.Connect.Types.Instance
@@ -2279,15 +2816,26 @@ import Amazonka.Connect.Types.LexBotConfig
 import Amazonka.Connect.Types.LexV2Bot
 import Amazonka.Connect.Types.ListPhoneNumbersSummary
 import Amazonka.Connect.Types.MediaConcurrency
+import Amazonka.Connect.Types.MetricDataV2
+import Amazonka.Connect.Types.MetricFilterV2
+import Amazonka.Connect.Types.MetricResultV2
+import Amazonka.Connect.Types.MetricV2
 import Amazonka.Connect.Types.NotificationRecipientType
 import Amazonka.Connect.Types.NumberReference
+import Amazonka.Connect.Types.NumericQuestionPropertyValueAutomation
 import Amazonka.Connect.Types.OutboundCallerConfig
 import Amazonka.Connect.Types.ParticipantDetails
+import Amazonka.Connect.Types.ParticipantDetailsToAdd
 import Amazonka.Connect.Types.ParticipantTimerConfiguration
 import Amazonka.Connect.Types.ParticipantTimerValue
+import Amazonka.Connect.Types.ParticipantTokenCredentials
+import Amazonka.Connect.Types.PersistentChat
 import Amazonka.Connect.Types.PhoneNumberQuickConnectConfig
 import Amazonka.Connect.Types.PhoneNumberStatus
 import Amazonka.Connect.Types.PhoneNumberSummary
+import Amazonka.Connect.Types.Prompt
+import Amazonka.Connect.Types.PromptSearchCriteria
+import Amazonka.Connect.Types.PromptSearchFilter
 import Amazonka.Connect.Types.PromptSummary
 import Amazonka.Connect.Types.Queue
 import Amazonka.Connect.Types.QueueInfo
@@ -2298,11 +2846,14 @@ import Amazonka.Connect.Types.QueueSearchFilter
 import Amazonka.Connect.Types.QueueSummary
 import Amazonka.Connect.Types.QuickConnect
 import Amazonka.Connect.Types.QuickConnectConfig
+import Amazonka.Connect.Types.QuickConnectSearchCriteria
+import Amazonka.Connect.Types.QuickConnectSearchFilter
 import Amazonka.Connect.Types.QuickConnectSummary
 import Amazonka.Connect.Types.ReadOnlyFieldInfo
 import Amazonka.Connect.Types.Reference
 import Amazonka.Connect.Types.ReferenceSummary
 import Amazonka.Connect.Types.RequiredFieldInfo
+import Amazonka.Connect.Types.ResourceTagsSearchCriteria
 import Amazonka.Connect.Types.RoutingProfile
 import Amazonka.Connect.Types.RoutingProfileQueueConfig
 import Amazonka.Connect.Types.RoutingProfileQueueConfigSummary
@@ -2323,9 +2874,12 @@ import Amazonka.Connect.Types.SecurityProfileSearchSummary
 import Amazonka.Connect.Types.SecurityProfileSummary
 import Amazonka.Connect.Types.SecurityProfilesSearchFilter
 import Amazonka.Connect.Types.SendNotificationActionDefinition
+import Amazonka.Connect.Types.SingleSelectQuestionRuleCategoryAutomation
 import Amazonka.Connect.Types.StringCondition
 import Amazonka.Connect.Types.StringReference
 import Amazonka.Connect.Types.TagCondition
+import Amazonka.Connect.Types.TagSearchCondition
+import Amazonka.Connect.Types.TagSet
 import Amazonka.Connect.Types.TaskActionDefinition
 import Amazonka.Connect.Types.TaskTemplateConstraints
 import Amazonka.Connect.Types.TaskTemplateDefaultFieldValue
@@ -2335,6 +2889,7 @@ import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import Amazonka.Connect.Types.TaskTemplateMetadata
 import Amazonka.Connect.Types.TelephonyConfig
 import Amazonka.Connect.Types.Threshold
+import Amazonka.Connect.Types.ThresholdV2
 import Amazonka.Connect.Types.TrafficDistributionGroup
 import Amazonka.Connect.Types.TrafficDistributionGroupSummary
 import Amazonka.Connect.Types.UpdateParticipantRoleConfigChannelInfo
@@ -2355,21 +2910,25 @@ import Amazonka.Connect.Types.UserSummary
 import Amazonka.Connect.Types.Vocabulary
 import Amazonka.Connect.Types.VocabularySummary
 import Amazonka.Connect.Types.VoiceRecordingConfiguration
+import Amazonka.Connect.Types.WisdomInfo
 import Amazonka.Connect.UntagResource
 import Amazonka.Connect.UpdateAgentStatus
 import Amazonka.Connect.UpdateContact
 import Amazonka.Connect.UpdateContactAttributes
+import Amazonka.Connect.UpdateContactEvaluation
 import Amazonka.Connect.UpdateContactFlowContent
 import Amazonka.Connect.UpdateContactFlowMetadata
 import Amazonka.Connect.UpdateContactFlowModuleContent
 import Amazonka.Connect.UpdateContactFlowModuleMetadata
 import Amazonka.Connect.UpdateContactFlowName
 import Amazonka.Connect.UpdateContactSchedule
+import Amazonka.Connect.UpdateEvaluationForm
 import Amazonka.Connect.UpdateHoursOfOperation
 import Amazonka.Connect.UpdateInstanceAttribute
 import Amazonka.Connect.UpdateInstanceStorageConfig
 import Amazonka.Connect.UpdateParticipantRoleConfig
 import Amazonka.Connect.UpdatePhoneNumber
+import Amazonka.Connect.UpdatePrompt
 import Amazonka.Connect.UpdateQueueHoursOfOperation
 import Amazonka.Connect.UpdateQueueMaxContacts
 import Amazonka.Connect.UpdateQueueName

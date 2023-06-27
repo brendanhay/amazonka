@@ -59,8 +59,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchUsers' smart constructor.
 data SearchUsers = SearchUsers'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -82,8 +83,9 @@ data SearchUsers = SearchUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'searchUsers_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'searchUsers_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'maxResults', 'searchUsers_maxResults' - The maximum number of results to return per page.
 --
@@ -105,8 +107,9 @@ newSearchUsers =
       searchFilter = Prelude.Nothing
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 searchUsers_instanceId :: Lens.Lens' SearchUsers (Prelude.Maybe Prelude.Text)
 searchUsers_instanceId = Lens.lens (\SearchUsers' {instanceId} -> instanceId) (\s@SearchUsers' {} a -> s {instanceId = a} :: SearchUsers)
 
@@ -132,20 +135,23 @@ instance Core.AWSPager SearchUsers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? searchUsersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? searchUsersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? searchUsersResponse_users Prelude.. Lens._Just
+            Lens.^? searchUsersResponse_users
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchUsers_nextToken
           Lens..~ rs
-          Lens.^? searchUsersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? searchUsersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchUsers where
   type AWSResponse SearchUsers = SearchUsersResponse
@@ -163,7 +169,8 @@ instance Core.AWSRequest SearchUsers where
 
 instance Prelude.Hashable SearchUsers where
   hashWithSalt _salt SearchUsers' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchCriteria

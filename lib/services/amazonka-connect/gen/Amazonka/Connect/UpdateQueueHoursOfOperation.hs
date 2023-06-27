@@ -50,8 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateQueueHoursOfOperation' smart constructor.
 data UpdateQueueHoursOfOperation = UpdateQueueHoursOfOperation'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text,
@@ -68,8 +69,9 @@ data UpdateQueueHoursOfOperation = UpdateQueueHoursOfOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateQueueHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateQueueHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'queueId', 'updateQueueHoursOfOperation_queueId' - The identifier for the queue.
 --
@@ -93,8 +95,9 @@ newUpdateQueueHoursOfOperation
         hoursOfOperationId = pHoursOfOperationId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateQueueHoursOfOperation_instanceId :: Lens.Lens' UpdateQueueHoursOfOperation Prelude.Text
 updateQueueHoursOfOperation_instanceId = Lens.lens (\UpdateQueueHoursOfOperation' {instanceId} -> instanceId) (\s@UpdateQueueHoursOfOperation' {} a -> s {instanceId = a} :: UpdateQueueHoursOfOperation)
 
@@ -118,7 +121,8 @@ instance Core.AWSRequest UpdateQueueHoursOfOperation where
 
 instance Prelude.Hashable UpdateQueueHoursOfOperation where
   hashWithSalt _salt UpdateQueueHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId
       `Prelude.hashWithSalt` hoursOfOperationId
 

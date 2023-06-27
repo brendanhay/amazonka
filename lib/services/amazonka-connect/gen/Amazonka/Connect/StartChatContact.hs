@@ -58,6 +58,8 @@ module Amazonka.Connect.StartChatContact
     startChatContact_chatDurationInMinutes,
     startChatContact_clientToken,
     startChatContact_initialMessage,
+    startChatContact_persistentChat,
+    startChatContact_relatedContactId,
     startChatContact_supportedMessagingContentTypes,
     startChatContact_instanceId,
     startChatContact_contactFlowId,
@@ -69,6 +71,7 @@ module Amazonka.Connect.StartChatContact
 
     -- * Response Lenses
     startChatContactResponse_contactId,
+    startChatContactResponse_continuedFromContactId,
     startChatContactResponse_participantId,
     startChatContactResponse_participantToken,
     startChatContactResponse_httpStatus,
@@ -94,7 +97,7 @@ data StartChatContact = StartChatContact'
     -- underscore characters.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The total duration of the newly started chat session. If not specified,
-    -- the chat session duration defaults to 25 hour. The minumum configurable
+    -- the chat session duration defaults to 25 hour. The minimum configurable
     -- time is 60 minutes. The maximum configurable time is 10,080 minutes (7
     -- days).
     chatDurationInMinutes :: Prelude.Maybe Prelude.Natural,
@@ -105,15 +108,35 @@ data StartChatContact = StartChatContact'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The initial message to be sent to the newly created chat.
     initialMessage :: Prelude.Maybe ChatMessage,
-    -- | The supported chat message content types. Content types must always
-    -- contain @text\/plain@. You can then put any other supported type in the
-    -- list. For example, all the following lists are valid because they
-    -- contain @text\/plain@:
+    -- | Enable persistent chats. For more information about enabling persistent
+    -- chat, and for example use cases and how to configure for them, see
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html Enable persistent chat>.
+    persistentChat :: Prelude.Maybe PersistentChat,
+    -- | The unique identifier for an Amazon Connect contact. This identifier is
+    -- related to the chat starting.
+    --
+    -- You cannot provide data for both RelatedContactId and PersistentChat.
+    relatedContactId :: Prelude.Maybe Prelude.Text,
+    -- | The supported chat message content types. Supported types are
+    -- @text\/plain@, @text\/markdown@, @application\/json@,
+    -- @application\/vnd.amazonaws.connect.message.interactive@, and
+    -- @application\/vnd.amazonaws.connect.message.interactive.response@.
+    --
+    -- Content types must always contain @text\/plain@. You can then put any
+    -- other supported type in the list. For example, all the following lists
+    -- are valid because they contain @text\/plain@:
     -- @[text\/plain, text\/markdown, application\/json]@,
-    -- @[text\/markdown, text\/plain]@, @[text\/plain, application\/json]@.
+    -- @[text\/markdown, text\/plain]@,
+    -- @[text\/plain, application\/json, application\/vnd.amazonaws.connect.message.interactive.response]@.
+    --
+    -- The type @application\/vnd.amazonaws.connect.message.interactive@ is
+    -- required to use the
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html Show view>
+    -- flow block.
     supportedMessagingContentTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the flow for initiating the chat. To see the
     -- ContactFlowId in the Amazon Connect console user interface, on the
@@ -146,7 +169,7 @@ data StartChatContact = StartChatContact'
 -- underscore characters.
 --
 -- 'chatDurationInMinutes', 'startChatContact_chatDurationInMinutes' - The total duration of the newly started chat session. If not specified,
--- the chat session duration defaults to 25 hour. The minumum configurable
+-- the chat session duration defaults to 25 hour. The minimum configurable
 -- time is 60 minutes. The maximum configurable time is 10,080 minutes (7
 -- days).
 --
@@ -157,15 +180,35 @@ data StartChatContact = StartChatContact'
 --
 -- 'initialMessage', 'startChatContact_initialMessage' - The initial message to be sent to the newly created chat.
 --
--- 'supportedMessagingContentTypes', 'startChatContact_supportedMessagingContentTypes' - The supported chat message content types. Content types must always
--- contain @text\/plain@. You can then put any other supported type in the
--- list. For example, all the following lists are valid because they
--- contain @text\/plain@:
--- @[text\/plain, text\/markdown, application\/json]@,
--- @[text\/markdown, text\/plain]@, @[text\/plain, application\/json]@.
+-- 'persistentChat', 'startChatContact_persistentChat' - Enable persistent chats. For more information about enabling persistent
+-- chat, and for example use cases and how to configure for them, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html Enable persistent chat>.
 --
--- 'instanceId', 'startChatContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'relatedContactId', 'startChatContact_relatedContactId' - The unique identifier for an Amazon Connect contact. This identifier is
+-- related to the chat starting.
+--
+-- You cannot provide data for both RelatedContactId and PersistentChat.
+--
+-- 'supportedMessagingContentTypes', 'startChatContact_supportedMessagingContentTypes' - The supported chat message content types. Supported types are
+-- @text\/plain@, @text\/markdown@, @application\/json@,
+-- @application\/vnd.amazonaws.connect.message.interactive@, and
+-- @application\/vnd.amazonaws.connect.message.interactive.response@.
+--
+-- Content types must always contain @text\/plain@. You can then put any
+-- other supported type in the list. For example, all the following lists
+-- are valid because they contain @text\/plain@:
+-- @[text\/plain, text\/markdown, application\/json]@,
+-- @[text\/markdown, text\/plain]@,
+-- @[text\/plain, application\/json, application\/vnd.amazonaws.connect.message.interactive.response]@.
+--
+-- The type @application\/vnd.amazonaws.connect.message.interactive@ is
+-- required to use the
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html Show view>
+-- flow block.
+--
+-- 'instanceId', 'startChatContact_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactFlowId', 'startChatContact_contactFlowId' - The identifier of the flow for initiating the chat. To see the
 -- ContactFlowId in the Amazon Connect console user interface, on the
@@ -194,6 +237,8 @@ newStartChatContact
         chatDurationInMinutes = Prelude.Nothing,
         clientToken = Prelude.Nothing,
         initialMessage = Prelude.Nothing,
+        persistentChat = Prelude.Nothing,
+        relatedContactId = Prelude.Nothing,
         supportedMessagingContentTypes = Prelude.Nothing,
         instanceId = pInstanceId_,
         contactFlowId = pContactFlowId_,
@@ -211,7 +256,7 @@ startChatContact_attributes :: Lens.Lens' StartChatContact (Prelude.Maybe (Prelu
 startChatContact_attributes = Lens.lens (\StartChatContact' {attributes} -> attributes) (\s@StartChatContact' {} a -> s {attributes = a} :: StartChatContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total duration of the newly started chat session. If not specified,
--- the chat session duration defaults to 25 hour. The minumum configurable
+-- the chat session duration defaults to 25 hour. The minimum configurable
 -- time is 60 minutes. The maximum configurable time is 10,080 minutes (7
 -- days).
 startChatContact_chatDurationInMinutes :: Lens.Lens' StartChatContact (Prelude.Maybe Prelude.Natural)
@@ -228,17 +273,41 @@ startChatContact_clientToken = Lens.lens (\StartChatContact' {clientToken} -> cl
 startChatContact_initialMessage :: Lens.Lens' StartChatContact (Prelude.Maybe ChatMessage)
 startChatContact_initialMessage = Lens.lens (\StartChatContact' {initialMessage} -> initialMessage) (\s@StartChatContact' {} a -> s {initialMessage = a} :: StartChatContact)
 
--- | The supported chat message content types. Content types must always
--- contain @text\/plain@. You can then put any other supported type in the
--- list. For example, all the following lists are valid because they
--- contain @text\/plain@:
+-- | Enable persistent chats. For more information about enabling persistent
+-- chat, and for example use cases and how to configure for them, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html Enable persistent chat>.
+startChatContact_persistentChat :: Lens.Lens' StartChatContact (Prelude.Maybe PersistentChat)
+startChatContact_persistentChat = Lens.lens (\StartChatContact' {persistentChat} -> persistentChat) (\s@StartChatContact' {} a -> s {persistentChat = a} :: StartChatContact)
+
+-- | The unique identifier for an Amazon Connect contact. This identifier is
+-- related to the chat starting.
+--
+-- You cannot provide data for both RelatedContactId and PersistentChat.
+startChatContact_relatedContactId :: Lens.Lens' StartChatContact (Prelude.Maybe Prelude.Text)
+startChatContact_relatedContactId = Lens.lens (\StartChatContact' {relatedContactId} -> relatedContactId) (\s@StartChatContact' {} a -> s {relatedContactId = a} :: StartChatContact)
+
+-- | The supported chat message content types. Supported types are
+-- @text\/plain@, @text\/markdown@, @application\/json@,
+-- @application\/vnd.amazonaws.connect.message.interactive@, and
+-- @application\/vnd.amazonaws.connect.message.interactive.response@.
+--
+-- Content types must always contain @text\/plain@. You can then put any
+-- other supported type in the list. For example, all the following lists
+-- are valid because they contain @text\/plain@:
 -- @[text\/plain, text\/markdown, application\/json]@,
--- @[text\/markdown, text\/plain]@, @[text\/plain, application\/json]@.
+-- @[text\/markdown, text\/plain]@,
+-- @[text\/plain, application\/json, application\/vnd.amazonaws.connect.message.interactive.response]@.
+--
+-- The type @application\/vnd.amazonaws.connect.message.interactive@ is
+-- required to use the
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html Show view>
+-- flow block.
 startChatContact_supportedMessagingContentTypes :: Lens.Lens' StartChatContact (Prelude.Maybe [Prelude.Text])
 startChatContact_supportedMessagingContentTypes = Lens.lens (\StartChatContact' {supportedMessagingContentTypes} -> supportedMessagingContentTypes) (\s@StartChatContact' {} a -> s {supportedMessagingContentTypes = a} :: StartChatContact) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 startChatContact_instanceId :: Lens.Lens' StartChatContact Prelude.Text
 startChatContact_instanceId = Lens.lens (\StartChatContact' {instanceId} -> instanceId) (\s@StartChatContact' {} a -> s {instanceId = a} :: StartChatContact)
 
@@ -268,6 +337,7 @@ instance Core.AWSRequest StartChatContact where
       ( \s h x ->
           StartChatContactResponse'
             Prelude.<$> (x Data..?> "ContactId")
+            Prelude.<*> (x Data..?> "ContinuedFromContactId")
             Prelude.<*> (x Data..?> "ParticipantId")
             Prelude.<*> (x Data..?> "ParticipantToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -275,10 +345,13 @@ instance Core.AWSRequest StartChatContact where
 
 instance Prelude.Hashable StartChatContact where
   hashWithSalt _salt StartChatContact' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` chatDurationInMinutes
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` initialMessage
+      `Prelude.hashWithSalt` persistentChat
+      `Prelude.hashWithSalt` relatedContactId
       `Prelude.hashWithSalt` supportedMessagingContentTypes
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowId
@@ -290,6 +363,8 @@ instance Prelude.NFData StartChatContact where
       `Prelude.seq` Prelude.rnf chatDurationInMinutes
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf initialMessage
+      `Prelude.seq` Prelude.rnf persistentChat
+      `Prelude.seq` Prelude.rnf relatedContactId
       `Prelude.seq` Prelude.rnf supportedMessagingContentTypes
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactFlowId
@@ -316,6 +391,10 @@ instance Data.ToJSON StartChatContact where
             ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("InitialMessage" Data..=)
               Prelude.<$> initialMessage,
+            ("PersistentChat" Data..=)
+              Prelude.<$> persistentChat,
+            ("RelatedContactId" Data..=)
+              Prelude.<$> relatedContactId,
             ("SupportedMessagingContentTypes" Data..=)
               Prelude.<$> supportedMessagingContentTypes,
             Prelude.Just ("InstanceId" Data..= instanceId),
@@ -335,6 +414,9 @@ instance Data.ToQuery StartChatContact where
 data StartChatContactResponse = StartChatContactResponse'
   { -- | The identifier of this contact within the Amazon Connect instance.
     contactId :: Prelude.Maybe Prelude.Text,
+    -- | The contactId from which a persistent chat session is started. This
+    -- field is populated only for persistent chats.
+    continuedFromContactId :: Prelude.Maybe Prelude.Text,
     -- | The identifier for a chat participant. The participantId for a chat
     -- participant is the same throughout the chat lifecycle.
     participantId :: Prelude.Maybe Prelude.Text,
@@ -357,6 +439,9 @@ data StartChatContactResponse = StartChatContactResponse'
 --
 -- 'contactId', 'startChatContactResponse_contactId' - The identifier of this contact within the Amazon Connect instance.
 --
+-- 'continuedFromContactId', 'startChatContactResponse_continuedFromContactId' - The contactId from which a persistent chat session is started. This
+-- field is populated only for persistent chats.
+--
 -- 'participantId', 'startChatContactResponse_participantId' - The identifier for a chat participant. The participantId for a chat
 -- participant is the same throughout the chat lifecycle.
 --
@@ -373,6 +458,7 @@ newStartChatContactResponse pHttpStatus_ =
   StartChatContactResponse'
     { contactId =
         Prelude.Nothing,
+      continuedFromContactId = Prelude.Nothing,
       participantId = Prelude.Nothing,
       participantToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -381,6 +467,11 @@ newStartChatContactResponse pHttpStatus_ =
 -- | The identifier of this contact within the Amazon Connect instance.
 startChatContactResponse_contactId :: Lens.Lens' StartChatContactResponse (Prelude.Maybe Prelude.Text)
 startChatContactResponse_contactId = Lens.lens (\StartChatContactResponse' {contactId} -> contactId) (\s@StartChatContactResponse' {} a -> s {contactId = a} :: StartChatContactResponse)
+
+-- | The contactId from which a persistent chat session is started. This
+-- field is populated only for persistent chats.
+startChatContactResponse_continuedFromContactId :: Lens.Lens' StartChatContactResponse (Prelude.Maybe Prelude.Text)
+startChatContactResponse_continuedFromContactId = Lens.lens (\StartChatContactResponse' {continuedFromContactId} -> continuedFromContactId) (\s@StartChatContactResponse' {} a -> s {continuedFromContactId = a} :: StartChatContactResponse)
 
 -- | The identifier for a chat participant. The participantId for a chat
 -- participant is the same throughout the chat lifecycle.
@@ -400,6 +491,7 @@ startChatContactResponse_httpStatus = Lens.lens (\StartChatContactResponse' {htt
 instance Prelude.NFData StartChatContactResponse where
   rnf StartChatContactResponse' {..} =
     Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf continuedFromContactId
       `Prelude.seq` Prelude.rnf participantId
       `Prelude.seq` Prelude.rnf participantToken
       `Prelude.seq` Prelude.rnf httpStatus

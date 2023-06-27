@@ -66,8 +66,9 @@ data ListDefaultVocabularies = ListDefaultVocabularies'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,8 +91,9 @@ data ListDefaultVocabularies = ListDefaultVocabularies'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listDefaultVocabularies_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listDefaultVocabularies_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListDefaultVocabularies ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -121,8 +123,9 @@ listDefaultVocabularies_maxResults = Lens.lens (\ListDefaultVocabularies' {maxRe
 listDefaultVocabularies_nextToken :: Lens.Lens' ListDefaultVocabularies (Prelude.Maybe Prelude.Text)
 listDefaultVocabularies_nextToken = Lens.lens (\ListDefaultVocabularies' {nextToken} -> nextToken) (\s@ListDefaultVocabularies' {} a -> s {nextToken = a} :: ListDefaultVocabularies)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listDefaultVocabularies_instanceId :: Lens.Lens' ListDefaultVocabularies Prelude.Text
 listDefaultVocabularies_instanceId = Lens.lens (\ListDefaultVocabularies' {instanceId} -> instanceId) (\s@ListDefaultVocabularies' {} a -> s {instanceId = a} :: ListDefaultVocabularies)
 
@@ -131,21 +134,21 @@ instance Core.AWSPager ListDefaultVocabularies where
     | Core.stop
         ( rs
             Lens.^? listDefaultVocabulariesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listDefaultVocabulariesResponse_defaultVocabularyList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDefaultVocabularies_nextToken
           Lens..~ rs
           Lens.^? listDefaultVocabulariesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDefaultVocabularies where
   type
@@ -159,14 +162,16 @@ instance Core.AWSRequest ListDefaultVocabularies where
           ListDefaultVocabulariesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "DefaultVocabularyList"
+            Prelude.<*> ( x
+                            Data..?> "DefaultVocabularyList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListDefaultVocabularies where
   hashWithSalt _salt ListDefaultVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

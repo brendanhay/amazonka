@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.AgentInfo
 import Amazonka.Connect.Types.Channel
 import Amazonka.Connect.Types.ContactInitiationMethod
 import Amazonka.Connect.Types.QueueInfo
+import Amazonka.Connect.Types.WisdomInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -55,6 +56,9 @@ data Contact = Contact'
     -- when the agent began dialing. For @CALLBACK@, this is when the callback
     -- contact was created. For @TRANSFER@ and @QUEUE_TRANSFER@, this is when
     -- the transfer was initiated. For @API@, this is when the request arrived.
+    -- For @EXTERNAL_OUTBOUND@, this is when the agent started dialing the
+    -- external participant. For @MONITOR@, this is when the supervisor started
+    -- listening to a contact.
     initiationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The timestamp when contact was last updated.
     lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
@@ -65,9 +69,15 @@ data Contact = Contact'
     previousContactId :: Prelude.Maybe Prelude.Text,
     -- | If this contact was queued, this contains information about the queue.
     queueInfo :: Prelude.Maybe QueueInfo,
+    -- | The contactId that is
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid related>
+    -- to this contact.
+    relatedContactId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp, in Unix epoch time format, at which to start running the
     -- inbound flow.
-    scheduledTimestamp :: Prelude.Maybe Data.POSIX
+    scheduledTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | Information about Amazon Connect Wisdom.
+    wisdomInfo :: Prelude.Maybe WisdomInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,6 +112,9 @@ data Contact = Contact'
 -- when the agent began dialing. For @CALLBACK@, this is when the callback
 -- contact was created. For @TRANSFER@ and @QUEUE_TRANSFER@, this is when
 -- the transfer was initiated. For @API@, this is when the request arrived.
+-- For @EXTERNAL_OUTBOUND@, this is when the agent started dialing the
+-- external participant. For @MONITOR@, this is when the supervisor started
+-- listening to a contact.
 --
 -- 'lastUpdateTimestamp', 'contact_lastUpdateTimestamp' - The timestamp when contact was last updated.
 --
@@ -112,8 +125,14 @@ data Contact = Contact'
 --
 -- 'queueInfo', 'contact_queueInfo' - If this contact was queued, this contains information about the queue.
 --
+-- 'relatedContactId', 'contact_relatedContactId' - The contactId that is
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid related>
+-- to this contact.
+--
 -- 'scheduledTimestamp', 'contact_scheduledTimestamp' - The timestamp, in Unix epoch time format, at which to start running the
 -- inbound flow.
+--
+-- 'wisdomInfo', 'contact_wisdomInfo' - Information about Amazon Connect Wisdom.
 newContact ::
   Contact
 newContact =
@@ -131,7 +150,9 @@ newContact =
       name = Prelude.Nothing,
       previousContactId = Prelude.Nothing,
       queueInfo = Prelude.Nothing,
-      scheduledTimestamp = Prelude.Nothing
+      relatedContactId = Prelude.Nothing,
+      scheduledTimestamp = Prelude.Nothing,
+      wisdomInfo = Prelude.Nothing
     }
 
 -- | Information about the agent who accepted the contact.
@@ -173,6 +194,9 @@ contact_initiationMethod = Lens.lens (\Contact' {initiationMethod} -> initiation
 -- when the agent began dialing. For @CALLBACK@, this is when the callback
 -- contact was created. For @TRANSFER@ and @QUEUE_TRANSFER@, this is when
 -- the transfer was initiated. For @API@, this is when the request arrived.
+-- For @EXTERNAL_OUTBOUND@, this is when the agent started dialing the
+-- external participant. For @MONITOR@, this is when the supervisor started
+-- listening to a contact.
 contact_initiationTimestamp :: Lens.Lens' Contact (Prelude.Maybe Prelude.UTCTime)
 contact_initiationTimestamp = Lens.lens (\Contact' {initiationTimestamp} -> initiationTimestamp) (\s@Contact' {} a -> s {initiationTimestamp = a} :: Contact) Prelude.. Lens.mapping Data._Time
 
@@ -193,10 +217,20 @@ contact_previousContactId = Lens.lens (\Contact' {previousContactId} -> previous
 contact_queueInfo :: Lens.Lens' Contact (Prelude.Maybe QueueInfo)
 contact_queueInfo = Lens.lens (\Contact' {queueInfo} -> queueInfo) (\s@Contact' {} a -> s {queueInfo = a} :: Contact)
 
+-- | The contactId that is
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid related>
+-- to this contact.
+contact_relatedContactId :: Lens.Lens' Contact (Prelude.Maybe Prelude.Text)
+contact_relatedContactId = Lens.lens (\Contact' {relatedContactId} -> relatedContactId) (\s@Contact' {} a -> s {relatedContactId = a} :: Contact)
+
 -- | The timestamp, in Unix epoch time format, at which to start running the
 -- inbound flow.
 contact_scheduledTimestamp :: Lens.Lens' Contact (Prelude.Maybe Prelude.UTCTime)
 contact_scheduledTimestamp = Lens.lens (\Contact' {scheduledTimestamp} -> scheduledTimestamp) (\s@Contact' {} a -> s {scheduledTimestamp = a} :: Contact) Prelude.. Lens.mapping Data._Time
+
+-- | Information about Amazon Connect Wisdom.
+contact_wisdomInfo :: Lens.Lens' Contact (Prelude.Maybe WisdomInfo)
+contact_wisdomInfo = Lens.lens (\Contact' {wisdomInfo} -> wisdomInfo) (\s@Contact' {} a -> s {wisdomInfo = a} :: Contact)
 
 instance Data.FromJSON Contact where
   parseJSON =
@@ -217,12 +251,15 @@ instance Data.FromJSON Contact where
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "PreviousContactId")
             Prelude.<*> (x Data..:? "QueueInfo")
+            Prelude.<*> (x Data..:? "RelatedContactId")
             Prelude.<*> (x Data..:? "ScheduledTimestamp")
+            Prelude.<*> (x Data..:? "WisdomInfo")
       )
 
 instance Prelude.Hashable Contact where
   hashWithSalt _salt Contact' {..} =
-    _salt `Prelude.hashWithSalt` agentInfo
+    _salt
+      `Prelude.hashWithSalt` agentInfo
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` description
@@ -235,7 +272,9 @@ instance Prelude.Hashable Contact where
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` previousContactId
       `Prelude.hashWithSalt` queueInfo
+      `Prelude.hashWithSalt` relatedContactId
       `Prelude.hashWithSalt` scheduledTimestamp
+      `Prelude.hashWithSalt` wisdomInfo
 
 instance Prelude.NFData Contact where
   rnf Contact' {..} =
@@ -252,4 +291,6 @@ instance Prelude.NFData Contact where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf previousContactId
       `Prelude.seq` Prelude.rnf queueInfo
+      `Prelude.seq` Prelude.rnf relatedContactId
       `Prelude.seq` Prelude.rnf scheduledTimestamp
+      `Prelude.seq` Prelude.rnf wisdomInfo

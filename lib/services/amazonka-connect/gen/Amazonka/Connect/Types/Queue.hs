@@ -152,7 +152,8 @@ instance Data.FromJSON Queue where
 
 instance Prelude.Hashable Queue where
   hashWithSalt _salt Queue' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` hoursOfOperationId
       `Prelude.hashWithSalt` maxContacts
       `Prelude.hashWithSalt` name

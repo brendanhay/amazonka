@@ -36,6 +36,9 @@ module Amazonka.Connect.UpdateContactFlowMetadata
     -- * Destructuring the Response
     UpdateContactFlowMetadataResponse (..),
     newUpdateContactFlowMetadataResponse,
+
+    -- * Response Lenses
+    updateContactFlowMetadataResponse_httpStatus,
   )
 where
 
@@ -55,8 +58,9 @@ data UpdateContactFlowMetadata = UpdateContactFlowMetadata'
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the flow.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the flow.
     contactFlowId :: Prelude.Text
@@ -77,8 +81,9 @@ data UpdateContactFlowMetadata = UpdateContactFlowMetadata'
 --
 -- 'name', 'updateContactFlowMetadata_name' - The name of the flow.
 --
--- 'instanceId', 'updateContactFlowMetadata_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateContactFlowMetadata_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactFlowId', 'updateContactFlowMetadata_contactFlowId' - The identifier of the flow.
 newUpdateContactFlowMetadata ::
@@ -111,8 +116,9 @@ updateContactFlowMetadata_description = Lens.lens (\UpdateContactFlowMetadata' {
 updateContactFlowMetadata_name :: Lens.Lens' UpdateContactFlowMetadata (Prelude.Maybe Prelude.Text)
 updateContactFlowMetadata_name = Lens.lens (\UpdateContactFlowMetadata' {name} -> name) (\s@UpdateContactFlowMetadata' {} a -> s {name = a} :: UpdateContactFlowMetadata)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateContactFlowMetadata_instanceId :: Lens.Lens' UpdateContactFlowMetadata Prelude.Text
 updateContactFlowMetadata_instanceId = Lens.lens (\UpdateContactFlowMetadata' {instanceId} -> instanceId) (\s@UpdateContactFlowMetadata' {} a -> s {instanceId = a} :: UpdateContactFlowMetadata)
 
@@ -127,12 +133,16 @@ instance Core.AWSRequest UpdateContactFlowMetadata where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveNull
-      UpdateContactFlowMetadataResponse'
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateContactFlowMetadataResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
 instance Prelude.Hashable UpdateContactFlowMetadata where
   hashWithSalt _salt UpdateContactFlowMetadata' {..} =
-    _salt `Prelude.hashWithSalt` contactFlowState
+    _salt
+      `Prelude.hashWithSalt` contactFlowState
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
@@ -183,7 +193,8 @@ instance Data.ToQuery UpdateContactFlowMetadata where
 
 -- | /See:/ 'newUpdateContactFlowMetadataResponse' smart constructor.
 data UpdateContactFlowMetadataResponse = UpdateContactFlowMetadataResponse'
-  {
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -191,13 +202,28 @@ data UpdateContactFlowMetadataResponse = UpdateContactFlowMetadataResponse'
 -- Create a value of 'UpdateContactFlowMetadataResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateContactFlowMetadataResponse_httpStatus' - The response's http status code.
 newUpdateContactFlowMetadataResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
   UpdateContactFlowMetadataResponse
-newUpdateContactFlowMetadataResponse =
+newUpdateContactFlowMetadataResponse pHttpStatus_ =
   UpdateContactFlowMetadataResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
+
+-- | The response's http status code.
+updateContactFlowMetadataResponse_httpStatus :: Lens.Lens' UpdateContactFlowMetadataResponse Prelude.Int
+updateContactFlowMetadataResponse_httpStatus = Lens.lens (\UpdateContactFlowMetadataResponse' {httpStatus} -> httpStatus) (\s@UpdateContactFlowMetadataResponse' {} a -> s {httpStatus = a} :: UpdateContactFlowMetadataResponse)
 
 instance
   Prelude.NFData
     UpdateContactFlowMetadataResponse
   where
-  rnf _ = ()
+  rnf UpdateContactFlowMetadataResponse' {..} =
+    Prelude.rnf httpStatus

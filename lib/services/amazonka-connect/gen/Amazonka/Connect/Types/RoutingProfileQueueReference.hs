@@ -75,7 +75,8 @@ instance
     RoutingProfileQueueReference
   where
   hashWithSalt _salt RoutingProfileQueueReference' {..} =
-    _salt `Prelude.hashWithSalt` queueId
+    _salt
+      `Prelude.hashWithSalt` queueId
       `Prelude.hashWithSalt` channel
 
 instance Prelude.NFData RoutingProfileQueueReference where

@@ -39,6 +39,10 @@ data RoutingProfileSearchCriteria = RoutingProfileSearchCriteria'
     -- | A list of conditions which would be applied together with an OR
     -- condition.
     orConditions :: Prelude.Maybe [RoutingProfileSearchCriteria],
+    -- | A leaf node condition which can be used to specify a string condition.
+    --
+    -- The currently supported values for @FieldName@ are @name@,
+    -- @description@, and @resourceID@.
     stringCondition :: Prelude.Maybe StringCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +61,10 @@ data RoutingProfileSearchCriteria = RoutingProfileSearchCriteria'
 -- 'orConditions', 'routingProfileSearchCriteria_orConditions' - A list of conditions which would be applied together with an OR
 -- condition.
 --
--- 'stringCondition', 'routingProfileSearchCriteria_stringCondition' - Undocumented member.
+-- 'stringCondition', 'routingProfileSearchCriteria_stringCondition' - A leaf node condition which can be used to specify a string condition.
+--
+-- The currently supported values for @FieldName@ are @name@,
+-- @description@, and @resourceID@.
 newRoutingProfileSearchCriteria ::
   RoutingProfileSearchCriteria
 newRoutingProfileSearchCriteria =
@@ -78,7 +85,10 @@ routingProfileSearchCriteria_andConditions = Lens.lens (\RoutingProfileSearchCri
 routingProfileSearchCriteria_orConditions :: Lens.Lens' RoutingProfileSearchCriteria (Prelude.Maybe [RoutingProfileSearchCriteria])
 routingProfileSearchCriteria_orConditions = Lens.lens (\RoutingProfileSearchCriteria' {orConditions} -> orConditions) (\s@RoutingProfileSearchCriteria' {} a -> s {orConditions = a} :: RoutingProfileSearchCriteria) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | A leaf node condition which can be used to specify a string condition.
+--
+-- The currently supported values for @FieldName@ are @name@,
+-- @description@, and @resourceID@.
 routingProfileSearchCriteria_stringCondition :: Lens.Lens' RoutingProfileSearchCriteria (Prelude.Maybe StringCondition)
 routingProfileSearchCriteria_stringCondition = Lens.lens (\RoutingProfileSearchCriteria' {stringCondition} -> stringCondition) (\s@RoutingProfileSearchCriteria' {} a -> s {stringCondition = a} :: RoutingProfileSearchCriteria)
 
@@ -87,7 +97,8 @@ instance
     RoutingProfileSearchCriteria
   where
   hashWithSalt _salt RoutingProfileSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` andConditions
+    _salt
+      `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` orConditions
       `Prelude.hashWithSalt` stringCondition
 

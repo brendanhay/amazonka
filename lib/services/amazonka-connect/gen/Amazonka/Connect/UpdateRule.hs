@@ -56,8 +56,9 @@ import qualified Amazonka.Response as Response
 data UpdateRule = UpdateRule'
   { -- | A unique identifier for the rule.
     ruleId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the rule. You can change the name only if
     -- @TriggerEventSource@ is one of the following values:
@@ -83,8 +84,9 @@ data UpdateRule = UpdateRule'
 --
 -- 'ruleId', 'updateRule_ruleId' - A unique identifier for the rule.
 --
--- 'instanceId', 'updateRule_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateRule_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'name', 'updateRule_name' - The name of the rule. You can change the name only if
 -- @TriggerEventSource@ is one of the following values:
@@ -127,8 +129,9 @@ newUpdateRule
 updateRule_ruleId :: Lens.Lens' UpdateRule Prelude.Text
 updateRule_ruleId = Lens.lens (\UpdateRule' {ruleId} -> ruleId) (\s@UpdateRule' {} a -> s {ruleId = a} :: UpdateRule)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateRule_instanceId :: Lens.Lens' UpdateRule Prelude.Text
 updateRule_instanceId = Lens.lens (\UpdateRule' {instanceId} -> instanceId) (\s@UpdateRule' {} a -> s {instanceId = a} :: UpdateRule)
 
@@ -159,7 +162,8 @@ instance Core.AWSRequest UpdateRule where
 
 instance Prelude.Hashable UpdateRule where
   hashWithSalt _salt UpdateRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleId
+    _salt
+      `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` function

@@ -106,7 +106,8 @@ instance Core.AWSRequest GetContactAttributes where
 
 instance Prelude.Hashable GetContactAttributes where
   hashWithSalt _salt GetContactAttributes' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` initialContactId
 
 instance Prelude.NFData GetContactAttributes where

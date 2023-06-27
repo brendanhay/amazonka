@@ -115,7 +115,8 @@ instance Data.FromJSON QuickConnectConfig where
 
 instance Prelude.Hashable QuickConnectConfig where
   hashWithSalt _salt QuickConnectConfig' {..} =
-    _salt `Prelude.hashWithSalt` phoneConfig
+    _salt
+      `Prelude.hashWithSalt` phoneConfig
       `Prelude.hashWithSalt` queueConfig
       `Prelude.hashWithSalt` userConfig
       `Prelude.hashWithSalt` quickConnectType

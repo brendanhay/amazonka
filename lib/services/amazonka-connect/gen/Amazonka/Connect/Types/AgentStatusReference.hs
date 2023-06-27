@@ -84,7 +84,8 @@ instance Data.FromJSON AgentStatusReference where
 
 instance Prelude.Hashable AgentStatusReference where
   hashWithSalt _salt AgentStatusReference' {..} =
-    _salt `Prelude.hashWithSalt` statusArn
+    _salt
+      `Prelude.hashWithSalt` statusArn
       `Prelude.hashWithSalt` statusName
       `Prelude.hashWithSalt` statusStartTimestamp
 

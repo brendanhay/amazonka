@@ -65,8 +65,9 @@ data CreateContactFlowModule = CreateContactFlowModule'
     -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the flow module.
     name :: Prelude.Text,
@@ -93,8 +94,9 @@ data CreateContactFlowModule = CreateContactFlowModule'
 -- 'tags', 'createContactFlowModule_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
--- 'instanceId', 'createContactFlowModule_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createContactFlowModule_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'name', 'createContactFlowModule_name' - The name of the flow module.
 --
@@ -137,8 +139,9 @@ createContactFlowModule_description = Lens.lens (\CreateContactFlowModule' {desc
 createContactFlowModule_tags :: Lens.Lens' CreateContactFlowModule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createContactFlowModule_tags = Lens.lens (\CreateContactFlowModule' {tags} -> tags) (\s@CreateContactFlowModule' {} a -> s {tags = a} :: CreateContactFlowModule) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createContactFlowModule_instanceId :: Lens.Lens' CreateContactFlowModule Prelude.Text
 createContactFlowModule_instanceId = Lens.lens (\CreateContactFlowModule' {instanceId} -> instanceId) (\s@CreateContactFlowModule' {} a -> s {instanceId = a} :: CreateContactFlowModule)
 
@@ -167,7 +170,8 @@ instance Core.AWSRequest CreateContactFlowModule where
 
 instance Prelude.Hashable CreateContactFlowModule where
   hashWithSalt _salt CreateContactFlowModule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId

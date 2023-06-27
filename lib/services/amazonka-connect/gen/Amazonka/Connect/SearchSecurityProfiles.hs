@@ -77,8 +77,9 @@ data SearchSecurityProfiles = SearchSecurityProfiles'
     searchCriteria :: Prelude.Maybe SecurityProfileSearchCriteria,
     -- | Filters to be applied to search results.
     searchFilter :: Prelude.Maybe SecurityProfilesSearchFilter,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -107,8 +108,9 @@ data SearchSecurityProfiles = SearchSecurityProfiles'
 --
 -- 'searchFilter', 'searchSecurityProfiles_searchFilter' - Filters to be applied to search results.
 --
--- 'instanceId', 'searchSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'searchSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newSearchSecurityProfiles ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -147,8 +149,9 @@ searchSecurityProfiles_searchCriteria = Lens.lens (\SearchSecurityProfiles' {sea
 searchSecurityProfiles_searchFilter :: Lens.Lens' SearchSecurityProfiles (Prelude.Maybe SecurityProfilesSearchFilter)
 searchSecurityProfiles_searchFilter = Lens.lens (\SearchSecurityProfiles' {searchFilter} -> searchFilter) (\s@SearchSecurityProfiles' {} a -> s {searchFilter = a} :: SearchSecurityProfiles)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 searchSecurityProfiles_instanceId :: Lens.Lens' SearchSecurityProfiles Prelude.Text
 searchSecurityProfiles_instanceId = Lens.lens (\SearchSecurityProfiles' {instanceId} -> instanceId) (\s@SearchSecurityProfiles' {} a -> s {instanceId = a} :: SearchSecurityProfiles)
 
@@ -157,22 +160,22 @@ instance Core.AWSPager SearchSecurityProfiles where
     | Core.stop
         ( rs
             Lens.^? searchSecurityProfilesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchSecurityProfilesResponse_securityProfiles
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchSecurityProfiles_nextToken
           Lens..~ rs
           Lens.^? searchSecurityProfilesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchSecurityProfiles where
   type
@@ -186,7 +189,8 @@ instance Core.AWSRequest SearchSecurityProfiles where
           SearchSecurityProfilesResponse'
             Prelude.<$> (x Data..?> "ApproximateTotalCount")
             Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SecurityProfiles"
+            Prelude.<*> ( x
+                            Data..?> "SecurityProfiles"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -194,7 +198,8 @@ instance Core.AWSRequest SearchSecurityProfiles where
 
 instance Prelude.Hashable SearchSecurityProfiles where
   hashWithSalt _salt SearchSecurityProfiles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchCriteria
       `Prelude.hashWithSalt` searchFilter

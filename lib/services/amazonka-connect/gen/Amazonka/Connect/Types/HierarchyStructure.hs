@@ -105,7 +105,8 @@ instance Data.FromJSON HierarchyStructure where
 
 instance Prelude.Hashable HierarchyStructure where
   hashWithSalt _salt HierarchyStructure' {..} =
-    _salt `Prelude.hashWithSalt` levelFive
+    _salt
+      `Prelude.hashWithSalt` levelFive
       `Prelude.hashWithSalt` levelFour
       `Prelude.hashWithSalt` levelOne
       `Prelude.hashWithSalt` levelThree

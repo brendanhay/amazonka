@@ -63,9 +63,10 @@ data ReplicateInstance = ReplicateInstance'
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance. You can provide the @InstanceId@,
-    -- or the entire ARN.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance. You can provide the
+    -- @InstanceId@, or the entire ARN.
     instanceId :: Prelude.Text,
     -- | The Amazon Web Services Region where to replicate the Amazon Connect
     -- instance.
@@ -89,9 +90,10 @@ data ReplicateInstance = ReplicateInstance'
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
--- 'instanceId', 'replicateInstance_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance. You can provide the @InstanceId@,
--- or the entire ARN.
+-- 'instanceId', 'replicateInstance_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance. You can provide the
+-- @InstanceId@, or the entire ARN.
 --
 -- 'replicaRegion', 'replicateInstance_replicaRegion' - The Amazon Web Services Region where to replicate the Amazon Connect
 -- instance.
@@ -124,9 +126,10 @@ newReplicateInstance
 replicateInstance_clientToken :: Lens.Lens' ReplicateInstance (Prelude.Maybe Prelude.Text)
 replicateInstance_clientToken = Lens.lens (\ReplicateInstance' {clientToken} -> clientToken) (\s@ReplicateInstance' {} a -> s {clientToken = a} :: ReplicateInstance)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance. You can provide the @InstanceId@,
--- or the entire ARN.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance. You can provide the
+-- @InstanceId@, or the entire ARN.
 replicateInstance_instanceId :: Lens.Lens' ReplicateInstance Prelude.Text
 replicateInstance_instanceId = Lens.lens (\ReplicateInstance' {instanceId} -> instanceId) (\s@ReplicateInstance' {} a -> s {instanceId = a} :: ReplicateInstance)
 
@@ -157,7 +160,8 @@ instance Core.AWSRequest ReplicateInstance where
 
 instance Prelude.Hashable ReplicateInstance where
   hashWithSalt _salt ReplicateInstance' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` replicaRegion
       `Prelude.hashWithSalt` replicaAlias

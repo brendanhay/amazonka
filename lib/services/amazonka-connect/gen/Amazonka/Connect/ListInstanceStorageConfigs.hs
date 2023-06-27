@@ -65,8 +65,9 @@ data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | A valid resource type.
     resourceType :: InstanceStorageResourceType
@@ -87,8 +88,9 @@ data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listInstanceStorageConfigs_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listInstanceStorageConfigs_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'resourceType', 'listInstanceStorageConfigs_resourceType' - A valid resource type.
 newListInstanceStorageConfigs ::
@@ -118,8 +120,9 @@ listInstanceStorageConfigs_maxResults = Lens.lens (\ListInstanceStorageConfigs' 
 listInstanceStorageConfigs_nextToken :: Lens.Lens' ListInstanceStorageConfigs (Prelude.Maybe Prelude.Text)
 listInstanceStorageConfigs_nextToken = Lens.lens (\ListInstanceStorageConfigs' {nextToken} -> nextToken) (\s@ListInstanceStorageConfigs' {} a -> s {nextToken = a} :: ListInstanceStorageConfigs)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listInstanceStorageConfigs_instanceId :: Lens.Lens' ListInstanceStorageConfigs Prelude.Text
 listInstanceStorageConfigs_instanceId = Lens.lens (\ListInstanceStorageConfigs' {instanceId} -> instanceId) (\s@ListInstanceStorageConfigs' {} a -> s {instanceId = a} :: ListInstanceStorageConfigs)
 
@@ -132,22 +135,22 @@ instance Core.AWSPager ListInstanceStorageConfigs where
     | Core.stop
         ( rs
             Lens.^? listInstanceStorageConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInstanceStorageConfigsResponse_storageConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInstanceStorageConfigs_nextToken
           Lens..~ rs
           Lens.^? listInstanceStorageConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceStorageConfigs where
   type
@@ -166,7 +169,8 @@ instance Core.AWSRequest ListInstanceStorageConfigs where
 
 instance Prelude.Hashable ListInstanceStorageConfigs where
   hashWithSalt _salt ListInstanceStorageConfigs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` resourceType

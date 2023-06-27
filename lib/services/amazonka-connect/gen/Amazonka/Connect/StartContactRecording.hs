@@ -71,8 +71,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartContactRecording' smart constructor.
 data StartContactRecording = StartContactRecording'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact.
     contactId :: Prelude.Text,
@@ -92,8 +93,9 @@ data StartContactRecording = StartContactRecording'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'startContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'startContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'startContactRecording_contactId' - The identifier of the contact.
 --
@@ -124,8 +126,9 @@ newStartContactRecording
           pVoiceRecordingConfiguration_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 startContactRecording_instanceId :: Lens.Lens' StartContactRecording Prelude.Text
 startContactRecording_instanceId = Lens.lens (\StartContactRecording' {instanceId} -> instanceId) (\s@StartContactRecording' {} a -> s {instanceId = a} :: StartContactRecording)
 
@@ -157,7 +160,8 @@ instance Core.AWSRequest StartContactRecording where
 
 instance Prelude.Hashable StartContactRecording where
   hashWithSalt _salt StartContactRecording' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` initialContactId
       `Prelude.hashWithSalt` voiceRecordingConfiguration

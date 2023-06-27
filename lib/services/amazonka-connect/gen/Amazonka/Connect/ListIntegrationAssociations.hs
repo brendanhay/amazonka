@@ -64,8 +64,9 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,8 +87,9 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listIntegrationAssociations_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listIntegrationAssociations_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListIntegrationAssociations ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -115,8 +117,9 @@ listIntegrationAssociations_maxResults = Lens.lens (\ListIntegrationAssociations
 listIntegrationAssociations_nextToken :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe Prelude.Text)
 listIntegrationAssociations_nextToken = Lens.lens (\ListIntegrationAssociations' {nextToken} -> nextToken) (\s@ListIntegrationAssociations' {} a -> s {nextToken = a} :: ListIntegrationAssociations)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listIntegrationAssociations_instanceId :: Lens.Lens' ListIntegrationAssociations Prelude.Text
 listIntegrationAssociations_instanceId = Lens.lens (\ListIntegrationAssociations' {instanceId} -> instanceId) (\s@ListIntegrationAssociations' {} a -> s {instanceId = a} :: ListIntegrationAssociations)
 
@@ -125,22 +128,22 @@ instance Core.AWSPager ListIntegrationAssociations where
     | Core.stop
         ( rs
             Lens.^? listIntegrationAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listIntegrationAssociationsResponse_integrationAssociationSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIntegrationAssociations_nextToken
           Lens..~ rs
           Lens.^? listIntegrationAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIntegrationAssociations where
   type
@@ -152,7 +155,8 @@ instance Core.AWSRequest ListIntegrationAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListIntegrationAssociationsResponse'
-            Prelude.<$> ( x Data..?> "IntegrationAssociationSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "IntegrationAssociationSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -161,7 +165,8 @@ instance Core.AWSRequest ListIntegrationAssociations where
 
 instance Prelude.Hashable ListIntegrationAssociations where
   hashWithSalt _salt ListIntegrationAssociations' {..} =
-    _salt `Prelude.hashWithSalt` integrationType
+    _salt
+      `Prelude.hashWithSalt` integrationType
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

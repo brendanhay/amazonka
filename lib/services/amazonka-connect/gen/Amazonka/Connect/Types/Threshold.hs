@@ -78,7 +78,8 @@ instance Data.FromJSON Threshold where
 
 instance Prelude.Hashable Threshold where
   hashWithSalt _salt Threshold' {..} =
-    _salt `Prelude.hashWithSalt` comparison
+    _salt
+      `Prelude.hashWithSalt` comparison
       `Prelude.hashWithSalt` thresholdValue
 
 instance Prelude.NFData Threshold where

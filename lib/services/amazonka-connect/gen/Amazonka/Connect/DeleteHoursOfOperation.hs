@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteHoursOfOperation' smart constructor.
 data DeleteHoursOfOperation = DeleteHoursOfOperation'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the hours of operation.
     hoursOfOperationId :: Prelude.Text
@@ -65,8 +66,9 @@ data DeleteHoursOfOperation = DeleteHoursOfOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'hoursOfOperationId', 'deleteHoursOfOperation_hoursOfOperationId' - The identifier for the hours of operation.
 newDeleteHoursOfOperation ::
@@ -83,8 +85,9 @@ newDeleteHoursOfOperation
         hoursOfOperationId = pHoursOfOperationId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteHoursOfOperation_instanceId :: Lens.Lens' DeleteHoursOfOperation Prelude.Text
 deleteHoursOfOperation_instanceId = Lens.lens (\DeleteHoursOfOperation' {instanceId} -> instanceId) (\s@DeleteHoursOfOperation' {} a -> s {instanceId = a} :: DeleteHoursOfOperation)
 
@@ -104,7 +107,8 @@ instance Core.AWSRequest DeleteHoursOfOperation where
 
 instance Prelude.Hashable DeleteHoursOfOperation where
   hashWithSalt _salt DeleteHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` hoursOfOperationId
 
 instance Prelude.NFData DeleteHoursOfOperation where

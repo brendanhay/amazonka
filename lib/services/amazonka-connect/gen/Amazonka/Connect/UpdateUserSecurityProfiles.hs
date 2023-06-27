@@ -51,8 +51,9 @@ data UpdateUserSecurityProfiles = UpdateUserSecurityProfiles'
     securityProfileIds :: Prelude.NonEmpty Prelude.Text,
     -- | The identifier of the user account.
     userId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +70,9 @@ data UpdateUserSecurityProfiles = UpdateUserSecurityProfiles'
 --
 -- 'userId', 'updateUserSecurityProfiles_userId' - The identifier of the user account.
 --
--- 'instanceId', 'updateUserSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateUserSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newUpdateUserSecurityProfiles ::
   -- | 'securityProfileIds'
   Prelude.NonEmpty Prelude.Text ->
@@ -98,8 +100,9 @@ updateUserSecurityProfiles_securityProfileIds = Lens.lens (\UpdateUserSecurityPr
 updateUserSecurityProfiles_userId :: Lens.Lens' UpdateUserSecurityProfiles Prelude.Text
 updateUserSecurityProfiles_userId = Lens.lens (\UpdateUserSecurityProfiles' {userId} -> userId) (\s@UpdateUserSecurityProfiles' {} a -> s {userId = a} :: UpdateUserSecurityProfiles)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateUserSecurityProfiles_instanceId :: Lens.Lens' UpdateUserSecurityProfiles Prelude.Text
 updateUserSecurityProfiles_instanceId = Lens.lens (\UpdateUserSecurityProfiles' {instanceId} -> instanceId) (\s@UpdateUserSecurityProfiles' {} a -> s {instanceId = a} :: UpdateUserSecurityProfiles)
 
@@ -115,7 +118,8 @@ instance Core.AWSRequest UpdateUserSecurityProfiles where
 
 instance Prelude.Hashable UpdateUserSecurityProfiles where
   hashWithSalt _salt UpdateUserSecurityProfiles' {..} =
-    _salt `Prelude.hashWithSalt` securityProfileIds
+    _salt
+      `Prelude.hashWithSalt` securityProfileIds
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
 

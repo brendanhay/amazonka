@@ -113,21 +113,23 @@ instance Core.AWSPager ListPrompts where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPromptsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listPromptsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPromptsResponse_promptSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPrompts_nextToken
           Lens..~ rs
-          Lens.^? listPromptsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPromptsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrompts where
   type AWSResponse ListPrompts = ListPromptsResponse
@@ -138,7 +140,8 @@ instance Core.AWSRequest ListPrompts where
       ( \s h x ->
           ListPromptsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PromptSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "PromptSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,7 +149,8 @@ instance Core.AWSRequest ListPrompts where
 
 instance Prelude.Hashable ListPrompts where
   hashWithSalt _salt ListPrompts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 

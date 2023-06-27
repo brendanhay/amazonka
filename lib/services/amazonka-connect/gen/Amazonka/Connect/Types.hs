@@ -30,6 +30,7 @@ module Amazonka.Connect.Types
     _InvalidParameterException,
     _InvalidRequestException,
     _LimitExceededException,
+    _MaximumResultReturnedException,
     _OutboundContactNotPermittedException,
     _PropertyValidationException,
     _ResourceConflictException,
@@ -48,6 +49,9 @@ module Amazonka.Connect.Types
 
     -- * AgentStatusType
     AgentStatusType (..),
+
+    -- * BehaviorType
+    BehaviorType (..),
 
     -- * Channel
     Channel (..),
@@ -81,6 +85,24 @@ module Amazonka.Connect.Types
 
     -- * EncryptionType
     EncryptionType (..),
+
+    -- * EvaluationFormQuestionType
+    EvaluationFormQuestionType (..),
+
+    -- * EvaluationFormScoringMode
+    EvaluationFormScoringMode (..),
+
+    -- * EvaluationFormScoringStatus
+    EvaluationFormScoringStatus (..),
+
+    -- * EvaluationFormSingleSelectQuestionDisplayMode
+    EvaluationFormSingleSelectQuestionDisplayMode (..),
+
+    -- * EvaluationFormVersionStatus
+    EvaluationFormVersionStatus (..),
+
+    -- * EvaluationStatus
+    EvaluationStatus (..),
 
     -- * EventSourceName
     EventSourceName (..),
@@ -121,6 +143,12 @@ module Amazonka.Connect.Types
     -- * NotificationDeliveryType
     NotificationDeliveryType (..),
 
+    -- * NumericQuestionPropertyAutomationLabel
+    NumericQuestionPropertyAutomationLabel (..),
+
+    -- * ParticipantRole
+    ParticipantRole (..),
+
     -- * ParticipantTimerAction
     ParticipantTimerAction (..),
 
@@ -154,11 +182,17 @@ module Amazonka.Connect.Types
     -- * ReferenceType
     ReferenceType (..),
 
+    -- * RehydrationType
+    RehydrationType (..),
+
     -- * RulePublishStatus
     RulePublishStatus (..),
 
     -- * SearchableQueueType
     SearchableQueueType (..),
+
+    -- * SingleSelectQuestionRuleCategoryAutomationCondition
+    SingleSelectQuestionRuleCategoryAutomationCondition (..),
 
     -- * SortOrder
     SortOrder (..),
@@ -329,7 +363,9 @@ module Amazonka.Connect.Types
     contact_name,
     contact_previousContactId,
     contact_queueInfo,
+    contact_relatedContactId,
     contact_scheduledTimestamp,
+    contact_wisdomInfo,
 
     -- * ContactFilter
     ContactFilter (..),
@@ -391,6 +427,11 @@ module Amazonka.Connect.Types
     credentials_accessTokenExpiration,
     credentials_refreshToken,
     credentials_refreshTokenExpiration,
+
+    -- * CrossChannelBehavior
+    CrossChannelBehavior (..),
+    newCrossChannelBehavior,
+    crossChannelBehavior_behaviorType,
 
     -- * CurrentMetric
     CurrentMetric (..),
@@ -455,10 +496,223 @@ module Amazonka.Connect.Types
     encryptionConfig_encryptionType,
     encryptionConfig_keyId,
 
+    -- * Evaluation
+    Evaluation (..),
+    newEvaluation,
+    evaluation_scores,
+    evaluation_tags,
+    evaluation_evaluationId,
+    evaluation_evaluationArn,
+    evaluation_metadata,
+    evaluation_answers,
+    evaluation_notes,
+    evaluation_status,
+    evaluation_createdTime,
+    evaluation_lastModifiedTime,
+
+    -- * EvaluationAnswerData
+    EvaluationAnswerData (..),
+    newEvaluationAnswerData,
+    evaluationAnswerData_notApplicable,
+    evaluationAnswerData_numericValue,
+    evaluationAnswerData_stringValue,
+
+    -- * EvaluationAnswerInput
+    EvaluationAnswerInput (..),
+    newEvaluationAnswerInput,
+    evaluationAnswerInput_value,
+
+    -- * EvaluationAnswerOutput
+    EvaluationAnswerOutput (..),
+    newEvaluationAnswerOutput,
+    evaluationAnswerOutput_systemSuggestedValue,
+    evaluationAnswerOutput_value,
+
+    -- * EvaluationForm
+    EvaluationForm (..),
+    newEvaluationForm,
+    evaluationForm_description,
+    evaluationForm_scoringStrategy,
+    evaluationForm_tags,
+    evaluationForm_evaluationFormId,
+    evaluationForm_evaluationFormVersion,
+    evaluationForm_locked,
+    evaluationForm_evaluationFormArn,
+    evaluationForm_title,
+    evaluationForm_status,
+    evaluationForm_items,
+    evaluationForm_createdTime,
+    evaluationForm_createdBy,
+    evaluationForm_lastModifiedTime,
+    evaluationForm_lastModifiedBy,
+
+    -- * EvaluationFormContent
+    EvaluationFormContent (..),
+    newEvaluationFormContent,
+    evaluationFormContent_description,
+    evaluationFormContent_scoringStrategy,
+    evaluationFormContent_evaluationFormVersion,
+    evaluationFormContent_evaluationFormId,
+    evaluationFormContent_evaluationFormArn,
+    evaluationFormContent_title,
+    evaluationFormContent_items,
+
+    -- * EvaluationFormItem
+    EvaluationFormItem (..),
+    newEvaluationFormItem,
+    evaluationFormItem_question,
+    evaluationFormItem_section,
+
+    -- * EvaluationFormNumericQuestionAutomation
+    EvaluationFormNumericQuestionAutomation (..),
+    newEvaluationFormNumericQuestionAutomation,
+    evaluationFormNumericQuestionAutomation_propertyValue,
+
+    -- * EvaluationFormNumericQuestionOption
+    EvaluationFormNumericQuestionOption (..),
+    newEvaluationFormNumericQuestionOption,
+    evaluationFormNumericQuestionOption_automaticFail,
+    evaluationFormNumericQuestionOption_score,
+    evaluationFormNumericQuestionOption_minValue,
+    evaluationFormNumericQuestionOption_maxValue,
+
+    -- * EvaluationFormNumericQuestionProperties
+    EvaluationFormNumericQuestionProperties (..),
+    newEvaluationFormNumericQuestionProperties,
+    evaluationFormNumericQuestionProperties_automation,
+    evaluationFormNumericQuestionProperties_options,
+    evaluationFormNumericQuestionProperties_minValue,
+    evaluationFormNumericQuestionProperties_maxValue,
+
+    -- * EvaluationFormQuestion
+    EvaluationFormQuestion (..),
+    newEvaluationFormQuestion,
+    evaluationFormQuestion_instructions,
+    evaluationFormQuestion_notApplicableEnabled,
+    evaluationFormQuestion_questionTypeProperties,
+    evaluationFormQuestion_weight,
+    evaluationFormQuestion_title,
+    evaluationFormQuestion_refId,
+    evaluationFormQuestion_questionType,
+
+    -- * EvaluationFormQuestionTypeProperties
+    EvaluationFormQuestionTypeProperties (..),
+    newEvaluationFormQuestionTypeProperties,
+    evaluationFormQuestionTypeProperties_numeric,
+    evaluationFormQuestionTypeProperties_singleSelect,
+
+    -- * EvaluationFormScoringStrategy
+    EvaluationFormScoringStrategy (..),
+    newEvaluationFormScoringStrategy,
+    evaluationFormScoringStrategy_mode,
+    evaluationFormScoringStrategy_status,
+
+    -- * EvaluationFormSection
+    EvaluationFormSection (..),
+    newEvaluationFormSection,
+    evaluationFormSection_instructions,
+    evaluationFormSection_weight,
+    evaluationFormSection_title,
+    evaluationFormSection_refId,
+    evaluationFormSection_items,
+
+    -- * EvaluationFormSingleSelectQuestionAutomation
+    EvaluationFormSingleSelectQuestionAutomation (..),
+    newEvaluationFormSingleSelectQuestionAutomation,
+    evaluationFormSingleSelectQuestionAutomation_defaultOptionRefId,
+    evaluationFormSingleSelectQuestionAutomation_options,
+
+    -- * EvaluationFormSingleSelectQuestionAutomationOption
+    EvaluationFormSingleSelectQuestionAutomationOption (..),
+    newEvaluationFormSingleSelectQuestionAutomationOption,
+    evaluationFormSingleSelectQuestionAutomationOption_ruleCategory,
+
+    -- * EvaluationFormSingleSelectQuestionOption
+    EvaluationFormSingleSelectQuestionOption (..),
+    newEvaluationFormSingleSelectQuestionOption,
+    evaluationFormSingleSelectQuestionOption_automaticFail,
+    evaluationFormSingleSelectQuestionOption_score,
+    evaluationFormSingleSelectQuestionOption_refId,
+    evaluationFormSingleSelectQuestionOption_text,
+
+    -- * EvaluationFormSingleSelectQuestionProperties
+    EvaluationFormSingleSelectQuestionProperties (..),
+    newEvaluationFormSingleSelectQuestionProperties,
+    evaluationFormSingleSelectQuestionProperties_automation,
+    evaluationFormSingleSelectQuestionProperties_displayAs,
+    evaluationFormSingleSelectQuestionProperties_options,
+
+    -- * EvaluationFormSummary
+    EvaluationFormSummary (..),
+    newEvaluationFormSummary,
+    evaluationFormSummary_activeVersion,
+    evaluationFormSummary_lastActivatedBy,
+    evaluationFormSummary_lastActivatedTime,
+    evaluationFormSummary_evaluationFormId,
+    evaluationFormSummary_evaluationFormArn,
+    evaluationFormSummary_title,
+    evaluationFormSummary_createdTime,
+    evaluationFormSummary_createdBy,
+    evaluationFormSummary_lastModifiedTime,
+    evaluationFormSummary_lastModifiedBy,
+    evaluationFormSummary_latestVersion,
+
+    -- * EvaluationFormVersionSummary
+    EvaluationFormVersionSummary (..),
+    newEvaluationFormVersionSummary,
+    evaluationFormVersionSummary_evaluationFormArn,
+    evaluationFormVersionSummary_evaluationFormId,
+    evaluationFormVersionSummary_evaluationFormVersion,
+    evaluationFormVersionSummary_locked,
+    evaluationFormVersionSummary_status,
+    evaluationFormVersionSummary_createdTime,
+    evaluationFormVersionSummary_createdBy,
+    evaluationFormVersionSummary_lastModifiedTime,
+    evaluationFormVersionSummary_lastModifiedBy,
+
+    -- * EvaluationMetadata
+    EvaluationMetadata (..),
+    newEvaluationMetadata,
+    evaluationMetadata_contactAgentId,
+    evaluationMetadata_score,
+    evaluationMetadata_contactId,
+    evaluationMetadata_evaluatorArn,
+
+    -- * EvaluationNote
+    EvaluationNote (..),
+    newEvaluationNote,
+    evaluationNote_value,
+
+    -- * EvaluationScore
+    EvaluationScore (..),
+    newEvaluationScore,
+    evaluationScore_automaticFail,
+    evaluationScore_notApplicable,
+    evaluationScore_percentage,
+
+    -- * EvaluationSummary
+    EvaluationSummary (..),
+    newEvaluationSummary,
+    evaluationSummary_score,
+    evaluationSummary_evaluationId,
+    evaluationSummary_evaluationArn,
+    evaluationSummary_evaluationFormTitle,
+    evaluationSummary_evaluationFormId,
+    evaluationSummary_status,
+    evaluationSummary_evaluatorArn,
+    evaluationSummary_createdTime,
+    evaluationSummary_lastModifiedTime,
+
     -- * EventBridgeActionDefinition
     EventBridgeActionDefinition (..),
     newEventBridgeActionDefinition,
     eventBridgeActionDefinition_name,
+
+    -- * FilterV2
+    FilterV2 (..),
+    newFilterV2,
+    filterV2_filterKey,
+    filterV2_filterValues,
 
     -- * Filters
     Filters (..),
@@ -582,6 +836,18 @@ module Amazonka.Connect.Types
     hoursOfOperationConfig_startTime,
     hoursOfOperationConfig_endTime,
 
+    -- * HoursOfOperationSearchCriteria
+    HoursOfOperationSearchCriteria (..),
+    newHoursOfOperationSearchCriteria,
+    hoursOfOperationSearchCriteria_andConditions,
+    hoursOfOperationSearchCriteria_orConditions,
+    hoursOfOperationSearchCriteria_stringCondition,
+
+    -- * HoursOfOperationSearchFilter
+    HoursOfOperationSearchFilter (..),
+    newHoursOfOperationSearchFilter,
+    hoursOfOperationSearchFilter_tagFilter,
+
     -- * HoursOfOperationSummary
     HoursOfOperationSummary (..),
     newHoursOfOperationSummary,
@@ -603,6 +869,7 @@ module Amazonka.Connect.Types
     instance_id,
     instance_identityManagementType,
     instance_inboundCallsEnabled,
+    instance_instanceAccessUrl,
     instance_instanceAlias,
     instance_instanceStatus,
     instance_outboundCallsEnabled,
@@ -632,6 +899,7 @@ module Amazonka.Connect.Types
     instanceSummary_id,
     instanceSummary_identityManagementType,
     instanceSummary_inboundCallsEnabled,
+    instanceSummary_instanceAccessUrl,
     instanceSummary_instanceAlias,
     instanceSummary_instanceStatus,
     instanceSummary_outboundCallsEnabled,
@@ -674,8 +942,8 @@ module Amazonka.Connect.Types
     -- * LexBot
     LexBot (..),
     newLexBot,
-    lexBot_lexRegion,
     lexBot_name,
+    lexBot_lexRegion,
 
     -- * LexBotConfig
     LexBotConfig (..),
@@ -701,8 +969,34 @@ module Amazonka.Connect.Types
     -- * MediaConcurrency
     MediaConcurrency (..),
     newMediaConcurrency,
+    mediaConcurrency_crossChannelBehavior,
     mediaConcurrency_channel,
     mediaConcurrency_concurrency,
+
+    -- * MetricDataV2
+    MetricDataV2 (..),
+    newMetricDataV2,
+    metricDataV2_metric,
+    metricDataV2_value,
+
+    -- * MetricFilterV2
+    MetricFilterV2 (..),
+    newMetricFilterV2,
+    metricFilterV2_metricFilterKey,
+    metricFilterV2_metricFilterValues,
+
+    -- * MetricResultV2
+    MetricResultV2 (..),
+    newMetricResultV2,
+    metricResultV2_collections,
+    metricResultV2_dimensions,
+
+    -- * MetricV2
+    MetricV2 (..),
+    newMetricV2,
+    metricV2_metricFilters,
+    metricV2_name,
+    metricV2_threshold,
 
     -- * NotificationRecipientType
     NotificationRecipientType (..),
@@ -716,6 +1010,11 @@ module Amazonka.Connect.Types
     numberReference_name,
     numberReference_value,
 
+    -- * NumericQuestionPropertyValueAutomation
+    NumericQuestionPropertyValueAutomation (..),
+    newNumericQuestionPropertyValueAutomation,
+    numericQuestionPropertyValueAutomation_label,
+
     -- * OutboundCallerConfig
     OutboundCallerConfig (..),
     newOutboundCallerConfig,
@@ -727,6 +1026,12 @@ module Amazonka.Connect.Types
     ParticipantDetails (..),
     newParticipantDetails,
     participantDetails_displayName,
+
+    -- * ParticipantDetailsToAdd
+    ParticipantDetailsToAdd (..),
+    newParticipantDetailsToAdd,
+    participantDetailsToAdd_displayName,
+    participantDetailsToAdd_participantRole,
 
     -- * ParticipantTimerConfiguration
     ParticipantTimerConfiguration (..),
@@ -740,6 +1045,18 @@ module Amazonka.Connect.Types
     newParticipantTimerValue,
     participantTimerValue_participantTimerAction,
     participantTimerValue_participantTimerDurationInMinutes,
+
+    -- * ParticipantTokenCredentials
+    ParticipantTokenCredentials (..),
+    newParticipantTokenCredentials,
+    participantTokenCredentials_expiry,
+    participantTokenCredentials_participantToken,
+
+    -- * PersistentChat
+    PersistentChat (..),
+    newPersistentChat,
+    persistentChat_rehydrationType,
+    persistentChat_sourceContactId,
 
     -- * PhoneNumberQuickConnectConfig
     PhoneNumberQuickConnectConfig (..),
@@ -760,6 +1077,27 @@ module Amazonka.Connect.Types
     phoneNumberSummary_phoneNumber,
     phoneNumberSummary_phoneNumberCountryCode,
     phoneNumberSummary_phoneNumberType,
+
+    -- * Prompt
+    Prompt (..),
+    newPrompt,
+    prompt_description,
+    prompt_name,
+    prompt_promptARN,
+    prompt_promptId,
+    prompt_tags,
+
+    -- * PromptSearchCriteria
+    PromptSearchCriteria (..),
+    newPromptSearchCriteria,
+    promptSearchCriteria_andConditions,
+    promptSearchCriteria_orConditions,
+    promptSearchCriteria_stringCondition,
+
+    -- * PromptSearchFilter
+    PromptSearchFilter (..),
+    newPromptSearchFilter,
+    promptSearchFilter_tagFilter,
 
     -- * PromptSummary
     PromptSummary (..),
@@ -838,6 +1176,18 @@ module Amazonka.Connect.Types
     quickConnectConfig_userConfig,
     quickConnectConfig_quickConnectType,
 
+    -- * QuickConnectSearchCriteria
+    QuickConnectSearchCriteria (..),
+    newQuickConnectSearchCriteria,
+    quickConnectSearchCriteria_andConditions,
+    quickConnectSearchCriteria_orConditions,
+    quickConnectSearchCriteria_stringCondition,
+
+    -- * QuickConnectSearchFilter
+    QuickConnectSearchFilter (..),
+    newQuickConnectSearchFilter,
+    quickConnectSearchFilter_tagFilter,
+
     -- * QuickConnectSummary
     QuickConnectSummary (..),
     newQuickConnectSummary,
@@ -871,6 +1221,11 @@ module Amazonka.Connect.Types
     RequiredFieldInfo (..),
     newRequiredFieldInfo,
     requiredFieldInfo_id,
+
+    -- * ResourceTagsSearchCriteria
+    ResourceTagsSearchCriteria (..),
+    newResourceTagsSearchCriteria,
+    resourceTagsSearchCriteria_tagSearchCondition,
 
     -- * RoutingProfile
     RoutingProfile (..),
@@ -1040,6 +1395,13 @@ module Amazonka.Connect.Types
     sendNotificationActionDefinition_contentType,
     sendNotificationActionDefinition_recipient,
 
+    -- * SingleSelectQuestionRuleCategoryAutomation
+    SingleSelectQuestionRuleCategoryAutomation (..),
+    newSingleSelectQuestionRuleCategoryAutomation,
+    singleSelectQuestionRuleCategoryAutomation_category,
+    singleSelectQuestionRuleCategoryAutomation_condition,
+    singleSelectQuestionRuleCategoryAutomation_optionRefId,
+
     -- * StringCondition
     StringCondition (..),
     newStringCondition,
@@ -1058,6 +1420,20 @@ module Amazonka.Connect.Types
     newTagCondition,
     tagCondition_tagKey,
     tagCondition_tagValue,
+
+    -- * TagSearchCondition
+    TagSearchCondition (..),
+    newTagSearchCondition,
+    tagSearchCondition_tagKey,
+    tagSearchCondition_tagKeyComparisonType,
+    tagSearchCondition_tagValue,
+    tagSearchCondition_tagValueComparisonType,
+
+    -- * TagSet
+    TagSet (..),
+    newTagSet,
+    tagSet_key,
+    tagSet_value,
 
     -- * TaskActionDefinition
     TaskActionDefinition (..),
@@ -1119,6 +1495,12 @@ module Amazonka.Connect.Types
     newThreshold,
     threshold_comparison,
     threshold_thresholdValue,
+
+    -- * ThresholdV2
+    ThresholdV2 (..),
+    newThresholdV2,
+    thresholdV2_comparison,
+    thresholdV2_thresholdValue,
 
     -- * TrafficDistributionGroup
     TrafficDistributionGroup (..),
@@ -1291,6 +1673,11 @@ module Amazonka.Connect.Types
     VoiceRecordingConfiguration (..),
     newVoiceRecordingConfiguration,
     voiceRecordingConfiguration_voiceRecordingTrack,
+
+    -- * WisdomInfo
+    WisdomInfo (..),
+    newWisdomInfo,
+    wisdomInfo_sessionArn,
   )
 where
 
@@ -1308,6 +1695,7 @@ import Amazonka.Connect.Types.AssignContactCategoryActionDefinition
 import Amazonka.Connect.Types.AttachmentReference
 import Amazonka.Connect.Types.Attribute
 import Amazonka.Connect.Types.AvailableNumberSummary
+import Amazonka.Connect.Types.BehaviorType
 import Amazonka.Connect.Types.Channel
 import Amazonka.Connect.Types.ChatMessage
 import Amazonka.Connect.Types.ChatParticipantRoleConfig
@@ -1328,6 +1716,7 @@ import Amazonka.Connect.Types.ContactInitiationMethod
 import Amazonka.Connect.Types.ContactState
 import Amazonka.Connect.Types.ControlPlaneTagFilter
 import Amazonka.Connect.Types.Credentials
+import Amazonka.Connect.Types.CrossChannelBehavior
 import Amazonka.Connect.Types.CurrentMetric
 import Amazonka.Connect.Types.CurrentMetricData
 import Amazonka.Connect.Types.CurrentMetricName
@@ -1341,8 +1730,39 @@ import Amazonka.Connect.Types.Distribution
 import Amazonka.Connect.Types.EmailReference
 import Amazonka.Connect.Types.EncryptionConfig
 import Amazonka.Connect.Types.EncryptionType
+import Amazonka.Connect.Types.Evaluation
+import Amazonka.Connect.Types.EvaluationAnswerData
+import Amazonka.Connect.Types.EvaluationAnswerInput
+import Amazonka.Connect.Types.EvaluationAnswerOutput
+import Amazonka.Connect.Types.EvaluationForm
+import Amazonka.Connect.Types.EvaluationFormContent
+import Amazonka.Connect.Types.EvaluationFormItem
+import Amazonka.Connect.Types.EvaluationFormNumericQuestionAutomation
+import Amazonka.Connect.Types.EvaluationFormNumericQuestionOption
+import Amazonka.Connect.Types.EvaluationFormNumericQuestionProperties
+import Amazonka.Connect.Types.EvaluationFormQuestion
+import Amazonka.Connect.Types.EvaluationFormQuestionType
+import Amazonka.Connect.Types.EvaluationFormQuestionTypeProperties
+import Amazonka.Connect.Types.EvaluationFormScoringMode
+import Amazonka.Connect.Types.EvaluationFormScoringStatus
+import Amazonka.Connect.Types.EvaluationFormScoringStrategy
+import Amazonka.Connect.Types.EvaluationFormSection
+import Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionAutomation
+import Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionAutomationOption
+import Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionDisplayMode
+import Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionOption
+import Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionProperties
+import Amazonka.Connect.Types.EvaluationFormSummary
+import Amazonka.Connect.Types.EvaluationFormVersionStatus
+import Amazonka.Connect.Types.EvaluationFormVersionSummary
+import Amazonka.Connect.Types.EvaluationMetadata
+import Amazonka.Connect.Types.EvaluationNote
+import Amazonka.Connect.Types.EvaluationScore
+import Amazonka.Connect.Types.EvaluationStatus
+import Amazonka.Connect.Types.EvaluationSummary
 import Amazonka.Connect.Types.EventBridgeActionDefinition
 import Amazonka.Connect.Types.EventSourceName
+import Amazonka.Connect.Types.FilterV2
 import Amazonka.Connect.Types.Filters
 import Amazonka.Connect.Types.Grouping
 import Amazonka.Connect.Types.HierarchyGroup
@@ -1363,6 +1783,8 @@ import Amazonka.Connect.Types.HistoricalMetricResult
 import Amazonka.Connect.Types.HoursOfOperation
 import Amazonka.Connect.Types.HoursOfOperationConfig
 import Amazonka.Connect.Types.HoursOfOperationDays
+import Amazonka.Connect.Types.HoursOfOperationSearchCriteria
+import Amazonka.Connect.Types.HoursOfOperationSearchFilter
 import Amazonka.Connect.Types.HoursOfOperationSummary
 import Amazonka.Connect.Types.HoursOfOperationTimeSlice
 import Amazonka.Connect.Types.Instance
@@ -1384,17 +1806,27 @@ import Amazonka.Connect.Types.LexV2Bot
 import Amazonka.Connect.Types.LexVersion
 import Amazonka.Connect.Types.ListPhoneNumbersSummary
 import Amazonka.Connect.Types.MediaConcurrency
+import Amazonka.Connect.Types.MetricDataV2
+import Amazonka.Connect.Types.MetricFilterV2
+import Amazonka.Connect.Types.MetricResultV2
+import Amazonka.Connect.Types.MetricV2
 import Amazonka.Connect.Types.MonitorCapability
 import Amazonka.Connect.Types.NotificationContentType
 import Amazonka.Connect.Types.NotificationDeliveryType
 import Amazonka.Connect.Types.NotificationRecipientType
 import Amazonka.Connect.Types.NumberReference
+import Amazonka.Connect.Types.NumericQuestionPropertyAutomationLabel
+import Amazonka.Connect.Types.NumericQuestionPropertyValueAutomation
 import Amazonka.Connect.Types.OutboundCallerConfig
 import Amazonka.Connect.Types.ParticipantDetails
+import Amazonka.Connect.Types.ParticipantDetailsToAdd
+import Amazonka.Connect.Types.ParticipantRole
 import Amazonka.Connect.Types.ParticipantTimerAction
 import Amazonka.Connect.Types.ParticipantTimerConfiguration
 import Amazonka.Connect.Types.ParticipantTimerType
 import Amazonka.Connect.Types.ParticipantTimerValue
+import Amazonka.Connect.Types.ParticipantTokenCredentials
+import Amazonka.Connect.Types.PersistentChat
 import Amazonka.Connect.Types.PhoneNumberCountryCode
 import Amazonka.Connect.Types.PhoneNumberQuickConnectConfig
 import Amazonka.Connect.Types.PhoneNumberStatus
@@ -1402,6 +1834,9 @@ import Amazonka.Connect.Types.PhoneNumberSummary
 import Amazonka.Connect.Types.PhoneNumberType
 import Amazonka.Connect.Types.PhoneNumberWorkflowStatus
 import Amazonka.Connect.Types.PhoneType
+import Amazonka.Connect.Types.Prompt
+import Amazonka.Connect.Types.PromptSearchCriteria
+import Amazonka.Connect.Types.PromptSearchFilter
 import Amazonka.Connect.Types.PromptSummary
 import Amazonka.Connect.Types.Queue
 import Amazonka.Connect.Types.QueueInfo
@@ -1414,6 +1849,8 @@ import Amazonka.Connect.Types.QueueSummary
 import Amazonka.Connect.Types.QueueType
 import Amazonka.Connect.Types.QuickConnect
 import Amazonka.Connect.Types.QuickConnectConfig
+import Amazonka.Connect.Types.QuickConnectSearchCriteria
+import Amazonka.Connect.Types.QuickConnectSearchFilter
 import Amazonka.Connect.Types.QuickConnectSummary
 import Amazonka.Connect.Types.QuickConnectType
 import Amazonka.Connect.Types.ReadOnlyFieldInfo
@@ -1421,7 +1858,9 @@ import Amazonka.Connect.Types.Reference
 import Amazonka.Connect.Types.ReferenceStatus
 import Amazonka.Connect.Types.ReferenceSummary
 import Amazonka.Connect.Types.ReferenceType
+import Amazonka.Connect.Types.RehydrationType
 import Amazonka.Connect.Types.RequiredFieldInfo
+import Amazonka.Connect.Types.ResourceTagsSearchCriteria
 import Amazonka.Connect.Types.RoutingProfile
 import Amazonka.Connect.Types.RoutingProfileQueueConfig
 import Amazonka.Connect.Types.RoutingProfileQueueConfigSummary
@@ -1444,6 +1883,8 @@ import Amazonka.Connect.Types.SecurityProfileSearchSummary
 import Amazonka.Connect.Types.SecurityProfileSummary
 import Amazonka.Connect.Types.SecurityProfilesSearchFilter
 import Amazonka.Connect.Types.SendNotificationActionDefinition
+import Amazonka.Connect.Types.SingleSelectQuestionRuleCategoryAutomation
+import Amazonka.Connect.Types.SingleSelectQuestionRuleCategoryAutomationCondition
 import Amazonka.Connect.Types.SortOrder
 import Amazonka.Connect.Types.SourceType
 import Amazonka.Connect.Types.Statistic
@@ -1452,6 +1893,8 @@ import Amazonka.Connect.Types.StringComparisonType
 import Amazonka.Connect.Types.StringCondition
 import Amazonka.Connect.Types.StringReference
 import Amazonka.Connect.Types.TagCondition
+import Amazonka.Connect.Types.TagSearchCondition
+import Amazonka.Connect.Types.TagSet
 import Amazonka.Connect.Types.TaskActionDefinition
 import Amazonka.Connect.Types.TaskTemplateConstraints
 import Amazonka.Connect.Types.TaskTemplateDefaultFieldValue
@@ -1463,6 +1906,7 @@ import Amazonka.Connect.Types.TaskTemplateMetadata
 import Amazonka.Connect.Types.TaskTemplateStatus
 import Amazonka.Connect.Types.TelephonyConfig
 import Amazonka.Connect.Types.Threshold
+import Amazonka.Connect.Types.ThresholdV2
 import Amazonka.Connect.Types.TimerEligibleParticipantRoles
 import Amazonka.Connect.Types.TrafficDistributionGroup
 import Amazonka.Connect.Types.TrafficDistributionGroupStatus
@@ -1491,6 +1935,7 @@ import Amazonka.Connect.Types.VocabularyState
 import Amazonka.Connect.Types.VocabularySummary
 import Amazonka.Connect.Types.VoiceRecordingConfiguration
 import Amazonka.Connect.Types.VoiceRecordingTrack
+import Amazonka.Connect.Types.WisdomInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -1522,52 +1967,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient permissions to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1575,7 +2020,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | The flow has not been published.
-_ContactFlowNotPublishedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ContactFlowNotPublishedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ContactFlowNotPublishedException =
   Core._MatchServiceError
     defaultService
@@ -1584,7 +2029,7 @@ _ContactFlowNotPublishedException =
 
 -- | The contact with the specified ID is not active or does not exist.
 -- Applies to Voice calls only, not to Chat, Task, or Voice Callback.
-_ContactNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ContactNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ContactNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1592,7 +2037,7 @@ _ContactNotFoundException =
     Prelude.. Core.hasStatus 410
 
 -- | Outbound calls to the destination number are not allowed.
-_DestinationNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DestinationNotAllowedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DestinationNotAllowedException =
   Core._MatchServiceError
     defaultService
@@ -1600,7 +2045,7 @@ _DestinationNotAllowedException =
     Prelude.. Core.hasStatus 403
 
 -- | A resource with the specified name already exists.
-_DuplicateResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateResourceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateResourceException =
   Core._MatchServiceError
     defaultService
@@ -1608,7 +2053,7 @@ _DuplicateResourceException =
     Prelude.. Core.hasStatus 409
 
 -- | An entity with the same name already exists.
-_IdempotencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IdempotencyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdempotencyException =
   Core._MatchServiceError
     defaultService
@@ -1617,7 +2062,7 @@ _IdempotencyException =
 
 -- | Request processing failed because of an error or failure with the
 -- service.
-_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -1625,7 +2070,7 @@ _InternalServiceException =
     Prelude.. Core.hasStatus 500
 
 -- | The flow is not valid.
-_InvalidContactFlowException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidContactFlowException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidContactFlowException =
   Core._MatchServiceError
     defaultService
@@ -1633,7 +2078,7 @@ _InvalidContactFlowException =
     Prelude.. Core.hasStatus 400
 
 -- | The problems with the module. Please fix before trying again.
-_InvalidContactFlowModuleException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidContactFlowModuleException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidContactFlowModuleException =
   Core._MatchServiceError
     defaultService
@@ -1641,7 +2086,7 @@ _InvalidContactFlowModuleException =
     Prelude.. Core.hasStatus 400
 
 -- | One or more of the specified parameters are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -1649,7 +2094,7 @@ _InvalidParameterException =
     Prelude.. Core.hasStatus 400
 
 -- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -1657,15 +2102,24 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The allowed limit for the resource has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
     Prelude.. Core.hasStatus 429
 
+-- | Maximum number (1000) of tags have been returned with current request.
+-- Consider changing request parameters to get more tags.
+_MaximumResultReturnedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_MaximumResultReturnedException =
+  Core._MatchServiceError
+    defaultService
+    "MaximumResultReturnedException"
+    Prelude.. Core.hasStatus 400
+
 -- | The contact is not permitted.
-_OutboundContactNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OutboundContactNotPermittedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OutboundContactNotPermittedException =
   Core._MatchServiceError
     defaultService
@@ -1673,7 +2127,7 @@ _OutboundContactNotPermittedException =
     Prelude.. Core.hasStatus 403
 
 -- | The property is not valid.
-_PropertyValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PropertyValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PropertyValidationException =
   Core._MatchServiceError
     defaultService
@@ -1681,7 +2135,7 @@ _PropertyValidationException =
     Prelude.. Core.hasStatus 400
 
 -- | A resource already has that name.
-_ResourceConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceConflictException =
   Core._MatchServiceError
     defaultService
@@ -1689,7 +2143,7 @@ _ResourceConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | That resource is already in use. Please try another.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -1697,7 +2151,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 409
 
 -- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1705,7 +2159,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The resource is not ready.
-_ResourceNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotReadyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotReadyException =
   Core._MatchServiceError
     defaultService
@@ -1713,7 +2167,7 @@ _ResourceNotReadyException =
     Prelude.. Core.hasStatus 409
 
 -- | The service quota has been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1721,7 +2175,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The throttling limit has been exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1730,7 +2184,7 @@ _ThrottlingException =
 
 -- | No user with the specified credentials was found in the Amazon Connect
 -- instance.
-_UserNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UserNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UserNotFoundException =
   Core._MatchServiceError
     defaultService

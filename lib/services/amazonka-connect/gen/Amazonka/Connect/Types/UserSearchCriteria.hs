@@ -44,6 +44,9 @@ data UserSearchCriteria = UserSearchCriteria'
     -- condition.
     orConditions :: Prelude.Maybe [UserSearchCriteria],
     -- | A leaf node condition which can be used to specify a string condition.
+    --
+    -- The currently supported values for @FieldName@ are @name@,
+    -- @description@, and @resourceID@.
     stringCondition :: Prelude.Maybe StringCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,6 +69,9 @@ data UserSearchCriteria = UserSearchCriteria'
 -- condition.
 --
 -- 'stringCondition', 'userSearchCriteria_stringCondition' - A leaf node condition which can be used to specify a string condition.
+--
+-- The currently supported values for @FieldName@ are @name@,
+-- @description@, and @resourceID@.
 newUserSearchCriteria ::
   UserSearchCriteria
 newUserSearchCriteria =
@@ -93,12 +99,16 @@ userSearchCriteria_orConditions :: Lens.Lens' UserSearchCriteria (Prelude.Maybe 
 userSearchCriteria_orConditions = Lens.lens (\UserSearchCriteria' {orConditions} -> orConditions) (\s@UserSearchCriteria' {} a -> s {orConditions = a} :: UserSearchCriteria) Prelude.. Lens.mapping Lens.coerced
 
 -- | A leaf node condition which can be used to specify a string condition.
+--
+-- The currently supported values for @FieldName@ are @name@,
+-- @description@, and @resourceID@.
 userSearchCriteria_stringCondition :: Lens.Lens' UserSearchCriteria (Prelude.Maybe StringCondition)
 userSearchCriteria_stringCondition = Lens.lens (\UserSearchCriteria' {stringCondition} -> stringCondition) (\s@UserSearchCriteria' {} a -> s {stringCondition = a} :: UserSearchCriteria)
 
 instance Prelude.Hashable UserSearchCriteria where
   hashWithSalt _salt UserSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` andConditions
+    _salt
+      `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` hierarchyGroupCondition
       `Prelude.hashWithSalt` orConditions
       `Prelude.hashWithSalt` stringCondition

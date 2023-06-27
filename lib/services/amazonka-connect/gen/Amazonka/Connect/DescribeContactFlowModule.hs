@@ -50,8 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeContactFlowModule' smart constructor.
 data DescribeContactFlowModule = DescribeContactFlowModule'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the flow module.
     contactFlowModuleId :: Prelude.Text
@@ -66,8 +67,9 @@ data DescribeContactFlowModule = DescribeContactFlowModule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeContactFlowModule_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeContactFlowModule_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactFlowModuleId', 'describeContactFlowModule_contactFlowModuleId' - The identifier of the flow module.
 newDescribeContactFlowModule ::
@@ -85,8 +87,9 @@ newDescribeContactFlowModule
         contactFlowModuleId = pContactFlowModuleId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeContactFlowModule_instanceId :: Lens.Lens' DescribeContactFlowModule Prelude.Text
 describeContactFlowModule_instanceId = Lens.lens (\DescribeContactFlowModule' {instanceId} -> instanceId) (\s@DescribeContactFlowModule' {} a -> s {instanceId = a} :: DescribeContactFlowModule)
 
@@ -110,7 +113,8 @@ instance Core.AWSRequest DescribeContactFlowModule where
 
 instance Prelude.Hashable DescribeContactFlowModule where
   hashWithSalt _salt DescribeContactFlowModule' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowModuleId
 
 instance Prelude.NFData DescribeContactFlowModule where

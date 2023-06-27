@@ -97,8 +97,9 @@ data GetCurrentMetricData = GetCurrentMetricData'
     --
     -- -   Sorting on @SLOTS_ACTIVE@ and @SLOTS_AVAILABLE@ is not supported.
     sortCriteria :: Prelude.Maybe [CurrentMetricSortCriteria],
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The filters to apply to returned metrics. You can filter up to the
     -- following limits:
@@ -257,8 +258,9 @@ data GetCurrentMetricData = GetCurrentMetricData'
 --
 -- -   Sorting on @SLOTS_ACTIVE@ and @SLOTS_AVAILABLE@ is not supported.
 --
--- 'instanceId', 'getCurrentMetricData_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'getCurrentMetricData_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'filters', 'getCurrentMetricData_filters' - The filters to apply to returned metrics. You can filter up to the
 -- following limits:
@@ -430,8 +432,9 @@ getCurrentMetricData_nextToken = Lens.lens (\GetCurrentMetricData' {nextToken} -
 getCurrentMetricData_sortCriteria :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe [CurrentMetricSortCriteria])
 getCurrentMetricData_sortCriteria = Lens.lens (\GetCurrentMetricData' {sortCriteria} -> sortCriteria) (\s@GetCurrentMetricData' {} a -> s {sortCriteria = a} :: GetCurrentMetricData) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 getCurrentMetricData_instanceId :: Lens.Lens' GetCurrentMetricData Prelude.Text
 getCurrentMetricData_instanceId = Lens.lens (\GetCurrentMetricData' {instanceId} -> instanceId) (\s@GetCurrentMetricData' {} a -> s {instanceId = a} :: GetCurrentMetricData)
 
@@ -570,7 +573,8 @@ instance Core.AWSRequest GetCurrentMetricData where
 
 instance Prelude.Hashable GetCurrentMetricData where
   hashWithSalt _salt GetCurrentMetricData' {..} =
-    _salt `Prelude.hashWithSalt` groupings
+    _salt
+      `Prelude.hashWithSalt` groupings
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortCriteria

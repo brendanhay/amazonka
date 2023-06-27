@@ -72,8 +72,9 @@ data SearchVocabularies = SearchVocabularies'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The current state of the custom vocabulary.
     state :: Prelude.Maybe VocabularyState,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -100,8 +101,9 @@ data SearchVocabularies = SearchVocabularies'
 --
 -- 'state', 'searchVocabularies_state' - The current state of the custom vocabulary.
 --
--- 'instanceId', 'searchVocabularies_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'searchVocabularies_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newSearchVocabularies ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -140,8 +142,9 @@ searchVocabularies_nextToken = Lens.lens (\SearchVocabularies' {nextToken} -> ne
 searchVocabularies_state :: Lens.Lens' SearchVocabularies (Prelude.Maybe VocabularyState)
 searchVocabularies_state = Lens.lens (\SearchVocabularies' {state} -> state) (\s@SearchVocabularies' {} a -> s {state = a} :: SearchVocabularies)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 searchVocabularies_instanceId :: Lens.Lens' SearchVocabularies Prelude.Text
 searchVocabularies_instanceId = Lens.lens (\SearchVocabularies' {instanceId} -> instanceId) (\s@SearchVocabularies' {} a -> s {instanceId = a} :: SearchVocabularies)
 
@@ -150,22 +153,22 @@ instance Core.AWSPager SearchVocabularies where
     | Core.stop
         ( rs
             Lens.^? searchVocabulariesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchVocabulariesResponse_vocabularySummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchVocabularies_nextToken
           Lens..~ rs
           Lens.^? searchVocabulariesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchVocabularies where
   type
@@ -178,7 +181,8 @@ instance Core.AWSRequest SearchVocabularies where
       ( \s h x ->
           SearchVocabulariesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "VocabularySummaryList"
+            Prelude.<*> ( x
+                            Data..?> "VocabularySummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -186,7 +190,8 @@ instance Core.AWSRequest SearchVocabularies where
 
 instance Prelude.Hashable SearchVocabularies where
   hashWithSalt _salt SearchVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameStartsWith
       `Prelude.hashWithSalt` nextToken

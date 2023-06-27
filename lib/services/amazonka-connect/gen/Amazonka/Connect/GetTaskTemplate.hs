@@ -67,8 +67,9 @@ data GetTaskTemplate = GetTaskTemplate'
   { -- | The system generated version of a task template that is associated with
     -- a task, when the task is created.
     snapshotVersion :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | A unique identifier for the task template.
     taskTemplateId :: Prelude.Text
@@ -86,8 +87,9 @@ data GetTaskTemplate = GetTaskTemplate'
 -- 'snapshotVersion', 'getTaskTemplate_snapshotVersion' - The system generated version of a task template that is associated with
 -- a task, when the task is created.
 --
--- 'instanceId', 'getTaskTemplate_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'getTaskTemplate_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'taskTemplateId', 'getTaskTemplate_taskTemplateId' - A unique identifier for the task template.
 newGetTaskTemplate ::
@@ -108,8 +110,9 @@ newGetTaskTemplate pInstanceId_ pTaskTemplateId_ =
 getTaskTemplate_snapshotVersion :: Lens.Lens' GetTaskTemplate (Prelude.Maybe Prelude.Text)
 getTaskTemplate_snapshotVersion = Lens.lens (\GetTaskTemplate' {snapshotVersion} -> snapshotVersion) (\s@GetTaskTemplate' {} a -> s {snapshotVersion = a} :: GetTaskTemplate)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 getTaskTemplate_instanceId :: Lens.Lens' GetTaskTemplate Prelude.Text
 getTaskTemplate_instanceId = Lens.lens (\GetTaskTemplate' {instanceId} -> instanceId) (\s@GetTaskTemplate' {} a -> s {instanceId = a} :: GetTaskTemplate)
 
@@ -145,7 +148,8 @@ instance Core.AWSRequest GetTaskTemplate where
 
 instance Prelude.Hashable GetTaskTemplate where
   hashWithSalt _salt GetTaskTemplate' {..} =
-    _salt `Prelude.hashWithSalt` snapshotVersion
+    _salt
+      `Prelude.hashWithSalt` snapshotVersion
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` taskTemplateId
 
@@ -196,8 +200,9 @@ data GetTaskTemplateResponse = GetTaskTemplateResponse'
     description :: Prelude.Maybe Prelude.Text,
     -- | Fields that are part of the template.
     fields :: Prelude.Maybe [TaskTemplateField],
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the task template was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
@@ -242,8 +247,9 @@ data GetTaskTemplateResponse = GetTaskTemplateResponse'
 --
 -- 'fields', 'getTaskTemplateResponse_fields' - Fields that are part of the template.
 --
--- 'instanceId', 'getTaskTemplateResponse_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'getTaskTemplateResponse_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'lastModifiedTime', 'getTaskTemplateResponse_lastModifiedTime' - The timestamp when the task template was last modified.
 --
@@ -321,8 +327,9 @@ getTaskTemplateResponse_description = Lens.lens (\GetTaskTemplateResponse' {desc
 getTaskTemplateResponse_fields :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe [TaskTemplateField])
 getTaskTemplateResponse_fields = Lens.lens (\GetTaskTemplateResponse' {fields} -> fields) (\s@GetTaskTemplateResponse' {} a -> s {fields = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 getTaskTemplateResponse_instanceId :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.Text)
 getTaskTemplateResponse_instanceId = Lens.lens (\GetTaskTemplateResponse' {instanceId} -> instanceId) (\s@GetTaskTemplateResponse' {} a -> s {instanceId = a} :: GetTaskTemplateResponse)
 

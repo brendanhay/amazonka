@@ -46,8 +46,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRule' smart constructor.
 data DeleteRule = DeleteRule'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | A unique identifier for the rule.
     ruleId :: Prelude.Text
@@ -62,8 +63,9 @@ data DeleteRule = DeleteRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteRule_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteRule_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'ruleId', 'deleteRule_ruleId' - A unique identifier for the rule.
 newDeleteRule ::
@@ -78,8 +80,9 @@ newDeleteRule pInstanceId_ pRuleId_ =
       ruleId = pRuleId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteRule_instanceId :: Lens.Lens' DeleteRule Prelude.Text
 deleteRule_instanceId = Lens.lens (\DeleteRule' {instanceId} -> instanceId) (\s@DeleteRule' {} a -> s {instanceId = a} :: DeleteRule)
 
@@ -95,7 +98,8 @@ instance Core.AWSRequest DeleteRule where
 
 instance Prelude.Hashable DeleteRule where
   hashWithSalt _salt DeleteRule' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` ruleId
 
 instance Prelude.NFData DeleteRule where

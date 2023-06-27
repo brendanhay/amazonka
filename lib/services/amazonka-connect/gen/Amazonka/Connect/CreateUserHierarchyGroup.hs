@@ -62,8 +62,9 @@ data CreateUserHierarchyGroup = CreateUserHierarchyGroup'
     -- | The name of the user hierarchy group. Must not be more than 100
     -- characters.
     name :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,8 +86,9 @@ data CreateUserHierarchyGroup = CreateUserHierarchyGroup'
 -- 'name', 'createUserHierarchyGroup_name' - The name of the user hierarchy group. Must not be more than 100
 -- characters.
 --
--- 'instanceId', 'createUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newCreateUserHierarchyGroup ::
   -- | 'name'
   Prelude.Text ->
@@ -117,8 +119,9 @@ createUserHierarchyGroup_tags = Lens.lens (\CreateUserHierarchyGroup' {tags} -> 
 createUserHierarchyGroup_name :: Lens.Lens' CreateUserHierarchyGroup Prelude.Text
 createUserHierarchyGroup_name = Lens.lens (\CreateUserHierarchyGroup' {name} -> name) (\s@CreateUserHierarchyGroup' {} a -> s {name = a} :: CreateUserHierarchyGroup)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createUserHierarchyGroup_instanceId :: Lens.Lens' CreateUserHierarchyGroup Prelude.Text
 createUserHierarchyGroup_instanceId = Lens.lens (\CreateUserHierarchyGroup' {instanceId} -> instanceId) (\s@CreateUserHierarchyGroup' {} a -> s {instanceId = a} :: CreateUserHierarchyGroup)
 
@@ -139,7 +142,8 @@ instance Core.AWSRequest CreateUserHierarchyGroup where
 
 instance Prelude.Hashable CreateUserHierarchyGroup where
   hashWithSalt _salt CreateUserHierarchyGroup' {..} =
-    _salt `Prelude.hashWithSalt` parentGroupId
+    _salt
+      `Prelude.hashWithSalt` parentGroupId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId

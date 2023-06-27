@@ -63,8 +63,9 @@ data CreateHoursOfOperation = CreateHoursOfOperation'
     -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the hours of operation.
     name :: Prelude.Text,
@@ -89,8 +90,9 @@ data CreateHoursOfOperation = CreateHoursOfOperation'
 -- 'tags', 'createHoursOfOperation_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
--- 'instanceId', 'createHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'name', 'createHoursOfOperation_name' - The name of the hours of operation.
 --
@@ -129,8 +131,9 @@ createHoursOfOperation_description = Lens.lens (\CreateHoursOfOperation' {descri
 createHoursOfOperation_tags :: Lens.Lens' CreateHoursOfOperation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createHoursOfOperation_tags = Lens.lens (\CreateHoursOfOperation' {tags} -> tags) (\s@CreateHoursOfOperation' {} a -> s {tags = a} :: CreateHoursOfOperation) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createHoursOfOperation_instanceId :: Lens.Lens' CreateHoursOfOperation Prelude.Text
 createHoursOfOperation_instanceId = Lens.lens (\CreateHoursOfOperation' {instanceId} -> instanceId) (\s@CreateHoursOfOperation' {} a -> s {instanceId = a} :: CreateHoursOfOperation)
 
@@ -164,7 +167,8 @@ instance Core.AWSRequest CreateHoursOfOperation where
 
 instance Prelude.Hashable CreateHoursOfOperation where
   hashWithSalt _salt CreateHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name

@@ -33,6 +33,9 @@ module Amazonka.Connect.DeleteContactFlow
     -- * Destructuring the Response
     DeleteContactFlowResponse (..),
     newDeleteContactFlowResponse,
+
+    -- * Response Lenses
+    deleteContactFlowResponse_httpStatus,
   )
 where
 
@@ -46,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteContactFlow' smart constructor.
 data DeleteContactFlow = DeleteContactFlow'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the flow.
     contactFlowId :: Prelude.Text
@@ -62,8 +66,9 @@ data DeleteContactFlow = DeleteContactFlow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteContactFlow_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteContactFlow_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactFlowId', 'deleteContactFlow_contactFlowId' - The identifier of the flow.
 newDeleteContactFlow ::
@@ -78,8 +83,9 @@ newDeleteContactFlow pInstanceId_ pContactFlowId_ =
       contactFlowId = pContactFlowId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteContactFlow_instanceId :: Lens.Lens' DeleteContactFlow Prelude.Text
 deleteContactFlow_instanceId = Lens.lens (\DeleteContactFlow' {instanceId} -> instanceId) (\s@DeleteContactFlow' {} a -> s {instanceId = a} :: DeleteContactFlow)
 
@@ -94,11 +100,16 @@ instance Core.AWSRequest DeleteContactFlow where
   request overrides =
     Request.delete (overrides defaultService)
   response =
-    Response.receiveNull DeleteContactFlowResponse'
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteContactFlowResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
 instance Prelude.Hashable DeleteContactFlow where
   hashWithSalt _salt DeleteContactFlow' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowId
 
 instance Prelude.NFData DeleteContactFlow where
@@ -131,7 +142,8 @@ instance Data.ToQuery DeleteContactFlow where
 
 -- | /See:/ 'newDeleteContactFlowResponse' smart constructor.
 data DeleteContactFlowResponse = DeleteContactFlowResponse'
-  {
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -139,10 +151,25 @@ data DeleteContactFlowResponse = DeleteContactFlowResponse'
 -- Create a value of 'DeleteContactFlowResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteContactFlowResponse_httpStatus' - The response's http status code.
 newDeleteContactFlowResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
   DeleteContactFlowResponse
-newDeleteContactFlowResponse =
+newDeleteContactFlowResponse pHttpStatus_ =
   DeleteContactFlowResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
+
+-- | The response's http status code.
+deleteContactFlowResponse_httpStatus :: Lens.Lens' DeleteContactFlowResponse Prelude.Int
+deleteContactFlowResponse_httpStatus = Lens.lens (\DeleteContactFlowResponse' {httpStatus} -> httpStatus) (\s@DeleteContactFlowResponse' {} a -> s {httpStatus = a} :: DeleteContactFlowResponse)
 
 instance Prelude.NFData DeleteContactFlowResponse where
-  rnf _ = ()
+  rnf DeleteContactFlowResponse' {..} =
+    Prelude.rnf httpStatus

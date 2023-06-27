@@ -55,8 +55,9 @@ data AssociateDefaultVocabulary = AssociateDefaultVocabulary'
   { -- | The identifier of the custom vocabulary. If this is empty, the default
     -- is set to none.
     vocabularyId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The language code of the vocabulary entries. For a list of languages and
     -- their corresponding language codes, see
@@ -76,8 +77,9 @@ data AssociateDefaultVocabulary = AssociateDefaultVocabulary'
 -- 'vocabularyId', 'associateDefaultVocabulary_vocabularyId' - The identifier of the custom vocabulary. If this is empty, the default
 -- is set to none.
 --
--- 'instanceId', 'associateDefaultVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'associateDefaultVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'languageCode', 'associateDefaultVocabulary_languageCode' - The language code of the vocabulary entries. For a list of languages and
 -- their corresponding language codes, see
@@ -103,8 +105,9 @@ newAssociateDefaultVocabulary
 associateDefaultVocabulary_vocabularyId :: Lens.Lens' AssociateDefaultVocabulary (Prelude.Maybe Prelude.Text)
 associateDefaultVocabulary_vocabularyId = Lens.lens (\AssociateDefaultVocabulary' {vocabularyId} -> vocabularyId) (\s@AssociateDefaultVocabulary' {} a -> s {vocabularyId = a} :: AssociateDefaultVocabulary)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 associateDefaultVocabulary_instanceId :: Lens.Lens' AssociateDefaultVocabulary Prelude.Text
 associateDefaultVocabulary_instanceId = Lens.lens (\AssociateDefaultVocabulary' {instanceId} -> instanceId) (\s@AssociateDefaultVocabulary' {} a -> s {instanceId = a} :: AssociateDefaultVocabulary)
 
@@ -129,7 +132,8 @@ instance Core.AWSRequest AssociateDefaultVocabulary where
 
 instance Prelude.Hashable AssociateDefaultVocabulary where
   hashWithSalt _salt AssociateDefaultVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` vocabularyId
+    _salt
+      `Prelude.hashWithSalt` vocabularyId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` languageCode
 

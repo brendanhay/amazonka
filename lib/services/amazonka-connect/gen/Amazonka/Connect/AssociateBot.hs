@@ -54,8 +54,9 @@ data AssociateBot = AssociateBot'
   { lexBot :: Prelude.Maybe LexBot,
     -- | The Amazon Lex V2 bot to associate with the instance.
     lexV2Bot :: Prelude.Maybe LexV2Bot,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,8 +73,9 @@ data AssociateBot = AssociateBot'
 --
 -- 'lexV2Bot', 'associateBot_lexV2Bot' - The Amazon Lex V2 bot to associate with the instance.
 --
--- 'instanceId', 'associateBot_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'associateBot_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newAssociateBot ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -93,8 +95,9 @@ associateBot_lexBot = Lens.lens (\AssociateBot' {lexBot} -> lexBot) (\s@Associat
 associateBot_lexV2Bot :: Lens.Lens' AssociateBot (Prelude.Maybe LexV2Bot)
 associateBot_lexV2Bot = Lens.lens (\AssociateBot' {lexV2Bot} -> lexV2Bot) (\s@AssociateBot' {} a -> s {lexV2Bot = a} :: AssociateBot)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 associateBot_instanceId :: Lens.Lens' AssociateBot Prelude.Text
 associateBot_instanceId = Lens.lens (\AssociateBot' {instanceId} -> instanceId) (\s@AssociateBot' {} a -> s {instanceId = a} :: AssociateBot)
 
@@ -106,7 +109,8 @@ instance Core.AWSRequest AssociateBot where
 
 instance Prelude.Hashable AssociateBot where
   hashWithSalt _salt AssociateBot' {..} =
-    _salt `Prelude.hashWithSalt` lexBot
+    _salt
+      `Prelude.hashWithSalt` lexBot
       `Prelude.hashWithSalt` lexV2Bot
       `Prelude.hashWithSalt` instanceId
 

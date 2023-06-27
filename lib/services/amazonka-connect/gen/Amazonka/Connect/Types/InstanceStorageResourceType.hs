@@ -21,12 +21,15 @@ module Amazonka.Connect.Types.InstanceStorageResourceType
   ( InstanceStorageResourceType
       ( ..,
         InstanceStorageResourceType_AGENT_EVENTS,
+        InstanceStorageResourceType_ATTACHMENTS,
         InstanceStorageResourceType_CALL_RECORDINGS,
         InstanceStorageResourceType_CHAT_TRANSCRIPTS,
+        InstanceStorageResourceType_CONTACT_EVALUATIONS,
         InstanceStorageResourceType_CONTACT_TRACE_RECORDS,
         InstanceStorageResourceType_MEDIA_STREAMS,
         InstanceStorageResourceType_REAL_TIME_CONTACT_ANALYSIS_SEGMENTS,
-        InstanceStorageResourceType_SCHEDULED_REPORTS
+        InstanceStorageResourceType_SCHEDULED_REPORTS,
+        InstanceStorageResourceType_SCREEN_RECORDINGS
       ),
   )
 where
@@ -66,11 +69,17 @@ newtype InstanceStorageResourceType = InstanceStorageResourceType'
 pattern InstanceStorageResourceType_AGENT_EVENTS :: InstanceStorageResourceType
 pattern InstanceStorageResourceType_AGENT_EVENTS = InstanceStorageResourceType' "AGENT_EVENTS"
 
+pattern InstanceStorageResourceType_ATTACHMENTS :: InstanceStorageResourceType
+pattern InstanceStorageResourceType_ATTACHMENTS = InstanceStorageResourceType' "ATTACHMENTS"
+
 pattern InstanceStorageResourceType_CALL_RECORDINGS :: InstanceStorageResourceType
 pattern InstanceStorageResourceType_CALL_RECORDINGS = InstanceStorageResourceType' "CALL_RECORDINGS"
 
 pattern InstanceStorageResourceType_CHAT_TRANSCRIPTS :: InstanceStorageResourceType
 pattern InstanceStorageResourceType_CHAT_TRANSCRIPTS = InstanceStorageResourceType' "CHAT_TRANSCRIPTS"
+
+pattern InstanceStorageResourceType_CONTACT_EVALUATIONS :: InstanceStorageResourceType
+pattern InstanceStorageResourceType_CONTACT_EVALUATIONS = InstanceStorageResourceType' "CONTACT_EVALUATIONS"
 
 pattern InstanceStorageResourceType_CONTACT_TRACE_RECORDS :: InstanceStorageResourceType
 pattern InstanceStorageResourceType_CONTACT_TRACE_RECORDS = InstanceStorageResourceType' "CONTACT_TRACE_RECORDS"
@@ -84,13 +93,19 @@ pattern InstanceStorageResourceType_REAL_TIME_CONTACT_ANALYSIS_SEGMENTS = Instan
 pattern InstanceStorageResourceType_SCHEDULED_REPORTS :: InstanceStorageResourceType
 pattern InstanceStorageResourceType_SCHEDULED_REPORTS = InstanceStorageResourceType' "SCHEDULED_REPORTS"
 
+pattern InstanceStorageResourceType_SCREEN_RECORDINGS :: InstanceStorageResourceType
+pattern InstanceStorageResourceType_SCREEN_RECORDINGS = InstanceStorageResourceType' "SCREEN_RECORDINGS"
+
 {-# COMPLETE
   InstanceStorageResourceType_AGENT_EVENTS,
+  InstanceStorageResourceType_ATTACHMENTS,
   InstanceStorageResourceType_CALL_RECORDINGS,
   InstanceStorageResourceType_CHAT_TRANSCRIPTS,
+  InstanceStorageResourceType_CONTACT_EVALUATIONS,
   InstanceStorageResourceType_CONTACT_TRACE_RECORDS,
   InstanceStorageResourceType_MEDIA_STREAMS,
   InstanceStorageResourceType_REAL_TIME_CONTACT_ANALYSIS_SEGMENTS,
   InstanceStorageResourceType_SCHEDULED_REPORTS,
+  InstanceStorageResourceType_SCREEN_RECORDINGS,
   InstanceStorageResourceType'
   #-}

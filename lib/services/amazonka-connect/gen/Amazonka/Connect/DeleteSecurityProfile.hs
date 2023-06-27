@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSecurityProfile' smart constructor.
 data DeleteSecurityProfile = DeleteSecurityProfile'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the security profle.
     securityProfileId :: Prelude.Text
@@ -65,8 +66,9 @@ data DeleteSecurityProfile = DeleteSecurityProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteSecurityProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteSecurityProfile_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'securityProfileId', 'deleteSecurityProfile_securityProfileId' - The identifier for the security profle.
 newDeleteSecurityProfile ::
@@ -83,8 +85,9 @@ newDeleteSecurityProfile
         securityProfileId = pSecurityProfileId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteSecurityProfile_instanceId :: Lens.Lens' DeleteSecurityProfile Prelude.Text
 deleteSecurityProfile_instanceId = Lens.lens (\DeleteSecurityProfile' {instanceId} -> instanceId) (\s@DeleteSecurityProfile' {} a -> s {instanceId = a} :: DeleteSecurityProfile)
 
@@ -103,7 +106,8 @@ instance Core.AWSRequest DeleteSecurityProfile where
 
 instance Prelude.Hashable DeleteSecurityProfile where
   hashWithSalt _salt DeleteSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` securityProfileId
 
 instance Prelude.NFData DeleteSecurityProfile where

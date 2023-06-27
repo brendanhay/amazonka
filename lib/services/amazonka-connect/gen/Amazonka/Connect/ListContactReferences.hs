@@ -66,8 +66,9 @@ data ListContactReferences = ListContactReferences'
     -- This is not expected to be set, because the value returned in the
     -- previous response is always null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the initial contact.
     contactId :: Prelude.Text,
@@ -91,8 +92,9 @@ data ListContactReferences = ListContactReferences'
 -- This is not expected to be set, because the value returned in the
 -- previous response is always null.
 --
--- 'instanceId', 'listContactReferences_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listContactReferences_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'listContactReferences_contactId' - The identifier of the initial contact.
 --
@@ -120,8 +122,9 @@ newListContactReferences pInstanceId_ pContactId_ =
 listContactReferences_nextToken :: Lens.Lens' ListContactReferences (Prelude.Maybe Prelude.Text)
 listContactReferences_nextToken = Lens.lens (\ListContactReferences' {nextToken} -> nextToken) (\s@ListContactReferences' {} a -> s {nextToken = a} :: ListContactReferences)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listContactReferences_instanceId :: Lens.Lens' ListContactReferences Prelude.Text
 listContactReferences_instanceId = Lens.lens (\ListContactReferences' {instanceId} -> instanceId) (\s@ListContactReferences' {} a -> s {instanceId = a} :: ListContactReferences)
 
@@ -138,22 +141,22 @@ instance Core.AWSPager ListContactReferences where
     | Core.stop
         ( rs
             Lens.^? listContactReferencesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listContactReferencesResponse_referenceSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listContactReferences_nextToken
           Lens..~ rs
           Lens.^? listContactReferencesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContactReferences where
   type
@@ -166,7 +169,8 @@ instance Core.AWSRequest ListContactReferences where
       ( \s h x ->
           ListContactReferencesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ReferenceSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "ReferenceSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -174,7 +178,8 @@ instance Core.AWSRequest ListContactReferences where
 
 instance Prelude.Hashable ListContactReferences where
   hashWithSalt _salt ListContactReferences' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` referenceTypes

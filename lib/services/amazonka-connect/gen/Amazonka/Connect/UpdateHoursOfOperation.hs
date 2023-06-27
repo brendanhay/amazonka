@@ -61,8 +61,9 @@ data UpdateHoursOfOperation = UpdateHoursOfOperation'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time zone of the hours of operation.
     timeZone :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the hours of operation.
     hoursOfOperationId :: Prelude.Text
@@ -85,8 +86,9 @@ data UpdateHoursOfOperation = UpdateHoursOfOperation'
 --
 -- 'timeZone', 'updateHoursOfOperation_timeZone' - The time zone of the hours of operation.
 --
--- 'instanceId', 'updateHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'hoursOfOperationId', 'updateHoursOfOperation_hoursOfOperationId' - The identifier of the hours of operation.
 newUpdateHoursOfOperation ::
@@ -123,8 +125,9 @@ updateHoursOfOperation_name = Lens.lens (\UpdateHoursOfOperation' {name} -> name
 updateHoursOfOperation_timeZone :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
 updateHoursOfOperation_timeZone = Lens.lens (\UpdateHoursOfOperation' {timeZone} -> timeZone) (\s@UpdateHoursOfOperation' {} a -> s {timeZone = a} :: UpdateHoursOfOperation)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateHoursOfOperation_instanceId :: Lens.Lens' UpdateHoursOfOperation Prelude.Text
 updateHoursOfOperation_instanceId = Lens.lens (\UpdateHoursOfOperation' {instanceId} -> instanceId) (\s@UpdateHoursOfOperation' {} a -> s {instanceId = a} :: UpdateHoursOfOperation)
 
@@ -144,7 +147,8 @@ instance Core.AWSRequest UpdateHoursOfOperation where
 
 instance Prelude.Hashable UpdateHoursOfOperation where
   hashWithSalt _salt UpdateHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` config
+    _salt
+      `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timeZone

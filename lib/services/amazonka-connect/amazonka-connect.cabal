@@ -44,6 +44,7 @@ library
 
   exposed-modules:
     Amazonka.Connect
+    Amazonka.Connect.ActivateEvaluationForm
     Amazonka.Connect.AssociateApprovedOrigin
     Amazonka.Connect.AssociateBot
     Amazonka.Connect.AssociateDefaultVocabulary
@@ -58,9 +59,12 @@ library
     Amazonka.Connect.CreateAgentStatus
     Amazonka.Connect.CreateContactFlow
     Amazonka.Connect.CreateContactFlowModule
+    Amazonka.Connect.CreateEvaluationForm
     Amazonka.Connect.CreateHoursOfOperation
     Amazonka.Connect.CreateInstance
     Amazonka.Connect.CreateIntegrationAssociation
+    Amazonka.Connect.CreateParticipant
+    Amazonka.Connect.CreatePrompt
     Amazonka.Connect.CreateQueue
     Amazonka.Connect.CreateQuickConnect
     Amazonka.Connect.CreateRoutingProfile
@@ -72,11 +76,15 @@ library
     Amazonka.Connect.CreateUser
     Amazonka.Connect.CreateUserHierarchyGroup
     Amazonka.Connect.CreateVocabulary
+    Amazonka.Connect.DeactivateEvaluationForm
+    Amazonka.Connect.DeleteContactEvaluation
     Amazonka.Connect.DeleteContactFlow
     Amazonka.Connect.DeleteContactFlowModule
+    Amazonka.Connect.DeleteEvaluationForm
     Amazonka.Connect.DeleteHoursOfOperation
     Amazonka.Connect.DeleteInstance
     Amazonka.Connect.DeleteIntegrationAssociation
+    Amazonka.Connect.DeletePrompt
     Amazonka.Connect.DeleteQuickConnect
     Amazonka.Connect.DeleteRule
     Amazonka.Connect.DeleteSecurityProfile
@@ -88,13 +96,16 @@ library
     Amazonka.Connect.DeleteVocabulary
     Amazonka.Connect.DescribeAgentStatus
     Amazonka.Connect.DescribeContact
+    Amazonka.Connect.DescribeContactEvaluation
     Amazonka.Connect.DescribeContactFlow
     Amazonka.Connect.DescribeContactFlowModule
+    Amazonka.Connect.DescribeEvaluationForm
     Amazonka.Connect.DescribeHoursOfOperation
     Amazonka.Connect.DescribeInstance
     Amazonka.Connect.DescribeInstanceAttribute
     Amazonka.Connect.DescribeInstanceStorageConfig
     Amazonka.Connect.DescribePhoneNumber
+    Amazonka.Connect.DescribePrompt
     Amazonka.Connect.DescribeQueue
     Amazonka.Connect.DescribeQuickConnect
     Amazonka.Connect.DescribeRoutingProfile
@@ -120,16 +131,21 @@ library
     Amazonka.Connect.GetCurrentUserData
     Amazonka.Connect.GetFederationToken
     Amazonka.Connect.GetMetricData
+    Amazonka.Connect.GetMetricDataV2
+    Amazonka.Connect.GetPromptFile
     Amazonka.Connect.GetTaskTemplate
     Amazonka.Connect.GetTrafficDistribution
     Amazonka.Connect.Lens
     Amazonka.Connect.ListAgentStatuses
     Amazonka.Connect.ListApprovedOrigins
     Amazonka.Connect.ListBots
+    Amazonka.Connect.ListContactEvaluations
     Amazonka.Connect.ListContactFlowModules
     Amazonka.Connect.ListContactFlows
     Amazonka.Connect.ListContactReferences
     Amazonka.Connect.ListDefaultVocabularies
+    Amazonka.Connect.ListEvaluationForms
+    Amazonka.Connect.ListEvaluationFormVersions
     Amazonka.Connect.ListHoursOfOperations
     Amazonka.Connect.ListInstanceAttributes
     Amazonka.Connect.ListInstances
@@ -161,12 +177,17 @@ library
     Amazonka.Connect.ReplicateInstance
     Amazonka.Connect.ResumeContactRecording
     Amazonka.Connect.SearchAvailablePhoneNumbers
+    Amazonka.Connect.SearchHoursOfOperations
+    Amazonka.Connect.SearchPrompts
     Amazonka.Connect.SearchQueues
+    Amazonka.Connect.SearchQuickConnects
+    Amazonka.Connect.SearchResourceTags
     Amazonka.Connect.SearchRoutingProfiles
     Amazonka.Connect.SearchSecurityProfiles
     Amazonka.Connect.SearchUsers
     Amazonka.Connect.SearchVocabularies
     Amazonka.Connect.StartChatContact
+    Amazonka.Connect.StartContactEvaluation
     Amazonka.Connect.StartContactRecording
     Amazonka.Connect.StartContactStreaming
     Amazonka.Connect.StartOutboundVoiceContact
@@ -174,6 +195,7 @@ library
     Amazonka.Connect.StopContact
     Amazonka.Connect.StopContactRecording
     Amazonka.Connect.StopContactStreaming
+    Amazonka.Connect.SubmitContactEvaluation
     Amazonka.Connect.SuspendContactRecording
     Amazonka.Connect.TagResource
     Amazonka.Connect.TransferContact
@@ -192,6 +214,7 @@ library
     Amazonka.Connect.Types.AttachmentReference
     Amazonka.Connect.Types.Attribute
     Amazonka.Connect.Types.AvailableNumberSummary
+    Amazonka.Connect.Types.BehaviorType
     Amazonka.Connect.Types.Channel
     Amazonka.Connect.Types.ChatMessage
     Amazonka.Connect.Types.ChatParticipantRoleConfig
@@ -212,6 +235,7 @@ library
     Amazonka.Connect.Types.ContactState
     Amazonka.Connect.Types.ControlPlaneTagFilter
     Amazonka.Connect.Types.Credentials
+    Amazonka.Connect.Types.CrossChannelBehavior
     Amazonka.Connect.Types.CurrentMetric
     Amazonka.Connect.Types.CurrentMetricData
     Amazonka.Connect.Types.CurrentMetricName
@@ -225,9 +249,40 @@ library
     Amazonka.Connect.Types.EmailReference
     Amazonka.Connect.Types.EncryptionConfig
     Amazonka.Connect.Types.EncryptionType
+    Amazonka.Connect.Types.Evaluation
+    Amazonka.Connect.Types.EvaluationAnswerData
+    Amazonka.Connect.Types.EvaluationAnswerInput
+    Amazonka.Connect.Types.EvaluationAnswerOutput
+    Amazonka.Connect.Types.EvaluationForm
+    Amazonka.Connect.Types.EvaluationFormContent
+    Amazonka.Connect.Types.EvaluationFormItem
+    Amazonka.Connect.Types.EvaluationFormNumericQuestionAutomation
+    Amazonka.Connect.Types.EvaluationFormNumericQuestionOption
+    Amazonka.Connect.Types.EvaluationFormNumericQuestionProperties
+    Amazonka.Connect.Types.EvaluationFormQuestion
+    Amazonka.Connect.Types.EvaluationFormQuestionType
+    Amazonka.Connect.Types.EvaluationFormQuestionTypeProperties
+    Amazonka.Connect.Types.EvaluationFormScoringMode
+    Amazonka.Connect.Types.EvaluationFormScoringStatus
+    Amazonka.Connect.Types.EvaluationFormScoringStrategy
+    Amazonka.Connect.Types.EvaluationFormSection
+    Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionAutomation
+    Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionAutomationOption
+    Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionDisplayMode
+    Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionOption
+    Amazonka.Connect.Types.EvaluationFormSingleSelectQuestionProperties
+    Amazonka.Connect.Types.EvaluationFormSummary
+    Amazonka.Connect.Types.EvaluationFormVersionStatus
+    Amazonka.Connect.Types.EvaluationFormVersionSummary
+    Amazonka.Connect.Types.EvaluationMetadata
+    Amazonka.Connect.Types.EvaluationNote
+    Amazonka.Connect.Types.EvaluationScore
+    Amazonka.Connect.Types.EvaluationStatus
+    Amazonka.Connect.Types.EvaluationSummary
     Amazonka.Connect.Types.EventBridgeActionDefinition
     Amazonka.Connect.Types.EventSourceName
     Amazonka.Connect.Types.Filters
+    Amazonka.Connect.Types.FilterV2
     Amazonka.Connect.Types.Grouping
     Amazonka.Connect.Types.HierarchyGroup
     Amazonka.Connect.Types.HierarchyGroupCondition
@@ -247,6 +302,8 @@ library
     Amazonka.Connect.Types.HoursOfOperation
     Amazonka.Connect.Types.HoursOfOperationConfig
     Amazonka.Connect.Types.HoursOfOperationDays
+    Amazonka.Connect.Types.HoursOfOperationSearchCriteria
+    Amazonka.Connect.Types.HoursOfOperationSearchFilter
     Amazonka.Connect.Types.HoursOfOperationSummary
     Amazonka.Connect.Types.HoursOfOperationTimeSlice
     Amazonka.Connect.Types.Instance
@@ -268,17 +325,27 @@ library
     Amazonka.Connect.Types.LexVersion
     Amazonka.Connect.Types.ListPhoneNumbersSummary
     Amazonka.Connect.Types.MediaConcurrency
+    Amazonka.Connect.Types.MetricDataV2
+    Amazonka.Connect.Types.MetricFilterV2
+    Amazonka.Connect.Types.MetricResultV2
+    Amazonka.Connect.Types.MetricV2
     Amazonka.Connect.Types.MonitorCapability
     Amazonka.Connect.Types.NotificationContentType
     Amazonka.Connect.Types.NotificationDeliveryType
     Amazonka.Connect.Types.NotificationRecipientType
     Amazonka.Connect.Types.NumberReference
+    Amazonka.Connect.Types.NumericQuestionPropertyAutomationLabel
+    Amazonka.Connect.Types.NumericQuestionPropertyValueAutomation
     Amazonka.Connect.Types.OutboundCallerConfig
     Amazonka.Connect.Types.ParticipantDetails
+    Amazonka.Connect.Types.ParticipantDetailsToAdd
+    Amazonka.Connect.Types.ParticipantRole
     Amazonka.Connect.Types.ParticipantTimerAction
     Amazonka.Connect.Types.ParticipantTimerConfiguration
     Amazonka.Connect.Types.ParticipantTimerType
     Amazonka.Connect.Types.ParticipantTimerValue
+    Amazonka.Connect.Types.ParticipantTokenCredentials
+    Amazonka.Connect.Types.PersistentChat
     Amazonka.Connect.Types.PhoneNumberCountryCode
     Amazonka.Connect.Types.PhoneNumberQuickConnectConfig
     Amazonka.Connect.Types.PhoneNumberStatus
@@ -286,6 +353,9 @@ library
     Amazonka.Connect.Types.PhoneNumberType
     Amazonka.Connect.Types.PhoneNumberWorkflowStatus
     Amazonka.Connect.Types.PhoneType
+    Amazonka.Connect.Types.Prompt
+    Amazonka.Connect.Types.PromptSearchCriteria
+    Amazonka.Connect.Types.PromptSearchFilter
     Amazonka.Connect.Types.PromptSummary
     Amazonka.Connect.Types.Queue
     Amazonka.Connect.Types.QueueInfo
@@ -298,6 +368,8 @@ library
     Amazonka.Connect.Types.QueueType
     Amazonka.Connect.Types.QuickConnect
     Amazonka.Connect.Types.QuickConnectConfig
+    Amazonka.Connect.Types.QuickConnectSearchCriteria
+    Amazonka.Connect.Types.QuickConnectSearchFilter
     Amazonka.Connect.Types.QuickConnectSummary
     Amazonka.Connect.Types.QuickConnectType
     Amazonka.Connect.Types.ReadOnlyFieldInfo
@@ -305,7 +377,9 @@ library
     Amazonka.Connect.Types.ReferenceStatus
     Amazonka.Connect.Types.ReferenceSummary
     Amazonka.Connect.Types.ReferenceType
+    Amazonka.Connect.Types.RehydrationType
     Amazonka.Connect.Types.RequiredFieldInfo
+    Amazonka.Connect.Types.ResourceTagsSearchCriteria
     Amazonka.Connect.Types.RoutingProfile
     Amazonka.Connect.Types.RoutingProfileQueueConfig
     Amazonka.Connect.Types.RoutingProfileQueueConfigSummary
@@ -328,6 +402,8 @@ library
     Amazonka.Connect.Types.SecurityProfilesSearchFilter
     Amazonka.Connect.Types.SecurityProfileSummary
     Amazonka.Connect.Types.SendNotificationActionDefinition
+    Amazonka.Connect.Types.SingleSelectQuestionRuleCategoryAutomation
+    Amazonka.Connect.Types.SingleSelectQuestionRuleCategoryAutomationCondition
     Amazonka.Connect.Types.SortOrder
     Amazonka.Connect.Types.SourceType
     Amazonka.Connect.Types.Statistic
@@ -336,6 +412,8 @@ library
     Amazonka.Connect.Types.StringCondition
     Amazonka.Connect.Types.StringReference
     Amazonka.Connect.Types.TagCondition
+    Amazonka.Connect.Types.TagSearchCondition
+    Amazonka.Connect.Types.TagSet
     Amazonka.Connect.Types.TaskActionDefinition
     Amazonka.Connect.Types.TaskTemplateConstraints
     Amazonka.Connect.Types.TaskTemplateDefaultFieldValue
@@ -347,6 +425,7 @@ library
     Amazonka.Connect.Types.TaskTemplateStatus
     Amazonka.Connect.Types.TelephonyConfig
     Amazonka.Connect.Types.Threshold
+    Amazonka.Connect.Types.ThresholdV2
     Amazonka.Connect.Types.TimerEligibleParticipantRoles
     Amazonka.Connect.Types.TrafficDistributionGroup
     Amazonka.Connect.Types.TrafficDistributionGroupStatus
@@ -375,21 +454,25 @@ library
     Amazonka.Connect.Types.VocabularySummary
     Amazonka.Connect.Types.VoiceRecordingConfiguration
     Amazonka.Connect.Types.VoiceRecordingTrack
+    Amazonka.Connect.Types.WisdomInfo
     Amazonka.Connect.UntagResource
     Amazonka.Connect.UpdateAgentStatus
     Amazonka.Connect.UpdateContact
     Amazonka.Connect.UpdateContactAttributes
+    Amazonka.Connect.UpdateContactEvaluation
     Amazonka.Connect.UpdateContactFlowContent
     Amazonka.Connect.UpdateContactFlowMetadata
     Amazonka.Connect.UpdateContactFlowModuleContent
     Amazonka.Connect.UpdateContactFlowModuleMetadata
     Amazonka.Connect.UpdateContactFlowName
     Amazonka.Connect.UpdateContactSchedule
+    Amazonka.Connect.UpdateEvaluationForm
     Amazonka.Connect.UpdateHoursOfOperation
     Amazonka.Connect.UpdateInstanceAttribute
     Amazonka.Connect.UpdateInstanceStorageConfig
     Amazonka.Connect.UpdateParticipantRoleConfig
     Amazonka.Connect.UpdatePhoneNumber
+    Amazonka.Connect.UpdatePrompt
     Amazonka.Connect.UpdateQueueHoursOfOperation
     Amazonka.Connect.UpdateQueueMaxContacts
     Amazonka.Connect.UpdateQueueName

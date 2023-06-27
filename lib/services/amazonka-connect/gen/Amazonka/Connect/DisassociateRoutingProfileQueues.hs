@@ -47,8 +47,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateRoutingProfileQueues' smart constructor.
 data DisassociateRoutingProfileQueues = DisassociateRoutingProfileQueues'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text,
@@ -65,8 +66,9 @@ data DisassociateRoutingProfileQueues = DisassociateRoutingProfileQueues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'disassociateRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'disassociateRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'routingProfileId', 'disassociateRoutingProfileQueues_routingProfileId' - The identifier of the routing profile.
 --
@@ -87,8 +89,9 @@ newDisassociateRoutingProfileQueues
         queueReferences = Prelude.mempty
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 disassociateRoutingProfileQueues_instanceId :: Lens.Lens' DisassociateRoutingProfileQueues Prelude.Text
 disassociateRoutingProfileQueues_instanceId = Lens.lens (\DisassociateRoutingProfileQueues' {instanceId} -> instanceId) (\s@DisassociateRoutingProfileQueues' {} a -> s {instanceId = a} :: DisassociateRoutingProfileQueues)
 
@@ -120,7 +123,8 @@ instance
   hashWithSalt
     _salt
     DisassociateRoutingProfileQueues' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` routingProfileId
         `Prelude.hashWithSalt` queueReferences
 

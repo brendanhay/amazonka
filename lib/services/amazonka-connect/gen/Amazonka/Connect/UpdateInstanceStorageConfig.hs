@@ -52,8 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateInstanceStorageConfig' smart constructor.
 data UpdateInstanceStorageConfig = UpdateInstanceStorageConfig'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
@@ -72,8 +73,9 @@ data UpdateInstanceStorageConfig = UpdateInstanceStorageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateInstanceStorageConfig_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateInstanceStorageConfig_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'associationId', 'updateInstanceStorageConfig_associationId' - The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
@@ -104,8 +106,9 @@ newUpdateInstanceStorageConfig
         storageConfig = pStorageConfig_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateInstanceStorageConfig_instanceId :: Lens.Lens' UpdateInstanceStorageConfig Prelude.Text
 updateInstanceStorageConfig_instanceId = Lens.lens (\UpdateInstanceStorageConfig' {instanceId} -> instanceId) (\s@UpdateInstanceStorageConfig' {} a -> s {instanceId = a} :: UpdateInstanceStorageConfig)
 
@@ -134,7 +137,8 @@ instance Core.AWSRequest UpdateInstanceStorageConfig where
 
 instance Prelude.Hashable UpdateInstanceStorageConfig where
   hashWithSalt _salt UpdateInstanceStorageConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` storageConfig

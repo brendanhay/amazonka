@@ -74,8 +74,9 @@ data ListQueues = ListQueues'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of queue.
     queueTypes :: Prelude.Maybe [QueueType],
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,8 +98,9 @@ data ListQueues = ListQueues'
 --
 -- 'queueTypes', 'listQueues_queueTypes' - The type of queue.
 --
--- 'instanceId', 'listQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listQueues_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListQueues ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -126,8 +128,9 @@ listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@Lis
 listQueues_queueTypes :: Lens.Lens' ListQueues (Prelude.Maybe [QueueType])
 listQueues_queueTypes = Lens.lens (\ListQueues' {queueTypes} -> queueTypes) (\s@ListQueues' {} a -> s {queueTypes = a} :: ListQueues) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listQueues_instanceId :: Lens.Lens' ListQueues Prelude.Text
 listQueues_instanceId = Lens.lens (\ListQueues' {instanceId} -> instanceId) (\s@ListQueues' {} a -> s {instanceId = a} :: ListQueues)
 
@@ -135,21 +138,23 @@ instance Core.AWSPager ListQueues where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listQueuesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listQueuesResponse_queueSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listQueues_nextToken
           Lens..~ rs
-          Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listQueuesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQueues where
   type AWSResponse ListQueues = ListQueuesResponse
@@ -160,7 +165,8 @@ instance Core.AWSRequest ListQueues where
       ( \s h x ->
           ListQueuesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "QueueSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "QueueSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,7 +174,8 @@ instance Core.AWSRequest ListQueues where
 
 instance Prelude.Hashable ListQueues where
   hashWithSalt _salt ListQueues' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queueTypes
       `Prelude.hashWithSalt` instanceId

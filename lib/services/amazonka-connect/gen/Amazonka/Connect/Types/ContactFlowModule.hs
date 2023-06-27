@@ -139,7 +139,8 @@ instance Data.FromJSON ContactFlowModule where
 
 instance Prelude.Hashable ContactFlowModule where
   hashWithSalt _salt ContactFlowModule' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

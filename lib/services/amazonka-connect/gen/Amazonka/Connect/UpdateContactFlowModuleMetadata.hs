@@ -58,8 +58,9 @@ data UpdateContactFlowModuleMetadata = UpdateContactFlowModuleMetadata'
     name :: Prelude.Maybe Prelude.Text,
     -- | The state of flow module.
     state :: Prelude.Maybe ContactFlowModuleState,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the flow module.
     contactFlowModuleId :: Prelude.Text
@@ -80,8 +81,9 @@ data UpdateContactFlowModuleMetadata = UpdateContactFlowModuleMetadata'
 --
 -- 'state', 'updateContactFlowModuleMetadata_state' - The state of flow module.
 --
--- 'instanceId', 'updateContactFlowModuleMetadata_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateContactFlowModuleMetadata_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactFlowModuleId', 'updateContactFlowModuleMetadata_contactFlowModuleId' - The identifier of the flow module.
 newUpdateContactFlowModuleMetadata ::
@@ -115,8 +117,9 @@ updateContactFlowModuleMetadata_name = Lens.lens (\UpdateContactFlowModuleMetada
 updateContactFlowModuleMetadata_state :: Lens.Lens' UpdateContactFlowModuleMetadata (Prelude.Maybe ContactFlowModuleState)
 updateContactFlowModuleMetadata_state = Lens.lens (\UpdateContactFlowModuleMetadata' {state} -> state) (\s@UpdateContactFlowModuleMetadata' {} a -> s {state = a} :: UpdateContactFlowModuleMetadata)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateContactFlowModuleMetadata_instanceId :: Lens.Lens' UpdateContactFlowModuleMetadata Prelude.Text
 updateContactFlowModuleMetadata_instanceId = Lens.lens (\UpdateContactFlowModuleMetadata' {instanceId} -> instanceId) (\s@UpdateContactFlowModuleMetadata' {} a -> s {instanceId = a} :: UpdateContactFlowModuleMetadata)
 
@@ -147,7 +150,8 @@ instance
   hashWithSalt
     _salt
     UpdateContactFlowModuleMetadata' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` instanceId

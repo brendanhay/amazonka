@@ -71,8 +71,9 @@ data CreateVocabulary = CreateVocabulary'
     -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | A unique name of the custom vocabulary.
     vocabularyName :: Prelude.Text,
@@ -109,8 +110,9 @@ data CreateVocabulary = CreateVocabulary'
 -- 'tags', 'createVocabulary_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
--- 'instanceId', 'createVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'vocabularyName', 'createVocabulary_vocabularyName' - A unique name of the custom vocabulary.
 --
@@ -163,8 +165,9 @@ createVocabulary_clientToken = Lens.lens (\CreateVocabulary' {clientToken} -> cl
 createVocabulary_tags :: Lens.Lens' CreateVocabulary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createVocabulary_tags = Lens.lens (\CreateVocabulary' {tags} -> tags) (\s@CreateVocabulary' {} a -> s {tags = a} :: CreateVocabulary) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createVocabulary_instanceId :: Lens.Lens' CreateVocabulary Prelude.Text
 createVocabulary_instanceId = Lens.lens (\CreateVocabulary' {instanceId} -> instanceId) (\s@CreateVocabulary' {} a -> s {instanceId = a} :: CreateVocabulary)
 
@@ -205,7 +208,8 @@ instance Core.AWSRequest CreateVocabulary where
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` vocabularyName

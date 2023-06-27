@@ -67,8 +67,9 @@ data ListQuickConnects = ListQuickConnects'
     -- create a quick connect, you are prompted to assign one of the following
     -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     quickConnectTypes :: Prelude.Maybe [QuickConnectType],
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,8 +93,9 @@ data ListQuickConnects = ListQuickConnects'
 -- create a quick connect, you are prompted to assign one of the following
 -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 --
--- 'instanceId', 'listQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListQuickConnects ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -123,8 +125,9 @@ listQuickConnects_nextToken = Lens.lens (\ListQuickConnects' {nextToken} -> next
 listQuickConnects_quickConnectTypes :: Lens.Lens' ListQuickConnects (Prelude.Maybe [QuickConnectType])
 listQuickConnects_quickConnectTypes = Lens.lens (\ListQuickConnects' {quickConnectTypes} -> quickConnectTypes) (\s@ListQuickConnects' {} a -> s {quickConnectTypes = a} :: ListQuickConnects) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listQuickConnects_instanceId :: Lens.Lens' ListQuickConnects Prelude.Text
 listQuickConnects_instanceId = Lens.lens (\ListQuickConnects' {instanceId} -> instanceId) (\s@ListQuickConnects' {} a -> s {instanceId = a} :: ListQuickConnects)
 
@@ -133,22 +136,22 @@ instance Core.AWSPager ListQuickConnects where
     | Core.stop
         ( rs
             Lens.^? listQuickConnectsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listQuickConnectsResponse_quickConnectSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listQuickConnects_nextToken
           Lens..~ rs
           Lens.^? listQuickConnectsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQuickConnects where
   type
@@ -161,7 +164,8 @@ instance Core.AWSRequest ListQuickConnects where
       ( \s h x ->
           ListQuickConnectsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "QuickConnectSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "QuickConnectSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -169,7 +173,8 @@ instance Core.AWSRequest ListQuickConnects where
 
 instance Prelude.Hashable ListQuickConnects where
   hashWithSalt _salt ListQuickConnects' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` quickConnectTypes
       `Prelude.hashWithSalt` instanceId

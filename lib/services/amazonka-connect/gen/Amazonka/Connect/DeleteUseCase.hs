@@ -47,8 +47,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteUseCase' smart constructor.
 data DeleteUseCase = DeleteUseCase'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the integration association.
     integrationAssociationId :: Prelude.Text,
@@ -65,8 +66,9 @@ data DeleteUseCase = DeleteUseCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteUseCase_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteUseCase_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'integrationAssociationId', 'deleteUseCase_integrationAssociationId' - The identifier for the integration association.
 --
@@ -90,8 +92,9 @@ newDeleteUseCase
         useCaseId = pUseCaseId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteUseCase_instanceId :: Lens.Lens' DeleteUseCase Prelude.Text
 deleteUseCase_instanceId = Lens.lens (\DeleteUseCase' {instanceId} -> instanceId) (\s@DeleteUseCase' {} a -> s {instanceId = a} :: DeleteUseCase)
 
@@ -114,7 +117,8 @@ instance Core.AWSRequest DeleteUseCase where
 
 instance Prelude.Hashable DeleteUseCase where
   hashWithSalt _salt DeleteUseCase' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationAssociationId
       `Prelude.hashWithSalt` useCaseId
 

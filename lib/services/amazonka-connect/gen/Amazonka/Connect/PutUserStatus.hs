@@ -60,8 +60,9 @@ import qualified Amazonka.Response as Response
 data PutUserStatus = PutUserStatus'
   { -- | The identifier of the user.
     userId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the agent status.
     agentStatusId :: Prelude.Text
@@ -78,8 +79,9 @@ data PutUserStatus = PutUserStatus'
 --
 -- 'userId', 'putUserStatus_userId' - The identifier of the user.
 --
--- 'instanceId', 'putUserStatus_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'putUserStatus_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'agentStatusId', 'putUserStatus_agentStatusId' - The identifier of the agent status.
 newPutUserStatus ::
@@ -104,8 +106,9 @@ newPutUserStatus
 putUserStatus_userId :: Lens.Lens' PutUserStatus Prelude.Text
 putUserStatus_userId = Lens.lens (\PutUserStatus' {userId} -> userId) (\s@PutUserStatus' {} a -> s {userId = a} :: PutUserStatus)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 putUserStatus_instanceId :: Lens.Lens' PutUserStatus Prelude.Text
 putUserStatus_instanceId = Lens.lens (\PutUserStatus' {instanceId} -> instanceId) (\s@PutUserStatus' {} a -> s {instanceId = a} :: PutUserStatus)
 
@@ -128,7 +131,8 @@ instance Core.AWSRequest PutUserStatus where
 
 instance Prelude.Hashable PutUserStatus where
   hashWithSalt _salt PutUserStatus' {..} =
-    _salt `Prelude.hashWithSalt` userId
+    _salt
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` agentStatusId
 

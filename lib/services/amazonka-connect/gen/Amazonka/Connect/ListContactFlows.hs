@@ -72,8 +72,9 @@ data ListContactFlows = ListContactFlows'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,8 +96,9 @@ data ListContactFlows = ListContactFlows'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listContactFlows_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listContactFlows_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListContactFlows ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -125,8 +127,9 @@ listContactFlows_maxResults = Lens.lens (\ListContactFlows' {maxResults} -> maxR
 listContactFlows_nextToken :: Lens.Lens' ListContactFlows (Prelude.Maybe Prelude.Text)
 listContactFlows_nextToken = Lens.lens (\ListContactFlows' {nextToken} -> nextToken) (\s@ListContactFlows' {} a -> s {nextToken = a} :: ListContactFlows)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listContactFlows_instanceId :: Lens.Lens' ListContactFlows Prelude.Text
 listContactFlows_instanceId = Lens.lens (\ListContactFlows' {instanceId} -> instanceId) (\s@ListContactFlows' {} a -> s {instanceId = a} :: ListContactFlows)
 
@@ -135,22 +138,22 @@ instance Core.AWSPager ListContactFlows where
     | Core.stop
         ( rs
             Lens.^? listContactFlowsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listContactFlowsResponse_contactFlowSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listContactFlows_nextToken
           Lens..~ rs
           Lens.^? listContactFlowsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContactFlows where
   type
@@ -162,7 +165,8 @@ instance Core.AWSRequest ListContactFlows where
     Response.receiveJSON
       ( \s h x ->
           ListContactFlowsResponse'
-            Prelude.<$> ( x Data..?> "ContactFlowSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "ContactFlowSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -171,7 +175,8 @@ instance Core.AWSRequest ListContactFlows where
 
 instance Prelude.Hashable ListContactFlows where
   hashWithSalt _salt ListContactFlows' {..} =
-    _salt `Prelude.hashWithSalt` contactFlowTypes
+    _salt
+      `Prelude.hashWithSalt` contactFlowTypes
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

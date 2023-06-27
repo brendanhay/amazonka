@@ -75,8 +75,9 @@ data SearchRoutingProfiles = SearchRoutingProfiles'
     searchCriteria :: Prelude.Maybe RoutingProfileSearchCriteria,
     -- | Filters to be applied to search results.
     searchFilter :: Prelude.Maybe RoutingProfileSearchFilter,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,8 +104,9 @@ data SearchRoutingProfiles = SearchRoutingProfiles'
 --
 -- 'searchFilter', 'searchRoutingProfiles_searchFilter' - Filters to be applied to search results.
 --
--- 'instanceId', 'searchRoutingProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'searchRoutingProfiles_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newSearchRoutingProfiles ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -141,8 +143,9 @@ searchRoutingProfiles_searchCriteria = Lens.lens (\SearchRoutingProfiles' {searc
 searchRoutingProfiles_searchFilter :: Lens.Lens' SearchRoutingProfiles (Prelude.Maybe RoutingProfileSearchFilter)
 searchRoutingProfiles_searchFilter = Lens.lens (\SearchRoutingProfiles' {searchFilter} -> searchFilter) (\s@SearchRoutingProfiles' {} a -> s {searchFilter = a} :: SearchRoutingProfiles)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 searchRoutingProfiles_instanceId :: Lens.Lens' SearchRoutingProfiles Prelude.Text
 searchRoutingProfiles_instanceId = Lens.lens (\SearchRoutingProfiles' {instanceId} -> instanceId) (\s@SearchRoutingProfiles' {} a -> s {instanceId = a} :: SearchRoutingProfiles)
 
@@ -151,22 +154,22 @@ instance Core.AWSPager SearchRoutingProfiles where
     | Core.stop
         ( rs
             Lens.^? searchRoutingProfilesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchRoutingProfilesResponse_routingProfiles
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchRoutingProfiles_nextToken
           Lens..~ rs
           Lens.^? searchRoutingProfilesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchRoutingProfiles where
   type
@@ -180,7 +183,8 @@ instance Core.AWSRequest SearchRoutingProfiles where
           SearchRoutingProfilesResponse'
             Prelude.<$> (x Data..?> "ApproximateTotalCount")
             Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "RoutingProfiles"
+            Prelude.<*> ( x
+                            Data..?> "RoutingProfiles"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -188,7 +192,8 @@ instance Core.AWSRequest SearchRoutingProfiles where
 
 instance Prelude.Hashable SearchRoutingProfiles where
   hashWithSalt _salt SearchRoutingProfiles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchCriteria
       `Prelude.hashWithSalt` searchFilter

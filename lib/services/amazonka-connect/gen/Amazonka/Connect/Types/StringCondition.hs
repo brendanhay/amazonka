@@ -27,8 +27,6 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A leaf node condition which can be used to specify a string condition.
 --
--- The currently supported value for @FieldName@: @name@
---
 -- /See:/ 'newStringCondition' smart constructor.
 data StringCondition = StringCondition'
   { -- | The type of comparison to be made when evaluating the string condition.
@@ -76,7 +74,8 @@ stringCondition_value = Lens.lens (\StringCondition' {value} -> value) (\s@Strin
 
 instance Prelude.Hashable StringCondition where
   hashWithSalt _salt StringCondition' {..} =
-    _salt `Prelude.hashWithSalt` comparisonType
+    _salt
+      `Prelude.hashWithSalt` comparisonType
       `Prelude.hashWithSalt` fieldName
       `Prelude.hashWithSalt` value
 

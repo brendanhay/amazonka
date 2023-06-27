@@ -74,7 +74,8 @@ instance Data.FromJSON QueueInfo where
 
 instance Prelude.Hashable QueueInfo where
   hashWithSalt _salt QueueInfo' {..} =
-    _salt `Prelude.hashWithSalt` enqueueTimestamp
+    _salt
+      `Prelude.hashWithSalt` enqueueTimestamp
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData QueueInfo where

@@ -66,8 +66,9 @@ data ListAgentStatuses = ListAgentStatuses'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,8 +89,9 @@ data ListAgentStatuses = ListAgentStatuses'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listAgentStatuses_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listAgentStatuses_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListAgentStatuses ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -117,8 +119,9 @@ listAgentStatuses_maxResults = Lens.lens (\ListAgentStatuses' {maxResults} -> ma
 listAgentStatuses_nextToken :: Lens.Lens' ListAgentStatuses (Prelude.Maybe Prelude.Text)
 listAgentStatuses_nextToken = Lens.lens (\ListAgentStatuses' {nextToken} -> nextToken) (\s@ListAgentStatuses' {} a -> s {nextToken = a} :: ListAgentStatuses)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listAgentStatuses_instanceId :: Lens.Lens' ListAgentStatuses Prelude.Text
 listAgentStatuses_instanceId = Lens.lens (\ListAgentStatuses' {instanceId} -> instanceId) (\s@ListAgentStatuses' {} a -> s {instanceId = a} :: ListAgentStatuses)
 
@@ -127,22 +130,22 @@ instance Core.AWSPager ListAgentStatuses where
     | Core.stop
         ( rs
             Lens.^? listAgentStatusesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAgentStatusesResponse_agentStatusSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAgentStatuses_nextToken
           Lens..~ rs
           Lens.^? listAgentStatusesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAgentStatuses where
   type
@@ -154,7 +157,8 @@ instance Core.AWSRequest ListAgentStatuses where
     Response.receiveJSON
       ( \s h x ->
           ListAgentStatusesResponse'
-            Prelude.<$> ( x Data..?> "AgentStatusSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "AgentStatusSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -163,7 +167,8 @@ instance Core.AWSRequest ListAgentStatuses where
 
 instance Prelude.Hashable ListAgentStatuses where
   hashWithSalt _salt ListAgentStatuses' {..} =
-    _salt `Prelude.hashWithSalt` agentStatusTypes
+    _salt
+      `Prelude.hashWithSalt` agentStatusTypes
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

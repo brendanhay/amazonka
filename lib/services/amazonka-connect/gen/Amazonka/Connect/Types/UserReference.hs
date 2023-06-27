@@ -68,12 +68,14 @@ instance Data.FromJSON UserReference where
       "UserReference"
       ( \x ->
           UserReference'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable UserReference where
   hashWithSalt _salt UserReference' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UserReference where

@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateApprovedOrigin' smart constructor.
 data DisassociateApprovedOrigin = DisassociateApprovedOrigin'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The domain URL of the integrated application.
     origin :: Prelude.Text
@@ -65,8 +66,9 @@ data DisassociateApprovedOrigin = DisassociateApprovedOrigin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'disassociateApprovedOrigin_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'disassociateApprovedOrigin_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'origin', 'disassociateApprovedOrigin_origin' - The domain URL of the integrated application.
 newDisassociateApprovedOrigin ::
@@ -82,8 +84,9 @@ newDisassociateApprovedOrigin pInstanceId_ pOrigin_ =
       origin = pOrigin_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 disassociateApprovedOrigin_instanceId :: Lens.Lens' DisassociateApprovedOrigin Prelude.Text
 disassociateApprovedOrigin_instanceId = Lens.lens (\DisassociateApprovedOrigin' {instanceId} -> instanceId) (\s@DisassociateApprovedOrigin' {} a -> s {instanceId = a} :: DisassociateApprovedOrigin)
 
@@ -103,7 +106,8 @@ instance Core.AWSRequest DisassociateApprovedOrigin where
 
 instance Prelude.Hashable DisassociateApprovedOrigin where
   hashWithSalt _salt DisassociateApprovedOrigin' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` origin
 
 instance Prelude.NFData DisassociateApprovedOrigin where

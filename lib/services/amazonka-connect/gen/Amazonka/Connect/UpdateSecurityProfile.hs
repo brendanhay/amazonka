@@ -67,8 +67,9 @@ data UpdateSecurityProfile = UpdateSecurityProfile'
     tagRestrictedResources :: Prelude.Maybe [Prelude.Text],
     -- | The identifier for the security profle.
     securityProfileId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,8 +96,9 @@ data UpdateSecurityProfile = UpdateSecurityProfile'
 --
 -- 'securityProfileId', 'updateSecurityProfile_securityProfileId' - The identifier for the security profle.
 --
--- 'instanceId', 'updateSecurityProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateSecurityProfile_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newUpdateSecurityProfile ::
   -- | 'securityProfileId'
   Prelude.Text ->
@@ -140,8 +142,9 @@ updateSecurityProfile_tagRestrictedResources = Lens.lens (\UpdateSecurityProfile
 updateSecurityProfile_securityProfileId :: Lens.Lens' UpdateSecurityProfile Prelude.Text
 updateSecurityProfile_securityProfileId = Lens.lens (\UpdateSecurityProfile' {securityProfileId} -> securityProfileId) (\s@UpdateSecurityProfile' {} a -> s {securityProfileId = a} :: UpdateSecurityProfile)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateSecurityProfile_instanceId :: Lens.Lens' UpdateSecurityProfile Prelude.Text
 updateSecurityProfile_instanceId = Lens.lens (\UpdateSecurityProfile' {instanceId} -> instanceId) (\s@UpdateSecurityProfile' {} a -> s {instanceId = a} :: UpdateSecurityProfile)
 

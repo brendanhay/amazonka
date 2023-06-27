@@ -58,12 +58,19 @@ import qualified Amazonka.Response as Response
 data CreateRoutingProfile = CreateRoutingProfile'
   { -- | The inbound queues associated with the routing profile. If no queue is
     -- added, the agent can make only outbound calls.
+    --
+    -- The limit of 10 array members applies to the maximum number of
+    -- @RoutingProfileQueueConfig@ objects that can be passed during a
+    -- CreateRoutingProfile API request. It is different from the quota of 50
+    -- queues per routing profile per instance that is listed in
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html Amazon Connect service quotas>.
     queueConfigs :: Prelude.Maybe (Prelude.NonEmpty RoutingProfileQueueConfig),
     -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the routing profile. Must not be more than 127 characters.
     name :: Prelude.Text,
@@ -89,11 +96,18 @@ data CreateRoutingProfile = CreateRoutingProfile'
 -- 'queueConfigs', 'createRoutingProfile_queueConfigs' - The inbound queues associated with the routing profile. If no queue is
 -- added, the agent can make only outbound calls.
 --
+-- The limit of 10 array members applies to the maximum number of
+-- @RoutingProfileQueueConfig@ objects that can be passed during a
+-- CreateRoutingProfile API request. It is different from the quota of 50
+-- queues per routing profile per instance that is listed in
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html Amazon Connect service quotas>.
+--
 -- 'tags', 'createRoutingProfile_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
--- 'instanceId', 'createRoutingProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createRoutingProfile_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'name', 'createRoutingProfile_name' - The name of the routing profile. Must not be more than 127 characters.
 --
@@ -132,6 +146,12 @@ newCreateRoutingProfile
 
 -- | The inbound queues associated with the routing profile. If no queue is
 -- added, the agent can make only outbound calls.
+--
+-- The limit of 10 array members applies to the maximum number of
+-- @RoutingProfileQueueConfig@ objects that can be passed during a
+-- CreateRoutingProfile API request. It is different from the quota of 50
+-- queues per routing profile per instance that is listed in
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html Amazon Connect service quotas>.
 createRoutingProfile_queueConfigs :: Lens.Lens' CreateRoutingProfile (Prelude.Maybe (Prelude.NonEmpty RoutingProfileQueueConfig))
 createRoutingProfile_queueConfigs = Lens.lens (\CreateRoutingProfile' {queueConfigs} -> queueConfigs) (\s@CreateRoutingProfile' {} a -> s {queueConfigs = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens.coerced
 
@@ -140,8 +160,9 @@ createRoutingProfile_queueConfigs = Lens.lens (\CreateRoutingProfile' {queueConf
 createRoutingProfile_tags :: Lens.Lens' CreateRoutingProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRoutingProfile_tags = Lens.lens (\CreateRoutingProfile' {tags} -> tags) (\s@CreateRoutingProfile' {} a -> s {tags = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createRoutingProfile_instanceId :: Lens.Lens' CreateRoutingProfile Prelude.Text
 createRoutingProfile_instanceId = Lens.lens (\CreateRoutingProfile' {instanceId} -> instanceId) (\s@CreateRoutingProfile' {} a -> s {instanceId = a} :: CreateRoutingProfile)
 
@@ -180,7 +201,8 @@ instance Core.AWSRequest CreateRoutingProfile where
 
 instance Prelude.Hashable CreateRoutingProfile where
   hashWithSalt _salt CreateRoutingProfile' {..} =
-    _salt `Prelude.hashWithSalt` queueConfigs
+    _salt
+      `Prelude.hashWithSalt` queueConfigs
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name

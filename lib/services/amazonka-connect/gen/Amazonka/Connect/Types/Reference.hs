@@ -78,12 +78,14 @@ instance Data.FromJSON Reference where
       "Reference"
       ( \x ->
           Reference'
-            Prelude.<$> (x Data..: "Value") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..: "Value")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable Reference where
   hashWithSalt _salt Reference' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Reference where

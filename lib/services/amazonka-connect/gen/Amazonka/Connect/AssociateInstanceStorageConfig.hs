@@ -62,8 +62,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateInstanceStorageConfig' smart constructor.
 data AssociateInstanceStorageConfig = AssociateInstanceStorageConfig'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | A valid resource type.
     resourceType :: InstanceStorageResourceType,
@@ -80,8 +81,9 @@ data AssociateInstanceStorageConfig = AssociateInstanceStorageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'associateInstanceStorageConfig_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'associateInstanceStorageConfig_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'resourceType', 'associateInstanceStorageConfig_resourceType' - A valid resource type.
 --
@@ -105,8 +107,9 @@ newAssociateInstanceStorageConfig
         storageConfig = pStorageConfig_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 associateInstanceStorageConfig_instanceId :: Lens.Lens' AssociateInstanceStorageConfig Prelude.Text
 associateInstanceStorageConfig_instanceId = Lens.lens (\AssociateInstanceStorageConfig' {instanceId} -> instanceId) (\s@AssociateInstanceStorageConfig' {} a -> s {instanceId = a} :: AssociateInstanceStorageConfig)
 
@@ -142,7 +145,8 @@ instance
   hashWithSalt
     _salt
     AssociateInstanceStorageConfig' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` storageConfig
 

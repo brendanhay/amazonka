@@ -63,8 +63,9 @@ data ListInstanceAttributes = ListInstanceAttributes'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,8 +84,9 @@ data ListInstanceAttributes = ListInstanceAttributes'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listInstanceAttributes_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listInstanceAttributes_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListInstanceAttributes ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -107,8 +109,9 @@ listInstanceAttributes_maxResults = Lens.lens (\ListInstanceAttributes' {maxResu
 listInstanceAttributes_nextToken :: Lens.Lens' ListInstanceAttributes (Prelude.Maybe Prelude.Text)
 listInstanceAttributes_nextToken = Lens.lens (\ListInstanceAttributes' {nextToken} -> nextToken) (\s@ListInstanceAttributes' {} a -> s {nextToken = a} :: ListInstanceAttributes)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listInstanceAttributes_instanceId :: Lens.Lens' ListInstanceAttributes Prelude.Text
 listInstanceAttributes_instanceId = Lens.lens (\ListInstanceAttributes' {instanceId} -> instanceId) (\s@ListInstanceAttributes' {} a -> s {instanceId = a} :: ListInstanceAttributes)
 
@@ -117,22 +120,22 @@ instance Core.AWSPager ListInstanceAttributes where
     | Core.stop
         ( rs
             Lens.^? listInstanceAttributesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInstanceAttributesResponse_attributes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInstanceAttributes_nextToken
           Lens..~ rs
           Lens.^? listInstanceAttributesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceAttributes where
   type
@@ -151,7 +154,8 @@ instance Core.AWSRequest ListInstanceAttributes where
 
 instance Prelude.Hashable ListInstanceAttributes where
   hashWithSalt _salt ListInstanceAttributes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 

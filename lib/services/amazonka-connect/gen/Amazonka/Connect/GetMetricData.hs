@@ -77,8 +77,9 @@ data GetMetricData = GetMetricData'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The timestamp, in UNIX Epoch time format, at which to start the
     -- reporting interval for the retrieval of historical metrics data. The
@@ -270,8 +271,9 @@ data GetMetricData = GetMetricData'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'getMetricData_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'getMetricData_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'startTime', 'getMetricData_startTime' - The timestamp, in UNIX Epoch time format, at which to start the
 -- reporting interval for the retrieval of historical metrics data. The
@@ -483,8 +485,9 @@ getMetricData_maxResults = Lens.lens (\GetMetricData' {maxResults} -> maxResults
 getMetricData_nextToken :: Lens.Lens' GetMetricData (Prelude.Maybe Prelude.Text)
 getMetricData_nextToken = Lens.lens (\GetMetricData' {nextToken} -> nextToken) (\s@GetMetricData' {} a -> s {nextToken = a} :: GetMetricData)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 getMetricData_instanceId :: Lens.Lens' GetMetricData Prelude.Text
 getMetricData_instanceId = Lens.lens (\GetMetricData' {instanceId} -> instanceId) (\s@GetMetricData' {} a -> s {instanceId = a} :: GetMetricData)
 
@@ -665,21 +668,23 @@ instance Core.AWSPager GetMetricData where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getMetricDataResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getMetricDataResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getMetricDataResponse_metricResults
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getMetricData_nextToken
           Lens..~ rs
-          Lens.^? getMetricDataResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getMetricDataResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetMetricData where
   type
@@ -698,7 +703,8 @@ instance Core.AWSRequest GetMetricData where
 
 instance Prelude.Hashable GetMetricData where
   hashWithSalt _salt GetMetricData' {..} =
-    _salt `Prelude.hashWithSalt` groupings
+    _salt
+      `Prelude.hashWithSalt` groupings
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

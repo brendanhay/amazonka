@@ -158,7 +158,8 @@ instance Data.FromJSON UserSearchSummary where
 
 instance Prelude.Hashable UserSearchSummary where
   hashWithSalt _salt UserSearchSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` directoryUserId
       `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` id

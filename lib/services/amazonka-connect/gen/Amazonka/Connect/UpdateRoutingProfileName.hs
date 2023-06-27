@@ -55,8 +55,9 @@ data UpdateRoutingProfileName = UpdateRoutingProfileName'
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the routing profile. Must not be more than 127 characters.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text
@@ -76,8 +77,9 @@ data UpdateRoutingProfileName = UpdateRoutingProfileName'
 --
 -- 'name', 'updateRoutingProfileName_name' - The name of the routing profile. Must not be more than 127 characters.
 --
--- 'instanceId', 'updateRoutingProfileName_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateRoutingProfileName_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'routingProfileId', 'updateRoutingProfileName_routingProfileId' - The identifier of the routing profile.
 newUpdateRoutingProfileName ::
@@ -106,8 +108,9 @@ updateRoutingProfileName_description = Lens.lens (\UpdateRoutingProfileName' {de
 updateRoutingProfileName_name :: Lens.Lens' UpdateRoutingProfileName (Prelude.Maybe Prelude.Text)
 updateRoutingProfileName_name = Lens.lens (\UpdateRoutingProfileName' {name} -> name) (\s@UpdateRoutingProfileName' {} a -> s {name = a} :: UpdateRoutingProfileName)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateRoutingProfileName_instanceId :: Lens.Lens' UpdateRoutingProfileName Prelude.Text
 updateRoutingProfileName_instanceId = Lens.lens (\UpdateRoutingProfileName' {instanceId} -> instanceId) (\s@UpdateRoutingProfileName' {} a -> s {instanceId = a} :: UpdateRoutingProfileName)
 
@@ -127,7 +130,8 @@ instance Core.AWSRequest UpdateRoutingProfileName where
 
 instance Prelude.Hashable UpdateRoutingProfileName where
   hashWithSalt _salt UpdateRoutingProfileName' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` routingProfileId

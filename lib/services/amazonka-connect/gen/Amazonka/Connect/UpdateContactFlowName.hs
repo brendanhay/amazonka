@@ -38,6 +38,9 @@ module Amazonka.Connect.UpdateContactFlowName
     -- * Destructuring the Response
     UpdateContactFlowNameResponse (..),
     newUpdateContactFlowNameResponse,
+
+    -- * Response Lenses
+    updateContactFlowNameResponse_httpStatus,
   )
 where
 
@@ -115,11 +118,16 @@ instance Core.AWSRequest UpdateContactFlowName where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveNull UpdateContactFlowNameResponse'
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateContactFlowNameResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
 instance Prelude.Hashable UpdateContactFlowName where
   hashWithSalt _salt UpdateContactFlowName' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowId
@@ -166,7 +174,8 @@ instance Data.ToQuery UpdateContactFlowName where
 
 -- | /See:/ 'newUpdateContactFlowNameResponse' smart constructor.
 data UpdateContactFlowNameResponse = UpdateContactFlowNameResponse'
-  {
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -174,10 +183,25 @@ data UpdateContactFlowNameResponse = UpdateContactFlowNameResponse'
 -- Create a value of 'UpdateContactFlowNameResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateContactFlowNameResponse_httpStatus' - The response's http status code.
 newUpdateContactFlowNameResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
   UpdateContactFlowNameResponse
-newUpdateContactFlowNameResponse =
+newUpdateContactFlowNameResponse pHttpStatus_ =
   UpdateContactFlowNameResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
+
+-- | The response's http status code.
+updateContactFlowNameResponse_httpStatus :: Lens.Lens' UpdateContactFlowNameResponse Prelude.Int
+updateContactFlowNameResponse_httpStatus = Lens.lens (\UpdateContactFlowNameResponse' {httpStatus} -> httpStatus) (\s@UpdateContactFlowNameResponse' {} a -> s {httpStatus = a} :: UpdateContactFlowNameResponse)
 
 instance Prelude.NFData UpdateContactFlowNameResponse where
-  rnf _ = ()
+  rnf UpdateContactFlowNameResponse' {..} =
+    Prelude.rnf httpStatus

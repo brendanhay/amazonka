@@ -51,8 +51,9 @@ data UpdateUserHierarchy = UpdateUserHierarchy'
     hierarchyGroupId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the user account.
     userId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +70,9 @@ data UpdateUserHierarchy = UpdateUserHierarchy'
 --
 -- 'userId', 'updateUserHierarchy_userId' - The identifier of the user account.
 --
--- 'instanceId', 'updateUserHierarchy_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateUserHierarchy_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newUpdateUserHierarchy ::
   -- | 'userId'
   Prelude.Text ->
@@ -93,8 +95,9 @@ updateUserHierarchy_hierarchyGroupId = Lens.lens (\UpdateUserHierarchy' {hierarc
 updateUserHierarchy_userId :: Lens.Lens' UpdateUserHierarchy Prelude.Text
 updateUserHierarchy_userId = Lens.lens (\UpdateUserHierarchy' {userId} -> userId) (\s@UpdateUserHierarchy' {} a -> s {userId = a} :: UpdateUserHierarchy)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateUserHierarchy_instanceId :: Lens.Lens' UpdateUserHierarchy Prelude.Text
 updateUserHierarchy_instanceId = Lens.lens (\UpdateUserHierarchy' {instanceId} -> instanceId) (\s@UpdateUserHierarchy' {} a -> s {instanceId = a} :: UpdateUserHierarchy)
 
@@ -109,7 +112,8 @@ instance Core.AWSRequest UpdateUserHierarchy where
 
 instance Prelude.Hashable UpdateUserHierarchy where
   hashWithSalt _salt UpdateUserHierarchy' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyGroupId
+    _salt
+      `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
 

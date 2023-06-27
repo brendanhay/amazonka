@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateApprovedOrigin' smart constructor.
 data AssociateApprovedOrigin = AssociateApprovedOrigin'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The domain to add to your allow list.
     origin :: Prelude.Text
@@ -65,8 +66,9 @@ data AssociateApprovedOrigin = AssociateApprovedOrigin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'associateApprovedOrigin_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'associateApprovedOrigin_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'origin', 'associateApprovedOrigin_origin' - The domain to add to your allow list.
 newAssociateApprovedOrigin ::
@@ -81,8 +83,9 @@ newAssociateApprovedOrigin pInstanceId_ pOrigin_ =
       origin = pOrigin_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 associateApprovedOrigin_instanceId :: Lens.Lens' AssociateApprovedOrigin Prelude.Text
 associateApprovedOrigin_instanceId = Lens.lens (\AssociateApprovedOrigin' {instanceId} -> instanceId) (\s@AssociateApprovedOrigin' {} a -> s {instanceId = a} :: AssociateApprovedOrigin)
 
@@ -102,7 +105,8 @@ instance Core.AWSRequest AssociateApprovedOrigin where
 
 instance Prelude.Hashable AssociateApprovedOrigin where
   hashWithSalt _salt AssociateApprovedOrigin' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` origin
 
 instance Prelude.NFData AssociateApprovedOrigin where

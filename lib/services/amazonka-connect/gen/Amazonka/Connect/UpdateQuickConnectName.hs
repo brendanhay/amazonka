@@ -54,8 +54,9 @@ data UpdateQuickConnectName = UpdateQuickConnectName'
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the quick connect.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the quick connect.
     quickConnectId :: Prelude.Text
@@ -74,8 +75,9 @@ data UpdateQuickConnectName = UpdateQuickConnectName'
 --
 -- 'name', 'updateQuickConnectName_name' - The name of the quick connect.
 --
--- 'instanceId', 'updateQuickConnectName_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateQuickConnectName_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'quickConnectId', 'updateQuickConnectName_quickConnectId' - The identifier for the quick connect.
 newUpdateQuickConnectName ::
@@ -103,8 +105,9 @@ updateQuickConnectName_description = Lens.lens (\UpdateQuickConnectName' {descri
 updateQuickConnectName_name :: Lens.Lens' UpdateQuickConnectName (Prelude.Maybe Prelude.Text)
 updateQuickConnectName_name = Lens.lens (\UpdateQuickConnectName' {name} -> name) (\s@UpdateQuickConnectName' {} a -> s {name = a} :: UpdateQuickConnectName)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateQuickConnectName_instanceId :: Lens.Lens' UpdateQuickConnectName Prelude.Text
 updateQuickConnectName_instanceId = Lens.lens (\UpdateQuickConnectName' {instanceId} -> instanceId) (\s@UpdateQuickConnectName' {} a -> s {instanceId = a} :: UpdateQuickConnectName)
 
@@ -124,7 +127,8 @@ instance Core.AWSRequest UpdateQuickConnectName where
 
 instance Prelude.Hashable UpdateQuickConnectName where
   hashWithSalt _salt UpdateQuickConnectName' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` quickConnectId

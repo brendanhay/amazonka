@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteTaskTemplate' smart constructor.
 data DeleteTaskTemplate = DeleteTaskTemplate'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | A unique identifier for the task template.
     taskTemplateId :: Prelude.Text
@@ -65,8 +66,9 @@ data DeleteTaskTemplate = DeleteTaskTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteTaskTemplate_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteTaskTemplate_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'taskTemplateId', 'deleteTaskTemplate_taskTemplateId' - A unique identifier for the task template.
 newDeleteTaskTemplate ::
@@ -81,8 +83,9 @@ newDeleteTaskTemplate pInstanceId_ pTaskTemplateId_ =
       taskTemplateId = pTaskTemplateId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteTaskTemplate_instanceId :: Lens.Lens' DeleteTaskTemplate Prelude.Text
 deleteTaskTemplate_instanceId = Lens.lens (\DeleteTaskTemplate' {instanceId} -> instanceId) (\s@DeleteTaskTemplate' {} a -> s {instanceId = a} :: DeleteTaskTemplate)
 
@@ -105,7 +108,8 @@ instance Core.AWSRequest DeleteTaskTemplate where
 
 instance Prelude.Hashable DeleteTaskTemplate where
   hashWithSalt _salt DeleteTaskTemplate' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` taskTemplateId
 
 instance Prelude.NFData DeleteTaskTemplate where

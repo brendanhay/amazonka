@@ -146,7 +146,8 @@ instance
   hashWithSalt
     _salt
     SendNotificationActionDefinition' {..} =
-      _salt `Prelude.hashWithSalt` subject
+      _salt
+        `Prelude.hashWithSalt` subject
         `Prelude.hashWithSalt` deliveryMethod
         `Prelude.hashWithSalt` content
         `Prelude.hashWithSalt` contentType

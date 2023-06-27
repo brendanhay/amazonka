@@ -89,7 +89,8 @@ controlPlaneTagFilter_tagCondition = Lens.lens (\ControlPlaneTagFilter' {tagCond
 
 instance Prelude.Hashable ControlPlaneTagFilter where
   hashWithSalt _salt ControlPlaneTagFilter' {..} =
-    _salt `Prelude.hashWithSalt` andConditions
+    _salt
+      `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` orConditions
       `Prelude.hashWithSalt` tagCondition
 

@@ -24,7 +24,8 @@
 -- change.
 --
 -- Allows the specified Amazon Connect instance to access the specified
--- Amazon Lex bot.
+-- Amazon Lex V1 bot. This API only supports the association of Amazon Lex
+-- V1 bots.
 module Amazonka.Connect.AssociateLexBot
   ( -- * Creating a Request
     AssociateLexBot (..),
@@ -50,8 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateLexBot' smart constructor.
 data AssociateLexBot = AssociateLexBot'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The Amazon Lex bot to associate with the instance.
     lexBot :: LexBot
@@ -66,8 +68,9 @@ data AssociateLexBot = AssociateLexBot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'associateLexBot_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'associateLexBot_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'lexBot', 'associateLexBot_lexBot' - The Amazon Lex bot to associate with the instance.
 newAssociateLexBot ::
@@ -82,8 +85,9 @@ newAssociateLexBot pInstanceId_ pLexBot_ =
       lexBot = pLexBot_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 associateLexBot_instanceId :: Lens.Lens' AssociateLexBot Prelude.Text
 associateLexBot_instanceId = Lens.lens (\AssociateLexBot' {instanceId} -> instanceId) (\s@AssociateLexBot' {} a -> s {instanceId = a} :: AssociateLexBot)
 
@@ -102,7 +106,8 @@ instance Core.AWSRequest AssociateLexBot where
 
 instance Prelude.Hashable AssociateLexBot where
   hashWithSalt _salt AssociateLexBot' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` lexBot
 
 instance Prelude.NFData AssociateLexBot where

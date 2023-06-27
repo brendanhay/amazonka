@@ -128,7 +128,8 @@ instance Data.FromJSON HoursOfOperation where
 
 instance Prelude.Hashable HoursOfOperation where
   hashWithSalt _salt HoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` config
+    _salt
+      `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` hoursOfOperationArn
       `Prelude.hashWithSalt` hoursOfOperationId

@@ -46,8 +46,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteQuickConnect' smart constructor.
 data DeleteQuickConnect = DeleteQuickConnect'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the quick connect.
     quickConnectId :: Prelude.Text
@@ -62,8 +63,9 @@ data DeleteQuickConnect = DeleteQuickConnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteQuickConnect_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteQuickConnect_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'quickConnectId', 'deleteQuickConnect_quickConnectId' - The identifier for the quick connect.
 newDeleteQuickConnect ::
@@ -78,8 +80,9 @@ newDeleteQuickConnect pInstanceId_ pQuickConnectId_ =
       quickConnectId = pQuickConnectId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteQuickConnect_instanceId :: Lens.Lens' DeleteQuickConnect Prelude.Text
 deleteQuickConnect_instanceId = Lens.lens (\DeleteQuickConnect' {instanceId} -> instanceId) (\s@DeleteQuickConnect' {} a -> s {instanceId = a} :: DeleteQuickConnect)
 
@@ -98,7 +101,8 @@ instance Core.AWSRequest DeleteQuickConnect where
 
 instance Prelude.Hashable DeleteQuickConnect where
   hashWithSalt _salt DeleteQuickConnect' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` quickConnectId
 
 instance Prelude.NFData DeleteQuickConnect where

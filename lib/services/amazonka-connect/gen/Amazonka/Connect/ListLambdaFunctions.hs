@@ -64,8 +64,9 @@ data ListLambdaFunctions = ListLambdaFunctions'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,8 +85,9 @@ data ListLambdaFunctions = ListLambdaFunctions'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listLambdaFunctions_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listLambdaFunctions_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListLambdaFunctions ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -107,8 +109,9 @@ listLambdaFunctions_maxResults = Lens.lens (\ListLambdaFunctions' {maxResults} -
 listLambdaFunctions_nextToken :: Lens.Lens' ListLambdaFunctions (Prelude.Maybe Prelude.Text)
 listLambdaFunctions_nextToken = Lens.lens (\ListLambdaFunctions' {nextToken} -> nextToken) (\s@ListLambdaFunctions' {} a -> s {nextToken = a} :: ListLambdaFunctions)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listLambdaFunctions_instanceId :: Lens.Lens' ListLambdaFunctions Prelude.Text
 listLambdaFunctions_instanceId = Lens.lens (\ListLambdaFunctions' {instanceId} -> instanceId) (\s@ListLambdaFunctions' {} a -> s {instanceId = a} :: ListLambdaFunctions)
 
@@ -117,22 +120,22 @@ instance Core.AWSPager ListLambdaFunctions where
     | Core.stop
         ( rs
             Lens.^? listLambdaFunctionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listLambdaFunctionsResponse_lambdaFunctions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLambdaFunctions_nextToken
           Lens..~ rs
           Lens.^? listLambdaFunctionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLambdaFunctions where
   type
@@ -144,7 +147,8 @@ instance Core.AWSRequest ListLambdaFunctions where
     Response.receiveJSON
       ( \s h x ->
           ListLambdaFunctionsResponse'
-            Prelude.<$> ( x Data..?> "LambdaFunctions"
+            Prelude.<$> ( x
+                            Data..?> "LambdaFunctions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -153,7 +157,8 @@ instance Core.AWSRequest ListLambdaFunctions where
 
 instance Prelude.Hashable ListLambdaFunctions where
   hashWithSalt _salt ListLambdaFunctions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 

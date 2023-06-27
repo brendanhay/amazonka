@@ -82,8 +82,9 @@ data TransferContact = TransferContact'
     queueId :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the user.
     userId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact in this instance of Amazon Connect.
     contactId :: Prelude.Text,
@@ -109,8 +110,9 @@ data TransferContact = TransferContact'
 --
 -- 'userId', 'transferContact_userId' - The identifier for the user.
 --
--- 'instanceId', 'transferContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'transferContact_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'transferContact_contactId' - The identifier of the contact in this instance of Amazon Connect.
 --
@@ -151,8 +153,9 @@ transferContact_queueId = Lens.lens (\TransferContact' {queueId} -> queueId) (\s
 transferContact_userId :: Lens.Lens' TransferContact (Prelude.Maybe Prelude.Text)
 transferContact_userId = Lens.lens (\TransferContact' {userId} -> userId) (\s@TransferContact' {} a -> s {userId = a} :: TransferContact)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 transferContact_instanceId :: Lens.Lens' TransferContact Prelude.Text
 transferContact_instanceId = Lens.lens (\TransferContact' {instanceId} -> instanceId) (\s@TransferContact' {} a -> s {instanceId = a} :: TransferContact)
 
@@ -181,7 +184,8 @@ instance Core.AWSRequest TransferContact where
 
 instance Prelude.Hashable TransferContact where
   hashWithSalt _salt TransferContact' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` queueId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId

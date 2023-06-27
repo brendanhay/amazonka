@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 data UpdateUserHierarchyStructure = UpdateUserHierarchyStructure'
   { -- | The hierarchy levels to update.
     hierarchyStructure :: HierarchyStructureUpdate,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,8 +66,9 @@ data UpdateUserHierarchyStructure = UpdateUserHierarchyStructure'
 --
 -- 'hierarchyStructure', 'updateUserHierarchyStructure_hierarchyStructure' - The hierarchy levels to update.
 --
--- 'instanceId', 'updateUserHierarchyStructure_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateUserHierarchyStructure_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newUpdateUserHierarchyStructure ::
   -- | 'hierarchyStructure'
   HierarchyStructureUpdate ->
@@ -86,8 +88,9 @@ newUpdateUserHierarchyStructure
 updateUserHierarchyStructure_hierarchyStructure :: Lens.Lens' UpdateUserHierarchyStructure HierarchyStructureUpdate
 updateUserHierarchyStructure_hierarchyStructure = Lens.lens (\UpdateUserHierarchyStructure' {hierarchyStructure} -> hierarchyStructure) (\s@UpdateUserHierarchyStructure' {} a -> s {hierarchyStructure = a} :: UpdateUserHierarchyStructure)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateUserHierarchyStructure_instanceId :: Lens.Lens' UpdateUserHierarchyStructure Prelude.Text
 updateUserHierarchyStructure_instanceId = Lens.lens (\UpdateUserHierarchyStructure' {instanceId} -> instanceId) (\s@UpdateUserHierarchyStructure' {} a -> s {instanceId = a} :: UpdateUserHierarchyStructure)
 
@@ -106,7 +109,8 @@ instance
     UpdateUserHierarchyStructure
   where
   hashWithSalt _salt UpdateUserHierarchyStructure' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyStructure
+    _salt
+      `Prelude.hashWithSalt` hierarchyStructure
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData UpdateUserHierarchyStructure where

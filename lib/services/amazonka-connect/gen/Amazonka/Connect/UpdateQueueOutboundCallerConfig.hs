@@ -64,8 +64,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateQueueOutboundCallerConfig' smart constructor.
 data UpdateQueueOutboundCallerConfig = UpdateQueueOutboundCallerConfig'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text,
@@ -82,8 +83,9 @@ data UpdateQueueOutboundCallerConfig = UpdateQueueOutboundCallerConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateQueueOutboundCallerConfig_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateQueueOutboundCallerConfig_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'queueId', 'updateQueueOutboundCallerConfig_queueId' - The identifier for the queue.
 --
@@ -108,8 +110,9 @@ newUpdateQueueOutboundCallerConfig
           pOutboundCallerConfig_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateQueueOutboundCallerConfig_instanceId :: Lens.Lens' UpdateQueueOutboundCallerConfig Prelude.Text
 updateQueueOutboundCallerConfig_instanceId = Lens.lens (\UpdateQueueOutboundCallerConfig' {instanceId} -> instanceId) (\s@UpdateQueueOutboundCallerConfig' {} a -> s {instanceId = a} :: UpdateQueueOutboundCallerConfig)
 
@@ -141,7 +144,8 @@ instance
   hashWithSalt
     _salt
     UpdateQueueOutboundCallerConfig' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` queueId
         `Prelude.hashWithSalt` outboundCallerConfig
 

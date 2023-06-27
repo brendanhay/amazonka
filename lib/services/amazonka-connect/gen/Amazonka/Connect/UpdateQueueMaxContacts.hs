@@ -54,8 +54,9 @@ data UpdateQueueMaxContacts = UpdateQueueMaxContacts'
   { -- | The maximum number of contacts that can be in the queue before it is
     -- considered full.
     maxContacts :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text
@@ -73,8 +74,9 @@ data UpdateQueueMaxContacts = UpdateQueueMaxContacts'
 -- 'maxContacts', 'updateQueueMaxContacts_maxContacts' - The maximum number of contacts that can be in the queue before it is
 -- considered full.
 --
--- 'instanceId', 'updateQueueMaxContacts_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateQueueMaxContacts_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'queueId', 'updateQueueMaxContacts_queueId' - The identifier for the queue.
 newUpdateQueueMaxContacts ::
@@ -96,8 +98,9 @@ newUpdateQueueMaxContacts pInstanceId_ pQueueId_ =
 updateQueueMaxContacts_maxContacts :: Lens.Lens' UpdateQueueMaxContacts (Prelude.Maybe Prelude.Natural)
 updateQueueMaxContacts_maxContacts = Lens.lens (\UpdateQueueMaxContacts' {maxContacts} -> maxContacts) (\s@UpdateQueueMaxContacts' {} a -> s {maxContacts = a} :: UpdateQueueMaxContacts)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateQueueMaxContacts_instanceId :: Lens.Lens' UpdateQueueMaxContacts Prelude.Text
 updateQueueMaxContacts_instanceId = Lens.lens (\UpdateQueueMaxContacts' {instanceId} -> instanceId) (\s@UpdateQueueMaxContacts' {} a -> s {instanceId = a} :: UpdateQueueMaxContacts)
 
@@ -117,7 +120,8 @@ instance Core.AWSRequest UpdateQueueMaxContacts where
 
 instance Prelude.Hashable UpdateQueueMaxContacts where
   hashWithSalt _salt UpdateQueueMaxContacts' {..} =
-    _salt `Prelude.hashWithSalt` maxContacts
+    _salt
+      `Prelude.hashWithSalt` maxContacts
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId
 

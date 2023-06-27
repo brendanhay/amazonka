@@ -65,8 +65,9 @@ data ListQueueQuickConnects = ListQueueQuickConnects'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text
@@ -88,8 +89,9 @@ data ListQueueQuickConnects = ListQueueQuickConnects'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'queueId', 'listQueueQuickConnects_queueId' - The identifier for the queue.
 newListQueueQuickConnects ::
@@ -118,8 +120,9 @@ listQueueQuickConnects_maxResults = Lens.lens (\ListQueueQuickConnects' {maxResu
 listQueueQuickConnects_nextToken :: Lens.Lens' ListQueueQuickConnects (Prelude.Maybe Prelude.Text)
 listQueueQuickConnects_nextToken = Lens.lens (\ListQueueQuickConnects' {nextToken} -> nextToken) (\s@ListQueueQuickConnects' {} a -> s {nextToken = a} :: ListQueueQuickConnects)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listQueueQuickConnects_instanceId :: Lens.Lens' ListQueueQuickConnects Prelude.Text
 listQueueQuickConnects_instanceId = Lens.lens (\ListQueueQuickConnects' {instanceId} -> instanceId) (\s@ListQueueQuickConnects' {} a -> s {instanceId = a} :: ListQueueQuickConnects)
 
@@ -132,22 +135,22 @@ instance Core.AWSPager ListQueueQuickConnects where
     | Core.stop
         ( rs
             Lens.^? listQueueQuickConnectsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listQueueQuickConnectsResponse_quickConnectSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listQueueQuickConnects_nextToken
           Lens..~ rs
           Lens.^? listQueueQuickConnectsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQueueQuickConnects where
   type
@@ -160,7 +163,8 @@ instance Core.AWSRequest ListQueueQuickConnects where
       ( \s h x ->
           ListQueueQuickConnectsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "QuickConnectSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "QuickConnectSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,7 +172,8 @@ instance Core.AWSRequest ListQueueQuickConnects where
 
 instance Prelude.Hashable ListQueueQuickConnects where
   hashWithSalt _salt ListQueueQuickConnects' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId

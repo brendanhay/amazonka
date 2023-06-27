@@ -74,8 +74,9 @@ data SearchQueues = SearchQueues'
     searchCriteria :: Prelude.Maybe QueueSearchCriteria,
     -- | Filters to be applied to search results.
     searchFilter :: Prelude.Maybe QueueSearchFilter,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,8 +103,9 @@ data SearchQueues = SearchQueues'
 --
 -- 'searchFilter', 'searchQueues_searchFilter' - Filters to be applied to search results.
 --
--- 'instanceId', 'searchQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'searchQueues_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newSearchQueues ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -139,8 +141,9 @@ searchQueues_searchCriteria = Lens.lens (\SearchQueues' {searchCriteria} -> sear
 searchQueues_searchFilter :: Lens.Lens' SearchQueues (Prelude.Maybe QueueSearchFilter)
 searchQueues_searchFilter = Lens.lens (\SearchQueues' {searchFilter} -> searchFilter) (\s@SearchQueues' {} a -> s {searchFilter = a} :: SearchQueues)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 searchQueues_instanceId :: Lens.Lens' SearchQueues Prelude.Text
 searchQueues_instanceId = Lens.lens (\SearchQueues' {instanceId} -> instanceId) (\s@SearchQueues' {} a -> s {instanceId = a} :: SearchQueues)
 
@@ -148,20 +151,23 @@ instance Core.AWSPager SearchQueues where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? searchQueuesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? searchQueuesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? searchQueuesResponse_queues Prelude.. Lens._Just
+            Lens.^? searchQueuesResponse_queues
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchQueues_nextToken
           Lens..~ rs
-          Lens.^? searchQueuesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? searchQueuesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchQueues where
   type AWSResponse SearchQueues = SearchQueuesResponse
@@ -179,7 +185,8 @@ instance Core.AWSRequest SearchQueues where
 
 instance Prelude.Hashable SearchQueues where
   hashWithSalt _salt SearchQueues' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchCriteria
       `Prelude.hashWithSalt` searchFilter

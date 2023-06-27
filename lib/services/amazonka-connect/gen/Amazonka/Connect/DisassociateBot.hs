@@ -54,8 +54,9 @@ data DisassociateBot = DisassociateBot'
   { lexBot :: Prelude.Maybe LexBot,
     -- | The Amazon Lex V2 bot to disassociate from the instance.
     lexV2Bot :: Prelude.Maybe LexV2Bot,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,8 +73,9 @@ data DisassociateBot = DisassociateBot'
 --
 -- 'lexV2Bot', 'disassociateBot_lexV2Bot' - The Amazon Lex V2 bot to disassociate from the instance.
 --
--- 'instanceId', 'disassociateBot_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'disassociateBot_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newDisassociateBot ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -93,8 +95,9 @@ disassociateBot_lexBot = Lens.lens (\DisassociateBot' {lexBot} -> lexBot) (\s@Di
 disassociateBot_lexV2Bot :: Lens.Lens' DisassociateBot (Prelude.Maybe LexV2Bot)
 disassociateBot_lexV2Bot = Lens.lens (\DisassociateBot' {lexV2Bot} -> lexV2Bot) (\s@DisassociateBot' {} a -> s {lexV2Bot = a} :: DisassociateBot)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 disassociateBot_instanceId :: Lens.Lens' DisassociateBot Prelude.Text
 disassociateBot_instanceId = Lens.lens (\DisassociateBot' {instanceId} -> instanceId) (\s@DisassociateBot' {} a -> s {instanceId = a} :: DisassociateBot)
 
@@ -109,7 +112,8 @@ instance Core.AWSRequest DisassociateBot where
 
 instance Prelude.Hashable DisassociateBot where
   hashWithSalt _salt DisassociateBot' {..} =
-    _salt `Prelude.hashWithSalt` lexBot
+    _salt
+      `Prelude.hashWithSalt` lexBot
       `Prelude.hashWithSalt` lexV2Bot
       `Prelude.hashWithSalt` instanceId
 

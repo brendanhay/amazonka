@@ -40,6 +40,9 @@ data InstanceSummary = InstanceSummary'
     identityManagementType :: Prelude.Maybe DirectoryType,
     -- | Whether inbound calls are enabled.
     inboundCallsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | This URL allows contact center users to access Amazon Connect admin
+    -- website.
+    instanceAccessUrl :: Prelude.Maybe Prelude.Text,
     -- | The alias of the instance.
     instanceAlias :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The state of the instance.
@@ -69,6 +72,9 @@ data InstanceSummary = InstanceSummary'
 --
 -- 'inboundCallsEnabled', 'instanceSummary_inboundCallsEnabled' - Whether inbound calls are enabled.
 --
+-- 'instanceAccessUrl', 'instanceSummary_instanceAccessUrl' - This URL allows contact center users to access Amazon Connect admin
+-- website.
+--
 -- 'instanceAlias', 'instanceSummary_instanceAlias' - The alias of the instance.
 --
 -- 'instanceStatus', 'instanceSummary_instanceStatus' - The state of the instance.
@@ -85,6 +91,7 @@ newInstanceSummary =
       id = Prelude.Nothing,
       identityManagementType = Prelude.Nothing,
       inboundCallsEnabled = Prelude.Nothing,
+      instanceAccessUrl = Prelude.Nothing,
       instanceAlias = Prelude.Nothing,
       instanceStatus = Prelude.Nothing,
       outboundCallsEnabled = Prelude.Nothing,
@@ -110,6 +117,11 @@ instanceSummary_identityManagementType = Lens.lens (\InstanceSummary' {identityM
 -- | Whether inbound calls are enabled.
 instanceSummary_inboundCallsEnabled :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.Bool)
 instanceSummary_inboundCallsEnabled = Lens.lens (\InstanceSummary' {inboundCallsEnabled} -> inboundCallsEnabled) (\s@InstanceSummary' {} a -> s {inboundCallsEnabled = a} :: InstanceSummary)
+
+-- | This URL allows contact center users to access Amazon Connect admin
+-- website.
+instanceSummary_instanceAccessUrl :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.Text)
+instanceSummary_instanceAccessUrl = Lens.lens (\InstanceSummary' {instanceAccessUrl} -> instanceAccessUrl) (\s@InstanceSummary' {} a -> s {instanceAccessUrl = a} :: InstanceSummary)
 
 -- | The alias of the instance.
 instanceSummary_instanceAlias :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.Text)
@@ -138,6 +150,7 @@ instance Data.FromJSON InstanceSummary where
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "IdentityManagementType")
             Prelude.<*> (x Data..:? "InboundCallsEnabled")
+            Prelude.<*> (x Data..:? "InstanceAccessUrl")
             Prelude.<*> (x Data..:? "InstanceAlias")
             Prelude.<*> (x Data..:? "InstanceStatus")
             Prelude.<*> (x Data..:? "OutboundCallsEnabled")
@@ -146,11 +159,13 @@ instance Data.FromJSON InstanceSummary where
 
 instance Prelude.Hashable InstanceSummary where
   hashWithSalt _salt InstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` identityManagementType
       `Prelude.hashWithSalt` inboundCallsEnabled
+      `Prelude.hashWithSalt` instanceAccessUrl
       `Prelude.hashWithSalt` instanceAlias
       `Prelude.hashWithSalt` instanceStatus
       `Prelude.hashWithSalt` outboundCallsEnabled
@@ -163,6 +178,7 @@ instance Prelude.NFData InstanceSummary where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf identityManagementType
       `Prelude.seq` Prelude.rnf inboundCallsEnabled
+      `Prelude.seq` Prelude.rnf instanceAccessUrl
       `Prelude.seq` Prelude.rnf instanceAlias
       `Prelude.seq` Prelude.rnf instanceStatus
       `Prelude.seq` Prelude.rnf outboundCallsEnabled

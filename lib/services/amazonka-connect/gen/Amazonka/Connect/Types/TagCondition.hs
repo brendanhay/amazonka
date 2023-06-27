@@ -65,7 +65,8 @@ tagCondition_tagValue = Lens.lens (\TagCondition' {tagValue} -> tagValue) (\s@Ta
 
 instance Prelude.Hashable TagCondition where
   hashWithSalt _salt TagCondition' {..} =
-    _salt `Prelude.hashWithSalt` tagKey
+    _salt
+      `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` tagValue
 
 instance Prelude.NFData TagCondition where

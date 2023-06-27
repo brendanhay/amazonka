@@ -23,6 +23,7 @@ module Amazonka.Connect.Types.ContactInitiationMethod
         ContactInitiationMethod_API,
         ContactInitiationMethod_CALLBACK,
         ContactInitiationMethod_DISCONNECT,
+        ContactInitiationMethod_EXTERNAL_OUTBOUND,
         ContactInitiationMethod_INBOUND,
         ContactInitiationMethod_MONITOR,
         ContactInitiationMethod_OUTBOUND,
@@ -73,6 +74,9 @@ pattern ContactInitiationMethod_CALLBACK = ContactInitiationMethod' "CALLBACK"
 pattern ContactInitiationMethod_DISCONNECT :: ContactInitiationMethod
 pattern ContactInitiationMethod_DISCONNECT = ContactInitiationMethod' "DISCONNECT"
 
+pattern ContactInitiationMethod_EXTERNAL_OUTBOUND :: ContactInitiationMethod
+pattern ContactInitiationMethod_EXTERNAL_OUTBOUND = ContactInitiationMethod' "EXTERNAL_OUTBOUND"
+
 pattern ContactInitiationMethod_INBOUND :: ContactInitiationMethod
 pattern ContactInitiationMethod_INBOUND = ContactInitiationMethod' "INBOUND"
 
@@ -92,6 +96,7 @@ pattern ContactInitiationMethod_TRANSFER = ContactInitiationMethod' "TRANSFER"
   ContactInitiationMethod_API,
   ContactInitiationMethod_CALLBACK,
   ContactInitiationMethod_DISCONNECT,
+  ContactInitiationMethod_EXTERNAL_OUTBOUND,
   ContactInitiationMethod_INBOUND,
   ContactInitiationMethod_MONITOR,
   ContactInitiationMethod_OUTBOUND,

@@ -64,8 +64,9 @@ data UpdateAgentStatus = UpdateAgentStatus'
     resetOrderNumber :: Prelude.Maybe Prelude.Bool,
     -- | The state of the agent status.
     state :: Prelude.Maybe AgentStatusState,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the agent status.
     agentStatusId :: Prelude.Text
@@ -90,8 +91,9 @@ data UpdateAgentStatus = UpdateAgentStatus'
 --
 -- 'state', 'updateAgentStatus_state' - The state of the agent status.
 --
--- 'instanceId', 'updateAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'agentStatusId', 'updateAgentStatus_agentStatusId' - The identifier of the agent status.
 newUpdateAgentStatus ::
@@ -131,8 +133,9 @@ updateAgentStatus_resetOrderNumber = Lens.lens (\UpdateAgentStatus' {resetOrderN
 updateAgentStatus_state :: Lens.Lens' UpdateAgentStatus (Prelude.Maybe AgentStatusState)
 updateAgentStatus_state = Lens.lens (\UpdateAgentStatus' {state} -> state) (\s@UpdateAgentStatus' {} a -> s {state = a} :: UpdateAgentStatus)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateAgentStatus_instanceId :: Lens.Lens' UpdateAgentStatus Prelude.Text
 updateAgentStatus_instanceId = Lens.lens (\UpdateAgentStatus' {instanceId} -> instanceId) (\s@UpdateAgentStatus' {} a -> s {instanceId = a} :: UpdateAgentStatus)
 
@@ -151,7 +154,8 @@ instance Core.AWSRequest UpdateAgentStatus where
 
 instance Prelude.Hashable UpdateAgentStatus where
   hashWithSalt _salt UpdateAgentStatus' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayOrder
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resetOrderNumber

@@ -51,8 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the user.
     userId :: Prelude.Text
@@ -67,8 +68,9 @@ data DeleteUser = DeleteUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteUser_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteUser_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'userId', 'deleteUser_userId' - The identifier of the user.
 newDeleteUser ::
@@ -83,8 +85,9 @@ newDeleteUser pInstanceId_ pUserId_ =
       userId = pUserId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteUser_instanceId :: Lens.Lens' DeleteUser Prelude.Text
 deleteUser_instanceId = Lens.lens (\DeleteUser' {instanceId} -> instanceId) (\s@DeleteUser' {} a -> s {instanceId = a} :: DeleteUser)
 
@@ -100,7 +103,8 @@ instance Core.AWSRequest DeleteUser where
 
 instance Prelude.Hashable DeleteUser where
   hashWithSalt _salt DeleteUser' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData DeleteUser where

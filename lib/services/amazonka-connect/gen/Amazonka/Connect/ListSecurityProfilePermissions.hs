@@ -66,8 +66,9 @@ data ListSecurityProfilePermissions = ListSecurityProfilePermissions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the security profle.
     securityProfileId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,8 +89,9 @@ data ListSecurityProfilePermissions = ListSecurityProfilePermissions'
 --
 -- 'securityProfileId', 'listSecurityProfilePermissions_securityProfileId' - The identifier for the security profle.
 --
--- 'instanceId', 'listSecurityProfilePermissions_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listSecurityProfilePermissions_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListSecurityProfilePermissions ::
   -- | 'securityProfileId'
   Prelude.Text ->
@@ -121,8 +123,9 @@ listSecurityProfilePermissions_nextToken = Lens.lens (\ListSecurityProfilePermis
 listSecurityProfilePermissions_securityProfileId :: Lens.Lens' ListSecurityProfilePermissions Prelude.Text
 listSecurityProfilePermissions_securityProfileId = Lens.lens (\ListSecurityProfilePermissions' {securityProfileId} -> securityProfileId) (\s@ListSecurityProfilePermissions' {} a -> s {securityProfileId = a} :: ListSecurityProfilePermissions)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listSecurityProfilePermissions_instanceId :: Lens.Lens' ListSecurityProfilePermissions Prelude.Text
 listSecurityProfilePermissions_instanceId = Lens.lens (\ListSecurityProfilePermissions' {instanceId} -> instanceId) (\s@ListSecurityProfilePermissions' {} a -> s {instanceId = a} :: ListSecurityProfilePermissions)
 
@@ -131,22 +134,22 @@ instance Core.AWSPager ListSecurityProfilePermissions where
     | Core.stop
         ( rs
             Lens.^? listSecurityProfilePermissionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSecurityProfilePermissionsResponse_permissions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSecurityProfilePermissions_nextToken
           Lens..~ rs
           Lens.^? listSecurityProfilePermissionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -173,7 +176,8 @@ instance
   hashWithSalt
     _salt
     ListSecurityProfilePermissions' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` securityProfileId
         `Prelude.hashWithSalt` instanceId

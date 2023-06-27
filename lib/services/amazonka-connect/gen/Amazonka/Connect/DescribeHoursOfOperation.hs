@@ -53,8 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeHoursOfOperation' smart constructor.
 data DescribeHoursOfOperation = DescribeHoursOfOperation'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the hours of operation.
     hoursOfOperationId :: Prelude.Text
@@ -69,8 +70,9 @@ data DescribeHoursOfOperation = DescribeHoursOfOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'hoursOfOperationId', 'describeHoursOfOperation_hoursOfOperationId' - The identifier for the hours of operation.
 newDescribeHoursOfOperation ::
@@ -88,8 +90,9 @@ newDescribeHoursOfOperation
         hoursOfOperationId = pHoursOfOperationId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeHoursOfOperation_instanceId :: Lens.Lens' DescribeHoursOfOperation Prelude.Text
 describeHoursOfOperation_instanceId = Lens.lens (\DescribeHoursOfOperation' {instanceId} -> instanceId) (\s@DescribeHoursOfOperation' {} a -> s {instanceId = a} :: DescribeHoursOfOperation)
 
@@ -113,7 +116,8 @@ instance Core.AWSRequest DescribeHoursOfOperation where
 
 instance Prelude.Hashable DescribeHoursOfOperation where
   hashWithSalt _salt DescribeHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` hoursOfOperationId
 
 instance Prelude.NFData DescribeHoursOfOperation where

@@ -58,8 +58,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopContactRecording' smart constructor.
 data StopContactRecording = StopContactRecording'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact.
     contactId :: Prelude.Text,
@@ -77,8 +78,9 @@ data StopContactRecording = StopContactRecording'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'stopContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'stopContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'stopContactRecording_contactId' - The identifier of the contact.
 --
@@ -102,8 +104,9 @@ newStopContactRecording
         initialContactId = pInitialContactId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 stopContactRecording_instanceId :: Lens.Lens' StopContactRecording Prelude.Text
 stopContactRecording_instanceId = Lens.lens (\StopContactRecording' {instanceId} -> instanceId) (\s@StopContactRecording' {} a -> s {instanceId = a} :: StopContactRecording)
 
@@ -131,7 +134,8 @@ instance Core.AWSRequest StopContactRecording where
 
 instance Prelude.Hashable StopContactRecording where
   hashWithSalt _salt StopContactRecording' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` initialContactId
 

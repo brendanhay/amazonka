@@ -66,8 +66,9 @@ data ListRules = ListRules'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The publish status of the rule.
     publishStatus :: Prelude.Maybe RulePublishStatus,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,8 +91,9 @@ data ListRules = ListRules'
 --
 -- 'publishStatus', 'listRules_publishStatus' - The publish status of the rule.
 --
--- 'instanceId', 'listRules_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listRules_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListRules ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -123,8 +125,9 @@ listRules_nextToken = Lens.lens (\ListRules' {nextToken} -> nextToken) (\s@ListR
 listRules_publishStatus :: Lens.Lens' ListRules (Prelude.Maybe RulePublishStatus)
 listRules_publishStatus = Lens.lens (\ListRules' {publishStatus} -> publishStatus) (\s@ListRules' {} a -> s {publishStatus = a} :: ListRules)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listRules_instanceId :: Lens.Lens' ListRules Prelude.Text
 listRules_instanceId = Lens.lens (\ListRules' {instanceId} -> instanceId) (\s@ListRules' {} a -> s {instanceId = a} :: ListRules)
 
@@ -132,18 +135,20 @@ instance Core.AWSPager ListRules where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRulesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listRulesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listRulesResponse_ruleSummaryList) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRules_nextToken
           Lens..~ rs
-          Lens.^? listRulesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listRulesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRules where
   type AWSResponse ListRules = ListRulesResponse
@@ -155,14 +160,16 @@ instance Core.AWSRequest ListRules where
           ListRulesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "RuleSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "RuleSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListRules where
   hashWithSalt _salt ListRules' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceName
+    _salt
+      `Prelude.hashWithSalt` eventSourceName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` publishStatus

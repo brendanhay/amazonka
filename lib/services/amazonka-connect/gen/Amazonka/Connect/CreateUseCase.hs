@@ -56,8 +56,9 @@ data CreateUseCase = CreateUseCase'
   { -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the integration association.
     integrationAssociationId :: Prelude.Text,
@@ -78,8 +79,9 @@ data CreateUseCase = CreateUseCase'
 -- 'tags', 'createUseCase_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
--- 'instanceId', 'createUseCase_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createUseCase_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'integrationAssociationId', 'createUseCase_integrationAssociationId' - The identifier for the integration association.
 --
@@ -110,8 +112,9 @@ newCreateUseCase
 createUseCase_tags :: Lens.Lens' CreateUseCase (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createUseCase_tags = Lens.lens (\CreateUseCase' {tags} -> tags) (\s@CreateUseCase' {} a -> s {tags = a} :: CreateUseCase) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createUseCase_instanceId :: Lens.Lens' CreateUseCase Prelude.Text
 createUseCase_instanceId = Lens.lens (\CreateUseCase' {instanceId} -> instanceId) (\s@CreateUseCase' {} a -> s {instanceId = a} :: CreateUseCase)
 
@@ -141,7 +144,8 @@ instance Core.AWSRequest CreateUseCase where
 
 instance Prelude.Hashable CreateUseCase where
   hashWithSalt _salt CreateUseCase' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationAssociationId
       `Prelude.hashWithSalt` useCaseType

@@ -52,8 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVocabulary' smart constructor.
 data DeleteVocabulary = DeleteVocabulary'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the custom vocabulary.
     vocabularyId :: Prelude.Text
@@ -68,8 +69,9 @@ data DeleteVocabulary = DeleteVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'vocabularyId', 'deleteVocabulary_vocabularyId' - The identifier of the custom vocabulary.
 newDeleteVocabulary ::
@@ -84,8 +86,9 @@ newDeleteVocabulary pInstanceId_ pVocabularyId_ =
       vocabularyId = pVocabularyId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteVocabulary_instanceId :: Lens.Lens' DeleteVocabulary Prelude.Text
 deleteVocabulary_instanceId = Lens.lens (\DeleteVocabulary' {instanceId} -> instanceId) (\s@DeleteVocabulary' {} a -> s {instanceId = a} :: DeleteVocabulary)
 
@@ -111,7 +114,8 @@ instance Core.AWSRequest DeleteVocabulary where
 
 instance Prelude.Hashable DeleteVocabulary where
   hashWithSalt _salt DeleteVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` vocabularyId
 
 instance Prelude.NFData DeleteVocabulary where

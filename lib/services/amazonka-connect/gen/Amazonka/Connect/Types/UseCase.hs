@@ -88,7 +88,8 @@ instance Data.FromJSON UseCase where
 
 instance Prelude.Hashable UseCase where
   hashWithSalt _salt UseCase' {..} =
-    _salt `Prelude.hashWithSalt` useCaseArn
+    _salt
+      `Prelude.hashWithSalt` useCaseArn
       `Prelude.hashWithSalt` useCaseId
       `Prelude.hashWithSalt` useCaseType
 

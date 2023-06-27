@@ -66,8 +66,9 @@ data ListSecurityProfiles = ListSecurityProfiles'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,8 +88,9 @@ data ListSecurityProfiles = ListSecurityProfiles'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListSecurityProfiles ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -111,8 +113,9 @@ listSecurityProfiles_maxResults = Lens.lens (\ListSecurityProfiles' {maxResults}
 listSecurityProfiles_nextToken :: Lens.Lens' ListSecurityProfiles (Prelude.Maybe Prelude.Text)
 listSecurityProfiles_nextToken = Lens.lens (\ListSecurityProfiles' {nextToken} -> nextToken) (\s@ListSecurityProfiles' {} a -> s {nextToken = a} :: ListSecurityProfiles)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listSecurityProfiles_instanceId :: Lens.Lens' ListSecurityProfiles Prelude.Text
 listSecurityProfiles_instanceId = Lens.lens (\ListSecurityProfiles' {instanceId} -> instanceId) (\s@ListSecurityProfiles' {} a -> s {instanceId = a} :: ListSecurityProfiles)
 
@@ -121,22 +124,22 @@ instance Core.AWSPager ListSecurityProfiles where
     | Core.stop
         ( rs
             Lens.^? listSecurityProfilesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSecurityProfilesResponse_securityProfileSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSecurityProfiles_nextToken
           Lens..~ rs
           Lens.^? listSecurityProfilesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityProfiles where
   type
@@ -149,7 +152,8 @@ instance Core.AWSRequest ListSecurityProfiles where
       ( \s h x ->
           ListSecurityProfilesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SecurityProfileSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "SecurityProfileSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -157,7 +161,8 @@ instance Core.AWSRequest ListSecurityProfiles where
 
 instance Prelude.Hashable ListSecurityProfiles where
   hashWithSalt _salt ListSecurityProfiles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 

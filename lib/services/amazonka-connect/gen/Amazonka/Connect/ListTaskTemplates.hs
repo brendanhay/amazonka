@@ -74,8 +74,9 @@ data ListTaskTemplates = ListTaskTemplates'
     -- marked as @INACTIVE@, then a task that refers to this template cannot be
     -- created.
     status :: Prelude.Maybe TaskTemplateStatus,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,8 +107,9 @@ data ListTaskTemplates = ListTaskTemplates'
 -- marked as @INACTIVE@, then a task that refers to this template cannot be
 -- created.
 --
--- 'instanceId', 'listTaskTemplates_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listTaskTemplates_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListTaskTemplates ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -147,8 +149,9 @@ listTaskTemplates_nextToken = Lens.lens (\ListTaskTemplates' {nextToken} -> next
 listTaskTemplates_status :: Lens.Lens' ListTaskTemplates (Prelude.Maybe TaskTemplateStatus)
 listTaskTemplates_status = Lens.lens (\ListTaskTemplates' {status} -> status) (\s@ListTaskTemplates' {} a -> s {status = a} :: ListTaskTemplates)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listTaskTemplates_instanceId :: Lens.Lens' ListTaskTemplates Prelude.Text
 listTaskTemplates_instanceId = Lens.lens (\ListTaskTemplates' {instanceId} -> instanceId) (\s@ListTaskTemplates' {} a -> s {instanceId = a} :: ListTaskTemplates)
 
@@ -157,22 +160,22 @@ instance Core.AWSPager ListTaskTemplates where
     | Core.stop
         ( rs
             Lens.^? listTaskTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTaskTemplatesResponse_taskTemplates
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTaskTemplates_nextToken
           Lens..~ rs
           Lens.^? listTaskTemplatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTaskTemplates where
   type
@@ -191,7 +194,8 @@ instance Core.AWSRequest ListTaskTemplates where
 
 instance Prelude.Hashable ListTaskTemplates where
   hashWithSalt _salt ListTaskTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status

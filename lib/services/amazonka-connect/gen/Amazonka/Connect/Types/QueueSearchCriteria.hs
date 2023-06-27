@@ -42,6 +42,10 @@ data QueueSearchCriteria = QueueSearchCriteria'
     orConditions :: Prelude.Maybe [QueueSearchCriteria],
     -- | The type of queue.
     queueTypeCondition :: Prelude.Maybe SearchableQueueType,
+    -- | A leaf node condition which can be used to specify a string condition.
+    --
+    -- The currently supported values for @FieldName@ are @name@,
+    -- @description@, and @resourceID@.
     stringCondition :: Prelude.Maybe StringCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +66,10 @@ data QueueSearchCriteria = QueueSearchCriteria'
 --
 -- 'queueTypeCondition', 'queueSearchCriteria_queueTypeCondition' - The type of queue.
 --
--- 'stringCondition', 'queueSearchCriteria_stringCondition' - Undocumented member.
+-- 'stringCondition', 'queueSearchCriteria_stringCondition' - A leaf node condition which can be used to specify a string condition.
+--
+-- The currently supported values for @FieldName@ are @name@,
+-- @description@, and @resourceID@.
 newQueueSearchCriteria ::
   QueueSearchCriteria
 newQueueSearchCriteria =
@@ -88,13 +95,17 @@ queueSearchCriteria_orConditions = Lens.lens (\QueueSearchCriteria' {orCondition
 queueSearchCriteria_queueTypeCondition :: Lens.Lens' QueueSearchCriteria (Prelude.Maybe SearchableQueueType)
 queueSearchCriteria_queueTypeCondition = Lens.lens (\QueueSearchCriteria' {queueTypeCondition} -> queueTypeCondition) (\s@QueueSearchCriteria' {} a -> s {queueTypeCondition = a} :: QueueSearchCriteria)
 
--- | Undocumented member.
+-- | A leaf node condition which can be used to specify a string condition.
+--
+-- The currently supported values for @FieldName@ are @name@,
+-- @description@, and @resourceID@.
 queueSearchCriteria_stringCondition :: Lens.Lens' QueueSearchCriteria (Prelude.Maybe StringCondition)
 queueSearchCriteria_stringCondition = Lens.lens (\QueueSearchCriteria' {stringCondition} -> stringCondition) (\s@QueueSearchCriteria' {} a -> s {stringCondition = a} :: QueueSearchCriteria)
 
 instance Prelude.Hashable QueueSearchCriteria where
   hashWithSalt _salt QueueSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` andConditions
+    _salt
+      `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` orConditions
       `Prelude.hashWithSalt` queueTypeCondition
       `Prelude.hashWithSalt` stringCondition

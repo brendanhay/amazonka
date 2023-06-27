@@ -30,8 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIntegrationAssociationSummary' smart constructor.
 data IntegrationAssociationSummary = IntegrationAssociationSummary'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the AppIntegration.
     integrationArn :: Prelude.Maybe Prelude.Text,
@@ -58,8 +59,9 @@ data IntegrationAssociationSummary = IntegrationAssociationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'integrationAssociationSummary_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'integrationAssociationSummary_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'integrationArn', 'integrationAssociationSummary_integrationArn' - The Amazon Resource Name (ARN) for the AppIntegration.
 --
@@ -89,8 +91,9 @@ newIntegrationAssociationSummary =
       sourceType = Prelude.Nothing
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 integrationAssociationSummary_instanceId :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
 integrationAssociationSummary_instanceId = Lens.lens (\IntegrationAssociationSummary' {instanceId} -> instanceId) (\s@IntegrationAssociationSummary' {} a -> s {instanceId = a} :: IntegrationAssociationSummary)
 
@@ -143,7 +146,8 @@ instance
     IntegrationAssociationSummary
   where
   hashWithSalt _salt IntegrationAssociationSummary' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationArn
       `Prelude.hashWithSalt` integrationAssociationArn
       `Prelude.hashWithSalt` integrationAssociationId

@@ -68,12 +68,14 @@ instance Data.FromJSON RoutingProfileReference where
       "RoutingProfileReference"
       ( \x ->
           RoutingProfileReference'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable RoutingProfileReference where
   hashWithSalt _salt RoutingProfileReference' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData RoutingProfileReference where

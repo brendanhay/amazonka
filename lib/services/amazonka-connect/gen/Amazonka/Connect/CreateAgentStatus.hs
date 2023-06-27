@@ -65,8 +65,9 @@ data CreateAgentStatus = CreateAgentStatus'
     -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the status.
     name :: Prelude.Text,
@@ -90,8 +91,9 @@ data CreateAgentStatus = CreateAgentStatus'
 -- 'tags', 'createAgentStatus_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
--- 'instanceId', 'createAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'name', 'createAgentStatus_name' - The name of the status.
 --
@@ -127,8 +129,9 @@ createAgentStatus_displayOrder = Lens.lens (\CreateAgentStatus' {displayOrder} -
 createAgentStatus_tags :: Lens.Lens' CreateAgentStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAgentStatus_tags = Lens.lens (\CreateAgentStatus' {tags} -> tags) (\s@CreateAgentStatus' {} a -> s {tags = a} :: CreateAgentStatus) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createAgentStatus_instanceId :: Lens.Lens' CreateAgentStatus Prelude.Text
 createAgentStatus_instanceId = Lens.lens (\CreateAgentStatus' {instanceId} -> instanceId) (\s@CreateAgentStatus' {} a -> s {instanceId = a} :: CreateAgentStatus)
 
@@ -157,7 +160,8 @@ instance Core.AWSRequest CreateAgentStatus where
 
 instance Prelude.Hashable CreateAgentStatus where
   hashWithSalt _salt CreateAgentStatus' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayOrder
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId

@@ -50,8 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateContactSchedule' smart constructor.
 data UpdateContactSchedule = UpdateContactSchedule'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact.
     contactId :: Prelude.Text,
@@ -70,8 +71,9 @@ data UpdateContactSchedule = UpdateContactSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateContactSchedule_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateContactSchedule_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'updateContactSchedule_contactId' - The identifier of the contact.
 --
@@ -96,8 +98,9 @@ newUpdateContactSchedule
         scheduledTime = Data._Time Lens.# pScheduledTime_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateContactSchedule_instanceId :: Lens.Lens' UpdateContactSchedule Prelude.Text
 updateContactSchedule_instanceId = Lens.lens (\UpdateContactSchedule' {instanceId} -> instanceId) (\s@UpdateContactSchedule' {} a -> s {instanceId = a} :: UpdateContactSchedule)
 
@@ -126,7 +129,8 @@ instance Core.AWSRequest UpdateContactSchedule where
 
 instance Prelude.Hashable UpdateContactSchedule where
   hashWithSalt _salt UpdateContactSchedule' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` scheduledTime
 

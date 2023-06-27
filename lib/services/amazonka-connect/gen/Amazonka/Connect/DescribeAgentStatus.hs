@@ -53,8 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAgentStatus' smart constructor.
 data DescribeAgentStatus = DescribeAgentStatus'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the agent status.
     agentStatusId :: Prelude.Text
@@ -69,8 +70,9 @@ data DescribeAgentStatus = DescribeAgentStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'agentStatusId', 'describeAgentStatus_agentStatusId' - The identifier for the agent status.
 newDescribeAgentStatus ::
@@ -85,8 +87,9 @@ newDescribeAgentStatus pInstanceId_ pAgentStatusId_ =
       agentStatusId = pAgentStatusId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeAgentStatus_instanceId :: Lens.Lens' DescribeAgentStatus Prelude.Text
 describeAgentStatus_instanceId = Lens.lens (\DescribeAgentStatus' {instanceId} -> instanceId) (\s@DescribeAgentStatus' {} a -> s {instanceId = a} :: DescribeAgentStatus)
 
@@ -110,7 +113,8 @@ instance Core.AWSRequest DescribeAgentStatus where
 
 instance Prelude.Hashable DescribeAgentStatus where
   hashWithSalt _salt DescribeAgentStatus' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` agentStatusId
 
 instance Prelude.NFData DescribeAgentStatus where

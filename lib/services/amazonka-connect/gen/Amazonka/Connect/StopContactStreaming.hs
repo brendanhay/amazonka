@@ -53,8 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopContactStreaming' smart constructor.
 data StopContactStreaming = StopContactStreaming'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact. This is the identifier of the contact
     -- that is associated with the first interaction with the contact center.
@@ -72,8 +73,9 @@ data StopContactStreaming = StopContactStreaming'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'stopContactStreaming_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'stopContactStreaming_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'stopContactStreaming_contactId' - The identifier of the contact. This is the identifier of the contact
 -- that is associated with the first interaction with the contact center.
@@ -97,8 +99,9 @@ newStopContactStreaming
         streamingId = pStreamingId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 stopContactStreaming_instanceId :: Lens.Lens' StopContactStreaming Prelude.Text
 stopContactStreaming_instanceId = Lens.lens (\StopContactStreaming' {instanceId} -> instanceId) (\s@StopContactStreaming' {} a -> s {instanceId = a} :: StopContactStreaming)
 
@@ -126,7 +129,8 @@ instance Core.AWSRequest StopContactStreaming where
 
 instance Prelude.Hashable StopContactStreaming where
   hashWithSalt _salt StopContactStreaming' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` streamingId
 

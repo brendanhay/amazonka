@@ -61,8 +61,9 @@ data GetCurrentUserData = GetCurrentUserData'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The filters to apply to returned user data. You can filter up to the
     -- following limits:
@@ -101,8 +102,9 @@ data GetCurrentUserData = GetCurrentUserData'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'getCurrentUserData_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'getCurrentUserData_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'filters', 'getCurrentUserData_filters' - The filters to apply to returned user data. You can filter up to the
 -- following limits:
@@ -147,8 +149,9 @@ getCurrentUserData_maxResults = Lens.lens (\GetCurrentUserData' {maxResults} -> 
 getCurrentUserData_nextToken :: Lens.Lens' GetCurrentUserData (Prelude.Maybe Prelude.Text)
 getCurrentUserData_nextToken = Lens.lens (\GetCurrentUserData' {nextToken} -> nextToken) (\s@GetCurrentUserData' {} a -> s {nextToken = a} :: GetCurrentUserData)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 getCurrentUserData_instanceId :: Lens.Lens' GetCurrentUserData Prelude.Text
 getCurrentUserData_instanceId = Lens.lens (\GetCurrentUserData' {instanceId} -> instanceId) (\s@GetCurrentUserData' {} a -> s {instanceId = a} :: GetCurrentUserData)
 
@@ -192,7 +195,8 @@ instance Core.AWSRequest GetCurrentUserData where
 
 instance Prelude.Hashable GetCurrentUserData where
   hashWithSalt _salt GetCurrentUserData' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` filters

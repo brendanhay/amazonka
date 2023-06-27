@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 data DeleteUserHierarchyGroup = DeleteUserHierarchyGroup'
   { -- | The identifier of the hierarchy group.
     hierarchyGroupId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,8 +66,9 @@ data DeleteUserHierarchyGroup = DeleteUserHierarchyGroup'
 --
 -- 'hierarchyGroupId', 'deleteUserHierarchyGroup_hierarchyGroupId' - The identifier of the hierarchy group.
 --
--- 'instanceId', 'deleteUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newDeleteUserHierarchyGroup ::
   -- | 'hierarchyGroupId'
   Prelude.Text ->
@@ -86,8 +88,9 @@ newDeleteUserHierarchyGroup
 deleteUserHierarchyGroup_hierarchyGroupId :: Lens.Lens' DeleteUserHierarchyGroup Prelude.Text
 deleteUserHierarchyGroup_hierarchyGroupId = Lens.lens (\DeleteUserHierarchyGroup' {hierarchyGroupId} -> hierarchyGroupId) (\s@DeleteUserHierarchyGroup' {} a -> s {hierarchyGroupId = a} :: DeleteUserHierarchyGroup)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteUserHierarchyGroup_instanceId :: Lens.Lens' DeleteUserHierarchyGroup Prelude.Text
 deleteUserHierarchyGroup_instanceId = Lens.lens (\DeleteUserHierarchyGroup' {instanceId} -> instanceId) (\s@DeleteUserHierarchyGroup' {} a -> s {instanceId = a} :: DeleteUserHierarchyGroup)
 
@@ -103,7 +106,8 @@ instance Core.AWSRequest DeleteUserHierarchyGroup where
 
 instance Prelude.Hashable DeleteUserHierarchyGroup where
   hashWithSalt _salt DeleteUserHierarchyGroup' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyGroupId
+    _salt
+      `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DeleteUserHierarchyGroup where

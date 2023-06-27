@@ -56,8 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartContactStreaming' smart constructor.
 data StartContactStreaming = StartContactStreaming'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact. This is the identifier of the contact
     -- associated with the first interaction with the contact center.
@@ -80,8 +81,9 @@ data StartContactStreaming = StartContactStreaming'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'startContactStreaming_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'startContactStreaming_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'startContactStreaming_contactId' - The identifier of the contact. This is the identifier of the contact
 -- associated with the first interaction with the contact center.
@@ -115,8 +117,9 @@ newStartContactStreaming
         clientToken = pClientToken_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 startContactStreaming_instanceId :: Lens.Lens' StartContactStreaming Prelude.Text
 startContactStreaming_instanceId = Lens.lens (\StartContactStreaming' {instanceId} -> instanceId) (\s@StartContactStreaming' {} a -> s {instanceId = a} :: StartContactStreaming)
 
@@ -152,7 +155,8 @@ instance Core.AWSRequest StartContactStreaming where
 
 instance Prelude.Hashable StartContactStreaming where
   hashWithSalt _salt StartContactStreaming' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` chatStreamingConfiguration
       `Prelude.hashWithSalt` clientToken

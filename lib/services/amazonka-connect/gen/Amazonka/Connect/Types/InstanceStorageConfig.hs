@@ -125,7 +125,8 @@ instance Data.FromJSON InstanceStorageConfig where
 
 instance Prelude.Hashable InstanceStorageConfig where
   hashWithSalt _salt InstanceStorageConfig' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` kinesisFirehoseConfig
       `Prelude.hashWithSalt` kinesisStreamConfig
       `Prelude.hashWithSalt` kinesisVideoStreamConfig

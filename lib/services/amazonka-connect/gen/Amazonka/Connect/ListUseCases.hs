@@ -64,8 +64,9 @@ data ListUseCases = ListUseCases'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the integration association.
     integrationAssociationId :: Prelude.Text
@@ -86,8 +87,9 @@ data ListUseCases = ListUseCases'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listUseCases_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listUseCases_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'integrationAssociationId', 'listUseCases_integrationAssociationId' - The identifier for the integration association.
 newListUseCases ::
@@ -117,8 +119,9 @@ listUseCases_maxResults = Lens.lens (\ListUseCases' {maxResults} -> maxResults) 
 listUseCases_nextToken :: Lens.Lens' ListUseCases (Prelude.Maybe Prelude.Text)
 listUseCases_nextToken = Lens.lens (\ListUseCases' {nextToken} -> nextToken) (\s@ListUseCases' {} a -> s {nextToken = a} :: ListUseCases)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listUseCases_instanceId :: Lens.Lens' ListUseCases Prelude.Text
 listUseCases_instanceId = Lens.lens (\ListUseCases' {instanceId} -> instanceId) (\s@ListUseCases' {} a -> s {instanceId = a} :: ListUseCases)
 
@@ -130,21 +133,23 @@ instance Core.AWSPager ListUseCases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listUseCasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listUseCasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listUseCasesResponse_useCaseSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listUseCases_nextToken
           Lens..~ rs
-          Lens.^? listUseCasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listUseCasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUseCases where
   type AWSResponse ListUseCases = ListUseCasesResponse
@@ -155,7 +160,8 @@ instance Core.AWSRequest ListUseCases where
       ( \s h x ->
           ListUseCasesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "UseCaseSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "UseCaseSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,7 +169,8 @@ instance Core.AWSRequest ListUseCases where
 
 instance Prelude.Hashable ListUseCases where
   hashWithSalt _salt ListUseCases' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationAssociationId

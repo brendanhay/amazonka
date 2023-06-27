@@ -68,8 +68,9 @@ data ListLexBots = ListLexBots'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,8 +90,9 @@ data ListLexBots = ListLexBots'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listLexBots_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listLexBots_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListLexBots ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -113,8 +115,9 @@ listLexBots_maxResults = Lens.lens (\ListLexBots' {maxResults} -> maxResults) (\
 listLexBots_nextToken :: Lens.Lens' ListLexBots (Prelude.Maybe Prelude.Text)
 listLexBots_nextToken = Lens.lens (\ListLexBots' {nextToken} -> nextToken) (\s@ListLexBots' {} a -> s {nextToken = a} :: ListLexBots)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listLexBots_instanceId :: Lens.Lens' ListLexBots Prelude.Text
 listLexBots_instanceId = Lens.lens (\ListLexBots' {instanceId} -> instanceId) (\s@ListLexBots' {} a -> s {instanceId = a} :: ListLexBots)
 
@@ -122,20 +125,23 @@ instance Core.AWSPager ListLexBots where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listLexBotsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listLexBotsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listLexBotsResponse_lexBots Prelude.. Lens._Just
+            Lens.^? listLexBotsResponse_lexBots
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLexBots_nextToken
           Lens..~ rs
-          Lens.^? listLexBotsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listLexBotsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLexBots where
   type AWSResponse ListLexBots = ListLexBotsResponse
@@ -152,7 +158,8 @@ instance Core.AWSRequest ListLexBots where
 
 instance Prelude.Hashable ListLexBots where
   hashWithSalt _salt ListLexBots' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 

@@ -53,8 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The type of attribute.
     attributeType :: InstanceAttributeType
@@ -69,8 +70,9 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeInstanceAttribute_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeInstanceAttribute_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'attributeType', 'describeInstanceAttribute_attributeType' - The type of attribute.
 newDescribeInstanceAttribute ::
@@ -88,8 +90,9 @@ newDescribeInstanceAttribute
         attributeType = pAttributeType_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeInstanceAttribute_instanceId :: Lens.Lens' DescribeInstanceAttribute Prelude.Text
 describeInstanceAttribute_instanceId = Lens.lens (\DescribeInstanceAttribute' {instanceId} -> instanceId) (\s@DescribeInstanceAttribute' {} a -> s {instanceId = a} :: DescribeInstanceAttribute)
 
@@ -113,7 +116,8 @@ instance Core.AWSRequest DescribeInstanceAttribute where
 
 instance Prelude.Hashable DescribeInstanceAttribute where
   hashWithSalt _salt DescribeInstanceAttribute' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` attributeType
 
 instance Prelude.NFData DescribeInstanceAttribute where

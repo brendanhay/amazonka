@@ -34,6 +34,7 @@ module Amazonka.Connect.StartTaskContact
     startTaskContact_previousContactId,
     startTaskContact_quickConnectId,
     startTaskContact_references,
+    startTaskContact_relatedContactId,
     startTaskContact_scheduledTime,
     startTaskContact_taskTemplateId,
     startTaskContact_instanceId,
@@ -91,14 +92,19 @@ data StartTaskContact = StartTaskContact'
     -- | A formatted URL that is shown to an agent in the Contact Control Panel
     -- (CCP).
     references :: Prelude.Maybe (Prelude.HashMap Prelude.Text Reference),
+    -- | The contactId that is
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks related>
+    -- to this contact.
+    relatedContactId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp, in Unix Epoch seconds format, at which to start running
     -- the inbound flow. The scheduled time cannot be in the past. It must be
     -- within up to 6 days in future.
     scheduledTime :: Prelude.Maybe Data.POSIX,
     -- | A unique identifier for the task template.
     taskTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The name of a task that is shown to an agent in the Contact Control
     -- Panel (CCP).
@@ -146,14 +152,19 @@ data StartTaskContact = StartTaskContact'
 -- 'references', 'startTaskContact_references' - A formatted URL that is shown to an agent in the Contact Control Panel
 -- (CCP).
 --
+-- 'relatedContactId', 'startTaskContact_relatedContactId' - The contactId that is
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks related>
+-- to this contact.
+--
 -- 'scheduledTime', 'startTaskContact_scheduledTime' - The timestamp, in Unix Epoch seconds format, at which to start running
 -- the inbound flow. The scheduled time cannot be in the past. It must be
 -- within up to 6 days in future.
 --
 -- 'taskTemplateId', 'startTaskContact_taskTemplateId' - A unique identifier for the task template.
 --
--- 'instanceId', 'startTaskContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'startTaskContact_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'name', 'startTaskContact_name' - The name of a task that is shown to an agent in the Contact Control
 -- Panel (CCP).
@@ -172,6 +183,7 @@ newStartTaskContact pInstanceId_ pName_ =
       previousContactId = Prelude.Nothing,
       quickConnectId = Prelude.Nothing,
       references = Prelude.Nothing,
+      relatedContactId = Prelude.Nothing,
       scheduledTime = Prelude.Nothing,
       taskTemplateId = Prelude.Nothing,
       instanceId = pInstanceId_,
@@ -224,6 +236,12 @@ startTaskContact_quickConnectId = Lens.lens (\StartTaskContact' {quickConnectId}
 startTaskContact_references :: Lens.Lens' StartTaskContact (Prelude.Maybe (Prelude.HashMap Prelude.Text Reference))
 startTaskContact_references = Lens.lens (\StartTaskContact' {references} -> references) (\s@StartTaskContact' {} a -> s {references = a} :: StartTaskContact) Prelude.. Lens.mapping Lens.coerced
 
+-- | The contactId that is
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks related>
+-- to this contact.
+startTaskContact_relatedContactId :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
+startTaskContact_relatedContactId = Lens.lens (\StartTaskContact' {relatedContactId} -> relatedContactId) (\s@StartTaskContact' {} a -> s {relatedContactId = a} :: StartTaskContact)
+
 -- | The timestamp, in Unix Epoch seconds format, at which to start running
 -- the inbound flow. The scheduled time cannot be in the past. It must be
 -- within up to 6 days in future.
@@ -234,8 +252,9 @@ startTaskContact_scheduledTime = Lens.lens (\StartTaskContact' {scheduledTime} -
 startTaskContact_taskTemplateId :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
 startTaskContact_taskTemplateId = Lens.lens (\StartTaskContact' {taskTemplateId} -> taskTemplateId) (\s@StartTaskContact' {} a -> s {taskTemplateId = a} :: StartTaskContact)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 startTaskContact_instanceId :: Lens.Lens' StartTaskContact Prelude.Text
 startTaskContact_instanceId = Lens.lens (\StartTaskContact' {instanceId} -> instanceId) (\s@StartTaskContact' {} a -> s {instanceId = a} :: StartTaskContact)
 
@@ -260,13 +279,15 @@ instance Core.AWSRequest StartTaskContact where
 
 instance Prelude.Hashable StartTaskContact where
   hashWithSalt _salt StartTaskContact' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` contactFlowId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` previousContactId
       `Prelude.hashWithSalt` quickConnectId
       `Prelude.hashWithSalt` references
+      `Prelude.hashWithSalt` relatedContactId
       `Prelude.hashWithSalt` scheduledTime
       `Prelude.hashWithSalt` taskTemplateId
       `Prelude.hashWithSalt` instanceId
@@ -281,6 +302,7 @@ instance Prelude.NFData StartTaskContact where
       `Prelude.seq` Prelude.rnf previousContactId
       `Prelude.seq` Prelude.rnf quickConnectId
       `Prelude.seq` Prelude.rnf references
+      `Prelude.seq` Prelude.rnf relatedContactId
       `Prelude.seq` Prelude.rnf scheduledTime
       `Prelude.seq` Prelude.rnf taskTemplateId
       `Prelude.seq` Prelude.rnf instanceId
@@ -310,6 +332,8 @@ instance Data.ToJSON StartTaskContact where
             ("QuickConnectId" Data..=)
               Prelude.<$> quickConnectId,
             ("References" Data..=) Prelude.<$> references,
+            ("RelatedContactId" Data..=)
+              Prelude.<$> relatedContactId,
             ("ScheduledTime" Data..=) Prelude.<$> scheduledTime,
             ("TaskTemplateId" Data..=)
               Prelude.<$> taskTemplateId,

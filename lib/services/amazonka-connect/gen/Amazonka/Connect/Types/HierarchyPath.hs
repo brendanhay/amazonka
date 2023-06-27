@@ -105,7 +105,8 @@ instance Data.FromJSON HierarchyPath where
 
 instance Prelude.Hashable HierarchyPath where
   hashWithSalt _salt HierarchyPath' {..} =
-    _salt `Prelude.hashWithSalt` levelFive
+    _salt
+      `Prelude.hashWithSalt` levelFive
       `Prelude.hashWithSalt` levelFour
       `Prelude.hashWithSalt` levelOne
       `Prelude.hashWithSalt` levelThree

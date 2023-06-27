@@ -69,12 +69,14 @@ instance Data.FromJSON NumberReference where
       "NumberReference"
       ( \x ->
           NumberReference'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable NumberReference where
   hashWithSalt _salt NumberReference' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData NumberReference where

@@ -53,7 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) of the resource.
+  { -- | The Amazon Resource Name (ARN) of the resource. All Amazon Connect
+    -- resources (instances, queues, flows, routing profiles, etc) have an ARN.
+    -- To locate the ARN for an instance, for example, see
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html Find your Amazon Connect instance ID\/ARN>.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +69,10 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the resource.
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the resource. All Amazon Connect
+-- resources (instances, queues, flows, routing profiles, etc) have an ARN.
+-- To locate the ARN for an instance, for example, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html Find your Amazon Connect instance ID\/ARN>.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -74,7 +80,10 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | The Amazon Resource Name (ARN) of the resource.
+-- | The Amazon Resource Name (ARN) of the resource. All Amazon Connect
+-- resources (instances, queues, flows, routing profiles, etc) have an ARN.
+-- To locate the ARN for an instance, for example, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html Find your Amazon Connect instance ID\/ARN>.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 

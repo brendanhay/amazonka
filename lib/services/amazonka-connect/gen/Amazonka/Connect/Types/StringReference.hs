@@ -69,12 +69,14 @@ instance Data.FromJSON StringReference where
       "StringReference"
       ( \x ->
           StringReference'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable StringReference where
   hashWithSalt _salt StringReference' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData StringReference where

@@ -66,8 +66,9 @@ data ListHoursOfOperations = ListHoursOfOperations'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,8 +88,9 @@ data ListHoursOfOperations = ListHoursOfOperations'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listHoursOfOperations_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listHoursOfOperations_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListHoursOfOperations ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -112,8 +114,9 @@ listHoursOfOperations_maxResults = Lens.lens (\ListHoursOfOperations' {maxResult
 listHoursOfOperations_nextToken :: Lens.Lens' ListHoursOfOperations (Prelude.Maybe Prelude.Text)
 listHoursOfOperations_nextToken = Lens.lens (\ListHoursOfOperations' {nextToken} -> nextToken) (\s@ListHoursOfOperations' {} a -> s {nextToken = a} :: ListHoursOfOperations)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listHoursOfOperations_instanceId :: Lens.Lens' ListHoursOfOperations Prelude.Text
 listHoursOfOperations_instanceId = Lens.lens (\ListHoursOfOperations' {instanceId} -> instanceId) (\s@ListHoursOfOperations' {} a -> s {instanceId = a} :: ListHoursOfOperations)
 
@@ -122,22 +125,22 @@ instance Core.AWSPager ListHoursOfOperations where
     | Core.stop
         ( rs
             Lens.^? listHoursOfOperationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listHoursOfOperationsResponse_hoursOfOperationSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listHoursOfOperations_nextToken
           Lens..~ rs
           Lens.^? listHoursOfOperationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHoursOfOperations where
   type
@@ -149,7 +152,8 @@ instance Core.AWSRequest ListHoursOfOperations where
     Response.receiveJSON
       ( \s h x ->
           ListHoursOfOperationsResponse'
-            Prelude.<$> ( x Data..?> "HoursOfOperationSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "HoursOfOperationSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -158,7 +162,8 @@ instance Core.AWSRequest ListHoursOfOperations where
 
 instance Prelude.Hashable ListHoursOfOperations where
   hashWithSalt _salt ListHoursOfOperations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 

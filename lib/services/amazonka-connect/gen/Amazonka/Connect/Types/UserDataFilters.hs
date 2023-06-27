@@ -95,7 +95,8 @@ userDataFilters_userHierarchyGroups = Lens.lens (\UserDataFilters' {userHierarch
 
 instance Prelude.Hashable UserDataFilters where
   hashWithSalt _salt UserDataFilters' {..} =
-    _salt `Prelude.hashWithSalt` agents
+    _salt
+      `Prelude.hashWithSalt` agents
       `Prelude.hashWithSalt` contactFilter
       `Prelude.hashWithSalt` queues
       `Prelude.hashWithSalt` routingProfiles

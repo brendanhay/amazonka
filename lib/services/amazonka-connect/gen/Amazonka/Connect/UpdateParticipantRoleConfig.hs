@@ -63,8 +63,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateParticipantRoleConfig' smart constructor.
 data UpdateParticipantRoleConfig = UpdateParticipantRoleConfig'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact in this instance of Amazon Connect.
     contactId :: Prelude.Text,
@@ -81,8 +82,9 @@ data UpdateParticipantRoleConfig = UpdateParticipantRoleConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateParticipantRoleConfig_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateParticipantRoleConfig_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'updateParticipantRoleConfig_contactId' - The identifier of the contact in this instance of Amazon Connect.
 --
@@ -106,8 +108,9 @@ newUpdateParticipantRoleConfig
         channelConfiguration = pChannelConfiguration_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateParticipantRoleConfig_instanceId :: Lens.Lens' UpdateParticipantRoleConfig Prelude.Text
 updateParticipantRoleConfig_instanceId = Lens.lens (\UpdateParticipantRoleConfig' {instanceId} -> instanceId) (\s@UpdateParticipantRoleConfig' {} a -> s {instanceId = a} :: UpdateParticipantRoleConfig)
 
@@ -134,7 +137,8 @@ instance Core.AWSRequest UpdateParticipantRoleConfig where
 
 instance Prelude.Hashable UpdateParticipantRoleConfig where
   hashWithSalt _salt UpdateParticipantRoleConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` channelConfiguration
 

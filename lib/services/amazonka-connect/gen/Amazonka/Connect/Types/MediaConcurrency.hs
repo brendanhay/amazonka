@@ -20,6 +20,7 @@
 module Amazonka.Connect.Types.MediaConcurrency where
 
 import Amazonka.Connect.Types.Channel
+import Amazonka.Connect.Types.CrossChannelBehavior
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -30,7 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaConcurrency' smart constructor.
 data MediaConcurrency = MediaConcurrency'
-  { -- | The channels that agents can handle in the Contact Control Panel (CCP).
+  { -- | Defines the cross-channel routing behavior for each channel that is
+    -- enabled for this Routing Profile. For example, this allows you to offer
+    -- an agent a different contact from another channel when they are
+    -- currently working with a contact from a Voice channel.
+    crossChannelBehavior :: Prelude.Maybe CrossChannelBehavior,
+    -- | The channels that agents can handle in the Contact Control Panel (CCP).
     channel :: Channel,
     -- | The number of contacts an agent can have on a channel simultaneously.
     --
@@ -51,6 +57,11 @@ data MediaConcurrency = MediaConcurrency'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'crossChannelBehavior', 'mediaConcurrency_crossChannelBehavior' - Defines the cross-channel routing behavior for each channel that is
+-- enabled for this Routing Profile. For example, this allows you to offer
+-- an agent a different contact from another channel when they are
+-- currently working with a contact from a Voice channel.
+--
 -- 'channel', 'mediaConcurrency_channel' - The channels that agents can handle in the Contact Control Panel (CCP).
 --
 -- 'concurrency', 'mediaConcurrency_concurrency' - The number of contacts an agent can have on a channel simultaneously.
@@ -68,9 +79,18 @@ newMediaConcurrency ::
   MediaConcurrency
 newMediaConcurrency pChannel_ pConcurrency_ =
   MediaConcurrency'
-    { channel = pChannel_,
+    { crossChannelBehavior =
+        Prelude.Nothing,
+      channel = pChannel_,
       concurrency = pConcurrency_
     }
+
+-- | Defines the cross-channel routing behavior for each channel that is
+-- enabled for this Routing Profile. For example, this allows you to offer
+-- an agent a different contact from another channel when they are
+-- currently working with a contact from a Voice channel.
+mediaConcurrency_crossChannelBehavior :: Lens.Lens' MediaConcurrency (Prelude.Maybe CrossChannelBehavior)
+mediaConcurrency_crossChannelBehavior = Lens.lens (\MediaConcurrency' {crossChannelBehavior} -> crossChannelBehavior) (\s@MediaConcurrency' {} a -> s {crossChannelBehavior = a} :: MediaConcurrency)
 
 -- | The channels that agents can handle in the Contact Control Panel (CCP).
 mediaConcurrency_channel :: Lens.Lens' MediaConcurrency Channel
@@ -92,25 +112,31 @@ instance Data.FromJSON MediaConcurrency where
       "MediaConcurrency"
       ( \x ->
           MediaConcurrency'
-            Prelude.<$> (x Data..: "Channel")
+            Prelude.<$> (x Data..:? "CrossChannelBehavior")
+            Prelude.<*> (x Data..: "Channel")
             Prelude.<*> (x Data..: "Concurrency")
       )
 
 instance Prelude.Hashable MediaConcurrency where
   hashWithSalt _salt MediaConcurrency' {..} =
-    _salt `Prelude.hashWithSalt` channel
+    _salt
+      `Prelude.hashWithSalt` crossChannelBehavior
+      `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` concurrency
 
 instance Prelude.NFData MediaConcurrency where
   rnf MediaConcurrency' {..} =
-    Prelude.rnf channel
+    Prelude.rnf crossChannelBehavior
+      `Prelude.seq` Prelude.rnf channel
       `Prelude.seq` Prelude.rnf concurrency
 
 instance Data.ToJSON MediaConcurrency where
   toJSON MediaConcurrency' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Channel" Data..= channel),
+          [ ("CrossChannelBehavior" Data..=)
+              Prelude.<$> crossChannelBehavior,
+            Prelude.Just ("Channel" Data..= channel),
             Prelude.Just ("Concurrency" Data..= concurrency)
           ]
       )

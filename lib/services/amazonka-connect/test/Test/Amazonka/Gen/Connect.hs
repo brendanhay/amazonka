@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAssociateApprovedOrigin $
+--         [ requestActivateEvaluationForm $
+--             newActivateEvaluationForm
+--
+--         , requestAssociateApprovedOrigin $
 --             newAssociateApprovedOrigin
 --
 --         , requestAssociateBot $
@@ -69,6 +72,9 @@ import Test.Tasty
 --         , requestCreateContactFlowModule $
 --             newCreateContactFlowModule
 --
+--         , requestCreateEvaluationForm $
+--             newCreateEvaluationForm
+--
 --         , requestCreateHoursOfOperation $
 --             newCreateHoursOfOperation
 --
@@ -77,6 +83,12 @@ import Test.Tasty
 --
 --         , requestCreateIntegrationAssociation $
 --             newCreateIntegrationAssociation
+--
+--         , requestCreateParticipant $
+--             newCreateParticipant
+--
+--         , requestCreatePrompt $
+--             newCreatePrompt
 --
 --         , requestCreateQueue $
 --             newCreateQueue
@@ -111,11 +123,20 @@ import Test.Tasty
 --         , requestCreateVocabulary $
 --             newCreateVocabulary
 --
+--         , requestDeactivateEvaluationForm $
+--             newDeactivateEvaluationForm
+--
+--         , requestDeleteContactEvaluation $
+--             newDeleteContactEvaluation
+--
 --         , requestDeleteContactFlow $
 --             newDeleteContactFlow
 --
 --         , requestDeleteContactFlowModule $
 --             newDeleteContactFlowModule
+--
+--         , requestDeleteEvaluationForm $
+--             newDeleteEvaluationForm
 --
 --         , requestDeleteHoursOfOperation $
 --             newDeleteHoursOfOperation
@@ -125,6 +146,9 @@ import Test.Tasty
 --
 --         , requestDeleteIntegrationAssociation $
 --             newDeleteIntegrationAssociation
+--
+--         , requestDeletePrompt $
+--             newDeletePrompt
 --
 --         , requestDeleteQuickConnect $
 --             newDeleteQuickConnect
@@ -159,11 +183,17 @@ import Test.Tasty
 --         , requestDescribeContact $
 --             newDescribeContact
 --
+--         , requestDescribeContactEvaluation $
+--             newDescribeContactEvaluation
+--
 --         , requestDescribeContactFlow $
 --             newDescribeContactFlow
 --
 --         , requestDescribeContactFlowModule $
 --             newDescribeContactFlowModule
+--
+--         , requestDescribeEvaluationForm $
+--             newDescribeEvaluationForm
 --
 --         , requestDescribeHoursOfOperation $
 --             newDescribeHoursOfOperation
@@ -179,6 +209,9 @@ import Test.Tasty
 --
 --         , requestDescribePhoneNumber $
 --             newDescribePhoneNumber
+--
+--         , requestDescribePrompt $
+--             newDescribePrompt
 --
 --         , requestDescribeQueue $
 --             newDescribeQueue
@@ -255,6 +288,12 @@ import Test.Tasty
 --         , requestGetMetricData $
 --             newGetMetricData
 --
+--         , requestGetMetricDataV2 $
+--             newGetMetricDataV2
+--
+--         , requestGetPromptFile $
+--             newGetPromptFile
+--
 --         , requestGetTaskTemplate $
 --             newGetTaskTemplate
 --
@@ -270,6 +309,9 @@ import Test.Tasty
 --         , requestListBots $
 --             newListBots
 --
+--         , requestListContactEvaluations $
+--             newListContactEvaluations
+--
 --         , requestListContactFlowModules $
 --             newListContactFlowModules
 --
@@ -281,6 +323,12 @@ import Test.Tasty
 --
 --         , requestListDefaultVocabularies $
 --             newListDefaultVocabularies
+--
+--         , requestListEvaluationFormVersions $
+--             newListEvaluationFormVersions
+--
+--         , requestListEvaluationForms $
+--             newListEvaluationForms
 --
 --         , requestListHoursOfOperations $
 --             newListHoursOfOperations
@@ -375,8 +423,20 @@ import Test.Tasty
 --         , requestSearchAvailablePhoneNumbers $
 --             newSearchAvailablePhoneNumbers
 --
+--         , requestSearchHoursOfOperations $
+--             newSearchHoursOfOperations
+--
+--         , requestSearchPrompts $
+--             newSearchPrompts
+--
 --         , requestSearchQueues $
 --             newSearchQueues
+--
+--         , requestSearchQuickConnects $
+--             newSearchQuickConnects
+--
+--         , requestSearchResourceTags $
+--             newSearchResourceTags
 --
 --         , requestSearchRoutingProfiles $
 --             newSearchRoutingProfiles
@@ -392,6 +452,9 @@ import Test.Tasty
 --
 --         , requestStartChatContact $
 --             newStartChatContact
+--
+--         , requestStartContactEvaluation $
+--             newStartContactEvaluation
 --
 --         , requestStartContactRecording $
 --             newStartContactRecording
@@ -414,6 +477,9 @@ import Test.Tasty
 --         , requestStopContactStreaming $
 --             newStopContactStreaming
 --
+--         , requestSubmitContactEvaluation $
+--             newSubmitContactEvaluation
+--
 --         , requestSuspendContactRecording $
 --             newSuspendContactRecording
 --
@@ -435,6 +501,9 @@ import Test.Tasty
 --         , requestUpdateContactAttributes $
 --             newUpdateContactAttributes
 --
+--         , requestUpdateContactEvaluation $
+--             newUpdateContactEvaluation
+--
 --         , requestUpdateContactFlowContent $
 --             newUpdateContactFlowContent
 --
@@ -453,6 +522,9 @@ import Test.Tasty
 --         , requestUpdateContactSchedule $
 --             newUpdateContactSchedule
 --
+--         , requestUpdateEvaluationForm $
+--             newUpdateEvaluationForm
+--
 --         , requestUpdateHoursOfOperation $
 --             newUpdateHoursOfOperation
 --
@@ -467,6 +539,9 @@ import Test.Tasty
 --
 --         , requestUpdatePhoneNumber $
 --             newUpdatePhoneNumber
+--
+--         , requestUpdatePrompt $
+--             newUpdatePrompt
 --
 --         , requestUpdateQueueHoursOfOperation $
 --             newUpdateQueueHoursOfOperation
@@ -537,7 +612,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseAssociateApprovedOrigin $
+--         [ responseActivateEvaluationForm $
+--             newActivateEvaluationFormResponse
+--
+--         , responseAssociateApprovedOrigin $
 --             newAssociateApprovedOriginResponse
 --
 --         , responseAssociateBot $
@@ -579,6 +657,9 @@ import Test.Tasty
 --         , responseCreateContactFlowModule $
 --             newCreateContactFlowModuleResponse
 --
+--         , responseCreateEvaluationForm $
+--             newCreateEvaluationFormResponse
+--
 --         , responseCreateHoursOfOperation $
 --             newCreateHoursOfOperationResponse
 --
@@ -587,6 +668,12 @@ import Test.Tasty
 --
 --         , responseCreateIntegrationAssociation $
 --             newCreateIntegrationAssociationResponse
+--
+--         , responseCreateParticipant $
+--             newCreateParticipantResponse
+--
+--         , responseCreatePrompt $
+--             newCreatePromptResponse
 --
 --         , responseCreateQueue $
 --             newCreateQueueResponse
@@ -621,11 +708,20 @@ import Test.Tasty
 --         , responseCreateVocabulary $
 --             newCreateVocabularyResponse
 --
+--         , responseDeactivateEvaluationForm $
+--             newDeactivateEvaluationFormResponse
+--
+--         , responseDeleteContactEvaluation $
+--             newDeleteContactEvaluationResponse
+--
 --         , responseDeleteContactFlow $
 --             newDeleteContactFlowResponse
 --
 --         , responseDeleteContactFlowModule $
 --             newDeleteContactFlowModuleResponse
+--
+--         , responseDeleteEvaluationForm $
+--             newDeleteEvaluationFormResponse
 --
 --         , responseDeleteHoursOfOperation $
 --             newDeleteHoursOfOperationResponse
@@ -635,6 +731,9 @@ import Test.Tasty
 --
 --         , responseDeleteIntegrationAssociation $
 --             newDeleteIntegrationAssociationResponse
+--
+--         , responseDeletePrompt $
+--             newDeletePromptResponse
 --
 --         , responseDeleteQuickConnect $
 --             newDeleteQuickConnectResponse
@@ -669,11 +768,17 @@ import Test.Tasty
 --         , responseDescribeContact $
 --             newDescribeContactResponse
 --
+--         , responseDescribeContactEvaluation $
+--             newDescribeContactEvaluationResponse
+--
 --         , responseDescribeContactFlow $
 --             newDescribeContactFlowResponse
 --
 --         , responseDescribeContactFlowModule $
 --             newDescribeContactFlowModuleResponse
+--
+--         , responseDescribeEvaluationForm $
+--             newDescribeEvaluationFormResponse
 --
 --         , responseDescribeHoursOfOperation $
 --             newDescribeHoursOfOperationResponse
@@ -689,6 +794,9 @@ import Test.Tasty
 --
 --         , responseDescribePhoneNumber $
 --             newDescribePhoneNumberResponse
+--
+--         , responseDescribePrompt $
+--             newDescribePromptResponse
 --
 --         , responseDescribeQueue $
 --             newDescribeQueueResponse
@@ -765,6 +873,12 @@ import Test.Tasty
 --         , responseGetMetricData $
 --             newGetMetricDataResponse
 --
+--         , responseGetMetricDataV2 $
+--             newGetMetricDataV2Response
+--
+--         , responseGetPromptFile $
+--             newGetPromptFileResponse
+--
 --         , responseGetTaskTemplate $
 --             newGetTaskTemplateResponse
 --
@@ -780,6 +894,9 @@ import Test.Tasty
 --         , responseListBots $
 --             newListBotsResponse
 --
+--         , responseListContactEvaluations $
+--             newListContactEvaluationsResponse
+--
 --         , responseListContactFlowModules $
 --             newListContactFlowModulesResponse
 --
@@ -791,6 +908,12 @@ import Test.Tasty
 --
 --         , responseListDefaultVocabularies $
 --             newListDefaultVocabulariesResponse
+--
+--         , responseListEvaluationFormVersions $
+--             newListEvaluationFormVersionsResponse
+--
+--         , responseListEvaluationForms $
+--             newListEvaluationFormsResponse
 --
 --         , responseListHoursOfOperations $
 --             newListHoursOfOperationsResponse
@@ -885,8 +1008,20 @@ import Test.Tasty
 --         , responseSearchAvailablePhoneNumbers $
 --             newSearchAvailablePhoneNumbersResponse
 --
+--         , responseSearchHoursOfOperations $
+--             newSearchHoursOfOperationsResponse
+--
+--         , responseSearchPrompts $
+--             newSearchPromptsResponse
+--
 --         , responseSearchQueues $
 --             newSearchQueuesResponse
+--
+--         , responseSearchQuickConnects $
+--             newSearchQuickConnectsResponse
+--
+--         , responseSearchResourceTags $
+--             newSearchResourceTagsResponse
 --
 --         , responseSearchRoutingProfiles $
 --             newSearchRoutingProfilesResponse
@@ -902,6 +1037,9 @@ import Test.Tasty
 --
 --         , responseStartChatContact $
 --             newStartChatContactResponse
+--
+--         , responseStartContactEvaluation $
+--             newStartContactEvaluationResponse
 --
 --         , responseStartContactRecording $
 --             newStartContactRecordingResponse
@@ -924,6 +1062,9 @@ import Test.Tasty
 --         , responseStopContactStreaming $
 --             newStopContactStreamingResponse
 --
+--         , responseSubmitContactEvaluation $
+--             newSubmitContactEvaluationResponse
+--
 --         , responseSuspendContactRecording $
 --             newSuspendContactRecordingResponse
 --
@@ -945,6 +1086,9 @@ import Test.Tasty
 --         , responseUpdateContactAttributes $
 --             newUpdateContactAttributesResponse
 --
+--         , responseUpdateContactEvaluation $
+--             newUpdateContactEvaluationResponse
+--
 --         , responseUpdateContactFlowContent $
 --             newUpdateContactFlowContentResponse
 --
@@ -963,6 +1107,9 @@ import Test.Tasty
 --         , responseUpdateContactSchedule $
 --             newUpdateContactScheduleResponse
 --
+--         , responseUpdateEvaluationForm $
+--             newUpdateEvaluationFormResponse
+--
 --         , responseUpdateHoursOfOperation $
 --             newUpdateHoursOfOperationResponse
 --
@@ -977,6 +1124,9 @@ import Test.Tasty
 --
 --         , responseUpdatePhoneNumber $
 --             newUpdatePhoneNumberResponse
+--
+--         , responseUpdatePrompt $
+--             newUpdatePromptResponse
 --
 --         , responseUpdateQueueHoursOfOperation $
 --             newUpdateQueueHoursOfOperationResponse
@@ -1048,6 +1198,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestActivateEvaluationForm :: ActivateEvaluationForm -> TestTree
+requestActivateEvaluationForm =
+  req
+    "ActivateEvaluationForm"
+    "fixture/ActivateEvaluationForm.yaml"
 
 requestAssociateApprovedOrigin :: AssociateApprovedOrigin -> TestTree
 requestAssociateApprovedOrigin =
@@ -1133,6 +1289,12 @@ requestCreateContactFlowModule =
     "CreateContactFlowModule"
     "fixture/CreateContactFlowModule.yaml"
 
+requestCreateEvaluationForm :: CreateEvaluationForm -> TestTree
+requestCreateEvaluationForm =
+  req
+    "CreateEvaluationForm"
+    "fixture/CreateEvaluationForm.yaml"
+
 requestCreateHoursOfOperation :: CreateHoursOfOperation -> TestTree
 requestCreateHoursOfOperation =
   req
@@ -1150,6 +1312,18 @@ requestCreateIntegrationAssociation =
   req
     "CreateIntegrationAssociation"
     "fixture/CreateIntegrationAssociation.yaml"
+
+requestCreateParticipant :: CreateParticipant -> TestTree
+requestCreateParticipant =
+  req
+    "CreateParticipant"
+    "fixture/CreateParticipant.yaml"
+
+requestCreatePrompt :: CreatePrompt -> TestTree
+requestCreatePrompt =
+  req
+    "CreatePrompt"
+    "fixture/CreatePrompt.yaml"
 
 requestCreateQueue :: CreateQueue -> TestTree
 requestCreateQueue =
@@ -1217,6 +1391,18 @@ requestCreateVocabulary =
     "CreateVocabulary"
     "fixture/CreateVocabulary.yaml"
 
+requestDeactivateEvaluationForm :: DeactivateEvaluationForm -> TestTree
+requestDeactivateEvaluationForm =
+  req
+    "DeactivateEvaluationForm"
+    "fixture/DeactivateEvaluationForm.yaml"
+
+requestDeleteContactEvaluation :: DeleteContactEvaluation -> TestTree
+requestDeleteContactEvaluation =
+  req
+    "DeleteContactEvaluation"
+    "fixture/DeleteContactEvaluation.yaml"
+
 requestDeleteContactFlow :: DeleteContactFlow -> TestTree
 requestDeleteContactFlow =
   req
@@ -1228,6 +1414,12 @@ requestDeleteContactFlowModule =
   req
     "DeleteContactFlowModule"
     "fixture/DeleteContactFlowModule.yaml"
+
+requestDeleteEvaluationForm :: DeleteEvaluationForm -> TestTree
+requestDeleteEvaluationForm =
+  req
+    "DeleteEvaluationForm"
+    "fixture/DeleteEvaluationForm.yaml"
 
 requestDeleteHoursOfOperation :: DeleteHoursOfOperation -> TestTree
 requestDeleteHoursOfOperation =
@@ -1246,6 +1438,12 @@ requestDeleteIntegrationAssociation =
   req
     "DeleteIntegrationAssociation"
     "fixture/DeleteIntegrationAssociation.yaml"
+
+requestDeletePrompt :: DeletePrompt -> TestTree
+requestDeletePrompt =
+  req
+    "DeletePrompt"
+    "fixture/DeletePrompt.yaml"
 
 requestDeleteQuickConnect :: DeleteQuickConnect -> TestTree
 requestDeleteQuickConnect =
@@ -1313,6 +1511,12 @@ requestDescribeContact =
     "DescribeContact"
     "fixture/DescribeContact.yaml"
 
+requestDescribeContactEvaluation :: DescribeContactEvaluation -> TestTree
+requestDescribeContactEvaluation =
+  req
+    "DescribeContactEvaluation"
+    "fixture/DescribeContactEvaluation.yaml"
+
 requestDescribeContactFlow :: DescribeContactFlow -> TestTree
 requestDescribeContactFlow =
   req
@@ -1324,6 +1528,12 @@ requestDescribeContactFlowModule =
   req
     "DescribeContactFlowModule"
     "fixture/DescribeContactFlowModule.yaml"
+
+requestDescribeEvaluationForm :: DescribeEvaluationForm -> TestTree
+requestDescribeEvaluationForm =
+  req
+    "DescribeEvaluationForm"
+    "fixture/DescribeEvaluationForm.yaml"
 
 requestDescribeHoursOfOperation :: DescribeHoursOfOperation -> TestTree
 requestDescribeHoursOfOperation =
@@ -1354,6 +1564,12 @@ requestDescribePhoneNumber =
   req
     "DescribePhoneNumber"
     "fixture/DescribePhoneNumber.yaml"
+
+requestDescribePrompt :: DescribePrompt -> TestTree
+requestDescribePrompt =
+  req
+    "DescribePrompt"
+    "fixture/DescribePrompt.yaml"
 
 requestDescribeQueue :: DescribeQueue -> TestTree
 requestDescribeQueue =
@@ -1505,6 +1721,18 @@ requestGetMetricData =
     "GetMetricData"
     "fixture/GetMetricData.yaml"
 
+requestGetMetricDataV2 :: GetMetricDataV2 -> TestTree
+requestGetMetricDataV2 =
+  req
+    "GetMetricDataV2"
+    "fixture/GetMetricDataV2.yaml"
+
+requestGetPromptFile :: GetPromptFile -> TestTree
+requestGetPromptFile =
+  req
+    "GetPromptFile"
+    "fixture/GetPromptFile.yaml"
+
 requestGetTaskTemplate :: GetTaskTemplate -> TestTree
 requestGetTaskTemplate =
   req
@@ -1535,6 +1763,12 @@ requestListBots =
     "ListBots"
     "fixture/ListBots.yaml"
 
+requestListContactEvaluations :: ListContactEvaluations -> TestTree
+requestListContactEvaluations =
+  req
+    "ListContactEvaluations"
+    "fixture/ListContactEvaluations.yaml"
+
 requestListContactFlowModules :: ListContactFlowModules -> TestTree
 requestListContactFlowModules =
   req
@@ -1558,6 +1792,18 @@ requestListDefaultVocabularies =
   req
     "ListDefaultVocabularies"
     "fixture/ListDefaultVocabularies.yaml"
+
+requestListEvaluationFormVersions :: ListEvaluationFormVersions -> TestTree
+requestListEvaluationFormVersions =
+  req
+    "ListEvaluationFormVersions"
+    "fixture/ListEvaluationFormVersions.yaml"
+
+requestListEvaluationForms :: ListEvaluationForms -> TestTree
+requestListEvaluationForms =
+  req
+    "ListEvaluationForms"
+    "fixture/ListEvaluationForms.yaml"
 
 requestListHoursOfOperations :: ListHoursOfOperations -> TestTree
 requestListHoursOfOperations =
@@ -1745,11 +1991,35 @@ requestSearchAvailablePhoneNumbers =
     "SearchAvailablePhoneNumbers"
     "fixture/SearchAvailablePhoneNumbers.yaml"
 
+requestSearchHoursOfOperations :: SearchHoursOfOperations -> TestTree
+requestSearchHoursOfOperations =
+  req
+    "SearchHoursOfOperations"
+    "fixture/SearchHoursOfOperations.yaml"
+
+requestSearchPrompts :: SearchPrompts -> TestTree
+requestSearchPrompts =
+  req
+    "SearchPrompts"
+    "fixture/SearchPrompts.yaml"
+
 requestSearchQueues :: SearchQueues -> TestTree
 requestSearchQueues =
   req
     "SearchQueues"
     "fixture/SearchQueues.yaml"
+
+requestSearchQuickConnects :: SearchQuickConnects -> TestTree
+requestSearchQuickConnects =
+  req
+    "SearchQuickConnects"
+    "fixture/SearchQuickConnects.yaml"
+
+requestSearchResourceTags :: SearchResourceTags -> TestTree
+requestSearchResourceTags =
+  req
+    "SearchResourceTags"
+    "fixture/SearchResourceTags.yaml"
 
 requestSearchRoutingProfiles :: SearchRoutingProfiles -> TestTree
 requestSearchRoutingProfiles =
@@ -1780,6 +2050,12 @@ requestStartChatContact =
   req
     "StartChatContact"
     "fixture/StartChatContact.yaml"
+
+requestStartContactEvaluation :: StartContactEvaluation -> TestTree
+requestStartContactEvaluation =
+  req
+    "StartContactEvaluation"
+    "fixture/StartContactEvaluation.yaml"
 
 requestStartContactRecording :: StartContactRecording -> TestTree
 requestStartContactRecording =
@@ -1823,6 +2099,12 @@ requestStopContactStreaming =
     "StopContactStreaming"
     "fixture/StopContactStreaming.yaml"
 
+requestSubmitContactEvaluation :: SubmitContactEvaluation -> TestTree
+requestSubmitContactEvaluation =
+  req
+    "SubmitContactEvaluation"
+    "fixture/SubmitContactEvaluation.yaml"
+
 requestSuspendContactRecording :: SuspendContactRecording -> TestTree
 requestSuspendContactRecording =
   req
@@ -1865,6 +2147,12 @@ requestUpdateContactAttributes =
     "UpdateContactAttributes"
     "fixture/UpdateContactAttributes.yaml"
 
+requestUpdateContactEvaluation :: UpdateContactEvaluation -> TestTree
+requestUpdateContactEvaluation =
+  req
+    "UpdateContactEvaluation"
+    "fixture/UpdateContactEvaluation.yaml"
+
 requestUpdateContactFlowContent :: UpdateContactFlowContent -> TestTree
 requestUpdateContactFlowContent =
   req
@@ -1901,6 +2189,12 @@ requestUpdateContactSchedule =
     "UpdateContactSchedule"
     "fixture/UpdateContactSchedule.yaml"
 
+requestUpdateEvaluationForm :: UpdateEvaluationForm -> TestTree
+requestUpdateEvaluationForm =
+  req
+    "UpdateEvaluationForm"
+    "fixture/UpdateEvaluationForm.yaml"
+
 requestUpdateHoursOfOperation :: UpdateHoursOfOperation -> TestTree
 requestUpdateHoursOfOperation =
   req
@@ -1930,6 +2224,12 @@ requestUpdatePhoneNumber =
   req
     "UpdatePhoneNumber"
     "fixture/UpdatePhoneNumber.yaml"
+
+requestUpdatePrompt :: UpdatePrompt -> TestTree
+requestUpdatePrompt =
+  req
+    "UpdatePrompt"
+    "fixture/UpdatePrompt.yaml"
 
 requestUpdateQueueHoursOfOperation :: UpdateQueueHoursOfOperation -> TestTree
 requestUpdateQueueHoursOfOperation =
@@ -2065,6 +2365,14 @@ requestUpdateUserSecurityProfiles =
 
 -- Responses
 
+responseActivateEvaluationForm :: ActivateEvaluationFormResponse -> TestTree
+responseActivateEvaluationForm =
+  res
+    "ActivateEvaluationFormResponse"
+    "fixture/ActivateEvaluationFormResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ActivateEvaluationForm)
+
 responseAssociateApprovedOrigin :: AssociateApprovedOriginResponse -> TestTree
 responseAssociateApprovedOrigin =
   res
@@ -2177,6 +2485,14 @@ responseCreateContactFlowModule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateContactFlowModule)
 
+responseCreateEvaluationForm :: CreateEvaluationFormResponse -> TestTree
+responseCreateEvaluationForm =
+  res
+    "CreateEvaluationFormResponse"
+    "fixture/CreateEvaluationFormResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateEvaluationForm)
+
 responseCreateHoursOfOperation :: CreateHoursOfOperationResponse -> TestTree
 responseCreateHoursOfOperation =
   res
@@ -2200,6 +2516,22 @@ responseCreateIntegrationAssociation =
     "fixture/CreateIntegrationAssociationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateIntegrationAssociation)
+
+responseCreateParticipant :: CreateParticipantResponse -> TestTree
+responseCreateParticipant =
+  res
+    "CreateParticipantResponse"
+    "fixture/CreateParticipantResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateParticipant)
+
+responseCreatePrompt :: CreatePromptResponse -> TestTree
+responseCreatePrompt =
+  res
+    "CreatePromptResponse"
+    "fixture/CreatePromptResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePrompt)
 
 responseCreateQueue :: CreateQueueResponse -> TestTree
 responseCreateQueue =
@@ -2289,6 +2621,22 @@ responseCreateVocabulary =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateVocabulary)
 
+responseDeactivateEvaluationForm :: DeactivateEvaluationFormResponse -> TestTree
+responseDeactivateEvaluationForm =
+  res
+    "DeactivateEvaluationFormResponse"
+    "fixture/DeactivateEvaluationFormResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeactivateEvaluationForm)
+
+responseDeleteContactEvaluation :: DeleteContactEvaluationResponse -> TestTree
+responseDeleteContactEvaluation =
+  res
+    "DeleteContactEvaluationResponse"
+    "fixture/DeleteContactEvaluationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteContactEvaluation)
+
 responseDeleteContactFlow :: DeleteContactFlowResponse -> TestTree
 responseDeleteContactFlow =
   res
@@ -2304,6 +2652,14 @@ responseDeleteContactFlowModule =
     "fixture/DeleteContactFlowModuleResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteContactFlowModule)
+
+responseDeleteEvaluationForm :: DeleteEvaluationFormResponse -> TestTree
+responseDeleteEvaluationForm =
+  res
+    "DeleteEvaluationFormResponse"
+    "fixture/DeleteEvaluationFormResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEvaluationForm)
 
 responseDeleteHoursOfOperation :: DeleteHoursOfOperationResponse -> TestTree
 responseDeleteHoursOfOperation =
@@ -2328,6 +2684,14 @@ responseDeleteIntegrationAssociation =
     "fixture/DeleteIntegrationAssociationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteIntegrationAssociation)
+
+responseDeletePrompt :: DeletePromptResponse -> TestTree
+responseDeletePrompt =
+  res
+    "DeletePromptResponse"
+    "fixture/DeletePromptResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePrompt)
 
 responseDeleteQuickConnect :: DeleteQuickConnectResponse -> TestTree
 responseDeleteQuickConnect =
@@ -2417,6 +2781,14 @@ responseDescribeContact =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeContact)
 
+responseDescribeContactEvaluation :: DescribeContactEvaluationResponse -> TestTree
+responseDescribeContactEvaluation =
+  res
+    "DescribeContactEvaluationResponse"
+    "fixture/DescribeContactEvaluationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeContactEvaluation)
+
 responseDescribeContactFlow :: DescribeContactFlowResponse -> TestTree
 responseDescribeContactFlow =
   res
@@ -2432,6 +2804,14 @@ responseDescribeContactFlowModule =
     "fixture/DescribeContactFlowModuleResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeContactFlowModule)
+
+responseDescribeEvaluationForm :: DescribeEvaluationFormResponse -> TestTree
+responseDescribeEvaluationForm =
+  res
+    "DescribeEvaluationFormResponse"
+    "fixture/DescribeEvaluationFormResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeEvaluationForm)
 
 responseDescribeHoursOfOperation :: DescribeHoursOfOperationResponse -> TestTree
 responseDescribeHoursOfOperation =
@@ -2472,6 +2852,14 @@ responseDescribePhoneNumber =
     "fixture/DescribePhoneNumberResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePhoneNumber)
+
+responseDescribePrompt :: DescribePromptResponse -> TestTree
+responseDescribePrompt =
+  res
+    "DescribePromptResponse"
+    "fixture/DescribePromptResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribePrompt)
 
 responseDescribeQueue :: DescribeQueueResponse -> TestTree
 responseDescribeQueue =
@@ -2673,6 +3061,22 @@ responseGetMetricData =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMetricData)
 
+responseGetMetricDataV2 :: GetMetricDataV2Response -> TestTree
+responseGetMetricDataV2 =
+  res
+    "GetMetricDataV2Response"
+    "fixture/GetMetricDataV2Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMetricDataV2)
+
+responseGetPromptFile :: GetPromptFileResponse -> TestTree
+responseGetPromptFile =
+  res
+    "GetPromptFileResponse"
+    "fixture/GetPromptFileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPromptFile)
+
 responseGetTaskTemplate :: GetTaskTemplateResponse -> TestTree
 responseGetTaskTemplate =
   res
@@ -2713,6 +3117,14 @@ responseListBots =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListBots)
 
+responseListContactEvaluations :: ListContactEvaluationsResponse -> TestTree
+responseListContactEvaluations =
+  res
+    "ListContactEvaluationsResponse"
+    "fixture/ListContactEvaluationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListContactEvaluations)
+
 responseListContactFlowModules :: ListContactFlowModulesResponse -> TestTree
 responseListContactFlowModules =
   res
@@ -2744,6 +3156,22 @@ responseListDefaultVocabularies =
     "fixture/ListDefaultVocabulariesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDefaultVocabularies)
+
+responseListEvaluationFormVersions :: ListEvaluationFormVersionsResponse -> TestTree
+responseListEvaluationFormVersions =
+  res
+    "ListEvaluationFormVersionsResponse"
+    "fixture/ListEvaluationFormVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEvaluationFormVersions)
+
+responseListEvaluationForms :: ListEvaluationFormsResponse -> TestTree
+responseListEvaluationForms =
+  res
+    "ListEvaluationFormsResponse"
+    "fixture/ListEvaluationFormsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEvaluationForms)
 
 responseListHoursOfOperations :: ListHoursOfOperationsResponse -> TestTree
 responseListHoursOfOperations =
@@ -2993,6 +3421,22 @@ responseSearchAvailablePhoneNumbers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchAvailablePhoneNumbers)
 
+responseSearchHoursOfOperations :: SearchHoursOfOperationsResponse -> TestTree
+responseSearchHoursOfOperations =
+  res
+    "SearchHoursOfOperationsResponse"
+    "fixture/SearchHoursOfOperationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchHoursOfOperations)
+
+responseSearchPrompts :: SearchPromptsResponse -> TestTree
+responseSearchPrompts =
+  res
+    "SearchPromptsResponse"
+    "fixture/SearchPromptsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchPrompts)
+
 responseSearchQueues :: SearchQueuesResponse -> TestTree
 responseSearchQueues =
   res
@@ -3000,6 +3444,22 @@ responseSearchQueues =
     "fixture/SearchQueuesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchQueues)
+
+responseSearchQuickConnects :: SearchQuickConnectsResponse -> TestTree
+responseSearchQuickConnects =
+  res
+    "SearchQuickConnectsResponse"
+    "fixture/SearchQuickConnectsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchQuickConnects)
+
+responseSearchResourceTags :: SearchResourceTagsResponse -> TestTree
+responseSearchResourceTags =
+  res
+    "SearchResourceTagsResponse"
+    "fixture/SearchResourceTagsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchResourceTags)
 
 responseSearchRoutingProfiles :: SearchRoutingProfilesResponse -> TestTree
 responseSearchRoutingProfiles =
@@ -3040,6 +3500,14 @@ responseStartChatContact =
     "fixture/StartChatContactResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartChatContact)
+
+responseStartContactEvaluation :: StartContactEvaluationResponse -> TestTree
+responseStartContactEvaluation =
+  res
+    "StartContactEvaluationResponse"
+    "fixture/StartContactEvaluationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartContactEvaluation)
 
 responseStartContactRecording :: StartContactRecordingResponse -> TestTree
 responseStartContactRecording =
@@ -3097,6 +3565,14 @@ responseStopContactStreaming =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopContactStreaming)
 
+responseSubmitContactEvaluation :: SubmitContactEvaluationResponse -> TestTree
+responseSubmitContactEvaluation =
+  res
+    "SubmitContactEvaluationResponse"
+    "fixture/SubmitContactEvaluationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SubmitContactEvaluation)
+
 responseSuspendContactRecording :: SuspendContactRecordingResponse -> TestTree
 responseSuspendContactRecording =
   res
@@ -3153,6 +3629,14 @@ responseUpdateContactAttributes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateContactAttributes)
 
+responseUpdateContactEvaluation :: UpdateContactEvaluationResponse -> TestTree
+responseUpdateContactEvaluation =
+  res
+    "UpdateContactEvaluationResponse"
+    "fixture/UpdateContactEvaluationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateContactEvaluation)
+
 responseUpdateContactFlowContent :: UpdateContactFlowContentResponse -> TestTree
 responseUpdateContactFlowContent =
   res
@@ -3201,6 +3685,14 @@ responseUpdateContactSchedule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateContactSchedule)
 
+responseUpdateEvaluationForm :: UpdateEvaluationFormResponse -> TestTree
+responseUpdateEvaluationForm =
+  res
+    "UpdateEvaluationFormResponse"
+    "fixture/UpdateEvaluationFormResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEvaluationForm)
+
 responseUpdateHoursOfOperation :: UpdateHoursOfOperationResponse -> TestTree
 responseUpdateHoursOfOperation =
   res
@@ -3240,6 +3732,14 @@ responseUpdatePhoneNumber =
     "fixture/UpdatePhoneNumberResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdatePhoneNumber)
+
+responseUpdatePrompt :: UpdatePromptResponse -> TestTree
+responseUpdatePrompt =
+  res
+    "UpdatePromptResponse"
+    "fixture/UpdatePromptResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePrompt)
 
 responseUpdateQueueHoursOfOperation :: UpdateQueueHoursOfOperationResponse -> TestTree
 responseUpdateQueueHoursOfOperation =

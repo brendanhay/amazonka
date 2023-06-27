@@ -54,8 +54,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTrafficDistributionGroups' smart constructor.
 data ListTrafficDistributionGroups = ListTrafficDistributionGroups'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -74,8 +75,9 @@ data ListTrafficDistributionGroups = ListTrafficDistributionGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'listTrafficDistributionGroups_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listTrafficDistributionGroups_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'maxResults', 'listTrafficDistributionGroups_maxResults' - The maximum number of results to return per page.
 --
@@ -92,8 +94,9 @@ newListTrafficDistributionGroups =
       nextToken = Prelude.Nothing
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listTrafficDistributionGroups_instanceId :: Lens.Lens' ListTrafficDistributionGroups (Prelude.Maybe Prelude.Text)
 listTrafficDistributionGroups_instanceId = Lens.lens (\ListTrafficDistributionGroups' {instanceId} -> instanceId) (\s@ListTrafficDistributionGroups' {} a -> s {instanceId = a} :: ListTrafficDistributionGroups)
 
@@ -112,22 +115,22 @@ instance Core.AWSPager ListTrafficDistributionGroups where
     | Core.stop
         ( rs
             Lens.^? listTrafficDistributionGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTrafficDistributionGroupsResponse_trafficDistributionGroupSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTrafficDistributionGroups_nextToken
           Lens..~ rs
           Lens.^? listTrafficDistributionGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -143,7 +146,8 @@ instance
       ( \s h x ->
           ListTrafficDistributionGroupsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "TrafficDistributionGroupSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "TrafficDistributionGroupSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,7 +158,8 @@ instance
     ListTrafficDistributionGroups
   where
   hashWithSalt _salt ListTrafficDistributionGroups' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

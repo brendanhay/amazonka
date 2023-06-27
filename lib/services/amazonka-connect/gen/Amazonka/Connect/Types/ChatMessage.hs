@@ -29,7 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newChatMessage' smart constructor.
 data ChatMessage = ChatMessage'
   { -- | The type of the content. Supported types are @text\/plain@,
-    -- @text\/markdown@, and @application\/json@.
+    -- @text\/markdown@, @application\/json@, and
+    -- @application\/vnd.amazonaws.connect.message.interactive.response@.
     contentType :: Prelude.Text,
     -- | The content of the chat message.
     --
@@ -38,6 +39,10 @@ data ChatMessage = ChatMessage'
     --
     -- -   For @application\/json@, the Length Constraints are Minimum of 1,
     --     Maximum of 12000.
+    --
+    -- -   For
+    --     @application\/vnd.amazonaws.connect.message.interactive.response@,
+    --     the Length Constraints are Minimum of 1, Maximum of 12288.
     content :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,7 +56,8 @@ data ChatMessage = ChatMessage'
 -- for backwards compatibility:
 --
 -- 'contentType', 'chatMessage_contentType' - The type of the content. Supported types are @text\/plain@,
--- @text\/markdown@, and @application\/json@.
+-- @text\/markdown@, @application\/json@, and
+-- @application\/vnd.amazonaws.connect.message.interactive.response@.
 --
 -- 'content', 'chatMessage_content' - The content of the chat message.
 --
@@ -60,6 +66,10 @@ data ChatMessage = ChatMessage'
 --
 -- -   For @application\/json@, the Length Constraints are Minimum of 1,
 --     Maximum of 12000.
+--
+-- -   For
+--     @application\/vnd.amazonaws.connect.message.interactive.response@,
+--     the Length Constraints are Minimum of 1, Maximum of 12288.
 newChatMessage ::
   -- | 'contentType'
   Prelude.Text ->
@@ -73,7 +83,8 @@ newChatMessage pContentType_ pContent_ =
     }
 
 -- | The type of the content. Supported types are @text\/plain@,
--- @text\/markdown@, and @application\/json@.
+-- @text\/markdown@, @application\/json@, and
+-- @application\/vnd.amazonaws.connect.message.interactive.response@.
 chatMessage_contentType :: Lens.Lens' ChatMessage Prelude.Text
 chatMessage_contentType = Lens.lens (\ChatMessage' {contentType} -> contentType) (\s@ChatMessage' {} a -> s {contentType = a} :: ChatMessage)
 
@@ -84,12 +95,17 @@ chatMessage_contentType = Lens.lens (\ChatMessage' {contentType} -> contentType)
 --
 -- -   For @application\/json@, the Length Constraints are Minimum of 1,
 --     Maximum of 12000.
+--
+-- -   For
+--     @application\/vnd.amazonaws.connect.message.interactive.response@,
+--     the Length Constraints are Minimum of 1, Maximum of 12288.
 chatMessage_content :: Lens.Lens' ChatMessage Prelude.Text
 chatMessage_content = Lens.lens (\ChatMessage' {content} -> content) (\s@ChatMessage' {} a -> s {content = a} :: ChatMessage)
 
 instance Prelude.Hashable ChatMessage where
   hashWithSalt _salt ChatMessage' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData ChatMessage where

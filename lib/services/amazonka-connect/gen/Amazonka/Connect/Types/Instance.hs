@@ -35,13 +35,17 @@ data Instance = Instance'
     arn :: Prelude.Maybe Prelude.Text,
     -- | When the instance was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     id :: Prelude.Maybe Prelude.Text,
     -- | The identity management type.
     identityManagementType :: Prelude.Maybe DirectoryType,
     -- | Whether inbound calls are enabled.
     inboundCallsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | This URL allows contact center users to access Amazon Connect admin
+    -- website.
+    instanceAccessUrl :: Prelude.Maybe Prelude.Text,
     -- | The alias of instance.
     instanceAlias :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The state of the instance.
@@ -67,12 +71,16 @@ data Instance = Instance'
 --
 -- 'createdTime', 'instance_createdTime' - When the instance was created.
 --
--- 'id', 'instance_id' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'id', 'instance_id' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'identityManagementType', 'instance_identityManagementType' - The identity management type.
 --
 -- 'inboundCallsEnabled', 'instance_inboundCallsEnabled' - Whether inbound calls are enabled.
+--
+-- 'instanceAccessUrl', 'instance_instanceAccessUrl' - This URL allows contact center users to access Amazon Connect admin
+-- website.
 --
 -- 'instanceAlias', 'instance_instanceAlias' - The alias of instance.
 --
@@ -92,6 +100,7 @@ newInstance =
       id = Prelude.Nothing,
       identityManagementType = Prelude.Nothing,
       inboundCallsEnabled = Prelude.Nothing,
+      instanceAccessUrl = Prelude.Nothing,
       instanceAlias = Prelude.Nothing,
       instanceStatus = Prelude.Nothing,
       outboundCallsEnabled = Prelude.Nothing,
@@ -107,8 +116,9 @@ instance_arn = Lens.lens (\Instance' {arn} -> arn) (\s@Instance' {} a -> s {arn 
 instance_createdTime :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
 instance_createdTime = Lens.lens (\Instance' {createdTime} -> createdTime) (\s@Instance' {} a -> s {createdTime = a} :: Instance) Prelude.. Lens.mapping Data._Time
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 instance_id :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
 
@@ -119,6 +129,11 @@ instance_identityManagementType = Lens.lens (\Instance' {identityManagementType}
 -- | Whether inbound calls are enabled.
 instance_inboundCallsEnabled :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
 instance_inboundCallsEnabled = Lens.lens (\Instance' {inboundCallsEnabled} -> inboundCallsEnabled) (\s@Instance' {} a -> s {inboundCallsEnabled = a} :: Instance)
+
+-- | This URL allows contact center users to access Amazon Connect admin
+-- website.
+instance_instanceAccessUrl :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceAccessUrl = Lens.lens (\Instance' {instanceAccessUrl} -> instanceAccessUrl) (\s@Instance' {} a -> s {instanceAccessUrl = a} :: Instance)
 
 -- | The alias of instance.
 instance_instanceAlias :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
@@ -151,6 +166,7 @@ instance Data.FromJSON Instance where
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "IdentityManagementType")
             Prelude.<*> (x Data..:? "InboundCallsEnabled")
+            Prelude.<*> (x Data..:? "InstanceAccessUrl")
             Prelude.<*> (x Data..:? "InstanceAlias")
             Prelude.<*> (x Data..:? "InstanceStatus")
             Prelude.<*> (x Data..:? "OutboundCallsEnabled")
@@ -160,11 +176,13 @@ instance Data.FromJSON Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` identityManagementType
       `Prelude.hashWithSalt` inboundCallsEnabled
+      `Prelude.hashWithSalt` instanceAccessUrl
       `Prelude.hashWithSalt` instanceAlias
       `Prelude.hashWithSalt` instanceStatus
       `Prelude.hashWithSalt` outboundCallsEnabled
@@ -178,6 +196,7 @@ instance Prelude.NFData Instance where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf identityManagementType
       `Prelude.seq` Prelude.rnf inboundCallsEnabled
+      `Prelude.seq` Prelude.rnf instanceAccessUrl
       `Prelude.seq` Prelude.rnf instanceAlias
       `Prelude.seq` Prelude.rnf instanceStatus
       `Prelude.seq` Prelude.rnf outboundCallsEnabled

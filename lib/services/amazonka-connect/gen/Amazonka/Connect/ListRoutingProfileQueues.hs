@@ -62,8 +62,9 @@ data ListRoutingProfileQueues = ListRoutingProfileQueues'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text
@@ -85,8 +86,9 @@ data ListRoutingProfileQueues = ListRoutingProfileQueues'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'instanceId', 'listRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'routingProfileId', 'listRoutingProfileQueues_routingProfileId' - The identifier of the routing profile.
 newListRoutingProfileQueues ::
@@ -117,8 +119,9 @@ listRoutingProfileQueues_maxResults = Lens.lens (\ListRoutingProfileQueues' {max
 listRoutingProfileQueues_nextToken :: Lens.Lens' ListRoutingProfileQueues (Prelude.Maybe Prelude.Text)
 listRoutingProfileQueues_nextToken = Lens.lens (\ListRoutingProfileQueues' {nextToken} -> nextToken) (\s@ListRoutingProfileQueues' {} a -> s {nextToken = a} :: ListRoutingProfileQueues)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listRoutingProfileQueues_instanceId :: Lens.Lens' ListRoutingProfileQueues Prelude.Text
 listRoutingProfileQueues_instanceId = Lens.lens (\ListRoutingProfileQueues' {instanceId} -> instanceId) (\s@ListRoutingProfileQueues' {} a -> s {instanceId = a} :: ListRoutingProfileQueues)
 
@@ -131,22 +134,22 @@ instance Core.AWSPager ListRoutingProfileQueues where
     | Core.stop
         ( rs
             Lens.^? listRoutingProfileQueuesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRoutingProfileQueues_nextToken
           Lens..~ rs
           Lens.^? listRoutingProfileQueuesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoutingProfileQueues where
   type
@@ -159,7 +162,8 @@ instance Core.AWSRequest ListRoutingProfileQueues where
       ( \s h x ->
           ListRoutingProfileQueuesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "RoutingProfileQueueConfigSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "RoutingProfileQueueConfigSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,7 +171,8 @@ instance Core.AWSRequest ListRoutingProfileQueues where
 
 instance Prelude.Hashable ListRoutingProfileQueues where
   hashWithSalt _salt ListRoutingProfileQueues' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` routingProfileId

@@ -50,8 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRule' smart constructor.
 data DescribeRule = DescribeRule'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | A unique identifier for the rule.
     ruleId :: Prelude.Text
@@ -66,8 +67,9 @@ data DescribeRule = DescribeRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeRule_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeRule_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'ruleId', 'describeRule_ruleId' - A unique identifier for the rule.
 newDescribeRule ::
@@ -82,8 +84,9 @@ newDescribeRule pInstanceId_ pRuleId_ =
       ruleId = pRuleId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeRule_instanceId :: Lens.Lens' DescribeRule Prelude.Text
 describeRule_instanceId = Lens.lens (\DescribeRule' {instanceId} -> instanceId) (\s@DescribeRule' {} a -> s {instanceId = a} :: DescribeRule)
 
@@ -105,7 +108,8 @@ instance Core.AWSRequest DescribeRule where
 
 instance Prelude.Hashable DescribeRule where
   hashWithSalt _salt DescribeRule' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` ruleId
 
 instance Prelude.NFData DescribeRule where

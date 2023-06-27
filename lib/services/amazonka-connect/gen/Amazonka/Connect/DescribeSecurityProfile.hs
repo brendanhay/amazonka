@@ -55,8 +55,9 @@ import qualified Amazonka.Response as Response
 data DescribeSecurityProfile = DescribeSecurityProfile'
   { -- | The identifier for the security profle.
     securityProfileId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,8 +72,9 @@ data DescribeSecurityProfile = DescribeSecurityProfile'
 --
 -- 'securityProfileId', 'describeSecurityProfile_securityProfileId' - The identifier for the security profle.
 --
--- 'instanceId', 'describeSecurityProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeSecurityProfile_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newDescribeSecurityProfile ::
   -- | 'securityProfileId'
   Prelude.Text ->
@@ -92,8 +94,9 @@ newDescribeSecurityProfile
 describeSecurityProfile_securityProfileId :: Lens.Lens' DescribeSecurityProfile Prelude.Text
 describeSecurityProfile_securityProfileId = Lens.lens (\DescribeSecurityProfile' {securityProfileId} -> securityProfileId) (\s@DescribeSecurityProfile' {} a -> s {securityProfileId = a} :: DescribeSecurityProfile)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeSecurityProfile_instanceId :: Lens.Lens' DescribeSecurityProfile Prelude.Text
 describeSecurityProfile_instanceId = Lens.lens (\DescribeSecurityProfile' {instanceId} -> instanceId) (\s@DescribeSecurityProfile' {} a -> s {instanceId = a} :: DescribeSecurityProfile)
 
@@ -113,7 +116,8 @@ instance Core.AWSRequest DescribeSecurityProfile where
 
 instance Prelude.Hashable DescribeSecurityProfile where
   hashWithSalt _salt DescribeSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` securityProfileId
+    _salt
+      `Prelude.hashWithSalt` securityProfileId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DescribeSecurityProfile where

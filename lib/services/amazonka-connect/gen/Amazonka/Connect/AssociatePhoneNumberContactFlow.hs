@@ -60,8 +60,9 @@ import qualified Amazonka.Response as Response
 data AssociatePhoneNumberContactFlow = AssociatePhoneNumberContactFlow'
   { -- | A unique identifier for the phone number.
     phoneNumberId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the flow.
     contactFlowId :: Prelude.Text
@@ -78,8 +79,9 @@ data AssociatePhoneNumberContactFlow = AssociatePhoneNumberContactFlow'
 --
 -- 'phoneNumberId', 'associatePhoneNumberContactFlow_phoneNumberId' - A unique identifier for the phone number.
 --
--- 'instanceId', 'associatePhoneNumberContactFlow_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'associatePhoneNumberContactFlow_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactFlowId', 'associatePhoneNumberContactFlow_contactFlowId' - The identifier of the flow.
 newAssociatePhoneNumberContactFlow ::
@@ -105,8 +107,9 @@ newAssociatePhoneNumberContactFlow
 associatePhoneNumberContactFlow_phoneNumberId :: Lens.Lens' AssociatePhoneNumberContactFlow Prelude.Text
 associatePhoneNumberContactFlow_phoneNumberId = Lens.lens (\AssociatePhoneNumberContactFlow' {phoneNumberId} -> phoneNumberId) (\s@AssociatePhoneNumberContactFlow' {} a -> s {phoneNumberId = a} :: AssociatePhoneNumberContactFlow)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 associatePhoneNumberContactFlow_instanceId :: Lens.Lens' AssociatePhoneNumberContactFlow Prelude.Text
 associatePhoneNumberContactFlow_instanceId = Lens.lens (\AssociatePhoneNumberContactFlow' {instanceId} -> instanceId) (\s@AssociatePhoneNumberContactFlow' {} a -> s {instanceId = a} :: AssociatePhoneNumberContactFlow)
 
@@ -134,7 +137,8 @@ instance
   hashWithSalt
     _salt
     AssociatePhoneNumberContactFlow' {..} =
-      _salt `Prelude.hashWithSalt` phoneNumberId
+      _salt
+        `Prelude.hashWithSalt` phoneNumberId
         `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` contactFlowId
 

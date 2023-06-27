@@ -95,7 +95,8 @@ instance Data.FromJSON QueueSummary where
 
 instance Prelude.Hashable QueueSummary where
   hashWithSalt _salt QueueSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` queueType

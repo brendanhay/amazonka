@@ -50,8 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeQuickConnect' smart constructor.
 data DescribeQuickConnect = DescribeQuickConnect'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the quick connect.
     quickConnectId :: Prelude.Text
@@ -66,8 +67,9 @@ data DescribeQuickConnect = DescribeQuickConnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeQuickConnect_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeQuickConnect_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'quickConnectId', 'describeQuickConnect_quickConnectId' - The identifier for the quick connect.
 newDescribeQuickConnect ::
@@ -82,8 +84,9 @@ newDescribeQuickConnect pInstanceId_ pQuickConnectId_ =
       quickConnectId = pQuickConnectId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeQuickConnect_instanceId :: Lens.Lens' DescribeQuickConnect Prelude.Text
 describeQuickConnect_instanceId = Lens.lens (\DescribeQuickConnect' {instanceId} -> instanceId) (\s@DescribeQuickConnect' {} a -> s {instanceId = a} :: DescribeQuickConnect)
 
@@ -107,7 +110,8 @@ instance Core.AWSRequest DescribeQuickConnect where
 
 instance Prelude.Hashable DescribeQuickConnect where
   hashWithSalt _salt DescribeQuickConnect' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` quickConnectId
 
 instance Prelude.NFData DescribeQuickConnect where

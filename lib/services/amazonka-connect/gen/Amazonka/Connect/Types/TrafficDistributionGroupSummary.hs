@@ -195,7 +195,8 @@ instance
   hashWithSalt
     _salt
     TrafficDistributionGroupSummary' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` name

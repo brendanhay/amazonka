@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateInstance where
 
 instance Prelude.Hashable CreateInstance where
   hashWithSalt _salt CreateInstance' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` instanceAlias
       `Prelude.hashWithSalt` identityManagementType

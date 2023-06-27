@@ -33,8 +33,9 @@ data RoutingProfile = RoutingProfile'
     defaultOutboundQueueId :: Prelude.Maybe Prelude.Text,
     -- | The description of the routing profile.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The channels agents can handle in the Contact Control Panel (CCP) for
     -- this routing profile.
@@ -67,8 +68,9 @@ data RoutingProfile = RoutingProfile'
 --
 -- 'description', 'routingProfile_description' - The description of the routing profile.
 --
--- 'instanceId', 'routingProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'routingProfile_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'mediaConcurrencies', 'routingProfile_mediaConcurrencies' - The channels agents can handle in the Contact Control Panel (CCP) for
 -- this routing profile.
@@ -110,8 +112,9 @@ routingProfile_defaultOutboundQueueId = Lens.lens (\RoutingProfile' {defaultOutb
 routingProfile_description :: Lens.Lens' RoutingProfile (Prelude.Maybe Prelude.Text)
 routingProfile_description = Lens.lens (\RoutingProfile' {description} -> description) (\s@RoutingProfile' {} a -> s {description = a} :: RoutingProfile)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 routingProfile_instanceId :: Lens.Lens' RoutingProfile (Prelude.Maybe Prelude.Text)
 routingProfile_instanceId = Lens.lens (\RoutingProfile' {instanceId} -> instanceId) (\s@RoutingProfile' {} a -> s {instanceId = a} :: RoutingProfile)
 
@@ -154,7 +157,8 @@ instance Data.FromJSON RoutingProfile where
             Prelude.<$> (x Data..:? "DefaultOutboundQueueId")
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "InstanceId")
-            Prelude.<*> ( x Data..:? "MediaConcurrencies"
+            Prelude.<*> ( x
+                            Data..:? "MediaConcurrencies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")
@@ -167,7 +171,8 @@ instance Data.FromJSON RoutingProfile where
 
 instance Prelude.Hashable RoutingProfile where
   hashWithSalt _salt RoutingProfile' {..} =
-    _salt `Prelude.hashWithSalt` defaultOutboundQueueId
+    _salt
+      `Prelude.hashWithSalt` defaultOutboundQueueId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` mediaConcurrencies

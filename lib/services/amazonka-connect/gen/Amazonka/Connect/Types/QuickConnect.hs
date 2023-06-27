@@ -118,7 +118,8 @@ instance Data.FromJSON QuickConnect where
 
 instance Prelude.Hashable QuickConnect where
   hashWithSalt _salt QuickConnect' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` quickConnectARN
       `Prelude.hashWithSalt` quickConnectConfig

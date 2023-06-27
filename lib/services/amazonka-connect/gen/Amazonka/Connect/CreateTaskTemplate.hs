@@ -78,8 +78,9 @@ data CreateTaskTemplate = CreateTaskTemplate'
     -- marked as @INACTIVE@, then a task that refers to this template cannot be
     -- created.
     status :: Prelude.Maybe TaskTemplateStatus,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the task template.
     name :: Prelude.Text,
@@ -116,8 +117,9 @@ data CreateTaskTemplate = CreateTaskTemplate'
 -- marked as @INACTIVE@, then a task that refers to this template cannot be
 -- created.
 --
--- 'instanceId', 'createTaskTemplate_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createTaskTemplate_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'name', 'createTaskTemplate_name' - The name of the task template.
 --
@@ -173,8 +175,9 @@ createTaskTemplate_description = Lens.lens (\CreateTaskTemplate' {description} -
 createTaskTemplate_status :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe TaskTemplateStatus)
 createTaskTemplate_status = Lens.lens (\CreateTaskTemplate' {status} -> status) (\s@CreateTaskTemplate' {} a -> s {status = a} :: CreateTaskTemplate)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createTaskTemplate_instanceId :: Lens.Lens' CreateTaskTemplate Prelude.Text
 createTaskTemplate_instanceId = Lens.lens (\CreateTaskTemplate' {instanceId} -> instanceId) (\s@CreateTaskTemplate' {} a -> s {instanceId = a} :: CreateTaskTemplate)
 
@@ -203,7 +206,8 @@ instance Core.AWSRequest CreateTaskTemplate where
 
 instance Prelude.Hashable CreateTaskTemplate where
   hashWithSalt _salt CreateTaskTemplate' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` contactFlowId
       `Prelude.hashWithSalt` defaults

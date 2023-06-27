@@ -50,8 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVocabulary' smart constructor.
 data DescribeVocabulary = DescribeVocabulary'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the custom vocabulary.
     vocabularyId :: Prelude.Text
@@ -66,8 +67,9 @@ data DescribeVocabulary = DescribeVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'vocabularyId', 'describeVocabulary_vocabularyId' - The identifier of the custom vocabulary.
 newDescribeVocabulary ::
@@ -82,8 +84,9 @@ newDescribeVocabulary pInstanceId_ pVocabularyId_ =
       vocabularyId = pVocabularyId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeVocabulary_instanceId :: Lens.Lens' DescribeVocabulary Prelude.Text
 describeVocabulary_instanceId = Lens.lens (\DescribeVocabulary' {instanceId} -> instanceId) (\s@DescribeVocabulary' {} a -> s {instanceId = a} :: DescribeVocabulary)
 
@@ -107,7 +110,8 @@ instance Core.AWSRequest DescribeVocabulary where
 
 instance Prelude.Hashable DescribeVocabulary where
   hashWithSalt _salt DescribeVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` vocabularyId
 
 instance Prelude.NFData DescribeVocabulary where

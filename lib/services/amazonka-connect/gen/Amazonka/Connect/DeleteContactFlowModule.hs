@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteContactFlowModule' smart constructor.
 data DeleteContactFlowModule = DeleteContactFlowModule'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the flow module.
     contactFlowModuleId :: Prelude.Text
@@ -65,8 +66,9 @@ data DeleteContactFlowModule = DeleteContactFlowModule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteContactFlowModule_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteContactFlowModule_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactFlowModuleId', 'deleteContactFlowModule_contactFlowModuleId' - The identifier of the flow module.
 newDeleteContactFlowModule ::
@@ -83,8 +85,9 @@ newDeleteContactFlowModule
         contactFlowModuleId = pContactFlowModuleId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteContactFlowModule_instanceId :: Lens.Lens' DeleteContactFlowModule Prelude.Text
 deleteContactFlowModule_instanceId = Lens.lens (\DeleteContactFlowModule' {instanceId} -> instanceId) (\s@DeleteContactFlowModule' {} a -> s {instanceId = a} :: DeleteContactFlowModule)
 
@@ -107,7 +110,8 @@ instance Core.AWSRequest DeleteContactFlowModule where
 
 instance Prelude.Hashable DeleteContactFlowModule where
   hashWithSalt _salt DeleteContactFlowModule' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowModuleId
 
 instance Prelude.NFData DeleteContactFlowModule where

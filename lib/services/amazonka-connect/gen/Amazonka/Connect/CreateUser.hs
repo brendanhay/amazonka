@@ -98,8 +98,9 @@ data CreateUser = CreateUser'
     securityProfileIds :: Prelude.NonEmpty Prelude.Text,
     -- | The identifier of the routing profile for the user.
     routingProfileId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -146,8 +147,9 @@ data CreateUser = CreateUser'
 --
 -- 'routingProfileId', 'createUser_routingProfileId' - The identifier of the routing profile for the user.
 --
--- 'instanceId', 'createUser_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createUser_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newCreateUser ::
   -- | 'username'
   Prelude.Text ->
@@ -232,8 +234,9 @@ createUser_securityProfileIds = Lens.lens (\CreateUser' {securityProfileIds} -> 
 createUser_routingProfileId :: Lens.Lens' CreateUser Prelude.Text
 createUser_routingProfileId = Lens.lens (\CreateUser' {routingProfileId} -> routingProfileId) (\s@CreateUser' {} a -> s {routingProfileId = a} :: CreateUser)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createUser_instanceId :: Lens.Lens' CreateUser Prelude.Text
 createUser_instanceId = Lens.lens (\CreateUser' {instanceId} -> instanceId) (\s@CreateUser' {} a -> s {instanceId = a} :: CreateUser)
 
@@ -252,7 +255,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` directoryUserId
+    _salt
+      `Prelude.hashWithSalt` directoryUserId
       `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` identityInfo
       `Prelude.hashWithSalt` password

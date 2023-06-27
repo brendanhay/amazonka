@@ -29,8 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDefaultVocabulary' smart constructor.
 data DefaultVocabulary = DefaultVocabulary'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The language code of the vocabulary entries. For a list of languages and
     -- their corresponding language codes, see
@@ -51,8 +52,9 @@ data DefaultVocabulary = DefaultVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'defaultVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'defaultVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'languageCode', 'defaultVocabulary_languageCode' - The language code of the vocabulary entries. For a list of languages and
 -- their corresponding language codes, see
@@ -83,8 +85,9 @@ newDefaultVocabulary
         vocabularyName = pVocabularyName_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 defaultVocabulary_instanceId :: Lens.Lens' DefaultVocabulary Prelude.Text
 defaultVocabulary_instanceId = Lens.lens (\DefaultVocabulary' {instanceId} -> instanceId) (\s@DefaultVocabulary' {} a -> s {instanceId = a} :: DefaultVocabulary)
 
@@ -116,7 +119,8 @@ instance Data.FromJSON DefaultVocabulary where
 
 instance Prelude.Hashable DefaultVocabulary where
   hashWithSalt _salt DefaultVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` vocabularyId
       `Prelude.hashWithSalt` vocabularyName

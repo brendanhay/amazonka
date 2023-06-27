@@ -20,6 +20,7 @@
 module Amazonka.Connect.Types.EventSourceName
   ( EventSourceName
       ( ..,
+        EventSourceName_OnContactEvaluationSubmit,
         EventSourceName_OnPostCallAnalysisAvailable,
         EventSourceName_OnPostChatAnalysisAvailable,
         EventSourceName_OnRealTimeCallAnalysisAvailable,
@@ -62,6 +63,9 @@ newtype EventSourceName = EventSourceName'
       Data.ToXML
     )
 
+pattern EventSourceName_OnContactEvaluationSubmit :: EventSourceName
+pattern EventSourceName_OnContactEvaluationSubmit = EventSourceName' "OnContactEvaluationSubmit"
+
 pattern EventSourceName_OnPostCallAnalysisAvailable :: EventSourceName
 pattern EventSourceName_OnPostCallAnalysisAvailable = EventSourceName' "OnPostCallAnalysisAvailable"
 
@@ -81,6 +85,7 @@ pattern EventSourceName_OnZendeskTicketStatusUpdate :: EventSourceName
 pattern EventSourceName_OnZendeskTicketStatusUpdate = EventSourceName' "OnZendeskTicketStatusUpdate"
 
 {-# COMPLETE
+  EventSourceName_OnContactEvaluationSubmit,
   EventSourceName_OnPostCallAnalysisAvailable,
   EventSourceName_OnPostChatAnalysisAvailable,
   EventSourceName_OnRealTimeCallAnalysisAvailable,

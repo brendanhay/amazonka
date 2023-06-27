@@ -91,8 +91,9 @@ data UpdateTaskTemplate = UpdateTaskTemplate'
     status :: Prelude.Maybe TaskTemplateStatus,
     -- | A unique identifier for the task template.
     taskTemplateId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -126,8 +127,9 @@ data UpdateTaskTemplate = UpdateTaskTemplate'
 --
 -- 'taskTemplateId', 'updateTaskTemplate_taskTemplateId' - A unique identifier for the task template.
 --
--- 'instanceId', 'updateTaskTemplate_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateTaskTemplate_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newUpdateTaskTemplate ::
   -- | 'taskTemplateId'
   Prelude.Text ->
@@ -184,8 +186,9 @@ updateTaskTemplate_status = Lens.lens (\UpdateTaskTemplate' {status} -> status) 
 updateTaskTemplate_taskTemplateId :: Lens.Lens' UpdateTaskTemplate Prelude.Text
 updateTaskTemplate_taskTemplateId = Lens.lens (\UpdateTaskTemplate' {taskTemplateId} -> taskTemplateId) (\s@UpdateTaskTemplate' {} a -> s {taskTemplateId = a} :: UpdateTaskTemplate)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateTaskTemplate_instanceId :: Lens.Lens' UpdateTaskTemplate Prelude.Text
 updateTaskTemplate_instanceId = Lens.lens (\UpdateTaskTemplate' {instanceId} -> instanceId) (\s@UpdateTaskTemplate' {} a -> s {instanceId = a} :: UpdateTaskTemplate)
 
@@ -216,7 +219,8 @@ instance Core.AWSRequest UpdateTaskTemplate where
 
 instance Prelude.Hashable UpdateTaskTemplate where
   hashWithSalt _salt UpdateTaskTemplate' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` contactFlowId
       `Prelude.hashWithSalt` defaults
       `Prelude.hashWithSalt` description
@@ -295,8 +299,9 @@ data UpdateTaskTemplateResponse = UpdateTaskTemplateResponse'
     fields :: Prelude.Maybe [TaskTemplateField],
     -- | The identifier of the task template resource.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the task template was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
@@ -338,8 +343,9 @@ data UpdateTaskTemplateResponse = UpdateTaskTemplateResponse'
 --
 -- 'id', 'updateTaskTemplateResponse_id' - The identifier of the task template resource.
 --
--- 'instanceId', 'updateTaskTemplateResponse_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateTaskTemplateResponse_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'lastModifiedTime', 'updateTaskTemplateResponse_lastModifiedTime' - The timestamp when the task template was last modified.
 --
@@ -406,8 +412,9 @@ updateTaskTemplateResponse_fields = Lens.lens (\UpdateTaskTemplateResponse' {fie
 updateTaskTemplateResponse_id :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
 updateTaskTemplateResponse_id = Lens.lens (\UpdateTaskTemplateResponse' {id} -> id) (\s@UpdateTaskTemplateResponse' {} a -> s {id = a} :: UpdateTaskTemplateResponse)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateTaskTemplateResponse_instanceId :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
 updateTaskTemplateResponse_instanceId = Lens.lens (\UpdateTaskTemplateResponse' {instanceId} -> instanceId) (\s@UpdateTaskTemplateResponse' {} a -> s {instanceId = a} :: UpdateTaskTemplateResponse)
 

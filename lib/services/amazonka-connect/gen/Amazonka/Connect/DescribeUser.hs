@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified user account. You can find the instance ID in
--- the console (it’s the final part of the ARN). The console does not
--- display the user IDs. Instead, list the users and note the IDs provided
--- in the output.
+-- Describes the specified user account. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID in the Amazon Connect console>
+-- (it’s the final part of the ARN). The console does not display the user
+-- IDs. Instead, list the users and note the IDs provided in the output.
 module Amazonka.Connect.DescribeUser
   ( -- * Creating a Request
     DescribeUser (..),
@@ -55,8 +55,9 @@ import qualified Amazonka.Response as Response
 data DescribeUser = DescribeUser'
   { -- | The identifier of the user account.
     userId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,8 +72,9 @@ data DescribeUser = DescribeUser'
 --
 -- 'userId', 'describeUser_userId' - The identifier of the user account.
 --
--- 'instanceId', 'describeUser_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeUser_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newDescribeUser ::
   -- | 'userId'
   Prelude.Text ->
@@ -89,8 +91,9 @@ newDescribeUser pUserId_ pInstanceId_ =
 describeUser_userId :: Lens.Lens' DescribeUser Prelude.Text
 describeUser_userId = Lens.lens (\DescribeUser' {userId} -> userId) (\s@DescribeUser' {} a -> s {userId = a} :: DescribeUser)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeUser_instanceId :: Lens.Lens' DescribeUser Prelude.Text
 describeUser_instanceId = Lens.lens (\DescribeUser' {instanceId} -> instanceId) (\s@DescribeUser' {} a -> s {instanceId = a} :: DescribeUser)
 
@@ -108,7 +111,8 @@ instance Core.AWSRequest DescribeUser where
 
 instance Prelude.Hashable DescribeUser where
   hashWithSalt _salt DescribeUser' {..} =
-    _salt `Prelude.hashWithSalt` userId
+    _salt
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DescribeUser where

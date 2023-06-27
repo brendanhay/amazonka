@@ -70,8 +70,9 @@ data UpdateContactAttributes = UpdateContactAttributes'
   { -- | The identifier of the contact. This is the identifier of the contact
     -- associated with the first interaction with the contact center.
     initialContactId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The Amazon Connect attributes. These attributes can be accessed in flows
     -- just like any other contact attributes.
@@ -94,8 +95,9 @@ data UpdateContactAttributes = UpdateContactAttributes'
 -- 'initialContactId', 'updateContactAttributes_initialContactId' - The identifier of the contact. This is the identifier of the contact
 -- associated with the first interaction with the contact center.
 --
--- 'instanceId', 'updateContactAttributes_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'updateContactAttributes_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'attributes', 'updateContactAttributes_attributes' - The Amazon Connect attributes. These attributes can be accessed in flows
 -- just like any other contact attributes.
@@ -124,8 +126,9 @@ newUpdateContactAttributes
 updateContactAttributes_initialContactId :: Lens.Lens' UpdateContactAttributes Prelude.Text
 updateContactAttributes_initialContactId = Lens.lens (\UpdateContactAttributes' {initialContactId} -> initialContactId) (\s@UpdateContactAttributes' {} a -> s {initialContactId = a} :: UpdateContactAttributes)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 updateContactAttributes_instanceId :: Lens.Lens' UpdateContactAttributes Prelude.Text
 updateContactAttributes_instanceId = Lens.lens (\UpdateContactAttributes' {instanceId} -> instanceId) (\s@UpdateContactAttributes' {} a -> s {instanceId = a} :: UpdateContactAttributes)
 
@@ -153,7 +156,8 @@ instance Core.AWSRequest UpdateContactAttributes where
 
 instance Prelude.Hashable UpdateContactAttributes where
   hashWithSalt _salt UpdateContactAttributes' {..} =
-    _salt `Prelude.hashWithSalt` initialContactId
+    _salt
+      `Prelude.hashWithSalt` initialContactId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` attributes
 

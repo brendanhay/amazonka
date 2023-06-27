@@ -77,8 +77,9 @@ data CreateSecurityProfile = CreateSecurityProfile'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the security profile.
     securityProfileName :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,8 +110,9 @@ data CreateSecurityProfile = CreateSecurityProfile'
 --
 -- 'securityProfileName', 'createSecurityProfile_securityProfileName' - The name of the security profile.
 --
--- 'instanceId', 'createSecurityProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createSecurityProfile_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newCreateSecurityProfile ::
   -- | 'securityProfileName'
   Prelude.Text ->
@@ -161,8 +163,9 @@ createSecurityProfile_tags = Lens.lens (\CreateSecurityProfile' {tags} -> tags) 
 createSecurityProfile_securityProfileName :: Lens.Lens' CreateSecurityProfile Prelude.Text
 createSecurityProfile_securityProfileName = Lens.lens (\CreateSecurityProfile' {securityProfileName} -> securityProfileName) (\s@CreateSecurityProfile' {} a -> s {securityProfileName = a} :: CreateSecurityProfile)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createSecurityProfile_instanceId :: Lens.Lens' CreateSecurityProfile Prelude.Text
 createSecurityProfile_instanceId = Lens.lens (\CreateSecurityProfile' {instanceId} -> instanceId) (\s@CreateSecurityProfile' {} a -> s {instanceId = a} :: CreateSecurityProfile)
 

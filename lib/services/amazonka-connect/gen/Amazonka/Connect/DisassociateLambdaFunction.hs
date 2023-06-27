@@ -50,8 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateLambdaFunction' smart constructor.
 data DisassociateLambdaFunction = DisassociateLambdaFunction'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance..
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance..
     instanceId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Lambda function being
     -- disassociated.
@@ -67,8 +68,9 @@ data DisassociateLambdaFunction = DisassociateLambdaFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'disassociateLambdaFunction_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance..
+-- 'instanceId', 'disassociateLambdaFunction_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance..
 --
 -- 'functionArn', 'disassociateLambdaFunction_functionArn' - The Amazon Resource Name (ARN) of the Lambda function being
 -- disassociated.
@@ -87,8 +89,9 @@ newDisassociateLambdaFunction
         functionArn = pFunctionArn_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance..
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance..
 disassociateLambdaFunction_instanceId :: Lens.Lens' DisassociateLambdaFunction Prelude.Text
 disassociateLambdaFunction_instanceId = Lens.lens (\DisassociateLambdaFunction' {instanceId} -> instanceId) (\s@DisassociateLambdaFunction' {} a -> s {instanceId = a} :: DisassociateLambdaFunction)
 
@@ -109,7 +112,8 @@ instance Core.AWSRequest DisassociateLambdaFunction where
 
 instance Prelude.Hashable DisassociateLambdaFunction where
   hashWithSalt _salt DisassociateLambdaFunction' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` functionArn
 
 instance Prelude.NFData DisassociateLambdaFunction where

@@ -84,7 +84,8 @@ instance Data.FromJSON UserSummary where
 
 instance Prelude.Hashable UserSummary where
   hashWithSalt _salt UserSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` username
 

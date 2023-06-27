@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateSecurityKey' smart constructor.
 data DisassociateSecurityKey = DisassociateSecurityKey'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
@@ -66,8 +67,9 @@ data DisassociateSecurityKey = DisassociateSecurityKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'disassociateSecurityKey_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'disassociateSecurityKey_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'associationId', 'disassociateSecurityKey_associationId' - The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
@@ -85,8 +87,9 @@ newDisassociateSecurityKey
         associationId = pAssociationId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 disassociateSecurityKey_instanceId :: Lens.Lens' DisassociateSecurityKey Prelude.Text
 disassociateSecurityKey_instanceId = Lens.lens (\DisassociateSecurityKey' {instanceId} -> instanceId) (\s@DisassociateSecurityKey' {} a -> s {instanceId = a} :: DisassociateSecurityKey)
 
@@ -107,7 +110,8 @@ instance Core.AWSRequest DisassociateSecurityKey where
 
 instance Prelude.Hashable DisassociateSecurityKey where
   hashWithSalt _salt DisassociateSecurityKey' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` associationId
 
 instance Prelude.NFData DisassociateSecurityKey where

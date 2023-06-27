@@ -48,8 +48,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteIntegrationAssociation' smart constructor.
 data DeleteIntegrationAssociation = DeleteIntegrationAssociation'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the integration association.
     integrationAssociationId :: Prelude.Text
@@ -64,8 +65,9 @@ data DeleteIntegrationAssociation = DeleteIntegrationAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteIntegrationAssociation_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'deleteIntegrationAssociation_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'integrationAssociationId', 'deleteIntegrationAssociation_integrationAssociationId' - The identifier for the integration association.
 newDeleteIntegrationAssociation ::
@@ -84,8 +86,9 @@ newDeleteIntegrationAssociation
           pIntegrationAssociationId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 deleteIntegrationAssociation_instanceId :: Lens.Lens' DeleteIntegrationAssociation Prelude.Text
 deleteIntegrationAssociation_instanceId = Lens.lens (\DeleteIntegrationAssociation' {instanceId} -> instanceId) (\s@DeleteIntegrationAssociation' {} a -> s {instanceId = a} :: DeleteIntegrationAssociation)
 
@@ -108,7 +111,8 @@ instance
     DeleteIntegrationAssociation
   where
   hashWithSalt _salt DeleteIntegrationAssociation' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationAssociationId
 
 instance Prelude.NFData DeleteIntegrationAssociation where

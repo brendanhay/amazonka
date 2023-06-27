@@ -69,7 +69,8 @@ instance Data.FromJSON HierarchyGroupSummaryReference where
       "HierarchyGroupSummaryReference"
       ( \x ->
           HierarchyGroupSummaryReference'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance
@@ -79,7 +80,8 @@ instance
   hashWithSalt
     _salt
     HierarchyGroupSummaryReference' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` id
 
 instance

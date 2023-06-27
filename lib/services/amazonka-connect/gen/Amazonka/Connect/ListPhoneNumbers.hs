@@ -81,8 +81,9 @@ data ListPhoneNumbers = ListPhoneNumbers'
     phoneNumberCountryCodes :: Prelude.Maybe [PhoneNumberCountryCode],
     -- | The type of phone number.
     phoneNumberTypes :: Prelude.Maybe [PhoneNumberType],
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,8 +107,9 @@ data ListPhoneNumbers = ListPhoneNumbers'
 --
 -- 'phoneNumberTypes', 'listPhoneNumbers_phoneNumberTypes' - The type of phone number.
 --
--- 'instanceId', 'listPhoneNumbers_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'listPhoneNumbers_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 newListPhoneNumbers ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -140,8 +142,9 @@ listPhoneNumbers_phoneNumberCountryCodes = Lens.lens (\ListPhoneNumbers' {phoneN
 listPhoneNumbers_phoneNumberTypes :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe [PhoneNumberType])
 listPhoneNumbers_phoneNumberTypes = Lens.lens (\ListPhoneNumbers' {phoneNumberTypes} -> phoneNumberTypes) (\s@ListPhoneNumbers' {} a -> s {phoneNumberTypes = a} :: ListPhoneNumbers) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 listPhoneNumbers_instanceId :: Lens.Lens' ListPhoneNumbers Prelude.Text
 listPhoneNumbers_instanceId = Lens.lens (\ListPhoneNumbers' {instanceId} -> instanceId) (\s@ListPhoneNumbers' {} a -> s {instanceId = a} :: ListPhoneNumbers)
 
@@ -150,22 +153,22 @@ instance Core.AWSPager ListPhoneNumbers where
     | Core.stop
         ( rs
             Lens.^? listPhoneNumbersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPhoneNumbersResponse_phoneNumberSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPhoneNumbers_nextToken
           Lens..~ rs
           Lens.^? listPhoneNumbersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPhoneNumbers where
   type
@@ -178,7 +181,8 @@ instance Core.AWSRequest ListPhoneNumbers where
       ( \s h x ->
           ListPhoneNumbersResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PhoneNumberSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "PhoneNumberSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -186,7 +190,8 @@ instance Core.AWSRequest ListPhoneNumbers where
 
 instance Prelude.Hashable ListPhoneNumbers where
   hashWithSalt _salt ListPhoneNumbers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` phoneNumberCountryCodes
       `Prelude.hashWithSalt` phoneNumberTypes

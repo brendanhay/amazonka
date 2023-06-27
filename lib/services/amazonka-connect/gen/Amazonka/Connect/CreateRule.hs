@@ -65,8 +65,9 @@ data CreateRule = CreateRule'
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+    -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | A unique name for the rule.
     name :: Prelude.Text,
@@ -94,8 +95,9 @@ data CreateRule = CreateRule'
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
--- 'instanceId', 'createRule_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'createRule_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'name', 'createRule_name' - A unique name for the rule.
 --
@@ -141,8 +143,9 @@ newCreateRule
 createRule_clientToken :: Lens.Lens' CreateRule (Prelude.Maybe Prelude.Text)
 createRule_clientToken = Lens.lens (\CreateRule' {clientToken} -> clientToken) (\s@CreateRule' {} a -> s {clientToken = a} :: CreateRule)
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 createRule_instanceId :: Lens.Lens' CreateRule Prelude.Text
 createRule_instanceId = Lens.lens (\CreateRule' {instanceId} -> instanceId) (\s@CreateRule' {} a -> s {instanceId = a} :: CreateRule)
 
@@ -181,7 +184,8 @@ instance Core.AWSRequest CreateRule where
 
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` triggerEventSource

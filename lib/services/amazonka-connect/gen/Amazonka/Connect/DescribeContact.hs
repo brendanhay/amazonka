@@ -58,8 +58,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeContact' smart constructor.
 data DescribeContact = DescribeContact'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact.
     contactId :: Prelude.Text
@@ -74,8 +75,9 @@ data DescribeContact = DescribeContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'describeContact_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'describeContact_contactId' - The identifier of the contact.
 newDescribeContact ::
@@ -90,8 +92,9 @@ newDescribeContact pInstanceId_ pContactId_ =
       contactId = pContactId_
     }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 describeContact_instanceId :: Lens.Lens' DescribeContact Prelude.Text
 describeContact_instanceId = Lens.lens (\DescribeContact' {instanceId} -> instanceId) (\s@DescribeContact' {} a -> s {instanceId = a} :: DescribeContact)
 
@@ -115,7 +118,8 @@ instance Core.AWSRequest DescribeContact where
 
 instance Prelude.Hashable DescribeContact where
   hashWithSalt _salt DescribeContact' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
 
 instance Prelude.NFData DescribeContact where

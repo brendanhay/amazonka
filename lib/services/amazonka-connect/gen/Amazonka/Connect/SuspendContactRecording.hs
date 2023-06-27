@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- When a contact is being recorded, this API suspends recording the call.
--- For example, you might suspend the call recording while collecting
--- sensitive information, such as a credit card number. Then use
--- ResumeContactRecording to restart recording.
+-- When a contact is being recorded, this API suspends recording the call
+-- or screen. For example, you might suspend the call or screen recording
+-- while collecting sensitive information, such as a credit card number.
+-- Then use ResumeContactRecording to restart recording.
 --
 -- The period of time that the recording is suspended is filled with
 -- silence in the final recording.
 --
--- Only voice recordings are supported at this time.
+-- Voice and screen recordings are supported.
 module Amazonka.Connect.SuspendContactRecording
   ( -- * Creating a Request
     SuspendContactRecording (..),
@@ -58,8 +58,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSuspendContactRecording' smart constructor.
 data SuspendContactRecording = SuspendContactRecording'
-  { -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
+  { -- | The identifier of the Amazon Connect instance. You can
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+    -- in the Amazon Resource Name (ARN) of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact.
     contactId :: Prelude.Text,
@@ -77,8 +78,9 @@ data SuspendContactRecording = SuspendContactRecording'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'suspendContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- 'instanceId', 'suspendContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 --
 -- 'contactId', 'suspendContactRecording_contactId' - The identifier of the contact.
 --
@@ -102,8 +104,9 @@ newSuspendContactRecording
         initialContactId = pInitialContactId_
       }
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
+-- | The identifier of the Amazon Connect instance. You can
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html find the instance ID>
+-- in the Amazon Resource Name (ARN) of the instance.
 suspendContactRecording_instanceId :: Lens.Lens' SuspendContactRecording Prelude.Text
 suspendContactRecording_instanceId = Lens.lens (\SuspendContactRecording' {instanceId} -> instanceId) (\s@SuspendContactRecording' {} a -> s {instanceId = a} :: SuspendContactRecording)
 
@@ -131,7 +134,8 @@ instance Core.AWSRequest SuspendContactRecording where
 
 instance Prelude.Hashable SuspendContactRecording where
   hashWithSalt _salt SuspendContactRecording' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` initialContactId
 

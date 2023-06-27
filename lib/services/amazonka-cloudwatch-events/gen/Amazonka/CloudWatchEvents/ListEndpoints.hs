@@ -66,7 +66,7 @@ data ListEndpoints = ListEndpoints'
     -- endpoints with \"ABC\" in the name.
     namePrefix :: Prelude.Maybe Prelude.Text,
     -- | If @nextToken@ is returned, there are more results available. The value
-    -- of nextToken is a unique pagination token for each page. Make the call
+    -- of @nextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours. Using
     -- an expired pagination token will return an HTTP 400 InvalidToken error.
@@ -92,7 +92,7 @@ data ListEndpoints = ListEndpoints'
 -- endpoints with \"ABC\" in the name.
 --
 -- 'nextToken', 'listEndpoints_nextToken' - If @nextToken@ is returned, there are more results available. The value
--- of nextToken is a unique pagination token for each page. Make the call
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours. Using
 -- an expired pagination token will return an HTTP 400 InvalidToken error.
@@ -122,7 +122,7 @@ listEndpoints_namePrefix :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Text
 listEndpoints_namePrefix = Lens.lens (\ListEndpoints' {namePrefix} -> namePrefix) (\s@ListEndpoints' {} a -> s {namePrefix = a} :: ListEndpoints)
 
 -- | If @nextToken@ is returned, there are more results available. The value
--- of nextToken is a unique pagination token for each page. Make the call
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours. Using
 -- an expired pagination token will return an HTTP 400 InvalidToken error.
@@ -146,7 +146,8 @@ instance Core.AWSRequest ListEndpoints where
 
 instance Prelude.Hashable ListEndpoints where
   hashWithSalt _salt ListEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` homeRegion
+    _salt
+      `Prelude.hashWithSalt` homeRegion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namePrefix
       `Prelude.hashWithSalt` nextToken
@@ -193,7 +194,7 @@ data ListEndpointsResponse = ListEndpointsResponse'
   { -- | The endpoints returned by the call.
     endpoints :: Prelude.Maybe [Endpoint],
     -- | If @nextToken@ is returned, there are more results available. The value
-    -- of nextToken is a unique pagination token for each page. Make the call
+    -- of @nextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours. Using
     -- an expired pagination token will return an HTTP 400 InvalidToken error.
@@ -214,7 +215,7 @@ data ListEndpointsResponse = ListEndpointsResponse'
 -- 'endpoints', 'listEndpointsResponse_endpoints' - The endpoints returned by the call.
 --
 -- 'nextToken', 'listEndpointsResponse_nextToken' - If @nextToken@ is returned, there are more results available. The value
--- of nextToken is a unique pagination token for each page. Make the call
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours. Using
 -- an expired pagination token will return an HTTP 400 InvalidToken error.
@@ -236,7 +237,7 @@ listEndpointsResponse_endpoints :: Lens.Lens' ListEndpointsResponse (Prelude.May
 listEndpointsResponse_endpoints = Lens.lens (\ListEndpointsResponse' {endpoints} -> endpoints) (\s@ListEndpointsResponse' {} a -> s {endpoints = a} :: ListEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @nextToken@ is returned, there are more results available. The value
--- of nextToken is a unique pagination token for each page. Make the call
+-- of @nextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours. Using
 -- an expired pagination token will return an HTTP 400 InvalidToken error.

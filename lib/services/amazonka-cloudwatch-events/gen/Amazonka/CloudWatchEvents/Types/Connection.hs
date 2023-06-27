@@ -31,6 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConnection' smart constructor.
 data Connection = Connection'
   { -- | The authorization type specified for the connection.
+    --
+    -- OAUTH tokens are refreshed when a 401 or 407 response is returned.
     authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
     -- | The ARN of the connection.
     connectionArn :: Prelude.Maybe Prelude.Text,
@@ -58,6 +60,8 @@ data Connection = Connection'
 -- for backwards compatibility:
 --
 -- 'authorizationType', 'connection_authorizationType' - The authorization type specified for the connection.
+--
+-- OAUTH tokens are refreshed when a 401 or 407 response is returned.
 --
 -- 'connectionArn', 'connection_connectionArn' - The ARN of the connection.
 --
@@ -87,6 +91,8 @@ newConnection =
     }
 
 -- | The authorization type specified for the connection.
+--
+-- OAUTH tokens are refreshed when a 401 or 407 response is returned.
 connection_authorizationType :: Lens.Lens' Connection (Prelude.Maybe ConnectionAuthorizationType)
 connection_authorizationType = Lens.lens (\Connection' {authorizationType} -> authorizationType) (\s@Connection' {} a -> s {authorizationType = a} :: Connection)
 
@@ -136,7 +142,8 @@ instance Data.FromJSON Connection where
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` authorizationType
+    _salt
+      `Prelude.hashWithSalt` authorizationType
       `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` creationTime

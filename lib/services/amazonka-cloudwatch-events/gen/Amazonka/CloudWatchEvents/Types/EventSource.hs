@@ -136,7 +136,8 @@ instance Data.FromJSON EventSource where
 
 instance Prelude.Hashable EventSource where
   hashWithSalt _salt EventSource' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` expirationTime

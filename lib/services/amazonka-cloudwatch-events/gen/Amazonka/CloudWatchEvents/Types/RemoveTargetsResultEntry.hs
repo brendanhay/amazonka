@@ -91,7 +91,8 @@ instance Data.FromJSON RemoveTargetsResultEntry where
 
 instance Prelude.Hashable RemoveTargetsResultEntry where
   hashWithSalt _salt RemoveTargetsResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` targetId
 

@@ -177,7 +177,8 @@ instance Core.AWSRequest StartReplay where
 
 instance Prelude.Hashable StartReplay where
   hashWithSalt _salt StartReplay' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` replayName
       `Prelude.hashWithSalt` eventSourceArn
       `Prelude.hashWithSalt` eventStartTime

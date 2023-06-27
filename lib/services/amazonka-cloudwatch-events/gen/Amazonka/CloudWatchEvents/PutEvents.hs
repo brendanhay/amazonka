@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPutEvents' smart constructor.
 data PutEvents = PutEvents'
   { -- | The URL subdomain of the endpoint. For example, if the URL for Endpoint
-    -- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
-    -- @abcde.veo@.
+    -- is https:\/\/abcde.veo.endpoints.event.amazonaws.com, then the
+    -- EndpointId is @abcde.veo@.
     --
     -- When using Java, you must include @auth-crt@ on the class path.
     endpointId :: Prelude.Maybe Prelude.Text,
@@ -76,8 +76,8 @@ data PutEvents = PutEvents'
 -- for backwards compatibility:
 --
 -- 'endpointId', 'putEvents_endpointId' - The URL subdomain of the endpoint. For example, if the URL for Endpoint
--- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
--- @abcde.veo@.
+-- is https:\/\/abcde.veo.endpoints.event.amazonaws.com, then the
+-- EndpointId is @abcde.veo@.
 --
 -- When using Java, you must include @auth-crt@ on the class path.
 --
@@ -95,8 +95,8 @@ newPutEvents pEntries_ =
     }
 
 -- | The URL subdomain of the endpoint. For example, if the URL for Endpoint
--- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
--- @abcde.veo@.
+-- is https:\/\/abcde.veo.endpoints.event.amazonaws.com, then the
+-- EndpointId is @abcde.veo@.
 --
 -- When using Java, you must include @auth-crt@ on the class path.
 putEvents_endpointId :: Lens.Lens' PutEvents (Prelude.Maybe Prelude.Text)
@@ -123,7 +123,8 @@ instance Core.AWSRequest PutEvents where
 
 instance Prelude.Hashable PutEvents where
   hashWithSalt _salt PutEvents' {..} =
-    _salt `Prelude.hashWithSalt` endpointId
+    _salt
+      `Prelude.hashWithSalt` endpointId
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData PutEvents where
@@ -165,6 +166,9 @@ data PutEventsResponse = PutEventsResponse'
     -- ingestion was successful, the entry has the event ID in it. Otherwise,
     -- you can use the error code and error message to identify the problem
     -- with the entry.
+    --
+    -- For each record, the index of the response element is the same as the
+    -- index in the request array.
     entries :: Prelude.Maybe [PutEventsResultEntry],
     -- | The number of failed entries.
     failedEntryCount :: Prelude.Maybe Prelude.Int,
@@ -186,6 +190,9 @@ data PutEventsResponse = PutEventsResponse'
 -- you can use the error code and error message to identify the problem
 -- with the entry.
 --
+-- For each record, the index of the response element is the same as the
+-- index in the request array.
+--
 -- 'failedEntryCount', 'putEventsResponse_failedEntryCount' - The number of failed entries.
 --
 -- 'httpStatus', 'putEventsResponse_httpStatus' - The response's http status code.
@@ -204,6 +211,9 @@ newPutEventsResponse pHttpStatus_ =
 -- ingestion was successful, the entry has the event ID in it. Otherwise,
 -- you can use the error code and error message to identify the problem
 -- with the entry.
+--
+-- For each record, the index of the response element is the same as the
+-- index in the request array.
 putEventsResponse_entries :: Lens.Lens' PutEventsResponse (Prelude.Maybe [PutEventsResultEntry])
 putEventsResponse_entries = Lens.lens (\PutEventsResponse' {entries} -> entries) (\s@PutEventsResponse' {} a -> s {entries = a} :: PutEventsResponse) Prelude.. Lens.mapping Lens.coerced
 

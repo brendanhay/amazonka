@@ -79,7 +79,8 @@ instance
   hashWithSalt
     _salt
     CreateConnectionOAuthClientRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` clientID
+      _salt
+        `Prelude.hashWithSalt` clientID
         `Prelude.hashWithSalt` clientSecret
 
 instance

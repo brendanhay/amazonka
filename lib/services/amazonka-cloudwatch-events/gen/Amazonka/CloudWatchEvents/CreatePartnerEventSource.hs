@@ -38,7 +38,7 @@
 --
 -- Partner event source names follow this format:
 --
--- @ partner_name\/event_namespace\/event_name @
+-- @ @/@partner_name@/@\/@/@event_namespace@/@\/@/@event_name@/@ @
 --
 -- /partner_name/ is determined during partner registration and identifies
 -- the partner to Amazon Web Services customers. /event_namespace/ is
@@ -78,7 +78,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreatePartnerEventSource' smart constructor.
 data CreatePartnerEventSource = CreatePartnerEventSource'
   { -- | The name of the partner event source. This name must be unique and must
-    -- be in the format @ partner_name\/event_namespace\/event_name @. The
+    -- be in the format
+    -- @ @/@partner_name@/@\/@/@event_namespace@/@\/@/@event_name@/@ @. The
     -- Amazon Web Services account that wants to use this partner event source
     -- must create a partner event bus with a name that matches the name of the
     -- partner event source.
@@ -98,7 +99,8 @@ data CreatePartnerEventSource = CreatePartnerEventSource'
 -- for backwards compatibility:
 --
 -- 'name', 'createPartnerEventSource_name' - The name of the partner event source. This name must be unique and must
--- be in the format @ partner_name\/event_namespace\/event_name @. The
+-- be in the format
+-- @ @/@partner_name@/@\/@/@event_namespace@/@\/@/@event_name@/@ @. The
 -- Amazon Web Services account that wants to use this partner event source
 -- must create a partner event bus with a name that matches the name of the
 -- partner event source.
@@ -118,7 +120,8 @@ newCreatePartnerEventSource pName_ pAccount_ =
     }
 
 -- | The name of the partner event source. This name must be unique and must
--- be in the format @ partner_name\/event_namespace\/event_name @. The
+-- be in the format
+-- @ @/@partner_name@/@\/@/@event_namespace@/@\/@/@event_name@/@ @. The
 -- Amazon Web Services account that wants to use this partner event source
 -- must create a partner event bus with a name that matches the name of the
 -- partner event source.
@@ -146,7 +149,8 @@ instance Core.AWSRequest CreatePartnerEventSource where
 
 instance Prelude.Hashable CreatePartnerEventSource where
   hashWithSalt _salt CreatePartnerEventSource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` account
 
 instance Prelude.NFData CreatePartnerEventSource where

@@ -62,6 +62,8 @@ data CreateConnection = CreateConnection'
     -- | The name for the connection to create.
     name :: Prelude.Text,
     -- | The type of authorization to use for the connection.
+    --
+    -- OAUTH tokens are refreshed when a 401 or 407 response is returned.
     authorizationType :: ConnectionAuthorizationType,
     -- | A @CreateConnectionAuthRequestParameters@ object that contains the
     -- authorization parameters to use to authorize with the endpoint.
@@ -82,6 +84,8 @@ data CreateConnection = CreateConnection'
 -- 'name', 'createConnection_name' - The name for the connection to create.
 --
 -- 'authorizationType', 'createConnection_authorizationType' - The type of authorization to use for the connection.
+--
+-- OAUTH tokens are refreshed when a 401 or 407 response is returned.
 --
 -- 'authParameters', 'createConnection_authParameters' - A @CreateConnectionAuthRequestParameters@ object that contains the
 -- authorization parameters to use to authorize with the endpoint.
@@ -113,6 +117,8 @@ createConnection_name :: Lens.Lens' CreateConnection Prelude.Text
 createConnection_name = Lens.lens (\CreateConnection' {name} -> name) (\s@CreateConnection' {} a -> s {name = a} :: CreateConnection)
 
 -- | The type of authorization to use for the connection.
+--
+-- OAUTH tokens are refreshed when a 401 or 407 response is returned.
 createConnection_authorizationType :: Lens.Lens' CreateConnection ConnectionAuthorizationType
 createConnection_authorizationType = Lens.lens (\CreateConnection' {authorizationType} -> authorizationType) (\s@CreateConnection' {} a -> s {authorizationType = a} :: CreateConnection)
 
@@ -140,7 +146,8 @@ instance Core.AWSRequest CreateConnection where
 
 instance Prelude.Hashable CreateConnection where
   hashWithSalt _salt CreateConnection' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` authorizationType
       `Prelude.hashWithSalt` authParameters

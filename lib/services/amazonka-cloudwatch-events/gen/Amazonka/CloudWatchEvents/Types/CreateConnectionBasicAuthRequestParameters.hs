@@ -79,7 +79,8 @@ instance
   hashWithSalt
     _salt
     CreateConnectionBasicAuthRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` username
+      _salt
+        `Prelude.hashWithSalt` username
         `Prelude.hashWithSalt` password
 
 instance

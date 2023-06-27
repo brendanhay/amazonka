@@ -415,10 +415,11 @@ module Amazonka.CloudWatchEvents.Types
     newRedshiftDataParameters,
     redshiftDataParameters_dbUser,
     redshiftDataParameters_secretManagerArn,
+    redshiftDataParameters_sql,
+    redshiftDataParameters_sqls,
     redshiftDataParameters_statementName,
     redshiftDataParameters_withEvent,
     redshiftDataParameters_database,
-    redshiftDataParameters_sql,
 
     -- * RemoveTargetsResultEntry
     RemoveTargetsResultEntry (..),
@@ -681,52 +682,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | There is concurrent modification on a rule, target, archive, or replay.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -734,28 +735,28 @@ _ConcurrentModificationException =
 
 -- | An error occurred because a replay can be canceled only when the state
 -- is Running or Starting.
-_IllegalStatusException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IllegalStatusException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IllegalStatusException =
   Core._MatchServiceError
     defaultService
     "IllegalStatusException"
 
 -- | This exception occurs due to unexpected causes.
-_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
     "InternalException"
 
 -- | The event pattern is not valid.
-_InvalidEventPatternException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidEventPatternException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidEventPatternException =
   Core._MatchServiceError
     defaultService
     "InvalidEventPatternException"
 
 -- | The specified state is not a valid state for an event source.
-_InvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -763,7 +764,7 @@ _InvalidStateException =
 
 -- | The request failed because it attempted to create resource beyond the
 -- allowed service quota.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -776,35 +777,35 @@ _LimitExceededException =
 -- rule. You cannot modify these managed rules by using @DisableRule@,
 -- @EnableRule@, @PutTargets@, @PutRule@, @TagResource@, or
 -- @UntagResource@.
-_ManagedRuleException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ManagedRuleException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ManagedRuleException =
   Core._MatchServiceError
     defaultService
     "ManagedRuleException"
 
 -- | The operation you are attempting is not available in this region.
-_OperationDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationDisabledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationDisabledException =
   Core._MatchServiceError
     defaultService
     "OperationDisabledException"
 
 -- | The event bus policy is too long. For more information, see the limits.
-_PolicyLengthExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PolicyLengthExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PolicyLengthExceededException =
   Core._MatchServiceError
     defaultService
     "PolicyLengthExceededException"
 
 -- | The resource you are trying to create already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
 
 -- | An entity that you specified does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

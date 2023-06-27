@@ -131,7 +131,8 @@ instance Core.AWSRequest DeleteRule where
 
 instance Prelude.Hashable DeleteRule where
   hashWithSalt _salt DeleteRule' {..} =
-    _salt `Prelude.hashWithSalt` eventBusName
+    _salt
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` name
 

@@ -72,6 +72,8 @@
 --
 -- -   Redshift cluster
 --
+-- -   Redshift Serverless workgroup
+--
 -- -   SageMaker Pipeline
 --
 -- -   SNS topic
@@ -101,8 +103,8 @@
 -- EventBridge needs the appropriate permissions. For Lambda and Amazon SNS
 -- resources, EventBridge relies on resource-based policies. For EC2
 -- instances, Kinesis Data Streams, Step Functions state machines and API
--- Gateway REST APIs, EventBridge relies on IAM roles that you specify in
--- the @RoleARN@ argument in @PutTargets@. For more information, see
+-- Gateway APIs, EventBridge relies on IAM roles that you specify in the
+-- @RoleARN@ argument in @PutTargets@. For more information, see
 -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html Authentication and Access Control>
 -- in the /Amazon EventBridge User Guide/.
 --
@@ -203,7 +205,7 @@ data PutTargets = PutTargets'
     -- | The targets to update or add to the rule.
     targets :: Prelude.NonEmpty Target
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutTargets' with all optional fields omitted.
@@ -260,7 +262,8 @@ instance Core.AWSRequest PutTargets where
 
 instance Prelude.Hashable PutTargets where
   hashWithSalt _salt PutTargets' {..} =
-    _salt `Prelude.hashWithSalt` eventBusName
+    _salt
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` rule
       `Prelude.hashWithSalt` targets
 

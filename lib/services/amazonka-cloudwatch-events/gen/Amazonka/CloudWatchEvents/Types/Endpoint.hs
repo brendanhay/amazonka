@@ -28,11 +28,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | An global endpoint used to improve your application\'s availability by
+-- | A global endpoint used to improve your application\'s availability by
 -- making it regional-fault tolerant. For more information about global
 -- endpoints, see
 -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html Making applications Regional-fault tolerant with global endpoints and event replication>
--- in the Amazon EventBridge User Guide..
+-- in the Amazon EventBridge User Guide.
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
@@ -43,8 +43,8 @@ data Endpoint = Endpoint'
     -- | A description for the endpoint.
     description :: Prelude.Maybe Prelude.Text,
     -- | The URL subdomain of the endpoint. For example, if the URL for Endpoint
-    -- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
-    -- @abcde.veo@.
+    -- is https:\/\/abcde.veo.endpoints.event.amazonaws.com, then the
+    -- EndpointId is @abcde.veo@.
     endpointId :: Prelude.Maybe Prelude.Text,
     -- | The URL of the endpoint.
     endpointUrl :: Prelude.Maybe Prelude.Text,
@@ -54,7 +54,10 @@ data Endpoint = Endpoint'
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the endpoint.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Whether event replication was enabled or disabled for this endpoint.
+    -- | Whether event replication was enabled or disabled for this endpoint. The
+    -- default state is @ENABLED@ which means you must supply a @RoleArn@. If
+    -- you don\'t have a @RoleArn@ or you don\'t want event replication
+    -- enabled, set the state to @DISABLED@.
     replicationConfig :: Prelude.Maybe ReplicationConfig,
     -- | The ARN of the role used by event replication for the endpoint.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -82,8 +85,8 @@ data Endpoint = Endpoint'
 -- 'description', 'endpoint_description' - A description for the endpoint.
 --
 -- 'endpointId', 'endpoint_endpointId' - The URL subdomain of the endpoint. For example, if the URL for Endpoint
--- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
--- @abcde.veo@.
+-- is https:\/\/abcde.veo.endpoints.event.amazonaws.com, then the
+-- EndpointId is @abcde.veo@.
 --
 -- 'endpointUrl', 'endpoint_endpointUrl' - The URL of the endpoint.
 --
@@ -93,7 +96,10 @@ data Endpoint = Endpoint'
 --
 -- 'name', 'endpoint_name' - The name of the endpoint.
 --
--- 'replicationConfig', 'endpoint_replicationConfig' - Whether event replication was enabled or disabled for this endpoint.
+-- 'replicationConfig', 'endpoint_replicationConfig' - Whether event replication was enabled or disabled for this endpoint. The
+-- default state is @ENABLED@ which means you must supply a @RoleArn@. If
+-- you don\'t have a @RoleArn@ or you don\'t want event replication
+-- enabled, set the state to @DISABLED@.
 --
 -- 'roleArn', 'endpoint_roleArn' - The ARN of the role used by event replication for the endpoint.
 --
@@ -134,8 +140,8 @@ endpoint_description :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_description = Lens.lens (\Endpoint' {description} -> description) (\s@Endpoint' {} a -> s {description = a} :: Endpoint)
 
 -- | The URL subdomain of the endpoint. For example, if the URL for Endpoint
--- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
--- @abcde.veo@.
+-- is https:\/\/abcde.veo.endpoints.event.amazonaws.com, then the
+-- EndpointId is @abcde.veo@.
 endpoint_endpointId :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_endpointId = Lens.lens (\Endpoint' {endpointId} -> endpointId) (\s@Endpoint' {} a -> s {endpointId = a} :: Endpoint)
 
@@ -155,7 +161,10 @@ endpoint_lastModifiedTime = Lens.lens (\Endpoint' {lastModifiedTime} -> lastModi
 endpoint_name :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_name = Lens.lens (\Endpoint' {name} -> name) (\s@Endpoint' {} a -> s {name = a} :: Endpoint)
 
--- | Whether event replication was enabled or disabled for this endpoint.
+-- | Whether event replication was enabled or disabled for this endpoint. The
+-- default state is @ENABLED@ which means you must supply a @RoleArn@. If
+-- you don\'t have a @RoleArn@ or you don\'t want event replication
+-- enabled, set the state to @DISABLED@.
 endpoint_replicationConfig :: Lens.Lens' Endpoint (Prelude.Maybe ReplicationConfig)
 endpoint_replicationConfig = Lens.lens (\Endpoint' {replicationConfig} -> replicationConfig) (\s@Endpoint' {} a -> s {replicationConfig = a} :: Endpoint)
 
@@ -198,7 +207,8 @@ instance Data.FromJSON Endpoint where
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` endpointId

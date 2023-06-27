@@ -239,7 +239,8 @@ instance Core.AWSRequest PutPermission where
 
 instance Prelude.Hashable PutPermission where
   hashWithSalt _salt PutPermission' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` policy

@@ -756,10 +756,11 @@ module Amazonka.CloudWatchEvents.Lens
     -- ** RedshiftDataParameters
     redshiftDataParameters_dbUser,
     redshiftDataParameters_secretManagerArn,
+    redshiftDataParameters_sql,
+    redshiftDataParameters_sqls,
     redshiftDataParameters_statementName,
     redshiftDataParameters_withEvent,
     redshiftDataParameters_database,
-    redshiftDataParameters_sql,
 
     -- ** RemoveTargetsResultEntry
     removeTargetsResultEntry_errorCode,

@@ -125,7 +125,8 @@ instance Core.AWSRequest DescribeRule where
 
 instance Prelude.Hashable DescribeRule where
   hashWithSalt _salt DescribeRule' {..} =
-    _salt `Prelude.hashWithSalt` eventBusName
+    _salt
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DescribeRule where

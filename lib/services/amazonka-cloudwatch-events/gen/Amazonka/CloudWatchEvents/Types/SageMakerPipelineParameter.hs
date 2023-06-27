@@ -79,12 +79,14 @@ instance Data.FromJSON SageMakerPipelineParameter where
       "SageMakerPipelineParameter"
       ( \x ->
           SageMakerPipelineParameter'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable SageMakerPipelineParameter where
   hashWithSalt _salt SageMakerPipelineParameter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SageMakerPipelineParameter where

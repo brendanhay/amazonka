@@ -90,7 +90,8 @@ instance Data.FromJSON PutTargetsResultEntry where
 
 instance Prelude.Hashable PutTargetsResultEntry where
   hashWithSalt _salt PutTargetsResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` targetId
 

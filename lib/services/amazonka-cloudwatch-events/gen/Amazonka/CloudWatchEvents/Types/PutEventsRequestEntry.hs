@@ -31,8 +31,8 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
   { -- | A valid JSON object. There is no other schema imposed. The JSON object
     -- may contain fields and nested subobjects.
     detail :: Prelude.Maybe Prelude.Text,
-    -- | Free-form string used to decide what fields to expect in the event
-    -- detail.
+    -- | Free-form string, with a maximum of 128 characters, used to decide what
+    -- fields to expect in the event detail.
     detailType :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the event bus to receive the event. Only the rules
     -- that are associated with this event bus are used to match the event. If
@@ -76,8 +76,8 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
 -- 'detail', 'putEventsRequestEntry_detail' - A valid JSON object. There is no other schema imposed. The JSON object
 -- may contain fields and nested subobjects.
 --
--- 'detailType', 'putEventsRequestEntry_detailType' - Free-form string used to decide what fields to expect in the event
--- detail.
+-- 'detailType', 'putEventsRequestEntry_detailType' - Free-form string, with a maximum of 128 characters, used to decide what
+-- fields to expect in the event detail.
 --
 -- 'eventBusName', 'putEventsRequestEntry_eventBusName' - The name or ARN of the event bus to receive the event. Only the rules
 -- that are associated with this event bus are used to match the event. If
@@ -124,8 +124,8 @@ newPutEventsRequestEntry =
 putEventsRequestEntry_detail :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_detail = Lens.lens (\PutEventsRequestEntry' {detail} -> detail) (\s@PutEventsRequestEntry' {} a -> s {detail = a} :: PutEventsRequestEntry)
 
--- | Free-form string used to decide what fields to expect in the event
--- detail.
+-- | Free-form string, with a maximum of 128 characters, used to decide what
+-- fields to expect in the event detail.
 putEventsRequestEntry_detailType :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_detailType = Lens.lens (\PutEventsRequestEntry' {detailType} -> detailType) (\s@PutEventsRequestEntry' {} a -> s {detailType = a} :: PutEventsRequestEntry)
 
@@ -169,7 +169,8 @@ putEventsRequestEntry_traceHeader = Lens.lens (\PutEventsRequestEntry' {traceHea
 
 instance Prelude.Hashable PutEventsRequestEntry where
   hashWithSalt _salt PutEventsRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` detail
+    _salt
+      `Prelude.hashWithSalt` detail
       `Prelude.hashWithSalt` detailType
       `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` resources

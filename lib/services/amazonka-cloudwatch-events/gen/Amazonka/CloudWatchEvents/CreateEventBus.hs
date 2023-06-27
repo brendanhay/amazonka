@@ -61,12 +61,13 @@ data CreateEventBus = CreateEventBus'
     tags :: Prelude.Maybe [Tag],
     -- | The name of the new event bus.
     --
-    -- Event bus names cannot contain the \/ character. You can\'t use the name
-    -- @default@ for a custom event bus, as this name is already used for your
-    -- account\'s default event bus.
+    -- Custom event bus names can\'t contain the @\/@ character, but you can
+    -- use the @\/@ character in partner event bus names. In addition, for
+    -- partner event buses, the name must exactly match the name of the partner
+    -- event source that this event bus is matched to.
     --
-    -- If this is a partner event bus, the name must exactly match the name of
-    -- the partner event source that this event bus is matched to.
+    -- You can\'t use the name @default@ for a custom event bus, as this name
+    -- is already used for your account\'s default event bus.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,12 +87,13 @@ data CreateEventBus = CreateEventBus'
 --
 -- 'name', 'createEventBus_name' - The name of the new event bus.
 --
--- Event bus names cannot contain the \/ character. You can\'t use the name
--- @default@ for a custom event bus, as this name is already used for your
--- account\'s default event bus.
+-- Custom event bus names can\'t contain the @\/@ character, but you can
+-- use the @\/@ character in partner event bus names. In addition, for
+-- partner event buses, the name must exactly match the name of the partner
+-- event source that this event bus is matched to.
 --
--- If this is a partner event bus, the name must exactly match the name of
--- the partner event source that this event bus is matched to.
+-- You can\'t use the name @default@ for a custom event bus, as this name
+-- is already used for your account\'s default event bus.
 newCreateEventBus ::
   -- | 'name'
   Prelude.Text ->
@@ -114,12 +116,13 @@ createEventBus_tags = Lens.lens (\CreateEventBus' {tags} -> tags) (\s@CreateEven
 
 -- | The name of the new event bus.
 --
--- Event bus names cannot contain the \/ character. You can\'t use the name
--- @default@ for a custom event bus, as this name is already used for your
--- account\'s default event bus.
+-- Custom event bus names can\'t contain the @\/@ character, but you can
+-- use the @\/@ character in partner event bus names. In addition, for
+-- partner event buses, the name must exactly match the name of the partner
+-- event source that this event bus is matched to.
 --
--- If this is a partner event bus, the name must exactly match the name of
--- the partner event source that this event bus is matched to.
+-- You can\'t use the name @default@ for a custom event bus, as this name
+-- is already used for your account\'s default event bus.
 createEventBus_name :: Lens.Lens' CreateEventBus Prelude.Text
 createEventBus_name = Lens.lens (\CreateEventBus' {name} -> name) (\s@CreateEventBus' {} a -> s {name = a} :: CreateEventBus)
 
@@ -139,7 +142,8 @@ instance Core.AWSRequest CreateEventBus where
 
 instance Prelude.Hashable CreateEventBus where
   hashWithSalt _salt CreateEventBus' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceName
+    _salt
+      `Prelude.hashWithSalt` eventSourceName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 

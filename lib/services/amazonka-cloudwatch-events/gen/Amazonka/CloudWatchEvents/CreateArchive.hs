@@ -148,7 +148,8 @@ instance Core.AWSRequest CreateArchive where
 
 instance Prelude.Hashable CreateArchive where
   hashWithSalt _salt CreateArchive' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventPattern
       `Prelude.hashWithSalt` retentionDays
       `Prelude.hashWithSalt` archiveName

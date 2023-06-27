@@ -95,7 +95,8 @@ condition_value = Lens.lens (\Condition' {value} -> value) (\s@Condition' {} a -
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 

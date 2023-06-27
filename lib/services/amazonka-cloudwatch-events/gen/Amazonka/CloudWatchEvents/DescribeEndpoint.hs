@@ -135,7 +135,8 @@ instance Core.AWSRequest DescribeEndpoint where
 
 instance Prelude.Hashable DescribeEndpoint where
   hashWithSalt _salt DescribeEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` homeRegion
+    _salt
+      `Prelude.hashWithSalt` homeRegion
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DescribeEndpoint where

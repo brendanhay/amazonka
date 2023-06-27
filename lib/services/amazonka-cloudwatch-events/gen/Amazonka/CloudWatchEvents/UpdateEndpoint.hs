@@ -74,7 +74,7 @@ data UpdateEndpoint = UpdateEndpoint'
     -- | The ARN of the role used by event replication for this request.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Configure the routing policy, including the health check and secondary
-    -- Region..
+    -- Region.
     routingConfig :: Prelude.Maybe RoutingConfig,
     -- | The name of the endpoint you want to update.
     name :: Prelude.Text
@@ -98,7 +98,7 @@ data UpdateEndpoint = UpdateEndpoint'
 -- 'roleArn', 'updateEndpoint_roleArn' - The ARN of the role used by event replication for this request.
 --
 -- 'routingConfig', 'updateEndpoint_routingConfig' - Configure the routing policy, including the health check and secondary
--- Region..
+-- Region.
 --
 -- 'name', 'updateEndpoint_name' - The name of the endpoint you want to update.
 newUpdateEndpoint ::
@@ -132,7 +132,7 @@ updateEndpoint_roleArn :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Text)
 updateEndpoint_roleArn = Lens.lens (\UpdateEndpoint' {roleArn} -> roleArn) (\s@UpdateEndpoint' {} a -> s {roleArn = a} :: UpdateEndpoint)
 
 -- | Configure the routing policy, including the health check and secondary
--- Region..
+-- Region.
 updateEndpoint_routingConfig :: Lens.Lens' UpdateEndpoint (Prelude.Maybe RoutingConfig)
 updateEndpoint_routingConfig = Lens.lens (\UpdateEndpoint' {routingConfig} -> routingConfig) (\s@UpdateEndpoint' {} a -> s {routingConfig = a} :: UpdateEndpoint)
 
@@ -164,7 +164,8 @@ instance Core.AWSRequest UpdateEndpoint where
 
 instance Prelude.Hashable UpdateEndpoint where
   hashWithSalt _salt UpdateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBuses
       `Prelude.hashWithSalt` replicationConfig
       `Prelude.hashWithSalt` roleArn

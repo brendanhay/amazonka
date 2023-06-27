@@ -141,7 +141,8 @@ instance Data.FromJSON Archive where
 
 instance Prelude.Hashable Archive where
   hashWithSalt _salt Archive' {..} =
-    _salt `Prelude.hashWithSalt` archiveName
+    _salt
+      `Prelude.hashWithSalt` archiveName
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` eventCount
       `Prelude.hashWithSalt` eventSourceArn

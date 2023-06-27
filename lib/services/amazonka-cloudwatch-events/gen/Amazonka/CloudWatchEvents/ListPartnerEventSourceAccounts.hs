@@ -127,7 +127,8 @@ instance
       ( \s h x ->
           ListPartnerEventSourceAccountsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PartnerEventSourceAccounts"
+            Prelude.<*> ( x
+                            Data..?> "PartnerEventSourceAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,7 +141,8 @@ instance
   hashWithSalt
     _salt
     ListPartnerEventSourceAccounts' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` eventSourceName
 

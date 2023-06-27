@@ -128,7 +128,8 @@ instance Core.AWSRequest ListConnections where
 
 instance Prelude.Hashable ListConnections where
   hashWithSalt _salt ListConnections' {..} =
-    _salt `Prelude.hashWithSalt` connectionState
+    _salt
+      `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` namePrefix
       `Prelude.hashWithSalt` nextToken

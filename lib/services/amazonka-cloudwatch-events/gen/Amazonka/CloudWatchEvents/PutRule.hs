@@ -125,7 +125,7 @@ data PutRule = PutRule'
     -- omit this, the default event bus is used.
     eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The event pattern. For more information, see
-    -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html EventBridge event patterns>
+    -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html Amazon EventBridge event patterns>
     -- in the /Amazon EventBridge User Guide/.
     eventPattern :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
@@ -162,7 +162,7 @@ data PutRule = PutRule'
 -- omit this, the default event bus is used.
 --
 -- 'eventPattern', 'putRule_eventPattern' - The event pattern. For more information, see
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html EventBridge event patterns>
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html Amazon EventBridge event patterns>
 -- in the /Amazon EventBridge User Guide/.
 --
 -- 'roleArn', 'putRule_roleArn' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
@@ -207,7 +207,7 @@ putRule_eventBusName :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_eventBusName = Lens.lens (\PutRule' {eventBusName} -> eventBusName) (\s@PutRule' {} a -> s {eventBusName = a} :: PutRule)
 
 -- | The event pattern. For more information, see
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html EventBridge event patterns>
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html Amazon EventBridge event patterns>
 -- in the /Amazon EventBridge User Guide/.
 putRule_eventPattern :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_eventPattern = Lens.lens (\PutRule' {eventPattern} -> eventPattern) (\s@PutRule' {} a -> s {eventPattern = a} :: PutRule)
@@ -253,7 +253,8 @@ instance Core.AWSRequest PutRule where
 
 instance Prelude.Hashable PutRule where
   hashWithSalt _salt PutRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` eventPattern
       `Prelude.hashWithSalt` roleArn

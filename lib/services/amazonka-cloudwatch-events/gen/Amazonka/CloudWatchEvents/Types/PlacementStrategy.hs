@@ -107,12 +107,14 @@ instance Data.FromJSON PlacementStrategy where
       "PlacementStrategy"
       ( \x ->
           PlacementStrategy'
-            Prelude.<$> (x Data..:? "field") Prelude.<*> (x Data..:? "type")
+            Prelude.<$> (x Data..:? "field")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable PlacementStrategy where
   hashWithSalt _salt PlacementStrategy' {..} =
-    _salt `Prelude.hashWithSalt` field
+    _salt
+      `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PlacementStrategy where

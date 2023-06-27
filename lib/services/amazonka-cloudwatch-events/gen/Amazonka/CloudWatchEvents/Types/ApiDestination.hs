@@ -150,7 +150,8 @@ instance Data.FromJSON ApiDestination where
 
 instance Prelude.Hashable ApiDestination where
   hashWithSalt _salt ApiDestination' {..} =
-    _salt `Prelude.hashWithSalt` apiDestinationArn
+    _salt
+      `Prelude.hashWithSalt` apiDestinationArn
       `Prelude.hashWithSalt` apiDestinationState
       `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` creationTime

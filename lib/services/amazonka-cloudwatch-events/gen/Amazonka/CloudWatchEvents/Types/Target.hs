@@ -64,23 +64,23 @@ data Target = Target'
     -- in the /Amazon EC2 Container Service Developer Guide/.
     ecsParameters :: Prelude.Maybe EcsParameters,
     -- | Contains the HTTP parameters to use when the target is a API Gateway
-    -- REST endpoint or EventBridge ApiDestination.
+    -- endpoint or EventBridge ApiDestination.
     --
-    -- If you specify an API Gateway REST API or EventBridge ApiDestination as
-    -- a target, you can use this parameter to specify headers, path
-    -- parameters, and query string keys\/values as part of your target
-    -- invoking request. If you\'re using ApiDestinations, the corresponding
-    -- Connection can also have these values configured. In case of any
-    -- conflicting keys, values from the Connection take precedence.
+    -- If you specify an API Gateway API or EventBridge ApiDestination as a
+    -- target, you can use this parameter to specify headers, path parameters,
+    -- and query string keys\/values as part of your target invoking request.
+    -- If you\'re using ApiDestinations, the corresponding Connection can also
+    -- have these values configured. In case of any conflicting keys, values
+    -- from the Connection take precedence.
     httpParameters :: Prelude.Maybe HttpParameters,
     -- | Valid JSON text passed to the target. In this case, nothing from the
     -- event itself is passed to the target. For more information, see
     -- <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
     input :: Prelude.Maybe Prelude.Text,
     -- | The value of the JSONPath that is used for extracting part of the
-    -- matched event when passing it to the target. You must use JSON dot
-    -- notation, not bracket notation. For more information about JSON paths,
-    -- see <http://goessner.net/articles/JsonPath/ JSONPath>.
+    -- matched event when passing it to the target. You may use JSON dot
+    -- notation or bracket notation. For more information about JSON paths, see
+    -- <http://goessner.net/articles/JsonPath/ JSONPath>.
     inputPath :: Prelude.Maybe Prelude.Text,
     -- | Settings to enable you to provide custom input to a target based on
     -- certain event data. You can extract one or more key-value pairs from the
@@ -126,7 +126,7 @@ data Target = Target'
     -- | The Amazon Resource Name (ARN) of the target.
     arn :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Target' with all optional fields omitted.
@@ -151,23 +151,23 @@ data Target = Target'
 -- in the /Amazon EC2 Container Service Developer Guide/.
 --
 -- 'httpParameters', 'target_httpParameters' - Contains the HTTP parameters to use when the target is a API Gateway
--- REST endpoint or EventBridge ApiDestination.
+-- endpoint or EventBridge ApiDestination.
 --
--- If you specify an API Gateway REST API or EventBridge ApiDestination as
--- a target, you can use this parameter to specify headers, path
--- parameters, and query string keys\/values as part of your target
--- invoking request. If you\'re using ApiDestinations, the corresponding
--- Connection can also have these values configured. In case of any
--- conflicting keys, values from the Connection take precedence.
+-- If you specify an API Gateway API or EventBridge ApiDestination as a
+-- target, you can use this parameter to specify headers, path parameters,
+-- and query string keys\/values as part of your target invoking request.
+-- If you\'re using ApiDestinations, the corresponding Connection can also
+-- have these values configured. In case of any conflicting keys, values
+-- from the Connection take precedence.
 --
 -- 'input', 'target_input' - Valid JSON text passed to the target. In this case, nothing from the
 -- event itself is passed to the target. For more information, see
 -- <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
 --
 -- 'inputPath', 'target_inputPath' - The value of the JSONPath that is used for extracting part of the
--- matched event when passing it to the target. You must use JSON dot
--- notation, not bracket notation. For more information about JSON paths,
--- see <http://goessner.net/articles/JsonPath/ JSONPath>.
+-- matched event when passing it to the target. You may use JSON dot
+-- notation or bracket notation. For more information about JSON paths, see
+-- <http://goessner.net/articles/JsonPath/ JSONPath>.
 --
 -- 'inputTransformer', 'target_inputTransformer' - Settings to enable you to provide custom input to a target based on
 -- certain event data. You can extract one or more key-value pairs from the
@@ -258,14 +258,14 @@ target_ecsParameters :: Lens.Lens' Target (Prelude.Maybe EcsParameters)
 target_ecsParameters = Lens.lens (\Target' {ecsParameters} -> ecsParameters) (\s@Target' {} a -> s {ecsParameters = a} :: Target)
 
 -- | Contains the HTTP parameters to use when the target is a API Gateway
--- REST endpoint or EventBridge ApiDestination.
+-- endpoint or EventBridge ApiDestination.
 --
--- If you specify an API Gateway REST API or EventBridge ApiDestination as
--- a target, you can use this parameter to specify headers, path
--- parameters, and query string keys\/values as part of your target
--- invoking request. If you\'re using ApiDestinations, the corresponding
--- Connection can also have these values configured. In case of any
--- conflicting keys, values from the Connection take precedence.
+-- If you specify an API Gateway API or EventBridge ApiDestination as a
+-- target, you can use this parameter to specify headers, path parameters,
+-- and query string keys\/values as part of your target invoking request.
+-- If you\'re using ApiDestinations, the corresponding Connection can also
+-- have these values configured. In case of any conflicting keys, values
+-- from the Connection take precedence.
 target_httpParameters :: Lens.Lens' Target (Prelude.Maybe HttpParameters)
 target_httpParameters = Lens.lens (\Target' {httpParameters} -> httpParameters) (\s@Target' {} a -> s {httpParameters = a} :: Target)
 
@@ -276,9 +276,9 @@ target_input :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_input = Lens.lens (\Target' {input} -> input) (\s@Target' {} a -> s {input = a} :: Target)
 
 -- | The value of the JSONPath that is used for extracting part of the
--- matched event when passing it to the target. You must use JSON dot
--- notation, not bracket notation. For more information about JSON paths,
--- see <http://goessner.net/articles/JsonPath/ JSONPath>.
+-- matched event when passing it to the target. You may use JSON dot
+-- notation or bracket notation. For more information about JSON paths, see
+-- <http://goessner.net/articles/JsonPath/ JSONPath>.
 target_inputPath :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_inputPath = Lens.lens (\Target' {inputPath} -> inputPath) (\s@Target' {} a -> s {inputPath = a} :: Target)
 
@@ -371,7 +371,8 @@ instance Data.FromJSON Target where
 
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` batchParameters
+    _salt
+      `Prelude.hashWithSalt` batchParameters
       `Prelude.hashWithSalt` deadLetterConfig
       `Prelude.hashWithSalt` ecsParameters
       `Prelude.hashWithSalt` httpParameters

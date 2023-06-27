@@ -82,17 +82,20 @@ instance Data.FromJSON ConnectionHttpParameters where
       ( \x ->
           ConnectionHttpParameters'
             Prelude.<$> (x Data..:? "BodyParameters" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "HeaderParameters"
+            Prelude.<*> ( x
+                            Data..:? "HeaderParameters"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "QueryStringParameters"
+            Prelude.<*> ( x
+                            Data..:? "QueryStringParameters"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ConnectionHttpParameters where
   hashWithSalt _salt ConnectionHttpParameters' {..} =
-    _salt `Prelude.hashWithSalt` bodyParameters
+    _salt
+      `Prelude.hashWithSalt` bodyParameters
       `Prelude.hashWithSalt` headerParameters
       `Prelude.hashWithSalt` queryStringParameters
 

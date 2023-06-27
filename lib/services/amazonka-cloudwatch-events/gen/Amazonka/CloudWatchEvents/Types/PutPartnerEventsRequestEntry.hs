@@ -31,8 +31,8 @@ data PutPartnerEventsRequestEntry = PutPartnerEventsRequestEntry'
   { -- | A valid JSON string. There is no other schema imposed. The JSON string
     -- may contain fields and nested subobjects.
     detail :: Prelude.Maybe Prelude.Text,
-    -- | A free-form string used to decide what fields to expect in the event
-    -- detail.
+    -- | A free-form string, with a maximum of 128 characters, used to decide
+    -- what fields to expect in the event detail.
     detailType :: Prelude.Maybe Prelude.Text,
     -- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
     -- which the event primarily concerns. Any number, including zero, may be
@@ -56,8 +56,8 @@ data PutPartnerEventsRequestEntry = PutPartnerEventsRequestEntry'
 -- 'detail', 'putPartnerEventsRequestEntry_detail' - A valid JSON string. There is no other schema imposed. The JSON string
 -- may contain fields and nested subobjects.
 --
--- 'detailType', 'putPartnerEventsRequestEntry_detailType' - A free-form string used to decide what fields to expect in the event
--- detail.
+-- 'detailType', 'putPartnerEventsRequestEntry_detailType' - A free-form string, with a maximum of 128 characters, used to decide
+-- what fields to expect in the event detail.
 --
 -- 'resources', 'putPartnerEventsRequestEntry_resources' - Amazon Web Services resources, identified by Amazon Resource Name (ARN),
 -- which the event primarily concerns. Any number, including zero, may be
@@ -83,8 +83,8 @@ newPutPartnerEventsRequestEntry =
 putPartnerEventsRequestEntry_detail :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putPartnerEventsRequestEntry_detail = Lens.lens (\PutPartnerEventsRequestEntry' {detail} -> detail) (\s@PutPartnerEventsRequestEntry' {} a -> s {detail = a} :: PutPartnerEventsRequestEntry)
 
--- | A free-form string used to decide what fields to expect in the event
--- detail.
+-- | A free-form string, with a maximum of 128 characters, used to decide
+-- what fields to expect in the event detail.
 putPartnerEventsRequestEntry_detailType :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putPartnerEventsRequestEntry_detailType = Lens.lens (\PutPartnerEventsRequestEntry' {detailType} -> detailType) (\s@PutPartnerEventsRequestEntry' {} a -> s {detailType = a} :: PutPartnerEventsRequestEntry)
 
@@ -107,7 +107,8 @@ instance
     PutPartnerEventsRequestEntry
   where
   hashWithSalt _salt PutPartnerEventsRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` detail
+    _salt
+      `Prelude.hashWithSalt` detail
       `Prelude.hashWithSalt` detailType
       `Prelude.hashWithSalt` resources
       `Prelude.hashWithSalt` source

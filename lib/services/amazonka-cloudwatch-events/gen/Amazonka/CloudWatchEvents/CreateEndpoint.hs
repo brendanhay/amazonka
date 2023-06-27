@@ -68,7 +68,10 @@ import qualified Amazonka.Response as Response
 data CreateEndpoint = CreateEndpoint'
   { -- | A description of the global endpoint.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Enable or disable event replication.
+    -- | Enable or disable event replication. The default state is @ENABLED@
+    -- which means you must supply a @RoleArn@. If you don\'t have a @RoleArn@
+    -- or you don\'t want event replication enabled, set the state to
+    -- @DISABLED@.
     replicationConfig :: Prelude.Maybe ReplicationConfig,
     -- | The ARN of the role used for replication.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -95,7 +98,10 @@ data CreateEndpoint = CreateEndpoint'
 --
 -- 'description', 'createEndpoint_description' - A description of the global endpoint.
 --
--- 'replicationConfig', 'createEndpoint_replicationConfig' - Enable or disable event replication.
+-- 'replicationConfig', 'createEndpoint_replicationConfig' - Enable or disable event replication. The default state is @ENABLED@
+-- which means you must supply a @RoleArn@. If you don\'t have a @RoleArn@
+-- or you don\'t want event replication enabled, set the state to
+-- @DISABLED@.
 --
 -- 'roleArn', 'createEndpoint_roleArn' - The ARN of the role used for replication.
 --
@@ -130,7 +136,10 @@ newCreateEndpoint pName_ pRoutingConfig_ pEventBuses_ =
 createEndpoint_description :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
 createEndpoint_description = Lens.lens (\CreateEndpoint' {description} -> description) (\s@CreateEndpoint' {} a -> s {description = a} :: CreateEndpoint)
 
--- | Enable or disable event replication.
+-- | Enable or disable event replication. The default state is @ENABLED@
+-- which means you must supply a @RoleArn@. If you don\'t have a @RoleArn@
+-- or you don\'t want event replication enabled, set the state to
+-- @DISABLED@.
 createEndpoint_replicationConfig :: Lens.Lens' CreateEndpoint (Prelude.Maybe ReplicationConfig)
 createEndpoint_replicationConfig = Lens.lens (\CreateEndpoint' {replicationConfig} -> replicationConfig) (\s@CreateEndpoint' {} a -> s {replicationConfig = a} :: CreateEndpoint)
 
@@ -176,7 +185,8 @@ instance Core.AWSRequest CreateEndpoint where
 
 instance Prelude.Hashable CreateEndpoint where
   hashWithSalt _salt CreateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` replicationConfig
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` name

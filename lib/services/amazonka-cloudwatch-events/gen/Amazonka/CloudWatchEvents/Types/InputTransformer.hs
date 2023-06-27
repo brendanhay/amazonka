@@ -42,7 +42,7 @@ data InputTransformer = InputTransformer'
     -- | Input template where you specify placeholders that will be filled with
     -- the values of the keys from @InputPathsMap@ to customize the data sent
     -- to the target. Enclose each @InputPathsMaps@ value in brackets:
-    -- \</value/> The InputTemplate must be valid JSON.
+    -- \</value/>
     --
     -- If @InputTemplate@ is a JSON object (surrounded by curly braces), the
     -- following restrictions apply:
@@ -112,7 +112,7 @@ data InputTransformer = InputTransformer'
 -- 'inputTemplate', 'inputTransformer_inputTemplate' - Input template where you specify placeholders that will be filled with
 -- the values of the keys from @InputPathsMap@ to customize the data sent
 -- to the target. Enclose each @InputPathsMaps@ value in brackets:
--- \</value/> The InputTemplate must be valid JSON.
+-- \</value/>
 --
 -- If @InputTemplate@ is a JSON object (surrounded by curly braces), the
 -- following restrictions apply:
@@ -182,7 +182,7 @@ inputTransformer_inputPathsMap = Lens.lens (\InputTransformer' {inputPathsMap} -
 -- | Input template where you specify placeholders that will be filled with
 -- the values of the keys from @InputPathsMap@ to customize the data sent
 -- to the target. Enclose each @InputPathsMaps@ value in brackets:
--- \</value/> The InputTemplate must be valid JSON.
+-- \</value/>
 --
 -- If @InputTemplate@ is a JSON object (surrounded by curly braces), the
 -- following restrictions apply:
@@ -242,7 +242,8 @@ instance Data.FromJSON InputTransformer where
 
 instance Prelude.Hashable InputTransformer where
   hashWithSalt _salt InputTransformer' {..} =
-    _salt `Prelude.hashWithSalt` inputPathsMap
+    _salt
+      `Prelude.hashWithSalt` inputPathsMap
       `Prelude.hashWithSalt` inputTemplate
 
 instance Prelude.NFData InputTransformer where

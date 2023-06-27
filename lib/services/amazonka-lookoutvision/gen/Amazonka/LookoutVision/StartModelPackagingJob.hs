@@ -233,7 +233,8 @@ instance Core.AWSRequest StartModelPackagingJob where
 
 instance Prelude.Hashable StartModelPackagingJob where
   hashWithSalt _salt StartModelPackagingJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` projectName

@@ -220,7 +220,8 @@ instance Data.FromJSON ModelDescription where
 
 instance Prelude.Hashable ModelDescription where
   hashWithSalt _salt ModelDescription' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` evaluationEndTimestamp
       `Prelude.hashWithSalt` evaluationManifest

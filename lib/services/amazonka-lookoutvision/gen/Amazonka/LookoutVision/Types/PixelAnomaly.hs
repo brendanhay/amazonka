@@ -82,7 +82,8 @@ instance Data.FromJSON PixelAnomaly where
 
 instance Prelude.Hashable PixelAnomaly where
   hashWithSalt _salt PixelAnomaly' {..} =
-    _salt `Prelude.hashWithSalt` color
+    _salt
+      `Prelude.hashWithSalt` color
       `Prelude.hashWithSalt` totalPercentageArea
 
 instance Prelude.NFData PixelAnomaly where

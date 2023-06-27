@@ -86,7 +86,8 @@ instance Data.FromJSON GreengrassOutputDetails where
 
 instance Prelude.Hashable GreengrassOutputDetails where
   hashWithSalt _salt GreengrassOutputDetails' {..} =
-    _salt `Prelude.hashWithSalt` componentName
+    _salt
+      `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` componentVersionArn
 

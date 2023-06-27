@@ -128,20 +128,23 @@ instance Core.AWSPager ListModels where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listModelsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listModelsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listModelsResponse_models Prelude.. Lens._Just
+            Lens.^? listModelsResponse_models
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listModels_nextToken
           Lens..~ rs
-          Lens.^? listModelsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listModelsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModels where
   type AWSResponse ListModels = ListModelsResponse
@@ -158,7 +161,8 @@ instance Core.AWSRequest ListModels where
 
 instance Prelude.Hashable ListModels where
   hashWithSalt _salt ListModels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectName
 

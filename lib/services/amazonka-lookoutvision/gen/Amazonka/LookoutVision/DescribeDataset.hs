@@ -116,7 +116,8 @@ instance Core.AWSRequest DescribeDataset where
 
 instance Prelude.Hashable DescribeDataset where
   hashWithSalt _salt DescribeDataset' {..} =
-    _salt `Prelude.hashWithSalt` projectName
+    _salt
+      `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` datasetType
 
 instance Prelude.NFData DescribeDataset where

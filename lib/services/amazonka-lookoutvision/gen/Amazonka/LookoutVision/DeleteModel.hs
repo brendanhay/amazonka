@@ -159,7 +159,8 @@ instance Core.AWSRequest DeleteModel where
 
 instance Prelude.Hashable DeleteModel where
   hashWithSalt _salt DeleteModel' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` modelVersion
 

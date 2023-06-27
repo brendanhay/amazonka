@@ -157,7 +157,8 @@ instance Core.AWSRequest StopModel where
 
 instance Prelude.Hashable StopModel where
   hashWithSalt _salt StopModel' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` modelVersion
 

@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeModel where
 
 instance Prelude.Hashable DescribeModel where
   hashWithSalt _salt DescribeModel' {..} =
-    _salt `Prelude.hashWithSalt` projectName
+    _salt
+      `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` modelVersion
 
 instance Prelude.NFData DescribeModel where

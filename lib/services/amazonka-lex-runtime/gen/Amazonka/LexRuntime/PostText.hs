@@ -335,7 +335,8 @@ instance Core.AWSRequest PostText where
       ( \s h x ->
           PostTextResponse'
             Prelude.<$> (x Data..?> "activeContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "alternativeIntents"
+            Prelude.<*> ( x
+                            Data..?> "alternativeIntents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botVersion")
@@ -346,7 +347,8 @@ instance Core.AWSRequest PostText where
             Prelude.<*> (x Data..?> "nluIntentConfidence")
             Prelude.<*> (x Data..?> "responseCard")
             Prelude.<*> (x Data..?> "sentimentResponse")
-            Prelude.<*> ( x Data..?> "sessionAttributes"
+            Prelude.<*> ( x
+                            Data..?> "sessionAttributes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "sessionId")
@@ -357,7 +359,8 @@ instance Core.AWSRequest PostText where
 
 instance Prelude.Hashable PostText where
   hashWithSalt _salt PostText' {..} =
-    _salt `Prelude.hashWithSalt` activeContexts
+    _salt
+      `Prelude.hashWithSalt` activeContexts
       `Prelude.hashWithSalt` requestAttributes
       `Prelude.hashWithSalt` sessionAttributes
       `Prelude.hashWithSalt` botName

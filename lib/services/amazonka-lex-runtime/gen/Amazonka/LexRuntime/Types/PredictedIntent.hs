@@ -93,7 +93,8 @@ instance Data.FromJSON PredictedIntent where
 
 instance Prelude.Hashable PredictedIntent where
   hashWithSalt _salt PredictedIntent' {..} =
-    _salt `Prelude.hashWithSalt` intentName
+    _salt
+      `Prelude.hashWithSalt` intentName
       `Prelude.hashWithSalt` nluIntentConfidence
       `Prelude.hashWithSalt` slots
 

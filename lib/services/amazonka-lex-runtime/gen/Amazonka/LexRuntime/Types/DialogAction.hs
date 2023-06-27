@@ -241,7 +241,8 @@ instance Data.FromJSON DialogAction where
 
 instance Prelude.Hashable DialogAction where
   hashWithSalt _salt DialogAction' {..} =
-    _salt `Prelude.hashWithSalt` fulfillmentState
+    _salt
+      `Prelude.hashWithSalt` fulfillmentState
       `Prelude.hashWithSalt` intentName
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` messageFormat

@@ -107,7 +107,8 @@ instance Data.FromJSON GenericAttachment where
 
 instance Prelude.Hashable GenericAttachment where
   hashWithSalt _salt GenericAttachment' {..} =
-    _salt `Prelude.hashWithSalt` attachmentLinkUrl
+    _salt
+      `Prelude.hashWithSalt` attachmentLinkUrl
       `Prelude.hashWithSalt` buttons
       `Prelude.hashWithSalt` imageUrl
       `Prelude.hashWithSalt` subTitle

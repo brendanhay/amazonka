@@ -21,18 +21,26 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a set of temporary security credentials (consisting of an access
--- key ID, a secret access key, and a security token) for a federated user.
--- A typical use is in a proxy application that gets temporary security
--- credentials on behalf of distributed applications inside a corporate
--- network. You must call the @GetFederationToken@ operation using the
--- long-term security credentials of an IAM user. As a result, this call is
--- appropriate in contexts where those credentials can be safely stored,
+-- key ID, a secret access key, and a security token) for a user. A typical
+-- use is in a proxy application that gets temporary security credentials
+-- on behalf of distributed applications inside a corporate network.
+--
+-- You must call the @GetFederationToken@ operation using the long-term
+-- security credentials of an IAM user. As a result, this call is
+-- appropriate in contexts where those credentials can be safeguarded,
 -- usually in a server-based application. For a comparison of
 -- @GetFederationToken@ with the other API operations that produce
 -- temporary credentials, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
 -- and
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the Amazon Web Services STS API operations>
+-- in the /IAM User Guide/.
+--
+-- Although it is possible to call @GetFederationToken@ using the security
+-- credentials of an Amazon Web Services account root user rather than an
+-- IAM user that you create for the purpose of a proxy application, we do
+-- not recommend it. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials Safeguard your root user credentials and don\'t use them for everyday tasks>
 -- in the /IAM User Guide/.
 --
 -- You can create a mobile-based or browser-based app that can authenticate
@@ -44,32 +52,26 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity Federation Through a Web-based Identity Provider>
 -- in the /IAM User Guide/.
 --
--- You can also call @GetFederationToken@ using the security credentials of
--- an Amazon Web Services account root user, but we do not recommend it.
--- Instead, we recommend that you create an IAM user for the purpose of the
--- proxy application. Then attach a policy to the IAM user that limits
--- federated users to only the actions and resources that they need to
--- access. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html IAM Best Practices>
--- in the /IAM User Guide/.
---
 -- __Session duration__
 --
 -- The temporary credentials are valid for the specified duration, from 900
 -- seconds (15 minutes) up to a maximum of 129,600 seconds (36 hours). The
 -- default session duration is 43,200 seconds (12 hours). Temporary
--- credentials obtained by using the Amazon Web Services account root user
--- credentials have a maximum duration of 3,600 seconds (1 hour).
+-- credentials obtained by using the root user credentials have a maximum
+-- duration of 3,600 seconds (1 hour).
 --
 -- __Permissions__
 --
 -- You can use the temporary credentials created by @GetFederationToken@ in
--- any Amazon Web Services service except the following:
+-- any Amazon Web Services service with the following exceptions:
 --
 -- -   You cannot call any IAM operations using the CLI or the Amazon Web
---     Services API.
+--     Services API. This limitation does not apply to console sessions.
 --
 -- -   You cannot call any STS operations except @GetCallerIdentity@.
+--
+-- You can use temporary credentials for single sign-on (SSO) to the
+-- console.
 --
 -- You must pass an inline or managed
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policy>
@@ -164,10 +166,10 @@ data GetFederationToken = GetFederationToken'
   { -- | The duration, in seconds, that the session should last. Acceptable
     -- durations for federation sessions range from 900 seconds (15 minutes) to
     -- 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the
-    -- default. Sessions obtained using Amazon Web Services account root user
-    -- credentials are restricted to a maximum of 3,600 seconds (one hour). If
-    -- the specified duration is longer than one hour, the session obtained by
-    -- using root user credentials defaults to one hour.
+    -- default. Sessions obtained using root user credentials are restricted to
+    -- a maximum of 3,600 seconds (one hour). If the specified duration is
+    -- longer than one hour, the session obtained by using root user
+    -- credentials defaults to one hour.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | An IAM policy in JSON format that you want to use as an inline session
     -- policy.
@@ -304,10 +306,10 @@ data GetFederationToken = GetFederationToken'
 -- 'durationSeconds', 'getFederationToken_durationSeconds' - The duration, in seconds, that the session should last. Acceptable
 -- durations for federation sessions range from 900 seconds (15 minutes) to
 -- 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the
--- default. Sessions obtained using Amazon Web Services account root user
--- credentials are restricted to a maximum of 3,600 seconds (one hour). If
--- the specified duration is longer than one hour, the session obtained by
--- using root user credentials defaults to one hour.
+-- default. Sessions obtained using root user credentials are restricted to
+-- a maximum of 3,600 seconds (one hour). If the specified duration is
+-- longer than one hour, the session obtained by using root user
+-- credentials defaults to one hour.
 --
 -- 'policy', 'getFederationToken_policy' - An IAM policy in JSON format that you want to use as an inline session
 -- policy.
@@ -446,10 +448,10 @@ newGetFederationToken pName_ =
 -- | The duration, in seconds, that the session should last. Acceptable
 -- durations for federation sessions range from 900 seconds (15 minutes) to
 -- 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the
--- default. Sessions obtained using Amazon Web Services account root user
--- credentials are restricted to a maximum of 3,600 seconds (one hour). If
--- the specified duration is longer than one hour, the session obtained by
--- using root user credentials defaults to one hour.
+-- default. Sessions obtained using root user credentials are restricted to
+-- a maximum of 3,600 seconds (one hour). If the specified duration is
+-- longer than one hour, the session obtained by using root user
+-- credentials defaults to one hour.
 getFederationToken_durationSeconds :: Lens.Lens' GetFederationToken (Prelude.Maybe Prelude.Natural)
 getFederationToken_durationSeconds = Lens.lens (\GetFederationToken' {durationSeconds} -> durationSeconds) (\s@GetFederationToken' {} a -> s {durationSeconds = a} :: GetFederationToken)
 
@@ -601,7 +603,8 @@ instance Core.AWSRequest GetFederationToken where
 
 instance Prelude.Hashable GetFederationToken where
   hashWithSalt _salt GetFederationToken' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyArns
       `Prelude.hashWithSalt` tags

@@ -21,12 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a set of temporary security credentials that you can use to
--- access Amazon Web Services resources that you might not normally have
--- access to. These temporary credentials consist of an access key ID, a
--- secret access key, and a security token. Typically, you use @AssumeRole@
--- within your account or for cross-account access. For a comparison of
--- @AssumeRole@ with other API operations that produce temporary
--- credentials, see
+-- access Amazon Web Services resources. These temporary credentials
+-- consist of an access key ID, a secret access key, and a security token.
+-- Typically, you use @AssumeRole@ within your account or for cross-account
+-- access. For a comparison of @AssumeRole@ with other API operations that
+-- produce temporary credentials, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
 -- and
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the Amazon Web Services STS API operations>
@@ -56,10 +55,10 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 --
--- When you create a role, you create two policies: A role trust policy
--- that specifies /who/ can assume the role and a permissions policy that
+-- When you create a role, you create two policies: a role trust policy
+-- that specifies /who/ can assume the role, and a permissions policy that
 -- specifies /what/ can be done with the role. You specify the trusted
--- principal who is allowed to assume the role in the role trust policy.
+-- principal that is allowed to assume the role in the role trust policy.
 --
 -- To assume a role from a different account, your Amazon Web Services
 -- account must be trusted by the role. The trust relationship is defined
@@ -68,7 +67,7 @@
 -- the account.
 --
 -- A user who wants to access a role in a different account must also have
--- permissions that are delegated from the user account administrator. The
+-- permissions that are delegated from the account administrator. The
 -- administrator must attach a policy that allows the user to call
 -- @AssumeRole@ for the ARN of the role in the other account.
 --
@@ -883,7 +882,8 @@ instance Core.AWSRequest AssumeRole where
 
 instance Prelude.Hashable AssumeRole where
   hashWithSalt _salt AssumeRole' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyArns

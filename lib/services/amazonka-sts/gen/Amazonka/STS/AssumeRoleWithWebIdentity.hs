@@ -36,10 +36,8 @@
 -- consistent identity throughout the lifetime of an application.
 --
 -- To learn more about Amazon Cognito, see
--- <https://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-auth.html#d0e840 Amazon Cognito Overview>
--- in /Amazon Web Services SDK for Android Developer Guide/ and
--- <https://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-auth.html#d0e664 Amazon Cognito Overview>
--- in the /Amazon Web Services SDK for iOS Developer Guide/.
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html Amazon Cognito identity pools>
+-- in /Amazon Cognito Developer Guide/.
 --
 -- Calling @AssumeRoleWithWebIdentity@ does not require the use of Amazon
 -- Web Services security credentials. Therefore, you can distribute an
@@ -326,9 +324,9 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
     -- authenticating the user who is using your application with a web
     -- identity provider before the application makes an
     -- @AssumeRoleWithWebIdentity@ call.
-    webIdentityToken :: Prelude.Text
+    webIdentityToken :: Data.Sensitive Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssumeRoleWithWebIdentity' with all optional fields omitted.
@@ -464,7 +462,8 @@ newAssumeRoleWithWebIdentity
         providerId = Prelude.Nothing,
         roleArn = pRoleArn_,
         roleSessionName = pRoleSessionName_,
-        webIdentityToken = pWebIdentityToken_
+        webIdentityToken =
+          Data._Sensitive Lens.# pWebIdentityToken_
       }
 
 -- | The duration, in seconds, of the role session. The value can range from
@@ -586,7 +585,7 @@ assumeRoleWithWebIdentity_roleSessionName = Lens.lens (\AssumeRoleWithWebIdentit
 -- identity provider before the application makes an
 -- @AssumeRoleWithWebIdentity@ call.
 assumeRoleWithWebIdentity_webIdentityToken :: Lens.Lens' AssumeRoleWithWebIdentity Prelude.Text
-assumeRoleWithWebIdentity_webIdentityToken = Lens.lens (\AssumeRoleWithWebIdentity' {webIdentityToken} -> webIdentityToken) (\s@AssumeRoleWithWebIdentity' {} a -> s {webIdentityToken = a} :: AssumeRoleWithWebIdentity)
+assumeRoleWithWebIdentity_webIdentityToken = Lens.lens (\AssumeRoleWithWebIdentity' {webIdentityToken} -> webIdentityToken) (\s@AssumeRoleWithWebIdentity' {} a -> s {webIdentityToken = a} :: AssumeRoleWithWebIdentity) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AssumeRoleWithWebIdentity where
   type
@@ -611,7 +610,8 @@ instance Core.AWSRequest AssumeRoleWithWebIdentity where
 
 instance Prelude.Hashable AssumeRoleWithWebIdentity where
   hashWithSalt _salt AssumeRoleWithWebIdentity' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyArns
       `Prelude.hashWithSalt` providerId

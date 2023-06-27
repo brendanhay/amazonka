@@ -292,9 +292,9 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims>
     -- in the /IAM User Guide/.
-    sAMLAssertion :: Prelude.Text
+    sAMLAssertion :: Data.Sensitive Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssumeRoleWithSAML' with all optional fields omitted.
@@ -413,7 +413,8 @@ newAssumeRoleWithSAML
         policyArns = Prelude.Nothing,
         roleArn = pRoleArn_,
         principalArn = pPrincipalArn_,
-        sAMLAssertion = pSAMLAssertion_
+        sAMLAssertion =
+          Data._Sensitive Lens.# pSAMLAssertion_
       }
 
 -- | The duration, in seconds, of the role session. Your role session lasts
@@ -517,7 +518,7 @@ assumeRoleWithSAML_principalArn = Lens.lens (\AssumeRoleWithSAML' {principalArn}
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims>
 -- in the /IAM User Guide/.
 assumeRoleWithSAML_sAMLAssertion :: Lens.Lens' AssumeRoleWithSAML Prelude.Text
-assumeRoleWithSAML_sAMLAssertion = Lens.lens (\AssumeRoleWithSAML' {sAMLAssertion} -> sAMLAssertion) (\s@AssumeRoleWithSAML' {} a -> s {sAMLAssertion = a} :: AssumeRoleWithSAML)
+assumeRoleWithSAML_sAMLAssertion = Lens.lens (\AssumeRoleWithSAML' {sAMLAssertion} -> sAMLAssertion) (\s@AssumeRoleWithSAML' {} a -> s {sAMLAssertion = a} :: AssumeRoleWithSAML) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AssumeRoleWithSAML where
   type
@@ -544,7 +545,8 @@ instance Core.AWSRequest AssumeRoleWithSAML where
 
 instance Prelude.Hashable AssumeRoleWithSAML where
   hashWithSalt _salt AssumeRoleWithSAML' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyArns
       `Prelude.hashWithSalt` roleArn
@@ -614,7 +616,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     --     IAM.
     --
     -- The combination of @NameQualifier@ and @Subject@ can be used to uniquely
-    -- identify a federated user.
+    -- identify a user.
     --
     -- The following pseudocode shows how the hash value is calculated:
     --
@@ -698,7 +700,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 --     IAM.
 --
 -- The combination of @NameQualifier@ and @Subject@ can be used to uniquely
--- identify a federated user.
+-- identify a user.
 --
 -- The following pseudocode shows how the hash value is calculated:
 --
@@ -797,7 +799,7 @@ assumeRoleWithSAMLResponse_issuer = Lens.lens (\AssumeRoleWithSAMLResponse' {iss
 --     IAM.
 --
 -- The combination of @NameQualifier@ and @Subject@ can be used to uniquely
--- identify a federated user.
+-- identify a user.
 --
 -- The following pseudocode shows how the hash value is calculated:
 --

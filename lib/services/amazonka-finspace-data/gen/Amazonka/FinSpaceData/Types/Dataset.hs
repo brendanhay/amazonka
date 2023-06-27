@@ -181,7 +181,8 @@ instance Data.FromJSON Dataset where
 
 instance Prelude.Hashable Dataset where
   hashWithSalt _salt Dataset' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` datasetDescription

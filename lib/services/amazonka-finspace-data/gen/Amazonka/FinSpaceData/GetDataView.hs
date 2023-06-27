@@ -119,7 +119,8 @@ instance Core.AWSRequest GetDataView where
             Prelude.<*> (x Data..?> "destinationTypeParams")
             Prelude.<*> (x Data..?> "errorInfo")
             Prelude.<*> (x Data..?> "lastModifiedTime")
-            Prelude.<*> ( x Data..?> "partitionColumns"
+            Prelude.<*> ( x
+                            Data..?> "partitionColumns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "sortColumns" Core..!@ Prelude.mempty)
@@ -129,7 +130,8 @@ instance Core.AWSRequest GetDataView where
 
 instance Prelude.Hashable GetDataView where
   hashWithSalt _salt GetDataView' {..} =
-    _salt `Prelude.hashWithSalt` dataViewId
+    _salt
+      `Prelude.hashWithSalt` dataViewId
       `Prelude.hashWithSalt` datasetId
 
 instance Prelude.NFData GetDataView where

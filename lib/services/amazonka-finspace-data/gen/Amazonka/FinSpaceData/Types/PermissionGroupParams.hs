@@ -70,7 +70,8 @@ permissionGroupParams_permissionGroupId = Lens.lens (\PermissionGroupParams' {pe
 
 instance Prelude.Hashable PermissionGroupParams where
   hashWithSalt _salt PermissionGroupParams' {..} =
-    _salt `Prelude.hashWithSalt` datasetPermissions
+    _salt
+      `Prelude.hashWithSalt` datasetPermissions
       `Prelude.hashWithSalt` permissionGroupId
 
 instance Prelude.NFData PermissionGroupParams where

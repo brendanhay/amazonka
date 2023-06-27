@@ -122,7 +122,8 @@ instance Data.FromJSON DataViewDestinationTypeParams where
       ( \x ->
           DataViewDestinationTypeParams'
             Prelude.<$> (x Data..:? "s3DestinationExportFileFormat")
-            Prelude.<*> ( x Data..:? "s3DestinationExportFileFormatOptions"
+            Prelude.<*> ( x
+                            Data..:? "s3DestinationExportFileFormatOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "destinationType")

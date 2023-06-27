@@ -84,7 +84,8 @@ instance Data.FromJSON Credentials where
 
 instance Prelude.Hashable Credentials where
   hashWithSalt _salt Credentials' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` secretAccessKey
       `Prelude.hashWithSalt` sessionToken
 

@@ -119,7 +119,8 @@ instance Core.AWSRequest ListUsersByPermissionGroup where
 
 instance Prelude.Hashable ListUsersByPermissionGroup where
   hashWithSalt _salt ListUsersByPermissionGroup' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` permissionGroupId
       `Prelude.hashWithSalt` maxResults
 

@@ -229,7 +229,8 @@ instance Data.FromJSON UserByPermissionGroup where
 
 instance Prelude.Hashable UserByPermissionGroup where
   hashWithSalt _salt UserByPermissionGroup' {..} =
-    _salt `Prelude.hashWithSalt` apiAccess
+    _salt
+      `Prelude.hashWithSalt` apiAccess
       `Prelude.hashWithSalt` apiAccessPrincipalArn
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` firstName

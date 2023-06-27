@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     GetProgrammaticAccessCredentials' {..} =
-      _salt `Prelude.hashWithSalt` durationInMinutes
+      _salt
+        `Prelude.hashWithSalt` durationInMinutes
         `Prelude.hashWithSalt` environmentId
 
 instance

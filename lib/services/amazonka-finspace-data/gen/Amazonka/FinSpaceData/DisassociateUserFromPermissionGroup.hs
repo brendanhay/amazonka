@@ -124,7 +124,8 @@ instance
   hashWithSalt
     _salt
     DisassociateUserFromPermissionGroup' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` permissionGroupId
         `Prelude.hashWithSalt` userId
 

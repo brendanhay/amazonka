@@ -84,7 +84,8 @@ instance Data.FromJSON DatasetOwnerInfo where
 
 instance Prelude.Hashable DatasetOwnerInfo where
   hashWithSalt _salt DatasetOwnerInfo' {..} =
-    _salt `Prelude.hashWithSalt` email
+    _salt
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` phoneNumber
 

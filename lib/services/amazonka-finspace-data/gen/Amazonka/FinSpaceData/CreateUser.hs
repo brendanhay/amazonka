@@ -206,7 +206,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` apiAccess
+    _salt
+      `Prelude.hashWithSalt` apiAccess
       `Prelude.hashWithSalt` apiAccessPrincipalArn
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` firstName

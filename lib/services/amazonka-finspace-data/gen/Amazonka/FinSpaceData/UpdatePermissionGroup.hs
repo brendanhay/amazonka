@@ -212,7 +212,8 @@ instance Core.AWSRequest UpdatePermissionGroup where
 
 instance Prelude.Hashable UpdatePermissionGroup where
   hashWithSalt _salt UpdatePermissionGroup' {..} =
-    _salt `Prelude.hashWithSalt` applicationPermissions
+    _salt
+      `Prelude.hashWithSalt` applicationPermissions
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

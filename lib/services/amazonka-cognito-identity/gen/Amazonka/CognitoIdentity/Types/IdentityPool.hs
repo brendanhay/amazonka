@@ -173,20 +173,25 @@ instance Data.FromJSON IdentityPool where
       ( \x ->
           IdentityPool'
             Prelude.<$> (x Data..:? "AllowClassicFlow")
-            Prelude.<*> ( x Data..:? "CognitoIdentityProviders"
+            Prelude.<*> ( x
+                            Data..:? "CognitoIdentityProviders"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DeveloperProviderName")
-            Prelude.<*> ( x Data..:? "IdentityPoolTags"
+            Prelude.<*> ( x
+                            Data..:? "IdentityPoolTags"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "OpenIdConnectProviderARNs"
+            Prelude.<*> ( x
+                            Data..:? "OpenIdConnectProviderARNs"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SamlProviderARNs"
+            Prelude.<*> ( x
+                            Data..:? "SamlProviderARNs"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SupportedLoginProviders"
+            Prelude.<*> ( x
+                            Data..:? "SupportedLoginProviders"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "IdentityPoolId")
@@ -196,7 +201,8 @@ instance Data.FromJSON IdentityPool where
 
 instance Prelude.Hashable IdentityPool where
   hashWithSalt _salt IdentityPool' {..} =
-    _salt `Prelude.hashWithSalt` allowClassicFlow
+    _salt
+      `Prelude.hashWithSalt` allowClassicFlow
       `Prelude.hashWithSalt` cognitoIdentityProviders
       `Prelude.hashWithSalt` developerProviderName
       `Prelude.hashWithSalt` identityPoolTags

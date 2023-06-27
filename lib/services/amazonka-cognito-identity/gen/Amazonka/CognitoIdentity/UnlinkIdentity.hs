@@ -112,7 +112,8 @@ instance Core.AWSRequest UnlinkIdentity where
 
 instance Prelude.Hashable UnlinkIdentity where
   hashWithSalt _salt UnlinkIdentity' {..} =
-    _salt `Prelude.hashWithSalt` identityId
+    _salt
+      `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` logins
       `Prelude.hashWithSalt` loginsToRemove
 

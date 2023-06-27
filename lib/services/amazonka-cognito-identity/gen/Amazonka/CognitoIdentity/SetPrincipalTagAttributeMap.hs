@@ -137,7 +137,8 @@ instance Core.AWSRequest SetPrincipalTagAttributeMap where
 
 instance Prelude.Hashable SetPrincipalTagAttributeMap where
   hashWithSalt _salt SetPrincipalTagAttributeMap' {..} =
-    _salt `Prelude.hashWithSalt` principalTags
+    _salt
+      `Prelude.hashWithSalt` principalTags
       `Prelude.hashWithSalt` useDefaults
       `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` identityProviderName

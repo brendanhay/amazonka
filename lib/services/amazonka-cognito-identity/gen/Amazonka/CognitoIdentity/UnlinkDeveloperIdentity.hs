@@ -136,7 +136,8 @@ instance Core.AWSRequest UnlinkDeveloperIdentity where
 
 instance Prelude.Hashable UnlinkDeveloperIdentity where
   hashWithSalt _salt UnlinkDeveloperIdentity' {..} =
-    _salt `Prelude.hashWithSalt` identityId
+    _salt
+      `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` developerProviderName
       `Prelude.hashWithSalt` developerUserIdentifier

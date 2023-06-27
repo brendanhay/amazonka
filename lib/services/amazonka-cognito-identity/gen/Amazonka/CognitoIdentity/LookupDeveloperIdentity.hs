@@ -170,7 +170,8 @@ instance Core.AWSRequest LookupDeveloperIdentity where
     Response.receiveJSON
       ( \s h x ->
           LookupDeveloperIdentityResponse'
-            Prelude.<$> ( x Data..?> "DeveloperUserIdentifierList"
+            Prelude.<$> ( x
+                            Data..?> "DeveloperUserIdentifierList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "IdentityId")

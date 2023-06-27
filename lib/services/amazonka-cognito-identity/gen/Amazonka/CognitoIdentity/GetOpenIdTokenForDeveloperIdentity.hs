@@ -211,8 +211,8 @@ instance
       ( \s h x ->
           GetOpenIdTokenForDeveloperIdentityResponse'
             Prelude.<$> (x Data..?> "IdentityId")
-              Prelude.<*> (x Data..?> "Token")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Token")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -222,7 +222,8 @@ instance
   hashWithSalt
     _salt
     GetOpenIdTokenForDeveloperIdentity' {..} =
-      _salt `Prelude.hashWithSalt` identityId
+      _salt
+        `Prelude.hashWithSalt` identityId
         `Prelude.hashWithSalt` principalTags
         `Prelude.hashWithSalt` tokenDuration
         `Prelude.hashWithSalt` identityPoolId

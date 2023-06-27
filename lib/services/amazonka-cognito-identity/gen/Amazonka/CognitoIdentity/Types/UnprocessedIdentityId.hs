@@ -76,7 +76,8 @@ instance Data.FromJSON UnprocessedIdentityId where
 
 instance Prelude.Hashable UnprocessedIdentityId where
   hashWithSalt _salt UnprocessedIdentityId' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` identityId
 
 instance Prelude.NFData UnprocessedIdentityId where

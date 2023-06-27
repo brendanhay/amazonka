@@ -36,18 +36,18 @@ data ResourceShareInvitation = ResourceShareInvitation'
     -- | The ID of the Amazon Web Services account that received the invitation.
     receiverAccountId :: Prelude.Maybe Prelude.Text,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the IAM user or role that received the invitation.
     receiverArn :: Prelude.Maybe Prelude.Text,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share
     resourceShareArn :: Prelude.Maybe Prelude.Text,
     -- | To view the resources associated with a pending resource share
     -- invitation, use ListPendingInvitationResources.
     resourceShareAssociations :: Prelude.Maybe [ResourceShareAssociation],
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the invitation.
     resourceShareInvitationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource share.
@@ -72,18 +72,18 @@ data ResourceShareInvitation = ResourceShareInvitation'
 -- 'receiverAccountId', 'resourceShareInvitation_receiverAccountId' - The ID of the Amazon Web Services account that received the invitation.
 --
 -- 'receiverArn', 'resourceShareInvitation_receiverArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the IAM user or role that received the invitation.
 --
 -- 'resourceShareArn', 'resourceShareInvitation_resourceShareArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share
 --
 -- 'resourceShareAssociations', 'resourceShareInvitation_resourceShareAssociations' - To view the resources associated with a pending resource share
 -- invitation, use ListPendingInvitationResources.
 --
 -- 'resourceShareInvitationArn', 'resourceShareInvitation_resourceShareInvitationArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the invitation.
 --
 -- 'resourceShareName', 'resourceShareInvitation_resourceShareName' - The name of the resource share.
@@ -116,13 +116,13 @@ resourceShareInvitation_receiverAccountId :: Lens.Lens' ResourceShareInvitation 
 resourceShareInvitation_receiverAccountId = Lens.lens (\ResourceShareInvitation' {receiverAccountId} -> receiverAccountId) (\s@ResourceShareInvitation' {} a -> s {receiverAccountId = a} :: ResourceShareInvitation)
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the IAM user or role that received the invitation.
 resourceShareInvitation_receiverArn :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.Text)
 resourceShareInvitation_receiverArn = Lens.lens (\ResourceShareInvitation' {receiverArn} -> receiverArn) (\s@ResourceShareInvitation' {} a -> s {receiverArn = a} :: ResourceShareInvitation)
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share
 resourceShareInvitation_resourceShareArn :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.Text)
 resourceShareInvitation_resourceShareArn = Lens.lens (\ResourceShareInvitation' {resourceShareArn} -> resourceShareArn) (\s@ResourceShareInvitation' {} a -> s {resourceShareArn = a} :: ResourceShareInvitation)
@@ -133,7 +133,7 @@ resourceShareInvitation_resourceShareAssociations :: Lens.Lens' ResourceShareInv
 resourceShareInvitation_resourceShareAssociations = Lens.lens (\ResourceShareInvitation' {resourceShareAssociations} -> resourceShareAssociations) (\s@ResourceShareInvitation' {} a -> s {resourceShareAssociations = a} :: ResourceShareInvitation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the invitation.
 resourceShareInvitation_resourceShareInvitationArn :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.Text)
 resourceShareInvitation_resourceShareInvitationArn = Lens.lens (\ResourceShareInvitation' {resourceShareInvitationArn} -> resourceShareInvitationArn) (\s@ResourceShareInvitation' {} a -> s {resourceShareInvitationArn = a} :: ResourceShareInvitation)
@@ -160,7 +160,8 @@ instance Data.FromJSON ResourceShareInvitation where
             Prelude.<*> (x Data..:? "receiverAccountId")
             Prelude.<*> (x Data..:? "receiverArn")
             Prelude.<*> (x Data..:? "resourceShareArn")
-            Prelude.<*> ( x Data..:? "resourceShareAssociations"
+            Prelude.<*> ( x
+                            Data..:? "resourceShareAssociations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "resourceShareInvitationArn")
@@ -171,7 +172,8 @@ instance Data.FromJSON ResourceShareInvitation where
 
 instance Prelude.Hashable ResourceShareInvitation where
   hashWithSalt _salt ResourceShareInvitation' {..} =
-    _salt `Prelude.hashWithSalt` invitationTimestamp
+    _salt
+      `Prelude.hashWithSalt` invitationTimestamp
       `Prelude.hashWithSalt` receiverAccountId
       `Prelude.hashWithSalt` receiverArn
       `Prelude.hashWithSalt` resourceShareArn

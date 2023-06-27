@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the contents of an RAM permission in JSON format.
+-- Retrieves the contents of a managed permission in JSON format.
 module Amazonka.RAM.GetPermission
   ( -- * Creating a Request
     GetPermission (..),
@@ -50,12 +50,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPermission' smart constructor.
 data GetPermission = GetPermission'
-  { -- | Specifies identifier for the version of the RAM permission to retrieve.
-    -- If you don\'t specify this parameter, the operation retrieves the
-    -- default version.
+  { -- | Specifies the version number of the RAM permission to retrieve. If you
+    -- don\'t specify this parameter, the operation retrieves the default
+    -- version.
+    --
+    -- To see the list of available versions, use ListPermissionVersions.
     permissionVersion :: Prelude.Maybe Prelude.Int,
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the permission whose contents you want to retrieve. To find the ARN
     -- for a permission, use either the ListPermissions operation or go to the
     -- <https://console.aws.amazon.com/ram/home#Permissions: Permissions library>
@@ -73,12 +75,14 @@ data GetPermission = GetPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissionVersion', 'getPermission_permissionVersion' - Specifies identifier for the version of the RAM permission to retrieve.
--- If you don\'t specify this parameter, the operation retrieves the
--- default version.
+-- 'permissionVersion', 'getPermission_permissionVersion' - Specifies the version number of the RAM permission to retrieve. If you
+-- don\'t specify this parameter, the operation retrieves the default
+-- version.
+--
+-- To see the list of available versions, use ListPermissionVersions.
 --
 -- 'permissionArn', 'getPermission_permissionArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the permission whose contents you want to retrieve. To find the ARN
 -- for a permission, use either the ListPermissions operation or go to the
 -- <https://console.aws.amazon.com/ram/home#Permissions: Permissions library>
@@ -94,14 +98,16 @@ newGetPermission pPermissionArn_ =
       permissionArn = pPermissionArn_
     }
 
--- | Specifies identifier for the version of the RAM permission to retrieve.
--- If you don\'t specify this parameter, the operation retrieves the
--- default version.
+-- | Specifies the version number of the RAM permission to retrieve. If you
+-- don\'t specify this parameter, the operation retrieves the default
+-- version.
+--
+-- To see the list of available versions, use ListPermissionVersions.
 getPermission_permissionVersion :: Lens.Lens' GetPermission (Prelude.Maybe Prelude.Int)
 getPermission_permissionVersion = Lens.lens (\GetPermission' {permissionVersion} -> permissionVersion) (\s@GetPermission' {} a -> s {permissionVersion = a} :: GetPermission)
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the permission whose contents you want to retrieve. To find the ARN
 -- for a permission, use either the ListPermissions operation or go to the
 -- <https://console.aws.amazon.com/ram/home#Permissions: Permissions library>
@@ -126,7 +132,8 @@ instance Core.AWSRequest GetPermission where
 
 instance Prelude.Hashable GetPermission where
   hashWithSalt _salt GetPermission' {..} =
-    _salt `Prelude.hashWithSalt` permissionVersion
+    _salt
+      `Prelude.hashWithSalt` permissionVersion
       `Prelude.hashWithSalt` permissionArn
 
 instance Prelude.NFData GetPermission where
@@ -164,7 +171,7 @@ instance Data.ToQuery GetPermission where
 
 -- | /See:/ 'newGetPermissionResponse' smart constructor.
 data GetPermissionResponse = GetPermissionResponse'
-  { -- | An object that contains information about the permission.
+  { -- | An object with details about the permission.
     permission :: Prelude.Maybe ResourceSharePermissionDetail,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -179,7 +186,7 @@ data GetPermissionResponse = GetPermissionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permission', 'getPermissionResponse_permission' - An object that contains information about the permission.
+-- 'permission', 'getPermissionResponse_permission' - An object with details about the permission.
 --
 -- 'httpStatus', 'getPermissionResponse_httpStatus' - The response's http status code.
 newGetPermissionResponse ::
@@ -193,7 +200,7 @@ newGetPermissionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An object that contains information about the permission.
+-- | An object with details about the permission.
 getPermissionResponse_permission :: Lens.Lens' GetPermissionResponse (Prelude.Maybe ResourceSharePermissionDetail)
 getPermissionResponse_permission = Lens.lens (\GetPermissionResponse' {permission} -> permission) (\s@GetPermissionResponse' {} a -> s {permission = a} :: GetPermissionResponse)
 

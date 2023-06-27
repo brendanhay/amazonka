@@ -67,6 +67,10 @@ data AssociateResourceShare = AssociateResourceShare'
     --
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
+    --
+    -- If you retry the operation with the same @ClientToken@, but with
+    -- different parameters, the retry fails with an
+    -- @IdempotentParameterMismatch@ error.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies a list of principals to whom you want to the resource share.
     -- This can be @null@ if you want to add only resources.
@@ -80,7 +84,7 @@ data AssociateResourceShare = AssociateResourceShare'
     -- -   An Amazon Web Services account ID, for example: @123456789012@
     --
     -- -   An
-    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     --     of an organization in Organizations, for example:
     --     @organizations::123456789012:organization\/o-exampleorgid@
     --
@@ -104,7 +108,7 @@ data AssociateResourceShare = AssociateResourceShare'
     -- to add only principals.
     resourceArns :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share that you want to add principals or resources to.
     resourceShareArn :: Prelude.Text
   }
@@ -129,6 +133,10 @@ data AssociateResourceShare = AssociateResourceShare'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
+--
 -- 'principals', 'associateResourceShare_principals' - Specifies a list of principals to whom you want to the resource share.
 -- This can be @null@ if you want to add only resources.
 --
@@ -141,7 +149,7 @@ data AssociateResourceShare = AssociateResourceShare'
 -- -   An Amazon Web Services account ID, for example: @123456789012@
 --
 -- -   An
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of an organization in Organizations, for example:
 --     @organizations::123456789012:organization\/o-exampleorgid@
 --
@@ -165,7 +173,7 @@ data AssociateResourceShare = AssociateResourceShare'
 -- to add only principals.
 --
 -- 'resourceShareArn', 'associateResourceShare_resourceShareArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share that you want to add principals or resources to.
 newAssociateResourceShare ::
   -- | 'resourceShareArn'
@@ -190,6 +198,10 @@ newAssociateResourceShare pResourceShareArn_ =
 --
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
+--
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 associateResourceShare_clientToken :: Lens.Lens' AssociateResourceShare (Prelude.Maybe Prelude.Text)
 associateResourceShare_clientToken = Lens.lens (\AssociateResourceShare' {clientToken} -> clientToken) (\s@AssociateResourceShare' {} a -> s {clientToken = a} :: AssociateResourceShare)
 
@@ -205,7 +217,7 @@ associateResourceShare_clientToken = Lens.lens (\AssociateResourceShare' {client
 -- -   An Amazon Web Services account ID, for example: @123456789012@
 --
 -- -   An
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of an organization in Organizations, for example:
 --     @organizations::123456789012:organization\/o-exampleorgid@
 --
@@ -233,7 +245,7 @@ associateResourceShare_resourceArns :: Lens.Lens' AssociateResourceShare (Prelud
 associateResourceShare_resourceArns = Lens.lens (\AssociateResourceShare' {resourceArns} -> resourceArns) (\s@AssociateResourceShare' {} a -> s {resourceArns = a} :: AssociateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share that you want to add principals or resources to.
 associateResourceShare_resourceShareArn :: Lens.Lens' AssociateResourceShare Prelude.Text
 associateResourceShare_resourceShareArn = Lens.lens (\AssociateResourceShare' {resourceShareArn} -> resourceShareArn) (\s@AssociateResourceShare' {} a -> s {resourceShareArn = a} :: AssociateResourceShare)
@@ -249,7 +261,8 @@ instance Core.AWSRequest AssociateResourceShare where
       ( \s h x ->
           AssociateResourceShareResponse'
             Prelude.<$> (x Data..?> "clientToken")
-            Prelude.<*> ( x Data..?> "resourceShareAssociations"
+            Prelude.<*> ( x
+                            Data..?> "resourceShareAssociations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -257,7 +270,8 @@ instance Core.AWSRequest AssociateResourceShare where
 
 instance Prelude.Hashable AssociateResourceShare where
   hashWithSalt _salt AssociateResourceShare' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` resourceArns
       `Prelude.hashWithSalt` resourceShareArn

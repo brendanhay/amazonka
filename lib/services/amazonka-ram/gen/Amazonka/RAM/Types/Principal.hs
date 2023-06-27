@@ -31,16 +31,20 @@ data Principal = Principal'
   { -- | The date and time when the principal was associated with the resource
     -- share.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | Indicates whether the principal belongs to the same organization in
-    -- Organizations as the Amazon Web Services account that owns the resource
-    -- share.
+    -- | Indicates the relationship between the Amazon Web Services account the
+    -- principal belongs to and the account that owns the resource share:
+    --
+    -- -   @True@ – The two accounts belong to same organization.
+    --
+    -- -   @False@ – The two accounts do not belong to the same organization.
     external :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the principal.
+    -- | The ID of the principal that can be associated with a resource share.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the association was last updated.
+    -- | The date and time when the association between the resource share and
+    -- the principal was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of a resource share the principal is associated with.
     resourceShareArn :: Prelude.Maybe Prelude.Text
   }
@@ -57,16 +61,20 @@ data Principal = Principal'
 -- 'creationTime', 'principal_creationTime' - The date and time when the principal was associated with the resource
 -- share.
 --
--- 'external', 'principal_external' - Indicates whether the principal belongs to the same organization in
--- Organizations as the Amazon Web Services account that owns the resource
--- share.
+-- 'external', 'principal_external' - Indicates the relationship between the Amazon Web Services account the
+-- principal belongs to and the account that owns the resource share:
 --
--- 'id', 'principal_id' - The ID of the principal.
+-- -   @True@ – The two accounts belong to same organization.
 --
--- 'lastUpdatedTime', 'principal_lastUpdatedTime' - The date and time when the association was last updated.
+-- -   @False@ – The two accounts do not belong to the same organization.
+--
+-- 'id', 'principal_id' - The ID of the principal that can be associated with a resource share.
+--
+-- 'lastUpdatedTime', 'principal_lastUpdatedTime' - The date and time when the association between the resource share and
+-- the principal was last updated.
 --
 -- 'resourceShareArn', 'principal_resourceShareArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of a resource share the principal is associated with.
 newPrincipal ::
   Principal
@@ -84,22 +92,26 @@ newPrincipal =
 principal_creationTime :: Lens.Lens' Principal (Prelude.Maybe Prelude.UTCTime)
 principal_creationTime = Lens.lens (\Principal' {creationTime} -> creationTime) (\s@Principal' {} a -> s {creationTime = a} :: Principal) Prelude.. Lens.mapping Data._Time
 
--- | Indicates whether the principal belongs to the same organization in
--- Organizations as the Amazon Web Services account that owns the resource
--- share.
+-- | Indicates the relationship between the Amazon Web Services account the
+-- principal belongs to and the account that owns the resource share:
+--
+-- -   @True@ – The two accounts belong to same organization.
+--
+-- -   @False@ – The two accounts do not belong to the same organization.
 principal_external :: Lens.Lens' Principal (Prelude.Maybe Prelude.Bool)
 principal_external = Lens.lens (\Principal' {external} -> external) (\s@Principal' {} a -> s {external = a} :: Principal)
 
--- | The ID of the principal.
+-- | The ID of the principal that can be associated with a resource share.
 principal_id :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
 principal_id = Lens.lens (\Principal' {id} -> id) (\s@Principal' {} a -> s {id = a} :: Principal)
 
--- | The date and time when the association was last updated.
+-- | The date and time when the association between the resource share and
+-- the principal was last updated.
 principal_lastUpdatedTime :: Lens.Lens' Principal (Prelude.Maybe Prelude.UTCTime)
 principal_lastUpdatedTime = Lens.lens (\Principal' {lastUpdatedTime} -> lastUpdatedTime) (\s@Principal' {} a -> s {lastUpdatedTime = a} :: Principal) Prelude.. Lens.mapping Data._Time
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of a resource share the principal is associated with.
 principal_resourceShareArn :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
 principal_resourceShareArn = Lens.lens (\Principal' {resourceShareArn} -> resourceShareArn) (\s@Principal' {} a -> s {resourceShareArn = a} :: Principal)
@@ -119,7 +131,8 @@ instance Data.FromJSON Principal where
 
 instance Prelude.Hashable Principal where
   hashWithSalt _salt Principal' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` external
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdatedTime

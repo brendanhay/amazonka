@@ -70,7 +70,7 @@ data ListResourceSharePermissions = ListResourceSharePermissions'
     -- request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share for which you want to retrieve the associated
     -- permissions.
     resourceShareArn :: Prelude.Text
@@ -103,7 +103,7 @@ data ListResourceSharePermissions = ListResourceSharePermissions'
 -- request the next page of results.
 --
 -- 'resourceShareArn', 'listResourceSharePermissions_resourceShareArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share for which you want to retrieve the associated
 -- permissions.
 newListResourceSharePermissions ::
@@ -140,7 +140,7 @@ listResourceSharePermissions_nextToken :: Lens.Lens' ListResourceSharePermission
 listResourceSharePermissions_nextToken = Lens.lens (\ListResourceSharePermissions' {nextToken} -> nextToken) (\s@ListResourceSharePermissions' {} a -> s {nextToken = a} :: ListResourceSharePermissions)
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share for which you want to retrieve the associated
 -- permissions.
 listResourceSharePermissions_resourceShareArn :: Lens.Lens' ListResourceSharePermissions Prelude.Text
@@ -166,7 +166,8 @@ instance
     ListResourceSharePermissions
   where
   hashWithSalt _salt ListResourceSharePermissions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceShareArn
 

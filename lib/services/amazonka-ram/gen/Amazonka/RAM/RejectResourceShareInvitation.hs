@@ -62,9 +62,13 @@ data RejectResourceShareInvitation = RejectResourceShareInvitation'
     --
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
+    --
+    -- If you retry the operation with the same @ClientToken@, but with
+    -- different parameters, the retry fails with an
+    -- @IdempotentParameterMismatch@ error.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the invitation that you want to reject.
     resourceShareInvitationArn :: Prelude.Text
   }
@@ -89,8 +93,12 @@ data RejectResourceShareInvitation = RejectResourceShareInvitation'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
+--
 -- 'resourceShareInvitationArn', 'rejectResourceShareInvitation_resourceShareInvitationArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the invitation that you want to reject.
 newRejectResourceShareInvitation ::
   -- | 'resourceShareInvitationArn'
@@ -115,11 +123,15 @@ newRejectResourceShareInvitation
 --
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
+--
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 rejectResourceShareInvitation_clientToken :: Lens.Lens' RejectResourceShareInvitation (Prelude.Maybe Prelude.Text)
 rejectResourceShareInvitation_clientToken = Lens.lens (\RejectResourceShareInvitation' {clientToken} -> clientToken) (\s@RejectResourceShareInvitation' {} a -> s {clientToken = a} :: RejectResourceShareInvitation)
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the invitation that you want to reject.
 rejectResourceShareInvitation_resourceShareInvitationArn :: Lens.Lens' RejectResourceShareInvitation Prelude.Text
 rejectResourceShareInvitation_resourceShareInvitationArn = Lens.lens (\RejectResourceShareInvitation' {resourceShareInvitationArn} -> resourceShareInvitationArn) (\s@RejectResourceShareInvitation' {} a -> s {resourceShareInvitationArn = a} :: RejectResourceShareInvitation)
@@ -147,7 +159,8 @@ instance
     RejectResourceShareInvitation
   where
   hashWithSalt _salt RejectResourceShareInvitation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` resourceShareInvitationArn
 
 instance Prelude.NFData RejectResourceShareInvitation where

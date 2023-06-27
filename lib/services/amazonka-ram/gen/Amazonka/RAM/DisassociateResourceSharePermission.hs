@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates an RAM permission from a resource share. Permission
--- changes take effect immediately. You can remove a RAM permission from a
+-- Removes a managed permission from a resource share. Permission changes
+-- take effect immediately. You can remove a managed permission from a
 -- resource share only if there are currently no resources of the relevant
 -- resource type currently attached to the resource share.
 module Amazonka.RAM.DisassociateResourceSharePermission
@@ -65,15 +65,20 @@ data DisassociateResourceSharePermission = DisassociateResourceSharePermission'
     --
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
+    --
+    -- If you retry the operation with the same @ClientToken@, but with
+    -- different parameters, the retry fails with an
+    -- @IdempotentParameterMismatch@ error.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
-    -- of the resource share from which you want to disassociate a permission.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+    -- of the resource share that you want to remove the managed permission
+    -- from.
     resourceShareArn :: Prelude.Text,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
-    -- of the permission to disassociate from the resource share. Changes to
-    -- permissions take effect immediately.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+    -- of the managed permission to disassociate from the resource share.
+    -- Changes to permissions take effect immediately.
     permissionArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,14 +102,19 @@ data DisassociateResourceSharePermission = DisassociateResourceSharePermission'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
+--
 -- 'resourceShareArn', 'disassociateResourceSharePermission_resourceShareArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of the resource share from which you want to disassociate a permission.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the resource share that you want to remove the managed permission
+-- from.
 --
 -- 'permissionArn', 'disassociateResourceSharePermission_permissionArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of the permission to disassociate from the resource share. Changes to
--- permissions take effect immediately.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the managed permission to disassociate from the resource share.
+-- Changes to permissions take effect immediately.
 newDisassociateResourceSharePermission ::
   -- | 'resourceShareArn'
   Prelude.Text ->
@@ -131,19 +141,24 @@ newDisassociateResourceSharePermission
 --
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
+--
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 disassociateResourceSharePermission_clientToken :: Lens.Lens' DisassociateResourceSharePermission (Prelude.Maybe Prelude.Text)
 disassociateResourceSharePermission_clientToken = Lens.lens (\DisassociateResourceSharePermission' {clientToken} -> clientToken) (\s@DisassociateResourceSharePermission' {} a -> s {clientToken = a} :: DisassociateResourceSharePermission)
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of the resource share from which you want to disassociate a permission.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the resource share that you want to remove the managed permission
+-- from.
 disassociateResourceSharePermission_resourceShareArn :: Lens.Lens' DisassociateResourceSharePermission Prelude.Text
 disassociateResourceSharePermission_resourceShareArn = Lens.lens (\DisassociateResourceSharePermission' {resourceShareArn} -> resourceShareArn) (\s@DisassociateResourceSharePermission' {} a -> s {resourceShareArn = a} :: DisassociateResourceSharePermission)
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of the permission to disassociate from the resource share. Changes to
--- permissions take effect immediately.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the managed permission to disassociate from the resource share.
+-- Changes to permissions take effect immediately.
 disassociateResourceSharePermission_permissionArn :: Lens.Lens' DisassociateResourceSharePermission Prelude.Text
 disassociateResourceSharePermission_permissionArn = Lens.lens (\DisassociateResourceSharePermission' {permissionArn} -> permissionArn) (\s@DisassociateResourceSharePermission' {} a -> s {permissionArn = a} :: DisassociateResourceSharePermission)
 
@@ -161,8 +176,8 @@ instance
       ( \s h x ->
           DisassociateResourceSharePermissionResponse'
             Prelude.<$> (x Data..?> "clientToken")
-              Prelude.<*> (x Data..?> "returnValue")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "returnValue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -172,7 +187,8 @@ instance
   hashWithSalt
     _salt
     DisassociateResourceSharePermission' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` resourceShareArn
         `Prelude.hashWithSalt` permissionArn
 

@@ -31,16 +31,17 @@ import Amazonka.RAM.Types.ResourceStatus
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
   { -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the resource was associated with the resource
     -- share.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The date an time when the association was last updated.
+    -- | The date an time when the association between the resource and the
+    -- resource share was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource group. This value is available only if the resource is
     -- part of a resource group.
     resourceGroupArn :: Prelude.Maybe Prelude.Text,
@@ -54,7 +55,7 @@ data Resource = Resource'
     --     Services Region.
     resourceRegionScope :: Prelude.Maybe ResourceRegionScope,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share this resource is associated with.
     resourceShareArn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the resource.
@@ -62,7 +63,8 @@ data Resource = Resource'
     -- | A message about the status of the resource.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The resource type. This takes the form of:
-    -- @service-code@:@resource-code@
+    -- @service-code@:@resource-code@, and is case-insensitive. For example, an
+    -- Amazon EC2 Subnet would be represented by the string @ec2:subnet@.
     type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,16 +78,17 @@ data Resource = Resource'
 -- for backwards compatibility:
 --
 -- 'arn', 'resource_arn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource.
 --
 -- 'creationTime', 'resource_creationTime' - The date and time when the resource was associated with the resource
 -- share.
 --
--- 'lastUpdatedTime', 'resource_lastUpdatedTime' - The date an time when the association was last updated.
+-- 'lastUpdatedTime', 'resource_lastUpdatedTime' - The date an time when the association between the resource and the
+-- resource share was last updated.
 --
 -- 'resourceGroupArn', 'resource_resourceGroupArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource group. This value is available only if the resource is
 -- part of a resource group.
 --
@@ -99,7 +102,7 @@ data Resource = Resource'
 --     Services Region.
 --
 -- 'resourceShareArn', 'resource_resourceShareArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share this resource is associated with.
 --
 -- 'status', 'resource_status' - The current status of the resource.
@@ -107,7 +110,8 @@ data Resource = Resource'
 -- 'statusMessage', 'resource_statusMessage' - A message about the status of the resource.
 --
 -- 'type'', 'resource_type' - The resource type. This takes the form of:
--- @service-code@:@resource-code@
+-- @service-code@:@resource-code@, and is case-insensitive. For example, an
+-- Amazon EC2 Subnet would be represented by the string @ec2:subnet@.
 newResource ::
   Resource
 newResource =
@@ -124,7 +128,7 @@ newResource =
     }
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource.
 resource_arn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_arn = Lens.lens (\Resource' {arn} -> arn) (\s@Resource' {} a -> s {arn = a} :: Resource)
@@ -134,12 +138,13 @@ resource_arn = Lens.lens (\Resource' {arn} -> arn) (\s@Resource' {} a -> s {arn 
 resource_creationTime :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
 resource_creationTime = Lens.lens (\Resource' {creationTime} -> creationTime) (\s@Resource' {} a -> s {creationTime = a} :: Resource) Prelude.. Lens.mapping Data._Time
 
--- | The date an time when the association was last updated.
+-- | The date an time when the association between the resource and the
+-- resource share was last updated.
 resource_lastUpdatedTime :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
 resource_lastUpdatedTime = Lens.lens (\Resource' {lastUpdatedTime} -> lastUpdatedTime) (\s@Resource' {} a -> s {lastUpdatedTime = a} :: Resource) Prelude.. Lens.mapping Data._Time
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource group. This value is available only if the resource is
 -- part of a resource group.
 resource_resourceGroupArn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
@@ -157,7 +162,7 @@ resource_resourceRegionScope :: Lens.Lens' Resource (Prelude.Maybe ResourceRegio
 resource_resourceRegionScope = Lens.lens (\Resource' {resourceRegionScope} -> resourceRegionScope) (\s@Resource' {} a -> s {resourceRegionScope = a} :: Resource)
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share this resource is associated with.
 resource_resourceShareArn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_resourceShareArn = Lens.lens (\Resource' {resourceShareArn} -> resourceShareArn) (\s@Resource' {} a -> s {resourceShareArn = a} :: Resource)
@@ -171,7 +176,8 @@ resource_statusMessage :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_statusMessage = Lens.lens (\Resource' {statusMessage} -> statusMessage) (\s@Resource' {} a -> s {statusMessage = a} :: Resource)
 
 -- | The resource type. This takes the form of:
--- @service-code@:@resource-code@
+-- @service-code@:@resource-code@, and is case-insensitive. For example, an
+-- Amazon EC2 Subnet would be represented by the string @ec2:subnet@.
 resource_type :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_type = Lens.lens (\Resource' {type'} -> type') (\s@Resource' {} a -> s {type' = a} :: Resource)
 
@@ -194,7 +200,8 @@ instance Data.FromJSON Resource where
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` resourceGroupArn

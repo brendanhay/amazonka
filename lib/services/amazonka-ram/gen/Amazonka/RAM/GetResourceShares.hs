@@ -34,6 +34,7 @@ module Amazonka.RAM.GetResourceShares
     getResourceShares_name,
     getResourceShares_nextToken,
     getResourceShares_permissionArn,
+    getResourceShares_permissionVersion,
     getResourceShares_resourceShareArns,
     getResourceShares_resourceShareStatus,
     getResourceShares_tagFilters,
@@ -81,9 +82,12 @@ data GetResourceShares = GetResourceShares'
     -- request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies that you want to retrieve details of only those resource
-    -- shares that use the RAM permission with this
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>.
+    -- shares that use the managed permission with this
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>.
     permissionArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that you want to retrieve details for only those resource
+    -- shares that use the specified version of the managed permission.
+    permissionVersion :: Prelude.Maybe Prelude.Int,
     -- | Specifies the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- of individual resource shares that you want information about.
@@ -135,8 +139,11 @@ data GetResourceShares = GetResourceShares'
 -- request the next page of results.
 --
 -- 'permissionArn', 'getResourceShares_permissionArn' - Specifies that you want to retrieve details of only those resource
--- shares that use the RAM permission with this
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>.
+-- shares that use the managed permission with this
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>.
+--
+-- 'permissionVersion', 'getResourceShares_permissionVersion' - Specifies that you want to retrieve details for only those resource
+-- shares that use the specified version of the managed permission.
 --
 -- 'resourceShareArns', 'getResourceShares_resourceShareArns' - Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
@@ -166,6 +173,7 @@ newGetResourceShares pResourceOwner_ =
       name = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       permissionArn = Prelude.Nothing,
+      permissionVersion = Prelude.Nothing,
       resourceShareArns = Prelude.Nothing,
       resourceShareStatus = Prelude.Nothing,
       tagFilters = Prelude.Nothing,
@@ -199,10 +207,15 @@ getResourceShares_nextToken :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelu
 getResourceShares_nextToken = Lens.lens (\GetResourceShares' {nextToken} -> nextToken) (\s@GetResourceShares' {} a -> s {nextToken = a} :: GetResourceShares)
 
 -- | Specifies that you want to retrieve details of only those resource
--- shares that use the RAM permission with this
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>.
+-- shares that use the managed permission with this
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>.
 getResourceShares_permissionArn :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Text)
 getResourceShares_permissionArn = Lens.lens (\GetResourceShares' {permissionArn} -> permissionArn) (\s@GetResourceShares' {} a -> s {permissionArn = a} :: GetResourceShares)
+
+-- | Specifies that you want to retrieve details for only those resource
+-- shares that use the specified version of the managed permission.
+getResourceShares_permissionVersion :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Int)
+getResourceShares_permissionVersion = Lens.lens (\GetResourceShares' {permissionVersion} -> permissionVersion) (\s@GetResourceShares' {} a -> s {permissionVersion = a} :: GetResourceShares)
 
 -- | Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
@@ -236,22 +249,22 @@ instance Core.AWSPager GetResourceShares where
     | Core.stop
         ( rs
             Lens.^? getResourceSharesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getResourceSharesResponse_resourceShares
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getResourceShares_nextToken
           Lens..~ rs
           Lens.^? getResourceSharesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResourceShares where
   type
@@ -270,10 +283,12 @@ instance Core.AWSRequest GetResourceShares where
 
 instance Prelude.Hashable GetResourceShares where
   hashWithSalt _salt GetResourceShares' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` permissionArn
+      `Prelude.hashWithSalt` permissionVersion
       `Prelude.hashWithSalt` resourceShareArns
       `Prelude.hashWithSalt` resourceShareStatus
       `Prelude.hashWithSalt` tagFilters
@@ -285,6 +300,7 @@ instance Prelude.NFData GetResourceShares where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf permissionArn
+      `Prelude.seq` Prelude.rnf permissionVersion
       `Prelude.seq` Prelude.rnf resourceShareArns
       `Prelude.seq` Prelude.rnf resourceShareStatus
       `Prelude.seq` Prelude.rnf tagFilters
@@ -309,6 +325,8 @@ instance Data.ToJSON GetResourceShares where
             ("name" Data..=) Prelude.<$> name,
             ("nextToken" Data..=) Prelude.<$> nextToken,
             ("permissionArn" Data..=) Prelude.<$> permissionArn,
+            ("permissionVersion" Data..=)
+              Prelude.<$> permissionVersion,
             ("resourceShareArns" Data..=)
               Prelude.<$> resourceShareArns,
             ("resourceShareStatus" Data..=)

@@ -39,7 +39,9 @@ data ServiceNameAndResourceType = ServiceNameAndResourceType'
     -- -   __GLOBAL__ – The resource can be accessed from any Amazon Web
     --     Services Region.
     resourceRegionScope :: Prelude.Maybe ResourceRegionScope,
-    -- | The type of the resource.
+    -- | The type of the resource. This takes the form of:
+    -- @service-code@:@resource-code@, and is case-insensitive. For example, an
+    -- Amazon EC2 Subnet would be represented by the string @ec2:subnet@.
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Web Services service to which resources of this
     -- type belong.
@@ -64,7 +66,9 @@ data ServiceNameAndResourceType = ServiceNameAndResourceType'
 -- -   __GLOBAL__ – The resource can be accessed from any Amazon Web
 --     Services Region.
 --
--- 'resourceType', 'serviceNameAndResourceType_resourceType' - The type of the resource.
+-- 'resourceType', 'serviceNameAndResourceType_resourceType' - The type of the resource. This takes the form of:
+-- @service-code@:@resource-code@, and is case-insensitive. For example, an
+-- Amazon EC2 Subnet would be represented by the string @ec2:subnet@.
 --
 -- 'serviceName', 'serviceNameAndResourceType_serviceName' - The name of the Amazon Web Services service to which resources of this
 -- type belong.
@@ -89,7 +93,9 @@ newServiceNameAndResourceType =
 serviceNameAndResourceType_resourceRegionScope :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe ResourceRegionScope)
 serviceNameAndResourceType_resourceRegionScope = Lens.lens (\ServiceNameAndResourceType' {resourceRegionScope} -> resourceRegionScope) (\s@ServiceNameAndResourceType' {} a -> s {resourceRegionScope = a} :: ServiceNameAndResourceType)
 
--- | The type of the resource.
+-- | The type of the resource. This takes the form of:
+-- @service-code@:@resource-code@, and is case-insensitive. For example, an
+-- Amazon EC2 Subnet would be represented by the string @ec2:subnet@.
 serviceNameAndResourceType_resourceType :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe Prelude.Text)
 serviceNameAndResourceType_resourceType = Lens.lens (\ServiceNameAndResourceType' {resourceType} -> resourceType) (\s@ServiceNameAndResourceType' {} a -> s {resourceType = a} :: ServiceNameAndResourceType)
 
@@ -111,7 +117,8 @@ instance Data.FromJSON ServiceNameAndResourceType where
 
 instance Prelude.Hashable ServiceNameAndResourceType where
   hashWithSalt _salt ServiceNameAndResourceType' {..} =
-    _salt `Prelude.hashWithSalt` resourceRegionScope
+    _salt
+      `Prelude.hashWithSalt` resourceRegionScope
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` serviceName
 

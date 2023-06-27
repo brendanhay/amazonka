@@ -84,7 +84,7 @@ data ListPrincipals = ListPrincipals'
     -- -   An Amazon Web Services account ID, for example: @123456789012@
     --
     -- -   An
-    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     --     of an organization in Organizations, for example:
     --     @organizations::123456789012:organization\/o-exampleorgid@
     --
@@ -104,7 +104,7 @@ data ListPrincipals = ListPrincipals'
     principals :: Prelude.Maybe [Prelude.Text],
     -- | Specifies that you want to list principal information for the resource
     -- share with the specified
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies that you want to list information for only principals
     -- associated with the resource shares specified by a list the
@@ -160,7 +160,7 @@ data ListPrincipals = ListPrincipals'
 -- -   An Amazon Web Services account ID, for example: @123456789012@
 --
 -- -   An
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of an organization in Organizations, for example:
 --     @organizations::123456789012:organization\/o-exampleorgid@
 --
@@ -180,7 +180,7 @@ data ListPrincipals = ListPrincipals'
 --
 -- 'resourceArn', 'listPrincipals_resourceArn' - Specifies that you want to list principal information for the resource
 -- share with the specified
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>.
 --
 -- 'resourceShareArns', 'listPrincipals_resourceShareArns' - Specifies that you want to list information for only principals
 -- associated with the resource shares specified by a list the
@@ -243,7 +243,7 @@ listPrincipals_nextToken = Lens.lens (\ListPrincipals' {nextToken} -> nextToken)
 -- -   An Amazon Web Services account ID, for example: @123456789012@
 --
 -- -   An
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of an organization in Organizations, for example:
 --     @organizations::123456789012:organization\/o-exampleorgid@
 --
@@ -265,7 +265,7 @@ listPrincipals_principals = Lens.lens (\ListPrincipals' {principals} -> principa
 
 -- | Specifies that you want to list principal information for the resource
 -- share with the specified
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>.
 listPrincipals_resourceArn :: Lens.Lens' ListPrincipals (Prelude.Maybe Prelude.Text)
 listPrincipals_resourceArn = Lens.lens (\ListPrincipals' {resourceArn} -> resourceArn) (\s@ListPrincipals' {} a -> s {resourceArn = a} :: ListPrincipals)
 
@@ -298,21 +298,22 @@ instance Core.AWSPager ListPrincipals where
     | Core.stop
         ( rs
             Lens.^? listPrincipalsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPrincipalsResponse_principals
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPrincipals_nextToken
           Lens..~ rs
-          Lens.^? listPrincipalsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPrincipalsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrincipals where
   type
@@ -331,7 +332,8 @@ instance Core.AWSRequest ListPrincipals where
 
 instance Prelude.Hashable ListPrincipals where
   hashWithSalt _salt ListPrincipals' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` resourceArn

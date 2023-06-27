@@ -64,9 +64,13 @@ data AcceptResourceShareInvitation = AcceptResourceShareInvitation'
     --
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
+    --
+    -- If you retry the operation with the same @ClientToken@, but with
+    -- different parameters, the retry fails with an
+    -- @IdempotentParameterMismatch@ error.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the invitation that you want to accept.
     resourceShareInvitationArn :: Prelude.Text
   }
@@ -91,8 +95,12 @@ data AcceptResourceShareInvitation = AcceptResourceShareInvitation'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
+--
 -- 'resourceShareInvitationArn', 'acceptResourceShareInvitation_resourceShareInvitationArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the invitation that you want to accept.
 newAcceptResourceShareInvitation ::
   -- | 'resourceShareInvitationArn'
@@ -117,11 +125,15 @@ newAcceptResourceShareInvitation
 --
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
+--
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 acceptResourceShareInvitation_clientToken :: Lens.Lens' AcceptResourceShareInvitation (Prelude.Maybe Prelude.Text)
 acceptResourceShareInvitation_clientToken = Lens.lens (\AcceptResourceShareInvitation' {clientToken} -> clientToken) (\s@AcceptResourceShareInvitation' {} a -> s {clientToken = a} :: AcceptResourceShareInvitation)
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the invitation that you want to accept.
 acceptResourceShareInvitation_resourceShareInvitationArn :: Lens.Lens' AcceptResourceShareInvitation Prelude.Text
 acceptResourceShareInvitation_resourceShareInvitationArn = Lens.lens (\AcceptResourceShareInvitation' {resourceShareInvitationArn} -> resourceShareInvitationArn) (\s@AcceptResourceShareInvitation' {} a -> s {resourceShareInvitationArn = a} :: AcceptResourceShareInvitation)
@@ -149,7 +161,8 @@ instance
     AcceptResourceShareInvitation
   where
   hashWithSalt _salt AcceptResourceShareInvitation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` resourceShareInvitationArn
 
 instance Prelude.NFData AcceptResourceShareInvitation where

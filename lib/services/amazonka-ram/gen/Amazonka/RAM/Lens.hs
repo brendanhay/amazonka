@@ -40,6 +40,24 @@ module Amazonka.RAM.Lens
     associateResourceSharePermissionResponse_returnValue,
     associateResourceSharePermissionResponse_httpStatus,
 
+    -- ** CreatePermission
+    createPermission_clientToken,
+    createPermission_tags,
+    createPermission_name,
+    createPermission_resourceType,
+    createPermission_policyTemplate,
+    createPermissionResponse_clientToken,
+    createPermissionResponse_permission,
+    createPermissionResponse_httpStatus,
+
+    -- ** CreatePermissionVersion
+    createPermissionVersion_clientToken,
+    createPermissionVersion_permissionArn,
+    createPermissionVersion_policyTemplate,
+    createPermissionVersionResponse_clientToken,
+    createPermissionVersionResponse_permission,
+    createPermissionVersionResponse_httpStatus,
+
     -- ** CreateResourceShare
     createResourceShare_allowExternalPrincipals,
     createResourceShare_clientToken,
@@ -51,6 +69,23 @@ module Amazonka.RAM.Lens
     createResourceShareResponse_clientToken,
     createResourceShareResponse_resourceShare,
     createResourceShareResponse_httpStatus,
+
+    -- ** DeletePermission
+    deletePermission_clientToken,
+    deletePermission_permissionArn,
+    deletePermissionResponse_clientToken,
+    deletePermissionResponse_permissionStatus,
+    deletePermissionResponse_returnValue,
+    deletePermissionResponse_httpStatus,
+
+    -- ** DeletePermissionVersion
+    deletePermissionVersion_clientToken,
+    deletePermissionVersion_permissionArn,
+    deletePermissionVersion_permissionVersion,
+    deletePermissionVersionResponse_clientToken,
+    deletePermissionVersionResponse_permissionStatus,
+    deletePermissionVersionResponse_returnValue,
+    deletePermissionVersionResponse_httpStatus,
 
     -- ** DeleteResourceShare
     deleteResourceShare_clientToken,
@@ -121,6 +156,7 @@ module Amazonka.RAM.Lens
     getResourceShares_name,
     getResourceShares_nextToken,
     getResourceShares_permissionArn,
+    getResourceShares_permissionVersion,
     getResourceShares_resourceShareArns,
     getResourceShares_resourceShareStatus,
     getResourceShares_tagFilters,
@@ -138,6 +174,19 @@ module Amazonka.RAM.Lens
     listPendingInvitationResourcesResponse_resources,
     listPendingInvitationResourcesResponse_httpStatus,
 
+    -- ** ListPermissionAssociations
+    listPermissionAssociations_associationStatus,
+    listPermissionAssociations_defaultVersion,
+    listPermissionAssociations_featureSet,
+    listPermissionAssociations_maxResults,
+    listPermissionAssociations_nextToken,
+    listPermissionAssociations_permissionArn,
+    listPermissionAssociations_permissionVersion,
+    listPermissionAssociations_resourceType,
+    listPermissionAssociationsResponse_nextToken,
+    listPermissionAssociationsResponse_permissions,
+    listPermissionAssociationsResponse_httpStatus,
+
     -- ** ListPermissionVersions
     listPermissionVersions_maxResults,
     listPermissionVersions_nextToken,
@@ -149,6 +198,7 @@ module Amazonka.RAM.Lens
     -- ** ListPermissions
     listPermissions_maxResults,
     listPermissions_nextToken,
+    listPermissions_permissionType,
     listPermissions_resourceType,
     listPermissionsResponse_nextToken,
     listPermissionsResponse_permissions,
@@ -165,6 +215,15 @@ module Amazonka.RAM.Lens
     listPrincipalsResponse_nextToken,
     listPrincipalsResponse_principals,
     listPrincipalsResponse_httpStatus,
+
+    -- ** ListReplacePermissionAssociationsWork
+    listReplacePermissionAssociationsWork_maxResults,
+    listReplacePermissionAssociationsWork_nextToken,
+    listReplacePermissionAssociationsWork_status,
+    listReplacePermissionAssociationsWork_workIds,
+    listReplacePermissionAssociationsWorkResponse_nextToken,
+    listReplacePermissionAssociationsWorkResponse_replacePermissionAssociationsWorks,
+    listReplacePermissionAssociationsWorkResponse_httpStatus,
 
     -- ** ListResourceSharePermissions
     listResourceSharePermissions_maxResults,
@@ -195,6 +254,14 @@ module Amazonka.RAM.Lens
     listResourcesResponse_resources,
     listResourcesResponse_httpStatus,
 
+    -- ** PromotePermissionCreatedFromPolicy
+    promotePermissionCreatedFromPolicy_clientToken,
+    promotePermissionCreatedFromPolicy_permissionArn,
+    promotePermissionCreatedFromPolicy_name,
+    promotePermissionCreatedFromPolicyResponse_clientToken,
+    promotePermissionCreatedFromPolicyResponse_permission,
+    promotePermissionCreatedFromPolicyResponse_httpStatus,
+
     -- ** PromoteResourceShareCreatedFromPolicy
     promoteResourceShareCreatedFromPolicy_resourceShareArn,
     promoteResourceShareCreatedFromPolicyResponse_returnValue,
@@ -207,12 +274,31 @@ module Amazonka.RAM.Lens
     rejectResourceShareInvitationResponse_resourceShareInvitation,
     rejectResourceShareInvitationResponse_httpStatus,
 
+    -- ** ReplacePermissionAssociations
+    replacePermissionAssociations_clientToken,
+    replacePermissionAssociations_fromPermissionVersion,
+    replacePermissionAssociations_fromPermissionArn,
+    replacePermissionAssociations_toPermissionArn,
+    replacePermissionAssociationsResponse_clientToken,
+    replacePermissionAssociationsResponse_replacePermissionAssociationsWork,
+    replacePermissionAssociationsResponse_httpStatus,
+
+    -- ** SetDefaultPermissionVersion
+    setDefaultPermissionVersion_clientToken,
+    setDefaultPermissionVersion_permissionArn,
+    setDefaultPermissionVersion_permissionVersion,
+    setDefaultPermissionVersionResponse_clientToken,
+    setDefaultPermissionVersionResponse_returnValue,
+    setDefaultPermissionVersionResponse_httpStatus,
+
     -- ** TagResource
+    tagResource_resourceArn,
     tagResource_resourceShareArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
     -- ** UntagResource
+    untagResource_resourceArn,
     untagResource_resourceShareArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
@@ -228,12 +314,33 @@ module Amazonka.RAM.Lens
 
     -- * Types
 
+    -- ** AssociatedPermission
+    associatedPermission_arn,
+    associatedPermission_defaultVersion,
+    associatedPermission_featureSet,
+    associatedPermission_lastUpdatedTime,
+    associatedPermission_permissionVersion,
+    associatedPermission_resourceShareArn,
+    associatedPermission_resourceType,
+    associatedPermission_status,
+
     -- ** Principal
     principal_creationTime,
     principal_external,
     principal_id,
     principal_lastUpdatedTime,
     principal_resourceShareArn,
+
+    -- ** ReplacePermissionAssociationsWork
+    replacePermissionAssociationsWork_creationTime,
+    replacePermissionAssociationsWork_fromPermissionArn,
+    replacePermissionAssociationsWork_fromPermissionVersion,
+    replacePermissionAssociationsWork_id,
+    replacePermissionAssociationsWork_lastUpdatedTime,
+    replacePermissionAssociationsWork_status,
+    replacePermissionAssociationsWork_statusMessage,
+    replacePermissionAssociationsWork_toPermissionArn,
+    replacePermissionAssociationsWork_toPermissionVersion,
 
     -- ** Resource
     resource_arn,
@@ -284,22 +391,29 @@ module Amazonka.RAM.Lens
     resourceSharePermissionDetail_arn,
     resourceSharePermissionDetail_creationTime,
     resourceSharePermissionDetail_defaultVersion,
+    resourceSharePermissionDetail_featureSet,
     resourceSharePermissionDetail_isResourceTypeDefault,
     resourceSharePermissionDetail_lastUpdatedTime,
     resourceSharePermissionDetail_name,
     resourceSharePermissionDetail_permission,
+    resourceSharePermissionDetail_permissionType,
     resourceSharePermissionDetail_resourceType,
+    resourceSharePermissionDetail_status,
+    resourceSharePermissionDetail_tags,
     resourceSharePermissionDetail_version,
 
     -- ** ResourceSharePermissionSummary
     resourceSharePermissionSummary_arn,
     resourceSharePermissionSummary_creationTime,
     resourceSharePermissionSummary_defaultVersion,
+    resourceSharePermissionSummary_featureSet,
     resourceSharePermissionSummary_isResourceTypeDefault,
     resourceSharePermissionSummary_lastUpdatedTime,
     resourceSharePermissionSummary_name,
+    resourceSharePermissionSummary_permissionType,
     resourceSharePermissionSummary_resourceType,
     resourceSharePermissionSummary_status,
+    resourceSharePermissionSummary_tags,
     resourceSharePermissionSummary_version,
 
     -- ** ServiceNameAndResourceType
@@ -320,7 +434,11 @@ where
 import Amazonka.RAM.AcceptResourceShareInvitation
 import Amazonka.RAM.AssociateResourceShare
 import Amazonka.RAM.AssociateResourceSharePermission
+import Amazonka.RAM.CreatePermission
+import Amazonka.RAM.CreatePermissionVersion
 import Amazonka.RAM.CreateResourceShare
+import Amazonka.RAM.DeletePermission
+import Amazonka.RAM.DeletePermissionVersion
 import Amazonka.RAM.DeleteResourceShare
 import Amazonka.RAM.DisassociateResourceShare
 import Amazonka.RAM.DisassociateResourceSharePermission
@@ -331,16 +449,23 @@ import Amazonka.RAM.GetResourceShareAssociations
 import Amazonka.RAM.GetResourceShareInvitations
 import Amazonka.RAM.GetResourceShares
 import Amazonka.RAM.ListPendingInvitationResources
+import Amazonka.RAM.ListPermissionAssociations
 import Amazonka.RAM.ListPermissionVersions
 import Amazonka.RAM.ListPermissions
 import Amazonka.RAM.ListPrincipals
+import Amazonka.RAM.ListReplacePermissionAssociationsWork
 import Amazonka.RAM.ListResourceSharePermissions
 import Amazonka.RAM.ListResourceTypes
 import Amazonka.RAM.ListResources
+import Amazonka.RAM.PromotePermissionCreatedFromPolicy
 import Amazonka.RAM.PromoteResourceShareCreatedFromPolicy
 import Amazonka.RAM.RejectResourceShareInvitation
+import Amazonka.RAM.ReplacePermissionAssociations
+import Amazonka.RAM.SetDefaultPermissionVersion
 import Amazonka.RAM.TagResource
+import Amazonka.RAM.Types.AssociatedPermission
 import Amazonka.RAM.Types.Principal
+import Amazonka.RAM.Types.ReplacePermissionAssociationsWork
 import Amazonka.RAM.Types.Resource
 import Amazonka.RAM.Types.ResourceShare
 import Amazonka.RAM.Types.ResourceShareAssociation

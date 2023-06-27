@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified resource share. This doesn\'t delete any of the
--- resources that were associated with the resource share; it only stops
--- the sharing of those resources outside of the Amazon Web Services
--- account that created them.
+-- Deletes the specified resource share.
+--
+-- This doesn\'t delete any of the resources that were associated with the
+-- resource share; it only stops the sharing of those resources through
+-- this resource share.
 module Amazonka.RAM.DeleteResourceShare
   ( -- * Creating a Request
     DeleteResourceShare (..),
@@ -64,9 +65,13 @@ data DeleteResourceShare = DeleteResourceShare'
     --
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
+    --
+    -- If you retry the operation with the same @ClientToken@, but with
+    -- different parameters, the retry fails with an
+    -- @IdempotentParameterMismatch@ error.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share to delete.
     resourceShareArn :: Prelude.Text
   }
@@ -91,8 +96,12 @@ data DeleteResourceShare = DeleteResourceShare'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
+--
 -- 'resourceShareArn', 'deleteResourceShare_resourceShareArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share to delete.
 newDeleteResourceShare ::
   -- | 'resourceShareArn'
@@ -114,11 +123,15 @@ newDeleteResourceShare pResourceShareArn_ =
 --
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
+--
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 deleteResourceShare_clientToken :: Lens.Lens' DeleteResourceShare (Prelude.Maybe Prelude.Text)
 deleteResourceShare_clientToken = Lens.lens (\DeleteResourceShare' {clientToken} -> clientToken) (\s@DeleteResourceShare' {} a -> s {clientToken = a} :: DeleteResourceShare)
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share to delete.
 deleteResourceShare_resourceShareArn :: Lens.Lens' DeleteResourceShare Prelude.Text
 deleteResourceShare_resourceShareArn = Lens.lens (\DeleteResourceShare' {resourceShareArn} -> resourceShareArn) (\s@DeleteResourceShare' {} a -> s {resourceShareArn = a} :: DeleteResourceShare)
@@ -140,7 +153,8 @@ instance Core.AWSRequest DeleteResourceShare where
 
 instance Prelude.Hashable DeleteResourceShare where
   hashWithSalt _salt DeleteResourceShare' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` resourceShareArn
 
 instance Prelude.NFData DeleteResourceShare where

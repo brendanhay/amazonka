@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates the specified principals or resources from the specified
--- resource share.
+-- Removes the specified principals or resources from participating in the
+-- specified resource share.
 module Amazonka.RAM.DisassociateResourceShare
   ( -- * Creating a Request
     DisassociateResourceShare (..),
@@ -64,6 +64,10 @@ data DisassociateResourceShare = DisassociateResourceShare'
     --
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
+    --
+    -- If you retry the operation with the same @ClientToken@, but with
+    -- different parameters, the retry fails with an
+    -- @IdempotentParameterMismatch@ error.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies a list of one or more principals that no longer are to have
     -- access to the resources in this resource share.
@@ -73,7 +77,7 @@ data DisassociateResourceShare = DisassociateResourceShare'
     -- -   An Amazon Web Services account ID, for example: @123456789012@
     --
     -- -   An
-    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     --     of an organization in Organizations, for example:
     --     @organizations::123456789012:organization\/o-exampleorgid@
     --
@@ -95,12 +99,12 @@ data DisassociateResourceShare = DisassociateResourceShare'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- for one or more resources that you want to remove from the resource
     -- share. After the operation runs, these resources are no longer shared
-    -- with principals outside of the Amazon Web Services account that created
-    -- the resources.
+    -- with principals associated with the resource share.
     resourceArns :: Prelude.Maybe [Prelude.Text],
     -- | Specifies
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
-    -- of the resource share that you want to remove resources from.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+    -- of the resource share that you want to remove resources or principals
+    -- from.
     resourceShareArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -124,6 +128,10 @@ data DisassociateResourceShare = DisassociateResourceShare'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
+--
 -- 'principals', 'disassociateResourceShare_principals' - Specifies a list of one or more principals that no longer are to have
 -- access to the resources in this resource share.
 --
@@ -132,7 +140,7 @@ data DisassociateResourceShare = DisassociateResourceShare'
 -- -   An Amazon Web Services account ID, for example: @123456789012@
 --
 -- -   An
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of an organization in Organizations, for example:
 --     @organizations::123456789012:organization\/o-exampleorgid@
 --
@@ -154,12 +162,12 @@ data DisassociateResourceShare = DisassociateResourceShare'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- for one or more resources that you want to remove from the resource
 -- share. After the operation runs, these resources are no longer shared
--- with principals outside of the Amazon Web Services account that created
--- the resources.
+-- with principals associated with the resource share.
 --
 -- 'resourceShareArn', 'disassociateResourceShare_resourceShareArn' - Specifies
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of the resource share that you want to remove resources from.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the resource share that you want to remove resources or principals
+-- from.
 newDisassociateResourceShare ::
   -- | 'resourceShareArn'
   Prelude.Text ->
@@ -183,6 +191,10 @@ newDisassociateResourceShare pResourceShareArn_ =
 --
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
+--
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 disassociateResourceShare_clientToken :: Lens.Lens' DisassociateResourceShare (Prelude.Maybe Prelude.Text)
 disassociateResourceShare_clientToken = Lens.lens (\DisassociateResourceShare' {clientToken} -> clientToken) (\s@DisassociateResourceShare' {} a -> s {clientToken = a} :: DisassociateResourceShare)
 
@@ -194,7 +206,7 @@ disassociateResourceShare_clientToken = Lens.lens (\DisassociateResourceShare' {
 -- -   An Amazon Web Services account ID, for example: @123456789012@
 --
 -- -   An
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of an organization in Organizations, for example:
 --     @organizations::123456789012:organization\/o-exampleorgid@
 --
@@ -218,14 +230,14 @@ disassociateResourceShare_principals = Lens.lens (\DisassociateResourceShare' {p
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- for one or more resources that you want to remove from the resource
 -- share. After the operation runs, these resources are no longer shared
--- with principals outside of the Amazon Web Services account that created
--- the resources.
+-- with principals associated with the resource share.
 disassociateResourceShare_resourceArns :: Lens.Lens' DisassociateResourceShare (Prelude.Maybe [Prelude.Text])
 disassociateResourceShare_resourceArns = Lens.lens (\DisassociateResourceShare' {resourceArns} -> resourceArns) (\s@DisassociateResourceShare' {} a -> s {resourceArns = a} :: DisassociateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of the resource share that you want to remove resources from.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the resource share that you want to remove resources or principals
+-- from.
 disassociateResourceShare_resourceShareArn :: Lens.Lens' DisassociateResourceShare Prelude.Text
 disassociateResourceShare_resourceShareArn = Lens.lens (\DisassociateResourceShare' {resourceShareArn} -> resourceShareArn) (\s@DisassociateResourceShare' {} a -> s {resourceShareArn = a} :: DisassociateResourceShare)
 
@@ -240,7 +252,8 @@ instance Core.AWSRequest DisassociateResourceShare where
       ( \s h x ->
           DisassociateResourceShareResponse'
             Prelude.<$> (x Data..?> "clientToken")
-            Prelude.<*> ( x Data..?> "resourceShareAssociations"
+            Prelude.<*> ( x
+                            Data..?> "resourceShareAssociations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -248,7 +261,8 @@ instance Core.AWSRequest DisassociateResourceShare where
 
 instance Prelude.Hashable DisassociateResourceShare where
   hashWithSalt _salt DisassociateResourceShare' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` resourceArns
       `Prelude.hashWithSalt` resourceShareArn
@@ -297,8 +311,8 @@ data DisassociateResourceShareResponse = DisassociateResourceShareResponse'
     -- All other parameters must also have the same values that you used in the
     -- first call.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that contain information about the updated
-    -- associations for this resource share.
+    -- | An array of objects with information about the updated associations for
+    -- this resource share.
     resourceShareAssociations :: Prelude.Maybe [ResourceShareAssociation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -319,8 +333,8 @@ data DisassociateResourceShareResponse = DisassociateResourceShareResponse'
 -- All other parameters must also have the same values that you used in the
 -- first call.
 --
--- 'resourceShareAssociations', 'disassociateResourceShareResponse_resourceShareAssociations' - An array of objects that contain information about the updated
--- associations for this resource share.
+-- 'resourceShareAssociations', 'disassociateResourceShareResponse_resourceShareAssociations' - An array of objects with information about the updated associations for
+-- this resource share.
 --
 -- 'httpStatus', 'disassociateResourceShareResponse_httpStatus' - The response's http status code.
 newDisassociateResourceShareResponse ::
@@ -344,8 +358,8 @@ newDisassociateResourceShareResponse pHttpStatus_ =
 disassociateResourceShareResponse_clientToken :: Lens.Lens' DisassociateResourceShareResponse (Prelude.Maybe Prelude.Text)
 disassociateResourceShareResponse_clientToken = Lens.lens (\DisassociateResourceShareResponse' {clientToken} -> clientToken) (\s@DisassociateResourceShareResponse' {} a -> s {clientToken = a} :: DisassociateResourceShareResponse)
 
--- | An array of objects that contain information about the updated
--- associations for this resource share.
+-- | An array of objects with information about the updated associations for
+-- this resource share.
 disassociateResourceShareResponse_resourceShareAssociations :: Lens.Lens' DisassociateResourceShareResponse (Prelude.Maybe [ResourceShareAssociation])
 disassociateResourceShareResponse_resourceShareAssociations = Lens.lens (\DisassociateResourceShareResponse' {resourceShareAssociations} -> resourceShareAssociations) (\s@DisassociateResourceShareResponse' {} a -> s {resourceShareAssociations = a} :: DisassociateResourceShareResponse) Prelude.. Lens.mapping Lens.coerced
 

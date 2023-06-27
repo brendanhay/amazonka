@@ -26,15 +26,15 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.ResourceShareAssociationStatus
 import Amazonka.RAM.Types.ResourceShareAssociationType
 
--- | Describes an association with a resource share and either a principal or
--- a resource.
+-- | Describes an association between a resource share and either a principal
+-- or a resource.
 --
 -- /See:/ 'newResourceShareAssociation' smart constructor.
 data ResourceShareAssociation = ResourceShareAssociation'
   { -- | The associated entity. This can be either of the following:
     --
     -- -   For a resource association, this is the
-    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     --     of the resource.
     --
     -- -   For principal associations, this is one of the following:
@@ -42,7 +42,7 @@ data ResourceShareAssociation = ResourceShareAssociation'
     --     -   The ID of an Amazon Web Services account
     --
     --     -   The
-    --         <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --         <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     --         of an organization in Organizations
     --
     --     -   The ARN of an organizational unit (OU) in Organizations
@@ -62,7 +62,7 @@ data ResourceShareAssociation = ResourceShareAssociation'
     -- | The date and time when the association was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share.
     resourceShareArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource share.
@@ -85,7 +85,7 @@ data ResourceShareAssociation = ResourceShareAssociation'
 -- 'associatedEntity', 'resourceShareAssociation_associatedEntity' - The associated entity. This can be either of the following:
 --
 -- -   For a resource association, this is the
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of the resource.
 --
 -- -   For principal associations, this is one of the following:
@@ -93,7 +93,7 @@ data ResourceShareAssociation = ResourceShareAssociation'
 --     -   The ID of an Amazon Web Services account
 --
 --     -   The
---         <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--         <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --         of an organization in Organizations
 --
 --     -   The ARN of an organizational unit (OU) in Organizations
@@ -113,7 +113,7 @@ data ResourceShareAssociation = ResourceShareAssociation'
 -- 'lastUpdatedTime', 'resourceShareAssociation_lastUpdatedTime' - The date and time when the association was last updated.
 --
 -- 'resourceShareArn', 'resourceShareAssociation_resourceShareArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share.
 --
 -- 'resourceShareName', 'resourceShareAssociation_resourceShareName' - The name of the resource share.
@@ -140,7 +140,7 @@ newResourceShareAssociation =
 -- | The associated entity. This can be either of the following:
 --
 -- -   For a resource association, this is the
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of the resource.
 --
 -- -   For principal associations, this is one of the following:
@@ -148,7 +148,7 @@ newResourceShareAssociation =
 --     -   The ID of an Amazon Web Services account
 --
 --     -   The
---         <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--         <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --         of an organization in Organizations
 --
 --     -   The ARN of an organizational unit (OU) in Organizations
@@ -178,7 +178,7 @@ resourceShareAssociation_lastUpdatedTime :: Lens.Lens' ResourceShareAssociation 
 resourceShareAssociation_lastUpdatedTime = Lens.lens (\ResourceShareAssociation' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceShareAssociation' {} a -> s {lastUpdatedTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share.
 resourceShareAssociation_resourceShareArn :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
 resourceShareAssociation_resourceShareArn = Lens.lens (\ResourceShareAssociation' {resourceShareArn} -> resourceShareArn) (\s@ResourceShareAssociation' {} a -> s {resourceShareArn = a} :: ResourceShareAssociation)
@@ -214,7 +214,8 @@ instance Data.FromJSON ResourceShareAssociation where
 
 instance Prelude.Hashable ResourceShareAssociation where
   hashWithSalt _salt ResourceShareAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associatedEntity
+    _salt
+      `Prelude.hashWithSalt` associatedEntity
       `Prelude.hashWithSalt` associationType
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` external

@@ -47,7 +47,11 @@ library
     Amazonka.RAM.AcceptResourceShareInvitation
     Amazonka.RAM.AssociateResourceShare
     Amazonka.RAM.AssociateResourceSharePermission
+    Amazonka.RAM.CreatePermission
+    Amazonka.RAM.CreatePermissionVersion
     Amazonka.RAM.CreateResourceShare
+    Amazonka.RAM.DeletePermission
+    Amazonka.RAM.DeletePermissionVersion
     Amazonka.RAM.DeleteResourceShare
     Amazonka.RAM.DisassociateResourceShare
     Amazonka.RAM.DisassociateResourceSharePermission
@@ -59,17 +63,29 @@ library
     Amazonka.RAM.GetResourceShares
     Amazonka.RAM.Lens
     Amazonka.RAM.ListPendingInvitationResources
+    Amazonka.RAM.ListPermissionAssociations
     Amazonka.RAM.ListPermissions
     Amazonka.RAM.ListPermissionVersions
     Amazonka.RAM.ListPrincipals
+    Amazonka.RAM.ListReplacePermissionAssociationsWork
     Amazonka.RAM.ListResources
     Amazonka.RAM.ListResourceSharePermissions
     Amazonka.RAM.ListResourceTypes
+    Amazonka.RAM.PromotePermissionCreatedFromPolicy
     Amazonka.RAM.PromoteResourceShareCreatedFromPolicy
     Amazonka.RAM.RejectResourceShareInvitation
+    Amazonka.RAM.ReplacePermissionAssociations
+    Amazonka.RAM.SetDefaultPermissionVersion
     Amazonka.RAM.TagResource
     Amazonka.RAM.Types
+    Amazonka.RAM.Types.AssociatedPermission
+    Amazonka.RAM.Types.PermissionFeatureSet
+    Amazonka.RAM.Types.PermissionStatus
+    Amazonka.RAM.Types.PermissionType
+    Amazonka.RAM.Types.PermissionTypeFilter
     Amazonka.RAM.Types.Principal
+    Amazonka.RAM.Types.ReplacePermissionAssociationsWork
+    Amazonka.RAM.Types.ReplacePermissionAssociationsWorkStatus
     Amazonka.RAM.Types.Resource
     Amazonka.RAM.Types.ResourceOwner
     Amazonka.RAM.Types.ResourceRegionScope

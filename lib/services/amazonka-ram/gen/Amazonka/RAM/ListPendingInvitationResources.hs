@@ -87,7 +87,7 @@ data ListPendingInvitationResources = ListPendingInvitationResources'
     -- The default value is @ALL@.
     resourceRegionScope :: Prelude.Maybe ResourceRegionScopeFilter,
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the invitation. You can use GetResourceShareInvitations to find the
     -- ARN of the invitation.
     resourceShareInvitationArn :: Prelude.Text
@@ -134,7 +134,7 @@ data ListPendingInvitationResources = ListPendingInvitationResources'
 -- The default value is @ALL@.
 --
 -- 'resourceShareInvitationArn', 'listPendingInvitationResources_resourceShareInvitationArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the invitation. You can use GetResourceShareInvitations to find the
 -- ARN of the invitation.
 newListPendingInvitationResources ::
@@ -190,7 +190,7 @@ listPendingInvitationResources_resourceRegionScope :: Lens.Lens' ListPendingInvi
 listPendingInvitationResources_resourceRegionScope = Lens.lens (\ListPendingInvitationResources' {resourceRegionScope} -> resourceRegionScope) (\s@ListPendingInvitationResources' {} a -> s {resourceRegionScope = a} :: ListPendingInvitationResources)
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the invitation. You can use GetResourceShareInvitations to find the
 -- ARN of the invitation.
 listPendingInvitationResources_resourceShareInvitationArn :: Lens.Lens' ListPendingInvitationResources Prelude.Text
@@ -221,7 +221,8 @@ instance
   hashWithSalt
     _salt
     ListPendingInvitationResources' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` resourceRegionScope
         `Prelude.hashWithSalt` resourceShareInvitationArn

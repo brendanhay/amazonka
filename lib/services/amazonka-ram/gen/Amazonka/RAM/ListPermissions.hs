@@ -30,6 +30,7 @@ module Amazonka.RAM.ListPermissions
     -- * Request Lenses
     listPermissions_maxResults,
     listPermissions_nextToken,
+    listPermissions_permissionType,
     listPermissions_resourceType,
 
     -- * Destructuring the Response
@@ -70,10 +71,23 @@ data ListPermissions = ListPermissions'
     -- the value provided by the previous call\'s @NextToken@ response to
     -- request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that you want to list permissions for only the specified
-    -- resource type. For example, to list only permissions that apply to EC2
-    -- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
-    -- operation to get the specific string required.
+    -- | Specifies that you want to list only permissions of this type:
+    --
+    -- -   @AWS@ – returns only Amazon Web Services managed permissions.
+    --
+    -- -   @LOCAL@ – returns only customer managed permissions
+    --
+    -- -   @ALL@ – returns both Amazon Web Services managed permissions and
+    --     customer managed permissions.
+    --
+    -- If you don\'t specify this parameter, the default is @All@.
+    permissionType :: Prelude.Maybe PermissionTypeFilter,
+    -- | Specifies that you want to list only those permissions that apply to the
+    -- specified resource type. This parameter is not case sensitive.
+    --
+    -- For example, to list only permissions that apply to Amazon EC2 subnets,
+    -- specify @ec2:subnet@. You can use the ListResourceTypes operation to get
+    -- the specific string required.
     resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,16 +117,30 @@ data ListPermissions = ListPermissions'
 -- the value provided by the previous call\'s @NextToken@ response to
 -- request the next page of results.
 --
--- 'resourceType', 'listPermissions_resourceType' - Specifies that you want to list permissions for only the specified
--- resource type. For example, to list only permissions that apply to EC2
--- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
--- operation to get the specific string required.
+-- 'permissionType', 'listPermissions_permissionType' - Specifies that you want to list only permissions of this type:
+--
+-- -   @AWS@ – returns only Amazon Web Services managed permissions.
+--
+-- -   @LOCAL@ – returns only customer managed permissions
+--
+-- -   @ALL@ – returns both Amazon Web Services managed permissions and
+--     customer managed permissions.
+--
+-- If you don\'t specify this parameter, the default is @All@.
+--
+-- 'resourceType', 'listPermissions_resourceType' - Specifies that you want to list only those permissions that apply to the
+-- specified resource type. This parameter is not case sensitive.
+--
+-- For example, to list only permissions that apply to Amazon EC2 subnets,
+-- specify @ec2:subnet@. You can use the ListResourceTypes operation to get
+-- the specific string required.
 newListPermissions ::
   ListPermissions
 newListPermissions =
   ListPermissions'
     { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      permissionType = Prelude.Nothing,
       resourceType = Prelude.Nothing
     }
 
@@ -137,10 +165,25 @@ listPermissions_maxResults = Lens.lens (\ListPermissions' {maxResults} -> maxRes
 listPermissions_nextToken :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
 listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToken) (\s@ListPermissions' {} a -> s {nextToken = a} :: ListPermissions)
 
--- | Specifies that you want to list permissions for only the specified
--- resource type. For example, to list only permissions that apply to EC2
--- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
--- operation to get the specific string required.
+-- | Specifies that you want to list only permissions of this type:
+--
+-- -   @AWS@ – returns only Amazon Web Services managed permissions.
+--
+-- -   @LOCAL@ – returns only customer managed permissions
+--
+-- -   @ALL@ – returns both Amazon Web Services managed permissions and
+--     customer managed permissions.
+--
+-- If you don\'t specify this parameter, the default is @All@.
+listPermissions_permissionType :: Lens.Lens' ListPermissions (Prelude.Maybe PermissionTypeFilter)
+listPermissions_permissionType = Lens.lens (\ListPermissions' {permissionType} -> permissionType) (\s@ListPermissions' {} a -> s {permissionType = a} :: ListPermissions)
+
+-- | Specifies that you want to list only those permissions that apply to the
+-- specified resource type. This parameter is not case sensitive.
+--
+-- For example, to list only permissions that apply to Amazon EC2 subnets,
+-- specify @ec2:subnet@. You can use the ListResourceTypes operation to get
+-- the specific string required.
 listPermissions_resourceType :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
 listPermissions_resourceType = Lens.lens (\ListPermissions' {resourceType} -> resourceType) (\s@ListPermissions' {} a -> s {resourceType = a} :: ListPermissions)
 
@@ -161,14 +204,17 @@ instance Core.AWSRequest ListPermissions where
 
 instance Prelude.Hashable ListPermissions where
   hashWithSalt _salt ListPermissions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ListPermissions where
   rnf ListPermissions' {..} =
     Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf permissionType
       `Prelude.seq` Prelude.rnf resourceType
 
 instance Data.ToHeaders ListPermissions where
@@ -188,6 +234,8 @@ instance Data.ToJSON ListPermissions where
       ( Prelude.catMaybes
           [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("permissionType" Data..=)
+              Prelude.<$> permissionType,
             ("resourceType" Data..=) Prelude.<$> resourceType
           ]
       )

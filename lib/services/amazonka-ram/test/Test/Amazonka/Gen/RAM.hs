@@ -36,8 +36,20 @@ import Test.Tasty
 --         , requestAssociateResourceSharePermission $
 --             newAssociateResourceSharePermission
 --
+--         , requestCreatePermission $
+--             newCreatePermission
+--
+--         , requestCreatePermissionVersion $
+--             newCreatePermissionVersion
+--
 --         , requestCreateResourceShare $
 --             newCreateResourceShare
+--
+--         , requestDeletePermission $
+--             newDeletePermission
+--
+--         , requestDeletePermissionVersion $
+--             newDeletePermissionVersion
 --
 --         , requestDeleteResourceShare $
 --             newDeleteResourceShare
@@ -69,6 +81,9 @@ import Test.Tasty
 --         , requestListPendingInvitationResources $
 --             newListPendingInvitationResources
 --
+--         , requestListPermissionAssociations $
+--             newListPermissionAssociations
+--
 --         , requestListPermissionVersions $
 --             newListPermissionVersions
 --
@@ -77,6 +92,9 @@ import Test.Tasty
 --
 --         , requestListPrincipals $
 --             newListPrincipals
+--
+--         , requestListReplacePermissionAssociationsWork $
+--             newListReplacePermissionAssociationsWork
 --
 --         , requestListResourceSharePermissions $
 --             newListResourceSharePermissions
@@ -87,11 +105,20 @@ import Test.Tasty
 --         , requestListResources $
 --             newListResources
 --
+--         , requestPromotePermissionCreatedFromPolicy $
+--             newPromotePermissionCreatedFromPolicy
+--
 --         , requestPromoteResourceShareCreatedFromPolicy $
 --             newPromoteResourceShareCreatedFromPolicy
 --
 --         , requestRejectResourceShareInvitation $
 --             newRejectResourceShareInvitation
+--
+--         , requestReplacePermissionAssociations $
+--             newReplacePermissionAssociations
+--
+--         , requestSetDefaultPermissionVersion $
+--             newSetDefaultPermissionVersion
 --
 --         , requestTagResource $
 --             newTagResource
@@ -114,8 +141,20 @@ import Test.Tasty
 --         , responseAssociateResourceSharePermission $
 --             newAssociateResourceSharePermissionResponse
 --
+--         , responseCreatePermission $
+--             newCreatePermissionResponse
+--
+--         , responseCreatePermissionVersion $
+--             newCreatePermissionVersionResponse
+--
 --         , responseCreateResourceShare $
 --             newCreateResourceShareResponse
+--
+--         , responseDeletePermission $
+--             newDeletePermissionResponse
+--
+--         , responseDeletePermissionVersion $
+--             newDeletePermissionVersionResponse
 --
 --         , responseDeleteResourceShare $
 --             newDeleteResourceShareResponse
@@ -147,6 +186,9 @@ import Test.Tasty
 --         , responseListPendingInvitationResources $
 --             newListPendingInvitationResourcesResponse
 --
+--         , responseListPermissionAssociations $
+--             newListPermissionAssociationsResponse
+--
 --         , responseListPermissionVersions $
 --             newListPermissionVersionsResponse
 --
@@ -155,6 +197,9 @@ import Test.Tasty
 --
 --         , responseListPrincipals $
 --             newListPrincipalsResponse
+--
+--         , responseListReplacePermissionAssociationsWork $
+--             newListReplacePermissionAssociationsWorkResponse
 --
 --         , responseListResourceSharePermissions $
 --             newListResourceSharePermissionsResponse
@@ -165,11 +210,20 @@ import Test.Tasty
 --         , responseListResources $
 --             newListResourcesResponse
 --
+--         , responsePromotePermissionCreatedFromPolicy $
+--             newPromotePermissionCreatedFromPolicyResponse
+--
 --         , responsePromoteResourceShareCreatedFromPolicy $
 --             newPromoteResourceShareCreatedFromPolicyResponse
 --
 --         , responseRejectResourceShareInvitation $
 --             newRejectResourceShareInvitationResponse
+--
+--         , responseReplacePermissionAssociations $
+--             newReplacePermissionAssociationsResponse
+--
+--         , responseSetDefaultPermissionVersion $
+--             newSetDefaultPermissionVersionResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -203,11 +257,35 @@ requestAssociateResourceSharePermission =
     "AssociateResourceSharePermission"
     "fixture/AssociateResourceSharePermission.yaml"
 
+requestCreatePermission :: CreatePermission -> TestTree
+requestCreatePermission =
+  req
+    "CreatePermission"
+    "fixture/CreatePermission.yaml"
+
+requestCreatePermissionVersion :: CreatePermissionVersion -> TestTree
+requestCreatePermissionVersion =
+  req
+    "CreatePermissionVersion"
+    "fixture/CreatePermissionVersion.yaml"
+
 requestCreateResourceShare :: CreateResourceShare -> TestTree
 requestCreateResourceShare =
   req
     "CreateResourceShare"
     "fixture/CreateResourceShare.yaml"
+
+requestDeletePermission :: DeletePermission -> TestTree
+requestDeletePermission =
+  req
+    "DeletePermission"
+    "fixture/DeletePermission.yaml"
+
+requestDeletePermissionVersion :: DeletePermissionVersion -> TestTree
+requestDeletePermissionVersion =
+  req
+    "DeletePermissionVersion"
+    "fixture/DeletePermissionVersion.yaml"
 
 requestDeleteResourceShare :: DeleteResourceShare -> TestTree
 requestDeleteResourceShare =
@@ -269,6 +347,12 @@ requestListPendingInvitationResources =
     "ListPendingInvitationResources"
     "fixture/ListPendingInvitationResources.yaml"
 
+requestListPermissionAssociations :: ListPermissionAssociations -> TestTree
+requestListPermissionAssociations =
+  req
+    "ListPermissionAssociations"
+    "fixture/ListPermissionAssociations.yaml"
+
 requestListPermissionVersions :: ListPermissionVersions -> TestTree
 requestListPermissionVersions =
   req
@@ -286,6 +370,12 @@ requestListPrincipals =
   req
     "ListPrincipals"
     "fixture/ListPrincipals.yaml"
+
+requestListReplacePermissionAssociationsWork :: ListReplacePermissionAssociationsWork -> TestTree
+requestListReplacePermissionAssociationsWork =
+  req
+    "ListReplacePermissionAssociationsWork"
+    "fixture/ListReplacePermissionAssociationsWork.yaml"
 
 requestListResourceSharePermissions :: ListResourceSharePermissions -> TestTree
 requestListResourceSharePermissions =
@@ -305,6 +395,12 @@ requestListResources =
     "ListResources"
     "fixture/ListResources.yaml"
 
+requestPromotePermissionCreatedFromPolicy :: PromotePermissionCreatedFromPolicy -> TestTree
+requestPromotePermissionCreatedFromPolicy =
+  req
+    "PromotePermissionCreatedFromPolicy"
+    "fixture/PromotePermissionCreatedFromPolicy.yaml"
+
 requestPromoteResourceShareCreatedFromPolicy :: PromoteResourceShareCreatedFromPolicy -> TestTree
 requestPromoteResourceShareCreatedFromPolicy =
   req
@@ -316,6 +412,18 @@ requestRejectResourceShareInvitation =
   req
     "RejectResourceShareInvitation"
     "fixture/RejectResourceShareInvitation.yaml"
+
+requestReplacePermissionAssociations :: ReplacePermissionAssociations -> TestTree
+requestReplacePermissionAssociations =
+  req
+    "ReplacePermissionAssociations"
+    "fixture/ReplacePermissionAssociations.yaml"
+
+requestSetDefaultPermissionVersion :: SetDefaultPermissionVersion -> TestTree
+requestSetDefaultPermissionVersion =
+  req
+    "SetDefaultPermissionVersion"
+    "fixture/SetDefaultPermissionVersion.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -361,6 +469,22 @@ responseAssociateResourceSharePermission =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateResourceSharePermission)
 
+responseCreatePermission :: CreatePermissionResponse -> TestTree
+responseCreatePermission =
+  res
+    "CreatePermissionResponse"
+    "fixture/CreatePermissionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePermission)
+
+responseCreatePermissionVersion :: CreatePermissionVersionResponse -> TestTree
+responseCreatePermissionVersion =
+  res
+    "CreatePermissionVersionResponse"
+    "fixture/CreatePermissionVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePermissionVersion)
+
 responseCreateResourceShare :: CreateResourceShareResponse -> TestTree
 responseCreateResourceShare =
   res
@@ -368,6 +492,22 @@ responseCreateResourceShare =
     "fixture/CreateResourceShareResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateResourceShare)
+
+responseDeletePermission :: DeletePermissionResponse -> TestTree
+responseDeletePermission =
+  res
+    "DeletePermissionResponse"
+    "fixture/DeletePermissionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePermission)
+
+responseDeletePermissionVersion :: DeletePermissionVersionResponse -> TestTree
+responseDeletePermissionVersion =
+  res
+    "DeletePermissionVersionResponse"
+    "fixture/DeletePermissionVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePermissionVersion)
 
 responseDeleteResourceShare :: DeleteResourceShareResponse -> TestTree
 responseDeleteResourceShare =
@@ -449,6 +589,14 @@ responseListPendingInvitationResources =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPendingInvitationResources)
 
+responseListPermissionAssociations :: ListPermissionAssociationsResponse -> TestTree
+responseListPermissionAssociations =
+  res
+    "ListPermissionAssociationsResponse"
+    "fixture/ListPermissionAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPermissionAssociations)
+
 responseListPermissionVersions :: ListPermissionVersionsResponse -> TestTree
 responseListPermissionVersions =
   res
@@ -472,6 +620,14 @@ responseListPrincipals =
     "fixture/ListPrincipalsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPrincipals)
+
+responseListReplacePermissionAssociationsWork :: ListReplacePermissionAssociationsWorkResponse -> TestTree
+responseListReplacePermissionAssociationsWork =
+  res
+    "ListReplacePermissionAssociationsWorkResponse"
+    "fixture/ListReplacePermissionAssociationsWorkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReplacePermissionAssociationsWork)
 
 responseListResourceSharePermissions :: ListResourceSharePermissionsResponse -> TestTree
 responseListResourceSharePermissions =
@@ -497,6 +653,14 @@ responseListResources =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListResources)
 
+responsePromotePermissionCreatedFromPolicy :: PromotePermissionCreatedFromPolicyResponse -> TestTree
+responsePromotePermissionCreatedFromPolicy =
+  res
+    "PromotePermissionCreatedFromPolicyResponse"
+    "fixture/PromotePermissionCreatedFromPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PromotePermissionCreatedFromPolicy)
+
 responsePromoteResourceShareCreatedFromPolicy :: PromoteResourceShareCreatedFromPolicyResponse -> TestTree
 responsePromoteResourceShareCreatedFromPolicy =
   res
@@ -512,6 +676,22 @@ responseRejectResourceShareInvitation =
     "fixture/RejectResourceShareInvitationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RejectResourceShareInvitation)
+
+responseReplacePermissionAssociations :: ReplacePermissionAssociationsResponse -> TestTree
+responseReplacePermissionAssociations =
+  res
+    "ReplacePermissionAssociationsResponse"
+    "fixture/ReplacePermissionAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ReplacePermissionAssociations)
+
+responseSetDefaultPermissionVersion :: SetDefaultPermissionVersionResponse -> TestTree
+responseSetDefaultPermissionVersion =
+  res
+    "SetDefaultPermissionVersionResponse"
+    "fixture/SetDefaultPermissionVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SetDefaultPermissionVersion)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

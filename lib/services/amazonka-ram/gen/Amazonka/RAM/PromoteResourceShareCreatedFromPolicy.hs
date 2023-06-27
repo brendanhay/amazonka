@@ -20,15 +20,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- When you attach a resource-based permission policy to a resource, it
--- automatically creates a resource share. However, resource shares created
--- this way are visible only to the resource share owner, and the resource
--- share can\'t be modified in RAM.
+-- When you attach a resource-based policy to a resource, RAM automatically
+-- creates a resource share of @featureSet@=@CREATED_FROM_POLICY@ with a
+-- managed permission that has the same IAM permissions as the original
+-- resource-based policy. However, this type of managed permission is
+-- visible to only the resource share owner, and the associated resource
+-- share can\'t be modified by using RAM.
 --
--- You can use this operation to promote the resource share to a full RAM
--- resource share. When you promote a resource share, you can then manage
--- the resource share in RAM and it becomes visible to all of the
--- principals you shared it with.
+-- This operation promotes the resource share to a @STANDARD@ resource
+-- share that is fully manageable in RAM. When you promote a resource
+-- share, you can then manage the resource share in RAM and it becomes
+-- visible to all of the principals you shared it with.
+--
+-- Before you perform this operation, you should first run
+-- PromotePermissionCreatedFromPolicyto ensure that you have an appropriate
+-- customer managed permission that can be associated with this resource
+-- share after its is promoted. If this operation can\'t find a managed
+-- permission that exactly matches the existing @CREATED_FROM_POLICY@
+-- permission, then this operation fails.
 module Amazonka.RAM.PromoteResourceShareCreatedFromPolicy
   ( -- * Creating a Request
     PromoteResourceShareCreatedFromPolicy (..),
@@ -58,7 +67,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPromoteResourceShareCreatedFromPolicy' smart constructor.
 data PromoteResourceShareCreatedFromPolicy = PromoteResourceShareCreatedFromPolicy'
   { -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share to promote.
     resourceShareArn :: Prelude.Text
   }
@@ -73,7 +82,7 @@ data PromoteResourceShareCreatedFromPolicy = PromoteResourceShareCreatedFromPoli
 -- for backwards compatibility:
 --
 -- 'resourceShareArn', 'promoteResourceShareCreatedFromPolicy_resourceShareArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share to promote.
 newPromoteResourceShareCreatedFromPolicy ::
   -- | 'resourceShareArn'
@@ -87,7 +96,7 @@ newPromoteResourceShareCreatedFromPolicy
       }
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share to promote.
 promoteResourceShareCreatedFromPolicy_resourceShareArn :: Lens.Lens' PromoteResourceShareCreatedFromPolicy Prelude.Text
 promoteResourceShareCreatedFromPolicy_resourceShareArn = Lens.lens (\PromoteResourceShareCreatedFromPolicy' {resourceShareArn} -> resourceShareArn) (\s@PromoteResourceShareCreatedFromPolicy' {} a -> s {resourceShareArn = a} :: PromoteResourceShareCreatedFromPolicy)
@@ -107,7 +116,7 @@ instance
       ( \s h x ->
           PromoteResourceShareCreatedFromPolicyResponse'
             Prelude.<$> (x Data..?> "returnValue")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

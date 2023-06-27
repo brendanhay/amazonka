@@ -66,12 +66,16 @@ data UpdateResourceShare = UpdateResourceShare'
     --
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
+    --
+    -- If you retry the operation with the same @ClientToken@, but with
+    -- different parameters, the retry fails with an
+    -- @IdempotentParameterMismatch@ error.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | If specified, the new name that you want to attach to the resource
     -- share.
     name :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share that you want to modify.
     resourceShareArn :: Prelude.Text
   }
@@ -99,11 +103,15 @@ data UpdateResourceShare = UpdateResourceShare'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
+--
 -- 'name', 'updateResourceShare_name' - If specified, the new name that you want to attach to the resource
 -- share.
 --
 -- 'resourceShareArn', 'updateResourceShare_resourceShareArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share that you want to modify.
 newUpdateResourceShare ::
   -- | 'resourceShareArn'
@@ -133,6 +141,10 @@ updateResourceShare_allowExternalPrincipals = Lens.lens (\UpdateResourceShare' {
 --
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
+--
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 updateResourceShare_clientToken :: Lens.Lens' UpdateResourceShare (Prelude.Maybe Prelude.Text)
 updateResourceShare_clientToken = Lens.lens (\UpdateResourceShare' {clientToken} -> clientToken) (\s@UpdateResourceShare' {} a -> s {clientToken = a} :: UpdateResourceShare)
 
@@ -142,7 +154,7 @@ updateResourceShare_name :: Lens.Lens' UpdateResourceShare (Prelude.Maybe Prelud
 updateResourceShare_name = Lens.lens (\UpdateResourceShare' {name} -> name) (\s@UpdateResourceShare' {} a -> s {name = a} :: UpdateResourceShare)
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share that you want to modify.
 updateResourceShare_resourceShareArn :: Lens.Lens' UpdateResourceShare Prelude.Text
 updateResourceShare_resourceShareArn = Lens.lens (\UpdateResourceShare' {resourceShareArn} -> resourceShareArn) (\s@UpdateResourceShare' {} a -> s {resourceShareArn = a} :: UpdateResourceShare)

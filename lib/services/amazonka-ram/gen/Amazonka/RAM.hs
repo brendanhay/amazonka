@@ -14,13 +14,11 @@
 -- This is the /Resource Access Manager API Reference/. This documentation
 -- provides descriptions and syntax for each of the actions and data types
 -- in RAM. RAM is a service that helps you securely share your Amazon Web
--- Services resources across Amazon Web Services accounts. If you have
--- multiple Amazon Web Services accounts, you can use RAM to share those
--- resources with other accounts. If you use Organizations to manage your
--- accounts, then you share your resources with your organization or
--- organizational units (OUs). For supported resource types, you can also
--- share resources with individual Identity and Access Management (IAM)
--- roles an users.
+-- Services resources to other Amazon Web Services accounts. If you use
+-- Organizations to manage your accounts, then you can share your resources
+-- with your entire organization or to organizational units (OUs). For
+-- supported resource types, you can also share resources with individual
+-- Identity and Access Management (IAM) roles and users.
 --
 -- To learn more about RAM, see the following resources:
 --
@@ -49,6 +47,9 @@ module Amazonka.RAM
     -- ** InvalidParameterException
     _InvalidParameterException,
 
+    -- ** InvalidPolicyException
+    _InvalidPolicyException,
+
     -- ** InvalidResourceTypeException
     _InvalidResourceTypeException,
 
@@ -58,11 +59,23 @@ module Amazonka.RAM
     -- ** MalformedArnException
     _MalformedArnException,
 
+    -- ** MalformedPolicyTemplateException
+    _MalformedPolicyTemplateException,
+
     -- ** MissingRequiredParameterException
     _MissingRequiredParameterException,
 
     -- ** OperationNotPermittedException
     _OperationNotPermittedException,
+
+    -- ** PermissionAlreadyExistsException
+    _PermissionAlreadyExistsException,
+
+    -- ** PermissionLimitExceededException
+    _PermissionLimitExceededException,
+
+    -- ** PermissionVersionsLimitExceededException
+    _PermissionVersionsLimitExceededException,
 
     -- ** ResourceArnNotFoundException
     _ResourceArnNotFoundException,
@@ -100,6 +113,9 @@ module Amazonka.RAM
     -- ** UnknownResourceException
     _UnknownResourceException,
 
+    -- ** UnmatchedPolicyPermissionException
+    _UnmatchedPolicyPermissionException,
+
     -- * Waiters
     -- $waiters
 
@@ -124,11 +140,35 @@ module Amazonka.RAM
     AssociateResourceSharePermissionResponse (AssociateResourceSharePermissionResponse'),
     newAssociateResourceSharePermissionResponse,
 
+    -- ** CreatePermission
+    CreatePermission (CreatePermission'),
+    newCreatePermission,
+    CreatePermissionResponse (CreatePermissionResponse'),
+    newCreatePermissionResponse,
+
+    -- ** CreatePermissionVersion
+    CreatePermissionVersion (CreatePermissionVersion'),
+    newCreatePermissionVersion,
+    CreatePermissionVersionResponse (CreatePermissionVersionResponse'),
+    newCreatePermissionVersionResponse,
+
     -- ** CreateResourceShare
     CreateResourceShare (CreateResourceShare'),
     newCreateResourceShare,
     CreateResourceShareResponse (CreateResourceShareResponse'),
     newCreateResourceShareResponse,
+
+    -- ** DeletePermission
+    DeletePermission (DeletePermission'),
+    newDeletePermission,
+    DeletePermissionResponse (DeletePermissionResponse'),
+    newDeletePermissionResponse,
+
+    -- ** DeletePermissionVersion
+    DeletePermissionVersion (DeletePermissionVersion'),
+    newDeletePermissionVersion,
+    DeletePermissionVersionResponse (DeletePermissionVersionResponse'),
+    newDeletePermissionVersionResponse,
 
     -- ** DeleteResourceShare
     DeleteResourceShare (DeleteResourceShare'),
@@ -190,6 +230,12 @@ module Amazonka.RAM
     ListPendingInvitationResourcesResponse (ListPendingInvitationResourcesResponse'),
     newListPendingInvitationResourcesResponse,
 
+    -- ** ListPermissionAssociations
+    ListPermissionAssociations (ListPermissionAssociations'),
+    newListPermissionAssociations,
+    ListPermissionAssociationsResponse (ListPermissionAssociationsResponse'),
+    newListPermissionAssociationsResponse,
+
     -- ** ListPermissionVersions
     ListPermissionVersions (ListPermissionVersions'),
     newListPermissionVersions,
@@ -207,6 +253,12 @@ module Amazonka.RAM
     newListPrincipals,
     ListPrincipalsResponse (ListPrincipalsResponse'),
     newListPrincipalsResponse,
+
+    -- ** ListReplacePermissionAssociationsWork
+    ListReplacePermissionAssociationsWork (ListReplacePermissionAssociationsWork'),
+    newListReplacePermissionAssociationsWork,
+    ListReplacePermissionAssociationsWorkResponse (ListReplacePermissionAssociationsWorkResponse'),
+    newListReplacePermissionAssociationsWorkResponse,
 
     -- ** ListResourceSharePermissions
     ListResourceSharePermissions (ListResourceSharePermissions'),
@@ -226,6 +278,12 @@ module Amazonka.RAM
     ListResourcesResponse (ListResourcesResponse'),
     newListResourcesResponse,
 
+    -- ** PromotePermissionCreatedFromPolicy
+    PromotePermissionCreatedFromPolicy (PromotePermissionCreatedFromPolicy'),
+    newPromotePermissionCreatedFromPolicy,
+    PromotePermissionCreatedFromPolicyResponse (PromotePermissionCreatedFromPolicyResponse'),
+    newPromotePermissionCreatedFromPolicyResponse,
+
     -- ** PromoteResourceShareCreatedFromPolicy
     PromoteResourceShareCreatedFromPolicy (PromoteResourceShareCreatedFromPolicy'),
     newPromoteResourceShareCreatedFromPolicy,
@@ -237,6 +295,18 @@ module Amazonka.RAM
     newRejectResourceShareInvitation,
     RejectResourceShareInvitationResponse (RejectResourceShareInvitationResponse'),
     newRejectResourceShareInvitationResponse,
+
+    -- ** ReplacePermissionAssociations
+    ReplacePermissionAssociations (ReplacePermissionAssociations'),
+    newReplacePermissionAssociations,
+    ReplacePermissionAssociationsResponse (ReplacePermissionAssociationsResponse'),
+    newReplacePermissionAssociationsResponse,
+
+    -- ** SetDefaultPermissionVersion
+    SetDefaultPermissionVersion (SetDefaultPermissionVersion'),
+    newSetDefaultPermissionVersion,
+    SetDefaultPermissionVersionResponse (SetDefaultPermissionVersionResponse'),
+    newSetDefaultPermissionVersionResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -257,6 +327,21 @@ module Amazonka.RAM
     newUpdateResourceShareResponse,
 
     -- * Types
+
+    -- ** PermissionFeatureSet
+    PermissionFeatureSet (..),
+
+    -- ** PermissionStatus
+    PermissionStatus (..),
+
+    -- ** PermissionType
+    PermissionType (..),
+
+    -- ** PermissionTypeFilter
+    PermissionTypeFilter (..),
+
+    -- ** ReplacePermissionAssociationsWorkStatus
+    ReplacePermissionAssociationsWorkStatus (..),
 
     -- ** ResourceOwner
     ResourceOwner (..),
@@ -285,9 +370,17 @@ module Amazonka.RAM
     -- ** ResourceStatus
     ResourceStatus (..),
 
+    -- ** AssociatedPermission
+    AssociatedPermission (AssociatedPermission'),
+    newAssociatedPermission,
+
     -- ** Principal
     Principal (Principal'),
     newPrincipal,
+
+    -- ** ReplacePermissionAssociationsWork
+    ReplacePermissionAssociationsWork (ReplacePermissionAssociationsWork'),
+    newReplacePermissionAssociationsWork,
 
     -- ** Resource
     Resource (Resource'),
@@ -330,7 +423,11 @@ where
 import Amazonka.RAM.AcceptResourceShareInvitation
 import Amazonka.RAM.AssociateResourceShare
 import Amazonka.RAM.AssociateResourceSharePermission
+import Amazonka.RAM.CreatePermission
+import Amazonka.RAM.CreatePermissionVersion
 import Amazonka.RAM.CreateResourceShare
+import Amazonka.RAM.DeletePermission
+import Amazonka.RAM.DeletePermissionVersion
 import Amazonka.RAM.DeleteResourceShare
 import Amazonka.RAM.DisassociateResourceShare
 import Amazonka.RAM.DisassociateResourceSharePermission
@@ -342,14 +439,19 @@ import Amazonka.RAM.GetResourceShareInvitations
 import Amazonka.RAM.GetResourceShares
 import Amazonka.RAM.Lens
 import Amazonka.RAM.ListPendingInvitationResources
+import Amazonka.RAM.ListPermissionAssociations
 import Amazonka.RAM.ListPermissionVersions
 import Amazonka.RAM.ListPermissions
 import Amazonka.RAM.ListPrincipals
+import Amazonka.RAM.ListReplacePermissionAssociationsWork
 import Amazonka.RAM.ListResourceSharePermissions
 import Amazonka.RAM.ListResourceTypes
 import Amazonka.RAM.ListResources
+import Amazonka.RAM.PromotePermissionCreatedFromPolicy
 import Amazonka.RAM.PromoteResourceShareCreatedFromPolicy
 import Amazonka.RAM.RejectResourceShareInvitation
+import Amazonka.RAM.ReplacePermissionAssociations
+import Amazonka.RAM.SetDefaultPermissionVersion
 import Amazonka.RAM.TagResource
 import Amazonka.RAM.Types
 import Amazonka.RAM.UntagResource

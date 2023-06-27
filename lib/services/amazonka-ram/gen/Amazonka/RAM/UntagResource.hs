@@ -21,13 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified tag key and value pairs from the specified
--- resource share.
+-- resource share or managed permission.
 module Amazonka.RAM.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
     newUntagResource,
 
     -- * Request Lenses
+    untagResource_resourceArn,
     untagResource_resourceShareArn,
     untagResource_tagKeys,
 
@@ -51,11 +52,17 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+    -- of the managed permission that you want to remove tags from. You must
+    -- specify either @resourceArn@, or @resourceShareArn@, but not both.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share that you want to remove tags from. The tags are
     -- removed from the resource share, not the resources in the resource
-    -- share.
-    resourceShareArn :: Prelude.Text,
+    -- share. You must specify either @resourceShareArn@, or @resourceArn@, but
+    -- not both.
+    resourceShareArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies a list of one or more tag keys that you want to remove.
     tagKeys :: [Prelude.Text]
   }
@@ -69,30 +76,42 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceArn', 'untagResource_resourceArn' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the managed permission that you want to remove tags from. You must
+-- specify either @resourceArn@, or @resourceShareArn@, but not both.
+--
 -- 'resourceShareArn', 'untagResource_resourceShareArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share that you want to remove tags from. The tags are
 -- removed from the resource share, not the resources in the resource
--- share.
+-- share. You must specify either @resourceShareArn@, or @resourceArn@, but
+-- not both.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - Specifies a list of one or more tag keys that you want to remove.
 newUntagResource ::
-  -- | 'resourceShareArn'
-  Prelude.Text ->
   UntagResource
-newUntagResource pResourceShareArn_ =
+newUntagResource =
   UntagResource'
-    { resourceShareArn =
-        pResourceShareArn_,
+    { resourceArn = Prelude.Nothing,
+      resourceShareArn = Prelude.Nothing,
       tagKeys = Prelude.mempty
     }
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the managed permission that you want to remove tags from. You must
+-- specify either @resourceArn@, or @resourceShareArn@, but not both.
+untagResource_resourceArn :: Lens.Lens' UntagResource (Prelude.Maybe Prelude.Text)
+untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
+
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share that you want to remove tags from. The tags are
 -- removed from the resource share, not the resources in the resource
--- share.
-untagResource_resourceShareArn :: Lens.Lens' UntagResource Prelude.Text
+-- share. You must specify either @resourceShareArn@, or @resourceArn@, but
+-- not both.
+untagResource_resourceShareArn :: Lens.Lens' UntagResource (Prelude.Maybe Prelude.Text)
 untagResource_resourceShareArn = Lens.lens (\UntagResource' {resourceShareArn} -> resourceShareArn) (\s@UntagResource' {} a -> s {resourceShareArn = a} :: UntagResource)
 
 -- | Specifies a list of one or more tag keys that you want to remove.
@@ -114,12 +133,15 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceShareArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` resourceShareArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where
   rnf UntagResource' {..} =
-    Prelude.rnf resourceShareArn
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceShareArn
       `Prelude.seq` Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagResource where
@@ -137,8 +159,9 @@ instance Data.ToJSON UntagResource where
   toJSON UntagResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("resourceShareArn" Data..= resourceShareArn),
+          [ ("resourceArn" Data..=) Prelude.<$> resourceArn,
+            ("resourceShareArn" Data..=)
+              Prelude.<$> resourceShareArn,
             Prelude.Just ("tagKeys" Data..= tagKeys)
           ]
       )

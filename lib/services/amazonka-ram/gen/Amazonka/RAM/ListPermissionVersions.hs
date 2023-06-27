@@ -70,7 +70,7 @@ data ListPermissionVersions = ListPermissionVersions'
     -- request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the RAM permission whose versions you want to list. You can use the
     -- @permissionVersion@ parameter on the AssociateResourceSharePermission
     -- operation to specify a non-default version to attach.
@@ -104,7 +104,7 @@ data ListPermissionVersions = ListPermissionVersions'
 -- request the next page of results.
 --
 -- 'permissionArn', 'listPermissionVersions_permissionArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the RAM permission whose versions you want to list. You can use the
 -- @permissionVersion@ parameter on the AssociateResourceSharePermission
 -- operation to specify a non-default version to attach.
@@ -142,7 +142,7 @@ listPermissionVersions_nextToken :: Lens.Lens' ListPermissionVersions (Prelude.M
 listPermissionVersions_nextToken = Lens.lens (\ListPermissionVersions' {nextToken} -> nextToken) (\s@ListPermissionVersions' {} a -> s {nextToken = a} :: ListPermissionVersions)
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the RAM permission whose versions you want to list. You can use the
 -- @permissionVersion@ parameter on the AssociateResourceSharePermission
 -- operation to specify a non-default version to attach.
@@ -166,7 +166,8 @@ instance Core.AWSRequest ListPermissionVersions where
 
 instance Prelude.Hashable ListPermissionVersions where
   hashWithSalt _salt ListPermissionVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` permissionArn
 

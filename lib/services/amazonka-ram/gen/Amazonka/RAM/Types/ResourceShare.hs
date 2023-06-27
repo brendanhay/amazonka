@@ -33,26 +33,38 @@ import Amazonka.RAM.Types.Tag
 data ResourceShare = ResourceShare'
   { -- | Indicates whether principals outside your organization in Organizations
     -- can be associated with a resource share.
+    --
+    -- -   @True@ – the resource share can be shared with any Amazon Web
+    --     Services account.
+    --
+    -- -   @False@ – the resource share can be shared with only accounts in the
+    --     same organization as the account that owns the resource share.
     allowExternalPrincipals :: Prelude.Maybe Prelude.Bool,
     -- | The date and time when the resource share was created.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | Indicates how the resource share was created. Possible values include:
+    -- | Indicates what features are available for this resource share. This
+    -- parameter can have one of the following values:
     --
-    -- -   @CREATED_FROM_POLICY@ - Indicates that the resource share was
-    --     created from an Identity and Access Management (IAM) resource-based
-    --     permission policy attached to the resource. This type of resource
-    --     share is visible only to the Amazon Web Services account that
-    --     created it. You can\'t modify it in RAM unless you promote it. For
-    --     more information, see PromoteResourceShareCreatedFromPolicy.
+    -- -   __STANDARD__ – A resource share that supports all functionality.
+    --     These resource shares are visible to all principals you share the
+    --     resource share with. You can modify these resource shares in RAM
+    --     using the console or APIs. This resource share might have been
+    --     created by RAM, or it might have been __CREATED_FROM_POLICY__ and
+    --     then promoted.
     --
-    -- -   @PROMOTING_TO_STANDARD@ - The resource share is in the process of
-    --     being promoted. For more information, see
+    -- -   __CREATED_FROM_POLICY__ – The customer manually shared a resource by
+    --     attaching a resource-based policy. That policy did not match any
+    --     existing managed permissions, so RAM created this customer managed
+    --     permission automatically on the customer\'s behalf based on the
+    --     attached policy document. This type of resource share is visible
+    --     only to the Amazon Web Services account that created it. You can\'t
+    --     modify it in RAM unless you promote it. For more information, see
     --     PromoteResourceShareCreatedFromPolicy.
     --
-    -- -   @STANDARD@ - Indicates that the resource share was created in RAM
-    --     using the console or APIs. These resource shares are visible to all
-    --     principals you share the resource share with. You can modify these
-    --     resource shares in RAM using the console or APIs.
+    -- -   __PROMOTING_TO_STANDARD__ – This resource share was originally
+    --     @CREATED_FROM_POLICY@, but the customer ran the
+    --     PromoteResourceShareCreatedFromPolicy and that operation is still in
+    --     progress. This value changes to @STANDARD@ when complete.
     featureSet :: Prelude.Maybe ResourceShareFeatureSet,
     -- | The date and time when the resource share was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
@@ -61,7 +73,7 @@ data ResourceShare = ResourceShare'
     -- | The ID of the Amazon Web Services account that owns the resource share.
     owningAccountId :: Prelude.Maybe Prelude.Text,
     -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share
     resourceShareArn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the resource share.
@@ -84,25 +96,37 @@ data ResourceShare = ResourceShare'
 -- 'allowExternalPrincipals', 'resourceShare_allowExternalPrincipals' - Indicates whether principals outside your organization in Organizations
 -- can be associated with a resource share.
 --
+-- -   @True@ – the resource share can be shared with any Amazon Web
+--     Services account.
+--
+-- -   @False@ – the resource share can be shared with only accounts in the
+--     same organization as the account that owns the resource share.
+--
 -- 'creationTime', 'resourceShare_creationTime' - The date and time when the resource share was created.
 --
--- 'featureSet', 'resourceShare_featureSet' - Indicates how the resource share was created. Possible values include:
+-- 'featureSet', 'resourceShare_featureSet' - Indicates what features are available for this resource share. This
+-- parameter can have one of the following values:
 --
--- -   @CREATED_FROM_POLICY@ - Indicates that the resource share was
---     created from an Identity and Access Management (IAM) resource-based
---     permission policy attached to the resource. This type of resource
---     share is visible only to the Amazon Web Services account that
---     created it. You can\'t modify it in RAM unless you promote it. For
---     more information, see PromoteResourceShareCreatedFromPolicy.
+-- -   __STANDARD__ – A resource share that supports all functionality.
+--     These resource shares are visible to all principals you share the
+--     resource share with. You can modify these resource shares in RAM
+--     using the console or APIs. This resource share might have been
+--     created by RAM, or it might have been __CREATED_FROM_POLICY__ and
+--     then promoted.
 --
--- -   @PROMOTING_TO_STANDARD@ - The resource share is in the process of
---     being promoted. For more information, see
+-- -   __CREATED_FROM_POLICY__ – The customer manually shared a resource by
+--     attaching a resource-based policy. That policy did not match any
+--     existing managed permissions, so RAM created this customer managed
+--     permission automatically on the customer\'s behalf based on the
+--     attached policy document. This type of resource share is visible
+--     only to the Amazon Web Services account that created it. You can\'t
+--     modify it in RAM unless you promote it. For more information, see
 --     PromoteResourceShareCreatedFromPolicy.
 --
--- -   @STANDARD@ - Indicates that the resource share was created in RAM
---     using the console or APIs. These resource shares are visible to all
---     principals you share the resource share with. You can modify these
---     resource shares in RAM using the console or APIs.
+-- -   __PROMOTING_TO_STANDARD__ – This resource share was originally
+--     @CREATED_FROM_POLICY@, but the customer ran the
+--     PromoteResourceShareCreatedFromPolicy and that operation is still in
+--     progress. This value changes to @STANDARD@ when complete.
 --
 -- 'lastUpdatedTime', 'resourceShare_lastUpdatedTime' - The date and time when the resource share was last updated.
 --
@@ -111,7 +135,7 @@ data ResourceShare = ResourceShare'
 -- 'owningAccountId', 'resourceShare_owningAccountId' - The ID of the Amazon Web Services account that owns the resource share.
 --
 -- 'resourceShareArn', 'resourceShare_resourceShareArn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share
 --
 -- 'status', 'resourceShare_status' - The current status of the resource share.
@@ -138,6 +162,12 @@ newResourceShare =
 
 -- | Indicates whether principals outside your organization in Organizations
 -- can be associated with a resource share.
+--
+-- -   @True@ – the resource share can be shared with any Amazon Web
+--     Services account.
+--
+-- -   @False@ – the resource share can be shared with only accounts in the
+--     same organization as the account that owns the resource share.
 resourceShare_allowExternalPrincipals :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.Bool)
 resourceShare_allowExternalPrincipals = Lens.lens (\ResourceShare' {allowExternalPrincipals} -> allowExternalPrincipals) (\s@ResourceShare' {} a -> s {allowExternalPrincipals = a} :: ResourceShare)
 
@@ -145,23 +175,29 @@ resourceShare_allowExternalPrincipals = Lens.lens (\ResourceShare' {allowExterna
 resourceShare_creationTime :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.UTCTime)
 resourceShare_creationTime = Lens.lens (\ResourceShare' {creationTime} -> creationTime) (\s@ResourceShare' {} a -> s {creationTime = a} :: ResourceShare) Prelude.. Lens.mapping Data._Time
 
--- | Indicates how the resource share was created. Possible values include:
+-- | Indicates what features are available for this resource share. This
+-- parameter can have one of the following values:
 --
--- -   @CREATED_FROM_POLICY@ - Indicates that the resource share was
---     created from an Identity and Access Management (IAM) resource-based
---     permission policy attached to the resource. This type of resource
---     share is visible only to the Amazon Web Services account that
---     created it. You can\'t modify it in RAM unless you promote it. For
---     more information, see PromoteResourceShareCreatedFromPolicy.
+-- -   __STANDARD__ – A resource share that supports all functionality.
+--     These resource shares are visible to all principals you share the
+--     resource share with. You can modify these resource shares in RAM
+--     using the console or APIs. This resource share might have been
+--     created by RAM, or it might have been __CREATED_FROM_POLICY__ and
+--     then promoted.
 --
--- -   @PROMOTING_TO_STANDARD@ - The resource share is in the process of
---     being promoted. For more information, see
+-- -   __CREATED_FROM_POLICY__ – The customer manually shared a resource by
+--     attaching a resource-based policy. That policy did not match any
+--     existing managed permissions, so RAM created this customer managed
+--     permission automatically on the customer\'s behalf based on the
+--     attached policy document. This type of resource share is visible
+--     only to the Amazon Web Services account that created it. You can\'t
+--     modify it in RAM unless you promote it. For more information, see
 --     PromoteResourceShareCreatedFromPolicy.
 --
--- -   @STANDARD@ - Indicates that the resource share was created in RAM
---     using the console or APIs. These resource shares are visible to all
---     principals you share the resource share with. You can modify these
---     resource shares in RAM using the console or APIs.
+-- -   __PROMOTING_TO_STANDARD__ – This resource share was originally
+--     @CREATED_FROM_POLICY@, but the customer ran the
+--     PromoteResourceShareCreatedFromPolicy and that operation is still in
+--     progress. This value changes to @STANDARD@ when complete.
 resourceShare_featureSet :: Lens.Lens' ResourceShare (Prelude.Maybe ResourceShareFeatureSet)
 resourceShare_featureSet = Lens.lens (\ResourceShare' {featureSet} -> featureSet) (\s@ResourceShare' {} a -> s {featureSet = a} :: ResourceShare)
 
@@ -178,7 +214,7 @@ resourceShare_owningAccountId :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude
 resourceShare_owningAccountId = Lens.lens (\ResourceShare' {owningAccountId} -> owningAccountId) (\s@ResourceShare' {} a -> s {owningAccountId = a} :: ResourceShare)
 
 -- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share
 resourceShare_resourceShareArn :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.Text)
 resourceShare_resourceShareArn = Lens.lens (\ResourceShare' {resourceShareArn} -> resourceShareArn) (\s@ResourceShare' {} a -> s {resourceShareArn = a} :: ResourceShare)

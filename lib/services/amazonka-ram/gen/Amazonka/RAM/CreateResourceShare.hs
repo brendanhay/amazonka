@@ -82,6 +82,10 @@ data CreateResourceShare = CreateResourceShare'
     --
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
+    --
+    -- If you retry the operation with the same @ClientToken@, but with
+    -- different parameters, the retry fails with an
+    -- @IdempotentParameterMismatch@ error.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
@@ -99,7 +103,7 @@ data CreateResourceShare = CreateResourceShare'
     -- -   An Amazon Web Services account ID, for example: @123456789012@
     --
     -- -   An
-    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     --     of an organization in Organizations, for example:
     --     @organizations::123456789012:organization\/o-exampleorgid@
     --
@@ -155,6 +159,10 @@ data CreateResourceShare = CreateResourceShare'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
+--
 -- 'permissionArns', 'createResourceShare_permissionArns' - Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- of the RAM permission to associate with the resource share. If you do
@@ -171,7 +179,7 @@ data CreateResourceShare = CreateResourceShare'
 -- -   An Amazon Web Services account ID, for example: @123456789012@
 --
 -- -   An
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of an organization in Organizations, for example:
 --     @organizations::123456789012:organization\/o-exampleorgid@
 --
@@ -232,6 +240,10 @@ createResourceShare_allowExternalPrincipals = Lens.lens (\CreateResourceShare' {
 --
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
+--
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 createResourceShare_clientToken :: Lens.Lens' CreateResourceShare (Prelude.Maybe Prelude.Text)
 createResourceShare_clientToken = Lens.lens (\CreateResourceShare' {clientToken} -> clientToken) (\s@CreateResourceShare' {} a -> s {clientToken = a} :: CreateResourceShare)
 
@@ -253,7 +265,7 @@ createResourceShare_permissionArns = Lens.lens (\CreateResourceShare' {permissio
 -- -   An Amazon Web Services account ID, for example: @123456789012@
 --
 -- -   An
---     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 --     of an organization in Organizations, for example:
 --     @organizations::123456789012:organization\/o-exampleorgid@
 --

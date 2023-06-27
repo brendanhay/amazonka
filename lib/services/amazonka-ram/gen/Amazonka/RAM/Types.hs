@@ -23,11 +23,16 @@ module Amazonka.RAM.Types
     _InvalidMaxResultsException,
     _InvalidNextTokenException,
     _InvalidParameterException,
+    _InvalidPolicyException,
     _InvalidResourceTypeException,
     _InvalidStateTransitionException,
     _MalformedArnException,
+    _MalformedPolicyTemplateException,
     _MissingRequiredParameterException,
     _OperationNotPermittedException,
+    _PermissionAlreadyExistsException,
+    _PermissionLimitExceededException,
+    _PermissionVersionsLimitExceededException,
     _ResourceArnNotFoundException,
     _ResourceShareInvitationAlreadyAcceptedException,
     _ResourceShareInvitationAlreadyRejectedException,
@@ -40,6 +45,22 @@ module Amazonka.RAM.Types
     _TagPolicyViolationException,
     _ThrottlingException,
     _UnknownResourceException,
+    _UnmatchedPolicyPermissionException,
+
+    -- * PermissionFeatureSet
+    PermissionFeatureSet (..),
+
+    -- * PermissionStatus
+    PermissionStatus (..),
+
+    -- * PermissionType
+    PermissionType (..),
+
+    -- * PermissionTypeFilter
+    PermissionTypeFilter (..),
+
+    -- * ReplacePermissionAssociationsWorkStatus
+    ReplacePermissionAssociationsWorkStatus (..),
 
     -- * ResourceOwner
     ResourceOwner (..),
@@ -68,6 +89,18 @@ module Amazonka.RAM.Types
     -- * ResourceStatus
     ResourceStatus (..),
 
+    -- * AssociatedPermission
+    AssociatedPermission (..),
+    newAssociatedPermission,
+    associatedPermission_arn,
+    associatedPermission_defaultVersion,
+    associatedPermission_featureSet,
+    associatedPermission_lastUpdatedTime,
+    associatedPermission_permissionVersion,
+    associatedPermission_resourceShareArn,
+    associatedPermission_resourceType,
+    associatedPermission_status,
+
     -- * Principal
     Principal (..),
     newPrincipal,
@@ -76,6 +109,19 @@ module Amazonka.RAM.Types
     principal_id,
     principal_lastUpdatedTime,
     principal_resourceShareArn,
+
+    -- * ReplacePermissionAssociationsWork
+    ReplacePermissionAssociationsWork (..),
+    newReplacePermissionAssociationsWork,
+    replacePermissionAssociationsWork_creationTime,
+    replacePermissionAssociationsWork_fromPermissionArn,
+    replacePermissionAssociationsWork_fromPermissionVersion,
+    replacePermissionAssociationsWork_id,
+    replacePermissionAssociationsWork_lastUpdatedTime,
+    replacePermissionAssociationsWork_status,
+    replacePermissionAssociationsWork_statusMessage,
+    replacePermissionAssociationsWork_toPermissionArn,
+    replacePermissionAssociationsWork_toPermissionVersion,
 
     -- * Resource
     Resource (..),
@@ -136,11 +182,15 @@ module Amazonka.RAM.Types
     resourceSharePermissionDetail_arn,
     resourceSharePermissionDetail_creationTime,
     resourceSharePermissionDetail_defaultVersion,
+    resourceSharePermissionDetail_featureSet,
     resourceSharePermissionDetail_isResourceTypeDefault,
     resourceSharePermissionDetail_lastUpdatedTime,
     resourceSharePermissionDetail_name,
     resourceSharePermissionDetail_permission,
+    resourceSharePermissionDetail_permissionType,
     resourceSharePermissionDetail_resourceType,
+    resourceSharePermissionDetail_status,
+    resourceSharePermissionDetail_tags,
     resourceSharePermissionDetail_version,
 
     -- * ResourceSharePermissionSummary
@@ -149,11 +199,14 @@ module Amazonka.RAM.Types
     resourceSharePermissionSummary_arn,
     resourceSharePermissionSummary_creationTime,
     resourceSharePermissionSummary_defaultVersion,
+    resourceSharePermissionSummary_featureSet,
     resourceSharePermissionSummary_isResourceTypeDefault,
     resourceSharePermissionSummary_lastUpdatedTime,
     resourceSharePermissionSummary_name,
+    resourceSharePermissionSummary_permissionType,
     resourceSharePermissionSummary_resourceType,
     resourceSharePermissionSummary_status,
+    resourceSharePermissionSummary_tags,
     resourceSharePermissionSummary_version,
 
     -- * ServiceNameAndResourceType
@@ -180,7 +233,14 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.RAM.Types.AssociatedPermission
+import Amazonka.RAM.Types.PermissionFeatureSet
+import Amazonka.RAM.Types.PermissionStatus
+import Amazonka.RAM.Types.PermissionType
+import Amazonka.RAM.Types.PermissionTypeFilter
 import Amazonka.RAM.Types.Principal
+import Amazonka.RAM.Types.ReplacePermissionAssociationsWork
+import Amazonka.RAM.Types.ReplacePermissionAssociationsWorkStatus
 import Amazonka.RAM.Types.Resource
 import Amazonka.RAM.Types.ResourceOwner
 import Amazonka.RAM.Types.ResourceRegionScope
@@ -227,227 +287,305 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The client token input parameter was matched one used with a previous
--- call to the operation, but at least one of the other input parameters is
--- different from the previous call.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the client token input parameter matched
+-- one that was used with a previous call to the operation, but at least
+-- one of the other input parameters is different from the previous call.
+_IdempotentParameterMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
     Prelude.. Core.hasStatus 400
 
--- | The client token is not valid.
-_InvalidClientTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the specified client token isn\'t valid.
+_InvalidClientTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidClientTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidClientTokenException"
     Prelude.. Core.hasStatus 400
 
--- | The specified value for @MaxResults@ is not valid.
-_InvalidMaxResultsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the specified value for @MaxResults@ isn\'t
+-- valid.
+_InvalidMaxResultsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidMaxResultsException =
   Core._MatchServiceError
     defaultService
     "InvalidMaxResultsException"
     Prelude.. Core.hasStatus 400
 
--- | The specified value for @NextToken@ is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the specified value for @NextToken@ isn\'t
+-- valid. You must specify a value you received in the @NextToken@ response
+-- of a previous call to this operation.
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
     Prelude.. Core.hasStatus 400
 
--- | A parameter is not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because a parameter you specified isn\'t valid.
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
     Prelude.. Core.hasStatus 400
 
--- | The specified resource type is not valid.
-_InvalidResourceTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because a policy you specified isn\'t valid.
+_InvalidPolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_InvalidPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPolicyException"
+    Prelude.. Core.hasStatus 400
+
+-- | The operation failed because the specified resource type isn\'t valid.
+_InvalidResourceTypeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidResourceTypeException =
   Core._MatchServiceError
     defaultService
     "InvalidResourceTypeException"
     Prelude.. Core.hasStatus 400
 
--- | The requested state transition is not valid.
-_InvalidStateTransitionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the requested operation isn\'t valid for
+-- the resource share in its current state.
+_InvalidStateTransitionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidStateTransitionException =
   Core._MatchServiceError
     defaultService
     "InvalidStateTransitionException"
     Prelude.. Core.hasStatus 400
 
--- | The format of an Amazon Resource Name (ARN) is not valid.
-_MalformedArnException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the specified
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- has a format that isn\'t valid.
+_MalformedArnException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MalformedArnException =
   Core._MatchServiceError
     defaultService
     "MalformedArnException"
     Prelude.. Core.hasStatus 400
 
--- | A required input parameter is missing.
-_MissingRequiredParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the policy template that you provided
+-- isn\'t valid.
+_MalformedPolicyTemplateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_MalformedPolicyTemplateException =
+  Core._MatchServiceError
+    defaultService
+    "MalformedPolicyTemplateException"
+    Prelude.. Core.hasStatus 400
+
+-- | The operation failed because a required input parameter is missing.
+_MissingRequiredParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MissingRequiredParameterException =
   Core._MatchServiceError
     defaultService
     "MissingRequiredParameterException"
     Prelude.. Core.hasStatus 400
 
--- | The requested operation is not permitted.
-_OperationNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the requested operation isn\'t permitted.
+_OperationNotPermittedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
     "OperationNotPermittedException"
     Prelude.. Core.hasStatus 400
 
--- | The specified Amazon Resource Name (ARN) was not found.
-_ResourceArnNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because a permission with the specified name
+-- already exists in the requested Amazon Web Services Region. Choose a
+-- different name.
+_PermissionAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_PermissionAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "PermissionAlreadyExistsException"
+    Prelude.. Core.hasStatus 409
+
+-- | The operation failed because it would exceed the maximum number of
+-- permissions you can create in each Amazon Web Services Region. To view
+-- the limits for your Amazon Web Services account, see the
+-- <https://console.aws.amazon.com/servicequotas/home/services/ram/quotas RAM page in the Service Quotas console>.
+_PermissionLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_PermissionLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "PermissionLimitExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | The operation failed because it would exceed the limit for the number of
+-- versions you can have for a permission. To view the limits for your
+-- Amazon Web Services account, see the
+-- <https://console.aws.amazon.com/servicequotas/home/services/ram/quotas RAM page in the Service Quotas console>.
+_PermissionVersionsLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_PermissionVersionsLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "PermissionVersionsLimitExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | The operation failed because the specified
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- was not found.
+_ResourceArnNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceArnNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceArnNotFoundException"
     Prelude.. Core.hasStatus 400
 
--- | The specified invitation was already accepted.
-_ResourceShareInvitationAlreadyAcceptedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the specified invitation was already
+-- accepted.
+_ResourceShareInvitationAlreadyAcceptedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceShareInvitationAlreadyAcceptedException =
   Core._MatchServiceError
     defaultService
     "ResourceShareInvitationAlreadyAcceptedException"
     Prelude.. Core.hasStatus 400
 
--- | The specified invitation was already rejected.
-_ResourceShareInvitationAlreadyRejectedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the specified invitation was already
+-- rejected.
+_ResourceShareInvitationAlreadyRejectedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceShareInvitationAlreadyRejectedException =
   Core._MatchServiceError
     defaultService
     "ResourceShareInvitationAlreadyRejectedException"
     Prelude.. Core.hasStatus 400
 
--- | The specified Amazon Resource Name (ARN) for an invitation was not
--- found.
-_ResourceShareInvitationArnNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the specified
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- for an invitation was not found.
+_ResourceShareInvitationArnNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceShareInvitationArnNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceShareInvitationArnNotFoundException"
     Prelude.. Core.hasStatus 400
 
--- | The specified invitation is expired.
-_ResourceShareInvitationExpiredException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the specified invitation is past its
+-- expiration date and time.
+_ResourceShareInvitationExpiredException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceShareInvitationExpiredException =
   Core._MatchServiceError
     defaultService
     "ResourceShareInvitationExpiredException"
     Prelude.. Core.hasStatus 400
 
--- | This request would exceed the limit for resource shares for your
--- account.
-_ResourceShareLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because it would exceed the limit for resource
+-- shares for your account. To view the limits for your Amazon Web Services
+-- account, see the
+-- <https://console.aws.amazon.com/servicequotas/home/services/ram/quotas RAM page in the Service Quotas console>.
+_ResourceShareLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceShareLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceShareLimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | The service could not respond to the request due to an internal problem.
-_ServerInternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the service could not respond to the
+-- request due to an internal problem. Try again later.
+_ServerInternalException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServerInternalException =
   Core._MatchServiceError
     defaultService
     "ServerInternalException"
     Prelude.. Core.hasStatus 500
 
--- | The service is not available.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the service isn\'t available. Try again
+-- later.
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
 
--- | This request would exceed the limit for tags for your account.
-_TagLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because it would exceed the limit for tags for your
+-- Amazon Web Services account.
+_TagLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagLimitExceededException =
   Core._MatchServiceError
     defaultService
     "TagLimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | The specified tag key is a reserved word and can\'t be used.
-_TagPolicyViolationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because the specified tag key is a reserved word
+-- and can\'t be used.
+_TagPolicyViolationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagPolicyViolationException =
   Core._MatchServiceError
     defaultService
     "TagPolicyViolationException"
     Prelude.. Core.hasStatus 400
 
--- | You exceeded the rate at which you are allowed to perform this
--- operation. Please try again later.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because it exceeded the rate at which you are
+-- allowed to perform this operation. Please try again later.
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | A specified resource was not found.
-_UnknownResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation failed because a specified resource couldn\'t be found.
+_UnknownResourceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnknownResourceException =
   Core._MatchServiceError
     defaultService
     "UnknownResourceException"
+    Prelude.. Core.hasStatus 400
+
+-- | There isn\'t an existing managed permission defined in RAM that has the
+-- same IAM permissions as the resource-based policy attached to the
+-- resource. You should first run PromotePermissionCreatedFromPolicy to
+-- create that managed permission.
+_UnmatchedPolicyPermissionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_UnmatchedPolicyPermissionException =
+  Core._MatchServiceError
+    defaultService
+    "UnmatchedPolicyPermissionException"
     Prelude.. Core.hasStatus 400

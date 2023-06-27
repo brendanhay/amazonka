@@ -68,17 +68,26 @@ data AssociateResourceSharePermission = AssociateResourceSharePermission'
     --
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
+    --
+    -- If you retry the operation with the same @ClientToken@, but with
+    -- different parameters, the retry fails with an
+    -- @IdempotentParameterMismatch@ error.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the version of the RAM permission to associate with the
-    -- resource share. If you don\'t specify this parameter, the operation uses
-    -- the version designated as the default. You can use the
-    -- ListPermissionVersions operation to discover the available versions of a
-    -- permission.
+    -- resource share. You can specify /only/ the version that is currently set
+    -- as the default version for the permission. If you also set the @replace@
+    -- pararameter to @true@, then this operation updates an outdated version
+    -- of the permission to the current default version.
+    --
+    -- You don\'t need to specify this parameter because the default behavior
+    -- is to use the version that is currently set as the default version for
+    -- the permission. This parameter is supported for backwards compatibility.
     permissionVersion :: Prelude.Maybe Prelude.Int,
-    -- | Specifies whether the specified permission should replace or add to the
-    -- existing permission associated with the resource share. Use @true@ to
-    -- replace the current permissions. Use @false@ to add the permission to
-    -- the current permission. The default value is @false@.
+    -- | Specifies whether the specified permission should replace the existing
+    -- permission associated with the resource share. Use @true@ to replace the
+    -- current permissions. Use @false@ to add the permission to a resource
+    -- share that currently doesn\'t have a permission. The default value is
+    -- @false@.
     --
     -- A resource share can have only one permission per resource type. If a
     -- resource share already has a permission for the specified resource type
@@ -86,11 +95,11 @@ data AssociateResourceSharePermission = AssociateResourceSharePermission'
     -- error. This helps prevent accidental overwriting of a permission.
     replace :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the resource share to which you want to add or replace permissions.
     resourceShareArn :: Prelude.Text,
     -- | Specifies the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the RAM permission to associate with the resource share. To find the
     -- ARN for a permission, use either the ListPermissions operation or go to
     -- the
@@ -120,16 +129,25 @@ data AssociateResourceSharePermission = AssociateResourceSharePermission'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
--- 'permissionVersion', 'associateResourceSharePermission_permissionVersion' - Specifies the version of the RAM permission to associate with the
--- resource share. If you don\'t specify this parameter, the operation uses
--- the version designated as the default. You can use the
--- ListPermissionVersions operation to discover the available versions of a
--- permission.
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 --
--- 'replace', 'associateResourceSharePermission_replace' - Specifies whether the specified permission should replace or add to the
--- existing permission associated with the resource share. Use @true@ to
--- replace the current permissions. Use @false@ to add the permission to
--- the current permission. The default value is @false@.
+-- 'permissionVersion', 'associateResourceSharePermission_permissionVersion' - Specifies the version of the RAM permission to associate with the
+-- resource share. You can specify /only/ the version that is currently set
+-- as the default version for the permission. If you also set the @replace@
+-- pararameter to @true@, then this operation updates an outdated version
+-- of the permission to the current default version.
+--
+-- You don\'t need to specify this parameter because the default behavior
+-- is to use the version that is currently set as the default version for
+-- the permission. This parameter is supported for backwards compatibility.
+--
+-- 'replace', 'associateResourceSharePermission_replace' - Specifies whether the specified permission should replace the existing
+-- permission associated with the resource share. Use @true@ to replace the
+-- current permissions. Use @false@ to add the permission to a resource
+-- share that currently doesn\'t have a permission. The default value is
+-- @false@.
 --
 -- A resource share can have only one permission per resource type. If a
 -- resource share already has a permission for the specified resource type
@@ -137,11 +155,11 @@ data AssociateResourceSharePermission = AssociateResourceSharePermission'
 -- error. This helps prevent accidental overwriting of a permission.
 --
 -- 'resourceShareArn', 'associateResourceSharePermission_resourceShareArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share to which you want to add or replace permissions.
 --
 -- 'permissionArn', 'associateResourceSharePermission_permissionArn' - Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the RAM permission to associate with the resource share. To find the
 -- ARN for a permission, use either the ListPermissions operation or go to
 -- the
@@ -176,21 +194,30 @@ newAssociateResourceSharePermission
 --
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
+--
+-- If you retry the operation with the same @ClientToken@, but with
+-- different parameters, the retry fails with an
+-- @IdempotentParameterMismatch@ error.
 associateResourceSharePermission_clientToken :: Lens.Lens' AssociateResourceSharePermission (Prelude.Maybe Prelude.Text)
 associateResourceSharePermission_clientToken = Lens.lens (\AssociateResourceSharePermission' {clientToken} -> clientToken) (\s@AssociateResourceSharePermission' {} a -> s {clientToken = a} :: AssociateResourceSharePermission)
 
 -- | Specifies the version of the RAM permission to associate with the
--- resource share. If you don\'t specify this parameter, the operation uses
--- the version designated as the default. You can use the
--- ListPermissionVersions operation to discover the available versions of a
--- permission.
+-- resource share. You can specify /only/ the version that is currently set
+-- as the default version for the permission. If you also set the @replace@
+-- pararameter to @true@, then this operation updates an outdated version
+-- of the permission to the current default version.
+--
+-- You don\'t need to specify this parameter because the default behavior
+-- is to use the version that is currently set as the default version for
+-- the permission. This parameter is supported for backwards compatibility.
 associateResourceSharePermission_permissionVersion :: Lens.Lens' AssociateResourceSharePermission (Prelude.Maybe Prelude.Int)
 associateResourceSharePermission_permissionVersion = Lens.lens (\AssociateResourceSharePermission' {permissionVersion} -> permissionVersion) (\s@AssociateResourceSharePermission' {} a -> s {permissionVersion = a} :: AssociateResourceSharePermission)
 
--- | Specifies whether the specified permission should replace or add to the
--- existing permission associated with the resource share. Use @true@ to
--- replace the current permissions. Use @false@ to add the permission to
--- the current permission. The default value is @false@.
+-- | Specifies whether the specified permission should replace the existing
+-- permission associated with the resource share. Use @true@ to replace the
+-- current permissions. Use @false@ to add the permission to a resource
+-- share that currently doesn\'t have a permission. The default value is
+-- @false@.
 --
 -- A resource share can have only one permission per resource type. If a
 -- resource share already has a permission for the specified resource type
@@ -200,13 +227,13 @@ associateResourceSharePermission_replace :: Lens.Lens' AssociateResourceSharePer
 associateResourceSharePermission_replace = Lens.lens (\AssociateResourceSharePermission' {replace} -> replace) (\s@AssociateResourceSharePermission' {} a -> s {replace = a} :: AssociateResourceSharePermission)
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the resource share to which you want to add or replace permissions.
 associateResourceSharePermission_resourceShareArn :: Lens.Lens' AssociateResourceSharePermission Prelude.Text
 associateResourceSharePermission_resourceShareArn = Lens.lens (\AssociateResourceSharePermission' {resourceShareArn} -> resourceShareArn) (\s@AssociateResourceSharePermission' {} a -> s {resourceShareArn = a} :: AssociateResourceSharePermission)
 
 -- | Specifies the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the RAM permission to associate with the resource share. To find the
 -- ARN for a permission, use either the ListPermissions operation or go to
 -- the
@@ -241,7 +268,8 @@ instance
   hashWithSalt
     _salt
     AssociateResourceSharePermission' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` permissionVersion
         `Prelude.hashWithSalt` replace
         `Prelude.hashWithSalt` resourceShareArn

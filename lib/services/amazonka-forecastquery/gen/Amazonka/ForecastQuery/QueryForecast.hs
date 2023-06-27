@@ -190,7 +190,8 @@ instance Core.AWSRequest QueryForecast where
 
 instance Prelude.Hashable QueryForecast where
   hashWithSalt _salt QueryForecast' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` forecastArn

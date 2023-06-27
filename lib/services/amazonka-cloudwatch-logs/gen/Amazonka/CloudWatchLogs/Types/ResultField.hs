@@ -79,7 +79,8 @@ instance Data.FromJSON ResultField where
 
 instance Prelude.Hashable ResultField where
   hashWithSalt _salt ResultField' {..} =
-    _salt `Prelude.hashWithSalt` field
+    _salt
+      `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ResultField where

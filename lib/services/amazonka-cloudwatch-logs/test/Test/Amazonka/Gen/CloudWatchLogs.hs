@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestCreateLogStream $
 --             newCreateLogStream
 --
+--         , requestDeleteAccountPolicy $
+--             newDeleteAccountPolicy
+--
 --         , requestDeleteDataProtectionPolicy $
 --             newDeleteDataProtectionPolicy
 --
@@ -68,6 +71,9 @@ import Test.Tasty
 --
 --         , requestDeleteSubscriptionFilter $
 --             newDeleteSubscriptionFilter
+--
+--         , requestDescribeAccountPolicies $
+--             newDescribeAccountPolicies
 --
 --         , requestDescribeDestinations $
 --             newDescribeDestinations
@@ -119,6 +125,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestPutAccountPolicy $
+--             newPutAccountPolicy
 --
 --         , requestPutDataProtectionPolicy $
 --             newPutDataProtectionPolicy
@@ -180,6 +189,9 @@ import Test.Tasty
 --         , responseCreateLogStream $
 --             newCreateLogStreamResponse
 --
+--         , responseDeleteAccountPolicy $
+--             newDeleteAccountPolicyResponse
+--
 --         , responseDeleteDataProtectionPolicy $
 --             newDeleteDataProtectionPolicyResponse
 --
@@ -206,6 +218,9 @@ import Test.Tasty
 --
 --         , responseDeleteSubscriptionFilter $
 --             newDeleteSubscriptionFilterResponse
+--
+--         , responseDescribeAccountPolicies $
+--             newDescribeAccountPoliciesResponse
 --
 --         , responseDescribeDestinations $
 --             newDescribeDestinationsResponse
@@ -257,6 +272,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responsePutAccountPolicy $
+--             newPutAccountPolicyResponse
 --
 --         , responsePutDataProtectionPolicy $
 --             newPutDataProtectionPolicyResponse
@@ -335,6 +353,12 @@ requestCreateLogStream =
     "CreateLogStream"
     "fixture/CreateLogStream.yaml"
 
+requestDeleteAccountPolicy :: DeleteAccountPolicy -> TestTree
+requestDeleteAccountPolicy =
+  req
+    "DeleteAccountPolicy"
+    "fixture/DeleteAccountPolicy.yaml"
+
 requestDeleteDataProtectionPolicy :: DeleteDataProtectionPolicy -> TestTree
 requestDeleteDataProtectionPolicy =
   req
@@ -388,6 +412,12 @@ requestDeleteSubscriptionFilter =
   req
     "DeleteSubscriptionFilter"
     "fixture/DeleteSubscriptionFilter.yaml"
+
+requestDescribeAccountPolicies :: DescribeAccountPolicies -> TestTree
+requestDescribeAccountPolicies =
+  req
+    "DescribeAccountPolicies"
+    "fixture/DescribeAccountPolicies.yaml"
 
 requestDescribeDestinations :: DescribeDestinations -> TestTree
 requestDescribeDestinations =
@@ -490,6 +520,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestPutAccountPolicy :: PutAccountPolicy -> TestTree
+requestPutAccountPolicy =
+  req
+    "PutAccountPolicy"
+    "fixture/PutAccountPolicy.yaml"
 
 requestPutDataProtectionPolicy :: PutDataProtectionPolicy -> TestTree
 requestPutDataProtectionPolicy =
@@ -617,6 +653,14 @@ responseCreateLogStream =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLogStream)
 
+responseDeleteAccountPolicy :: DeleteAccountPolicyResponse -> TestTree
+responseDeleteAccountPolicy =
+  res
+    "DeleteAccountPolicyResponse"
+    "fixture/DeleteAccountPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountPolicy)
+
 responseDeleteDataProtectionPolicy :: DeleteDataProtectionPolicyResponse -> TestTree
 responseDeleteDataProtectionPolicy =
   res
@@ -688,6 +732,14 @@ responseDeleteSubscriptionFilter =
     "fixture/DeleteSubscriptionFilterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSubscriptionFilter)
+
+responseDescribeAccountPolicies :: DescribeAccountPoliciesResponse -> TestTree
+responseDescribeAccountPolicies =
+  res
+    "DescribeAccountPoliciesResponse"
+    "fixture/DescribeAccountPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountPolicies)
 
 responseDescribeDestinations :: DescribeDestinationsResponse -> TestTree
 responseDescribeDestinations =
@@ -824,6 +876,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutAccountPolicy :: PutAccountPolicyResponse -> TestTree
+responsePutAccountPolicy =
+  res
+    "PutAccountPolicyResponse"
+    "fixture/PutAccountPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAccountPolicy)
 
 responsePutDataProtectionPolicy :: PutDataProtectionPolicyResponse -> TestTree
 responsePutDataProtectionPolicy =

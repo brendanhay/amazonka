@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 data PutDestinationPolicy = PutDestinationPolicy'
   { -- | Specify true if you are updating an existing destination policy to grant
     -- permission to an organization ID instead of granting permission to
-    -- individual AWS accounts. Before you update a destination policy this
-    -- way, you must first update the subscription filters in the accounts that
-    -- send logs to this destination. If you do not, the subscription filters
-    -- might stop working. By specifying @true@ for @forceUpdate@, you are
-    -- affirming that you have already updated the subscription filters. For
-    -- more information, see
+    -- individual Amazon Web Services accounts. Before you update a destination
+    -- policy this way, you must first update the subscription filters in the
+    -- accounts that send logs to this destination. If you do not, the
+    -- subscription filters might stop working. By specifying @true@ for
+    -- @forceUpdate@, you are affirming that you have already updated the
+    -- subscription filters. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html Updating an existing cross-account subscription>
     --
     -- If you omit this parameter, the default of @false@ is used.
@@ -82,12 +82,12 @@ data PutDestinationPolicy = PutDestinationPolicy'
 --
 -- 'forceUpdate', 'putDestinationPolicy_forceUpdate' - Specify true if you are updating an existing destination policy to grant
 -- permission to an organization ID instead of granting permission to
--- individual AWS accounts. Before you update a destination policy this
--- way, you must first update the subscription filters in the accounts that
--- send logs to this destination. If you do not, the subscription filters
--- might stop working. By specifying @true@ for @forceUpdate@, you are
--- affirming that you have already updated the subscription filters. For
--- more information, see
+-- individual Amazon Web Services accounts. Before you update a destination
+-- policy this way, you must first update the subscription filters in the
+-- accounts that send logs to this destination. If you do not, the
+-- subscription filters might stop working. By specifying @true@ for
+-- @forceUpdate@, you are affirming that you have already updated the
+-- subscription filters. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html Updating an existing cross-account subscription>
 --
 -- If you omit this parameter, the default of @false@ is used.
@@ -115,12 +115,12 @@ newPutDestinationPolicy
 
 -- | Specify true if you are updating an existing destination policy to grant
 -- permission to an organization ID instead of granting permission to
--- individual AWS accounts. Before you update a destination policy this
--- way, you must first update the subscription filters in the accounts that
--- send logs to this destination. If you do not, the subscription filters
--- might stop working. By specifying @true@ for @forceUpdate@, you are
--- affirming that you have already updated the subscription filters. For
--- more information, see
+-- individual Amazon Web Services accounts. Before you update a destination
+-- policy this way, you must first update the subscription filters in the
+-- accounts that send logs to this destination. If you do not, the
+-- subscription filters might stop working. By specifying @true@ for
+-- @forceUpdate@, you are affirming that you have already updated the
+-- subscription filters. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html Updating an existing cross-account subscription>
 --
 -- If you omit this parameter, the default of @false@ is used.
@@ -148,7 +148,8 @@ instance Core.AWSRequest PutDestinationPolicy where
 
 instance Prelude.Hashable PutDestinationPolicy where
   hashWithSalt _salt PutDestinationPolicy' {..} =
-    _salt `Prelude.hashWithSalt` forceUpdate
+    _salt
+      `Prelude.hashWithSalt` forceUpdate
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` accessPolicy
 

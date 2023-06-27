@@ -161,7 +161,8 @@ instance Data.FromJSON ExportTask where
 
 instance Prelude.Hashable ExportTask where
   hashWithSalt _salt ExportTask' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationPrefix
       `Prelude.hashWithSalt` executionInfo
       `Prelude.hashWithSalt` from

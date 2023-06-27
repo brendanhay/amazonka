@@ -162,7 +162,8 @@ instance Core.AWSRequest PutDestination where
 
 instance Prelude.Hashable PutDestination where
   hashWithSalt _salt PutDestination' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` targetArn
       `Prelude.hashWithSalt` roleArn

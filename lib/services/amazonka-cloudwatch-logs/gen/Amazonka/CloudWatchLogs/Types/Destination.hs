@@ -124,7 +124,8 @@ instance Data.FromJSON Destination where
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt `Prelude.hashWithSalt` accessPolicy
+    _salt
+      `Prelude.hashWithSalt` accessPolicy
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` destinationName

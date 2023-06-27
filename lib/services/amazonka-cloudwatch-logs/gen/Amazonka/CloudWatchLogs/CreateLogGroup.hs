@@ -44,8 +44,8 @@
 -- data encrypted with the KMS key is still within CloudWatch Logs. This
 -- enables CloudWatch Logs to decrypt this data whenever it is requested.
 --
--- If you attempt to associate a KMS key with the log group but the KMS
--- keydoes not exist or the KMS key is disabled, you receive an
+-- If you attempt to associate a KMS key with the log group but the KMS key
+-- does not exist or the KMS key is disabled, you receive an
 -- @InvalidParameterException@ error.
 --
 -- CloudWatch Logs supports only symmetric KMS keys. Do not associate an
@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateLogGroup where
 
 instance Prelude.Hashable CreateLogGroup where
   hashWithSalt _salt CreateLogGroup' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` logGroupName
 

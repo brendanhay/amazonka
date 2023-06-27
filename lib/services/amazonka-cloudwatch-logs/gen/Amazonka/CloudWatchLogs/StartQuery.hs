@@ -27,7 +27,7 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
 --
--- Queries time out after 15 minutes of runtime. If your queries are timing
+-- Queries time out after 60 minutes of runtime. If your queries are timing
 -- out, reduce the time range being searched or partition your query into a
 -- number of queries.
 --
@@ -38,7 +38,7 @@
 -- For a cross-account @StartQuery@ operation, the query definition must be
 -- defined in the monitoring account.
 --
--- You can have up to 20 concurrent CloudWatch Logs insights queries,
+-- You can have up to 30 concurrent CloudWatch Logs insights queries,
 -- including queries that have been added to dashboards.
 module Amazonka.CloudWatchLogs.StartQuery
   ( -- * Creating a Request
@@ -245,7 +245,8 @@ instance Core.AWSRequest StartQuery where
 
 instance Prelude.Hashable StartQuery where
   hashWithSalt _salt StartQuery' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` logGroupIdentifiers
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logGroupNames

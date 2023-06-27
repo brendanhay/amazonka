@@ -13,20 +13,29 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.CloudWatchLogs.PutDataProtectionPolicy
+-- Module      : Amazonka.CloudWatchLogs.PutAccountPolicy
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a data protection policy for the specified log group. A data
--- protection policy can help safeguard sensitive data that\'s ingested by
--- the log group by auditing and masking the sensitive log data.
+-- Creates an account-level data protection policy that applies to all log
+-- groups in the account. A data protection policy can help safeguard
+-- sensitive data that\'s ingested by your log groups by auditing and
+-- masking the sensitive log data. Each account can have only one
+-- account-level policy.
 --
--- Sensitive data is detected and masked when it is ingested into the log
+-- Sensitive data is detected and masked when it is ingested into a log
 -- group. When you set a data protection policy, log events ingested into
--- the log group before that time are not masked.
+-- the log groups before that time are not masked.
+--
+-- If you use @PutAccountPolicy@ to create a data protection policy for
+-- your whole account, it applies to both existing log groups and all log
+-- groups that are created later in this account. The account policy is
+-- applied to existing log groups with eventual consistency. It might take
+-- up to 5 minutes before sensitive data in existing log groups begins to
+-- be masked.
 --
 -- By default, when a user views a log event that includes masked data, the
 -- sensitive data is replaced by asterisks. A user who has the
@@ -43,33 +52,34 @@
 -- audited and masked, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html Protect sensitive log data with masking>.
 --
--- The @PutDataProtectionPolicy@ operation applies to only the specified
--- log group. You can also use
--- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html PutAccountPolicy>
--- to create an account-level data protection policy that applies to all
--- log groups in the account, including both existing log groups and log
--- groups that are created level. If a log group has its own data
--- protection policy and the account also has an account-level data
--- protection policy, then the two policies are cumulative. Any sensitive
--- term specified in either policy is masked.
-module Amazonka.CloudWatchLogs.PutDataProtectionPolicy
+-- To use the @PutAccountPolicy@ operation, you must be signed on with the
+-- @logs:PutDataProtectionPolicy@ and @logs:PutAccountPolicy@ permissions.
+--
+-- The @PutAccountPolicy@ operation applies to all log groups in the
+-- account. You can also use
+-- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html PutDataProtectionPolicy>
+-- to create a data protection policy that applies to just one log group.
+-- If a log group has its own data protection policy and the account also
+-- has an account-level data protection policy, then the two policies are
+-- cumulative. Any sensitive term specified in either policy is masked.
+module Amazonka.CloudWatchLogs.PutAccountPolicy
   ( -- * Creating a Request
-    PutDataProtectionPolicy (..),
-    newPutDataProtectionPolicy,
+    PutAccountPolicy (..),
+    newPutAccountPolicy,
 
     -- * Request Lenses
-    putDataProtectionPolicy_logGroupIdentifier,
-    putDataProtectionPolicy_policyDocument,
+    putAccountPolicy_scope,
+    putAccountPolicy_policyName,
+    putAccountPolicy_policyDocument,
+    putAccountPolicy_policyType,
 
     -- * Destructuring the Response
-    PutDataProtectionPolicyResponse (..),
-    newPutDataProtectionPolicyResponse,
+    PutAccountPolicyResponse (..),
+    newPutAccountPolicyResponse,
 
     -- * Response Lenses
-    putDataProtectionPolicyResponse_lastUpdatedTime,
-    putDataProtectionPolicyResponse_logGroupIdentifier,
-    putDataProtectionPolicyResponse_policyDocument,
-    putDataProtectionPolicyResponse_httpStatus,
+    putAccountPolicyResponse_accountPolicy,
+    putAccountPolicyResponse_httpStatus,
   )
 where
 
@@ -81,10 +91,15 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newPutDataProtectionPolicy' smart constructor.
-data PutDataProtectionPolicy = PutDataProtectionPolicy'
-  { -- | Specify either the log group name or log group ARN.
-    logGroupIdentifier :: Prelude.Text,
+-- | /See:/ 'newPutAccountPolicy' smart constructor.
+data PutAccountPolicy = PutAccountPolicy'
+  { -- | Currently the only valid value for this parameter is @GLOBAL@, which
+    -- specifies that the data protection policy applies to all log groups in
+    -- the account. If you omit this parameter, the default of @GLOBAL@ is
+    -- used.
+    scope :: Prelude.Maybe Scope,
+    -- | A name for the policy. This must be unique within the account.
+    policyName :: Prelude.Text,
     -- | Specify the data protection policy, in JSON.
     --
     -- This policy must include two JSON blocks:
@@ -119,26 +134,35 @@ data PutDataProtectionPolicy = PutDataProtectionPolicy'
     -- The contents of the two @DataIdentifer@ arrays must match exactly.
     --
     -- In addition to the two JSON blocks, the @policyDocument@ can also
-    -- include @Name@, @Description@, and @Version@ fields. The @Name@ is used
-    -- as a dimension when CloudWatch Logs reports audit findings metrics to
+    -- include @Name@, @Description@, and @Version@ fields. The @Name@ is
+    -- different than the operation\'s @policyName@ parameter, and is used as a
+    -- dimension when CloudWatch Logs reports audit findings metrics to
     -- CloudWatch.
     --
     -- The JSON specified in @policyDocument@ can be up to 30,720 characters.
-    policyDocument :: Prelude.Text
+    policyDocument :: Prelude.Text,
+    -- | Currently the only valid value for this parameter is
+    -- @DATA_PROTECTION_POLICY@.
+    policyType :: PolicyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'PutDataProtectionPolicy' with all optional fields omitted.
+-- Create a value of 'PutAccountPolicy' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logGroupIdentifier', 'putDataProtectionPolicy_logGroupIdentifier' - Specify either the log group name or log group ARN.
+-- 'scope', 'putAccountPolicy_scope' - Currently the only valid value for this parameter is @GLOBAL@, which
+-- specifies that the data protection policy applies to all log groups in
+-- the account. If you omit this parameter, the default of @GLOBAL@ is
+-- used.
 --
--- 'policyDocument', 'putDataProtectionPolicy_policyDocument' - Specify the data protection policy, in JSON.
+-- 'policyName', 'putAccountPolicy_policyName' - A name for the policy. This must be unique within the account.
+--
+-- 'policyDocument', 'putAccountPolicy_policyDocument' - Specify the data protection policy, in JSON.
 --
 -- This policy must include two JSON blocks:
 --
@@ -172,29 +196,44 @@ data PutDataProtectionPolicy = PutDataProtectionPolicy'
 -- The contents of the two @DataIdentifer@ arrays must match exactly.
 --
 -- In addition to the two JSON blocks, the @policyDocument@ can also
--- include @Name@, @Description@, and @Version@ fields. The @Name@ is used
--- as a dimension when CloudWatch Logs reports audit findings metrics to
+-- include @Name@, @Description@, and @Version@ fields. The @Name@ is
+-- different than the operation\'s @policyName@ parameter, and is used as a
+-- dimension when CloudWatch Logs reports audit findings metrics to
 -- CloudWatch.
 --
 -- The JSON specified in @policyDocument@ can be up to 30,720 characters.
-newPutDataProtectionPolicy ::
-  -- | 'logGroupIdentifier'
+--
+-- 'policyType', 'putAccountPolicy_policyType' - Currently the only valid value for this parameter is
+-- @DATA_PROTECTION_POLICY@.
+newPutAccountPolicy ::
+  -- | 'policyName'
   Prelude.Text ->
   -- | 'policyDocument'
   Prelude.Text ->
-  PutDataProtectionPolicy
-newPutDataProtectionPolicy
-  pLogGroupIdentifier_
-  pPolicyDocument_ =
-    PutDataProtectionPolicy'
-      { logGroupIdentifier =
-          pLogGroupIdentifier_,
-        policyDocument = pPolicyDocument_
+  -- | 'policyType'
+  PolicyType ->
+  PutAccountPolicy
+newPutAccountPolicy
+  pPolicyName_
+  pPolicyDocument_
+  pPolicyType_ =
+    PutAccountPolicy'
+      { scope = Prelude.Nothing,
+        policyName = pPolicyName_,
+        policyDocument = pPolicyDocument_,
+        policyType = pPolicyType_
       }
 
--- | Specify either the log group name or log group ARN.
-putDataProtectionPolicy_logGroupIdentifier :: Lens.Lens' PutDataProtectionPolicy Prelude.Text
-putDataProtectionPolicy_logGroupIdentifier = Lens.lens (\PutDataProtectionPolicy' {logGroupIdentifier} -> logGroupIdentifier) (\s@PutDataProtectionPolicy' {} a -> s {logGroupIdentifier = a} :: PutDataProtectionPolicy)
+-- | Currently the only valid value for this parameter is @GLOBAL@, which
+-- specifies that the data protection policy applies to all log groups in
+-- the account. If you omit this parameter, the default of @GLOBAL@ is
+-- used.
+putAccountPolicy_scope :: Lens.Lens' PutAccountPolicy (Prelude.Maybe Scope)
+putAccountPolicy_scope = Lens.lens (\PutAccountPolicy' {scope} -> scope) (\s@PutAccountPolicy' {} a -> s {scope = a} :: PutAccountPolicy)
+
+-- | A name for the policy. This must be unique within the account.
+putAccountPolicy_policyName :: Lens.Lens' PutAccountPolicy Prelude.Text
+putAccountPolicy_policyName = Lens.lens (\PutAccountPolicy' {policyName} -> policyName) (\s@PutAccountPolicy' {} a -> s {policyName = a} :: PutAccountPolicy)
 
 -- | Specify the data protection policy, in JSON.
 --
@@ -230,47 +269,55 @@ putDataProtectionPolicy_logGroupIdentifier = Lens.lens (\PutDataProtectionPolicy
 -- The contents of the two @DataIdentifer@ arrays must match exactly.
 --
 -- In addition to the two JSON blocks, the @policyDocument@ can also
--- include @Name@, @Description@, and @Version@ fields. The @Name@ is used
--- as a dimension when CloudWatch Logs reports audit findings metrics to
+-- include @Name@, @Description@, and @Version@ fields. The @Name@ is
+-- different than the operation\'s @policyName@ parameter, and is used as a
+-- dimension when CloudWatch Logs reports audit findings metrics to
 -- CloudWatch.
 --
 -- The JSON specified in @policyDocument@ can be up to 30,720 characters.
-putDataProtectionPolicy_policyDocument :: Lens.Lens' PutDataProtectionPolicy Prelude.Text
-putDataProtectionPolicy_policyDocument = Lens.lens (\PutDataProtectionPolicy' {policyDocument} -> policyDocument) (\s@PutDataProtectionPolicy' {} a -> s {policyDocument = a} :: PutDataProtectionPolicy)
+putAccountPolicy_policyDocument :: Lens.Lens' PutAccountPolicy Prelude.Text
+putAccountPolicy_policyDocument = Lens.lens (\PutAccountPolicy' {policyDocument} -> policyDocument) (\s@PutAccountPolicy' {} a -> s {policyDocument = a} :: PutAccountPolicy)
 
-instance Core.AWSRequest PutDataProtectionPolicy where
+-- | Currently the only valid value for this parameter is
+-- @DATA_PROTECTION_POLICY@.
+putAccountPolicy_policyType :: Lens.Lens' PutAccountPolicy PolicyType
+putAccountPolicy_policyType = Lens.lens (\PutAccountPolicy' {policyType} -> policyType) (\s@PutAccountPolicy' {} a -> s {policyType = a} :: PutAccountPolicy)
+
+instance Core.AWSRequest PutAccountPolicy where
   type
-    AWSResponse PutDataProtectionPolicy =
-      PutDataProtectionPolicyResponse
+    AWSResponse PutAccountPolicy =
+      PutAccountPolicyResponse
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
       ( \s h x ->
-          PutDataProtectionPolicyResponse'
-            Prelude.<$> (x Data..?> "lastUpdatedTime")
-            Prelude.<*> (x Data..?> "logGroupIdentifier")
-            Prelude.<*> (x Data..?> "policyDocument")
+          PutAccountPolicyResponse'
+            Prelude.<$> (x Data..?> "accountPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutDataProtectionPolicy where
-  hashWithSalt _salt PutDataProtectionPolicy' {..} =
+instance Prelude.Hashable PutAccountPolicy where
+  hashWithSalt _salt PutAccountPolicy' {..} =
     _salt
-      `Prelude.hashWithSalt` logGroupIdentifier
+      `Prelude.hashWithSalt` scope
+      `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` policyType
 
-instance Prelude.NFData PutDataProtectionPolicy where
-  rnf PutDataProtectionPolicy' {..} =
-    Prelude.rnf logGroupIdentifier
+instance Prelude.NFData PutAccountPolicy where
+  rnf PutAccountPolicy' {..} =
+    Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf policyType
 
-instance Data.ToHeaders PutDataProtectionPolicy where
+instance Data.ToHeaders PutAccountPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Data.=# ( "Logs_20140328.PutDataProtectionPolicy" ::
+              Data.=# ( "Logs_20140328.PutAccountPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
@@ -280,86 +327,64 @@ instance Data.ToHeaders PutDataProtectionPolicy where
           ]
       )
 
-instance Data.ToJSON PutDataProtectionPolicy where
-  toJSON PutDataProtectionPolicy' {..} =
+instance Data.ToJSON PutAccountPolicy where
+  toJSON PutAccountPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupIdentifier" Data..= logGroupIdentifier),
+          [ ("scope" Data..=) Prelude.<$> scope,
+            Prelude.Just ("policyName" Data..= policyName),
             Prelude.Just
-              ("policyDocument" Data..= policyDocument)
+              ("policyDocument" Data..= policyDocument),
+            Prelude.Just ("policyType" Data..= policyType)
           ]
       )
 
-instance Data.ToPath PutDataProtectionPolicy where
+instance Data.ToPath PutAccountPolicy where
   toPath = Prelude.const "/"
 
-instance Data.ToQuery PutDataProtectionPolicy where
+instance Data.ToQuery PutAccountPolicy where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newPutDataProtectionPolicyResponse' smart constructor.
-data PutDataProtectionPolicyResponse = PutDataProtectionPolicyResponse'
-  { -- | The date and time that this policy was most recently updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.Natural,
-    -- | The log group name or ARN that you specified in your request.
-    logGroupIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The data protection policy used for this log group.
-    policyDocument :: Prelude.Maybe Prelude.Text,
+-- | /See:/ 'newPutAccountPolicyResponse' smart constructor.
+data PutAccountPolicyResponse = PutAccountPolicyResponse'
+  { -- | The account policy that you created.
+    accountPolicy :: Prelude.Maybe AccountPolicy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'PutDataProtectionPolicyResponse' with all optional fields omitted.
+-- Create a value of 'PutAccountPolicyResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'putDataProtectionPolicyResponse_lastUpdatedTime' - The date and time that this policy was most recently updated.
+-- 'accountPolicy', 'putAccountPolicyResponse_accountPolicy' - The account policy that you created.
 --
--- 'logGroupIdentifier', 'putDataProtectionPolicyResponse_logGroupIdentifier' - The log group name or ARN that you specified in your request.
---
--- 'policyDocument', 'putDataProtectionPolicyResponse_policyDocument' - The data protection policy used for this log group.
---
--- 'httpStatus', 'putDataProtectionPolicyResponse_httpStatus' - The response's http status code.
-newPutDataProtectionPolicyResponse ::
+-- 'httpStatus', 'putAccountPolicyResponse_httpStatus' - The response's http status code.
+newPutAccountPolicyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  PutDataProtectionPolicyResponse
-newPutDataProtectionPolicyResponse pHttpStatus_ =
-  PutDataProtectionPolicyResponse'
-    { lastUpdatedTime =
+  PutAccountPolicyResponse
+newPutAccountPolicyResponse pHttpStatus_ =
+  PutAccountPolicyResponse'
+    { accountPolicy =
         Prelude.Nothing,
-      logGroupIdentifier = Prelude.Nothing,
-      policyDocument = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The date and time that this policy was most recently updated.
-putDataProtectionPolicyResponse_lastUpdatedTime :: Lens.Lens' PutDataProtectionPolicyResponse (Prelude.Maybe Prelude.Natural)
-putDataProtectionPolicyResponse_lastUpdatedTime = Lens.lens (\PutDataProtectionPolicyResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@PutDataProtectionPolicyResponse' {} a -> s {lastUpdatedTime = a} :: PutDataProtectionPolicyResponse)
-
--- | The log group name or ARN that you specified in your request.
-putDataProtectionPolicyResponse_logGroupIdentifier :: Lens.Lens' PutDataProtectionPolicyResponse (Prelude.Maybe Prelude.Text)
-putDataProtectionPolicyResponse_logGroupIdentifier = Lens.lens (\PutDataProtectionPolicyResponse' {logGroupIdentifier} -> logGroupIdentifier) (\s@PutDataProtectionPolicyResponse' {} a -> s {logGroupIdentifier = a} :: PutDataProtectionPolicyResponse)
-
--- | The data protection policy used for this log group.
-putDataProtectionPolicyResponse_policyDocument :: Lens.Lens' PutDataProtectionPolicyResponse (Prelude.Maybe Prelude.Text)
-putDataProtectionPolicyResponse_policyDocument = Lens.lens (\PutDataProtectionPolicyResponse' {policyDocument} -> policyDocument) (\s@PutDataProtectionPolicyResponse' {} a -> s {policyDocument = a} :: PutDataProtectionPolicyResponse)
+-- | The account policy that you created.
+putAccountPolicyResponse_accountPolicy :: Lens.Lens' PutAccountPolicyResponse (Prelude.Maybe AccountPolicy)
+putAccountPolicyResponse_accountPolicy = Lens.lens (\PutAccountPolicyResponse' {accountPolicy} -> accountPolicy) (\s@PutAccountPolicyResponse' {} a -> s {accountPolicy = a} :: PutAccountPolicyResponse)
 
 -- | The response's http status code.
-putDataProtectionPolicyResponse_httpStatus :: Lens.Lens' PutDataProtectionPolicyResponse Prelude.Int
-putDataProtectionPolicyResponse_httpStatus = Lens.lens (\PutDataProtectionPolicyResponse' {httpStatus} -> httpStatus) (\s@PutDataProtectionPolicyResponse' {} a -> s {httpStatus = a} :: PutDataProtectionPolicyResponse)
+putAccountPolicyResponse_httpStatus :: Lens.Lens' PutAccountPolicyResponse Prelude.Int
+putAccountPolicyResponse_httpStatus = Lens.lens (\PutAccountPolicyResponse' {httpStatus} -> httpStatus) (\s@PutAccountPolicyResponse' {} a -> s {httpStatus = a} :: PutAccountPolicyResponse)
 
-instance
-  Prelude.NFData
-    PutDataProtectionPolicyResponse
-  where
-  rnf PutDataProtectionPolicyResponse' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf logGroupIdentifier
-      `Prelude.seq` Prelude.rnf policyDocument
+instance Prelude.NFData PutAccountPolicyResponse where
+  rnf PutAccountPolicyResponse' {..} =
+    Prelude.rnf accountPolicy
       `Prelude.seq` Prelude.rnf httpStatus

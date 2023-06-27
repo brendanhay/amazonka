@@ -66,10 +66,10 @@ data TagResource = TagResource'
   { -- | The ARN of the resource that you\'re adding tags to.
     --
     -- The ARN format of a log group is
-    -- @arn:aws:logs:Region:account-id:log-group:log-group-name @
+    -- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:log-group:@/@log-group-name@/@ @
     --
     -- The ARN format of a destination is
-    -- @arn:aws:logs:Region:account-id:destination:destination-name @
+    -- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:destination:@/@destination-name@/@ @
     --
     -- For more information about ARN format, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -90,10 +90,10 @@ data TagResource = TagResource'
 -- 'resourceArn', 'tagResource_resourceArn' - The ARN of the resource that you\'re adding tags to.
 --
 -- The ARN format of a log group is
--- @arn:aws:logs:Region:account-id:log-group:log-group-name @
+-- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:log-group:@/@log-group-name@/@ @
 --
 -- The ARN format of a destination is
--- @arn:aws:logs:Region:account-id:destination:destination-name @
+-- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:destination:@/@destination-name@/@ @
 --
 -- For more information about ARN format, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -112,10 +112,10 @@ newTagResource pResourceArn_ =
 -- | The ARN of the resource that you\'re adding tags to.
 --
 -- The ARN format of a log group is
--- @arn:aws:logs:Region:account-id:log-group:log-group-name @
+-- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:log-group:@/@log-group-name@/@ @
 --
 -- The ARN format of a destination is
--- @arn:aws:logs:Region:account-id:destination:destination-name @
+-- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:destination:@/@destination-name@/@ @
 --
 -- For more information about ARN format, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -134,7 +134,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

@@ -90,7 +90,8 @@ instance Data.FromJSON OutputLogEvent where
 
 instance Prelude.Hashable OutputLogEvent where
   hashWithSalt _salt OutputLogEvent' {..} =
-    _salt `Prelude.hashWithSalt` ingestionTime
+    _salt
+      `Prelude.hashWithSalt` ingestionTime
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` timestamp
 

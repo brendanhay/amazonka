@@ -33,6 +33,10 @@
 -- this operation in a monitoring account and view data from the linked
 -- source accounts. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html CloudWatch cross-account observability>.
+--
+-- You can specify the log group to search by using either
+-- @logGroupIdentifier@ or @logGroupName@. You must include one of these
+-- two parameters, but you can\'t include both.
 module Amazonka.CloudWatchLogs.GetLogEvents
   ( -- * Creating a Request
     GetLogEvents (..),
@@ -42,11 +46,11 @@ module Amazonka.CloudWatchLogs.GetLogEvents
     getLogEvents_endTime,
     getLogEvents_limit,
     getLogEvents_logGroupIdentifier,
+    getLogEvents_logGroupName,
     getLogEvents_nextToken,
     getLogEvents_startFromHead,
     getLogEvents_startTime,
     getLogEvents_unmask,
-    getLogEvents_logGroupName,
     getLogEvents_logStreamName,
 
     -- * Destructuring the Response
@@ -83,9 +87,14 @@ data GetLogEvents = GetLogEvents'
     -- the log group is in a source account and you are using a monitoring
     -- account, you must use the log group ARN.
     --
-    -- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
-    -- the action returns an @InvalidParameterException@ error.
+    -- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+    -- both.
     logGroupIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The name of the log group.
+    --
+    -- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+    -- both.
+    logGroupName :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -107,11 +116,6 @@ data GetLogEvents = GetLogEvents'
     -- To use this operation with this parameter, you must be signed into an
     -- account with the @logs:Unmask@ permission.
     unmask :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the log group.
-    --
-    -- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
-    -- the action returns an @InvalidParameterException@ error.
-    logGroupName :: Prelude.Text,
     -- | The name of the log stream.
     logStreamName :: Prelude.Text
   }
@@ -137,8 +141,13 @@ data GetLogEvents = GetLogEvents'
 -- the log group is in a source account and you are using a monitoring
 -- account, you must use the log group ARN.
 --
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
+--
+-- 'logGroupName', 'getLogEvents_logGroupName' - The name of the log group.
+--
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
 --
 -- 'nextToken', 'getLogEvents_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -161,28 +170,21 @@ data GetLogEvents = GetLogEvents'
 -- To use this operation with this parameter, you must be signed into an
 -- account with the @logs:Unmask@ permission.
 --
--- 'logGroupName', 'getLogEvents_logGroupName' - The name of the log group.
---
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
---
 -- 'logStreamName', 'getLogEvents_logStreamName' - The name of the log stream.
 newGetLogEvents ::
-  -- | 'logGroupName'
-  Prelude.Text ->
   -- | 'logStreamName'
   Prelude.Text ->
   GetLogEvents
-newGetLogEvents pLogGroupName_ pLogStreamName_ =
+newGetLogEvents pLogStreamName_ =
   GetLogEvents'
     { endTime = Prelude.Nothing,
       limit = Prelude.Nothing,
       logGroupIdentifier = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       startFromHead = Prelude.Nothing,
       startTime = Prelude.Nothing,
       unmask = Prelude.Nothing,
-      logGroupName = pLogGroupName_,
       logStreamName = pLogStreamName_
     }
 
@@ -202,10 +204,17 @@ getLogEvents_limit = Lens.lens (\GetLogEvents' {limit} -> limit) (\s@GetLogEvent
 -- the log group is in a source account and you are using a monitoring
 -- account, you must use the log group ARN.
 --
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
 getLogEvents_logGroupIdentifier :: Lens.Lens' GetLogEvents (Prelude.Maybe Prelude.Text)
 getLogEvents_logGroupIdentifier = Lens.lens (\GetLogEvents' {logGroupIdentifier} -> logGroupIdentifier) (\s@GetLogEvents' {} a -> s {logGroupIdentifier = a} :: GetLogEvents)
+
+-- | The name of the log group.
+--
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
+getLogEvents_logGroupName :: Lens.Lens' GetLogEvents (Prelude.Maybe Prelude.Text)
+getLogEvents_logGroupName = Lens.lens (\GetLogEvents' {logGroupName} -> logGroupName) (\s@GetLogEvents' {} a -> s {logGroupName = a} :: GetLogEvents)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -236,13 +245,6 @@ getLogEvents_startTime = Lens.lens (\GetLogEvents' {startTime} -> startTime) (\s
 getLogEvents_unmask :: Lens.Lens' GetLogEvents (Prelude.Maybe Prelude.Bool)
 getLogEvents_unmask = Lens.lens (\GetLogEvents' {unmask} -> unmask) (\s@GetLogEvents' {} a -> s {unmask = a} :: GetLogEvents)
 
--- | The name of the log group.
---
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
-getLogEvents_logGroupName :: Lens.Lens' GetLogEvents Prelude.Text
-getLogEvents_logGroupName = Lens.lens (\GetLogEvents' {logGroupName} -> logGroupName) (\s@GetLogEvents' {} a -> s {logGroupName = a} :: GetLogEvents)
-
 -- | The name of the log stream.
 getLogEvents_logStreamName :: Lens.Lens' GetLogEvents Prelude.Text
 getLogEvents_logStreamName = Lens.lens (\GetLogEvents' {logStreamName} -> logStreamName) (\s@GetLogEvents' {} a -> s {logStreamName = a} :: GetLogEvents)
@@ -263,14 +265,15 @@ instance Core.AWSRequest GetLogEvents where
 
 instance Prelude.Hashable GetLogEvents where
   hashWithSalt _salt GetLogEvents' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` logGroupIdentifier
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startFromHead
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` unmask
-      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logStreamName
 
 instance Prelude.NFData GetLogEvents where
@@ -278,11 +281,11 @@ instance Prelude.NFData GetLogEvents where
     Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf logGroupIdentifier
+      `Prelude.seq` Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startFromHead
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf unmask
-      `Prelude.seq` Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf logStreamName
 
 instance Data.ToHeaders GetLogEvents where
@@ -306,11 +309,11 @@ instance Data.ToJSON GetLogEvents where
             ("limit" Data..=) Prelude.<$> limit,
             ("logGroupIdentifier" Data..=)
               Prelude.<$> logGroupIdentifier,
+            ("logGroupName" Data..=) Prelude.<$> logGroupName,
             ("nextToken" Data..=) Prelude.<$> nextToken,
             ("startFromHead" Data..=) Prelude.<$> startFromHead,
             ("startTime" Data..=) Prelude.<$> startTime,
             ("unmask" Data..=) Prelude.<$> unmask,
-            Prelude.Just ("logGroupName" Data..= logGroupName),
             Prelude.Just
               ("logStreamName" Data..= logStreamName)
           ]

@@ -24,8 +24,12 @@
 -- events or filter the results using a filter pattern, a time range, and
 -- the name of the log stream.
 --
--- You must have the @logs;FilterLogEvents@ permission to perform this
+-- You must have the @logs:FilterLogEvents@ permission to perform this
 -- operation.
+--
+-- You can specify the log group to search by using either
+-- @logGroupIdentifier@ or @logGroupName@. You must include one of these
+-- two parameters, but you can\'t include both.
 --
 -- By default, this operation returns as many log events as can fit in 1 MB
 -- (up to 10,000 log events) or all the events found within the specified
@@ -55,12 +59,12 @@ module Amazonka.CloudWatchLogs.FilterLogEvents
     filterLogEvents_interleaved,
     filterLogEvents_limit,
     filterLogEvents_logGroupIdentifier,
+    filterLogEvents_logGroupName,
     filterLogEvents_logStreamNamePrefix,
     filterLogEvents_logStreamNames,
     filterLogEvents_nextToken,
     filterLogEvents_startTime,
     filterLogEvents_unmask,
-    filterLogEvents_logGroupName,
 
     -- * Destructuring the Response
     FilterLogEventsResponse (..),
@@ -109,9 +113,14 @@ data FilterLogEvents = FilterLogEvents'
     -- If the log group is in a source account and you are using a monitoring
     -- account, you must use the log group ARN.
     --
-    -- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
-    -- the action returns an @InvalidParameterException@ error.
+    -- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+    -- both.
     logGroupIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The name of the log group to search.
+    --
+    -- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+    -- both.
+    logGroupName :: Prelude.Maybe Prelude.Text,
     -- | Filters the results to include only events from log streams that have
     -- names starting with this prefix.
     --
@@ -138,12 +147,7 @@ data FilterLogEvents = FilterLogEvents'
     --
     -- To use this operation with this parameter, you must be signed into an
     -- account with the @logs:Unmask@ permission.
-    unmask :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the log group to search.
-    --
-    -- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
-    -- the action returns an @InvalidParameterException@ error.
-    logGroupName :: Prelude.Text
+    unmask :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -180,8 +184,13 @@ data FilterLogEvents = FilterLogEvents'
 -- If the log group is in a source account and you are using a monitoring
 -- account, you must use the log group ARN.
 --
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
+--
+-- 'logGroupName', 'filterLogEvents_logGroupName' - The name of the log group to search.
+--
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
 --
 -- 'logStreamNamePrefix', 'filterLogEvents_logStreamNamePrefix' - Filters the results to include only events from log streams that have
 -- names starting with this prefix.
@@ -209,28 +218,21 @@ data FilterLogEvents = FilterLogEvents'
 --
 -- To use this operation with this parameter, you must be signed into an
 -- account with the @logs:Unmask@ permission.
---
--- 'logGroupName', 'filterLogEvents_logGroupName' - The name of the log group to search.
---
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
 newFilterLogEvents ::
-  -- | 'logGroupName'
-  Prelude.Text ->
   FilterLogEvents
-newFilterLogEvents pLogGroupName_ =
+newFilterLogEvents =
   FilterLogEvents'
     { endTime = Prelude.Nothing,
       filterPattern = Prelude.Nothing,
       interleaved = Prelude.Nothing,
       limit = Prelude.Nothing,
       logGroupIdentifier = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
       logStreamNamePrefix = Prelude.Nothing,
       logStreamNames = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      unmask = Prelude.Nothing,
-      logGroupName = pLogGroupName_
+      unmask = Prelude.Nothing
     }
 
 -- | The end of the time range, expressed as the number of milliseconds after
@@ -266,10 +268,17 @@ filterLogEvents_limit = Lens.lens (\FilterLogEvents' {limit} -> limit) (\s@Filte
 -- If the log group is in a source account and you are using a monitoring
 -- account, you must use the log group ARN.
 --
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
 filterLogEvents_logGroupIdentifier :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Text)
 filterLogEvents_logGroupIdentifier = Lens.lens (\FilterLogEvents' {logGroupIdentifier} -> logGroupIdentifier) (\s@FilterLogEvents' {} a -> s {logGroupIdentifier = a} :: FilterLogEvents)
+
+-- | The name of the log group to search.
+--
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
+filterLogEvents_logGroupName :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Text)
+filterLogEvents_logGroupName = Lens.lens (\FilterLogEvents' {logGroupName} -> logGroupName) (\s@FilterLogEvents' {} a -> s {logGroupName = a} :: FilterLogEvents)
 
 -- | Filters the results to include only events from log streams that have
 -- names starting with this prefix.
@@ -308,28 +317,21 @@ filterLogEvents_startTime = Lens.lens (\FilterLogEvents' {startTime} -> startTim
 filterLogEvents_unmask :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Bool)
 filterLogEvents_unmask = Lens.lens (\FilterLogEvents' {unmask} -> unmask) (\s@FilterLogEvents' {} a -> s {unmask = a} :: FilterLogEvents)
 
--- | The name of the log group to search.
---
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
-filterLogEvents_logGroupName :: Lens.Lens' FilterLogEvents Prelude.Text
-filterLogEvents_logGroupName = Lens.lens (\FilterLogEvents' {logGroupName} -> logGroupName) (\s@FilterLogEvents' {} a -> s {logGroupName = a} :: FilterLogEvents)
-
 instance Core.AWSPager FilterLogEvents where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? filterLogEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& filterLogEvents_nextToken
           Lens..~ rs
           Lens.^? filterLogEventsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest FilterLogEvents where
   type
@@ -343,7 +345,8 @@ instance Core.AWSRequest FilterLogEvents where
           FilterLogEventsResponse'
             Prelude.<$> (x Data..?> "events" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "searchedLogStreams"
+            Prelude.<*> ( x
+                            Data..?> "searchedLogStreams"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -351,17 +354,18 @@ instance Core.AWSRequest FilterLogEvents where
 
 instance Prelude.Hashable FilterLogEvents where
   hashWithSalt _salt FilterLogEvents' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` filterPattern
       `Prelude.hashWithSalt` interleaved
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` logGroupIdentifier
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logStreamNamePrefix
       `Prelude.hashWithSalt` logStreamNames
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` unmask
-      `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData FilterLogEvents where
   rnf FilterLogEvents' {..} =
@@ -370,12 +374,12 @@ instance Prelude.NFData FilterLogEvents where
       `Prelude.seq` Prelude.rnf interleaved
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf logGroupIdentifier
+      `Prelude.seq` Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf logStreamNamePrefix
       `Prelude.seq` Prelude.rnf logStreamNames
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf unmask
-      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Data.ToHeaders FilterLogEvents where
   toHeaders =
@@ -402,14 +406,14 @@ instance Data.ToJSON FilterLogEvents where
             ("limit" Data..=) Prelude.<$> limit,
             ("logGroupIdentifier" Data..=)
               Prelude.<$> logGroupIdentifier,
+            ("logGroupName" Data..=) Prelude.<$> logGroupName,
             ("logStreamNamePrefix" Data..=)
               Prelude.<$> logStreamNamePrefix,
             ("logStreamNames" Data..=)
               Prelude.<$> logStreamNames,
             ("nextToken" Data..=) Prelude.<$> nextToken,
             ("startTime" Data..=) Prelude.<$> startTime,
-            ("unmask" Data..=) Prelude.<$> unmask,
-            Prelude.Just ("logGroupName" Data..= logGroupName)
+            ("unmask" Data..=) Prelude.<$> unmask
           ]
       )
 

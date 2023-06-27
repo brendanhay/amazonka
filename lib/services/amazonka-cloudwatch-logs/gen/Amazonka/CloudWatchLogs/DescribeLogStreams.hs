@@ -24,6 +24,10 @@
 -- log streams or filter the results by prefix. You can also control how
 -- the results are ordered.
 --
+-- You can specify the log group to search by using either
+-- @logGroupIdentifier@ or @logGroupName@. You must include one of these
+-- two parameters, but you can\'t include both.
+--
 -- This operation has a limit of five transactions per second, after which
 -- transactions are throttled.
 --
@@ -42,10 +46,10 @@ module Amazonka.CloudWatchLogs.DescribeLogStreams
     describeLogStreams_descending,
     describeLogStreams_limit,
     describeLogStreams_logGroupIdentifier,
+    describeLogStreams_logGroupName,
     describeLogStreams_logStreamNamePrefix,
     describeLogStreams_nextToken,
     describeLogStreams_orderBy,
-    describeLogStreams_logGroupName,
 
     -- * Destructuring the Response
     DescribeLogStreamsResponse (..),
@@ -79,9 +83,14 @@ data DescribeLogStreams = DescribeLogStreams'
     -- group is in a source account and you are using a monitoring account, you
     -- must use the log group ARN.
     --
-    -- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
-    -- the action returns an @InvalidParameterException@ error.
+    -- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+    -- both.
     logGroupIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The name of the log group.
+    --
+    -- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+    -- both.
+    logGroupName :: Prelude.Maybe Prelude.Text,
     -- | The prefix to match.
     --
     -- If @orderBy@ is @LastEventTime@, you cannot specify this parameter.
@@ -102,12 +111,7 @@ data DescribeLogStreams = DescribeLogStreams'
     -- @lastEventTimestamp@ updates on an eventual consistency basis. It
     -- typically updates in less than an hour from ingestion, but in rare
     -- situations might take longer.
-    orderBy :: Prelude.Maybe OrderBy,
-    -- | The name of the log group.
-    --
-    -- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
-    -- the action returns an @InvalidParameterException@ error.
-    logGroupName :: Prelude.Text
+    orderBy :: Prelude.Maybe OrderBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -130,8 +134,13 @@ data DescribeLogStreams = DescribeLogStreams'
 -- group is in a source account and you are using a monitoring account, you
 -- must use the log group ARN.
 --
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
+--
+-- 'logGroupName', 'describeLogStreams_logGroupName' - The name of the log group.
+--
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
 --
 -- 'logStreamNamePrefix', 'describeLogStreams_logStreamNamePrefix' - The prefix to match.
 --
@@ -153,24 +162,17 @@ data DescribeLogStreams = DescribeLogStreams'
 -- @lastEventTimestamp@ updates on an eventual consistency basis. It
 -- typically updates in less than an hour from ingestion, but in rare
 -- situations might take longer.
---
--- 'logGroupName', 'describeLogStreams_logGroupName' - The name of the log group.
---
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
 newDescribeLogStreams ::
-  -- | 'logGroupName'
-  Prelude.Text ->
   DescribeLogStreams
-newDescribeLogStreams pLogGroupName_ =
+newDescribeLogStreams =
   DescribeLogStreams'
     { descending = Prelude.Nothing,
       limit = Prelude.Nothing,
       logGroupIdentifier = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
       logStreamNamePrefix = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      orderBy = Prelude.Nothing,
-      logGroupName = pLogGroupName_
+      orderBy = Prelude.Nothing
     }
 
 -- | If the value is true, results are returned in descending order. If the
@@ -188,10 +190,17 @@ describeLogStreams_limit = Lens.lens (\DescribeLogStreams' {limit} -> limit) (\s
 -- group is in a source account and you are using a monitoring account, you
 -- must use the log group ARN.
 --
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
 describeLogStreams_logGroupIdentifier :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Text)
 describeLogStreams_logGroupIdentifier = Lens.lens (\DescribeLogStreams' {logGroupIdentifier} -> logGroupIdentifier) (\s@DescribeLogStreams' {} a -> s {logGroupIdentifier = a} :: DescribeLogStreams)
+
+-- | The name of the log group.
+--
+-- You must include either @logGroupIdentifier@ or @logGroupName@, but not
+-- both.
+describeLogStreams_logGroupName :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Text)
+describeLogStreams_logGroupName = Lens.lens (\DescribeLogStreams' {logGroupName} -> logGroupName) (\s@DescribeLogStreams' {} a -> s {logGroupName = a} :: DescribeLogStreams)
 
 -- | The prefix to match.
 --
@@ -220,34 +229,27 @@ describeLogStreams_nextToken = Lens.lens (\DescribeLogStreams' {nextToken} -> ne
 describeLogStreams_orderBy :: Lens.Lens' DescribeLogStreams (Prelude.Maybe OrderBy)
 describeLogStreams_orderBy = Lens.lens (\DescribeLogStreams' {orderBy} -> orderBy) (\s@DescribeLogStreams' {} a -> s {orderBy = a} :: DescribeLogStreams)
 
--- | The name of the log group.
---
--- If you specify values for both @logGroupName@ and @logGroupIdentifier@,
--- the action returns an @InvalidParameterException@ error.
-describeLogStreams_logGroupName :: Lens.Lens' DescribeLogStreams Prelude.Text
-describeLogStreams_logGroupName = Lens.lens (\DescribeLogStreams' {logGroupName} -> logGroupName) (\s@DescribeLogStreams' {} a -> s {logGroupName = a} :: DescribeLogStreams)
-
 instance Core.AWSPager DescribeLogStreams where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeLogStreamsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLogStreamsResponse_logStreams
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLogStreams_nextToken
           Lens..~ rs
           Lens.^? describeLogStreamsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLogStreams where
   type
@@ -266,23 +268,24 @@ instance Core.AWSRequest DescribeLogStreams where
 
 instance Prelude.Hashable DescribeLogStreams where
   hashWithSalt _salt DescribeLogStreams' {..} =
-    _salt `Prelude.hashWithSalt` descending
+    _salt
+      `Prelude.hashWithSalt` descending
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` logGroupIdentifier
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logStreamNamePrefix
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` orderBy
-      `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData DescribeLogStreams where
   rnf DescribeLogStreams' {..} =
     Prelude.rnf descending
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf logGroupIdentifier
+      `Prelude.seq` Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf logStreamNamePrefix
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf orderBy
-      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Data.ToHeaders DescribeLogStreams where
   toHeaders =
@@ -307,11 +310,11 @@ instance Data.ToJSON DescribeLogStreams where
             ("limit" Data..=) Prelude.<$> limit,
             ("logGroupIdentifier" Data..=)
               Prelude.<$> logGroupIdentifier,
+            ("logGroupName" Data..=) Prelude.<$> logGroupName,
             ("logStreamNamePrefix" Data..=)
               Prelude.<$> logStreamNamePrefix,
             ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("orderBy" Data..=) Prelude.<$> orderBy,
-            Prelude.Just ("logGroupName" Data..= logGroupName)
+            ("orderBy" Data..=) Prelude.<$> orderBy
           ]
       )
 

@@ -186,7 +186,8 @@ instance Core.AWSRequest PutQueryDefinition where
 
 instance Prelude.Hashable PutQueryDefinition where
   hashWithSalt _salt PutQueryDefinition' {..} =
-    _salt `Prelude.hashWithSalt` logGroupNames
+    _salt
+      `Prelude.hashWithSalt` logGroupNames
       `Prelude.hashWithSalt` queryDefinitionId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` queryString

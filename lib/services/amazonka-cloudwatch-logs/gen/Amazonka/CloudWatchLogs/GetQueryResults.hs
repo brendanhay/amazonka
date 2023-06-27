@@ -164,7 +164,7 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
     -- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,
     -- and @Unknown@.
     --
-    -- Queries time out after 15 minutes of runtime. To avoid having your
+    -- Queries time out after 60 minutes of runtime. To avoid having your
     -- queries time out, reduce the time range being searched or partition your
     -- query into a number of queries.
     status :: Prelude.Maybe QueryStatus,
@@ -197,7 +197,7 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 -- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,
 -- and @Unknown@.
 --
--- Queries time out after 15 minutes of runtime. To avoid having your
+-- Queries time out after 60 minutes of runtime. To avoid having your
 -- queries time out, reduce the time range being searched or partition your
 -- query into a number of queries.
 --
@@ -234,7 +234,7 @@ getQueryResultsResponse_statistics = Lens.lens (\GetQueryResultsResponse' {stati
 -- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,
 -- and @Unknown@.
 --
--- Queries time out after 15 minutes of runtime. To avoid having your
+-- Queries time out after 60 minutes of runtime. To avoid having your
 -- queries time out, reduce the time range being searched or partition your
 -- query into a number of queries.
 getQueryResultsResponse_status :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatus)

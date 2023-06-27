@@ -25,10 +25,11 @@
 -- name.
 --
 -- CloudWatch Logs doesn’t support IAM policies that control access to the
--- @DescribeLogGroups@ action by using the @aws:ResourceTag\/key-name @
--- condition key. Other CloudWatch Logs actions do support the use of the
--- @aws:ResourceTag\/key-name @ condition key to control access. For more
--- information about using tags to control access, see
+-- @DescribeLogGroups@ action by using the
+-- @aws:ResourceTag\/@/@key-name@/@ @ condition key. Other CloudWatch Logs
+-- actions do support the use of the @aws:ResourceTag\/@/@key-name@/@ @
+-- condition key to control access. For more information about using tags
+-- to control access, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
 --
 -- If you are using CloudWatch cross-account observability, you can use
@@ -83,10 +84,6 @@ data DescribeLogGroups = DescribeLogGroups'
     -- null value, the operation returns all log groups in the monitoring
     -- account and all log groups in all source accounts that are linked to the
     -- monitoring account.
-    --
-    -- If you specify @includeLinkedAccounts@ in your request, then
-    -- @metricFilterCount@, @retentionInDays@, and @storedBytes@ are not
-    -- included in the response.
     includeLinkedAccounts :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
@@ -96,6 +93,9 @@ data DescribeLogGroups = DescribeLogGroups'
     -- case-sensitive substring search. For example, if you specify @Foo@, log
     -- groups named @FooBar@, @aws\/Foo@, and @GroupFoo@ would match, but
     -- @foo@, @F\/o\/o@ and @Froo@ would not match.
+    --
+    -- If you specify @logGroupNamePattern@ in your request, then only @arn@,
+    -- @creationTime@, and @logGroupName@ are included in the response.
     --
     -- @logGroupNamePattern@ and @logGroupNamePrefix@ are mutually exclusive.
     -- Only one of these parameters can be passed.
@@ -132,10 +132,6 @@ data DescribeLogGroups = DescribeLogGroups'
 -- account and all log groups in all source accounts that are linked to the
 -- monitoring account.
 --
--- If you specify @includeLinkedAccounts@ in your request, then
--- @metricFilterCount@, @retentionInDays@, and @storedBytes@ are not
--- included in the response.
---
 -- 'limit', 'describeLogGroups_limit' - The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
 --
@@ -144,6 +140,9 @@ data DescribeLogGroups = DescribeLogGroups'
 -- case-sensitive substring search. For example, if you specify @Foo@, log
 -- groups named @FooBar@, @aws\/Foo@, and @GroupFoo@ would match, but
 -- @foo@, @F\/o\/o@ and @Froo@ would not match.
+--
+-- If you specify @logGroupNamePattern@ in your request, then only @arn@,
+-- @creationTime@, and @logGroupName@ are included in the response.
 --
 -- @logGroupNamePattern@ and @logGroupNamePrefix@ are mutually exclusive.
 -- Only one of these parameters can be passed.
@@ -182,10 +181,6 @@ describeLogGroups_accountIdentifiers = Lens.lens (\DescribeLogGroups' {accountId
 -- null value, the operation returns all log groups in the monitoring
 -- account and all log groups in all source accounts that are linked to the
 -- monitoring account.
---
--- If you specify @includeLinkedAccounts@ in your request, then
--- @metricFilterCount@, @retentionInDays@, and @storedBytes@ are not
--- included in the response.
 describeLogGroups_includeLinkedAccounts :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Bool)
 describeLogGroups_includeLinkedAccounts = Lens.lens (\DescribeLogGroups' {includeLinkedAccounts} -> includeLinkedAccounts) (\s@DescribeLogGroups' {} a -> s {includeLinkedAccounts = a} :: DescribeLogGroups)
 
@@ -199,6 +194,9 @@ describeLogGroups_limit = Lens.lens (\DescribeLogGroups' {limit} -> limit) (\s@D
 -- case-sensitive substring search. For example, if you specify @Foo@, log
 -- groups named @FooBar@, @aws\/Foo@, and @GroupFoo@ would match, but
 -- @foo@, @F\/o\/o@ and @Froo@ would not match.
+--
+-- If you specify @logGroupNamePattern@ in your request, then only @arn@,
+-- @creationTime@, and @logGroupName@ are included in the response.
 --
 -- @logGroupNamePattern@ and @logGroupNamePrefix@ are mutually exclusive.
 -- Only one of these parameters can be passed.
@@ -222,22 +220,22 @@ instance Core.AWSPager DescribeLogGroups where
     | Core.stop
         ( rs
             Lens.^? describeLogGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLogGroupsResponse_logGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLogGroups_nextToken
           Lens..~ rs
           Lens.^? describeLogGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLogGroups where
   type
@@ -256,7 +254,8 @@ instance Core.AWSRequest DescribeLogGroups where
 
 instance Prelude.Hashable DescribeLogGroups where
   hashWithSalt _salt DescribeLogGroups' {..} =
-    _salt `Prelude.hashWithSalt` accountIdentifiers
+    _salt
+      `Prelude.hashWithSalt` accountIdentifiers
       `Prelude.hashWithSalt` includeLinkedAccounts
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` logGroupNamePattern

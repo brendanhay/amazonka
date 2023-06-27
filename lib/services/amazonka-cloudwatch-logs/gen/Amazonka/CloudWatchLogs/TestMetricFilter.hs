@@ -108,7 +108,8 @@ instance Core.AWSRequest TestMetricFilter where
 
 instance Prelude.Hashable TestMetricFilter where
   hashWithSalt _salt TestMetricFilter' {..} =
-    _salt `Prelude.hashWithSalt` filterPattern
+    _salt
+      `Prelude.hashWithSalt` filterPattern
       `Prelude.hashWithSalt` logEventMessages
 
 instance Prelude.NFData TestMetricFilter where

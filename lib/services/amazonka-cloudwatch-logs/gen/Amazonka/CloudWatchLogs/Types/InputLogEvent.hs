@@ -32,7 +32,7 @@ data InputLogEvent = InputLogEvent'
   { -- | The time the event occurred, expressed as the number of milliseconds
     -- after @Jan 1, 1970 00:00:00 UTC@.
     timestamp :: Prelude.Natural,
-    -- | The raw event message.
+    -- | The raw event message. Each log event can be no larger than 256 KB.
     message :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +48,7 @@ data InputLogEvent = InputLogEvent'
 -- 'timestamp', 'inputLogEvent_timestamp' - The time the event occurred, expressed as the number of milliseconds
 -- after @Jan 1, 1970 00:00:00 UTC@.
 --
--- 'message', 'inputLogEvent_message' - The raw event message.
+-- 'message', 'inputLogEvent_message' - The raw event message. Each log event can be no larger than 256 KB.
 newInputLogEvent ::
   -- | 'timestamp'
   Prelude.Natural ->
@@ -66,13 +66,14 @@ newInputLogEvent pTimestamp_ pMessage_ =
 inputLogEvent_timestamp :: Lens.Lens' InputLogEvent Prelude.Natural
 inputLogEvent_timestamp = Lens.lens (\InputLogEvent' {timestamp} -> timestamp) (\s@InputLogEvent' {} a -> s {timestamp = a} :: InputLogEvent)
 
--- | The raw event message.
+-- | The raw event message. Each log event can be no larger than 256 KB.
 inputLogEvent_message :: Lens.Lens' InputLogEvent Prelude.Text
 inputLogEvent_message = Lens.lens (\InputLogEvent' {message} -> message) (\s@InputLogEvent' {} a -> s {message = a} :: InputLogEvent)
 
 instance Prelude.Hashable InputLogEvent where
   hashWithSalt _salt InputLogEvent' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData InputLogEvent where

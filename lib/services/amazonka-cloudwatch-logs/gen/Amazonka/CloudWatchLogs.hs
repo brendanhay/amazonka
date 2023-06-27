@@ -125,6 +125,12 @@ module Amazonka.CloudWatchLogs
     CreateLogStreamResponse (CreateLogStreamResponse'),
     newCreateLogStreamResponse,
 
+    -- ** DeleteAccountPolicy
+    DeleteAccountPolicy (DeleteAccountPolicy'),
+    newDeleteAccountPolicy,
+    DeleteAccountPolicyResponse (DeleteAccountPolicyResponse'),
+    newDeleteAccountPolicyResponse,
+
     -- ** DeleteDataProtectionPolicy
     DeleteDataProtectionPolicy (DeleteDataProtectionPolicy'),
     newDeleteDataProtectionPolicy,
@@ -178,6 +184,12 @@ module Amazonka.CloudWatchLogs
     newDeleteSubscriptionFilter,
     DeleteSubscriptionFilterResponse (DeleteSubscriptionFilterResponse'),
     newDeleteSubscriptionFilterResponse,
+
+    -- ** DescribeAccountPolicies
+    DescribeAccountPolicies (DescribeAccountPolicies'),
+    newDescribeAccountPolicies,
+    DescribeAccountPoliciesResponse (DescribeAccountPoliciesResponse'),
+    newDescribeAccountPoliciesResponse,
 
     -- ** DescribeDestinations (Paginated)
     DescribeDestinations (DescribeDestinations'),
@@ -281,6 +293,12 @@ module Amazonka.CloudWatchLogs
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** PutAccountPolicy
+    PutAccountPolicy (PutAccountPolicy'),
+    newPutAccountPolicy,
+    PutAccountPolicyResponse (PutAccountPolicyResponse'),
+    newPutAccountPolicyResponse,
+
     -- ** PutDataProtectionPolicy
     PutDataProtectionPolicy (PutDataProtectionPolicy'),
     newPutDataProtectionPolicy,
@@ -376,14 +394,27 @@ module Amazonka.CloudWatchLogs
     -- ** ExportTaskStatusCode
     ExportTaskStatusCode (..),
 
+    -- ** InheritedProperty
+    InheritedProperty (..),
+
     -- ** OrderBy
     OrderBy (..),
+
+    -- ** PolicyType
+    PolicyType (..),
 
     -- ** QueryStatus
     QueryStatus (..),
 
+    -- ** Scope
+    Scope (..),
+
     -- ** StandardUnit
     StandardUnit (..),
+
+    -- ** AccountPolicy
+    AccountPolicy (AccountPolicy'),
+    newAccountPolicy,
 
     -- ** Destination
     Destination (Destination'),
@@ -476,6 +507,7 @@ import Amazonka.CloudWatchLogs.CancelExportTask
 import Amazonka.CloudWatchLogs.CreateExportTask
 import Amazonka.CloudWatchLogs.CreateLogGroup
 import Amazonka.CloudWatchLogs.CreateLogStream
+import Amazonka.CloudWatchLogs.DeleteAccountPolicy
 import Amazonka.CloudWatchLogs.DeleteDataProtectionPolicy
 import Amazonka.CloudWatchLogs.DeleteDestination
 import Amazonka.CloudWatchLogs.DeleteLogGroup
@@ -485,6 +517,7 @@ import Amazonka.CloudWatchLogs.DeleteQueryDefinition
 import Amazonka.CloudWatchLogs.DeleteResourcePolicy
 import Amazonka.CloudWatchLogs.DeleteRetentionPolicy
 import Amazonka.CloudWatchLogs.DeleteSubscriptionFilter
+import Amazonka.CloudWatchLogs.DescribeAccountPolicies
 import Amazonka.CloudWatchLogs.DescribeDestinations
 import Amazonka.CloudWatchLogs.DescribeExportTasks
 import Amazonka.CloudWatchLogs.DescribeLogGroups
@@ -503,6 +536,7 @@ import Amazonka.CloudWatchLogs.GetLogRecord
 import Amazonka.CloudWatchLogs.GetQueryResults
 import Amazonka.CloudWatchLogs.Lens
 import Amazonka.CloudWatchLogs.ListTagsForResource
+import Amazonka.CloudWatchLogs.PutAccountPolicy
 import Amazonka.CloudWatchLogs.PutDataProtectionPolicy
 import Amazonka.CloudWatchLogs.PutDestination
 import Amazonka.CloudWatchLogs.PutDestinationPolicy

@@ -86,7 +86,8 @@ instance Data.FromJSON QueryStatistics where
 
 instance Prelude.Hashable QueryStatistics where
   hashWithSalt _salt QueryStatistics' {..} =
-    _salt `Prelude.hashWithSalt` bytesScanned
+    _salt
+      `Prelude.hashWithSalt` bytesScanned
       `Prelude.hashWithSalt` recordsMatched
       `Prelude.hashWithSalt` recordsScanned
 

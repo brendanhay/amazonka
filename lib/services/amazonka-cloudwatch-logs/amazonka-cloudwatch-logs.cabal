@@ -49,6 +49,7 @@ library
     Amazonka.CloudWatchLogs.CreateExportTask
     Amazonka.CloudWatchLogs.CreateLogGroup
     Amazonka.CloudWatchLogs.CreateLogStream
+    Amazonka.CloudWatchLogs.DeleteAccountPolicy
     Amazonka.CloudWatchLogs.DeleteDataProtectionPolicy
     Amazonka.CloudWatchLogs.DeleteDestination
     Amazonka.CloudWatchLogs.DeleteLogGroup
@@ -58,6 +59,7 @@ library
     Amazonka.CloudWatchLogs.DeleteResourcePolicy
     Amazonka.CloudWatchLogs.DeleteRetentionPolicy
     Amazonka.CloudWatchLogs.DeleteSubscriptionFilter
+    Amazonka.CloudWatchLogs.DescribeAccountPolicies
     Amazonka.CloudWatchLogs.DescribeDestinations
     Amazonka.CloudWatchLogs.DescribeExportTasks
     Amazonka.CloudWatchLogs.DescribeLogGroups
@@ -76,6 +78,7 @@ library
     Amazonka.CloudWatchLogs.GetQueryResults
     Amazonka.CloudWatchLogs.Lens
     Amazonka.CloudWatchLogs.ListTagsForResource
+    Amazonka.CloudWatchLogs.PutAccountPolicy
     Amazonka.CloudWatchLogs.PutDataProtectionPolicy
     Amazonka.CloudWatchLogs.PutDestination
     Amazonka.CloudWatchLogs.PutDestinationPolicy
@@ -90,6 +93,7 @@ library
     Amazonka.CloudWatchLogs.TagResource
     Amazonka.CloudWatchLogs.TestMetricFilter
     Amazonka.CloudWatchLogs.Types
+    Amazonka.CloudWatchLogs.Types.AccountPolicy
     Amazonka.CloudWatchLogs.Types.DataProtectionStatus
     Amazonka.CloudWatchLogs.Types.Destination
     Amazonka.CloudWatchLogs.Types.Distribution
@@ -98,6 +102,7 @@ library
     Amazonka.CloudWatchLogs.Types.ExportTaskStatus
     Amazonka.CloudWatchLogs.Types.ExportTaskStatusCode
     Amazonka.CloudWatchLogs.Types.FilteredLogEvent
+    Amazonka.CloudWatchLogs.Types.InheritedProperty
     Amazonka.CloudWatchLogs.Types.InputLogEvent
     Amazonka.CloudWatchLogs.Types.LogGroup
     Amazonka.CloudWatchLogs.Types.LogGroupField
@@ -107,6 +112,7 @@ library
     Amazonka.CloudWatchLogs.Types.MetricTransformation
     Amazonka.CloudWatchLogs.Types.OrderBy
     Amazonka.CloudWatchLogs.Types.OutputLogEvent
+    Amazonka.CloudWatchLogs.Types.PolicyType
     Amazonka.CloudWatchLogs.Types.QueryDefinition
     Amazonka.CloudWatchLogs.Types.QueryInfo
     Amazonka.CloudWatchLogs.Types.QueryStatistics
@@ -114,6 +120,7 @@ library
     Amazonka.CloudWatchLogs.Types.RejectedLogEventsInfo
     Amazonka.CloudWatchLogs.Types.ResourcePolicy
     Amazonka.CloudWatchLogs.Types.ResultField
+    Amazonka.CloudWatchLogs.Types.Scope
     Amazonka.CloudWatchLogs.Types.SearchedLogStream
     Amazonka.CloudWatchLogs.Types.StandardUnit
     Amazonka.CloudWatchLogs.Types.SubscriptionFilter

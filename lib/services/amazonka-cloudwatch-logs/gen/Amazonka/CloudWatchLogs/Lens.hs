@@ -41,6 +41,10 @@ module Amazonka.CloudWatchLogs.Lens
     createLogStream_logGroupName,
     createLogStream_logStreamName,
 
+    -- ** DeleteAccountPolicy
+    deleteAccountPolicy_policyName,
+    deleteAccountPolicy_policyType,
+
     -- ** DeleteDataProtectionPolicy
     deleteDataProtectionPolicy_logGroupIdentifier,
 
@@ -72,6 +76,13 @@ module Amazonka.CloudWatchLogs.Lens
     -- ** DeleteSubscriptionFilter
     deleteSubscriptionFilter_logGroupName,
     deleteSubscriptionFilter_filterName,
+
+    -- ** DescribeAccountPolicies
+    describeAccountPolicies_accountIdentifiers,
+    describeAccountPolicies_policyName,
+    describeAccountPolicies_policyType,
+    describeAccountPoliciesResponse_accountPolicies,
+    describeAccountPoliciesResponse_httpStatus,
 
     -- ** DescribeDestinations
     describeDestinations_destinationNamePrefix,
@@ -105,10 +116,10 @@ module Amazonka.CloudWatchLogs.Lens
     describeLogStreams_descending,
     describeLogStreams_limit,
     describeLogStreams_logGroupIdentifier,
+    describeLogStreams_logGroupName,
     describeLogStreams_logStreamNamePrefix,
     describeLogStreams_nextToken,
     describeLogStreams_orderBy,
-    describeLogStreams_logGroupName,
     describeLogStreamsResponse_logStreams,
     describeLogStreamsResponse_nextToken,
     describeLogStreamsResponse_httpStatus,
@@ -166,12 +177,12 @@ module Amazonka.CloudWatchLogs.Lens
     filterLogEvents_interleaved,
     filterLogEvents_limit,
     filterLogEvents_logGroupIdentifier,
+    filterLogEvents_logGroupName,
     filterLogEvents_logStreamNamePrefix,
     filterLogEvents_logStreamNames,
     filterLogEvents_nextToken,
     filterLogEvents_startTime,
     filterLogEvents_unmask,
-    filterLogEvents_logGroupName,
     filterLogEventsResponse_events,
     filterLogEventsResponse_nextToken,
     filterLogEventsResponse_searchedLogStreams,
@@ -188,11 +199,11 @@ module Amazonka.CloudWatchLogs.Lens
     getLogEvents_endTime,
     getLogEvents_limit,
     getLogEvents_logGroupIdentifier,
+    getLogEvents_logGroupName,
     getLogEvents_nextToken,
     getLogEvents_startFromHead,
     getLogEvents_startTime,
     getLogEvents_unmask,
-    getLogEvents_logGroupName,
     getLogEvents_logStreamName,
     getLogEventsResponse_events,
     getLogEventsResponse_nextBackwardToken,
@@ -201,8 +212,8 @@ module Amazonka.CloudWatchLogs.Lens
 
     -- ** GetLogGroupFields
     getLogGroupFields_logGroupIdentifier,
-    getLogGroupFields_time,
     getLogGroupFields_logGroupName,
+    getLogGroupFields_time,
     getLogGroupFieldsResponse_logGroupFields,
     getLogGroupFieldsResponse_httpStatus,
 
@@ -223,6 +234,14 @@ module Amazonka.CloudWatchLogs.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** PutAccountPolicy
+    putAccountPolicy_scope,
+    putAccountPolicy_policyName,
+    putAccountPolicy_policyDocument,
+    putAccountPolicy_policyType,
+    putAccountPolicyResponse_accountPolicy,
+    putAccountPolicyResponse_httpStatus,
 
     -- ** PutDataProtectionPolicy
     putDataProtectionPolicy_logGroupIdentifier,
@@ -318,6 +337,14 @@ module Amazonka.CloudWatchLogs.Lens
 
     -- * Types
 
+    -- ** AccountPolicy
+    accountPolicy_accountId,
+    accountPolicy_lastUpdatedTime,
+    accountPolicy_policyDocument,
+    accountPolicy_policyName,
+    accountPolicy_policyType,
+    accountPolicy_scope,
+
     -- ** Destination
     destination_accessPolicy,
     destination_arn,
@@ -360,6 +387,7 @@ module Amazonka.CloudWatchLogs.Lens
     logGroup_arn,
     logGroup_creationTime,
     logGroup_dataProtectionStatus,
+    logGroup_inheritedProperties,
     logGroup_kmsKeyId,
     logGroup_logGroupName,
     logGroup_metricFilterCount,
@@ -458,6 +486,7 @@ import Amazonka.CloudWatchLogs.CancelExportTask
 import Amazonka.CloudWatchLogs.CreateExportTask
 import Amazonka.CloudWatchLogs.CreateLogGroup
 import Amazonka.CloudWatchLogs.CreateLogStream
+import Amazonka.CloudWatchLogs.DeleteAccountPolicy
 import Amazonka.CloudWatchLogs.DeleteDataProtectionPolicy
 import Amazonka.CloudWatchLogs.DeleteDestination
 import Amazonka.CloudWatchLogs.DeleteLogGroup
@@ -467,6 +496,7 @@ import Amazonka.CloudWatchLogs.DeleteQueryDefinition
 import Amazonka.CloudWatchLogs.DeleteResourcePolicy
 import Amazonka.CloudWatchLogs.DeleteRetentionPolicy
 import Amazonka.CloudWatchLogs.DeleteSubscriptionFilter
+import Amazonka.CloudWatchLogs.DescribeAccountPolicies
 import Amazonka.CloudWatchLogs.DescribeDestinations
 import Amazonka.CloudWatchLogs.DescribeExportTasks
 import Amazonka.CloudWatchLogs.DescribeLogGroups
@@ -484,6 +514,7 @@ import Amazonka.CloudWatchLogs.GetLogGroupFields
 import Amazonka.CloudWatchLogs.GetLogRecord
 import Amazonka.CloudWatchLogs.GetQueryResults
 import Amazonka.CloudWatchLogs.ListTagsForResource
+import Amazonka.CloudWatchLogs.PutAccountPolicy
 import Amazonka.CloudWatchLogs.PutDataProtectionPolicy
 import Amazonka.CloudWatchLogs.PutDestination
 import Amazonka.CloudWatchLogs.PutDestinationPolicy
@@ -497,6 +528,7 @@ import Amazonka.CloudWatchLogs.StartQuery
 import Amazonka.CloudWatchLogs.StopQuery
 import Amazonka.CloudWatchLogs.TagResource
 import Amazonka.CloudWatchLogs.TestMetricFilter
+import Amazonka.CloudWatchLogs.Types.AccountPolicy
 import Amazonka.CloudWatchLogs.Types.Destination
 import Amazonka.CloudWatchLogs.Types.ExportTask
 import Amazonka.CloudWatchLogs.Types.ExportTaskExecutionInfo

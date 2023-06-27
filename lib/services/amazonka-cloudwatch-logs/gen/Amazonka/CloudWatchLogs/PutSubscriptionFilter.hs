@@ -46,8 +46,9 @@
 -- it. If you are updating an existing filter, you must specify the correct
 -- name in @filterName@.
 --
--- To perform a @PutSubscriptionFilter@ operation, you must also have the
--- @iam:PassRole@ permission.
+-- To perform a @PutSubscriptionFilter@ operation for any destination
+-- except a Lambda function, you must also have the @iam:PassRole@
+-- permission.
 module Amazonka.CloudWatchLogs.PutSubscriptionFilter
   ( -- * Creating a Request
     PutSubscriptionFilter (..),
@@ -255,7 +256,8 @@ instance Core.AWSRequest PutSubscriptionFilter where
 
 instance Prelude.Hashable PutSubscriptionFilter where
   hashWithSalt _salt PutSubscriptionFilter' {..} =
-    _salt `Prelude.hashWithSalt` distribution
+    _salt
+      `Prelude.hashWithSalt` distribution
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` filterName

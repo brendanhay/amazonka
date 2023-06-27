@@ -81,7 +81,8 @@ instance Data.FromJSON BorrowConfiguration where
 
 instance Prelude.Hashable BorrowConfiguration where
   hashWithSalt _salt BorrowConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` allowEarlyCheckIn
+    _salt
+      `Prelude.hashWithSalt` allowEarlyCheckIn
       `Prelude.hashWithSalt` maxTimeToLiveInMinutes
 
 instance Prelude.NFData BorrowConfiguration where

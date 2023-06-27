@@ -176,7 +176,8 @@ instance Core.AWSRequest UpdateLicenseConfiguration where
 
 instance Prelude.Hashable UpdateLicenseConfiguration where
   hashWithSalt _salt UpdateLicenseConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disassociateWhenNotFound
       `Prelude.hashWithSalt` licenseConfigurationStatus
       `Prelude.hashWithSalt` licenseCount

@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists grants that are received but not accepted.
+-- Lists grants that are received. Received grants are grants created while
+-- specifying the recipient as this Amazon Web Services account, your
+-- organization, or an organizational unit (OU) to which this member
+-- account belongs.
 module Amazonka.LicenseManager.ListReceivedGrants
   ( -- * Creating a Request
     ListReceivedGrants (..),
@@ -152,7 +155,8 @@ instance Core.AWSRequest ListReceivedGrants where
 
 instance Prelude.Hashable ListReceivedGrants where
   hashWithSalt _salt ListReceivedGrants' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` grantArns
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

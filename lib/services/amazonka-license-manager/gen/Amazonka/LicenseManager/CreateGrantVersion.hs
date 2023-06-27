@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new version of the specified grant.
+-- Creates a new version of the specified grant. For more information, see
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html Granted licenses in License Manager>
+-- in the /License Manager User Guide/.
 module Amazonka.LicenseManager.CreateGrantVersion
   ( -- * Creating a Request
     CreateGrantVersion (..),
@@ -29,6 +31,7 @@ module Amazonka.LicenseManager.CreateGrantVersion
     -- * Request Lenses
     createGrantVersion_allowedOperations,
     createGrantVersion_grantName,
+    createGrantVersion_options,
     createGrantVersion_sourceVersion,
     createGrantVersion_status,
     createGrantVersion_statusReason,
@@ -61,6 +64,8 @@ data CreateGrantVersion = CreateGrantVersion'
     allowedOperations :: Prelude.Maybe (Prelude.NonEmpty AllowedOperation),
     -- | Grant name.
     grantName :: Prelude.Maybe Prelude.Text,
+    -- | The options specified for the grant.
+    options :: Prelude.Maybe Options,
     -- | Current version of the grant.
     sourceVersion :: Prelude.Maybe Prelude.Text,
     -- | Grant status.
@@ -87,6 +92,8 @@ data CreateGrantVersion = CreateGrantVersion'
 --
 -- 'grantName', 'createGrantVersion_grantName' - Grant name.
 --
+-- 'options', 'createGrantVersion_options' - The options specified for the grant.
+--
 -- 'sourceVersion', 'createGrantVersion_sourceVersion' - Current version of the grant.
 --
 -- 'status', 'createGrantVersion_status' - Grant status.
@@ -108,6 +115,7 @@ newCreateGrantVersion pClientToken_ pGrantArn_ =
     { allowedOperations =
         Prelude.Nothing,
       grantName = Prelude.Nothing,
+      options = Prelude.Nothing,
       sourceVersion = Prelude.Nothing,
       status = Prelude.Nothing,
       statusReason = Prelude.Nothing,
@@ -122,6 +130,10 @@ createGrantVersion_allowedOperations = Lens.lens (\CreateGrantVersion' {allowedO
 -- | Grant name.
 createGrantVersion_grantName :: Lens.Lens' CreateGrantVersion (Prelude.Maybe Prelude.Text)
 createGrantVersion_grantName = Lens.lens (\CreateGrantVersion' {grantName} -> grantName) (\s@CreateGrantVersion' {} a -> s {grantName = a} :: CreateGrantVersion)
+
+-- | The options specified for the grant.
+createGrantVersion_options :: Lens.Lens' CreateGrantVersion (Prelude.Maybe Options)
+createGrantVersion_options = Lens.lens (\CreateGrantVersion' {options} -> options) (\s@CreateGrantVersion' {} a -> s {options = a} :: CreateGrantVersion)
 
 -- | Current version of the grant.
 createGrantVersion_sourceVersion :: Lens.Lens' CreateGrantVersion (Prelude.Maybe Prelude.Text)
@@ -162,8 +174,10 @@ instance Core.AWSRequest CreateGrantVersion where
 
 instance Prelude.Hashable CreateGrantVersion where
   hashWithSalt _salt CreateGrantVersion' {..} =
-    _salt `Prelude.hashWithSalt` allowedOperations
+    _salt
+      `Prelude.hashWithSalt` allowedOperations
       `Prelude.hashWithSalt` grantName
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` sourceVersion
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusReason
@@ -174,6 +188,7 @@ instance Prelude.NFData CreateGrantVersion where
   rnf CreateGrantVersion' {..} =
     Prelude.rnf allowedOperations
       `Prelude.seq` Prelude.rnf grantName
+      `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf sourceVersion
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusReason
@@ -202,6 +217,7 @@ instance Data.ToJSON CreateGrantVersion where
           [ ("AllowedOperations" Data..=)
               Prelude.<$> allowedOperations,
             ("GrantName" Data..=) Prelude.<$> grantName,
+            ("Options" Data..=) Prelude.<$> options,
             ("SourceVersion" Data..=) Prelude.<$> sourceVersion,
             ("Status" Data..=) Prelude.<$> status,
             ("StatusReason" Data..=) Prelude.<$> statusReason,

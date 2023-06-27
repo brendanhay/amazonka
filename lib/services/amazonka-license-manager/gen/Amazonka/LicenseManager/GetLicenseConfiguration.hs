@@ -104,7 +104,8 @@ instance Core.AWSRequest GetLicenseConfiguration where
       ( \s h x ->
           GetLicenseConfigurationResponse'
             Prelude.<$> (x Data..?> "AutomatedDiscoveryInformation")
-            Prelude.<*> ( x Data..?> "ConsumedLicenseSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "ConsumedLicenseSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ConsumedLicenses")
@@ -116,12 +117,14 @@ instance Core.AWSRequest GetLicenseConfiguration where
             Prelude.<*> (x Data..?> "LicenseCountHardLimit")
             Prelude.<*> (x Data..?> "LicenseCountingType")
             Prelude.<*> (x Data..?> "LicenseRules" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "ManagedResourceSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "ManagedResourceSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "OwnerAccountId")
-            Prelude.<*> ( x Data..?> "ProductInformationList"
+            Prelude.<*> ( x
+                            Data..?> "ProductInformationList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Status")

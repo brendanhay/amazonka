@@ -76,6 +76,7 @@ module Amazonka.LicenseManager.Lens
     -- ** CreateGrantVersion
     createGrantVersion_allowedOperations,
     createGrantVersion_grantName,
+    createGrantVersion_options,
     createGrantVersion_sourceVersion,
     createGrantVersion_status,
     createGrantVersion_statusReason,
@@ -507,6 +508,7 @@ module Amazonka.LicenseManager.Lens
     filter_values,
 
     -- ** Grant
+    grant_options,
     grant_statusReason,
     grant_grantArn,
     grant_grantName,
@@ -636,6 +638,9 @@ module Amazonka.LicenseManager.Lens
     -- ** Metadata
     metadata_name,
     metadata_value,
+
+    -- ** Options
+    options_activationOverrideBehavior,
 
     -- ** OrganizationConfiguration
     organizationConfiguration_enableIntegration,
@@ -776,6 +781,7 @@ import Amazonka.LicenseManager.Types.LicenseSpecification
 import Amazonka.LicenseManager.Types.LicenseUsage
 import Amazonka.LicenseManager.Types.ManagedResourceSummary
 import Amazonka.LicenseManager.Types.Metadata
+import Amazonka.LicenseManager.Types.Options
 import Amazonka.LicenseManager.Types.OrganizationConfiguration
 import Amazonka.LicenseManager.Types.ProductInformation
 import Amazonka.LicenseManager.Types.ProductInformationFilter

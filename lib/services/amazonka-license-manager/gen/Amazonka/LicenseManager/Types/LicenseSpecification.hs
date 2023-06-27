@@ -77,7 +77,8 @@ instance Data.FromJSON LicenseSpecification where
 
 instance Prelude.Hashable LicenseSpecification where
   hashWithSalt _salt LicenseSpecification' {..} =
-    _salt `Prelude.hashWithSalt` amiAssociationScope
+    _salt
+      `Prelude.hashWithSalt` amiAssociationScope
       `Prelude.hashWithSalt` licenseConfigurationArn
 
 instance Prelude.NFData LicenseSpecification where

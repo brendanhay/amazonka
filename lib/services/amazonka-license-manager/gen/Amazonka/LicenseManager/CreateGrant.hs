@@ -21,7 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a grant for the specified license. A grant shares the use of
--- license entitlements with specific Amazon Web Services accounts.
+-- license entitlements with a specific Amazon Web Services account, an
+-- organization, or an organizational unit (OU). For more information, see
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html Granted licenses in License Manager>
+-- in the /License Manager User Guide/.
 module Amazonka.LicenseManager.CreateGrant
   ( -- * Creating a Request
     CreateGrant (..),
@@ -64,8 +67,16 @@ data CreateGrant = CreateGrant'
     grantName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of the license.
     licenseArn :: Prelude.Text,
-    -- | The grant principals. This value should be specified as an Amazon
-    -- Resource Name (ARN).
+    -- | The grant principals. You can specify one of the following as an Amazon
+    -- Resource Name (ARN):
+    --
+    -- -   An Amazon Web Services account, which includes only the account
+    --     specified.
+    --
+    -- -   An organizational unit (OU), which includes all accounts in the OU.
+    --
+    -- -   An organization, which will include all accounts across your
+    --     organization.
     principals :: Prelude.NonEmpty Prelude.Text,
     -- | Home Region of the grant.
     homeRegion :: Prelude.Text,
@@ -89,8 +100,16 @@ data CreateGrant = CreateGrant'
 --
 -- 'licenseArn', 'createGrant_licenseArn' - Amazon Resource Name (ARN) of the license.
 --
--- 'principals', 'createGrant_principals' - The grant principals. This value should be specified as an Amazon
--- Resource Name (ARN).
+-- 'principals', 'createGrant_principals' - The grant principals. You can specify one of the following as an Amazon
+-- Resource Name (ARN):
+--
+-- -   An Amazon Web Services account, which includes only the account
+--     specified.
+--
+-- -   An organizational unit (OU), which includes all accounts in the OU.
+--
+-- -   An organization, which will include all accounts across your
+--     organization.
 --
 -- 'homeRegion', 'createGrant_homeRegion' - Home Region of the grant.
 --
@@ -139,8 +158,16 @@ createGrant_grantName = Lens.lens (\CreateGrant' {grantName} -> grantName) (\s@C
 createGrant_licenseArn :: Lens.Lens' CreateGrant Prelude.Text
 createGrant_licenseArn = Lens.lens (\CreateGrant' {licenseArn} -> licenseArn) (\s@CreateGrant' {} a -> s {licenseArn = a} :: CreateGrant)
 
--- | The grant principals. This value should be specified as an Amazon
--- Resource Name (ARN).
+-- | The grant principals. You can specify one of the following as an Amazon
+-- Resource Name (ARN):
+--
+-- -   An Amazon Web Services account, which includes only the account
+--     specified.
+--
+-- -   An organizational unit (OU), which includes all accounts in the OU.
+--
+-- -   An organization, which will include all accounts across your
+--     organization.
 createGrant_principals :: Lens.Lens' CreateGrant (Prelude.NonEmpty Prelude.Text)
 createGrant_principals = Lens.lens (\CreateGrant' {principals} -> principals) (\s@CreateGrant' {} a -> s {principals = a} :: CreateGrant) Prelude.. Lens.coerced
 
@@ -168,7 +195,8 @@ instance Core.AWSRequest CreateGrant where
 
 instance Prelude.Hashable CreateGrant where
   hashWithSalt _salt CreateGrant' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` grantName
       `Prelude.hashWithSalt` licenseArn
       `Prelude.hashWithSalt` principals

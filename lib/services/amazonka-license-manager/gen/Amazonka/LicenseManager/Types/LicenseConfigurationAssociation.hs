@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     LicenseConfigurationAssociation' {..} =
-      _salt `Prelude.hashWithSalt` amiAssociationScope
+      _salt
+        `Prelude.hashWithSalt` amiAssociationScope
         `Prelude.hashWithSalt` associationTime
         `Prelude.hashWithSalt` resourceArn
         `Prelude.hashWithSalt` resourceOwnerId

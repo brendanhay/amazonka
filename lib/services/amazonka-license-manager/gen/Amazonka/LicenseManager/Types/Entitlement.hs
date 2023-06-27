@@ -119,7 +119,8 @@ instance Data.FromJSON Entitlement where
 
 instance Prelude.Hashable Entitlement where
   hashWithSalt _salt Entitlement' {..} =
-    _salt `Prelude.hashWithSalt` allowCheckIn
+    _salt
+      `Prelude.hashWithSalt` allowCheckIn
       `Prelude.hashWithSalt` maxCount
       `Prelude.hashWithSalt` overage
       `Prelude.hashWithSalt` value

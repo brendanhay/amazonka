@@ -24,13 +24,16 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.AllowedOperation
 import Amazonka.LicenseManager.Types.GrantStatus
+import Amazonka.LicenseManager.Types.Options
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a grant.
 --
 -- /See:/ 'newGrant' smart constructor.
 data Grant = Grant'
-  { -- | Grant status reason.
+  { -- | The options specified for the grant.
+    options :: Prelude.Maybe Options,
+    -- | Grant status reason.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the grant.
     grantArn :: Prelude.Text,
@@ -60,6 +63,8 @@ data Grant = Grant'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'options', 'grant_options' - The options specified for the grant.
 --
 -- 'statusReason', 'grant_statusReason' - Grant status reason.
 --
@@ -111,7 +116,8 @@ newGrant
   pVersion_
   pGrantedOperations_ =
     Grant'
-      { statusReason = Prelude.Nothing,
+      { options = Prelude.Nothing,
+        statusReason = Prelude.Nothing,
         grantArn = pGrantArn_,
         grantName = pGrantName_,
         parentArn = pParentArn_,
@@ -123,6 +129,10 @@ newGrant
         grantedOperations =
           Lens.coerced Lens.# pGrantedOperations_
       }
+
+-- | The options specified for the grant.
+grant_options :: Lens.Lens' Grant (Prelude.Maybe Options)
+grant_options = Lens.lens (\Grant' {options} -> options) (\s@Grant' {} a -> s {options = a} :: Grant)
 
 -- | Grant status reason.
 grant_statusReason :: Lens.Lens' Grant (Prelude.Maybe Prelude.Text)
@@ -170,7 +180,8 @@ instance Data.FromJSON Grant where
       "Grant"
       ( \x ->
           Grant'
-            Prelude.<$> (x Data..:? "StatusReason")
+            Prelude.<$> (x Data..:? "Options")
+            Prelude.<*> (x Data..:? "StatusReason")
             Prelude.<*> (x Data..: "GrantArn")
             Prelude.<*> (x Data..: "GrantName")
             Prelude.<*> (x Data..: "ParentArn")
@@ -184,7 +195,9 @@ instance Data.FromJSON Grant where
 
 instance Prelude.Hashable Grant where
   hashWithSalt _salt Grant' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
+    _salt
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` grantArn
       `Prelude.hashWithSalt` grantName
       `Prelude.hashWithSalt` parentArn
@@ -197,7 +210,8 @@ instance Prelude.Hashable Grant where
 
 instance Prelude.NFData Grant where
   rnf Grant' {..} =
-    Prelude.rnf statusReason
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf grantArn
       `Prelude.seq` Prelude.rnf grantName
       `Prelude.seq` Prelude.rnf parentArn

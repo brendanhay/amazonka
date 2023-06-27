@@ -379,6 +379,9 @@ module Amazonka.LicenseManager
 
     -- * Types
 
+    -- ** ActivationOverrideBehavior
+    ActivationOverrideBehavior (..),
+
     -- ** AllowedOperation
     AllowedOperation (..),
 
@@ -532,6 +535,10 @@ module Amazonka.LicenseManager
     -- ** Metadata
     Metadata (Metadata'),
     newMetadata,
+
+    -- ** Options
+    Options (Options'),
+    newOptions,
 
     -- ** OrganizationConfiguration
     OrganizationConfiguration (OrganizationConfiguration'),

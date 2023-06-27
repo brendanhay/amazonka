@@ -228,14 +228,16 @@ instance Data.FromJSON ProductInformation where
       ( \x ->
           ProductInformation'
             Prelude.<$> (x Data..: "ResourceType")
-            Prelude.<*> ( x Data..:? "ProductInformationFilterList"
+            Prelude.<*> ( x
+                            Data..:? "ProductInformationFilterList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ProductInformation where
   hashWithSalt _salt ProductInformation' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` productInformationFilterList
 
 instance Prelude.NFData ProductInformation where

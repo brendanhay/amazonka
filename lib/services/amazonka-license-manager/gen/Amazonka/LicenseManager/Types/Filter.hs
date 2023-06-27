@@ -32,7 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data Filter = Filter'
   { -- | Name of the filter. Filter names are case-sensitive.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Filter values. Filter values are case-sensitive.
+    -- | The value of the filter, which is case-sensitive. You can only specify
+    -- one value for the filter.
     values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +48,8 @@ data Filter = Filter'
 --
 -- 'name', 'filter_name' - Name of the filter. Filter names are case-sensitive.
 --
--- 'values', 'filter_values' - Filter values. Filter values are case-sensitive.
+-- 'values', 'filter_values' - The value of the filter, which is case-sensitive. You can only specify
+-- one value for the filter.
 newFilter ::
   Filter
 newFilter =
@@ -60,13 +62,15 @@ newFilter =
 filter_name :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
--- | Filter values. Filter values are case-sensitive.
+-- | The value of the filter, which is case-sensitive. You can only specify
+-- one value for the filter.
 filter_values :: Lens.Lens' Filter (Prelude.Maybe [Prelude.Text])
 filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Filter where

@@ -186,7 +186,7 @@ instance
       ( \s h x ->
           CreateLicenseManagerReportGeneratorResponse'
             Prelude.<$> (x Data..?> "LicenseManagerReportGeneratorArn")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -196,7 +196,8 @@ instance
   hashWithSalt
     _salt
     CreateLicenseManagerReportGenerator' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` reportGeneratorName
         `Prelude.hashWithSalt` type'

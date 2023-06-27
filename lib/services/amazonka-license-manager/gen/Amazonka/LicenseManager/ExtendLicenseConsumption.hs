@@ -111,7 +111,8 @@ instance Core.AWSRequest ExtendLicenseConsumption where
 
 instance Prelude.Hashable ExtendLicenseConsumption where
   hashWithSalt _salt ExtendLicenseConsumption' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` licenseConsumptionToken
 
 instance Prelude.NFData ExtendLicenseConsumption where

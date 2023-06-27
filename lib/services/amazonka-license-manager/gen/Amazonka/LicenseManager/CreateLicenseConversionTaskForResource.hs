@@ -56,12 +56,12 @@ data CreateLicenseConversionTaskForResource = CreateLicenseConversionTaskForReso
     resourceArn :: Prelude.Text,
     -- | Information that identifies the license type you are converting from.
     -- For the structure of the source license, see
-    -- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
+    -- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the CLI>
     -- in the /License Manager User Guide/.
     sourceLicenseContext :: LicenseConversionContext,
     -- | Information that identifies the license type you are converting to. For
     -- the structure of the destination license, see
-    -- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
+    -- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the CLI>
     -- in the /License Manager User Guide/.
     destinationLicenseContext :: LicenseConversionContext
   }
@@ -80,12 +80,12 @@ data CreateLicenseConversionTaskForResource = CreateLicenseConversionTaskForReso
 --
 -- 'sourceLicenseContext', 'createLicenseConversionTaskForResource_sourceLicenseContext' - Information that identifies the license type you are converting from.
 -- For the structure of the source license, see
--- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the CLI>
 -- in the /License Manager User Guide/.
 --
 -- 'destinationLicenseContext', 'createLicenseConversionTaskForResource_destinationLicenseContext' - Information that identifies the license type you are converting to. For
 -- the structure of the destination license, see
--- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the CLI>
 -- in the /License Manager User Guide/.
 newCreateLicenseConversionTaskForResource ::
   -- | 'resourceArn'
@@ -115,14 +115,14 @@ createLicenseConversionTaskForResource_resourceArn = Lens.lens (\CreateLicenseCo
 
 -- | Information that identifies the license type you are converting from.
 -- For the structure of the source license, see
--- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the CLI>
 -- in the /License Manager User Guide/.
 createLicenseConversionTaskForResource_sourceLicenseContext :: Lens.Lens' CreateLicenseConversionTaskForResource LicenseConversionContext
 createLicenseConversionTaskForResource_sourceLicenseContext = Lens.lens (\CreateLicenseConversionTaskForResource' {sourceLicenseContext} -> sourceLicenseContext) (\s@CreateLicenseConversionTaskForResource' {} a -> s {sourceLicenseContext = a} :: CreateLicenseConversionTaskForResource)
 
 -- | Information that identifies the license type you are converting to. For
 -- the structure of the destination license, see
--- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the Amazon Web Services CLI>
+-- <https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli Convert a license type using the CLI>
 -- in the /License Manager User Guide/.
 createLicenseConversionTaskForResource_destinationLicenseContext :: Lens.Lens' CreateLicenseConversionTaskForResource LicenseConversionContext
 createLicenseConversionTaskForResource_destinationLicenseContext = Lens.lens (\CreateLicenseConversionTaskForResource' {destinationLicenseContext} -> destinationLicenseContext) (\s@CreateLicenseConversionTaskForResource' {} a -> s {destinationLicenseContext = a} :: CreateLicenseConversionTaskForResource)
@@ -142,7 +142,7 @@ instance
       ( \s h x ->
           CreateLicenseConversionTaskForResourceResponse'
             Prelude.<$> (x Data..?> "LicenseConversionTaskId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     CreateLicenseConversionTaskForResource' {..} =
-      _salt `Prelude.hashWithSalt` resourceArn
+      _salt
+        `Prelude.hashWithSalt` resourceArn
         `Prelude.hashWithSalt` sourceLicenseContext
         `Prelude.hashWithSalt` destinationLicenseContext
 

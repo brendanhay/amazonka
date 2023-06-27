@@ -126,7 +126,8 @@ instance Core.AWSRequest ListTokens where
 
 instance Prelude.Hashable ListTokens where
   hashWithSalt _salt ListTokens' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` tokenIds

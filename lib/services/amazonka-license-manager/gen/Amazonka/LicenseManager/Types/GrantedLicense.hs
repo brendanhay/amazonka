@@ -202,7 +202,8 @@ instance Data.FromJSON GrantedLicense where
             Prelude.<*> (x Data..:? "HomeRegion")
             Prelude.<*> (x Data..:? "Issuer")
             Prelude.<*> (x Data..:? "LicenseArn")
-            Prelude.<*> ( x Data..:? "LicenseMetadata"
+            Prelude.<*> ( x
+                            Data..:? "LicenseMetadata"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LicenseName")
@@ -216,7 +217,8 @@ instance Data.FromJSON GrantedLicense where
 
 instance Prelude.Hashable GrantedLicense where
   hashWithSalt _salt GrantedLicense' {..} =
-    _salt `Prelude.hashWithSalt` beneficiary
+    _salt
+      `Prelude.hashWithSalt` beneficiary
       `Prelude.hashWithSalt` consumptionConfiguration
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` entitlements

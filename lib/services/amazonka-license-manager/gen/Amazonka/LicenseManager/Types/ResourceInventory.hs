@@ -115,7 +115,8 @@ instance Data.FromJSON ResourceInventory where
 
 instance Prelude.Hashable ResourceInventory where
   hashWithSalt _salt ResourceInventory' {..} =
-    _salt `Prelude.hashWithSalt` platform
+    _salt
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` platformVersion
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` resourceId

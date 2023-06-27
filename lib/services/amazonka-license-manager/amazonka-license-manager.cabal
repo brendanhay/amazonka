@@ -91,6 +91,7 @@ library
     Amazonka.LicenseManager.RejectGrant
     Amazonka.LicenseManager.TagResource
     Amazonka.LicenseManager.Types
+    Amazonka.LicenseManager.Types.ActivationOverrideBehavior
     Amazonka.LicenseManager.Types.AllowedOperation
     Amazonka.LicenseManager.Types.AutomatedDiscoveryInformation
     Amazonka.LicenseManager.Types.BorrowConfiguration
@@ -128,6 +129,7 @@ library
     Amazonka.LicenseManager.Types.LicenseUsage
     Amazonka.LicenseManager.Types.ManagedResourceSummary
     Amazonka.LicenseManager.Types.Metadata
+    Amazonka.LicenseManager.Types.Options
     Amazonka.LicenseManager.Types.OrganizationConfiguration
     Amazonka.LicenseManager.Types.ProductInformation
     Amazonka.LicenseManager.Types.ProductInformationFilter

@@ -103,7 +103,8 @@ instance Core.AWSRequest GetAccessToken where
 
 instance Prelude.Hashable GetAccessToken where
   hashWithSalt _salt GetAccessToken' {..} =
-    _salt `Prelude.hashWithSalt` tokenProperties
+    _salt
+      `Prelude.hashWithSalt` tokenProperties
       `Prelude.hashWithSalt` token
 
 instance Prelude.NFData GetAccessToken where

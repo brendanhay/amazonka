@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteLicense where
 
 instance Prelude.Hashable DeleteLicense where
   hashWithSalt _salt DeleteLicense' {..} =
-    _salt `Prelude.hashWithSalt` licenseArn
+    _salt
+      `Prelude.hashWithSalt` licenseArn
       `Prelude.hashWithSalt` sourceVersion
 
 instance Prelude.NFData DeleteLicense where

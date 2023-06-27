@@ -45,20 +45,76 @@ library
   exposed-modules:
     Amazonka.FinSpace
     Amazonka.FinSpace.CreateEnvironment
+    Amazonka.FinSpace.CreateKxChangeset
+    Amazonka.FinSpace.CreateKxCluster
+    Amazonka.FinSpace.CreateKxDatabase
+    Amazonka.FinSpace.CreateKxEnvironment
+    Amazonka.FinSpace.CreateKxUser
     Amazonka.FinSpace.DeleteEnvironment
+    Amazonka.FinSpace.DeleteKxCluster
+    Amazonka.FinSpace.DeleteKxDatabase
+    Amazonka.FinSpace.DeleteKxEnvironment
+    Amazonka.FinSpace.DeleteKxUser
     Amazonka.FinSpace.GetEnvironment
+    Amazonka.FinSpace.GetKxChangeset
+    Amazonka.FinSpace.GetKxCluster
+    Amazonka.FinSpace.GetKxConnectionString
+    Amazonka.FinSpace.GetKxDatabase
+    Amazonka.FinSpace.GetKxEnvironment
+    Amazonka.FinSpace.GetKxUser
     Amazonka.FinSpace.Lens
     Amazonka.FinSpace.ListEnvironments
+    Amazonka.FinSpace.ListKxChangesets
+    Amazonka.FinSpace.ListKxClusterNodes
+    Amazonka.FinSpace.ListKxClusters
+    Amazonka.FinSpace.ListKxDatabases
+    Amazonka.FinSpace.ListKxEnvironments
+    Amazonka.FinSpace.ListKxUsers
     Amazonka.FinSpace.ListTagsForResource
     Amazonka.FinSpace.TagResource
     Amazonka.FinSpace.Types
+    Amazonka.FinSpace.Types.AutoScalingConfiguration
+    Amazonka.FinSpace.Types.AutoScalingMetric
+    Amazonka.FinSpace.Types.CapacityConfiguration
+    Amazonka.FinSpace.Types.ChangeRequest
+    Amazonka.FinSpace.Types.ChangesetStatus
+    Amazonka.FinSpace.Types.ChangeType
+    Amazonka.FinSpace.Types.CodeConfiguration
+    Amazonka.FinSpace.Types.CustomDNSServer
+    Amazonka.FinSpace.Types.DnsStatus
     Amazonka.FinSpace.Types.Environment
     Amazonka.FinSpace.Types.EnvironmentStatus
+    Amazonka.FinSpace.Types.ErrorDetails
+    Amazonka.FinSpace.Types.ErrorInfo
     Amazonka.FinSpace.Types.FederationMode
     Amazonka.FinSpace.Types.FederationParameters
+    Amazonka.FinSpace.Types.IPAddressType
+    Amazonka.FinSpace.Types.KxAzMode
+    Amazonka.FinSpace.Types.KxCacheStorageConfiguration
+    Amazonka.FinSpace.Types.KxChangesetListEntry
+    Amazonka.FinSpace.Types.KxCluster
+    Amazonka.FinSpace.Types.KxClusterStatus
+    Amazonka.FinSpace.Types.KxClusterType
+    Amazonka.FinSpace.Types.KxCommandLineArgument
+    Amazonka.FinSpace.Types.KxDatabaseCacheConfiguration
+    Amazonka.FinSpace.Types.KxDatabaseConfiguration
+    Amazonka.FinSpace.Types.KxDatabaseListEntry
+    Amazonka.FinSpace.Types.KxEnvironment
+    Amazonka.FinSpace.Types.KxNode
+    Amazonka.FinSpace.Types.KxSavedownStorageConfiguration
+    Amazonka.FinSpace.Types.KxSavedownStorageType
+    Amazonka.FinSpace.Types.KxUser
     Amazonka.FinSpace.Types.SuperuserParameters
+    Amazonka.FinSpace.Types.TgwStatus
+    Amazonka.FinSpace.Types.TransitGatewayConfiguration
+    Amazonka.FinSpace.Types.VpcConfiguration
     Amazonka.FinSpace.UntagResource
     Amazonka.FinSpace.UpdateEnvironment
+    Amazonka.FinSpace.UpdateKxClusterDatabases
+    Amazonka.FinSpace.UpdateKxDatabase
+    Amazonka.FinSpace.UpdateKxEnvironment
+    Amazonka.FinSpace.UpdateKxEnvironmentNetwork
+    Amazonka.FinSpace.UpdateKxUser
     Amazonka.FinSpace.Waiters
 
   build-depends:

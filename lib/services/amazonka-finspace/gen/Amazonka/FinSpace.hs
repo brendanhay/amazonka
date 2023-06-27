@@ -23,6 +23,9 @@ module Amazonka.FinSpace
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
@@ -31,6 +34,9 @@ module Amazonka.FinSpace
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -56,11 +62,65 @@ module Amazonka.FinSpace
     CreateEnvironmentResponse (CreateEnvironmentResponse'),
     newCreateEnvironmentResponse,
 
+    -- ** CreateKxChangeset
+    CreateKxChangeset (CreateKxChangeset'),
+    newCreateKxChangeset,
+    CreateKxChangesetResponse (CreateKxChangesetResponse'),
+    newCreateKxChangesetResponse,
+
+    -- ** CreateKxCluster
+    CreateKxCluster (CreateKxCluster'),
+    newCreateKxCluster,
+    CreateKxClusterResponse (CreateKxClusterResponse'),
+    newCreateKxClusterResponse,
+
+    -- ** CreateKxDatabase
+    CreateKxDatabase (CreateKxDatabase'),
+    newCreateKxDatabase,
+    CreateKxDatabaseResponse (CreateKxDatabaseResponse'),
+    newCreateKxDatabaseResponse,
+
+    -- ** CreateKxEnvironment
+    CreateKxEnvironment (CreateKxEnvironment'),
+    newCreateKxEnvironment,
+    CreateKxEnvironmentResponse (CreateKxEnvironmentResponse'),
+    newCreateKxEnvironmentResponse,
+
+    -- ** CreateKxUser
+    CreateKxUser (CreateKxUser'),
+    newCreateKxUser,
+    CreateKxUserResponse (CreateKxUserResponse'),
+    newCreateKxUserResponse,
+
     -- ** DeleteEnvironment
     DeleteEnvironment (DeleteEnvironment'),
     newDeleteEnvironment,
     DeleteEnvironmentResponse (DeleteEnvironmentResponse'),
     newDeleteEnvironmentResponse,
+
+    -- ** DeleteKxCluster
+    DeleteKxCluster (DeleteKxCluster'),
+    newDeleteKxCluster,
+    DeleteKxClusterResponse (DeleteKxClusterResponse'),
+    newDeleteKxClusterResponse,
+
+    -- ** DeleteKxDatabase
+    DeleteKxDatabase (DeleteKxDatabase'),
+    newDeleteKxDatabase,
+    DeleteKxDatabaseResponse (DeleteKxDatabaseResponse'),
+    newDeleteKxDatabaseResponse,
+
+    -- ** DeleteKxEnvironment
+    DeleteKxEnvironment (DeleteKxEnvironment'),
+    newDeleteKxEnvironment,
+    DeleteKxEnvironmentResponse (DeleteKxEnvironmentResponse'),
+    newDeleteKxEnvironmentResponse,
+
+    -- ** DeleteKxUser
+    DeleteKxUser (DeleteKxUser'),
+    newDeleteKxUser,
+    DeleteKxUserResponse (DeleteKxUserResponse'),
+    newDeleteKxUserResponse,
 
     -- ** GetEnvironment
     GetEnvironment (GetEnvironment'),
@@ -68,11 +128,83 @@ module Amazonka.FinSpace
     GetEnvironmentResponse (GetEnvironmentResponse'),
     newGetEnvironmentResponse,
 
+    -- ** GetKxChangeset
+    GetKxChangeset (GetKxChangeset'),
+    newGetKxChangeset,
+    GetKxChangesetResponse (GetKxChangesetResponse'),
+    newGetKxChangesetResponse,
+
+    -- ** GetKxCluster
+    GetKxCluster (GetKxCluster'),
+    newGetKxCluster,
+    GetKxClusterResponse (GetKxClusterResponse'),
+    newGetKxClusterResponse,
+
+    -- ** GetKxConnectionString
+    GetKxConnectionString (GetKxConnectionString'),
+    newGetKxConnectionString,
+    GetKxConnectionStringResponse (GetKxConnectionStringResponse'),
+    newGetKxConnectionStringResponse,
+
+    -- ** GetKxDatabase
+    GetKxDatabase (GetKxDatabase'),
+    newGetKxDatabase,
+    GetKxDatabaseResponse (GetKxDatabaseResponse'),
+    newGetKxDatabaseResponse,
+
+    -- ** GetKxEnvironment
+    GetKxEnvironment (GetKxEnvironment'),
+    newGetKxEnvironment,
+    GetKxEnvironmentResponse (GetKxEnvironmentResponse'),
+    newGetKxEnvironmentResponse,
+
+    -- ** GetKxUser
+    GetKxUser (GetKxUser'),
+    newGetKxUser,
+    GetKxUserResponse (GetKxUserResponse'),
+    newGetKxUserResponse,
+
     -- ** ListEnvironments
     ListEnvironments (ListEnvironments'),
     newListEnvironments,
     ListEnvironmentsResponse (ListEnvironmentsResponse'),
     newListEnvironmentsResponse,
+
+    -- ** ListKxChangesets
+    ListKxChangesets (ListKxChangesets'),
+    newListKxChangesets,
+    ListKxChangesetsResponse (ListKxChangesetsResponse'),
+    newListKxChangesetsResponse,
+
+    -- ** ListKxClusterNodes
+    ListKxClusterNodes (ListKxClusterNodes'),
+    newListKxClusterNodes,
+    ListKxClusterNodesResponse (ListKxClusterNodesResponse'),
+    newListKxClusterNodesResponse,
+
+    -- ** ListKxClusters
+    ListKxClusters (ListKxClusters'),
+    newListKxClusters,
+    ListKxClustersResponse (ListKxClustersResponse'),
+    newListKxClustersResponse,
+
+    -- ** ListKxDatabases
+    ListKxDatabases (ListKxDatabases'),
+    newListKxDatabases,
+    ListKxDatabasesResponse (ListKxDatabasesResponse'),
+    newListKxDatabasesResponse,
+
+    -- ** ListKxEnvironments (Paginated)
+    ListKxEnvironments (ListKxEnvironments'),
+    newListKxEnvironments,
+    ListKxEnvironmentsResponse (ListKxEnvironmentsResponse'),
+    newListKxEnvironmentsResponse,
+
+    -- ** ListKxUsers
+    ListKxUsers (ListKxUsers'),
+    newListKxUsers,
+    ListKxUsersResponse (ListKxUsersResponse'),
+    newListKxUsersResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -98,38 +230,203 @@ module Amazonka.FinSpace
     UpdateEnvironmentResponse (UpdateEnvironmentResponse'),
     newUpdateEnvironmentResponse,
 
+    -- ** UpdateKxClusterDatabases
+    UpdateKxClusterDatabases (UpdateKxClusterDatabases'),
+    newUpdateKxClusterDatabases,
+    UpdateKxClusterDatabasesResponse (UpdateKxClusterDatabasesResponse'),
+    newUpdateKxClusterDatabasesResponse,
+
+    -- ** UpdateKxDatabase
+    UpdateKxDatabase (UpdateKxDatabase'),
+    newUpdateKxDatabase,
+    UpdateKxDatabaseResponse (UpdateKxDatabaseResponse'),
+    newUpdateKxDatabaseResponse,
+
+    -- ** UpdateKxEnvironment
+    UpdateKxEnvironment (UpdateKxEnvironment'),
+    newUpdateKxEnvironment,
+    UpdateKxEnvironmentResponse (UpdateKxEnvironmentResponse'),
+    newUpdateKxEnvironmentResponse,
+
+    -- ** UpdateKxEnvironmentNetwork
+    UpdateKxEnvironmentNetwork (UpdateKxEnvironmentNetwork'),
+    newUpdateKxEnvironmentNetwork,
+    UpdateKxEnvironmentNetworkResponse (UpdateKxEnvironmentNetworkResponse'),
+    newUpdateKxEnvironmentNetworkResponse,
+
+    -- ** UpdateKxUser
+    UpdateKxUser (UpdateKxUser'),
+    newUpdateKxUser,
+    UpdateKxUserResponse (UpdateKxUserResponse'),
+    newUpdateKxUserResponse,
+
     -- * Types
+
+    -- ** AutoScalingMetric
+    AutoScalingMetric (..),
+
+    -- ** ChangeType
+    ChangeType (..),
+
+    -- ** ChangesetStatus
+    ChangesetStatus (..),
+
+    -- ** DnsStatus
+    DnsStatus (..),
 
     -- ** EnvironmentStatus
     EnvironmentStatus (..),
 
+    -- ** ErrorDetails
+    ErrorDetails (..),
+
     -- ** FederationMode
     FederationMode (..),
+
+    -- ** IPAddressType
+    IPAddressType (..),
+
+    -- ** KxAzMode
+    KxAzMode (..),
+
+    -- ** KxClusterStatus
+    KxClusterStatus (..),
+
+    -- ** KxClusterType
+    KxClusterType (..),
+
+    -- ** KxSavedownStorageType
+    KxSavedownStorageType (..),
+
+    -- ** TgwStatus
+    TgwStatus (..),
+
+    -- ** AutoScalingConfiguration
+    AutoScalingConfiguration (AutoScalingConfiguration'),
+    newAutoScalingConfiguration,
+
+    -- ** CapacityConfiguration
+    CapacityConfiguration (CapacityConfiguration'),
+    newCapacityConfiguration,
+
+    -- ** ChangeRequest
+    ChangeRequest (ChangeRequest'),
+    newChangeRequest,
+
+    -- ** CodeConfiguration
+    CodeConfiguration (CodeConfiguration'),
+    newCodeConfiguration,
+
+    -- ** CustomDNSServer
+    CustomDNSServer (CustomDNSServer'),
+    newCustomDNSServer,
 
     -- ** Environment
     Environment (Environment'),
     newEnvironment,
 
+    -- ** ErrorInfo
+    ErrorInfo (ErrorInfo'),
+    newErrorInfo,
+
     -- ** FederationParameters
     FederationParameters (FederationParameters'),
     newFederationParameters,
 
+    -- ** KxCacheStorageConfiguration
+    KxCacheStorageConfiguration (KxCacheStorageConfiguration'),
+    newKxCacheStorageConfiguration,
+
+    -- ** KxChangesetListEntry
+    KxChangesetListEntry (KxChangesetListEntry'),
+    newKxChangesetListEntry,
+
+    -- ** KxCluster
+    KxCluster (KxCluster'),
+    newKxCluster,
+
+    -- ** KxCommandLineArgument
+    KxCommandLineArgument (KxCommandLineArgument'),
+    newKxCommandLineArgument,
+
+    -- ** KxDatabaseCacheConfiguration
+    KxDatabaseCacheConfiguration (KxDatabaseCacheConfiguration'),
+    newKxDatabaseCacheConfiguration,
+
+    -- ** KxDatabaseConfiguration
+    KxDatabaseConfiguration (KxDatabaseConfiguration'),
+    newKxDatabaseConfiguration,
+
+    -- ** KxDatabaseListEntry
+    KxDatabaseListEntry (KxDatabaseListEntry'),
+    newKxDatabaseListEntry,
+
+    -- ** KxEnvironment
+    KxEnvironment (KxEnvironment'),
+    newKxEnvironment,
+
+    -- ** KxNode
+    KxNode (KxNode'),
+    newKxNode,
+
+    -- ** KxSavedownStorageConfiguration
+    KxSavedownStorageConfiguration (KxSavedownStorageConfiguration'),
+    newKxSavedownStorageConfiguration,
+
+    -- ** KxUser
+    KxUser (KxUser'),
+    newKxUser,
+
     -- ** SuperuserParameters
     SuperuserParameters (SuperuserParameters'),
     newSuperuserParameters,
+
+    -- ** TransitGatewayConfiguration
+    TransitGatewayConfiguration (TransitGatewayConfiguration'),
+    newTransitGatewayConfiguration,
+
+    -- ** VpcConfiguration
+    VpcConfiguration (VpcConfiguration'),
+    newVpcConfiguration,
   )
 where
 
 import Amazonka.FinSpace.CreateEnvironment
+import Amazonka.FinSpace.CreateKxChangeset
+import Amazonka.FinSpace.CreateKxCluster
+import Amazonka.FinSpace.CreateKxDatabase
+import Amazonka.FinSpace.CreateKxEnvironment
+import Amazonka.FinSpace.CreateKxUser
 import Amazonka.FinSpace.DeleteEnvironment
+import Amazonka.FinSpace.DeleteKxCluster
+import Amazonka.FinSpace.DeleteKxDatabase
+import Amazonka.FinSpace.DeleteKxEnvironment
+import Amazonka.FinSpace.DeleteKxUser
 import Amazonka.FinSpace.GetEnvironment
+import Amazonka.FinSpace.GetKxChangeset
+import Amazonka.FinSpace.GetKxCluster
+import Amazonka.FinSpace.GetKxConnectionString
+import Amazonka.FinSpace.GetKxDatabase
+import Amazonka.FinSpace.GetKxEnvironment
+import Amazonka.FinSpace.GetKxUser
 import Amazonka.FinSpace.Lens
 import Amazonka.FinSpace.ListEnvironments
+import Amazonka.FinSpace.ListKxChangesets
+import Amazonka.FinSpace.ListKxClusterNodes
+import Amazonka.FinSpace.ListKxClusters
+import Amazonka.FinSpace.ListKxDatabases
+import Amazonka.FinSpace.ListKxEnvironments
+import Amazonka.FinSpace.ListKxUsers
 import Amazonka.FinSpace.ListTagsForResource
 import Amazonka.FinSpace.TagResource
 import Amazonka.FinSpace.Types
 import Amazonka.FinSpace.UntagResource
 import Amazonka.FinSpace.UpdateEnvironment
+import Amazonka.FinSpace.UpdateKxClusterDatabases
+import Amazonka.FinSpace.UpdateKxDatabase
+import Amazonka.FinSpace.UpdateKxEnvironment
+import Amazonka.FinSpace.UpdateKxEnvironmentNetwork
+import Amazonka.FinSpace.UpdateKxUser
 import Amazonka.FinSpace.Waiters
 
 -- $errors

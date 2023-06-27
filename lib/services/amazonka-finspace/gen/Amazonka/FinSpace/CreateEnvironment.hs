@@ -208,7 +208,8 @@ instance Core.AWSRequest CreateEnvironment where
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` dataBundles
+    _salt
+      `Prelude.hashWithSalt` dataBundles
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` federationMode
       `Prelude.hashWithSalt` federationParameters
@@ -270,7 +271,7 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse'
     environmentArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for FinSpace environment that you created.
     environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The sign-in url for the web application of the FinSpace environment you
+    -- | The sign-in URL for the web application of the FinSpace environment you
     -- created.
     environmentUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -291,7 +292,7 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse'
 --
 -- 'environmentId', 'createEnvironmentResponse_environmentId' - The unique identifier for FinSpace environment that you created.
 --
--- 'environmentUrl', 'createEnvironmentResponse_environmentUrl' - The sign-in url for the web application of the FinSpace environment you
+-- 'environmentUrl', 'createEnvironmentResponse_environmentUrl' - The sign-in URL for the web application of the FinSpace environment you
 -- created.
 --
 -- 'httpStatus', 'createEnvironmentResponse_httpStatus' - The response's http status code.
@@ -317,7 +318,7 @@ createEnvironmentResponse_environmentArn = Lens.lens (\CreateEnvironmentResponse
 createEnvironmentResponse_environmentId :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.Text)
 createEnvironmentResponse_environmentId = Lens.lens (\CreateEnvironmentResponse' {environmentId} -> environmentId) (\s@CreateEnvironmentResponse' {} a -> s {environmentId = a} :: CreateEnvironmentResponse)
 
--- | The sign-in url for the web application of the FinSpace environment you
+-- | The sign-in URL for the web application of the FinSpace environment you
 -- created.
 createEnvironmentResponse_environmentUrl :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.Text)
 createEnvironmentResponse_environmentUrl = Lens.lens (\CreateEnvironmentResponse' {environmentUrl} -> environmentUrl) (\s@CreateEnvironmentResponse' {} a -> s {environmentUrl = a} :: CreateEnvironmentResponse)

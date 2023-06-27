@@ -83,7 +83,8 @@ superuserParameters_lastName = Lens.lens (\SuperuserParameters' {lastName} -> la
 
 instance Prelude.Hashable SuperuserParameters where
   hashWithSalt _salt SuperuserParameters' {..} =
-    _salt `Prelude.hashWithSalt` emailAddress
+    _salt
+      `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` lastName
 

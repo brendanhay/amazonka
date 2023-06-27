@@ -28,8 +28,11 @@ module Amazonka.FinSpace.Types.EnvironmentStatus
         EnvironmentStatus_DELETING,
         EnvironmentStatus_FAILED_CREATION,
         EnvironmentStatus_FAILED_DELETION,
+        EnvironmentStatus_FAILED_UPDATING_NETWORK,
         EnvironmentStatus_RETRY_DELETION,
-        EnvironmentStatus_SUSPENDED
+        EnvironmentStatus_SUSPENDED,
+        EnvironmentStatus_UPDATE_NETWORK_REQUESTED,
+        EnvironmentStatus_UPDATING_NETWORK
       ),
   )
 where
@@ -90,11 +93,20 @@ pattern EnvironmentStatus_FAILED_CREATION = EnvironmentStatus' "FAILED_CREATION"
 pattern EnvironmentStatus_FAILED_DELETION :: EnvironmentStatus
 pattern EnvironmentStatus_FAILED_DELETION = EnvironmentStatus' "FAILED_DELETION"
 
+pattern EnvironmentStatus_FAILED_UPDATING_NETWORK :: EnvironmentStatus
+pattern EnvironmentStatus_FAILED_UPDATING_NETWORK = EnvironmentStatus' "FAILED_UPDATING_NETWORK"
+
 pattern EnvironmentStatus_RETRY_DELETION :: EnvironmentStatus
 pattern EnvironmentStatus_RETRY_DELETION = EnvironmentStatus' "RETRY_DELETION"
 
 pattern EnvironmentStatus_SUSPENDED :: EnvironmentStatus
 pattern EnvironmentStatus_SUSPENDED = EnvironmentStatus' "SUSPENDED"
+
+pattern EnvironmentStatus_UPDATE_NETWORK_REQUESTED :: EnvironmentStatus
+pattern EnvironmentStatus_UPDATE_NETWORK_REQUESTED = EnvironmentStatus' "UPDATE_NETWORK_REQUESTED"
+
+pattern EnvironmentStatus_UPDATING_NETWORK :: EnvironmentStatus
+pattern EnvironmentStatus_UPDATING_NETWORK = EnvironmentStatus' "UPDATING_NETWORK"
 
 {-# COMPLETE
   EnvironmentStatus_CREATED,
@@ -105,7 +117,10 @@ pattern EnvironmentStatus_SUSPENDED = EnvironmentStatus' "SUSPENDED"
   EnvironmentStatus_DELETING,
   EnvironmentStatus_FAILED_CREATION,
   EnvironmentStatus_FAILED_DELETION,
+  EnvironmentStatus_FAILED_UPDATING_NETWORK,
   EnvironmentStatus_RETRY_DELETION,
   EnvironmentStatus_SUSPENDED,
+  EnvironmentStatus_UPDATE_NETWORK_REQUESTED,
+  EnvironmentStatus_UPDATING_NETWORK,
   EnvironmentStatus'
   #-}

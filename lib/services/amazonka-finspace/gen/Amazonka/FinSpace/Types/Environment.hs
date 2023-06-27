@@ -42,7 +42,7 @@ data Environment = Environment'
     environmentArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the FinSpace environment.
     environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The sign-in url for the web application of your FinSpace environment.
+    -- | The sign-in URL for the web application of your FinSpace environment.
     environmentUrl :: Prelude.Maybe Prelude.Text,
     -- | The authentication mode for the environment.
     federationMode :: Prelude.Maybe FederationMode,
@@ -52,7 +52,7 @@ data Environment = Environment'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the FinSpace environment.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The url of the integrated FinSpace notebook environment in your web
+    -- | The URL of the integrated FinSpace notebook environment in your web
     -- application.
     sageMakerStudioDomainUrl :: Prelude.Maybe Prelude.Text,
     -- | The current status of creation of the FinSpace environment.
@@ -79,7 +79,7 @@ data Environment = Environment'
 --
 -- 'environmentId', 'environment_environmentId' - The identifier of the FinSpace environment.
 --
--- 'environmentUrl', 'environment_environmentUrl' - The sign-in url for the web application of your FinSpace environment.
+-- 'environmentUrl', 'environment_environmentUrl' - The sign-in URL for the web application of your FinSpace environment.
 --
 -- 'federationMode', 'environment_federationMode' - The authentication mode for the environment.
 --
@@ -89,7 +89,7 @@ data Environment = Environment'
 --
 -- 'name', 'environment_name' - The name of the FinSpace environment.
 --
--- 'sageMakerStudioDomainUrl', 'environment_sageMakerStudioDomainUrl' - The url of the integrated FinSpace notebook environment in your web
+-- 'sageMakerStudioDomainUrl', 'environment_sageMakerStudioDomainUrl' - The URL of the integrated FinSpace notebook environment in your web
 -- application.
 --
 -- 'status', 'environment_status' - The current status of creation of the FinSpace environment.
@@ -132,7 +132,7 @@ environment_environmentArn = Lens.lens (\Environment' {environmentArn} -> enviro
 environment_environmentId :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_environmentId = Lens.lens (\Environment' {environmentId} -> environmentId) (\s@Environment' {} a -> s {environmentId = a} :: Environment)
 
--- | The sign-in url for the web application of your FinSpace environment.
+-- | The sign-in URL for the web application of your FinSpace environment.
 environment_environmentUrl :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_environmentUrl = Lens.lens (\Environment' {environmentUrl} -> environmentUrl) (\s@Environment' {} a -> s {environmentUrl = a} :: Environment)
 
@@ -152,7 +152,7 @@ environment_kmsKeyId = Lens.lens (\Environment' {kmsKeyId} -> kmsKeyId) (\s@Envi
 environment_name :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_name = Lens.lens (\Environment' {name} -> name) (\s@Environment' {} a -> s {name = a} :: Environment)
 
--- | The url of the integrated FinSpace notebook environment in your web
+-- | The URL of the integrated FinSpace notebook environment in your web
 -- application.
 environment_sageMakerStudioDomainUrl :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_sageMakerStudioDomainUrl = Lens.lens (\Environment' {sageMakerStudioDomainUrl} -> sageMakerStudioDomainUrl) (\s@Environment' {} a -> s {sageMakerStudioDomainUrl = a} :: Environment)
@@ -183,7 +183,8 @@ instance Data.FromJSON Environment where
 
 instance Prelude.Hashable Environment where
   hashWithSalt _salt Environment' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dedicatedServiceAccountId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentArn

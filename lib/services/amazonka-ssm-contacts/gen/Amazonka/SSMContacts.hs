@@ -83,6 +83,18 @@ module Amazonka.SSMContacts
     CreateContactChannelResponse (CreateContactChannelResponse'),
     newCreateContactChannelResponse,
 
+    -- ** CreateRotation
+    CreateRotation (CreateRotation'),
+    newCreateRotation,
+    CreateRotationResponse (CreateRotationResponse'),
+    newCreateRotationResponse,
+
+    -- ** CreateRotationOverride
+    CreateRotationOverride (CreateRotationOverride'),
+    newCreateRotationOverride,
+    CreateRotationOverrideResponse (CreateRotationOverrideResponse'),
+    newCreateRotationOverrideResponse,
+
     -- ** DeactivateContactChannel
     DeactivateContactChannel (DeactivateContactChannel'),
     newDeactivateContactChannel,
@@ -100,6 +112,18 @@ module Amazonka.SSMContacts
     newDeleteContactChannel,
     DeleteContactChannelResponse (DeleteContactChannelResponse'),
     newDeleteContactChannelResponse,
+
+    -- ** DeleteRotation
+    DeleteRotation (DeleteRotation'),
+    newDeleteRotation,
+    DeleteRotationResponse (DeleteRotationResponse'),
+    newDeleteRotationResponse,
+
+    -- ** DeleteRotationOverride
+    DeleteRotationOverride (DeleteRotationOverride'),
+    newDeleteRotationOverride,
+    DeleteRotationOverrideResponse (DeleteRotationOverrideResponse'),
+    newDeleteRotationOverrideResponse,
 
     -- ** DescribeEngagement
     DescribeEngagement (DescribeEngagement'),
@@ -131,6 +155,18 @@ module Amazonka.SSMContacts
     GetContactPolicyResponse (GetContactPolicyResponse'),
     newGetContactPolicyResponse,
 
+    -- ** GetRotation
+    GetRotation (GetRotation'),
+    newGetRotation,
+    GetRotationResponse (GetRotationResponse'),
+    newGetRotationResponse,
+
+    -- ** GetRotationOverride
+    GetRotationOverride (GetRotationOverride'),
+    newGetRotationOverride,
+    GetRotationOverrideResponse (GetRotationOverrideResponse'),
+    newGetRotationOverrideResponse,
+
     -- ** ListContactChannels (Paginated)
     ListContactChannels (ListContactChannels'),
     newListContactChannels,
@@ -155,6 +191,12 @@ module Amazonka.SSMContacts
     ListPageReceiptsResponse (ListPageReceiptsResponse'),
     newListPageReceiptsResponse,
 
+    -- ** ListPageResolutions (Paginated)
+    ListPageResolutions (ListPageResolutions'),
+    newListPageResolutions,
+    ListPageResolutionsResponse (ListPageResolutionsResponse'),
+    newListPageResolutionsResponse,
+
     -- ** ListPagesByContact (Paginated)
     ListPagesByContact (ListPagesByContact'),
     newListPagesByContact,
@@ -166,6 +208,30 @@ module Amazonka.SSMContacts
     newListPagesByEngagement,
     ListPagesByEngagementResponse (ListPagesByEngagementResponse'),
     newListPagesByEngagementResponse,
+
+    -- ** ListPreviewRotationShifts (Paginated)
+    ListPreviewRotationShifts (ListPreviewRotationShifts'),
+    newListPreviewRotationShifts,
+    ListPreviewRotationShiftsResponse (ListPreviewRotationShiftsResponse'),
+    newListPreviewRotationShiftsResponse,
+
+    -- ** ListRotationOverrides (Paginated)
+    ListRotationOverrides (ListRotationOverrides'),
+    newListRotationOverrides,
+    ListRotationOverridesResponse (ListRotationOverridesResponse'),
+    newListRotationOverridesResponse,
+
+    -- ** ListRotationShifts (Paginated)
+    ListRotationShifts (ListRotationShifts'),
+    newListRotationShifts,
+    ListRotationShiftsResponse (ListRotationShiftsResponse'),
+    newListRotationShiftsResponse,
+
+    -- ** ListRotations (Paginated)
+    ListRotations (ListRotations'),
+    newListRotations,
+    ListRotationsResponse (ListRotationsResponse'),
+    newListRotationsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -221,6 +287,12 @@ module Amazonka.SSMContacts
     UpdateContactChannelResponse (UpdateContactChannelResponse'),
     newUpdateContactChannelResponse,
 
+    -- ** UpdateRotation
+    UpdateRotation (UpdateRotation'),
+    newUpdateRotation,
+    UpdateRotationResponse (UpdateRotationResponse'),
+    newUpdateRotationResponse,
+
     -- * Types
 
     -- ** AcceptCodeValidation
@@ -238,8 +310,14 @@ module Amazonka.SSMContacts
     -- ** ContactType
     ContactType (..),
 
+    -- ** DayOfWeek
+    DayOfWeek (..),
+
     -- ** ReceiptType
     ReceiptType (..),
+
+    -- ** ShiftType
+    ShiftType (..),
 
     -- ** ChannelTargetInfo
     ChannelTargetInfo (ChannelTargetInfo'),
@@ -261,9 +339,21 @@ module Amazonka.SSMContacts
     ContactTargetInfo (ContactTargetInfo'),
     newContactTargetInfo,
 
+    -- ** CoverageTime
+    CoverageTime (CoverageTime'),
+    newCoverageTime,
+
     -- ** Engagement
     Engagement (Engagement'),
     newEngagement,
+
+    -- ** HandOffTime
+    HandOffTime (HandOffTime'),
+    newHandOffTime,
+
+    -- ** MonthlySetting
+    MonthlySetting (MonthlySetting'),
+    newMonthlySetting,
 
     -- ** Page
     Page (Page'),
@@ -273,9 +363,37 @@ module Amazonka.SSMContacts
     Plan (Plan'),
     newPlan,
 
+    -- ** PreviewOverride
+    PreviewOverride (PreviewOverride'),
+    newPreviewOverride,
+
     -- ** Receipt
     Receipt (Receipt'),
     newReceipt,
+
+    -- ** RecurrenceSettings
+    RecurrenceSettings (RecurrenceSettings'),
+    newRecurrenceSettings,
+
+    -- ** ResolutionContact
+    ResolutionContact (ResolutionContact'),
+    newResolutionContact,
+
+    -- ** Rotation
+    Rotation (Rotation'),
+    newRotation,
+
+    -- ** RotationOverride
+    RotationOverride (RotationOverride'),
+    newRotationOverride,
+
+    -- ** RotationShift
+    RotationShift (RotationShift'),
+    newRotationShift,
+
+    -- ** ShiftDetails
+    ShiftDetails (ShiftDetails'),
+    newShiftDetails,
 
     -- ** Stage
     Stage (Stage'),
@@ -292,6 +410,10 @@ module Amazonka.SSMContacts
     -- ** TimeRange
     TimeRange (TimeRange'),
     newTimeRange,
+
+    -- ** WeeklySetting
+    WeeklySetting (WeeklySetting'),
+    newWeeklySetting,
   )
 where
 
@@ -299,21 +421,32 @@ import Amazonka.SSMContacts.AcceptPage
 import Amazonka.SSMContacts.ActivateContactChannel
 import Amazonka.SSMContacts.CreateContact
 import Amazonka.SSMContacts.CreateContactChannel
+import Amazonka.SSMContacts.CreateRotation
+import Amazonka.SSMContacts.CreateRotationOverride
 import Amazonka.SSMContacts.DeactivateContactChannel
 import Amazonka.SSMContacts.DeleteContact
 import Amazonka.SSMContacts.DeleteContactChannel
+import Amazonka.SSMContacts.DeleteRotation
+import Amazonka.SSMContacts.DeleteRotationOverride
 import Amazonka.SSMContacts.DescribeEngagement
 import Amazonka.SSMContacts.DescribePage
 import Amazonka.SSMContacts.GetContact
 import Amazonka.SSMContacts.GetContactChannel
 import Amazonka.SSMContacts.GetContactPolicy
+import Amazonka.SSMContacts.GetRotation
+import Amazonka.SSMContacts.GetRotationOverride
 import Amazonka.SSMContacts.Lens
 import Amazonka.SSMContacts.ListContactChannels
 import Amazonka.SSMContacts.ListContacts
 import Amazonka.SSMContacts.ListEngagements
 import Amazonka.SSMContacts.ListPageReceipts
+import Amazonka.SSMContacts.ListPageResolutions
 import Amazonka.SSMContacts.ListPagesByContact
 import Amazonka.SSMContacts.ListPagesByEngagement
+import Amazonka.SSMContacts.ListPreviewRotationShifts
+import Amazonka.SSMContacts.ListRotationOverrides
+import Amazonka.SSMContacts.ListRotationShifts
+import Amazonka.SSMContacts.ListRotations
 import Amazonka.SSMContacts.ListTagsForResource
 import Amazonka.SSMContacts.PutContactPolicy
 import Amazonka.SSMContacts.SendActivationCode
@@ -324,6 +457,7 @@ import Amazonka.SSMContacts.Types
 import Amazonka.SSMContacts.UntagResource
 import Amazonka.SSMContacts.UpdateContact
 import Amazonka.SSMContacts.UpdateContactChannel
+import Amazonka.SSMContacts.UpdateRotation
 import Amazonka.SSMContacts.Waiters
 
 -- $errors

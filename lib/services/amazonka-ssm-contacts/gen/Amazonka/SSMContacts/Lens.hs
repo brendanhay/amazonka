@@ -48,6 +48,26 @@ module Amazonka.SSMContacts.Lens
     createContactChannelResponse_httpStatus,
     createContactChannelResponse_contactChannelArn,
 
+    -- ** CreateRotation
+    createRotation_idempotencyToken,
+    createRotation_startTime,
+    createRotation_tags,
+    createRotation_name,
+    createRotation_contactIds,
+    createRotation_timeZoneId,
+    createRotation_recurrence,
+    createRotationResponse_httpStatus,
+    createRotationResponse_rotationArn,
+
+    -- ** CreateRotationOverride
+    createRotationOverride_idempotencyToken,
+    createRotationOverride_rotationId,
+    createRotationOverride_newContactIds,
+    createRotationOverride_startTime,
+    createRotationOverride_endTime,
+    createRotationOverrideResponse_httpStatus,
+    createRotationOverrideResponse_rotationOverrideId,
+
     -- ** DeactivateContactChannel
     deactivateContactChannel_contactChannelId,
     deactivateContactChannelResponse_httpStatus,
@@ -59,6 +79,15 @@ module Amazonka.SSMContacts.Lens
     -- ** DeleteContactChannel
     deleteContactChannel_contactChannelId,
     deleteContactChannelResponse_httpStatus,
+
+    -- ** DeleteRotation
+    deleteRotation_rotationId,
+    deleteRotationResponse_httpStatus,
+
+    -- ** DeleteRotationOverride
+    deleteRotationOverride_rotationId,
+    deleteRotationOverride_rotationOverrideId,
+    deleteRotationOverrideResponse_httpStatus,
 
     -- ** DescribeEngagement
     describeEngagement_engagementId,
@@ -115,6 +144,27 @@ module Amazonka.SSMContacts.Lens
     getContactPolicyResponse_policy,
     getContactPolicyResponse_httpStatus,
 
+    -- ** GetRotation
+    getRotation_rotationId,
+    getRotationResponse_httpStatus,
+    getRotationResponse_rotationArn,
+    getRotationResponse_name,
+    getRotationResponse_contactIds,
+    getRotationResponse_startTime,
+    getRotationResponse_timeZoneId,
+    getRotationResponse_recurrence,
+
+    -- ** GetRotationOverride
+    getRotationOverride_rotationId,
+    getRotationOverride_rotationOverrideId,
+    getRotationOverrideResponse_createTime,
+    getRotationOverrideResponse_endTime,
+    getRotationOverrideResponse_newContactIds,
+    getRotationOverrideResponse_rotationArn,
+    getRotationOverrideResponse_rotationOverrideId,
+    getRotationOverrideResponse_startTime,
+    getRotationOverrideResponse_httpStatus,
+
     -- ** ListContactChannels
     listContactChannels_maxResults,
     listContactChannels_nextToken,
@@ -149,6 +199,13 @@ module Amazonka.SSMContacts.Lens
     listPageReceiptsResponse_receipts,
     listPageReceiptsResponse_httpStatus,
 
+    -- ** ListPageResolutions
+    listPageResolutions_nextToken,
+    listPageResolutions_pageId,
+    listPageResolutionsResponse_nextToken,
+    listPageResolutionsResponse_httpStatus,
+    listPageResolutionsResponse_pageResolutions,
+
     -- ** ListPagesByContact
     listPagesByContact_maxResults,
     listPagesByContact_nextToken,
@@ -164,6 +221,48 @@ module Amazonka.SSMContacts.Lens
     listPagesByEngagementResponse_nextToken,
     listPagesByEngagementResponse_httpStatus,
     listPagesByEngagementResponse_pages,
+
+    -- ** ListPreviewRotationShifts
+    listPreviewRotationShifts_maxResults,
+    listPreviewRotationShifts_nextToken,
+    listPreviewRotationShifts_overrides,
+    listPreviewRotationShifts_rotationStartTime,
+    listPreviewRotationShifts_startTime,
+    listPreviewRotationShifts_endTime,
+    listPreviewRotationShifts_members,
+    listPreviewRotationShifts_timeZoneId,
+    listPreviewRotationShifts_recurrence,
+    listPreviewRotationShiftsResponse_nextToken,
+    listPreviewRotationShiftsResponse_rotationShifts,
+    listPreviewRotationShiftsResponse_httpStatus,
+
+    -- ** ListRotationOverrides
+    listRotationOverrides_maxResults,
+    listRotationOverrides_nextToken,
+    listRotationOverrides_rotationId,
+    listRotationOverrides_startTime,
+    listRotationOverrides_endTime,
+    listRotationOverridesResponse_nextToken,
+    listRotationOverridesResponse_rotationOverrides,
+    listRotationOverridesResponse_httpStatus,
+
+    -- ** ListRotationShifts
+    listRotationShifts_maxResults,
+    listRotationShifts_nextToken,
+    listRotationShifts_startTime,
+    listRotationShifts_rotationId,
+    listRotationShifts_endTime,
+    listRotationShiftsResponse_nextToken,
+    listRotationShiftsResponse_rotationShifts,
+    listRotationShiftsResponse_httpStatus,
+
+    -- ** ListRotations
+    listRotations_maxResults,
+    listRotations_nextToken,
+    listRotations_rotationNamePrefix,
+    listRotationsResponse_nextToken,
+    listRotationsResponse_httpStatus,
+    listRotationsResponse_rotations,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceARN,
@@ -218,6 +317,14 @@ module Amazonka.SSMContacts.Lens
     updateContactChannel_contactChannelId,
     updateContactChannelResponse_httpStatus,
 
+    -- ** UpdateRotation
+    updateRotation_contactIds,
+    updateRotation_startTime,
+    updateRotation_timeZoneId,
+    updateRotation_rotationId,
+    updateRotation_recurrence,
+    updateRotationResponse_httpStatus,
+
     -- * Types
 
     -- ** ChannelTargetInfo
@@ -245,6 +352,10 @@ module Amazonka.SSMContacts.Lens
     contactTargetInfo_contactId,
     contactTargetInfo_isEssential,
 
+    -- ** CoverageTime
+    coverageTime_end,
+    coverageTime_start,
+
     -- ** Engagement
     engagement_incidentId,
     engagement_startTime,
@@ -252,6 +363,14 @@ module Amazonka.SSMContacts.Lens
     engagement_engagementArn,
     engagement_contactArn,
     engagement_sender,
+
+    -- ** HandOffTime
+    handOffTime_hourOfDay,
+    handOffTime_minuteOfHour,
+
+    -- ** MonthlySetting
+    monthlySetting_dayOfMonth,
+    monthlySetting_handOffTime,
 
     -- ** Page
     page_deliveryTime,
@@ -264,13 +383,57 @@ module Amazonka.SSMContacts.Lens
     page_sender,
 
     -- ** Plan
+    plan_rotationIds,
     plan_stages,
+
+    -- ** PreviewOverride
+    previewOverride_endTime,
+    previewOverride_newMembers,
+    previewOverride_startTime,
 
     -- ** Receipt
     receipt_contactChannelArn,
     receipt_receiptInfo,
     receipt_receiptType,
     receipt_receiptTime,
+
+    -- ** RecurrenceSettings
+    recurrenceSettings_dailySettings,
+    recurrenceSettings_monthlySettings,
+    recurrenceSettings_shiftCoverages,
+    recurrenceSettings_weeklySettings,
+    recurrenceSettings_numberOfOnCalls,
+    recurrenceSettings_recurrenceMultiplier,
+
+    -- ** ResolutionContact
+    resolutionContact_stageIndex,
+    resolutionContact_contactArn,
+    resolutionContact_type,
+
+    -- ** Rotation
+    rotation_contactIds,
+    rotation_recurrence,
+    rotation_startTime,
+    rotation_timeZoneId,
+    rotation_rotationArn,
+    rotation_name,
+
+    -- ** RotationOverride
+    rotationOverride_rotationOverrideId,
+    rotationOverride_newContactIds,
+    rotationOverride_startTime,
+    rotationOverride_endTime,
+    rotationOverride_createTime,
+
+    -- ** RotationShift
+    rotationShift_contactIds,
+    rotationShift_shiftDetails,
+    rotationShift_type,
+    rotationShift_startTime,
+    rotationShift_endTime,
+
+    -- ** ShiftDetails
+    shiftDetails_overriddenContactIds,
 
     -- ** Stage
     stage_durationInMinutes,
@@ -287,6 +450,10 @@ module Amazonka.SSMContacts.Lens
     -- ** TimeRange
     timeRange_endTime,
     timeRange_startTime,
+
+    -- ** WeeklySetting
+    weeklySetting_dayOfWeek,
+    weeklySetting_handOffTime,
   )
 where
 
@@ -294,20 +461,31 @@ import Amazonka.SSMContacts.AcceptPage
 import Amazonka.SSMContacts.ActivateContactChannel
 import Amazonka.SSMContacts.CreateContact
 import Amazonka.SSMContacts.CreateContactChannel
+import Amazonka.SSMContacts.CreateRotation
+import Amazonka.SSMContacts.CreateRotationOverride
 import Amazonka.SSMContacts.DeactivateContactChannel
 import Amazonka.SSMContacts.DeleteContact
 import Amazonka.SSMContacts.DeleteContactChannel
+import Amazonka.SSMContacts.DeleteRotation
+import Amazonka.SSMContacts.DeleteRotationOverride
 import Amazonka.SSMContacts.DescribeEngagement
 import Amazonka.SSMContacts.DescribePage
 import Amazonka.SSMContacts.GetContact
 import Amazonka.SSMContacts.GetContactChannel
 import Amazonka.SSMContacts.GetContactPolicy
+import Amazonka.SSMContacts.GetRotation
+import Amazonka.SSMContacts.GetRotationOverride
 import Amazonka.SSMContacts.ListContactChannels
 import Amazonka.SSMContacts.ListContacts
 import Amazonka.SSMContacts.ListEngagements
 import Amazonka.SSMContacts.ListPageReceipts
+import Amazonka.SSMContacts.ListPageResolutions
 import Amazonka.SSMContacts.ListPagesByContact
 import Amazonka.SSMContacts.ListPagesByEngagement
+import Amazonka.SSMContacts.ListPreviewRotationShifts
+import Amazonka.SSMContacts.ListRotationOverrides
+import Amazonka.SSMContacts.ListRotationShifts
+import Amazonka.SSMContacts.ListRotations
 import Amazonka.SSMContacts.ListTagsForResource
 import Amazonka.SSMContacts.PutContactPolicy
 import Amazonka.SSMContacts.SendActivationCode
@@ -319,14 +497,26 @@ import Amazonka.SSMContacts.Types.Contact
 import Amazonka.SSMContacts.Types.ContactChannel
 import Amazonka.SSMContacts.Types.ContactChannelAddress
 import Amazonka.SSMContacts.Types.ContactTargetInfo
+import Amazonka.SSMContacts.Types.CoverageTime
 import Amazonka.SSMContacts.Types.Engagement
+import Amazonka.SSMContacts.Types.HandOffTime
+import Amazonka.SSMContacts.Types.MonthlySetting
 import Amazonka.SSMContacts.Types.Page
 import Amazonka.SSMContacts.Types.Plan
+import Amazonka.SSMContacts.Types.PreviewOverride
 import Amazonka.SSMContacts.Types.Receipt
+import Amazonka.SSMContacts.Types.RecurrenceSettings
+import Amazonka.SSMContacts.Types.ResolutionContact
+import Amazonka.SSMContacts.Types.Rotation
+import Amazonka.SSMContacts.Types.RotationOverride
+import Amazonka.SSMContacts.Types.RotationShift
+import Amazonka.SSMContacts.Types.ShiftDetails
 import Amazonka.SSMContacts.Types.Stage
 import Amazonka.SSMContacts.Types.Tag
 import Amazonka.SSMContacts.Types.Target
 import Amazonka.SSMContacts.Types.TimeRange
+import Amazonka.SSMContacts.Types.WeeklySetting
 import Amazonka.SSMContacts.UntagResource
 import Amazonka.SSMContacts.UpdateContact
 import Amazonka.SSMContacts.UpdateContactChannel
+import Amazonka.SSMContacts.UpdateRotation

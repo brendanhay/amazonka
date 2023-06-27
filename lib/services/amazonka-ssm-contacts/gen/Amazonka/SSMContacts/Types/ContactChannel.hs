@@ -162,7 +162,8 @@ instance Data.FromJSON ContactChannel where
 
 instance Prelude.Hashable ContactChannel where
   hashWithSalt _salt ContactChannel' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` contactChannelArn
       `Prelude.hashWithSalt` contactArn
       `Prelude.hashWithSalt` name

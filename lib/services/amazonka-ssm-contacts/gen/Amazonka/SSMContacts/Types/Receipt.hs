@@ -102,7 +102,8 @@ instance Data.FromJSON Receipt where
 
 instance Prelude.Hashable Receipt where
   hashWithSalt _salt Receipt' {..} =
-    _salt `Prelude.hashWithSalt` contactChannelArn
+    _salt
+      `Prelude.hashWithSalt` contactChannelArn
       `Prelude.hashWithSalt` receiptInfo
       `Prelude.hashWithSalt` receiptType
       `Prelude.hashWithSalt` receiptTime

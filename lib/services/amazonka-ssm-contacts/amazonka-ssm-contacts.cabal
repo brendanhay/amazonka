@@ -48,21 +48,32 @@ library
     Amazonka.SSMContacts.ActivateContactChannel
     Amazonka.SSMContacts.CreateContact
     Amazonka.SSMContacts.CreateContactChannel
+    Amazonka.SSMContacts.CreateRotation
+    Amazonka.SSMContacts.CreateRotationOverride
     Amazonka.SSMContacts.DeactivateContactChannel
     Amazonka.SSMContacts.DeleteContact
     Amazonka.SSMContacts.DeleteContactChannel
+    Amazonka.SSMContacts.DeleteRotation
+    Amazonka.SSMContacts.DeleteRotationOverride
     Amazonka.SSMContacts.DescribeEngagement
     Amazonka.SSMContacts.DescribePage
     Amazonka.SSMContacts.GetContact
     Amazonka.SSMContacts.GetContactChannel
     Amazonka.SSMContacts.GetContactPolicy
+    Amazonka.SSMContacts.GetRotation
+    Amazonka.SSMContacts.GetRotationOverride
     Amazonka.SSMContacts.Lens
     Amazonka.SSMContacts.ListContactChannels
     Amazonka.SSMContacts.ListContacts
     Amazonka.SSMContacts.ListEngagements
     Amazonka.SSMContacts.ListPageReceipts
+    Amazonka.SSMContacts.ListPageResolutions
     Amazonka.SSMContacts.ListPagesByContact
     Amazonka.SSMContacts.ListPagesByEngagement
+    Amazonka.SSMContacts.ListPreviewRotationShifts
+    Amazonka.SSMContacts.ListRotationOverrides
+    Amazonka.SSMContacts.ListRotations
+    Amazonka.SSMContacts.ListRotationShifts
     Amazonka.SSMContacts.ListTagsForResource
     Amazonka.SSMContacts.PutContactPolicy
     Amazonka.SSMContacts.SendActivationCode
@@ -80,18 +91,32 @@ library
     Amazonka.SSMContacts.Types.ContactChannelAddress
     Amazonka.SSMContacts.Types.ContactTargetInfo
     Amazonka.SSMContacts.Types.ContactType
+    Amazonka.SSMContacts.Types.CoverageTime
+    Amazonka.SSMContacts.Types.DayOfWeek
     Amazonka.SSMContacts.Types.Engagement
+    Amazonka.SSMContacts.Types.HandOffTime
+    Amazonka.SSMContacts.Types.MonthlySetting
     Amazonka.SSMContacts.Types.Page
     Amazonka.SSMContacts.Types.Plan
+    Amazonka.SSMContacts.Types.PreviewOverride
     Amazonka.SSMContacts.Types.Receipt
     Amazonka.SSMContacts.Types.ReceiptType
+    Amazonka.SSMContacts.Types.RecurrenceSettings
+    Amazonka.SSMContacts.Types.ResolutionContact
+    Amazonka.SSMContacts.Types.Rotation
+    Amazonka.SSMContacts.Types.RotationOverride
+    Amazonka.SSMContacts.Types.RotationShift
+    Amazonka.SSMContacts.Types.ShiftDetails
+    Amazonka.SSMContacts.Types.ShiftType
     Amazonka.SSMContacts.Types.Stage
     Amazonka.SSMContacts.Types.Tag
     Amazonka.SSMContacts.Types.Target
     Amazonka.SSMContacts.Types.TimeRange
+    Amazonka.SSMContacts.Types.WeeklySetting
     Amazonka.SSMContacts.UntagResource
     Amazonka.SSMContacts.UpdateContact
     Amazonka.SSMContacts.UpdateContactChannel
+    Amazonka.SSMContacts.UpdateRotation
     Amazonka.SSMContacts.Waiters
 
   build-depends:

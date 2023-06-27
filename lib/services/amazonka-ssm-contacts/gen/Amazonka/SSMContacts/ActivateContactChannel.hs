@@ -106,7 +106,8 @@ instance Core.AWSRequest ActivateContactChannel where
 
 instance Prelude.Hashable ActivateContactChannel where
   hashWithSalt _salt ActivateContactChannel' {..} =
-    _salt `Prelude.hashWithSalt` contactChannelId
+    _salt
+      `Prelude.hashWithSalt` contactChannelId
       `Prelude.hashWithSalt` activationCode
 
 instance Prelude.NFData ActivateContactChannel where

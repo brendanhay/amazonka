@@ -84,7 +84,8 @@ instance Data.FromJSON Stage where
 
 instance Prelude.Hashable Stage where
   hashWithSalt _salt Stage' {..} =
-    _salt `Prelude.hashWithSalt` durationInMinutes
+    _salt
+      `Prelude.hashWithSalt` durationInMinutes
       `Prelude.hashWithSalt` targets
 
 instance Prelude.NFData Stage where

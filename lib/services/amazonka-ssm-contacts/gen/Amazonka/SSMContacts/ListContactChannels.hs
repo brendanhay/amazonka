@@ -104,21 +104,21 @@ instance Core.AWSPager ListContactChannels where
     | Core.stop
         ( rs
             Lens.^? listContactChannelsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listContactChannelsResponse_contactChannels
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listContactChannels_nextToken
           Lens..~ rs
           Lens.^? listContactChannelsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContactChannels where
   type
@@ -132,14 +132,16 @@ instance Core.AWSRequest ListContactChannels where
           ListContactChannelsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ContactChannels"
+            Prelude.<*> ( x
+                            Data..?> "ContactChannels"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListContactChannels where
   hashWithSalt _salt ListContactChannels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` contactId
 

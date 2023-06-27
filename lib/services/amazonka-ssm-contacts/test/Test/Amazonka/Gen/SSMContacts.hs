@@ -39,6 +39,12 @@ import Test.Tasty
 --         , requestCreateContactChannel $
 --             newCreateContactChannel
 --
+--         , requestCreateRotation $
+--             newCreateRotation
+--
+--         , requestCreateRotationOverride $
+--             newCreateRotationOverride
+--
 --         , requestDeactivateContactChannel $
 --             newDeactivateContactChannel
 --
@@ -47,6 +53,12 @@ import Test.Tasty
 --
 --         , requestDeleteContactChannel $
 --             newDeleteContactChannel
+--
+--         , requestDeleteRotation $
+--             newDeleteRotation
+--
+--         , requestDeleteRotationOverride $
+--             newDeleteRotationOverride
 --
 --         , requestDescribeEngagement $
 --             newDescribeEngagement
@@ -63,6 +75,12 @@ import Test.Tasty
 --         , requestGetContactPolicy $
 --             newGetContactPolicy
 --
+--         , requestGetRotation $
+--             newGetRotation
+--
+--         , requestGetRotationOverride $
+--             newGetRotationOverride
+--
 --         , requestListContactChannels $
 --             newListContactChannels
 --
@@ -75,11 +93,26 @@ import Test.Tasty
 --         , requestListPageReceipts $
 --             newListPageReceipts
 --
+--         , requestListPageResolutions $
+--             newListPageResolutions
+--
 --         , requestListPagesByContact $
 --             newListPagesByContact
 --
 --         , requestListPagesByEngagement $
 --             newListPagesByEngagement
+--
+--         , requestListPreviewRotationShifts $
+--             newListPreviewRotationShifts
+--
+--         , requestListRotationOverrides $
+--             newListRotationOverrides
+--
+--         , requestListRotationShifts $
+--             newListRotationShifts
+--
+--         , requestListRotations $
+--             newListRotations
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -108,6 +141,9 @@ import Test.Tasty
 --         , requestUpdateContactChannel $
 --             newUpdateContactChannel
 --
+--         , requestUpdateRotation $
+--             newUpdateRotation
+--
 --           ]
 
 --     , testGroup "response"
@@ -123,6 +159,12 @@ import Test.Tasty
 --         , responseCreateContactChannel $
 --             newCreateContactChannelResponse
 --
+--         , responseCreateRotation $
+--             newCreateRotationResponse
+--
+--         , responseCreateRotationOverride $
+--             newCreateRotationOverrideResponse
+--
 --         , responseDeactivateContactChannel $
 --             newDeactivateContactChannelResponse
 --
@@ -131,6 +173,12 @@ import Test.Tasty
 --
 --         , responseDeleteContactChannel $
 --             newDeleteContactChannelResponse
+--
+--         , responseDeleteRotation $
+--             newDeleteRotationResponse
+--
+--         , responseDeleteRotationOverride $
+--             newDeleteRotationOverrideResponse
 --
 --         , responseDescribeEngagement $
 --             newDescribeEngagementResponse
@@ -147,6 +195,12 @@ import Test.Tasty
 --         , responseGetContactPolicy $
 --             newGetContactPolicyResponse
 --
+--         , responseGetRotation $
+--             newGetRotationResponse
+--
+--         , responseGetRotationOverride $
+--             newGetRotationOverrideResponse
+--
 --         , responseListContactChannels $
 --             newListContactChannelsResponse
 --
@@ -159,11 +213,26 @@ import Test.Tasty
 --         , responseListPageReceipts $
 --             newListPageReceiptsResponse
 --
+--         , responseListPageResolutions $
+--             newListPageResolutionsResponse
+--
 --         , responseListPagesByContact $
 --             newListPagesByContactResponse
 --
 --         , responseListPagesByEngagement $
 --             newListPagesByEngagementResponse
+--
+--         , responseListPreviewRotationShifts $
+--             newListPreviewRotationShiftsResponse
+--
+--         , responseListRotationOverrides $
+--             newListRotationOverridesResponse
+--
+--         , responseListRotationShifts $
+--             newListRotationShiftsResponse
+--
+--         , responseListRotations $
+--             newListRotationsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -191,6 +260,9 @@ import Test.Tasty
 --
 --         , responseUpdateContactChannel $
 --             newUpdateContactChannelResponse
+--
+--         , responseUpdateRotation $
+--             newUpdateRotationResponse
 --
 --           ]
 --     ]
@@ -221,6 +293,18 @@ requestCreateContactChannel =
     "CreateContactChannel"
     "fixture/CreateContactChannel.yaml"
 
+requestCreateRotation :: CreateRotation -> TestTree
+requestCreateRotation =
+  req
+    "CreateRotation"
+    "fixture/CreateRotation.yaml"
+
+requestCreateRotationOverride :: CreateRotationOverride -> TestTree
+requestCreateRotationOverride =
+  req
+    "CreateRotationOverride"
+    "fixture/CreateRotationOverride.yaml"
+
 requestDeactivateContactChannel :: DeactivateContactChannel -> TestTree
 requestDeactivateContactChannel =
   req
@@ -238,6 +322,18 @@ requestDeleteContactChannel =
   req
     "DeleteContactChannel"
     "fixture/DeleteContactChannel.yaml"
+
+requestDeleteRotation :: DeleteRotation -> TestTree
+requestDeleteRotation =
+  req
+    "DeleteRotation"
+    "fixture/DeleteRotation.yaml"
+
+requestDeleteRotationOverride :: DeleteRotationOverride -> TestTree
+requestDeleteRotationOverride =
+  req
+    "DeleteRotationOverride"
+    "fixture/DeleteRotationOverride.yaml"
 
 requestDescribeEngagement :: DescribeEngagement -> TestTree
 requestDescribeEngagement =
@@ -269,6 +365,18 @@ requestGetContactPolicy =
     "GetContactPolicy"
     "fixture/GetContactPolicy.yaml"
 
+requestGetRotation :: GetRotation -> TestTree
+requestGetRotation =
+  req
+    "GetRotation"
+    "fixture/GetRotation.yaml"
+
+requestGetRotationOverride :: GetRotationOverride -> TestTree
+requestGetRotationOverride =
+  req
+    "GetRotationOverride"
+    "fixture/GetRotationOverride.yaml"
+
 requestListContactChannels :: ListContactChannels -> TestTree
 requestListContactChannels =
   req
@@ -293,6 +401,12 @@ requestListPageReceipts =
     "ListPageReceipts"
     "fixture/ListPageReceipts.yaml"
 
+requestListPageResolutions :: ListPageResolutions -> TestTree
+requestListPageResolutions =
+  req
+    "ListPageResolutions"
+    "fixture/ListPageResolutions.yaml"
+
 requestListPagesByContact :: ListPagesByContact -> TestTree
 requestListPagesByContact =
   req
@@ -304,6 +418,30 @@ requestListPagesByEngagement =
   req
     "ListPagesByEngagement"
     "fixture/ListPagesByEngagement.yaml"
+
+requestListPreviewRotationShifts :: ListPreviewRotationShifts -> TestTree
+requestListPreviewRotationShifts =
+  req
+    "ListPreviewRotationShifts"
+    "fixture/ListPreviewRotationShifts.yaml"
+
+requestListRotationOverrides :: ListRotationOverrides -> TestTree
+requestListRotationOverrides =
+  req
+    "ListRotationOverrides"
+    "fixture/ListRotationOverrides.yaml"
+
+requestListRotationShifts :: ListRotationShifts -> TestTree
+requestListRotationShifts =
+  req
+    "ListRotationShifts"
+    "fixture/ListRotationShifts.yaml"
+
+requestListRotations :: ListRotations -> TestTree
+requestListRotations =
+  req
+    "ListRotations"
+    "fixture/ListRotations.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -359,6 +497,12 @@ requestUpdateContactChannel =
     "UpdateContactChannel"
     "fixture/UpdateContactChannel.yaml"
 
+requestUpdateRotation :: UpdateRotation -> TestTree
+requestUpdateRotation =
+  req
+    "UpdateRotation"
+    "fixture/UpdateRotation.yaml"
+
 -- Responses
 
 responseAcceptPage :: AcceptPageResponse -> TestTree
@@ -393,6 +537,22 @@ responseCreateContactChannel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateContactChannel)
 
+responseCreateRotation :: CreateRotationResponse -> TestTree
+responseCreateRotation =
+  res
+    "CreateRotationResponse"
+    "fixture/CreateRotationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRotation)
+
+responseCreateRotationOverride :: CreateRotationOverrideResponse -> TestTree
+responseCreateRotationOverride =
+  res
+    "CreateRotationOverrideResponse"
+    "fixture/CreateRotationOverrideResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRotationOverride)
+
 responseDeactivateContactChannel :: DeactivateContactChannelResponse -> TestTree
 responseDeactivateContactChannel =
   res
@@ -416,6 +576,22 @@ responseDeleteContactChannel =
     "fixture/DeleteContactChannelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteContactChannel)
+
+responseDeleteRotation :: DeleteRotationResponse -> TestTree
+responseDeleteRotation =
+  res
+    "DeleteRotationResponse"
+    "fixture/DeleteRotationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRotation)
+
+responseDeleteRotationOverride :: DeleteRotationOverrideResponse -> TestTree
+responseDeleteRotationOverride =
+  res
+    "DeleteRotationOverrideResponse"
+    "fixture/DeleteRotationOverrideResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRotationOverride)
 
 responseDescribeEngagement :: DescribeEngagementResponse -> TestTree
 responseDescribeEngagement =
@@ -457,6 +633,22 @@ responseGetContactPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetContactPolicy)
 
+responseGetRotation :: GetRotationResponse -> TestTree
+responseGetRotation =
+  res
+    "GetRotationResponse"
+    "fixture/GetRotationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRotation)
+
+responseGetRotationOverride :: GetRotationOverrideResponse -> TestTree
+responseGetRotationOverride =
+  res
+    "GetRotationOverrideResponse"
+    "fixture/GetRotationOverrideResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRotationOverride)
+
 responseListContactChannels :: ListContactChannelsResponse -> TestTree
 responseListContactChannels =
   res
@@ -489,6 +681,14 @@ responseListPageReceipts =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPageReceipts)
 
+responseListPageResolutions :: ListPageResolutionsResponse -> TestTree
+responseListPageResolutions =
+  res
+    "ListPageResolutionsResponse"
+    "fixture/ListPageResolutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPageResolutions)
+
 responseListPagesByContact :: ListPagesByContactResponse -> TestTree
 responseListPagesByContact =
   res
@@ -504,6 +704,38 @@ responseListPagesByEngagement =
     "fixture/ListPagesByEngagementResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPagesByEngagement)
+
+responseListPreviewRotationShifts :: ListPreviewRotationShiftsResponse -> TestTree
+responseListPreviewRotationShifts =
+  res
+    "ListPreviewRotationShiftsResponse"
+    "fixture/ListPreviewRotationShiftsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPreviewRotationShifts)
+
+responseListRotationOverrides :: ListRotationOverridesResponse -> TestTree
+responseListRotationOverrides =
+  res
+    "ListRotationOverridesResponse"
+    "fixture/ListRotationOverridesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRotationOverrides)
+
+responseListRotationShifts :: ListRotationShiftsResponse -> TestTree
+responseListRotationShifts =
+  res
+    "ListRotationShiftsResponse"
+    "fixture/ListRotationShiftsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRotationShifts)
+
+responseListRotations :: ListRotationsResponse -> TestTree
+responseListRotations =
+  res
+    "ListRotationsResponse"
+    "fixture/ListRotationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRotations)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -576,3 +808,11 @@ responseUpdateContactChannel =
     "fixture/UpdateContactChannelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateContactChannel)
+
+responseUpdateRotation :: UpdateRotationResponse -> TestTree
+responseUpdateRotation =
+  res
+    "UpdateRotationResponse"
+    "fixture/UpdateRotationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRotation)

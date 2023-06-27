@@ -21,6 +21,7 @@ module Amazonka.SSMContacts.Types.ContactType
   ( ContactType
       ( ..,
         ContactType_ESCALATION,
+        ContactType_ONCALL_SCHEDULE,
         ContactType_PERSONAL
       ),
   )
@@ -61,11 +62,15 @@ newtype ContactType = ContactType'
 pattern ContactType_ESCALATION :: ContactType
 pattern ContactType_ESCALATION = ContactType' "ESCALATION"
 
+pattern ContactType_ONCALL_SCHEDULE :: ContactType
+pattern ContactType_ONCALL_SCHEDULE = ContactType' "ONCALL_SCHEDULE"
+
 pattern ContactType_PERSONAL :: ContactType
 pattern ContactType_PERSONAL = ContactType' "PERSONAL"
 
 {-# COMPLETE
   ContactType_ESCALATION,
+  ContactType_ONCALL_SCHEDULE,
   ContactType_PERSONAL,
   ContactType'
   #-}

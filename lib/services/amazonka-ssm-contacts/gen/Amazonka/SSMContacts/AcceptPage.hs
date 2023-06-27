@@ -73,7 +73,7 @@ data AcceptPage = AcceptPage'
     pageId :: Prelude.Text,
     -- | The type indicates if the page was @DELIVERED@ or @READ@.
     acceptType :: AcceptType,
-    -- | The accept code is a 6-digit code used to acknowledge the page.
+    -- | A 6-digit code used to acknowledge the page.
     acceptCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -105,7 +105,7 @@ data AcceptPage = AcceptPage'
 --
 -- 'acceptType', 'acceptPage_acceptType' - The type indicates if the page was @DELIVERED@ or @READ@.
 --
--- 'acceptCode', 'acceptPage_acceptCode' - The accept code is a 6-digit code used to acknowledge the page.
+-- 'acceptCode', 'acceptPage_acceptCode' - A 6-digit code used to acknowledge the page.
 newAcceptPage ::
   -- | 'pageId'
   Prelude.Text ->
@@ -153,7 +153,7 @@ acceptPage_pageId = Lens.lens (\AcceptPage' {pageId} -> pageId) (\s@AcceptPage' 
 acceptPage_acceptType :: Lens.Lens' AcceptPage AcceptType
 acceptPage_acceptType = Lens.lens (\AcceptPage' {acceptType} -> acceptType) (\s@AcceptPage' {} a -> s {acceptType = a} :: AcceptPage)
 
--- | The accept code is a 6-digit code used to acknowledge the page.
+-- | A 6-digit code used to acknowledge the page.
 acceptPage_acceptCode :: Lens.Lens' AcceptPage Prelude.Text
 acceptPage_acceptCode = Lens.lens (\AcceptPage' {acceptCode} -> acceptCode) (\s@AcceptPage' {} a -> s {acceptCode = a} :: AcceptPage)
 
@@ -170,7 +170,8 @@ instance Core.AWSRequest AcceptPage where
 
 instance Prelude.Hashable AcceptPage where
   hashWithSalt _salt AcceptPage' {..} =
-    _salt `Prelude.hashWithSalt` acceptCodeValidation
+    _salt
+      `Prelude.hashWithSalt` acceptCodeValidation
       `Prelude.hashWithSalt` contactChannelId
       `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` pageId

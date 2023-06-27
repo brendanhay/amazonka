@@ -25,14 +25,17 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMContacts.Types.Stage
 
--- | The stages that an escalation plan or engagement plan engages contacts
--- and contact methods in.
+-- | Information about the stages and on-call rotation teams associated with
+-- an escalation plan or engagement plan.
 --
 -- /See:/ 'newPlan' smart constructor.
 data Plan = Plan'
-  { -- | A list of stages that the escalation plan or engagement plan uses to
+  { -- | The Amazon Resource Names (ARNs) of the on-call rotations associated
+    -- with the plan.
+    rotationIds :: Prelude.Maybe [Prelude.Text],
+    -- | A list of stages that the escalation plan or engagement plan uses to
     -- engage contacts and contact methods.
-    stages :: [Stage]
+    stages :: Prelude.Maybe [Stage]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,16 +47,28 @@ data Plan = Plan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rotationIds', 'plan_rotationIds' - The Amazon Resource Names (ARNs) of the on-call rotations associated
+-- with the plan.
+--
 -- 'stages', 'plan_stages' - A list of stages that the escalation plan or engagement plan uses to
 -- engage contacts and contact methods.
 newPlan ::
   Plan
-newPlan = Plan' {stages = Prelude.mempty}
+newPlan =
+  Plan'
+    { rotationIds = Prelude.Nothing,
+      stages = Prelude.Nothing
+    }
+
+-- | The Amazon Resource Names (ARNs) of the on-call rotations associated
+-- with the plan.
+plan_rotationIds :: Lens.Lens' Plan (Prelude.Maybe [Prelude.Text])
+plan_rotationIds = Lens.lens (\Plan' {rotationIds} -> rotationIds) (\s@Plan' {} a -> s {rotationIds = a} :: Plan) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of stages that the escalation plan or engagement plan uses to
 -- engage contacts and contact methods.
-plan_stages :: Lens.Lens' Plan [Stage]
-plan_stages = Lens.lens (\Plan' {stages} -> stages) (\s@Plan' {} a -> s {stages = a} :: Plan) Prelude.. Lens.coerced
+plan_stages :: Lens.Lens' Plan (Prelude.Maybe [Stage])
+plan_stages = Lens.lens (\Plan' {stages} -> stages) (\s@Plan' {} a -> s {stages = a} :: Plan) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Plan where
   parseJSON =
@@ -61,19 +76,26 @@ instance Data.FromJSON Plan where
       "Plan"
       ( \x ->
           Plan'
-            Prelude.<$> (x Data..:? "Stages" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "RotationIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Stages" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Plan where
   hashWithSalt _salt Plan' {..} =
-    _salt `Prelude.hashWithSalt` stages
+    _salt
+      `Prelude.hashWithSalt` rotationIds
+      `Prelude.hashWithSalt` stages
 
 instance Prelude.NFData Plan where
-  rnf Plan' {..} = Prelude.rnf stages
+  rnf Plan' {..} =
+    Prelude.rnf rotationIds
+      `Prelude.seq` Prelude.rnf stages
 
 instance Data.ToJSON Plan where
   toJSON Plan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Stages" Data..= stages)]
+          [ ("RotationIds" Data..=) Prelude.<$> rotationIds,
+            ("Stages" Data..=) Prelude.<$> stages
+          ]
       )

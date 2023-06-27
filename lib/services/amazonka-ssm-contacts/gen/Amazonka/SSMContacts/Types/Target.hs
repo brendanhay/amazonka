@@ -76,7 +76,8 @@ instance Data.FromJSON Target where
 
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` channelTargetInfo
+    _salt
+      `Prelude.hashWithSalt` channelTargetInfo
       `Prelude.hashWithSalt` contactTargetInfo
 
 instance Prelude.NFData Target where

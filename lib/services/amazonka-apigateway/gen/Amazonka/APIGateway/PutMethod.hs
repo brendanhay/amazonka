@@ -279,7 +279,8 @@ instance Core.AWSRequest PutMethod where
 
 instance Prelude.Hashable PutMethod where
   hashWithSalt _salt PutMethod' {..} =
-    _salt `Prelude.hashWithSalt` apiKeyRequired
+    _salt
+      `Prelude.hashWithSalt` apiKeyRequired
       `Prelude.hashWithSalt` authorizationScopes
       `Prelude.hashWithSalt` authorizerId
       `Prelude.hashWithSalt` operationName

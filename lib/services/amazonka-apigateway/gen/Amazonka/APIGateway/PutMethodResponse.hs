@@ -192,7 +192,8 @@ instance Core.AWSRequest PutMethodResponse where
 
 instance Prelude.Hashable PutMethodResponse where
   hashWithSalt _salt PutMethodResponse' {..} =
-    _salt `Prelude.hashWithSalt` responseModels
+    _salt
+      `Prelude.hashWithSalt` responseModels
       `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId

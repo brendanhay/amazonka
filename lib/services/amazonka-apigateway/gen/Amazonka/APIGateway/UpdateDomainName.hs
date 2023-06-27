@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateDomainName where
 
 instance Prelude.Hashable UpdateDomainName where
   hashWithSalt _salt UpdateDomainName' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData UpdateDomainName where

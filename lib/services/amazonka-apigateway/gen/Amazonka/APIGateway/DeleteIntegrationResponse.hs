@@ -126,7 +126,8 @@ instance Core.AWSRequest DeleteIntegrationResponse where
 
 instance Prelude.Hashable DeleteIntegrationResponse where
   hashWithSalt _salt DeleteIntegrationResponse' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` httpMethod
       `Prelude.hashWithSalt` statusCode

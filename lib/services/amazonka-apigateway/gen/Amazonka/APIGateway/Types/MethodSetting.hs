@@ -247,7 +247,8 @@ instance Data.FromJSON MethodSetting where
 
 instance Prelude.Hashable MethodSetting where
   hashWithSalt _salt MethodSetting' {..} =
-    _salt `Prelude.hashWithSalt` cacheDataEncrypted
+    _salt
+      `Prelude.hashWithSalt` cacheDataEncrypted
       `Prelude.hashWithSalt` cacheTtlInSeconds
       `Prelude.hashWithSalt` cachingEnabled
       `Prelude.hashWithSalt` dataTraceEnabled

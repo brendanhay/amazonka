@@ -96,20 +96,23 @@ instance Core.AWSPager GetDomainNames where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getDomainNamesResponse_position Prelude.. Lens._Just
+            Lens.^? getDomainNamesResponse_position
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getDomainNamesResponse_items Prelude.. Lens._Just
+            Lens.^? getDomainNamesResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getDomainNames_position
           Lens..~ rs
-          Lens.^? getDomainNamesResponse_position Prelude.. Lens._Just
+          Lens.^? getDomainNamesResponse_position
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDomainNames where
   type
@@ -128,7 +131,8 @@ instance Core.AWSRequest GetDomainNames where
 
 instance Prelude.Hashable GetDomainNames where
   hashWithSalt _salt GetDomainNames' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
 
 instance Prelude.NFData GetDomainNames where

@@ -88,7 +88,8 @@ instance Data.FromJSON ApiStage where
 
 instance Prelude.Hashable ApiStage where
   hashWithSalt _salt ApiStage' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` throttle
 

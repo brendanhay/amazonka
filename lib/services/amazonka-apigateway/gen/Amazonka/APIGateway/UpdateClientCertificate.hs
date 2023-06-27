@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateClientCertificate where
 
 instance Prelude.Hashable UpdateClientCertificate where
   hashWithSalt _salt UpdateClientCertificate' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` clientCertificateId
 
 instance Prelude.NFData UpdateClientCertificate where

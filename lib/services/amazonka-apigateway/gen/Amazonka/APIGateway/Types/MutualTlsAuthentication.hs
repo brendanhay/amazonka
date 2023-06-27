@@ -113,14 +113,16 @@ instance Data.FromJSON MutualTlsAuthentication where
           MutualTlsAuthentication'
             Prelude.<$> (x Data..:? "truststoreUri")
             Prelude.<*> (x Data..:? "truststoreVersion")
-            Prelude.<*> ( x Data..:? "truststoreWarnings"
+            Prelude.<*> ( x
+                            Data..:? "truststoreWarnings"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable MutualTlsAuthentication where
   hashWithSalt _salt MutualTlsAuthentication' {..} =
-    _salt `Prelude.hashWithSalt` truststoreUri
+    _salt
+      `Prelude.hashWithSalt` truststoreUri
       `Prelude.hashWithSalt` truststoreVersion
       `Prelude.hashWithSalt` truststoreWarnings
 

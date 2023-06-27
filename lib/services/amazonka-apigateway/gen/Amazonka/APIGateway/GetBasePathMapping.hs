@@ -110,7 +110,8 @@ instance Core.AWSRequest GetBasePathMapping where
 
 instance Prelude.Hashable GetBasePathMapping where
   hashWithSalt _salt GetBasePathMapping' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` basePath
 
 instance Prelude.NFData GetBasePathMapping where

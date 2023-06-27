@@ -151,7 +151,8 @@ instance Core.AWSRequest GetSdk where
 
 instance Prelude.Hashable GetSdk where
   hashWithSalt _salt GetSdk' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` sdkType

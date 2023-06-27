@@ -332,7 +332,8 @@ instance Data.FromJSON DomainName where
 
 instance Prelude.Hashable DomainName where
   hashWithSalt _salt DomainName' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateName
       `Prelude.hashWithSalt` certificateUploadDate
       `Prelude.hashWithSalt` distributionDomainName

@@ -337,7 +337,8 @@ instance Core.AWSRequest CreateAuthorizer where
 
 instance Prelude.Hashable CreateAuthorizer where
   hashWithSalt _salt CreateAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` authType
+    _salt
+      `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` authorizerCredentials
       `Prelude.hashWithSalt` authorizerResultTtlInSeconds
       `Prelude.hashWithSalt` authorizerUri

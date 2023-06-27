@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateRequestValidator where
 
 instance Prelude.Hashable CreateRequestValidator where
   hashWithSalt _salt CreateRequestValidator' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` validateRequestBody
       `Prelude.hashWithSalt` validateRequestParameters
       `Prelude.hashWithSalt` restApiId

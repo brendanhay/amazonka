@@ -91,7 +91,8 @@ instance Data.FromJSON AccessLogSettings where
 
 instance Prelude.Hashable AccessLogSettings where
   hashWithSalt _salt AccessLogSettings' {..} =
-    _salt `Prelude.hashWithSalt` destinationArn
+    _salt
+      `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` format
 
 instance Prelude.NFData AccessLogSettings where

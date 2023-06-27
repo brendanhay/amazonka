@@ -163,7 +163,8 @@ instance Data.FromJSON ApiKey where
 
 instance Prelude.Hashable ApiKey where
   hashWithSalt _salt ApiKey' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` customerId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enabled

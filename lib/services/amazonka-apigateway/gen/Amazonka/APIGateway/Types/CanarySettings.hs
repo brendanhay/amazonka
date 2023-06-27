@@ -100,7 +100,8 @@ instance Data.FromJSON CanarySettings where
           CanarySettings'
             Prelude.<$> (x Data..:? "deploymentId")
             Prelude.<*> (x Data..:? "percentTraffic")
-            Prelude.<*> ( x Data..:? "stageVariableOverrides"
+            Prelude.<*> ( x
+                            Data..:? "stageVariableOverrides"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "useStageCache")
@@ -108,7 +109,8 @@ instance Data.FromJSON CanarySettings where
 
 instance Prelude.Hashable CanarySettings where
   hashWithSalt _salt CanarySettings' {..} =
-    _salt `Prelude.hashWithSalt` deploymentId
+    _salt
+      `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` percentTraffic
       `Prelude.hashWithSalt` stageVariableOverrides
       `Prelude.hashWithSalt` useStageCache

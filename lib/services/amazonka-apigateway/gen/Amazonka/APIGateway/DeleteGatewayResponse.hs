@@ -99,7 +99,8 @@ instance Core.AWSRequest DeleteGatewayResponse where
 
 instance Prelude.Hashable DeleteGatewayResponse where
   hashWithSalt _salt DeleteGatewayResponse' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` responseType
 
 instance Prelude.NFData DeleteGatewayResponse where

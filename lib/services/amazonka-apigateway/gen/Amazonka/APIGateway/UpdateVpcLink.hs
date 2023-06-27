@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateVpcLink where
 
 instance Prelude.Hashable UpdateVpcLink where
   hashWithSalt _salt UpdateVpcLink' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` vpcLinkId
 
 instance Prelude.NFData UpdateVpcLink where

@@ -109,7 +109,8 @@ instance Core.AWSRequest GenerateClientCertificate where
 
 instance Prelude.Hashable GenerateClientCertificate where
   hashWithSalt _salt GenerateClientCertificate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData GenerateClientCertificate where

@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateUsagePlan where
 
 instance Prelude.Hashable CreateUsagePlan where
   hashWithSalt _salt CreateUsagePlan' {..} =
-    _salt `Prelude.hashWithSalt` apiStages
+    _salt
+      `Prelude.hashWithSalt` apiStages
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` quota
       `Prelude.hashWithSalt` tags

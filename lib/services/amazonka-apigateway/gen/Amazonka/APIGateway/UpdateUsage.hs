@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateUsage where
 
 instance Prelude.Hashable UpdateUsage where
   hashWithSalt _salt UpdateUsage' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` usagePlanId
       `Prelude.hashWithSalt` keyId
 

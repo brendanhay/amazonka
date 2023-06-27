@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateRequestValidator where
 
 instance Prelude.Hashable UpdateRequestValidator where
   hashWithSalt _salt UpdateRequestValidator' {..} =
-    _salt `Prelude.hashWithSalt` patchOperations
+    _salt
+      `Prelude.hashWithSalt` patchOperations
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` requestValidatorId
 

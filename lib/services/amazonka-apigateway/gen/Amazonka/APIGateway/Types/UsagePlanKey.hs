@@ -97,7 +97,8 @@ instance Data.FromJSON UsagePlanKey where
 
 instance Prelude.Hashable UsagePlanKey where
   hashWithSalt _salt UsagePlanKey' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value

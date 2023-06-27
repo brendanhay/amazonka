@@ -105,7 +105,8 @@ instance Core.AWSRequest GetDocumentationPart where
 
 instance Prelude.Hashable GetDocumentationPart where
   hashWithSalt _salt GetDocumentationPart' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` documentationPartId
 
 instance Prelude.NFData GetDocumentationPart where

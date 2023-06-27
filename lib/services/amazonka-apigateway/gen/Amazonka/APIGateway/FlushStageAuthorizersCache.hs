@@ -99,7 +99,8 @@ instance Core.AWSRequest FlushStageAuthorizersCache where
 
 instance Prelude.Hashable FlushStageAuthorizersCache where
   hashWithSalt _salt FlushStageAuthorizersCache' {..} =
-    _salt `Prelude.hashWithSalt` restApiId
+    _salt
+      `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData FlushStageAuthorizersCache where

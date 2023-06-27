@@ -250,7 +250,8 @@ instance Core.AWSRequest CreateRestApi where
 
 instance Prelude.Hashable CreateRestApi where
   hashWithSalt _salt CreateRestApi' {..} =
-    _salt `Prelude.hashWithSalt` apiKeySource
+    _salt
+      `Prelude.hashWithSalt` apiKeySource
       `Prelude.hashWithSalt` binaryMediaTypes
       `Prelude.hashWithSalt` cloneFrom
       `Prelude.hashWithSalt` description

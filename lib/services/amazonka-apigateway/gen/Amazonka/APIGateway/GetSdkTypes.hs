@@ -96,20 +96,23 @@ instance Core.AWSPager GetSdkTypes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getSdkTypesResponse_position Prelude.. Lens._Just
+            Lens.^? getSdkTypesResponse_position
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getSdkTypesResponse_items Prelude.. Lens._Just
+            Lens.^? getSdkTypesResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getSdkTypes_position
           Lens..~ rs
-          Lens.^? getSdkTypesResponse_position Prelude.. Lens._Just
+          Lens.^? getSdkTypesResponse_position
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSdkTypes where
   type AWSResponse GetSdkTypes = GetSdkTypesResponse
@@ -126,7 +129,8 @@ instance Core.AWSRequest GetSdkTypes where
 
 instance Prelude.Hashable GetSdkTypes where
   hashWithSalt _salt GetSdkTypes' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
 
 instance Prelude.NFData GetSdkTypes where

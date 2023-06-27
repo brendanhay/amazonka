@@ -83,7 +83,8 @@ searchQuantumTasksFilter_values = Lens.lens (\SearchQuantumTasksFilter' {values}
 
 instance Prelude.Hashable SearchQuantumTasksFilter where
   hashWithSalt _salt SearchQuantumTasksFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` values
 

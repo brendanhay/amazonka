@@ -90,7 +90,8 @@ instance Data.FromJSON InputFileConfig where
 
 instance Prelude.Hashable InputFileConfig where
   hashWithSalt _salt InputFileConfig' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` dataSource
 

@@ -80,7 +80,8 @@ searchJobsFilter_values = Lens.lens (\SearchJobsFilter' {values} -> values) (\s@
 
 instance Prelude.Hashable SearchJobsFilter where
   hashWithSalt _salt SearchJobsFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` values
 

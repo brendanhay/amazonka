@@ -82,7 +82,8 @@ instance Data.FromJSON JobCheckpointConfig where
 
 instance Prelude.Hashable JobCheckpointConfig where
   hashWithSalt _salt JobCheckpointConfig' {..} =
-    _salt `Prelude.hashWithSalt` localPath
+    _salt
+      `Prelude.hashWithSalt` localPath
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData JobCheckpointConfig where

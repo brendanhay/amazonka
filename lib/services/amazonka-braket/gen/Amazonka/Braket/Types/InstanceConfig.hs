@@ -96,7 +96,8 @@ instance Data.FromJSON InstanceConfig where
 
 instance Prelude.Hashable InstanceConfig where
   hashWithSalt _salt InstanceConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceCount
+    _salt
+      `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` volumeSizeInGb
 

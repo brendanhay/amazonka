@@ -195,7 +195,8 @@ instance Core.AWSRequest CreateQuantumTask where
 
 instance Prelude.Hashable CreateQuantumTask where
   hashWithSalt _salt CreateQuantumTask' {..} =
-    _salt `Prelude.hashWithSalt` deviceParameters
+    _salt
+      `Prelude.hashWithSalt` deviceParameters
       `Prelude.hashWithSalt` jobToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` action

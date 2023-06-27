@@ -100,7 +100,8 @@ instance Data.FromJSON ScriptModeConfig where
 
 instance Prelude.Hashable ScriptModeConfig where
   hashWithSalt _salt ScriptModeConfig' {..} =
-    _salt `Prelude.hashWithSalt` compressionType
+    _salt
+      `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` entryPoint
       `Prelude.hashWithSalt` s3Uri
 

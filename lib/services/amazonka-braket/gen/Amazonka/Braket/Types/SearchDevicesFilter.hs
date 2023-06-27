@@ -68,7 +68,8 @@ searchDevicesFilter_values = Lens.lens (\SearchDevicesFilter' {values} -> values
 
 instance Prelude.Hashable SearchDevicesFilter where
   hashWithSalt _salt SearchDevicesFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData SearchDevicesFilter where

@@ -141,7 +141,8 @@ instance Data.FromJSON DeliverabilityTestReport where
 
 instance Prelude.Hashable DeliverabilityTestReport where
   hashWithSalt _salt DeliverabilityTestReport' {..} =
-    _salt `Prelude.hashWithSalt` createDate
+    _salt
+      `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` deliverabilityTestStatus
       `Prelude.hashWithSalt` fromEmailAddress
       `Prelude.hashWithSalt` reportId

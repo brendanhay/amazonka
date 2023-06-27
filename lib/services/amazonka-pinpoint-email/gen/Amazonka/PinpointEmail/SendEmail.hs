@@ -189,7 +189,8 @@ instance Core.AWSRequest SendEmail where
 
 instance Prelude.Hashable SendEmail where
   hashWithSalt _salt SendEmail' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` emailTags
       `Prelude.hashWithSalt` feedbackForwardingEmailAddress
       `Prelude.hashWithSalt` fromEmailAddress

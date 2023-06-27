@@ -76,7 +76,8 @@ content_data = Lens.lens (\Content' {data'} -> data') (\s@Content' {} a -> s {da
 
 instance Prelude.Hashable Content where
   hashWithSalt _salt Content' {..} =
-    _salt `Prelude.hashWithSalt` charset
+    _salt
+      `Prelude.hashWithSalt` charset
       `Prelude.hashWithSalt` data'
 
 instance Prelude.NFData Content where

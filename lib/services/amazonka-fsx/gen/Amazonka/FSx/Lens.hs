@@ -771,6 +771,7 @@ module Amazonka.FSx.Lens
     ontapFileSystemConfiguration_diskIopsConfiguration,
     ontapFileSystemConfiguration_endpointIpAddressRange,
     ontapFileSystemConfiguration_endpoints,
+    ontapFileSystemConfiguration_fsxAdminPassword,
     ontapFileSystemConfiguration_preferredSubnetId,
     ontapFileSystemConfiguration_routeTableIds,
     ontapFileSystemConfiguration_throughputCapacity,
@@ -862,6 +863,9 @@ module Amazonka.FSx.Lens
 
     -- ** SelfManagedActiveDirectoryConfigurationUpdates
     selfManagedActiveDirectoryConfigurationUpdates_dnsIps,
+    selfManagedActiveDirectoryConfigurationUpdates_domainName,
+    selfManagedActiveDirectoryConfigurationUpdates_fileSystemAdministratorsGroup,
+    selfManagedActiveDirectoryConfigurationUpdates_organizationalUnitDistinguishedName,
     selfManagedActiveDirectoryConfigurationUpdates_password,
     selfManagedActiveDirectoryConfigurationUpdates_userName,
 
@@ -979,6 +983,7 @@ module Amazonka.FSx.Lens
     updateOpenZFSVolumeConfiguration_userAndGroupQuotas,
 
     -- ** UpdateSvmActiveDirectoryConfiguration
+    updateSvmActiveDirectoryConfiguration_netBiosName,
     updateSvmActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration,
 
     -- ** Volume

@@ -18,8 +18,6 @@ data FileSystem
 
 instance Prelude.Eq FileSystem
 
-instance Prelude.Read FileSystem
-
 instance Prelude.Show FileSystem
 
 instance Prelude.Generic FileSystem

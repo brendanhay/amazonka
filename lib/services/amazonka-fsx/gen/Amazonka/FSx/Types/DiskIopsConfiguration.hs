@@ -26,19 +26,19 @@ import Amazonka.FSx.Types.DiskIopsConfigurationMode
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SSD IOPS (input\/output operations per second) configuration for an
--- Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS file system. The
--- default is 3 IOPS per GB of storage capacity, but you can provision
--- additional IOPS per GB of storage. The configuration consists of the
--- total number of provisioned SSD IOPS and how the amount was provisioned
--- (by the customer or by the system).
+-- Amazon FSx for NetApp ONTAP or FSx for OpenZFS file system. By default,
+-- Amazon FSx automatically provisions 3 IOPS per GB of storage capacity.
+-- You can provision additional IOPS per GB of storage. The configuration
+-- consists of the total number of provisioned SSD IOPS and how it is was
+-- provisioned, or the mode (by the customer or by Amazon FSx).
 --
 -- /See:/ 'newDiskIopsConfiguration' smart constructor.
 data DiskIopsConfiguration = DiskIopsConfiguration'
   { -- | The total number of SSD IOPS provisioned for the file system.
     iops :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies whether the number of IOPS for the file system is using the
-    -- system default (@AUTOMATIC@) or was provisioned by the customer
-    -- (@USER_PROVISIONED@).
+    -- | Specifies whether the file system is using the @AUTOMATIC@ setting of
+    -- SSD IOPS of 3 IOPS per GB of storage capacity, , or if it using a
+    -- @USER_PROVISIONED@ value.
     mode :: Prelude.Maybe DiskIopsConfigurationMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,9 +53,9 @@ data DiskIopsConfiguration = DiskIopsConfiguration'
 --
 -- 'iops', 'diskIopsConfiguration_iops' - The total number of SSD IOPS provisioned for the file system.
 --
--- 'mode', 'diskIopsConfiguration_mode' - Specifies whether the number of IOPS for the file system is using the
--- system default (@AUTOMATIC@) or was provisioned by the customer
--- (@USER_PROVISIONED@).
+-- 'mode', 'diskIopsConfiguration_mode' - Specifies whether the file system is using the @AUTOMATIC@ setting of
+-- SSD IOPS of 3 IOPS per GB of storage capacity, , or if it using a
+-- @USER_PROVISIONED@ value.
 newDiskIopsConfiguration ::
   DiskIopsConfiguration
 newDiskIopsConfiguration =
@@ -68,9 +68,9 @@ newDiskIopsConfiguration =
 diskIopsConfiguration_iops :: Lens.Lens' DiskIopsConfiguration (Prelude.Maybe Prelude.Natural)
 diskIopsConfiguration_iops = Lens.lens (\DiskIopsConfiguration' {iops} -> iops) (\s@DiskIopsConfiguration' {} a -> s {iops = a} :: DiskIopsConfiguration)
 
--- | Specifies whether the number of IOPS for the file system is using the
--- system default (@AUTOMATIC@) or was provisioned by the customer
--- (@USER_PROVISIONED@).
+-- | Specifies whether the file system is using the @AUTOMATIC@ setting of
+-- SSD IOPS of 3 IOPS per GB of storage capacity, , or if it using a
+-- @USER_PROVISIONED@ value.
 diskIopsConfiguration_mode :: Lens.Lens' DiskIopsConfiguration (Prelude.Maybe DiskIopsConfigurationMode)
 diskIopsConfiguration_mode = Lens.lens (\DiskIopsConfiguration' {mode} -> mode) (\s@DiskIopsConfiguration' {} a -> s {mode = a} :: DiskIopsConfiguration)
 
@@ -80,12 +80,14 @@ instance Data.FromJSON DiskIopsConfiguration where
       "DiskIopsConfiguration"
       ( \x ->
           DiskIopsConfiguration'
-            Prelude.<$> (x Data..:? "Iops") Prelude.<*> (x Data..:? "Mode")
+            Prelude.<$> (x Data..:? "Iops")
+            Prelude.<*> (x Data..:? "Mode")
       )
 
 instance Prelude.Hashable DiskIopsConfiguration where
   hashWithSalt _salt DiskIopsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` iops
+    _salt
+      `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` mode
 
 instance Prelude.NFData DiskIopsConfiguration where

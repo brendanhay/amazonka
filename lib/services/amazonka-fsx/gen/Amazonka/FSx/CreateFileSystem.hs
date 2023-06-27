@@ -104,7 +104,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateFileSystem' smart constructor.
 data CreateFileSystem = CreateFileSystem'
-  { -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+  { -- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
     -- idempotent creation. This string is automatically filled on your behalf
     -- when you use the Command Line Interface (CLI) or an Amazon Web Services
     -- SDK.
@@ -218,7 +218,7 @@ data CreateFileSystem = CreateFileSystem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientRequestToken', 'createFileSystem_clientRequestToken' - A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- 'clientRequestToken', 'createFileSystem_clientRequestToken' - A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent creation. This string is automatically filled on your behalf
 -- when you use the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
@@ -349,7 +349,7 @@ newCreateFileSystem
         subnetIds = Prelude.mempty
       }
 
--- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent creation. This string is automatically filled on your behalf
 -- when you use the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
@@ -497,7 +497,8 @@ instance Core.AWSRequest CreateFileSystem where
 
 instance Prelude.Hashable CreateFileSystem where
   hashWithSalt _salt CreateFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileSystemTypeVersion
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` lustreConfiguration
@@ -586,7 +587,7 @@ data CreateFileSystemResponse = CreateFileSystemResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFileSystemResponse' with all optional fields omitted.

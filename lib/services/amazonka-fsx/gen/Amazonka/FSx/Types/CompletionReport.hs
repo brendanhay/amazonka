@@ -48,8 +48,7 @@ data CompletionReport = CompletionReport'
     -- file system’s ExportPath. An example @Path@ value is
     -- \"s3:\/\/myBucket\/myExportPath\/optionalPrefix\". The report provides
     -- the following information for each file in the report: FilePath,
-    -- FileStatus, and ErrorCode. To learn more about a file system\'s
-    -- @ExportPath@, see .
+    -- FileStatus, and ErrorCode.
     path :: Prelude.Maybe Prelude.Text,
     -- | Required if @Enabled@ is set to @true@. Specifies the scope of the
     -- @CompletionReport@; @FAILED_FILES_ONLY@ is the only scope currently
@@ -86,8 +85,7 @@ data CompletionReport = CompletionReport'
 -- file system’s ExportPath. An example @Path@ value is
 -- \"s3:\/\/myBucket\/myExportPath\/optionalPrefix\". The report provides
 -- the following information for each file in the report: FilePath,
--- FileStatus, and ErrorCode. To learn more about a file system\'s
--- @ExportPath@, see .
+-- FileStatus, and ErrorCode.
 --
 -- 'scope', 'completionReport_scope' - Required if @Enabled@ is set to @true@. Specifies the scope of the
 -- @CompletionReport@; @FAILED_FILES_ONLY@ is the only scope currently
@@ -126,8 +124,7 @@ completionReport_format = Lens.lens (\CompletionReport' {format} -> format) (\s@
 -- file system’s ExportPath. An example @Path@ value is
 -- \"s3:\/\/myBucket\/myExportPath\/optionalPrefix\". The report provides
 -- the following information for each file in the report: FilePath,
--- FileStatus, and ErrorCode. To learn more about a file system\'s
--- @ExportPath@, see .
+-- FileStatus, and ErrorCode.
 completionReport_path :: Lens.Lens' CompletionReport (Prelude.Maybe Prelude.Text)
 completionReport_path = Lens.lens (\CompletionReport' {path} -> path) (\s@CompletionReport' {} a -> s {path = a} :: CompletionReport)
 
@@ -160,7 +157,8 @@ instance Data.FromJSON CompletionReport where
 
 instance Prelude.Hashable CompletionReport where
   hashWithSalt _salt CompletionReport' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` enabled

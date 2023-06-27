@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 -- | The data repository configuration object for Lustre file systems
 -- returned in the response of the @CreateFileSystem@ operation.
 --
--- This data type is not supported for file systems with the @Persistent_2@
--- deployment type. Instead, use .
+-- This data type is not supported on file systems with a data repository
+-- association. For file systems with a data repository association, see .
 --
 -- /See:/ 'newDataRepositoryConfiguration' smart constructor.
 data DataRepositoryConfiguration = DataRepositoryConfiguration'
@@ -283,7 +283,8 @@ instance Data.FromJSON DataRepositoryConfiguration where
 
 instance Prelude.Hashable DataRepositoryConfiguration where
   hashWithSalt _salt DataRepositoryConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` autoImportPolicy
+    _salt
+      `Prelude.hashWithSalt` autoImportPolicy
       `Prelude.hashWithSalt` exportPath
       `Prelude.hashWithSalt` failureDetails
       `Prelude.hashWithSalt` importPath

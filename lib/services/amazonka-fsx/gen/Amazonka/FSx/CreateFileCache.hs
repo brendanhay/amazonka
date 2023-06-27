@@ -78,7 +78,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFileCache' smart constructor.
 data CreateFileCache = CreateFileCache'
-  { -- | An idempotency token for resource creation, in a string of up to 64
+  { -- | An idempotency token for resource creation, in a string of up to 63
     -- ASCII characters. This token is automatically filled on your behalf when
     -- you use the Command Line Interface (CLI) or an Amazon Web Services SDK.
     --
@@ -143,7 +143,7 @@ data CreateFileCache = CreateFileCache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientRequestToken', 'createFileCache_clientRequestToken' - An idempotency token for resource creation, in a string of up to 64
+-- 'clientRequestToken', 'createFileCache_clientRequestToken' - An idempotency token for resource creation, in a string of up to 63
 -- ASCII characters. This token is automatically filled on your behalf when
 -- you use the Command Line Interface (CLI) or an Amazon Web Services SDK.
 --
@@ -226,7 +226,7 @@ newCreateFileCache
         subnetIds = Prelude.mempty
       }
 
--- | An idempotency token for resource creation, in a string of up to 64
+-- | An idempotency token for resource creation, in a string of up to 63
 -- ASCII characters. This token is automatically filled on your behalf when
 -- you use the Command Line Interface (CLI) or an Amazon Web Services SDK.
 --
@@ -320,7 +320,8 @@ instance Core.AWSRequest CreateFileCache where
 
 instance Prelude.Hashable CreateFileCache where
   hashWithSalt _salt CreateFileCache' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` copyTagsToDataRepositoryAssociations
       `Prelude.hashWithSalt` dataRepositoryAssociations
       `Prelude.hashWithSalt` kmsKeyId

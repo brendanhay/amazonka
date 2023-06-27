@@ -62,9 +62,9 @@ data CreateFileSystemOpenZFSConfiguration = CreateFileSystemOpenZFSConfiguration
     -- Amazon Web Services Region . Valid values are the following:
     --
     -- -   @SINGLE_AZ_1@- (Default) Creates file systems with throughput
-    --     capacities of 64 - 4,096 MB\/s. @Single_AZ_1@ is available in all
+    --     capacities of 64 - 4,096 MBps. @Single_AZ_1@ is available in all
     --     Amazon Web Services Regions where Amazon FSx for OpenZFS is
-    --     available, except US West (Oregon).
+    --     available.
     --
     -- -   @SINGLE_AZ_2@- Creates file systems with throughput capacities of
     --     160 - 10,240 MB\/s using an NVMe L2ARC cache. @Single_AZ_2@ is
@@ -78,14 +78,14 @@ data CreateFileSystemOpenZFSConfiguration = CreateFileSystemOpenZFSConfiguration
     -- in the /Amazon FSx for OpenZFS User Guide/.
     deploymentType :: OpenZFSDeploymentType,
     -- | Specifies the throughput of an Amazon FSx for OpenZFS file system,
-    -- measured in megabytes per second (MB\/s). Valid values depend on the
+    -- measured in megabytes per second (MBps). Valid values depend on the
     -- DeploymentType you choose, as follows:
     --
     -- -   For @SINGLE_AZ_1@, valid values are 64, 128, 256, 512, 1024, 2048,
-    --     3072, or 4096 MB\/s.
+    --     3072, or 4096 MBps.
     --
     -- -   For @SINGLE_AZ_2@, valid values are 160, 320, 640, 1280, 2560, 3840,
-    --     5120, 7680, or 10240 MB\/s.
+    --     5120, 7680, or 10240 MBps.
     --
     -- You pay for additional throughput capacity that you provision.
     throughputCapacity :: Prelude.Natural
@@ -134,9 +134,9 @@ data CreateFileSystemOpenZFSConfiguration = CreateFileSystemOpenZFSConfiguration
 -- Amazon Web Services Region . Valid values are the following:
 --
 -- -   @SINGLE_AZ_1@- (Default) Creates file systems with throughput
---     capacities of 64 - 4,096 MB\/s. @Single_AZ_1@ is available in all
+--     capacities of 64 - 4,096 MBps. @Single_AZ_1@ is available in all
 --     Amazon Web Services Regions where Amazon FSx for OpenZFS is
---     available, except US West (Oregon).
+--     available.
 --
 -- -   @SINGLE_AZ_2@- Creates file systems with throughput capacities of
 --     160 - 10,240 MB\/s using an NVMe L2ARC cache. @Single_AZ_2@ is
@@ -150,14 +150,14 @@ data CreateFileSystemOpenZFSConfiguration = CreateFileSystemOpenZFSConfiguration
 -- in the /Amazon FSx for OpenZFS User Guide/.
 --
 -- 'throughputCapacity', 'createFileSystemOpenZFSConfiguration_throughputCapacity' - Specifies the throughput of an Amazon FSx for OpenZFS file system,
--- measured in megabytes per second (MB\/s). Valid values depend on the
+-- measured in megabytes per second (MBps). Valid values depend on the
 -- DeploymentType you choose, as follows:
 --
 -- -   For @SINGLE_AZ_1@, valid values are 64, 128, 256, 512, 1024, 2048,
---     3072, or 4096 MB\/s.
+--     3072, or 4096 MBps.
 --
 -- -   For @SINGLE_AZ_2@, valid values are 160, 320, 640, 1280, 2560, 3840,
---     5120, 7680, or 10240 MB\/s.
+--     5120, 7680, or 10240 MBps.
 --
 -- You pay for additional throughput capacity that you provision.
 newCreateFileSystemOpenZFSConfiguration ::
@@ -235,9 +235,9 @@ createFileSystemOpenZFSConfiguration_weeklyMaintenanceStartTime = Lens.lens (\Cr
 -- Amazon Web Services Region . Valid values are the following:
 --
 -- -   @SINGLE_AZ_1@- (Default) Creates file systems with throughput
---     capacities of 64 - 4,096 MB\/s. @Single_AZ_1@ is available in all
+--     capacities of 64 - 4,096 MBps. @Single_AZ_1@ is available in all
 --     Amazon Web Services Regions where Amazon FSx for OpenZFS is
---     available, except US West (Oregon).
+--     available.
 --
 -- -   @SINGLE_AZ_2@- Creates file systems with throughput capacities of
 --     160 - 10,240 MB\/s using an NVMe L2ARC cache. @Single_AZ_2@ is
@@ -253,14 +253,14 @@ createFileSystemOpenZFSConfiguration_deploymentType :: Lens.Lens' CreateFileSyst
 createFileSystemOpenZFSConfiguration_deploymentType = Lens.lens (\CreateFileSystemOpenZFSConfiguration' {deploymentType} -> deploymentType) (\s@CreateFileSystemOpenZFSConfiguration' {} a -> s {deploymentType = a} :: CreateFileSystemOpenZFSConfiguration)
 
 -- | Specifies the throughput of an Amazon FSx for OpenZFS file system,
--- measured in megabytes per second (MB\/s). Valid values depend on the
+-- measured in megabytes per second (MBps). Valid values depend on the
 -- DeploymentType you choose, as follows:
 --
 -- -   For @SINGLE_AZ_1@, valid values are 64, 128, 256, 512, 1024, 2048,
---     3072, or 4096 MB\/s.
+--     3072, or 4096 MBps.
 --
 -- -   For @SINGLE_AZ_2@, valid values are 160, 320, 640, 1280, 2560, 3840,
---     5120, 7680, or 10240 MB\/s.
+--     5120, 7680, or 10240 MBps.
 --
 -- You pay for additional throughput capacity that you provision.
 createFileSystemOpenZFSConfiguration_throughputCapacity :: Lens.Lens' CreateFileSystemOpenZFSConfiguration Prelude.Natural

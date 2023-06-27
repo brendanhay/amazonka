@@ -40,8 +40,8 @@ data CreateOntapVolumeConfiguration = CreateOntapVolumeConfiguration'
     -- no tags are copied from the volume, regardless of this value.
     copyTagsToBackups :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the location in the SVM\'s namespace where the volume is
-    -- mounted. The @JunctionPath@ must have a leading forward slash, such as
-    -- @\/vol3@.
+    -- mounted. This parameter is required. The @JunctionPath@ must have a
+    -- leading forward slash, such as @\/vol3@.
     junctionPath :: Prelude.Maybe Prelude.Text,
     -- | Specifies the type of volume you are creating. Valid values are the
     -- following:
@@ -99,11 +99,13 @@ data CreateOntapVolumeConfiguration = CreateOntapVolumeConfiguration'
     -- in the /Amazon FSx for NetApp ONTAP User Guide/.
     snapshotPolicy :: Prelude.Maybe Prelude.Text,
     -- | Set to true to enable deduplication, compression, and compaction storage
-    -- efficiency features on the volume.
+    -- efficiency features on the volume, or set to false to disable them. This
+    -- parameter is required.
     storageEfficiencyEnabled :: Prelude.Maybe Prelude.Bool,
     tieringPolicy :: Prelude.Maybe TieringPolicy,
     -- | Specifies the size of the volume, in megabytes (MB), that you are
-    -- creating.
+    -- creating. Provide any whole number in the range of 20–104857600 to
+    -- specify the size of the volume.
     sizeInMegabytes :: Prelude.Natural,
     -- | Specifies the ONTAP SVM in which to create the volume.
     storageVirtualMachineId :: Prelude.Text
@@ -127,8 +129,8 @@ data CreateOntapVolumeConfiguration = CreateOntapVolumeConfiguration'
 -- no tags are copied from the volume, regardless of this value.
 --
 -- 'junctionPath', 'createOntapVolumeConfiguration_junctionPath' - Specifies the location in the SVM\'s namespace where the volume is
--- mounted. The @JunctionPath@ must have a leading forward slash, such as
--- @\/vol3@.
+-- mounted. This parameter is required. The @JunctionPath@ must have a
+-- leading forward slash, such as @\/vol3@.
 --
 -- 'ontapVolumeType', 'createOntapVolumeConfiguration_ontapVolumeType' - Specifies the type of volume you are creating. Valid values are the
 -- following:
@@ -186,12 +188,14 @@ data CreateOntapVolumeConfiguration = CreateOntapVolumeConfiguration'
 -- in the /Amazon FSx for NetApp ONTAP User Guide/.
 --
 -- 'storageEfficiencyEnabled', 'createOntapVolumeConfiguration_storageEfficiencyEnabled' - Set to true to enable deduplication, compression, and compaction storage
--- efficiency features on the volume.
+-- efficiency features on the volume, or set to false to disable them. This
+-- parameter is required.
 --
 -- 'tieringPolicy', 'createOntapVolumeConfiguration_tieringPolicy' - Undocumented member.
 --
 -- 'sizeInMegabytes', 'createOntapVolumeConfiguration_sizeInMegabytes' - Specifies the size of the volume, in megabytes (MB), that you are
--- creating.
+-- creating. Provide any whole number in the range of 20–104857600 to
+-- specify the size of the volume.
 --
 -- 'storageVirtualMachineId', 'createOntapVolumeConfiguration_storageVirtualMachineId' - Specifies the ONTAP SVM in which to create the volume.
 newCreateOntapVolumeConfiguration ::
@@ -228,8 +232,8 @@ createOntapVolumeConfiguration_copyTagsToBackups :: Lens.Lens' CreateOntapVolume
 createOntapVolumeConfiguration_copyTagsToBackups = Lens.lens (\CreateOntapVolumeConfiguration' {copyTagsToBackups} -> copyTagsToBackups) (\s@CreateOntapVolumeConfiguration' {} a -> s {copyTagsToBackups = a} :: CreateOntapVolumeConfiguration)
 
 -- | Specifies the location in the SVM\'s namespace where the volume is
--- mounted. The @JunctionPath@ must have a leading forward slash, such as
--- @\/vol3@.
+-- mounted. This parameter is required. The @JunctionPath@ must have a
+-- leading forward slash, such as @\/vol3@.
 createOntapVolumeConfiguration_junctionPath :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe Prelude.Text)
 createOntapVolumeConfiguration_junctionPath = Lens.lens (\CreateOntapVolumeConfiguration' {junctionPath} -> junctionPath) (\s@CreateOntapVolumeConfiguration' {} a -> s {junctionPath = a} :: CreateOntapVolumeConfiguration)
 
@@ -295,7 +299,8 @@ createOntapVolumeConfiguration_snapshotPolicy :: Lens.Lens' CreateOntapVolumeCon
 createOntapVolumeConfiguration_snapshotPolicy = Lens.lens (\CreateOntapVolumeConfiguration' {snapshotPolicy} -> snapshotPolicy) (\s@CreateOntapVolumeConfiguration' {} a -> s {snapshotPolicy = a} :: CreateOntapVolumeConfiguration)
 
 -- | Set to true to enable deduplication, compression, and compaction storage
--- efficiency features on the volume.
+-- efficiency features on the volume, or set to false to disable them. This
+-- parameter is required.
 createOntapVolumeConfiguration_storageEfficiencyEnabled :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe Prelude.Bool)
 createOntapVolumeConfiguration_storageEfficiencyEnabled = Lens.lens (\CreateOntapVolumeConfiguration' {storageEfficiencyEnabled} -> storageEfficiencyEnabled) (\s@CreateOntapVolumeConfiguration' {} a -> s {storageEfficiencyEnabled = a} :: CreateOntapVolumeConfiguration)
 
@@ -304,7 +309,8 @@ createOntapVolumeConfiguration_tieringPolicy :: Lens.Lens' CreateOntapVolumeConf
 createOntapVolumeConfiguration_tieringPolicy = Lens.lens (\CreateOntapVolumeConfiguration' {tieringPolicy} -> tieringPolicy) (\s@CreateOntapVolumeConfiguration' {} a -> s {tieringPolicy = a} :: CreateOntapVolumeConfiguration)
 
 -- | Specifies the size of the volume, in megabytes (MB), that you are
--- creating.
+-- creating. Provide any whole number in the range of 20–104857600 to
+-- specify the size of the volume.
 createOntapVolumeConfiguration_sizeInMegabytes :: Lens.Lens' CreateOntapVolumeConfiguration Prelude.Natural
 createOntapVolumeConfiguration_sizeInMegabytes = Lens.lens (\CreateOntapVolumeConfiguration' {sizeInMegabytes} -> sizeInMegabytes) (\s@CreateOntapVolumeConfiguration' {} a -> s {sizeInMegabytes = a} :: CreateOntapVolumeConfiguration)
 
@@ -319,7 +325,8 @@ instance
   hashWithSalt
     _salt
     CreateOntapVolumeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` copyTagsToBackups
+      _salt
+        `Prelude.hashWithSalt` copyTagsToBackups
         `Prelude.hashWithSalt` junctionPath
         `Prelude.hashWithSalt` ontapVolumeType
         `Prelude.hashWithSalt` securityStyle

@@ -703,6 +703,7 @@ module Amazonka.FSx.Types
     ontapFileSystemConfiguration_diskIopsConfiguration,
     ontapFileSystemConfiguration_endpointIpAddressRange,
     ontapFileSystemConfiguration_endpoints,
+    ontapFileSystemConfiguration_fsxAdminPassword,
     ontapFileSystemConfiguration_preferredSubnetId,
     ontapFileSystemConfiguration_routeTableIds,
     ontapFileSystemConfiguration_throughputCapacity,
@@ -818,6 +819,9 @@ module Amazonka.FSx.Types
     SelfManagedActiveDirectoryConfigurationUpdates (..),
     newSelfManagedActiveDirectoryConfigurationUpdates,
     selfManagedActiveDirectoryConfigurationUpdates_dnsIps,
+    selfManagedActiveDirectoryConfigurationUpdates_domainName,
+    selfManagedActiveDirectoryConfigurationUpdates_fileSystemAdministratorsGroup,
+    selfManagedActiveDirectoryConfigurationUpdates_organizationalUnitDistinguishedName,
     selfManagedActiveDirectoryConfigurationUpdates_password,
     selfManagedActiveDirectoryConfigurationUpdates_userName,
 
@@ -969,6 +973,7 @@ module Amazonka.FSx.Types
     -- * UpdateSvmActiveDirectoryConfiguration
     UpdateSvmActiveDirectoryConfiguration (..),
     newUpdateSvmActiveDirectoryConfiguration,
+    updateSvmActiveDirectoryConfiguration_netBiosName,
     updateSvmActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration,
 
     -- * Volume
@@ -1198,59 +1203,59 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An Active Directory error.
-_ActiveDirectoryError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ActiveDirectoryError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ActiveDirectoryError =
   Core._MatchServiceError
     defaultService
     "ActiveDirectoryError"
 
 -- | You can\'t delete a backup while it\'s being copied.
-_BackupBeingCopied :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BackupBeingCopied :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BackupBeingCopied =
   Core._MatchServiceError
     defaultService
@@ -1258,14 +1263,14 @@ _BackupBeingCopied =
 
 -- | Another backup is already under way. Wait for completion before
 -- initiating additional backups of this file system.
-_BackupInProgress :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BackupInProgress :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BackupInProgress =
   Core._MatchServiceError
     defaultService
     "BackupInProgress"
 
 -- | No Amazon FSx backups were found based upon the supplied parameters.
-_BackupNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BackupNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BackupNotFound =
   Core._MatchServiceError
     defaultService
@@ -1273,20 +1278,20 @@ _BackupNotFound =
 
 -- | You can\'t delete a backup while it\'s being used to restore a file
 -- system.
-_BackupRestoring :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BackupRestoring :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BackupRestoring =
   Core._MatchServiceError
     defaultService
     "BackupRestoring"
 
 -- | A generic error indicating a failure with a client request.
-_BadRequest :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequest :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequest =
   Core._MatchServiceError defaultService "BadRequest"
 
 -- | No data repository associations were found based upon the supplied
 -- parameters.
-_DataRepositoryAssociationNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DataRepositoryAssociationNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DataRepositoryAssociationNotFound =
   Core._MatchServiceError
     defaultService
@@ -1294,7 +1299,7 @@ _DataRepositoryAssociationNotFound =
 
 -- | The data repository task could not be canceled because the task has
 -- already ended.
-_DataRepositoryTaskEnded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DataRepositoryTaskEnded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DataRepositoryTaskEnded =
   Core._MatchServiceError
     defaultService
@@ -1303,28 +1308,28 @@ _DataRepositoryTaskEnded =
 -- | An existing data repository task is currently executing on the file
 -- system. Wait until the existing task has completed, then create the new
 -- task.
-_DataRepositoryTaskExecuting :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DataRepositoryTaskExecuting :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DataRepositoryTaskExecuting =
   Core._MatchServiceError
     defaultService
     "DataRepositoryTaskExecuting"
 
 -- | The data repository task or tasks you specified could not be found.
-_DataRepositoryTaskNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DataRepositoryTaskNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DataRepositoryTaskNotFound =
   Core._MatchServiceError
     defaultService
     "DataRepositoryTaskNotFound"
 
 -- | No caches were found based upon supplied parameters.
-_FileCacheNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FileCacheNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FileCacheNotFound =
   Core._MatchServiceError
     defaultService
     "FileCacheNotFound"
 
 -- | No Amazon FSx file systems were found based upon supplied parameters.
-_FileSystemNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FileSystemNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FileSystemNotFound =
   Core._MatchServiceError
     defaultService
@@ -1333,7 +1338,7 @@ _FileSystemNotFound =
 -- | The error returned when a second request is received with the same
 -- client request token but different parameters settings. A client request
 -- token should always uniquely identify a single request.
-_IncompatibleParameterError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IncompatibleParameterError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IncompatibleParameterError =
   Core._MatchServiceError
     defaultService
@@ -1341,14 +1346,14 @@ _IncompatibleParameterError =
 
 -- | Amazon FSx doesn\'t support Multi-AZ Windows File Server copy backup in
 -- the destination Region, so the copied backup can\'t be restored.
-_IncompatibleRegionForMultiAZ :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IncompatibleRegionForMultiAZ :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IncompatibleRegionForMultiAZ =
   Core._MatchServiceError
     defaultService
     "IncompatibleRegionForMultiAZ"
 
 -- | A generic error indicating a server-side failure.
-_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -1356,7 +1361,7 @@ _InternalServerError =
 
 -- | You have filtered the response to a data repository type that is not
 -- supported.
-_InvalidDataRepositoryType :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDataRepositoryType :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDataRepositoryType =
   Core._MatchServiceError
     defaultService
@@ -1364,28 +1369,28 @@ _InvalidDataRepositoryType =
 
 -- | The Key Management Service (KMS) key of the destination backup is not
 -- valid.
-_InvalidDestinationKmsKey :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDestinationKmsKey :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDestinationKmsKey =
   Core._MatchServiceError
     defaultService
     "InvalidDestinationKmsKey"
 
 -- | The path provided for data repository export isn\'t valid.
-_InvalidExportPath :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidExportPath :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidExportPath =
   Core._MatchServiceError
     defaultService
     "InvalidExportPath"
 
 -- | The path provided for data repository import isn\'t valid.
-_InvalidImportPath :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidImportPath :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidImportPath =
   Core._MatchServiceError
     defaultService
     "InvalidImportPath"
 
 -- | One or more network settings specified in the request are invalid.
-_InvalidNetworkSettings :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNetworkSettings :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNetworkSettings =
   Core._MatchServiceError
     defaultService
@@ -1393,7 +1398,7 @@ _InvalidNetworkSettings =
 
 -- | An invalid value for @PerUnitStorageThroughput@ was provided. Please
 -- create your file system again, using a valid value.
-_InvalidPerUnitStorageThroughput :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPerUnitStorageThroughput :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPerUnitStorageThroughput =
   Core._MatchServiceError
     defaultService
@@ -1401,35 +1406,35 @@ _InvalidPerUnitStorageThroughput =
 
 -- | The Region provided for @SourceRegion@ is not valid or is in a different
 -- Amazon Web Services partition.
-_InvalidRegion :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRegion :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRegion =
   Core._MatchServiceError
     defaultService
     "InvalidRegion"
 
 -- | The Key Management Service (KMS) key of the source backup is not valid.
-_InvalidSourceKmsKey :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSourceKmsKey :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSourceKmsKey =
   Core._MatchServiceError
     defaultService
     "InvalidSourceKmsKey"
 
 -- | A cache configuration is required for this operation.
-_MissingFileCacheConfiguration :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MissingFileCacheConfiguration :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MissingFileCacheConfiguration =
   Core._MatchServiceError
     defaultService
     "MissingFileCacheConfiguration"
 
 -- | A file system configuration is required for this operation.
-_MissingFileSystemConfiguration :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MissingFileSystemConfiguration :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MissingFileSystemConfiguration =
   Core._MatchServiceError
     defaultService
     "MissingFileSystemConfiguration"
 
 -- | A volume configuration is required for this operation.
-_MissingVolumeConfiguration :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MissingVolumeConfiguration :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MissingVolumeConfiguration =
   Core._MatchServiceError
     defaultService
@@ -1438,14 +1443,14 @@ _MissingVolumeConfiguration =
 -- | The resource specified for the tagging operation is not a resource type
 -- owned by Amazon FSx. Use the API of the relevant service to perform the
 -- operation.
-_NotServiceResourceError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotServiceResourceError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotServiceResourceError =
   Core._MatchServiceError
     defaultService
     "NotServiceResourceError"
 
 -- | The resource specified does not support tagging.
-_ResourceDoesNotSupportTagging :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceDoesNotSupportTagging :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceDoesNotSupportTagging =
   Core._MatchServiceError
     defaultService
@@ -1453,7 +1458,7 @@ _ResourceDoesNotSupportTagging =
 
 -- | The resource specified by the Amazon Resource Name (ARN) can\'t be
 -- found.
-_ResourceNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFound =
   Core._MatchServiceError
     defaultService
@@ -1462,14 +1467,14 @@ _ResourceNotFound =
 -- | An error indicating that a particular service limit was exceeded. You
 -- can increase some service limits by contacting Amazon Web Services
 -- Support.
-_ServiceLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceLimitExceeded =
   Core._MatchServiceError
     defaultService
     "ServiceLimitExceeded"
 
 -- | No Amazon FSx snapshots were found based on the supplied parameters.
-_SnapshotNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SnapshotNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SnapshotNotFound =
   Core._MatchServiceError
     defaultService
@@ -1477,28 +1482,28 @@ _SnapshotNotFound =
 
 -- | The request was rejected because the lifecycle status of the source
 -- backup isn\'t @AVAILABLE@.
-_SourceBackupUnavailable :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SourceBackupUnavailable :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SourceBackupUnavailable =
   Core._MatchServiceError
     defaultService
     "SourceBackupUnavailable"
 
 -- | No FSx for ONTAP SVMs were found based upon the supplied parameters.
-_StorageVirtualMachineNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StorageVirtualMachineNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StorageVirtualMachineNotFound =
   Core._MatchServiceError
     defaultService
     "StorageVirtualMachineNotFound"
 
 -- | The requested operation is not supported for this resource or API.
-_UnsupportedOperation :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedOperation :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedOperation =
   Core._MatchServiceError
     defaultService
     "UnsupportedOperation"
 
 -- | No Amazon FSx volumes were found based upon the supplied parameters.
-_VolumeNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_VolumeNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _VolumeNotFound =
   Core._MatchServiceError
     defaultService

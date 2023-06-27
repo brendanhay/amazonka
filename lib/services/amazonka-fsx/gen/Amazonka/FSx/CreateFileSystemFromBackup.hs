@@ -97,7 +97,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateFileSystemFromBackup' smart constructor.
 data CreateFileSystemFromBackup = CreateFileSystemFromBackup'
-  { -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+  { -- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
     -- idempotent creation. This string is automatically filled on your behalf
     -- when you use the Command Line Interface (CLI) or an Amazon Web Services
     -- SDK.
@@ -177,7 +177,7 @@ data CreateFileSystemFromBackup = CreateFileSystemFromBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientRequestToken', 'createFileSystemFromBackup_clientRequestToken' - A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- 'clientRequestToken', 'createFileSystemFromBackup_clientRequestToken' - A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent creation. This string is automatically filled on your behalf
 -- when you use the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
@@ -269,7 +269,7 @@ newCreateFileSystemFromBackup pBackupId_ =
       subnetIds = Prelude.mempty
     }
 
--- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent creation. This string is automatically filled on your behalf
 -- when you use the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
@@ -381,7 +381,8 @@ instance Core.AWSRequest CreateFileSystemFromBackup where
 
 instance Prelude.Hashable CreateFileSystemFromBackup where
   hashWithSalt _salt CreateFileSystemFromBackup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileSystemTypeVersion
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` lustreConfiguration
@@ -465,7 +466,7 @@ data CreateFileSystemFromBackupResponse = CreateFileSystemFromBackupResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFileSystemFromBackupResponse' with all optional fields omitted.

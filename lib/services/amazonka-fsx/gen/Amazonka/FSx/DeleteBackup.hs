@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteBackup' smart constructor.
 data DeleteBackup = DeleteBackup'
-  { -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+  { -- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
     -- idempotent deletion. This parameter is automatically filled on your
     -- behalf when using the CLI or SDK.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
@@ -77,7 +77,7 @@ data DeleteBackup = DeleteBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientRequestToken', 'deleteBackup_clientRequestToken' - A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- 'clientRequestToken', 'deleteBackup_clientRequestToken' - A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent deletion. This parameter is automatically filled on your
 -- behalf when using the CLI or SDK.
 --
@@ -92,7 +92,7 @@ newDeleteBackup pBackupId_ =
       backupId = pBackupId_
     }
 
--- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent deletion. This parameter is automatically filled on your
 -- behalf when using the CLI or SDK.
 deleteBackup_clientRequestToken :: Lens.Lens' DeleteBackup (Prelude.Maybe Prelude.Text)
@@ -117,7 +117,8 @@ instance Core.AWSRequest DeleteBackup where
 
 instance Prelude.Hashable DeleteBackup where
   hashWithSalt _salt DeleteBackup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` backupId
 
 instance Prelude.NFData DeleteBackup where

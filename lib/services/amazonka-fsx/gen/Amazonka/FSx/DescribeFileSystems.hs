@@ -152,22 +152,22 @@ instance Core.AWSPager DescribeFileSystems where
     | Core.stop
         ( rs
             Lens.^? describeFileSystemsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFileSystemsResponse_fileSystems
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFileSystems_nextToken
           Lens..~ rs
           Lens.^? describeFileSystemsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFileSystems where
   type
@@ -186,7 +186,8 @@ instance Core.AWSRequest DescribeFileSystems where
 
 instance Prelude.Hashable DescribeFileSystems where
   hashWithSalt _salt DescribeFileSystems' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemIds
+    _salt
+      `Prelude.hashWithSalt` fileSystemIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
@@ -240,7 +241,7 @@ data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeFileSystemsResponse' with all optional fields omitted.

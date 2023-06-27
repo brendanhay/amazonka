@@ -41,9 +41,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- -   @DescribeDataRepositoryAssociations@
 --
--- Data repository associations are supported only for an Amazon FSx for
--- Lustre file system with the @Persistent_2@ deployment type and for an
--- Amazon File Cache resource.
+-- Data repository associations are supported on Amazon File Cache
+-- resources and all FSx for Lustre 2.12 and newer file systems, excluding
+-- @scratch_1@ deployment type.
 --
 -- /See:/ 'newDataRepositoryAssociation' smart constructor.
 data DataRepositoryAssociation = DataRepositoryAssociation'
@@ -504,7 +504,8 @@ instance Data.FromJSON DataRepositoryAssociation where
             Prelude.<*> (x Data..:? "BatchImportMetaDataOnCreate")
             Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "DataRepositoryPath")
-            Prelude.<*> ( x Data..:? "DataRepositorySubdirectories"
+            Prelude.<*> ( x
+                            Data..:? "DataRepositorySubdirectories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FailureDetails")
@@ -522,7 +523,8 @@ instance Data.FromJSON DataRepositoryAssociation where
 
 instance Prelude.Hashable DataRepositoryAssociation where
   hashWithSalt _salt DataRepositoryAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` batchImportMetaDataOnCreate
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dataRepositoryPath

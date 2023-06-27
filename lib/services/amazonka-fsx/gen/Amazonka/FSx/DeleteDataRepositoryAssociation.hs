@@ -25,8 +25,8 @@
 -- from the Amazon S3 bucket. When deleting a data repository association,
 -- you have the option of deleting the data in the file system that
 -- corresponds to the data repository association. Data repository
--- associations are supported only for file systems with the @Persistent_2@
--- deployment type.
+-- associations are supported on all FSx for Lustre 2.12 and newer file
+-- systems, excluding @scratch_1@ deployment type.
 module Amazonka.FSx.DeleteDataRepositoryAssociation
   ( -- * Creating a Request
     DeleteDataRepositoryAssociation (..),
@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     DeleteDataRepositoryAssociation' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` deleteDataInFileSystem
         `Prelude.hashWithSalt` associationId
 

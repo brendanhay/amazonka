@@ -162,21 +162,22 @@ instance Core.AWSPager DescribeBackups where
     | Core.stop
         ( rs
             Lens.^? describeBackupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeBackupsResponse_backups Prelude.. Lens._Just
+            Lens.^? describeBackupsResponse_backups
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeBackups_nextToken
           Lens..~ rs
           Lens.^? describeBackupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeBackups where
   type
@@ -195,7 +196,8 @@ instance Core.AWSRequest DescribeBackups where
 
 instance Prelude.Hashable DescribeBackups where
   hashWithSalt _salt DescribeBackups' {..} =
-    _salt `Prelude.hashWithSalt` backupIds
+    _salt
+      `Prelude.hashWithSalt` backupIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -252,7 +254,7 @@ data DescribeBackupsResponse = DescribeBackupsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBackupsResponse' with all optional fields omitted.

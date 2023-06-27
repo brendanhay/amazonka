@@ -104,7 +104,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateBackup' smart constructor.
 data CreateBackup = CreateBackup'
-  { -- | (Optional) A string of up to 64 ASCII characters that Amazon FSx uses to
+  { -- | (Optional) A string of up to 63 ASCII characters that Amazon FSx uses to
     -- ensure idempotent creation. This string is automatically filled on your
     -- behalf when you use the Command Line Interface (CLI) or an Amazon Web
     -- Services SDK.
@@ -130,7 +130,7 @@ data CreateBackup = CreateBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientRequestToken', 'createBackup_clientRequestToken' - (Optional) A string of up to 64 ASCII characters that Amazon FSx uses to
+-- 'clientRequestToken', 'createBackup_clientRequestToken' - (Optional) A string of up to 63 ASCII characters that Amazon FSx uses to
 -- ensure idempotent creation. This string is automatically filled on your
 -- behalf when you use the Command Line Interface (CLI) or an Amazon Web
 -- Services SDK.
@@ -154,7 +154,7 @@ newCreateBackup =
       volumeId = Prelude.Nothing
     }
 
--- | (Optional) A string of up to 64 ASCII characters that Amazon FSx uses to
+-- | (Optional) A string of up to 63 ASCII characters that Amazon FSx uses to
 -- ensure idempotent creation. This string is automatically filled on your
 -- behalf when you use the Command Line Interface (CLI) or an Amazon Web
 -- Services SDK.
@@ -191,7 +191,8 @@ instance Core.AWSRequest CreateBackup where
 
 instance Prelude.Hashable CreateBackup where
   hashWithSalt _salt CreateBackup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeId
@@ -245,7 +246,7 @@ data CreateBackupResponse = CreateBackupResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBackupResponse' with all optional fields omitted.

@@ -102,7 +102,8 @@ instance Core.AWSRequest ReleaseFileSystemNfsV3Locks where
 
 instance Prelude.Hashable ReleaseFileSystemNfsV3Locks where
   hashWithSalt _salt ReleaseFileSystemNfsV3Locks' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileSystemId
 
 instance Prelude.NFData ReleaseFileSystemNfsV3Locks where
@@ -147,7 +148,7 @@ data ReleaseFileSystemNfsV3LocksResponse = ReleaseFileSystemNfsV3LocksResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReleaseFileSystemNfsV3LocksResponse' with all optional fields omitted.

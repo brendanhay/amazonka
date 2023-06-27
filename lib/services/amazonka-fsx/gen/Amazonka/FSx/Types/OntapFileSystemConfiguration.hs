@@ -49,18 +49,22 @@ data OntapFileSystemConfiguration = OntapFileSystemConfiguration'
     -- | The SSD IOPS configuration for the ONTAP file system, specifying the
     -- number of provisioned IOPS and the provision mode.
     diskIopsConfiguration :: Prelude.Maybe DiskIopsConfiguration,
-    -- | (Multi-AZ only) The IP address range in which the endpoints to access
-    -- your file system are created.
-    --
-    -- The Endpoint IP address range you select for your file system must exist
-    -- outside the VPC\'s CIDR range and must be at least \/30 or larger. If
-    -- you do not specify this optional parameter, Amazon FSx will
-    -- automatically select a CIDR block for you.
+    -- | (Multi-AZ only) Specifies the IP address range in which the endpoints to
+    -- access your file system will be created. By default in the Amazon FSx
+    -- API, Amazon FSx selects an unused IP address range for you from the
+    -- 198.19.* range. By default in the Amazon FSx console, Amazon FSx chooses
+    -- the last 64 IP addresses from the VPC’s primary CIDR range to use as the
+    -- endpoint IP address range for the file system. You can have overlapping
+    -- endpoint IP addresses for file systems deployed in the same VPC\/route
+    -- tables.
     endpointIpAddressRange :: Prelude.Maybe Prelude.Text,
     -- | The @Management@ and @Intercluster@ endpoints that are used to access
     -- data or to manage the file system using the NetApp ONTAP CLI, REST API,
     -- or NetApp SnapMirror.
     endpoints :: Prelude.Maybe FileSystemEndpoints,
+    -- | You can use the @fsxadmin@ user account to access the NetApp ONTAP CLI
+    -- and REST API. The password value is always redacted in the response.
+    fsxAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     preferredSubnetId :: Prelude.Maybe Prelude.Text,
     -- | (Multi-AZ only) The VPC route tables in which your file system\'s
     -- endpoints are created.
@@ -68,7 +72,7 @@ data OntapFileSystemConfiguration = OntapFileSystemConfiguration'
     throughputCapacity :: Prelude.Maybe Prelude.Natural,
     weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OntapFileSystemConfiguration' with all optional fields omitted.
@@ -98,17 +102,21 @@ data OntapFileSystemConfiguration = OntapFileSystemConfiguration'
 -- 'diskIopsConfiguration', 'ontapFileSystemConfiguration_diskIopsConfiguration' - The SSD IOPS configuration for the ONTAP file system, specifying the
 -- number of provisioned IOPS and the provision mode.
 --
--- 'endpointIpAddressRange', 'ontapFileSystemConfiguration_endpointIpAddressRange' - (Multi-AZ only) The IP address range in which the endpoints to access
--- your file system are created.
---
--- The Endpoint IP address range you select for your file system must exist
--- outside the VPC\'s CIDR range and must be at least \/30 or larger. If
--- you do not specify this optional parameter, Amazon FSx will
--- automatically select a CIDR block for you.
+-- 'endpointIpAddressRange', 'ontapFileSystemConfiguration_endpointIpAddressRange' - (Multi-AZ only) Specifies the IP address range in which the endpoints to
+-- access your file system will be created. By default in the Amazon FSx
+-- API, Amazon FSx selects an unused IP address range for you from the
+-- 198.19.* range. By default in the Amazon FSx console, Amazon FSx chooses
+-- the last 64 IP addresses from the VPC’s primary CIDR range to use as the
+-- endpoint IP address range for the file system. You can have overlapping
+-- endpoint IP addresses for file systems deployed in the same VPC\/route
+-- tables.
 --
 -- 'endpoints', 'ontapFileSystemConfiguration_endpoints' - The @Management@ and @Intercluster@ endpoints that are used to access
 -- data or to manage the file system using the NetApp ONTAP CLI, REST API,
 -- or NetApp SnapMirror.
+--
+-- 'fsxAdminPassword', 'ontapFileSystemConfiguration_fsxAdminPassword' - You can use the @fsxadmin@ user account to access the NetApp ONTAP CLI
+-- and REST API. The password value is always redacted in the response.
 --
 -- 'preferredSubnetId', 'ontapFileSystemConfiguration_preferredSubnetId' - Undocumented member.
 --
@@ -130,6 +138,7 @@ newOntapFileSystemConfiguration =
       diskIopsConfiguration = Prelude.Nothing,
       endpointIpAddressRange = Prelude.Nothing,
       endpoints = Prelude.Nothing,
+      fsxAdminPassword = Prelude.Nothing,
       preferredSubnetId = Prelude.Nothing,
       routeTableIds = Prelude.Nothing,
       throughputCapacity = Prelude.Nothing,
@@ -164,13 +173,14 @@ ontapFileSystemConfiguration_deploymentType = Lens.lens (\OntapFileSystemConfigu
 ontapFileSystemConfiguration_diskIopsConfiguration :: Lens.Lens' OntapFileSystemConfiguration (Prelude.Maybe DiskIopsConfiguration)
 ontapFileSystemConfiguration_diskIopsConfiguration = Lens.lens (\OntapFileSystemConfiguration' {diskIopsConfiguration} -> diskIopsConfiguration) (\s@OntapFileSystemConfiguration' {} a -> s {diskIopsConfiguration = a} :: OntapFileSystemConfiguration)
 
--- | (Multi-AZ only) The IP address range in which the endpoints to access
--- your file system are created.
---
--- The Endpoint IP address range you select for your file system must exist
--- outside the VPC\'s CIDR range and must be at least \/30 or larger. If
--- you do not specify this optional parameter, Amazon FSx will
--- automatically select a CIDR block for you.
+-- | (Multi-AZ only) Specifies the IP address range in which the endpoints to
+-- access your file system will be created. By default in the Amazon FSx
+-- API, Amazon FSx selects an unused IP address range for you from the
+-- 198.19.* range. By default in the Amazon FSx console, Amazon FSx chooses
+-- the last 64 IP addresses from the VPC’s primary CIDR range to use as the
+-- endpoint IP address range for the file system. You can have overlapping
+-- endpoint IP addresses for file systems deployed in the same VPC\/route
+-- tables.
 ontapFileSystemConfiguration_endpointIpAddressRange :: Lens.Lens' OntapFileSystemConfiguration (Prelude.Maybe Prelude.Text)
 ontapFileSystemConfiguration_endpointIpAddressRange = Lens.lens (\OntapFileSystemConfiguration' {endpointIpAddressRange} -> endpointIpAddressRange) (\s@OntapFileSystemConfiguration' {} a -> s {endpointIpAddressRange = a} :: OntapFileSystemConfiguration)
 
@@ -179,6 +189,11 @@ ontapFileSystemConfiguration_endpointIpAddressRange = Lens.lens (\OntapFileSyste
 -- or NetApp SnapMirror.
 ontapFileSystemConfiguration_endpoints :: Lens.Lens' OntapFileSystemConfiguration (Prelude.Maybe FileSystemEndpoints)
 ontapFileSystemConfiguration_endpoints = Lens.lens (\OntapFileSystemConfiguration' {endpoints} -> endpoints) (\s@OntapFileSystemConfiguration' {} a -> s {endpoints = a} :: OntapFileSystemConfiguration)
+
+-- | You can use the @fsxadmin@ user account to access the NetApp ONTAP CLI
+-- and REST API. The password value is always redacted in the response.
+ontapFileSystemConfiguration_fsxAdminPassword :: Lens.Lens' OntapFileSystemConfiguration (Prelude.Maybe Prelude.Text)
+ontapFileSystemConfiguration_fsxAdminPassword = Lens.lens (\OntapFileSystemConfiguration' {fsxAdminPassword} -> fsxAdminPassword) (\s@OntapFileSystemConfiguration' {} a -> s {fsxAdminPassword = a} :: OntapFileSystemConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Undocumented member.
 ontapFileSystemConfiguration_preferredSubnetId :: Lens.Lens' OntapFileSystemConfiguration (Prelude.Maybe Prelude.Text)
@@ -209,6 +224,7 @@ instance Data.FromJSON OntapFileSystemConfiguration where
             Prelude.<*> (x Data..:? "DiskIopsConfiguration")
             Prelude.<*> (x Data..:? "EndpointIpAddressRange")
             Prelude.<*> (x Data..:? "Endpoints")
+            Prelude.<*> (x Data..:? "FsxAdminPassword")
             Prelude.<*> (x Data..:? "PreferredSubnetId")
             Prelude.<*> (x Data..:? "RouteTableIds" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ThroughputCapacity")
@@ -227,6 +243,7 @@ instance
       `Prelude.hashWithSalt` diskIopsConfiguration
       `Prelude.hashWithSalt` endpointIpAddressRange
       `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` fsxAdminPassword
       `Prelude.hashWithSalt` preferredSubnetId
       `Prelude.hashWithSalt` routeTableIds
       `Prelude.hashWithSalt` throughputCapacity
@@ -240,6 +257,7 @@ instance Prelude.NFData OntapFileSystemConfiguration where
       `Prelude.seq` Prelude.rnf diskIopsConfiguration
       `Prelude.seq` Prelude.rnf endpointIpAddressRange
       `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf fsxAdminPassword
       `Prelude.seq` Prelude.rnf preferredSubnetId
       `Prelude.seq` Prelude.rnf routeTableIds
       `Prelude.seq` Prelude.rnf throughputCapacity

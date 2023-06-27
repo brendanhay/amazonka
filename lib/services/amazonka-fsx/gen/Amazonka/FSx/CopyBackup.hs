@@ -209,7 +209,8 @@ instance Core.AWSRequest CopyBackup where
 
 instance Prelude.Hashable CopyBackup where
   hashWithSalt _salt CopyBackup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` sourceRegion
@@ -267,7 +268,7 @@ data CopyBackupResponse = CopyBackupResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyBackupResponse' with all optional fields omitted.

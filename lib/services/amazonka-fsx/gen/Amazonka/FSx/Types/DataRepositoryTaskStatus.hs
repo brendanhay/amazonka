@@ -122,7 +122,8 @@ instance Data.FromJSON DataRepositoryTaskStatus where
 
 instance Prelude.Hashable DataRepositoryTaskStatus where
   hashWithSalt _salt DataRepositoryTaskStatus' {..} =
-    _salt `Prelude.hashWithSalt` failedCount
+    _salt
+      `Prelude.hashWithSalt` failedCount
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` releasedCapacity
       `Prelude.hashWithSalt` succeededCount

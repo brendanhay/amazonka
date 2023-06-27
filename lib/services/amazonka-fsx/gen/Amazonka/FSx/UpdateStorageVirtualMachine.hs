@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an Amazon FSx for ONTAP storage virtual machine (SVM).
+-- Updates an FSx for ONTAP storage virtual machine (SVM).
 module Amazonka.FSx.UpdateStorageVirtualMachine
   ( -- * Creating a Request
     UpdateStorageVirtualMachine (..),
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateStorageVirtualMachine' smart constructor.
 data UpdateStorageVirtualMachine = UpdateStorageVirtualMachine'
-  { -- | Updates the Microsoft Active Directory (AD) configuration for an SVM
-    -- that is joined to an AD.
+  { -- | Specifies updates to an SVM\'s Microsoft Active Directory (AD)
+    -- configuration.
     activeDirectoryConfiguration :: Prelude.Maybe UpdateSvmActiveDirectoryConfiguration,
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Enter a new SvmAdminPassword if you are updating it.
+    -- | Specifies a new SvmAdminPassword.
     svmAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the SVM that you want to update, in the format
     -- @svm-0123456789abcdef0@.
@@ -72,12 +72,12 @@ data UpdateStorageVirtualMachine = UpdateStorageVirtualMachine'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'activeDirectoryConfiguration', 'updateStorageVirtualMachine_activeDirectoryConfiguration' - Updates the Microsoft Active Directory (AD) configuration for an SVM
--- that is joined to an AD.
+-- 'activeDirectoryConfiguration', 'updateStorageVirtualMachine_activeDirectoryConfiguration' - Specifies updates to an SVM\'s Microsoft Active Directory (AD)
+-- configuration.
 --
 -- 'clientRequestToken', 'updateStorageVirtualMachine_clientRequestToken' - Undocumented member.
 --
--- 'svmAdminPassword', 'updateStorageVirtualMachine_svmAdminPassword' - Enter a new SvmAdminPassword if you are updating it.
+-- 'svmAdminPassword', 'updateStorageVirtualMachine_svmAdminPassword' - Specifies a new SvmAdminPassword.
 --
 -- 'storageVirtualMachineId', 'updateStorageVirtualMachine_storageVirtualMachineId' - The ID of the SVM that you want to update, in the format
 -- @svm-0123456789abcdef0@.
@@ -96,8 +96,8 @@ newUpdateStorageVirtualMachine
           pStorageVirtualMachineId_
       }
 
--- | Updates the Microsoft Active Directory (AD) configuration for an SVM
--- that is joined to an AD.
+-- | Specifies updates to an SVM\'s Microsoft Active Directory (AD)
+-- configuration.
 updateStorageVirtualMachine_activeDirectoryConfiguration :: Lens.Lens' UpdateStorageVirtualMachine (Prelude.Maybe UpdateSvmActiveDirectoryConfiguration)
 updateStorageVirtualMachine_activeDirectoryConfiguration = Lens.lens (\UpdateStorageVirtualMachine' {activeDirectoryConfiguration} -> activeDirectoryConfiguration) (\s@UpdateStorageVirtualMachine' {} a -> s {activeDirectoryConfiguration = a} :: UpdateStorageVirtualMachine)
 
@@ -105,7 +105,7 @@ updateStorageVirtualMachine_activeDirectoryConfiguration = Lens.lens (\UpdateSto
 updateStorageVirtualMachine_clientRequestToken :: Lens.Lens' UpdateStorageVirtualMachine (Prelude.Maybe Prelude.Text)
 updateStorageVirtualMachine_clientRequestToken = Lens.lens (\UpdateStorageVirtualMachine' {clientRequestToken} -> clientRequestToken) (\s@UpdateStorageVirtualMachine' {} a -> s {clientRequestToken = a} :: UpdateStorageVirtualMachine)
 
--- | Enter a new SvmAdminPassword if you are updating it.
+-- | Specifies a new SvmAdminPassword.
 updateStorageVirtualMachine_svmAdminPassword :: Lens.Lens' UpdateStorageVirtualMachine (Prelude.Maybe Prelude.Text)
 updateStorageVirtualMachine_svmAdminPassword = Lens.lens (\UpdateStorageVirtualMachine' {svmAdminPassword} -> svmAdminPassword) (\s@UpdateStorageVirtualMachine' {} a -> s {svmAdminPassword = a} :: UpdateStorageVirtualMachine) Prelude.. Lens.mapping Data._Sensitive
 

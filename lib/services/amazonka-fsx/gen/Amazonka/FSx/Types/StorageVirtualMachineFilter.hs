@@ -71,7 +71,8 @@ storageVirtualMachineFilter_values = Lens.lens (\StorageVirtualMachineFilter' {v
 
 instance Prelude.Hashable StorageVirtualMachineFilter where
   hashWithSalt _salt StorageVirtualMachineFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData StorageVirtualMachineFilter where

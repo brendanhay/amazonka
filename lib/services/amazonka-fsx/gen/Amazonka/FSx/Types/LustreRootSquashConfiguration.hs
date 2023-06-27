@@ -149,7 +149,8 @@ instance
     LustreRootSquashConfiguration
   where
   hashWithSalt _salt LustreRootSquashConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` noSquashNids
+    _salt
+      `Prelude.hashWithSalt` noSquashNids
       `Prelude.hashWithSalt` rootSquash
 
 instance Prelude.NFData LustreRootSquashConfiguration where

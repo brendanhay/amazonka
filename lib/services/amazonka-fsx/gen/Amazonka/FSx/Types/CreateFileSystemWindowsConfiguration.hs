@@ -74,9 +74,9 @@ data CreateFileSystemWindowsConfiguration = CreateFileSystemWindowsConfiguration
     -- and log user accesses of files, folders, and file shares on the Amazon
     -- FSx for Windows File Server file system.
     auditLogConfiguration :: Prelude.Maybe WindowsAuditLogCreateConfiguration,
-    -- | The number of days to retain automatic backups. The default is to retain
-    -- backups for 7 days. Setting this value to 0 disables the creation of
-    -- automatic backups. The maximum retention period for backups is 90 days.
+    -- | The number of days to retain automatic backups. Setting this property to
+    -- @0@ disables automatic backups. You can retain automatic backups for a
+    -- maximum of 90 days. The default is @30@.
     automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
     -- | A boolean flag indicating whether tags for the file system should be
     -- copied to backups. This value defaults to false. If it\'s set to true,
@@ -177,9 +177,9 @@ data CreateFileSystemWindowsConfiguration = CreateFileSystemWindowsConfiguration
 -- and log user accesses of files, folders, and file shares on the Amazon
 -- FSx for Windows File Server file system.
 --
--- 'automaticBackupRetentionDays', 'createFileSystemWindowsConfiguration_automaticBackupRetentionDays' - The number of days to retain automatic backups. The default is to retain
--- backups for 7 days. Setting this value to 0 disables the creation of
--- automatic backups. The maximum retention period for backups is 90 days.
+-- 'automaticBackupRetentionDays', 'createFileSystemWindowsConfiguration_automaticBackupRetentionDays' - The number of days to retain automatic backups. Setting this property to
+-- @0@ disables automatic backups. You can retain automatic backups for a
+-- maximum of 90 days. The default is @30@.
 --
 -- 'copyTagsToBackups', 'createFileSystemWindowsConfiguration_copyTagsToBackups' - A boolean flag indicating whether tags for the file system should be
 -- copied to backups. This value defaults to false. If it\'s set to true,
@@ -302,9 +302,9 @@ createFileSystemWindowsConfiguration_aliases = Lens.lens (\CreateFileSystemWindo
 createFileSystemWindowsConfiguration_auditLogConfiguration :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe WindowsAuditLogCreateConfiguration)
 createFileSystemWindowsConfiguration_auditLogConfiguration = Lens.lens (\CreateFileSystemWindowsConfiguration' {auditLogConfiguration} -> auditLogConfiguration) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {auditLogConfiguration = a} :: CreateFileSystemWindowsConfiguration)
 
--- | The number of days to retain automatic backups. The default is to retain
--- backups for 7 days. Setting this value to 0 disables the creation of
--- automatic backups. The maximum retention period for backups is 90 days.
+-- | The number of days to retain automatic backups. Setting this property to
+-- @0@ disables automatic backups. You can retain automatic backups for a
+-- maximum of 90 days. The default is @30@.
 createFileSystemWindowsConfiguration_automaticBackupRetentionDays :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Natural)
 createFileSystemWindowsConfiguration_automaticBackupRetentionDays = Lens.lens (\CreateFileSystemWindowsConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: CreateFileSystemWindowsConfiguration)
 
@@ -376,7 +376,8 @@ instance
   hashWithSalt
     _salt
     CreateFileSystemWindowsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` activeDirectoryId
+      _salt
+        `Prelude.hashWithSalt` activeDirectoryId
         `Prelude.hashWithSalt` aliases
         `Prelude.hashWithSalt` auditLogConfiguration
         `Prelude.hashWithSalt` automaticBackupRetentionDays

@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     NFSDataRepositoryConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoExportPolicy
+      _salt
+        `Prelude.hashWithSalt` autoExportPolicy
         `Prelude.hashWithSalt` dnsIps
         `Prelude.hashWithSalt` version
 

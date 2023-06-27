@@ -58,10 +58,12 @@ data UpdateFileSystemLustreConfiguration = UpdateFileSystemLustreConfiguration'
     --     S3 bucket, any existing objects that are changed in the S3 bucket,
     --     and any objects that were deleted in the S3 bucket.
     --
-    -- The @AutoImportPolicy@ parameter is not supported for Lustre file
-    -- systems with the @Persistent_2@ deployment type. Instead, use to update
-    -- a data repository association on your @Persistent_2@ file system.
+    -- This parameter is not supported for file systems with a data repository
+    -- association.
     autoImportPolicy :: Prelude.Maybe AutoImportPolicyType,
+    -- | The number of days to retain automatic backups. Setting this property to
+    -- @0@ disables automatic backups. You can retain automatic backups for a
+    -- maximum of 90 days. The default is @0@.
     automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
     dailyAutomaticBackupStartTime :: Prelude.Maybe Prelude.Text,
     -- | Sets the data compression configuration for the file system.
@@ -126,11 +128,12 @@ data UpdateFileSystemLustreConfiguration = UpdateFileSystemLustreConfiguration'
 --     S3 bucket, any existing objects that are changed in the S3 bucket,
 --     and any objects that were deleted in the S3 bucket.
 --
--- The @AutoImportPolicy@ parameter is not supported for Lustre file
--- systems with the @Persistent_2@ deployment type. Instead, use to update
--- a data repository association on your @Persistent_2@ file system.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 --
--- 'automaticBackupRetentionDays', 'updateFileSystemLustreConfiguration_automaticBackupRetentionDays' - Undocumented member.
+-- 'automaticBackupRetentionDays', 'updateFileSystemLustreConfiguration_automaticBackupRetentionDays' - The number of days to retain automatic backups. Setting this property to
+-- @0@ disables automatic backups. You can retain automatic backups for a
+-- maximum of 90 days. The default is @0@.
 --
 -- 'dailyAutomaticBackupStartTime', 'updateFileSystemLustreConfiguration_dailyAutomaticBackupStartTime' - Undocumented member.
 --
@@ -202,13 +205,14 @@ newUpdateFileSystemLustreConfiguration =
 --     S3 bucket, any existing objects that are changed in the S3 bucket,
 --     and any objects that were deleted in the S3 bucket.
 --
--- The @AutoImportPolicy@ parameter is not supported for Lustre file
--- systems with the @Persistent_2@ deployment type. Instead, use to update
--- a data repository association on your @Persistent_2@ file system.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 updateFileSystemLustreConfiguration_autoImportPolicy :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe AutoImportPolicyType)
 updateFileSystemLustreConfiguration_autoImportPolicy = Lens.lens (\UpdateFileSystemLustreConfiguration' {autoImportPolicy} -> autoImportPolicy) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {autoImportPolicy = a} :: UpdateFileSystemLustreConfiguration)
 
--- | Undocumented member.
+-- | The number of days to retain automatic backups. Setting this property to
+-- @0@ disables automatic backups. You can retain automatic backups for a
+-- maximum of 90 days. The default is @0@.
 updateFileSystemLustreConfiguration_automaticBackupRetentionDays :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Natural)
 updateFileSystemLustreConfiguration_automaticBackupRetentionDays = Lens.lens (\UpdateFileSystemLustreConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: UpdateFileSystemLustreConfiguration)
 
@@ -257,7 +261,8 @@ instance
   hashWithSalt
     _salt
     UpdateFileSystemLustreConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoImportPolicy
+      _salt
+        `Prelude.hashWithSalt` autoImportPolicy
         `Prelude.hashWithSalt` automaticBackupRetentionDays
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
         `Prelude.hashWithSalt` dataCompressionType

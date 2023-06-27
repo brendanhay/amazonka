@@ -25,15 +25,13 @@ import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryAttributes
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the configuration of the Microsoft Active Directory (AD)
--- directory to which the Amazon FSx for ONTAP storage virtual machine
--- (SVM) is joined. Pleae note, account credentials are not returned in the
--- response payload.
+-- | Describes the Microsoft Active Directory (AD) directory configuration to
+-- which the FSx for ONTAP storage virtual machine (SVM) is joined. Note
+-- that account credentials are not returned in the response payload.
 --
 -- /See:/ 'newSvmActiveDirectoryConfiguration' smart constructor.
 data SvmActiveDirectoryConfiguration = SvmActiveDirectoryConfiguration'
-  { -- | The NetBIOS name of the Active Directory computer object that is joined
-    -- to your SVM.
+  { -- | The NetBIOS name of the AD computer object to which the SVM is joined.
     netBiosName :: Prelude.Maybe Prelude.Text,
     selfManagedActiveDirectoryConfiguration :: Prelude.Maybe SelfManagedActiveDirectoryAttributes
   }
@@ -47,8 +45,7 @@ data SvmActiveDirectoryConfiguration = SvmActiveDirectoryConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'netBiosName', 'svmActiveDirectoryConfiguration_netBiosName' - The NetBIOS name of the Active Directory computer object that is joined
--- to your SVM.
+-- 'netBiosName', 'svmActiveDirectoryConfiguration_netBiosName' - The NetBIOS name of the AD computer object to which the SVM is joined.
 --
 -- 'selfManagedActiveDirectoryConfiguration', 'svmActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration' - Undocumented member.
 newSvmActiveDirectoryConfiguration ::
@@ -61,8 +58,7 @@ newSvmActiveDirectoryConfiguration =
         Prelude.Nothing
     }
 
--- | The NetBIOS name of the Active Directory computer object that is joined
--- to your SVM.
+-- | The NetBIOS name of the AD computer object to which the SVM is joined.
 svmActiveDirectoryConfiguration_netBiosName :: Lens.Lens' SvmActiveDirectoryConfiguration (Prelude.Maybe Prelude.Text)
 svmActiveDirectoryConfiguration_netBiosName = Lens.lens (\SvmActiveDirectoryConfiguration' {netBiosName} -> netBiosName) (\s@SvmActiveDirectoryConfiguration' {} a -> s {netBiosName = a} :: SvmActiveDirectoryConfiguration)
 
@@ -92,7 +88,8 @@ instance
   hashWithSalt
     _salt
     SvmActiveDirectoryConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` netBiosName
+      _salt
+        `Prelude.hashWithSalt` netBiosName
         `Prelude.hashWithSalt` selfManagedActiveDirectoryConfiguration
 
 instance

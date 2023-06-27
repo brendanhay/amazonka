@@ -101,6 +101,8 @@ data DataRepositoryTask = DataRepositoryTask'
     --
     -- -   @AUTO_RELEASE_DATA@ tasks automatically release files from an Amazon
     --     File Cache resource.
+    --
+    -- -   @RELEASE_DATA_FROM_FILESYSTEM@ tasks are not supported.
     type' :: DataRepositoryTaskType,
     creationTime :: Data.POSIX
   }
@@ -181,6 +183,8 @@ data DataRepositoryTask = DataRepositoryTask'
 --
 -- -   @AUTO_RELEASE_DATA@ tasks automatically release files from an Amazon
 --     File Cache resource.
+--
+-- -   @RELEASE_DATA_FROM_FILESYSTEM@ tasks are not supported.
 --
 -- 'creationTime', 'dataRepositoryTask_creationTime' - Undocumented member.
 newDataRepositoryTask ::
@@ -310,6 +314,8 @@ dataRepositoryTask_lifecycle = Lens.lens (\DataRepositoryTask' {lifecycle} -> li
 --
 -- -   @AUTO_RELEASE_DATA@ tasks automatically release files from an Amazon
 --     File Cache resource.
+--
+-- -   @RELEASE_DATA_FROM_FILESYSTEM@ tasks are not supported.
 dataRepositoryTask_type :: Lens.Lens' DataRepositoryTask DataRepositoryTaskType
 dataRepositoryTask_type = Lens.lens (\DataRepositoryTask' {type'} -> type') (\s@DataRepositoryTask' {} a -> s {type' = a} :: DataRepositoryTask)
 
@@ -342,7 +348,8 @@ instance Data.FromJSON DataRepositoryTask where
 
 instance Prelude.Hashable DataRepositoryTask where
   hashWithSalt _salt DataRepositoryTask' {..} =
-    _salt `Prelude.hashWithSalt` capacityToRelease
+    _salt
+      `Prelude.hashWithSalt` capacityToRelease
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` failureDetails
       `Prelude.hashWithSalt` fileCacheId

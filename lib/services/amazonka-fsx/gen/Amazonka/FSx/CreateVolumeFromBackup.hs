@@ -133,7 +133,8 @@ instance Core.AWSRequest CreateVolumeFromBackup where
 
 instance Prelude.Hashable CreateVolumeFromBackup where
   hashWithSalt _salt CreateVolumeFromBackup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` ontapConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` backupId

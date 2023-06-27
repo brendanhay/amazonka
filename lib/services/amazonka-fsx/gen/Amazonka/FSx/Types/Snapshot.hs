@@ -161,7 +161,8 @@ instance Data.FromJSON Snapshot where
       "Snapshot"
       ( \x ->
           Snapshot'
-            Prelude.<$> ( x Data..:? "AdministrativeActions"
+            Prelude.<$> ( x
+                            Data..:? "AdministrativeActions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreationTime")
@@ -176,7 +177,8 @@ instance Data.FromJSON Snapshot where
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =
-    _salt `Prelude.hashWithSalt` administrativeActions
+    _salt
+      `Prelude.hashWithSalt` administrativeActions
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` lifecycleTransitionReason

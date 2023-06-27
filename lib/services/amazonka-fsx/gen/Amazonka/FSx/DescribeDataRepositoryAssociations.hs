@@ -23,9 +23,9 @@
 -- Returns the description of specific Amazon FSx for Lustre or Amazon File
 -- Cache data repository associations, if one or more @AssociationIds@
 -- values are provided in the request, or if filters are used in the
--- request. Data repository associations are supported only for Amazon FSx
--- for Lustre file systems with the @Persistent_2@ deployment type and for
--- Amazon File Cache resources.
+-- request. Data repository associations are supported on Amazon File Cache
+-- resources and all FSx for Lustre 2.12 and newer file systems, excluding
+-- @scratch_1@ deployment type.
 --
 -- You can use filters to narrow the response to include just data
 -- repository associations for specific file systems (use the
@@ -147,8 +147,8 @@ instance
       ( \s h x ->
           DescribeDataRepositoryAssociationsResponse'
             Prelude.<$> (x Data..?> "Associations" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     DescribeDataRepositoryAssociations' {..} =
-      _salt `Prelude.hashWithSalt` associationIds
+      _salt
+        `Prelude.hashWithSalt` associationIds
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     CreateOpenZFSOriginSnapshotConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` snapshotARN
+      _salt
+        `Prelude.hashWithSalt` snapshotARN
         `Prelude.hashWithSalt` copyStrategy
 
 instance

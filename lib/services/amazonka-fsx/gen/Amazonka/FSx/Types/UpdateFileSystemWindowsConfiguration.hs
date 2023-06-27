@@ -36,9 +36,9 @@ data UpdateFileSystemWindowsConfiguration = UpdateFileSystemWindowsConfiguration
     -- and log user accesses of files, folders, and file shares on the Amazon
     -- FSx for Windows File Server file system..
     auditLogConfiguration :: Prelude.Maybe WindowsAuditLogCreateConfiguration,
-    -- | The number of days to retain automatic daily backups. Setting this to
-    -- zero (0) disables automatic daily backups. You can retain automatic
-    -- daily backups for a maximum of 90 days. For more information, see
+    -- | The number of days to retain automatic backups. Setting this property to
+    -- @0@ disables automatic backups. You can retain automatic backups for a
+    -- maximum of 90 days. The default is @30@. For more information, see
     -- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#automatic-backups Working with Automatic Daily Backups>.
     automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
     -- | The preferred time to start the daily automatic backup, in the UTC time
@@ -75,9 +75,9 @@ data UpdateFileSystemWindowsConfiguration = UpdateFileSystemWindowsConfiguration
 -- and log user accesses of files, folders, and file shares on the Amazon
 -- FSx for Windows File Server file system..
 --
--- 'automaticBackupRetentionDays', 'updateFileSystemWindowsConfiguration_automaticBackupRetentionDays' - The number of days to retain automatic daily backups. Setting this to
--- zero (0) disables automatic daily backups. You can retain automatic
--- daily backups for a maximum of 90 days. For more information, see
+-- 'automaticBackupRetentionDays', 'updateFileSystemWindowsConfiguration_automaticBackupRetentionDays' - The number of days to retain automatic backups. Setting this property to
+-- @0@ disables automatic backups. You can retain automatic backups for a
+-- maximum of 90 days. The default is @30@. For more information, see
 -- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#automatic-backups Working with Automatic Daily Backups>.
 --
 -- 'dailyAutomaticBackupStartTime', 'updateFileSystemWindowsConfiguration_dailyAutomaticBackupStartTime' - The preferred time to start the daily automatic backup, in the UTC time
@@ -121,9 +121,9 @@ newUpdateFileSystemWindowsConfiguration =
 updateFileSystemWindowsConfiguration_auditLogConfiguration :: Lens.Lens' UpdateFileSystemWindowsConfiguration (Prelude.Maybe WindowsAuditLogCreateConfiguration)
 updateFileSystemWindowsConfiguration_auditLogConfiguration = Lens.lens (\UpdateFileSystemWindowsConfiguration' {auditLogConfiguration} -> auditLogConfiguration) (\s@UpdateFileSystemWindowsConfiguration' {} a -> s {auditLogConfiguration = a} :: UpdateFileSystemWindowsConfiguration)
 
--- | The number of days to retain automatic daily backups. Setting this to
--- zero (0) disables automatic daily backups. You can retain automatic
--- daily backups for a maximum of 90 days. For more information, see
+-- | The number of days to retain automatic backups. Setting this property to
+-- @0@ disables automatic backups. You can retain automatic backups for a
+-- maximum of 90 days. The default is @30@. For more information, see
 -- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#automatic-backups Working with Automatic Daily Backups>.
 updateFileSystemWindowsConfiguration_automaticBackupRetentionDays :: Lens.Lens' UpdateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Natural)
 updateFileSystemWindowsConfiguration_automaticBackupRetentionDays = Lens.lens (\UpdateFileSystemWindowsConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@UpdateFileSystemWindowsConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: UpdateFileSystemWindowsConfiguration)
@@ -162,7 +162,8 @@ instance
   hashWithSalt
     _salt
     UpdateFileSystemWindowsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` auditLogConfiguration
+      _salt
+        `Prelude.hashWithSalt` auditLogConfiguration
         `Prelude.hashWithSalt` automaticBackupRetentionDays
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
         `Prelude.hashWithSalt` selfManagedActiveDirectoryConfiguration

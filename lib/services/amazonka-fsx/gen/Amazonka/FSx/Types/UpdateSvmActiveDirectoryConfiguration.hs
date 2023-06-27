@@ -25,13 +25,16 @@ import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryConfigurationUpdates
 import qualified Amazonka.Prelude as Prelude
 
--- | Updates the Microsoft Active Directory (AD) configuration of an SVM
--- joined to an AD. Please note, account credentials are not returned in
--- the response payload.
+-- | Specifies updates to an FSx for ONTAP storage virtual machine\'s (SVM)
+-- Microsoft Active Directory (AD) configuration. Note that account
+-- credentials are not returned in the response payload.
 --
 -- /See:/ 'newUpdateSvmActiveDirectoryConfiguration' smart constructor.
 data UpdateSvmActiveDirectoryConfiguration = UpdateSvmActiveDirectoryConfiguration'
-  { selfManagedActiveDirectoryConfiguration :: Prelude.Maybe SelfManagedActiveDirectoryConfigurationUpdates
+  { -- | Specifies an updated NetBIOS name of the AD computer object
+    -- @NetBiosName@ to which an SVM is joined.
+    netBiosName :: Prelude.Maybe Prelude.Text,
+    selfManagedActiveDirectoryConfiguration :: Prelude.Maybe SelfManagedActiveDirectoryConfigurationUpdates
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -43,14 +46,24 @@ data UpdateSvmActiveDirectoryConfiguration = UpdateSvmActiveDirectoryConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'netBiosName', 'updateSvmActiveDirectoryConfiguration_netBiosName' - Specifies an updated NetBIOS name of the AD computer object
+-- @NetBiosName@ to which an SVM is joined.
+--
 -- 'selfManagedActiveDirectoryConfiguration', 'updateSvmActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration' - Undocumented member.
 newUpdateSvmActiveDirectoryConfiguration ::
   UpdateSvmActiveDirectoryConfiguration
 newUpdateSvmActiveDirectoryConfiguration =
   UpdateSvmActiveDirectoryConfiguration'
-    { selfManagedActiveDirectoryConfiguration =
+    { netBiosName =
+        Prelude.Nothing,
+      selfManagedActiveDirectoryConfiguration =
         Prelude.Nothing
     }
+
+-- | Specifies an updated NetBIOS name of the AD computer object
+-- @NetBiosName@ to which an SVM is joined.
+updateSvmActiveDirectoryConfiguration_netBiosName :: Lens.Lens' UpdateSvmActiveDirectoryConfiguration (Prelude.Maybe Prelude.Text)
+updateSvmActiveDirectoryConfiguration_netBiosName = Lens.lens (\UpdateSvmActiveDirectoryConfiguration' {netBiosName} -> netBiosName) (\s@UpdateSvmActiveDirectoryConfiguration' {} a -> s {netBiosName = a} :: UpdateSvmActiveDirectoryConfiguration)
 
 -- | Undocumented member.
 updateSvmActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration :: Lens.Lens' UpdateSvmActiveDirectoryConfiguration (Prelude.Maybe SelfManagedActiveDirectoryConfigurationUpdates)
@@ -64,6 +77,7 @@ instance
     _salt
     UpdateSvmActiveDirectoryConfiguration' {..} =
       _salt
+        `Prelude.hashWithSalt` netBiosName
         `Prelude.hashWithSalt` selfManagedActiveDirectoryConfiguration
 
 instance
@@ -71,7 +85,8 @@ instance
     UpdateSvmActiveDirectoryConfiguration
   where
   rnf UpdateSvmActiveDirectoryConfiguration' {..} =
-    Prelude.rnf selfManagedActiveDirectoryConfiguration
+    Prelude.rnf netBiosName
+      `Prelude.seq` Prelude.rnf selfManagedActiveDirectoryConfiguration
 
 instance
   Data.ToJSON
@@ -80,7 +95,8 @@ instance
   toJSON UpdateSvmActiveDirectoryConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SelfManagedActiveDirectoryConfiguration" Data..=)
+          [ ("NetBiosName" Data..=) Prelude.<$> netBiosName,
+            ("SelfManagedActiveDirectoryConfiguration" Data..=)
               Prelude.<$> selfManagedActiveDirectoryConfiguration
           ]
       )

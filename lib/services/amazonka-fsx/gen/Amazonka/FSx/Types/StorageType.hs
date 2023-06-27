@@ -30,7 +30,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The storage type for your Amazon FSx file system.
+-- | Specifies the file system\'s storage type.
 newtype StorageType = StorageType'
   { fromStorageType ::
       Data.Text

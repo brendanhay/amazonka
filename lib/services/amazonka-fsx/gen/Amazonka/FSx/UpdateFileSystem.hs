@@ -23,7 +23,7 @@
 -- Use this operation to update the configuration of an existing Amazon FSx
 -- file system. You can update multiple properties in a single request.
 --
--- For Amazon FSx for Windows File Server file systems, you can update the
+-- For FSx for Windows File Server file systems, you can update the
 -- following properties:
 --
 -- -   @AuditLogConfiguration@
@@ -40,7 +40,7 @@
 --
 -- -   @WeeklyMaintenanceStartTime@
 --
--- For Amazon FSx for Lustre file systems, you can update the following
+-- For FSx for Lustre file systems, you can update the following
 -- properties:
 --
 -- -   @AutoImportPolicy@
@@ -57,8 +57,9 @@
 --
 -- -   @WeeklyMaintenanceStartTime@
 --
--- For Amazon FSx for NetApp ONTAP file systems, you can update the
--- following properties:
+-- For FSx for ONTAP file systems, you can update the following properties:
+--
+-- -   @AddRouteTableIds@
 --
 -- -   @AutomaticBackupRetentionDays@
 --
@@ -68,14 +69,16 @@
 --
 -- -   @FsxAdminPassword@
 --
+-- -   @RemoveRouteTableIds@
+--
 -- -   @StorageCapacity@
 --
 -- -   @ThroughputCapacity@
 --
 -- -   @WeeklyMaintenanceStartTime@
 --
--- For the Amazon FSx for OpenZFS file systems, you can update the
--- following properties:
+-- For FSx for OpenZFS file systems, you can update the following
+-- properties:
 --
 -- -   @AutomaticBackupRetentionDays@
 --
@@ -84,6 +87,10 @@
 -- -   @CopyTagsToVolumes@
 --
 -- -   @DailyAutomaticBackupStartTime@
+--
+-- -   @DiskIopsConfiguration@
+--
+-- -   @StorageCapacity@
 --
 -- -   @ThroughputCapacity@
 --
@@ -124,30 +131,22 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateFileSystem' smart constructor.
 data UpdateFileSystem = UpdateFileSystem'
-  { -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+  { -- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
     -- idempotent updates. This string is automatically filled on your behalf
     -- when you use the Command Line Interface (CLI) or an Amazon Web Services
     -- SDK.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     lustreConfiguration :: Prelude.Maybe UpdateFileSystemLustreConfiguration,
     ontapConfiguration :: Prelude.Maybe UpdateFileSystemOntapConfiguration,
-    -- | The configuration updates for an Amazon FSx for OpenZFS file system.
+    -- | The configuration updates for an FSx for OpenZFS file system.
     openZFSConfiguration :: Prelude.Maybe UpdateFileSystemOpenZFSConfiguration,
-    -- | Use this parameter to increase the storage capacity of an Amazon FSx for
-    -- Windows File Server, Amazon FSx for Lustre, or Amazon FSx for NetApp
-    -- ONTAP file system. Specifies the storage capacity target value, in GiB,
-    -- to increase the storage capacity for the file system that you\'re
-    -- updating.
+    -- | Use this parameter to increase the storage capacity of an FSx for
+    -- Windows File Server, FSx for Lustre, FSx for OpenZFS, or FSx for ONTAP
+    -- file system. Specifies the storage capacity target value, in GiB, to
+    -- increase the storage capacity for the file system that you\'re updating.
     --
     -- You can\'t make a storage capacity increase request if there is an
     -- existing storage capacity increase request in progress.
-    --
-    -- For Windows file systems, the storage capacity target value must be at
-    -- least 10 percent greater than the current storage capacity value. To
-    -- increase storage capacity, the file system must have at least 16 MBps of
-    -- throughput capacity. For more information, see
-    -- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html Managing storage capacity>
-    -- in the /Amazon FSx for Windows File Server User Guide/.
     --
     -- For Lustre file systems, the storage capacity target value can be the
     -- following:
@@ -166,7 +165,20 @@ data UpdateFileSystem = UpdateFileSystem'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html Managing storage and throughput capacity>
-    -- in the /Amazon FSx for Lustre User Guide/.
+    -- in the /FSx for Lustre User Guide/.
+    --
+    -- For FSx for OpenZFS file systems, the storage capacity target value must
+    -- be at least 10 percent greater than the current storage capacity value.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-storage-capacity.html Managing storage capacity>
+    -- in the /FSx for OpenZFS User Guide/.
+    --
+    -- For Windows file systems, the storage capacity target value must be at
+    -- least 10 percent greater than the current storage capacity value. To
+    -- increase storage capacity, the file system must have at least 16 MBps of
+    -- throughput capacity. For more information, see
+    -- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html Managing storage capacity>
+    -- in the /Amazon FSxfor Windows File Server User Guide/.
     --
     -- For ONTAP file systems, the storage capacity target value must be at
     -- least 10 percent greater than the current storage capacity value. For
@@ -190,7 +202,7 @@ data UpdateFileSystem = UpdateFileSystem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientRequestToken', 'updateFileSystem_clientRequestToken' - A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- 'clientRequestToken', 'updateFileSystem_clientRequestToken' - A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent updates. This string is automatically filled on your behalf
 -- when you use the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
@@ -199,23 +211,15 @@ data UpdateFileSystem = UpdateFileSystem'
 --
 -- 'ontapConfiguration', 'updateFileSystem_ontapConfiguration' - Undocumented member.
 --
--- 'openZFSConfiguration', 'updateFileSystem_openZFSConfiguration' - The configuration updates for an Amazon FSx for OpenZFS file system.
+-- 'openZFSConfiguration', 'updateFileSystem_openZFSConfiguration' - The configuration updates for an FSx for OpenZFS file system.
 --
--- 'storageCapacity', 'updateFileSystem_storageCapacity' - Use this parameter to increase the storage capacity of an Amazon FSx for
--- Windows File Server, Amazon FSx for Lustre, or Amazon FSx for NetApp
--- ONTAP file system. Specifies the storage capacity target value, in GiB,
--- to increase the storage capacity for the file system that you\'re
--- updating.
+-- 'storageCapacity', 'updateFileSystem_storageCapacity' - Use this parameter to increase the storage capacity of an FSx for
+-- Windows File Server, FSx for Lustre, FSx for OpenZFS, or FSx for ONTAP
+-- file system. Specifies the storage capacity target value, in GiB, to
+-- increase the storage capacity for the file system that you\'re updating.
 --
 -- You can\'t make a storage capacity increase request if there is an
 -- existing storage capacity increase request in progress.
---
--- For Windows file systems, the storage capacity target value must be at
--- least 10 percent greater than the current storage capacity value. To
--- increase storage capacity, the file system must have at least 16 MBps of
--- throughput capacity. For more information, see
--- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html Managing storage capacity>
--- in the /Amazon FSx for Windows File Server User Guide/.
 --
 -- For Lustre file systems, the storage capacity target value can be the
 -- following:
@@ -234,7 +238,20 @@ data UpdateFileSystem = UpdateFileSystem'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html Managing storage and throughput capacity>
--- in the /Amazon FSx for Lustre User Guide/.
+-- in the /FSx for Lustre User Guide/.
+--
+-- For FSx for OpenZFS file systems, the storage capacity target value must
+-- be at least 10 percent greater than the current storage capacity value.
+-- For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-storage-capacity.html Managing storage capacity>
+-- in the /FSx for OpenZFS User Guide/.
+--
+-- For Windows file systems, the storage capacity target value must be at
+-- least 10 percent greater than the current storage capacity value. To
+-- increase storage capacity, the file system must have at least 16 MBps of
+-- throughput capacity. For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html Managing storage capacity>
+-- in the /Amazon FSxfor Windows File Server User Guide/.
 --
 -- For ONTAP file systems, the storage capacity target value must be at
 -- least 10 percent greater than the current storage capacity value. For
@@ -262,7 +279,7 @@ newUpdateFileSystem pFileSystemId_ =
       fileSystemId = pFileSystemId_
     }
 
--- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent updates. This string is automatically filled on your behalf
 -- when you use the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
@@ -277,25 +294,17 @@ updateFileSystem_lustreConfiguration = Lens.lens (\UpdateFileSystem' {lustreConf
 updateFileSystem_ontapConfiguration :: Lens.Lens' UpdateFileSystem (Prelude.Maybe UpdateFileSystemOntapConfiguration)
 updateFileSystem_ontapConfiguration = Lens.lens (\UpdateFileSystem' {ontapConfiguration} -> ontapConfiguration) (\s@UpdateFileSystem' {} a -> s {ontapConfiguration = a} :: UpdateFileSystem)
 
--- | The configuration updates for an Amazon FSx for OpenZFS file system.
+-- | The configuration updates for an FSx for OpenZFS file system.
 updateFileSystem_openZFSConfiguration :: Lens.Lens' UpdateFileSystem (Prelude.Maybe UpdateFileSystemOpenZFSConfiguration)
 updateFileSystem_openZFSConfiguration = Lens.lens (\UpdateFileSystem' {openZFSConfiguration} -> openZFSConfiguration) (\s@UpdateFileSystem' {} a -> s {openZFSConfiguration = a} :: UpdateFileSystem)
 
--- | Use this parameter to increase the storage capacity of an Amazon FSx for
--- Windows File Server, Amazon FSx for Lustre, or Amazon FSx for NetApp
--- ONTAP file system. Specifies the storage capacity target value, in GiB,
--- to increase the storage capacity for the file system that you\'re
--- updating.
+-- | Use this parameter to increase the storage capacity of an FSx for
+-- Windows File Server, FSx for Lustre, FSx for OpenZFS, or FSx for ONTAP
+-- file system. Specifies the storage capacity target value, in GiB, to
+-- increase the storage capacity for the file system that you\'re updating.
 --
 -- You can\'t make a storage capacity increase request if there is an
 -- existing storage capacity increase request in progress.
---
--- For Windows file systems, the storage capacity target value must be at
--- least 10 percent greater than the current storage capacity value. To
--- increase storage capacity, the file system must have at least 16 MBps of
--- throughput capacity. For more information, see
--- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html Managing storage capacity>
--- in the /Amazon FSx for Windows File Server User Guide/.
 --
 -- For Lustre file systems, the storage capacity target value can be the
 -- following:
@@ -314,7 +323,20 @@ updateFileSystem_openZFSConfiguration = Lens.lens (\UpdateFileSystem' {openZFSCo
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html Managing storage and throughput capacity>
--- in the /Amazon FSx for Lustre User Guide/.
+-- in the /FSx for Lustre User Guide/.
+--
+-- For FSx for OpenZFS file systems, the storage capacity target value must
+-- be at least 10 percent greater than the current storage capacity value.
+-- For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-storage-capacity.html Managing storage capacity>
+-- in the /FSx for OpenZFS User Guide/.
+--
+-- For Windows file systems, the storage capacity target value must be at
+-- least 10 percent greater than the current storage capacity value. To
+-- increase storage capacity, the file system must have at least 16 MBps of
+-- throughput capacity. For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html Managing storage capacity>
+-- in the /Amazon FSxfor Windows File Server User Guide/.
 --
 -- For ONTAP file systems, the storage capacity target value must be at
 -- least 10 percent greater than the current storage capacity value. For
@@ -349,7 +371,8 @@ instance Core.AWSRequest UpdateFileSystem where
 
 instance Prelude.Hashable UpdateFileSystem where
   hashWithSalt _salt UpdateFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` lustreConfiguration
       `Prelude.hashWithSalt` ontapConfiguration
       `Prelude.hashWithSalt` openZFSConfiguration
@@ -417,7 +440,7 @@ data UpdateFileSystemResponse = UpdateFileSystemResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFileSystemResponse' with all optional fields omitted.

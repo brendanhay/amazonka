@@ -278,7 +278,8 @@ instance Data.FromJSON FileCacheCreating where
             Prelude.<$> (x Data..:? "CopyTagsToDataRepositoryAssociations")
             Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "DNSName")
-            Prelude.<*> ( x Data..:? "DataRepositoryAssociationIds"
+            Prelude.<*> ( x
+                            Data..:? "DataRepositoryAssociationIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FailureDetails")
@@ -288,7 +289,8 @@ instance Data.FromJSON FileCacheCreating where
             Prelude.<*> (x Data..:? "KmsKeyId")
             Prelude.<*> (x Data..:? "Lifecycle")
             Prelude.<*> (x Data..:? "LustreConfiguration")
-            Prelude.<*> ( x Data..:? "NetworkInterfaceIds"
+            Prelude.<*> ( x
+                            Data..:? "NetworkInterfaceIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OwnerId")

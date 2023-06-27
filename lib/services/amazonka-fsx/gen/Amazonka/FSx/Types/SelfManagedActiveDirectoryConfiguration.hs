@@ -25,12 +25,12 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that Amazon FSx uses to join a FSx for Windows File
--- Server file system or an ONTAP storage virtual machine (SVM) to a
--- self-managed (including on-premises) Microsoft Active Directory (AD)
+-- Server file system or an FSx for ONTAP storage virtual machine (SVM) to
+-- a self-managed (including on-premises) Microsoft Active Directory (AD)
 -- directory. For more information, see
--- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html Using Amazon FSx with your self-managed Microsoft Active Directory>
+-- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html Using Amazon FSx for Windows with your self-managed Microsoft Active Directory>
 -- or
--- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html Managing SVMs>.
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html Managing FSx for ONTAP SVMs>.
 --
 -- /See:/ 'newSelfManagedActiveDirectoryConfiguration' smart constructor.
 data SelfManagedActiveDirectoryConfiguration = SelfManagedActiveDirectoryConfiguration'

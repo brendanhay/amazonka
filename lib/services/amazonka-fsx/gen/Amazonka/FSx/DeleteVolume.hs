@@ -132,7 +132,8 @@ instance Core.AWSRequest DeleteVolume where
 
 instance Prelude.Hashable DeleteVolume where
   hashWithSalt _salt DeleteVolume' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` ontapConfiguration
       `Prelude.hashWithSalt` openZFSConfiguration
       `Prelude.hashWithSalt` volumeId

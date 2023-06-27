@@ -144,7 +144,8 @@ instance
     FileCacheLustreConfiguration
   where
   hashWithSalt _salt FileCacheLustreConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` deploymentType
+    _salt
+      `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` metadataConfiguration
       `Prelude.hashWithSalt` mountName

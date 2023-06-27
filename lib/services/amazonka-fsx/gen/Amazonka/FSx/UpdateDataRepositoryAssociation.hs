@@ -22,7 +22,8 @@
 --
 -- Updates the configuration of an existing data repository association on
 -- an Amazon FSx for Lustre file system. Data repository associations are
--- supported only for file systems with the @Persistent_2@ deployment type.
+-- supported on all FSx for Lustre 2.12 and newer file systems, excluding
+-- @scratch_1@ deployment type.
 module Amazonka.FSx.UpdateDataRepositoryAssociation
   ( -- * Creating a Request
     UpdateDataRepositoryAssociation (..),
@@ -168,7 +169,8 @@ instance
   hashWithSalt
     _salt
     UpdateDataRepositoryAssociation' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` importedFileChunkSize
         `Prelude.hashWithSalt` s3
         `Prelude.hashWithSalt` associationId

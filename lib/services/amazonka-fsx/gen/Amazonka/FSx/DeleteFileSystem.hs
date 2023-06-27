@@ -85,7 +85,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteFileSystem' smart constructor.
 data DeleteFileSystem = DeleteFileSystem'
-  { -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+  { -- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
     -- idempotent deletion. This token is automatically filled on your behalf
     -- when using the Command Line Interface (CLI) or an Amazon Web Services
     -- SDK.
@@ -108,7 +108,7 @@ data DeleteFileSystem = DeleteFileSystem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientRequestToken', 'deleteFileSystem_clientRequestToken' - A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- 'clientRequestToken', 'deleteFileSystem_clientRequestToken' - A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent deletion. This token is automatically filled on your behalf
 -- when using the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
@@ -135,7 +135,7 @@ newDeleteFileSystem pFileSystemId_ =
       fileSystemId = pFileSystemId_
     }
 
--- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+-- | A string of up to 63 ASCII characters that Amazon FSx uses to ensure
 -- idempotent deletion. This token is automatically filled on your behalf
 -- when using the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
@@ -179,7 +179,8 @@ instance Core.AWSRequest DeleteFileSystem where
 
 instance Prelude.Hashable DeleteFileSystem where
   hashWithSalt _salt DeleteFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` lustreConfiguration
       `Prelude.hashWithSalt` openZFSConfiguration
       `Prelude.hashWithSalt` windowsConfiguration

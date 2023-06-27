@@ -202,7 +202,8 @@ instance
     WindowsAuditLogConfiguration
   where
   hashWithSalt _salt WindowsAuditLogConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` auditLogDestination
+    _salt
+      `Prelude.hashWithSalt` auditLogDestination
       `Prelude.hashWithSalt` fileAccessAuditLogLevel
       `Prelude.hashWithSalt` fileShareAccessAuditLogLevel
 

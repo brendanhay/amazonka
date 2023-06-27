@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 -- directory listings up to date by importing changes to your Amazon FSx
 -- for Lustre file system as you modify objects in a linked S3 bucket.
 --
--- The @AutoImportPolicy@ is supported only for Amazon FSx for Lustre file
--- systems with the @Persistent_2@ deployment type.
+-- The @AutoImportPolicy@ is only supported on Amazon FSx for Lustre file
+-- systems with a data repository association.
 --
 -- /See:/ 'newAutoImportPolicy' smart constructor.
 data AutoImportPolicy = AutoImportPolicy'

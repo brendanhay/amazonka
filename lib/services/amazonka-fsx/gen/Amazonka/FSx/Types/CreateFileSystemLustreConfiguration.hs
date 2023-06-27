@@ -32,10 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The Lustre configuration for the file system being created.
 --
--- The following parameters are not supported for file systems with the
--- @Persistent_2@ deployment type. Instead, use
--- @CreateDataRepositoryAssociation@ to create a data repository
--- association to link your Lustre file system to a data repository.
+-- The following parameters are not supported for file systems with a data
+-- repository association created with .
 --
 -- -   @AutoImportPolicy@
 --
@@ -47,12 +45,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateFileSystemLustreConfiguration' smart constructor.
 data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
-  { -- | (Optional) Available with @Scratch@ and @Persistent_1@ deployment types.
-    -- When you create your file system, your existing S3 objects appear as
-    -- file and directory listings. Use this property to choose how Amazon FSx
-    -- keeps your file and directory listings up to date as you add or modify
-    -- objects in your linked S3 bucket. @AutoImportPolicy@ can have the
-    -- following values:
+  { -- | (Optional) When you create your file system, your existing S3 objects
+    -- appear as file and directory listings. Use this parameter to choose how
+    -- Amazon FSx keeps your file and directory listings up to date as you add
+    -- or modify objects in your linked S3 bucket. @AutoImportPolicy@ can have
+    -- the following values:
     --
     -- -   @NONE@ - (Default) AutoImport is off. Amazon FSx only updates file
     --     and directory listings from the linked S3 bucket when the file
@@ -76,11 +73,12 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
     -- For more information, see
     -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/older-deployment-types.html#legacy-auto-import-from-s3 Automatically import updates from your S3 bucket>.
     --
-    -- This parameter is not supported for file systems with the @Persistent_2@
-    -- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
-    -- create a data repository association to link your Lustre file system to
-    -- a data repository.
+    -- This parameter is not supported for file systems with a data repository
+    -- association.
     autoImportPolicy :: Prelude.Maybe AutoImportPolicyType,
+    -- | The number of days to retain automatic backups. Setting this property to
+    -- @0@ disables automatic backups. You can retain automatic backups for a
+    -- maximum of 90 days. The default is @0@.
     automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
     -- | (Optional) Not available for use with file systems that are linked to a
     -- data repository. A boolean flag indicating whether tags for the file
@@ -137,11 +135,9 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
     --
     -- Encryption of data in transit is automatically turned on when you access
     -- @SCRATCH_2@, @PERSISTENT_1@ and @PERSISTENT_2@ file systems from Amazon
-    -- EC2 instances that
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-%20protection.html support automatic encryption>
-    -- in the Amazon Web Services Regions where they are available. For more
-    -- information about encryption in transit for FSx for Lustre file systems,
-    -- see
+    -- EC2 instances that support automatic encryption in the Amazon Web
+    -- Services Regions where they are available. For more information about
+    -- encryption in transit for FSx for Lustre file systems, see
     -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html Encrypting data in transit>
     -- in the /Amazon FSx for Lustre User Guide/.
     --
@@ -155,13 +151,12 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
     --
     -- This parameter is required when @StorageType@ is set to @HDD@.
     driveCacheType :: Prelude.Maybe DriveCacheType,
-    -- | (Optional) Available with @Scratch@ and @Persistent_1@ deployment types.
-    -- Specifies the path in the Amazon S3 bucket where the root of your Amazon
-    -- FSx file system is exported. The path must use the same Amazon S3 bucket
-    -- as specified in ImportPath. You can provide an optional prefix to which
-    -- new and changed data is to be exported from your Amazon FSx for Lustre
-    -- file system. If an @ExportPath@ value is not provided, Amazon FSx sets a
-    -- default export path,
+    -- | (Optional) Specifies the path in the Amazon S3 bucket where the root of
+    -- your Amazon FSx file system is exported. The path must use the same
+    -- Amazon S3 bucket as specified in ImportPath. You can provide an optional
+    -- prefix to which new and changed data is to be exported from your Amazon
+    -- FSx for Lustre file system. If an @ExportPath@ value is not provided,
+    -- Amazon FSx sets a default export path,
     -- @s3:\/\/import-bucket\/FSxLustre[creation-timestamp]@. The timestamp is
     -- in UTC format, for example
     -- @s3:\/\/import-bucket\/FSxLustre20181105T222312Z@.
@@ -175,10 +170,8 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
     -- FSx exports the contents of your file system to that export prefix in
     -- the Amazon S3 bucket.
     --
-    -- This parameter is not supported for file systems with the @Persistent_2@
-    -- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
-    -- create a data repository association to link your Lustre file system to
-    -- a data repository.
+    -- This parameter is not supported for file systems with a data repository
+    -- association.
     exportPath :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The path to the Amazon S3 bucket (including the optional
     -- prefix) that you\'re using as the data repository for your Amazon FSx
@@ -188,10 +181,8 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
     -- the Amazon S3 bucket name, only object keys with that prefix are loaded
     -- into the file system.
     --
-    -- This parameter is not supported for file systems with the @Persistent_2@
-    -- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
-    -- create a data repository association to link your Lustre file system to
-    -- a data repository.
+    -- This parameter is not supported for file systems with a data repository
+    -- association.
     importPath :: Prelude.Maybe Prelude.Text,
     -- | (Optional) For files imported from a data repository, this value
     -- determines the stripe count and maximum amount of data per file (in MiB)
@@ -202,10 +193,8 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
     -- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
     -- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
     --
-    -- This parameter is not supported for file systems with the @Persistent_2@
-    -- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
-    -- create a data repository association to link your Lustre file system to
-    -- a data repository.
+    -- This parameter is not supported for file systems with a data repository
+    -- association.
     importedFileChunkSize :: Prelude.Maybe Prelude.Natural,
     -- | The Lustre logging configuration used when creating an Amazon FSx for
     -- Lustre file system. When logging is enabled, Lustre logs error and
@@ -248,12 +237,11 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoImportPolicy', 'createFileSystemLustreConfiguration_autoImportPolicy' - (Optional) Available with @Scratch@ and @Persistent_1@ deployment types.
--- When you create your file system, your existing S3 objects appear as
--- file and directory listings. Use this property to choose how Amazon FSx
--- keeps your file and directory listings up to date as you add or modify
--- objects in your linked S3 bucket. @AutoImportPolicy@ can have the
--- following values:
+-- 'autoImportPolicy', 'createFileSystemLustreConfiguration_autoImportPolicy' - (Optional) When you create your file system, your existing S3 objects
+-- appear as file and directory listings. Use this parameter to choose how
+-- Amazon FSx keeps your file and directory listings up to date as you add
+-- or modify objects in your linked S3 bucket. @AutoImportPolicy@ can have
+-- the following values:
 --
 -- -   @NONE@ - (Default) AutoImport is off. Amazon FSx only updates file
 --     and directory listings from the linked S3 bucket when the file
@@ -277,12 +265,12 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
 -- For more information, see
 -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/older-deployment-types.html#legacy-auto-import-from-s3 Automatically import updates from your S3 bucket>.
 --
--- This parameter is not supported for file systems with the @Persistent_2@
--- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
--- create a data repository association to link your Lustre file system to
--- a data repository.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 --
--- 'automaticBackupRetentionDays', 'createFileSystemLustreConfiguration_automaticBackupRetentionDays' - Undocumented member.
+-- 'automaticBackupRetentionDays', 'createFileSystemLustreConfiguration_automaticBackupRetentionDays' - The number of days to retain automatic backups. Setting this property to
+-- @0@ disables automatic backups. You can retain automatic backups for a
+-- maximum of 90 days. The default is @0@.
 --
 -- 'copyTagsToBackups', 'createFileSystemLustreConfiguration_copyTagsToBackups' - (Optional) Not available for use with file systems that are linked to a
 -- data repository. A boolean flag indicating whether tags for the file
@@ -340,11 +328,9 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
 --
 -- Encryption of data in transit is automatically turned on when you access
 -- @SCRATCH_2@, @PERSISTENT_1@ and @PERSISTENT_2@ file systems from Amazon
--- EC2 instances that
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-%20protection.html support automatic encryption>
--- in the Amazon Web Services Regions where they are available. For more
--- information about encryption in transit for FSx for Lustre file systems,
--- see
+-- EC2 instances that support automatic encryption in the Amazon Web
+-- Services Regions where they are available. For more information about
+-- encryption in transit for FSx for Lustre file systems, see
 -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html Encrypting data in transit>
 -- in the /Amazon FSx for Lustre User Guide/.
 --
@@ -358,13 +344,12 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
 --
 -- This parameter is required when @StorageType@ is set to @HDD@.
 --
--- 'exportPath', 'createFileSystemLustreConfiguration_exportPath' - (Optional) Available with @Scratch@ and @Persistent_1@ deployment types.
--- Specifies the path in the Amazon S3 bucket where the root of your Amazon
--- FSx file system is exported. The path must use the same Amazon S3 bucket
--- as specified in ImportPath. You can provide an optional prefix to which
--- new and changed data is to be exported from your Amazon FSx for Lustre
--- file system. If an @ExportPath@ value is not provided, Amazon FSx sets a
--- default export path,
+-- 'exportPath', 'createFileSystemLustreConfiguration_exportPath' - (Optional) Specifies the path in the Amazon S3 bucket where the root of
+-- your Amazon FSx file system is exported. The path must use the same
+-- Amazon S3 bucket as specified in ImportPath. You can provide an optional
+-- prefix to which new and changed data is to be exported from your Amazon
+-- FSx for Lustre file system. If an @ExportPath@ value is not provided,
+-- Amazon FSx sets a default export path,
 -- @s3:\/\/import-bucket\/FSxLustre[creation-timestamp]@. The timestamp is
 -- in UTC format, for example
 -- @s3:\/\/import-bucket\/FSxLustre20181105T222312Z@.
@@ -378,10 +363,8 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
 -- FSx exports the contents of your file system to that export prefix in
 -- the Amazon S3 bucket.
 --
--- This parameter is not supported for file systems with the @Persistent_2@
--- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
--- create a data repository association to link your Lustre file system to
--- a data repository.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 --
 -- 'importPath', 'createFileSystemLustreConfiguration_importPath' - (Optional) The path to the Amazon S3 bucket (including the optional
 -- prefix) that you\'re using as the data repository for your Amazon FSx
@@ -391,10 +374,8 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
 -- the Amazon S3 bucket name, only object keys with that prefix are loaded
 -- into the file system.
 --
--- This parameter is not supported for file systems with the @Persistent_2@
--- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
--- create a data repository association to link your Lustre file system to
--- a data repository.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 --
 -- 'importedFileChunkSize', 'createFileSystemLustreConfiguration_importedFileChunkSize' - (Optional) For files imported from a data repository, this value
 -- determines the stripe count and maximum amount of data per file (in MiB)
@@ -405,10 +386,8 @@ data CreateFileSystemLustreConfiguration = CreateFileSystemLustreConfiguration'
 -- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
 -- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 --
--- This parameter is not supported for file systems with the @Persistent_2@
--- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
--- create a data repository association to link your Lustre file system to
--- a data repository.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 --
 -- 'logConfiguration', 'createFileSystemLustreConfiguration_logConfiguration' - The Lustre logging configuration used when creating an Amazon FSx for
 -- Lustre file system. When logging is enabled, Lustre logs error and
@@ -466,12 +445,11 @@ newCreateFileSystemLustreConfiguration =
         Prelude.Nothing
     }
 
--- | (Optional) Available with @Scratch@ and @Persistent_1@ deployment types.
--- When you create your file system, your existing S3 objects appear as
--- file and directory listings. Use this property to choose how Amazon FSx
--- keeps your file and directory listings up to date as you add or modify
--- objects in your linked S3 bucket. @AutoImportPolicy@ can have the
--- following values:
+-- | (Optional) When you create your file system, your existing S3 objects
+-- appear as file and directory listings. Use this parameter to choose how
+-- Amazon FSx keeps your file and directory listings up to date as you add
+-- or modify objects in your linked S3 bucket. @AutoImportPolicy@ can have
+-- the following values:
 --
 -- -   @NONE@ - (Default) AutoImport is off. Amazon FSx only updates file
 --     and directory listings from the linked S3 bucket when the file
@@ -495,14 +473,14 @@ newCreateFileSystemLustreConfiguration =
 -- For more information, see
 -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/older-deployment-types.html#legacy-auto-import-from-s3 Automatically import updates from your S3 bucket>.
 --
--- This parameter is not supported for file systems with the @Persistent_2@
--- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
--- create a data repository association to link your Lustre file system to
--- a data repository.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 createFileSystemLustreConfiguration_autoImportPolicy :: Lens.Lens' CreateFileSystemLustreConfiguration (Prelude.Maybe AutoImportPolicyType)
 createFileSystemLustreConfiguration_autoImportPolicy = Lens.lens (\CreateFileSystemLustreConfiguration' {autoImportPolicy} -> autoImportPolicy) (\s@CreateFileSystemLustreConfiguration' {} a -> s {autoImportPolicy = a} :: CreateFileSystemLustreConfiguration)
 
--- | Undocumented member.
+-- | The number of days to retain automatic backups. Setting this property to
+-- @0@ disables automatic backups. You can retain automatic backups for a
+-- maximum of 90 days. The default is @0@.
 createFileSystemLustreConfiguration_automaticBackupRetentionDays :: Lens.Lens' CreateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Natural)
 createFileSystemLustreConfiguration_automaticBackupRetentionDays = Lens.lens (\CreateFileSystemLustreConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@CreateFileSystemLustreConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: CreateFileSystemLustreConfiguration)
 
@@ -568,11 +546,9 @@ createFileSystemLustreConfiguration_dataCompressionType = Lens.lens (\CreateFile
 --
 -- Encryption of data in transit is automatically turned on when you access
 -- @SCRATCH_2@, @PERSISTENT_1@ and @PERSISTENT_2@ file systems from Amazon
--- EC2 instances that
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-%20protection.html support automatic encryption>
--- in the Amazon Web Services Regions where they are available. For more
--- information about encryption in transit for FSx for Lustre file systems,
--- see
+-- EC2 instances that support automatic encryption in the Amazon Web
+-- Services Regions where they are available. For more information about
+-- encryption in transit for FSx for Lustre file systems, see
 -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html Encrypting data in transit>
 -- in the /Amazon FSx for Lustre User Guide/.
 --
@@ -590,13 +566,12 @@ createFileSystemLustreConfiguration_deploymentType = Lens.lens (\CreateFileSyste
 createFileSystemLustreConfiguration_driveCacheType :: Lens.Lens' CreateFileSystemLustreConfiguration (Prelude.Maybe DriveCacheType)
 createFileSystemLustreConfiguration_driveCacheType = Lens.lens (\CreateFileSystemLustreConfiguration' {driveCacheType} -> driveCacheType) (\s@CreateFileSystemLustreConfiguration' {} a -> s {driveCacheType = a} :: CreateFileSystemLustreConfiguration)
 
--- | (Optional) Available with @Scratch@ and @Persistent_1@ deployment types.
--- Specifies the path in the Amazon S3 bucket where the root of your Amazon
--- FSx file system is exported. The path must use the same Amazon S3 bucket
--- as specified in ImportPath. You can provide an optional prefix to which
--- new and changed data is to be exported from your Amazon FSx for Lustre
--- file system. If an @ExportPath@ value is not provided, Amazon FSx sets a
--- default export path,
+-- | (Optional) Specifies the path in the Amazon S3 bucket where the root of
+-- your Amazon FSx file system is exported. The path must use the same
+-- Amazon S3 bucket as specified in ImportPath. You can provide an optional
+-- prefix to which new and changed data is to be exported from your Amazon
+-- FSx for Lustre file system. If an @ExportPath@ value is not provided,
+-- Amazon FSx sets a default export path,
 -- @s3:\/\/import-bucket\/FSxLustre[creation-timestamp]@. The timestamp is
 -- in UTC format, for example
 -- @s3:\/\/import-bucket\/FSxLustre20181105T222312Z@.
@@ -610,10 +585,8 @@ createFileSystemLustreConfiguration_driveCacheType = Lens.lens (\CreateFileSyste
 -- FSx exports the contents of your file system to that export prefix in
 -- the Amazon S3 bucket.
 --
--- This parameter is not supported for file systems with the @Persistent_2@
--- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
--- create a data repository association to link your Lustre file system to
--- a data repository.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 createFileSystemLustreConfiguration_exportPath :: Lens.Lens' CreateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Text)
 createFileSystemLustreConfiguration_exportPath = Lens.lens (\CreateFileSystemLustreConfiguration' {exportPath} -> exportPath) (\s@CreateFileSystemLustreConfiguration' {} a -> s {exportPath = a} :: CreateFileSystemLustreConfiguration)
 
@@ -625,10 +598,8 @@ createFileSystemLustreConfiguration_exportPath = Lens.lens (\CreateFileSystemLus
 -- the Amazon S3 bucket name, only object keys with that prefix are loaded
 -- into the file system.
 --
--- This parameter is not supported for file systems with the @Persistent_2@
--- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
--- create a data repository association to link your Lustre file system to
--- a data repository.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 createFileSystemLustreConfiguration_importPath :: Lens.Lens' CreateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Text)
 createFileSystemLustreConfiguration_importPath = Lens.lens (\CreateFileSystemLustreConfiguration' {importPath} -> importPath) (\s@CreateFileSystemLustreConfiguration' {} a -> s {importPath = a} :: CreateFileSystemLustreConfiguration)
 
@@ -641,10 +612,8 @@ createFileSystemLustreConfiguration_importPath = Lens.lens (\CreateFileSystemLus
 -- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
 -- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 --
--- This parameter is not supported for file systems with the @Persistent_2@
--- deployment type. Instead, use @CreateDataRepositoryAssociation@ to
--- create a data repository association to link your Lustre file system to
--- a data repository.
+-- This parameter is not supported for file systems with a data repository
+-- association.
 createFileSystemLustreConfiguration_importedFileChunkSize :: Lens.Lens' CreateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Natural)
 createFileSystemLustreConfiguration_importedFileChunkSize = Lens.lens (\CreateFileSystemLustreConfiguration' {importedFileChunkSize} -> importedFileChunkSize) (\s@CreateFileSystemLustreConfiguration' {} a -> s {importedFileChunkSize = a} :: CreateFileSystemLustreConfiguration)
 
@@ -693,7 +662,8 @@ instance
   hashWithSalt
     _salt
     CreateFileSystemLustreConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoImportPolicy
+      _salt
+        `Prelude.hashWithSalt` autoImportPolicy
         `Prelude.hashWithSalt` automaticBackupRetentionDays
         `Prelude.hashWithSalt` copyTagsToBackups
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime

@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateFileCache where
 
 instance Prelude.Hashable UpdateFileCache where
   hashWithSalt _salt UpdateFileCache' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` lustreConfiguration
       `Prelude.hashWithSalt` fileCacheId
 

@@ -88,7 +88,7 @@ data Backup = Backup'
     -- metadata is persisted even if the file system is deleted.
     fileSystem :: FileSystem
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Backup' with all optional fields omitted.
@@ -298,7 +298,8 @@ instance Data.FromJSON Backup where
 
 instance Prelude.Hashable Backup where
   hashWithSalt _salt Backup' {..} =
-    _salt `Prelude.hashWithSalt` directoryInformation
+    _salt
+      `Prelude.hashWithSalt` directoryInformation
       `Prelude.hashWithSalt` failureDetails
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` ownerId

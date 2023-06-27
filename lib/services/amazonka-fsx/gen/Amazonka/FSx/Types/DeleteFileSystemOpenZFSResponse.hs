@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemOpenZFSResponse' {..} =
-      _salt `Prelude.hashWithSalt` finalBackupId
+      _salt
+        `Prelude.hashWithSalt` finalBackupId
         `Prelude.hashWithSalt` finalBackupTags
 
 instance

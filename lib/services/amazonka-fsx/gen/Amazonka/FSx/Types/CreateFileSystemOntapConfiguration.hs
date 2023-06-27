@@ -42,7 +42,7 @@ data CreateFileSystemOntapConfiguration = CreateFileSystemOntapConfiguration'
     -- the last 64 IP addresses from the VPC’s primary CIDR range to use as the
     -- endpoint IP address range for the file system. You can have overlapping
     -- endpoint IP addresses for file systems deployed in the same VPC\/route
-    -- tables.
+    -- tables, as long as they don\'t overlap with any subnet.
     endpointIpAddressRange :: Prelude.Maybe Prelude.Text,
     -- | The ONTAP administrative password for the @fsxadmin@ user with which you
     -- administer your file system using the NetApp ONTAP CLI and REST API.
@@ -97,7 +97,7 @@ data CreateFileSystemOntapConfiguration = CreateFileSystemOntapConfiguration'
 -- the last 64 IP addresses from the VPC’s primary CIDR range to use as the
 -- endpoint IP address range for the file system. You can have overlapping
 -- endpoint IP addresses for file systems deployed in the same VPC\/route
--- tables.
+-- tables, as long as they don\'t overlap with any subnet.
 --
 -- 'fsxAdminPassword', 'createFileSystemOntapConfiguration_fsxAdminPassword' - The ONTAP administrative password for the @fsxadmin@ user with which you
 -- administer your file system using the NetApp ONTAP CLI and REST API.
@@ -174,7 +174,7 @@ createFileSystemOntapConfiguration_diskIopsConfiguration = Lens.lens (\CreateFil
 -- the last 64 IP addresses from the VPC’s primary CIDR range to use as the
 -- endpoint IP address range for the file system. You can have overlapping
 -- endpoint IP addresses for file systems deployed in the same VPC\/route
--- tables.
+-- tables, as long as they don\'t overlap with any subnet.
 createFileSystemOntapConfiguration_endpointIpAddressRange :: Lens.Lens' CreateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
 createFileSystemOntapConfiguration_endpointIpAddressRange = Lens.lens (\CreateFileSystemOntapConfiguration' {endpointIpAddressRange} -> endpointIpAddressRange) (\s@CreateFileSystemOntapConfiguration' {} a -> s {endpointIpAddressRange = a} :: CreateFileSystemOntapConfiguration)
 

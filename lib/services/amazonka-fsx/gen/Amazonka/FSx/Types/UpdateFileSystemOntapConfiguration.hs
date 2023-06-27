@@ -36,23 +36,30 @@ data UpdateFileSystemOntapConfiguration = UpdateFileSystemOntapConfiguration'
     addRouteTableIds :: Prelude.Maybe [Prelude.Text],
     automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
     dailyAutomaticBackupStartTime :: Prelude.Maybe Prelude.Text,
-    -- | The SSD IOPS (input\/output operations per second) configuration for an
+    -- | The SSD IOPS (input output operations per second) configuration for an
     -- Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of
     -- storage capacity, but you can provision additional IOPS per GB of
     -- storage. The configuration consists of an IOPS mode (@AUTOMATIC@ or
     -- @USER_PROVISIONED@), and in the case of @USER_PROVISIONED@ IOPS, the
-    -- total number of SSD IOPS provisioned.
+    -- total number of SSD IOPS provisioned. For more information, see
+    -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/increase-primary-storage.html Updating SSD storage capacity and IOPS>.
     diskIopsConfiguration :: Prelude.Maybe DiskIopsConfiguration,
-    -- | The ONTAP administrative password for the @fsxadmin@ user.
+    -- | Update the password for the @fsxadmin@ user by entering a new password.
+    -- You use the @fsxadmin@ user to access the NetApp ONTAP CLI and REST API
+    -- to manage your file system resources. For more information, see
+    -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html Managing resources using NetApp Applicaton>.
     fsxAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | (Multi-AZ only) A list of IDs of existing virtual private cloud (VPC)
     -- route tables to disassociate (remove) from your Amazon FSx for NetApp
     -- ONTAP file system. You can use the API operation to retrieve the list of
     -- VPC route table IDs for a file system.
     removeRouteTableIds :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the throughput of an FSx for NetApp ONTAP file system,
-    -- measured in megabytes per second (MBps). Valid values are 128, 256, 512,
-    -- 1024, 2048, and 4096 MBps.
+    -- | Enter a new value to change the amount of throughput capacity for the
+    -- file system. Throughput capacity is measured in megabytes per second
+    -- (MBps). Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html Managing throughput capacity>
+    -- in the FSx for ONTAP User Guide.
     throughputCapacity :: Prelude.Maybe Prelude.Natural,
     weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text
   }
@@ -74,23 +81,30 @@ data UpdateFileSystemOntapConfiguration = UpdateFileSystemOntapConfiguration'
 --
 -- 'dailyAutomaticBackupStartTime', 'updateFileSystemOntapConfiguration_dailyAutomaticBackupStartTime' - Undocumented member.
 --
--- 'diskIopsConfiguration', 'updateFileSystemOntapConfiguration_diskIopsConfiguration' - The SSD IOPS (input\/output operations per second) configuration for an
+-- 'diskIopsConfiguration', 'updateFileSystemOntapConfiguration_diskIopsConfiguration' - The SSD IOPS (input output operations per second) configuration for an
 -- Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of
 -- storage capacity, but you can provision additional IOPS per GB of
 -- storage. The configuration consists of an IOPS mode (@AUTOMATIC@ or
 -- @USER_PROVISIONED@), and in the case of @USER_PROVISIONED@ IOPS, the
--- total number of SSD IOPS provisioned.
+-- total number of SSD IOPS provisioned. For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/increase-primary-storage.html Updating SSD storage capacity and IOPS>.
 --
--- 'fsxAdminPassword', 'updateFileSystemOntapConfiguration_fsxAdminPassword' - The ONTAP administrative password for the @fsxadmin@ user.
+-- 'fsxAdminPassword', 'updateFileSystemOntapConfiguration_fsxAdminPassword' - Update the password for the @fsxadmin@ user by entering a new password.
+-- You use the @fsxadmin@ user to access the NetApp ONTAP CLI and REST API
+-- to manage your file system resources. For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html Managing resources using NetApp Applicaton>.
 --
 -- 'removeRouteTableIds', 'updateFileSystemOntapConfiguration_removeRouteTableIds' - (Multi-AZ only) A list of IDs of existing virtual private cloud (VPC)
 -- route tables to disassociate (remove) from your Amazon FSx for NetApp
 -- ONTAP file system. You can use the API operation to retrieve the list of
 -- VPC route table IDs for a file system.
 --
--- 'throughputCapacity', 'updateFileSystemOntapConfiguration_throughputCapacity' - Specifies the throughput of an FSx for NetApp ONTAP file system,
--- measured in megabytes per second (MBps). Valid values are 128, 256, 512,
--- 1024, 2048, and 4096 MBps.
+-- 'throughputCapacity', 'updateFileSystemOntapConfiguration_throughputCapacity' - Enter a new value to change the amount of throughput capacity for the
+-- file system. Throughput capacity is measured in megabytes per second
+-- (MBps). Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps. For
+-- more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html Managing throughput capacity>
+-- in the FSx for ONTAP User Guide.
 --
 -- 'weeklyMaintenanceStartTime', 'updateFileSystemOntapConfiguration_weeklyMaintenanceStartTime' - Undocumented member.
 newUpdateFileSystemOntapConfiguration ::
@@ -125,16 +139,20 @@ updateFileSystemOntapConfiguration_automaticBackupRetentionDays = Lens.lens (\Up
 updateFileSystemOntapConfiguration_dailyAutomaticBackupStartTime :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
 updateFileSystemOntapConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\UpdateFileSystemOntapConfiguration' {dailyAutomaticBackupStartTime} -> dailyAutomaticBackupStartTime) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {dailyAutomaticBackupStartTime = a} :: UpdateFileSystemOntapConfiguration)
 
--- | The SSD IOPS (input\/output operations per second) configuration for an
+-- | The SSD IOPS (input output operations per second) configuration for an
 -- Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of
 -- storage capacity, but you can provision additional IOPS per GB of
 -- storage. The configuration consists of an IOPS mode (@AUTOMATIC@ or
 -- @USER_PROVISIONED@), and in the case of @USER_PROVISIONED@ IOPS, the
--- total number of SSD IOPS provisioned.
+-- total number of SSD IOPS provisioned. For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/increase-primary-storage.html Updating SSD storage capacity and IOPS>.
 updateFileSystemOntapConfiguration_diskIopsConfiguration :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe DiskIopsConfiguration)
 updateFileSystemOntapConfiguration_diskIopsConfiguration = Lens.lens (\UpdateFileSystemOntapConfiguration' {diskIopsConfiguration} -> diskIopsConfiguration) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {diskIopsConfiguration = a} :: UpdateFileSystemOntapConfiguration)
 
--- | The ONTAP administrative password for the @fsxadmin@ user.
+-- | Update the password for the @fsxadmin@ user by entering a new password.
+-- You use the @fsxadmin@ user to access the NetApp ONTAP CLI and REST API
+-- to manage your file system resources. For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html Managing resources using NetApp Applicaton>.
 updateFileSystemOntapConfiguration_fsxAdminPassword :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
 updateFileSystemOntapConfiguration_fsxAdminPassword = Lens.lens (\UpdateFileSystemOntapConfiguration' {fsxAdminPassword} -> fsxAdminPassword) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {fsxAdminPassword = a} :: UpdateFileSystemOntapConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
@@ -145,9 +163,12 @@ updateFileSystemOntapConfiguration_fsxAdminPassword = Lens.lens (\UpdateFileSyst
 updateFileSystemOntapConfiguration_removeRouteTableIds :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe [Prelude.Text])
 updateFileSystemOntapConfiguration_removeRouteTableIds = Lens.lens (\UpdateFileSystemOntapConfiguration' {removeRouteTableIds} -> removeRouteTableIds) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {removeRouteTableIds = a} :: UpdateFileSystemOntapConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the throughput of an FSx for NetApp ONTAP file system,
--- measured in megabytes per second (MBps). Valid values are 128, 256, 512,
--- 1024, 2048, and 4096 MBps.
+-- | Enter a new value to change the amount of throughput capacity for the
+-- file system. Throughput capacity is measured in megabytes per second
+-- (MBps). Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps. For
+-- more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html Managing throughput capacity>
+-- in the FSx for ONTAP User Guide.
 updateFileSystemOntapConfiguration_throughputCapacity :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Natural)
 updateFileSystemOntapConfiguration_throughputCapacity = Lens.lens (\UpdateFileSystemOntapConfiguration' {throughputCapacity} -> throughputCapacity) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {throughputCapacity = a} :: UpdateFileSystemOntapConfiguration)
 
@@ -162,7 +183,8 @@ instance
   hashWithSalt
     _salt
     UpdateFileSystemOntapConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` addRouteTableIds
+      _salt
+        `Prelude.hashWithSalt` addRouteTableIds
         `Prelude.hashWithSalt` automaticBackupRetentionDays
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
         `Prelude.hashWithSalt` diskIopsConfiguration

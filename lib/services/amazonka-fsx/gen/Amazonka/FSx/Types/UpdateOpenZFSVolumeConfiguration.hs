@@ -201,7 +201,8 @@ instance
   hashWithSalt
     _salt
     UpdateOpenZFSVolumeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dataCompressionType
+      _salt
+        `Prelude.hashWithSalt` dataCompressionType
         `Prelude.hashWithSalt` nfsExports
         `Prelude.hashWithSalt` readOnly
         `Prelude.hashWithSalt` recordSizeKiB

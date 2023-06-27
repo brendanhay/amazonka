@@ -113,9 +113,8 @@ data FileSystem = FileSystem'
     -- | The configuration for this Amazon FSx for OpenZFS file system.
     openZFSConfiguration :: Prelude.Maybe OpenZFSFileSystemConfiguration,
     -- | The Amazon Web Services account that created the file system. If the
-    -- file system was created by an Identity and Access Management (IAM) user,
-    -- the Amazon Web Services account to which the IAM user belongs is the
-    -- owner.
+    -- file system was created by a user in IAM Identity Center, the Amazon Web
+    -- Services account to which the IAM user belongs is the owner.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the file system resource.
     resourceARN :: Prelude.Maybe Prelude.Text,
@@ -147,7 +146,7 @@ data FileSystem = FileSystem'
     -- system.
     windowsConfiguration :: Prelude.Maybe WindowsFileSystemConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FileSystem' with all optional fields omitted.
@@ -234,9 +233,8 @@ data FileSystem = FileSystem'
 -- 'openZFSConfiguration', 'fileSystem_openZFSConfiguration' - The configuration for this Amazon FSx for OpenZFS file system.
 --
 -- 'ownerId', 'fileSystem_ownerId' - The Amazon Web Services account that created the file system. If the
--- file system was created by an Identity and Access Management (IAM) user,
--- the Amazon Web Services account to which the IAM user belongs is the
--- owner.
+-- file system was created by a user in IAM Identity Center, the Amazon Web
+-- Services account to which the IAM user belongs is the owner.
 --
 -- 'resourceARN', 'fileSystem_resourceARN' - The Amazon Resource Name (ARN) of the file system resource.
 --
@@ -397,9 +395,8 @@ fileSystem_openZFSConfiguration :: Lens.Lens' FileSystem (Prelude.Maybe OpenZFSF
 fileSystem_openZFSConfiguration = Lens.lens (\FileSystem' {openZFSConfiguration} -> openZFSConfiguration) (\s@FileSystem' {} a -> s {openZFSConfiguration = a} :: FileSystem)
 
 -- | The Amazon Web Services account that created the file system. If the
--- file system was created by an Identity and Access Management (IAM) user,
--- the Amazon Web Services account to which the IAM user belongs is the
--- owner.
+-- file system was created by a user in IAM Identity Center, the Amazon Web
+-- Services account to which the IAM user belongs is the owner.
 fileSystem_ownerId :: Lens.Lens' FileSystem (Prelude.Maybe Prelude.Text)
 fileSystem_ownerId = Lens.lens (\FileSystem' {ownerId} -> ownerId) (\s@FileSystem' {} a -> s {ownerId = a} :: FileSystem)
 
@@ -452,7 +449,8 @@ instance Data.FromJSON FileSystem where
       "FileSystem"
       ( \x ->
           FileSystem'
-            Prelude.<$> ( x Data..:? "AdministrativeActions"
+            Prelude.<$> ( x
+                            Data..:? "AdministrativeActions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreationTime")
@@ -464,7 +462,8 @@ instance Data.FromJSON FileSystem where
             Prelude.<*> (x Data..:? "KmsKeyId")
             Prelude.<*> (x Data..:? "Lifecycle")
             Prelude.<*> (x Data..:? "LustreConfiguration")
-            Prelude.<*> ( x Data..:? "NetworkInterfaceIds"
+            Prelude.<*> ( x
+                            Data..:? "NetworkInterfaceIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OntapConfiguration")
@@ -481,7 +480,8 @@ instance Data.FromJSON FileSystem where
 
 instance Prelude.Hashable FileSystem where
   hashWithSalt _salt FileSystem' {..} =
-    _salt `Prelude.hashWithSalt` administrativeActions
+    _salt
+      `Prelude.hashWithSalt` administrativeActions
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dNSName
       `Prelude.hashWithSalt` failureDetails

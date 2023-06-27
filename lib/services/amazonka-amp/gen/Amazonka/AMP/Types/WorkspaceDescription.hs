@@ -137,7 +137,8 @@ instance Data.FromJSON WorkspaceDescription where
 
 instance Prelude.Hashable WorkspaceDescription where
   hashWithSalt _salt WorkspaceDescription' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` prometheusEndpoint
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn

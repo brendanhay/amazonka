@@ -146,7 +146,8 @@ instance Core.AWSRequest PutRuleGroupsNamespace where
 
 instance Prelude.Hashable PutRuleGroupsNamespace where
   hashWithSalt _salt PutRuleGroupsNamespace' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` workspaceId

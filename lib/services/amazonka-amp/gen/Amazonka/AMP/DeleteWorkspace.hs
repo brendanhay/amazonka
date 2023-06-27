@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteWorkspace where
 
 instance Prelude.Hashable DeleteWorkspace where
   hashWithSalt _salt DeleteWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData DeleteWorkspace where

@@ -78,7 +78,8 @@ instance Data.FromJSON LoggingConfigurationStatus where
 
 instance Prelude.Hashable LoggingConfigurationStatus where
   hashWithSalt _salt LoggingConfigurationStatus' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
+    _salt
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData LoggingConfigurationStatus where

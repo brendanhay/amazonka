@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteLoggingConfiguration where
 
 instance Prelude.Hashable DeleteLoggingConfiguration where
   hashWithSalt _salt DeleteLoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData DeleteLoggingConfiguration where

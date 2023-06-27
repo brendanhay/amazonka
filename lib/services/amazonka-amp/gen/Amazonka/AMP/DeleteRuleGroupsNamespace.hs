@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteRuleGroupsNamespace where
 
 instance Prelude.Hashable DeleteRuleGroupsNamespace where
   hashWithSalt _salt DeleteRuleGroupsNamespace' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` workspaceId
 

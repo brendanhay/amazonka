@@ -130,7 +130,8 @@ instance Data.FromJSON RuleGroupsNamespaceSummary where
 
 instance Prelude.Hashable RuleGroupsNamespaceSummary where
   hashWithSalt _salt RuleGroupsNamespaceSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` modifiedAt

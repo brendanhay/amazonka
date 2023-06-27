@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
 
 instance Prelude.Hashable UpdateLoggingConfiguration where
   hashWithSalt _salt UpdateLoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` logGroupArn
       `Prelude.hashWithSalt` workspaceId
 

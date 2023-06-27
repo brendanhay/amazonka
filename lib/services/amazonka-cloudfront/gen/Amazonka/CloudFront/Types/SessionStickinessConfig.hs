@@ -99,7 +99,8 @@ instance Data.FromXML SessionStickinessConfig where
 
 instance Prelude.Hashable SessionStickinessConfig where
   hashWithSalt _salt SessionStickinessConfig' {..} =
-    _salt `Prelude.hashWithSalt` idleTTL
+    _salt
+      `Prelude.hashWithSalt` idleTTL
       `Prelude.hashWithSalt` maximumTTL
 
 instance Prelude.NFData SessionStickinessConfig where

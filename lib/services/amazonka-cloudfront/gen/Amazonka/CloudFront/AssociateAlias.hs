@@ -110,7 +110,8 @@ instance Core.AWSRequest AssociateAlias where
 
 instance Prelude.Hashable AssociateAlias where
   hashWithSalt _salt AssociateAlias' {..} =
-    _salt `Prelude.hashWithSalt` targetDistributionId
+    _salt
+      `Prelude.hashWithSalt` targetDistributionId
       `Prelude.hashWithSalt` alias
 
 instance Prelude.NFData AssociateAlias where

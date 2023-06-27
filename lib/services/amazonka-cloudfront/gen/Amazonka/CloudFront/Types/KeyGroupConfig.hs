@@ -84,13 +84,16 @@ instance Data.FromXML KeyGroupConfig where
     KeyGroupConfig'
       Prelude.<$> (x Data..@? "Comment")
       Prelude.<*> (x Data..@ "Name")
-      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "PublicKey"
                   )
 
 instance Prelude.Hashable KeyGroupConfig where
   hashWithSalt _salt KeyGroupConfig' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` items
 

@@ -79,7 +79,8 @@ instance Data.FromXML CachePolicySummary where
 
 instance Prelude.Hashable CachePolicySummary where
   hashWithSalt _salt CachePolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` cachePolicy
 
 instance Prelude.NFData CachePolicySummary where

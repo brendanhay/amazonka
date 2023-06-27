@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     ListContinuousDeploymentPolicies' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxItems
 
 instance

@@ -32,23 +32,32 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOriginRequestPolicyQueryStringsConfig' smart constructor.
 data OriginRequestPolicyQueryStringsConfig = OriginRequestPolicyQueryStringsConfig'
-  { -- | Contains a list of the query strings in viewer requests that are
-    -- included in requests that CloudFront sends to the origin.
+  { -- | Contains the specific query strings in viewer requests that either
+    -- /__are__/ or /__are not__/ included in requests that CloudFront sends to
+    -- the origin. The behavior depends on whether the @QueryStringBehavior@
+    -- field in the @OriginRequestPolicyQueryStringsConfig@ type is set to
+    -- @whitelist@ (the listed query strings /__are__/ included) or @allExcept@
+    -- (the listed query strings /__are not__/ included, but all other query
+    -- strings are).
     queryStrings :: Prelude.Maybe QueryStringNames,
     -- | Determines whether any URL query strings in viewer requests are included
     -- in requests that CloudFront sends to the origin. Valid values are:
     --
-    -- -   @none@ – Query strings in viewer requests are not included in
+    -- -   @none@ – No query strings in viewer requests are included in
     --     requests that CloudFront sends to the origin. Even when this field
     --     is set to @none@, any query strings that are listed in a
     --     @CachePolicy@ /are/ included in origin requests.
     --
-    -- -   @whitelist@ – The query strings in viewer requests that are listed
-    --     in the @QueryStringNames@ type are included in requests that
+    -- -   @whitelist@ – Only the query strings in viewer requests that are
+    --     listed in the @QueryStringNames@ type are included in requests that
     --     CloudFront sends to the origin.
     --
     -- -   @all@ – All query strings in viewer requests are included in
     --     requests that CloudFront sends to the origin.
+    --
+    -- -   @allExcept@ – All query strings in viewer requests are included in
+    --     requests that CloudFront sends to the origin, /__except__/ for those
+    --     listed in the @QueryStringNames@ type, which are not included.
     queryStringBehavior :: OriginRequestPolicyQueryStringBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,23 +70,32 @@ data OriginRequestPolicyQueryStringsConfig = OriginRequestPolicyQueryStringsConf
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryStrings', 'originRequestPolicyQueryStringsConfig_queryStrings' - Contains a list of the query strings in viewer requests that are
--- included in requests that CloudFront sends to the origin.
+-- 'queryStrings', 'originRequestPolicyQueryStringsConfig_queryStrings' - Contains the specific query strings in viewer requests that either
+-- /__are__/ or /__are not__/ included in requests that CloudFront sends to
+-- the origin. The behavior depends on whether the @QueryStringBehavior@
+-- field in the @OriginRequestPolicyQueryStringsConfig@ type is set to
+-- @whitelist@ (the listed query strings /__are__/ included) or @allExcept@
+-- (the listed query strings /__are not__/ included, but all other query
+-- strings are).
 --
 -- 'queryStringBehavior', 'originRequestPolicyQueryStringsConfig_queryStringBehavior' - Determines whether any URL query strings in viewer requests are included
 -- in requests that CloudFront sends to the origin. Valid values are:
 --
--- -   @none@ – Query strings in viewer requests are not included in
+-- -   @none@ – No query strings in viewer requests are included in
 --     requests that CloudFront sends to the origin. Even when this field
 --     is set to @none@, any query strings that are listed in a
 --     @CachePolicy@ /are/ included in origin requests.
 --
--- -   @whitelist@ – The query strings in viewer requests that are listed
---     in the @QueryStringNames@ type are included in requests that
+-- -   @whitelist@ – Only the query strings in viewer requests that are
+--     listed in the @QueryStringNames@ type are included in requests that
 --     CloudFront sends to the origin.
 --
 -- -   @all@ – All query strings in viewer requests are included in
 --     requests that CloudFront sends to the origin.
+--
+-- -   @allExcept@ – All query strings in viewer requests are included in
+--     requests that CloudFront sends to the origin, /__except__/ for those
+--     listed in the @QueryStringNames@ type, which are not included.
 newOriginRequestPolicyQueryStringsConfig ::
   -- | 'queryStringBehavior'
   OriginRequestPolicyQueryStringBehavior ->
@@ -91,25 +109,34 @@ newOriginRequestPolicyQueryStringsConfig
           pQueryStringBehavior_
       }
 
--- | Contains a list of the query strings in viewer requests that are
--- included in requests that CloudFront sends to the origin.
+-- | Contains the specific query strings in viewer requests that either
+-- /__are__/ or /__are not__/ included in requests that CloudFront sends to
+-- the origin. The behavior depends on whether the @QueryStringBehavior@
+-- field in the @OriginRequestPolicyQueryStringsConfig@ type is set to
+-- @whitelist@ (the listed query strings /__are__/ included) or @allExcept@
+-- (the listed query strings /__are not__/ included, but all other query
+-- strings are).
 originRequestPolicyQueryStringsConfig_queryStrings :: Lens.Lens' OriginRequestPolicyQueryStringsConfig (Prelude.Maybe QueryStringNames)
 originRequestPolicyQueryStringsConfig_queryStrings = Lens.lens (\OriginRequestPolicyQueryStringsConfig' {queryStrings} -> queryStrings) (\s@OriginRequestPolicyQueryStringsConfig' {} a -> s {queryStrings = a} :: OriginRequestPolicyQueryStringsConfig)
 
 -- | Determines whether any URL query strings in viewer requests are included
 -- in requests that CloudFront sends to the origin. Valid values are:
 --
--- -   @none@ – Query strings in viewer requests are not included in
+-- -   @none@ – No query strings in viewer requests are included in
 --     requests that CloudFront sends to the origin. Even when this field
 --     is set to @none@, any query strings that are listed in a
 --     @CachePolicy@ /are/ included in origin requests.
 --
--- -   @whitelist@ – The query strings in viewer requests that are listed
---     in the @QueryStringNames@ type are included in requests that
+-- -   @whitelist@ – Only the query strings in viewer requests that are
+--     listed in the @QueryStringNames@ type are included in requests that
 --     CloudFront sends to the origin.
 --
 -- -   @all@ – All query strings in viewer requests are included in
 --     requests that CloudFront sends to the origin.
+--
+-- -   @allExcept@ – All query strings in viewer requests are included in
+--     requests that CloudFront sends to the origin, /__except__/ for those
+--     listed in the @QueryStringNames@ type, which are not included.
 originRequestPolicyQueryStringsConfig_queryStringBehavior :: Lens.Lens' OriginRequestPolicyQueryStringsConfig OriginRequestPolicyQueryStringBehavior
 originRequestPolicyQueryStringsConfig_queryStringBehavior = Lens.lens (\OriginRequestPolicyQueryStringsConfig' {queryStringBehavior} -> queryStringBehavior) (\s@OriginRequestPolicyQueryStringsConfig' {} a -> s {queryStringBehavior = a} :: OriginRequestPolicyQueryStringsConfig)
 
@@ -129,7 +156,8 @@ instance
   hashWithSalt
     _salt
     OriginRequestPolicyQueryStringsConfig' {..} =
-      _salt `Prelude.hashWithSalt` queryStrings
+      _salt
+        `Prelude.hashWithSalt` queryStrings
         `Prelude.hashWithSalt` queryStringBehavior
 
 instance

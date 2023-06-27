@@ -207,7 +207,8 @@ instance Data.FromXML StreamingDistribution where
 
 instance Prelude.Hashable StreamingDistribution where
   hashWithSalt _salt StreamingDistribution' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
+    _salt
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` status

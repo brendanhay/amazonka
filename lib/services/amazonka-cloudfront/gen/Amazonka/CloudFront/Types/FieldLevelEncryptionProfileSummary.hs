@@ -136,7 +136,8 @@ instance
   hashWithSalt
     _salt
     FieldLevelEncryptionProfileSummary' {..} =
-      _salt `Prelude.hashWithSalt` comment
+      _salt
+        `Prelude.hashWithSalt` comment
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` lastModifiedTime
         `Prelude.hashWithSalt` name

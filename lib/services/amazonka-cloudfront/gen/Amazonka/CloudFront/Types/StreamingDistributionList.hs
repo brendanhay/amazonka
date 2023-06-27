@@ -138,7 +138,9 @@ streamingDistributionList_quantity = Lens.lens (\StreamingDistributionList' {qua
 instance Data.FromXML StreamingDistributionList where
   parseXML x =
     StreamingDistributionList'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "StreamingDistributionSummary")
                   )
@@ -150,7 +152,8 @@ instance Data.FromXML StreamingDistributionList where
 
 instance Prelude.Hashable StreamingDistributionList where
   hashWithSalt _salt StreamingDistributionList' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

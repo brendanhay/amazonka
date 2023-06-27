@@ -20,6 +20,7 @@
 module Amazonka.CloudFront.Types.OriginRequestPolicyHeaderBehavior
   ( OriginRequestPolicyHeaderBehavior
       ( ..,
+        OriginRequestPolicyHeaderBehavior_AllExcept,
         OriginRequestPolicyHeaderBehavior_AllViewer,
         OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront,
         OriginRequestPolicyHeaderBehavior_None,
@@ -60,6 +61,9 @@ newtype OriginRequestPolicyHeaderBehavior = OriginRequestPolicyHeaderBehavior'
       Data.ToXML
     )
 
+pattern OriginRequestPolicyHeaderBehavior_AllExcept :: OriginRequestPolicyHeaderBehavior
+pattern OriginRequestPolicyHeaderBehavior_AllExcept = OriginRequestPolicyHeaderBehavior' "allExcept"
+
 pattern OriginRequestPolicyHeaderBehavior_AllViewer :: OriginRequestPolicyHeaderBehavior
 pattern OriginRequestPolicyHeaderBehavior_AllViewer = OriginRequestPolicyHeaderBehavior' "allViewer"
 
@@ -73,6 +77,7 @@ pattern OriginRequestPolicyHeaderBehavior_Whitelist :: OriginRequestPolicyHeader
 pattern OriginRequestPolicyHeaderBehavior_Whitelist = OriginRequestPolicyHeaderBehavior' "whitelist"
 
 {-# COMPLETE
+  OriginRequestPolicyHeaderBehavior_AllExcept,
   OriginRequestPolicyHeaderBehavior_AllViewer,
   OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront,
   OriginRequestPolicyHeaderBehavior_None,

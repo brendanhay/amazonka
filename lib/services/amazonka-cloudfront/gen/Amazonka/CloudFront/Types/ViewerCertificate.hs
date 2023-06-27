@@ -418,7 +418,8 @@ instance Data.FromXML ViewerCertificate where
 
 instance Prelude.Hashable ViewerCertificate where
   hashWithSalt _salt ViewerCertificate' {..} =
-    _salt `Prelude.hashWithSalt` aCMCertificateArn
+    _salt
+      `Prelude.hashWithSalt` aCMCertificateArn
       `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` certificateSource
       `Prelude.hashWithSalt` cloudFrontDefaultCertificate

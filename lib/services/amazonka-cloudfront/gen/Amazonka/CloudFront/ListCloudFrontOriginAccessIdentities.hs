@@ -112,24 +112,24 @@ instance
     | Core.stop
         ( rs
             Lens.^. listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList
-              Prelude.. cloudFrontOriginAccessIdentityList_isTruncated
+            Prelude.. cloudFrontOriginAccessIdentityList_isTruncated
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList
-              Prelude.. cloudFrontOriginAccessIdentityList_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. cloudFrontOriginAccessIdentityList_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCloudFrontOriginAccessIdentities_marker
           Lens..~ rs
           Lens.^? listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList
-            Prelude.. cloudFrontOriginAccessIdentityList_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. cloudFrontOriginAccessIdentityList_nextMarker
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -145,7 +145,7 @@ instance
       ( \s h x ->
           ListCloudFrontOriginAccessIdentitiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (Data.parseXML x)
+            Prelude.<*> (Data.parseXML x)
       )
 
 instance
@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     ListCloudFrontOriginAccessIdentities' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxItems
 
 instance

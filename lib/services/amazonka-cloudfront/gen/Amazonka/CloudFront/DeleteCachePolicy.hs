@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteCachePolicy where
 
 instance Prelude.Hashable DeleteCachePolicy where
   hashWithSalt _salt DeleteCachePolicy' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteCachePolicy where

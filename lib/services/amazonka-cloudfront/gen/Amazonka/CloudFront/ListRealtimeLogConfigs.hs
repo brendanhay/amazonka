@@ -122,7 +122,8 @@ instance Core.AWSRequest ListRealtimeLogConfigs where
 
 instance Prelude.Hashable ListRealtimeLogConfigs where
   hashWithSalt _salt ListRealtimeLogConfigs' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListRealtimeLogConfigs where

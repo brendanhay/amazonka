@@ -137,7 +137,8 @@ instance Data.FromXML AliasICPRecordal where
 
 instance Prelude.Hashable AliasICPRecordal where
   hashWithSalt _salt AliasICPRecordal' {..} =
-    _salt `Prelude.hashWithSalt` cname
+    _salt
+      `Prelude.hashWithSalt` cname
       `Prelude.hashWithSalt` iCPRecordalStatus
 
 instance Prelude.NFData AliasICPRecordal where

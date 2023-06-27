@@ -168,7 +168,8 @@ instance Core.AWSRequest ListConflictingAliases where
 
 instance Prelude.Hashable ListConflictingAliases where
   hashWithSalt _salt ListConflictingAliases' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` distributionId
       `Prelude.hashWithSalt` alias

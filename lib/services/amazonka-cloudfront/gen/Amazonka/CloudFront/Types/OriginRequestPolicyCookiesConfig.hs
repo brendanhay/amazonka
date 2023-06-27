@@ -36,17 +36,21 @@ data OriginRequestPolicyCookiesConfig = OriginRequestPolicyCookiesConfig'
     -- | Determines whether cookies in viewer requests are included in requests
     -- that CloudFront sends to the origin. Valid values are:
     --
-    -- -   @none@ – Cookies in viewer requests are not included in requests
-    --     that CloudFront sends to the origin. Even when this field is set to
+    -- -   @none@ – No cookies in viewer requests are included in requests that
+    --     CloudFront sends to the origin. Even when this field is set to
     --     @none@, any cookies that are listed in a @CachePolicy@ /are/
     --     included in origin requests.
     --
-    -- -   @whitelist@ – The cookies in viewer requests that are listed in the
-    --     @CookieNames@ type are included in requests that CloudFront sends to
-    --     the origin.
+    -- -   @whitelist@ – Only the cookies in viewer requests that are listed in
+    --     the @CookieNames@ type are included in requests that CloudFront
+    --     sends to the origin.
     --
     -- -   @all@ – All cookies in viewer requests are included in requests that
     --     CloudFront sends to the origin.
+    --
+    -- -   @allExcept@ – All cookies in viewer requests are included in
+    --     requests that CloudFront sends to the origin, /__except__/ for those
+    --     listed in the @CookieNames@ type, which are not included.
     cookieBehavior :: OriginRequestPolicyCookieBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,17 +68,21 @@ data OriginRequestPolicyCookiesConfig = OriginRequestPolicyCookiesConfig'
 -- 'cookieBehavior', 'originRequestPolicyCookiesConfig_cookieBehavior' - Determines whether cookies in viewer requests are included in requests
 -- that CloudFront sends to the origin. Valid values are:
 --
--- -   @none@ – Cookies in viewer requests are not included in requests
---     that CloudFront sends to the origin. Even when this field is set to
+-- -   @none@ – No cookies in viewer requests are included in requests that
+--     CloudFront sends to the origin. Even when this field is set to
 --     @none@, any cookies that are listed in a @CachePolicy@ /are/
 --     included in origin requests.
 --
--- -   @whitelist@ – The cookies in viewer requests that are listed in the
---     @CookieNames@ type are included in requests that CloudFront sends to
---     the origin.
+-- -   @whitelist@ – Only the cookies in viewer requests that are listed in
+--     the @CookieNames@ type are included in requests that CloudFront
+--     sends to the origin.
 --
 -- -   @all@ – All cookies in viewer requests are included in requests that
 --     CloudFront sends to the origin.
+--
+-- -   @allExcept@ – All cookies in viewer requests are included in
+--     requests that CloudFront sends to the origin, /__except__/ for those
+--     listed in the @CookieNames@ type, which are not included.
 newOriginRequestPolicyCookiesConfig ::
   -- | 'cookieBehavior'
   OriginRequestPolicyCookieBehavior ->
@@ -93,17 +101,21 @@ originRequestPolicyCookiesConfig_cookies = Lens.lens (\OriginRequestPolicyCookie
 -- | Determines whether cookies in viewer requests are included in requests
 -- that CloudFront sends to the origin. Valid values are:
 --
--- -   @none@ – Cookies in viewer requests are not included in requests
---     that CloudFront sends to the origin. Even when this field is set to
+-- -   @none@ – No cookies in viewer requests are included in requests that
+--     CloudFront sends to the origin. Even when this field is set to
 --     @none@, any cookies that are listed in a @CachePolicy@ /are/
 --     included in origin requests.
 --
--- -   @whitelist@ – The cookies in viewer requests that are listed in the
---     @CookieNames@ type are included in requests that CloudFront sends to
---     the origin.
+-- -   @whitelist@ – Only the cookies in viewer requests that are listed in
+--     the @CookieNames@ type are included in requests that CloudFront
+--     sends to the origin.
 --
 -- -   @all@ – All cookies in viewer requests are included in requests that
 --     CloudFront sends to the origin.
+--
+-- -   @allExcept@ – All cookies in viewer requests are included in
+--     requests that CloudFront sends to the origin, /__except__/ for those
+--     listed in the @CookieNames@ type, which are not included.
 originRequestPolicyCookiesConfig_cookieBehavior :: Lens.Lens' OriginRequestPolicyCookiesConfig OriginRequestPolicyCookieBehavior
 originRequestPolicyCookiesConfig_cookieBehavior = Lens.lens (\OriginRequestPolicyCookiesConfig' {cookieBehavior} -> cookieBehavior) (\s@OriginRequestPolicyCookiesConfig' {} a -> s {cookieBehavior = a} :: OriginRequestPolicyCookiesConfig)
 
@@ -123,7 +135,8 @@ instance
   hashWithSalt
     _salt
     OriginRequestPolicyCookiesConfig' {..} =
-      _salt `Prelude.hashWithSalt` cookies
+      _salt
+        `Prelude.hashWithSalt` cookies
         `Prelude.hashWithSalt` cookieBehavior
 
 instance

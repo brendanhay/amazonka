@@ -26,7 +26,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists the origin access identities for CloudFront.Send a @GET@ request
--- to the @\/CloudFront API version\/origin-access-identity\/cloudfront@
+-- to the
+-- @\/@/@CloudFront API version@/@\/origin-access-identity\/cloudfront@
 -- resource. The response includes a @CloudFrontOriginAccessIdentityList@
 -- element with zero or more @CloudFrontOriginAccessIdentitySummary@ child
 -- elements. By default, your entire list of origin access identities is
@@ -163,7 +164,9 @@ instance
   where
   parseXML x =
     CloudFrontOriginAccessIdentityList'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
                             "CloudFrontOriginAccessIdentitySummary"
@@ -182,7 +185,8 @@ instance
   hashWithSalt
     _salt
     CloudFrontOriginAccessIdentityList' {..} =
-      _salt `Prelude.hashWithSalt` items
+      _salt
+        `Prelude.hashWithSalt` items
         `Prelude.hashWithSalt` nextMarker
         `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxItems

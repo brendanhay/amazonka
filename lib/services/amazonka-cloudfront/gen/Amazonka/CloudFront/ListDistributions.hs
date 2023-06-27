@@ -105,24 +105,24 @@ instance Core.AWSPager ListDistributions where
     | Core.stop
         ( rs
             Lens.^. listDistributionsResponse_distributionList
-              Prelude.. distributionList_isTruncated
+            Prelude.. distributionList_isTruncated
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listDistributionsResponse_distributionList
-              Prelude.. distributionList_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. distributionList_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDistributions_marker
           Lens..~ rs
           Lens.^? listDistributionsResponse_distributionList
-            Prelude.. distributionList_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. distributionList_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDistributions where
   type
@@ -140,7 +140,8 @@ instance Core.AWSRequest ListDistributions where
 
 instance Prelude.Hashable ListDistributions where
   hashWithSalt _salt ListDistributions' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListDistributions where

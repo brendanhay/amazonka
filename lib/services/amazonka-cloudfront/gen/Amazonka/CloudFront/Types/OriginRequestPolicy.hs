@@ -112,7 +112,8 @@ instance Data.FromXML OriginRequestPolicy where
 
 instance Prelude.Hashable OriginRequestPolicy where
   hashWithSalt _salt OriginRequestPolicy' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` originRequestPolicyConfig
 

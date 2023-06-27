@@ -111,7 +111,8 @@ instance Core.AWSRequest CreateInvalidation where
 
 instance Prelude.Hashable CreateInvalidation where
   hashWithSalt _salt CreateInvalidation' {..} =
-    _salt `Prelude.hashWithSalt` distributionId
+    _salt
+      `Prelude.hashWithSalt` distributionId
       `Prelude.hashWithSalt` invalidationBatch
 
 instance Prelude.NFData CreateInvalidation where

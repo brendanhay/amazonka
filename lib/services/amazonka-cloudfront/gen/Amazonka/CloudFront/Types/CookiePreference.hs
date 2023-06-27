@@ -227,7 +227,8 @@ instance Data.FromXML CookiePreference where
 
 instance Prelude.Hashable CookiePreference where
   hashWithSalt _salt CookiePreference' {..} =
-    _salt `Prelude.hashWithSalt` whitelistedNames
+    _salt
+      `Prelude.hashWithSalt` whitelistedNames
       `Prelude.hashWithSalt` forward
 
 instance Prelude.NFData CookiePreference where

@@ -108,7 +108,8 @@ instance Core.AWSRequest GetRealtimeLogConfig where
 
 instance Prelude.Hashable GetRealtimeLogConfig where
   hashWithSalt _salt GetRealtimeLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetRealtimeLogConfig where

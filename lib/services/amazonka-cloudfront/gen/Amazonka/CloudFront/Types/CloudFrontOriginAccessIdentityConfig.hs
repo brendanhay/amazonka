@@ -25,7 +25,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Origin access identity configuration. Send a @GET@ request to the
--- @\/CloudFront API version\/CloudFront\/identity ID\/config@ resource.
+-- @\/@/@CloudFront API version@/@\/CloudFront\/identity ID\/config@
+-- resource.
 --
 -- /See:/ 'newCloudFrontOriginAccessIdentityConfig' smart constructor.
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig'
@@ -137,7 +138,8 @@ instance
   hashWithSalt
     _salt
     CloudFrontOriginAccessIdentityConfig' {..} =
-      _salt `Prelude.hashWithSalt` callerReference
+      _salt
+        `Prelude.hashWithSalt` callerReference
         `Prelude.hashWithSalt` comment
 
 instance

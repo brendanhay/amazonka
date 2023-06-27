@@ -144,7 +144,8 @@ instance Data.FromXML OriginRequestPolicyConfig where
 
 instance Prelude.Hashable OriginRequestPolicyConfig where
   hashWithSalt _salt OriginRequestPolicyConfig' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` headersConfig
       `Prelude.hashWithSalt` cookiesConfig

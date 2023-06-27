@@ -117,7 +117,8 @@ instance Data.FromXML StreamingLoggingConfig where
 
 instance Prelude.Hashable StreamingLoggingConfig where
   hashWithSalt _salt StreamingLoggingConfig' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` prefix
 

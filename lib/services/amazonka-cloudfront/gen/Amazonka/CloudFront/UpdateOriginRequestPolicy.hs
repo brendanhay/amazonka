@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdateOriginRequestPolicy where
 
 instance Prelude.Hashable UpdateOriginRequestPolicy where
   hashWithSalt _salt UpdateOriginRequestPolicy' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` originRequestPolicyConfig
       `Prelude.hashWithSalt` id
 

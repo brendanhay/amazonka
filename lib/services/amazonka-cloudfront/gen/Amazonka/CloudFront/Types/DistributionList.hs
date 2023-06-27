@@ -138,7 +138,9 @@ distributionList_quantity = Lens.lens (\DistributionList' {quantity} -> quantity
 instance Data.FromXML DistributionList where
   parseXML x =
     DistributionList'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DistributionSummary")
                   )
       Prelude.<*> (x Data..@? "NextMarker")
@@ -149,7 +151,8 @@ instance Data.FromXML DistributionList where
 
 instance Prelude.Hashable DistributionList where
   hashWithSalt _salt DistributionList' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

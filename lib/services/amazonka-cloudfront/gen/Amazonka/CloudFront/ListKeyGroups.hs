@@ -119,7 +119,8 @@ instance Core.AWSRequest ListKeyGroups where
 
 instance Prelude.Hashable ListKeyGroups where
   hashWithSalt _salt ListKeyGroups' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListKeyGroups where

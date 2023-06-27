@@ -119,7 +119,8 @@ instance Core.AWSRequest DeleteOriginRequestPolicy where
 
 instance Prelude.Hashable DeleteOriginRequestPolicy where
   hashWithSalt _salt DeleteOriginRequestPolicy' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteOriginRequestPolicy where

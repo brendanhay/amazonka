@@ -125,7 +125,8 @@ instance Data.FromXML OriginShield where
 
 instance Prelude.Hashable OriginShield where
   hashWithSalt _salt OriginShield' {..} =
-    _salt `Prelude.hashWithSalt` originShieldRegion
+    _salt
+      `Prelude.hashWithSalt` originShieldRegion
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData OriginShield where

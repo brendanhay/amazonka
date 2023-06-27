@@ -85,7 +85,9 @@ trustedKeyGroups_quantity = Lens.lens (\TrustedKeyGroups' {quantity} -> quantity
 instance Data.FromXML TrustedKeyGroups where
   parseXML x =
     TrustedKeyGroups'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "KeyGroup")
                   )
       Prelude.<*> (x Data..@ "Enabled")
@@ -93,7 +95,8 @@ instance Data.FromXML TrustedKeyGroups where
 
 instance Prelude.Hashable TrustedKeyGroups where
   hashWithSalt _salt TrustedKeyGroups' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` quantity
 

@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     CloudFrontOriginAccessIdentitySummary' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` s3CanonicalUserId
         `Prelude.hashWithSalt` comment
 

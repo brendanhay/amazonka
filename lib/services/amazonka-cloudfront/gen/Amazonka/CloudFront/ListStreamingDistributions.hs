@@ -94,24 +94,24 @@ instance Core.AWSPager ListStreamingDistributions where
     | Core.stop
         ( rs
             Lens.^. listStreamingDistributionsResponse_streamingDistributionList
-              Prelude.. streamingDistributionList_isTruncated
+            Prelude.. streamingDistributionList_isTruncated
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listStreamingDistributionsResponse_streamingDistributionList
-              Prelude.. streamingDistributionList_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. streamingDistributionList_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStreamingDistributions_marker
           Lens..~ rs
           Lens.^? listStreamingDistributionsResponse_streamingDistributionList
-            Prelude.. streamingDistributionList_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. streamingDistributionList_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamingDistributions where
   type
@@ -129,7 +129,8 @@ instance Core.AWSRequest ListStreamingDistributions where
 
 instance Prelude.Hashable ListStreamingDistributions where
   hashWithSalt _salt ListStreamingDistributions' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListStreamingDistributions where

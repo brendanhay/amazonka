@@ -35,13 +35,13 @@ data OriginRequestPolicyHeadersConfig = OriginRequestPolicyHeadersConfig'
     -- | Determines whether any HTTP headers are included in requests that
     -- CloudFront sends to the origin. Valid values are:
     --
-    -- -   @none@ – HTTP headers are not included in requests that CloudFront
-    --     sends to the origin. Even when this field is set to @none@, any
-    --     headers that are listed in a @CachePolicy@ /are/ included in origin
-    --     requests.
+    -- -   @none@ – No HTTP headers in viewer requests are included in requests
+    --     that CloudFront sends to the origin. Even when this field is set to
+    --     @none@, any headers that are listed in a @CachePolicy@ /are/
+    --     included in origin requests.
     --
-    -- -   @whitelist@ – The HTTP headers that are listed in the @Headers@ type
-    --     are included in requests that CloudFront sends to the origin.
+    -- -   @whitelist@ – Only the HTTP headers that are listed in the @Headers@
+    --     type are included in requests that CloudFront sends to the origin.
     --
     -- -   @allViewer@ – All HTTP headers in viewer requests are included in
     --     requests that CloudFront sends to the origin.
@@ -50,6 +50,10 @@ data OriginRequestPolicyHeadersConfig = OriginRequestPolicyHeadersConfig'
     --     requests and the additional CloudFront headers that are listed in
     --     the @Headers@ type are included in requests that CloudFront sends to
     --     the origin. The additional headers are added by CloudFront.
+    --
+    -- -   @allExcept@ – All HTTP headers in viewer requests are included in
+    --     requests that CloudFront sends to the origin, /__except__/ for those
+    --     listed in the @Headers@ type, which are not included.
     headerBehavior :: OriginRequestPolicyHeaderBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,13 +71,13 @@ data OriginRequestPolicyHeadersConfig = OriginRequestPolicyHeadersConfig'
 -- 'headerBehavior', 'originRequestPolicyHeadersConfig_headerBehavior' - Determines whether any HTTP headers are included in requests that
 -- CloudFront sends to the origin. Valid values are:
 --
--- -   @none@ – HTTP headers are not included in requests that CloudFront
---     sends to the origin. Even when this field is set to @none@, any
---     headers that are listed in a @CachePolicy@ /are/ included in origin
---     requests.
+-- -   @none@ – No HTTP headers in viewer requests are included in requests
+--     that CloudFront sends to the origin. Even when this field is set to
+--     @none@, any headers that are listed in a @CachePolicy@ /are/
+--     included in origin requests.
 --
--- -   @whitelist@ – The HTTP headers that are listed in the @Headers@ type
---     are included in requests that CloudFront sends to the origin.
+-- -   @whitelist@ – Only the HTTP headers that are listed in the @Headers@
+--     type are included in requests that CloudFront sends to the origin.
 --
 -- -   @allViewer@ – All HTTP headers in viewer requests are included in
 --     requests that CloudFront sends to the origin.
@@ -82,6 +86,10 @@ data OriginRequestPolicyHeadersConfig = OriginRequestPolicyHeadersConfig'
 --     requests and the additional CloudFront headers that are listed in
 --     the @Headers@ type are included in requests that CloudFront sends to
 --     the origin. The additional headers are added by CloudFront.
+--
+-- -   @allExcept@ – All HTTP headers in viewer requests are included in
+--     requests that CloudFront sends to the origin, /__except__/ for those
+--     listed in the @Headers@ type, which are not included.
 newOriginRequestPolicyHeadersConfig ::
   -- | 'headerBehavior'
   OriginRequestPolicyHeaderBehavior ->
@@ -100,13 +108,13 @@ originRequestPolicyHeadersConfig_headers = Lens.lens (\OriginRequestPolicyHeader
 -- | Determines whether any HTTP headers are included in requests that
 -- CloudFront sends to the origin. Valid values are:
 --
--- -   @none@ – HTTP headers are not included in requests that CloudFront
---     sends to the origin. Even when this field is set to @none@, any
---     headers that are listed in a @CachePolicy@ /are/ included in origin
---     requests.
+-- -   @none@ – No HTTP headers in viewer requests are included in requests
+--     that CloudFront sends to the origin. Even when this field is set to
+--     @none@, any headers that are listed in a @CachePolicy@ /are/
+--     included in origin requests.
 --
--- -   @whitelist@ – The HTTP headers that are listed in the @Headers@ type
---     are included in requests that CloudFront sends to the origin.
+-- -   @whitelist@ – Only the HTTP headers that are listed in the @Headers@
+--     type are included in requests that CloudFront sends to the origin.
 --
 -- -   @allViewer@ – All HTTP headers in viewer requests are included in
 --     requests that CloudFront sends to the origin.
@@ -115,6 +123,10 @@ originRequestPolicyHeadersConfig_headers = Lens.lens (\OriginRequestPolicyHeader
 --     requests and the additional CloudFront headers that are listed in
 --     the @Headers@ type are included in requests that CloudFront sends to
 --     the origin. The additional headers are added by CloudFront.
+--
+-- -   @allExcept@ – All HTTP headers in viewer requests are included in
+--     requests that CloudFront sends to the origin, /__except__/ for those
+--     listed in the @Headers@ type, which are not included.
 originRequestPolicyHeadersConfig_headerBehavior :: Lens.Lens' OriginRequestPolicyHeadersConfig OriginRequestPolicyHeaderBehavior
 originRequestPolicyHeadersConfig_headerBehavior = Lens.lens (\OriginRequestPolicyHeadersConfig' {headerBehavior} -> headerBehavior) (\s@OriginRequestPolicyHeadersConfig' {} a -> s {headerBehavior = a} :: OriginRequestPolicyHeadersConfig)
 
@@ -134,7 +146,8 @@ instance
   hashWithSalt
     _salt
     OriginRequestPolicyHeadersConfig' {..} =
-      _salt `Prelude.hashWithSalt` headers
+      _salt
+        `Prelude.hashWithSalt` headers
         `Prelude.hashWithSalt` headerBehavior
 
 instance

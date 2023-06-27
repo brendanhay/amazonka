@@ -27,34 +27,32 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any cookies in viewer requests (and if
--- so, which cookies) are included in the cache key and automatically
--- included in requests that CloudFront sends to the origin.
+-- so, which cookies) are included in the cache key and in requests that
+-- CloudFront sends to the origin.
 --
 -- /See:/ 'newCachePolicyCookiesConfig' smart constructor.
 data CachePolicyCookiesConfig = CachePolicyCookiesConfig'
   { cookies :: Prelude.Maybe CookieNames,
     -- | Determines whether any cookies in viewer requests are included in the
-    -- cache key and automatically included in requests that CloudFront sends
-    -- to the origin. Valid values are:
+    -- cache key and in requests that CloudFront sends to the origin. Valid
+    -- values are:
     --
-    -- -   @none@ – Cookies in viewer requests are not included in the cache
-    --     key and are not automatically included in requests that CloudFront
-    --     sends to the origin. Even when this field is set to @none@, any
-    --     cookies that are listed in an @OriginRequestPolicy@ /are/ included
-    --     in origin requests.
+    -- -   @none@ – No cookies in viewer requests are included in the cache key
+    --     or in requests that CloudFront sends to the origin. Even when this
+    --     field is set to @none@, any cookies that are listed in an
+    --     @OriginRequestPolicy@ /are/ included in origin requests.
     --
-    -- -   @whitelist@ – The cookies in viewer requests that are listed in the
-    --     @CookieNames@ type are included in the cache key and automatically
-    --     included in requests that CloudFront sends to the origin.
+    -- -   @whitelist@ – Only the cookies in viewer requests that are listed in
+    --     the @CookieNames@ type are included in the cache key and in requests
+    --     that CloudFront sends to the origin.
     --
-    -- -   @allExcept@ – All cookies in viewer requests that are /__not__/
-    --     listed in the @CookieNames@ type are included in the cache key and
-    --     automatically included in requests that CloudFront sends to the
-    --     origin.
+    -- -   @allExcept@ – All cookies in viewer requests are included in the
+    --     cache key and in requests that CloudFront sends to the origin,
+    --     /__except__/ for those that are listed in the @CookieNames@ type,
+    --     which are not included.
     --
     -- -   @all@ – All cookies in viewer requests are included in the cache key
-    --     and are automatically included in requests that CloudFront sends to
-    --     the origin.
+    --     and in requests that CloudFront sends to the origin.
     cookieBehavior :: CachePolicyCookieBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,27 +68,25 @@ data CachePolicyCookiesConfig = CachePolicyCookiesConfig'
 -- 'cookies', 'cachePolicyCookiesConfig_cookies' - Undocumented member.
 --
 -- 'cookieBehavior', 'cachePolicyCookiesConfig_cookieBehavior' - Determines whether any cookies in viewer requests are included in the
--- cache key and automatically included in requests that CloudFront sends
--- to the origin. Valid values are:
+-- cache key and in requests that CloudFront sends to the origin. Valid
+-- values are:
 --
--- -   @none@ – Cookies in viewer requests are not included in the cache
---     key and are not automatically included in requests that CloudFront
---     sends to the origin. Even when this field is set to @none@, any
---     cookies that are listed in an @OriginRequestPolicy@ /are/ included
---     in origin requests.
+-- -   @none@ – No cookies in viewer requests are included in the cache key
+--     or in requests that CloudFront sends to the origin. Even when this
+--     field is set to @none@, any cookies that are listed in an
+--     @OriginRequestPolicy@ /are/ included in origin requests.
 --
--- -   @whitelist@ – The cookies in viewer requests that are listed in the
---     @CookieNames@ type are included in the cache key and automatically
---     included in requests that CloudFront sends to the origin.
+-- -   @whitelist@ – Only the cookies in viewer requests that are listed in
+--     the @CookieNames@ type are included in the cache key and in requests
+--     that CloudFront sends to the origin.
 --
--- -   @allExcept@ – All cookies in viewer requests that are /__not__/
---     listed in the @CookieNames@ type are included in the cache key and
---     automatically included in requests that CloudFront sends to the
---     origin.
+-- -   @allExcept@ – All cookies in viewer requests are included in the
+--     cache key and in requests that CloudFront sends to the origin,
+--     /__except__/ for those that are listed in the @CookieNames@ type,
+--     which are not included.
 --
 -- -   @all@ – All cookies in viewer requests are included in the cache key
---     and are automatically included in requests that CloudFront sends to
---     the origin.
+--     and in requests that CloudFront sends to the origin.
 newCachePolicyCookiesConfig ::
   -- | 'cookieBehavior'
   CachePolicyCookieBehavior ->
@@ -107,27 +103,25 @@ cachePolicyCookiesConfig_cookies :: Lens.Lens' CachePolicyCookiesConfig (Prelude
 cachePolicyCookiesConfig_cookies = Lens.lens (\CachePolicyCookiesConfig' {cookies} -> cookies) (\s@CachePolicyCookiesConfig' {} a -> s {cookies = a} :: CachePolicyCookiesConfig)
 
 -- | Determines whether any cookies in viewer requests are included in the
--- cache key and automatically included in requests that CloudFront sends
--- to the origin. Valid values are:
+-- cache key and in requests that CloudFront sends to the origin. Valid
+-- values are:
 --
--- -   @none@ – Cookies in viewer requests are not included in the cache
---     key and are not automatically included in requests that CloudFront
---     sends to the origin. Even when this field is set to @none@, any
---     cookies that are listed in an @OriginRequestPolicy@ /are/ included
---     in origin requests.
+-- -   @none@ – No cookies in viewer requests are included in the cache key
+--     or in requests that CloudFront sends to the origin. Even when this
+--     field is set to @none@, any cookies that are listed in an
+--     @OriginRequestPolicy@ /are/ included in origin requests.
 --
--- -   @whitelist@ – The cookies in viewer requests that are listed in the
---     @CookieNames@ type are included in the cache key and automatically
---     included in requests that CloudFront sends to the origin.
+-- -   @whitelist@ – Only the cookies in viewer requests that are listed in
+--     the @CookieNames@ type are included in the cache key and in requests
+--     that CloudFront sends to the origin.
 --
--- -   @allExcept@ – All cookies in viewer requests that are /__not__/
---     listed in the @CookieNames@ type are included in the cache key and
---     automatically included in requests that CloudFront sends to the
---     origin.
+-- -   @allExcept@ – All cookies in viewer requests are included in the
+--     cache key and in requests that CloudFront sends to the origin,
+--     /__except__/ for those that are listed in the @CookieNames@ type,
+--     which are not included.
 --
 -- -   @all@ – All cookies in viewer requests are included in the cache key
---     and are automatically included in requests that CloudFront sends to
---     the origin.
+--     and in requests that CloudFront sends to the origin.
 cachePolicyCookiesConfig_cookieBehavior :: Lens.Lens' CachePolicyCookiesConfig CachePolicyCookieBehavior
 cachePolicyCookiesConfig_cookieBehavior = Lens.lens (\CachePolicyCookiesConfig' {cookieBehavior} -> cookieBehavior) (\s@CachePolicyCookiesConfig' {} a -> s {cookieBehavior = a} :: CachePolicyCookiesConfig)
 
@@ -139,7 +133,8 @@ instance Data.FromXML CachePolicyCookiesConfig where
 
 instance Prelude.Hashable CachePolicyCookiesConfig where
   hashWithSalt _salt CachePolicyCookiesConfig' {..} =
-    _salt `Prelude.hashWithSalt` cookies
+    _salt
+      `Prelude.hashWithSalt` cookies
       `Prelude.hashWithSalt` cookieBehavior
 
 instance Prelude.NFData CachePolicyCookiesConfig where

@@ -80,7 +80,8 @@ instance Data.FromXML EndPoint where
 
 instance Prelude.Hashable EndPoint where
   hashWithSalt _salt EndPoint' {..} =
-    _salt `Prelude.hashWithSalt` kinesisStreamConfig
+    _salt
+      `Prelude.hashWithSalt` kinesisStreamConfig
       `Prelude.hashWithSalt` streamType
 
 instance Prelude.NFData EndPoint where

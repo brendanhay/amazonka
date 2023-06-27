@@ -25,12 +25,11 @@
 -- distribution so that CloudFront sends authenticated (signed) requests to
 -- the origin.
 --
--- For an Amazon S3 origin, this makes it possible to block public access
--- to the Amazon S3 bucket so that viewers (users) can access the content
--- in the bucket only through CloudFront.
+-- This makes it possible to block public access to the origin, allowing
+-- viewers (users) to access the origin\'s content only through CloudFront.
 --
 -- For more information about using a CloudFront origin access control, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Restricting access to an Amazon S3 origin>
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html Restricting access to an Amazon Web Services origin>
 -- in the /Amazon CloudFront Developer Guide/.
 module Amazonka.CloudFront.CreateOriginAccessControl
   ( -- * Creating a Request

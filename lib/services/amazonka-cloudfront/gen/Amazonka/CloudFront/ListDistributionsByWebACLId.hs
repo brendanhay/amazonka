@@ -140,7 +140,8 @@ instance Core.AWSRequest ListDistributionsByWebACLId where
 
 instance Prelude.Hashable ListDistributionsByWebACLId where
   hashWithSalt _salt ListDistributionsByWebACLId' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` webACLId
 

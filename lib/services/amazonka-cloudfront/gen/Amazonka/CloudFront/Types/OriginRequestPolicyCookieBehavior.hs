@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.OriginRequestPolicyCookieBehavior
   ( OriginRequestPolicyCookieBehavior
       ( ..,
         OriginRequestPolicyCookieBehavior_All,
+        OriginRequestPolicyCookieBehavior_AllExcept,
         OriginRequestPolicyCookieBehavior_None,
         OriginRequestPolicyCookieBehavior_Whitelist
       ),
@@ -62,6 +63,9 @@ newtype OriginRequestPolicyCookieBehavior = OriginRequestPolicyCookieBehavior'
 pattern OriginRequestPolicyCookieBehavior_All :: OriginRequestPolicyCookieBehavior
 pattern OriginRequestPolicyCookieBehavior_All = OriginRequestPolicyCookieBehavior' "all"
 
+pattern OriginRequestPolicyCookieBehavior_AllExcept :: OriginRequestPolicyCookieBehavior
+pattern OriginRequestPolicyCookieBehavior_AllExcept = OriginRequestPolicyCookieBehavior' "allExcept"
+
 pattern OriginRequestPolicyCookieBehavior_None :: OriginRequestPolicyCookieBehavior
 pattern OriginRequestPolicyCookieBehavior_None = OriginRequestPolicyCookieBehavior' "none"
 
@@ -70,6 +74,7 @@ pattern OriginRequestPolicyCookieBehavior_Whitelist = OriginRequestPolicyCookieB
 
 {-# COMPLETE
   OriginRequestPolicyCookieBehavior_All,
+  OriginRequestPolicyCookieBehavior_AllExcept,
   OriginRequestPolicyCookieBehavior_None,
   OriginRequestPolicyCookieBehavior_Whitelist,
   OriginRequestPolicyCookieBehavior'

@@ -211,7 +211,8 @@ instance Data.FromXML StreamingDistributionConfig where
 
 instance Prelude.Hashable StreamingDistributionConfig where
   hashWithSalt _salt StreamingDistributionConfig' {..} =
-    _salt `Prelude.hashWithSalt` aliases
+    _salt
+      `Prelude.hashWithSalt` aliases
       `Prelude.hashWithSalt` logging
       `Prelude.hashWithSalt` priceClass
       `Prelude.hashWithSalt` callerReference

@@ -137,7 +137,7 @@ instance
       ( \s h x ->
           ListDistributionsByOriginRequestPolicyIdResponse'
             Prelude.<$> (Data.parseXML x)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     ListDistributionsByOriginRequestPolicyId' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxItems
         `Prelude.hashWithSalt` originRequestPolicyId
 

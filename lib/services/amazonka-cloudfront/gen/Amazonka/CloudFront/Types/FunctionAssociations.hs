@@ -76,14 +76,17 @@ functionAssociations_quantity = Lens.lens (\FunctionAssociations' {quantity} -> 
 instance Data.FromXML FunctionAssociations where
   parseXML x =
     FunctionAssociations'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "FunctionAssociation")
                   )
       Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable FunctionAssociations where
   hashWithSalt _salt FunctionAssociations' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData FunctionAssociations where

@@ -65,8 +65,7 @@ data OriginAccessControlConfig = OriginAccessControlConfig'
     --     for all cache behaviors that use origins associated with this origin
     --     access control.__
     signingBehavior :: OriginAccessControlSigningBehaviors,
-    -- | The type of origin that this origin access control is for. The only
-    -- valid value is @s3@.
+    -- | The type of origin that this origin access control is for.
     originAccessControlOriginType :: OriginAccessControlOriginTypes
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -113,8 +112,7 @@ data OriginAccessControlConfig = OriginAccessControlConfig'
 --     for all cache behaviors that use origins associated with this origin
 --     access control.__
 --
--- 'originAccessControlOriginType', 'originAccessControlConfig_originAccessControlOriginType' - The type of origin that this origin access control is for. The only
--- valid value is @s3@.
+-- 'originAccessControlOriginType', 'originAccessControlConfig_originAccessControlOriginType' - The type of origin that this origin access control is for.
 newOriginAccessControlConfig ::
   -- | 'name'
   Prelude.Text ->
@@ -182,8 +180,7 @@ originAccessControlConfig_signingProtocol = Lens.lens (\OriginAccessControlConfi
 originAccessControlConfig_signingBehavior :: Lens.Lens' OriginAccessControlConfig OriginAccessControlSigningBehaviors
 originAccessControlConfig_signingBehavior = Lens.lens (\OriginAccessControlConfig' {signingBehavior} -> signingBehavior) (\s@OriginAccessControlConfig' {} a -> s {signingBehavior = a} :: OriginAccessControlConfig)
 
--- | The type of origin that this origin access control is for. The only
--- valid value is @s3@.
+-- | The type of origin that this origin access control is for.
 originAccessControlConfig_originAccessControlOriginType :: Lens.Lens' OriginAccessControlConfig OriginAccessControlOriginTypes
 originAccessControlConfig_originAccessControlOriginType = Lens.lens (\OriginAccessControlConfig' {originAccessControlOriginType} -> originAccessControlOriginType) (\s@OriginAccessControlConfig' {} a -> s {originAccessControlOriginType = a} :: OriginAccessControlConfig)
 
@@ -198,7 +195,8 @@ instance Data.FromXML OriginAccessControlConfig where
 
 instance Prelude.Hashable OriginAccessControlConfig where
   hashWithSalt _salt OriginAccessControlConfig' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` signingProtocol
       `Prelude.hashWithSalt` signingBehavior

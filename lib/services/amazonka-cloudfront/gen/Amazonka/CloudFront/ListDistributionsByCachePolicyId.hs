@@ -144,7 +144,8 @@ instance
   hashWithSalt
     _salt
     ListDistributionsByCachePolicyId' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxItems
         `Prelude.hashWithSalt` cachePolicyId
 

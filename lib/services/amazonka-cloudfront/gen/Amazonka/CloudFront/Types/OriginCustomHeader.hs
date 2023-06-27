@@ -84,7 +84,8 @@ instance Data.FromXML OriginCustomHeader where
 
 instance Prelude.Hashable OriginCustomHeader where
   hashWithSalt _salt OriginCustomHeader' {..} =
-    _salt `Prelude.hashWithSalt` headerName
+    _salt
+      `Prelude.hashWithSalt` headerName
       `Prelude.hashWithSalt` headerValue
 
 instance Prelude.NFData OriginCustomHeader where

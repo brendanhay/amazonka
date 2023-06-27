@@ -82,9 +82,11 @@ instance
   parseXML x =
     ResponseHeadersPolicyAccessControlAllowOrigins'
       Prelude.<$> (x Data..@ "Quantity")
-        Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
-                        Prelude.>>= Data.parseXMLList "Origin"
-                    )
+      Prelude.<*> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "Origin"
+                  )
 
 instance
   Prelude.Hashable
@@ -93,7 +95,8 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyAccessControlAllowOrigins' {..} =
-      _salt `Prelude.hashWithSalt` quantity
+      _salt
+        `Prelude.hashWithSalt` quantity
         `Prelude.hashWithSalt` items
 
 instance

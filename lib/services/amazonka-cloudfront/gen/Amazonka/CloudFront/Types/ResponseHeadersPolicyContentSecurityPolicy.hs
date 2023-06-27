@@ -92,7 +92,7 @@ instance
   parseXML x =
     ResponseHeadersPolicyContentSecurityPolicy'
       Prelude.<$> (x Data..@ "Override")
-        Prelude.<*> (x Data..@ "ContentSecurityPolicy")
+      Prelude.<*> (x Data..@ "ContentSecurityPolicy")
 
 instance
   Prelude.Hashable
@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyContentSecurityPolicy' {..} =
-      _salt `Prelude.hashWithSalt` override
+      _salt
+        `Prelude.hashWithSalt` override
         `Prelude.hashWithSalt` contentSecurityPolicy
 
 instance

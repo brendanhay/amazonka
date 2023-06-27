@@ -90,8 +90,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetCloudFrontOriginAccessIdentityResponse'
-            Prelude.<$> (Data.parseXML x) Prelude.<*> (h Data..#? "ETag")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

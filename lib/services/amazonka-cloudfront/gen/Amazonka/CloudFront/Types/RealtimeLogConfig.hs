@@ -132,16 +132,21 @@ instance Data.FromXML RealtimeLogConfig where
       Prelude.<$> (x Data..@ "ARN")
       Prelude.<*> (x Data..@ "Name")
       Prelude.<*> (x Data..@ "SamplingRate")
-      Prelude.<*> ( x Data..@? "EndPoints" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "EndPoints"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
-      Prelude.<*> ( x Data..@? "Fields" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Fields"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "Field"
                   )
 
 instance Prelude.Hashable RealtimeLogConfig where
   hashWithSalt _salt RealtimeLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` samplingRate
       `Prelude.hashWithSalt` endPoints

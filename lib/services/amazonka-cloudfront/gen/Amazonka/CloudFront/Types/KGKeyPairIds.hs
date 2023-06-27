@@ -71,7 +71,8 @@ instance Data.FromXML KGKeyPairIds where
 
 instance Prelude.Hashable KGKeyPairIds where
   hashWithSalt _salt KGKeyPairIds' {..} =
-    _salt `Prelude.hashWithSalt` keyGroupId
+    _salt
+      `Prelude.hashWithSalt` keyGroupId
       `Prelude.hashWithSalt` keyPairIds
 
 instance Prelude.NFData KGKeyPairIds where

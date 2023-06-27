@@ -27,25 +27,23 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any HTTP headers (and if so, which
--- headers) are included in the cache key and automatically included in
--- requests that CloudFront sends to the origin.
+-- headers) are included in the cache key and in requests that CloudFront
+-- sends to the origin.
 --
 -- /See:/ 'newCachePolicyHeadersConfig' smart constructor.
 data CachePolicyHeadersConfig = CachePolicyHeadersConfig'
   { headers :: Prelude.Maybe Headers,
-    -- | Determines whether any HTTP headers are included in the cache key and
-    -- automatically included in requests that CloudFront sends to the origin.
-    -- Valid values are:
+    -- | Determines whether any HTTP headers are included in the cache key and in
+    -- requests that CloudFront sends to the origin. Valid values are:
     --
-    -- -   @none@ – HTTP headers are not included in the cache key and are not
-    --     automatically included in requests that CloudFront sends to the
-    --     origin. Even when this field is set to @none@, any headers that are
-    --     listed in an @OriginRequestPolicy@ /are/ included in origin
-    --     requests.
+    -- -   @none@ – No HTTP headers are included in the cache key or in
+    --     requests that CloudFront sends to the origin. Even when this field
+    --     is set to @none@, any headers that are listed in an
+    --     @OriginRequestPolicy@ /are/ included in origin requests.
     --
-    -- -   @whitelist@ – The HTTP headers that are listed in the @Headers@ type
-    --     are included in the cache key and are automatically included in
-    --     requests that CloudFront sends to the origin.
+    -- -   @whitelist@ – Only the HTTP headers that are listed in the @Headers@
+    --     type are included in the cache key and in requests that CloudFront
+    --     sends to the origin.
     headerBehavior :: CachePolicyHeaderBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,19 +58,17 @@ data CachePolicyHeadersConfig = CachePolicyHeadersConfig'
 --
 -- 'headers', 'cachePolicyHeadersConfig_headers' - Undocumented member.
 --
--- 'headerBehavior', 'cachePolicyHeadersConfig_headerBehavior' - Determines whether any HTTP headers are included in the cache key and
--- automatically included in requests that CloudFront sends to the origin.
--- Valid values are:
+-- 'headerBehavior', 'cachePolicyHeadersConfig_headerBehavior' - Determines whether any HTTP headers are included in the cache key and in
+-- requests that CloudFront sends to the origin. Valid values are:
 --
--- -   @none@ – HTTP headers are not included in the cache key and are not
---     automatically included in requests that CloudFront sends to the
---     origin. Even when this field is set to @none@, any headers that are
---     listed in an @OriginRequestPolicy@ /are/ included in origin
---     requests.
+-- -   @none@ – No HTTP headers are included in the cache key or in
+--     requests that CloudFront sends to the origin. Even when this field
+--     is set to @none@, any headers that are listed in an
+--     @OriginRequestPolicy@ /are/ included in origin requests.
 --
--- -   @whitelist@ – The HTTP headers that are listed in the @Headers@ type
---     are included in the cache key and are automatically included in
---     requests that CloudFront sends to the origin.
+-- -   @whitelist@ – Only the HTTP headers that are listed in the @Headers@
+--     type are included in the cache key and in requests that CloudFront
+--     sends to the origin.
 newCachePolicyHeadersConfig ::
   -- | 'headerBehavior'
   CachePolicyHeaderBehavior ->
@@ -88,19 +84,17 @@ newCachePolicyHeadersConfig pHeaderBehavior_ =
 cachePolicyHeadersConfig_headers :: Lens.Lens' CachePolicyHeadersConfig (Prelude.Maybe Headers)
 cachePolicyHeadersConfig_headers = Lens.lens (\CachePolicyHeadersConfig' {headers} -> headers) (\s@CachePolicyHeadersConfig' {} a -> s {headers = a} :: CachePolicyHeadersConfig)
 
--- | Determines whether any HTTP headers are included in the cache key and
--- automatically included in requests that CloudFront sends to the origin.
--- Valid values are:
+-- | Determines whether any HTTP headers are included in the cache key and in
+-- requests that CloudFront sends to the origin. Valid values are:
 --
--- -   @none@ – HTTP headers are not included in the cache key and are not
---     automatically included in requests that CloudFront sends to the
---     origin. Even when this field is set to @none@, any headers that are
---     listed in an @OriginRequestPolicy@ /are/ included in origin
---     requests.
+-- -   @none@ – No HTTP headers are included in the cache key or in
+--     requests that CloudFront sends to the origin. Even when this field
+--     is set to @none@, any headers that are listed in an
+--     @OriginRequestPolicy@ /are/ included in origin requests.
 --
--- -   @whitelist@ – The HTTP headers that are listed in the @Headers@ type
---     are included in the cache key and are automatically included in
---     requests that CloudFront sends to the origin.
+-- -   @whitelist@ – Only the HTTP headers that are listed in the @Headers@
+--     type are included in the cache key and in requests that CloudFront
+--     sends to the origin.
 cachePolicyHeadersConfig_headerBehavior :: Lens.Lens' CachePolicyHeadersConfig CachePolicyHeaderBehavior
 cachePolicyHeadersConfig_headerBehavior = Lens.lens (\CachePolicyHeadersConfig' {headerBehavior} -> headerBehavior) (\s@CachePolicyHeadersConfig' {} a -> s {headerBehavior = a} :: CachePolicyHeadersConfig)
 
@@ -112,7 +106,8 @@ instance Data.FromXML CachePolicyHeadersConfig where
 
 instance Prelude.Hashable CachePolicyHeadersConfig where
   hashWithSalt _salt CachePolicyHeadersConfig' {..} =
-    _salt `Prelude.hashWithSalt` headers
+    _salt
+      `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` headerBehavior
 
 instance Prelude.NFData CachePolicyHeadersConfig where

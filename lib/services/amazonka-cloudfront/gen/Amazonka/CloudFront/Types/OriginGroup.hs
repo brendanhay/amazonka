@@ -100,7 +100,8 @@ instance Data.FromXML OriginGroup where
 
 instance Prelude.Hashable OriginGroup where
   hashWithSalt _salt OriginGroup' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` failoverCriteria
       `Prelude.hashWithSalt` members
 

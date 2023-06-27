@@ -38,10 +38,10 @@ import qualified Amazonka.Prelude as Prelude
 --     want objects to stay in the CloudFront cache.
 --
 -- The headers, cookies, and query strings that are included in the cache
--- key are automatically included in requests that CloudFront sends to the
--- origin. CloudFront sends a request when it can\'t find a valid object in
--- its cache that matches the request\'s cache key. If you want to send
--- values to the origin but /not/ include them in the cache key, use
+-- key are also included in requests that CloudFront sends to the origin.
+-- CloudFront sends a request when it can\'t find a valid object in its
+-- cache that matches the request\'s cache key. If you want to send values
+-- to the origin but /not/ include them in the cache key, use
 -- @OriginRequestPolicy@.
 --
 -- /See:/ 'newCachePolicyConfig' smart constructor.
@@ -76,8 +76,8 @@ data CachePolicyConfig = CachePolicyConfig'
     -- @DefaultTTL@.
     maxTTL :: Prelude.Maybe Prelude.Integer,
     -- | The HTTP headers, cookies, and URL query strings to include in the cache
-    -- key. The values included in the cache key are automatically included in
-    -- requests that CloudFront sends to the origin.
+    -- key. The values included in the cache key are also included in requests
+    -- that CloudFront sends to the origin.
     parametersInCacheKeyAndForwardedToOrigin :: Prelude.Maybe ParametersInCacheKeyAndForwardedToOrigin,
     -- | A unique name to identify the cache policy.
     name :: Prelude.Text,
@@ -128,8 +128,8 @@ data CachePolicyConfig = CachePolicyConfig'
 -- @DefaultTTL@.
 --
 -- 'parametersInCacheKeyAndForwardedToOrigin', 'cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin' - The HTTP headers, cookies, and URL query strings to include in the cache
--- key. The values included in the cache key are automatically included in
--- requests that CloudFront sends to the origin.
+-- key. The values included in the cache key are also included in requests
+-- that CloudFront sends to the origin.
 --
 -- 'name', 'cachePolicyConfig_name' - A unique name to identify the cache policy.
 --
@@ -191,8 +191,8 @@ cachePolicyConfig_maxTTL :: Lens.Lens' CachePolicyConfig (Prelude.Maybe Prelude.
 cachePolicyConfig_maxTTL = Lens.lens (\CachePolicyConfig' {maxTTL} -> maxTTL) (\s@CachePolicyConfig' {} a -> s {maxTTL = a} :: CachePolicyConfig)
 
 -- | The HTTP headers, cookies, and URL query strings to include in the cache
--- key. The values included in the cache key are automatically included in
--- requests that CloudFront sends to the origin.
+-- key. The values included in the cache key are also included in requests
+-- that CloudFront sends to the origin.
 cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin :: Lens.Lens' CachePolicyConfig (Prelude.Maybe ParametersInCacheKeyAndForwardedToOrigin)
 cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin = Lens.lens (\CachePolicyConfig' {parametersInCacheKeyAndForwardedToOrigin} -> parametersInCacheKeyAndForwardedToOrigin) (\s@CachePolicyConfig' {} a -> s {parametersInCacheKeyAndForwardedToOrigin = a} :: CachePolicyConfig)
 
@@ -222,7 +222,8 @@ instance Data.FromXML CachePolicyConfig where
 
 instance Prelude.Hashable CachePolicyConfig where
   hashWithSalt _salt CachePolicyConfig' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` defaultTTL
       `Prelude.hashWithSalt` maxTTL
       `Prelude.hashWithSalt` parametersInCacheKeyAndForwardedToOrigin

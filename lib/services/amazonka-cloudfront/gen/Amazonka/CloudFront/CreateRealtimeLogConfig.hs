@@ -157,7 +157,8 @@ instance Core.AWSRequest CreateRealtimeLogConfig where
 
 instance Prelude.Hashable CreateRealtimeLogConfig where
   hashWithSalt _salt CreateRealtimeLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` endPoints
+    _salt
+      `Prelude.hashWithSalt` endPoints
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` samplingRate

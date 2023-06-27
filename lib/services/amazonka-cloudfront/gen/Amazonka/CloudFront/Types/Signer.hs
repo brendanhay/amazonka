@@ -85,7 +85,8 @@ instance Data.FromXML Signer where
 
 instance Prelude.Hashable Signer where
   hashWithSalt _salt Signer' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountNumber
+    _salt
+      `Prelude.hashWithSalt` awsAccountNumber
       `Prelude.hashWithSalt` keyPairIds
 
 instance Prelude.NFData Signer where

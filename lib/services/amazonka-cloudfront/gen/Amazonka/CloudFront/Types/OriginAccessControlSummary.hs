@@ -56,8 +56,7 @@ data OriginAccessControlSummary = OriginAccessControlSummary'
     --     doesn\'t sign the origin request, but instead passes along the
     --     @Authorization@ header that it received in the viewer request.
     signingBehavior :: OriginAccessControlSigningBehaviors,
-    -- | The type of origin that this origin access control is for. The only
-    -- valid value is @s3@.
+    -- | The type of origin that this origin access control is for.
     originAccessControlOriginType :: OriginAccessControlOriginTypes
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,8 +94,7 @@ data OriginAccessControlSummary = OriginAccessControlSummary'
 --     doesn\'t sign the origin request, but instead passes along the
 --     @Authorization@ header that it received in the viewer request.
 --
--- 'originAccessControlOriginType', 'originAccessControlSummary_originAccessControlOriginType' - The type of origin that this origin access control is for. The only
--- valid value is @s3@.
+-- 'originAccessControlOriginType', 'originAccessControlSummary_originAccessControlOriginType' - The type of origin that this origin access control is for.
 newOriginAccessControlSummary ::
   -- | 'id'
   Prelude.Text ->
@@ -163,8 +161,7 @@ originAccessControlSummary_signingProtocol = Lens.lens (\OriginAccessControlSumm
 originAccessControlSummary_signingBehavior :: Lens.Lens' OriginAccessControlSummary OriginAccessControlSigningBehaviors
 originAccessControlSummary_signingBehavior = Lens.lens (\OriginAccessControlSummary' {signingBehavior} -> signingBehavior) (\s@OriginAccessControlSummary' {} a -> s {signingBehavior = a} :: OriginAccessControlSummary)
 
--- | The type of origin that this origin access control is for. The only
--- valid value is @s3@.
+-- | The type of origin that this origin access control is for.
 originAccessControlSummary_originAccessControlOriginType :: Lens.Lens' OriginAccessControlSummary OriginAccessControlOriginTypes
 originAccessControlSummary_originAccessControlOriginType = Lens.lens (\OriginAccessControlSummary' {originAccessControlOriginType} -> originAccessControlOriginType) (\s@OriginAccessControlSummary' {} a -> s {originAccessControlOriginType = a} :: OriginAccessControlSummary)
 
@@ -180,7 +177,8 @@ instance Data.FromXML OriginAccessControlSummary where
 
 instance Prelude.Hashable OriginAccessControlSummary where
   hashWithSalt _salt OriginAccessControlSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` signingProtocol

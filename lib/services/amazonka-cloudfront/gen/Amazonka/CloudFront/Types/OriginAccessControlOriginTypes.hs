@@ -20,6 +20,7 @@
 module Amazonka.CloudFront.Types.OriginAccessControlOriginTypes
   ( OriginAccessControlOriginTypes
       ( ..,
+        OriginAccessControlOriginTypes_Mediastore,
         OriginAccessControlOriginTypes_S3
       ),
   )
@@ -57,10 +58,14 @@ newtype OriginAccessControlOriginTypes = OriginAccessControlOriginTypes'
       Data.ToXML
     )
 
+pattern OriginAccessControlOriginTypes_Mediastore :: OriginAccessControlOriginTypes
+pattern OriginAccessControlOriginTypes_Mediastore = OriginAccessControlOriginTypes' "mediastore"
+
 pattern OriginAccessControlOriginTypes_S3 :: OriginAccessControlOriginTypes
 pattern OriginAccessControlOriginTypes_S3 = OriginAccessControlOriginTypes' "s3"
 
 {-# COMPLETE
+  OriginAccessControlOriginTypes_Mediastore,
   OriginAccessControlOriginTypes_S3,
   OriginAccessControlOriginTypes'
   #-}

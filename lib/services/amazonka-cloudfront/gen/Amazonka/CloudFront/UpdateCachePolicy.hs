@@ -141,7 +141,8 @@ instance Core.AWSRequest UpdateCachePolicy where
 
 instance Prelude.Hashable UpdateCachePolicy where
   hashWithSalt _salt UpdateCachePolicy' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` cachePolicyConfig
       `Prelude.hashWithSalt` id
 

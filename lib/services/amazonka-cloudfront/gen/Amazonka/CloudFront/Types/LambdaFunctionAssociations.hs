@@ -89,7 +89,9 @@ lambdaFunctionAssociations_quantity = Lens.lens (\LambdaFunctionAssociations' {q
 instance Data.FromXML LambdaFunctionAssociations where
   parseXML x =
     LambdaFunctionAssociations'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "LambdaFunctionAssociation")
                   )
@@ -97,7 +99,8 @@ instance Data.FromXML LambdaFunctionAssociations where
 
 instance Prelude.Hashable LambdaFunctionAssociations where
   hashWithSalt _salt LambdaFunctionAssociations' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData LambdaFunctionAssociations where

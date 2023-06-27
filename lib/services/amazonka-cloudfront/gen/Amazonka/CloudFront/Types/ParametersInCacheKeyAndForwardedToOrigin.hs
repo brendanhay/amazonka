@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 -- that it can return to the viewer.
 --
 -- The headers, cookies, and query strings that are included in the cache
--- key are automatically included in requests that CloudFront sends to the
--- origin. CloudFront sends a request when it can\'t find an object in its
--- cache that matches the request\'s cache key. If you want to send values
--- to the origin but /not/ include them in the cache key, use
+-- key are also included in requests that CloudFront sends to the origin.
+-- CloudFront sends a request when it can\'t find an object in its cache
+-- that matches the request\'s cache key. If you want to send values to the
+-- origin but /not/ include them in the cache key, use
 -- @OriginRequestPolicy@.
 --
 -- /See:/ 'newParametersInCacheKeyAndForwardedToOrigin' smart constructor.
@@ -106,17 +106,16 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
     -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
     enableAcceptEncodingGzip :: Prelude.Bool,
     -- | An object that determines whether any HTTP headers (and if so, which
-    -- headers) are included in the cache key and automatically included in
-    -- requests that CloudFront sends to the origin.
+    -- headers) are included in the cache key and in requests that CloudFront
+    -- sends to the origin.
     headersConfig :: CachePolicyHeadersConfig,
     -- | An object that determines whether any cookies in viewer requests (and if
-    -- so, which cookies) are included in the cache key and automatically
-    -- included in requests that CloudFront sends to the origin.
+    -- so, which cookies) are included in the cache key and in requests that
+    -- CloudFront sends to the origin.
     cookiesConfig :: CachePolicyCookiesConfig,
     -- | An object that determines whether any URL query strings in viewer
     -- requests (and if so, which query strings) are included in the cache key
-    -- and automatically included in requests that CloudFront sends to the
-    -- origin.
+    -- and in requests that CloudFront sends to the origin.
     queryStringsConfig :: CachePolicyQueryStringsConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -194,17 +193,16 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
 -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
 --
 -- 'headersConfig', 'parametersInCacheKeyAndForwardedToOrigin_headersConfig' - An object that determines whether any HTTP headers (and if so, which
--- headers) are included in the cache key and automatically included in
--- requests that CloudFront sends to the origin.
+-- headers) are included in the cache key and in requests that CloudFront
+-- sends to the origin.
 --
 -- 'cookiesConfig', 'parametersInCacheKeyAndForwardedToOrigin_cookiesConfig' - An object that determines whether any cookies in viewer requests (and if
--- so, which cookies) are included in the cache key and automatically
--- included in requests that CloudFront sends to the origin.
+-- so, which cookies) are included in the cache key and in requests that
+-- CloudFront sends to the origin.
 --
 -- 'queryStringsConfig', 'parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig' - An object that determines whether any URL query strings in viewer
 -- requests (and if so, which query strings) are included in the cache key
--- and automatically included in requests that CloudFront sends to the
--- origin.
+-- and in requests that CloudFront sends to the origin.
 newParametersInCacheKeyAndForwardedToOrigin ::
   -- | 'enableAcceptEncodingGzip'
   Prelude.Bool ->
@@ -300,21 +298,20 @@ parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip :: Lens.Lens' 
 parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip = Lens.lens (\ParametersInCacheKeyAndForwardedToOrigin' {enableAcceptEncodingGzip} -> enableAcceptEncodingGzip) (\s@ParametersInCacheKeyAndForwardedToOrigin' {} a -> s {enableAcceptEncodingGzip = a} :: ParametersInCacheKeyAndForwardedToOrigin)
 
 -- | An object that determines whether any HTTP headers (and if so, which
--- headers) are included in the cache key and automatically included in
--- requests that CloudFront sends to the origin.
+-- headers) are included in the cache key and in requests that CloudFront
+-- sends to the origin.
 parametersInCacheKeyAndForwardedToOrigin_headersConfig :: Lens.Lens' ParametersInCacheKeyAndForwardedToOrigin CachePolicyHeadersConfig
 parametersInCacheKeyAndForwardedToOrigin_headersConfig = Lens.lens (\ParametersInCacheKeyAndForwardedToOrigin' {headersConfig} -> headersConfig) (\s@ParametersInCacheKeyAndForwardedToOrigin' {} a -> s {headersConfig = a} :: ParametersInCacheKeyAndForwardedToOrigin)
 
 -- | An object that determines whether any cookies in viewer requests (and if
--- so, which cookies) are included in the cache key and automatically
--- included in requests that CloudFront sends to the origin.
+-- so, which cookies) are included in the cache key and in requests that
+-- CloudFront sends to the origin.
 parametersInCacheKeyAndForwardedToOrigin_cookiesConfig :: Lens.Lens' ParametersInCacheKeyAndForwardedToOrigin CachePolicyCookiesConfig
 parametersInCacheKeyAndForwardedToOrigin_cookiesConfig = Lens.lens (\ParametersInCacheKeyAndForwardedToOrigin' {cookiesConfig} -> cookiesConfig) (\s@ParametersInCacheKeyAndForwardedToOrigin' {} a -> s {cookiesConfig = a} :: ParametersInCacheKeyAndForwardedToOrigin)
 
 -- | An object that determines whether any URL query strings in viewer
 -- requests (and if so, which query strings) are included in the cache key
--- and automatically included in requests that CloudFront sends to the
--- origin.
+-- and in requests that CloudFront sends to the origin.
 parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig :: Lens.Lens' ParametersInCacheKeyAndForwardedToOrigin CachePolicyQueryStringsConfig
 parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig = Lens.lens (\ParametersInCacheKeyAndForwardedToOrigin' {queryStringsConfig} -> queryStringsConfig) (\s@ParametersInCacheKeyAndForwardedToOrigin' {} a -> s {queryStringsConfig = a} :: ParametersInCacheKeyAndForwardedToOrigin)
 
@@ -325,10 +322,10 @@ instance
   parseXML x =
     ParametersInCacheKeyAndForwardedToOrigin'
       Prelude.<$> (x Data..@? "EnableAcceptEncodingBrotli")
-        Prelude.<*> (x Data..@ "EnableAcceptEncodingGzip")
-        Prelude.<*> (x Data..@ "HeadersConfig")
-        Prelude.<*> (x Data..@ "CookiesConfig")
-        Prelude.<*> (x Data..@ "QueryStringsConfig")
+      Prelude.<*> (x Data..@ "EnableAcceptEncodingGzip")
+      Prelude.<*> (x Data..@ "HeadersConfig")
+      Prelude.<*> (x Data..@ "CookiesConfig")
+      Prelude.<*> (x Data..@ "QueryStringsConfig")
 
 instance
   Prelude.Hashable

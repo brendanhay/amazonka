@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     UpdateFieldLevelEncryptionConfig' {..} =
-      _salt `Prelude.hashWithSalt` ifMatch
+      _salt
+        `Prelude.hashWithSalt` ifMatch
         `Prelude.hashWithSalt` fieldLevelEncryptionConfig
         `Prelude.hashWithSalt` id
 

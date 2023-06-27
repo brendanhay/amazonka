@@ -78,7 +78,8 @@ instance Data.FromXML FunctionConfig where
 
 instance Prelude.Hashable FunctionConfig where
   hashWithSalt _salt FunctionConfig' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` runtime
 
 instance Prelude.NFData FunctionConfig where

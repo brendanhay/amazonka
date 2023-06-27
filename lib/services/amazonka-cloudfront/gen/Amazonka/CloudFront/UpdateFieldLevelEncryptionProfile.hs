@@ -119,8 +119,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           UpdateFieldLevelEncryptionProfileResponse'
-            Prelude.<$> (h Data..#? "ETag") Prelude.<*> (Data.parseXML x)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -130,7 +131,8 @@ instance
   hashWithSalt
     _salt
     UpdateFieldLevelEncryptionProfile' {..} =
-      _salt `Prelude.hashWithSalt` ifMatch
+      _salt
+        `Prelude.hashWithSalt` ifMatch
         `Prelude.hashWithSalt` fieldLevelEncryptionProfileConfig
         `Prelude.hashWithSalt` id
 

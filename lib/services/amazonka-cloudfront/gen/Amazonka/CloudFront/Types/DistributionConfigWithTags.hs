@@ -74,7 +74,8 @@ distributionConfigWithTags_tags = Lens.lens (\DistributionConfigWithTags' {tags}
 
 instance Prelude.Hashable DistributionConfigWithTags where
   hashWithSalt _salt DistributionConfigWithTags' {..} =
-    _salt `Prelude.hashWithSalt` distributionConfig
+    _salt
+      `Prelude.hashWithSalt` distributionConfig
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData DistributionConfigWithTags where

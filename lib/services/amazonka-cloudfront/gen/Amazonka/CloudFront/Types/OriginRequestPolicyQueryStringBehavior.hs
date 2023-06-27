@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.OriginRequestPolicyQueryStringBehavior
   ( OriginRequestPolicyQueryStringBehavior
       ( ..,
         OriginRequestPolicyQueryStringBehavior_All,
+        OriginRequestPolicyQueryStringBehavior_AllExcept,
         OriginRequestPolicyQueryStringBehavior_None,
         OriginRequestPolicyQueryStringBehavior_Whitelist
       ),
@@ -62,6 +63,9 @@ newtype OriginRequestPolicyQueryStringBehavior = OriginRequestPolicyQueryStringB
 pattern OriginRequestPolicyQueryStringBehavior_All :: OriginRequestPolicyQueryStringBehavior
 pattern OriginRequestPolicyQueryStringBehavior_All = OriginRequestPolicyQueryStringBehavior' "all"
 
+pattern OriginRequestPolicyQueryStringBehavior_AllExcept :: OriginRequestPolicyQueryStringBehavior
+pattern OriginRequestPolicyQueryStringBehavior_AllExcept = OriginRequestPolicyQueryStringBehavior' "allExcept"
+
 pattern OriginRequestPolicyQueryStringBehavior_None :: OriginRequestPolicyQueryStringBehavior
 pattern OriginRequestPolicyQueryStringBehavior_None = OriginRequestPolicyQueryStringBehavior' "none"
 
@@ -70,6 +74,7 @@ pattern OriginRequestPolicyQueryStringBehavior_Whitelist = OriginRequestPolicyQu
 
 {-# COMPLETE
   OriginRequestPolicyQueryStringBehavior_All,
+  OriginRequestPolicyQueryStringBehavior_AllExcept,
   OriginRequestPolicyQueryStringBehavior_None,
   OriginRequestPolicyQueryStringBehavior_Whitelist,
   OriginRequestPolicyQueryStringBehavior'

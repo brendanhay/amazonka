@@ -68,6 +68,7 @@ library
     Amazonka.Grafana.Types.DataSourceType
     Amazonka.Grafana.Types.IdpMetadata
     Amazonka.Grafana.Types.LicenseType
+    Amazonka.Grafana.Types.NetworkAccessConfiguration
     Amazonka.Grafana.Types.NotificationDestinationType
     Amazonka.Grafana.Types.PermissionEntry
     Amazonka.Grafana.Types.PermissionType

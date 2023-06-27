@@ -36,6 +36,8 @@ module Amazonka.Grafana.CreateWorkspace
     -- * Request Lenses
     createWorkspace_clientToken,
     createWorkspace_configuration,
+    createWorkspace_grafanaVersion,
+    createWorkspace_networkAccessControl,
     createWorkspace_organizationRoleName,
     createWorkspace_stackSetName,
     createWorkspace_tags,
@@ -77,6 +79,20 @@ data CreateWorkspace = CreateWorkspace'
     -- information about the format and configuration options available, see
     -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html Working in your Grafana workspace>.
     configuration :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the version of Grafana to support in the new workspace.
+    --
+    -- Supported values are @8.4@ and @9.4@.
+    grafanaVersion :: Prelude.Maybe Prelude.Text,
+    -- | Configuration for network access to your workspace.
+    --
+    -- When this is configured, only listed IP addresses and VPC endpoints will
+    -- be able to access your workspace. Standard Grafana authentication and
+    -- authorization will still be required.
+    --
+    -- If this is not configured, or is removed, then all IP addresses and VPC
+    -- endpoints will be allowed. Standard Grafana authentication and
+    -- authorization will still be required.
+    networkAccessControl :: Prelude.Maybe NetworkAccessConfiguration,
     -- | The name of an IAM role that already exists to use with Organizations to
     -- access Amazon Web Services data sources and notification channels in
     -- other accounts in an organization.
@@ -89,15 +105,7 @@ data CreateWorkspace = CreateWorkspace'
     -- | The configuration settings for an Amazon VPC that contains data sources
     -- for your Grafana workspace to connect to.
     vpcConfiguration :: Prelude.Maybe VpcConfiguration,
-    -- | Specify the Amazon Web Services data sources that you want to be queried
-    -- in this workspace. Specifying these data sources here enables Amazon
-    -- Managed Grafana to create IAM roles and permissions that allow Amazon
-    -- Managed Grafana to read data from these sources. You must still add them
-    -- as data sources in the Grafana console in the workspace.
-    --
-    -- If you don\'t specify a data source here, you can still add it as a data
-    -- source in the workspace console later. However, you will then have to
-    -- manually configure permissions for it.
+    -- | This parameter is for internal use only, and should not be used.
     workspaceDataSources :: Prelude.Maybe [DataSourceType],
     -- | A description for the workspace. This is used only to help you identify
     -- this workspace.
@@ -115,10 +123,11 @@ data CreateWorkspace = CreateWorkspace'
     -- data sources from, if this workspace is in an account that is part of an
     -- organization.
     workspaceOrganizationalUnits :: Prelude.Maybe (Data.Sensitive [Prelude.Text]),
-    -- | The workspace needs an IAM role that grants permissions to the Amazon
-    -- Web Services resources that the workspace will view data from. If you
-    -- already have a role that you want to use, specify it here. The
-    -- permission type should be set to @CUSTOMER_MANAGED@.
+    -- | Specified the IAM role that grants permissions to the Amazon Web
+    -- Services resources that the workspace will view data from, including
+    -- both data sources and notification channels. You are responsible for
+    -- managing the permissions for this role as new data sources or
+    -- notification channels are added.
     workspaceRoleArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies whether the workspace can access Amazon Web Services resources
     -- in this Amazon Web Services account only, or whether it can also access
@@ -132,22 +141,21 @@ data CreateWorkspace = CreateWorkspace'
     -- the Grafana console within a workspace. For more information, see
     -- <https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana>.
     authenticationProviders :: [AuthenticationProviderTypes],
-    -- | If you specify @SERVICE_MANAGED@ on AWS Grafana console, Amazon Managed
-    -- Grafana automatically creates the IAM roles and provisions the
-    -- permissions that the workspace needs to use Amazon Web Services data
-    -- sources and notification channels. In the CLI mode, the permissionType
-    -- @SERVICE_MANAGED@ will not create the IAM role for you. The ability for
-    -- the Amazon Managed Grafana to create the IAM role on behalf of the user
-    -- is supported only in the Amazon Managed Grafana AWS console. Use only
-    -- the @CUSTOMER_MANAGED@ permission type when creating a workspace in the
-    -- CLI.
+    -- | When creating a workspace through the Amazon Web Services API, CLI or
+    -- Amazon Web Services CloudFormation, you must manage IAM roles and
+    -- provision the permissions that the workspace needs to use Amazon Web
+    -- Services data sources and notification channels.
     --
-    -- If you specify @CUSTOMER_MANAGED@, you will manage those roles and
-    -- permissions yourself. If you are creating this workspace in a member
-    -- account of an organization that is not a delegated administrator
-    -- account, and you want the workspace to access data sources in other
-    -- Amazon Web Services accounts in the organization, you must choose
-    -- @CUSTOMER_MANAGED@.
+    -- You must also specify a @workspaceRoleArn@ for a role that you will
+    -- manage for the workspace to use when accessing those datasources and
+    -- notification channels.
+    --
+    -- The ability for Amazon Managed Grafana to create and update IAM roles on
+    -- behalf of the user is supported only in the Amazon Managed Grafana
+    -- console, where this value may be set to @SERVICE_MANAGED@.
+    --
+    -- Use only the @CUSTOMER_MANAGED@ permission type when creating a
+    -- workspace with the API, CLI or Amazon Web Services CloudFormation.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>.
@@ -170,6 +178,20 @@ data CreateWorkspace = CreateWorkspace'
 -- information about the format and configuration options available, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html Working in your Grafana workspace>.
 --
+-- 'grafanaVersion', 'createWorkspace_grafanaVersion' - Specifies the version of Grafana to support in the new workspace.
+--
+-- Supported values are @8.4@ and @9.4@.
+--
+-- 'networkAccessControl', 'createWorkspace_networkAccessControl' - Configuration for network access to your workspace.
+--
+-- When this is configured, only listed IP addresses and VPC endpoints will
+-- be able to access your workspace. Standard Grafana authentication and
+-- authorization will still be required.
+--
+-- If this is not configured, or is removed, then all IP addresses and VPC
+-- endpoints will be allowed. Standard Grafana authentication and
+-- authorization will still be required.
+--
 -- 'organizationRoleName', 'createWorkspace_organizationRoleName' - The name of an IAM role that already exists to use with Organizations to
 -- access Amazon Web Services data sources and notification channels in
 -- other accounts in an organization.
@@ -182,15 +204,7 @@ data CreateWorkspace = CreateWorkspace'
 -- 'vpcConfiguration', 'createWorkspace_vpcConfiguration' - The configuration settings for an Amazon VPC that contains data sources
 -- for your Grafana workspace to connect to.
 --
--- 'workspaceDataSources', 'createWorkspace_workspaceDataSources' - Specify the Amazon Web Services data sources that you want to be queried
--- in this workspace. Specifying these data sources here enables Amazon
--- Managed Grafana to create IAM roles and permissions that allow Amazon
--- Managed Grafana to read data from these sources. You must still add them
--- as data sources in the Grafana console in the workspace.
---
--- If you don\'t specify a data source here, you can still add it as a data
--- source in the workspace console later. However, you will then have to
--- manually configure permissions for it.
+-- 'workspaceDataSources', 'createWorkspace_workspaceDataSources' - This parameter is for internal use only, and should not be used.
 --
 -- 'workspaceDescription', 'createWorkspace_workspaceDescription' - A description for the workspace. This is used only to help you identify
 -- this workspace.
@@ -208,10 +222,11 @@ data CreateWorkspace = CreateWorkspace'
 -- data sources from, if this workspace is in an account that is part of an
 -- organization.
 --
--- 'workspaceRoleArn', 'createWorkspace_workspaceRoleArn' - The workspace needs an IAM role that grants permissions to the Amazon
--- Web Services resources that the workspace will view data from. If you
--- already have a role that you want to use, specify it here. The
--- permission type should be set to @CUSTOMER_MANAGED@.
+-- 'workspaceRoleArn', 'createWorkspace_workspaceRoleArn' - Specified the IAM role that grants permissions to the Amazon Web
+-- Services resources that the workspace will view data from, including
+-- both data sources and notification channels. You are responsible for
+-- managing the permissions for this role as new data sources or
+-- notification channels are added.
 --
 -- 'accountAccessType', 'createWorkspace_accountAccessType' - Specifies whether the workspace can access Amazon Web Services resources
 -- in this Amazon Web Services account only, or whether it can also access
@@ -225,22 +240,21 @@ data CreateWorkspace = CreateWorkspace'
 -- the Grafana console within a workspace. For more information, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html User authentication in Amazon Managed Grafana>.
 --
--- 'permissionType', 'createWorkspace_permissionType' - If you specify @SERVICE_MANAGED@ on AWS Grafana console, Amazon Managed
--- Grafana automatically creates the IAM roles and provisions the
--- permissions that the workspace needs to use Amazon Web Services data
--- sources and notification channels. In the CLI mode, the permissionType
--- @SERVICE_MANAGED@ will not create the IAM role for you. The ability for
--- the Amazon Managed Grafana to create the IAM role on behalf of the user
--- is supported only in the Amazon Managed Grafana AWS console. Use only
--- the @CUSTOMER_MANAGED@ permission type when creating a workspace in the
--- CLI.
+-- 'permissionType', 'createWorkspace_permissionType' - When creating a workspace through the Amazon Web Services API, CLI or
+-- Amazon Web Services CloudFormation, you must manage IAM roles and
+-- provision the permissions that the workspace needs to use Amazon Web
+-- Services data sources and notification channels.
 --
--- If you specify @CUSTOMER_MANAGED@, you will manage those roles and
--- permissions yourself. If you are creating this workspace in a member
--- account of an organization that is not a delegated administrator
--- account, and you want the workspace to access data sources in other
--- Amazon Web Services accounts in the organization, you must choose
--- @CUSTOMER_MANAGED@.
+-- You must also specify a @workspaceRoleArn@ for a role that you will
+-- manage for the workspace to use when accessing those datasources and
+-- notification channels.
+--
+-- The ability for Amazon Managed Grafana to create and update IAM roles on
+-- behalf of the user is supported only in the Amazon Managed Grafana
+-- console, where this value may be set to @SERVICE_MANAGED@.
+--
+-- Use only the @CUSTOMER_MANAGED@ permission type when creating a
+-- workspace with the API, CLI or Amazon Web Services CloudFormation.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>.
@@ -256,6 +270,8 @@ newCreateWorkspace
     CreateWorkspace'
       { clientToken = Prelude.Nothing,
         configuration = Prelude.Nothing,
+        grafanaVersion = Prelude.Nothing,
+        networkAccessControl = Prelude.Nothing,
         organizationRoleName = Prelude.Nothing,
         stackSetName = Prelude.Nothing,
         tags = Prelude.Nothing,
@@ -282,6 +298,24 @@ createWorkspace_clientToken = Lens.lens (\CreateWorkspace' {clientToken} -> clie
 createWorkspace_configuration :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_configuration = Lens.lens (\CreateWorkspace' {configuration} -> configuration) (\s@CreateWorkspace' {} a -> s {configuration = a} :: CreateWorkspace)
 
+-- | Specifies the version of Grafana to support in the new workspace.
+--
+-- Supported values are @8.4@ and @9.4@.
+createWorkspace_grafanaVersion :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
+createWorkspace_grafanaVersion = Lens.lens (\CreateWorkspace' {grafanaVersion} -> grafanaVersion) (\s@CreateWorkspace' {} a -> s {grafanaVersion = a} :: CreateWorkspace)
+
+-- | Configuration for network access to your workspace.
+--
+-- When this is configured, only listed IP addresses and VPC endpoints will
+-- be able to access your workspace. Standard Grafana authentication and
+-- authorization will still be required.
+--
+-- If this is not configured, or is removed, then all IP addresses and VPC
+-- endpoints will be allowed. Standard Grafana authentication and
+-- authorization will still be required.
+createWorkspace_networkAccessControl :: Lens.Lens' CreateWorkspace (Prelude.Maybe NetworkAccessConfiguration)
+createWorkspace_networkAccessControl = Lens.lens (\CreateWorkspace' {networkAccessControl} -> networkAccessControl) (\s@CreateWorkspace' {} a -> s {networkAccessControl = a} :: CreateWorkspace)
+
 -- | The name of an IAM role that already exists to use with Organizations to
 -- access Amazon Web Services data sources and notification channels in
 -- other accounts in an organization.
@@ -302,15 +336,7 @@ createWorkspace_tags = Lens.lens (\CreateWorkspace' {tags} -> tags) (\s@CreateWo
 createWorkspace_vpcConfiguration :: Lens.Lens' CreateWorkspace (Prelude.Maybe VpcConfiguration)
 createWorkspace_vpcConfiguration = Lens.lens (\CreateWorkspace' {vpcConfiguration} -> vpcConfiguration) (\s@CreateWorkspace' {} a -> s {vpcConfiguration = a} :: CreateWorkspace)
 
--- | Specify the Amazon Web Services data sources that you want to be queried
--- in this workspace. Specifying these data sources here enables Amazon
--- Managed Grafana to create IAM roles and permissions that allow Amazon
--- Managed Grafana to read data from these sources. You must still add them
--- as data sources in the Grafana console in the workspace.
---
--- If you don\'t specify a data source here, you can still add it as a data
--- source in the workspace console later. However, you will then have to
--- manually configure permissions for it.
+-- | This parameter is for internal use only, and should not be used.
 createWorkspace_workspaceDataSources :: Lens.Lens' CreateWorkspace (Prelude.Maybe [DataSourceType])
 createWorkspace_workspaceDataSources = Lens.lens (\CreateWorkspace' {workspaceDataSources} -> workspaceDataSources) (\s@CreateWorkspace' {} a -> s {workspaceDataSources = a} :: CreateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
@@ -338,10 +364,11 @@ createWorkspace_workspaceNotificationDestinations = Lens.lens (\CreateWorkspace'
 createWorkspace_workspaceOrganizationalUnits :: Lens.Lens' CreateWorkspace (Prelude.Maybe [Prelude.Text])
 createWorkspace_workspaceOrganizationalUnits = Lens.lens (\CreateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@CreateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: CreateWorkspace) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The workspace needs an IAM role that grants permissions to the Amazon
--- Web Services resources that the workspace will view data from. If you
--- already have a role that you want to use, specify it here. The
--- permission type should be set to @CUSTOMER_MANAGED@.
+-- | Specified the IAM role that grants permissions to the Amazon Web
+-- Services resources that the workspace will view data from, including
+-- both data sources and notification channels. You are responsible for
+-- managing the permissions for this role as new data sources or
+-- notification channels are added.
 createWorkspace_workspaceRoleArn :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_workspaceRoleArn = Lens.lens (\CreateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@CreateWorkspace' {} a -> s {workspaceRoleArn = a} :: CreateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
@@ -361,22 +388,21 @@ createWorkspace_accountAccessType = Lens.lens (\CreateWorkspace' {accountAccessT
 createWorkspace_authenticationProviders :: Lens.Lens' CreateWorkspace [AuthenticationProviderTypes]
 createWorkspace_authenticationProviders = Lens.lens (\CreateWorkspace' {authenticationProviders} -> authenticationProviders) (\s@CreateWorkspace' {} a -> s {authenticationProviders = a} :: CreateWorkspace) Prelude.. Lens.coerced
 
--- | If you specify @SERVICE_MANAGED@ on AWS Grafana console, Amazon Managed
--- Grafana automatically creates the IAM roles and provisions the
--- permissions that the workspace needs to use Amazon Web Services data
--- sources and notification channels. In the CLI mode, the permissionType
--- @SERVICE_MANAGED@ will not create the IAM role for you. The ability for
--- the Amazon Managed Grafana to create the IAM role on behalf of the user
--- is supported only in the Amazon Managed Grafana AWS console. Use only
--- the @CUSTOMER_MANAGED@ permission type when creating a workspace in the
--- CLI.
+-- | When creating a workspace through the Amazon Web Services API, CLI or
+-- Amazon Web Services CloudFormation, you must manage IAM roles and
+-- provision the permissions that the workspace needs to use Amazon Web
+-- Services data sources and notification channels.
 --
--- If you specify @CUSTOMER_MANAGED@, you will manage those roles and
--- permissions yourself. If you are creating this workspace in a member
--- account of an organization that is not a delegated administrator
--- account, and you want the workspace to access data sources in other
--- Amazon Web Services accounts in the organization, you must choose
--- @CUSTOMER_MANAGED@.
+-- You must also specify a @workspaceRoleArn@ for a role that you will
+-- manage for the workspace to use when accessing those datasources and
+-- notification channels.
+--
+-- The ability for Amazon Managed Grafana to create and update IAM roles on
+-- behalf of the user is supported only in the Amazon Managed Grafana
+-- console, where this value may be set to @SERVICE_MANAGED@.
+--
+-- Use only the @CUSTOMER_MANAGED@ permission type when creating a
+-- workspace with the API, CLI or Amazon Web Services CloudFormation.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>.
@@ -399,8 +425,11 @@ instance Core.AWSRequest CreateWorkspace where
 
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` grafanaVersion
+      `Prelude.hashWithSalt` networkAccessControl
       `Prelude.hashWithSalt` organizationRoleName
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` tags
@@ -419,6 +448,8 @@ instance Prelude.NFData CreateWorkspace where
   rnf CreateWorkspace' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf grafanaVersion
+      `Prelude.seq` Prelude.rnf networkAccessControl
       `Prelude.seq` Prelude.rnf organizationRoleName
       `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf tags
@@ -450,6 +481,10 @@ instance Data.ToJSON CreateWorkspace where
       ( Prelude.catMaybes
           [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("configuration" Data..=) Prelude.<$> configuration,
+            ("grafanaVersion" Data..=)
+              Prelude.<$> grafanaVersion,
+            ("networkAccessControl" Data..=)
+              Prelude.<$> networkAccessControl,
             ("organizationRoleName" Data..=)
               Prelude.<$> organizationRoleName,
             ("stackSetName" Data..=) Prelude.<$> stackSetName,

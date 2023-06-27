@@ -83,7 +83,8 @@ instance Data.FromJSON RoleValues where
 
 instance Prelude.Hashable RoleValues where
   hashWithSalt _salt RoleValues' {..} =
-    _salt `Prelude.hashWithSalt` admin
+    _salt
+      `Prelude.hashWithSalt` admin
       `Prelude.hashWithSalt` editor
 
 instance Prelude.NFData RoleValues where

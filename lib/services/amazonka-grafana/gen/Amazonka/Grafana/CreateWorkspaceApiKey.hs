@@ -148,7 +148,8 @@ instance Core.AWSRequest CreateWorkspaceApiKey where
 
 instance Prelude.Hashable CreateWorkspaceApiKey where
   hashWithSalt _salt CreateWorkspaceApiKey' {..} =
-    _salt `Prelude.hashWithSalt` keyName
+    _salt
+      `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` keyRole
       `Prelude.hashWithSalt` secondsToLive
       `Prelude.hashWithSalt` workspaceId

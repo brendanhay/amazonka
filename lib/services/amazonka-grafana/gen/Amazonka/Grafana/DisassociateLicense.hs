@@ -104,7 +104,8 @@ instance Core.AWSRequest DisassociateLicense where
 
 instance Prelude.Hashable DisassociateLicense where
   hashWithSalt _salt DisassociateLicense' {..} =
-    _salt `Prelude.hashWithSalt` licenseType
+    _salt
+      `Prelude.hashWithSalt` licenseType
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData DisassociateLicense where

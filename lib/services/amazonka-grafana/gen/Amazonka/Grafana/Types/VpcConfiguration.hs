@@ -27,13 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 -- | The configuration settings for an Amazon VPC that contains data sources
 -- for your Grafana workspace to connect to.
 --
+-- Provided @securityGroupIds@ and @subnetIds@ must be part of the same
+-- VPC.
+--
 -- /See:/ 'newVpcConfiguration' smart constructor.
 data VpcConfiguration = VpcConfiguration'
   { -- | The list of Amazon EC2 security group IDs attached to the Amazon VPC for
-    -- your Grafana workspace to connect.
+    -- your Grafana workspace to connect. Duplicates not allowed.
     securityGroupIds :: Prelude.NonEmpty Prelude.Text,
     -- | The list of Amazon EC2 subnet IDs created in the Amazon VPC for your
-    -- Grafana workspace to connect.
+    -- Grafana workspace to connect. Duplicates not allowed.
     subnetIds :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,10 +50,10 @@ data VpcConfiguration = VpcConfiguration'
 -- for backwards compatibility:
 --
 -- 'securityGroupIds', 'vpcConfiguration_securityGroupIds' - The list of Amazon EC2 security group IDs attached to the Amazon VPC for
--- your Grafana workspace to connect.
+-- your Grafana workspace to connect. Duplicates not allowed.
 --
 -- 'subnetIds', 'vpcConfiguration_subnetIds' - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your
--- Grafana workspace to connect.
+-- Grafana workspace to connect. Duplicates not allowed.
 newVpcConfiguration ::
   -- | 'securityGroupIds'
   Prelude.NonEmpty Prelude.Text ->
@@ -65,12 +68,12 @@ newVpcConfiguration pSecurityGroupIds_ pSubnetIds_ =
     }
 
 -- | The list of Amazon EC2 security group IDs attached to the Amazon VPC for
--- your Grafana workspace to connect.
+-- your Grafana workspace to connect. Duplicates not allowed.
 vpcConfiguration_securityGroupIds :: Lens.Lens' VpcConfiguration (Prelude.NonEmpty Prelude.Text)
 vpcConfiguration_securityGroupIds = Lens.lens (\VpcConfiguration' {securityGroupIds} -> securityGroupIds) (\s@VpcConfiguration' {} a -> s {securityGroupIds = a} :: VpcConfiguration) Prelude.. Lens.coerced
 
 -- | The list of Amazon EC2 subnet IDs created in the Amazon VPC for your
--- Grafana workspace to connect.
+-- Grafana workspace to connect. Duplicates not allowed.
 vpcConfiguration_subnetIds :: Lens.Lens' VpcConfiguration (Prelude.NonEmpty Prelude.Text)
 vpcConfiguration_subnetIds = Lens.lens (\VpcConfiguration' {subnetIds} -> subnetIds) (\s@VpcConfiguration' {} a -> s {subnetIds = a} :: VpcConfiguration) Prelude.. Lens.coerced
 
@@ -86,7 +89,8 @@ instance Data.FromJSON VpcConfiguration where
 
 instance Prelude.Hashable VpcConfiguration where
   hashWithSalt _salt VpcConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData VpcConfiguration where

@@ -104,7 +104,8 @@ instance Data.FromJSON AuthenticationDescription where
 
 instance Prelude.Hashable AuthenticationDescription where
   hashWithSalt _salt AuthenticationDescription' {..} =
-    _salt `Prelude.hashWithSalt` awsSso
+    _salt
+      `Prelude.hashWithSalt` awsSso
       `Prelude.hashWithSalt` saml
       `Prelude.hashWithSalt` providers
 

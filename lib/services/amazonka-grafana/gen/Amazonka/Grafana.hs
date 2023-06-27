@@ -220,6 +220,10 @@ module Amazonka.Grafana
     IdpMetadata (IdpMetadata'),
     newIdpMetadata,
 
+    -- ** NetworkAccessConfiguration
+    NetworkAccessConfiguration (NetworkAccessConfiguration'),
+    newNetworkAccessConfiguration,
+
     -- ** PermissionEntry
     PermissionEntry (PermissionEntry'),
     newPermissionEntry,

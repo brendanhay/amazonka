@@ -26,6 +26,7 @@ import Amazonka.Grafana.Types.AccountAccessType
 import Amazonka.Grafana.Types.AuthenticationSummary
 import Amazonka.Grafana.Types.DataSourceType
 import Amazonka.Grafana.Types.LicenseType
+import Amazonka.Grafana.Types.NetworkAccessConfiguration
 import Amazonka.Grafana.Types.NotificationDestinationType
 import Amazonka.Grafana.Types.PermissionType
 import Amazonka.Grafana.Types.VpcConfiguration
@@ -60,6 +61,8 @@ data WorkspaceDescription = WorkspaceDescription'
     licenseType :: Prelude.Maybe LicenseType,
     -- | The name of the workspace.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The configuration settings for network access to your workspace.
+    networkAccessControl :: Prelude.Maybe NetworkAccessConfiguration,
     -- | The Amazon Web Services notification channels that Amazon Managed
     -- Grafana can automatically create IAM roles and permissions for, to allow
     -- Amazon Managed Grafana to use these channels.
@@ -71,18 +74,26 @@ data WorkspaceDescription = WorkspaceDescription'
     -- data sources from, if this workspace is in an account that is part of an
     -- organization.
     organizationalUnits :: Prelude.Maybe (Data.Sensitive [Prelude.Text]),
-    -- | If this is @Service Managed@, Amazon Managed Grafana automatically
-    -- creates the IAM roles and provisions the permissions that the workspace
-    -- needs to use Amazon Web Services data sources and notification channels.
+    -- | If this is @SERVICE_MANAGED@, and the workplace was created through the
+    -- Amazon Managed Grafana console, then Amazon Managed Grafana
+    -- automatically creates the IAM roles and provisions the permissions that
+    -- the workspace needs to use Amazon Web Services data sources and
+    -- notification channels.
     --
-    -- If this is @CUSTOMER_MANAGED@, you manage those roles and permissions
-    -- yourself. If you are creating this workspace in a member account of an
+    -- If this is @CUSTOMER_MANAGED@, you must manage those roles and
+    -- permissions yourself.
+    --
+    -- If you are working with a workspace in a member account of an
     -- organization and that account is not a delegated administrator account,
     -- and you want the workspace to access data sources in other Amazon Web
-    -- Services accounts in the organization, you must choose
+    -- Services accounts in the organization, this parameter must be set to
     -- @CUSTOMER_MANAGED@.
     --
-    -- For more information, see
+    -- For more information about converting between customer and service
+    -- managed, see
+    -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html Managing permissions for data sources and notification channels>.
+    -- For more information about the roles and permissions that must be
+    -- managed for customer managed workspaces, see
     -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
     permissionType :: Prelude.Maybe PermissionType,
     -- | The name of the CloudFormation stack set that is used to generate IAM
@@ -105,6 +116,9 @@ data WorkspaceDescription = WorkspaceDescription'
     -- | Specifies the Amazon Web Services data sources that have been configured
     -- to have IAM roles and permissions created to allow Amazon Managed
     -- Grafana to read data from these sources.
+    --
+    -- This list is only used when the workspace was created through the Amazon
+    -- Web Services console, and the @permissionType@ is @SERVICE_MANAGED@.
     dataSources :: [DataSourceType],
     -- | The URL that users can use to access the Grafana console in the
     -- workspace.
@@ -151,6 +165,8 @@ data WorkspaceDescription = WorkspaceDescription'
 --
 -- 'name', 'workspaceDescription_name' - The name of the workspace.
 --
+-- 'networkAccessControl', 'workspaceDescription_networkAccessControl' - The configuration settings for network access to your workspace.
+--
 -- 'notificationDestinations', 'workspaceDescription_notificationDestinations' - The Amazon Web Services notification channels that Amazon Managed
 -- Grafana can automatically create IAM roles and permissions for, to allow
 -- Amazon Managed Grafana to use these channels.
@@ -162,18 +178,26 @@ data WorkspaceDescription = WorkspaceDescription'
 -- data sources from, if this workspace is in an account that is part of an
 -- organization.
 --
--- 'permissionType', 'workspaceDescription_permissionType' - If this is @Service Managed@, Amazon Managed Grafana automatically
--- creates the IAM roles and provisions the permissions that the workspace
--- needs to use Amazon Web Services data sources and notification channels.
+-- 'permissionType', 'workspaceDescription_permissionType' - If this is @SERVICE_MANAGED@, and the workplace was created through the
+-- Amazon Managed Grafana console, then Amazon Managed Grafana
+-- automatically creates the IAM roles and provisions the permissions that
+-- the workspace needs to use Amazon Web Services data sources and
+-- notification channels.
 --
--- If this is @CUSTOMER_MANAGED@, you manage those roles and permissions
--- yourself. If you are creating this workspace in a member account of an
+-- If this is @CUSTOMER_MANAGED@, you must manage those roles and
+-- permissions yourself.
+--
+-- If you are working with a workspace in a member account of an
 -- organization and that account is not a delegated administrator account,
 -- and you want the workspace to access data sources in other Amazon Web
--- Services accounts in the organization, you must choose
+-- Services accounts in the organization, this parameter must be set to
 -- @CUSTOMER_MANAGED@.
 --
--- For more information, see
+-- For more information about converting between customer and service
+-- managed, see
+-- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html Managing permissions for data sources and notification channels>.
+-- For more information about the roles and permissions that must be
+-- managed for customer managed workspaces, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
 --
 -- 'stackSetName', 'workspaceDescription_stackSetName' - The name of the CloudFormation stack set that is used to generate IAM
@@ -196,6 +220,9 @@ data WorkspaceDescription = WorkspaceDescription'
 -- 'dataSources', 'workspaceDescription_dataSources' - Specifies the Amazon Web Services data sources that have been configured
 -- to have IAM roles and permissions created to allow Amazon Managed
 -- Grafana to read data from these sources.
+--
+-- This list is only used when the workspace was created through the Amazon
+-- Web Services console, and the @permissionType@ is @SERVICE_MANAGED@.
 --
 -- 'endpoint', 'workspaceDescription_endpoint' - The URL that users can use to access the Grafana console in the
 -- workspace.
@@ -240,6 +267,7 @@ newWorkspaceDescription
         licenseExpiration = Prelude.Nothing,
         licenseType = Prelude.Nothing,
         name = Prelude.Nothing,
+        networkAccessControl = Prelude.Nothing,
         notificationDestinations = Prelude.Nothing,
         organizationRoleName = Prelude.Nothing,
         organizationalUnits = Prelude.Nothing,
@@ -295,6 +323,10 @@ workspaceDescription_licenseType = Lens.lens (\WorkspaceDescription' {licenseTyp
 workspaceDescription_name :: Lens.Lens' WorkspaceDescription (Prelude.Maybe Prelude.Text)
 workspaceDescription_name = Lens.lens (\WorkspaceDescription' {name} -> name) (\s@WorkspaceDescription' {} a -> s {name = a} :: WorkspaceDescription) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The configuration settings for network access to your workspace.
+workspaceDescription_networkAccessControl :: Lens.Lens' WorkspaceDescription (Prelude.Maybe NetworkAccessConfiguration)
+workspaceDescription_networkAccessControl = Lens.lens (\WorkspaceDescription' {networkAccessControl} -> networkAccessControl) (\s@WorkspaceDescription' {} a -> s {networkAccessControl = a} :: WorkspaceDescription)
+
 -- | The Amazon Web Services notification channels that Amazon Managed
 -- Grafana can automatically create IAM roles and permissions for, to allow
 -- Amazon Managed Grafana to use these channels.
@@ -312,18 +344,26 @@ workspaceDescription_organizationRoleName = Lens.lens (\WorkspaceDescription' {o
 workspaceDescription_organizationalUnits :: Lens.Lens' WorkspaceDescription (Prelude.Maybe [Prelude.Text])
 workspaceDescription_organizationalUnits = Lens.lens (\WorkspaceDescription' {organizationalUnits} -> organizationalUnits) (\s@WorkspaceDescription' {} a -> s {organizationalUnits = a} :: WorkspaceDescription) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | If this is @Service Managed@, Amazon Managed Grafana automatically
--- creates the IAM roles and provisions the permissions that the workspace
--- needs to use Amazon Web Services data sources and notification channels.
+-- | If this is @SERVICE_MANAGED@, and the workplace was created through the
+-- Amazon Managed Grafana console, then Amazon Managed Grafana
+-- automatically creates the IAM roles and provisions the permissions that
+-- the workspace needs to use Amazon Web Services data sources and
+-- notification channels.
 --
--- If this is @CUSTOMER_MANAGED@, you manage those roles and permissions
--- yourself. If you are creating this workspace in a member account of an
+-- If this is @CUSTOMER_MANAGED@, you must manage those roles and
+-- permissions yourself.
+--
+-- If you are working with a workspace in a member account of an
 -- organization and that account is not a delegated administrator account,
 -- and you want the workspace to access data sources in other Amazon Web
--- Services accounts in the organization, you must choose
+-- Services accounts in the organization, this parameter must be set to
 -- @CUSTOMER_MANAGED@.
 --
--- For more information, see
+-- For more information about converting between customer and service
+-- managed, see
+-- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html Managing permissions for data sources and notification channels>.
+-- For more information about the roles and permissions that must be
+-- managed for customer managed workspaces, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
 workspaceDescription_permissionType :: Lens.Lens' WorkspaceDescription (Prelude.Maybe PermissionType)
 workspaceDescription_permissionType = Lens.lens (\WorkspaceDescription' {permissionType} -> permissionType) (\s@WorkspaceDescription' {} a -> s {permissionType = a} :: WorkspaceDescription)
@@ -360,6 +400,9 @@ workspaceDescription_created = Lens.lens (\WorkspaceDescription' {created} -> cr
 -- | Specifies the Amazon Web Services data sources that have been configured
 -- to have IAM roles and permissions created to allow Amazon Managed
 -- Grafana to read data from these sources.
+--
+-- This list is only used when the workspace was created through the Amazon
+-- Web Services console, and the @permissionType@ is @SERVICE_MANAGED@.
 workspaceDescription_dataSources :: Lens.Lens' WorkspaceDescription [DataSourceType]
 workspaceDescription_dataSources = Lens.lens (\WorkspaceDescription' {dataSources} -> dataSources) (\s@WorkspaceDescription' {} a -> s {dataSources = a} :: WorkspaceDescription) Prelude.. Lens.coerced
 
@@ -397,11 +440,14 @@ instance Data.FromJSON WorkspaceDescription where
             Prelude.<*> (x Data..:? "licenseExpiration")
             Prelude.<*> (x Data..:? "licenseType")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> ( x Data..:? "notificationDestinations"
+            Prelude.<*> (x Data..:? "networkAccessControl")
+            Prelude.<*> ( x
+                            Data..:? "notificationDestinations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "organizationRoleName")
-            Prelude.<*> ( x Data..:? "organizationalUnits"
+            Prelude.<*> ( x
+                            Data..:? "organizationalUnits"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "permissionType")
@@ -421,13 +467,15 @@ instance Data.FromJSON WorkspaceDescription where
 
 instance Prelude.Hashable WorkspaceDescription where
   hashWithSalt _salt WorkspaceDescription' {..} =
-    _salt `Prelude.hashWithSalt` accountAccessType
+    _salt
+      `Prelude.hashWithSalt` accountAccessType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` freeTrialConsumed
       `Prelude.hashWithSalt` freeTrialExpiration
       `Prelude.hashWithSalt` licenseExpiration
       `Prelude.hashWithSalt` licenseType
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` networkAccessControl
       `Prelude.hashWithSalt` notificationDestinations
       `Prelude.hashWithSalt` organizationRoleName
       `Prelude.hashWithSalt` organizationalUnits
@@ -454,6 +502,7 @@ instance Prelude.NFData WorkspaceDescription where
       `Prelude.seq` Prelude.rnf licenseExpiration
       `Prelude.seq` Prelude.rnf licenseType
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf networkAccessControl
       `Prelude.seq` Prelude.rnf notificationDestinations
       `Prelude.seq` Prelude.rnf organizationRoleName
       `Prelude.seq` Prelude.rnf organizationalUnits

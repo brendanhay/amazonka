@@ -38,8 +38,10 @@ module Amazonka.Grafana.UpdateWorkspace
 
     -- * Request Lenses
     updateWorkspace_accountAccessType,
+    updateWorkspace_networkAccessControl,
     updateWorkspace_organizationRoleName,
     updateWorkspace_permissionType,
+    updateWorkspace_removeNetworkAccessConfiguration,
     updateWorkspace_removeVpcConfiguration,
     updateWorkspace_stackSetName,
     updateWorkspace_vpcConfiguration,
@@ -78,23 +80,53 @@ data UpdateWorkspace = UpdateWorkspace'
     -- organizational units the workspace can access in the
     -- @workspaceOrganizationalUnits@ parameter.
     accountAccessType :: Prelude.Maybe AccountAccessType,
-    -- | The name of an IAM role that already exists to use to access resources
-    -- through Organizations.
-    organizationRoleName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | If you specify @Service Managed@, Amazon Managed Grafana automatically
-    -- creates the IAM roles and provisions the permissions that the workspace
-    -- needs to use Amazon Web Services data sources and notification channels.
+    -- | The configuration settings for network access to your workspace.
     --
-    -- If you specify @CUSTOMER_MANAGED@, you will manage those roles and
-    -- permissions yourself. If you are creating this workspace in a member
-    -- account of an organization and that account is not a delegated
+    -- When this is configured, only listed IP addresses and VPC endpoints will
+    -- be able to access your workspace. Standard Grafana authentication and
+    -- authorization will still be required.
+    --
+    -- If this is not configured, or is removed, then all IP addresses and VPC
+    -- endpoints will be allowed. Standard Grafana authentication and
+    -- authorization will still be required.
+    networkAccessControl :: Prelude.Maybe NetworkAccessConfiguration,
+    -- | The name of an IAM role that already exists to use to access resources
+    -- through Organizations. This can only be used with a workspace that has
+    -- the @permissionType@ set to @CUSTOMER_MANAGED@.
+    organizationRoleName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Use this parameter if you want to change a workspace from
+    -- @SERVICE_MANAGED@ to @CUSTOMER_MANAGED@. This allows you to manage the
+    -- permissions that the workspace uses to access datasources and
+    -- notification channels. If the workspace is in a member Amazon Web
+    -- Services account of an organization, and that account is not a delegated
     -- administrator account, and you want the workspace to access data sources
     -- in other Amazon Web Services accounts in the organization, you must
     -- choose @CUSTOMER_MANAGED@.
     --
-    -- For more information, see
+    -- If you specify this as @CUSTOMER_MANAGED@, you must also specify a
+    -- @workspaceRoleArn@ that the workspace will use for accessing Amazon Web
+    -- Services resources.
+    --
+    -- For more information on the role and permissions needed, see
     -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
+    --
+    -- Do not use this to convert a @CUSTOMER_MANAGED@ workspace to
+    -- @SERVICE_MANAGED@. Do not include this parameter if you want to leave
+    -- the workspace as @SERVICE_MANAGED@.
+    --
+    -- You can convert a @CUSTOMER_MANAGED@ workspace to @SERVICE_MANAGED@
+    -- using the Amazon Managed Grafana console. For more information, see
+    -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html Managing permissions for data sources and notification channels>.
     permissionType :: Prelude.Maybe PermissionType,
+    -- | Whether to remove the network access configuration from the workspace.
+    --
+    -- Setting this to @true@ and providing a @networkAccessControl@ to set
+    -- will return an error.
+    --
+    -- If you remove this configuration by setting this to @true@, then all IP
+    -- addresses and VPC endpoints will be allowed. Standard Grafana
+    -- authentication and authorization will still be required.
+    removeNetworkAccessConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | Whether to remove the VPC configuration from the workspace.
     --
     -- Setting this to @true@ and providing a @vpcConfiguration@ to set will
@@ -106,15 +138,7 @@ data UpdateWorkspace = UpdateWorkspace'
     -- | The configuration settings for an Amazon VPC that contains data sources
     -- for your Grafana workspace to connect to.
     vpcConfiguration :: Prelude.Maybe VpcConfiguration,
-    -- | Specify the Amazon Web Services data sources that you want to be queried
-    -- in this workspace. Specifying these data sources here enables Amazon
-    -- Managed Grafana to create IAM roles and permissions that allow Amazon
-    -- Managed Grafana to read data from these sources. You must still add them
-    -- as data sources in the Grafana console in the workspace.
-    --
-    -- If you don\'t specify a data source here, you can still add it as a data
-    -- source later in the workspace console. However, you will then have to
-    -- manually configure permissions for it.
+    -- | This parameter is for internal use only, and should not be used.
     workspaceDataSources :: Prelude.Maybe [DataSourceType],
     -- | A description for the workspace. This is used only to help you identify
     -- this workspace.
@@ -130,12 +154,10 @@ data UpdateWorkspace = UpdateWorkspace'
     -- data sources from, if this workspace is in an account that is part of an
     -- organization.
     workspaceOrganizationalUnits :: Prelude.Maybe (Data.Sensitive [Prelude.Text]),
-    -- | The workspace needs an IAM role that grants permissions to the Amazon
-    -- Web Services resources that the workspace will view data from. If you
-    -- already have a role that you want to use, specify it here. If you omit
-    -- this field and you specify some Amazon Web Services resources in
-    -- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
-    -- role with the necessary permissions is automatically created.
+    -- | Specifies an IAM role that grants permissions to Amazon Web Services
+    -- resources that the workspace accesses, such as data sources and
+    -- notification channels. If this workspace has @permissionType@
+    -- @CUSTOMER_MANAGED@, then this role is required.
     workspaceRoleArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the workspace to update.
     workspaceId :: Prelude.Text
@@ -157,22 +179,52 @@ data UpdateWorkspace = UpdateWorkspace'
 -- organizational units the workspace can access in the
 -- @workspaceOrganizationalUnits@ parameter.
 --
+-- 'networkAccessControl', 'updateWorkspace_networkAccessControl' - The configuration settings for network access to your workspace.
+--
+-- When this is configured, only listed IP addresses and VPC endpoints will
+-- be able to access your workspace. Standard Grafana authentication and
+-- authorization will still be required.
+--
+-- If this is not configured, or is removed, then all IP addresses and VPC
+-- endpoints will be allowed. Standard Grafana authentication and
+-- authorization will still be required.
+--
 -- 'organizationRoleName', 'updateWorkspace_organizationRoleName' - The name of an IAM role that already exists to use to access resources
--- through Organizations.
+-- through Organizations. This can only be used with a workspace that has
+-- the @permissionType@ set to @CUSTOMER_MANAGED@.
 --
--- 'permissionType', 'updateWorkspace_permissionType' - If you specify @Service Managed@, Amazon Managed Grafana automatically
--- creates the IAM roles and provisions the permissions that the workspace
--- needs to use Amazon Web Services data sources and notification channels.
---
--- If you specify @CUSTOMER_MANAGED@, you will manage those roles and
--- permissions yourself. If you are creating this workspace in a member
--- account of an organization and that account is not a delegated
+-- 'permissionType', 'updateWorkspace_permissionType' - Use this parameter if you want to change a workspace from
+-- @SERVICE_MANAGED@ to @CUSTOMER_MANAGED@. This allows you to manage the
+-- permissions that the workspace uses to access datasources and
+-- notification channels. If the workspace is in a member Amazon Web
+-- Services account of an organization, and that account is not a delegated
 -- administrator account, and you want the workspace to access data sources
 -- in other Amazon Web Services accounts in the organization, you must
 -- choose @CUSTOMER_MANAGED@.
 --
--- For more information, see
+-- If you specify this as @CUSTOMER_MANAGED@, you must also specify a
+-- @workspaceRoleArn@ that the workspace will use for accessing Amazon Web
+-- Services resources.
+--
+-- For more information on the role and permissions needed, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
+--
+-- Do not use this to convert a @CUSTOMER_MANAGED@ workspace to
+-- @SERVICE_MANAGED@. Do not include this parameter if you want to leave
+-- the workspace as @SERVICE_MANAGED@.
+--
+-- You can convert a @CUSTOMER_MANAGED@ workspace to @SERVICE_MANAGED@
+-- using the Amazon Managed Grafana console. For more information, see
+-- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html Managing permissions for data sources and notification channels>.
+--
+-- 'removeNetworkAccessConfiguration', 'updateWorkspace_removeNetworkAccessConfiguration' - Whether to remove the network access configuration from the workspace.
+--
+-- Setting this to @true@ and providing a @networkAccessControl@ to set
+-- will return an error.
+--
+-- If you remove this configuration by setting this to @true@, then all IP
+-- addresses and VPC endpoints will be allowed. Standard Grafana
+-- authentication and authorization will still be required.
 --
 -- 'removeVpcConfiguration', 'updateWorkspace_removeVpcConfiguration' - Whether to remove the VPC configuration from the workspace.
 --
@@ -185,15 +237,7 @@ data UpdateWorkspace = UpdateWorkspace'
 -- 'vpcConfiguration', 'updateWorkspace_vpcConfiguration' - The configuration settings for an Amazon VPC that contains data sources
 -- for your Grafana workspace to connect to.
 --
--- 'workspaceDataSources', 'updateWorkspace_workspaceDataSources' - Specify the Amazon Web Services data sources that you want to be queried
--- in this workspace. Specifying these data sources here enables Amazon
--- Managed Grafana to create IAM roles and permissions that allow Amazon
--- Managed Grafana to read data from these sources. You must still add them
--- as data sources in the Grafana console in the workspace.
---
--- If you don\'t specify a data source here, you can still add it as a data
--- source later in the workspace console. However, you will then have to
--- manually configure permissions for it.
+-- 'workspaceDataSources', 'updateWorkspace_workspaceDataSources' - This parameter is for internal use only, and should not be used.
 --
 -- 'workspaceDescription', 'updateWorkspace_workspaceDescription' - A description for the workspace. This is used only to help you identify
 -- this workspace.
@@ -209,12 +253,10 @@ data UpdateWorkspace = UpdateWorkspace'
 -- data sources from, if this workspace is in an account that is part of an
 -- organization.
 --
--- 'workspaceRoleArn', 'updateWorkspace_workspaceRoleArn' - The workspace needs an IAM role that grants permissions to the Amazon
--- Web Services resources that the workspace will view data from. If you
--- already have a role that you want to use, specify it here. If you omit
--- this field and you specify some Amazon Web Services resources in
--- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
--- role with the necessary permissions is automatically created.
+-- 'workspaceRoleArn', 'updateWorkspace_workspaceRoleArn' - Specifies an IAM role that grants permissions to Amazon Web Services
+-- resources that the workspace accesses, such as data sources and
+-- notification channels. If this workspace has @permissionType@
+-- @CUSTOMER_MANAGED@, then this role is required.
 --
 -- 'workspaceId', 'updateWorkspace_workspaceId' - The ID of the workspace to update.
 newUpdateWorkspace ::
@@ -225,8 +267,10 @@ newUpdateWorkspace pWorkspaceId_ =
   UpdateWorkspace'
     { accountAccessType =
         Prelude.Nothing,
+      networkAccessControl = Prelude.Nothing,
       organizationRoleName = Prelude.Nothing,
       permissionType = Prelude.Nothing,
+      removeNetworkAccessConfiguration = Prelude.Nothing,
       removeVpcConfiguration = Prelude.Nothing,
       stackSetName = Prelude.Nothing,
       vpcConfiguration = Prelude.Nothing,
@@ -248,26 +292,60 @@ newUpdateWorkspace pWorkspaceId_ =
 updateWorkspace_accountAccessType :: Lens.Lens' UpdateWorkspace (Prelude.Maybe AccountAccessType)
 updateWorkspace_accountAccessType = Lens.lens (\UpdateWorkspace' {accountAccessType} -> accountAccessType) (\s@UpdateWorkspace' {} a -> s {accountAccessType = a} :: UpdateWorkspace)
 
+-- | The configuration settings for network access to your workspace.
+--
+-- When this is configured, only listed IP addresses and VPC endpoints will
+-- be able to access your workspace. Standard Grafana authentication and
+-- authorization will still be required.
+--
+-- If this is not configured, or is removed, then all IP addresses and VPC
+-- endpoints will be allowed. Standard Grafana authentication and
+-- authorization will still be required.
+updateWorkspace_networkAccessControl :: Lens.Lens' UpdateWorkspace (Prelude.Maybe NetworkAccessConfiguration)
+updateWorkspace_networkAccessControl = Lens.lens (\UpdateWorkspace' {networkAccessControl} -> networkAccessControl) (\s@UpdateWorkspace' {} a -> s {networkAccessControl = a} :: UpdateWorkspace)
+
 -- | The name of an IAM role that already exists to use to access resources
--- through Organizations.
+-- through Organizations. This can only be used with a workspace that has
+-- the @permissionType@ set to @CUSTOMER_MANAGED@.
 updateWorkspace_organizationRoleName :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
 updateWorkspace_organizationRoleName = Lens.lens (\UpdateWorkspace' {organizationRoleName} -> organizationRoleName) (\s@UpdateWorkspace' {} a -> s {organizationRoleName = a} :: UpdateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
--- | If you specify @Service Managed@, Amazon Managed Grafana automatically
--- creates the IAM roles and provisions the permissions that the workspace
--- needs to use Amazon Web Services data sources and notification channels.
---
--- If you specify @CUSTOMER_MANAGED@, you will manage those roles and
--- permissions yourself. If you are creating this workspace in a member
--- account of an organization and that account is not a delegated
+-- | Use this parameter if you want to change a workspace from
+-- @SERVICE_MANAGED@ to @CUSTOMER_MANAGED@. This allows you to manage the
+-- permissions that the workspace uses to access datasources and
+-- notification channels. If the workspace is in a member Amazon Web
+-- Services account of an organization, and that account is not a delegated
 -- administrator account, and you want the workspace to access data sources
 -- in other Amazon Web Services accounts in the organization, you must
 -- choose @CUSTOMER_MANAGED@.
 --
--- For more information, see
+-- If you specify this as @CUSTOMER_MANAGED@, you must also specify a
+-- @workspaceRoleArn@ that the workspace will use for accessing Amazon Web
+-- Services resources.
+--
+-- For more information on the role and permissions needed, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
+--
+-- Do not use this to convert a @CUSTOMER_MANAGED@ workspace to
+-- @SERVICE_MANAGED@. Do not include this parameter if you want to leave
+-- the workspace as @SERVICE_MANAGED@.
+--
+-- You can convert a @CUSTOMER_MANAGED@ workspace to @SERVICE_MANAGED@
+-- using the Amazon Managed Grafana console. For more information, see
+-- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html Managing permissions for data sources and notification channels>.
 updateWorkspace_permissionType :: Lens.Lens' UpdateWorkspace (Prelude.Maybe PermissionType)
 updateWorkspace_permissionType = Lens.lens (\UpdateWorkspace' {permissionType} -> permissionType) (\s@UpdateWorkspace' {} a -> s {permissionType = a} :: UpdateWorkspace)
+
+-- | Whether to remove the network access configuration from the workspace.
+--
+-- Setting this to @true@ and providing a @networkAccessControl@ to set
+-- will return an error.
+--
+-- If you remove this configuration by setting this to @true@, then all IP
+-- addresses and VPC endpoints will be allowed. Standard Grafana
+-- authentication and authorization will still be required.
+updateWorkspace_removeNetworkAccessConfiguration :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Bool)
+updateWorkspace_removeNetworkAccessConfiguration = Lens.lens (\UpdateWorkspace' {removeNetworkAccessConfiguration} -> removeNetworkAccessConfiguration) (\s@UpdateWorkspace' {} a -> s {removeNetworkAccessConfiguration = a} :: UpdateWorkspace)
 
 -- | Whether to remove the VPC configuration from the workspace.
 --
@@ -286,15 +364,7 @@ updateWorkspace_stackSetName = Lens.lens (\UpdateWorkspace' {stackSetName} -> st
 updateWorkspace_vpcConfiguration :: Lens.Lens' UpdateWorkspace (Prelude.Maybe VpcConfiguration)
 updateWorkspace_vpcConfiguration = Lens.lens (\UpdateWorkspace' {vpcConfiguration} -> vpcConfiguration) (\s@UpdateWorkspace' {} a -> s {vpcConfiguration = a} :: UpdateWorkspace)
 
--- | Specify the Amazon Web Services data sources that you want to be queried
--- in this workspace. Specifying these data sources here enables Amazon
--- Managed Grafana to create IAM roles and permissions that allow Amazon
--- Managed Grafana to read data from these sources. You must still add them
--- as data sources in the Grafana console in the workspace.
---
--- If you don\'t specify a data source here, you can still add it as a data
--- source later in the workspace console. However, you will then have to
--- manually configure permissions for it.
+-- | This parameter is for internal use only, and should not be used.
 updateWorkspace_workspaceDataSources :: Lens.Lens' UpdateWorkspace (Prelude.Maybe [DataSourceType])
 updateWorkspace_workspaceDataSources = Lens.lens (\UpdateWorkspace' {workspaceDataSources} -> workspaceDataSources) (\s@UpdateWorkspace' {} a -> s {workspaceDataSources = a} :: UpdateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
@@ -320,12 +390,10 @@ updateWorkspace_workspaceNotificationDestinations = Lens.lens (\UpdateWorkspace'
 updateWorkspace_workspaceOrganizationalUnits :: Lens.Lens' UpdateWorkspace (Prelude.Maybe [Prelude.Text])
 updateWorkspace_workspaceOrganizationalUnits = Lens.lens (\UpdateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@UpdateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: UpdateWorkspace) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The workspace needs an IAM role that grants permissions to the Amazon
--- Web Services resources that the workspace will view data from. If you
--- already have a role that you want to use, specify it here. If you omit
--- this field and you specify some Amazon Web Services resources in
--- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
--- role with the necessary permissions is automatically created.
+-- | Specifies an IAM role that grants permissions to Amazon Web Services
+-- resources that the workspace accesses, such as data sources and
+-- notification channels. If this workspace has @permissionType@
+-- @CUSTOMER_MANAGED@, then this role is required.
 updateWorkspace_workspaceRoleArn :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
 updateWorkspace_workspaceRoleArn = Lens.lens (\UpdateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@UpdateWorkspace' {} a -> s {workspaceRoleArn = a} :: UpdateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
@@ -349,9 +417,12 @@ instance Core.AWSRequest UpdateWorkspace where
 
 instance Prelude.Hashable UpdateWorkspace where
   hashWithSalt _salt UpdateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` accountAccessType
+    _salt
+      `Prelude.hashWithSalt` accountAccessType
+      `Prelude.hashWithSalt` networkAccessControl
       `Prelude.hashWithSalt` organizationRoleName
       `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` removeNetworkAccessConfiguration
       `Prelude.hashWithSalt` removeVpcConfiguration
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` vpcConfiguration
@@ -366,8 +437,10 @@ instance Prelude.Hashable UpdateWorkspace where
 instance Prelude.NFData UpdateWorkspace where
   rnf UpdateWorkspace' {..} =
     Prelude.rnf accountAccessType
+      `Prelude.seq` Prelude.rnf networkAccessControl
       `Prelude.seq` Prelude.rnf organizationRoleName
       `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf removeNetworkAccessConfiguration
       `Prelude.seq` Prelude.rnf removeVpcConfiguration
       `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf vpcConfiguration
@@ -396,10 +469,14 @@ instance Data.ToJSON UpdateWorkspace where
       ( Prelude.catMaybes
           [ ("accountAccessType" Data..=)
               Prelude.<$> accountAccessType,
+            ("networkAccessControl" Data..=)
+              Prelude.<$> networkAccessControl,
             ("organizationRoleName" Data..=)
               Prelude.<$> organizationRoleName,
             ("permissionType" Data..=)
               Prelude.<$> permissionType,
+            ("removeNetworkAccessConfiguration" Data..=)
+              Prelude.<$> removeNetworkAccessConfiguration,
             ("removeVpcConfiguration" Data..=)
               Prelude.<$> removeVpcConfiguration,
             ("stackSetName" Data..=) Prelude.<$> stackSetName,

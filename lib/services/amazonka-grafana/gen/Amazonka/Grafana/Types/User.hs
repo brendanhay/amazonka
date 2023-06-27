@@ -79,12 +79,14 @@ instance Data.FromJSON User where
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Data..: "id") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData User where

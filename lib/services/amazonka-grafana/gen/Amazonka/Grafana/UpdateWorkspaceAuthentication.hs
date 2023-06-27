@@ -25,6 +25,9 @@
 -- assertion attributes to workspace user information and define which
 -- groups in the assertion attribute are to have the @Admin@ and @Editor@
 -- roles in the workspace.
+--
+-- Changes to the authentication method for a workspace may take a few
+-- minutes to take effect.
 module Amazonka.Grafana.UpdateWorkspaceAuthentication
   ( -- * Creating a Request
     UpdateWorkspaceAuthentication (..),
@@ -141,7 +144,8 @@ instance
     UpdateWorkspaceAuthentication
   where
   hashWithSalt _salt UpdateWorkspaceAuthentication' {..} =
-    _salt `Prelude.hashWithSalt` samlConfiguration
+    _salt
+      `Prelude.hashWithSalt` samlConfiguration
       `Prelude.hashWithSalt` authenticationProviders
       `Prelude.hashWithSalt` workspaceId
 

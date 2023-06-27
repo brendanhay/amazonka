@@ -23,6 +23,8 @@ module Amazonka.Grafana.Lens
     -- ** CreateWorkspace
     createWorkspace_clientToken,
     createWorkspace_configuration,
+    createWorkspace_grafanaVersion,
+    createWorkspace_networkAccessControl,
     createWorkspace_organizationRoleName,
     createWorkspace_stackSetName,
     createWorkspace_tags,
@@ -123,8 +125,10 @@ module Amazonka.Grafana.Lens
 
     -- ** UpdateWorkspace
     updateWorkspace_accountAccessType,
+    updateWorkspace_networkAccessControl,
     updateWorkspace_organizationRoleName,
     updateWorkspace_permissionType,
+    updateWorkspace_removeNetworkAccessConfiguration,
     updateWorkspace_removeVpcConfiguration,
     updateWorkspace_stackSetName,
     updateWorkspace_vpcConfiguration,
@@ -176,6 +180,10 @@ module Amazonka.Grafana.Lens
     idpMetadata_url,
     idpMetadata_xml,
 
+    -- ** NetworkAccessConfiguration
+    networkAccessConfiguration_prefixListIds,
+    networkAccessConfiguration_vpceIds,
+
     -- ** PermissionEntry
     permissionEntry_role,
     permissionEntry_user,
@@ -221,6 +229,7 @@ module Amazonka.Grafana.Lens
     workspaceDescription_licenseExpiration,
     workspaceDescription_licenseType,
     workspaceDescription_name,
+    workspaceDescription_networkAccessControl,
     workspaceDescription_notificationDestinations,
     workspaceDescription_organizationRoleName,
     workspaceDescription_organizationalUnits,
@@ -271,6 +280,7 @@ import Amazonka.Grafana.Types.AuthenticationDescription
 import Amazonka.Grafana.Types.AuthenticationSummary
 import Amazonka.Grafana.Types.AwsSsoAuthentication
 import Amazonka.Grafana.Types.IdpMetadata
+import Amazonka.Grafana.Types.NetworkAccessConfiguration
 import Amazonka.Grafana.Types.PermissionEntry
 import Amazonka.Grafana.Types.RoleValues
 import Amazonka.Grafana.Types.SamlAuthentication

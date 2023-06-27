@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteWorkspaceApiKey where
 
 instance Prelude.Hashable DeleteWorkspaceApiKey where
   hashWithSalt _salt DeleteWorkspaceApiKey' {..} =
-    _salt `Prelude.hashWithSalt` keyName
+    _salt
+      `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData DeleteWorkspaceApiKey where

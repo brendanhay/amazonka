@@ -114,7 +114,8 @@ instance
     UpdateWorkspaceConfiguration
   where
   hashWithSalt _salt UpdateWorkspaceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData UpdateWorkspaceConfiguration where

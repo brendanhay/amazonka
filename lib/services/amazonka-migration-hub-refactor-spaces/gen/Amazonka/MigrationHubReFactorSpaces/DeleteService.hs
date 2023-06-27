@@ -144,7 +144,8 @@ instance Core.AWSRequest DeleteService where
 
 instance Prelude.Hashable DeleteService where
   hashWithSalt _salt DeleteService' {..} =
-    _salt `Prelude.hashWithSalt` applicationIdentifier
+    _salt
+      `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier
       `Prelude.hashWithSalt` serviceIdentifier
 

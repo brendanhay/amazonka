@@ -103,7 +103,8 @@ instance Data.FromJSON UrlEndpointInput where
 
 instance Prelude.Hashable UrlEndpointInput where
   hashWithSalt _salt UrlEndpointInput' {..} =
-    _salt `Prelude.hashWithSalt` healthUrl
+    _salt
+      `Prelude.hashWithSalt` healthUrl
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData UrlEndpointInput where

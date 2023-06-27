@@ -30,7 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUriPathRouteInput' smart constructor.
 data UriPathRouteInput = UriPathRouteInput'
-  { -- | Indicates whether to match all subpaths of the given source path. If
+  { -- | If set to @true@, this option appends the source path to the service URL
+    -- endpoint.
+    appendSourcePath :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether to match all subpaths of the given source path. If
     -- this value is @false@, requests must match the source path exactly
     -- before they are forwarded to this route\'s service.
     includeChildPaths :: Prelude.Maybe Prelude.Bool,
@@ -41,8 +44,11 @@ data UriPathRouteInput = UriPathRouteInput'
     -- | If set to @ACTIVE@, traffic is forwarded to this route’s service after
     -- the route is created.
     activationState :: RouteActivationState,
-    -- | The path to use to match traffic. Paths must start with @\/@ and are
-    -- relative to the base of the application.
+    -- | This is the path that Refactor Spaces uses to match traffic. Paths must
+    -- start with @\/@ and are relative to the base of the application. To use
+    -- path parameters in the source path, add a variable in curly braces. For
+    -- example, the resource path {user} represents a path parameter called
+    -- \'user\'.
     sourcePath :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,6 +61,9 @@ data UriPathRouteInput = UriPathRouteInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appendSourcePath', 'uriPathRouteInput_appendSourcePath' - If set to @true@, this option appends the source path to the service URL
+-- endpoint.
+--
 -- 'includeChildPaths', 'uriPathRouteInput_includeChildPaths' - Indicates whether to match all subpaths of the given source path. If
 -- this value is @false@, requests must match the source path exactly
 -- before they are forwarded to this route\'s service.
@@ -66,8 +75,11 @@ data UriPathRouteInput = UriPathRouteInput'
 -- 'activationState', 'uriPathRouteInput_activationState' - If set to @ACTIVE@, traffic is forwarded to this route’s service after
 -- the route is created.
 --
--- 'sourcePath', 'uriPathRouteInput_sourcePath' - The path to use to match traffic. Paths must start with @\/@ and are
--- relative to the base of the application.
+-- 'sourcePath', 'uriPathRouteInput_sourcePath' - This is the path that Refactor Spaces uses to match traffic. Paths must
+-- start with @\/@ and are relative to the base of the application. To use
+-- path parameters in the source path, add a variable in curly braces. For
+-- example, the resource path {user} represents a path parameter called
+-- \'user\'.
 newUriPathRouteInput ::
   -- | 'activationState'
   RouteActivationState ->
@@ -76,12 +88,18 @@ newUriPathRouteInput ::
   UriPathRouteInput
 newUriPathRouteInput pActivationState_ pSourcePath_ =
   UriPathRouteInput'
-    { includeChildPaths =
+    { appendSourcePath =
         Prelude.Nothing,
+      includeChildPaths = Prelude.Nothing,
       methods = Prelude.Nothing,
       activationState = pActivationState_,
       sourcePath = pSourcePath_
     }
+
+-- | If set to @true@, this option appends the source path to the service URL
+-- endpoint.
+uriPathRouteInput_appendSourcePath :: Lens.Lens' UriPathRouteInput (Prelude.Maybe Prelude.Bool)
+uriPathRouteInput_appendSourcePath = Lens.lens (\UriPathRouteInput' {appendSourcePath} -> appendSourcePath) (\s@UriPathRouteInput' {} a -> s {appendSourcePath = a} :: UriPathRouteInput)
 
 -- | Indicates whether to match all subpaths of the given source path. If
 -- this value is @false@, requests must match the source path exactly
@@ -100,8 +118,11 @@ uriPathRouteInput_methods = Lens.lens (\UriPathRouteInput' {methods} -> methods)
 uriPathRouteInput_activationState :: Lens.Lens' UriPathRouteInput RouteActivationState
 uriPathRouteInput_activationState = Lens.lens (\UriPathRouteInput' {activationState} -> activationState) (\s@UriPathRouteInput' {} a -> s {activationState = a} :: UriPathRouteInput)
 
--- | The path to use to match traffic. Paths must start with @\/@ and are
--- relative to the base of the application.
+-- | This is the path that Refactor Spaces uses to match traffic. Paths must
+-- start with @\/@ and are relative to the base of the application. To use
+-- path parameters in the source path, add a variable in curly braces. For
+-- example, the resource path {user} represents a path parameter called
+-- \'user\'.
 uriPathRouteInput_sourcePath :: Lens.Lens' UriPathRouteInput Prelude.Text
 uriPathRouteInput_sourcePath = Lens.lens (\UriPathRouteInput' {sourcePath} -> sourcePath) (\s@UriPathRouteInput' {} a -> s {sourcePath = a} :: UriPathRouteInput)
 
@@ -111,7 +132,8 @@ instance Data.FromJSON UriPathRouteInput where
       "UriPathRouteInput"
       ( \x ->
           UriPathRouteInput'
-            Prelude.<$> (x Data..:? "IncludeChildPaths")
+            Prelude.<$> (x Data..:? "AppendSourcePath")
+            Prelude.<*> (x Data..:? "IncludeChildPaths")
             Prelude.<*> (x Data..:? "Methods" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "ActivationState")
             Prelude.<*> (x Data..: "SourcePath")
@@ -119,14 +141,17 @@ instance Data.FromJSON UriPathRouteInput where
 
 instance Prelude.Hashable UriPathRouteInput where
   hashWithSalt _salt UriPathRouteInput' {..} =
-    _salt `Prelude.hashWithSalt` includeChildPaths
+    _salt
+      `Prelude.hashWithSalt` appendSourcePath
+      `Prelude.hashWithSalt` includeChildPaths
       `Prelude.hashWithSalt` methods
       `Prelude.hashWithSalt` activationState
       `Prelude.hashWithSalt` sourcePath
 
 instance Prelude.NFData UriPathRouteInput where
   rnf UriPathRouteInput' {..} =
-    Prelude.rnf includeChildPaths
+    Prelude.rnf appendSourcePath
+      `Prelude.seq` Prelude.rnf includeChildPaths
       `Prelude.seq` Prelude.rnf methods
       `Prelude.seq` Prelude.rnf activationState
       `Prelude.seq` Prelude.rnf sourcePath
@@ -135,7 +160,9 @@ instance Data.ToJSON UriPathRouteInput where
   toJSON UriPathRouteInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IncludeChildPaths" Data..=)
+          [ ("AppendSourcePath" Data..=)
+              Prelude.<$> appendSourcePath,
+            ("IncludeChildPaths" Data..=)
               Prelude.<$> includeChildPaths,
             ("Methods" Data..=) Prelude.<$> methods,
             Prelude.Just

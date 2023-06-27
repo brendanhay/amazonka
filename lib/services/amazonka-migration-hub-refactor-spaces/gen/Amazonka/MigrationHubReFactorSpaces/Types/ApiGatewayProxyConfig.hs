@@ -132,7 +132,8 @@ instance Data.FromJSON ApiGatewayProxyConfig where
 
 instance Prelude.Hashable ApiGatewayProxyConfig where
   hashWithSalt _salt ApiGatewayProxyConfig' {..} =
-    _salt `Prelude.hashWithSalt` apiGatewayId
+    _salt
+      `Prelude.hashWithSalt` apiGatewayId
       `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` nlbArn
       `Prelude.hashWithSalt` nlbName

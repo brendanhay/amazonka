@@ -200,6 +200,7 @@ module Amazonka.MigrationHubReFactorSpaces.Lens
     getRoute_applicationIdentifier,
     getRoute_environmentIdentifier,
     getRoute_routeIdentifier,
+    getRouteResponse_appendSourcePath,
     getRouteResponse_applicationId,
     getRouteResponse_arn,
     getRouteResponse_createdByAccountId,
@@ -400,6 +401,7 @@ module Amazonka.MigrationHubReFactorSpaces.Lens
     lambdaEndpointSummary_arn,
 
     -- ** RouteSummary
+    routeSummary_appendSourcePath,
     routeSummary_applicationId,
     routeSummary_arn,
     routeSummary_createdByAccountId,
@@ -438,6 +440,7 @@ module Amazonka.MigrationHubReFactorSpaces.Lens
     serviceSummary_vpcId,
 
     -- ** UriPathRouteInput
+    uriPathRouteInput_appendSourcePath,
     uriPathRouteInput_includeChildPaths,
     uriPathRouteInput_methods,
     uriPathRouteInput_activationState,

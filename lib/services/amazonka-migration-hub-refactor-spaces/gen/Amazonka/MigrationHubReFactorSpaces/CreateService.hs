@@ -253,7 +253,8 @@ instance Core.AWSRequest CreateService where
 
 instance Prelude.Hashable CreateService where
   hashWithSalt _salt CreateService' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lambdaEndpoint
       `Prelude.hashWithSalt` tags

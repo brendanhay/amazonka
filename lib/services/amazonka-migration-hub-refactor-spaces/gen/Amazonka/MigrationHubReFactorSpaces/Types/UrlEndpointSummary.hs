@@ -101,7 +101,8 @@ instance Data.FromJSON UrlEndpointSummary where
 
 instance Prelude.Hashable UrlEndpointSummary where
   hashWithSalt _salt UrlEndpointSummary' {..} =
-    _salt `Prelude.hashWithSalt` healthUrl
+    _salt
+      `Prelude.hashWithSalt` healthUrl
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData UrlEndpointSummary where

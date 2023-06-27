@@ -32,7 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRouteSummary' smart constructor.
 data RouteSummary = RouteSummary'
-  { -- | The unique identifier of the application.
+  { -- | If set to @true@, this option appends the source path to the service URL
+    -- endpoint.
+    appendSourcePath :: Prelude.Maybe Prelude.Bool,
+    -- | The unique identifier of the application.
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the route.
     arn :: Prelude.Maybe Prelude.Text,
@@ -64,8 +67,11 @@ data RouteSummary = RouteSummary'
     routeType :: Prelude.Maybe RouteType,
     -- | The unique identifier of the service.
     serviceId :: Prelude.Maybe Prelude.Text,
-    -- | The path to use to match traffic. Paths must start with @\/@ and are
-    -- relative to the base of the application.
+    -- | This is the path that Refactor Spaces uses to match traffic. Paths must
+    -- start with @\/@ and are relative to the base of the application. To use
+    -- path parameters in the source path, add a variable in curly braces. For
+    -- example, the resource path {user} represents a path parameter called
+    -- \'user\'.
     sourcePath :: Prelude.Maybe Prelude.Text,
     -- | The current state of the route.
     state :: Prelude.Maybe RouteState,
@@ -81,6 +87,9 @@ data RouteSummary = RouteSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'appendSourcePath', 'routeSummary_appendSourcePath' - If set to @true@, this option appends the source path to the service URL
+-- endpoint.
 --
 -- 'applicationId', 'routeSummary_applicationId' - The unique identifier of the application.
 --
@@ -114,8 +123,11 @@ data RouteSummary = RouteSummary'
 --
 -- 'serviceId', 'routeSummary_serviceId' - The unique identifier of the service.
 --
--- 'sourcePath', 'routeSummary_sourcePath' - The path to use to match traffic. Paths must start with @\/@ and are
--- relative to the base of the application.
+-- 'sourcePath', 'routeSummary_sourcePath' - This is the path that Refactor Spaces uses to match traffic. Paths must
+-- start with @\/@ and are relative to the base of the application. To use
+-- path parameters in the source path, add a variable in curly braces. For
+-- example, the resource path {user} represents a path parameter called
+-- \'user\'.
 --
 -- 'state', 'routeSummary_state' - The current state of the route.
 --
@@ -124,7 +136,8 @@ newRouteSummary ::
   RouteSummary
 newRouteSummary =
   RouteSummary'
-    { applicationId = Prelude.Nothing,
+    { appendSourcePath = Prelude.Nothing,
+      applicationId = Prelude.Nothing,
       arn = Prelude.Nothing,
       createdByAccountId = Prelude.Nothing,
       createdTime = Prelude.Nothing,
@@ -142,6 +155,11 @@ newRouteSummary =
       state = Prelude.Nothing,
       tags = Prelude.Nothing
     }
+
+-- | If set to @true@, this option appends the source path to the service URL
+-- endpoint.
+routeSummary_appendSourcePath :: Lens.Lens' RouteSummary (Prelude.Maybe Prelude.Bool)
+routeSummary_appendSourcePath = Lens.lens (\RouteSummary' {appendSourcePath} -> appendSourcePath) (\s@RouteSummary' {} a -> s {appendSourcePath = a} :: RouteSummary)
 
 -- | The unique identifier of the application.
 routeSummary_applicationId :: Lens.Lens' RouteSummary (Prelude.Maybe Prelude.Text)
@@ -203,8 +221,11 @@ routeSummary_routeType = Lens.lens (\RouteSummary' {routeType} -> routeType) (\s
 routeSummary_serviceId :: Lens.Lens' RouteSummary (Prelude.Maybe Prelude.Text)
 routeSummary_serviceId = Lens.lens (\RouteSummary' {serviceId} -> serviceId) (\s@RouteSummary' {} a -> s {serviceId = a} :: RouteSummary)
 
--- | The path to use to match traffic. Paths must start with @\/@ and are
--- relative to the base of the application.
+-- | This is the path that Refactor Spaces uses to match traffic. Paths must
+-- start with @\/@ and are relative to the base of the application. To use
+-- path parameters in the source path, add a variable in curly braces. For
+-- example, the resource path {user} represents a path parameter called
+-- \'user\'.
 routeSummary_sourcePath :: Lens.Lens' RouteSummary (Prelude.Maybe Prelude.Text)
 routeSummary_sourcePath = Lens.lens (\RouteSummary' {sourcePath} -> sourcePath) (\s@RouteSummary' {} a -> s {sourcePath = a} :: RouteSummary)
 
@@ -222,7 +243,8 @@ instance Data.FromJSON RouteSummary where
       "RouteSummary"
       ( \x ->
           RouteSummary'
-            Prelude.<$> (x Data..:? "ApplicationId")
+            Prelude.<$> (x Data..:? "AppendSourcePath")
+            Prelude.<*> (x Data..:? "ApplicationId")
             Prelude.<*> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreatedByAccountId")
             Prelude.<*> (x Data..:? "CreatedTime")
@@ -232,7 +254,8 @@ instance Data.FromJSON RouteSummary where
             Prelude.<*> (x Data..:? "LastUpdatedTime")
             Prelude.<*> (x Data..:? "Methods" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "OwnerAccountId")
-            Prelude.<*> ( x Data..:? "PathResourceToId"
+            Prelude.<*> ( x
+                            Data..:? "PathResourceToId"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RouteId")
@@ -245,7 +268,9 @@ instance Data.FromJSON RouteSummary where
 
 instance Prelude.Hashable RouteSummary where
   hashWithSalt _salt RouteSummary' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` appendSourcePath
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdByAccountId
       `Prelude.hashWithSalt` createdTime
@@ -265,7 +290,8 @@ instance Prelude.Hashable RouteSummary where
 
 instance Prelude.NFData RouteSummary where
   rnf RouteSummary' {..} =
-    Prelude.rnf applicationId
+    Prelude.rnf appendSourcePath
+      `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdByAccountId
       `Prelude.seq` Prelude.rnf createdTime

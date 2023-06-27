@@ -54,7 +54,7 @@ data EnvironmentSummary = EnvironmentSummary'
     state :: Prelude.Maybe EnvironmentState,
     -- | The tags assigned to the environment.
     tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The ID of the transit gateway set up by the environment.
+    -- | The ID of the Transit Gateway set up by the environment.
     transitGatewayId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -89,7 +89,7 @@ data EnvironmentSummary = EnvironmentSummary'
 --
 -- 'tags', 'environmentSummary_tags' - The tags assigned to the environment.
 --
--- 'transitGatewayId', 'environmentSummary_transitGatewayId' - The ID of the transit gateway set up by the environment.
+-- 'transitGatewayId', 'environmentSummary_transitGatewayId' - The ID of the Transit Gateway set up by the environment.
 newEnvironmentSummary ::
   EnvironmentSummary
 newEnvironmentSummary =
@@ -152,7 +152,7 @@ environmentSummary_state = Lens.lens (\EnvironmentSummary' {state} -> state) (\s
 environmentSummary_tags :: Lens.Lens' EnvironmentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 environmentSummary_tags = Lens.lens (\EnvironmentSummary' {tags} -> tags) (\s@EnvironmentSummary' {} a -> s {tags = a} :: EnvironmentSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The ID of the transit gateway set up by the environment.
+-- | The ID of the Transit Gateway set up by the environment.
 environmentSummary_transitGatewayId :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
 environmentSummary_transitGatewayId = Lens.lens (\EnvironmentSummary' {transitGatewayId} -> transitGatewayId) (\s@EnvironmentSummary' {} a -> s {transitGatewayId = a} :: EnvironmentSummary)
 
@@ -178,7 +178,8 @@ instance Data.FromJSON EnvironmentSummary where
 
 instance Prelude.Hashable EnvironmentSummary where
   hashWithSalt _salt EnvironmentSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentId

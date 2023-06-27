@@ -166,7 +166,7 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
     -- to an Amazon Web Services resource. Each tag consists of a key-value
     -- pair.
     tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The ID of the transit gateway set up by the environment.
+    -- | The ID of the Transit Gateway set up by the environment, if applicable.
     transitGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -205,7 +205,7 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
 -- to an Amazon Web Services resource. Each tag consists of a key-value
 -- pair.
 --
--- 'transitGatewayId', 'getEnvironmentResponse_transitGatewayId' - The ID of the transit gateway set up by the environment.
+-- 'transitGatewayId', 'getEnvironmentResponse_transitGatewayId' - The ID of the Transit Gateway set up by the environment, if applicable.
 --
 -- 'httpStatus', 'getEnvironmentResponse_httpStatus' - The response's http status code.
 newGetEnvironmentResponse ::
@@ -275,7 +275,7 @@ getEnvironmentResponse_state = Lens.lens (\GetEnvironmentResponse' {state} -> st
 getEnvironmentResponse_tags :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getEnvironmentResponse_tags = Lens.lens (\GetEnvironmentResponse' {tags} -> tags) (\s@GetEnvironmentResponse' {} a -> s {tags = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The ID of the transit gateway set up by the environment.
+-- | The ID of the Transit Gateway set up by the environment, if applicable.
 getEnvironmentResponse_transitGatewayId :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
 getEnvironmentResponse_transitGatewayId = Lens.lens (\GetEnvironmentResponse' {transitGatewayId} -> transitGatewayId) (\s@GetEnvironmentResponse' {} a -> s {transitGatewayId = a} :: GetEnvironmentResponse)
 

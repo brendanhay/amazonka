@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteRoute where
 
 instance Prelude.Hashable DeleteRoute where
   hashWithSalt _salt DeleteRoute' {..} =
-    _salt `Prelude.hashWithSalt` applicationIdentifier
+    _salt
+      `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier
       `Prelude.hashWithSalt` routeIdentifier
 

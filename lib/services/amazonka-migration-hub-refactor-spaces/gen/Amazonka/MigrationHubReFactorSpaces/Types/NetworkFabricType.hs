@@ -20,6 +20,7 @@
 module Amazonka.MigrationHubReFactorSpaces.Types.NetworkFabricType
   ( NetworkFabricType
       ( ..,
+        NetworkFabricType_NONE,
         NetworkFabricType_TRANSIT_GATEWAY
       ),
   )
@@ -57,10 +58,14 @@ newtype NetworkFabricType = NetworkFabricType'
       Data.ToXML
     )
 
+pattern NetworkFabricType_NONE :: NetworkFabricType
+pattern NetworkFabricType_NONE = NetworkFabricType' "NONE"
+
 pattern NetworkFabricType_TRANSIT_GATEWAY :: NetworkFabricType
 pattern NetworkFabricType_TRANSIT_GATEWAY = NetworkFabricType' "TRANSIT_GATEWAY"
 
 {-# COMPLETE
+  NetworkFabricType_NONE,
   NetworkFabricType_TRANSIT_GATEWAY,
   NetworkFabricType'
   #-}

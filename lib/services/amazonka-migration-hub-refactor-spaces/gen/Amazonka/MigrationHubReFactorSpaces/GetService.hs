@@ -150,7 +150,8 @@ instance Core.AWSRequest GetService where
 
 instance Prelude.Hashable GetService where
   hashWithSalt _salt GetService' {..} =
-    _salt `Prelude.hashWithSalt` applicationIdentifier
+    _salt
+      `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier
       `Prelude.hashWithSalt` serviceIdentifier
 

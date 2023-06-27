@@ -36,6 +36,7 @@ module Amazonka.MigrationHubReFactorSpaces.GetRoute
     newGetRouteResponse,
 
     -- * Response Lenses
+    getRouteResponse_appendSourcePath,
     getRouteResponse_applicationId,
     getRouteResponse_arn,
     getRouteResponse_createdByAccountId,
@@ -128,7 +129,8 @@ instance Core.AWSRequest GetRoute where
     Response.receiveJSON
       ( \s h x ->
           GetRouteResponse'
-            Prelude.<$> (x Data..?> "ApplicationId")
+            Prelude.<$> (x Data..?> "AppendSourcePath")
+            Prelude.<*> (x Data..?> "ApplicationId")
             Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreatedByAccountId")
             Prelude.<*> (x Data..?> "CreatedTime")
@@ -138,7 +140,8 @@ instance Core.AWSRequest GetRoute where
             Prelude.<*> (x Data..?> "LastUpdatedTime")
             Prelude.<*> (x Data..?> "Methods" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "OwnerAccountId")
-            Prelude.<*> ( x Data..?> "PathResourceToId"
+            Prelude.<*> ( x
+                            Data..?> "PathResourceToId"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "RouteId")
@@ -152,7 +155,8 @@ instance Core.AWSRequest GetRoute where
 
 instance Prelude.Hashable GetRoute where
   hashWithSalt _salt GetRoute' {..} =
-    _salt `Prelude.hashWithSalt` applicationIdentifier
+    _salt
+      `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier
       `Prelude.hashWithSalt` routeIdentifier
 
@@ -189,7 +193,10 @@ instance Data.ToQuery GetRoute where
 
 -- | /See:/ 'newGetRouteResponse' smart constructor.
 data GetRouteResponse = GetRouteResponse'
-  { -- | The ID of the application that the route belongs to.
+  { -- | If set to @true@, this option appends the source path to the service URL
+    -- endpoint.
+    appendSourcePath :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the application that the route belongs to.
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the route.
     arn :: Prelude.Maybe Prelude.Text,
@@ -227,8 +234,11 @@ data GetRouteResponse = GetRouteResponse'
     routeType :: Prelude.Maybe RouteType,
     -- | The unique identifier of the service.
     serviceId :: Prelude.Maybe Prelude.Text,
-    -- | The path to use to match traffic. Paths must start with @\/@ and are
-    -- relative to the base of the application.
+    -- | This is the path that Refactor Spaces uses to match traffic. Paths must
+    -- start with @\/@ and are relative to the base of the application. To use
+    -- path parameters in the source path, add a variable in curly braces. For
+    -- example, the resource path {user} represents a path parameter called
+    -- \'user\'.
     sourcePath :: Prelude.Maybe Prelude.Text,
     -- | The current state of the route.
     state :: Prelude.Maybe RouteState,
@@ -247,6 +257,9 @@ data GetRouteResponse = GetRouteResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'appendSourcePath', 'getRouteResponse_appendSourcePath' - If set to @true@, this option appends the source path to the service URL
+-- endpoint.
 --
 -- 'applicationId', 'getRouteResponse_applicationId' - The ID of the application that the route belongs to.
 --
@@ -286,8 +299,11 @@ data GetRouteResponse = GetRouteResponse'
 --
 -- 'serviceId', 'getRouteResponse_serviceId' - The unique identifier of the service.
 --
--- 'sourcePath', 'getRouteResponse_sourcePath' - The path to use to match traffic. Paths must start with @\/@ and are
--- relative to the base of the application.
+-- 'sourcePath', 'getRouteResponse_sourcePath' - This is the path that Refactor Spaces uses to match traffic. Paths must
+-- start with @\/@ and are relative to the base of the application. To use
+-- path parameters in the source path, add a variable in curly braces. For
+-- example, the resource path {user} represents a path parameter called
+-- \'user\'.
 --
 -- 'state', 'getRouteResponse_state' - The current state of the route.
 --
@@ -301,7 +317,9 @@ newGetRouteResponse ::
   GetRouteResponse
 newGetRouteResponse pHttpStatus_ =
   GetRouteResponse'
-    { applicationId = Prelude.Nothing,
+    { appendSourcePath =
+        Prelude.Nothing,
+      applicationId = Prelude.Nothing,
       arn = Prelude.Nothing,
       createdByAccountId = Prelude.Nothing,
       createdTime = Prelude.Nothing,
@@ -320,6 +338,11 @@ newGetRouteResponse pHttpStatus_ =
       tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | If set to @true@, this option appends the source path to the service URL
+-- endpoint.
+getRouteResponse_appendSourcePath :: Lens.Lens' GetRouteResponse (Prelude.Maybe Prelude.Bool)
+getRouteResponse_appendSourcePath = Lens.lens (\GetRouteResponse' {appendSourcePath} -> appendSourcePath) (\s@GetRouteResponse' {} a -> s {appendSourcePath = a} :: GetRouteResponse)
 
 -- | The ID of the application that the route belongs to.
 getRouteResponse_applicationId :: Lens.Lens' GetRouteResponse (Prelude.Maybe Prelude.Text)
@@ -387,8 +410,11 @@ getRouteResponse_routeType = Lens.lens (\GetRouteResponse' {routeType} -> routeT
 getRouteResponse_serviceId :: Lens.Lens' GetRouteResponse (Prelude.Maybe Prelude.Text)
 getRouteResponse_serviceId = Lens.lens (\GetRouteResponse' {serviceId} -> serviceId) (\s@GetRouteResponse' {} a -> s {serviceId = a} :: GetRouteResponse)
 
--- | The path to use to match traffic. Paths must start with @\/@ and are
--- relative to the base of the application.
+-- | This is the path that Refactor Spaces uses to match traffic. Paths must
+-- start with @\/@ and are relative to the base of the application. To use
+-- path parameters in the source path, add a variable in curly braces. For
+-- example, the resource path {user} represents a path parameter called
+-- \'user\'.
 getRouteResponse_sourcePath :: Lens.Lens' GetRouteResponse (Prelude.Maybe Prelude.Text)
 getRouteResponse_sourcePath = Lens.lens (\GetRouteResponse' {sourcePath} -> sourcePath) (\s@GetRouteResponse' {} a -> s {sourcePath = a} :: GetRouteResponse)
 
@@ -407,7 +433,8 @@ getRouteResponse_httpStatus = Lens.lens (\GetRouteResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetRouteResponse where
   rnf GetRouteResponse' {..} =
-    Prelude.rnf applicationId
+    Prelude.rnf appendSourcePath
+      `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdByAccountId
       `Prelude.seq` Prelude.rnf createdTime

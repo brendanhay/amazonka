@@ -35,57 +35,77 @@
 -- When you create a route, Refactor Spaces configures the Amazon API
 -- Gateway to send traffic to the target service as follows:
 --
--- -   If the service has a URL endpoint, and the endpoint resolves to a
+-- -   __URL Endpoints__
+--
+--     If the service has a URL endpoint, and the endpoint resolves to a
 --     private IP address, Refactor Spaces routes traffic using the API
---     Gateway VPC link.
+--     Gateway VPC link. If a service endpoint resolves to a public IP
+--     address, Refactor Spaces routes traffic over the public internet.
+--     Services can have HTTP or HTTPS URL endpoints. For HTTPS URLs,
+--     publicly-signed certificates are supported. Private Certificate
+--     Authorities (CAs) are permitted only if the CA\'s domain is also
+--     publicly resolvable.
 --
--- -   If the service has a URL endpoint, and the endpoint resolves to a
---     public IP address, Refactor Spaces routes traffic over the public
---     internet.
+--     Refactor Spaces automatically resolves the public Domain Name System
+--     (DNS) names that are set in @CreateService:UrlEndpoint @when you
+--     create a service. The DNS names resolve when the DNS time-to-live
+--     (TTL) expires, or every 60 seconds for TTLs less than 60 seconds.
+--     This periodic DNS resolution ensures that the route configuration
+--     remains up-to-date.
 --
--- -   If the service has an Lambda function endpoint, then Refactor Spaces
+--     __One-time health check__
+--
+--     A one-time health check is performed on the service when either the
+--     route is updated from inactive to active, or when it is created with
+--     an active state. If the health check fails, the route transitions
+--     the route state to @FAILED@, an error code of
+--     @SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE@ is provided, and no traffic
+--     is sent to the service.
+--
+--     For private URLs, a target group is created on the Network Load
+--     Balancer and the load balancer target group runs default target
+--     health checks. By default, the health check is run against the
+--     service endpoint URL. Optionally, the health check can be performed
+--     against a different protocol, port, and\/or path using the
+--     <https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateService.html#migrationhubrefactorspaces-CreateService-request-UrlEndpoint CreateService:UrlEndpoint>
+--     parameter. All other health check settings for the load balancer use
+--     the default values described in the
+--     <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html Health checks for your target groups>
+--     in the /Elastic Load Balancing guide/. The health check is
+--     considered successful if at least one target within the target group
+--     transitions to a healthy state.
+--
+-- -   __Lambda function endpoints__
+--
+--     If the service has an Lambda function endpoint, then Refactor Spaces
 --     configures the Lambda function\'s resource policy to allow the
 --     application\'s API Gateway to invoke the function.
 --
--- A one-time health check is performed on the service when either the
--- route is updated from inactive to active, or when it is created with an
--- active state. If the health check fails, the route transitions the route
--- state to @FAILED@, an error code of
--- @SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE@ is provided, and no traffic is
--- sent to the service.
+--     The Lambda function state is checked. If the function is not active,
+--     the function configuration is updated so that Lambda resources are
+--     provisioned. If the Lambda state is @Failed@, then the route
+--     creation fails. For more information, see the
+--     <https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#SSS-GetFunctionConfiguration-response-State GetFunctionConfiguration\'s State response parameter>
+--     in the /Lambda Developer Guide/.
 --
--- For Lambda functions, the Lambda function state is checked. If the
--- function is not active, the function configuration is updated so that
--- Lambda resources are provisioned. If the Lambda state is @Failed@, then
--- the route creation fails. For more information, see the
--- <https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#SSS-GetFunctionConfiguration-response-State GetFunctionConfiguration\'s State response parameter>
--- in the /Lambda Developer Guide/.
+--     A check is performed to determine that a Lambda function with the
+--     specified ARN exists. If it does not exist, the health check fails.
+--     For public URLs, a connection is opened to the public endpoint. If
+--     the URL is not reachable, the health check fails.
 --
--- For Lambda endpoints, a check is performed to determine that a Lambda
--- function with the specified ARN exists. If it does not exist, the health
--- check fails. For public URLs, a connection is opened to the public
--- endpoint. If the URL is not reachable, the health check fails.
+-- __Environments without a network bridge__
 --
--- Refactor Spaces automatically resolves the public Domain Name System
--- (DNS) names that are set in CreateServiceRequest$UrlEndpoint when you
--- create a service. The DNS names resolve when the DNS time-to-live (TTL)
--- expires, or every 60 seconds for TTLs less than 60 seconds. This
--- periodic DNS resolution ensures that the route configuration remains
--- up-to-date.
---
--- For private URLS, a target group is created on the Elastic Load
--- Balancing and the target group health check is run. The
--- @HealthCheckProtocol@, @HealthCheckPort@, and @HealthCheckPath@ are the
--- same protocol, port, and path specified in the URL or health URL, if
--- used. All other settings use the default values, as described in
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html Health checks for your target groups>.
--- The health check is considered successful if at least one target within
--- the target group transitions to a healthy state.
---
--- Services can have HTTP or HTTPS URL endpoints. For HTTPS URLs,
--- publicly-signed certificates are supported. Private Certificate
--- Authorities (CAs) are permitted only if the CA\'s domain is also
--- publicly resolvable.
+-- When you create environments without a network bridge
+-- (<https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType CreateEnvironment:NetworkFabricType>
+-- is @NONE)@ and you use your own networking infrastructure, you need to
+-- configure
+-- <https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html VPC to VPC connectivity>
+-- between your network and the application proxy VPC. Route creation from
+-- the application proxy to service endpoints will fail if your network is
+-- not configured to connect to the application proxy VPC. For more
+-- information, see
+-- <https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/getting-started-create-role.html Create a route>
+-- in the /Refactor Spaces User Guide/.
 module Amazonka.MigrationHubReFactorSpaces.CreateRoute
   ( -- * Creating a Request
     CreateRoute (..),
@@ -275,7 +295,8 @@ instance Core.AWSRequest CreateRoute where
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` defaultRoute
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` uriPathRoute
@@ -338,7 +359,7 @@ data CreateRouteResponse = CreateRouteResponse'
   { -- | The ID of the application in which the route is created.
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
-    -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+    -- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
@@ -384,7 +405,7 @@ data CreateRouteResponse = CreateRouteResponse'
 -- 'applicationId', 'createRouteResponse_applicationId' - The ID of the application in which the route is created.
 --
 -- 'arn', 'createRouteResponse_arn' - The Amazon Resource Name (ARN) of the route. The format for this ARN is
--- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+-- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
@@ -442,7 +463,7 @@ createRouteResponse_applicationId :: Lens.Lens' CreateRouteResponse (Prelude.May
 createRouteResponse_applicationId = Lens.lens (\CreateRouteResponse' {applicationId} -> applicationId) (\s@CreateRouteResponse' {} a -> s {applicationId = a} :: CreateRouteResponse)
 
 -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
--- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+-- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.

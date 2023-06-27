@@ -26,6 +26,16 @@
 -- that creates the application. Refactor Spaces provisions an Amazon API
 -- Gateway, API Gateway VPC link, and Network Load Balancer for the
 -- application proxy inside your account.
+--
+-- In environments created with a
+-- <https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType CreateEnvironment:NetworkFabricType>
+-- of @NONE@ you need to configure
+-- <https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html VPC to VPC connectivity>
+-- between your service VPC and the application proxy VPC to route traffic
+-- through the application proxy to a service with a private URL endpoint.
+-- For more information, see
+-- <https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/getting-started-create-application.html Create an application>
+-- in the /Refactor Spaces User Guide/.
 module Amazonka.MigrationHubReFactorSpaces.CreateApplication
   ( -- * Creating a Request
     CreateApplication (..),
@@ -204,7 +214,8 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` apiGatewayProxy
+    _salt
+      `Prelude.hashWithSalt` apiGatewayProxy
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` environmentIdentifier
@@ -267,7 +278,7 @@ data CreateApplicationResponse = CreateApplicationResponse'
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is
-    -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+    -- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
@@ -315,7 +326,7 @@ data CreateApplicationResponse = CreateApplicationResponse'
 --
 -- 'arn', 'createApplicationResponse_arn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is
--- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+-- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
@@ -378,7 +389,7 @@ createApplicationResponse_applicationId = Lens.lens (\CreateApplicationResponse'
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is
--- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+-- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.

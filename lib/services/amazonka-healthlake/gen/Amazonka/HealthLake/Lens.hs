@@ -17,6 +17,7 @@ module Amazonka.HealthLake.Lens
     -- ** CreateFHIRDatastore
     createFHIRDatastore_clientToken,
     createFHIRDatastore_datastoreName,
+    createFHIRDatastore_identityProviderConfiguration,
     createFHIRDatastore_preloadDataConfig,
     createFHIRDatastore_sseConfiguration,
     createFHIRDatastore_tags,
@@ -133,6 +134,7 @@ module Amazonka.HealthLake.Lens
     -- ** DatastoreProperties
     datastoreProperties_createdAt,
     datastoreProperties_datastoreName,
+    datastoreProperties_identityProviderConfiguration,
     datastoreProperties_preloadDataConfig,
     datastoreProperties_sseConfiguration,
     datastoreProperties_datastoreId,
@@ -151,6 +153,12 @@ module Amazonka.HealthLake.Lens
     exportJobProperties_submitTime,
     exportJobProperties_datastoreId,
     exportJobProperties_outputDataConfig,
+
+    -- ** IdentityProviderConfiguration
+    identityProviderConfiguration_fineGrainedAuthorizationEnabled,
+    identityProviderConfiguration_idpLambdaArn,
+    identityProviderConfiguration_metadata,
+    identityProviderConfiguration_authorizationStrategy,
 
     -- ** ImportJobProperties
     importJobProperties_dataAccessRoleArn,
@@ -205,6 +213,7 @@ import Amazonka.HealthLake.TagResource
 import Amazonka.HealthLake.Types.DatastoreFilter
 import Amazonka.HealthLake.Types.DatastoreProperties
 import Amazonka.HealthLake.Types.ExportJobProperties
+import Amazonka.HealthLake.Types.IdentityProviderConfiguration
 import Amazonka.HealthLake.Types.ImportJobProperties
 import Amazonka.HealthLake.Types.InputDataConfig
 import Amazonka.HealthLake.Types.KmsEncryptionConfig

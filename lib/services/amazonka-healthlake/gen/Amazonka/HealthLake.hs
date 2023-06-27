@@ -125,6 +125,9 @@ module Amazonka.HealthLake
 
     -- * Types
 
+    -- ** AuthorizationStrategy
+    AuthorizationStrategy (..),
+
     -- ** CmkType
     CmkType (..),
 
@@ -151,6 +154,10 @@ module Amazonka.HealthLake
     -- ** ExportJobProperties
     ExportJobProperties (ExportJobProperties'),
     newExportJobProperties,
+
+    -- ** IdentityProviderConfiguration
+    IdentityProviderConfiguration (IdentityProviderConfiguration'),
+    newIdentityProviderConfiguration,
 
     -- ** ImportJobProperties
     ImportJobProperties (ImportJobProperties'),

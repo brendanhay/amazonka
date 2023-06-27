@@ -58,12 +58,14 @@ library
     Amazonka.HealthLake.StartFHIRImportJob
     Amazonka.HealthLake.TagResource
     Amazonka.HealthLake.Types
+    Amazonka.HealthLake.Types.AuthorizationStrategy
     Amazonka.HealthLake.Types.CmkType
     Amazonka.HealthLake.Types.DatastoreFilter
     Amazonka.HealthLake.Types.DatastoreProperties
     Amazonka.HealthLake.Types.DatastoreStatus
     Amazonka.HealthLake.Types.ExportJobProperties
     Amazonka.HealthLake.Types.FHIRVersion
+    Amazonka.HealthLake.Types.IdentityProviderConfiguration
     Amazonka.HealthLake.Types.ImportJobProperties
     Amazonka.HealthLake.Types.InputDataConfig
     Amazonka.HealthLake.Types.JobStatus

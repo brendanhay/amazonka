@@ -82,7 +82,8 @@ instance Data.FromJSON S3Configuration where
 
 instance Prelude.Hashable S3Configuration where
   hashWithSalt _salt S3Configuration' {..} =
-    _salt `Prelude.hashWithSalt` s3Uri
+    _salt
+      `Prelude.hashWithSalt` s3Uri
       `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData S3Configuration where

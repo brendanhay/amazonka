@@ -171,14 +171,16 @@ instance Core.AWSRequest ListFHIRImportJobs where
           ListFHIRImportJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ImportJobPropertiesList"
+            Prelude.<*> ( x
+                            Data..?> "ImportJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListFHIRImportJobs where
   hashWithSalt _salt ListFHIRImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

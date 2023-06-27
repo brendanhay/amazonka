@@ -29,6 +29,7 @@ module Amazonka.HealthLake.CreateFHIRDatastore
     -- * Request Lenses
     createFHIRDatastore_clientToken,
     createFHIRDatastore_datastoreName,
+    createFHIRDatastore_identityProviderConfiguration,
     createFHIRDatastore_preloadDataConfig,
     createFHIRDatastore_sseConfiguration,
     createFHIRDatastore_tags,
@@ -61,6 +62,9 @@ data CreateFHIRDatastore = CreateFHIRDatastore'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The user generated name for the Data Store.
     datastoreName :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the identity provider that you want to use for your
+    -- Data Store.
+    identityProviderConfiguration :: Prelude.Maybe IdentityProviderConfiguration,
     -- | Optional parameter to preload data upon creation of the Data Store.
     -- Currently, the only supported preloaded data is synthetic data generated
     -- from Synthea.
@@ -87,6 +91,9 @@ data CreateFHIRDatastore = CreateFHIRDatastore'
 --
 -- 'datastoreName', 'createFHIRDatastore_datastoreName' - The user generated name for the Data Store.
 --
+-- 'identityProviderConfiguration', 'createFHIRDatastore_identityProviderConfiguration' - The configuration of the identity provider that you want to use for your
+-- Data Store.
+--
 -- 'preloadDataConfig', 'createFHIRDatastore_preloadDataConfig' - Optional parameter to preload data upon creation of the Data Store.
 -- Currently, the only supported preloaded data is synthetic data generated
 -- from Synthea.
@@ -105,6 +112,7 @@ newCreateFHIRDatastore pDatastoreTypeVersion_ =
   CreateFHIRDatastore'
     { clientToken = Prelude.Nothing,
       datastoreName = Prelude.Nothing,
+      identityProviderConfiguration = Prelude.Nothing,
       preloadDataConfig = Prelude.Nothing,
       sseConfiguration = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -118,6 +126,11 @@ createFHIRDatastore_clientToken = Lens.lens (\CreateFHIRDatastore' {clientToken}
 -- | The user generated name for the Data Store.
 createFHIRDatastore_datastoreName :: Lens.Lens' CreateFHIRDatastore (Prelude.Maybe Prelude.Text)
 createFHIRDatastore_datastoreName = Lens.lens (\CreateFHIRDatastore' {datastoreName} -> datastoreName) (\s@CreateFHIRDatastore' {} a -> s {datastoreName = a} :: CreateFHIRDatastore)
+
+-- | The configuration of the identity provider that you want to use for your
+-- Data Store.
+createFHIRDatastore_identityProviderConfiguration :: Lens.Lens' CreateFHIRDatastore (Prelude.Maybe IdentityProviderConfiguration)
+createFHIRDatastore_identityProviderConfiguration = Lens.lens (\CreateFHIRDatastore' {identityProviderConfiguration} -> identityProviderConfiguration) (\s@CreateFHIRDatastore' {} a -> s {identityProviderConfiguration = a} :: CreateFHIRDatastore)
 
 -- | Optional parameter to preload data upon creation of the Data Store.
 -- Currently, the only supported preloaded data is synthetic data generated
@@ -157,8 +170,10 @@ instance Core.AWSRequest CreateFHIRDatastore where
 
 instance Prelude.Hashable CreateFHIRDatastore where
   hashWithSalt _salt CreateFHIRDatastore' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` datastoreName
+      `Prelude.hashWithSalt` identityProviderConfiguration
       `Prelude.hashWithSalt` preloadDataConfig
       `Prelude.hashWithSalt` sseConfiguration
       `Prelude.hashWithSalt` tags
@@ -168,6 +183,7 @@ instance Prelude.NFData CreateFHIRDatastore where
   rnf CreateFHIRDatastore' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf datastoreName
+      `Prelude.seq` Prelude.rnf identityProviderConfiguration
       `Prelude.seq` Prelude.rnf preloadDataConfig
       `Prelude.seq` Prelude.rnf sseConfiguration
       `Prelude.seq` Prelude.rnf tags
@@ -194,6 +210,8 @@ instance Data.ToJSON CreateFHIRDatastore where
       ( Prelude.catMaybes
           [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("DatastoreName" Data..=) Prelude.<$> datastoreName,
+            ("IdentityProviderConfiguration" Data..=)
+              Prelude.<$> identityProviderConfiguration,
             ("PreloadDataConfig" Data..=)
               Prelude.<$> preloadDataConfig,
             ("SseConfiguration" Data..=)
@@ -219,14 +237,14 @@ data CreateFHIRDatastoreResponse = CreateFHIRDatastoreResponse'
     -- | The AWS-generated Data Store id. This id is in the output from the
     -- initial Data Store creation call.
     datastoreId :: Prelude.Text,
-    -- | The datastore ARN is generated during the creation of the Data Store and
-    -- can be found in the output from the initial Data Store creation call.
+    -- | The Data Store ARN is generated during the creation of the Data Store
+    -- and can be found in the output from the initial Data Store creation
+    -- call.
     datastoreArn :: Prelude.Text,
     -- | The status of the FHIR Data Store. Possible statuses are ‘CREATING’,
     -- ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
     datastoreStatus :: DatastoreStatus,
-    -- | The AWS endpoint for the created Data Store. For preview, only US-east-1
-    -- endpoints are supported.
+    -- | The AWS endpoint for the created Data Store.
     datastoreEndpoint :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -244,14 +262,14 @@ data CreateFHIRDatastoreResponse = CreateFHIRDatastoreResponse'
 -- 'datastoreId', 'createFHIRDatastoreResponse_datastoreId' - The AWS-generated Data Store id. This id is in the output from the
 -- initial Data Store creation call.
 --
--- 'datastoreArn', 'createFHIRDatastoreResponse_datastoreArn' - The datastore ARN is generated during the creation of the Data Store and
--- can be found in the output from the initial Data Store creation call.
+-- 'datastoreArn', 'createFHIRDatastoreResponse_datastoreArn' - The Data Store ARN is generated during the creation of the Data Store
+-- and can be found in the output from the initial Data Store creation
+-- call.
 --
 -- 'datastoreStatus', 'createFHIRDatastoreResponse_datastoreStatus' - The status of the FHIR Data Store. Possible statuses are ‘CREATING’,
 -- ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
 --
--- 'datastoreEndpoint', 'createFHIRDatastoreResponse_datastoreEndpoint' - The AWS endpoint for the created Data Store. For preview, only US-east-1
--- endpoints are supported.
+-- 'datastoreEndpoint', 'createFHIRDatastoreResponse_datastoreEndpoint' - The AWS endpoint for the created Data Store.
 newCreateFHIRDatastoreResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -288,8 +306,9 @@ createFHIRDatastoreResponse_httpStatus = Lens.lens (\CreateFHIRDatastoreResponse
 createFHIRDatastoreResponse_datastoreId :: Lens.Lens' CreateFHIRDatastoreResponse Prelude.Text
 createFHIRDatastoreResponse_datastoreId = Lens.lens (\CreateFHIRDatastoreResponse' {datastoreId} -> datastoreId) (\s@CreateFHIRDatastoreResponse' {} a -> s {datastoreId = a} :: CreateFHIRDatastoreResponse)
 
--- | The datastore ARN is generated during the creation of the Data Store and
--- can be found in the output from the initial Data Store creation call.
+-- | The Data Store ARN is generated during the creation of the Data Store
+-- and can be found in the output from the initial Data Store creation
+-- call.
 createFHIRDatastoreResponse_datastoreArn :: Lens.Lens' CreateFHIRDatastoreResponse Prelude.Text
 createFHIRDatastoreResponse_datastoreArn = Lens.lens (\CreateFHIRDatastoreResponse' {datastoreArn} -> datastoreArn) (\s@CreateFHIRDatastoreResponse' {} a -> s {datastoreArn = a} :: CreateFHIRDatastoreResponse)
 
@@ -298,8 +317,7 @@ createFHIRDatastoreResponse_datastoreArn = Lens.lens (\CreateFHIRDatastoreRespon
 createFHIRDatastoreResponse_datastoreStatus :: Lens.Lens' CreateFHIRDatastoreResponse DatastoreStatus
 createFHIRDatastoreResponse_datastoreStatus = Lens.lens (\CreateFHIRDatastoreResponse' {datastoreStatus} -> datastoreStatus) (\s@CreateFHIRDatastoreResponse' {} a -> s {datastoreStatus = a} :: CreateFHIRDatastoreResponse)
 
--- | The AWS endpoint for the created Data Store. For preview, only US-east-1
--- endpoints are supported.
+-- | The AWS endpoint for the created Data Store.
 createFHIRDatastoreResponse_datastoreEndpoint :: Lens.Lens' CreateFHIRDatastoreResponse Prelude.Text
 createFHIRDatastoreResponse_datastoreEndpoint = Lens.lens (\CreateFHIRDatastoreResponse' {datastoreEndpoint} -> datastoreEndpoint) (\s@CreateFHIRDatastoreResponse' {} a -> s {datastoreEndpoint = a} :: CreateFHIRDatastoreResponse)
 

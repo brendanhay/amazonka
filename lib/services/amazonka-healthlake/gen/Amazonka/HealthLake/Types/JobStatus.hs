@@ -20,6 +20,10 @@
 module Amazonka.HealthLake.Types.JobStatus
   ( JobStatus
       ( ..,
+        JobStatus_CANCEL_COMPLETED,
+        JobStatus_CANCEL_FAILED,
+        JobStatus_CANCEL_IN_PROGRESS,
+        JobStatus_CANCEL_SUBMITTED,
         JobStatus_COMPLETED,
         JobStatus_COMPLETED_WITH_ERRORS,
         JobStatus_FAILED,
@@ -61,6 +65,18 @@ newtype JobStatus = JobStatus'
       Data.ToXML
     )
 
+pattern JobStatus_CANCEL_COMPLETED :: JobStatus
+pattern JobStatus_CANCEL_COMPLETED = JobStatus' "CANCEL_COMPLETED"
+
+pattern JobStatus_CANCEL_FAILED :: JobStatus
+pattern JobStatus_CANCEL_FAILED = JobStatus' "CANCEL_FAILED"
+
+pattern JobStatus_CANCEL_IN_PROGRESS :: JobStatus
+pattern JobStatus_CANCEL_IN_PROGRESS = JobStatus' "CANCEL_IN_PROGRESS"
+
+pattern JobStatus_CANCEL_SUBMITTED :: JobStatus
+pattern JobStatus_CANCEL_SUBMITTED = JobStatus' "CANCEL_SUBMITTED"
+
 pattern JobStatus_COMPLETED :: JobStatus
 pattern JobStatus_COMPLETED = JobStatus' "COMPLETED"
 
@@ -77,6 +93,10 @@ pattern JobStatus_SUBMITTED :: JobStatus
 pattern JobStatus_SUBMITTED = JobStatus' "SUBMITTED"
 
 {-# COMPLETE
+  JobStatus_CANCEL_COMPLETED,
+  JobStatus_CANCEL_FAILED,
+  JobStatus_CANCEL_IN_PROGRESS,
+  JobStatus_CANCEL_SUBMITTED,
   JobStatus_COMPLETED,
   JobStatus_COMPLETED_WITH_ERRORS,
   JobStatus_FAILED,

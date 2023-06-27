@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data Tag = Tag'
   { -- | The key portion of a tag. Tag keys are case sensitive.
     key :: Prelude.Text,
-    -- | The value portion of tag. Tag values are case sensitive.
+    -- | The value portion of a tag. Tag values are case sensitive.
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +46,7 @@ data Tag = Tag'
 --
 -- 'key', 'tag_key' - The key portion of a tag. Tag keys are case sensitive.
 --
--- 'value', 'tag_value' - The value portion of tag. Tag values are case sensitive.
+-- 'value', 'tag_value' - The value portion of a tag. Tag values are case sensitive.
 newTag ::
   -- | 'key'
   Prelude.Text ->
@@ -60,7 +60,7 @@ newTag pKey_ pValue_ =
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | The value portion of tag. Tag values are case sensitive.
+-- | The value portion of a tag. Tag values are case sensitive.
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
@@ -70,12 +70,14 @@ instance Data.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where

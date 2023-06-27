@@ -51,9 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeFHIRDatastore' smart constructor.
 data DescribeFHIRDatastore = DescribeFHIRDatastore'
-  { -- | The AWS-generated Data Store id. This is part of the
-    -- ‘CreateFHIRDatastore’ output.
-    datastoreId :: Prelude.Maybe Prelude.Text
+  { -- | The AWS-generated Data Store ID.
+    datastoreId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,19 +64,16 @@ data DescribeFHIRDatastore = DescribeFHIRDatastore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datastoreId', 'describeFHIRDatastore_datastoreId' - The AWS-generated Data Store id. This is part of the
--- ‘CreateFHIRDatastore’ output.
+-- 'datastoreId', 'describeFHIRDatastore_datastoreId' - The AWS-generated Data Store ID.
 newDescribeFHIRDatastore ::
+  -- | 'datastoreId'
+  Prelude.Text ->
   DescribeFHIRDatastore
-newDescribeFHIRDatastore =
-  DescribeFHIRDatastore'
-    { datastoreId =
-        Prelude.Nothing
-    }
+newDescribeFHIRDatastore pDatastoreId_ =
+  DescribeFHIRDatastore' {datastoreId = pDatastoreId_}
 
--- | The AWS-generated Data Store id. This is part of the
--- ‘CreateFHIRDatastore’ output.
-describeFHIRDatastore_datastoreId :: Lens.Lens' DescribeFHIRDatastore (Prelude.Maybe Prelude.Text)
+-- | The AWS-generated Data Store ID.
+describeFHIRDatastore_datastoreId :: Lens.Lens' DescribeFHIRDatastore Prelude.Text
 describeFHIRDatastore_datastoreId = Lens.lens (\DescribeFHIRDatastore' {datastoreId} -> datastoreId) (\s@DescribeFHIRDatastore' {} a -> s {datastoreId = a} :: DescribeFHIRDatastore)
 
 instance Core.AWSRequest DescribeFHIRDatastore where
@@ -121,7 +117,7 @@ instance Data.ToJSON DescribeFHIRDatastore where
   toJSON DescribeFHIRDatastore' {..} =
     Data.object
       ( Prelude.catMaybes
-          [("DatastoreId" Data..=) Prelude.<$> datastoreId]
+          [Prelude.Just ("DatastoreId" Data..= datastoreId)]
       )
 
 instance Data.ToPath DescribeFHIRDatastore where

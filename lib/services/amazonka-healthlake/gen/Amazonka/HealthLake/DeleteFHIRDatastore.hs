@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteFHIRDatastore' smart constructor.
 data DeleteFHIRDatastore = DeleteFHIRDatastore'
   { -- | The AWS-generated ID for the Data Store to be deleted.
-    datastoreId :: Prelude.Maybe Prelude.Text
+    datastoreId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,12 +67,14 @@ data DeleteFHIRDatastore = DeleteFHIRDatastore'
 --
 -- 'datastoreId', 'deleteFHIRDatastore_datastoreId' - The AWS-generated ID for the Data Store to be deleted.
 newDeleteFHIRDatastore ::
+  -- | 'datastoreId'
+  Prelude.Text ->
   DeleteFHIRDatastore
-newDeleteFHIRDatastore =
-  DeleteFHIRDatastore' {datastoreId = Prelude.Nothing}
+newDeleteFHIRDatastore pDatastoreId_ =
+  DeleteFHIRDatastore' {datastoreId = pDatastoreId_}
 
 -- | The AWS-generated ID for the Data Store to be deleted.
-deleteFHIRDatastore_datastoreId :: Lens.Lens' DeleteFHIRDatastore (Prelude.Maybe Prelude.Text)
+deleteFHIRDatastore_datastoreId :: Lens.Lens' DeleteFHIRDatastore Prelude.Text
 deleteFHIRDatastore_datastoreId = Lens.lens (\DeleteFHIRDatastore' {datastoreId} -> datastoreId) (\s@DeleteFHIRDatastore' {} a -> s {datastoreId = a} :: DeleteFHIRDatastore)
 
 instance Core.AWSRequest DeleteFHIRDatastore where
@@ -119,7 +121,7 @@ instance Data.ToJSON DeleteFHIRDatastore where
   toJSON DeleteFHIRDatastore' {..} =
     Data.object
       ( Prelude.catMaybes
-          [("DatastoreId" Data..=) Prelude.<$> datastoreId]
+          [Prelude.Just ("DatastoreId" Data..= datastoreId)]
       )
 
 instance Data.ToPath DeleteFHIRDatastore where

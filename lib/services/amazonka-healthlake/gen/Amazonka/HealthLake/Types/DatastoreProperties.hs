@@ -24,11 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types.DatastoreStatus
 import Amazonka.HealthLake.Types.FHIRVersion
+import Amazonka.HealthLake.Types.IdentityProviderConfiguration
 import Amazonka.HealthLake.Types.PreloadDataConfig
 import Amazonka.HealthLake.Types.SseConfiguration
 import qualified Amazonka.Prelude as Prelude
 
--- | Displays the properties of the Data Store, including the ID, Arn, name,
+-- | Displays the properties of the Data Store, including the ID, ARN, name,
 -- and the status of the Data Store.
 --
 -- /See:/ 'newDatastoreProperties' smart constructor.
@@ -37,6 +38,8 @@ data DatastoreProperties = DatastoreProperties'
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The user-generated name for the Data Store.
     datastoreName :: Prelude.Maybe Prelude.Text,
+    -- | The identity provider that you selected when you created the Data Store.
+    identityProviderConfiguration :: Prelude.Maybe IdentityProviderConfiguration,
     -- | The preloaded data configuration for the Data Store. Only data preloaded
     -- from Synthea is supported.
     preloadDataConfig :: Prelude.Maybe PreloadDataConfig,
@@ -69,6 +72,8 @@ data DatastoreProperties = DatastoreProperties'
 -- 'createdAt', 'datastoreProperties_createdAt' - The time that a Data Store was created.
 --
 -- 'datastoreName', 'datastoreProperties_datastoreName' - The user-generated name for the Data Store.
+--
+-- 'identityProviderConfiguration', 'datastoreProperties_identityProviderConfiguration' - The identity provider that you selected when you created the Data Store.
 --
 -- 'preloadDataConfig', 'datastoreProperties_preloadDataConfig' - The preloaded data configuration for the Data Store. Only data preloaded
 -- from Synthea is supported.
@@ -108,6 +113,7 @@ newDatastoreProperties
     DatastoreProperties'
       { createdAt = Prelude.Nothing,
         datastoreName = Prelude.Nothing,
+        identityProviderConfiguration = Prelude.Nothing,
         preloadDataConfig = Prelude.Nothing,
         sseConfiguration = Prelude.Nothing,
         datastoreId = pDatastoreId_,
@@ -124,6 +130,10 @@ datastoreProperties_createdAt = Lens.lens (\DatastoreProperties' {createdAt} -> 
 -- | The user-generated name for the Data Store.
 datastoreProperties_datastoreName :: Lens.Lens' DatastoreProperties (Prelude.Maybe Prelude.Text)
 datastoreProperties_datastoreName = Lens.lens (\DatastoreProperties' {datastoreName} -> datastoreName) (\s@DatastoreProperties' {} a -> s {datastoreName = a} :: DatastoreProperties)
+
+-- | The identity provider that you selected when you created the Data Store.
+datastoreProperties_identityProviderConfiguration :: Lens.Lens' DatastoreProperties (Prelude.Maybe IdentityProviderConfiguration)
+datastoreProperties_identityProviderConfiguration = Lens.lens (\DatastoreProperties' {identityProviderConfiguration} -> identityProviderConfiguration) (\s@DatastoreProperties' {} a -> s {identityProviderConfiguration = a} :: DatastoreProperties)
 
 -- | The preloaded data configuration for the Data Store. Only data preloaded
 -- from Synthea is supported.
@@ -165,6 +175,7 @@ instance Data.FromJSON DatastoreProperties where
           DatastoreProperties'
             Prelude.<$> (x Data..:? "CreatedAt")
             Prelude.<*> (x Data..:? "DatastoreName")
+            Prelude.<*> (x Data..:? "IdentityProviderConfiguration")
             Prelude.<*> (x Data..:? "PreloadDataConfig")
             Prelude.<*> (x Data..:? "SseConfiguration")
             Prelude.<*> (x Data..: "DatastoreId")
@@ -176,8 +187,10 @@ instance Data.FromJSON DatastoreProperties where
 
 instance Prelude.Hashable DatastoreProperties where
   hashWithSalt _salt DatastoreProperties' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` datastoreName
+      `Prelude.hashWithSalt` identityProviderConfiguration
       `Prelude.hashWithSalt` preloadDataConfig
       `Prelude.hashWithSalt` sseConfiguration
       `Prelude.hashWithSalt` datastoreId
@@ -190,6 +203,7 @@ instance Prelude.NFData DatastoreProperties where
   rnf DatastoreProperties' {..} =
     Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf datastoreName
+      `Prelude.seq` Prelude.rnf identityProviderConfiguration
       `Prelude.seq` Prelude.rnf preloadDataConfig
       `Prelude.seq` Prelude.rnf sseConfiguration
       `Prelude.seq` Prelude.rnf datastoreId

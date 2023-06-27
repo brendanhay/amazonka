@@ -46,7 +46,7 @@ data ImportJobProperties = ImportJobProperties'
     -- | The AWS-generated id number for the Import job.
     jobId :: Prelude.Text,
     -- | The job status for an Import job. Possible statuses are SUBMITTED,
-    -- IN_PROGRESS, COMPLETED, FAILED.
+    -- IN_PROGRESS, COMPLETED_WITH_ERRORS, COMPLETED, FAILED.
     jobStatus :: JobStatus,
     -- | The time that the Import job was submitted for processing.
     submitTime :: Data.POSIX,
@@ -81,7 +81,7 @@ data ImportJobProperties = ImportJobProperties'
 -- 'jobId', 'importJobProperties_jobId' - The AWS-generated id number for the Import job.
 --
 -- 'jobStatus', 'importJobProperties_jobStatus' - The job status for an Import job. Possible statuses are SUBMITTED,
--- IN_PROGRESS, COMPLETED, FAILED.
+-- IN_PROGRESS, COMPLETED_WITH_ERRORS, COMPLETED, FAILED.
 --
 -- 'submitTime', 'importJobProperties_submitTime' - The time that the Import job was submitted for processing.
 --
@@ -148,7 +148,7 @@ importJobProperties_jobId :: Lens.Lens' ImportJobProperties Prelude.Text
 importJobProperties_jobId = Lens.lens (\ImportJobProperties' {jobId} -> jobId) (\s@ImportJobProperties' {} a -> s {jobId = a} :: ImportJobProperties)
 
 -- | The job status for an Import job. Possible statuses are SUBMITTED,
--- IN_PROGRESS, COMPLETED, FAILED.
+-- IN_PROGRESS, COMPLETED_WITH_ERRORS, COMPLETED, FAILED.
 importJobProperties_jobStatus :: Lens.Lens' ImportJobProperties JobStatus
 importJobProperties_jobStatus = Lens.lens (\ImportJobProperties' {jobStatus} -> jobStatus) (\s@ImportJobProperties' {} a -> s {jobStatus = a} :: ImportJobProperties)
 
@@ -185,7 +185,8 @@ instance Data.FromJSON ImportJobProperties where
 
 instance Prelude.Hashable ImportJobProperties where
   hashWithSalt _salt ImportJobProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobOutputDataConfig

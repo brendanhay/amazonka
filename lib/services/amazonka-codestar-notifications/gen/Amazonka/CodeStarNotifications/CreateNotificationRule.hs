@@ -239,7 +239,8 @@ instance Core.AWSRequest CreateNotificationRule where
 
 instance Prelude.Hashable CreateNotificationRule where
   hashWithSalt _salt CreateNotificationRule' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

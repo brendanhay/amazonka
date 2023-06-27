@@ -124,22 +124,22 @@ instance Core.AWSPager ListNotificationRules where
     | Core.stop
         ( rs
             Lens.^? listNotificationRulesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listNotificationRulesResponse_notificationRules
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listNotificationRules_nextToken
           Lens..~ rs
           Lens.^? listNotificationRulesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNotificationRules where
   type
@@ -152,7 +152,8 @@ instance Core.AWSRequest ListNotificationRules where
       ( \s h x ->
           ListNotificationRulesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "NotificationRules"
+            Prelude.<*> ( x
+                            Data..?> "NotificationRules"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,7 +161,8 @@ instance Core.AWSRequest ListNotificationRules where
 
 instance Prelude.Hashable ListNotificationRules where
   hashWithSalt _salt ListNotificationRules' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

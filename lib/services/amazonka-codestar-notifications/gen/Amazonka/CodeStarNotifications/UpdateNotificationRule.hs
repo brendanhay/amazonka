@@ -173,7 +173,8 @@ instance Core.AWSRequest UpdateNotificationRule where
 
 instance Prelude.Hashable UpdateNotificationRule where
   hashWithSalt _salt UpdateNotificationRule' {..} =
-    _salt `Prelude.hashWithSalt` detailType
+    _salt
+      `Prelude.hashWithSalt` detailType
       `Prelude.hashWithSalt` eventTypeIds
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

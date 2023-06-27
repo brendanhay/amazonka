@@ -97,7 +97,8 @@ instance Data.FromJSON TargetSummary where
 
 instance Prelude.Hashable TargetSummary where
   hashWithSalt _salt TargetSummary' {..} =
-    _salt `Prelude.hashWithSalt` targetAddress
+    _salt
+      `Prelude.hashWithSalt` targetAddress
       `Prelude.hashWithSalt` targetStatus
       `Prelude.hashWithSalt` targetType
 

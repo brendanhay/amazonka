@@ -77,7 +77,8 @@ target_targetType = Lens.lens (\Target' {targetType} -> targetType) (\s@Target' 
 
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` targetAddress
+    _salt
+      `Prelude.hashWithSalt` targetAddress
       `Prelude.hashWithSalt` targetType
 
 instance Prelude.NFData Target where

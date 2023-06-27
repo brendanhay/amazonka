@@ -147,6 +147,10 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property. If you specify a scalable
@@ -214,6 +218,9 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
@@ -311,6 +318,10 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'describeScalingPolicies_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property. If you specify a scalable
 -- dimension, you must also specify a resource ID.
@@ -377,6 +388,9 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 --
 -- 'serviceNamespace', 'describeScalingPolicies_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -482,6 +496,10 @@ describeScalingPolicies_policyNames = Lens.lens (\DescribeScalingPolicies' {poli
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 describeScalingPolicies_resourceId :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
 describeScalingPolicies_resourceId = Lens.lens (\DescribeScalingPolicies' {resourceId} -> resourceId) (\s@DescribeScalingPolicies' {} a -> s {resourceId = a} :: DescribeScalingPolicies)
 
@@ -551,6 +569,9 @@ describeScalingPolicies_resourceId = Lens.lens (\DescribeScalingPolicies' {resou
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 describeScalingPolicies_scalableDimension :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe ScalableDimension)
 describeScalingPolicies_scalableDimension = Lens.lens (\DescribeScalingPolicies' {scalableDimension} -> scalableDimension) (\s@DescribeScalingPolicies' {} a -> s {scalableDimension = a} :: DescribeScalingPolicies)
 
@@ -565,22 +586,22 @@ instance Core.AWSPager DescribeScalingPolicies where
     | Core.stop
         ( rs
             Lens.^? describeScalingPoliciesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScalingPoliciesResponse_scalingPolicies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScalingPolicies_nextToken
           Lens..~ rs
           Lens.^? describeScalingPoliciesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingPolicies where
   type
@@ -593,7 +614,8 @@ instance Core.AWSRequest DescribeScalingPolicies where
       ( \s h x ->
           DescribeScalingPoliciesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ScalingPolicies"
+            Prelude.<*> ( x
+                            Data..?> "ScalingPolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -601,7 +623,8 @@ instance Core.AWSRequest DescribeScalingPolicies where
 
 instance Prelude.Hashable DescribeScalingPolicies where
   hashWithSalt _salt DescribeScalingPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` policyNames
       `Prelude.hashWithSalt` resourceId

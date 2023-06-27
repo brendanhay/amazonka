@@ -115,6 +115,10 @@ data ScalingActivity = ScalingActivity'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -181,6 +185,9 @@ data ScalingActivity = ScalingActivity'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: ScalableDimension,
     -- | A simple description of what action the scaling activity intends to
     -- accomplish.
@@ -286,6 +293,10 @@ data ScalingActivity = ScalingActivity'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'scalingActivity_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -351,6 +362,9 @@ data ScalingActivity = ScalingActivity'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 --
 -- 'description', 'scalingActivity_description' - A simple description of what action the scaling activity intends to
 -- accomplish.
@@ -497,6 +511,10 @@ scalingActivity_serviceNamespace = Lens.lens (\ScalingActivity' {serviceNamespac
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 scalingActivity_resourceId :: Lens.Lens' ScalingActivity Prelude.Text
 scalingActivity_resourceId = Lens.lens (\ScalingActivity' {resourceId} -> resourceId) (\s@ScalingActivity' {} a -> s {resourceId = a} :: ScalingActivity)
 
@@ -565,6 +583,9 @@ scalingActivity_resourceId = Lens.lens (\ScalingActivity' {resourceId} -> resour
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 scalingActivity_scalableDimension :: Lens.Lens' ScalingActivity ScalableDimension
 scalingActivity_scalableDimension = Lens.lens (\ScalingActivity' {scalableDimension} -> scalableDimension) (\s@ScalingActivity' {} a -> s {scalableDimension = a} :: ScalingActivity)
 
@@ -593,7 +614,8 @@ instance Data.FromJSON ScalingActivity where
           ScalingActivity'
             Prelude.<$> (x Data..:? "Details")
             Prelude.<*> (x Data..:? "EndTime")
-            Prelude.<*> ( x Data..:? "NotScaledReasons"
+            Prelude.<*> ( x
+                            Data..:? "NotScaledReasons"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StatusMessage")
@@ -609,7 +631,8 @@ instance Data.FromJSON ScalingActivity where
 
 instance Prelude.Hashable ScalingActivity where
   hashWithSalt _salt ScalingActivity' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` notScaledReasons
       `Prelude.hashWithSalt` statusMessage

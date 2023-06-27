@@ -54,7 +54,7 @@
 -- in the /Application Auto Scaling User Guide/.
 --
 -- If a scalable target is deregistered, the scalable target is no longer
--- available to execute scaling policies. Any scaling policies that were
+-- available to use scaling policies. Any scaling policies that were
 -- specified for the scalable target are deleted.
 module Amazonka.ApplicationAutoScaling.PutScalingPolicy
   ( -- * Creating a Request
@@ -195,6 +195,10 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -261,6 +265,9 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -378,6 +385,10 @@ data PutScalingPolicy = PutScalingPolicy'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'putScalingPolicy_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -443,6 +454,9 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 newPutScalingPolicy ::
   -- | 'policyName'
   Prelude.Text ->
@@ -583,6 +597,10 @@ putScalingPolicy_serviceNamespace = Lens.lens (\PutScalingPolicy' {serviceNamesp
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 putScalingPolicy_resourceId :: Lens.Lens' PutScalingPolicy Prelude.Text
 putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> resourceId) (\s@PutScalingPolicy' {} a -> s {resourceId = a} :: PutScalingPolicy)
 
@@ -651,6 +669,9 @@ putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> reso
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 putScalingPolicy_scalableDimension :: Lens.Lens' PutScalingPolicy ScalableDimension
 putScalingPolicy_scalableDimension = Lens.lens (\PutScalingPolicy' {scalableDimension} -> scalableDimension) (\s@PutScalingPolicy' {} a -> s {scalableDimension = a} :: PutScalingPolicy)
 
@@ -671,7 +692,8 @@ instance Core.AWSRequest PutScalingPolicy where
 
 instance Prelude.Hashable PutScalingPolicy where
   hashWithSalt _salt PutScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyType
+    _salt
+      `Prelude.hashWithSalt` policyType
       `Prelude.hashWithSalt` stepScalingPolicyConfiguration
       `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
       `Prelude.hashWithSalt` policyName

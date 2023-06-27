@@ -126,6 +126,10 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
@@ -192,6 +196,9 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -276,6 +283,10 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'deregisterScalableTarget_scalableDimension' - The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
 --
@@ -341,6 +352,9 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 newDeregisterScalableTarget ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -433,6 +447,10 @@ deregisterScalableTarget_serviceNamespace = Lens.lens (\DeregisterScalableTarget
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 deregisterScalableTarget_resourceId :: Lens.Lens' DeregisterScalableTarget Prelude.Text
 deregisterScalableTarget_resourceId = Lens.lens (\DeregisterScalableTarget' {resourceId} -> resourceId) (\s@DeregisterScalableTarget' {} a -> s {resourceId = a} :: DeregisterScalableTarget)
 
@@ -501,6 +519,9 @@ deregisterScalableTarget_resourceId = Lens.lens (\DeregisterScalableTarget' {res
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 deregisterScalableTarget_scalableDimension :: Lens.Lens' DeregisterScalableTarget ScalableDimension
 deregisterScalableTarget_scalableDimension = Lens.lens (\DeregisterScalableTarget' {scalableDimension} -> scalableDimension) (\s@DeregisterScalableTarget' {} a -> s {scalableDimension = a} :: DeregisterScalableTarget)
 
@@ -519,7 +540,8 @@ instance Core.AWSRequest DeregisterScalableTarget where
 
 instance Prelude.Hashable DeregisterScalableTarget where
   hashWithSalt _salt DeregisterScalableTarget' {..} =
-    _salt `Prelude.hashWithSalt` serviceNamespace
+    _salt
+      `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
 

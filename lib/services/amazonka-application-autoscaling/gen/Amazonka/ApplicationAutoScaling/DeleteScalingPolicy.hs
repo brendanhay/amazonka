@@ -135,6 +135,10 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -201,6 +205,9 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -287,6 +294,10 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'deleteScalingPolicy_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -352,6 +363,9 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 newDeleteScalingPolicy ::
   -- | 'policyName'
   Prelude.Text ->
@@ -451,6 +465,10 @@ deleteScalingPolicy_serviceNamespace = Lens.lens (\DeleteScalingPolicy' {service
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 deleteScalingPolicy_resourceId :: Lens.Lens' DeleteScalingPolicy Prelude.Text
 deleteScalingPolicy_resourceId = Lens.lens (\DeleteScalingPolicy' {resourceId} -> resourceId) (\s@DeleteScalingPolicy' {} a -> s {resourceId = a} :: DeleteScalingPolicy)
 
@@ -519,6 +537,9 @@ deleteScalingPolicy_resourceId = Lens.lens (\DeleteScalingPolicy' {resourceId} -
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 deleteScalingPolicy_scalableDimension :: Lens.Lens' DeleteScalingPolicy ScalableDimension
 deleteScalingPolicy_scalableDimension = Lens.lens (\DeleteScalingPolicy' {scalableDimension} -> scalableDimension) (\s@DeleteScalingPolicy' {} a -> s {scalableDimension = a} :: DeleteScalingPolicy)
 
@@ -537,7 +558,8 @@ instance Core.AWSRequest DeleteScalingPolicy where
 
 instance Prelude.Hashable DeleteScalingPolicy where
   hashWithSalt _salt DeleteScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt
+      `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers or updates a scalable target, the resource that you want to
--- scale.
+-- Registers or updates a scalable target, which is the resource that you
+-- want to scale.
 --
 -- Scalable targets are uniquely identified by the combination of resource
 -- ID, scalable dimension, and namespace, which represents some capacity
@@ -33,10 +33,10 @@
 -- current capacity. Otherwise, it changes the resource\'s current capacity
 -- to a value that is inside of this range.
 --
--- If you choose to add a scaling policy, current capacity is adjustable
--- within the specified range when scaling starts. Application Auto Scaling
--- scaling policies will not scale capacity to values that are outside of
--- the minimum and maximum range.
+-- If you add a scaling policy, current capacity is adjustable within the
+-- specified range when scaling starts. Application Auto Scaling scaling
+-- policies will not scale capacity to values that are outside of the
+-- minimum and maximum range.
 --
 -- After you register a scalable target, you do not need to register it
 -- again to use other Application Auto Scaling operations. To see which
@@ -52,11 +52,20 @@
 -- resource ID, scalable dimension, and namespace. Any parameters that you
 -- don\'t specify are not changed by this update request.
 --
--- If you call the @RegisterScalableTarget@ API to update an existing
--- scalable target, Application Auto Scaling retrieves the current capacity
--- of the resource. If it is below the minimum capacity or above the
--- maximum capacity, Application Auto Scaling adjusts the capacity of the
--- scalable target to place it within these bounds, even if you don\'t
+-- If you call the @RegisterScalableTarget@ API operation to create a
+-- scalable target, there might be a brief delay until the operation
+-- achieves
+-- <https://en.wikipedia.org/wiki/Eventual_consistency eventual consistency>.
+-- You might become aware of this brief delay if you get unexpected errors
+-- when performing sequential operations. The typical strategy is to retry
+-- the request, and some Amazon Web Services SDKs include automatic backoff
+-- and retry logic.
+--
+-- If you call the @RegisterScalableTarget@ API operation to update an
+-- existing scalable target, Application Auto Scaling retrieves the current
+-- capacity of the resource. If it\'s below the minimum capacity or above
+-- the maximum capacity, Application Auto Scaling adjusts the capacity of
+-- the scalable target to place it within these bounds, even if you don\'t
 -- include the @MinCapacity@ or @MaxCapacity@ request parameters.
 module Amazonka.ApplicationAutoScaling.RegisterScalableTarget
   ( -- * Creating a Request
@@ -68,6 +77,7 @@ module Amazonka.ApplicationAutoScaling.RegisterScalableTarget
     registerScalableTarget_minCapacity,
     registerScalableTarget_roleARN,
     registerScalableTarget_suspendedState,
+    registerScalableTarget_tags,
     registerScalableTarget_serviceNamespace,
     registerScalableTarget_resourceId,
     registerScalableTarget_scalableDimension,
@@ -77,6 +87,7 @@ module Amazonka.ApplicationAutoScaling.RegisterScalableTarget
     newRegisterScalableTargetResponse,
 
     -- * Response Lenses
+    registerScalableTargetResponse_scalableTargetARN,
     registerScalableTargetResponse_httpStatus,
   )
 where
@@ -97,11 +108,11 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- property is required when registering a new scalable target.
     --
     -- Although you can specify a large maximum capacity, note that service
-    -- quotas may impose lower limits. Each service has its own default quotas
-    -- for the maximum capacity of the resource. If you want to specify a
-    -- higher limit, you can request an increase. For more information, consult
-    -- the documentation for that service. For information about the default
-    -- quotas for each service, see
+    -- quotas might impose lower limits. Each service has its own default
+    -- quotas for the maximum capacity of the resource. If you want to specify
+    -- a higher limit, you can request an increase. For more information,
+    -- consult the documentation for that service. For information about the
+    -- default quotas for each service, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service endpoints and quotas>
     -- in the /Amazon Web Services General Reference/.
     maxCapacity :: Prelude.Maybe Prelude.Int,
@@ -123,6 +134,8 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- -   Lambda provisioned concurrency
     --
     -- -   SageMaker endpoint variants
+    --
+    -- -   SageMaker Serverless endpoint provisioned concurrency
     --
     -- -   Spot Fleets
     --
@@ -172,6 +185,19 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling>
     -- in the /Application Auto Scaling User Guide/.
     suspendedState :: Prelude.Maybe SuspendedState,
+    -- | Assigns one or more tags to the scalable target. Use this parameter to
+    -- tag the scalable target when it is created. To tag an existing scalable
+    -- target, use the TagResource operation.
+    --
+    -- Each tag consists of a tag key and a tag value. Both the tag key and the
+    -- tag value are required. You cannot have more than one tag on a scalable
+    -- target with the same tag key.
+    --
+    -- Use tags to control access to a scalable target. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html Tagging support for Application Auto Scaling>
+    -- in the /Application Auto Scaling User Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -243,6 +269,10 @@ data RegisterScalableTarget = RegisterScalableTarget'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
@@ -309,6 +339,9 @@ data RegisterScalableTarget = RegisterScalableTarget'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -327,11 +360,11 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- property is required when registering a new scalable target.
 --
 -- Although you can specify a large maximum capacity, note that service
--- quotas may impose lower limits. Each service has its own default quotas
--- for the maximum capacity of the resource. If you want to specify a
--- higher limit, you can request an increase. For more information, consult
--- the documentation for that service. For information about the default
--- quotas for each service, see
+-- quotas might impose lower limits. Each service has its own default
+-- quotas for the maximum capacity of the resource. If you want to specify
+-- a higher limit, you can request an increase. For more information,
+-- consult the documentation for that service. For information about the
+-- default quotas for each service, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service endpoints and quotas>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -353,6 +386,8 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- -   Lambda provisioned concurrency
 --
 -- -   SageMaker endpoint variants
+--
+-- -   SageMaker Serverless endpoint provisioned concurrency
 --
 -- -   Spot Fleets
 --
@@ -400,6 +435,19 @@ data RegisterScalableTarget = RegisterScalableTarget'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling>
+-- in the /Application Auto Scaling User Guide/.
+--
+-- 'tags', 'registerScalableTarget_tags' - Assigns one or more tags to the scalable target. Use this parameter to
+-- tag the scalable target when it is created. To tag an existing scalable
+-- target, use the TagResource operation.
+--
+-- Each tag consists of a tag key and a tag value. Both the tag key and the
+-- tag value are required. You cannot have more than one tag on a scalable
+-- target with the same tag key.
+--
+-- Use tags to control access to a scalable target. For more information,
+-- see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html Tagging support for Application Auto Scaling>
 -- in the /Application Auto Scaling User Guide/.
 --
 -- 'serviceNamespace', 'registerScalableTarget_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
@@ -474,6 +522,10 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'registerScalableTarget_scalableDimension' - The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
 --
@@ -539,6 +591,9 @@ data RegisterScalableTarget = RegisterScalableTarget'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 newRegisterScalableTarget ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -557,6 +612,7 @@ newRegisterScalableTarget
         minCapacity = Prelude.Nothing,
         roleARN = Prelude.Nothing,
         suspendedState = Prelude.Nothing,
+        tags = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_
@@ -568,11 +624,11 @@ newRegisterScalableTarget
 -- property is required when registering a new scalable target.
 --
 -- Although you can specify a large maximum capacity, note that service
--- quotas may impose lower limits. Each service has its own default quotas
--- for the maximum capacity of the resource. If you want to specify a
--- higher limit, you can request an increase. For more information, consult
--- the documentation for that service. For information about the default
--- quotas for each service, see
+-- quotas might impose lower limits. Each service has its own default
+-- quotas for the maximum capacity of the resource. If you want to specify
+-- a higher limit, you can request an increase. For more information,
+-- consult the documentation for that service. For information about the
+-- default quotas for each service, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service endpoints and quotas>
 -- in the /Amazon Web Services General Reference/.
 registerScalableTarget_maxCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
@@ -596,6 +652,8 @@ registerScalableTarget_maxCapacity = Lens.lens (\RegisterScalableTarget' {maxCap
 -- -   Lambda provisioned concurrency
 --
 -- -   SageMaker endpoint variants
+--
+-- -   SageMaker Serverless endpoint provisioned concurrency
 --
 -- -   Spot Fleets
 --
@@ -650,6 +708,21 @@ registerScalableTarget_roleARN = Lens.lens (\RegisterScalableTarget' {roleARN} -
 -- in the /Application Auto Scaling User Guide/.
 registerScalableTarget_suspendedState :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe SuspendedState)
 registerScalableTarget_suspendedState = Lens.lens (\RegisterScalableTarget' {suspendedState} -> suspendedState) (\s@RegisterScalableTarget' {} a -> s {suspendedState = a} :: RegisterScalableTarget)
+
+-- | Assigns one or more tags to the scalable target. Use this parameter to
+-- tag the scalable target when it is created. To tag an existing scalable
+-- target, use the TagResource operation.
+--
+-- Each tag consists of a tag key and a tag value. Both the tag key and the
+-- tag value are required. You cannot have more than one tag on a scalable
+-- target with the same tag key.
+--
+-- Use tags to control access to a scalable target. For more information,
+-- see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html Tagging support for Application Auto Scaling>
+-- in the /Application Auto Scaling User Guide/.
+registerScalableTarget_tags :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+registerScalableTarget_tags = Lens.lens (\RegisterScalableTarget' {tags} -> tags) (\s@RegisterScalableTarget' {} a -> s {tags = a} :: RegisterScalableTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -724,6 +797,10 @@ registerScalableTarget_serviceNamespace = Lens.lens (\RegisterScalableTarget' {s
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 registerScalableTarget_resourceId :: Lens.Lens' RegisterScalableTarget Prelude.Text
 registerScalableTarget_resourceId = Lens.lens (\RegisterScalableTarget' {resourceId} -> resourceId) (\s@RegisterScalableTarget' {} a -> s {resourceId = a} :: RegisterScalableTarget)
 
@@ -792,6 +869,9 @@ registerScalableTarget_resourceId = Lens.lens (\RegisterScalableTarget' {resourc
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 registerScalableTarget_scalableDimension :: Lens.Lens' RegisterScalableTarget ScalableDimension
 registerScalableTarget_scalableDimension = Lens.lens (\RegisterScalableTarget' {scalableDimension} -> scalableDimension) (\s@RegisterScalableTarget' {} a -> s {scalableDimension = a} :: RegisterScalableTarget)
 
@@ -802,18 +882,21 @@ instance Core.AWSRequest RegisterScalableTarget where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveEmpty
+    Response.receiveJSON
       ( \s h x ->
           RegisterScalableTargetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "ScalableTargetARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RegisterScalableTarget where
   hashWithSalt _salt RegisterScalableTarget' {..} =
-    _salt `Prelude.hashWithSalt` maxCapacity
+    _salt
+      `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` minCapacity
       `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` suspendedState
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
@@ -824,6 +907,7 @@ instance Prelude.NFData RegisterScalableTarget where
       `Prelude.seq` Prelude.rnf minCapacity
       `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf suspendedState
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serviceNamespace
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
@@ -852,6 +936,7 @@ instance Data.ToJSON RegisterScalableTarget where
             ("RoleARN" Data..=) Prelude.<$> roleARN,
             ("SuspendedState" Data..=)
               Prelude.<$> suspendedState,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ServiceNamespace" Data..= serviceNamespace),
             Prelude.Just ("ResourceId" Data..= resourceId),
@@ -868,7 +953,9 @@ instance Data.ToQuery RegisterScalableTarget where
 
 -- | /See:/ 'newRegisterScalableTargetResponse' smart constructor.
 data RegisterScalableTargetResponse = RegisterScalableTargetResponse'
-  { -- | The response's http status code.
+  { -- | The ARN of the scalable target.
+    scalableTargetARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -881,6 +968,8 @@ data RegisterScalableTargetResponse = RegisterScalableTargetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'scalableTargetARN', 'registerScalableTargetResponse_scalableTargetARN' - The ARN of the scalable target.
+--
 -- 'httpStatus', 'registerScalableTargetResponse_httpStatus' - The response's http status code.
 newRegisterScalableTargetResponse ::
   -- | 'httpStatus'
@@ -888,9 +977,14 @@ newRegisterScalableTargetResponse ::
   RegisterScalableTargetResponse
 newRegisterScalableTargetResponse pHttpStatus_ =
   RegisterScalableTargetResponse'
-    { httpStatus =
-        pHttpStatus_
+    { scalableTargetARN =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the scalable target.
+registerScalableTargetResponse_scalableTargetARN :: Lens.Lens' RegisterScalableTargetResponse (Prelude.Maybe Prelude.Text)
+registerScalableTargetResponse_scalableTargetARN = Lens.lens (\RegisterScalableTargetResponse' {scalableTargetARN} -> scalableTargetARN) (\s@RegisterScalableTargetResponse' {} a -> s {scalableTargetARN = a} :: RegisterScalableTargetResponse)
 
 -- | The response's http status code.
 registerScalableTargetResponse_httpStatus :: Lens.Lens' RegisterScalableTargetResponse Prelude.Int
@@ -901,4 +995,5 @@ instance
     RegisterScalableTargetResponse
   where
   rnf RegisterScalableTargetResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf scalableTargetARN
+      `Prelude.seq` Prelude.rnf httpStatus

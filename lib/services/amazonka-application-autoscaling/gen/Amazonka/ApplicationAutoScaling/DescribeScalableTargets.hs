@@ -136,6 +136,10 @@ data DescribeScalableTargets = DescribeScalableTargets'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceIds :: Prelude.Maybe [Prelude.Text],
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
@@ -204,6 +208,9 @@ data DescribeScalableTargets = DescribeScalableTargets'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
@@ -299,6 +306,10 @@ data DescribeScalableTargets = DescribeScalableTargets'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'describeScalableTargets_scalableDimension' - The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
 -- If you specify a scalable dimension, you must also specify a resource
@@ -366,6 +377,9 @@ data DescribeScalableTargets = DescribeScalableTargets'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 --
 -- 'serviceNamespace', 'describeScalableTargets_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -466,6 +480,10 @@ describeScalableTargets_nextToken = Lens.lens (\DescribeScalableTargets' {nextTo
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 describeScalableTargets_resourceIds :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe [Prelude.Text])
 describeScalableTargets_resourceIds = Lens.lens (\DescribeScalableTargets' {resourceIds} -> resourceIds) (\s@DescribeScalableTargets' {} a -> s {resourceIds = a} :: DescribeScalableTargets) Prelude.. Lens.mapping Lens.coerced
 
@@ -536,6 +554,9 @@ describeScalableTargets_resourceIds = Lens.lens (\DescribeScalableTargets' {reso
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 describeScalableTargets_scalableDimension :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe ScalableDimension)
 describeScalableTargets_scalableDimension = Lens.lens (\DescribeScalableTargets' {scalableDimension} -> scalableDimension) (\s@DescribeScalableTargets' {} a -> s {scalableDimension = a} :: DescribeScalableTargets)
 
@@ -550,22 +571,22 @@ instance Core.AWSPager DescribeScalableTargets where
     | Core.stop
         ( rs
             Lens.^? describeScalableTargetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScalableTargetsResponse_scalableTargets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScalableTargets_nextToken
           Lens..~ rs
           Lens.^? describeScalableTargetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalableTargets where
   type
@@ -578,7 +599,8 @@ instance Core.AWSRequest DescribeScalableTargets where
       ( \s h x ->
           DescribeScalableTargetsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ScalableTargets"
+            Prelude.<*> ( x
+                            Data..?> "ScalableTargets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -586,7 +608,8 @@ instance Core.AWSRequest DescribeScalableTargets where
 
 instance Prelude.Hashable DescribeScalableTargets where
   hashWithSalt _salt DescribeScalableTargets' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceIds
       `Prelude.hashWithSalt` scalableDimension

@@ -30,6 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 -- | Represents a step scaling policy configuration to use with Application
 -- Auto Scaling.
 --
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies>
+-- in the /Application Auto Scaling User Guide/.
+--
 -- /See:/ 'newStepScalingPolicyConfiguration' smart constructor.
 data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
   { -- | Specifies how the @ScalingAdjustment@ value in a
@@ -42,63 +46,10 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     -- configuration.
     adjustmentType :: Prelude.Maybe AdjustmentType,
     -- | The amount of time, in seconds, to wait for a previous scaling activity
-    -- to take effect.
-    --
-    -- With scale-out policies, the intention is to continuously (but not
-    -- excessively) scale out. After Application Auto Scaling successfully
-    -- scales out using a step scaling policy, it starts to calculate the
-    -- cooldown time. The scaling policy won\'t increase the desired capacity
-    -- again unless either a larger scale out is triggered or the cooldown
-    -- period ends. While the cooldown period is in effect, capacity added by
-    -- the initiating scale-out activity is calculated as part of the desired
-    -- capacity for the next scale-out activity. For example, when an alarm
-    -- triggers a step scaling policy to increase the capacity by 2, the
-    -- scaling activity completes successfully, and a cooldown period starts.
-    -- If the alarm triggers again during the cooldown period but at a more
-    -- aggressive step adjustment of 3, the previous increase of 2 is
-    -- considered part of the current capacity. Therefore, only 1 is added to
-    -- the capacity.
-    --
-    -- With scale-in policies, the intention is to scale in conservatively to
-    -- protect your application’s availability, so scale-in activities are
-    -- blocked until the cooldown period has expired. However, if another alarm
-    -- triggers a scale-out activity during the cooldown period after a
-    -- scale-in activity, Application Auto Scaling scales out the target
-    -- immediately. In this case, the cooldown period for the scale-in activity
-    -- stops and doesn\'t complete.
-    --
-    -- Application Auto Scaling provides a default value of 600 for Amazon
-    -- ElastiCache replication groups and a default value of 300 for the
-    -- following scalable targets:
-    --
-    -- -   AppStream 2.0 fleets
-    --
-    -- -   Aurora DB clusters
-    --
-    -- -   ECS services
-    --
-    -- -   EMR clusters
-    --
-    -- -   Neptune clusters
-    --
-    -- -   SageMaker endpoint variants
-    --
-    -- -   Spot Fleets
-    --
-    -- -   Custom resources
-    --
-    -- For all other scalable targets, the default value is 0:
-    --
-    -- -   Amazon Comprehend document classification and entity recognizer
-    --     endpoints
-    --
-    -- -   DynamoDB tables and global secondary indexes
-    --
-    -- -   Amazon Keyspaces tables
-    --
-    -- -   Lambda provisioned concurrency
-    --
-    -- -   Amazon MSK broker storage
+    -- to take effect. If not specified, the default value is 300. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#step-scaling-cooldown Cooldown period>
+    -- in the /Application Auto Scaling User Guide/.
     cooldown :: Prelude.Maybe Prelude.Int,
     -- | The aggregation type for the CloudWatch metrics. Valid values are
     -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
@@ -139,63 +90,10 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 -- configuration.
 --
 -- 'cooldown', 'stepScalingPolicyConfiguration_cooldown' - The amount of time, in seconds, to wait for a previous scaling activity
--- to take effect.
---
--- With scale-out policies, the intention is to continuously (but not
--- excessively) scale out. After Application Auto Scaling successfully
--- scales out using a step scaling policy, it starts to calculate the
--- cooldown time. The scaling policy won\'t increase the desired capacity
--- again unless either a larger scale out is triggered or the cooldown
--- period ends. While the cooldown period is in effect, capacity added by
--- the initiating scale-out activity is calculated as part of the desired
--- capacity for the next scale-out activity. For example, when an alarm
--- triggers a step scaling policy to increase the capacity by 2, the
--- scaling activity completes successfully, and a cooldown period starts.
--- If the alarm triggers again during the cooldown period but at a more
--- aggressive step adjustment of 3, the previous increase of 2 is
--- considered part of the current capacity. Therefore, only 1 is added to
--- the capacity.
---
--- With scale-in policies, the intention is to scale in conservatively to
--- protect your application’s availability, so scale-in activities are
--- blocked until the cooldown period has expired. However, if another alarm
--- triggers a scale-out activity during the cooldown period after a
--- scale-in activity, Application Auto Scaling scales out the target
--- immediately. In this case, the cooldown period for the scale-in activity
--- stops and doesn\'t complete.
---
--- Application Auto Scaling provides a default value of 600 for Amazon
--- ElastiCache replication groups and a default value of 300 for the
--- following scalable targets:
---
--- -   AppStream 2.0 fleets
---
--- -   Aurora DB clusters
---
--- -   ECS services
---
--- -   EMR clusters
---
--- -   Neptune clusters
---
--- -   SageMaker endpoint variants
---
--- -   Spot Fleets
---
--- -   Custom resources
---
--- For all other scalable targets, the default value is 0:
---
--- -   Amazon Comprehend document classification and entity recognizer
---     endpoints
---
--- -   DynamoDB tables and global secondary indexes
---
--- -   Amazon Keyspaces tables
---
--- -   Lambda provisioned concurrency
---
--- -   Amazon MSK broker storage
+-- to take effect. If not specified, the default value is 300. For more
+-- information, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#step-scaling-cooldown Cooldown period>
+-- in the /Application Auto Scaling User Guide/.
 --
 -- 'metricAggregationType', 'stepScalingPolicyConfiguration_metricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are
 -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
@@ -238,63 +136,10 @@ stepScalingPolicyConfiguration_adjustmentType :: Lens.Lens' StepScalingPolicyCon
 stepScalingPolicyConfiguration_adjustmentType = Lens.lens (\StepScalingPolicyConfiguration' {adjustmentType} -> adjustmentType) (\s@StepScalingPolicyConfiguration' {} a -> s {adjustmentType = a} :: StepScalingPolicyConfiguration)
 
 -- | The amount of time, in seconds, to wait for a previous scaling activity
--- to take effect.
---
--- With scale-out policies, the intention is to continuously (but not
--- excessively) scale out. After Application Auto Scaling successfully
--- scales out using a step scaling policy, it starts to calculate the
--- cooldown time. The scaling policy won\'t increase the desired capacity
--- again unless either a larger scale out is triggered or the cooldown
--- period ends. While the cooldown period is in effect, capacity added by
--- the initiating scale-out activity is calculated as part of the desired
--- capacity for the next scale-out activity. For example, when an alarm
--- triggers a step scaling policy to increase the capacity by 2, the
--- scaling activity completes successfully, and a cooldown period starts.
--- If the alarm triggers again during the cooldown period but at a more
--- aggressive step adjustment of 3, the previous increase of 2 is
--- considered part of the current capacity. Therefore, only 1 is added to
--- the capacity.
---
--- With scale-in policies, the intention is to scale in conservatively to
--- protect your application’s availability, so scale-in activities are
--- blocked until the cooldown period has expired. However, if another alarm
--- triggers a scale-out activity during the cooldown period after a
--- scale-in activity, Application Auto Scaling scales out the target
--- immediately. In this case, the cooldown period for the scale-in activity
--- stops and doesn\'t complete.
---
--- Application Auto Scaling provides a default value of 600 for Amazon
--- ElastiCache replication groups and a default value of 300 for the
--- following scalable targets:
---
--- -   AppStream 2.0 fleets
---
--- -   Aurora DB clusters
---
--- -   ECS services
---
--- -   EMR clusters
---
--- -   Neptune clusters
---
--- -   SageMaker endpoint variants
---
--- -   Spot Fleets
---
--- -   Custom resources
---
--- For all other scalable targets, the default value is 0:
---
--- -   Amazon Comprehend document classification and entity recognizer
---     endpoints
---
--- -   DynamoDB tables and global secondary indexes
---
--- -   Amazon Keyspaces tables
---
--- -   Lambda provisioned concurrency
---
--- -   Amazon MSK broker storage
+-- to take effect. If not specified, the default value is 300. For more
+-- information, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#step-scaling-cooldown Cooldown period>
+-- in the /Application Auto Scaling User Guide/.
 stepScalingPolicyConfiguration_cooldown :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
 stepScalingPolicyConfiguration_cooldown = Lens.lens (\StepScalingPolicyConfiguration' {cooldown} -> cooldown) (\s@StepScalingPolicyConfiguration' {} a -> s {cooldown = a} :: StepScalingPolicyConfiguration)
 
@@ -332,7 +177,8 @@ instance Data.FromJSON StepScalingPolicyConfiguration where
             Prelude.<*> (x Data..:? "Cooldown")
             Prelude.<*> (x Data..:? "MetricAggregationType")
             Prelude.<*> (x Data..:? "MinAdjustmentMagnitude")
-            Prelude.<*> ( x Data..:? "StepAdjustments"
+            Prelude.<*> ( x
+                            Data..:? "StepAdjustments"
                             Data..!= Prelude.mempty
                         )
       )
@@ -344,7 +190,8 @@ instance
   hashWithSalt
     _salt
     StepScalingPolicyConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` adjustmentType
+      _salt
+        `Prelude.hashWithSalt` adjustmentType
         `Prelude.hashWithSalt` cooldown
         `Prelude.hashWithSalt` metricAggregationType
         `Prelude.hashWithSalt` minAdjustmentMagnitude

@@ -98,6 +98,9 @@ data ScheduledAction = ScheduledAction'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The new minimum and maximum capacity. You can set both values or just
     -- one. At the scheduled time, if the current capacity is below the minimum
@@ -119,11 +122,12 @@ data ScheduledAction = ScheduledAction'
     serviceNamespace :: ServiceNamespace,
     -- | The schedule for this action. The following formats are supported:
     --
-    -- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+    -- -   At expressions -
+    --     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
     --
-    -- -   Rate expressions - \"@rate(value unit)@\"
+    -- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
     --
-    -- -   Cron expressions - \"@cron(fields)@\"
+    -- -   Cron expressions - \"@cron(@/@fields@/@)@\"
     --
     -- At expressions are useful for one-time schedules. Cron expressions are
     -- useful for scheduled actions that run periodically at a specified date
@@ -209,6 +213,10 @@ data ScheduledAction = ScheduledAction'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The date and time that the scheduled action was created.
     creationTime :: Data.POSIX
@@ -291,6 +299,9 @@ data ScheduledAction = ScheduledAction'
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
 --
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
+--
 -- 'scalableTargetAction', 'scheduledAction_scalableTargetAction' - The new minimum and maximum capacity. You can set both values or just
 -- one. At the scheduled time, if the current capacity is below the minimum
 -- capacity, Application Auto Scaling scales out to the minimum capacity.
@@ -311,11 +322,12 @@ data ScheduledAction = ScheduledAction'
 --
 -- 'schedule', 'scheduledAction_schedule' - The schedule for this action. The following formats are supported:
 --
--- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+-- -   At expressions -
+--     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
 --
--- -   Rate expressions - \"@rate(value unit)@\"
+-- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
 --
--- -   Cron expressions - \"@cron(fields)@\"
+-- -   Cron expressions - \"@cron(@/@fields@/@)@\"
 --
 -- At expressions are useful for one-time schedules. Cron expressions are
 -- useful for scheduled actions that run periodically at a specified date
@@ -401,6 +413,10 @@ data ScheduledAction = ScheduledAction'
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- 'creationTime', 'scheduledAction_creationTime' - The date and time that the scheduled action was created.
 newScheduledAction ::
@@ -507,6 +523,9 @@ scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 scheduledAction_scalableDimension :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableDimension)
 scheduledAction_scalableDimension = Lens.lens (\ScheduledAction' {scalableDimension} -> scalableDimension) (\s@ScheduledAction' {} a -> s {scalableDimension = a} :: ScheduledAction)
 
@@ -542,11 +561,12 @@ scheduledAction_serviceNamespace = Lens.lens (\ScheduledAction' {serviceNamespac
 
 -- | The schedule for this action. The following formats are supported:
 --
--- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+-- -   At expressions -
+--     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
 --
--- -   Rate expressions - \"@rate(value unit)@\"
+-- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
 --
--- -   Cron expressions - \"@cron(fields)@\"
+-- -   Cron expressions - \"@cron(@/@fields@/@)@\"
 --
 -- At expressions are useful for one-time schedules. Cron expressions are
 -- useful for scheduled actions that run periodically at a specified date
@@ -634,6 +654,10 @@ scheduledAction_schedule = Lens.lens (\ScheduledAction' {schedule} -> schedule) 
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 scheduledAction_resourceId :: Lens.Lens' ScheduledAction Prelude.Text
 scheduledAction_resourceId = Lens.lens (\ScheduledAction' {resourceId} -> resourceId) (\s@ScheduledAction' {} a -> s {resourceId = a} :: ScheduledAction)
 
@@ -662,7 +686,8 @@ instance Data.FromJSON ScheduledAction where
 
 instance Prelude.Hashable ScheduledAction where
   hashWithSalt _salt ScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` scalableDimension
       `Prelude.hashWithSalt` scalableTargetAction
       `Prelude.hashWithSalt` startTime

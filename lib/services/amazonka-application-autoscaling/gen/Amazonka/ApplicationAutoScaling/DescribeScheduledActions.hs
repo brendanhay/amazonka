@@ -145,6 +145,10 @@ data DescribeScheduledActions = DescribeScheduledActions'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property. If you specify a scalable
@@ -212,6 +216,9 @@ data DescribeScheduledActions = DescribeScheduledActions'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The names of the scheduled actions to describe.
     scheduledActionNames :: Prelude.Maybe [Prelude.Text],
@@ -309,6 +316,10 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'describeScheduledActions_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property. If you specify a scalable
 -- dimension, you must also specify a resource ID.
@@ -375,6 +386,9 @@ data DescribeScheduledActions = DescribeScheduledActions'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 --
 -- 'scheduledActionNames', 'describeScheduledActions_scheduledActionNames' - The names of the scheduled actions to describe.
 --
@@ -478,6 +492,10 @@ describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {next
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 describeScheduledActions_resourceId :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_resourceId = Lens.lens (\DescribeScheduledActions' {resourceId} -> resourceId) (\s@DescribeScheduledActions' {} a -> s {resourceId = a} :: DescribeScheduledActions)
 
@@ -547,6 +565,9 @@ describeScheduledActions_resourceId = Lens.lens (\DescribeScheduledActions' {res
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 describeScheduledActions_scalableDimension :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe ScalableDimension)
 describeScheduledActions_scalableDimension = Lens.lens (\DescribeScheduledActions' {scalableDimension} -> scalableDimension) (\s@DescribeScheduledActions' {} a -> s {scalableDimension = a} :: DescribeScheduledActions)
 
@@ -565,22 +586,22 @@ instance Core.AWSPager DescribeScheduledActions where
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_scheduledActions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScheduledActions_nextToken
           Lens..~ rs
           Lens.^? describeScheduledActionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledActions where
   type
@@ -593,7 +614,8 @@ instance Core.AWSRequest DescribeScheduledActions where
       ( \s h x ->
           DescribeScheduledActionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ScheduledActions"
+            Prelude.<*> ( x
+                            Data..?> "ScheduledActions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -601,7 +623,8 @@ instance Core.AWSRequest DescribeScheduledActions where
 
 instance Prelude.Hashable DescribeScheduledActions where
   hashWithSalt _salt DescribeScheduledActions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension

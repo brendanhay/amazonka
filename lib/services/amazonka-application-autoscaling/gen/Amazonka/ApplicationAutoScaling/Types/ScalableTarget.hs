@@ -31,7 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScalableTarget' smart constructor.
 data ScalableTarget = ScalableTarget'
-  { suspendedState :: Prelude.Maybe SuspendedState,
+  { -- | The ARN of the scalable target.
+    scalableTargetARN :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the scaling activities for a scalable target are in a
+    -- suspended state.
+    suspendedState :: Prelude.Maybe SuspendedState,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource, or a @custom-resource@.
     serviceNamespace :: ServiceNamespace,
@@ -102,6 +106,10 @@ data ScalableTarget = ScalableTarget'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
@@ -168,6 +176,9 @@ data ScalableTarget = ScalableTarget'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: ScalableDimension,
     -- | The minimum value to scale to in response to a scale-in activity.
     minCapacity :: Prelude.Int,
@@ -189,7 +200,10 @@ data ScalableTarget = ScalableTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suspendedState', 'scalableTarget_suspendedState' - Undocumented member.
+-- 'scalableTargetARN', 'scalableTarget_scalableTargetARN' - The ARN of the scalable target.
+--
+-- 'suspendedState', 'scalableTarget_suspendedState' - Specifies whether the scaling activities for a scalable target are in a
+-- suspended state.
 --
 -- 'serviceNamespace', 'scalableTarget_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource, or a @custom-resource@.
@@ -262,6 +276,10 @@ data ScalableTarget = ScalableTarget'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'scalableTarget_scalableDimension' - The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
 --
@@ -328,6 +346,9 @@ data ScalableTarget = ScalableTarget'
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
 --
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
+--
 -- 'minCapacity', 'scalableTarget_minCapacity' - The minimum value to scale to in response to a scale-in activity.
 --
 -- 'maxCapacity', 'scalableTarget_maxCapacity' - The maximum value to scale to in response to a scale-out activity.
@@ -361,7 +382,9 @@ newScalableTarget
   pRoleARN_
   pCreationTime_ =
     ScalableTarget'
-      { suspendedState = Prelude.Nothing,
+      { scalableTargetARN =
+          Prelude.Nothing,
+        suspendedState = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_,
@@ -371,7 +394,12 @@ newScalableTarget
         creationTime = Data._Time Lens.# pCreationTime_
       }
 
--- | Undocumented member.
+-- | The ARN of the scalable target.
+scalableTarget_scalableTargetARN :: Lens.Lens' ScalableTarget (Prelude.Maybe Prelude.Text)
+scalableTarget_scalableTargetARN = Lens.lens (\ScalableTarget' {scalableTargetARN} -> scalableTargetARN) (\s@ScalableTarget' {} a -> s {scalableTargetARN = a} :: ScalableTarget)
+
+-- | Specifies whether the scaling activities for a scalable target are in a
+-- suspended state.
 scalableTarget_suspendedState :: Lens.Lens' ScalableTarget (Prelude.Maybe SuspendedState)
 scalableTarget_suspendedState = Lens.lens (\ScalableTarget' {suspendedState} -> suspendedState) (\s@ScalableTarget' {} a -> s {suspendedState = a} :: ScalableTarget)
 
@@ -447,6 +475,10 @@ scalableTarget_serviceNamespace = Lens.lens (\ScalableTarget' {serviceNamespace}
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 scalableTarget_resourceId :: Lens.Lens' ScalableTarget Prelude.Text
 scalableTarget_resourceId = Lens.lens (\ScalableTarget' {resourceId} -> resourceId) (\s@ScalableTarget' {} a -> s {resourceId = a} :: ScalableTarget)
 
@@ -515,6 +547,9 @@ scalableTarget_resourceId = Lens.lens (\ScalableTarget' {resourceId} -> resource
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 scalableTarget_scalableDimension :: Lens.Lens' ScalableTarget ScalableDimension
 scalableTarget_scalableDimension = Lens.lens (\ScalableTarget' {scalableDimension} -> scalableDimension) (\s@ScalableTarget' {} a -> s {scalableDimension = a} :: ScalableTarget)
 
@@ -541,7 +576,8 @@ instance Data.FromJSON ScalableTarget where
       "ScalableTarget"
       ( \x ->
           ScalableTarget'
-            Prelude.<$> (x Data..:? "SuspendedState")
+            Prelude.<$> (x Data..:? "ScalableTargetARN")
+            Prelude.<*> (x Data..:? "SuspendedState")
             Prelude.<*> (x Data..: "ServiceNamespace")
             Prelude.<*> (x Data..: "ResourceId")
             Prelude.<*> (x Data..: "ScalableDimension")
@@ -553,7 +589,9 @@ instance Data.FromJSON ScalableTarget where
 
 instance Prelude.Hashable ScalableTarget where
   hashWithSalt _salt ScalableTarget' {..} =
-    _salt `Prelude.hashWithSalt` suspendedState
+    _salt
+      `Prelude.hashWithSalt` scalableTargetARN
+      `Prelude.hashWithSalt` suspendedState
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
@@ -564,7 +602,8 @@ instance Prelude.Hashable ScalableTarget where
 
 instance Prelude.NFData ScalableTarget where
   rnf ScalableTarget' {..} =
-    Prelude.rnf suspendedState
+    Prelude.rnf scalableTargetARN
+      `Prelude.seq` Prelude.rnf suspendedState
       `Prelude.seq` Prelude.rnf serviceNamespace
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension

@@ -48,6 +48,9 @@ import Test.Tasty
 --         , requestDescribeScheduledActions $
 --             newDescribeScheduledActions
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestPutScalingPolicy $
 --             newPutScalingPolicy
 --
@@ -56,6 +59,12 @@ import Test.Tasty
 --
 --         , requestRegisterScalableTarget $
 --             newRegisterScalableTarget
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --           ]
 
@@ -81,6 +90,9 @@ import Test.Tasty
 --         , responseDescribeScheduledActions $
 --             newDescribeScheduledActionsResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responsePutScalingPolicy $
 --             newPutScalingPolicyResponse
 --
@@ -89,6 +101,12 @@ import Test.Tasty
 --
 --         , responseRegisterScalableTarget $
 --             newRegisterScalableTargetResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --           ]
 --     ]
@@ -137,6 +155,12 @@ requestDescribeScheduledActions =
     "DescribeScheduledActions"
     "fixture/DescribeScheduledActions.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestPutScalingPolicy :: PutScalingPolicy -> TestTree
 requestPutScalingPolicy =
   req
@@ -154,6 +178,18 @@ requestRegisterScalableTarget =
   req
     "RegisterScalableTarget"
     "fixture/RegisterScalableTarget.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 -- Responses
 
@@ -213,6 +249,14 @@ responseDescribeScheduledActions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeScheduledActions)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
 responsePutScalingPolicy =
   res
@@ -236,3 +280,19 @@ responseRegisterScalableTarget =
     "fixture/RegisterScalableTargetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RegisterScalableTarget)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)

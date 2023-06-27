@@ -39,7 +39,8 @@ module Amazonka.ApplicationAutoScaling.Types.ScalableDimension
         ScalableDimension_Lambda_function_ProvisionedConcurrency,
         ScalableDimension_Neptune_cluster_ReadReplicaCount,
         ScalableDimension_Rds_cluster_ReadReplicaCount,
-        ScalableDimension_Sagemaker_variant_DesiredInstanceCount
+        ScalableDimension_Sagemaker_variant_DesiredInstanceCount,
+        ScalableDimension_Sagemaker_variant_DesiredProvisionedConcurrency
       ),
   )
 where
@@ -136,6 +137,9 @@ pattern ScalableDimension_Rds_cluster_ReadReplicaCount = ScalableDimension' "rds
 pattern ScalableDimension_Sagemaker_variant_DesiredInstanceCount :: ScalableDimension
 pattern ScalableDimension_Sagemaker_variant_DesiredInstanceCount = ScalableDimension' "sagemaker:variant:DesiredInstanceCount"
 
+pattern ScalableDimension_Sagemaker_variant_DesiredProvisionedConcurrency :: ScalableDimension
+pattern ScalableDimension_Sagemaker_variant_DesiredProvisionedConcurrency = ScalableDimension' "sagemaker:variant:DesiredProvisionedConcurrency"
+
 {-# COMPLETE
   ScalableDimension_Appstream_fleet_DesiredCapacity,
   ScalableDimension_Cassandra_table_ReadCapacityUnits,
@@ -157,5 +161,6 @@ pattern ScalableDimension_Sagemaker_variant_DesiredInstanceCount = ScalableDimen
   ScalableDimension_Neptune_cluster_ReadReplicaCount,
   ScalableDimension_Rds_cluster_ReadReplicaCount,
   ScalableDimension_Sagemaker_variant_DesiredInstanceCount,
+  ScalableDimension_Sagemaker_variant_DesiredProvisionedConcurrency,
   ScalableDimension'
   #-}

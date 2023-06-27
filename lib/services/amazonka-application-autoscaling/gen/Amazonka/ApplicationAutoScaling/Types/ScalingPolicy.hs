@@ -119,6 +119,10 @@ data ScalingPolicy = ScalingPolicy'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -185,6 +189,9 @@ data ScalingPolicy = ScalingPolicy'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: ScalableDimension,
     -- | The scaling policy type.
     --
@@ -289,6 +296,10 @@ data ScalingPolicy = ScalingPolicy'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'scalingPolicy_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -354,6 +365,9 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 --
 -- 'policyType', 'scalingPolicy_policyType' - The scaling policy type.
 --
@@ -495,6 +509,10 @@ scalingPolicy_serviceNamespace = Lens.lens (\ScalingPolicy' {serviceNamespace} -
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 scalingPolicy_resourceId :: Lens.Lens' ScalingPolicy Prelude.Text
 scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId) (\s@ScalingPolicy' {} a -> s {resourceId = a} :: ScalingPolicy)
 
@@ -563,6 +581,9 @@ scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 scalingPolicy_scalableDimension :: Lens.Lens' ScalingPolicy ScalableDimension
 scalingPolicy_scalableDimension = Lens.lens (\ScalingPolicy' {scalableDimension} -> scalableDimension) (\s@ScalingPolicy' {} a -> s {scalableDimension = a} :: ScalingPolicy)
 
@@ -603,7 +624,8 @@ instance Data.FromJSON ScalingPolicy where
 
 instance Prelude.Hashable ScalingPolicy where
   hashWithSalt _salt ScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` alarms
+    _salt
+      `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` stepScalingPolicyConfiguration
       `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
       `Prelude.hashWithSalt` policyARN

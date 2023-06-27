@@ -40,9 +40,14 @@
 --
 -- -   Amazon SageMaker endpoint variants
 --
+-- -   Amazon SageMaker Serverless endpoint provisioned concurrency
+--
 -- -   Spot Fleets (Amazon EC2)
 --
 -- -   Custom resources provided by your own applications or services
+--
+-- To learn more about Application Auto Scaling, see the
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html Application Auto Scaling User Guide>.
 --
 -- __API Summary__
 --
@@ -67,11 +72,6 @@
 --     activities that are triggered by a scaling policy, scale-in
 --     activities that are triggered by a scaling policy, and scheduled
 --     scaling.
---
--- To learn more about Application Auto Scaling, including information
--- about granting IAM users required permissions for Application Auto
--- Scaling actions, see the
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html Application Auto Scaling User Guide>.
 module Amazonka.ApplicationAutoScaling
   ( -- * Service Configuration
     defaultService,
@@ -96,6 +96,12 @@ module Amazonka.ApplicationAutoScaling
 
     -- ** ObjectNotFoundException
     _ObjectNotFoundException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** ValidationException
     _ValidationException,
@@ -148,6 +154,12 @@ module Amazonka.ApplicationAutoScaling
     DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
     newDescribeScheduledActionsResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** PutScalingPolicy
     PutScalingPolicy (PutScalingPolicy'),
     newPutScalingPolicy,
@@ -165,6 +177,18 @@ module Amazonka.ApplicationAutoScaling
     newRegisterScalableTarget,
     RegisterScalableTargetResponse (RegisterScalableTargetResponse'),
     newRegisterScalableTargetResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- * Types
 
@@ -244,6 +268,22 @@ module Amazonka.ApplicationAutoScaling
     SuspendedState (SuspendedState'),
     newSuspendedState,
 
+    -- ** TargetTrackingMetric
+    TargetTrackingMetric (TargetTrackingMetric'),
+    newTargetTrackingMetric,
+
+    -- ** TargetTrackingMetricDataQuery
+    TargetTrackingMetricDataQuery (TargetTrackingMetricDataQuery'),
+    newTargetTrackingMetricDataQuery,
+
+    -- ** TargetTrackingMetricDimension
+    TargetTrackingMetricDimension (TargetTrackingMetricDimension'),
+    newTargetTrackingMetricDimension,
+
+    -- ** TargetTrackingMetricStat
+    TargetTrackingMetricStat (TargetTrackingMetricStat'),
+    newTargetTrackingMetricStat,
+
     -- ** TargetTrackingScalingPolicyConfiguration
     TargetTrackingScalingPolicyConfiguration (TargetTrackingScalingPolicyConfiguration'),
     newTargetTrackingScalingPolicyConfiguration,
@@ -258,10 +298,13 @@ import Amazonka.ApplicationAutoScaling.DescribeScalingActivities
 import Amazonka.ApplicationAutoScaling.DescribeScalingPolicies
 import Amazonka.ApplicationAutoScaling.DescribeScheduledActions
 import Amazonka.ApplicationAutoScaling.Lens
+import Amazonka.ApplicationAutoScaling.ListTagsForResource
 import Amazonka.ApplicationAutoScaling.PutScalingPolicy
 import Amazonka.ApplicationAutoScaling.PutScheduledAction
 import Amazonka.ApplicationAutoScaling.RegisterScalableTarget
+import Amazonka.ApplicationAutoScaling.TagResource
 import Amazonka.ApplicationAutoScaling.Types
+import Amazonka.ApplicationAutoScaling.UntagResource
 import Amazonka.ApplicationAutoScaling.Waiters
 
 -- $errors

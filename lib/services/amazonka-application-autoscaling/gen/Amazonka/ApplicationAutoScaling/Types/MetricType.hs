@@ -32,6 +32,7 @@ module Amazonka.ApplicationAutoScaling.Types.MetricType
         MetricType_EC2SpotFleetRequestAverageNetworkOut,
         MetricType_ECSServiceAverageCPUUtilization,
         MetricType_ECSServiceAverageMemoryUtilization,
+        MetricType_ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage,
         MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage,
         MetricType_ElastiCachePrimaryEngineCPUUtilization,
         MetricType_ElastiCacheReplicaEngineCPUUtilization,
@@ -40,7 +41,8 @@ module Amazonka.ApplicationAutoScaling.Types.MetricType
         MetricType_NeptuneReaderAverageCPUUtilization,
         MetricType_RDSReaderAverageCPUUtilization,
         MetricType_RDSReaderAverageDatabaseConnections,
-        MetricType_SageMakerVariantInvocationsPerInstance
+        MetricType_SageMakerVariantInvocationsPerInstance,
+        MetricType_SageMakerVariantProvisionedConcurrencyUtilization
       ),
   )
 where
@@ -113,6 +115,9 @@ pattern MetricType_ECSServiceAverageCPUUtilization = MetricType' "ECSServiceAver
 pattern MetricType_ECSServiceAverageMemoryUtilization :: MetricType
 pattern MetricType_ECSServiceAverageMemoryUtilization = MetricType' "ECSServiceAverageMemoryUtilization"
 
+pattern MetricType_ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage :: MetricType
+pattern MetricType_ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage = MetricType' "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage"
+
 pattern MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage :: MetricType
 pattern MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage = MetricType' "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"
 
@@ -140,6 +145,9 @@ pattern MetricType_RDSReaderAverageDatabaseConnections = MetricType' "RDSReaderA
 pattern MetricType_SageMakerVariantInvocationsPerInstance :: MetricType
 pattern MetricType_SageMakerVariantInvocationsPerInstance = MetricType' "SageMakerVariantInvocationsPerInstance"
 
+pattern MetricType_SageMakerVariantProvisionedConcurrencyUtilization :: MetricType
+pattern MetricType_SageMakerVariantProvisionedConcurrencyUtilization = MetricType' "SageMakerVariantProvisionedConcurrencyUtilization"
+
 {-# COMPLETE
   MetricType_ALBRequestCountPerTarget,
   MetricType_AppStreamAverageCapacityUtilization,
@@ -153,6 +161,7 @@ pattern MetricType_SageMakerVariantInvocationsPerInstance = MetricType' "SageMak
   MetricType_EC2SpotFleetRequestAverageNetworkOut,
   MetricType_ECSServiceAverageCPUUtilization,
   MetricType_ECSServiceAverageMemoryUtilization,
+  MetricType_ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage,
   MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage,
   MetricType_ElastiCachePrimaryEngineCPUUtilization,
   MetricType_ElastiCacheReplicaEngineCPUUtilization,
@@ -162,5 +171,6 @@ pattern MetricType_SageMakerVariantInvocationsPerInstance = MetricType' "SageMak
   MetricType_RDSReaderAverageCPUUtilization,
   MetricType_RDSReaderAverageDatabaseConnections,
   MetricType_SageMakerVariantInvocationsPerInstance,
+  MetricType_SageMakerVariantProvisionedConcurrencyUtilization,
   MetricType'
   #-}

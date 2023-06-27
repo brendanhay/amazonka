@@ -52,9 +52,11 @@ library
     Amazonka.ApplicationAutoScaling.DescribeScalingPolicies
     Amazonka.ApplicationAutoScaling.DescribeScheduledActions
     Amazonka.ApplicationAutoScaling.Lens
+    Amazonka.ApplicationAutoScaling.ListTagsForResource
     Amazonka.ApplicationAutoScaling.PutScalingPolicy
     Amazonka.ApplicationAutoScaling.PutScheduledAction
     Amazonka.ApplicationAutoScaling.RegisterScalableTarget
+    Amazonka.ApplicationAutoScaling.TagResource
     Amazonka.ApplicationAutoScaling.Types
     Amazonka.ApplicationAutoScaling.Types.AdjustmentType
     Amazonka.ApplicationAutoScaling.Types.Alarm
@@ -77,7 +79,12 @@ library
     Amazonka.ApplicationAutoScaling.Types.StepAdjustment
     Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
     Amazonka.ApplicationAutoScaling.Types.SuspendedState
+    Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetric
+    Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetricDataQuery
+    Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetricDimension
+    Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetricStat
     Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
+    Amazonka.ApplicationAutoScaling.UntagResource
     Amazonka.ApplicationAutoScaling.Waiters
 
   build-depends:

@@ -24,6 +24,8 @@ module Amazonka.ApplicationAutoScaling.Types
     _InvalidNextTokenException,
     _LimitExceededException,
     _ObjectNotFoundException,
+    _ResourceNotFoundException,
+    _TooManyTagsException,
     _ValidationException,
 
     -- * AdjustmentType
@@ -60,10 +62,11 @@ module Amazonka.ApplicationAutoScaling.Types
     CustomizedMetricSpecification (..),
     newCustomizedMetricSpecification,
     customizedMetricSpecification_dimensions,
-    customizedMetricSpecification_unit,
     customizedMetricSpecification_metricName,
+    customizedMetricSpecification_metrics,
     customizedMetricSpecification_namespace,
     customizedMetricSpecification_statistic,
+    customizedMetricSpecification_unit,
 
     -- * MetricDimension
     MetricDimension (..),
@@ -88,6 +91,7 @@ module Amazonka.ApplicationAutoScaling.Types
     -- * ScalableTarget
     ScalableTarget (..),
     newScalableTarget,
+    scalableTarget_scalableTargetARN,
     scalableTarget_suspendedState,
     scalableTarget_serviceNamespace,
     scalableTarget_resourceId,
@@ -171,6 +175,35 @@ module Amazonka.ApplicationAutoScaling.Types
     suspendedState_dynamicScalingOutSuspended,
     suspendedState_scheduledScalingSuspended,
 
+    -- * TargetTrackingMetric
+    TargetTrackingMetric (..),
+    newTargetTrackingMetric,
+    targetTrackingMetric_dimensions,
+    targetTrackingMetric_metricName,
+    targetTrackingMetric_namespace,
+
+    -- * TargetTrackingMetricDataQuery
+    TargetTrackingMetricDataQuery (..),
+    newTargetTrackingMetricDataQuery,
+    targetTrackingMetricDataQuery_expression,
+    targetTrackingMetricDataQuery_label,
+    targetTrackingMetricDataQuery_metricStat,
+    targetTrackingMetricDataQuery_returnData,
+    targetTrackingMetricDataQuery_id,
+
+    -- * TargetTrackingMetricDimension
+    TargetTrackingMetricDimension (..),
+    newTargetTrackingMetricDimension,
+    targetTrackingMetricDimension_name,
+    targetTrackingMetricDimension_value,
+
+    -- * TargetTrackingMetricStat
+    TargetTrackingMetricStat (..),
+    newTargetTrackingMetricStat,
+    targetTrackingMetricStat_unit,
+    targetTrackingMetricStat_metric,
+    targetTrackingMetricStat_stat,
+
     -- * TargetTrackingScalingPolicyConfiguration
     TargetTrackingScalingPolicyConfiguration (..),
     newTargetTrackingScalingPolicyConfiguration,
@@ -204,6 +237,10 @@ import Amazonka.ApplicationAutoScaling.Types.ServiceNamespace
 import Amazonka.ApplicationAutoScaling.Types.StepAdjustment
 import Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
 import Amazonka.ApplicationAutoScaling.Types.SuspendedState
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetric
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetricDataQuery
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetricDimension
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetricStat
 import Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
@@ -238,54 +275,54 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Concurrent updates caused an exception, for example, if you request an
 -- update to an Application Auto Scaling resource that already has a
 -- pending update.
-_ConcurrentUpdateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentUpdateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentUpdateException =
   Core._MatchServiceError
     defaultService
@@ -298,21 +335,21 @@ _ConcurrentUpdateException =
 -- call the CloudWatch
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms>
 -- on your behalf.
-_FailedResourceAccessException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FailedResourceAccessException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FailedResourceAccessException =
   Core._MatchServiceError
     defaultService
     "FailedResourceAccessException"
 
 -- | The service encountered an internal error.
-_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
     "InternalServiceException"
 
 -- | The next token supplied was invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -320,7 +357,7 @@ _InvalidNextTokenException =
 
 -- | A per-account resource limit is exceeded. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html Application Auto Scaling service quotas>.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -332,15 +369,30 @@ _LimitExceededException =
 -- scalable dimension does not exist. For any operation that deletes or
 -- deregisters a resource, this exception is thrown if the resource cannot
 -- be found.
-_ObjectNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ObjectNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ObjectNotFoundException =
   Core._MatchServiceError
     defaultService
     "ObjectNotFoundException"
 
+-- | The specified resource doesn\'t exist.
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The request contains too many tags. Try the request again with fewer
+-- tags.
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+
 -- | An exception was thrown for a validation issue. Review the available
 -- parameters for the API request.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

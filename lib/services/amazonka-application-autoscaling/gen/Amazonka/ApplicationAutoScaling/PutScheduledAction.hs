@@ -29,7 +29,7 @@
 -- scheduled action until you have registered the resource as a scalable
 -- target.
 --
--- When start and end times are specified with a recurring schedule using a
+-- When you specify start and end times with a recurring schedule using a
 -- cron expression or rates, they form the boundaries for when the
 -- recurring action starts and stops.
 --
@@ -89,11 +89,12 @@ data PutScheduledAction = PutScheduledAction'
     scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
     -- | The schedule for this action. The following formats are supported:
     --
-    -- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+    -- -   At expressions -
+    --     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
     --
-    -- -   Rate expressions - \"@rate(value unit)@\"
+    -- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
     --
-    -- -   Cron expressions - \"@cron(fields)@\"
+    -- -   Cron expressions - \"@cron(@/@fields@/@)@\"
     --
     -- At expressions are useful for one-time schedules. Cron expressions are
     -- useful for scheduled actions that run periodically at a specified date
@@ -196,6 +197,10 @@ data PutScheduledAction = PutScheduledAction'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -262,6 +267,9 @@ data PutScheduledAction = PutScheduledAction'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -284,11 +292,12 @@ data PutScheduledAction = PutScheduledAction'
 --
 -- 'schedule', 'putScheduledAction_schedule' - The schedule for this action. The following formats are supported:
 --
--- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+-- -   At expressions -
+--     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
 --
--- -   Rate expressions - \"@rate(value unit)@\"
+-- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
 --
--- -   Cron expressions - \"@cron(fields)@\"
+-- -   Cron expressions - \"@cron(@/@fields@/@)@\"
 --
 -- At expressions are useful for one-time schedules. Cron expressions are
 -- useful for scheduled actions that run periodically at a specified date
@@ -392,6 +401,10 @@ data PutScheduledAction = PutScheduledAction'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'putScheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -457,6 +470,9 @@ data PutScheduledAction = PutScheduledAction'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 newPutScheduledAction ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -498,11 +514,12 @@ putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scala
 
 -- | The schedule for this action. The following formats are supported:
 --
--- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+-- -   At expressions -
+--     \"@at(@/@yyyy@/@-@/@mm@/@-@/@dd@/@T@/@hh@/@:@/@mm@/@:@/@ss@/@)@\"
 --
--- -   Rate expressions - \"@rate(value unit)@\"
+-- -   Rate expressions - \"@rate(@/@value@/@ @/@unit@/@)@\"
 --
--- -   Cron expressions - \"@cron(fields)@\"
+-- -   Cron expressions - \"@cron(@/@fields@/@)@\"
 --
 -- At expressions are useful for one-time schedules. Cron expressions are
 -- useful for scheduled actions that run periodically at a specified date
@@ -615,6 +632,10 @@ putScheduledAction_scheduledActionName = Lens.lens (\PutScheduledAction' {schedu
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 putScheduledAction_resourceId :: Lens.Lens' PutScheduledAction Prelude.Text
 putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> resourceId) (\s@PutScheduledAction' {} a -> s {resourceId = a} :: PutScheduledAction)
 
@@ -683,6 +704,9 @@ putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> 
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 putScheduledAction_scalableDimension :: Lens.Lens' PutScheduledAction ScalableDimension
 putScheduledAction_scalableDimension = Lens.lens (\PutScheduledAction' {scalableDimension} -> scalableDimension) (\s@PutScheduledAction' {} a -> s {scalableDimension = a} :: PutScheduledAction)
 
@@ -701,7 +725,8 @@ instance Core.AWSRequest PutScheduledAction where
 
 instance Prelude.Hashable PutScheduledAction where
   hashWithSalt _salt PutScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` scalableTargetAction
       `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` startTime

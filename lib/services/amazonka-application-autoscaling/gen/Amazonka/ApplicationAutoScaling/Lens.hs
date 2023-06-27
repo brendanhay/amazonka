@@ -77,6 +77,11 @@ module Amazonka.ApplicationAutoScaling.Lens
     describeScheduledActionsResponse_scheduledActions,
     describeScheduledActionsResponse_httpStatus,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
     -- ** PutScalingPolicy
     putScalingPolicy_policyType,
     putScalingPolicy_stepScalingPolicyConfiguration,
@@ -106,10 +111,22 @@ module Amazonka.ApplicationAutoScaling.Lens
     registerScalableTarget_minCapacity,
     registerScalableTarget_roleARN,
     registerScalableTarget_suspendedState,
+    registerScalableTarget_tags,
     registerScalableTarget_serviceNamespace,
     registerScalableTarget_resourceId,
     registerScalableTarget_scalableDimension,
+    registerScalableTargetResponse_scalableTargetARN,
     registerScalableTargetResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- * Types
 
@@ -119,10 +136,11 @@ module Amazonka.ApplicationAutoScaling.Lens
 
     -- ** CustomizedMetricSpecification
     customizedMetricSpecification_dimensions,
-    customizedMetricSpecification_unit,
     customizedMetricSpecification_metricName,
+    customizedMetricSpecification_metrics,
     customizedMetricSpecification_namespace,
     customizedMetricSpecification_statistic,
+    customizedMetricSpecification_unit,
 
     -- ** MetricDimension
     metricDimension_name,
@@ -139,6 +157,7 @@ module Amazonka.ApplicationAutoScaling.Lens
     predefinedMetricSpecification_predefinedMetricType,
 
     -- ** ScalableTarget
+    scalableTarget_scalableTargetARN,
     scalableTarget_suspendedState,
     scalableTarget_serviceNamespace,
     scalableTarget_resourceId,
@@ -208,6 +227,27 @@ module Amazonka.ApplicationAutoScaling.Lens
     suspendedState_dynamicScalingOutSuspended,
     suspendedState_scheduledScalingSuspended,
 
+    -- ** TargetTrackingMetric
+    targetTrackingMetric_dimensions,
+    targetTrackingMetric_metricName,
+    targetTrackingMetric_namespace,
+
+    -- ** TargetTrackingMetricDataQuery
+    targetTrackingMetricDataQuery_expression,
+    targetTrackingMetricDataQuery_label,
+    targetTrackingMetricDataQuery_metricStat,
+    targetTrackingMetricDataQuery_returnData,
+    targetTrackingMetricDataQuery_id,
+
+    -- ** TargetTrackingMetricDimension
+    targetTrackingMetricDimension_name,
+    targetTrackingMetricDimension_value,
+
+    -- ** TargetTrackingMetricStat
+    targetTrackingMetricStat_unit,
+    targetTrackingMetricStat_metric,
+    targetTrackingMetricStat_stat,
+
     -- ** TargetTrackingScalingPolicyConfiguration
     targetTrackingScalingPolicyConfiguration_customizedMetricSpecification,
     targetTrackingScalingPolicyConfiguration_disableScaleIn,
@@ -225,9 +265,11 @@ import Amazonka.ApplicationAutoScaling.DescribeScalableTargets
 import Amazonka.ApplicationAutoScaling.DescribeScalingActivities
 import Amazonka.ApplicationAutoScaling.DescribeScalingPolicies
 import Amazonka.ApplicationAutoScaling.DescribeScheduledActions
+import Amazonka.ApplicationAutoScaling.ListTagsForResource
 import Amazonka.ApplicationAutoScaling.PutScalingPolicy
 import Amazonka.ApplicationAutoScaling.PutScheduledAction
 import Amazonka.ApplicationAutoScaling.RegisterScalableTarget
+import Amazonka.ApplicationAutoScaling.TagResource
 import Amazonka.ApplicationAutoScaling.Types.Alarm
 import Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification
 import Amazonka.ApplicationAutoScaling.Types.MetricDimension
@@ -241,4 +283,9 @@ import Amazonka.ApplicationAutoScaling.Types.ScheduledAction
 import Amazonka.ApplicationAutoScaling.Types.StepAdjustment
 import Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
 import Amazonka.ApplicationAutoScaling.Types.SuspendedState
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetric
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetricDataQuery
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetricDimension
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingMetricStat
 import Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
+import Amazonka.ApplicationAutoScaling.UntagResource

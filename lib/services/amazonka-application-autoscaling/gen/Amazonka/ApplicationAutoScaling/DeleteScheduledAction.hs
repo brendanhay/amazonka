@@ -129,6 +129,10 @@ data DeleteScheduledAction = DeleteScheduledAction'
     --
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
+    --
+    -- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+    --     the unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -195,6 +199,9 @@ data DeleteScheduledAction = DeleteScheduledAction'
     --
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
+    --
+    -- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+    --     concurrency for a SageMaker Serverless endpoint.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -281,6 +288,10 @@ data DeleteScheduledAction = DeleteScheduledAction'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
 -- 'scalableDimension', 'deleteScheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -346,6 +357,9 @@ data DeleteScheduledAction = DeleteScheduledAction'
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 newDeleteScheduledAction ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -446,6 +460,10 @@ deleteScheduledAction_scheduledActionName = Lens.lens (\DeleteScheduledAction' {
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
+--
+-- -   SageMaker Serverless endpoint - The resource type is @variant@ and
+--     the unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 deleteScheduledAction_resourceId :: Lens.Lens' DeleteScheduledAction Prelude.Text
 deleteScheduledAction_resourceId = Lens.lens (\DeleteScheduledAction' {resourceId} -> resourceId) (\s@DeleteScheduledAction' {} a -> s {resourceId = a} :: DeleteScheduledAction)
 
@@ -514,6 +532,9 @@ deleteScheduledAction_resourceId = Lens.lens (\DeleteScheduledAction' {resourceI
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
+--
+-- -   @sagemaker:variant:DesiredProvisionedConcurrency@ - The provisioned
+--     concurrency for a SageMaker Serverless endpoint.
 deleteScheduledAction_scalableDimension :: Lens.Lens' DeleteScheduledAction ScalableDimension
 deleteScheduledAction_scalableDimension = Lens.lens (\DeleteScheduledAction' {scalableDimension} -> scalableDimension) (\s@DeleteScheduledAction' {} a -> s {scalableDimension = a} :: DeleteScheduledAction)
 
@@ -532,7 +553,8 @@ instance Core.AWSRequest DeleteScheduledAction where
 
 instance Prelude.Hashable DeleteScheduledAction where
   hashWithSalt _salt DeleteScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` serviceNamespace
+    _salt
+      `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` scheduledActionName
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension

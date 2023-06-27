@@ -111,7 +111,8 @@ instance Data.FromJSON HumanLoopSummary where
 
 instance Prelude.Hashable HumanLoopSummary where
   hashWithSalt _salt HumanLoopSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` flowDefinitionArn
       `Prelude.hashWithSalt` humanLoopName

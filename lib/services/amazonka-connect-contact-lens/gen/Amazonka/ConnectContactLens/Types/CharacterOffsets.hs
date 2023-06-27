@@ -80,7 +80,8 @@ instance Data.FromJSON CharacterOffsets where
 
 instance Prelude.Hashable CharacterOffsets where
   hashWithSalt _salt CharacterOffsets' {..} =
-    _salt `Prelude.hashWithSalt` beginOffsetChar
+    _salt
+      `Prelude.hashWithSalt` beginOffsetChar
       `Prelude.hashWithSalt` endOffsetChar
 
 instance Prelude.NFData CharacterOffsets where

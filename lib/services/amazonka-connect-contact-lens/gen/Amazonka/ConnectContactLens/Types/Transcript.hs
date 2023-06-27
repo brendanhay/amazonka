@@ -160,7 +160,8 @@ instance Data.FromJSON Transcript where
 
 instance Prelude.Hashable Transcript where
   hashWithSalt _salt Transcript' {..} =
-    _salt `Prelude.hashWithSalt` issuesDetected
+    _salt
+      `Prelude.hashWithSalt` issuesDetected
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` participantId
       `Prelude.hashWithSalt` participantRole

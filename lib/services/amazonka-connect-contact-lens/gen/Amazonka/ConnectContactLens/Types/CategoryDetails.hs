@@ -58,7 +58,8 @@ instance Data.FromJSON CategoryDetails where
       "CategoryDetails"
       ( \x ->
           CategoryDetails'
-            Prelude.<$> ( x Data..:? "PointsOfInterest"
+            Prelude.<$> ( x
+                            Data..:? "PointsOfInterest"
                             Data..!= Prelude.mempty
                         )
       )

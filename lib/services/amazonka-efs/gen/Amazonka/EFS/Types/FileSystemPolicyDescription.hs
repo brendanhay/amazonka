@@ -73,7 +73,8 @@ instance Data.FromJSON FileSystemPolicyDescription where
 
 instance Prelude.Hashable FileSystemPolicyDescription where
   hashWithSalt _salt FileSystemPolicyDescription' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemId
+    _salt
+      `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData FileSystemPolicyDescription where

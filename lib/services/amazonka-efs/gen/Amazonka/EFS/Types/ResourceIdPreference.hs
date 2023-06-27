@@ -84,7 +84,8 @@ instance Data.FromJSON ResourceIdPreference where
 
 instance Prelude.Hashable ResourceIdPreference where
   hashWithSalt _salt ResourceIdPreference' {..} =
-    _salt `Prelude.hashWithSalt` resourceIdType
+    _salt
+      `Prelude.hashWithSalt` resourceIdType
       `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData ResourceIdPreference where

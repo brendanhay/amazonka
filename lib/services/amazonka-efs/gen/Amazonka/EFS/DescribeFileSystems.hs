@@ -28,11 +28,10 @@
 --
 -- When retrieving all file system descriptions, you can optionally specify
 -- the @MaxItems@ parameter to limit the number of descriptions in a
--- response. Currently, this number is automatically set to 10. If more
--- file system descriptions remain, Amazon EFS returns a @NextMarker@, an
--- opaque token, in the response. In this case, you should send a
--- subsequent request with the @Marker@ request parameter set to the value
--- of @NextMarker@.
+-- response. This number is automatically set to 100. If more file system
+-- descriptions remain, Amazon EFS returns a @NextMarker@, an opaque token,
+-- in the response. In this case, you should send a subsequent request with
+-- the @Marker@ request parameter set to the value of @NextMarker@.
 --
 -- To retrieve a list of your file system descriptions, this operation is
 -- used in an iterative process, where @DescribeFileSystems@ is called
@@ -165,22 +164,22 @@ instance Core.AWSPager DescribeFileSystems where
     | Core.stop
         ( rs
             Lens.^? describeFileSystemsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFileSystemsResponse_fileSystems
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFileSystems_marker
           Lens..~ rs
           Lens.^? describeFileSystemsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFileSystems where
   type
@@ -200,7 +199,8 @@ instance Core.AWSRequest DescribeFileSystems where
 
 instance Prelude.Hashable DescribeFileSystems where
   hashWithSalt _salt DescribeFileSystems' {..} =
-    _salt `Prelude.hashWithSalt` creationToken
+    _salt
+      `Prelude.hashWithSalt` creationToken
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

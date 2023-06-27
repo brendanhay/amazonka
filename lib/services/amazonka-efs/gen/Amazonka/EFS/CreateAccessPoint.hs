@@ -31,13 +31,21 @@
 -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Mounting a file system using EFS access points>.
 --
 -- If multiple requests to create access points on the same file system are
--- sent in quick succession, and the file system is near the limit of 120
+-- sent in quick succession, and the file system is near the limit of 1,000
 -- access points, you may experience a throttling response for these
 -- requests. This is to ensure that the file system does not exceed the
 -- stated access point limit.
 --
 -- This operation requires permissions for the
 -- @elasticfilesystem:CreateAccessPoint@ action.
+--
+-- Access points can be tagged on creation. If tags are specified in the
+-- creation action, IAM performs additional authorization on the
+-- @elasticfilesystem:TagResource@ action to verify if users have
+-- permissions to create tags. Therefore, you must grant explicit
+-- permissions to use the @elasticfilesystem:TagResource@ action. For more
+-- information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html Granting permissions to tag resources during creation>.
 module Amazonka.EFS.CreateAccessPoint
   ( -- * Creating a Request
     CreateAccessPoint (..),
@@ -206,7 +214,8 @@ instance Core.AWSRequest CreateAccessPoint where
 
 instance Prelude.Hashable CreateAccessPoint where
   hashWithSalt _salt CreateAccessPoint' {..} =
-    _salt `Prelude.hashWithSalt` posixUser
+    _salt
+      `Prelude.hashWithSalt` posixUser
       `Prelude.hashWithSalt` rootDirectory
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken

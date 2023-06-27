@@ -49,7 +49,7 @@ data FileSystemDescription = FileSystemDescription'
     -- encrypted.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) for the EFS file system, in the format
-    -- @arn:aws:elasticfilesystem:region:account-id:file-system\/file-system-id @.
+    -- @arn:aws:elasticfilesystem:@/@region@/@:@/@account-id@/@:file-system\/@/@file-system-id@/@ @.
     -- Example with sample data:
     -- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
     fileSystemArn :: Prelude.Maybe Prelude.Text,
@@ -67,9 +67,7 @@ data FileSystemDescription = FileSystemDescription'
     -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
     -- in the /Amazon EFS User Guide/.
     throughputMode :: Prelude.Maybe ThroughputMode,
-    -- | The Amazon Web Services account that created the file system. If the
-    -- file system was created by an IAM user, the parent account to which the
-    -- user belongs is the owner.
+    -- | The Amazon Web Services account that created the file system.
     ownerId :: Prelude.Text,
     -- | The opaque string specified in the request.
     creationToken :: Prelude.Text,
@@ -126,7 +124,7 @@ data FileSystemDescription = FileSystemDescription'
 -- encrypted.
 --
 -- 'fileSystemArn', 'fileSystemDescription_fileSystemArn' - The Amazon Resource Name (ARN) for the EFS file system, in the format
--- @arn:aws:elasticfilesystem:region:account-id:file-system\/file-system-id @.
+-- @arn:aws:elasticfilesystem:@/@region@/@:@/@account-id@/@:file-system\/@/@file-system-id@/@ @.
 -- Example with sample data:
 -- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
 --
@@ -144,9 +142,7 @@ data FileSystemDescription = FileSystemDescription'
 -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
 -- in the /Amazon EFS User Guide/.
 --
--- 'ownerId', 'fileSystemDescription_ownerId' - The Amazon Web Services account that created the file system. If the
--- file system was created by an IAM user, the parent account to which the
--- user belongs is the owner.
+-- 'ownerId', 'fileSystemDescription_ownerId' - The Amazon Web Services account that created the file system.
 --
 -- 'creationToken', 'fileSystemDescription_creationToken' - The opaque string specified in the request.
 --
@@ -245,7 +241,7 @@ fileSystemDescription_encrypted :: Lens.Lens' FileSystemDescription (Prelude.May
 fileSystemDescription_encrypted = Lens.lens (\FileSystemDescription' {encrypted} -> encrypted) (\s@FileSystemDescription' {} a -> s {encrypted = a} :: FileSystemDescription)
 
 -- | The Amazon Resource Name (ARN) for the EFS file system, in the format
--- @arn:aws:elasticfilesystem:region:account-id:file-system\/file-system-id @.
+-- @arn:aws:elasticfilesystem:@/@region@/@:@/@account-id@/@:file-system\/@/@file-system-id@/@ @.
 -- Example with sample data:
 -- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
 fileSystemDescription_fileSystemArn :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
@@ -273,9 +269,7 @@ fileSystemDescription_provisionedThroughputInMibps = Lens.lens (\FileSystemDescr
 fileSystemDescription_throughputMode :: Lens.Lens' FileSystemDescription (Prelude.Maybe ThroughputMode)
 fileSystemDescription_throughputMode = Lens.lens (\FileSystemDescription' {throughputMode} -> throughputMode) (\s@FileSystemDescription' {} a -> s {throughputMode = a} :: FileSystemDescription)
 
--- | The Amazon Web Services account that created the file system. If the
--- file system was created by an IAM user, the parent account to which the
--- user belongs is the owner.
+-- | The Amazon Web Services account that created the file system.
 fileSystemDescription_ownerId :: Lens.Lens' FileSystemDescription Prelude.Text
 fileSystemDescription_ownerId = Lens.lens (\FileSystemDescription' {ownerId} -> ownerId) (\s@FileSystemDescription' {} a -> s {ownerId = a} :: FileSystemDescription)
 
@@ -350,7 +344,8 @@ instance Data.FromJSON FileSystemDescription where
 
 instance Prelude.Hashable FileSystemDescription where
   hashWithSalt _salt FileSystemDescription' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneId
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` availabilityZoneName
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` fileSystemArn

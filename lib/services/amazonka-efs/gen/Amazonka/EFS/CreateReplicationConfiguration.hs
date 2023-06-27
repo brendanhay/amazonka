@@ -66,9 +66,9 @@
 --     Purpose performance mode is used. The performance mode cannot be
 --     changed.
 --
--- -   __Throughput mode__ - The destination file system uses the Bursting
---     Throughput mode by default. After the file system is created, you
---     can modify the throughput mode.
+-- -   __Throughput mode__ - The destination file system\'s throughput mode
+--     matches that of the source file system. After the file system is
+--     created, you can modify the throughput mode.
 --
 -- The following properties are turned off by default:
 --
@@ -184,7 +184,8 @@ instance
   hashWithSalt
     _salt
     CreateReplicationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` sourceFileSystemId
+      _salt
+        `Prelude.hashWithSalt` sourceFileSystemId
         `Prelude.hashWithSalt` destinations
 
 instance

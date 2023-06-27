@@ -23,7 +23,9 @@ module Amazonka.EFS.Types.ReplicationStatus
         ReplicationStatus_DELETING,
         ReplicationStatus_ENABLED,
         ReplicationStatus_ENABLING,
-        ReplicationStatus_ERROR
+        ReplicationStatus_ERROR,
+        ReplicationStatus_PAUSED,
+        ReplicationStatus_PAUSING
       ),
   )
 where
@@ -72,10 +74,18 @@ pattern ReplicationStatus_ENABLING = ReplicationStatus' "ENABLING"
 pattern ReplicationStatus_ERROR :: ReplicationStatus
 pattern ReplicationStatus_ERROR = ReplicationStatus' "ERROR"
 
+pattern ReplicationStatus_PAUSED :: ReplicationStatus
+pattern ReplicationStatus_PAUSED = ReplicationStatus' "PAUSED"
+
+pattern ReplicationStatus_PAUSING :: ReplicationStatus
+pattern ReplicationStatus_PAUSING = ReplicationStatus' "PAUSING"
+
 {-# COMPLETE
   ReplicationStatus_DELETING,
   ReplicationStatus_ENABLED,
   ReplicationStatus_ENABLING,
   ReplicationStatus_ERROR,
+  ReplicationStatus_PAUSED,
+  ReplicationStatus_PAUSING,
   ReplicationStatus'
   #-}

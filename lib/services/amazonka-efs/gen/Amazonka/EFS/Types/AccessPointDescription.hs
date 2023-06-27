@@ -45,7 +45,7 @@ data AccessPointDescription = AccessPointDescription'
     lifeCycleState :: Prelude.Maybe LifeCycleState,
     -- | The name of the access point. This is the value of the @Name@ tag.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Identified the Amazon Web Services account that owns the access point
+    -- | Identifies the Amazon Web Services account that owns the access point
     -- resource.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The full POSIX identity, including the user ID, group ID, and secondary
@@ -82,7 +82,7 @@ data AccessPointDescription = AccessPointDescription'
 --
 -- 'name', 'accessPointDescription_name' - The name of the access point. This is the value of the @Name@ tag.
 --
--- 'ownerId', 'accessPointDescription_ownerId' - Identified the Amazon Web Services account that owns the access point
+-- 'ownerId', 'accessPointDescription_ownerId' - Identifies the Amazon Web Services account that owns the access point
 -- resource.
 --
 -- 'posixUser', 'accessPointDescription_posixUser' - The full POSIX identity, including the user ID, group ID, and secondary
@@ -136,7 +136,7 @@ accessPointDescription_lifeCycleState = Lens.lens (\AccessPointDescription' {lif
 accessPointDescription_name :: Lens.Lens' AccessPointDescription (Prelude.Maybe Prelude.Text)
 accessPointDescription_name = Lens.lens (\AccessPointDescription' {name} -> name) (\s@AccessPointDescription' {} a -> s {name = a} :: AccessPointDescription)
 
--- | Identified the Amazon Web Services account that owns the access point
+-- | Identifies the Amazon Web Services account that owns the access point
 -- resource.
 accessPointDescription_ownerId :: Lens.Lens' AccessPointDescription (Prelude.Maybe Prelude.Text)
 accessPointDescription_ownerId = Lens.lens (\AccessPointDescription' {ownerId} -> ownerId) (\s@AccessPointDescription' {} a -> s {ownerId = a} :: AccessPointDescription)
@@ -177,7 +177,8 @@ instance Data.FromJSON AccessPointDescription where
 
 instance Prelude.Hashable AccessPointDescription where
   hashWithSalt _salt AccessPointDescription' {..} =
-    _salt `Prelude.hashWithSalt` accessPointArn
+    _salt
+      `Prelude.hashWithSalt` accessPointArn
       `Prelude.hashWithSalt` accessPointId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` fileSystemId

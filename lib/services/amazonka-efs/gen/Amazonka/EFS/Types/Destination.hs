@@ -35,11 +35,23 @@ data Destination = Destination'
     -- destination file system. Any changes that occurred after this time might
     -- not be fully replicated.
     lastReplicatedTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | Describes the status of the destination Amazon EFS file system. If the
-    -- status is @ERROR@, the destination file system in the replication
-    -- configuration is in a failed state and is unrecoverable. To access the
-    -- file system data, restore a backup of the failed file system to a new
-    -- file system.
+    -- | Describes the status of the destination Amazon EFS file system.
+    --
+    -- -   The @Paused@ state occurs as a result of opting out of the source or
+    --     destination Region after the replication configuration was created.
+    --     To resume replication for the file system, you need to again opt in
+    --     to the Amazon Web Services Region. For more information, see
+    --     <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable Managing Amazon Web Services Regions>
+    --     in the /Amazon Web Services General Reference Guide/.
+    --
+    -- -   The @Error@ state occurs when either the source or the destination
+    --     file system (or both) is in a failed state and is unrecoverable. For
+    --     more information, see
+    --     <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html Monitoring replication status>
+    --     in the /Amazon EFS User Guide/. You must delete the replication
+    --     configuration, and then restore the most recent backup of the failed
+    --     file system (either the source or the destination) to a new file
+    --     system.
     status :: ReplicationStatus,
     -- | The ID of the destination Amazon EFS file system.
     fileSystemId :: Prelude.Text,
@@ -63,11 +75,23 @@ data Destination = Destination'
 -- destination file system. Any changes that occurred after this time might
 -- not be fully replicated.
 --
--- 'status', 'destination_status' - Describes the status of the destination Amazon EFS file system. If the
--- status is @ERROR@, the destination file system in the replication
--- configuration is in a failed state and is unrecoverable. To access the
--- file system data, restore a backup of the failed file system to a new
--- file system.
+-- 'status', 'destination_status' - Describes the status of the destination Amazon EFS file system.
+--
+-- -   The @Paused@ state occurs as a result of opting out of the source or
+--     destination Region after the replication configuration was created.
+--     To resume replication for the file system, you need to again opt in
+--     to the Amazon Web Services Region. For more information, see
+--     <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable Managing Amazon Web Services Regions>
+--     in the /Amazon Web Services General Reference Guide/.
+--
+-- -   The @Error@ state occurs when either the source or the destination
+--     file system (or both) is in a failed state and is unrecoverable. For
+--     more information, see
+--     <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html Monitoring replication status>
+--     in the /Amazon EFS User Guide/. You must delete the replication
+--     configuration, and then restore the most recent backup of the failed
+--     file system (either the source or the destination) to a new file
+--     system.
 --
 -- 'fileSystemId', 'destination_fileSystemId' - The ID of the destination Amazon EFS file system.
 --
@@ -98,11 +122,23 @@ newDestination pStatus_ pFileSystemId_ pRegion_ =
 destination_lastReplicatedTimestamp :: Lens.Lens' Destination (Prelude.Maybe Prelude.UTCTime)
 destination_lastReplicatedTimestamp = Lens.lens (\Destination' {lastReplicatedTimestamp} -> lastReplicatedTimestamp) (\s@Destination' {} a -> s {lastReplicatedTimestamp = a} :: Destination) Prelude.. Lens.mapping Data._Time
 
--- | Describes the status of the destination Amazon EFS file system. If the
--- status is @ERROR@, the destination file system in the replication
--- configuration is in a failed state and is unrecoverable. To access the
--- file system data, restore a backup of the failed file system to a new
--- file system.
+-- | Describes the status of the destination Amazon EFS file system.
+--
+-- -   The @Paused@ state occurs as a result of opting out of the source or
+--     destination Region after the replication configuration was created.
+--     To resume replication for the file system, you need to again opt in
+--     to the Amazon Web Services Region. For more information, see
+--     <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable Managing Amazon Web Services Regions>
+--     in the /Amazon Web Services General Reference Guide/.
+--
+-- -   The @Error@ state occurs when either the source or the destination
+--     file system (or both) is in a failed state and is unrecoverable. For
+--     more information, see
+--     <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html Monitoring replication status>
+--     in the /Amazon EFS User Guide/. You must delete the replication
+--     configuration, and then restore the most recent backup of the failed
+--     file system (either the source or the destination) to a new file
+--     system.
 destination_status :: Lens.Lens' Destination ReplicationStatus
 destination_status = Lens.lens (\Destination' {status} -> status) (\s@Destination' {} a -> s {status = a} :: Destination)
 

@@ -78,6 +78,14 @@
 --
 -- This operation requires permissions for the
 -- @elasticfilesystem:CreateFileSystem@ action.
+--
+-- File systems can be tagged on creation. If tags are specified in the
+-- creation action, IAM performs additional authorization on the
+-- @elasticfilesystem:TagResource@ action to verify if users have
+-- permissions to create tags. Therefore, you must grant explicit
+-- permissions to use the @elasticfilesystem:TagResource@ action. For more
+-- information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html Granting permissions to tag resources during creation>.
 module Amazonka.EFS.CreateFileSystem
   ( -- * Creating a Request
     CreateFileSystem (..),
@@ -469,7 +477,8 @@ instance Core.AWSRequest CreateFileSystem where
 
 instance Prelude.Hashable CreateFileSystem where
   hashWithSalt _salt CreateFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneName
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneName
       `Prelude.hashWithSalt` backup
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyId

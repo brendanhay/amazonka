@@ -100,7 +100,8 @@ instance Core.AWSRequest PutBackupPolicy where
 
 instance Prelude.Hashable PutBackupPolicy where
   hashWithSalt _salt PutBackupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemId
+    _salt
+      `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` backupPolicy
 
 instance Prelude.NFData PutBackupPolicy where

@@ -116,7 +116,8 @@ instance Data.FromJSON RootDirectory where
 
 instance Prelude.Hashable RootDirectory where
   hashWithSalt _salt RootDirectory' {..} =
-    _salt `Prelude.hashWithSalt` creationInfo
+    _salt
+      `Prelude.hashWithSalt` creationInfo
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData RootDirectory where

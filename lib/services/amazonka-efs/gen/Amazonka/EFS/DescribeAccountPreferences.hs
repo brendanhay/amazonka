@@ -118,7 +118,8 @@ instance Core.AWSRequest DescribeAccountPreferences where
 
 instance Prelude.Hashable DescribeAccountPreferences where
   hashWithSalt _salt DescribeAccountPreferences' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeAccountPreferences where

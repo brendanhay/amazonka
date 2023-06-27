@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Encryption
+import Amazonka.MediaConnect.Types.GatewayBridgeSource
 import Amazonka.MediaConnect.Types.MediaStreamSourceConfiguration
 import Amazonka.MediaConnect.Types.Transport
 import qualified Amazonka.Prelude as Prelude
@@ -44,6 +45,9 @@ data Source = Source'
     -- comes from another AWS account. The entitlement is set by the content
     -- originator and the ARN is generated as part of the originator\'s flow.
     entitlementArn :: Prelude.Maybe Prelude.Text,
+    -- | The source configuration for cloud flows receiving a stream from a
+    -- bridge.
+    gatewayBridgeSource :: Prelude.Maybe GatewayBridgeSource,
     -- | The IP address that the flow will be listening on for incoming content.
     ingestIp :: Prelude.Maybe Prelude.Text,
     -- | The port that the flow will be listening on for incoming content.
@@ -65,10 +69,10 @@ data Source = Source'
     -- to your source. These IP addresses should be in the form of a Classless
     -- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
     whitelistCidr :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the source.
-    sourceArn :: Prelude.Text,
     -- | The name of the source.
-    name :: Prelude.Text
+    name :: Prelude.Text,
+    -- | The ARN of the source.
+    sourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,6 +97,9 @@ data Source = Source'
 -- comes from another AWS account. The entitlement is set by the content
 -- originator and the ARN is generated as part of the originator\'s flow.
 --
+-- 'gatewayBridgeSource', 'source_gatewayBridgeSource' - The source configuration for cloud flows receiving a stream from a
+-- bridge.
+--
 -- 'ingestIp', 'source_ingestIp' - The IP address that the flow will be listening on for incoming content.
 --
 -- 'ingestPort', 'source_ingestPort' - The port that the flow will be listening on for incoming content.
@@ -114,22 +121,23 @@ data Source = Source'
 -- to your source. These IP addresses should be in the form of a Classless
 -- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
 --
--- 'sourceArn', 'source_sourceArn' - The ARN of the source.
---
 -- 'name', 'source_name' - The name of the source.
+--
+-- 'sourceArn', 'source_sourceArn' - The ARN of the source.
 newSource ::
-  -- | 'sourceArn'
-  Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
+  -- | 'sourceArn'
+  Prelude.Text ->
   Source
-newSource pSourceArn_ pName_ =
+newSource pName_ pSourceArn_ =
   Source'
     { dataTransferSubscriberFeePercent =
         Prelude.Nothing,
       decryption = Prelude.Nothing,
       description = Prelude.Nothing,
       entitlementArn = Prelude.Nothing,
+      gatewayBridgeSource = Prelude.Nothing,
       ingestIp = Prelude.Nothing,
       ingestPort = Prelude.Nothing,
       mediaStreamSourceConfigurations = Prelude.Nothing,
@@ -138,8 +146,8 @@ newSource pSourceArn_ pName_ =
       transport = Prelude.Nothing,
       vpcInterfaceName = Prelude.Nothing,
       whitelistCidr = Prelude.Nothing,
-      sourceArn = pSourceArn_,
-      name = pName_
+      name = pName_,
+      sourceArn = pSourceArn_
     }
 
 -- | Percentage from 0-100 of the data transfer cost to be billed to the
@@ -162,6 +170,11 @@ source_description = Lens.lens (\Source' {description} -> description) (\s@Sourc
 -- originator and the ARN is generated as part of the originator\'s flow.
 source_entitlementArn :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
 source_entitlementArn = Lens.lens (\Source' {entitlementArn} -> entitlementArn) (\s@Source' {} a -> s {entitlementArn = a} :: Source)
+
+-- | The source configuration for cloud flows receiving a stream from a
+-- bridge.
+source_gatewayBridgeSource :: Lens.Lens' Source (Prelude.Maybe GatewayBridgeSource)
+source_gatewayBridgeSource = Lens.lens (\Source' {gatewayBridgeSource} -> gatewayBridgeSource) (\s@Source' {} a -> s {gatewayBridgeSource = a} :: Source)
 
 -- | The IP address that the flow will be listening on for incoming content.
 source_ingestIp :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
@@ -200,13 +213,13 @@ source_vpcInterfaceName = Lens.lens (\Source' {vpcInterfaceName} -> vpcInterface
 source_whitelistCidr :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
 source_whitelistCidr = Lens.lens (\Source' {whitelistCidr} -> whitelistCidr) (\s@Source' {} a -> s {whitelistCidr = a} :: Source)
 
--- | The ARN of the source.
-source_sourceArn :: Lens.Lens' Source Prelude.Text
-source_sourceArn = Lens.lens (\Source' {sourceArn} -> sourceArn) (\s@Source' {} a -> s {sourceArn = a} :: Source)
-
 -- | The name of the source.
 source_name :: Lens.Lens' Source Prelude.Text
 source_name = Lens.lens (\Source' {name} -> name) (\s@Source' {} a -> s {name = a} :: Source)
+
+-- | The ARN of the source.
+source_sourceArn :: Lens.Lens' Source Prelude.Text
+source_sourceArn = Lens.lens (\Source' {sourceArn} -> sourceArn) (\s@Source' {} a -> s {sourceArn = a} :: Source)
 
 instance Data.FromJSON Source where
   parseJSON =
@@ -218,9 +231,11 @@ instance Data.FromJSON Source where
             Prelude.<*> (x Data..:? "decryption")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "entitlementArn")
+            Prelude.<*> (x Data..:? "gatewayBridgeSource")
             Prelude.<*> (x Data..:? "ingestIp")
             Prelude.<*> (x Data..:? "ingestPort")
-            Prelude.<*> ( x Data..:? "mediaStreamSourceConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "mediaStreamSourceConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "senderControlPort")
@@ -228,8 +243,8 @@ instance Data.FromJSON Source where
             Prelude.<*> (x Data..:? "transport")
             Prelude.<*> (x Data..:? "vpcInterfaceName")
             Prelude.<*> (x Data..:? "whitelistCidr")
-            Prelude.<*> (x Data..: "sourceArn")
             Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "sourceArn")
       )
 
 instance Prelude.Hashable Source where
@@ -239,6 +254,7 @@ instance Prelude.Hashable Source where
       `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entitlementArn
+      `Prelude.hashWithSalt` gatewayBridgeSource
       `Prelude.hashWithSalt` ingestIp
       `Prelude.hashWithSalt` ingestPort
       `Prelude.hashWithSalt` mediaStreamSourceConfigurations
@@ -247,8 +263,8 @@ instance Prelude.Hashable Source where
       `Prelude.hashWithSalt` transport
       `Prelude.hashWithSalt` vpcInterfaceName
       `Prelude.hashWithSalt` whitelistCidr
-      `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceArn
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
@@ -256,6 +272,7 @@ instance Prelude.NFData Source where
       `Prelude.seq` Prelude.rnf decryption
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf entitlementArn
+      `Prelude.seq` Prelude.rnf gatewayBridgeSource
       `Prelude.seq` Prelude.rnf ingestIp
       `Prelude.seq` Prelude.rnf ingestPort
       `Prelude.seq` Prelude.rnf mediaStreamSourceConfigurations
@@ -264,5 +281,5 @@ instance Prelude.NFData Source where
       `Prelude.seq` Prelude.rnf transport
       `Prelude.seq` Prelude.rnf vpcInterfaceName
       `Prelude.seq` Prelude.rnf whitelistCidr
-      `Prelude.seq` Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceArn

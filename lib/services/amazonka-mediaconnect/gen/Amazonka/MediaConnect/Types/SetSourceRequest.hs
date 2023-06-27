@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Encryption
 import Amazonka.MediaConnect.Types.MediaStreamSourceConfigurationRequest
 import Amazonka.MediaConnect.Types.Protocol
+import Amazonka.MediaConnect.Types.SetGatewayBridgeSourceRequest
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for the source of the flow.
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSetSourceRequest' smart constructor.
 data SetSourceRequest = SetSourceRequest'
   { -- | The type of encryption that is used on the content ingested from this
-    -- source.
+    -- source. Allowable encryption types: static-key.
     decryption :: Prelude.Maybe Encryption,
     -- | A description for the source. This value is not used or seen outside of
     -- the current AWS Elemental MediaConnect account.
@@ -41,9 +42,12 @@ data SetSourceRequest = SetSourceRequest'
     -- The entitlement is set by the flow originator, and the ARN is generated
     -- as part of the originator\'s flow.
     entitlementArn :: Prelude.Maybe Prelude.Text,
+    -- | The source configuration for cloud flows receiving a stream from a
+    -- bridge.
+    gatewayBridgeSource :: Prelude.Maybe SetGatewayBridgeSourceRequest,
     -- | The port that the flow will be listening on for incoming content.
     ingestPort :: Prelude.Maybe Prelude.Int,
-    -- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+    -- | The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
     maxBitrate :: Prelude.Maybe Prelude.Int,
     -- | The maximum latency in milliseconds. This parameter applies only to
     -- RIST-based, Zixi-based, and Fujitsu-based streams.
@@ -75,7 +79,7 @@ data SetSourceRequest = SetSourceRequest'
     -- | Source port for SRT-caller protocol.
     sourceListenerPort :: Prelude.Maybe Prelude.Int,
     -- | The stream ID that you want to use for this transport. This parameter
-    -- applies only to Zixi-based streams.
+    -- applies only to Zixi and SRT caller-based streams.
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The name of the VPC interface to use for this source.
     vpcInterfaceName :: Prelude.Maybe Prelude.Text,
@@ -95,7 +99,7 @@ data SetSourceRequest = SetSourceRequest'
 -- for backwards compatibility:
 --
 -- 'decryption', 'setSourceRequest_decryption' - The type of encryption that is used on the content ingested from this
--- source.
+-- source. Allowable encryption types: static-key.
 --
 -- 'description', 'setSourceRequest_description' - A description for the source. This value is not used or seen outside of
 -- the current AWS Elemental MediaConnect account.
@@ -104,9 +108,12 @@ data SetSourceRequest = SetSourceRequest'
 -- The entitlement is set by the flow originator, and the ARN is generated
 -- as part of the originator\'s flow.
 --
+-- 'gatewayBridgeSource', 'setSourceRequest_gatewayBridgeSource' - The source configuration for cloud flows receiving a stream from a
+-- bridge.
+--
 -- 'ingestPort', 'setSourceRequest_ingestPort' - The port that the flow will be listening on for incoming content.
 --
--- 'maxBitrate', 'setSourceRequest_maxBitrate' - The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+-- 'maxBitrate', 'setSourceRequest_maxBitrate' - The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
 --
 -- 'maxLatency', 'setSourceRequest_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
 -- RIST-based, Zixi-based, and Fujitsu-based streams.
@@ -138,7 +145,7 @@ data SetSourceRequest = SetSourceRequest'
 -- 'sourceListenerPort', 'setSourceRequest_sourceListenerPort' - Source port for SRT-caller protocol.
 --
 -- 'streamId', 'setSourceRequest_streamId' - The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
+-- applies only to Zixi and SRT caller-based streams.
 --
 -- 'vpcInterfaceName', 'setSourceRequest_vpcInterfaceName' - The name of the VPC interface to use for this source.
 --
@@ -152,6 +159,7 @@ newSetSourceRequest =
     { decryption = Prelude.Nothing,
       description = Prelude.Nothing,
       entitlementArn = Prelude.Nothing,
+      gatewayBridgeSource = Prelude.Nothing,
       ingestPort = Prelude.Nothing,
       maxBitrate = Prelude.Nothing,
       maxLatency = Prelude.Nothing,
@@ -170,7 +178,7 @@ newSetSourceRequest =
     }
 
 -- | The type of encryption that is used on the content ingested from this
--- source.
+-- source. Allowable encryption types: static-key.
 setSourceRequest_decryption :: Lens.Lens' SetSourceRequest (Prelude.Maybe Encryption)
 setSourceRequest_decryption = Lens.lens (\SetSourceRequest' {decryption} -> decryption) (\s@SetSourceRequest' {} a -> s {decryption = a} :: SetSourceRequest)
 
@@ -185,11 +193,16 @@ setSourceRequest_description = Lens.lens (\SetSourceRequest' {description} -> de
 setSourceRequest_entitlementArn :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Text)
 setSourceRequest_entitlementArn = Lens.lens (\SetSourceRequest' {entitlementArn} -> entitlementArn) (\s@SetSourceRequest' {} a -> s {entitlementArn = a} :: SetSourceRequest)
 
+-- | The source configuration for cloud flows receiving a stream from a
+-- bridge.
+setSourceRequest_gatewayBridgeSource :: Lens.Lens' SetSourceRequest (Prelude.Maybe SetGatewayBridgeSourceRequest)
+setSourceRequest_gatewayBridgeSource = Lens.lens (\SetSourceRequest' {gatewayBridgeSource} -> gatewayBridgeSource) (\s@SetSourceRequest' {} a -> s {gatewayBridgeSource = a} :: SetSourceRequest)
+
 -- | The port that the flow will be listening on for incoming content.
 setSourceRequest_ingestPort :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Int)
 setSourceRequest_ingestPort = Lens.lens (\SetSourceRequest' {ingestPort} -> ingestPort) (\s@SetSourceRequest' {} a -> s {ingestPort = a} :: SetSourceRequest)
 
--- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+-- | The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
 setSourceRequest_maxBitrate :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Int)
 setSourceRequest_maxBitrate = Lens.lens (\SetSourceRequest' {maxBitrate} -> maxBitrate) (\s@SetSourceRequest' {} a -> s {maxBitrate = a} :: SetSourceRequest)
 
@@ -243,7 +256,7 @@ setSourceRequest_sourceListenerPort :: Lens.Lens' SetSourceRequest (Prelude.Mayb
 setSourceRequest_sourceListenerPort = Lens.lens (\SetSourceRequest' {sourceListenerPort} -> sourceListenerPort) (\s@SetSourceRequest' {} a -> s {sourceListenerPort = a} :: SetSourceRequest)
 
 -- | The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
+-- applies only to Zixi and SRT caller-based streams.
 setSourceRequest_streamId :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Text)
 setSourceRequest_streamId = Lens.lens (\SetSourceRequest' {streamId} -> streamId) (\s@SetSourceRequest' {} a -> s {streamId = a} :: SetSourceRequest)
 
@@ -259,9 +272,11 @@ setSourceRequest_whitelistCidr = Lens.lens (\SetSourceRequest' {whitelistCidr} -
 
 instance Prelude.Hashable SetSourceRequest where
   hashWithSalt _salt SetSourceRequest' {..} =
-    _salt `Prelude.hashWithSalt` decryption
+    _salt
+      `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entitlementArn
+      `Prelude.hashWithSalt` gatewayBridgeSource
       `Prelude.hashWithSalt` ingestPort
       `Prelude.hashWithSalt` maxBitrate
       `Prelude.hashWithSalt` maxLatency
@@ -283,6 +298,7 @@ instance Prelude.NFData SetSourceRequest where
     Prelude.rnf decryption
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf entitlementArn
+      `Prelude.seq` Prelude.rnf gatewayBridgeSource
       `Prelude.seq` Prelude.rnf ingestPort
       `Prelude.seq` Prelude.rnf maxBitrate
       `Prelude.seq` Prelude.rnf maxLatency
@@ -307,6 +323,8 @@ instance Data.ToJSON SetSourceRequest where
             ("description" Data..=) Prelude.<$> description,
             ("entitlementArn" Data..=)
               Prelude.<$> entitlementArn,
+            ("gatewayBridgeSource" Data..=)
+              Prelude.<$> gatewayBridgeSource,
             ("ingestPort" Data..=) Prelude.<$> ingestPort,
             ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
             ("maxLatency" Data..=) Prelude.<$> maxLatency,

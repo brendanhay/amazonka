@@ -105,7 +105,8 @@ instance Data.FromJSON FailoverConfig where
 
 instance Prelude.Hashable FailoverConfig where
   hashWithSalt _salt FailoverConfig' {..} =
-    _salt `Prelude.hashWithSalt` failoverMode
+    _salt
+      `Prelude.hashWithSalt` failoverMode
       `Prelude.hashWithSalt` recoveryWindow
       `Prelude.hashWithSalt` sourcePriority
       `Prelude.hashWithSalt` state

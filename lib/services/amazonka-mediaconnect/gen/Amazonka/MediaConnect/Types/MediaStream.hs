@@ -164,7 +164,8 @@ instance Data.FromJSON MediaStream where
 
 instance Prelude.Hashable MediaStream where
   hashWithSalt _salt MediaStream' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` clockRate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` videoFormat

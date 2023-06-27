@@ -32,7 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutput' smart constructor.
 data Output = Output'
-  { -- | Percentage from 0-100 of the data transfer cost to be billed to the
+  { -- | The ARN of the bridge that added this output.
+    bridgeArn :: Prelude.Maybe Prelude.Text,
+    -- | The bridge output ports currently in use.
+    bridgePorts :: Prelude.Maybe [Prelude.Int],
+    -- | Percentage from 0-100 of the data transfer cost to be billed to the
     -- subscriber.
     dataTransferSubscriberFeePercent :: Prelude.Maybe Prelude.Int,
     -- | A description of the output.
@@ -80,6 +84,10 @@ data Output = Output'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bridgeArn', 'output_bridgeArn' - The ARN of the bridge that added this output.
+--
+-- 'bridgePorts', 'output_bridgePorts' - The bridge output ports currently in use.
+--
 -- 'dataTransferSubscriberFeePercent', 'output_dataTransferSubscriberFeePercent' - Percentage from 0-100 of the data transfer cost to be billed to the
 -- subscriber.
 --
@@ -124,8 +132,9 @@ newOutput ::
   Output
 newOutput pOutputArn_ pName_ =
   Output'
-    { dataTransferSubscriberFeePercent =
-        Prelude.Nothing,
+    { bridgeArn = Prelude.Nothing,
+      bridgePorts = Prelude.Nothing,
+      dataTransferSubscriberFeePercent = Prelude.Nothing,
       description = Prelude.Nothing,
       destination = Prelude.Nothing,
       encryption = Prelude.Nothing,
@@ -139,6 +148,14 @@ newOutput pOutputArn_ pName_ =
       outputArn = pOutputArn_,
       name = pName_
     }
+
+-- | The ARN of the bridge that added this output.
+output_bridgeArn :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
+output_bridgeArn = Lens.lens (\Output' {bridgeArn} -> bridgeArn) (\s@Output' {} a -> s {bridgeArn = a} :: Output)
+
+-- | The bridge output ports currently in use.
+output_bridgePorts :: Lens.Lens' Output (Prelude.Maybe [Prelude.Int])
+output_bridgePorts = Lens.lens (\Output' {bridgePorts} -> bridgePorts) (\s@Output' {} a -> s {bridgePorts = a} :: Output) Prelude.. Lens.mapping Lens.coerced
 
 -- | Percentage from 0-100 of the data transfer cost to be billed to the
 -- subscriber.
@@ -209,14 +226,17 @@ instance Data.FromJSON Output where
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> (x Data..:? "dataTransferSubscriberFeePercent")
+            Prelude.<$> (x Data..:? "bridgeArn")
+            Prelude.<*> (x Data..:? "bridgePorts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "dataTransferSubscriberFeePercent")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "destination")
             Prelude.<*> (x Data..:? "encryption")
             Prelude.<*> (x Data..:? "entitlementArn")
             Prelude.<*> (x Data..:? "listenerAddress")
             Prelude.<*> (x Data..:? "mediaLiveInputArn")
-            Prelude.<*> ( x Data..:? "mediaStreamOutputConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "mediaStreamOutputConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "port")
@@ -229,6 +249,8 @@ instance Data.FromJSON Output where
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
     _salt
+      `Prelude.hashWithSalt` bridgeArn
+      `Prelude.hashWithSalt` bridgePorts
       `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destination
@@ -245,7 +267,9 @@ instance Prelude.Hashable Output where
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf dataTransferSubscriberFeePercent
+    Prelude.rnf bridgeArn
+      `Prelude.seq` Prelude.rnf bridgePorts
+      `Prelude.seq` Prelude.rnf dataTransferSubscriberFeePercent
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf encryption

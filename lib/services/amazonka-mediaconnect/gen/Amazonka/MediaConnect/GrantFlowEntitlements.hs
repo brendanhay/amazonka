@@ -106,7 +106,8 @@ instance Core.AWSRequest GrantFlowEntitlements where
 
 instance Prelude.Hashable GrantFlowEntitlements where
   hashWithSalt _salt GrantFlowEntitlements' {..} =
-    _salt `Prelude.hashWithSalt` flowArn
+    _salt
+      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` entitlements
 
 instance Prelude.NFData GrantFlowEntitlements where

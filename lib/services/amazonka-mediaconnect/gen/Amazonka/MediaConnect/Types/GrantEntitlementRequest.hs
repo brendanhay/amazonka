@@ -38,7 +38,8 @@ data GrantEntitlementRequest = GrantEntitlementRequest'
     -- subscriber or end user.
     description :: Prelude.Maybe Prelude.Text,
     -- | The type of encryption that will be used on the output that is
-    -- associated with this entitlement.
+    -- associated with this entitlement. Allowable encryption types:
+    -- static-key, speke.
     encryption :: Prelude.Maybe Encryption,
     -- | An indication of whether the new entitlement should be enabled or
     -- disabled as soon as it is created. If you don’t specify the
@@ -71,7 +72,8 @@ data GrantEntitlementRequest = GrantEntitlementRequest'
 -- subscriber or end user.
 --
 -- 'encryption', 'grantEntitlementRequest_encryption' - The type of encryption that will be used on the output that is
--- associated with this entitlement.
+-- associated with this entitlement. Allowable encryption types:
+-- static-key, speke.
 --
 -- 'entitlementStatus', 'grantEntitlementRequest_entitlementStatus' - An indication of whether the new entitlement should be enabled or
 -- disabled as soon as it is created. If you don’t specify the
@@ -109,7 +111,8 @@ grantEntitlementRequest_description :: Lens.Lens' GrantEntitlementRequest (Prelu
 grantEntitlementRequest_description = Lens.lens (\GrantEntitlementRequest' {description} -> description) (\s@GrantEntitlementRequest' {} a -> s {description = a} :: GrantEntitlementRequest)
 
 -- | The type of encryption that will be used on the output that is
--- associated with this entitlement.
+-- associated with this entitlement. Allowable encryption types:
+-- static-key, speke.
 grantEntitlementRequest_encryption :: Lens.Lens' GrantEntitlementRequest (Prelude.Maybe Encryption)
 grantEntitlementRequest_encryption = Lens.lens (\GrantEntitlementRequest' {encryption} -> encryption) (\s@GrantEntitlementRequest' {} a -> s {encryption = a} :: GrantEntitlementRequest)
 

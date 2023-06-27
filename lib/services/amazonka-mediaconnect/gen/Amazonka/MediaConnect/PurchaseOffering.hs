@@ -140,7 +140,8 @@ instance Core.AWSRequest PurchaseOffering where
 
 instance Prelude.Hashable PurchaseOffering where
   hashWithSalt _salt PurchaseOffering' {..} =
-    _salt `Prelude.hashWithSalt` offeringArn
+    _salt
+      `Prelude.hashWithSalt` offeringArn
       `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` reservationName
 

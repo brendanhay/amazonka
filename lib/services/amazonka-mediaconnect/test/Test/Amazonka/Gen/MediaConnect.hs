@@ -27,7 +27,13 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAddFlowMediaStreams $
+--         [ requestAddBridgeOutputs $
+--             newAddBridgeOutputs
+--
+--         , requestAddBridgeSources $
+--             newAddBridgeSources
+--
+--         , requestAddFlowMediaStreams $
 --             newAddFlowMediaStreams
 --
 --         , requestAddFlowOutputs $
@@ -39,14 +45,38 @@ import Test.Tasty
 --         , requestAddFlowVpcInterfaces $
 --             newAddFlowVpcInterfaces
 --
+--         , requestCreateBridge $
+--             newCreateBridge
+--
 --         , requestCreateFlow $
 --             newCreateFlow
+--
+--         , requestCreateGateway $
+--             newCreateGateway
+--
+--         , requestDeleteBridge $
+--             newDeleteBridge
 --
 --         , requestDeleteFlow $
 --             newDeleteFlow
 --
+--         , requestDeleteGateway $
+--             newDeleteGateway
+--
+--         , requestDeregisterGatewayInstance $
+--             newDeregisterGatewayInstance
+--
+--         , requestDescribeBridge $
+--             newDescribeBridge
+--
 --         , requestDescribeFlow $
 --             newDescribeFlow
+--
+--         , requestDescribeGateway $
+--             newDescribeGateway
+--
+--         , requestDescribeGatewayInstance $
+--             newDescribeGatewayInstance
 --
 --         , requestDescribeOffering $
 --             newDescribeOffering
@@ -57,11 +87,20 @@ import Test.Tasty
 --         , requestGrantFlowEntitlements $
 --             newGrantFlowEntitlements
 --
+--         , requestListBridges $
+--             newListBridges
+--
 --         , requestListEntitlements $
 --             newListEntitlements
 --
 --         , requestListFlows $
 --             newListFlows
+--
+--         , requestListGatewayInstances $
+--             newListGatewayInstances
+--
+--         , requestListGateways $
+--             newListGateways
 --
 --         , requestListOfferings $
 --             newListOfferings
@@ -74,6 +113,12 @@ import Test.Tasty
 --
 --         , requestPurchaseOffering $
 --             newPurchaseOffering
+--
+--         , requestRemoveBridgeOutput $
+--             newRemoveBridgeOutput
+--
+--         , requestRemoveBridgeSource $
+--             newRemoveBridgeSource
 --
 --         , requestRemoveFlowMediaStream $
 --             newRemoveFlowMediaStream
@@ -102,6 +147,18 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateBridge $
+--             newUpdateBridge
+--
+--         , requestUpdateBridgeOutput $
+--             newUpdateBridgeOutput
+--
+--         , requestUpdateBridgeSource $
+--             newUpdateBridgeSource
+--
+--         , requestUpdateBridgeState $
+--             newUpdateBridgeState
+--
 --         , requestUpdateFlow $
 --             newUpdateFlow
 --
@@ -117,10 +174,19 @@ import Test.Tasty
 --         , requestUpdateFlowSource $
 --             newUpdateFlowSource
 --
+--         , requestUpdateGatewayInstance $
+--             newUpdateGatewayInstance
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseAddFlowMediaStreams $
+--         [ responseAddBridgeOutputs $
+--             newAddBridgeOutputsResponse
+--
+--         , responseAddBridgeSources $
+--             newAddBridgeSourcesResponse
+--
+--         , responseAddFlowMediaStreams $
 --             newAddFlowMediaStreamsResponse
 --
 --         , responseAddFlowOutputs $
@@ -132,14 +198,38 @@ import Test.Tasty
 --         , responseAddFlowVpcInterfaces $
 --             newAddFlowVpcInterfacesResponse
 --
+--         , responseCreateBridge $
+--             newCreateBridgeResponse
+--
 --         , responseCreateFlow $
 --             newCreateFlowResponse
+--
+--         , responseCreateGateway $
+--             newCreateGatewayResponse
+--
+--         , responseDeleteBridge $
+--             newDeleteBridgeResponse
 --
 --         , responseDeleteFlow $
 --             newDeleteFlowResponse
 --
+--         , responseDeleteGateway $
+--             newDeleteGatewayResponse
+--
+--         , responseDeregisterGatewayInstance $
+--             newDeregisterGatewayInstanceResponse
+--
+--         , responseDescribeBridge $
+--             newDescribeBridgeResponse
+--
 --         , responseDescribeFlow $
 --             newDescribeFlowResponse
+--
+--         , responseDescribeGateway $
+--             newDescribeGatewayResponse
+--
+--         , responseDescribeGatewayInstance $
+--             newDescribeGatewayInstanceResponse
 --
 --         , responseDescribeOffering $
 --             newDescribeOfferingResponse
@@ -150,11 +240,20 @@ import Test.Tasty
 --         , responseGrantFlowEntitlements $
 --             newGrantFlowEntitlementsResponse
 --
+--         , responseListBridges $
+--             newListBridgesResponse
+--
 --         , responseListEntitlements $
 --             newListEntitlementsResponse
 --
 --         , responseListFlows $
 --             newListFlowsResponse
+--
+--         , responseListGatewayInstances $
+--             newListGatewayInstancesResponse
+--
+--         , responseListGateways $
+--             newListGatewaysResponse
 --
 --         , responseListOfferings $
 --             newListOfferingsResponse
@@ -167,6 +266,12 @@ import Test.Tasty
 --
 --         , responsePurchaseOffering $
 --             newPurchaseOfferingResponse
+--
+--         , responseRemoveBridgeOutput $
+--             newRemoveBridgeOutputResponse
+--
+--         , responseRemoveBridgeSource $
+--             newRemoveBridgeSourceResponse
 --
 --         , responseRemoveFlowMediaStream $
 --             newRemoveFlowMediaStreamResponse
@@ -195,6 +300,18 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateBridge $
+--             newUpdateBridgeResponse
+--
+--         , responseUpdateBridgeOutput $
+--             newUpdateBridgeOutputResponse
+--
+--         , responseUpdateBridgeSource $
+--             newUpdateBridgeSourceResponse
+--
+--         , responseUpdateBridgeState $
+--             newUpdateBridgeStateResponse
+--
 --         , responseUpdateFlow $
 --             newUpdateFlowResponse
 --
@@ -210,10 +327,25 @@ import Test.Tasty
 --         , responseUpdateFlowSource $
 --             newUpdateFlowSourceResponse
 --
+--         , responseUpdateGatewayInstance $
+--             newUpdateGatewayInstanceResponse
+--
 --           ]
 --     ]
 
 -- Requests
+
+requestAddBridgeOutputs :: AddBridgeOutputs -> TestTree
+requestAddBridgeOutputs =
+  req
+    "AddBridgeOutputs"
+    "fixture/AddBridgeOutputs.yaml"
+
+requestAddBridgeSources :: AddBridgeSources -> TestTree
+requestAddBridgeSources =
+  req
+    "AddBridgeSources"
+    "fixture/AddBridgeSources.yaml"
 
 requestAddFlowMediaStreams :: AddFlowMediaStreams -> TestTree
 requestAddFlowMediaStreams =
@@ -239,11 +371,29 @@ requestAddFlowVpcInterfaces =
     "AddFlowVpcInterfaces"
     "fixture/AddFlowVpcInterfaces.yaml"
 
+requestCreateBridge :: CreateBridge -> TestTree
+requestCreateBridge =
+  req
+    "CreateBridge"
+    "fixture/CreateBridge.yaml"
+
 requestCreateFlow :: CreateFlow -> TestTree
 requestCreateFlow =
   req
     "CreateFlow"
     "fixture/CreateFlow.yaml"
+
+requestCreateGateway :: CreateGateway -> TestTree
+requestCreateGateway =
+  req
+    "CreateGateway"
+    "fixture/CreateGateway.yaml"
+
+requestDeleteBridge :: DeleteBridge -> TestTree
+requestDeleteBridge =
+  req
+    "DeleteBridge"
+    "fixture/DeleteBridge.yaml"
 
 requestDeleteFlow :: DeleteFlow -> TestTree
 requestDeleteFlow =
@@ -251,11 +401,41 @@ requestDeleteFlow =
     "DeleteFlow"
     "fixture/DeleteFlow.yaml"
 
+requestDeleteGateway :: DeleteGateway -> TestTree
+requestDeleteGateway =
+  req
+    "DeleteGateway"
+    "fixture/DeleteGateway.yaml"
+
+requestDeregisterGatewayInstance :: DeregisterGatewayInstance -> TestTree
+requestDeregisterGatewayInstance =
+  req
+    "DeregisterGatewayInstance"
+    "fixture/DeregisterGatewayInstance.yaml"
+
+requestDescribeBridge :: DescribeBridge -> TestTree
+requestDescribeBridge =
+  req
+    "DescribeBridge"
+    "fixture/DescribeBridge.yaml"
+
 requestDescribeFlow :: DescribeFlow -> TestTree
 requestDescribeFlow =
   req
     "DescribeFlow"
     "fixture/DescribeFlow.yaml"
+
+requestDescribeGateway :: DescribeGateway -> TestTree
+requestDescribeGateway =
+  req
+    "DescribeGateway"
+    "fixture/DescribeGateway.yaml"
+
+requestDescribeGatewayInstance :: DescribeGatewayInstance -> TestTree
+requestDescribeGatewayInstance =
+  req
+    "DescribeGatewayInstance"
+    "fixture/DescribeGatewayInstance.yaml"
 
 requestDescribeOffering :: DescribeOffering -> TestTree
 requestDescribeOffering =
@@ -275,6 +455,12 @@ requestGrantFlowEntitlements =
     "GrantFlowEntitlements"
     "fixture/GrantFlowEntitlements.yaml"
 
+requestListBridges :: ListBridges -> TestTree
+requestListBridges =
+  req
+    "ListBridges"
+    "fixture/ListBridges.yaml"
+
 requestListEntitlements :: ListEntitlements -> TestTree
 requestListEntitlements =
   req
@@ -286,6 +472,18 @@ requestListFlows =
   req
     "ListFlows"
     "fixture/ListFlows.yaml"
+
+requestListGatewayInstances :: ListGatewayInstances -> TestTree
+requestListGatewayInstances =
+  req
+    "ListGatewayInstances"
+    "fixture/ListGatewayInstances.yaml"
+
+requestListGateways :: ListGateways -> TestTree
+requestListGateways =
+  req
+    "ListGateways"
+    "fixture/ListGateways.yaml"
 
 requestListOfferings :: ListOfferings -> TestTree
 requestListOfferings =
@@ -310,6 +508,18 @@ requestPurchaseOffering =
   req
     "PurchaseOffering"
     "fixture/PurchaseOffering.yaml"
+
+requestRemoveBridgeOutput :: RemoveBridgeOutput -> TestTree
+requestRemoveBridgeOutput =
+  req
+    "RemoveBridgeOutput"
+    "fixture/RemoveBridgeOutput.yaml"
+
+requestRemoveBridgeSource :: RemoveBridgeSource -> TestTree
+requestRemoveBridgeSource =
+  req
+    "RemoveBridgeSource"
+    "fixture/RemoveBridgeSource.yaml"
 
 requestRemoveFlowMediaStream :: RemoveFlowMediaStream -> TestTree
 requestRemoveFlowMediaStream =
@@ -365,6 +575,30 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateBridge :: UpdateBridge -> TestTree
+requestUpdateBridge =
+  req
+    "UpdateBridge"
+    "fixture/UpdateBridge.yaml"
+
+requestUpdateBridgeOutput :: UpdateBridgeOutput -> TestTree
+requestUpdateBridgeOutput =
+  req
+    "UpdateBridgeOutput"
+    "fixture/UpdateBridgeOutput.yaml"
+
+requestUpdateBridgeSource :: UpdateBridgeSource -> TestTree
+requestUpdateBridgeSource =
+  req
+    "UpdateBridgeSource"
+    "fixture/UpdateBridgeSource.yaml"
+
+requestUpdateBridgeState :: UpdateBridgeState -> TestTree
+requestUpdateBridgeState =
+  req
+    "UpdateBridgeState"
+    "fixture/UpdateBridgeState.yaml"
+
 requestUpdateFlow :: UpdateFlow -> TestTree
 requestUpdateFlow =
   req
@@ -395,7 +629,29 @@ requestUpdateFlowSource =
     "UpdateFlowSource"
     "fixture/UpdateFlowSource.yaml"
 
+requestUpdateGatewayInstance :: UpdateGatewayInstance -> TestTree
+requestUpdateGatewayInstance =
+  req
+    "UpdateGatewayInstance"
+    "fixture/UpdateGatewayInstance.yaml"
+
 -- Responses
+
+responseAddBridgeOutputs :: AddBridgeOutputsResponse -> TestTree
+responseAddBridgeOutputs =
+  res
+    "AddBridgeOutputsResponse"
+    "fixture/AddBridgeOutputsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddBridgeOutputs)
+
+responseAddBridgeSources :: AddBridgeSourcesResponse -> TestTree
+responseAddBridgeSources =
+  res
+    "AddBridgeSourcesResponse"
+    "fixture/AddBridgeSourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddBridgeSources)
 
 responseAddFlowMediaStreams :: AddFlowMediaStreamsResponse -> TestTree
 responseAddFlowMediaStreams =
@@ -429,6 +685,14 @@ responseAddFlowVpcInterfaces =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddFlowVpcInterfaces)
 
+responseCreateBridge :: CreateBridgeResponse -> TestTree
+responseCreateBridge =
+  res
+    "CreateBridgeResponse"
+    "fixture/CreateBridgeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateBridge)
+
 responseCreateFlow :: CreateFlowResponse -> TestTree
 responseCreateFlow =
   res
@@ -436,6 +700,22 @@ responseCreateFlow =
     "fixture/CreateFlowResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFlow)
+
+responseCreateGateway :: CreateGatewayResponse -> TestTree
+responseCreateGateway =
+  res
+    "CreateGatewayResponse"
+    "fixture/CreateGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateGateway)
+
+responseDeleteBridge :: DeleteBridgeResponse -> TestTree
+responseDeleteBridge =
+  res
+    "DeleteBridgeResponse"
+    "fixture/DeleteBridgeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBridge)
 
 responseDeleteFlow :: DeleteFlowResponse -> TestTree
 responseDeleteFlow =
@@ -445,6 +725,30 @@ responseDeleteFlow =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteFlow)
 
+responseDeleteGateway :: DeleteGatewayResponse -> TestTree
+responseDeleteGateway =
+  res
+    "DeleteGatewayResponse"
+    "fixture/DeleteGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteGateway)
+
+responseDeregisterGatewayInstance :: DeregisterGatewayInstanceResponse -> TestTree
+responseDeregisterGatewayInstance =
+  res
+    "DeregisterGatewayInstanceResponse"
+    "fixture/DeregisterGatewayInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterGatewayInstance)
+
+responseDescribeBridge :: DescribeBridgeResponse -> TestTree
+responseDescribeBridge =
+  res
+    "DescribeBridgeResponse"
+    "fixture/DescribeBridgeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeBridge)
+
 responseDescribeFlow :: DescribeFlowResponse -> TestTree
 responseDescribeFlow =
   res
@@ -452,6 +756,22 @@ responseDescribeFlow =
     "fixture/DescribeFlowResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeFlow)
+
+responseDescribeGateway :: DescribeGatewayResponse -> TestTree
+responseDescribeGateway =
+  res
+    "DescribeGatewayResponse"
+    "fixture/DescribeGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeGateway)
+
+responseDescribeGatewayInstance :: DescribeGatewayInstanceResponse -> TestTree
+responseDescribeGatewayInstance =
+  res
+    "DescribeGatewayInstanceResponse"
+    "fixture/DescribeGatewayInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeGatewayInstance)
 
 responseDescribeOffering :: DescribeOfferingResponse -> TestTree
 responseDescribeOffering =
@@ -477,6 +797,14 @@ responseGrantFlowEntitlements =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GrantFlowEntitlements)
 
+responseListBridges :: ListBridgesResponse -> TestTree
+responseListBridges =
+  res
+    "ListBridgesResponse"
+    "fixture/ListBridgesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBridges)
+
 responseListEntitlements :: ListEntitlementsResponse -> TestTree
 responseListEntitlements =
   res
@@ -492,6 +820,22 @@ responseListFlows =
     "fixture/ListFlowsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFlows)
+
+responseListGatewayInstances :: ListGatewayInstancesResponse -> TestTree
+responseListGatewayInstances =
+  res
+    "ListGatewayInstancesResponse"
+    "fixture/ListGatewayInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListGatewayInstances)
+
+responseListGateways :: ListGatewaysResponse -> TestTree
+responseListGateways =
+  res
+    "ListGatewaysResponse"
+    "fixture/ListGatewaysResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListGateways)
 
 responseListOfferings :: ListOfferingsResponse -> TestTree
 responseListOfferings =
@@ -524,6 +868,22 @@ responsePurchaseOffering =
     "fixture/PurchaseOfferingResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PurchaseOffering)
+
+responseRemoveBridgeOutput :: RemoveBridgeOutputResponse -> TestTree
+responseRemoveBridgeOutput =
+  res
+    "RemoveBridgeOutputResponse"
+    "fixture/RemoveBridgeOutputResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveBridgeOutput)
+
+responseRemoveBridgeSource :: RemoveBridgeSourceResponse -> TestTree
+responseRemoveBridgeSource =
+  res
+    "RemoveBridgeSourceResponse"
+    "fixture/RemoveBridgeSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveBridgeSource)
 
 responseRemoveFlowMediaStream :: RemoveFlowMediaStreamResponse -> TestTree
 responseRemoveFlowMediaStream =
@@ -597,6 +957,38 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
+responseUpdateBridge :: UpdateBridgeResponse -> TestTree
+responseUpdateBridge =
+  res
+    "UpdateBridgeResponse"
+    "fixture/UpdateBridgeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBridge)
+
+responseUpdateBridgeOutput :: UpdateBridgeOutputResponse -> TestTree
+responseUpdateBridgeOutput =
+  res
+    "UpdateBridgeOutputResponse"
+    "fixture/UpdateBridgeOutputResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBridgeOutput)
+
+responseUpdateBridgeSource :: UpdateBridgeSourceResponse -> TestTree
+responseUpdateBridgeSource =
+  res
+    "UpdateBridgeSourceResponse"
+    "fixture/UpdateBridgeSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBridgeSource)
+
+responseUpdateBridgeState :: UpdateBridgeStateResponse -> TestTree
+responseUpdateBridgeState =
+  res
+    "UpdateBridgeStateResponse"
+    "fixture/UpdateBridgeStateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBridgeState)
+
 responseUpdateFlow :: UpdateFlowResponse -> TestTree
 responseUpdateFlow =
   res
@@ -636,3 +1028,11 @@ responseUpdateFlowSource =
     "fixture/UpdateFlowSourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFlowSource)
+
+responseUpdateGatewayInstance :: UpdateGatewayInstanceResponse -> TestTree
+responseUpdateGatewayInstance =
+  res
+    "UpdateGatewayInstanceResponse"
+    "fixture/UpdateGatewayInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateGatewayInstance)

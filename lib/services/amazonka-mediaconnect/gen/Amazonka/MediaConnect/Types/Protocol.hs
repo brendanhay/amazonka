@@ -28,6 +28,7 @@ module Amazonka.MediaConnect.Types.Protocol
         Protocol_Srt_caller,
         Protocol_Srt_listener,
         Protocol_St2110_jpegxs,
+        Protocol_Udp,
         Protocol_Zixi_pull,
         Protocol_Zixi_push
       ),
@@ -90,6 +91,9 @@ pattern Protocol_Srt_listener = Protocol' "srt-listener"
 pattern Protocol_St2110_jpegxs :: Protocol
 pattern Protocol_St2110_jpegxs = Protocol' "st2110-jpegxs"
 
+pattern Protocol_Udp :: Protocol
+pattern Protocol_Udp = Protocol' "udp"
+
 pattern Protocol_Zixi_pull :: Protocol
 pattern Protocol_Zixi_pull = Protocol' "zixi-pull"
 
@@ -105,6 +109,7 @@ pattern Protocol_Zixi_push = Protocol' "zixi-push"
   Protocol_Srt_caller,
   Protocol_Srt_listener,
   Protocol_St2110_jpegxs,
+  Protocol_Udp,
   Protocol_Zixi_pull,
   Protocol_Zixi_push,
   Protocol'

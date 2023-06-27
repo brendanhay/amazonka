@@ -154,7 +154,8 @@ instance Data.FromJSON ListedFlow where
 
 instance Prelude.Hashable ListedFlow where
   hashWithSalt _salt ListedFlow' {..} =
-    _salt `Prelude.hashWithSalt` maintenance
+    _salt
+      `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` sourceType

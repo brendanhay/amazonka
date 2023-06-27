@@ -42,7 +42,8 @@ data AddOutputRequest = AddOutputRequest'
     -- | The IP address from which video will be sent to output destinations.
     destination :: Prelude.Maybe Prelude.Text,
     -- | The type of key used for the encryption. If no keyType is provided, the
-    -- service will use the default setting (static-key).
+    -- service will use the default setting (static-key). Allowable encryption
+    -- types: static-key.
     encryption :: Prelude.Maybe Encryption,
     -- | The maximum latency in milliseconds. This parameter applies only to
     -- RIST-based, Zixi-based, and Fujitsu-based streams.
@@ -70,7 +71,7 @@ data AddOutputRequest = AddOutputRequest'
     -- streams.
     smoothingLatency :: Prelude.Maybe Prelude.Int,
     -- | The stream ID that you want to use for this transport. This parameter
-    -- applies only to Zixi-based streams.
+    -- applies only to Zixi and SRT caller-based streams.
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The name of the VPC interface attachment to use for this output.
     vpcInterfaceAttachment :: Prelude.Maybe VpcInterfaceAttachment,
@@ -97,7 +98,8 @@ data AddOutputRequest = AddOutputRequest'
 -- 'destination', 'addOutputRequest_destination' - The IP address from which video will be sent to output destinations.
 --
 -- 'encryption', 'addOutputRequest_encryption' - The type of key used for the encryption. If no keyType is provided, the
--- service will use the default setting (static-key).
+-- service will use the default setting (static-key). Allowable encryption
+-- types: static-key.
 --
 -- 'maxLatency', 'addOutputRequest_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
 -- RIST-based, Zixi-based, and Fujitsu-based streams.
@@ -125,7 +127,7 @@ data AddOutputRequest = AddOutputRequest'
 -- streams.
 --
 -- 'streamId', 'addOutputRequest_streamId' - The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
+-- applies only to Zixi and SRT caller-based streams.
 --
 -- 'vpcInterfaceAttachment', 'addOutputRequest_vpcInterfaceAttachment' - The name of the VPC interface attachment to use for this output.
 --
@@ -169,7 +171,8 @@ addOutputRequest_destination :: Lens.Lens' AddOutputRequest (Prelude.Maybe Prelu
 addOutputRequest_destination = Lens.lens (\AddOutputRequest' {destination} -> destination) (\s@AddOutputRequest' {} a -> s {destination = a} :: AddOutputRequest)
 
 -- | The type of key used for the encryption. If no keyType is provided, the
--- service will use the default setting (static-key).
+-- service will use the default setting (static-key). Allowable encryption
+-- types: static-key.
 addOutputRequest_encryption :: Lens.Lens' AddOutputRequest (Prelude.Maybe Encryption)
 addOutputRequest_encryption = Lens.lens (\AddOutputRequest' {encryption} -> encryption) (\s@AddOutputRequest' {} a -> s {encryption = a} :: AddOutputRequest)
 
@@ -215,7 +218,7 @@ addOutputRequest_smoothingLatency :: Lens.Lens' AddOutputRequest (Prelude.Maybe 
 addOutputRequest_smoothingLatency = Lens.lens (\AddOutputRequest' {smoothingLatency} -> smoothingLatency) (\s@AddOutputRequest' {} a -> s {smoothingLatency = a} :: AddOutputRequest)
 
 -- | The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
+-- applies only to Zixi and SRT caller-based streams.
 addOutputRequest_streamId :: Lens.Lens' AddOutputRequest (Prelude.Maybe Prelude.Text)
 addOutputRequest_streamId = Lens.lens (\AddOutputRequest' {streamId} -> streamId) (\s@AddOutputRequest' {} a -> s {streamId = a} :: AddOutputRequest)
 
@@ -229,7 +232,8 @@ addOutputRequest_protocol = Lens.lens (\AddOutputRequest' {protocol} -> protocol
 
 instance Prelude.Hashable AddOutputRequest where
   hashWithSalt _salt AddOutputRequest' {..} =
-    _salt `Prelude.hashWithSalt` cidrAllowList
+    _salt
+      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` encryption

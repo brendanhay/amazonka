@@ -25,8 +25,17 @@ module Amazonka.MediaConnect
     -- ** BadRequestException
     _BadRequestException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** CreateBridge420Exception
+    _CreateBridge420Exception,
+
     -- ** CreateFlow420Exception
     _CreateFlow420Exception,
+
+    -- ** CreateGateway420Exception
+    _CreateGateway420Exception,
 
     -- ** ForbiddenException
     _ForbiddenException,
@@ -61,6 +70,18 @@ module Amazonka.MediaConnect
     -- * Operations
     -- $operations
 
+    -- ** AddBridgeOutputs
+    AddBridgeOutputs (AddBridgeOutputs'),
+    newAddBridgeOutputs,
+    AddBridgeOutputsResponse (AddBridgeOutputsResponse'),
+    newAddBridgeOutputsResponse,
+
+    -- ** AddBridgeSources
+    AddBridgeSources (AddBridgeSources'),
+    newAddBridgeSources,
+    AddBridgeSourcesResponse (AddBridgeSourcesResponse'),
+    newAddBridgeSourcesResponse,
+
     -- ** AddFlowMediaStreams
     AddFlowMediaStreams (AddFlowMediaStreams'),
     newAddFlowMediaStreams,
@@ -85,11 +106,29 @@ module Amazonka.MediaConnect
     AddFlowVpcInterfacesResponse (AddFlowVpcInterfacesResponse'),
     newAddFlowVpcInterfacesResponse,
 
+    -- ** CreateBridge
+    CreateBridge (CreateBridge'),
+    newCreateBridge,
+    CreateBridgeResponse (CreateBridgeResponse'),
+    newCreateBridgeResponse,
+
     -- ** CreateFlow
     CreateFlow (CreateFlow'),
     newCreateFlow,
     CreateFlowResponse (CreateFlowResponse'),
     newCreateFlowResponse,
+
+    -- ** CreateGateway
+    CreateGateway (CreateGateway'),
+    newCreateGateway,
+    CreateGatewayResponse (CreateGatewayResponse'),
+    newCreateGatewayResponse,
+
+    -- ** DeleteBridge
+    DeleteBridge (DeleteBridge'),
+    newDeleteBridge,
+    DeleteBridgeResponse (DeleteBridgeResponse'),
+    newDeleteBridgeResponse,
 
     -- ** DeleteFlow
     DeleteFlow (DeleteFlow'),
@@ -97,11 +136,41 @@ module Amazonka.MediaConnect
     DeleteFlowResponse (DeleteFlowResponse'),
     newDeleteFlowResponse,
 
+    -- ** DeleteGateway
+    DeleteGateway (DeleteGateway'),
+    newDeleteGateway,
+    DeleteGatewayResponse (DeleteGatewayResponse'),
+    newDeleteGatewayResponse,
+
+    -- ** DeregisterGatewayInstance
+    DeregisterGatewayInstance (DeregisterGatewayInstance'),
+    newDeregisterGatewayInstance,
+    DeregisterGatewayInstanceResponse (DeregisterGatewayInstanceResponse'),
+    newDeregisterGatewayInstanceResponse,
+
+    -- ** DescribeBridge
+    DescribeBridge (DescribeBridge'),
+    newDescribeBridge,
+    DescribeBridgeResponse (DescribeBridgeResponse'),
+    newDescribeBridgeResponse,
+
     -- ** DescribeFlow
     DescribeFlow (DescribeFlow'),
     newDescribeFlow,
     DescribeFlowResponse (DescribeFlowResponse'),
     newDescribeFlowResponse,
+
+    -- ** DescribeGateway
+    DescribeGateway (DescribeGateway'),
+    newDescribeGateway,
+    DescribeGatewayResponse (DescribeGatewayResponse'),
+    newDescribeGatewayResponse,
+
+    -- ** DescribeGatewayInstance
+    DescribeGatewayInstance (DescribeGatewayInstance'),
+    newDescribeGatewayInstance,
+    DescribeGatewayInstanceResponse (DescribeGatewayInstanceResponse'),
+    newDescribeGatewayInstanceResponse,
 
     -- ** DescribeOffering
     DescribeOffering (DescribeOffering'),
@@ -121,6 +190,12 @@ module Amazonka.MediaConnect
     GrantFlowEntitlementsResponse (GrantFlowEntitlementsResponse'),
     newGrantFlowEntitlementsResponse,
 
+    -- ** ListBridges (Paginated)
+    ListBridges (ListBridges'),
+    newListBridges,
+    ListBridgesResponse (ListBridgesResponse'),
+    newListBridgesResponse,
+
     -- ** ListEntitlements (Paginated)
     ListEntitlements (ListEntitlements'),
     newListEntitlements,
@@ -132,6 +207,18 @@ module Amazonka.MediaConnect
     newListFlows,
     ListFlowsResponse (ListFlowsResponse'),
     newListFlowsResponse,
+
+    -- ** ListGatewayInstances (Paginated)
+    ListGatewayInstances (ListGatewayInstances'),
+    newListGatewayInstances,
+    ListGatewayInstancesResponse (ListGatewayInstancesResponse'),
+    newListGatewayInstancesResponse,
+
+    -- ** ListGateways (Paginated)
+    ListGateways (ListGateways'),
+    newListGateways,
+    ListGatewaysResponse (ListGatewaysResponse'),
+    newListGatewaysResponse,
 
     -- ** ListOfferings (Paginated)
     ListOfferings (ListOfferings'),
@@ -156,6 +243,18 @@ module Amazonka.MediaConnect
     newPurchaseOffering,
     PurchaseOfferingResponse (PurchaseOfferingResponse'),
     newPurchaseOfferingResponse,
+
+    -- ** RemoveBridgeOutput
+    RemoveBridgeOutput (RemoveBridgeOutput'),
+    newRemoveBridgeOutput,
+    RemoveBridgeOutputResponse (RemoveBridgeOutputResponse'),
+    newRemoveBridgeOutputResponse,
+
+    -- ** RemoveBridgeSource
+    RemoveBridgeSource (RemoveBridgeSource'),
+    newRemoveBridgeSource,
+    RemoveBridgeSourceResponse (RemoveBridgeSourceResponse'),
+    newRemoveBridgeSourceResponse,
 
     -- ** RemoveFlowMediaStream
     RemoveFlowMediaStream (RemoveFlowMediaStream'),
@@ -211,6 +310,30 @@ module Amazonka.MediaConnect
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateBridge
+    UpdateBridge (UpdateBridge'),
+    newUpdateBridge,
+    UpdateBridgeResponse (UpdateBridgeResponse'),
+    newUpdateBridgeResponse,
+
+    -- ** UpdateBridgeOutput
+    UpdateBridgeOutput (UpdateBridgeOutput'),
+    newUpdateBridgeOutput,
+    UpdateBridgeOutputResponse (UpdateBridgeOutputResponse'),
+    newUpdateBridgeOutputResponse,
+
+    -- ** UpdateBridgeSource
+    UpdateBridgeSource (UpdateBridgeSource'),
+    newUpdateBridgeSource,
+    UpdateBridgeSourceResponse (UpdateBridgeSourceResponse'),
+    newUpdateBridgeSourceResponse,
+
+    -- ** UpdateBridgeState
+    UpdateBridgeState (UpdateBridgeState'),
+    newUpdateBridgeState,
+    UpdateBridgeStateResponse (UpdateBridgeStateResponse'),
+    newUpdateBridgeStateResponse,
+
     -- ** UpdateFlow
     UpdateFlow (UpdateFlow'),
     newUpdateFlow,
@@ -241,13 +364,31 @@ module Amazonka.MediaConnect
     UpdateFlowSourceResponse (UpdateFlowSourceResponse'),
     newUpdateFlowSourceResponse,
 
+    -- ** UpdateGatewayInstance
+    UpdateGatewayInstance (UpdateGatewayInstance'),
+    newUpdateGatewayInstance,
+    UpdateGatewayInstanceResponse (UpdateGatewayInstanceResponse'),
+    newUpdateGatewayInstanceResponse,
+
     -- * Types
 
     -- ** Algorithm
     Algorithm (..),
 
+    -- ** BridgePlacement
+    BridgePlacement (..),
+
+    -- ** BridgeState
+    BridgeState (..),
+
     -- ** Colorimetry
     Colorimetry (..),
+
+    -- ** ConnectionStatus
+    ConnectionStatus (..),
+
+    -- ** DesiredState
+    DesiredState (..),
 
     -- ** DurationUnits
     DurationUnits (..),
@@ -263,6 +404,12 @@ module Amazonka.MediaConnect
 
     -- ** FailoverMode
     FailoverMode (..),
+
+    -- ** GatewayState
+    GatewayState (..),
+
+    -- ** InstanceState
+    InstanceState (..),
 
     -- ** KeyType
     KeyType (..),
@@ -306,6 +453,34 @@ module Amazonka.MediaConnect
     -- ** Tcs
     Tcs (..),
 
+    -- ** AddBridgeFlowSourceRequest
+    AddBridgeFlowSourceRequest (AddBridgeFlowSourceRequest'),
+    newAddBridgeFlowSourceRequest,
+
+    -- ** AddBridgeNetworkOutputRequest
+    AddBridgeNetworkOutputRequest (AddBridgeNetworkOutputRequest'),
+    newAddBridgeNetworkOutputRequest,
+
+    -- ** AddBridgeNetworkSourceRequest
+    AddBridgeNetworkSourceRequest (AddBridgeNetworkSourceRequest'),
+    newAddBridgeNetworkSourceRequest,
+
+    -- ** AddBridgeOutputRequest
+    AddBridgeOutputRequest (AddBridgeOutputRequest'),
+    newAddBridgeOutputRequest,
+
+    -- ** AddBridgeSourceRequest
+    AddBridgeSourceRequest (AddBridgeSourceRequest'),
+    newAddBridgeSourceRequest,
+
+    -- ** AddEgressGatewayBridgeRequest
+    AddEgressGatewayBridgeRequest (AddEgressGatewayBridgeRequest'),
+    newAddEgressGatewayBridgeRequest,
+
+    -- ** AddIngressGatewayBridgeRequest
+    AddIngressGatewayBridgeRequest (AddIngressGatewayBridgeRequest'),
+    newAddIngressGatewayBridgeRequest,
+
     -- ** AddMaintenance
     AddMaintenance (AddMaintenance'),
     newAddMaintenance,
@@ -318,6 +493,34 @@ module Amazonka.MediaConnect
     AddOutputRequest (AddOutputRequest'),
     newAddOutputRequest,
 
+    -- ** Bridge
+    Bridge (Bridge'),
+    newBridge,
+
+    -- ** BridgeFlowOutput
+    BridgeFlowOutput (BridgeFlowOutput'),
+    newBridgeFlowOutput,
+
+    -- ** BridgeFlowSource
+    BridgeFlowSource (BridgeFlowSource'),
+    newBridgeFlowSource,
+
+    -- ** BridgeNetworkOutput
+    BridgeNetworkOutput (BridgeNetworkOutput'),
+    newBridgeNetworkOutput,
+
+    -- ** BridgeNetworkSource
+    BridgeNetworkSource (BridgeNetworkSource'),
+    newBridgeNetworkSource,
+
+    -- ** BridgeOutput
+    BridgeOutput (BridgeOutput'),
+    newBridgeOutput,
+
+    -- ** BridgeSource
+    BridgeSource (BridgeSource'),
+    newBridgeSource,
+
     -- ** DestinationConfiguration
     DestinationConfiguration (DestinationConfiguration'),
     newDestinationConfiguration,
@@ -325,6 +528,10 @@ module Amazonka.MediaConnect
     -- ** DestinationConfigurationRequest
     DestinationConfigurationRequest (DestinationConfigurationRequest'),
     newDestinationConfigurationRequest,
+
+    -- ** EgressGatewayBridge
+    EgressGatewayBridge (EgressGatewayBridge'),
+    newEgressGatewayBridge,
 
     -- ** EncodingParameters
     EncodingParameters (EncodingParameters'),
@@ -358,9 +565,29 @@ module Amazonka.MediaConnect
     FmtpRequest (FmtpRequest'),
     newFmtpRequest,
 
+    -- ** Gateway
+    Gateway (Gateway'),
+    newGateway,
+
+    -- ** GatewayBridgeSource
+    GatewayBridgeSource (GatewayBridgeSource'),
+    newGatewayBridgeSource,
+
+    -- ** GatewayInstance
+    GatewayInstance (GatewayInstance'),
+    newGatewayInstance,
+
+    -- ** GatewayNetwork
+    GatewayNetwork (GatewayNetwork'),
+    newGatewayNetwork,
+
     -- ** GrantEntitlementRequest
     GrantEntitlementRequest (GrantEntitlementRequest'),
     newGrantEntitlementRequest,
+
+    -- ** IngressGatewayBridge
+    IngressGatewayBridge (IngressGatewayBridge'),
+    newIngressGatewayBridge,
 
     -- ** InputConfiguration
     InputConfiguration (InputConfiguration'),
@@ -378,6 +605,10 @@ module Amazonka.MediaConnect
     InterfaceRequest (InterfaceRequest'),
     newInterfaceRequest,
 
+    -- ** ListedBridge
+    ListedBridge (ListedBridge'),
+    newListedBridge,
+
     -- ** ListedEntitlement
     ListedEntitlement (ListedEntitlement'),
     newListedEntitlement,
@@ -385,6 +616,14 @@ module Amazonka.MediaConnect
     -- ** ListedFlow
     ListedFlow (ListedFlow'),
     newListedFlow,
+
+    -- ** ListedGateway
+    ListedGateway (ListedGateway'),
+    newListedGateway,
+
+    -- ** ListedGatewayInstance
+    ListedGatewayInstance (ListedGatewayInstance'),
+    newListedGatewayInstance,
 
     -- ** Maintenance
     Maintenance (Maintenance'),
@@ -418,6 +657,10 @@ module Amazonka.MediaConnect
     MediaStreamSourceConfigurationRequest (MediaStreamSourceConfigurationRequest'),
     newMediaStreamSourceConfigurationRequest,
 
+    -- ** MessageDetail
+    MessageDetail (MessageDetail'),
+    newMessageDetail,
+
     -- ** Messages
     Messages (Messages'),
     newMessages,
@@ -438,6 +681,10 @@ module Amazonka.MediaConnect
     ResourceSpecification (ResourceSpecification'),
     newResourceSpecification,
 
+    -- ** SetGatewayBridgeSourceRequest
+    SetGatewayBridgeSourceRequest (SetGatewayBridgeSourceRequest'),
+    newSetGatewayBridgeSourceRequest,
+
     -- ** SetSourceRequest
     SetSourceRequest (SetSourceRequest'),
     newSetSourceRequest,
@@ -454,6 +701,22 @@ module Amazonka.MediaConnect
     Transport (Transport'),
     newTransport,
 
+    -- ** UpdateBridgeFlowSourceRequest
+    UpdateBridgeFlowSourceRequest (UpdateBridgeFlowSourceRequest'),
+    newUpdateBridgeFlowSourceRequest,
+
+    -- ** UpdateBridgeNetworkOutputRequest
+    UpdateBridgeNetworkOutputRequest (UpdateBridgeNetworkOutputRequest'),
+    newUpdateBridgeNetworkOutputRequest,
+
+    -- ** UpdateBridgeNetworkSourceRequest
+    UpdateBridgeNetworkSourceRequest (UpdateBridgeNetworkSourceRequest'),
+    newUpdateBridgeNetworkSourceRequest,
+
+    -- ** UpdateEgressGatewayBridgeRequest
+    UpdateEgressGatewayBridgeRequest (UpdateEgressGatewayBridgeRequest'),
+    newUpdateEgressGatewayBridgeRequest,
+
     -- ** UpdateEncryption
     UpdateEncryption (UpdateEncryption'),
     newUpdateEncryption,
@@ -461,6 +724,14 @@ module Amazonka.MediaConnect
     -- ** UpdateFailoverConfig
     UpdateFailoverConfig (UpdateFailoverConfig'),
     newUpdateFailoverConfig,
+
+    -- ** UpdateGatewayBridgeSourceRequest
+    UpdateGatewayBridgeSourceRequest (UpdateGatewayBridgeSourceRequest'),
+    newUpdateGatewayBridgeSourceRequest,
+
+    -- ** UpdateIngressGatewayBridgeRequest
+    UpdateIngressGatewayBridgeRequest (UpdateIngressGatewayBridgeRequest'),
+    newUpdateIngressGatewayBridgeRequest,
 
     -- ** UpdateMaintenance
     UpdateMaintenance (UpdateMaintenance'),
@@ -480,23 +751,38 @@ module Amazonka.MediaConnect
   )
 where
 
+import Amazonka.MediaConnect.AddBridgeOutputs
+import Amazonka.MediaConnect.AddBridgeSources
 import Amazonka.MediaConnect.AddFlowMediaStreams
 import Amazonka.MediaConnect.AddFlowOutputs
 import Amazonka.MediaConnect.AddFlowSources
 import Amazonka.MediaConnect.AddFlowVpcInterfaces
+import Amazonka.MediaConnect.CreateBridge
 import Amazonka.MediaConnect.CreateFlow
+import Amazonka.MediaConnect.CreateGateway
+import Amazonka.MediaConnect.DeleteBridge
 import Amazonka.MediaConnect.DeleteFlow
+import Amazonka.MediaConnect.DeleteGateway
+import Amazonka.MediaConnect.DeregisterGatewayInstance
+import Amazonka.MediaConnect.DescribeBridge
 import Amazonka.MediaConnect.DescribeFlow
+import Amazonka.MediaConnect.DescribeGateway
+import Amazonka.MediaConnect.DescribeGatewayInstance
 import Amazonka.MediaConnect.DescribeOffering
 import Amazonka.MediaConnect.DescribeReservation
 import Amazonka.MediaConnect.GrantFlowEntitlements
 import Amazonka.MediaConnect.Lens
+import Amazonka.MediaConnect.ListBridges
 import Amazonka.MediaConnect.ListEntitlements
 import Amazonka.MediaConnect.ListFlows
+import Amazonka.MediaConnect.ListGatewayInstances
+import Amazonka.MediaConnect.ListGateways
 import Amazonka.MediaConnect.ListOfferings
 import Amazonka.MediaConnect.ListReservations
 import Amazonka.MediaConnect.ListTagsForResource
 import Amazonka.MediaConnect.PurchaseOffering
+import Amazonka.MediaConnect.RemoveBridgeOutput
+import Amazonka.MediaConnect.RemoveBridgeSource
 import Amazonka.MediaConnect.RemoveFlowMediaStream
 import Amazonka.MediaConnect.RemoveFlowOutput
 import Amazonka.MediaConnect.RemoveFlowSource
@@ -507,11 +793,16 @@ import Amazonka.MediaConnect.StopFlow
 import Amazonka.MediaConnect.TagResource
 import Amazonka.MediaConnect.Types
 import Amazonka.MediaConnect.UntagResource
+import Amazonka.MediaConnect.UpdateBridge
+import Amazonka.MediaConnect.UpdateBridgeOutput
+import Amazonka.MediaConnect.UpdateBridgeSource
+import Amazonka.MediaConnect.UpdateBridgeState
 import Amazonka.MediaConnect.UpdateFlow
 import Amazonka.MediaConnect.UpdateFlowEntitlement
 import Amazonka.MediaConnect.UpdateFlowMediaStream
 import Amazonka.MediaConnect.UpdateFlowOutput
 import Amazonka.MediaConnect.UpdateFlowSource
+import Amazonka.MediaConnect.UpdateGatewayInstance
 import Amazonka.MediaConnect.Waiters
 
 -- $errors

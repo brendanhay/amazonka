@@ -71,12 +71,14 @@ instance Data.FromJSON MediaStreamAttributes where
       "MediaStreamAttributes"
       ( \x ->
           MediaStreamAttributes'
-            Prelude.<$> (x Data..:? "lang") Prelude.<*> (x Data..: "fmtp")
+            Prelude.<$> (x Data..:? "lang")
+            Prelude.<*> (x Data..: "fmtp")
       )
 
 instance Prelude.Hashable MediaStreamAttributes where
   hashWithSalt _salt MediaStreamAttributes' {..} =
-    _salt `Prelude.hashWithSalt` lang
+    _salt
+      `Prelude.hashWithSalt` lang
       `Prelude.hashWithSalt` fmtp
 
 instance Prelude.NFData MediaStreamAttributes where

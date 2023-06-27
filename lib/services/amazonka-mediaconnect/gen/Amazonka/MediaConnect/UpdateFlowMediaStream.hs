@@ -165,7 +165,8 @@ instance Core.AWSRequest UpdateFlowMediaStream where
 
 instance Prelude.Hashable UpdateFlowMediaStream where
   hashWithSalt _salt UpdateFlowMediaStream' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` clockRate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` mediaStreamType

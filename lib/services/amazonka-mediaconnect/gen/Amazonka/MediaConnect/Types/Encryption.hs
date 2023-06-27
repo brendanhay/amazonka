@@ -199,7 +199,8 @@ instance Data.FromJSON Encryption where
 
 instance Prelude.Hashable Encryption where
   hashWithSalt _salt Encryption' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` constantInitializationVector
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` keyType

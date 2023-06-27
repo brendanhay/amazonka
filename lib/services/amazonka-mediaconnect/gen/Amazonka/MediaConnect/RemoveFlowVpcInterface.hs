@@ -107,7 +107,8 @@ instance Core.AWSRequest RemoveFlowVpcInterface where
       ( \s h x ->
           RemoveFlowVpcInterfaceResponse'
             Prelude.<$> (x Data..?> "flowArn")
-            Prelude.<*> ( x Data..?> "nonDeletedNetworkInterfaceIds"
+            Prelude.<*> ( x
+                            Data..?> "nonDeletedNetworkInterfaceIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "vpcInterfaceName")
@@ -116,7 +117,8 @@ instance Core.AWSRequest RemoveFlowVpcInterface where
 
 instance Prelude.Hashable RemoveFlowVpcInterface where
   hashWithSalt _salt RemoveFlowVpcInterface' {..} =
-    _salt `Prelude.hashWithSalt` flowArn
+    _salt
+      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` vpcInterfaceName
 
 instance Prelude.NFData RemoveFlowVpcInterface where

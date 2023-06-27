@@ -34,7 +34,7 @@ data Transport = Transport'
     -- requests to this flow. These IP addresses should be in the form of a
     -- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
     cidrAllowList :: Prelude.Maybe [Prelude.Text],
-    -- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+    -- | The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
     maxBitrate :: Prelude.Maybe Prelude.Int,
     -- | The maximum latency in milliseconds. This parameter applies only to
     -- RIST-based, Zixi-based, and Fujitsu-based streams.
@@ -64,7 +64,7 @@ data Transport = Transport'
     -- | Source port for SRT-caller protocol.
     sourceListenerPort :: Prelude.Maybe Prelude.Int,
     -- | The stream ID that you want to use for this transport. This parameter
-    -- applies only to Zixi-based streams.
+    -- applies only to Zixi and SRT caller-based streams.
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The protocol that is used by the source or output.
     protocol :: Protocol
@@ -83,7 +83,7 @@ data Transport = Transport'
 -- requests to this flow. These IP addresses should be in the form of a
 -- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
 --
--- 'maxBitrate', 'transport_maxBitrate' - The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+-- 'maxBitrate', 'transport_maxBitrate' - The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
 --
 -- 'maxLatency', 'transport_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
 -- RIST-based, Zixi-based, and Fujitsu-based streams.
@@ -113,7 +113,7 @@ data Transport = Transport'
 -- 'sourceListenerPort', 'transport_sourceListenerPort' - Source port for SRT-caller protocol.
 --
 -- 'streamId', 'transport_streamId' - The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
+-- applies only to Zixi and SRT caller-based streams.
 --
 -- 'protocol', 'transport_protocol' - The protocol that is used by the source or output.
 newTransport ::
@@ -143,7 +143,7 @@ newTransport pProtocol_ =
 transport_cidrAllowList :: Lens.Lens' Transport (Prelude.Maybe [Prelude.Text])
 transport_cidrAllowList = Lens.lens (\Transport' {cidrAllowList} -> cidrAllowList) (\s@Transport' {} a -> s {cidrAllowList = a} :: Transport) Prelude.. Lens.mapping Lens.coerced
 
--- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+-- | The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
 transport_maxBitrate :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
 transport_maxBitrate = Lens.lens (\Transport' {maxBitrate} -> maxBitrate) (\s@Transport' {} a -> s {maxBitrate = a} :: Transport)
 
@@ -193,7 +193,7 @@ transport_sourceListenerPort :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
 transport_sourceListenerPort = Lens.lens (\Transport' {sourceListenerPort} -> sourceListenerPort) (\s@Transport' {} a -> s {sourceListenerPort = a} :: Transport)
 
 -- | The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
+-- applies only to Zixi and SRT caller-based streams.
 transport_streamId :: Lens.Lens' Transport (Prelude.Maybe Prelude.Text)
 transport_streamId = Lens.lens (\Transport' {streamId} -> streamId) (\s@Transport' {} a -> s {streamId = a} :: Transport)
 
@@ -224,7 +224,8 @@ instance Data.FromJSON Transport where
 
 instance Prelude.Hashable Transport where
   hashWithSalt _salt Transport' {..} =
-    _salt `Prelude.hashWithSalt` cidrAllowList
+    _salt
+      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` maxBitrate
       `Prelude.hashWithSalt` maxLatency
       `Prelude.hashWithSalt` maxSyncBuffer

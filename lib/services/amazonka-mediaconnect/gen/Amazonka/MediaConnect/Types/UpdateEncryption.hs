@@ -180,7 +180,8 @@ updateEncryption_url = Lens.lens (\UpdateEncryption' {url} -> url) (\s@UpdateEnc
 
 instance Prelude.Hashable UpdateEncryption where
   hashWithSalt _salt UpdateEncryption' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` constantInitializationVector
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` keyType

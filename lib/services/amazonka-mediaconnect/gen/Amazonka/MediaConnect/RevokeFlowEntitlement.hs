@@ -108,7 +108,8 @@ instance Core.AWSRequest RevokeFlowEntitlement where
 
 instance Prelude.Hashable RevokeFlowEntitlement where
   hashWithSalt _salt RevokeFlowEntitlement' {..} =
-    _salt `Prelude.hashWithSalt` flowArn
+    _salt
+      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` entitlementArn
 
 instance Prelude.NFData RevokeFlowEntitlement where

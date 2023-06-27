@@ -53,19 +53,18 @@ data Flow = Flow'
     vpcInterfaces :: Prelude.Maybe [VpcInterface],
     -- | The current status of the flow.
     status :: Status,
+    -- | The Availability Zone that you want to create the flow in. These options
+    -- are limited to the Availability Zones within the current AWS.
+    availabilityZone :: Prelude.Text,
+    source :: Source,
+    -- | The name of the flow.
+    name :: Prelude.Text,
     -- | The entitlements in this flow.
     entitlements :: [Entitlement],
     -- | The outputs in this flow.
     outputs :: [Output],
-    -- | The Availability Zone that you want to create the flow in. These options
-    -- are limited to the Availability Zones within the current AWS.
-    availabilityZone :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN), a unique identifier for any AWS
-    -- resource, of the flow.
-    flowArn :: Prelude.Text,
-    source :: Source,
-    -- | The name of the flow.
-    name :: Prelude.Text
+    -- | The Amazon Resource Name (ARN) of the flow.
+    flowArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,37 +95,36 @@ data Flow = Flow'
 --
 -- 'status', 'flow_status' - The current status of the flow.
 --
--- 'entitlements', 'flow_entitlements' - The entitlements in this flow.
---
--- 'outputs', 'flow_outputs' - The outputs in this flow.
---
 -- 'availabilityZone', 'flow_availabilityZone' - The Availability Zone that you want to create the flow in. These options
 -- are limited to the Availability Zones within the current AWS.
---
--- 'flowArn', 'flow_flowArn' - The Amazon Resource Name (ARN), a unique identifier for any AWS
--- resource, of the flow.
 --
 -- 'source', 'flow_source' - Undocumented member.
 --
 -- 'name', 'flow_name' - The name of the flow.
+--
+-- 'entitlements', 'flow_entitlements' - The entitlements in this flow.
+--
+-- 'outputs', 'flow_outputs' - The outputs in this flow.
+--
+-- 'flowArn', 'flow_flowArn' - The Amazon Resource Name (ARN) of the flow.
 newFlow ::
   -- | 'status'
   Status ->
   -- | 'availabilityZone'
   Prelude.Text ->
-  -- | 'flowArn'
-  Prelude.Text ->
   -- | 'source'
   Source ->
   -- | 'name'
+  Prelude.Text ->
+  -- | 'flowArn'
   Prelude.Text ->
   Flow
 newFlow
   pStatus_
   pAvailabilityZone_
-  pFlowArn_
   pSource_
-  pName_ =
+  pName_
+  pFlowArn_ =
     Flow'
       { description = Prelude.Nothing,
         egressIp = Prelude.Nothing,
@@ -136,12 +134,12 @@ newFlow
         sources = Prelude.Nothing,
         vpcInterfaces = Prelude.Nothing,
         status = pStatus_,
+        availabilityZone = pAvailabilityZone_,
+        source = pSource_,
+        name = pName_,
         entitlements = Prelude.mempty,
         outputs = Prelude.mempty,
-        availabilityZone = pAvailabilityZone_,
-        flowArn = pFlowArn_,
-        source = pSource_,
-        name = pName_
+        flowArn = pFlowArn_
       }
 
 -- | A description of the flow. This value is not used or seen outside of the
@@ -179,23 +177,10 @@ flow_vpcInterfaces = Lens.lens (\Flow' {vpcInterfaces} -> vpcInterfaces) (\s@Flo
 flow_status :: Lens.Lens' Flow Status
 flow_status = Lens.lens (\Flow' {status} -> status) (\s@Flow' {} a -> s {status = a} :: Flow)
 
--- | The entitlements in this flow.
-flow_entitlements :: Lens.Lens' Flow [Entitlement]
-flow_entitlements = Lens.lens (\Flow' {entitlements} -> entitlements) (\s@Flow' {} a -> s {entitlements = a} :: Flow) Prelude.. Lens.coerced
-
--- | The outputs in this flow.
-flow_outputs :: Lens.Lens' Flow [Output]
-flow_outputs = Lens.lens (\Flow' {outputs} -> outputs) (\s@Flow' {} a -> s {outputs = a} :: Flow) Prelude.. Lens.coerced
-
 -- | The Availability Zone that you want to create the flow in. These options
 -- are limited to the Availability Zones within the current AWS.
 flow_availabilityZone :: Lens.Lens' Flow Prelude.Text
 flow_availabilityZone = Lens.lens (\Flow' {availabilityZone} -> availabilityZone) (\s@Flow' {} a -> s {availabilityZone = a} :: Flow)
-
--- | The Amazon Resource Name (ARN), a unique identifier for any AWS
--- resource, of the flow.
-flow_flowArn :: Lens.Lens' Flow Prelude.Text
-flow_flowArn = Lens.lens (\Flow' {flowArn} -> flowArn) (\s@Flow' {} a -> s {flowArn = a} :: Flow)
 
 -- | Undocumented member.
 flow_source :: Lens.Lens' Flow Source
@@ -204,6 +189,18 @@ flow_source = Lens.lens (\Flow' {source} -> source) (\s@Flow' {} a -> s {source 
 -- | The name of the flow.
 flow_name :: Lens.Lens' Flow Prelude.Text
 flow_name = Lens.lens (\Flow' {name} -> name) (\s@Flow' {} a -> s {name = a} :: Flow)
+
+-- | The entitlements in this flow.
+flow_entitlements :: Lens.Lens' Flow [Entitlement]
+flow_entitlements = Lens.lens (\Flow' {entitlements} -> entitlements) (\s@Flow' {} a -> s {entitlements = a} :: Flow) Prelude.. Lens.coerced
+
+-- | The outputs in this flow.
+flow_outputs :: Lens.Lens' Flow [Output]
+flow_outputs = Lens.lens (\Flow' {outputs} -> outputs) (\s@Flow' {} a -> s {outputs = a} :: Flow) Prelude.. Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the flow.
+flow_flowArn :: Lens.Lens' Flow Prelude.Text
+flow_flowArn = Lens.lens (\Flow' {flowArn} -> flowArn) (\s@Flow' {} a -> s {flowArn = a} :: Flow)
 
 instance Data.FromJSON Flow where
   parseJSON =
@@ -219,17 +216,18 @@ instance Data.FromJSON Flow where
             Prelude.<*> (x Data..:? "sources" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "vpcInterfaces" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "status")
-            Prelude.<*> (x Data..:? "entitlements" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "outputs" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "availabilityZone")
-            Prelude.<*> (x Data..: "flowArn")
             Prelude.<*> (x Data..: "source")
             Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..:? "entitlements" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "flowArn")
       )
 
 instance Prelude.Hashable Flow where
   hashWithSalt _salt Flow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` egressIp
       `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` mediaStreams
@@ -237,12 +235,12 @@ instance Prelude.Hashable Flow where
       `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` vpcInterfaces
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` entitlements
-      `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` entitlements
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` flowArn
 
 instance Prelude.NFData Flow where
   rnf Flow' {..} =
@@ -254,9 +252,9 @@ instance Prelude.NFData Flow where
       `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf vpcInterfaces
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf entitlements
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf flowArn

@@ -20,7 +20,10 @@ module Amazonka.MediaConnect.Types
     -- * Errors
     _AddFlowOutputs420Exception,
     _BadRequestException,
+    _ConflictException,
+    _CreateBridge420Exception,
     _CreateFlow420Exception,
+    _CreateGateway420Exception,
     _ForbiddenException,
     _GrantFlowEntitlements420Exception,
     _InternalServerErrorException,
@@ -31,8 +34,20 @@ module Amazonka.MediaConnect.Types
     -- * Algorithm
     Algorithm (..),
 
+    -- * BridgePlacement
+    BridgePlacement (..),
+
+    -- * BridgeState
+    BridgeState (..),
+
     -- * Colorimetry
     Colorimetry (..),
+
+    -- * ConnectionStatus
+    ConnectionStatus (..),
+
+    -- * DesiredState
+    DesiredState (..),
 
     -- * DurationUnits
     DurationUnits (..),
@@ -48,6 +63,12 @@ module Amazonka.MediaConnect.Types
 
     -- * FailoverMode
     FailoverMode (..),
+
+    -- * GatewayState
+    GatewayState (..),
+
+    -- * InstanceState
+    InstanceState (..),
 
     -- * KeyType
     KeyType (..),
@@ -91,6 +112,54 @@ module Amazonka.MediaConnect.Types
     -- * Tcs
     Tcs (..),
 
+    -- * AddBridgeFlowSourceRequest
+    AddBridgeFlowSourceRequest (..),
+    newAddBridgeFlowSourceRequest,
+    addBridgeFlowSourceRequest_flowVpcInterfaceAttachment,
+    addBridgeFlowSourceRequest_flowArn,
+    addBridgeFlowSourceRequest_name,
+
+    -- * AddBridgeNetworkOutputRequest
+    AddBridgeNetworkOutputRequest (..),
+    newAddBridgeNetworkOutputRequest,
+    addBridgeNetworkOutputRequest_networkName,
+    addBridgeNetworkOutputRequest_port,
+    addBridgeNetworkOutputRequest_ipAddress,
+    addBridgeNetworkOutputRequest_protocol,
+    addBridgeNetworkOutputRequest_ttl,
+    addBridgeNetworkOutputRequest_name,
+
+    -- * AddBridgeNetworkSourceRequest
+    AddBridgeNetworkSourceRequest (..),
+    newAddBridgeNetworkSourceRequest,
+    addBridgeNetworkSourceRequest_networkName,
+    addBridgeNetworkSourceRequest_multicastIp,
+    addBridgeNetworkSourceRequest_port,
+    addBridgeNetworkSourceRequest_protocol,
+    addBridgeNetworkSourceRequest_name,
+
+    -- * AddBridgeOutputRequest
+    AddBridgeOutputRequest (..),
+    newAddBridgeOutputRequest,
+    addBridgeOutputRequest_networkOutput,
+
+    -- * AddBridgeSourceRequest
+    AddBridgeSourceRequest (..),
+    newAddBridgeSourceRequest,
+    addBridgeSourceRequest_flowSource,
+    addBridgeSourceRequest_networkSource,
+
+    -- * AddEgressGatewayBridgeRequest
+    AddEgressGatewayBridgeRequest (..),
+    newAddEgressGatewayBridgeRequest,
+    addEgressGatewayBridgeRequest_maxBitrate,
+
+    -- * AddIngressGatewayBridgeRequest
+    AddIngressGatewayBridgeRequest (..),
+    newAddIngressGatewayBridgeRequest,
+    addIngressGatewayBridgeRequest_maxOutputs,
+    addIngressGatewayBridgeRequest_maxBitrate,
+
     -- * AddMaintenance
     AddMaintenance (..),
     newAddMaintenance,
@@ -127,6 +196,66 @@ module Amazonka.MediaConnect.Types
     addOutputRequest_vpcInterfaceAttachment,
     addOutputRequest_protocol,
 
+    -- * Bridge
+    Bridge (..),
+    newBridge,
+    bridge_bridgeMessages,
+    bridge_egressGatewayBridge,
+    bridge_ingressGatewayBridge,
+    bridge_outputs,
+    bridge_sourceFailoverConfig,
+    bridge_sources,
+    bridge_bridgeArn,
+    bridge_bridgeState,
+    bridge_placementArn,
+    bridge_name,
+
+    -- * BridgeFlowOutput
+    BridgeFlowOutput (..),
+    newBridgeFlowOutput,
+    bridgeFlowOutput_flowSourceArn,
+    bridgeFlowOutput_flowArn,
+    bridgeFlowOutput_name,
+
+    -- * BridgeFlowSource
+    BridgeFlowSource (..),
+    newBridgeFlowSource,
+    bridgeFlowSource_flowVpcInterfaceAttachment,
+    bridgeFlowSource_outputArn,
+    bridgeFlowSource_flowArn,
+    bridgeFlowSource_name,
+
+    -- * BridgeNetworkOutput
+    BridgeNetworkOutput (..),
+    newBridgeNetworkOutput,
+    bridgeNetworkOutput_networkName,
+    bridgeNetworkOutput_port,
+    bridgeNetworkOutput_ipAddress,
+    bridgeNetworkOutput_protocol,
+    bridgeNetworkOutput_ttl,
+    bridgeNetworkOutput_name,
+
+    -- * BridgeNetworkSource
+    BridgeNetworkSource (..),
+    newBridgeNetworkSource,
+    bridgeNetworkSource_networkName,
+    bridgeNetworkSource_multicastIp,
+    bridgeNetworkSource_port,
+    bridgeNetworkSource_protocol,
+    bridgeNetworkSource_name,
+
+    -- * BridgeOutput
+    BridgeOutput (..),
+    newBridgeOutput,
+    bridgeOutput_flowOutput,
+    bridgeOutput_networkOutput,
+
+    -- * BridgeSource
+    BridgeSource (..),
+    newBridgeSource,
+    bridgeSource_flowSource,
+    bridgeSource_networkSource,
+
     -- * DestinationConfiguration
     DestinationConfiguration (..),
     newDestinationConfiguration,
@@ -141,6 +270,12 @@ module Amazonka.MediaConnect.Types
     destinationConfigurationRequest_destinationIp,
     destinationConfigurationRequest_destinationPort,
     destinationConfigurationRequest_interface,
+
+    -- * EgressGatewayBridge
+    EgressGatewayBridge (..),
+    newEgressGatewayBridge,
+    egressGatewayBridge_instanceId,
+    egressGatewayBridge_maxBitrate,
 
     -- * EncodingParameters
     EncodingParameters (..),
@@ -197,12 +332,12 @@ module Amazonka.MediaConnect.Types
     flow_sources,
     flow_vpcInterfaces,
     flow_status,
-    flow_entitlements,
-    flow_outputs,
     flow_availabilityZone,
-    flow_flowArn,
     flow_source,
     flow_name,
+    flow_entitlements,
+    flow_outputs,
+    flow_flowArn,
 
     -- * Fmtp
     Fmtp (..),
@@ -226,6 +361,40 @@ module Amazonka.MediaConnect.Types
     fmtpRequest_scanMode,
     fmtpRequest_tcs,
 
+    -- * Gateway
+    Gateway (..),
+    newGateway,
+    gateway_gatewayMessages,
+    gateway_gatewayState,
+    gateway_gatewayArn,
+    gateway_networks,
+    gateway_egressCidrBlocks,
+    gateway_name,
+
+    -- * GatewayBridgeSource
+    GatewayBridgeSource (..),
+    newGatewayBridgeSource,
+    gatewayBridgeSource_vpcInterfaceAttachment,
+    gatewayBridgeSource_bridgeArn,
+
+    -- * GatewayInstance
+    GatewayInstance (..),
+    newGatewayInstance,
+    gatewayInstance_instanceMessages,
+    gatewayInstance_gatewayArn,
+    gatewayInstance_instanceState,
+    gatewayInstance_gatewayInstanceArn,
+    gatewayInstance_instanceId,
+    gatewayInstance_runningBridgeCount,
+    gatewayInstance_bridgePlacement,
+    gatewayInstance_connectionStatus,
+
+    -- * GatewayNetwork
+    GatewayNetwork (..),
+    newGatewayNetwork,
+    gatewayNetwork_cidrBlock,
+    gatewayNetwork_name,
+
     -- * GrantEntitlementRequest
     GrantEntitlementRequest (..),
     newGrantEntitlementRequest,
@@ -235,6 +404,13 @@ module Amazonka.MediaConnect.Types
     grantEntitlementRequest_entitlementStatus,
     grantEntitlementRequest_name,
     grantEntitlementRequest_subscribers,
+
+    -- * IngressGatewayBridge
+    IngressGatewayBridge (..),
+    newIngressGatewayBridge,
+    ingressGatewayBridge_instanceId,
+    ingressGatewayBridge_maxOutputs,
+    ingressGatewayBridge_maxBitrate,
 
     -- * InputConfiguration
     InputConfiguration (..),
@@ -259,6 +435,15 @@ module Amazonka.MediaConnect.Types
     newInterfaceRequest,
     interfaceRequest_name,
 
+    -- * ListedBridge
+    ListedBridge (..),
+    newListedBridge,
+    listedBridge_bridgeArn,
+    listedBridge_bridgeState,
+    listedBridge_placementArn,
+    listedBridge_bridgeType,
+    listedBridge_name,
+
     -- * ListedEntitlement
     ListedEntitlement (..),
     newListedEntitlement,
@@ -276,6 +461,21 @@ module Amazonka.MediaConnect.Types
     listedFlow_availabilityZone,
     listedFlow_flowArn,
     listedFlow_name,
+
+    -- * ListedGateway
+    ListedGateway (..),
+    newListedGateway,
+    listedGateway_gatewayArn,
+    listedGateway_gatewayState,
+    listedGateway_name,
+
+    -- * ListedGatewayInstance
+    ListedGatewayInstance (..),
+    newListedGatewayInstance,
+    listedGatewayInstance_instanceState,
+    listedGatewayInstance_gatewayArn,
+    listedGatewayInstance_gatewayInstanceArn,
+    listedGatewayInstance_instanceId,
 
     -- * Maintenance
     Maintenance (..),
@@ -339,6 +539,13 @@ module Amazonka.MediaConnect.Types
     mediaStreamSourceConfigurationRequest_mediaStreamName,
     mediaStreamSourceConfigurationRequest_encodingName,
 
+    -- * MessageDetail
+    MessageDetail (..),
+    newMessageDetail,
+    messageDetail_resourceName,
+    messageDetail_message,
+    messageDetail_code,
+
     -- * Messages
     Messages (..),
     newMessages,
@@ -359,6 +566,8 @@ module Amazonka.MediaConnect.Types
     -- * Output
     Output (..),
     newOutput,
+    output_bridgeArn,
+    output_bridgePorts,
     output_dataTransferSubscriberFeePercent,
     output_description,
     output_destination,
@@ -396,12 +605,19 @@ module Amazonka.MediaConnect.Types
     resourceSpecification_reservedBitrate,
     resourceSpecification_resourceType,
 
+    -- * SetGatewayBridgeSourceRequest
+    SetGatewayBridgeSourceRequest (..),
+    newSetGatewayBridgeSourceRequest,
+    setGatewayBridgeSourceRequest_vpcInterfaceAttachment,
+    setGatewayBridgeSourceRequest_bridgeArn,
+
     -- * SetSourceRequest
     SetSourceRequest (..),
     newSetSourceRequest,
     setSourceRequest_decryption,
     setSourceRequest_description,
     setSourceRequest_entitlementArn,
+    setSourceRequest_gatewayBridgeSource,
     setSourceRequest_ingestPort,
     setSourceRequest_maxBitrate,
     setSourceRequest_maxLatency,
@@ -425,6 +641,7 @@ module Amazonka.MediaConnect.Types
     source_decryption,
     source_description,
     source_entitlementArn,
+    source_gatewayBridgeSource,
     source_ingestIp,
     source_ingestPort,
     source_mediaStreamSourceConfigurations,
@@ -433,8 +650,8 @@ module Amazonka.MediaConnect.Types
     source_transport,
     source_vpcInterfaceName,
     source_whitelistCidr,
-    source_sourceArn,
     source_name,
+    source_sourceArn,
 
     -- * SourcePriority
     SourcePriority (..),
@@ -458,6 +675,34 @@ module Amazonka.MediaConnect.Types
     transport_streamId,
     transport_protocol,
 
+    -- * UpdateBridgeFlowSourceRequest
+    UpdateBridgeFlowSourceRequest (..),
+    newUpdateBridgeFlowSourceRequest,
+    updateBridgeFlowSourceRequest_flowArn,
+    updateBridgeFlowSourceRequest_flowVpcInterfaceAttachment,
+
+    -- * UpdateBridgeNetworkOutputRequest
+    UpdateBridgeNetworkOutputRequest (..),
+    newUpdateBridgeNetworkOutputRequest,
+    updateBridgeNetworkOutputRequest_ipAddress,
+    updateBridgeNetworkOutputRequest_networkName,
+    updateBridgeNetworkOutputRequest_port,
+    updateBridgeNetworkOutputRequest_protocol,
+    updateBridgeNetworkOutputRequest_ttl,
+
+    -- * UpdateBridgeNetworkSourceRequest
+    UpdateBridgeNetworkSourceRequest (..),
+    newUpdateBridgeNetworkSourceRequest,
+    updateBridgeNetworkSourceRequest_multicastIp,
+    updateBridgeNetworkSourceRequest_networkName,
+    updateBridgeNetworkSourceRequest_port,
+    updateBridgeNetworkSourceRequest_protocol,
+
+    -- * UpdateEgressGatewayBridgeRequest
+    UpdateEgressGatewayBridgeRequest (..),
+    newUpdateEgressGatewayBridgeRequest,
+    updateEgressGatewayBridgeRequest_maxBitrate,
+
     -- * UpdateEncryption
     UpdateEncryption (..),
     newUpdateEncryption,
@@ -478,6 +723,18 @@ module Amazonka.MediaConnect.Types
     updateFailoverConfig_recoveryWindow,
     updateFailoverConfig_sourcePriority,
     updateFailoverConfig_state,
+
+    -- * UpdateGatewayBridgeSourceRequest
+    UpdateGatewayBridgeSourceRequest (..),
+    newUpdateGatewayBridgeSourceRequest,
+    updateGatewayBridgeSourceRequest_bridgeArn,
+    updateGatewayBridgeSourceRequest_vpcInterfaceAttachment,
+
+    -- * UpdateIngressGatewayBridgeRequest
+    UpdateIngressGatewayBridgeRequest (..),
+    newUpdateIngressGatewayBridgeRequest,
+    updateIngressGatewayBridgeRequest_maxBitrate,
+    updateIngressGatewayBridgeRequest_maxOutputs,
 
     -- * UpdateMaintenance
     UpdateMaintenance (..),
@@ -514,14 +771,33 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.MediaConnect.Types.AddBridgeFlowSourceRequest
+import Amazonka.MediaConnect.Types.AddBridgeNetworkOutputRequest
+import Amazonka.MediaConnect.Types.AddBridgeNetworkSourceRequest
+import Amazonka.MediaConnect.Types.AddBridgeOutputRequest
+import Amazonka.MediaConnect.Types.AddBridgeSourceRequest
+import Amazonka.MediaConnect.Types.AddEgressGatewayBridgeRequest
+import Amazonka.MediaConnect.Types.AddIngressGatewayBridgeRequest
 import Amazonka.MediaConnect.Types.AddMaintenance
 import Amazonka.MediaConnect.Types.AddMediaStreamRequest
 import Amazonka.MediaConnect.Types.AddOutputRequest
 import Amazonka.MediaConnect.Types.Algorithm
+import Amazonka.MediaConnect.Types.Bridge
+import Amazonka.MediaConnect.Types.BridgeFlowOutput
+import Amazonka.MediaConnect.Types.BridgeFlowSource
+import Amazonka.MediaConnect.Types.BridgeNetworkOutput
+import Amazonka.MediaConnect.Types.BridgeNetworkSource
+import Amazonka.MediaConnect.Types.BridgeOutput
+import Amazonka.MediaConnect.Types.BridgePlacement
+import Amazonka.MediaConnect.Types.BridgeSource
+import Amazonka.MediaConnect.Types.BridgeState
 import Amazonka.MediaConnect.Types.Colorimetry
+import Amazonka.MediaConnect.Types.ConnectionStatus
+import Amazonka.MediaConnect.Types.DesiredState
 import Amazonka.MediaConnect.Types.DestinationConfiguration
 import Amazonka.MediaConnect.Types.DestinationConfigurationRequest
 import Amazonka.MediaConnect.Types.DurationUnits
+import Amazonka.MediaConnect.Types.EgressGatewayBridge
 import Amazonka.MediaConnect.Types.EncoderProfile
 import Amazonka.MediaConnect.Types.EncodingName
 import Amazonka.MediaConnect.Types.EncodingParameters
@@ -534,14 +810,24 @@ import Amazonka.MediaConnect.Types.FailoverMode
 import Amazonka.MediaConnect.Types.Flow
 import Amazonka.MediaConnect.Types.Fmtp
 import Amazonka.MediaConnect.Types.FmtpRequest
+import Amazonka.MediaConnect.Types.Gateway
+import Amazonka.MediaConnect.Types.GatewayBridgeSource
+import Amazonka.MediaConnect.Types.GatewayInstance
+import Amazonka.MediaConnect.Types.GatewayNetwork
+import Amazonka.MediaConnect.Types.GatewayState
 import Amazonka.MediaConnect.Types.GrantEntitlementRequest
+import Amazonka.MediaConnect.Types.IngressGatewayBridge
 import Amazonka.MediaConnect.Types.InputConfiguration
 import Amazonka.MediaConnect.Types.InputConfigurationRequest
+import Amazonka.MediaConnect.Types.InstanceState
 import Amazonka.MediaConnect.Types.Interface
 import Amazonka.MediaConnect.Types.InterfaceRequest
 import Amazonka.MediaConnect.Types.KeyType
+import Amazonka.MediaConnect.Types.ListedBridge
 import Amazonka.MediaConnect.Types.ListedEntitlement
 import Amazonka.MediaConnect.Types.ListedFlow
+import Amazonka.MediaConnect.Types.ListedGateway
+import Amazonka.MediaConnect.Types.ListedGatewayInstance
 import Amazonka.MediaConnect.Types.Maintenance
 import Amazonka.MediaConnect.Types.MaintenanceDay
 import Amazonka.MediaConnect.Types.MediaStream
@@ -552,6 +838,7 @@ import Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest
 import Amazonka.MediaConnect.Types.MediaStreamSourceConfiguration
 import Amazonka.MediaConnect.Types.MediaStreamSourceConfigurationRequest
 import Amazonka.MediaConnect.Types.MediaStreamType
+import Amazonka.MediaConnect.Types.MessageDetail
 import Amazonka.MediaConnect.Types.Messages
 import Amazonka.MediaConnect.Types.NetworkInterfaceType
 import Amazonka.MediaConnect.Types.Offering
@@ -564,6 +851,7 @@ import Amazonka.MediaConnect.Types.ReservationState
 import Amazonka.MediaConnect.Types.ResourceSpecification
 import Amazonka.MediaConnect.Types.ResourceType
 import Amazonka.MediaConnect.Types.ScanMode
+import Amazonka.MediaConnect.Types.SetGatewayBridgeSourceRequest
 import Amazonka.MediaConnect.Types.SetSourceRequest
 import Amazonka.MediaConnect.Types.Source
 import Amazonka.MediaConnect.Types.SourcePriority
@@ -572,8 +860,14 @@ import Amazonka.MediaConnect.Types.State
 import Amazonka.MediaConnect.Types.Status
 import Amazonka.MediaConnect.Types.Tcs
 import Amazonka.MediaConnect.Types.Transport
+import Amazonka.MediaConnect.Types.UpdateBridgeFlowSourceRequest
+import Amazonka.MediaConnect.Types.UpdateBridgeNetworkOutputRequest
+import Amazonka.MediaConnect.Types.UpdateBridgeNetworkSourceRequest
+import Amazonka.MediaConnect.Types.UpdateEgressGatewayBridgeRequest
 import Amazonka.MediaConnect.Types.UpdateEncryption
 import Amazonka.MediaConnect.Types.UpdateFailoverConfig
+import Amazonka.MediaConnect.Types.UpdateGatewayBridgeSourceRequest
+import Amazonka.MediaConnect.Types.UpdateIngressGatewayBridgeRequest
 import Amazonka.MediaConnect.Types.UpdateMaintenance
 import Amazonka.MediaConnect.Types.VpcInterface
 import Amazonka.MediaConnect.Types.VpcInterfaceAttachment
@@ -607,54 +901,54 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_AddFlowOutputs420Exception :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AddFlowOutputs420Exception :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AddFlowOutputs420Exception =
   Core._MatchServiceError
     defaultService
@@ -664,7 +958,7 @@ _AddFlowOutputs420Exception =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -674,7 +968,27 @@ _BadRequestException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_CreateFlow420Exception :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | Exception raised by AWS Elemental MediaConnect. See the error message
+-- and documentation for the operation for more information on the cause of
+-- this exception.
+_CreateBridge420Exception :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_CreateBridge420Exception =
+  Core._MatchServiceError
+    defaultService
+    "CreateBridge420Exception"
+    Prelude.. Core.hasStatus 420
+
+-- | Exception raised by AWS Elemental MediaConnect. See the error message
+-- and documentation for the operation for more information on the cause of
+-- this exception.
+_CreateFlow420Exception :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CreateFlow420Exception =
   Core._MatchServiceError
     defaultService
@@ -684,7 +998,17 @@ _CreateFlow420Exception =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CreateGateway420Exception :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_CreateGateway420Exception =
+  Core._MatchServiceError
+    defaultService
+    "CreateGateway420Exception"
+    Prelude.. Core.hasStatus 420
+
+-- | Exception raised by AWS Elemental MediaConnect. See the error message
+-- and documentation for the operation for more information on the cause of
+-- this exception.
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -694,7 +1018,7 @@ _ForbiddenException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_GrantFlowEntitlements420Exception :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GrantFlowEntitlements420Exception :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GrantFlowEntitlements420Exception =
   Core._MatchServiceError
     defaultService
@@ -704,7 +1028,7 @@ _GrantFlowEntitlements420Exception =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -714,7 +1038,7 @@ _InternalServerErrorException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -724,7 +1048,7 @@ _NotFoundException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -734,7 +1058,7 @@ _ServiceUnavailableException =
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
 -- this exception.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

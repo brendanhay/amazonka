@@ -24,11 +24,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The settings for attaching a VPC interface to an output.
+-- | The settings for attaching a VPC interface to an resource.
 --
 -- /See:/ 'newVpcInterfaceAttachment' smart constructor.
 data VpcInterfaceAttachment = VpcInterfaceAttachment'
-  { -- | The name of the VPC interface to use for this output.
+  { -- | The name of the VPC interface to use for this resource.
     vpcInterfaceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +41,7 @@ data VpcInterfaceAttachment = VpcInterfaceAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcInterfaceName', 'vpcInterfaceAttachment_vpcInterfaceName' - The name of the VPC interface to use for this output.
+-- 'vpcInterfaceName', 'vpcInterfaceAttachment_vpcInterfaceName' - The name of the VPC interface to use for this resource.
 newVpcInterfaceAttachment ::
   VpcInterfaceAttachment
 newVpcInterfaceAttachment =
@@ -50,7 +50,7 @@ newVpcInterfaceAttachment =
         Prelude.Nothing
     }
 
--- | The name of the VPC interface to use for this output.
+-- | The name of the VPC interface to use for this resource.
 vpcInterfaceAttachment_vpcInterfaceName :: Lens.Lens' VpcInterfaceAttachment (Prelude.Maybe Prelude.Text)
 vpcInterfaceAttachment_vpcInterfaceName = Lens.lens (\VpcInterfaceAttachment' {vpcInterfaceName} -> vpcInterfaceName) (\s@VpcInterfaceAttachment' {} a -> s {vpcInterfaceName = a} :: VpcInterfaceAttachment)
 

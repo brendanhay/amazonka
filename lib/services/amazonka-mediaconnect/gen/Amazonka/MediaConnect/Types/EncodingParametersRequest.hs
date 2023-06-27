@@ -98,7 +98,8 @@ encodingParametersRequest_compressionFactor = Lens.lens (\EncodingParametersRequ
 
 instance Prelude.Hashable EncodingParametersRequest where
   hashWithSalt _salt EncodingParametersRequest' {..} =
-    _salt `Prelude.hashWithSalt` encoderProfile
+    _salt
+      `Prelude.hashWithSalt` encoderProfile
       `Prelude.hashWithSalt` compressionFactor
 
 instance Prelude.NFData EncodingParametersRequest where

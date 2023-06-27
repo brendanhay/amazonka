@@ -64,7 +64,7 @@ data UpdateFlowEntitlement = UpdateFlowEntitlement'
     -- subscriber or end user.
     description :: Prelude.Maybe Prelude.Text,
     -- | The type of encryption that will be used on the output associated with
-    -- this entitlement.
+    -- this entitlement. Allowable encryption types: static-key, speke.
     encryption :: Prelude.Maybe UpdateEncryption,
     -- | An indication of whether you want to enable the entitlement to allow
     -- access, or disable it to stop streaming content to the subscriber’s flow
@@ -96,7 +96,7 @@ data UpdateFlowEntitlement = UpdateFlowEntitlement'
 -- subscriber or end user.
 --
 -- 'encryption', 'updateFlowEntitlement_encryption' - The type of encryption that will be used on the output associated with
--- this entitlement.
+-- this entitlement. Allowable encryption types: static-key, speke.
 --
 -- 'entitlementStatus', 'updateFlowEntitlement_entitlementStatus' - An indication of whether you want to enable the entitlement to allow
 -- access, or disable it to stop streaming content to the subscriber’s flow
@@ -135,7 +135,7 @@ updateFlowEntitlement_description :: Lens.Lens' UpdateFlowEntitlement (Prelude.M
 updateFlowEntitlement_description = Lens.lens (\UpdateFlowEntitlement' {description} -> description) (\s@UpdateFlowEntitlement' {} a -> s {description = a} :: UpdateFlowEntitlement)
 
 -- | The type of encryption that will be used on the output associated with
--- this entitlement.
+-- this entitlement. Allowable encryption types: static-key, speke.
 updateFlowEntitlement_encryption :: Lens.Lens' UpdateFlowEntitlement (Prelude.Maybe UpdateEncryption)
 updateFlowEntitlement_encryption = Lens.lens (\UpdateFlowEntitlement' {encryption} -> encryption) (\s@UpdateFlowEntitlement' {} a -> s {encryption = a} :: UpdateFlowEntitlement)
 
@@ -178,7 +178,8 @@ instance Core.AWSRequest UpdateFlowEntitlement where
 
 instance Prelude.Hashable UpdateFlowEntitlement where
   hashWithSalt _salt UpdateFlowEntitlement' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` entitlementStatus
       `Prelude.hashWithSalt` subscribers

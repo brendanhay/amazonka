@@ -78,7 +78,8 @@ data UpdateFlowOutput = UpdateFlowOutput'
     -- | The IP address where you want to send the output.
     destination :: Prelude.Maybe Prelude.Text,
     -- | The type of key used for the encryption. If no keyType is provided, the
-    -- service will use the default setting (static-key).
+    -- service will use the default setting (static-key). Allowable encryption
+    -- types: static-key.
     encryption :: Prelude.Maybe UpdateEncryption,
     -- | The maximum latency in milliseconds. This parameter applies only to
     -- RIST-based, Zixi-based, and Fujitsu-based streams.
@@ -108,7 +109,7 @@ data UpdateFlowOutput = UpdateFlowOutput'
     -- streams.
     smoothingLatency :: Prelude.Maybe Prelude.Int,
     -- | The stream ID that you want to use for this transport. This parameter
-    -- applies only to Zixi-based streams.
+    -- applies only to Zixi and SRT caller-based streams.
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The name of the VPC interface attachment to use for this output.
     vpcInterfaceAttachment :: Prelude.Maybe VpcInterfaceAttachment,
@@ -137,7 +138,8 @@ data UpdateFlowOutput = UpdateFlowOutput'
 -- 'destination', 'updateFlowOutput_destination' - The IP address where you want to send the output.
 --
 -- 'encryption', 'updateFlowOutput_encryption' - The type of key used for the encryption. If no keyType is provided, the
--- service will use the default setting (static-key).
+-- service will use the default setting (static-key). Allowable encryption
+-- types: static-key.
 --
 -- 'maxLatency', 'updateFlowOutput_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
 -- RIST-based, Zixi-based, and Fujitsu-based streams.
@@ -167,7 +169,7 @@ data UpdateFlowOutput = UpdateFlowOutput'
 -- streams.
 --
 -- 'streamId', 'updateFlowOutput_streamId' - The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
+-- applies only to Zixi and SRT caller-based streams.
 --
 -- 'vpcInterfaceAttachment', 'updateFlowOutput_vpcInterfaceAttachment' - The name of the VPC interface attachment to use for this output.
 --
@@ -217,7 +219,8 @@ updateFlowOutput_destination :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelu
 updateFlowOutput_destination = Lens.lens (\UpdateFlowOutput' {destination} -> destination) (\s@UpdateFlowOutput' {} a -> s {destination = a} :: UpdateFlowOutput)
 
 -- | The type of key used for the encryption. If no keyType is provided, the
--- service will use the default setting (static-key).
+-- service will use the default setting (static-key). Allowable encryption
+-- types: static-key.
 updateFlowOutput_encryption :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe UpdateEncryption)
 updateFlowOutput_encryption = Lens.lens (\UpdateFlowOutput' {encryption} -> encryption) (\s@UpdateFlowOutput' {} a -> s {encryption = a} :: UpdateFlowOutput)
 
@@ -267,7 +270,7 @@ updateFlowOutput_smoothingLatency :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe 
 updateFlowOutput_smoothingLatency = Lens.lens (\UpdateFlowOutput' {smoothingLatency} -> smoothingLatency) (\s@UpdateFlowOutput' {} a -> s {smoothingLatency = a} :: UpdateFlowOutput)
 
 -- | The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
+-- applies only to Zixi and SRT caller-based streams.
 updateFlowOutput_streamId :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Text)
 updateFlowOutput_streamId = Lens.lens (\UpdateFlowOutput' {streamId} -> streamId) (\s@UpdateFlowOutput' {} a -> s {streamId = a} :: UpdateFlowOutput)
 
@@ -300,7 +303,8 @@ instance Core.AWSRequest UpdateFlowOutput where
 
 instance Prelude.Hashable UpdateFlowOutput where
   hashWithSalt _salt UpdateFlowOutput' {..} =
-    _salt `Prelude.hashWithSalt` cidrAllowList
+    _salt
+      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` encryption

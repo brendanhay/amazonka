@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateFlow where
 
 instance Prelude.Hashable UpdateFlow where
   hashWithSalt _salt UpdateFlow' {..} =
-    _salt `Prelude.hashWithSalt` maintenance
+    _salt
+      `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` sourceFailoverConfig
       `Prelude.hashWithSalt` flowArn
 

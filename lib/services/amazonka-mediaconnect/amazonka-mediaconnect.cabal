@@ -44,23 +44,38 @@ library
 
   exposed-modules:
     Amazonka.MediaConnect
+    Amazonka.MediaConnect.AddBridgeOutputs
+    Amazonka.MediaConnect.AddBridgeSources
     Amazonka.MediaConnect.AddFlowMediaStreams
     Amazonka.MediaConnect.AddFlowOutputs
     Amazonka.MediaConnect.AddFlowSources
     Amazonka.MediaConnect.AddFlowVpcInterfaces
+    Amazonka.MediaConnect.CreateBridge
     Amazonka.MediaConnect.CreateFlow
+    Amazonka.MediaConnect.CreateGateway
+    Amazonka.MediaConnect.DeleteBridge
     Amazonka.MediaConnect.DeleteFlow
+    Amazonka.MediaConnect.DeleteGateway
+    Amazonka.MediaConnect.DeregisterGatewayInstance
+    Amazonka.MediaConnect.DescribeBridge
     Amazonka.MediaConnect.DescribeFlow
+    Amazonka.MediaConnect.DescribeGateway
+    Amazonka.MediaConnect.DescribeGatewayInstance
     Amazonka.MediaConnect.DescribeOffering
     Amazonka.MediaConnect.DescribeReservation
     Amazonka.MediaConnect.GrantFlowEntitlements
     Amazonka.MediaConnect.Lens
+    Amazonka.MediaConnect.ListBridges
     Amazonka.MediaConnect.ListEntitlements
     Amazonka.MediaConnect.ListFlows
+    Amazonka.MediaConnect.ListGatewayInstances
+    Amazonka.MediaConnect.ListGateways
     Amazonka.MediaConnect.ListOfferings
     Amazonka.MediaConnect.ListReservations
     Amazonka.MediaConnect.ListTagsForResource
     Amazonka.MediaConnect.PurchaseOffering
+    Amazonka.MediaConnect.RemoveBridgeOutput
+    Amazonka.MediaConnect.RemoveBridgeSource
     Amazonka.MediaConnect.RemoveFlowMediaStream
     Amazonka.MediaConnect.RemoveFlowOutput
     Amazonka.MediaConnect.RemoveFlowSource
@@ -70,14 +85,33 @@ library
     Amazonka.MediaConnect.StopFlow
     Amazonka.MediaConnect.TagResource
     Amazonka.MediaConnect.Types
+    Amazonka.MediaConnect.Types.AddBridgeFlowSourceRequest
+    Amazonka.MediaConnect.Types.AddBridgeNetworkOutputRequest
+    Amazonka.MediaConnect.Types.AddBridgeNetworkSourceRequest
+    Amazonka.MediaConnect.Types.AddBridgeOutputRequest
+    Amazonka.MediaConnect.Types.AddBridgeSourceRequest
+    Amazonka.MediaConnect.Types.AddEgressGatewayBridgeRequest
+    Amazonka.MediaConnect.Types.AddIngressGatewayBridgeRequest
     Amazonka.MediaConnect.Types.AddMaintenance
     Amazonka.MediaConnect.Types.AddMediaStreamRequest
     Amazonka.MediaConnect.Types.AddOutputRequest
     Amazonka.MediaConnect.Types.Algorithm
+    Amazonka.MediaConnect.Types.Bridge
+    Amazonka.MediaConnect.Types.BridgeFlowOutput
+    Amazonka.MediaConnect.Types.BridgeFlowSource
+    Amazonka.MediaConnect.Types.BridgeNetworkOutput
+    Amazonka.MediaConnect.Types.BridgeNetworkSource
+    Amazonka.MediaConnect.Types.BridgeOutput
+    Amazonka.MediaConnect.Types.BridgePlacement
+    Amazonka.MediaConnect.Types.BridgeSource
+    Amazonka.MediaConnect.Types.BridgeState
     Amazonka.MediaConnect.Types.Colorimetry
+    Amazonka.MediaConnect.Types.ConnectionStatus
+    Amazonka.MediaConnect.Types.DesiredState
     Amazonka.MediaConnect.Types.DestinationConfiguration
     Amazonka.MediaConnect.Types.DestinationConfigurationRequest
     Amazonka.MediaConnect.Types.DurationUnits
+    Amazonka.MediaConnect.Types.EgressGatewayBridge
     Amazonka.MediaConnect.Types.EncoderProfile
     Amazonka.MediaConnect.Types.EncodingName
     Amazonka.MediaConnect.Types.EncodingParameters
@@ -90,14 +124,24 @@ library
     Amazonka.MediaConnect.Types.Flow
     Amazonka.MediaConnect.Types.Fmtp
     Amazonka.MediaConnect.Types.FmtpRequest
+    Amazonka.MediaConnect.Types.Gateway
+    Amazonka.MediaConnect.Types.GatewayBridgeSource
+    Amazonka.MediaConnect.Types.GatewayInstance
+    Amazonka.MediaConnect.Types.GatewayNetwork
+    Amazonka.MediaConnect.Types.GatewayState
     Amazonka.MediaConnect.Types.GrantEntitlementRequest
+    Amazonka.MediaConnect.Types.IngressGatewayBridge
     Amazonka.MediaConnect.Types.InputConfiguration
     Amazonka.MediaConnect.Types.InputConfigurationRequest
+    Amazonka.MediaConnect.Types.InstanceState
     Amazonka.MediaConnect.Types.Interface
     Amazonka.MediaConnect.Types.InterfaceRequest
     Amazonka.MediaConnect.Types.KeyType
+    Amazonka.MediaConnect.Types.ListedBridge
     Amazonka.MediaConnect.Types.ListedEntitlement
     Amazonka.MediaConnect.Types.ListedFlow
+    Amazonka.MediaConnect.Types.ListedGateway
+    Amazonka.MediaConnect.Types.ListedGatewayInstance
     Amazonka.MediaConnect.Types.Maintenance
     Amazonka.MediaConnect.Types.MaintenanceDay
     Amazonka.MediaConnect.Types.MediaStream
@@ -108,6 +152,7 @@ library
     Amazonka.MediaConnect.Types.MediaStreamSourceConfiguration
     Amazonka.MediaConnect.Types.MediaStreamSourceConfigurationRequest
     Amazonka.MediaConnect.Types.MediaStreamType
+    Amazonka.MediaConnect.Types.MessageDetail
     Amazonka.MediaConnect.Types.Messages
     Amazonka.MediaConnect.Types.NetworkInterfaceType
     Amazonka.MediaConnect.Types.Offering
@@ -120,6 +165,7 @@ library
     Amazonka.MediaConnect.Types.ResourceSpecification
     Amazonka.MediaConnect.Types.ResourceType
     Amazonka.MediaConnect.Types.ScanMode
+    Amazonka.MediaConnect.Types.SetGatewayBridgeSourceRequest
     Amazonka.MediaConnect.Types.SetSourceRequest
     Amazonka.MediaConnect.Types.Source
     Amazonka.MediaConnect.Types.SourcePriority
@@ -128,18 +174,29 @@ library
     Amazonka.MediaConnect.Types.Status
     Amazonka.MediaConnect.Types.Tcs
     Amazonka.MediaConnect.Types.Transport
+    Amazonka.MediaConnect.Types.UpdateBridgeFlowSourceRequest
+    Amazonka.MediaConnect.Types.UpdateBridgeNetworkOutputRequest
+    Amazonka.MediaConnect.Types.UpdateBridgeNetworkSourceRequest
+    Amazonka.MediaConnect.Types.UpdateEgressGatewayBridgeRequest
     Amazonka.MediaConnect.Types.UpdateEncryption
     Amazonka.MediaConnect.Types.UpdateFailoverConfig
+    Amazonka.MediaConnect.Types.UpdateGatewayBridgeSourceRequest
+    Amazonka.MediaConnect.Types.UpdateIngressGatewayBridgeRequest
     Amazonka.MediaConnect.Types.UpdateMaintenance
     Amazonka.MediaConnect.Types.VpcInterface
     Amazonka.MediaConnect.Types.VpcInterfaceAttachment
     Amazonka.MediaConnect.Types.VpcInterfaceRequest
     Amazonka.MediaConnect.UntagResource
+    Amazonka.MediaConnect.UpdateBridge
+    Amazonka.MediaConnect.UpdateBridgeOutput
+    Amazonka.MediaConnect.UpdateBridgeSource
+    Amazonka.MediaConnect.UpdateBridgeState
     Amazonka.MediaConnect.UpdateFlow
     Amazonka.MediaConnect.UpdateFlowEntitlement
     Amazonka.MediaConnect.UpdateFlowMediaStream
     Amazonka.MediaConnect.UpdateFlowOutput
     Amazonka.MediaConnect.UpdateFlowSource
+    Amazonka.MediaConnect.UpdateGatewayInstance
     Amazonka.MediaConnect.Waiters
 
   build-depends:

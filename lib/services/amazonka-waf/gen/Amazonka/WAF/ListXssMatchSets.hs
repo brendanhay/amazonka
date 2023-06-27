@@ -128,22 +128,22 @@ instance Core.AWSPager ListXssMatchSets where
     | Core.stop
         ( rs
             Lens.^? listXssMatchSetsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listXssMatchSetsResponse_xssMatchSets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listXssMatchSets_nextMarker
           Lens..~ rs
           Lens.^? listXssMatchSetsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListXssMatchSets where
   type
@@ -162,7 +162,8 @@ instance Core.AWSRequest ListXssMatchSets where
 
 instance Prelude.Hashable ListXssMatchSets where
   hashWithSalt _salt ListXssMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListXssMatchSets where

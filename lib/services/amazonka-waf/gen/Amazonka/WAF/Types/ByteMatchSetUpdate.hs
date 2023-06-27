@@ -93,7 +93,8 @@ byteMatchSetUpdate_byteMatchTuple = Lens.lens (\ByteMatchSetUpdate' {byteMatchTu
 
 instance Prelude.Hashable ByteMatchSetUpdate where
   hashWithSalt _salt ByteMatchSetUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` byteMatchTuple
 
 instance Prelude.NFData ByteMatchSetUpdate where

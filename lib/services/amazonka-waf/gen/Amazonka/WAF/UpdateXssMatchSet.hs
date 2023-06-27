@@ -197,7 +197,8 @@ instance Core.AWSRequest UpdateXssMatchSet where
 
 instance Prelude.Hashable UpdateXssMatchSet where
   hashWithSalt _salt UpdateXssMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` xssMatchSetId
+    _salt
+      `Prelude.hashWithSalt` xssMatchSetId
       `Prelude.hashWithSalt` changeToken
       `Prelude.hashWithSalt` updates
 

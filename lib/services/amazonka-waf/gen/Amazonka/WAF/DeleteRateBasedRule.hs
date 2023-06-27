@@ -131,7 +131,8 @@ instance Core.AWSRequest DeleteRateBasedRule where
 
 instance Prelude.Hashable DeleteRateBasedRule where
   hashWithSalt _salt DeleteRateBasedRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleId
+    _salt
+      `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteRateBasedRule where

@@ -125,22 +125,22 @@ instance Core.AWSPager ListRegexMatchSets where
     | Core.stop
         ( rs
             Lens.^? listRegexMatchSetsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRegexMatchSetsResponse_regexMatchSets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRegexMatchSets_nextMarker
           Lens..~ rs
           Lens.^? listRegexMatchSetsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRegexMatchSets where
   type
@@ -159,7 +159,8 @@ instance Core.AWSRequest ListRegexMatchSets where
 
 instance Prelude.Hashable ListRegexMatchSets where
   hashWithSalt _salt ListRegexMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListRegexMatchSets where

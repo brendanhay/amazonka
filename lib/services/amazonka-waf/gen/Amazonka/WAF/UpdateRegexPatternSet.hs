@@ -171,7 +171,8 @@ instance Core.AWSRequest UpdateRegexPatternSet where
 
 instance Prelude.Hashable UpdateRegexPatternSet where
   hashWithSalt _salt UpdateRegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` regexPatternSetId
+    _salt
+      `Prelude.hashWithSalt` regexPatternSetId
       `Prelude.hashWithSalt` updates
       `Prelude.hashWithSalt` changeToken
 

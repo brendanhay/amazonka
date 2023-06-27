@@ -87,12 +87,14 @@ instance Data.FromJSON GeoMatchConstraint where
       "GeoMatchConstraint"
       ( \x ->
           GeoMatchConstraint'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable GeoMatchConstraint where
   hashWithSalt _salt GeoMatchConstraint' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData GeoMatchConstraint where

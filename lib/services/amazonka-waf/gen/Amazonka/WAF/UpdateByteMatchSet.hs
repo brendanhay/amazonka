@@ -202,7 +202,8 @@ instance Core.AWSRequest UpdateByteMatchSet where
 
 instance Prelude.Hashable UpdateByteMatchSet where
   hashWithSalt _salt UpdateByteMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` byteMatchSetId
+    _salt
+      `Prelude.hashWithSalt` byteMatchSetId
       `Prelude.hashWithSalt` changeToken
       `Prelude.hashWithSalt` updates
 

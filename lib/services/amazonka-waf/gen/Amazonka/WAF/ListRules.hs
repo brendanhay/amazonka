@@ -121,20 +121,23 @@ instance Core.AWSPager ListRules where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRulesResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listRulesResponse_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listRulesResponse_rules Prelude.. Lens._Just
+            Lens.^? listRulesResponse_rules
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRules_nextMarker
           Lens..~ rs
-          Lens.^? listRulesResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listRulesResponse_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRules where
   type AWSResponse ListRules = ListRulesResponse
@@ -151,7 +154,8 @@ instance Core.AWSRequest ListRules where
 
 instance Prelude.Hashable ListRules where
   hashWithSalt _salt ListRules' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListRules where

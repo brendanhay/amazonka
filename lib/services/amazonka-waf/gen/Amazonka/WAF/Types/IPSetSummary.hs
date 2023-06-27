@@ -84,12 +84,14 @@ instance Data.FromJSON IPSetSummary where
       "IPSetSummary"
       ( \x ->
           IPSetSummary'
-            Prelude.<$> (x Data..: "IPSetId") Prelude.<*> (x Data..: "Name")
+            Prelude.<$> (x Data..: "IPSetId")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable IPSetSummary where
   hashWithSalt _salt IPSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` iPSetId
+    _salt
+      `Prelude.hashWithSalt` iPSetId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData IPSetSummary where

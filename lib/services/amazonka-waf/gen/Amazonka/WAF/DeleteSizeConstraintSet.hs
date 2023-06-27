@@ -138,7 +138,8 @@ instance Core.AWSRequest DeleteSizeConstraintSet where
 
 instance Prelude.Hashable DeleteSizeConstraintSet where
   hashWithSalt _salt DeleteSizeConstraintSet' {..} =
-    _salt `Prelude.hashWithSalt` sizeConstraintSetId
+    _salt
+      `Prelude.hashWithSalt` sizeConstraintSetId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteSizeConstraintSet where

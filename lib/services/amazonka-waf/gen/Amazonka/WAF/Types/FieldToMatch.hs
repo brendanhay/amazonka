@@ -209,12 +209,14 @@ instance Data.FromJSON FieldToMatch where
       "FieldToMatch"
       ( \x ->
           FieldToMatch'
-            Prelude.<$> (x Data..:? "Data") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..:? "Data")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable FieldToMatch where
   hashWithSalt _salt FieldToMatch' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData FieldToMatch where

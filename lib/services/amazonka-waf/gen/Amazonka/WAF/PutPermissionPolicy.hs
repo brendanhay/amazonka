@@ -144,7 +144,8 @@ instance Core.AWSRequest PutPermissionPolicy where
 
 instance Prelude.Hashable PutPermissionPolicy where
   hashWithSalt _salt PutPermissionPolicy' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutPermissionPolicy where

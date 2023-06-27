@@ -313,7 +313,8 @@ instance Data.FromJSON SqlInjectionMatchTuple where
 
 instance Prelude.Hashable SqlInjectionMatchTuple where
   hashWithSalt _salt SqlInjectionMatchTuple' {..} =
-    _salt `Prelude.hashWithSalt` fieldToMatch
+    _salt
+      `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformation
 
 instance Prelude.NFData SqlInjectionMatchTuple where

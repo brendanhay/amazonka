@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateRuleGroup where
 
 instance Prelude.Hashable UpdateRuleGroup where
   hashWithSalt _salt UpdateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` ruleGroupId
+    _salt
+      `Prelude.hashWithSalt` ruleGroupId
       `Prelude.hashWithSalt` updates
       `Prelude.hashWithSalt` changeToken
 

@@ -210,14 +210,16 @@ instance Core.AWSRequest GetMergeConflicts where
             Prelude.<*> (x Data..:> "mergeable")
             Prelude.<*> (x Data..:> "destinationCommitId")
             Prelude.<*> (x Data..:> "sourceCommitId")
-            Prelude.<*> ( x Data..?> "conflictMetadataList"
+            Prelude.<*> ( x
+                            Data..?> "conflictMetadataList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetMergeConflicts where
   hashWithSalt _salt GetMergeConflicts' {..} =
-    _salt `Prelude.hashWithSalt` conflictDetailLevel
+    _salt
+      `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolutionStrategy
       `Prelude.hashWithSalt` maxConflictFiles
       `Prelude.hashWithSalt` nextToken

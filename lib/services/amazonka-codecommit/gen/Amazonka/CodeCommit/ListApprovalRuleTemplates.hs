@@ -104,7 +104,8 @@ instance Core.AWSRequest ListApprovalRuleTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListApprovalRuleTemplatesResponse'
-            Prelude.<$> ( x Data..?> "approvalRuleTemplateNames"
+            Prelude.<$> ( x
+                            Data..?> "approvalRuleTemplateNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -113,7 +114,8 @@ instance Core.AWSRequest ListApprovalRuleTemplates where
 
 instance Prelude.Hashable ListApprovalRuleTemplates where
   hashWithSalt _salt ListApprovalRuleTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApprovalRuleTemplates where

@@ -69,7 +69,8 @@ setFileModeEntry_fileMode = Lens.lens (\SetFileModeEntry' {fileMode} -> fileMode
 
 instance Prelude.Hashable SetFileModeEntry where
   hashWithSalt _salt SetFileModeEntry' {..} =
-    _salt `Prelude.hashWithSalt` filePath
+    _salt
+      `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` fileMode
 
 instance Prelude.NFData SetFileModeEntry where

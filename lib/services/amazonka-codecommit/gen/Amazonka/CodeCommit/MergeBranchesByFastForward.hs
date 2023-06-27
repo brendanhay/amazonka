@@ -139,7 +139,8 @@ instance Core.AWSRequest MergeBranchesByFastForward where
 
 instance Prelude.Hashable MergeBranchesByFastForward where
   hashWithSalt _salt MergeBranchesByFastForward' {..} =
-    _salt `Prelude.hashWithSalt` targetBranch
+    _salt
+      `Prelude.hashWithSalt` targetBranch
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` sourceCommitSpecifier
       `Prelude.hashWithSalt` destinationCommitSpecifier

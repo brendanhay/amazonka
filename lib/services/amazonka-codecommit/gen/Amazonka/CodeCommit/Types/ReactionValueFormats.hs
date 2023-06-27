@@ -91,7 +91,8 @@ instance Data.FromJSON ReactionValueFormats where
 
 instance Prelude.Hashable ReactionValueFormats where
   hashWithSalt _salt ReactionValueFormats' {..} =
-    _salt `Prelude.hashWithSalt` emoji
+    _salt
+      `Prelude.hashWithSalt` emoji
       `Prelude.hashWithSalt` shortCode
       `Prelude.hashWithSalt` unicode
 

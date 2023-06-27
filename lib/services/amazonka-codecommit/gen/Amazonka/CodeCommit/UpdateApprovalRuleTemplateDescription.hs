@@ -107,7 +107,7 @@ instance
       ( \s h x ->
           UpdateApprovalRuleTemplateDescriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "approvalRuleTemplate")
+            Prelude.<*> (x Data..:> "approvalRuleTemplate")
       )
 
 instance

@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdateDefaultBranch where
 
 instance Prelude.Hashable UpdateDefaultBranch where
   hashWithSalt _salt UpdateDefaultBranch' {..} =
-    _salt `Prelude.hashWithSalt` repositoryName
+    _salt
+      `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` defaultBranchName
 
 instance Prelude.NFData UpdateDefaultBranch where

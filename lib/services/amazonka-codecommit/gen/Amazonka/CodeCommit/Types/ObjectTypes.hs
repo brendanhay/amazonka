@@ -85,7 +85,8 @@ instance Data.FromJSON ObjectTypes where
 
 instance Prelude.Hashable ObjectTypes where
   hashWithSalt _salt ObjectTypes' {..} =
-    _salt `Prelude.hashWithSalt` base
+    _salt
+      `Prelude.hashWithSalt` base
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` source
 

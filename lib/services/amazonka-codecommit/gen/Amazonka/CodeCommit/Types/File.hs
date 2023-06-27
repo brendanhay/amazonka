@@ -101,7 +101,8 @@ instance Data.FromJSON File where
 
 instance Prelude.Hashable File where
   hashWithSalt _salt File' {..} =
-    _salt `Prelude.hashWithSalt` absolutePath
+    _salt
+      `Prelude.hashWithSalt` absolutePath
       `Prelude.hashWithSalt` blobId
       `Prelude.hashWithSalt` fileMode
       `Prelude.hashWithSalt` relativePath

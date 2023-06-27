@@ -118,10 +118,11 @@ instance
       ( \s h x ->
           BatchAssociateApprovalRuleTemplateWithRepositoriesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..?> "associatedRepositoryNames"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..?> "associatedRepositoryNames"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
       )
 
 instance

@@ -184,7 +184,8 @@ instance Data.FromJSON ConflictMetadata where
 
 instance Prelude.Hashable ConflictMetadata where
   hashWithSalt _salt ConflictMetadata' {..} =
-    _salt `Prelude.hashWithSalt` contentConflict
+    _salt
+      `Prelude.hashWithSalt` contentConflict
       `Prelude.hashWithSalt` fileModeConflict
       `Prelude.hashWithSalt` fileModes
       `Prelude.hashWithSalt` filePath

@@ -77,7 +77,8 @@ conflictResolution_setFileModes = Lens.lens (\ConflictResolution' {setFileModes}
 
 instance Prelude.Hashable ConflictResolution where
   hashWithSalt _salt ConflictResolution' {..} =
-    _salt `Prelude.hashWithSalt` deleteFiles
+    _salt
+      `Prelude.hashWithSalt` deleteFiles
       `Prelude.hashWithSalt` replaceContents
       `Prelude.hashWithSalt` setFileModes
 

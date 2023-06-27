@@ -216,7 +216,8 @@ instance Core.AWSRequest PostCommentForPullRequest where
 
 instance Prelude.Hashable PostCommentForPullRequest where
   hashWithSalt _salt PostCommentForPullRequest' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` pullRequestId
       `Prelude.hashWithSalt` repositoryName

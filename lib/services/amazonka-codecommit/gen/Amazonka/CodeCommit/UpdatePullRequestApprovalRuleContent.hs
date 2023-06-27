@@ -223,7 +223,7 @@ instance
       ( \s h x ->
           UpdatePullRequestApprovalRuleContentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "approvalRule")
+            Prelude.<*> (x Data..:> "approvalRule")
       )
 
 instance

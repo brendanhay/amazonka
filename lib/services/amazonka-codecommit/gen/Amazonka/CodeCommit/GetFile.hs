@@ -138,7 +138,8 @@ instance Core.AWSRequest GetFile where
 
 instance Prelude.Hashable GetFile where
   hashWithSalt _salt GetFile' {..} =
-    _salt `Prelude.hashWithSalt` commitSpecifier
+    _salt
+      `Prelude.hashWithSalt` commitSpecifier
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` filePath
 

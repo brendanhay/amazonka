@@ -101,7 +101,8 @@ instance Data.FromJSON SymbolicLink where
 
 instance Prelude.Hashable SymbolicLink where
   hashWithSalt _salt SymbolicLink' {..} =
-    _salt `Prelude.hashWithSalt` absolutePath
+    _salt
+      `Prelude.hashWithSalt` absolutePath
       `Prelude.hashWithSalt` blobId
       `Prelude.hashWithSalt` fileMode
       `Prelude.hashWithSalt` relativePath

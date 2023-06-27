@@ -241,7 +241,8 @@ instance Core.AWSRequest PutFile where
 
 instance Prelude.Hashable PutFile where
   hashWithSalt _salt PutFile' {..} =
-    _salt `Prelude.hashWithSalt` commitMessage
+    _salt
+      `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` fileMode
       `Prelude.hashWithSalt` name

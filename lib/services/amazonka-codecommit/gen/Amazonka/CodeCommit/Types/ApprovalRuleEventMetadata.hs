@@ -85,7 +85,8 @@ instance Data.FromJSON ApprovalRuleEventMetadata where
 
 instance Prelude.Hashable ApprovalRuleEventMetadata where
   hashWithSalt _salt ApprovalRuleEventMetadata' {..} =
-    _salt `Prelude.hashWithSalt` approvalRuleContent
+    _salt
+      `Prelude.hashWithSalt` approvalRuleContent
       `Prelude.hashWithSalt` approvalRuleId
       `Prelude.hashWithSalt` approvalRuleName
 

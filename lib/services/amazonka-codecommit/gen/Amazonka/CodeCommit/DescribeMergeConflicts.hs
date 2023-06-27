@@ -233,7 +233,8 @@ instance Core.AWSRequest DescribeMergeConflicts where
 
 instance Prelude.Hashable DescribeMergeConflicts where
   hashWithSalt _salt DescribeMergeConflicts' {..} =
-    _salt `Prelude.hashWithSalt` conflictDetailLevel
+    _salt
+      `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolutionStrategy
       `Prelude.hashWithSalt` maxMergeHunks
       `Prelude.hashWithSalt` nextToken

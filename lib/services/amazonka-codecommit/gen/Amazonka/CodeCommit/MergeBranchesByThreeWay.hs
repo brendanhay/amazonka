@@ -245,7 +245,8 @@ instance Core.AWSRequest MergeBranchesByThreeWay where
 
 instance Prelude.Hashable MergeBranchesByThreeWay where
   hashWithSalt _salt MergeBranchesByThreeWay' {..} =
-    _salt `Prelude.hashWithSalt` authorName
+    _salt
+      `Prelude.hashWithSalt` authorName
       `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolution

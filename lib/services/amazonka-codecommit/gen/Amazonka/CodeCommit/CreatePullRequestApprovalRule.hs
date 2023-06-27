@@ -228,7 +228,8 @@ instance
     CreatePullRequestApprovalRule
   where
   hashWithSalt _salt CreatePullRequestApprovalRule' {..} =
-    _salt `Prelude.hashWithSalt` pullRequestId
+    _salt
+      `Prelude.hashWithSalt` pullRequestId
       `Prelude.hashWithSalt` approvalRuleName
       `Prelude.hashWithSalt` approvalRuleContent
 

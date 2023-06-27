@@ -138,7 +138,8 @@ instance
     MergePullRequestByFastForward
   where
   hashWithSalt _salt MergePullRequestByFastForward' {..} =
-    _salt `Prelude.hashWithSalt` sourceCommitId
+    _salt
+      `Prelude.hashWithSalt` sourceCommitId
       `Prelude.hashWithSalt` pullRequestId
       `Prelude.hashWithSalt` repositoryName
 

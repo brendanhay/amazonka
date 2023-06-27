@@ -91,7 +91,8 @@ instance Data.FromJSON FileMetadata where
 
 instance Prelude.Hashable FileMetadata where
   hashWithSalt _salt FileMetadata' {..} =
-    _salt `Prelude.hashWithSalt` absolutePath
+    _salt
+      `Prelude.hashWithSalt` absolutePath
       `Prelude.hashWithSalt` blobId
       `Prelude.hashWithSalt` fileMode
 

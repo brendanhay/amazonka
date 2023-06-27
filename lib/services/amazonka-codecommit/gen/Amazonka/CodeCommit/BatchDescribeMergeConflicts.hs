@@ -243,7 +243,8 @@ instance Core.AWSRequest BatchDescribeMergeConflicts where
 
 instance Prelude.Hashable BatchDescribeMergeConflicts where
   hashWithSalt _salt BatchDescribeMergeConflicts' {..} =
-    _salt `Prelude.hashWithSalt` conflictDetailLevel
+    _salt
+      `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolutionStrategy
       `Prelude.hashWithSalt` filePaths
       `Prelude.hashWithSalt` maxConflictFiles

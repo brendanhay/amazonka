@@ -189,21 +189,22 @@ instance Core.AWSPager GetDifferences where
     | Core.stop
         ( rs
             Lens.^? getDifferencesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getDifferencesResponse_differences
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getDifferences_nextToken
           Lens..~ rs
-          Lens.^? getDifferencesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getDifferencesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDifferences where
   type
@@ -222,7 +223,8 @@ instance Core.AWSRequest GetDifferences where
 
 instance Prelude.Hashable GetDifferences where
   hashWithSalt _salt GetDifferences' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` afterPath
       `Prelude.hashWithSalt` beforeCommitSpecifier

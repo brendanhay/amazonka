@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     BatchDescribeMergeConflictsError' {..} =
-      _salt `Prelude.hashWithSalt` filePath
+      _salt
+        `Prelude.hashWithSalt` filePath
         `Prelude.hashWithSalt` exceptionName
         `Prelude.hashWithSalt` message
 

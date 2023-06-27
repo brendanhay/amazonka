@@ -103,7 +103,8 @@ replaceContentEntry_replacementType = Lens.lens (\ReplaceContentEntry' {replacem
 
 instance Prelude.Hashable ReplaceContentEntry where
   hashWithSalt _salt ReplaceContentEntry' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` fileMode
       `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` replacementType

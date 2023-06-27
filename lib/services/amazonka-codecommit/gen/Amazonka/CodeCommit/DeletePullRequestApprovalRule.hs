@@ -121,7 +121,8 @@ instance
     DeletePullRequestApprovalRule
   where
   hashWithSalt _salt DeletePullRequestApprovalRule' {..} =
-    _salt `Prelude.hashWithSalt` pullRequestId
+    _salt
+      `Prelude.hashWithSalt` pullRequestId
       `Prelude.hashWithSalt` approvalRuleName
 
 instance Prelude.NFData DeletePullRequestApprovalRule where

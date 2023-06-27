@@ -146,21 +146,21 @@ instance Core.AWSPager DescribePullRequestEvents where
     | Core.stop
         ( rs
             Lens.^? describePullRequestEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. describePullRequestEventsResponse_pullRequestEvents
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describePullRequestEvents_nextToken
           Lens..~ rs
           Lens.^? describePullRequestEventsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePullRequestEvents where
   type
@@ -174,14 +174,16 @@ instance Core.AWSRequest DescribePullRequestEvents where
           DescribePullRequestEventsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "pullRequestEvents"
+            Prelude.<*> ( x
+                            Data..?> "pullRequestEvents"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DescribePullRequestEvents where
   hashWithSalt _salt DescribePullRequestEvents' {..} =
-    _salt `Prelude.hashWithSalt` actorArn
+    _salt
+      `Prelude.hashWithSalt` actorArn
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pullRequestEventType

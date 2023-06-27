@@ -142,7 +142,8 @@ instance Data.FromJSON ApprovalRule where
 
 instance Prelude.Hashable ApprovalRule where
   hashWithSalt _salt ApprovalRule' {..} =
-    _salt `Prelude.hashWithSalt` approvalRuleContent
+    _salt
+      `Prelude.hashWithSalt` approvalRuleContent
       `Prelude.hashWithSalt` approvalRuleId
       `Prelude.hashWithSalt` approvalRuleName
       `Prelude.hashWithSalt` creationDate

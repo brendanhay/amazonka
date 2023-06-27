@@ -78,7 +78,8 @@ instance Data.FromJSON MergeOperations where
 
 instance Prelude.Hashable MergeOperations where
   hashWithSalt _salt MergeOperations' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData MergeOperations where

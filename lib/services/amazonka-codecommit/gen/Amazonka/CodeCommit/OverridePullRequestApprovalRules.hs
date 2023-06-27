@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     OverridePullRequestApprovalRules' {..} =
-      _salt `Prelude.hashWithSalt` pullRequestId
+      _salt
+        `Prelude.hashWithSalt` pullRequestId
         `Prelude.hashWithSalt` revisionId
         `Prelude.hashWithSalt` overrideStatus
 

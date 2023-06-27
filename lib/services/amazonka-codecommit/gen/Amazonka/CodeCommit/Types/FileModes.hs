@@ -85,7 +85,8 @@ instance Data.FromJSON FileModes where
 
 instance Prelude.Hashable FileModes where
   hashWithSalt _salt FileModes' {..} =
-    _salt `Prelude.hashWithSalt` base
+    _salt
+      `Prelude.hashWithSalt` base
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` source
 

@@ -105,7 +105,8 @@ instance Core.AWSRequest BatchGetRepositories where
       ( \s h x ->
           BatchGetRepositoriesResponse'
             Prelude.<$> (x Data..?> "repositories" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "repositoriesNotFound"
+            Prelude.<*> ( x
+                            Data..?> "repositoriesNotFound"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

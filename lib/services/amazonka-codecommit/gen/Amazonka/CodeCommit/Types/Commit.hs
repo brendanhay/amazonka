@@ -158,7 +158,8 @@ instance Data.FromJSON Commit where
 
 instance Prelude.Hashable Commit where
   hashWithSalt _salt Commit' {..} =
-    _salt `Prelude.hashWithSalt` additionalData
+    _salt
+      `Prelude.hashWithSalt` additionalData
       `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` commitId
       `Prelude.hashWithSalt` committer

@@ -63,6 +63,9 @@ import Test.Tasty
 --         , requestGetAdminAccount $
 --             newGetAdminAccount
 --
+--         , requestGetAdminScope $
+--             newGetAdminScope
+--
 --         , requestGetAppsList $
 --             newGetAppsList
 --
@@ -89,6 +92,12 @@ import Test.Tasty
 --
 --         , requestGetViolationDetails $
 --             newGetViolationDetails
+--
+--         , requestListAdminAccountsForOrganization $
+--             newListAdminAccountsForOrganization
+--
+--         , requestListAdminsManagingAccount $
+--             newListAdminsManagingAccount
 --
 --         , requestListAppsLists $
 --             newListAppsLists
@@ -119,6 +128,9 @@ import Test.Tasty
 --
 --         , requestListThirdPartyFirewallFirewallPolicies $
 --             newListThirdPartyFirewallFirewallPolicies
+--
+--         , requestPutAdminAccount $
+--             newPutAdminAccount
 --
 --         , requestPutAppsList $
 --             newPutAppsList
@@ -180,6 +192,9 @@ import Test.Tasty
 --         , responseGetAdminAccount $
 --             newGetAdminAccountResponse
 --
+--         , responseGetAdminScope $
+--             newGetAdminScopeResponse
+--
 --         , responseGetAppsList $
 --             newGetAppsListResponse
 --
@@ -206,6 +221,12 @@ import Test.Tasty
 --
 --         , responseGetViolationDetails $
 --             newGetViolationDetailsResponse
+--
+--         , responseListAdminAccountsForOrganization $
+--             newListAdminAccountsForOrganizationResponse
+--
+--         , responseListAdminsManagingAccount $
+--             newListAdminsManagingAccountResponse
 --
 --         , responseListAppsLists $
 --             newListAppsListsResponse
@@ -236,6 +257,9 @@ import Test.Tasty
 --
 --         , responseListThirdPartyFirewallFirewallPolicies $
 --             newListThirdPartyFirewallFirewallPoliciesResponse
+--
+--         , responsePutAdminAccount $
+--             newPutAdminAccountResponse
 --
 --         , responsePutAppsList $
 --             newPutAppsListResponse
@@ -335,6 +359,12 @@ requestGetAdminAccount =
     "GetAdminAccount"
     "fixture/GetAdminAccount.yaml"
 
+requestGetAdminScope :: GetAdminScope -> TestTree
+requestGetAdminScope =
+  req
+    "GetAdminScope"
+    "fixture/GetAdminScope.yaml"
+
 requestGetAppsList :: GetAppsList -> TestTree
 requestGetAppsList =
   req
@@ -388,6 +418,18 @@ requestGetViolationDetails =
   req
     "GetViolationDetails"
     "fixture/GetViolationDetails.yaml"
+
+requestListAdminAccountsForOrganization :: ListAdminAccountsForOrganization -> TestTree
+requestListAdminAccountsForOrganization =
+  req
+    "ListAdminAccountsForOrganization"
+    "fixture/ListAdminAccountsForOrganization.yaml"
+
+requestListAdminsManagingAccount :: ListAdminsManagingAccount -> TestTree
+requestListAdminsManagingAccount =
+  req
+    "ListAdminsManagingAccount"
+    "fixture/ListAdminsManagingAccount.yaml"
 
 requestListAppsLists :: ListAppsLists -> TestTree
 requestListAppsLists =
@@ -448,6 +490,12 @@ requestListThirdPartyFirewallFirewallPolicies =
   req
     "ListThirdPartyFirewallFirewallPolicies"
     "fixture/ListThirdPartyFirewallFirewallPolicies.yaml"
+
+requestPutAdminAccount :: PutAdminAccount -> TestTree
+requestPutAdminAccount =
+  req
+    "PutAdminAccount"
+    "fixture/PutAdminAccount.yaml"
 
 requestPutAppsList :: PutAppsList -> TestTree
 requestPutAppsList =
@@ -589,6 +637,14 @@ responseGetAdminAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAdminAccount)
 
+responseGetAdminScope :: GetAdminScopeResponse -> TestTree
+responseGetAdminScope =
+  res
+    "GetAdminScopeResponse"
+    "fixture/GetAdminScopeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAdminScope)
+
 responseGetAppsList :: GetAppsListResponse -> TestTree
 responseGetAppsList =
   res
@@ -660,6 +716,22 @@ responseGetViolationDetails =
     "fixture/GetViolationDetailsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetViolationDetails)
+
+responseListAdminAccountsForOrganization :: ListAdminAccountsForOrganizationResponse -> TestTree
+responseListAdminAccountsForOrganization =
+  res
+    "ListAdminAccountsForOrganizationResponse"
+    "fixture/ListAdminAccountsForOrganizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAdminAccountsForOrganization)
+
+responseListAdminsManagingAccount :: ListAdminsManagingAccountResponse -> TestTree
+responseListAdminsManagingAccount =
+  res
+    "ListAdminsManagingAccountResponse"
+    "fixture/ListAdminsManagingAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAdminsManagingAccount)
 
 responseListAppsLists :: ListAppsListsResponse -> TestTree
 responseListAppsLists =
@@ -740,6 +812,14 @@ responseListThirdPartyFirewallFirewallPolicies =
     "fixture/ListThirdPartyFirewallFirewallPoliciesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListThirdPartyFirewallFirewallPolicies)
+
+responsePutAdminAccount :: PutAdminAccountResponse -> TestTree
+responsePutAdminAccount =
+  res
+    "PutAdminAccountResponse"
+    "fixture/PutAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAdminAccount)
 
 responsePutAppsList :: PutAppsListResponse -> TestTree
 responsePutAppsList =

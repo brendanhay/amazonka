@@ -74,7 +74,8 @@ instance Data.FromJSON ActionTarget where
 
 instance Prelude.Hashable ActionTarget where
   hashWithSalt _salt ActionTarget' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ActionTarget where

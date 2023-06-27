@@ -23,10 +23,14 @@
 -- Designates the IAM role and Amazon Simple Notification Service (SNS)
 -- topic that Firewall Manager uses to record SNS logs.
 --
--- To perform this action outside of the console, you must configure the
--- SNS topic to allow the Firewall Manager role @AWSServiceRoleForFMS@ to
--- publish SNS logs. For more information, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html Firewall Manager required permissions for API actions>
+-- To perform this action outside of the console, you must first configure
+-- the SNS topic\'s access policy to allow the @SnsRoleName@ to publish SNS
+-- logs. If the @SnsRoleName@ provided is a role other than the
+-- @AWSServiceRoleForFMS@ service-linked role, this role must have a trust
+-- relationship configured to allow the Firewall Manager service principal
+-- @fms.amazonaws.com@ to assume this role. For information about
+-- configuring an SNS access policy, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service Service roles for Firewall Manager>
 -- in the /Firewall Manager Developer Guide/.
 module Amazonka.FMS.PutNotificationChannel
   ( -- * Creating a Request
@@ -110,7 +114,8 @@ instance Core.AWSRequest PutNotificationChannel where
 
 instance Prelude.Hashable PutNotificationChannel where
   hashWithSalt _salt PutNotificationChannel' {..} =
-    _salt `Prelude.hashWithSalt` snsTopicArn
+    _salt
+      `Prelude.hashWithSalt` snsTopicArn
       `Prelude.hashWithSalt` snsRoleName
 
 instance Prelude.NFData PutNotificationChannel where

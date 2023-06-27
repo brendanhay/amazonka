@@ -174,18 +174,21 @@ instance
             Prelude.<$> (x Data..:? "CurrentFirewallSubnetRouteTable")
             Prelude.<*> (x Data..:? "CurrentInternetGatewayRouteTable")
             Prelude.<*> (x Data..:? "FirewallSubnetId")
-            Prelude.<*> ( x Data..:? "FirewallSubnetRoutes"
+            Prelude.<*> ( x
+                            Data..:? "FirewallSubnetRoutes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "InternetGatewayId")
-            Prelude.<*> ( x Data..:? "InternetGatewayRoutes"
+            Prelude.<*> ( x
+                            Data..:? "InternetGatewayRoutes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RouteTableId")
             Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
             Prelude.<*> (x Data..:? "SubnetAvailabilityZoneId")
             Prelude.<*> (x Data..:? "SubnetId")
-            Prelude.<*> ( x Data..:? "ViolatingRoutes"
+            Prelude.<*> ( x
+                            Data..:? "ViolatingRoutes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VpcId")

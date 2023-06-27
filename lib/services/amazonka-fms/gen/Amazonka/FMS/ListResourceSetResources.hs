@@ -64,8 +64,8 @@ data ListResourceSetResources = ListResourceSetResources'
     -- the response. To retrieve the next batch of objects, use the token
     -- returned from the prior request in your next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the resource set, used in a TODO to refer to the
-    -- resource set.
+    -- | A unique identifier for the resource set, used in a request to refer to
+    -- the resource set.
     identifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,8 +89,8 @@ data ListResourceSetResources = ListResourceSetResources'
 -- the response. To retrieve the next batch of objects, use the token
 -- returned from the prior request in your next request.
 --
--- 'identifier', 'listResourceSetResources_identifier' - A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- 'identifier', 'listResourceSetResources_identifier' - A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 newListResourceSetResources ::
   -- | 'identifier'
   Prelude.Text ->
@@ -118,8 +118,8 @@ listResourceSetResources_maxResults = Lens.lens (\ListResourceSetResources' {max
 listResourceSetResources_nextToken :: Lens.Lens' ListResourceSetResources (Prelude.Maybe Prelude.Text)
 listResourceSetResources_nextToken = Lens.lens (\ListResourceSetResources' {nextToken} -> nextToken) (\s@ListResourceSetResources' {} a -> s {nextToken = a} :: ListResourceSetResources)
 
--- | A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- | A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 listResourceSetResources_identifier :: Lens.Lens' ListResourceSetResources Prelude.Text
 listResourceSetResources_identifier = Lens.lens (\ListResourceSetResources' {identifier} -> identifier) (\s@ListResourceSetResources' {} a -> s {identifier = a} :: ListResourceSetResources)
 
@@ -140,7 +140,8 @@ instance Core.AWSRequest ListResourceSetResources where
 
 instance Prelude.Hashable ListResourceSetResources where
   hashWithSalt _salt ListResourceSetResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` identifier
 

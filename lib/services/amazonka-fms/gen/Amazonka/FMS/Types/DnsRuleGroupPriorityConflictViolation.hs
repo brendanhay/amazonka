@@ -120,7 +120,8 @@ instance
           DnsRuleGroupPriorityConflictViolation'
             Prelude.<$> (x Data..:? "ConflictingPolicyId")
             Prelude.<*> (x Data..:? "ConflictingPriority")
-            Prelude.<*> ( x Data..:? "UnavailablePriorities"
+            Prelude.<*> ( x
+                            Data..:? "UnavailablePriorities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ViolationTarget")
@@ -134,7 +135,8 @@ instance
   hashWithSalt
     _salt
     DnsRuleGroupPriorityConflictViolation' {..} =
-      _salt `Prelude.hashWithSalt` conflictingPolicyId
+      _salt
+        `Prelude.hashWithSalt` conflictingPolicyId
         `Prelude.hashWithSalt` conflictingPriority
         `Prelude.hashWithSalt` unavailablePriorities
         `Prelude.hashWithSalt` violationTarget

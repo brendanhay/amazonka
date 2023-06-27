@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.CustomerPolicyScopeIdType
+import Amazonka.FMS.Types.CustomerPolicyStatus
 import Amazonka.FMS.Types.ResourceTag
 import Amazonka.FMS.Types.SecurityServicePolicyData
 import qualified Amazonka.Prelude as Prelude
@@ -100,6 +101,16 @@ data Policy = Policy'
     policyDescription :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Firewall Manager policy.
     policyId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the policy is in or out of an admin\'s policy or
+    -- Region scope.
+    --
+    -- -   @ACTIVE@ - The administrator can manage and delete the policy.
+    --
+    -- -   @OUT_OF_ADMIN_SCOPE@ - The administrator can view the policy, but
+    --     they can\'t edit or delete the policy. Existing policy protections
+    --     stay in place. Any new resources that come into scope of the policy
+    --     won\'t be protected.
+    policyStatus :: Prelude.Maybe CustomerPolicyStatus,
     -- | A unique identifier for each update to the policy. When issuing a
     -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
     -- the @PolicyUpdateToken@ of the current policy version. To get the
@@ -224,6 +235,16 @@ data Policy = Policy'
 --
 -- 'policyId', 'policy_policyId' - The ID of the Firewall Manager policy.
 --
+-- 'policyStatus', 'policy_policyStatus' - Indicates whether the policy is in or out of an admin\'s policy or
+-- Region scope.
+--
+-- -   @ACTIVE@ - The administrator can manage and delete the policy.
+--
+-- -   @OUT_OF_ADMIN_SCOPE@ - The administrator can view the policy, but
+--     they can\'t edit or delete the policy. Existing policy protections
+--     stay in place. Any new resources that come into scope of the policy
+--     won\'t be protected.
+--
 -- 'policyUpdateToken', 'policy_policyUpdateToken' - A unique identifier for each update to the policy. When issuing a
 -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
 -- the @PolicyUpdateToken@ of the current policy version. To get the
@@ -292,6 +313,7 @@ newPolicy
         includeMap = Prelude.Nothing,
         policyDescription = Prelude.Nothing,
         policyId = Prelude.Nothing,
+        policyStatus = Prelude.Nothing,
         policyUpdateToken = Prelude.Nothing,
         resourceSetIds = Prelude.Nothing,
         resourceTags = Prelude.Nothing,
@@ -383,6 +405,18 @@ policy_policyDescription = Lens.lens (\Policy' {policyDescription} -> policyDesc
 policy_policyId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -> s {policyId = a} :: Policy)
 
+-- | Indicates whether the policy is in or out of an admin\'s policy or
+-- Region scope.
+--
+-- -   @ACTIVE@ - The administrator can manage and delete the policy.
+--
+-- -   @OUT_OF_ADMIN_SCOPE@ - The administrator can view the policy, but
+--     they can\'t edit or delete the policy. Existing policy protections
+--     stay in place. Any new resources that come into scope of the policy
+--     won\'t be protected.
+policy_policyStatus :: Lens.Lens' Policy (Prelude.Maybe CustomerPolicyStatus)
+policy_policyStatus = Lens.lens (\Policy' {policyStatus} -> policyStatus) (\s@Policy' {} a -> s {policyStatus = a} :: Policy)
+
 -- | A unique identifier for each update to the policy. When issuing a
 -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
 -- the @PolicyUpdateToken@ of the current policy version. To get the
@@ -456,10 +490,12 @@ instance Data.FromJSON Policy where
             Prelude.<*> (x Data..:? "IncludeMap" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "PolicyDescription")
             Prelude.<*> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "PolicyStatus")
             Prelude.<*> (x Data..:? "PolicyUpdateToken")
             Prelude.<*> (x Data..:? "ResourceSetIds" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ResourceTags" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ResourceTypeList"
+            Prelude.<*> ( x
+                            Data..:? "ResourceTypeList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "PolicyName")
@@ -477,6 +513,7 @@ instance Prelude.Hashable Policy where
       `Prelude.hashWithSalt` includeMap
       `Prelude.hashWithSalt` policyDescription
       `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` policyStatus
       `Prelude.hashWithSalt` policyUpdateToken
       `Prelude.hashWithSalt` resourceSetIds
       `Prelude.hashWithSalt` resourceTags
@@ -494,6 +531,7 @@ instance Prelude.NFData Policy where
       `Prelude.seq` Prelude.rnf includeMap
       `Prelude.seq` Prelude.rnf policyDescription
       `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf policyStatus
       `Prelude.seq` Prelude.rnf policyUpdateToken
       `Prelude.seq` Prelude.rnf resourceSetIds
       `Prelude.seq` Prelude.rnf resourceTags
@@ -515,6 +553,7 @@ instance Data.ToJSON Policy where
             ("PolicyDescription" Data..=)
               Prelude.<$> policyDescription,
             ("PolicyId" Data..=) Prelude.<$> policyId,
+            ("PolicyStatus" Data..=) Prelude.<$> policyStatus,
             ("PolicyUpdateToken" Data..=)
               Prelude.<$> policyUpdateToken,
             ("ResourceSetIds" Data..=)

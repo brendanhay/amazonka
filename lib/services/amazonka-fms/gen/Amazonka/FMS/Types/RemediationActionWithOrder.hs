@@ -76,7 +76,8 @@ instance Data.FromJSON RemediationActionWithOrder where
 
 instance Prelude.Hashable RemediationActionWithOrder where
   hashWithSalt _salt RemediationActionWithOrder' {..} =
-    _salt `Prelude.hashWithSalt` order
+    _salt
+      `Prelude.hashWithSalt` order
       `Prelude.hashWithSalt` remediationAction
 
 instance Prelude.NFData RemediationActionWithOrder where

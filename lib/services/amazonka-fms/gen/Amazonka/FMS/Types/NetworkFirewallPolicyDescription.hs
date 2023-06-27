@@ -178,23 +178,29 @@ instance
       "NetworkFirewallPolicyDescription"
       ( \x ->
           NetworkFirewallPolicyDescription'
-            Prelude.<$> ( x Data..:? "StatefulDefaultActions"
+            Prelude.<$> ( x
+                            Data..:? "StatefulDefaultActions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StatefulEngineOptions")
-            Prelude.<*> ( x Data..:? "StatefulRuleGroups"
+            Prelude.<*> ( x
+                            Data..:? "StatefulRuleGroups"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessCustomActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessCustomActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessDefaultActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessDefaultActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessFragmentDefaultActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessFragmentDefaultActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessRuleGroups"
+            Prelude.<*> ( x
+                            Data..:? "StatelessRuleGroups"
                             Data..!= Prelude.mempty
                         )
       )
@@ -206,7 +212,8 @@ instance
   hashWithSalt
     _salt
     NetworkFirewallPolicyDescription' {..} =
-      _salt `Prelude.hashWithSalt` statefulDefaultActions
+      _salt
+        `Prelude.hashWithSalt` statefulDefaultActions
         `Prelude.hashWithSalt` statefulEngineOptions
         `Prelude.hashWithSalt` statefulRuleGroups
         `Prelude.hashWithSalt` statelessCustomActions

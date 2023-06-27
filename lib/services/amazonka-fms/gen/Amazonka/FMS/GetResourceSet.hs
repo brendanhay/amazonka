@@ -50,8 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceSet' smart constructor.
 data GetResourceSet = GetResourceSet'
-  { -- | A unique identifier for the resource set, used in a TODO to refer to the
-    -- resource set.
+  { -- | A unique identifier for the resource set, used in a request to refer to
+    -- the resource set.
     identifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,8 +64,8 @@ data GetResourceSet = GetResourceSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identifier', 'getResourceSet_identifier' - A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- 'identifier', 'getResourceSet_identifier' - A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 newGetResourceSet ::
   -- | 'identifier'
   Prelude.Text ->
@@ -73,8 +73,8 @@ newGetResourceSet ::
 newGetResourceSet pIdentifier_ =
   GetResourceSet' {identifier = pIdentifier_}
 
--- | A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- | A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 getResourceSet_identifier :: Lens.Lens' GetResourceSet Prelude.Text
 getResourceSet_identifier = Lens.lens (\GetResourceSet' {identifier} -> identifier) (\s@GetResourceSet' {} a -> s {identifier = a} :: GetResourceSet)
 

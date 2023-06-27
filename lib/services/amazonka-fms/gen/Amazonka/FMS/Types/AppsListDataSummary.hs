@@ -95,7 +95,8 @@ instance Data.FromJSON AppsListDataSummary where
 
 instance Prelude.Hashable AppsListDataSummary where
   hashWithSalt _salt AppsListDataSummary' {..} =
-    _salt `Prelude.hashWithSalt` appsList
+    _salt
+      `Prelude.hashWithSalt` appsList
       `Prelude.hashWithSalt` listArn
       `Prelude.hashWithSalt` listId
       `Prelude.hashWithSalt` listName

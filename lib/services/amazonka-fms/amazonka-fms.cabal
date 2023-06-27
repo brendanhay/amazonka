@@ -56,6 +56,7 @@ library
     Amazonka.FMS.DisassociateAdminAccount
     Amazonka.FMS.DisassociateThirdPartyFirewall
     Amazonka.FMS.GetAdminAccount
+    Amazonka.FMS.GetAdminScope
     Amazonka.FMS.GetAppsList
     Amazonka.FMS.GetComplianceDetail
     Amazonka.FMS.GetNotificationChannel
@@ -66,6 +67,8 @@ library
     Amazonka.FMS.GetThirdPartyFirewallAssociationStatus
     Amazonka.FMS.GetViolationDetails
     Amazonka.FMS.Lens
+    Amazonka.FMS.ListAdminAccountsForOrganization
+    Amazonka.FMS.ListAdminsManagingAccount
     Amazonka.FMS.ListAppsLists
     Amazonka.FMS.ListComplianceStatus
     Amazonka.FMS.ListDiscoveredResources
@@ -76,6 +79,7 @@ library
     Amazonka.FMS.ListResourceSets
     Amazonka.FMS.ListTagsForResource
     Amazonka.FMS.ListThirdPartyFirewallFirewallPolicies
+    Amazonka.FMS.PutAdminAccount
     Amazonka.FMS.PutAppsList
     Amazonka.FMS.PutNotificationChannel
     Amazonka.FMS.PutPolicy
@@ -84,7 +88,10 @@ library
     Amazonka.FMS.TagResource
     Amazonka.FMS.Types
     Amazonka.FMS.Types.AccountRoleStatus
+    Amazonka.FMS.Types.AccountScope
     Amazonka.FMS.Types.ActionTarget
+    Amazonka.FMS.Types.AdminAccountSummary
+    Amazonka.FMS.Types.AdminScope
     Amazonka.FMS.Types.App
     Amazonka.FMS.Types.AppsListData
     Amazonka.FMS.Types.AppsListDataSummary
@@ -93,6 +100,7 @@ library
     Amazonka.FMS.Types.AwsVPCSecurityGroupViolation
     Amazonka.FMS.Types.ComplianceViolator
     Amazonka.FMS.Types.CustomerPolicyScopeIdType
+    Amazonka.FMS.Types.CustomerPolicyStatus
     Amazonka.FMS.Types.DependentServiceName
     Amazonka.FMS.Types.DestinationType
     Amazonka.FMS.Types.DiscoveredResource
@@ -129,6 +137,8 @@ library
     Amazonka.FMS.Types.NetworkFirewallStatefulRuleGroupOverride
     Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
     Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
+    Amazonka.FMS.Types.OrganizationalUnitScope
+    Amazonka.FMS.Types.OrganizationStatus
     Amazonka.FMS.Types.PartialMatch
     Amazonka.FMS.Types.Policy
     Amazonka.FMS.Types.PolicyComplianceDetail
@@ -136,15 +146,18 @@ library
     Amazonka.FMS.Types.PolicyComplianceStatusType
     Amazonka.FMS.Types.PolicyOption
     Amazonka.FMS.Types.PolicySummary
+    Amazonka.FMS.Types.PolicyTypeScope
     Amazonka.FMS.Types.PossibleRemediationAction
     Amazonka.FMS.Types.PossibleRemediationActions
     Amazonka.FMS.Types.ProtocolsListData
     Amazonka.FMS.Types.ProtocolsListDataSummary
+    Amazonka.FMS.Types.RegionScope
     Amazonka.FMS.Types.RemediationAction
     Amazonka.FMS.Types.RemediationActionType
     Amazonka.FMS.Types.RemediationActionWithOrder
     Amazonka.FMS.Types.Resource
     Amazonka.FMS.Types.ResourceSet
+    Amazonka.FMS.Types.ResourceSetStatus
     Amazonka.FMS.Types.ResourceSetSummary
     Amazonka.FMS.Types.ResourceTag
     Amazonka.FMS.Types.ResourceViolation

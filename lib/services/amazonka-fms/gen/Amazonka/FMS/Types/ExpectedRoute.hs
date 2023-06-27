@@ -105,7 +105,8 @@ instance Data.FromJSON ExpectedRoute where
       ( \x ->
           ExpectedRoute'
             Prelude.<$> (x Data..:? "AllowedTargets" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ContributingSubnets"
+            Prelude.<*> ( x
+                            Data..:? "ContributingSubnets"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IpV4Cidr")
@@ -116,7 +117,8 @@ instance Data.FromJSON ExpectedRoute where
 
 instance Prelude.Hashable ExpectedRoute where
   hashWithSalt _salt ExpectedRoute' {..} =
-    _salt `Prelude.hashWithSalt` allowedTargets
+    _salt
+      `Prelude.hashWithSalt` allowedTargets
       `Prelude.hashWithSalt` contributingSubnets
       `Prelude.hashWithSalt` ipV4Cidr
       `Prelude.hashWithSalt` ipV6Cidr

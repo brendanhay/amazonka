@@ -63,6 +63,12 @@ module Amazonka.FMS.Lens
     getAdminAccountResponse_roleStatus,
     getAdminAccountResponse_httpStatus,
 
+    -- ** GetAdminScope
+    getAdminScope_adminAccount,
+    getAdminScopeResponse_adminScope,
+    getAdminScopeResponse_status,
+    getAdminScopeResponse_httpStatus,
+
     -- ** GetAppsList
     getAppsList_defaultList,
     getAppsList_listId,
@@ -126,6 +132,20 @@ module Amazonka.FMS.Lens
     getViolationDetails_resourceType,
     getViolationDetailsResponse_violationDetail,
     getViolationDetailsResponse_httpStatus,
+
+    -- ** ListAdminAccountsForOrganization
+    listAdminAccountsForOrganization_maxResults,
+    listAdminAccountsForOrganization_nextToken,
+    listAdminAccountsForOrganizationResponse_adminAccounts,
+    listAdminAccountsForOrganizationResponse_nextToken,
+    listAdminAccountsForOrganizationResponse_httpStatus,
+
+    -- ** ListAdminsManagingAccount
+    listAdminsManagingAccount_maxResults,
+    listAdminsManagingAccount_nextToken,
+    listAdminsManagingAccountResponse_adminAccounts,
+    listAdminsManagingAccountResponse_nextToken,
+    listAdminsManagingAccountResponse_httpStatus,
 
     -- ** ListAppsLists
     listAppsLists_defaultLists,
@@ -202,6 +222,10 @@ module Amazonka.FMS.Lens
     listThirdPartyFirewallFirewallPoliciesResponse_thirdPartyFirewallFirewallPolicies,
     listThirdPartyFirewallFirewallPoliciesResponse_httpStatus,
 
+    -- ** PutAdminAccount
+    putAdminAccount_adminScope,
+    putAdminAccount_adminAccount,
+
     -- ** PutAppsList
     putAppsList_tagList,
     putAppsList_appsList,
@@ -246,9 +270,25 @@ module Amazonka.FMS.Lens
 
     -- * Types
 
+    -- ** AccountScope
+    accountScope_accounts,
+    accountScope_allAccountsEnabled,
+    accountScope_excludeSpecifiedAccounts,
+
     -- ** ActionTarget
     actionTarget_description,
     actionTarget_resourceId,
+
+    -- ** AdminAccountSummary
+    adminAccountSummary_adminAccount,
+    adminAccountSummary_defaultAdmin,
+    adminAccountSummary_status,
+
+    -- ** AdminScope
+    adminScope_accountScope,
+    adminScope_organizationalUnitScope,
+    adminScope_policyTypeScope,
+    adminScope_regionScope,
 
     -- ** App
     app_appName,
@@ -488,6 +528,11 @@ module Amazonka.FMS.Lens
     networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes,
     networkFirewallUnexpectedGatewayRoutesViolation_vpcId,
 
+    -- ** OrganizationalUnitScope
+    organizationalUnitScope_allOrganizationalUnitsEnabled,
+    organizationalUnitScope_excludeSpecifiedOrganizationalUnits,
+    organizationalUnitScope_organizationalUnits,
+
     -- ** PartialMatch
     partialMatch_reference,
     partialMatch_targetViolationReasons,
@@ -498,6 +543,7 @@ module Amazonka.FMS.Lens
     policy_includeMap,
     policy_policyDescription,
     policy_policyId,
+    policy_policyStatus,
     policy_policyUpdateToken,
     policy_resourceSetIds,
     policy_resourceTags,
@@ -535,9 +581,14 @@ module Amazonka.FMS.Lens
     policySummary_policyArn,
     policySummary_policyId,
     policySummary_policyName,
+    policySummary_policyStatus,
     policySummary_remediationEnabled,
     policySummary_resourceType,
     policySummary_securityServiceType,
+
+    -- ** PolicyTypeScope
+    policyTypeScope_allPolicyTypesEnabled,
+    policyTypeScope_policyTypes,
 
     -- ** PossibleRemediationAction
     possibleRemediationAction_description,
@@ -563,6 +614,10 @@ module Amazonka.FMS.Lens
     protocolsListDataSummary_listName,
     protocolsListDataSummary_protocolsList,
 
+    -- ** RegionScope
+    regionScope_allRegionsEnabled,
+    regionScope_regions,
+
     -- ** RemediationAction
     remediationAction_description,
     remediationAction_eC2AssociateRouteTableAction,
@@ -586,6 +641,7 @@ module Amazonka.FMS.Lens
     resourceSet_description,
     resourceSet_id,
     resourceSet_lastUpdateTime,
+    resourceSet_resourceSetStatus,
     resourceSet_updateToken,
     resourceSet_name,
     resourceSet_resourceTypeList,
@@ -595,6 +651,7 @@ module Amazonka.FMS.Lens
     resourceSetSummary_id,
     resourceSetSummary_lastUpdateTime,
     resourceSetSummary_name,
+    resourceSetSummary_resourceSetStatus,
 
     -- ** ResourceTag
     resourceTag_value,
@@ -731,6 +788,7 @@ import Amazonka.FMS.DeleteResourceSet
 import Amazonka.FMS.DisassociateAdminAccount
 import Amazonka.FMS.DisassociateThirdPartyFirewall
 import Amazonka.FMS.GetAdminAccount
+import Amazonka.FMS.GetAdminScope
 import Amazonka.FMS.GetAppsList
 import Amazonka.FMS.GetComplianceDetail
 import Amazonka.FMS.GetNotificationChannel
@@ -740,6 +798,8 @@ import Amazonka.FMS.GetProtocolsList
 import Amazonka.FMS.GetResourceSet
 import Amazonka.FMS.GetThirdPartyFirewallAssociationStatus
 import Amazonka.FMS.GetViolationDetails
+import Amazonka.FMS.ListAdminAccountsForOrganization
+import Amazonka.FMS.ListAdminsManagingAccount
 import Amazonka.FMS.ListAppsLists
 import Amazonka.FMS.ListComplianceStatus
 import Amazonka.FMS.ListDiscoveredResources
@@ -750,13 +810,17 @@ import Amazonka.FMS.ListResourceSetResources
 import Amazonka.FMS.ListResourceSets
 import Amazonka.FMS.ListTagsForResource
 import Amazonka.FMS.ListThirdPartyFirewallFirewallPolicies
+import Amazonka.FMS.PutAdminAccount
 import Amazonka.FMS.PutAppsList
 import Amazonka.FMS.PutNotificationChannel
 import Amazonka.FMS.PutPolicy
 import Amazonka.FMS.PutProtocolsList
 import Amazonka.FMS.PutResourceSet
 import Amazonka.FMS.TagResource
+import Amazonka.FMS.Types.AccountScope
 import Amazonka.FMS.Types.ActionTarget
+import Amazonka.FMS.Types.AdminAccountSummary
+import Amazonka.FMS.Types.AdminScope
 import Amazonka.FMS.Types.App
 import Amazonka.FMS.Types.AppsListData
 import Amazonka.FMS.Types.AppsListDataSummary
@@ -794,16 +858,19 @@ import Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation
 import Amazonka.FMS.Types.NetworkFirewallStatefulRuleGroupOverride
 import Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
 import Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
+import Amazonka.FMS.Types.OrganizationalUnitScope
 import Amazonka.FMS.Types.PartialMatch
 import Amazonka.FMS.Types.Policy
 import Amazonka.FMS.Types.PolicyComplianceDetail
 import Amazonka.FMS.Types.PolicyComplianceStatus
 import Amazonka.FMS.Types.PolicyOption
 import Amazonka.FMS.Types.PolicySummary
+import Amazonka.FMS.Types.PolicyTypeScope
 import Amazonka.FMS.Types.PossibleRemediationAction
 import Amazonka.FMS.Types.PossibleRemediationActions
 import Amazonka.FMS.Types.ProtocolsListData
 import Amazonka.FMS.Types.ProtocolsListDataSummary
+import Amazonka.FMS.Types.RegionScope
 import Amazonka.FMS.Types.RemediationAction
 import Amazonka.FMS.Types.RemediationActionWithOrder
 import Amazonka.FMS.Types.Resource

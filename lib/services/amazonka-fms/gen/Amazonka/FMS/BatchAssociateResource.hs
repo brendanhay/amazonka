@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchAssociateResource' smart constructor.
 data BatchAssociateResource = BatchAssociateResource'
-  { -- | A unique identifier for the resource set, used in a TODO to refer to the
-    -- resource set.
+  { -- | A unique identifier for the resource set, used in a request to refer to
+    -- the resource set.
     resourceSetIdentifier :: Prelude.Text,
     -- | The uniform resource identifiers (URIs) of resources that should be
     -- associated to the resource set. The URIs must be Amazon Resource Names
@@ -69,8 +69,8 @@ data BatchAssociateResource = BatchAssociateResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceSetIdentifier', 'batchAssociateResource_resourceSetIdentifier' - A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- 'resourceSetIdentifier', 'batchAssociateResource_resourceSetIdentifier' - A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 --
 -- 'items', 'batchAssociateResource_items' - The uniform resource identifiers (URIs) of resources that should be
 -- associated to the resource set. The URIs must be Amazon Resource Names
@@ -86,8 +86,8 @@ newBatchAssociateResource pResourceSetIdentifier_ =
       items = Prelude.mempty
     }
 
--- | A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- | A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 batchAssociateResource_resourceSetIdentifier :: Lens.Lens' BatchAssociateResource Prelude.Text
 batchAssociateResource_resourceSetIdentifier = Lens.lens (\BatchAssociateResource' {resourceSetIdentifier} -> resourceSetIdentifier) (\s@BatchAssociateResource' {} a -> s {resourceSetIdentifier = a} :: BatchAssociateResource)
 
@@ -114,7 +114,8 @@ instance Core.AWSRequest BatchAssociateResource where
 
 instance Prelude.Hashable BatchAssociateResource where
   hashWithSalt _salt BatchAssociateResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceSetIdentifier
+    _salt
+      `Prelude.hashWithSalt` resourceSetIdentifier
       `Prelude.hashWithSalt` items
 
 instance Prelude.NFData BatchAssociateResource where
@@ -159,8 +160,8 @@ instance Data.ToQuery BatchAssociateResource where
 data BatchAssociateResourceResponse = BatchAssociateResourceResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A unique identifier for the resource set, used in a TODO to refer to the
-    -- resource set.
+    -- | A unique identifier for the resource set, used in a request to refer to
+    -- the resource set.
     resourceSetIdentifier :: Prelude.Text,
     -- | The resources that failed to associate to the resource set.
     failedItems :: [FailedItem]
@@ -177,8 +178,8 @@ data BatchAssociateResourceResponse = BatchAssociateResourceResponse'
 --
 -- 'httpStatus', 'batchAssociateResourceResponse_httpStatus' - The response's http status code.
 --
--- 'resourceSetIdentifier', 'batchAssociateResourceResponse_resourceSetIdentifier' - A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- 'resourceSetIdentifier', 'batchAssociateResourceResponse_resourceSetIdentifier' - A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 --
 -- 'failedItems', 'batchAssociateResourceResponse_failedItems' - The resources that failed to associate to the resource set.
 newBatchAssociateResourceResponse ::
@@ -202,8 +203,8 @@ newBatchAssociateResourceResponse
 batchAssociateResourceResponse_httpStatus :: Lens.Lens' BatchAssociateResourceResponse Prelude.Int
 batchAssociateResourceResponse_httpStatus = Lens.lens (\BatchAssociateResourceResponse' {httpStatus} -> httpStatus) (\s@BatchAssociateResourceResponse' {} a -> s {httpStatus = a} :: BatchAssociateResourceResponse)
 
--- | A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- | A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 batchAssociateResourceResponse_resourceSetIdentifier :: Lens.Lens' BatchAssociateResourceResponse Prelude.Text
 batchAssociateResourceResponse_resourceSetIdentifier = Lens.lens (\BatchAssociateResourceResponse' {resourceSetIdentifier} -> resourceSetIdentifier) (\s@BatchAssociateResourceResponse' {} a -> s {resourceSetIdentifier = a} :: BatchAssociateResourceResponse)
 

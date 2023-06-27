@@ -84,8 +84,8 @@ instance
       ( \x ->
           NetworkFirewallMissingExpectedRoutesViolation'
             Prelude.<$> (x Data..:? "ExpectedRoutes" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "ViolationTarget")
-              Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "ViolationTarget")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance
@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     NetworkFirewallMissingExpectedRoutesViolation' {..} =
-      _salt `Prelude.hashWithSalt` expectedRoutes
+      _salt
+        `Prelude.hashWithSalt` expectedRoutes
         `Prelude.hashWithSalt` violationTarget
         `Prelude.hashWithSalt` vpcId
 

@@ -23,8 +23,8 @@
 -- Returns a @MemberAccounts@ object that lists the member accounts in the
 -- administrator\'s Amazon Web Services organization.
 --
--- The @ListMemberAccounts@ must be submitted by the account that is set as
--- the Firewall Manager administrator.
+-- Either an Firewall Manager administrator or the organization\'s
+-- management account can make this request.
 --
 -- This operation returns paginated results.
 module Amazonka.FMS.ListMemberAccounts
@@ -123,22 +123,22 @@ instance Core.AWSPager ListMemberAccounts where
     | Core.stop
         ( rs
             Lens.^? listMemberAccountsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listMemberAccountsResponse_memberAccounts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMemberAccounts_nextToken
           Lens..~ rs
           Lens.^? listMemberAccountsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMemberAccounts where
   type
@@ -157,7 +157,8 @@ instance Core.AWSRequest ListMemberAccounts where
 
 instance Prelude.Hashable ListMemberAccounts where
   hashWithSalt _salt ListMemberAccounts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMemberAccounts where

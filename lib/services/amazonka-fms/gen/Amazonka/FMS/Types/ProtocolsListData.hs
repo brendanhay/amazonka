@@ -131,7 +131,8 @@ instance Data.FromJSON ProtocolsListData where
             Prelude.<*> (x Data..:? "LastUpdateTime")
             Prelude.<*> (x Data..:? "ListId")
             Prelude.<*> (x Data..:? "ListUpdateToken")
-            Prelude.<*> ( x Data..:? "PreviousProtocolsList"
+            Prelude.<*> ( x
+                            Data..:? "PreviousProtocolsList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "ListName")
@@ -140,7 +141,8 @@ instance Data.FromJSON ProtocolsListData where
 
 instance Prelude.Hashable ProtocolsListData where
   hashWithSalt _salt ProtocolsListData' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` listId
       `Prelude.hashWithSalt` listUpdateToken

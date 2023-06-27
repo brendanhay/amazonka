@@ -19,7 +19,7 @@
 --
 -- Some API actions require explicit resource permissions. For information,
 -- see the developer guide topic
--- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html Firewall Manager required permissions for API actions>.
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service Service roles for Firewall Manager>.
 module Amazonka.FMS
   ( -- * Service Configuration
     defaultService,
@@ -123,6 +123,12 @@ module Amazonka.FMS
     GetAdminAccountResponse (GetAdminAccountResponse'),
     newGetAdminAccountResponse,
 
+    -- ** GetAdminScope
+    GetAdminScope (GetAdminScope'),
+    newGetAdminScope,
+    GetAdminScopeResponse (GetAdminScopeResponse'),
+    newGetAdminScopeResponse,
+
     -- ** GetAppsList
     GetAppsList (GetAppsList'),
     newGetAppsList,
@@ -176,6 +182,18 @@ module Amazonka.FMS
     newGetViolationDetails,
     GetViolationDetailsResponse (GetViolationDetailsResponse'),
     newGetViolationDetailsResponse,
+
+    -- ** ListAdminAccountsForOrganization (Paginated)
+    ListAdminAccountsForOrganization (ListAdminAccountsForOrganization'),
+    newListAdminAccountsForOrganization,
+    ListAdminAccountsForOrganizationResponse (ListAdminAccountsForOrganizationResponse'),
+    newListAdminAccountsForOrganizationResponse,
+
+    -- ** ListAdminsManagingAccount (Paginated)
+    ListAdminsManagingAccount (ListAdminsManagingAccount'),
+    newListAdminsManagingAccount,
+    ListAdminsManagingAccountResponse (ListAdminsManagingAccountResponse'),
+    newListAdminsManagingAccountResponse,
 
     -- ** ListAppsLists (Paginated)
     ListAppsLists (ListAppsLists'),
@@ -237,6 +255,12 @@ module Amazonka.FMS
     ListThirdPartyFirewallFirewallPoliciesResponse (ListThirdPartyFirewallFirewallPoliciesResponse'),
     newListThirdPartyFirewallFirewallPoliciesResponse,
 
+    -- ** PutAdminAccount
+    PutAdminAccount (PutAdminAccount'),
+    newPutAdminAccount,
+    PutAdminAccountResponse (PutAdminAccountResponse'),
+    newPutAdminAccountResponse,
+
     -- ** PutAppsList
     PutAppsList (PutAppsList'),
     newPutAppsList,
@@ -287,6 +311,9 @@ module Amazonka.FMS
     -- ** CustomerPolicyScopeIdType
     CustomerPolicyScopeIdType (..),
 
+    -- ** CustomerPolicyStatus
+    CustomerPolicyStatus (..),
+
     -- ** DependentServiceName
     DependentServiceName (..),
 
@@ -305,11 +332,17 @@ module Amazonka.FMS
     -- ** NetworkFirewallOverrideAction
     NetworkFirewallOverrideAction (..),
 
+    -- ** OrganizationStatus
+    OrganizationStatus (..),
+
     -- ** PolicyComplianceStatusType
     PolicyComplianceStatusType (..),
 
     -- ** RemediationActionType
     RemediationActionType (..),
+
+    -- ** ResourceSetStatus
+    ResourceSetStatus (..),
 
     -- ** RuleOrder
     RuleOrder (..),
@@ -329,9 +362,21 @@ module Amazonka.FMS
     -- ** ViolationReason
     ViolationReason (..),
 
+    -- ** AccountScope
+    AccountScope (AccountScope'),
+    newAccountScope,
+
     -- ** ActionTarget
     ActionTarget (ActionTarget'),
     newActionTarget,
+
+    -- ** AdminAccountSummary
+    AdminAccountSummary (AdminAccountSummary'),
+    newAdminAccountSummary,
+
+    -- ** AdminScope
+    AdminScope (AdminScope'),
+    newAdminScope,
 
     -- ** App
     App (App'),
@@ -481,6 +526,10 @@ module Amazonka.FMS
     NetworkFirewallUnexpectedGatewayRoutesViolation (NetworkFirewallUnexpectedGatewayRoutesViolation'),
     newNetworkFirewallUnexpectedGatewayRoutesViolation,
 
+    -- ** OrganizationalUnitScope
+    OrganizationalUnitScope (OrganizationalUnitScope'),
+    newOrganizationalUnitScope,
+
     -- ** PartialMatch
     PartialMatch (PartialMatch'),
     newPartialMatch,
@@ -505,6 +554,10 @@ module Amazonka.FMS
     PolicySummary (PolicySummary'),
     newPolicySummary,
 
+    -- ** PolicyTypeScope
+    PolicyTypeScope (PolicyTypeScope'),
+    newPolicyTypeScope,
+
     -- ** PossibleRemediationAction
     PossibleRemediationAction (PossibleRemediationAction'),
     newPossibleRemediationAction,
@@ -520,6 +573,10 @@ module Amazonka.FMS
     -- ** ProtocolsListDataSummary
     ProtocolsListDataSummary (ProtocolsListDataSummary'),
     newProtocolsListDataSummary,
+
+    -- ** RegionScope
+    RegionScope (RegionScope'),
+    newRegionScope,
 
     -- ** RemediationAction
     RemediationAction (RemediationAction'),
@@ -623,6 +680,7 @@ import Amazonka.FMS.DeleteResourceSet
 import Amazonka.FMS.DisassociateAdminAccount
 import Amazonka.FMS.DisassociateThirdPartyFirewall
 import Amazonka.FMS.GetAdminAccount
+import Amazonka.FMS.GetAdminScope
 import Amazonka.FMS.GetAppsList
 import Amazonka.FMS.GetComplianceDetail
 import Amazonka.FMS.GetNotificationChannel
@@ -633,6 +691,8 @@ import Amazonka.FMS.GetResourceSet
 import Amazonka.FMS.GetThirdPartyFirewallAssociationStatus
 import Amazonka.FMS.GetViolationDetails
 import Amazonka.FMS.Lens
+import Amazonka.FMS.ListAdminAccountsForOrganization
+import Amazonka.FMS.ListAdminsManagingAccount
 import Amazonka.FMS.ListAppsLists
 import Amazonka.FMS.ListComplianceStatus
 import Amazonka.FMS.ListDiscoveredResources
@@ -643,6 +703,7 @@ import Amazonka.FMS.ListResourceSetResources
 import Amazonka.FMS.ListResourceSets
 import Amazonka.FMS.ListTagsForResource
 import Amazonka.FMS.ListThirdPartyFirewallFirewallPolicies
+import Amazonka.FMS.PutAdminAccount
 import Amazonka.FMS.PutAppsList
 import Amazonka.FMS.PutNotificationChannel
 import Amazonka.FMS.PutPolicy

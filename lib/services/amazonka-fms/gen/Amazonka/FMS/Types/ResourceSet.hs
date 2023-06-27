@@ -22,6 +22,7 @@ module Amazonka.FMS.Types.ResourceSet where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.FMS.Types.ResourceSetStatus
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of resources to include in a policy.
@@ -36,6 +37,16 @@ data ResourceSet = ResourceSet'
     id :: Prelude.Maybe Prelude.Text,
     -- | The last time that the resource set was changed.
     lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | Indicates whether the resource set is in or out of an admin\'s Region
+    -- scope.
+    --
+    -- -   @ACTIVE@ - The administrator can manage and delete the resource set.
+    --
+    -- -   @OUT_OF_ADMIN_SCOPE@ - The administrator can view the resource set,
+    --     but they can\'t edit or delete the resource set. Existing
+    --     protections stay in place. Any new resource that come into scope of
+    --     the resource set won\'t be protected.
+    resourceSetStatus :: Prelude.Maybe ResourceSetStatus,
     -- | An optional token that you can use for optimistic locking. Firewall
     -- Manager returns a token to your requests that access the resource set.
     -- The token marks the state of the resource set resource at the time of
@@ -82,6 +93,16 @@ data ResourceSet = ResourceSet'
 --
 -- 'lastUpdateTime', 'resourceSet_lastUpdateTime' - The last time that the resource set was changed.
 --
+-- 'resourceSetStatus', 'resourceSet_resourceSetStatus' - Indicates whether the resource set is in or out of an admin\'s Region
+-- scope.
+--
+-- -   @ACTIVE@ - The administrator can manage and delete the resource set.
+--
+-- -   @OUT_OF_ADMIN_SCOPE@ - The administrator can view the resource set,
+--     but they can\'t edit or delete the resource set. Existing
+--     protections stay in place. Any new resource that come into scope of
+--     the resource set won\'t be protected.
+--
 -- 'updateToken', 'resourceSet_updateToken' - An optional token that you can use for optimistic locking. Firewall
 -- Manager returns a token to your requests that access the resource set.
 -- The token marks the state of the resource set resource at the time of
@@ -117,6 +138,7 @@ newResourceSet pName_ =
     { description = Prelude.Nothing,
       id = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing,
+      resourceSetStatus = Prelude.Nothing,
       updateToken = Prelude.Nothing,
       name = pName_,
       resourceTypeList = Prelude.mempty
@@ -135,6 +157,18 @@ resourceSet_id = Lens.lens (\ResourceSet' {id} -> id) (\s@ResourceSet' {} a -> s
 -- | The last time that the resource set was changed.
 resourceSet_lastUpdateTime :: Lens.Lens' ResourceSet (Prelude.Maybe Prelude.UTCTime)
 resourceSet_lastUpdateTime = Lens.lens (\ResourceSet' {lastUpdateTime} -> lastUpdateTime) (\s@ResourceSet' {} a -> s {lastUpdateTime = a} :: ResourceSet) Prelude.. Lens.mapping Data._Time
+
+-- | Indicates whether the resource set is in or out of an admin\'s Region
+-- scope.
+--
+-- -   @ACTIVE@ - The administrator can manage and delete the resource set.
+--
+-- -   @OUT_OF_ADMIN_SCOPE@ - The administrator can view the resource set,
+--     but they can\'t edit or delete the resource set. Existing
+--     protections stay in place. Any new resource that come into scope of
+--     the resource set won\'t be protected.
+resourceSet_resourceSetStatus :: Lens.Lens' ResourceSet (Prelude.Maybe ResourceSetStatus)
+resourceSet_resourceSetStatus = Lens.lens (\ResourceSet' {resourceSetStatus} -> resourceSetStatus) (\s@ResourceSet' {} a -> s {resourceSetStatus = a} :: ResourceSet)
 
 -- | An optional token that you can use for optimistic locking. Firewall
 -- Manager returns a token to your requests that access the resource set.
@@ -178,18 +212,22 @@ instance Data.FromJSON ResourceSet where
             Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..:? "ResourceSetStatus")
             Prelude.<*> (x Data..:? "UpdateToken")
             Prelude.<*> (x Data..: "Name")
-            Prelude.<*> ( x Data..:? "ResourceTypeList"
+            Prelude.<*> ( x
+                            Data..:? "ResourceTypeList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ResourceSet where
   hashWithSalt _salt ResourceSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` resourceSetStatus
       `Prelude.hashWithSalt` updateToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceTypeList
@@ -199,6 +237,7 @@ instance Prelude.NFData ResourceSet where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf resourceSetStatus
       `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceTypeList
@@ -211,6 +250,8 @@ instance Data.ToJSON ResourceSet where
             ("Id" Data..=) Prelude.<$> id,
             ("LastUpdateTime" Data..=)
               Prelude.<$> lastUpdateTime,
+            ("ResourceSetStatus" Data..=)
+              Prelude.<$> resourceSetStatus,
             ("UpdateToken" Data..=) Prelude.<$> updateToken,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just

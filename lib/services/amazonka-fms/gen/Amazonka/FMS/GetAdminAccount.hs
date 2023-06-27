@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the Organizations account that is associated with Firewall
--- Manager as the Firewall Manager administrator.
+-- Manager as the Firewall Manager default administrator.
 module Amazonka.FMS.GetAdminAccount
   ( -- * Creating a Request
     GetAdminAccount (..),
@@ -108,11 +108,10 @@ instance Data.ToQuery GetAdminAccount where
 
 -- | /See:/ 'newGetAdminAccountResponse' smart constructor.
 data GetAdminAccountResponse = GetAdminAccountResponse'
-  { -- | The Amazon Web Services account that is set as the Firewall Manager
-    -- administrator.
+  { -- | The account that is set as the Firewall Manager default administrator.
     adminAccount :: Prelude.Maybe Prelude.Text,
-    -- | The status of the Amazon Web Services account that you set as the
-    -- Firewall Manager administrator.
+    -- | The status of the account that you set as the Firewall Manager default
+    -- administrator.
     roleStatus :: Prelude.Maybe AccountRoleStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -127,11 +126,10 @@ data GetAdminAccountResponse = GetAdminAccountResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adminAccount', 'getAdminAccountResponse_adminAccount' - The Amazon Web Services account that is set as the Firewall Manager
--- administrator.
+-- 'adminAccount', 'getAdminAccountResponse_adminAccount' - The account that is set as the Firewall Manager default administrator.
 --
--- 'roleStatus', 'getAdminAccountResponse_roleStatus' - The status of the Amazon Web Services account that you set as the
--- Firewall Manager administrator.
+-- 'roleStatus', 'getAdminAccountResponse_roleStatus' - The status of the account that you set as the Firewall Manager default
+-- administrator.
 --
 -- 'httpStatus', 'getAdminAccountResponse_httpStatus' - The response's http status code.
 newGetAdminAccountResponse ::
@@ -146,13 +144,12 @@ newGetAdminAccountResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Web Services account that is set as the Firewall Manager
--- administrator.
+-- | The account that is set as the Firewall Manager default administrator.
 getAdminAccountResponse_adminAccount :: Lens.Lens' GetAdminAccountResponse (Prelude.Maybe Prelude.Text)
 getAdminAccountResponse_adminAccount = Lens.lens (\GetAdminAccountResponse' {adminAccount} -> adminAccount) (\s@GetAdminAccountResponse' {} a -> s {adminAccount = a} :: GetAdminAccountResponse)
 
--- | The status of the Amazon Web Services account that you set as the
--- Firewall Manager administrator.
+-- | The status of the account that you set as the Firewall Manager default
+-- administrator.
 getAdminAccountResponse_roleStatus :: Lens.Lens' GetAdminAccountResponse (Prelude.Maybe AccountRoleStatus)
 getAdminAccountResponse_roleStatus = Lens.lens (\GetAdminAccountResponse' {roleStatus} -> roleStatus) (\s@GetAdminAccountResponse' {} a -> s {roleStatus = a} :: GetAdminAccountResponse)
 

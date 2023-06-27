@@ -45,8 +45,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteResourceSet' smart constructor.
 data DeleteResourceSet = DeleteResourceSet'
-  { -- | A unique identifier for the resource set, used in a TODO to refer to the
-    -- resource set.
+  { -- | A unique identifier for the resource set, used in a request to refer to
+    -- the resource set.
     identifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,8 +59,8 @@ data DeleteResourceSet = DeleteResourceSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identifier', 'deleteResourceSet_identifier' - A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- 'identifier', 'deleteResourceSet_identifier' - A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 newDeleteResourceSet ::
   -- | 'identifier'
   Prelude.Text ->
@@ -68,8 +68,8 @@ newDeleteResourceSet ::
 newDeleteResourceSet pIdentifier_ =
   DeleteResourceSet' {identifier = pIdentifier_}
 
--- | A unique identifier for the resource set, used in a TODO to refer to the
--- resource set.
+-- | A unique identifier for the resource set, used in a request to refer to
+-- the resource set.
 deleteResourceSet_identifier :: Lens.Lens' DeleteResourceSet Prelude.Text
 deleteResourceSet_identifier = Lens.lens (\DeleteResourceSet' {identifier} -> identifier) (\s@DeleteResourceSet' {} a -> s {identifier = a} :: DeleteResourceSet)
 

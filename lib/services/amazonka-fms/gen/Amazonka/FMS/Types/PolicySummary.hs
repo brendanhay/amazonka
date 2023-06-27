@@ -22,6 +22,7 @@ module Amazonka.FMS.Types.PolicySummary where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.FMS.Types.CustomerPolicyStatus
 import Amazonka.FMS.Types.SecurityServiceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -48,6 +49,16 @@ data PolicySummary = PolicySummary'
     policyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the specified policy.
     policyName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the policy is in or out of an admin\'s policy or
+    -- Region scope.
+    --
+    -- -   @ACTIVE@ - The administrator can manage and delete the policy.
+    --
+    -- -   @OUT_OF_ADMIN_SCOPE@ - The administrator can view the policy, but
+    --     they can\'t edit or delete the policy. Existing policy protections
+    --     stay in place. Any new resources that come into scope of the policy
+    --     won\'t be protected.
+    policyStatus :: Prelude.Maybe CustomerPolicyStatus,
     -- | Indicates if the policy should be automatically applied to new
     -- resources.
     remediationEnabled :: Prelude.Maybe Prelude.Bool,
@@ -98,6 +109,16 @@ data PolicySummary = PolicySummary'
 --
 -- 'policyName', 'policySummary_policyName' - The name of the specified policy.
 --
+-- 'policyStatus', 'policySummary_policyStatus' - Indicates whether the policy is in or out of an admin\'s policy or
+-- Region scope.
+--
+-- -   @ACTIVE@ - The administrator can manage and delete the policy.
+--
+-- -   @OUT_OF_ADMIN_SCOPE@ - The administrator can view the policy, but
+--     they can\'t edit or delete the policy. Existing policy protections
+--     stay in place. Any new resources that come into scope of the policy
+--     won\'t be protected.
+--
 -- 'remediationEnabled', 'policySummary_remediationEnabled' - Indicates if the policy should be automatically applied to new
 -- resources.
 --
@@ -126,6 +147,7 @@ newPolicySummary =
       policyArn = Prelude.Nothing,
       policyId = Prelude.Nothing,
       policyName = Prelude.Nothing,
+      policyStatus = Prelude.Nothing,
       remediationEnabled = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       securityServiceType = Prelude.Nothing
@@ -157,6 +179,18 @@ policySummary_policyId = Lens.lens (\PolicySummary' {policyId} -> policyId) (\s@
 -- | The name of the specified policy.
 policySummary_policyName :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
 policySummary_policyName = Lens.lens (\PolicySummary' {policyName} -> policyName) (\s@PolicySummary' {} a -> s {policyName = a} :: PolicySummary)
+
+-- | Indicates whether the policy is in or out of an admin\'s policy or
+-- Region scope.
+--
+-- -   @ACTIVE@ - The administrator can manage and delete the policy.
+--
+-- -   @OUT_OF_ADMIN_SCOPE@ - The administrator can view the policy, but
+--     they can\'t edit or delete the policy. Existing policy protections
+--     stay in place. Any new resources that come into scope of the policy
+--     won\'t be protected.
+policySummary_policyStatus :: Lens.Lens' PolicySummary (Prelude.Maybe CustomerPolicyStatus)
+policySummary_policyStatus = Lens.lens (\PolicySummary' {policyStatus} -> policyStatus) (\s@PolicySummary' {} a -> s {policyStatus = a} :: PolicySummary)
 
 -- | Indicates if the policy should be automatically applied to new
 -- resources.
@@ -194,6 +228,7 @@ instance Data.FromJSON PolicySummary where
             Prelude.<*> (x Data..:? "PolicyArn")
             Prelude.<*> (x Data..:? "PolicyId")
             Prelude.<*> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "PolicyStatus")
             Prelude.<*> (x Data..:? "RemediationEnabled")
             Prelude.<*> (x Data..:? "ResourceType")
             Prelude.<*> (x Data..:? "SecurityServiceType")
@@ -206,6 +241,7 @@ instance Prelude.Hashable PolicySummary where
       `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyStatus
       `Prelude.hashWithSalt` remediationEnabled
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` securityServiceType
@@ -216,6 +252,7 @@ instance Prelude.NFData PolicySummary where
       `Prelude.seq` Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf policyId
       `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyStatus
       `Prelude.seq` Prelude.rnf remediationEnabled
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf securityServiceType

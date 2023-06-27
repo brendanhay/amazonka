@@ -31,6 +31,9 @@ module Amazonka.FMS.Types
     -- * CustomerPolicyScopeIdType
     CustomerPolicyScopeIdType (..),
 
+    -- * CustomerPolicyStatus
+    CustomerPolicyStatus (..),
+
     -- * DependentServiceName
     DependentServiceName (..),
 
@@ -49,11 +52,17 @@ module Amazonka.FMS.Types
     -- * NetworkFirewallOverrideAction
     NetworkFirewallOverrideAction (..),
 
+    -- * OrganizationStatus
+    OrganizationStatus (..),
+
     -- * PolicyComplianceStatusType
     PolicyComplianceStatusType (..),
 
     -- * RemediationActionType
     RemediationActionType (..),
+
+    -- * ResourceSetStatus
+    ResourceSetStatus (..),
 
     -- * RuleOrder
     RuleOrder (..),
@@ -73,11 +82,33 @@ module Amazonka.FMS.Types
     -- * ViolationReason
     ViolationReason (..),
 
+    -- * AccountScope
+    AccountScope (..),
+    newAccountScope,
+    accountScope_accounts,
+    accountScope_allAccountsEnabled,
+    accountScope_excludeSpecifiedAccounts,
+
     -- * ActionTarget
     ActionTarget (..),
     newActionTarget,
     actionTarget_description,
     actionTarget_resourceId,
+
+    -- * AdminAccountSummary
+    AdminAccountSummary (..),
+    newAdminAccountSummary,
+    adminAccountSummary_adminAccount,
+    adminAccountSummary_defaultAdmin,
+    adminAccountSummary_status,
+
+    -- * AdminScope
+    AdminScope (..),
+    newAdminScope,
+    adminScope_accountScope,
+    adminScope_organizationalUnitScope,
+    adminScope_policyTypeScope,
+    adminScope_regionScope,
 
     -- * App
     App (..),
@@ -391,6 +422,13 @@ module Amazonka.FMS.Types
     networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes,
     networkFirewallUnexpectedGatewayRoutesViolation_vpcId,
 
+    -- * OrganizationalUnitScope
+    OrganizationalUnitScope (..),
+    newOrganizationalUnitScope,
+    organizationalUnitScope_allOrganizationalUnitsEnabled,
+    organizationalUnitScope_excludeSpecifiedOrganizationalUnits,
+    organizationalUnitScope_organizationalUnits,
+
     -- * PartialMatch
     PartialMatch (..),
     newPartialMatch,
@@ -405,6 +443,7 @@ module Amazonka.FMS.Types
     policy_includeMap,
     policy_policyDescription,
     policy_policyId,
+    policy_policyStatus,
     policy_policyUpdateToken,
     policy_resourceSetIds,
     policy_resourceTags,
@@ -450,9 +489,16 @@ module Amazonka.FMS.Types
     policySummary_policyArn,
     policySummary_policyId,
     policySummary_policyName,
+    policySummary_policyStatus,
     policySummary_remediationEnabled,
     policySummary_resourceType,
     policySummary_securityServiceType,
+
+    -- * PolicyTypeScope
+    PolicyTypeScope (..),
+    newPolicyTypeScope,
+    policyTypeScope_allPolicyTypesEnabled,
+    policyTypeScope_policyTypes,
 
     -- * PossibleRemediationAction
     PossibleRemediationAction (..),
@@ -486,6 +532,12 @@ module Amazonka.FMS.Types
     protocolsListDataSummary_listName,
     protocolsListDataSummary_protocolsList,
 
+    -- * RegionScope
+    RegionScope (..),
+    newRegionScope,
+    regionScope_allRegionsEnabled,
+    regionScope_regions,
+
     -- * RemediationAction
     RemediationAction (..),
     newRemediationAction,
@@ -517,6 +569,7 @@ module Amazonka.FMS.Types
     resourceSet_description,
     resourceSet_id,
     resourceSet_lastUpdateTime,
+    resourceSet_resourceSetStatus,
     resourceSet_updateToken,
     resourceSet_name,
     resourceSet_resourceTypeList,
@@ -528,6 +581,7 @@ module Amazonka.FMS.Types
     resourceSetSummary_id,
     resourceSetSummary_lastUpdateTime,
     resourceSetSummary_name,
+    resourceSetSummary_resourceSetStatus,
 
     -- * ResourceTag
     ResourceTag (..),
@@ -689,7 +743,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.FMS.Types.AccountRoleStatus
+import Amazonka.FMS.Types.AccountScope
 import Amazonka.FMS.Types.ActionTarget
+import Amazonka.FMS.Types.AdminAccountSummary
+import Amazonka.FMS.Types.AdminScope
 import Amazonka.FMS.Types.App
 import Amazonka.FMS.Types.AppsListData
 import Amazonka.FMS.Types.AppsListDataSummary
@@ -698,6 +755,7 @@ import Amazonka.FMS.Types.AwsEc2NetworkInterfaceViolation
 import Amazonka.FMS.Types.AwsVPCSecurityGroupViolation
 import Amazonka.FMS.Types.ComplianceViolator
 import Amazonka.FMS.Types.CustomerPolicyScopeIdType
+import Amazonka.FMS.Types.CustomerPolicyStatus
 import Amazonka.FMS.Types.DependentServiceName
 import Amazonka.FMS.Types.DestinationType
 import Amazonka.FMS.Types.DiscoveredResource
@@ -734,6 +792,8 @@ import Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation
 import Amazonka.FMS.Types.NetworkFirewallStatefulRuleGroupOverride
 import Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
 import Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
+import Amazonka.FMS.Types.OrganizationStatus
+import Amazonka.FMS.Types.OrganizationalUnitScope
 import Amazonka.FMS.Types.PartialMatch
 import Amazonka.FMS.Types.Policy
 import Amazonka.FMS.Types.PolicyComplianceDetail
@@ -741,15 +801,18 @@ import Amazonka.FMS.Types.PolicyComplianceStatus
 import Amazonka.FMS.Types.PolicyComplianceStatusType
 import Amazonka.FMS.Types.PolicyOption
 import Amazonka.FMS.Types.PolicySummary
+import Amazonka.FMS.Types.PolicyTypeScope
 import Amazonka.FMS.Types.PossibleRemediationAction
 import Amazonka.FMS.Types.PossibleRemediationActions
 import Amazonka.FMS.Types.ProtocolsListData
 import Amazonka.FMS.Types.ProtocolsListDataSummary
+import Amazonka.FMS.Types.RegionScope
 import Amazonka.FMS.Types.RemediationAction
 import Amazonka.FMS.Types.RemediationActionType
 import Amazonka.FMS.Types.RemediationActionWithOrder
 import Amazonka.FMS.Types.Resource
 import Amazonka.FMS.Types.ResourceSet
+import Amazonka.FMS.Types.ResourceSetStatus
 import Amazonka.FMS.Types.ResourceSetSummary
 import Amazonka.FMS.Types.ResourceTag
 import Amazonka.FMS.Types.ResourceViolation
@@ -803,60 +866,60 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The operation failed because of a system problem, even though the
 -- request was valid. Retry your request.
-_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
     "InternalErrorException"
 
 -- | The parameters of the request were invalid.
-_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -869,14 +932,14 @@ _InvalidInputException =
 -- a Region that\'s disabled by default, and that you need to enable for
 -- the Firewall Manager administrator account and for Organizations before
 -- you can access it.
-_InvalidOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidOperationException =
   Core._MatchServiceError
     defaultService
     "InvalidOperationException"
 
 -- | The value of the @Type@ parameter is invalid.
-_InvalidTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTypeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTypeException =
   Core._MatchServiceError
     defaultService
@@ -887,14 +950,14 @@ _InvalidTypeException =
 -- account. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html Firewall Manager Limits>
 -- in the /WAF Developer Guide/.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

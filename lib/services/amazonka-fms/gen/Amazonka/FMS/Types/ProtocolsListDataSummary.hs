@@ -95,7 +95,8 @@ instance Data.FromJSON ProtocolsListDataSummary where
 
 instance Prelude.Hashable ProtocolsListDataSummary where
   hashWithSalt _salt ProtocolsListDataSummary' {..} =
-    _salt `Prelude.hashWithSalt` listArn
+    _salt
+      `Prelude.hashWithSalt` listArn
       `Prelude.hashWithSalt` listId
       `Prelude.hashWithSalt` listName
       `Prelude.hashWithSalt` protocolsList

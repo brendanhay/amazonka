@@ -32,7 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data ClassificationScopeSummary = ClassificationScopeSummary'
   { -- | The unique identifier for the classification scope.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the classification scope.
+    -- | The name of the classification scope:
+    -- automated-sensitive-data-discovery.
     name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +48,8 @@ data ClassificationScopeSummary = ClassificationScopeSummary'
 --
 -- 'id', 'classificationScopeSummary_id' - The unique identifier for the classification scope.
 --
--- 'name', 'classificationScopeSummary_name' - The name of the classification scope.
+-- 'name', 'classificationScopeSummary_name' - The name of the classification scope:
+-- automated-sensitive-data-discovery.
 newClassificationScopeSummary ::
   ClassificationScopeSummary
 newClassificationScopeSummary =
@@ -60,7 +62,8 @@ newClassificationScopeSummary =
 classificationScopeSummary_id :: Lens.Lens' ClassificationScopeSummary (Prelude.Maybe Prelude.Text)
 classificationScopeSummary_id = Lens.lens (\ClassificationScopeSummary' {id} -> id) (\s@ClassificationScopeSummary' {} a -> s {id = a} :: ClassificationScopeSummary)
 
--- | The name of the classification scope.
+-- | The name of the classification scope:
+-- automated-sensitive-data-discovery.
 classificationScopeSummary_name :: Lens.Lens' ClassificationScopeSummary (Prelude.Maybe Prelude.Text)
 classificationScopeSummary_name = Lens.lens (\ClassificationScopeSummary' {name} -> name) (\s@ClassificationScopeSummary' {} a -> s {name = a} :: ClassificationScopeSummary)
 
@@ -70,12 +73,14 @@ instance Data.FromJSON ClassificationScopeSummary where
       "ClassificationScopeSummary"
       ( \x ->
           ClassificationScopeSummary'
-            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable ClassificationScopeSummary where
   hashWithSalt _salt ClassificationScopeSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ClassificationScopeSummary where

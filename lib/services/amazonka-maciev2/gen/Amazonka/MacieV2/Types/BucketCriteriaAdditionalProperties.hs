@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     BucketCriteriaAdditionalProperties' {..} =
-      _salt `Prelude.hashWithSalt` eq
+      _salt
+        `Prelude.hashWithSalt` eq
         `Prelude.hashWithSalt` gt
         `Prelude.hashWithSalt` gte
         `Prelude.hashWithSalt` lt

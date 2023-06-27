@@ -35,13 +35,18 @@ import Amazonka.MacieV2.Types.SharedAccess
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides statistical data and other information about an S3 bucket that
--- Amazon Macie monitors and analyzes for your account. If an error occurs
--- when Macie attempts to retrieve and process metadata from Amazon S3 for
--- the bucket and the bucket\'s objects, the value for the versioning
--- property is false and the value for most other properties is null. Key
--- exceptions are accountId, bucketArn, bucketCreatedAt, bucketName,
--- lastUpdated, and region. To identify the cause of the error, refer to
--- the errorCode and errorMessage values.
+-- Amazon Macie monitors and analyzes for your account. By default, object
+-- count and storage size values include data for object parts that are the
+-- result of incomplete multipart uploads. For more information, see
+-- <https://docs.aws.amazon.com/macie/latest/user/monitoring-s3-how-it-works.html How Macie monitors Amazon S3 data security>
+-- in the /Amazon Macie User Guide/.
+--
+-- If an error occurs when Macie attempts to retrieve and process metadata
+-- from Amazon S3 for the bucket or the bucket\'s objects, the value for
+-- the versioning property is false and the value for most other properties
+-- is null. Key exceptions are accountId, bucketArn, bucketCreatedAt,
+-- bucketName, lastUpdated, and region. To identify the cause of the error,
+-- refer to the errorCode and errorMessage values.
 --
 -- /See:/ 'newBucketMetadata' smart constructor.
 data BucketMetadata = BucketMetadata'
@@ -49,7 +54,7 @@ data BucketMetadata = BucketMetadata'
     -- bucket.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the bucket policy for the bucket requires server-side
-    -- encryption of objects when objects are uploaded to the bucket. Possible
+    -- encryption of objects when objects are added to the bucket. Possible
     -- values are:
     --
     -- -   FALSE - The bucket policy requires server-side encryption of new
@@ -71,8 +76,8 @@ data BucketMetadata = BucketMetadata'
     -- | The Amazon Resource Name (ARN) of the bucket.
     bucketArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the bucket
-    -- was created, or changes such as edits to the bucket\'s policy were most
-    -- recently made to the bucket.
+    -- was created. This value can also indicate when changes such as edits to
+    -- the bucket\'s policy were most recently made to the bucket.
     bucketCreatedAt :: Prelude.Maybe Data.ISO8601,
     -- | The name of the bucket.
     bucketName :: Prelude.Maybe Prelude.Text,
@@ -89,10 +94,10 @@ data BucketMetadata = BucketMetadata'
     -- bucket. This value doesn\'t reflect the storage size of all versions of
     -- each applicable object in the bucket.
     classifiableSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | Specifies the error code for an error that prevented Amazon Macie from
-    -- retrieving and processing information about the bucket and the bucket\'s
-    -- objects. If this value is ACCESS_DENIED, Macie doesn\'t have permission
-    -- to retrieve the information. For example, the bucket has a restrictive
+    -- | The error code for an error that prevented Amazon Macie from retrieving
+    -- and processing information about the bucket and the bucket\'s objects.
+    -- If this value is ACCESS_DENIED, Macie doesn\'t have permission to
+    -- retrieve the information. For example, the bucket has a restrictive
     -- bucket policy and Amazon S3 denied the request. If this value is null,
     -- Macie was able to retrieve and process the information.
     errorCode :: Prelude.Maybe BucketMetadataErrorCode,
@@ -106,20 +111,20 @@ data BucketMetadata = BucketMetadata'
     -- job that ran most recently.
     jobDetails :: Prelude.Maybe JobDetails,
     -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
-    -- Macie most recently performed automated sensitive data discovery for the
-    -- bucket. This value is null if automated sensitive data discovery is
-    -- currently disabled for your account.
+    -- Macie most recently analyzed data in the bucket while performing
+    -- automated sensitive data discovery for your account. This value is null
+    -- if automated sensitive data discovery is currently disabled for your
+    -- account.
     lastAutomatedDiscoveryTime :: Prelude.Maybe Data.ISO8601,
     -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
-    -- Macie most recently retrieved both bucket and object metadata from
-    -- Amazon S3 for the bucket.
+    -- Macie most recently retrieved bucket or object metadata from Amazon S3
+    -- for the bucket.
     lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The total number of objects in the bucket.
     objectCount :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of objects that are in the bucket, grouped by
-    -- server-side encryption type. This includes a grouping that reports the
-    -- total number of objects that aren\'t encrypted or use client-side
-    -- encryption.
+    -- | The total number of objects in the bucket, grouped by server-side
+    -- encryption type. This includes a grouping that reports the total number
+    -- of objects that aren\'t encrypted or use client-side encryption.
     objectCountByEncryptionType :: Prelude.Maybe ObjectCountByEncryptionType,
     -- | Specifies whether the bucket is publicly accessible due to the
     -- combination of permissions settings that apply to the bucket, and
@@ -131,27 +136,34 @@ data BucketMetadata = BucketMetadata'
     -- objects to buckets for other Amazon Web Services accounts and, if so,
     -- which accounts.
     replicationDetails :: Prelude.Maybe ReplicationDetails,
-    -- | The sensitivity score for the bucket, ranging from -1 (no analysis due
-    -- to an error) to 100 (sensitive). This value is null if automated
-    -- sensitive data discovery is currently disabled for your account.
+    -- | The sensitivity score for the bucket, ranging from -1 (classification
+    -- error) to 100 (sensitive). This value is null if automated sensitive
+    -- data discovery is currently disabled for your account.
     sensitivityScore :: Prelude.Maybe Prelude.Int,
-    -- | Specifies whether the bucket encrypts new objects by default and, if so,
-    -- the type of server-side encryption that\'s used.
+    -- | The default server-side encryption settings for the bucket.
     serverSideEncryption :: Prelude.Maybe BucketServerSideEncryption,
     -- | Specifies whether the bucket is shared with another Amazon Web Services
-    -- account. Possible values are:
+    -- account, an Amazon CloudFront origin access identity (OAI), or a
+    -- CloudFront origin access control (OAC). Possible values are:
     --
-    -- -   EXTERNAL - The bucket is shared with an Amazon Web Services account
-    --     that isn\'t part of the same Amazon Macie organization.
+    -- -   EXTERNAL - The bucket is shared with one or more of the following or
+    --     any combination of the following: a CloudFront OAI, a CloudFront
+    --     OAC, or an Amazon Web Services account that isn\'t part of your
+    --     Amazon Macie organization.
     --
-    -- -   INTERNAL - The bucket is shared with an Amazon Web Services account
-    --     that\'s part of the same Amazon Macie organization.
+    -- -   INTERNAL - The bucket is shared with one or more Amazon Web Services
+    --     accounts that are part of your Amazon Macie organization. It isn\'t
+    --     shared with a CloudFront OAI or OAC.
     --
-    -- -   NOT_SHARED - The bucket isn\'t shared with other Amazon Web Services
-    --     accounts.
+    -- -   NOT_SHARED - The bucket isn\'t shared with another Amazon Web
+    --     Services account, a CloudFront OAI, or a CloudFront OAC.
     --
     -- -   UNKNOWN - Amazon Macie wasn\'t able to evaluate the shared access
     --     settings for the bucket.
+    --
+    -- An /Amazon Macie organization/ is a set of Macie accounts that are
+    -- centrally managed as a group of related accounts through Organizations
+    -- or by Macie invitation.
     sharedAccess :: Prelude.Maybe SharedAccess,
     -- | The total storage size, in bytes, of the bucket.
     --
@@ -197,7 +209,7 @@ data BucketMetadata = BucketMetadata'
 -- bucket.
 --
 -- 'allowsUnencryptedObjectUploads', 'bucketMetadata_allowsUnencryptedObjectUploads' - Specifies whether the bucket policy for the bucket requires server-side
--- encryption of objects when objects are uploaded to the bucket. Possible
+-- encryption of objects when objects are added to the bucket. Possible
 -- values are:
 --
 -- -   FALSE - The bucket policy requires server-side encryption of new
@@ -219,8 +231,8 @@ data BucketMetadata = BucketMetadata'
 -- 'bucketArn', 'bucketMetadata_bucketArn' - The Amazon Resource Name (ARN) of the bucket.
 --
 -- 'bucketCreatedAt', 'bucketMetadata_bucketCreatedAt' - The date and time, in UTC and extended ISO 8601 format, when the bucket
--- was created, or changes such as edits to the bucket\'s policy were most
--- recently made to the bucket.
+-- was created. This value can also indicate when changes such as edits to
+-- the bucket\'s policy were most recently made to the bucket.
 --
 -- 'bucketName', 'bucketMetadata_bucketName' - The name of the bucket.
 --
@@ -237,10 +249,10 @@ data BucketMetadata = BucketMetadata'
 -- bucket. This value doesn\'t reflect the storage size of all versions of
 -- each applicable object in the bucket.
 --
--- 'errorCode', 'bucketMetadata_errorCode' - Specifies the error code for an error that prevented Amazon Macie from
--- retrieving and processing information about the bucket and the bucket\'s
--- objects. If this value is ACCESS_DENIED, Macie doesn\'t have permission
--- to retrieve the information. For example, the bucket has a restrictive
+-- 'errorCode', 'bucketMetadata_errorCode' - The error code for an error that prevented Amazon Macie from retrieving
+-- and processing information about the bucket and the bucket\'s objects.
+-- If this value is ACCESS_DENIED, Macie doesn\'t have permission to
+-- retrieve the information. For example, the bucket has a restrictive
 -- bucket policy and Amazon S3 denied the request. If this value is null,
 -- Macie was able to retrieve and process the information.
 --
@@ -254,20 +266,20 @@ data BucketMetadata = BucketMetadata'
 -- job that ran most recently.
 --
 -- 'lastAutomatedDiscoveryTime', 'bucketMetadata_lastAutomatedDiscoveryTime' - The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently performed automated sensitive data discovery for the
--- bucket. This value is null if automated sensitive data discovery is
--- currently disabled for your account.
+-- Macie most recently analyzed data in the bucket while performing
+-- automated sensitive data discovery for your account. This value is null
+-- if automated sensitive data discovery is currently disabled for your
+-- account.
 --
 -- 'lastUpdated', 'bucketMetadata_lastUpdated' - The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently retrieved both bucket and object metadata from
--- Amazon S3 for the bucket.
+-- Macie most recently retrieved bucket or object metadata from Amazon S3
+-- for the bucket.
 --
 -- 'objectCount', 'bucketMetadata_objectCount' - The total number of objects in the bucket.
 --
--- 'objectCountByEncryptionType', 'bucketMetadata_objectCountByEncryptionType' - The total number of objects that are in the bucket, grouped by
--- server-side encryption type. This includes a grouping that reports the
--- total number of objects that aren\'t encrypted or use client-side
--- encryption.
+-- 'objectCountByEncryptionType', 'bucketMetadata_objectCountByEncryptionType' - The total number of objects in the bucket, grouped by server-side
+-- encryption type. This includes a grouping that reports the total number
+-- of objects that aren\'t encrypted or use client-side encryption.
 --
 -- 'publicAccess', 'bucketMetadata_publicAccess' - Specifies whether the bucket is publicly accessible due to the
 -- combination of permissions settings that apply to the bucket, and
@@ -279,27 +291,34 @@ data BucketMetadata = BucketMetadata'
 -- objects to buckets for other Amazon Web Services accounts and, if so,
 -- which accounts.
 --
--- 'sensitivityScore', 'bucketMetadata_sensitivityScore' - The sensitivity score for the bucket, ranging from -1 (no analysis due
--- to an error) to 100 (sensitive). This value is null if automated
--- sensitive data discovery is currently disabled for your account.
+-- 'sensitivityScore', 'bucketMetadata_sensitivityScore' - The sensitivity score for the bucket, ranging from -1 (classification
+-- error) to 100 (sensitive). This value is null if automated sensitive
+-- data discovery is currently disabled for your account.
 --
--- 'serverSideEncryption', 'bucketMetadata_serverSideEncryption' - Specifies whether the bucket encrypts new objects by default and, if so,
--- the type of server-side encryption that\'s used.
+-- 'serverSideEncryption', 'bucketMetadata_serverSideEncryption' - The default server-side encryption settings for the bucket.
 --
 -- 'sharedAccess', 'bucketMetadata_sharedAccess' - Specifies whether the bucket is shared with another Amazon Web Services
--- account. Possible values are:
+-- account, an Amazon CloudFront origin access identity (OAI), or a
+-- CloudFront origin access control (OAC). Possible values are:
 --
--- -   EXTERNAL - The bucket is shared with an Amazon Web Services account
---     that isn\'t part of the same Amazon Macie organization.
+-- -   EXTERNAL - The bucket is shared with one or more of the following or
+--     any combination of the following: a CloudFront OAI, a CloudFront
+--     OAC, or an Amazon Web Services account that isn\'t part of your
+--     Amazon Macie organization.
 --
--- -   INTERNAL - The bucket is shared with an Amazon Web Services account
---     that\'s part of the same Amazon Macie organization.
+-- -   INTERNAL - The bucket is shared with one or more Amazon Web Services
+--     accounts that are part of your Amazon Macie organization. It isn\'t
+--     shared with a CloudFront OAI or OAC.
 --
--- -   NOT_SHARED - The bucket isn\'t shared with other Amazon Web Services
---     accounts.
+-- -   NOT_SHARED - The bucket isn\'t shared with another Amazon Web
+--     Services account, a CloudFront OAI, or a CloudFront OAC.
 --
 -- -   UNKNOWN - Amazon Macie wasn\'t able to evaluate the shared access
 --     settings for the bucket.
+--
+-- An /Amazon Macie organization/ is a set of Macie accounts that are
+-- centrally managed as a group of related accounts through Organizations
+-- or by Macie invitation.
 --
 -- 'sizeInBytes', 'bucketMetadata_sizeInBytes' - The total storage size, in bytes, of the bucket.
 --
@@ -367,7 +386,7 @@ bucketMetadata_accountId :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.Tex
 bucketMetadata_accountId = Lens.lens (\BucketMetadata' {accountId} -> accountId) (\s@BucketMetadata' {} a -> s {accountId = a} :: BucketMetadata)
 
 -- | Specifies whether the bucket policy for the bucket requires server-side
--- encryption of objects when objects are uploaded to the bucket. Possible
+-- encryption of objects when objects are added to the bucket. Possible
 -- values are:
 --
 -- -   FALSE - The bucket policy requires server-side encryption of new
@@ -393,8 +412,8 @@ bucketMetadata_bucketArn :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.Tex
 bucketMetadata_bucketArn = Lens.lens (\BucketMetadata' {bucketArn} -> bucketArn) (\s@BucketMetadata' {} a -> s {bucketArn = a} :: BucketMetadata)
 
 -- | The date and time, in UTC and extended ISO 8601 format, when the bucket
--- was created, or changes such as edits to the bucket\'s policy were most
--- recently made to the bucket.
+-- was created. This value can also indicate when changes such as edits to
+-- the bucket\'s policy were most recently made to the bucket.
 bucketMetadata_bucketCreatedAt :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.UTCTime)
 bucketMetadata_bucketCreatedAt = Lens.lens (\BucketMetadata' {bucketCreatedAt} -> bucketCreatedAt) (\s@BucketMetadata' {} a -> s {bucketCreatedAt = a} :: BucketMetadata) Prelude.. Lens.mapping Data._Time
 
@@ -419,10 +438,10 @@ bucketMetadata_classifiableObjectCount = Lens.lens (\BucketMetadata' {classifiab
 bucketMetadata_classifiableSizeInBytes :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.Integer)
 bucketMetadata_classifiableSizeInBytes = Lens.lens (\BucketMetadata' {classifiableSizeInBytes} -> classifiableSizeInBytes) (\s@BucketMetadata' {} a -> s {classifiableSizeInBytes = a} :: BucketMetadata)
 
--- | Specifies the error code for an error that prevented Amazon Macie from
--- retrieving and processing information about the bucket and the bucket\'s
--- objects. If this value is ACCESS_DENIED, Macie doesn\'t have permission
--- to retrieve the information. For example, the bucket has a restrictive
+-- | The error code for an error that prevented Amazon Macie from retrieving
+-- and processing information about the bucket and the bucket\'s objects.
+-- If this value is ACCESS_DENIED, Macie doesn\'t have permission to
+-- retrieve the information. For example, the bucket has a restrictive
 -- bucket policy and Amazon S3 denied the request. If this value is null,
 -- Macie was able to retrieve and process the information.
 bucketMetadata_errorCode :: Lens.Lens' BucketMetadata (Prelude.Maybe BucketMetadataErrorCode)
@@ -442,15 +461,16 @@ bucketMetadata_jobDetails :: Lens.Lens' BucketMetadata (Prelude.Maybe JobDetails
 bucketMetadata_jobDetails = Lens.lens (\BucketMetadata' {jobDetails} -> jobDetails) (\s@BucketMetadata' {} a -> s {jobDetails = a} :: BucketMetadata)
 
 -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently performed automated sensitive data discovery for the
--- bucket. This value is null if automated sensitive data discovery is
--- currently disabled for your account.
+-- Macie most recently analyzed data in the bucket while performing
+-- automated sensitive data discovery for your account. This value is null
+-- if automated sensitive data discovery is currently disabled for your
+-- account.
 bucketMetadata_lastAutomatedDiscoveryTime :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.UTCTime)
 bucketMetadata_lastAutomatedDiscoveryTime = Lens.lens (\BucketMetadata' {lastAutomatedDiscoveryTime} -> lastAutomatedDiscoveryTime) (\s@BucketMetadata' {} a -> s {lastAutomatedDiscoveryTime = a} :: BucketMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently retrieved both bucket and object metadata from
--- Amazon S3 for the bucket.
+-- Macie most recently retrieved bucket or object metadata from Amazon S3
+-- for the bucket.
 bucketMetadata_lastUpdated :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.UTCTime)
 bucketMetadata_lastUpdated = Lens.lens (\BucketMetadata' {lastUpdated} -> lastUpdated) (\s@BucketMetadata' {} a -> s {lastUpdated = a} :: BucketMetadata) Prelude.. Lens.mapping Data._Time
 
@@ -458,10 +478,9 @@ bucketMetadata_lastUpdated = Lens.lens (\BucketMetadata' {lastUpdated} -> lastUp
 bucketMetadata_objectCount :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.Integer)
 bucketMetadata_objectCount = Lens.lens (\BucketMetadata' {objectCount} -> objectCount) (\s@BucketMetadata' {} a -> s {objectCount = a} :: BucketMetadata)
 
--- | The total number of objects that are in the bucket, grouped by
--- server-side encryption type. This includes a grouping that reports the
--- total number of objects that aren\'t encrypted or use client-side
--- encryption.
+-- | The total number of objects in the bucket, grouped by server-side
+-- encryption type. This includes a grouping that reports the total number
+-- of objects that aren\'t encrypted or use client-side encryption.
 bucketMetadata_objectCountByEncryptionType :: Lens.Lens' BucketMetadata (Prelude.Maybe ObjectCountByEncryptionType)
 bucketMetadata_objectCountByEncryptionType = Lens.lens (\BucketMetadata' {objectCountByEncryptionType} -> objectCountByEncryptionType) (\s@BucketMetadata' {} a -> s {objectCountByEncryptionType = a} :: BucketMetadata)
 
@@ -481,31 +500,38 @@ bucketMetadata_region = Lens.lens (\BucketMetadata' {region} -> region) (\s@Buck
 bucketMetadata_replicationDetails :: Lens.Lens' BucketMetadata (Prelude.Maybe ReplicationDetails)
 bucketMetadata_replicationDetails = Lens.lens (\BucketMetadata' {replicationDetails} -> replicationDetails) (\s@BucketMetadata' {} a -> s {replicationDetails = a} :: BucketMetadata)
 
--- | The sensitivity score for the bucket, ranging from -1 (no analysis due
--- to an error) to 100 (sensitive). This value is null if automated
--- sensitive data discovery is currently disabled for your account.
+-- | The sensitivity score for the bucket, ranging from -1 (classification
+-- error) to 100 (sensitive). This value is null if automated sensitive
+-- data discovery is currently disabled for your account.
 bucketMetadata_sensitivityScore :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.Int)
 bucketMetadata_sensitivityScore = Lens.lens (\BucketMetadata' {sensitivityScore} -> sensitivityScore) (\s@BucketMetadata' {} a -> s {sensitivityScore = a} :: BucketMetadata)
 
--- | Specifies whether the bucket encrypts new objects by default and, if so,
--- the type of server-side encryption that\'s used.
+-- | The default server-side encryption settings for the bucket.
 bucketMetadata_serverSideEncryption :: Lens.Lens' BucketMetadata (Prelude.Maybe BucketServerSideEncryption)
 bucketMetadata_serverSideEncryption = Lens.lens (\BucketMetadata' {serverSideEncryption} -> serverSideEncryption) (\s@BucketMetadata' {} a -> s {serverSideEncryption = a} :: BucketMetadata)
 
 -- | Specifies whether the bucket is shared with another Amazon Web Services
--- account. Possible values are:
+-- account, an Amazon CloudFront origin access identity (OAI), or a
+-- CloudFront origin access control (OAC). Possible values are:
 --
--- -   EXTERNAL - The bucket is shared with an Amazon Web Services account
---     that isn\'t part of the same Amazon Macie organization.
+-- -   EXTERNAL - The bucket is shared with one or more of the following or
+--     any combination of the following: a CloudFront OAI, a CloudFront
+--     OAC, or an Amazon Web Services account that isn\'t part of your
+--     Amazon Macie organization.
 --
--- -   INTERNAL - The bucket is shared with an Amazon Web Services account
---     that\'s part of the same Amazon Macie organization.
+-- -   INTERNAL - The bucket is shared with one or more Amazon Web Services
+--     accounts that are part of your Amazon Macie organization. It isn\'t
+--     shared with a CloudFront OAI or OAC.
 --
--- -   NOT_SHARED - The bucket isn\'t shared with other Amazon Web Services
---     accounts.
+-- -   NOT_SHARED - The bucket isn\'t shared with another Amazon Web
+--     Services account, a CloudFront OAI, or a CloudFront OAC.
 --
 -- -   UNKNOWN - Amazon Macie wasn\'t able to evaluate the shared access
 --     settings for the bucket.
+--
+-- An /Amazon Macie organization/ is a set of Macie accounts that are
+-- centrally managed as a group of related accounts through Organizations
+-- or by Macie invitation.
 bucketMetadata_sharedAccess :: Lens.Lens' BucketMetadata (Prelude.Maybe SharedAccess)
 bucketMetadata_sharedAccess = Lens.lens (\BucketMetadata' {sharedAccess} -> sharedAccess) (\s@BucketMetadata' {} a -> s {sharedAccess = a} :: BucketMetadata)
 
@@ -586,7 +612,8 @@ instance Data.FromJSON BucketMetadata where
 
 instance Prelude.Hashable BucketMetadata where
   hashWithSalt _salt BucketMetadata' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` allowsUnencryptedObjectUploads
       `Prelude.hashWithSalt` bucketArn
       `Prelude.hashWithSalt` bucketCreatedAt

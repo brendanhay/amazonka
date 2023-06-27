@@ -32,8 +32,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The type of server-side encryption that\'s used to encrypt an S3 object
--- or objects in an S3 bucket. Possible values are:
+-- | The server-side encryption algorithm that was used to encrypt an S3
+-- object or is used by default to encrypt objects that are added to an S3
+-- bucket. Possible values are:
 newtype EncryptionType = EncryptionType'
   { fromEncryptionType ::
       Data.Text

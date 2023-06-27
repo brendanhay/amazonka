@@ -106,7 +106,8 @@ instance Data.FromJSON IpOwner where
 
 instance Prelude.Hashable IpOwner where
   hashWithSalt _salt IpOwner' {..} =
-    _salt `Prelude.hashWithSalt` asn
+    _salt
+      `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` asnOrg
       `Prelude.hashWithSalt` isp
       `Prelude.hashWithSalt` org

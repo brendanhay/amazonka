@@ -77,7 +77,8 @@ listJobsFilterTerm_values = Lens.lens (\ListJobsFilterTerm' {values} -> values) 
 
 instance Prelude.Hashable ListJobsFilterTerm where
   hashWithSalt _salt ListJobsFilterTerm' {..} =
-    _salt `Prelude.hashWithSalt` comparator
+    _salt
+      `Prelude.hashWithSalt` comparator
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 

@@ -125,7 +125,8 @@ instance Data.ToQuery GetClassificationScope where
 data GetClassificationScopeResponse = GetClassificationScopeResponse'
   { -- | The unique identifier for the classification scope.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the classification scope.
+    -- | The name of the classification scope:
+    -- automated-sensitive-data-discovery.
     name :: Prelude.Maybe Prelude.Text,
     -- | The S3 buckets that are excluded from automated sensitive data
     -- discovery.
@@ -145,7 +146,8 @@ data GetClassificationScopeResponse = GetClassificationScopeResponse'
 --
 -- 'id', 'getClassificationScopeResponse_id' - The unique identifier for the classification scope.
 --
--- 'name', 'getClassificationScopeResponse_name' - The name of the classification scope.
+-- 'name', 'getClassificationScopeResponse_name' - The name of the classification scope:
+-- automated-sensitive-data-discovery.
 --
 -- 's3', 'getClassificationScopeResponse_s3' - The S3 buckets that are excluded from automated sensitive data
 -- discovery.
@@ -168,7 +170,8 @@ newGetClassificationScopeResponse pHttpStatus_ =
 getClassificationScopeResponse_id :: Lens.Lens' GetClassificationScopeResponse (Prelude.Maybe Prelude.Text)
 getClassificationScopeResponse_id = Lens.lens (\GetClassificationScopeResponse' {id} -> id) (\s@GetClassificationScopeResponse' {} a -> s {id = a} :: GetClassificationScopeResponse)
 
--- | The name of the classification scope.
+-- | The name of the classification scope:
+-- automated-sensitive-data-discovery.
 getClassificationScopeResponse_name :: Lens.Lens' GetClassificationScopeResponse (Prelude.Maybe Prelude.Text)
 getClassificationScopeResponse_name = Lens.lens (\GetClassificationScopeResponse' {name} -> name) (\s@GetClassificationScopeResponse' {} a -> s {name = a} :: GetClassificationScopeResponse)
 

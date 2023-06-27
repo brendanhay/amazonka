@@ -34,12 +34,14 @@ data ReplicationDetails = ReplicationDetails'
     -- objects to any destination.
     replicated :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the bucket is configured to replicate one or more
-    -- objects to an Amazon Web Services account that isn\'t part of the same
-    -- Amazon Macie organization.
+    -- objects to a bucket for an Amazon Web Services account that isn\'t part
+    -- of your Amazon Macie organization. An /Amazon Macie organization/ is a
+    -- set of Macie accounts that are centrally managed as a group of related
+    -- accounts through Organizations or by Macie invitation.
     replicatedExternally :: Prelude.Maybe Prelude.Bool,
     -- | An array of Amazon Web Services account IDs, one for each Amazon Web
-    -- Services account that the bucket is configured to replicate one or more
-    -- objects to.
+    -- Services account that owns a bucket that the bucket is configured to
+    -- replicate one or more objects to.
     replicationAccounts :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,12 +58,14 @@ data ReplicationDetails = ReplicationDetails'
 -- objects to any destination.
 --
 -- 'replicatedExternally', 'replicationDetails_replicatedExternally' - Specifies whether the bucket is configured to replicate one or more
--- objects to an Amazon Web Services account that isn\'t part of the same
--- Amazon Macie organization.
+-- objects to a bucket for an Amazon Web Services account that isn\'t part
+-- of your Amazon Macie organization. An /Amazon Macie organization/ is a
+-- set of Macie accounts that are centrally managed as a group of related
+-- accounts through Organizations or by Macie invitation.
 --
 -- 'replicationAccounts', 'replicationDetails_replicationAccounts' - An array of Amazon Web Services account IDs, one for each Amazon Web
--- Services account that the bucket is configured to replicate one or more
--- objects to.
+-- Services account that owns a bucket that the bucket is configured to
+-- replicate one or more objects to.
 newReplicationDetails ::
   ReplicationDetails
 newReplicationDetails =
@@ -77,14 +81,16 @@ replicationDetails_replicated :: Lens.Lens' ReplicationDetails (Prelude.Maybe Pr
 replicationDetails_replicated = Lens.lens (\ReplicationDetails' {replicated} -> replicated) (\s@ReplicationDetails' {} a -> s {replicated = a} :: ReplicationDetails)
 
 -- | Specifies whether the bucket is configured to replicate one or more
--- objects to an Amazon Web Services account that isn\'t part of the same
--- Amazon Macie organization.
+-- objects to a bucket for an Amazon Web Services account that isn\'t part
+-- of your Amazon Macie organization. An /Amazon Macie organization/ is a
+-- set of Macie accounts that are centrally managed as a group of related
+-- accounts through Organizations or by Macie invitation.
 replicationDetails_replicatedExternally :: Lens.Lens' ReplicationDetails (Prelude.Maybe Prelude.Bool)
 replicationDetails_replicatedExternally = Lens.lens (\ReplicationDetails' {replicatedExternally} -> replicatedExternally) (\s@ReplicationDetails' {} a -> s {replicatedExternally = a} :: ReplicationDetails)
 
 -- | An array of Amazon Web Services account IDs, one for each Amazon Web
--- Services account that the bucket is configured to replicate one or more
--- objects to.
+-- Services account that owns a bucket that the bucket is configured to
+-- replicate one or more objects to.
 replicationDetails_replicationAccounts :: Lens.Lens' ReplicationDetails (Prelude.Maybe [Prelude.Text])
 replicationDetails_replicationAccounts = Lens.lens (\ReplicationDetails' {replicationAccounts} -> replicationAccounts) (\s@ReplicationDetails' {} a -> s {replicationAccounts = a} :: ReplicationDetails) Prelude.. Lens.mapping Lens.coerced
 
@@ -96,14 +102,16 @@ instance Data.FromJSON ReplicationDetails where
           ReplicationDetails'
             Prelude.<$> (x Data..:? "replicated")
             Prelude.<*> (x Data..:? "replicatedExternally")
-            Prelude.<*> ( x Data..:? "replicationAccounts"
+            Prelude.<*> ( x
+                            Data..:? "replicationAccounts"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ReplicationDetails where
   hashWithSalt _salt ReplicationDetails' {..} =
-    _salt `Prelude.hashWithSalt` replicated
+    _salt
+      `Prelude.hashWithSalt` replicated
       `Prelude.hashWithSalt` replicatedExternally
       `Prelude.hashWithSalt` replicationAccounts
 

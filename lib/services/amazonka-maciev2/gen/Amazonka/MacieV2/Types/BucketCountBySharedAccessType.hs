@@ -25,22 +25,30 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of S3 buckets that are or aren\'t
--- shared with other Amazon Web Services accounts.
+-- shared with other Amazon Web Services accounts, Amazon CloudFront origin
+-- access identities (OAIs), or CloudFront origin access controls (OACs).
+-- In this data, an /Amazon Macie organization/ is defined as a set of
+-- Macie accounts that are centrally managed as a group of related accounts
+-- through Organizations or by Macie invitation.
 --
 -- /See:/ 'newBucketCountBySharedAccessType' smart constructor.
 data BucketCountBySharedAccessType = BucketCountBySharedAccessType'
-  { -- | The total number of buckets that are shared with an Amazon Web Services
-    -- account that isn\'t part of the same Amazon Macie organization.
+  { -- | The total number of buckets that are shared with one or more of the
+    -- following or any combination of the following: an Amazon CloudFront OAI,
+    -- a CloudFront OAC, or an Amazon Web Services account that isn\'t in the
+    -- same Amazon Macie organization.
     external :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that are shared with an Amazon Web Services
-    -- account that\'s part of the same Amazon Macie organization.
+    -- | The total number of buckets that are shared with one or more Amazon Web
+    -- Services accounts in the same Amazon Macie organization. These buckets
+    -- aren\'t shared with Amazon CloudFront OAIs or OACs.
     internal :: Prelude.Maybe Prelude.Integer,
     -- | The total number of buckets that aren\'t shared with other Amazon Web
-    -- Services accounts.
+    -- Services accounts, Amazon CloudFront OAIs, or CloudFront OACs.
     notShared :: Prelude.Maybe Prelude.Integer,
     -- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
     -- shared access settings for. Macie can\'t determine whether these buckets
-    -- are shared with other Amazon Web Services accounts.
+    -- are shared with other Amazon Web Services accounts, Amazon CloudFront
+    -- OAIs, or CloudFront OACs.
     unknown :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,18 +61,22 @@ data BucketCountBySharedAccessType = BucketCountBySharedAccessType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'external', 'bucketCountBySharedAccessType_external' - The total number of buckets that are shared with an Amazon Web Services
--- account that isn\'t part of the same Amazon Macie organization.
+-- 'external', 'bucketCountBySharedAccessType_external' - The total number of buckets that are shared with one or more of the
+-- following or any combination of the following: an Amazon CloudFront OAI,
+-- a CloudFront OAC, or an Amazon Web Services account that isn\'t in the
+-- same Amazon Macie organization.
 --
--- 'internal', 'bucketCountBySharedAccessType_internal' - The total number of buckets that are shared with an Amazon Web Services
--- account that\'s part of the same Amazon Macie organization.
+-- 'internal', 'bucketCountBySharedAccessType_internal' - The total number of buckets that are shared with one or more Amazon Web
+-- Services accounts in the same Amazon Macie organization. These buckets
+-- aren\'t shared with Amazon CloudFront OAIs or OACs.
 --
 -- 'notShared', 'bucketCountBySharedAccessType_notShared' - The total number of buckets that aren\'t shared with other Amazon Web
--- Services accounts.
+-- Services accounts, Amazon CloudFront OAIs, or CloudFront OACs.
 --
 -- 'unknown', 'bucketCountBySharedAccessType_unknown' - The total number of buckets that Amazon Macie wasn\'t able to evaluate
 -- shared access settings for. Macie can\'t determine whether these buckets
--- are shared with other Amazon Web Services accounts.
+-- are shared with other Amazon Web Services accounts, Amazon CloudFront
+-- OAIs, or CloudFront OACs.
 newBucketCountBySharedAccessType ::
   BucketCountBySharedAccessType
 newBucketCountBySharedAccessType =
@@ -76,24 +88,28 @@ newBucketCountBySharedAccessType =
       unknown = Prelude.Nothing
     }
 
--- | The total number of buckets that are shared with an Amazon Web Services
--- account that isn\'t part of the same Amazon Macie organization.
+-- | The total number of buckets that are shared with one or more of the
+-- following or any combination of the following: an Amazon CloudFront OAI,
+-- a CloudFront OAC, or an Amazon Web Services account that isn\'t in the
+-- same Amazon Macie organization.
 bucketCountBySharedAccessType_external :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
 bucketCountBySharedAccessType_external = Lens.lens (\BucketCountBySharedAccessType' {external} -> external) (\s@BucketCountBySharedAccessType' {} a -> s {external = a} :: BucketCountBySharedAccessType)
 
--- | The total number of buckets that are shared with an Amazon Web Services
--- account that\'s part of the same Amazon Macie organization.
+-- | The total number of buckets that are shared with one or more Amazon Web
+-- Services accounts in the same Amazon Macie organization. These buckets
+-- aren\'t shared with Amazon CloudFront OAIs or OACs.
 bucketCountBySharedAccessType_internal :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
 bucketCountBySharedAccessType_internal = Lens.lens (\BucketCountBySharedAccessType' {internal} -> internal) (\s@BucketCountBySharedAccessType' {} a -> s {internal = a} :: BucketCountBySharedAccessType)
 
 -- | The total number of buckets that aren\'t shared with other Amazon Web
--- Services accounts.
+-- Services accounts, Amazon CloudFront OAIs, or CloudFront OACs.
 bucketCountBySharedAccessType_notShared :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
 bucketCountBySharedAccessType_notShared = Lens.lens (\BucketCountBySharedAccessType' {notShared} -> notShared) (\s@BucketCountBySharedAccessType' {} a -> s {notShared = a} :: BucketCountBySharedAccessType)
 
 -- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
 -- shared access settings for. Macie can\'t determine whether these buckets
--- are shared with other Amazon Web Services accounts.
+-- are shared with other Amazon Web Services accounts, Amazon CloudFront
+-- OAIs, or CloudFront OACs.
 bucketCountBySharedAccessType_unknown :: Lens.Lens' BucketCountBySharedAccessType (Prelude.Maybe Prelude.Integer)
 bucketCountBySharedAccessType_unknown = Lens.lens (\BucketCountBySharedAccessType' {unknown} -> unknown) (\s@BucketCountBySharedAccessType' {} a -> s {unknown = a} :: BucketCountBySharedAccessType)
 
@@ -114,7 +130,8 @@ instance
     BucketCountBySharedAccessType
   where
   hashWithSalt _salt BucketCountBySharedAccessType' {..} =
-    _salt `Prelude.hashWithSalt` external
+    _salt
+      `Prelude.hashWithSalt` external
       `Prelude.hashWithSalt` internal
       `Prelude.hashWithSalt` notShared
       `Prelude.hashWithSalt` unknown

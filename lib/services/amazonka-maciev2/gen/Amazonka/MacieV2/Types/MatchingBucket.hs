@@ -29,11 +29,17 @@ import Amazonka.MacieV2.Types.ObjectLevelStatistics
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides statistical data and other information about an S3 bucket that
--- Amazon Macie monitors and analyzes for your account. If an error occurs
--- when Macie attempts to retrieve and process information about the bucket
--- or the bucket\'s objects, the value for most of these properties is
--- null. Key exceptions are accountId and bucketName. To identify the cause
--- of the error, refer to the errorCode and errorMessage values.
+-- Amazon Macie monitors and analyzes for your account. By default, object
+-- count and storage size values include data for object parts that are the
+-- result of incomplete multipart uploads. For more information, see
+-- <https://docs.aws.amazon.com/macie/latest/user/monitoring-s3-how-it-works.html How Macie monitors Amazon S3 data security>
+-- in the /Amazon Macie User Guide/.
+--
+-- If an error occurs when Macie attempts to retrieve and process
+-- information about the bucket or the bucket\'s objects, the value for
+-- most of these properties is null. Key exceptions are accountId and
+-- bucketName. To identify the cause of the error, refer to the errorCode
+-- and errorMessage values.
 --
 -- /See:/ 'newMatchingBucket' smart constructor.
 data MatchingBucket = MatchingBucket'
@@ -55,10 +61,10 @@ data MatchingBucket = MatchingBucket'
     -- bucket. This value doesn\'t reflect the storage size of all versions of
     -- each applicable object in the bucket.
     classifiableSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | Specifies the error code for an error that prevented Amazon Macie from
-    -- retrieving and processing information about the bucket and the bucket\'s
-    -- objects. If this value is ACCESS_DENIED, Macie doesn\'t have permission
-    -- to retrieve the information. For example, the bucket has a restrictive
+    -- | The error code for an error that prevented Amazon Macie from retrieving
+    -- and processing information about the bucket and the bucket\'s objects.
+    -- If this value is ACCESS_DENIED, Macie doesn\'t have permission to
+    -- retrieve the information. For example, the bucket has a restrictive
     -- bucket policy and Amazon S3 denied the request. If this value is null,
     -- Macie was able to retrieve and process the information.
     errorCode :: Prelude.Maybe BucketMetadataErrorCode,
@@ -72,9 +78,10 @@ data MatchingBucket = MatchingBucket'
     -- the job that ran most recently.
     jobDetails :: Prelude.Maybe JobDetails,
     -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
-    -- Macie most recently performed automated sensitive data discovery for the
-    -- bucket. This value is null if automated sensitive data discovery is
-    -- currently disabled for your account.
+    -- Macie most recently analyzed data in the bucket while performing
+    -- automated sensitive data discovery for your account. This value is null
+    -- if automated sensitive data discovery is currently disabled for your
+    -- account.
     lastAutomatedDiscoveryTime :: Prelude.Maybe Data.ISO8601,
     -- | The total number of objects in the bucket.
     objectCount :: Prelude.Maybe Prelude.Integer,
@@ -82,8 +89,8 @@ data MatchingBucket = MatchingBucket'
     -- encryption type. This includes a grouping that reports the total number
     -- of objects that aren\'t encrypted or use client-side encryption.
     objectCountByEncryptionType :: Prelude.Maybe ObjectCountByEncryptionType,
-    -- | The current sensitivity score for the bucket, ranging from -1 (no
-    -- analysis due to an error) to 100 (sensitive). This value is null if
+    -- | The current sensitivity score for the bucket, ranging from -1
+    -- (classification error) to 100 (sensitive). This value is null if
     -- automated sensitive data discovery is currently disabled for your
     -- account.
     sensitivityScore :: Prelude.Maybe Prelude.Int,
@@ -140,10 +147,10 @@ data MatchingBucket = MatchingBucket'
 -- bucket. This value doesn\'t reflect the storage size of all versions of
 -- each applicable object in the bucket.
 --
--- 'errorCode', 'matchingBucket_errorCode' - Specifies the error code for an error that prevented Amazon Macie from
--- retrieving and processing information about the bucket and the bucket\'s
--- objects. If this value is ACCESS_DENIED, Macie doesn\'t have permission
--- to retrieve the information. For example, the bucket has a restrictive
+-- 'errorCode', 'matchingBucket_errorCode' - The error code for an error that prevented Amazon Macie from retrieving
+-- and processing information about the bucket and the bucket\'s objects.
+-- If this value is ACCESS_DENIED, Macie doesn\'t have permission to
+-- retrieve the information. For example, the bucket has a restrictive
 -- bucket policy and Amazon S3 denied the request. If this value is null,
 -- Macie was able to retrieve and process the information.
 --
@@ -157,9 +164,10 @@ data MatchingBucket = MatchingBucket'
 -- the job that ran most recently.
 --
 -- 'lastAutomatedDiscoveryTime', 'matchingBucket_lastAutomatedDiscoveryTime' - The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently performed automated sensitive data discovery for the
--- bucket. This value is null if automated sensitive data discovery is
--- currently disabled for your account.
+-- Macie most recently analyzed data in the bucket while performing
+-- automated sensitive data discovery for your account. This value is null
+-- if automated sensitive data discovery is currently disabled for your
+-- account.
 --
 -- 'objectCount', 'matchingBucket_objectCount' - The total number of objects in the bucket.
 --
@@ -167,8 +175,8 @@ data MatchingBucket = MatchingBucket'
 -- encryption type. This includes a grouping that reports the total number
 -- of objects that aren\'t encrypted or use client-side encryption.
 --
--- 'sensitivityScore', 'matchingBucket_sensitivityScore' - The current sensitivity score for the bucket, ranging from -1 (no
--- analysis due to an error) to 100 (sensitive). This value is null if
+-- 'sensitivityScore', 'matchingBucket_sensitivityScore' - The current sensitivity score for the bucket, ranging from -1
+-- (classification error) to 100 (sensitive). This value is null if
 -- automated sensitive data discovery is currently disabled for your
 -- account.
 --
@@ -242,10 +250,10 @@ matchingBucket_classifiableObjectCount = Lens.lens (\MatchingBucket' {classifiab
 matchingBucket_classifiableSizeInBytes :: Lens.Lens' MatchingBucket (Prelude.Maybe Prelude.Integer)
 matchingBucket_classifiableSizeInBytes = Lens.lens (\MatchingBucket' {classifiableSizeInBytes} -> classifiableSizeInBytes) (\s@MatchingBucket' {} a -> s {classifiableSizeInBytes = a} :: MatchingBucket)
 
--- | Specifies the error code for an error that prevented Amazon Macie from
--- retrieving and processing information about the bucket and the bucket\'s
--- objects. If this value is ACCESS_DENIED, Macie doesn\'t have permission
--- to retrieve the information. For example, the bucket has a restrictive
+-- | The error code for an error that prevented Amazon Macie from retrieving
+-- and processing information about the bucket and the bucket\'s objects.
+-- If this value is ACCESS_DENIED, Macie doesn\'t have permission to
+-- retrieve the information. For example, the bucket has a restrictive
 -- bucket policy and Amazon S3 denied the request. If this value is null,
 -- Macie was able to retrieve and process the information.
 matchingBucket_errorCode :: Lens.Lens' MatchingBucket (Prelude.Maybe BucketMetadataErrorCode)
@@ -265,9 +273,10 @@ matchingBucket_jobDetails :: Lens.Lens' MatchingBucket (Prelude.Maybe JobDetails
 matchingBucket_jobDetails = Lens.lens (\MatchingBucket' {jobDetails} -> jobDetails) (\s@MatchingBucket' {} a -> s {jobDetails = a} :: MatchingBucket)
 
 -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently performed automated sensitive data discovery for the
--- bucket. This value is null if automated sensitive data discovery is
--- currently disabled for your account.
+-- Macie most recently analyzed data in the bucket while performing
+-- automated sensitive data discovery for your account. This value is null
+-- if automated sensitive data discovery is currently disabled for your
+-- account.
 matchingBucket_lastAutomatedDiscoveryTime :: Lens.Lens' MatchingBucket (Prelude.Maybe Prelude.UTCTime)
 matchingBucket_lastAutomatedDiscoveryTime = Lens.lens (\MatchingBucket' {lastAutomatedDiscoveryTime} -> lastAutomatedDiscoveryTime) (\s@MatchingBucket' {} a -> s {lastAutomatedDiscoveryTime = a} :: MatchingBucket) Prelude.. Lens.mapping Data._Time
 
@@ -281,8 +290,8 @@ matchingBucket_objectCount = Lens.lens (\MatchingBucket' {objectCount} -> object
 matchingBucket_objectCountByEncryptionType :: Lens.Lens' MatchingBucket (Prelude.Maybe ObjectCountByEncryptionType)
 matchingBucket_objectCountByEncryptionType = Lens.lens (\MatchingBucket' {objectCountByEncryptionType} -> objectCountByEncryptionType) (\s@MatchingBucket' {} a -> s {objectCountByEncryptionType = a} :: MatchingBucket)
 
--- | The current sensitivity score for the bucket, ranging from -1 (no
--- analysis due to an error) to 100 (sensitive). This value is null if
+-- | The current sensitivity score for the bucket, ranging from -1
+-- (classification error) to 100 (sensitive). This value is null if
 -- automated sensitive data discovery is currently disabled for your
 -- account.
 matchingBucket_sensitivityScore :: Lens.Lens' MatchingBucket (Prelude.Maybe Prelude.Int)
@@ -345,7 +354,8 @@ instance Data.FromJSON MatchingBucket where
 
 instance Prelude.Hashable MatchingBucket where
   hashWithSalt _salt MatchingBucket' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` classifiableObjectCount
       `Prelude.hashWithSalt` classifiableSizeInBytes

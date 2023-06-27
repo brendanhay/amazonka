@@ -82,7 +82,8 @@ instance Data.FromJSON Severity where
 
 instance Prelude.Hashable Severity where
   hashWithSalt _salt Severity' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` score
 
 instance Prelude.NFData Severity where

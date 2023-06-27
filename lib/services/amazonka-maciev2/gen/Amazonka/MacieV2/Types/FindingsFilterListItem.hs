@@ -114,7 +114,8 @@ instance Data.FromJSON FindingsFilterListItem where
 
 instance Prelude.Hashable FindingsFilterListItem where
   hashWithSalt _salt FindingsFilterListItem' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

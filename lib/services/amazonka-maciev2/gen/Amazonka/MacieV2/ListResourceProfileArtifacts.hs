@@ -102,22 +102,22 @@ instance Core.AWSPager ListResourceProfileArtifacts where
     | Core.stop
         ( rs
             Lens.^? listResourceProfileArtifactsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResourceProfileArtifactsResponse_artifacts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResourceProfileArtifacts_nextToken
           Lens..~ rs
           Lens.^? listResourceProfileArtifactsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceProfileArtifacts where
   type
@@ -139,7 +139,8 @@ instance
     ListResourceProfileArtifacts
   where
   hashWithSalt _salt ListResourceProfileArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListResourceProfileArtifacts where
@@ -170,8 +171,15 @@ instance Data.ToQuery ListResourceProfileArtifacts where
 
 -- | /See:/ 'newListResourceProfileArtifactsResponse' smart constructor.
 data ListResourceProfileArtifactsResponse = ListResourceProfileArtifactsResponse'
-  { -- | An array of objects, one for each S3 object that Amazon Macie selected
-    -- for analysis.
+  { -- | An array of objects, one for each of 1-100 S3 objects that Amazon Macie
+    -- selected for analysis.
+    --
+    -- If Macie has analyzed more than 100 objects in the bucket, Macie
+    -- populates the array based on the value for the
+    -- ResourceProfileArtifact.sensitive field for an object: true (sensitive),
+    -- followed by false (not sensitive). Macie then populates any remaining
+    -- items in the array with information about objects where the value for
+    -- the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.
     artifacts :: Prelude.Maybe [ResourceProfileArtifact],
     -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
@@ -190,8 +198,15 @@ data ListResourceProfileArtifactsResponse = ListResourceProfileArtifactsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'artifacts', 'listResourceProfileArtifactsResponse_artifacts' - An array of objects, one for each S3 object that Amazon Macie selected
--- for analysis.
+-- 'artifacts', 'listResourceProfileArtifactsResponse_artifacts' - An array of objects, one for each of 1-100 S3 objects that Amazon Macie
+-- selected for analysis.
+--
+-- If Macie has analyzed more than 100 objects in the bucket, Macie
+-- populates the array based on the value for the
+-- ResourceProfileArtifact.sensitive field for an object: true (sensitive),
+-- followed by false (not sensitive). Macie then populates any remaining
+-- items in the array with information about objects where the value for
+-- the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.
 --
 -- 'nextToken', 'listResourceProfileArtifactsResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -210,8 +225,15 @@ newListResourceProfileArtifactsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An array of objects, one for each S3 object that Amazon Macie selected
--- for analysis.
+-- | An array of objects, one for each of 1-100 S3 objects that Amazon Macie
+-- selected for analysis.
+--
+-- If Macie has analyzed more than 100 objects in the bucket, Macie
+-- populates the array based on the value for the
+-- ResourceProfileArtifact.sensitive field for an object: true (sensitive),
+-- followed by false (not sensitive). Macie then populates any remaining
+-- items in the array with information about objects where the value for
+-- the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.
 listResourceProfileArtifactsResponse_artifacts :: Lens.Lens' ListResourceProfileArtifactsResponse (Prelude.Maybe [ResourceProfileArtifact])
 listResourceProfileArtifactsResponse_artifacts = Lens.lens (\ListResourceProfileArtifactsResponse' {artifacts} -> artifacts) (\s@ListResourceProfileArtifactsResponse' {} a -> s {artifacts = a} :: ListResourceProfileArtifactsResponse) Prelude.. Lens.mapping Lens.coerced
 

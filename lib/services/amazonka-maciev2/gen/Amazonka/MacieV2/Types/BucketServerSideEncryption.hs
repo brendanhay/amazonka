@@ -34,12 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 data BucketServerSideEncryption = BucketServerSideEncryption'
   { -- | The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS
     -- key that\'s used by default to encrypt objects that are added to the
-    -- bucket. This value is null if the bucket uses an Amazon S3 managed key
-    -- to encrypt new objects or the bucket doesn\'t encrypt new objects by
-    -- default.
+    -- bucket. This value is null if the bucket is configured to use an Amazon
+    -- S3 managed key to encrypt new objects.
     kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The type of server-side encryption that\'s used by default when storing
-    -- new objects in the bucket. Possible values are:
+    -- | The server-side encryption algorithm that\'s used by default to encrypt
+    -- objects that are added to the bucket. Possible values are:
     --
     -- -   AES256 - New objects are encrypted with an Amazon S3 managed key.
     --     They use SSE-S3 encryption.
@@ -48,8 +47,8 @@ data BucketServerSideEncryption = BucketServerSideEncryption'
     --     (kmsMasterKeyId), either an Amazon Web Services managed key or a
     --     customer managed key. They use SSE-KMS encryption.
     --
-    -- -   NONE - New objects aren\'t encrypted by default. Default encryption
-    --     is disabled for the bucket.
+    -- -   NONE - The bucket\'s default encryption settings don\'t specify
+    --     server-side encryption behavior for new objects.
     type' :: Prelude.Maybe Type
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,12 +63,11 @@ data BucketServerSideEncryption = BucketServerSideEncryption'
 --
 -- 'kmsMasterKeyId', 'bucketServerSideEncryption_kmsMasterKeyId' - The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS
 -- key that\'s used by default to encrypt objects that are added to the
--- bucket. This value is null if the bucket uses an Amazon S3 managed key
--- to encrypt new objects or the bucket doesn\'t encrypt new objects by
--- default.
+-- bucket. This value is null if the bucket is configured to use an Amazon
+-- S3 managed key to encrypt new objects.
 --
--- 'type'', 'bucketServerSideEncryption_type' - The type of server-side encryption that\'s used by default when storing
--- new objects in the bucket. Possible values are:
+-- 'type'', 'bucketServerSideEncryption_type' - The server-side encryption algorithm that\'s used by default to encrypt
+-- objects that are added to the bucket. Possible values are:
 --
 -- -   AES256 - New objects are encrypted with an Amazon S3 managed key.
 --     They use SSE-S3 encryption.
@@ -78,8 +76,8 @@ data BucketServerSideEncryption = BucketServerSideEncryption'
 --     (kmsMasterKeyId), either an Amazon Web Services managed key or a
 --     customer managed key. They use SSE-KMS encryption.
 --
--- -   NONE - New objects aren\'t encrypted by default. Default encryption
---     is disabled for the bucket.
+-- -   NONE - The bucket\'s default encryption settings don\'t specify
+--     server-side encryption behavior for new objects.
 newBucketServerSideEncryption ::
   BucketServerSideEncryption
 newBucketServerSideEncryption =
@@ -91,14 +89,13 @@ newBucketServerSideEncryption =
 
 -- | The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS
 -- key that\'s used by default to encrypt objects that are added to the
--- bucket. This value is null if the bucket uses an Amazon S3 managed key
--- to encrypt new objects or the bucket doesn\'t encrypt new objects by
--- default.
+-- bucket. This value is null if the bucket is configured to use an Amazon
+-- S3 managed key to encrypt new objects.
 bucketServerSideEncryption_kmsMasterKeyId :: Lens.Lens' BucketServerSideEncryption (Prelude.Maybe Prelude.Text)
 bucketServerSideEncryption_kmsMasterKeyId = Lens.lens (\BucketServerSideEncryption' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@BucketServerSideEncryption' {} a -> s {kmsMasterKeyId = a} :: BucketServerSideEncryption)
 
--- | The type of server-side encryption that\'s used by default when storing
--- new objects in the bucket. Possible values are:
+-- | The server-side encryption algorithm that\'s used by default to encrypt
+-- objects that are added to the bucket. Possible values are:
 --
 -- -   AES256 - New objects are encrypted with an Amazon S3 managed key.
 --     They use SSE-S3 encryption.
@@ -107,8 +104,8 @@ bucketServerSideEncryption_kmsMasterKeyId = Lens.lens (\BucketServerSideEncrypti
 --     (kmsMasterKeyId), either an Amazon Web Services managed key or a
 --     customer managed key. They use SSE-KMS encryption.
 --
--- -   NONE - New objects aren\'t encrypted by default. Default encryption
---     is disabled for the bucket.
+-- -   NONE - The bucket\'s default encryption settings don\'t specify
+--     server-side encryption behavior for new objects.
 bucketServerSideEncryption_type :: Lens.Lens' BucketServerSideEncryption (Prelude.Maybe Type)
 bucketServerSideEncryption_type = Lens.lens (\BucketServerSideEncryption' {type'} -> type') (\s@BucketServerSideEncryption' {} a -> s {type' = a} :: BucketServerSideEncryption)
 
@@ -124,7 +121,8 @@ instance Data.FromJSON BucketServerSideEncryption where
 
 instance Prelude.Hashable BucketServerSideEncryption where
   hashWithSalt _salt BucketServerSideEncryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsMasterKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsMasterKeyId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData BucketServerSideEncryption where

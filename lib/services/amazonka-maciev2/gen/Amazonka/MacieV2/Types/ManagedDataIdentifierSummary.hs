@@ -109,7 +109,8 @@ instance
     ManagedDataIdentifierSummary
   where
   hashWithSalt _salt ManagedDataIdentifierSummary' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ManagedDataIdentifierSummary where

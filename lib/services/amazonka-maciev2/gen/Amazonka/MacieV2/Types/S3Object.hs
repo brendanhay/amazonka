@@ -51,7 +51,7 @@ data S3Object = S3Object'
     -- | Specifies whether the object is publicly accessible due to the
     -- combination of permissions settings that apply to the object.
     publicAccess :: Prelude.Maybe Prelude.Bool,
-    -- | The type of server-side encryption that\'s used to encrypt the object.
+    -- | The type of server-side encryption that was used to encrypt the object.
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | The total storage size, in bytes, of the object.
     size :: Prelude.Maybe Prelude.Integer,
@@ -92,7 +92,7 @@ data S3Object = S3Object'
 -- 'publicAccess', 's3Object_publicAccess' - Specifies whether the object is publicly accessible due to the
 -- combination of permissions settings that apply to the object.
 --
--- 'serverSideEncryption', 's3Object_serverSideEncryption' - The type of server-side encryption that\'s used to encrypt the object.
+-- 'serverSideEncryption', 's3Object_serverSideEncryption' - The type of server-side encryption that was used to encrypt the object.
 --
 -- 'size', 's3Object_size' - The total storage size, in bytes, of the object.
 --
@@ -153,7 +153,7 @@ s3Object_path = Lens.lens (\S3Object' {path} -> path) (\s@S3Object' {} a -> s {p
 s3Object_publicAccess :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Bool)
 s3Object_publicAccess = Lens.lens (\S3Object' {publicAccess} -> publicAccess) (\s@S3Object' {} a -> s {publicAccess = a} :: S3Object)
 
--- | The type of server-side encryption that\'s used to encrypt the object.
+-- | The type of server-side encryption that was used to encrypt the object.
 s3Object_serverSideEncryption :: Lens.Lens' S3Object (Prelude.Maybe ServerSideEncryption)
 s3Object_serverSideEncryption = Lens.lens (\S3Object' {serverSideEncryption} -> serverSideEncryption) (\s@S3Object' {} a -> s {serverSideEncryption = a} :: S3Object)
 
@@ -195,7 +195,8 @@ instance Data.FromJSON S3Object where
 
 instance Prelude.Hashable S3Object where
   hashWithSalt _salt S3Object' {..} =
-    _salt `Prelude.hashWithSalt` bucketArn
+    _salt
+      `Prelude.hashWithSalt` bucketArn
       `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` extension
       `Prelude.hashWithSalt` key

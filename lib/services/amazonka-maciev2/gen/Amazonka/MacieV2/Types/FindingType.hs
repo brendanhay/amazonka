@@ -25,6 +25,7 @@ module Amazonka.MacieV2.Types.FindingType
         FindingType_Policy_IAMUser_S3BucketPublic,
         FindingType_Policy_IAMUser_S3BucketReplicatedExternally,
         FindingType_Policy_IAMUser_S3BucketSharedExternally,
+        FindingType_Policy_IAMUser_S3BucketSharedWithCloudFront,
         FindingType_SensitiveData_S3Object_Credentials,
         FindingType_SensitiveData_S3Object_CustomIdentifier,
         FindingType_SensitiveData_S3Object_Financial,
@@ -84,6 +85,9 @@ pattern FindingType_Policy_IAMUser_S3BucketReplicatedExternally = FindingType' "
 pattern FindingType_Policy_IAMUser_S3BucketSharedExternally :: FindingType
 pattern FindingType_Policy_IAMUser_S3BucketSharedExternally = FindingType' "Policy:IAMUser/S3BucketSharedExternally"
 
+pattern FindingType_Policy_IAMUser_S3BucketSharedWithCloudFront :: FindingType
+pattern FindingType_Policy_IAMUser_S3BucketSharedWithCloudFront = FindingType' "Policy:IAMUser/S3BucketSharedWithCloudFront"
+
 pattern FindingType_SensitiveData_S3Object_Credentials :: FindingType
 pattern FindingType_SensitiveData_S3Object_Credentials = FindingType' "SensitiveData:S3Object/Credentials"
 
@@ -105,6 +109,7 @@ pattern FindingType_SensitiveData_S3Object_Personal = FindingType' "SensitiveDat
   FindingType_Policy_IAMUser_S3BucketPublic,
   FindingType_Policy_IAMUser_S3BucketReplicatedExternally,
   FindingType_Policy_IAMUser_S3BucketSharedExternally,
+  FindingType_Policy_IAMUser_S3BucketSharedWithCloudFront,
   FindingType_SensitiveData_S3Object_Credentials,
   FindingType_SensitiveData_S3Object_CustomIdentifier,
   FindingType_SensitiveData_S3Object_Financial,

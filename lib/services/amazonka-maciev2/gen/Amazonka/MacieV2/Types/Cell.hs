@@ -110,7 +110,8 @@ instance Data.FromJSON Cell where
 
 instance Prelude.Hashable Cell where
   hashWithSalt _salt Cell' {..} =
-    _salt `Prelude.hashWithSalt` cellReference
+    _salt
+      `Prelude.hashWithSalt` cellReference
       `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` row

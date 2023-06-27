@@ -115,7 +115,8 @@ instance Core.AWSRequest CreateMember where
 
 instance Prelude.Hashable CreateMember where
   hashWithSalt _salt CreateMember' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` account
 
 instance Prelude.NFData CreateMember where

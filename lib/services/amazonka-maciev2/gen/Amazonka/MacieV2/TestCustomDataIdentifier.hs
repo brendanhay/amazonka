@@ -180,7 +180,8 @@ instance Core.AWSRequest TestCustomDataIdentifier where
 
 instance Prelude.Hashable TestCustomDataIdentifier where
   hashWithSalt _salt TestCustomDataIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` ignoreWords
+    _salt
+      `Prelude.hashWithSalt` ignoreWords
       `Prelude.hashWithSalt` keywords
       `Prelude.hashWithSalt` maximumMatchDistance
       `Prelude.hashWithSalt` regex

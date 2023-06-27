@@ -85,7 +85,8 @@ instance Data.FromJSON JobScopeTerm where
 
 instance Prelude.Hashable JobScopeTerm where
   hashWithSalt _salt JobScopeTerm' {..} =
-    _salt `Prelude.hashWithSalt` simpleScopeTerm
+    _salt
+      `Prelude.hashWithSalt` simpleScopeTerm
       `Prelude.hashWithSalt` tagScopeTerm
 
 instance Prelude.NFData JobScopeTerm where

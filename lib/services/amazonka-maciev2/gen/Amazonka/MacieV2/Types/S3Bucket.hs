@@ -34,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newS3Bucket' smart constructor.
 data S3Bucket = S3Bucket'
   { -- | Specifies whether the bucket policy for the bucket requires server-side
-    -- encryption of objects when objects are uploaded to the bucket. Possible
+    -- encryption of objects when objects are added to the bucket. Possible
     -- values are:
     --
     -- -   FALSE - The bucket policy requires server-side encryption of new
@@ -56,10 +56,11 @@ data S3Bucket = S3Bucket'
     -- | The Amazon Resource Name (ARN) of the bucket.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the bucket
-    -- was created.
+    -- was created. This value can also indicate when changes such as edits to
+    -- the bucket\'s policy were most recently made to the bucket, relative to
+    -- when the finding was created or last updated.
     createdAt :: Prelude.Maybe Data.ISO8601,
-    -- | The type of server-side encryption that\'s used by default to encrypt
-    -- objects in the bucket.
+    -- | The default server-side encryption settings for the bucket.
     defaultServerSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | The name of the bucket.
     name :: Prelude.Maybe Prelude.Text,
@@ -83,7 +84,7 @@ data S3Bucket = S3Bucket'
 -- for backwards compatibility:
 --
 -- 'allowsUnencryptedObjectUploads', 's3Bucket_allowsUnencryptedObjectUploads' - Specifies whether the bucket policy for the bucket requires server-side
--- encryption of objects when objects are uploaded to the bucket. Possible
+-- encryption of objects when objects are added to the bucket. Possible
 -- values are:
 --
 -- -   FALSE - The bucket policy requires server-side encryption of new
@@ -105,10 +106,11 @@ data S3Bucket = S3Bucket'
 -- 'arn', 's3Bucket_arn' - The Amazon Resource Name (ARN) of the bucket.
 --
 -- 'createdAt', 's3Bucket_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the bucket
--- was created.
+-- was created. This value can also indicate when changes such as edits to
+-- the bucket\'s policy were most recently made to the bucket, relative to
+-- when the finding was created or last updated.
 --
--- 'defaultServerSideEncryption', 's3Bucket_defaultServerSideEncryption' - The type of server-side encryption that\'s used by default to encrypt
--- objects in the bucket.
+-- 'defaultServerSideEncryption', 's3Bucket_defaultServerSideEncryption' - The default server-side encryption settings for the bucket.
 --
 -- 'name', 's3Bucket_name' - The name of the bucket.
 --
@@ -135,7 +137,7 @@ newS3Bucket =
     }
 
 -- | Specifies whether the bucket policy for the bucket requires server-side
--- encryption of objects when objects are uploaded to the bucket. Possible
+-- encryption of objects when objects are added to the bucket. Possible
 -- values are:
 --
 -- -   FALSE - The bucket policy requires server-side encryption of new
@@ -161,12 +163,13 @@ s3Bucket_arn :: Lens.Lens' S3Bucket (Prelude.Maybe Prelude.Text)
 s3Bucket_arn = Lens.lens (\S3Bucket' {arn} -> arn) (\s@S3Bucket' {} a -> s {arn = a} :: S3Bucket)
 
 -- | The date and time, in UTC and extended ISO 8601 format, when the bucket
--- was created.
+-- was created. This value can also indicate when changes such as edits to
+-- the bucket\'s policy were most recently made to the bucket, relative to
+-- when the finding was created or last updated.
 s3Bucket_createdAt :: Lens.Lens' S3Bucket (Prelude.Maybe Prelude.UTCTime)
 s3Bucket_createdAt = Lens.lens (\S3Bucket' {createdAt} -> createdAt) (\s@S3Bucket' {} a -> s {createdAt = a} :: S3Bucket) Prelude.. Lens.mapping Data._Time
 
--- | The type of server-side encryption that\'s used by default to encrypt
--- objects in the bucket.
+-- | The default server-side encryption settings for the bucket.
 s3Bucket_defaultServerSideEncryption :: Lens.Lens' S3Bucket (Prelude.Maybe ServerSideEncryption)
 s3Bucket_defaultServerSideEncryption = Lens.lens (\S3Bucket' {defaultServerSideEncryption} -> defaultServerSideEncryption) (\s@S3Bucket' {} a -> s {defaultServerSideEncryption = a} :: S3Bucket)
 

@@ -154,7 +154,7 @@ data GetSensitivityInspectionTemplateResponse = GetSensitivityInspectionTemplate
     -- | The allow lists, custom data identifiers, and managed data identifiers
     -- that are included (used) when analyzing data.
     includes :: Prelude.Maybe SensitivityInspectionTemplateIncludes,
-    -- | The name of the template.
+    -- | The name of the template: automated-sensitive-data-discovery.
     name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the template.
     sensitivityInspectionTemplateId :: Prelude.Maybe Prelude.Text,
@@ -179,7 +179,7 @@ data GetSensitivityInspectionTemplateResponse = GetSensitivityInspectionTemplate
 -- 'includes', 'getSensitivityInspectionTemplateResponse_includes' - The allow lists, custom data identifiers, and managed data identifiers
 -- that are included (used) when analyzing data.
 --
--- 'name', 'getSensitivityInspectionTemplateResponse_name' - The name of the template.
+-- 'name', 'getSensitivityInspectionTemplateResponse_name' - The name of the template: automated-sensitive-data-discovery.
 --
 -- 'sensitivityInspectionTemplateId', 'getSensitivityInspectionTemplateResponse_sensitivityInspectionTemplateId' - The unique identifier for the template.
 --
@@ -215,7 +215,7 @@ getSensitivityInspectionTemplateResponse_excludes = Lens.lens (\GetSensitivityIn
 getSensitivityInspectionTemplateResponse_includes :: Lens.Lens' GetSensitivityInspectionTemplateResponse (Prelude.Maybe SensitivityInspectionTemplateIncludes)
 getSensitivityInspectionTemplateResponse_includes = Lens.lens (\GetSensitivityInspectionTemplateResponse' {includes} -> includes) (\s@GetSensitivityInspectionTemplateResponse' {} a -> s {includes = a} :: GetSensitivityInspectionTemplateResponse)
 
--- | The name of the template.
+-- | The name of the template: automated-sensitive-data-discovery.
 getSensitivityInspectionTemplateResponse_name :: Lens.Lens' GetSensitivityInspectionTemplateResponse (Prelude.Maybe Prelude.Text)
 getSensitivityInspectionTemplateResponse_name = Lens.lens (\GetSensitivityInspectionTemplateResponse' {name} -> name) (\s@GetSensitivityInspectionTemplateResponse' {} a -> s {name = a} :: GetSensitivityInspectionTemplateResponse)
 

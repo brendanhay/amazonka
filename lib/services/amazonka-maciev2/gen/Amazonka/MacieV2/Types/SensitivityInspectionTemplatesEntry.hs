@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSensitivityInspectionTemplatesEntry' smart constructor.
 data SensitivityInspectionTemplatesEntry = SensitivityInspectionTemplatesEntry'
-  { -- | The unique identifier for the sensitivity inspection template for the
-    -- account.
+  { -- | The unique identifier for the sensitivity inspection template.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the sensitivity inspection template for the account.
+    -- | The name of the sensitivity inspection template:
+    -- automated-sensitive-data-discovery.
     name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,10 +46,10 @@ data SensitivityInspectionTemplatesEntry = SensitivityInspectionTemplatesEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'sensitivityInspectionTemplatesEntry_id' - The unique identifier for the sensitivity inspection template for the
--- account.
+-- 'id', 'sensitivityInspectionTemplatesEntry_id' - The unique identifier for the sensitivity inspection template.
 --
--- 'name', 'sensitivityInspectionTemplatesEntry_name' - The name of the sensitivity inspection template for the account.
+-- 'name', 'sensitivityInspectionTemplatesEntry_name' - The name of the sensitivity inspection template:
+-- automated-sensitive-data-discovery.
 newSensitivityInspectionTemplatesEntry ::
   SensitivityInspectionTemplatesEntry
 newSensitivityInspectionTemplatesEntry =
@@ -59,12 +59,12 @@ newSensitivityInspectionTemplatesEntry =
       name = Prelude.Nothing
     }
 
--- | The unique identifier for the sensitivity inspection template for the
--- account.
+-- | The unique identifier for the sensitivity inspection template.
 sensitivityInspectionTemplatesEntry_id :: Lens.Lens' SensitivityInspectionTemplatesEntry (Prelude.Maybe Prelude.Text)
 sensitivityInspectionTemplatesEntry_id = Lens.lens (\SensitivityInspectionTemplatesEntry' {id} -> id) (\s@SensitivityInspectionTemplatesEntry' {} a -> s {id = a} :: SensitivityInspectionTemplatesEntry)
 
--- | The name of the sensitivity inspection template for the account.
+-- | The name of the sensitivity inspection template:
+-- automated-sensitive-data-discovery.
 sensitivityInspectionTemplatesEntry_name :: Lens.Lens' SensitivityInspectionTemplatesEntry (Prelude.Maybe Prelude.Text)
 sensitivityInspectionTemplatesEntry_name = Lens.lens (\SensitivityInspectionTemplatesEntry' {name} -> name) (\s@SensitivityInspectionTemplatesEntry' {} a -> s {name = a} :: SensitivityInspectionTemplatesEntry)
 
@@ -77,7 +77,8 @@ instance
       "SensitivityInspectionTemplatesEntry"
       ( \x ->
           SensitivityInspectionTemplatesEntry'
-            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance
@@ -87,7 +88,8 @@ instance
   hashWithSalt
     _salt
     SensitivityInspectionTemplatesEntry' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` name
 
 instance

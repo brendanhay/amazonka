@@ -92,10 +92,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetCustomDataIdentifiersResponse'
-            Prelude.<$> ( x Data..?> "customDataIdentifiers"
+            Prelude.<$> ( x
+                            Data..?> "customDataIdentifiers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "notFoundIdentifierIds"
+            Prelude.<*> ( x
+                            Data..?> "notFoundIdentifierIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -183,7 +183,8 @@ instance Data.FromJSON SimpleScopeTerm where
 
 instance Prelude.Hashable SimpleScopeTerm where
   hashWithSalt _salt SimpleScopeTerm' {..} =
-    _salt `Prelude.hashWithSalt` comparator
+    _salt
+      `Prelude.hashWithSalt` comparator
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 

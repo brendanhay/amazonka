@@ -52,7 +52,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSensitivityInspectionTemplate' smart constructor.
 data UpdateSensitivityInspectionTemplate = UpdateSensitivityInspectionTemplate'
-  { -- | A custom description of the template.
+  { -- | A custom description of the template. The description can contain as
+    -- many as 200 characters.
     description :: Prelude.Maybe Prelude.Text,
     -- | The managed data identifiers to explicitly exclude (not use) when
     -- analyzing data.
@@ -80,7 +81,8 @@ data UpdateSensitivityInspectionTemplate = UpdateSensitivityInspectionTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateSensitivityInspectionTemplate_description' - A custom description of the template.
+-- 'description', 'updateSensitivityInspectionTemplate_description' - A custom description of the template. The description can contain as
+-- many as 200 characters.
 --
 -- 'excludes', 'updateSensitivityInspectionTemplate_excludes' - The managed data identifiers to explicitly exclude (not use) when
 -- analyzing data.
@@ -109,7 +111,8 @@ newUpdateSensitivityInspectionTemplate pId_ =
       id = pId_
     }
 
--- | A custom description of the template.
+-- | A custom description of the template. The description can contain as
+-- many as 200 characters.
 updateSensitivityInspectionTemplate_description :: Lens.Lens' UpdateSensitivityInspectionTemplate (Prelude.Maybe Prelude.Text)
 updateSensitivityInspectionTemplate_description = Lens.lens (\UpdateSensitivityInspectionTemplate' {description} -> description) (\s@UpdateSensitivityInspectionTemplate' {} a -> s {description = a} :: UpdateSensitivityInspectionTemplate)
 
@@ -157,7 +160,8 @@ instance
   hashWithSalt
     _salt
     UpdateSensitivityInspectionTemplate' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` excludes
         `Prelude.hashWithSalt` includes
         `Prelude.hashWithSalt` id

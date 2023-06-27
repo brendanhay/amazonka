@@ -77,7 +77,8 @@ listJobsSortCriteria_orderBy = Lens.lens (\ListJobsSortCriteria' {orderBy} -> or
 
 instance Prelude.Hashable ListJobsSortCriteria where
   hashWithSalt _salt ListJobsSortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData ListJobsSortCriteria where

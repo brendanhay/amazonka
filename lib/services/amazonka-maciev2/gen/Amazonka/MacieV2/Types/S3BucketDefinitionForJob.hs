@@ -81,7 +81,8 @@ instance Data.FromJSON S3BucketDefinitionForJob where
 
 instance Prelude.Hashable S3BucketDefinitionForJob where
   hashWithSalt _salt S3BucketDefinitionForJob' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` buckets
 
 instance Prelude.NFData S3BucketDefinitionForJob where

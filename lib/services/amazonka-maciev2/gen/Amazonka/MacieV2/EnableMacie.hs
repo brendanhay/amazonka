@@ -119,7 +119,8 @@ instance Core.AWSRequest EnableMacie where
 
 instance Prelude.Hashable EnableMacie where
   hashWithSalt _salt EnableMacie' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` findingPublishingFrequency
       `Prelude.hashWithSalt` status
 

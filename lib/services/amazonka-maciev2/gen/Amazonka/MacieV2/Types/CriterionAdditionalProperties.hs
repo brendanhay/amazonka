@@ -177,7 +177,8 @@ instance
     CriterionAdditionalProperties
   where
   hashWithSalt _salt CriterionAdditionalProperties' {..} =
-    _salt `Prelude.hashWithSalt` eq
+    _salt
+      `Prelude.hashWithSalt` eq
       `Prelude.hashWithSalt` eqExactMatch
       `Prelude.hashWithSalt` gt
       `Prelude.hashWithSalt` gte

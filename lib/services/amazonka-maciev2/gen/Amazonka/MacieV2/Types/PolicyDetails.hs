@@ -76,7 +76,8 @@ instance Data.FromJSON PolicyDetails where
 
 instance Prelude.Hashable PolicyDetails where
   hashWithSalt _salt PolicyDetails' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` actor
 
 instance Prelude.NFData PolicyDetails where

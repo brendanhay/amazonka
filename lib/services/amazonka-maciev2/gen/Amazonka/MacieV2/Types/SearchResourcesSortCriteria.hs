@@ -78,7 +78,8 @@ searchResourcesSortCriteria_orderBy = Lens.lens (\SearchResourcesSortCriteria' {
 
 instance Prelude.Hashable SearchResourcesSortCriteria where
   hashWithSalt _salt SearchResourcesSortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData SearchResourcesSortCriteria where

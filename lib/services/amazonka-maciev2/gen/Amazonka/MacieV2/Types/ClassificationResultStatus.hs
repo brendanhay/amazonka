@@ -50,9 +50,9 @@ data ClassificationResultStatus = ClassificationResultStatus'
     --
     -- -   ARCHIVE_CONTAINS_UNPROCESSED_FILES - The object is an archive file
     --     and Macie extracted and analyzed only some or none of the files in
-    --     the archive. To determine which files Macie analyzed, if any, you
-    --     can refer to the corresponding sensitive data discovery result for
-    --     the finding (ClassificationDetails.detailedResultsLocation).
+    --     the archive. To determine which files Macie analyzed, if any, refer
+    --     to the corresponding sensitive data discovery result for the finding
+    --     (ClassificationDetails.detailedResultsLocation).
     --
     -- -   ARCHIVE_EXCEEDS_SIZE_LIMIT - The object is an archive file whose
     --     total storage size exceeds the size quota for this type of archive.
@@ -73,62 +73,65 @@ data ClassificationResultStatus = ClassificationResultStatus'
     --     size quota for this type of file.
     --
     -- -   INVALID_ENCRYPTION - The object is encrypted using server-side
-    --     encryption but Macie isn’t allowed to use the key. Macie can’t
+    --     encryption but Macie isn\'t allowed to use the key. Macie can\'t
     --     decrypt and analyze the object.
     --
     -- -   INVALID_KMS_KEY - The object is encrypted with an KMS key that was
-    --     disabled or is being deleted. Macie can’t decrypt and analyze the
+    --     disabled or is being deleted. Macie can\'t decrypt and analyze the
     --     object.
     --
-    -- -   INVALID_OBJECT_STATE - The object doesn’t use a supported Amazon S3
-    --     storage class. For more information, see
-    --     <https://docs.aws.amazon.com/macie/latest/user/data-classification.html Discovering sensitive data>
-    --     in the /Amazon Macie User Guide/.
+    -- -   INVALID_OBJECT_STATE - The object doesn\'t use a supported Amazon S3
+    --     storage class.
     --
     -- -   JSON_NESTING_LEVEL_OVER_LIMIT - The object contains JSON data and
     --     the nested depth of the data exceeds the quota for the number of
     --     nested levels that Macie analyzes for this type of file.
     --
     -- -   MALFORMED_FILE - The object is a malformed or corrupted file. An
-    --     error occurred when Macie attempted to detect the file’s type or
+    --     error occurred when Macie attempted to detect the file\'s type or
     --     extract data from the file.
-    --
-    -- -   OBJECT_VERSION_MISMATCH - The object was changed while Macie was
-    --     analyzing it.
-    --
-    -- -   NO_SUCH_BUCKET_AVAILABLE - The object was in a bucket that was
-    --     deleted shortly before or when Macie attempted to analyze the
-    --     object.
     --
     -- -   MALFORMED_OR_FILE_SIZE_EXCEEDS_LIMIT - The object is a Microsoft
     --     Office file that is malformed or exceeds the size quota for this
     --     type of file. If the file is malformed, an error occurred when Macie
     --     attempted to extract data from the file.
     --
-    -- -   OOXML_UNCOMPRESSED_SIZE_EXCEEDS_LIMIT - The object is an Office Open
-    --     XML file that exceeds the size quota for this type of file.
+    -- -   NO_SUCH_BUCKET_AVAILABLE - The object was in a bucket that was
+    --     deleted shortly before or when Macie attempted to analyze the
+    --     object.
+    --
+    -- -   OBJECT_VERSION_MISMATCH - The object was changed while Macie was
+    --     analyzing it.
     --
     -- -   OOXML_UNCOMPRESSED_RATIO_EXCEEDS_LIMIT - The object is an Office
     --     Open XML file whose compression ratio exceeds the compression quota
     --     for this type of file.
     --
-    -- -   PERMISSION_DENIED - Macie isn’t allowed to access the object. The
-    --     object’s permissions settings prevent Macie from analyzing the
+    -- -   OOXML_UNCOMPRESSED_SIZE_EXCEEDS_LIMIT - The object is an Office Open
+    --     XML file that exceeds the size quota for this type of file.
+    --
+    -- -   PERMISSION_DENIED - Macie isn\'t allowed to access the object. The
+    --     object\'s permissions settings prevent Macie from analyzing the
     --     object.
     --
     -- -   SOURCE_OBJECT_NO_LONGER_AVAILABLE - The object was deleted shortly
     --     before or when Macie attempted to analyze it.
     --
+    -- -   TIME_CUT_OFF_REACHED - Macie started analyzing the object but
+    --     additional analysis would exceed the time quota for analyzing an
+    --     object.
+    --
     -- -   UNABLE_TO_PARSE_FILE - The object is a file that contains structured
     --     data and an error occurred when Macie attempted to parse the data.
     --
     -- -   UNSUPPORTED_FILE_TYPE_EXCEPTION - The object is a file that uses an
-    --     unsupported file or storage format. For more information, see
-    --     <https://docs.aws.amazon.com/macie/latest/user/discovery-supported-formats.html Supported file and storage formats>
-    --     in the /Amazon Macie User Guide/.
+    --     unsupported file or storage format.
     --
-    -- For information about sensitive data discovery quotas for files, see
-    -- <https://docs.aws.amazon.com/macie/latest/user/macie-quotas.html Amazon Macie quotas>
+    -- For information about quotas, supported storage classes, and supported
+    -- file and storage formats, see
+    -- <https://docs.aws.amazon.com/macie/latest/user/macie-quotas.html Quotas>
+    -- and
+    -- <https://docs.aws.amazon.com/macie/latest/user/discovery-supported-storage.html Supported storage classes and formats>
     -- in the /Amazon Macie User Guide/.
     reason :: Prelude.Maybe Prelude.Text
   }
@@ -164,9 +167,9 @@ data ClassificationResultStatus = ClassificationResultStatus'
 --
 -- -   ARCHIVE_CONTAINS_UNPROCESSED_FILES - The object is an archive file
 --     and Macie extracted and analyzed only some or none of the files in
---     the archive. To determine which files Macie analyzed, if any, you
---     can refer to the corresponding sensitive data discovery result for
---     the finding (ClassificationDetails.detailedResultsLocation).
+--     the archive. To determine which files Macie analyzed, if any, refer
+--     to the corresponding sensitive data discovery result for the finding
+--     (ClassificationDetails.detailedResultsLocation).
 --
 -- -   ARCHIVE_EXCEEDS_SIZE_LIMIT - The object is an archive file whose
 --     total storage size exceeds the size quota for this type of archive.
@@ -187,62 +190,65 @@ data ClassificationResultStatus = ClassificationResultStatus'
 --     size quota for this type of file.
 --
 -- -   INVALID_ENCRYPTION - The object is encrypted using server-side
---     encryption but Macie isn’t allowed to use the key. Macie can’t
+--     encryption but Macie isn\'t allowed to use the key. Macie can\'t
 --     decrypt and analyze the object.
 --
 -- -   INVALID_KMS_KEY - The object is encrypted with an KMS key that was
---     disabled or is being deleted. Macie can’t decrypt and analyze the
+--     disabled or is being deleted. Macie can\'t decrypt and analyze the
 --     object.
 --
--- -   INVALID_OBJECT_STATE - The object doesn’t use a supported Amazon S3
---     storage class. For more information, see
---     <https://docs.aws.amazon.com/macie/latest/user/data-classification.html Discovering sensitive data>
---     in the /Amazon Macie User Guide/.
+-- -   INVALID_OBJECT_STATE - The object doesn\'t use a supported Amazon S3
+--     storage class.
 --
 -- -   JSON_NESTING_LEVEL_OVER_LIMIT - The object contains JSON data and
 --     the nested depth of the data exceeds the quota for the number of
 --     nested levels that Macie analyzes for this type of file.
 --
 -- -   MALFORMED_FILE - The object is a malformed or corrupted file. An
---     error occurred when Macie attempted to detect the file’s type or
+--     error occurred when Macie attempted to detect the file\'s type or
 --     extract data from the file.
---
--- -   OBJECT_VERSION_MISMATCH - The object was changed while Macie was
---     analyzing it.
---
--- -   NO_SUCH_BUCKET_AVAILABLE - The object was in a bucket that was
---     deleted shortly before or when Macie attempted to analyze the
---     object.
 --
 -- -   MALFORMED_OR_FILE_SIZE_EXCEEDS_LIMIT - The object is a Microsoft
 --     Office file that is malformed or exceeds the size quota for this
 --     type of file. If the file is malformed, an error occurred when Macie
 --     attempted to extract data from the file.
 --
--- -   OOXML_UNCOMPRESSED_SIZE_EXCEEDS_LIMIT - The object is an Office Open
---     XML file that exceeds the size quota for this type of file.
+-- -   NO_SUCH_BUCKET_AVAILABLE - The object was in a bucket that was
+--     deleted shortly before or when Macie attempted to analyze the
+--     object.
+--
+-- -   OBJECT_VERSION_MISMATCH - The object was changed while Macie was
+--     analyzing it.
 --
 -- -   OOXML_UNCOMPRESSED_RATIO_EXCEEDS_LIMIT - The object is an Office
 --     Open XML file whose compression ratio exceeds the compression quota
 --     for this type of file.
 --
--- -   PERMISSION_DENIED - Macie isn’t allowed to access the object. The
---     object’s permissions settings prevent Macie from analyzing the
+-- -   OOXML_UNCOMPRESSED_SIZE_EXCEEDS_LIMIT - The object is an Office Open
+--     XML file that exceeds the size quota for this type of file.
+--
+-- -   PERMISSION_DENIED - Macie isn\'t allowed to access the object. The
+--     object\'s permissions settings prevent Macie from analyzing the
 --     object.
 --
 -- -   SOURCE_OBJECT_NO_LONGER_AVAILABLE - The object was deleted shortly
 --     before or when Macie attempted to analyze it.
 --
+-- -   TIME_CUT_OFF_REACHED - Macie started analyzing the object but
+--     additional analysis would exceed the time quota for analyzing an
+--     object.
+--
 -- -   UNABLE_TO_PARSE_FILE - The object is a file that contains structured
 --     data and an error occurred when Macie attempted to parse the data.
 --
 -- -   UNSUPPORTED_FILE_TYPE_EXCEPTION - The object is a file that uses an
---     unsupported file or storage format. For more information, see
---     <https://docs.aws.amazon.com/macie/latest/user/discovery-supported-formats.html Supported file and storage formats>
---     in the /Amazon Macie User Guide/.
+--     unsupported file or storage format.
 --
--- For information about sensitive data discovery quotas for files, see
--- <https://docs.aws.amazon.com/macie/latest/user/macie-quotas.html Amazon Macie quotas>
+-- For information about quotas, supported storage classes, and supported
+-- file and storage formats, see
+-- <https://docs.aws.amazon.com/macie/latest/user/macie-quotas.html Quotas>
+-- and
+-- <https://docs.aws.amazon.com/macie/latest/user/discovery-supported-storage.html Supported storage classes and formats>
 -- in the /Amazon Macie User Guide/.
 newClassificationResultStatus ::
   ClassificationResultStatus
@@ -276,9 +282,9 @@ classificationResultStatus_code = Lens.lens (\ClassificationResultStatus' {code}
 --
 -- -   ARCHIVE_CONTAINS_UNPROCESSED_FILES - The object is an archive file
 --     and Macie extracted and analyzed only some or none of the files in
---     the archive. To determine which files Macie analyzed, if any, you
---     can refer to the corresponding sensitive data discovery result for
---     the finding (ClassificationDetails.detailedResultsLocation).
+--     the archive. To determine which files Macie analyzed, if any, refer
+--     to the corresponding sensitive data discovery result for the finding
+--     (ClassificationDetails.detailedResultsLocation).
 --
 -- -   ARCHIVE_EXCEEDS_SIZE_LIMIT - The object is an archive file whose
 --     total storage size exceeds the size quota for this type of archive.
@@ -299,62 +305,65 @@ classificationResultStatus_code = Lens.lens (\ClassificationResultStatus' {code}
 --     size quota for this type of file.
 --
 -- -   INVALID_ENCRYPTION - The object is encrypted using server-side
---     encryption but Macie isn’t allowed to use the key. Macie can’t
+--     encryption but Macie isn\'t allowed to use the key. Macie can\'t
 --     decrypt and analyze the object.
 --
 -- -   INVALID_KMS_KEY - The object is encrypted with an KMS key that was
---     disabled or is being deleted. Macie can’t decrypt and analyze the
+--     disabled or is being deleted. Macie can\'t decrypt and analyze the
 --     object.
 --
--- -   INVALID_OBJECT_STATE - The object doesn’t use a supported Amazon S3
---     storage class. For more information, see
---     <https://docs.aws.amazon.com/macie/latest/user/data-classification.html Discovering sensitive data>
---     in the /Amazon Macie User Guide/.
+-- -   INVALID_OBJECT_STATE - The object doesn\'t use a supported Amazon S3
+--     storage class.
 --
 -- -   JSON_NESTING_LEVEL_OVER_LIMIT - The object contains JSON data and
 --     the nested depth of the data exceeds the quota for the number of
 --     nested levels that Macie analyzes for this type of file.
 --
 -- -   MALFORMED_FILE - The object is a malformed or corrupted file. An
---     error occurred when Macie attempted to detect the file’s type or
+--     error occurred when Macie attempted to detect the file\'s type or
 --     extract data from the file.
---
--- -   OBJECT_VERSION_MISMATCH - The object was changed while Macie was
---     analyzing it.
---
--- -   NO_SUCH_BUCKET_AVAILABLE - The object was in a bucket that was
---     deleted shortly before or when Macie attempted to analyze the
---     object.
 --
 -- -   MALFORMED_OR_FILE_SIZE_EXCEEDS_LIMIT - The object is a Microsoft
 --     Office file that is malformed or exceeds the size quota for this
 --     type of file. If the file is malformed, an error occurred when Macie
 --     attempted to extract data from the file.
 --
--- -   OOXML_UNCOMPRESSED_SIZE_EXCEEDS_LIMIT - The object is an Office Open
---     XML file that exceeds the size quota for this type of file.
+-- -   NO_SUCH_BUCKET_AVAILABLE - The object was in a bucket that was
+--     deleted shortly before or when Macie attempted to analyze the
+--     object.
+--
+-- -   OBJECT_VERSION_MISMATCH - The object was changed while Macie was
+--     analyzing it.
 --
 -- -   OOXML_UNCOMPRESSED_RATIO_EXCEEDS_LIMIT - The object is an Office
 --     Open XML file whose compression ratio exceeds the compression quota
 --     for this type of file.
 --
--- -   PERMISSION_DENIED - Macie isn’t allowed to access the object. The
---     object’s permissions settings prevent Macie from analyzing the
+-- -   OOXML_UNCOMPRESSED_SIZE_EXCEEDS_LIMIT - The object is an Office Open
+--     XML file that exceeds the size quota for this type of file.
+--
+-- -   PERMISSION_DENIED - Macie isn\'t allowed to access the object. The
+--     object\'s permissions settings prevent Macie from analyzing the
 --     object.
 --
 -- -   SOURCE_OBJECT_NO_LONGER_AVAILABLE - The object was deleted shortly
 --     before or when Macie attempted to analyze it.
 --
+-- -   TIME_CUT_OFF_REACHED - Macie started analyzing the object but
+--     additional analysis would exceed the time quota for analyzing an
+--     object.
+--
 -- -   UNABLE_TO_PARSE_FILE - The object is a file that contains structured
 --     data and an error occurred when Macie attempted to parse the data.
 --
 -- -   UNSUPPORTED_FILE_TYPE_EXCEPTION - The object is a file that uses an
---     unsupported file or storage format. For more information, see
---     <https://docs.aws.amazon.com/macie/latest/user/discovery-supported-formats.html Supported file and storage formats>
---     in the /Amazon Macie User Guide/.
+--     unsupported file or storage format.
 --
--- For information about sensitive data discovery quotas for files, see
--- <https://docs.aws.amazon.com/macie/latest/user/macie-quotas.html Amazon Macie quotas>
+-- For information about quotas, supported storage classes, and supported
+-- file and storage formats, see
+-- <https://docs.aws.amazon.com/macie/latest/user/macie-quotas.html Quotas>
+-- and
+-- <https://docs.aws.amazon.com/macie/latest/user/discovery-supported-storage.html Supported storage classes and formats>
 -- in the /Amazon Macie User Guide/.
 classificationResultStatus_reason :: Lens.Lens' ClassificationResultStatus (Prelude.Maybe Prelude.Text)
 classificationResultStatus_reason = Lens.lens (\ClassificationResultStatus' {reason} -> reason) (\s@ClassificationResultStatus' {} a -> s {reason = a} :: ClassificationResultStatus)
@@ -371,7 +380,8 @@ instance Data.FromJSON ClassificationResultStatus where
 
 instance Prelude.Hashable ClassificationResultStatus where
   hashWithSalt _salt ClassificationResultStatus' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData ClassificationResultStatus where

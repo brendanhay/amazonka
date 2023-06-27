@@ -38,7 +38,7 @@ data IamUser = IamUser'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the IAM user who performed the action.
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | The user name of the IAM user who performed the action.
+    -- | The username of the IAM user who performed the action.
     userName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +60,7 @@ data IamUser = IamUser'
 --
 -- 'principalId', 'iamUser_principalId' - The unique identifier for the IAM user who performed the action.
 --
--- 'userName', 'iamUser_userName' - The user name of the IAM user who performed the action.
+-- 'userName', 'iamUser_userName' - The username of the IAM user who performed the action.
 newIamUser ::
   IamUser
 newIamUser =
@@ -86,7 +86,7 @@ iamUser_arn = Lens.lens (\IamUser' {arn} -> arn) (\s@IamUser' {} a -> s {arn = a
 iamUser_principalId :: Lens.Lens' IamUser (Prelude.Maybe Prelude.Text)
 iamUser_principalId = Lens.lens (\IamUser' {principalId} -> principalId) (\s@IamUser' {} a -> s {principalId = a} :: IamUser)
 
--- | The user name of the IAM user who performed the action.
+-- | The username of the IAM user who performed the action.
 iamUser_userName :: Lens.Lens' IamUser (Prelude.Maybe Prelude.Text)
 iamUser_userName = Lens.lens (\IamUser' {userName} -> userName) (\s@IamUser' {} a -> s {userName = a} :: IamUser)
 
@@ -104,7 +104,8 @@ instance Data.FromJSON IamUser where
 
 instance Prelude.Hashable IamUser where
   hashWithSalt _salt IamUser' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` userName

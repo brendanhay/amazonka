@@ -112,7 +112,8 @@ instance Data.FromJSON IpAddressDetails where
 
 instance Prelude.Hashable IpAddressDetails where
   hashWithSalt _salt IpAddressDetails' {..} =
-    _salt `Prelude.hashWithSalt` ipAddressV4
+    _salt
+      `Prelude.hashWithSalt` ipAddressV4
       `Prelude.hashWithSalt` ipCity
       `Prelude.hashWithSalt` ipCountry
       `Prelude.hashWithSalt` ipGeoLocation

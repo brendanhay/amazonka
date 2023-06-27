@@ -83,7 +83,8 @@ instance Data.FromJSON Scoping where
 
 instance Prelude.Hashable Scoping where
   hashWithSalt _salt Scoping' {..} =
-    _salt `Prelude.hashWithSalt` excludes
+    _salt
+      `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` includes
 
 instance Prelude.NFData Scoping where

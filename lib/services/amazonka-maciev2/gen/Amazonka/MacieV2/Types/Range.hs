@@ -24,8 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies the location of an occurrence of sensitive data in a
--- non-binary text file, such as an HTML, TXT, or XML file.
+-- | Specifies the location of an occurrence of sensitive data in an email
+-- message or a non-binary text file such as an HTML, TXT, or XML file.
 --
 -- /See:/ 'newRange' smart constructor.
 data Range = Range'
@@ -97,7 +97,8 @@ instance Data.FromJSON Range where
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` startColumn
 

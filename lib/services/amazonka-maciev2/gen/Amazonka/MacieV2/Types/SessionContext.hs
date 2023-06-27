@@ -83,7 +83,8 @@ instance Data.FromJSON SessionContext where
 
 instance Prelude.Hashable SessionContext where
   hashWithSalt _salt SessionContext' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` sessionIssuer
 
 instance Prelude.NFData SessionContext where

@@ -83,7 +83,8 @@ instance Data.FromJSON TagCriterionForJob where
 
 instance Prelude.Hashable TagCriterionForJob where
   hashWithSalt _salt TagCriterionForJob' {..} =
-    _salt `Prelude.hashWithSalt` comparator
+    _salt
+      `Prelude.hashWithSalt` comparator
       `Prelude.hashWithSalt` tagValues
 
 instance Prelude.NFData TagCriterionForJob where

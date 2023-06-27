@@ -36,11 +36,12 @@ data Member = Member'
     administratorAccountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the account.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The email address for the account.
+    -- | The email address for the account. This value is null if the account is
+    -- associated with the administrator account through Organizations.
     email :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when an Amazon
     -- Macie membership invitation was last sent to the account. This value is
-    -- null if an invitation hasn\'t been sent to the account.
+    -- null if a Macie membership invitation hasn\'t been sent to the account.
     invitedAt :: Prelude.Maybe Data.ISO8601,
     -- | (Deprecated) The Amazon Web Services account ID for the administrator
     -- account. This property has been replaced by the administratorAccountId
@@ -73,11 +74,12 @@ data Member = Member'
 --
 -- 'arn', 'member_arn' - The Amazon Resource Name (ARN) of the account.
 --
--- 'email', 'member_email' - The email address for the account.
+-- 'email', 'member_email' - The email address for the account. This value is null if the account is
+-- associated with the administrator account through Organizations.
 --
 -- 'invitedAt', 'member_invitedAt' - The date and time, in UTC and extended ISO 8601 format, when an Amazon
 -- Macie membership invitation was last sent to the account. This value is
--- null if an invitation hasn\'t been sent to the account.
+-- null if a Macie membership invitation hasn\'t been sent to the account.
 --
 -- 'masterAccountId', 'member_masterAccountId' - (Deprecated) The Amazon Web Services account ID for the administrator
 -- account. This property has been replaced by the administratorAccountId
@@ -119,13 +121,14 @@ member_administratorAccountId = Lens.lens (\Member' {administratorAccountId} -> 
 member_arn :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_arn = Lens.lens (\Member' {arn} -> arn) (\s@Member' {} a -> s {arn = a} :: Member)
 
--- | The email address for the account.
+-- | The email address for the account. This value is null if the account is
+-- associated with the administrator account through Organizations.
 member_email :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_email = Lens.lens (\Member' {email} -> email) (\s@Member' {} a -> s {email = a} :: Member)
 
 -- | The date and time, in UTC and extended ISO 8601 format, when an Amazon
 -- Macie membership invitation was last sent to the account. This value is
--- null if an invitation hasn\'t been sent to the account.
+-- null if a Macie membership invitation hasn\'t been sent to the account.
 member_invitedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
 member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member) Prelude.. Lens.mapping Data._Time
 
@@ -170,7 +173,8 @@ instance Data.FromJSON Member where
 
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` administratorAccountId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` email

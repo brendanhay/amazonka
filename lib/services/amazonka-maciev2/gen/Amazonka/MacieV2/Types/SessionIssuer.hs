@@ -32,8 +32,9 @@ data SessionIssuer = SessionIssuer'
   { -- | The unique identifier for the Amazon Web Services account that owns the
     -- entity that was used to get the credentials.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the source account, IAM user, or role
-    -- that was used to get the credentials.
+    -- | The Amazon Resource Name (ARN) of the source account, Identity and
+    -- Access Management (IAM) user, or role that was used to get the
+    -- credentials.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the entity that was used to get the
     -- credentials.
@@ -59,8 +60,9 @@ data SessionIssuer = SessionIssuer'
 -- 'accountId', 'sessionIssuer_accountId' - The unique identifier for the Amazon Web Services account that owns the
 -- entity that was used to get the credentials.
 --
--- 'arn', 'sessionIssuer_arn' - The Amazon Resource Name (ARN) of the source account, IAM user, or role
--- that was used to get the credentials.
+-- 'arn', 'sessionIssuer_arn' - The Amazon Resource Name (ARN) of the source account, Identity and
+-- Access Management (IAM) user, or role that was used to get the
+-- credentials.
 --
 -- 'principalId', 'sessionIssuer_principalId' - The unique identifier for the entity that was used to get the
 -- credentials.
@@ -87,8 +89,9 @@ newSessionIssuer =
 sessionIssuer_accountId :: Lens.Lens' SessionIssuer (Prelude.Maybe Prelude.Text)
 sessionIssuer_accountId = Lens.lens (\SessionIssuer' {accountId} -> accountId) (\s@SessionIssuer' {} a -> s {accountId = a} :: SessionIssuer)
 
--- | The Amazon Resource Name (ARN) of the source account, IAM user, or role
--- that was used to get the credentials.
+-- | The Amazon Resource Name (ARN) of the source account, Identity and
+-- Access Management (IAM) user, or role that was used to get the
+-- credentials.
 sessionIssuer_arn :: Lens.Lens' SessionIssuer (Prelude.Maybe Prelude.Text)
 sessionIssuer_arn = Lens.lens (\SessionIssuer' {arn} -> arn) (\s@SessionIssuer' {} a -> s {arn = a} :: SessionIssuer)
 
@@ -123,7 +126,8 @@ instance Data.FromJSON SessionIssuer where
 
 instance Prelude.Hashable SessionIssuer where
   hashWithSalt _salt SessionIssuer' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` type'

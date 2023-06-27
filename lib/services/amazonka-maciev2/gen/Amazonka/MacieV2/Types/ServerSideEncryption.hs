@@ -25,15 +25,15 @@ import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.EncryptionType
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides information about the server-side encryption settings for an S3
--- bucket or S3 object.
+-- | Provides information about the default server-side encryption settings
+-- for an S3 bucket or the encryption settings for an S3 object.
 --
 -- /See:/ 'newServerSideEncryption' smart constructor.
 data ServerSideEncryption = ServerSideEncryption'
   { -- | The server-side encryption algorithm that\'s used when storing data in
-    -- the bucket or object. If default encryption is disabled for the bucket
-    -- or the object isn\'t encrypted using server-side encryption, this value
-    -- is NONE.
+    -- the bucket or object. If default encryption settings aren\'t configured
+    -- for the bucket or the object isn\'t encrypted using server-side
+    -- encryption, this value is NONE.
     encryptionType :: Prelude.Maybe EncryptionType,
     -- | The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS
     -- key that\'s used to encrypt data in the bucket or the object. This value
@@ -51,9 +51,9 @@ data ServerSideEncryption = ServerSideEncryption'
 -- for backwards compatibility:
 --
 -- 'encryptionType', 'serverSideEncryption_encryptionType' - The server-side encryption algorithm that\'s used when storing data in
--- the bucket or object. If default encryption is disabled for the bucket
--- or the object isn\'t encrypted using server-side encryption, this value
--- is NONE.
+-- the bucket or object. If default encryption settings aren\'t configured
+-- for the bucket or the object isn\'t encrypted using server-side
+-- encryption, this value is NONE.
 --
 -- 'kmsMasterKeyId', 'serverSideEncryption_kmsMasterKeyId' - The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS
 -- key that\'s used to encrypt data in the bucket or the object. This value
@@ -68,9 +68,9 @@ newServerSideEncryption =
     }
 
 -- | The server-side encryption algorithm that\'s used when storing data in
--- the bucket or object. If default encryption is disabled for the bucket
--- or the object isn\'t encrypted using server-side encryption, this value
--- is NONE.
+-- the bucket or object. If default encryption settings aren\'t configured
+-- for the bucket or the object isn\'t encrypted using server-side
+-- encryption, this value is NONE.
 serverSideEncryption_encryptionType :: Lens.Lens' ServerSideEncryption (Prelude.Maybe EncryptionType)
 serverSideEncryption_encryptionType = Lens.lens (\ServerSideEncryption' {encryptionType} -> encryptionType) (\s@ServerSideEncryption' {} a -> s {encryptionType = a} :: ServerSideEncryption)
 
@@ -92,7 +92,8 @@ instance Data.FromJSON ServerSideEncryption where
 
 instance Prelude.Hashable ServerSideEncryption where
   hashWithSalt _salt ServerSideEncryption' {..} =
-    _salt `Prelude.hashWithSalt` encryptionType
+    _salt
+      `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` kmsMasterKeyId
 
 instance Prelude.NFData ServerSideEncryption where

@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of S3 buckets whose bucket
 -- policies do or don\'t require server-side encryption of objects when
--- objects are uploaded to the buckets.
+-- objects are added to the buckets.
 --
 -- /See:/ 'newBucketCountPolicyAllowsUnencryptedObjectUploads' smart constructor.
 data BucketCountPolicyAllowsUnencryptedObjectUploads = BucketCountPolicyAllowsUnencryptedObjectUploads'
@@ -127,8 +127,8 @@ instance
       ( \x ->
           BucketCountPolicyAllowsUnencryptedObjectUploads'
             Prelude.<$> (x Data..:? "allowsUnencryptedObjectUploads")
-              Prelude.<*> (x Data..:? "deniesUnencryptedObjectUploads")
-              Prelude.<*> (x Data..:? "unknown")
+            Prelude.<*> (x Data..:? "deniesUnencryptedObjectUploads")
+            Prelude.<*> (x Data..:? "unknown")
       )
 
 instance

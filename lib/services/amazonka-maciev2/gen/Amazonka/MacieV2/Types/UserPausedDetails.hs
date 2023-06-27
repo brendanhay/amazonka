@@ -106,7 +106,8 @@ instance Data.FromJSON UserPausedDetails where
 
 instance Prelude.Hashable UserPausedDetails where
   hashWithSalt _salt UserPausedDetails' {..} =
-    _salt `Prelude.hashWithSalt` jobExpiresAt
+    _salt
+      `Prelude.hashWithSalt` jobExpiresAt
       `Prelude.hashWithSalt` jobImminentExpirationHealthEventArn
       `Prelude.hashWithSalt` jobPausedAt
 

@@ -41,11 +41,11 @@ data Occurrences = Occurrences'
     -- Each Cell object specifies a cell or field that contains the sensitive
     -- data.
     cells :: Prelude.Maybe [Cell],
-    -- | An array of objects, one for each occurrence of sensitive data in a
-    -- non-binary text file, such as an HTML, TXT, or XML file. Each Range
-    -- object specifies a line or inclusive range of lines that contains the
-    -- sensitive data, and the position of the data on the specified line or
-    -- lines.
+    -- | An array of objects, one for each occurrence of sensitive data in an
+    -- email message or a non-binary text file such as an HTML, TXT, or XML
+    -- file. Each Range object specifies a line or inclusive range of lines
+    -- that contains the sensitive data, and the position of the data on the
+    -- specified line or lines.
     --
     -- This value is often null for file types that are supported by Cell,
     -- Page, or Record objects. Exceptions are the location of sensitive data
@@ -91,11 +91,11 @@ data Occurrences = Occurrences'
 -- Each Cell object specifies a cell or field that contains the sensitive
 -- data.
 --
--- 'lineRanges', 'occurrences_lineRanges' - An array of objects, one for each occurrence of sensitive data in a
--- non-binary text file, such as an HTML, TXT, or XML file. Each Range
--- object specifies a line or inclusive range of lines that contains the
--- sensitive data, and the position of the data on the specified line or
--- lines.
+-- 'lineRanges', 'occurrences_lineRanges' - An array of objects, one for each occurrence of sensitive data in an
+-- email message or a non-binary text file such as an HTML, TXT, or XML
+-- file. Each Range object specifies a line or inclusive range of lines
+-- that contains the sensitive data, and the position of the data on the
+-- specified line or lines.
 --
 -- This value is often null for file types that are supported by Cell,
 -- Page, or Record objects. Exceptions are the location of sensitive data
@@ -142,11 +142,11 @@ newOccurrences =
 occurrences_cells :: Lens.Lens' Occurrences (Prelude.Maybe [Cell])
 occurrences_cells = Lens.lens (\Occurrences' {cells} -> cells) (\s@Occurrences' {} a -> s {cells = a} :: Occurrences) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of objects, one for each occurrence of sensitive data in a
--- non-binary text file, such as an HTML, TXT, or XML file. Each Range
--- object specifies a line or inclusive range of lines that contains the
--- sensitive data, and the position of the data on the specified line or
--- lines.
+-- | An array of objects, one for each occurrence of sensitive data in an
+-- email message or a non-binary text file such as an HTML, TXT, or XML
+-- file. Each Range object specifies a line or inclusive range of lines
+-- that contains the sensitive data, and the position of the data on the
+-- specified line or lines.
 --
 -- This value is often null for file types that are supported by Cell,
 -- Page, or Record objects. Exceptions are the location of sensitive data
@@ -197,7 +197,8 @@ instance Data.FromJSON Occurrences where
 
 instance Prelude.Hashable Occurrences where
   hashWithSalt _salt Occurrences' {..} =
-    _salt `Prelude.hashWithSalt` cells
+    _salt
+      `Prelude.hashWithSalt` cells
       `Prelude.hashWithSalt` lineRanges
       `Prelude.hashWithSalt` offsetRanges
       `Prelude.hashWithSalt` pages

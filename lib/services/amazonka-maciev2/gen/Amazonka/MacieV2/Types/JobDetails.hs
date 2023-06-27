@@ -224,7 +224,8 @@ instance Data.FromJSON JobDetails where
 
 instance Prelude.Hashable JobDetails where
   hashWithSalt _salt JobDetails' {..} =
-    _salt `Prelude.hashWithSalt` isDefinedInJob
+    _salt
+      `Prelude.hashWithSalt` isDefinedInJob
       `Prelude.hashWithSalt` isMonitoredByJob
       `Prelude.hashWithSalt` lastJobId
       `Prelude.hashWithSalt` lastJobRunTime

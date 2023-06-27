@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     SearchResourcesSimpleCriterion' {..} =
-      _salt `Prelude.hashWithSalt` comparator
+      _salt
+        `Prelude.hashWithSalt` comparator
         `Prelude.hashWithSalt` key
         `Prelude.hashWithSalt` values
 

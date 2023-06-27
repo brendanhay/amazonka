@@ -25,8 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of S3 buckets that are publicly
--- accessible based on a combination of permissions settings for each
--- bucket.
+-- accessible due to a combination of permissions settings for each bucket.
 --
 -- /See:/ 'newBucketCountByEffectivePermission' smart constructor.
 data BucketCountByEffectivePermission = BucketCountByEffectivePermission'
@@ -120,7 +119,8 @@ instance
   hashWithSalt
     _salt
     BucketCountByEffectivePermission' {..} =
-      _salt `Prelude.hashWithSalt` publiclyAccessible
+      _salt
+        `Prelude.hashWithSalt` publiclyAccessible
         `Prelude.hashWithSalt` publiclyReadable
         `Prelude.hashWithSalt` publiclyWritable
         `Prelude.hashWithSalt` unknown

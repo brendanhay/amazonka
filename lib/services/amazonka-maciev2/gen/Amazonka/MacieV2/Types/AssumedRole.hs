@@ -120,7 +120,8 @@ instance Data.FromJSON AssumedRole where
 
 instance Prelude.Hashable AssumedRole where
   hashWithSalt _salt AssumedRole' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` principalId

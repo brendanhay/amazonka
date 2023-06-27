@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateMemberSession where
 
 instance Prelude.Hashable UpdateMemberSession where
   hashWithSalt _salt UpdateMemberSession' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData UpdateMemberSession where

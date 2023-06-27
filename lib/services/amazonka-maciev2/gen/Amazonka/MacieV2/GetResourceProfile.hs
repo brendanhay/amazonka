@@ -130,8 +130,8 @@ data GetResourceProfileResponse = GetResourceProfileResponse'
     -- details for the bucket. If the bucket\'s sensitivity score is calculated
     -- automatically, this includes the score.
     profileUpdatedAt :: Prelude.Maybe Data.ISO8601,
-    -- | The current sensitivity score for the bucket, ranging from -1 (no
-    -- analysis due to an error) to 100 (sensitive). By default, this score is
+    -- | The current sensitivity score for the bucket, ranging from -1
+    -- (classification error) to 100 (sensitive). By default, this score is
     -- calculated automatically based on the amount of data that Amazon Macie
     -- has analyzed in the bucket and the amount of sensitive data that Macie
     -- has found in the bucket.
@@ -163,8 +163,8 @@ data GetResourceProfileResponse = GetResourceProfileResponse'
 -- details for the bucket. If the bucket\'s sensitivity score is calculated
 -- automatically, this includes the score.
 --
--- 'sensitivityScore', 'getResourceProfileResponse_sensitivityScore' - The current sensitivity score for the bucket, ranging from -1 (no
--- analysis due to an error) to 100 (sensitive). By default, this score is
+-- 'sensitivityScore', 'getResourceProfileResponse_sensitivityScore' - The current sensitivity score for the bucket, ranging from -1
+-- (classification error) to 100 (sensitive). By default, this score is
 -- calculated automatically based on the amount of data that Amazon Macie
 -- has analyzed in the bucket and the amount of sensitive data that Macie
 -- has found in the bucket.
@@ -200,8 +200,8 @@ newGetResourceProfileResponse pHttpStatus_ =
 getResourceProfileResponse_profileUpdatedAt :: Lens.Lens' GetResourceProfileResponse (Prelude.Maybe Prelude.UTCTime)
 getResourceProfileResponse_profileUpdatedAt = Lens.lens (\GetResourceProfileResponse' {profileUpdatedAt} -> profileUpdatedAt) (\s@GetResourceProfileResponse' {} a -> s {profileUpdatedAt = a} :: GetResourceProfileResponse) Prelude.. Lens.mapping Data._Time
 
--- | The current sensitivity score for the bucket, ranging from -1 (no
--- analysis due to an error) to 100 (sensitive). By default, this score is
+-- | The current sensitivity score for the bucket, ranging from -1
+-- (classification error) to 100 (sensitive). By default, this score is
 -- calculated automatically based on the amount of data that Amazon Macie
 -- has analyzed in the bucket and the amount of sensitive data that Macie
 -- has found in the bucket.

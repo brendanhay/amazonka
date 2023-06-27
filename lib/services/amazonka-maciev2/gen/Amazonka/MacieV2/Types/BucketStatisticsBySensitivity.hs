@@ -39,7 +39,7 @@ data BucketStatisticsBySensitivity = BucketStatisticsBySensitivity'
     -- score of 50.
     notClassified :: Prelude.Maybe SensitivityAggregations,
     -- | The aggregated statistical data for all buckets that have a sensitivity
-    -- score of 0-49.
+    -- score of 1-49.
     notSensitive :: Prelude.Maybe SensitivityAggregations,
     -- | The aggregated statistical data for all buckets that have a sensitivity
     -- score of 51-100.
@@ -62,7 +62,7 @@ data BucketStatisticsBySensitivity = BucketStatisticsBySensitivity'
 -- score of 50.
 --
 -- 'notSensitive', 'bucketStatisticsBySensitivity_notSensitive' - The aggregated statistical data for all buckets that have a sensitivity
--- score of 0-49.
+-- score of 1-49.
 --
 -- 'sensitive', 'bucketStatisticsBySensitivity_sensitive' - The aggregated statistical data for all buckets that have a sensitivity
 -- score of 51-100.
@@ -88,7 +88,7 @@ bucketStatisticsBySensitivity_notClassified :: Lens.Lens' BucketStatisticsBySens
 bucketStatisticsBySensitivity_notClassified = Lens.lens (\BucketStatisticsBySensitivity' {notClassified} -> notClassified) (\s@BucketStatisticsBySensitivity' {} a -> s {notClassified = a} :: BucketStatisticsBySensitivity)
 
 -- | The aggregated statistical data for all buckets that have a sensitivity
--- score of 0-49.
+-- score of 1-49.
 bucketStatisticsBySensitivity_notSensitive :: Lens.Lens' BucketStatisticsBySensitivity (Prelude.Maybe SensitivityAggregations)
 bucketStatisticsBySensitivity_notSensitive = Lens.lens (\BucketStatisticsBySensitivity' {notSensitive} -> notSensitive) (\s@BucketStatisticsBySensitivity' {} a -> s {notSensitive = a} :: BucketStatisticsBySensitivity)
 
@@ -114,7 +114,8 @@ instance
     BucketStatisticsBySensitivity
   where
   hashWithSalt _salt BucketStatisticsBySensitivity' {..} =
-    _salt `Prelude.hashWithSalt` classificationError
+    _salt
+      `Prelude.hashWithSalt` classificationError
       `Prelude.hashWithSalt` notClassified
       `Prelude.hashWithSalt` notSensitive
       `Prelude.hashWithSalt` sensitive

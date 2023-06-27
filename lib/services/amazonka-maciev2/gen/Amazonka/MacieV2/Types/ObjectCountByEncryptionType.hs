@@ -40,8 +40,8 @@ data ObjectCountByEncryptionType = ObjectCountByEncryptionType'
     -- | The total number of objects that are encrypted with an Amazon S3 managed
     -- key. The objects use Amazon S3 managed encryption (SSE-S3).
     s3Managed :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of objects that aren\'t encrypted or use client-side
-    -- encryption.
+    -- | The total number of objects that use client-side encryption or aren\'t
+    -- encrypted.
     unencrypted :: Prelude.Maybe Prelude.Integer,
     -- | The total number of objects that Amazon Macie doesn\'t have current
     -- encryption metadata for. Macie can\'t provide current data about the
@@ -68,8 +68,8 @@ data ObjectCountByEncryptionType = ObjectCountByEncryptionType'
 -- 's3Managed', 'objectCountByEncryptionType_s3Managed' - The total number of objects that are encrypted with an Amazon S3 managed
 -- key. The objects use Amazon S3 managed encryption (SSE-S3).
 --
--- 'unencrypted', 'objectCountByEncryptionType_unencrypted' - The total number of objects that aren\'t encrypted or use client-side
--- encryption.
+-- 'unencrypted', 'objectCountByEncryptionType_unencrypted' - The total number of objects that use client-side encryption or aren\'t
+-- encrypted.
 --
 -- 'unknown', 'objectCountByEncryptionType_unknown' - The total number of objects that Amazon Macie doesn\'t have current
 -- encryption metadata for. Macie can\'t provide current data about the
@@ -102,8 +102,8 @@ objectCountByEncryptionType_kmsManaged = Lens.lens (\ObjectCountByEncryptionType
 objectCountByEncryptionType_s3Managed :: Lens.Lens' ObjectCountByEncryptionType (Prelude.Maybe Prelude.Integer)
 objectCountByEncryptionType_s3Managed = Lens.lens (\ObjectCountByEncryptionType' {s3Managed} -> s3Managed) (\s@ObjectCountByEncryptionType' {} a -> s {s3Managed = a} :: ObjectCountByEncryptionType)
 
--- | The total number of objects that aren\'t encrypted or use client-side
--- encryption.
+-- | The total number of objects that use client-side encryption or aren\'t
+-- encrypted.
 objectCountByEncryptionType_unencrypted :: Lens.Lens' ObjectCountByEncryptionType (Prelude.Maybe Prelude.Integer)
 objectCountByEncryptionType_unencrypted = Lens.lens (\ObjectCountByEncryptionType' {unencrypted} -> unencrypted) (\s@ObjectCountByEncryptionType' {} a -> s {unencrypted = a} :: ObjectCountByEncryptionType)
 
@@ -128,7 +128,8 @@ instance Data.FromJSON ObjectCountByEncryptionType where
 
 instance Prelude.Hashable ObjectCountByEncryptionType where
   hashWithSalt _salt ObjectCountByEncryptionType' {..} =
-    _salt `Prelude.hashWithSalt` customerManaged
+    _salt
+      `Prelude.hashWithSalt` customerManaged
       `Prelude.hashWithSalt` kmsManaged
       `Prelude.hashWithSalt` s3Managed
       `Prelude.hashWithSalt` unencrypted

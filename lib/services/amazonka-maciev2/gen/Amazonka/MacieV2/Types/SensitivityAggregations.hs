@@ -42,7 +42,7 @@ data SensitivityAggregations = SensitivityAggregations'
     -- This value doesn\'t reflect the storage size of all versions of all
     -- applicable objects in the buckets.
     classifiableSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that are publicly accessible based on a
+    -- | The total number of buckets that are publicly accessible due to a
     -- combination of permissions settings for each bucket.
     publiclyAccessibleCount :: Prelude.Maybe Prelude.Integer,
     -- | The total number of buckets.
@@ -74,7 +74,7 @@ data SensitivityAggregations = SensitivityAggregations'
 -- This value doesn\'t reflect the storage size of all versions of all
 -- applicable objects in the buckets.
 --
--- 'publiclyAccessibleCount', 'sensitivityAggregations_publiclyAccessibleCount' - The total number of buckets that are publicly accessible based on a
+-- 'publiclyAccessibleCount', 'sensitivityAggregations_publiclyAccessibleCount' - The total number of buckets that are publicly accessible due to a
 -- combination of permissions settings for each bucket.
 --
 -- 'totalCount', 'sensitivityAggregations_totalCount' - The total number of buckets.
@@ -107,7 +107,7 @@ newSensitivityAggregations =
 sensitivityAggregations_classifiableSizeInBytes :: Lens.Lens' SensitivityAggregations (Prelude.Maybe Prelude.Integer)
 sensitivityAggregations_classifiableSizeInBytes = Lens.lens (\SensitivityAggregations' {classifiableSizeInBytes} -> classifiableSizeInBytes) (\s@SensitivityAggregations' {} a -> s {classifiableSizeInBytes = a} :: SensitivityAggregations)
 
--- | The total number of buckets that are publicly accessible based on a
+-- | The total number of buckets that are publicly accessible due to a
 -- combination of permissions settings for each bucket.
 sensitivityAggregations_publiclyAccessibleCount :: Lens.Lens' SensitivityAggregations (Prelude.Maybe Prelude.Integer)
 sensitivityAggregations_publiclyAccessibleCount = Lens.lens (\SensitivityAggregations' {publiclyAccessibleCount} -> publiclyAccessibleCount) (\s@SensitivityAggregations' {} a -> s {publiclyAccessibleCount = a} :: SensitivityAggregations)

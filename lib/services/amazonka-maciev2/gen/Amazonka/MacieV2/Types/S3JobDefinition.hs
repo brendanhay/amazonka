@@ -117,7 +117,8 @@ instance Data.FromJSON S3JobDefinition where
       ( \x ->
           S3JobDefinition'
             Prelude.<$> (x Data..:? "bucketCriteria")
-            Prelude.<*> ( x Data..:? "bucketDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "bucketDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "scoping")
@@ -125,7 +126,8 @@ instance Data.FromJSON S3JobDefinition where
 
 instance Prelude.Hashable S3JobDefinition where
   hashWithSalt _salt S3JobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` bucketCriteria
+    _salt
+      `Prelude.hashWithSalt` bucketCriteria
       `Prelude.hashWithSalt` bucketDefinitions
       `Prelude.hashWithSalt` scoping
 

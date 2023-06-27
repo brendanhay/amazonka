@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomDetection' smart constructor.
 data CustomDetection = CustomDetection'
-  { -- | The Amazon Resource Name (ARN) of the custom data identifier.
+  { -- | The unique identifier for the custom data identifier.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The total number of occurrences of the sensitive data that the custom
     -- data identifier detected.
@@ -53,7 +53,7 @@ data CustomDetection = CustomDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'customDetection_arn' - The Amazon Resource Name (ARN) of the custom data identifier.
+-- 'arn', 'customDetection_arn' - The unique identifier for the custom data identifier.
 --
 -- 'count', 'customDetection_count' - The total number of occurrences of the sensitive data that the custom
 -- data identifier detected.
@@ -73,7 +73,7 @@ newCustomDetection =
       occurrences = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the custom data identifier.
+-- | The unique identifier for the custom data identifier.
 customDetection_arn :: Lens.Lens' CustomDetection (Prelude.Maybe Prelude.Text)
 customDetection_arn = Lens.lens (\CustomDetection' {arn} -> arn) (\s@CustomDetection' {} a -> s {arn = a} :: CustomDetection)
 
@@ -106,7 +106,8 @@ instance Data.FromJSON CustomDetection where
 
 instance Prelude.Hashable CustomDetection where
   hashWithSalt _salt CustomDetection' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` occurrences

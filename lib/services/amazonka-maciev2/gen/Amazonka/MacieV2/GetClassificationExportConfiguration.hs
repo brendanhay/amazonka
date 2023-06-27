@@ -74,7 +74,7 @@ instance
       ( \s h x ->
           GetClassificationExportConfigurationResponse'
             Prelude.<$> (x Data..?> "configuration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

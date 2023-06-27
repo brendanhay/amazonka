@@ -150,19 +150,19 @@ instance Data.ToQuery GetBucketStatistics where
 data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
   { -- | The total number of buckets.
     bucketCount :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that are publicly accessible based on a
+    -- | The total number of buckets that are publicly accessible due to a
     -- combination of permissions settings for each bucket.
     bucketCountByEffectivePermission :: Prelude.Maybe BucketCountByEffectivePermission,
-    -- | The total number of buckets that use certain types of server-side
-    -- encryption to encrypt new objects by default. This object also reports
-    -- the total number of buckets that don\'t encrypt new objects by default.
+    -- | The total number of buckets whose settings do or don\'t specify default
+    -- server-side encryption behavior for objects that are added to the
+    -- buckets.
     bucketCountByEncryptionType :: Prelude.Maybe BucketCountByEncryptionType,
     -- | The total number of buckets whose bucket policies do or don\'t require
-    -- server-side encryption of objects when objects are uploaded to the
-    -- buckets.
+    -- server-side encryption of objects when objects are added to the buckets.
     bucketCountByObjectEncryptionRequirement :: Prelude.Maybe BucketCountPolicyAllowsUnencryptedObjectUploads,
-    -- | The total number of buckets that are or aren\'t shared with another
-    -- Amazon Web Services account.
+    -- | The total number of buckets that are or aren\'t shared with other Amazon
+    -- Web Services accounts, Amazon CloudFront origin access identities
+    -- (OAIs), or CloudFront origin access controls (OACs).
     bucketCountBySharedAccessType :: Prelude.Maybe BucketCountBySharedAccessType,
     -- | The aggregated sensitive data discovery statistics for the buckets. If
     -- automated sensitive data discovery is currently disabled for your
@@ -182,8 +182,8 @@ data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
     -- applicable objects in the buckets.
     classifiableSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
-    -- Macie most recently retrieved both bucket and object metadata from
-    -- Amazon S3 for the buckets.
+    -- Macie most recently retrieved bucket or object metadata from Amazon S3
+    -- for the buckets.
     lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The total number of objects in the buckets.
     objectCount :: Prelude.Maybe Prelude.Integer,
@@ -226,19 +226,19 @@ data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
 --
 -- 'bucketCount', 'getBucketStatisticsResponse_bucketCount' - The total number of buckets.
 --
--- 'bucketCountByEffectivePermission', 'getBucketStatisticsResponse_bucketCountByEffectivePermission' - The total number of buckets that are publicly accessible based on a
+-- 'bucketCountByEffectivePermission', 'getBucketStatisticsResponse_bucketCountByEffectivePermission' - The total number of buckets that are publicly accessible due to a
 -- combination of permissions settings for each bucket.
 --
--- 'bucketCountByEncryptionType', 'getBucketStatisticsResponse_bucketCountByEncryptionType' - The total number of buckets that use certain types of server-side
--- encryption to encrypt new objects by default. This object also reports
--- the total number of buckets that don\'t encrypt new objects by default.
---
--- 'bucketCountByObjectEncryptionRequirement', 'getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement' - The total number of buckets whose bucket policies do or don\'t require
--- server-side encryption of objects when objects are uploaded to the
+-- 'bucketCountByEncryptionType', 'getBucketStatisticsResponse_bucketCountByEncryptionType' - The total number of buckets whose settings do or don\'t specify default
+-- server-side encryption behavior for objects that are added to the
 -- buckets.
 --
--- 'bucketCountBySharedAccessType', 'getBucketStatisticsResponse_bucketCountBySharedAccessType' - The total number of buckets that are or aren\'t shared with another
--- Amazon Web Services account.
+-- 'bucketCountByObjectEncryptionRequirement', 'getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement' - The total number of buckets whose bucket policies do or don\'t require
+-- server-side encryption of objects when objects are added to the buckets.
+--
+-- 'bucketCountBySharedAccessType', 'getBucketStatisticsResponse_bucketCountBySharedAccessType' - The total number of buckets that are or aren\'t shared with other Amazon
+-- Web Services accounts, Amazon CloudFront origin access identities
+-- (OAIs), or CloudFront origin access controls (OACs).
 --
 -- 'bucketStatisticsBySensitivity', 'getBucketStatisticsResponse_bucketStatisticsBySensitivity' - The aggregated sensitive data discovery statistics for the buckets. If
 -- automated sensitive data discovery is currently disabled for your
@@ -258,8 +258,8 @@ data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
 -- applicable objects in the buckets.
 --
 -- 'lastUpdated', 'getBucketStatisticsResponse_lastUpdated' - The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently retrieved both bucket and object metadata from
--- Amazon S3 for the buckets.
+-- Macie most recently retrieved bucket or object metadata from Amazon S3
+-- for the buckets.
 --
 -- 'objectCount', 'getBucketStatisticsResponse_objectCount' - The total number of objects in the buckets.
 --
@@ -321,25 +321,25 @@ newGetBucketStatisticsResponse pHttpStatus_ =
 getBucketStatisticsResponse_bucketCount :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
 getBucketStatisticsResponse_bucketCount = Lens.lens (\GetBucketStatisticsResponse' {bucketCount} -> bucketCount) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCount = a} :: GetBucketStatisticsResponse)
 
--- | The total number of buckets that are publicly accessible based on a
+-- | The total number of buckets that are publicly accessible due to a
 -- combination of permissions settings for each bucket.
 getBucketStatisticsResponse_bucketCountByEffectivePermission :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountByEffectivePermission)
 getBucketStatisticsResponse_bucketCountByEffectivePermission = Lens.lens (\GetBucketStatisticsResponse' {bucketCountByEffectivePermission} -> bucketCountByEffectivePermission) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountByEffectivePermission = a} :: GetBucketStatisticsResponse)
 
--- | The total number of buckets that use certain types of server-side
--- encryption to encrypt new objects by default. This object also reports
--- the total number of buckets that don\'t encrypt new objects by default.
+-- | The total number of buckets whose settings do or don\'t specify default
+-- server-side encryption behavior for objects that are added to the
+-- buckets.
 getBucketStatisticsResponse_bucketCountByEncryptionType :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountByEncryptionType)
 getBucketStatisticsResponse_bucketCountByEncryptionType = Lens.lens (\GetBucketStatisticsResponse' {bucketCountByEncryptionType} -> bucketCountByEncryptionType) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountByEncryptionType = a} :: GetBucketStatisticsResponse)
 
 -- | The total number of buckets whose bucket policies do or don\'t require
--- server-side encryption of objects when objects are uploaded to the
--- buckets.
+-- server-side encryption of objects when objects are added to the buckets.
 getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountPolicyAllowsUnencryptedObjectUploads)
 getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement = Lens.lens (\GetBucketStatisticsResponse' {bucketCountByObjectEncryptionRequirement} -> bucketCountByObjectEncryptionRequirement) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountByObjectEncryptionRequirement = a} :: GetBucketStatisticsResponse)
 
--- | The total number of buckets that are or aren\'t shared with another
--- Amazon Web Services account.
+-- | The total number of buckets that are or aren\'t shared with other Amazon
+-- Web Services accounts, Amazon CloudFront origin access identities
+-- (OAIs), or CloudFront origin access controls (OACs).
 getBucketStatisticsResponse_bucketCountBySharedAccessType :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountBySharedAccessType)
 getBucketStatisticsResponse_bucketCountBySharedAccessType = Lens.lens (\GetBucketStatisticsResponse' {bucketCountBySharedAccessType} -> bucketCountBySharedAccessType) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountBySharedAccessType = a} :: GetBucketStatisticsResponse)
 
@@ -367,8 +367,8 @@ getBucketStatisticsResponse_classifiableSizeInBytes :: Lens.Lens' GetBucketStati
 getBucketStatisticsResponse_classifiableSizeInBytes = Lens.lens (\GetBucketStatisticsResponse' {classifiableSizeInBytes} -> classifiableSizeInBytes) (\s@GetBucketStatisticsResponse' {} a -> s {classifiableSizeInBytes = a} :: GetBucketStatisticsResponse)
 
 -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently retrieved both bucket and object metadata from
--- Amazon S3 for the buckets.
+-- Macie most recently retrieved bucket or object metadata from Amazon S3
+-- for the buckets.
 getBucketStatisticsResponse_lastUpdated :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.UTCTime)
 getBucketStatisticsResponse_lastUpdated = Lens.lens (\GetBucketStatisticsResponse' {lastUpdated} -> lastUpdated) (\s@GetBucketStatisticsResponse' {} a -> s {lastUpdated = a} :: GetBucketStatisticsResponse) Prelude.. Lens.mapping Data._Time
 

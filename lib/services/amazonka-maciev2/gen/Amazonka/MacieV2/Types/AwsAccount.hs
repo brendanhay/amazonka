@@ -77,7 +77,8 @@ instance Data.FromJSON AwsAccount where
 
 instance Prelude.Hashable AwsAccount where
   hashWithSalt _salt AwsAccount' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` principalId
 
 instance Prelude.NFData AwsAccount where

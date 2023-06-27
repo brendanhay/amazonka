@@ -120,7 +120,8 @@ instance Data.FromJSON FederatedUser where
 
 instance Prelude.Hashable FederatedUser where
   hashWithSalt _salt FederatedUser' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` principalId

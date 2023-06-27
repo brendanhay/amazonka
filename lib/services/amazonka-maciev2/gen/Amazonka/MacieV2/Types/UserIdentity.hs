@@ -162,7 +162,8 @@ instance Data.FromJSON UserIdentity where
 
 instance Prelude.Hashable UserIdentity where
   hashWithSalt _salt UserIdentity' {..} =
-    _salt `Prelude.hashWithSalt` assumedRole
+    _salt
+      `Prelude.hashWithSalt` assumedRole
       `Prelude.hashWithSalt` awsAccount
       `Prelude.hashWithSalt` awsService
       `Prelude.hashWithSalt` federatedUser

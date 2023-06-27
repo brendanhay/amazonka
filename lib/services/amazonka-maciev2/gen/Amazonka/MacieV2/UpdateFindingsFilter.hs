@@ -68,9 +68,9 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
     -- as 512 characters.
     --
     -- We strongly recommend that you avoid including any sensitive data in the
-    -- description of a filter. Other users might be able to see this
-    -- description, depending on the actions that they\'re allowed to perform
-    -- in Amazon Macie.
+    -- description of a filter. Other users of your account might be able to
+    -- see this description, depending on the actions that they\'re allowed to
+    -- perform in Amazon Macie.
     description :: Prelude.Maybe Prelude.Text,
     -- | The criteria to use to filter findings.
     findingCriteria :: Prelude.Maybe FindingCriteria,
@@ -78,8 +78,9 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
     -- characters and can contain as many as 64 characters.
     --
     -- We strongly recommend that you avoid including any sensitive data in the
-    -- name of a filter. Other users might be able to see this name, depending
-    -- on the actions that they\'re allowed to perform in Amazon Macie.
+    -- name of a filter. Other users of your account might be able to see this
+    -- name, depending on the actions that they\'re allowed to perform in
+    -- Amazon Macie.
     name :: Prelude.Maybe Prelude.Text,
     -- | The position of the filter in the list of saved filters on the Amazon
     -- Macie console. This value also determines the order in which the filter
@@ -112,9 +113,9 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
 -- as 512 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- description of a filter. Other users might be able to see this
--- description, depending on the actions that they\'re allowed to perform
--- in Amazon Macie.
+-- description of a filter. Other users of your account might be able to
+-- see this description, depending on the actions that they\'re allowed to
+-- perform in Amazon Macie.
 --
 -- 'findingCriteria', 'updateFindingsFilter_findingCriteria' - The criteria to use to filter findings.
 --
@@ -122,8 +123,9 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
 -- characters and can contain as many as 64 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- name of a filter. Other users might be able to see this name, depending
--- on the actions that they\'re allowed to perform in Amazon Macie.
+-- name of a filter. Other users of your account might be able to see this
+-- name, depending on the actions that they\'re allowed to perform in
+-- Amazon Macie.
 --
 -- 'position', 'updateFindingsFilter_position' - The position of the filter in the list of saved filters on the Amazon
 -- Macie console. This value also determines the order in which the filter
@@ -163,9 +165,9 @@ updateFindingsFilter_clientToken = Lens.lens (\UpdateFindingsFilter' {clientToke
 -- as 512 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- description of a filter. Other users might be able to see this
--- description, depending on the actions that they\'re allowed to perform
--- in Amazon Macie.
+-- description of a filter. Other users of your account might be able to
+-- see this description, depending on the actions that they\'re allowed to
+-- perform in Amazon Macie.
 updateFindingsFilter_description :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe Prelude.Text)
 updateFindingsFilter_description = Lens.lens (\UpdateFindingsFilter' {description} -> description) (\s@UpdateFindingsFilter' {} a -> s {description = a} :: UpdateFindingsFilter)
 
@@ -177,8 +179,9 @@ updateFindingsFilter_findingCriteria = Lens.lens (\UpdateFindingsFilter' {findin
 -- characters and can contain as many as 64 characters.
 --
 -- We strongly recommend that you avoid including any sensitive data in the
--- name of a filter. Other users might be able to see this name, depending
--- on the actions that they\'re allowed to perform in Amazon Macie.
+-- name of a filter. Other users of your account might be able to see this
+-- name, depending on the actions that they\'re allowed to perform in
+-- Amazon Macie.
 updateFindingsFilter_name :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe Prelude.Text)
 updateFindingsFilter_name = Lens.lens (\UpdateFindingsFilter' {name} -> name) (\s@UpdateFindingsFilter' {} a -> s {name = a} :: UpdateFindingsFilter)
 
@@ -211,7 +214,8 @@ instance Core.AWSRequest UpdateFindingsFilter where
 
 instance Prelude.Hashable UpdateFindingsFilter where
   hashWithSalt _salt UpdateFindingsFilter' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` findingCriteria

@@ -137,7 +137,8 @@ usageStatisticsFilter_values = Lens.lens (\UsageStatisticsFilter' {values} -> va
 
 instance Prelude.Hashable UsageStatisticsFilter where
   hashWithSalt _salt UsageStatisticsFilter' {..} =
-    _salt `Prelude.hashWithSalt` comparator
+    _salt
+      `Prelude.hashWithSalt` comparator
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 

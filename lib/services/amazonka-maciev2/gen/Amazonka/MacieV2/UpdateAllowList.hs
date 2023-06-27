@@ -158,7 +158,8 @@ instance Core.AWSRequest UpdateAllowList where
 
 instance Prelude.Hashable UpdateAllowList where
   hashWithSalt _salt UpdateAllowList' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` criteria
       `Prelude.hashWithSalt` name

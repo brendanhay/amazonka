@@ -104,7 +104,8 @@ instance Data.FromJSON Invitation where
 
 instance Prelude.Hashable Invitation where
   hashWithSalt _salt Invitation' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` invitationId
       `Prelude.hashWithSalt` invitedAt
       `Prelude.hashWithSalt` relationshipStatus

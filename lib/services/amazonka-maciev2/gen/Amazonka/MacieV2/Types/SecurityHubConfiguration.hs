@@ -104,7 +104,8 @@ instance Data.FromJSON SecurityHubConfiguration where
 
 instance Prelude.Hashable SecurityHubConfiguration where
   hashWithSalt _salt SecurityHubConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` publishPolicyFindings
+    _salt
+      `Prelude.hashWithSalt` publishPolicyFindings
       `Prelude.hashWithSalt` publishClassificationFindings
 
 instance Prelude.NFData SecurityHubConfiguration where

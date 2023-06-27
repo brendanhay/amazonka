@@ -89,7 +89,8 @@ instance Data.FromJSON FindingAction where
 
 instance Prelude.Hashable FindingAction where
   hashWithSalt _salt FindingAction' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` apiCallDetails
 
 instance Prelude.NFData FindingAction where

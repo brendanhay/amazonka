@@ -123,20 +123,23 @@ instance Core.AWSPager ListNetworks where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listNetworksResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listNetworksResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listNetworksResponse_networks Prelude.. Lens._Just
+            Lens.^? listNetworksResponse_networks
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listNetworks_startToken
           Lens..~ rs
-          Lens.^? listNetworksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listNetworksResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNetworks where
   type AWSResponse ListNetworks = ListNetworksResponse
@@ -153,7 +156,8 @@ instance Core.AWSRequest ListNetworks where
 
 instance Prelude.Hashable ListNetworks where
   hashWithSalt _salt ListNetworks' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` startToken
 

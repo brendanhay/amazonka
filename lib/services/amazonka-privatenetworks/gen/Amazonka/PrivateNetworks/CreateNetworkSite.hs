@@ -182,7 +182,8 @@ instance Core.AWSRequest CreateNetworkSite where
 
 instance Prelude.Hashable CreateNetworkSite where
   hashWithSalt _salt CreateNetworkSite' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description

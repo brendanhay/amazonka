@@ -158,7 +158,8 @@ instance Core.AWSRequest ConfigureAccessPoint where
 
 instance Prelude.Hashable ConfigureAccessPoint where
   hashWithSalt _salt ConfigureAccessPoint' {..} =
-    _salt `Prelude.hashWithSalt` cpiSecretKey
+    _salt
+      `Prelude.hashWithSalt` cpiSecretKey
       `Prelude.hashWithSalt` cpiUserId
       `Prelude.hashWithSalt` cpiUserPassword
       `Prelude.hashWithSalt` cpiUsername
@@ -214,7 +215,7 @@ data ConfigureAccessPointResponse = ConfigureAccessPointResponse'
     -- | Information about the network resource.
     accessPoint :: NetworkResource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfigureAccessPointResponse' with all optional fields omitted.

@@ -128,14 +128,16 @@ instance Data.FromJSON Order where
             Prelude.<*> (x Data..:? "networkSiteArn")
             Prelude.<*> (x Data..:? "orderArn")
             Prelude.<*> (x Data..:? "shippingAddress")
-            Prelude.<*> ( x Data..:? "trackingInformation"
+            Prelude.<*> ( x
+                            Data..:? "trackingInformation"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Order where
   hashWithSalt _salt Order' {..} =
-    _salt `Prelude.hashWithSalt` acknowledgmentStatus
+    _salt
+      `Prelude.hashWithSalt` acknowledgmentStatus
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` networkArn
       `Prelude.hashWithSalt` networkSiteArn

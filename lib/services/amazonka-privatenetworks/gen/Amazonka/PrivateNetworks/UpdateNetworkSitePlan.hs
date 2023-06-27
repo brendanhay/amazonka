@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateNetworkSitePlan where
 
 instance Prelude.Hashable UpdateNetworkSitePlan where
   hashWithSalt _salt UpdateNetworkSitePlan' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` networkSiteArn
       `Prelude.hashWithSalt` pendingPlan
 

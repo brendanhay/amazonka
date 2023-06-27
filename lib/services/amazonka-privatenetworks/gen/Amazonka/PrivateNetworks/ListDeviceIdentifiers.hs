@@ -25,9 +25,8 @@
 -- (ARN) of an order, the status of device identifiers, or the ARN of the
 -- traffic group.
 --
--- >  <p>If you specify multiple filters, filters are joined with an OR, and the request
---
--- returns results that match all of the specified filters.
+-- If you specify multiple filters, filters are joined with an OR, and the
+-- request returns results that match all of the specified filters.
 --
 -- This operation returns paginated results.
 module Amazonka.PrivateNetworks.ListDeviceIdentifiers
@@ -154,22 +153,22 @@ instance Core.AWSPager ListDeviceIdentifiers where
     | Core.stop
         ( rs
             Lens.^? listDeviceIdentifiersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDeviceIdentifiersResponse_deviceIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDeviceIdentifiers_startToken
           Lens..~ rs
           Lens.^? listDeviceIdentifiersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeviceIdentifiers where
   type
@@ -181,7 +180,8 @@ instance Core.AWSRequest ListDeviceIdentifiers where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceIdentifiersResponse'
-            Prelude.<$> ( x Data..?> "deviceIdentifiers"
+            Prelude.<$> ( x
+                            Data..?> "deviceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -190,7 +190,8 @@ instance Core.AWSRequest ListDeviceIdentifiers where
 
 instance Prelude.Hashable ListDeviceIdentifiers where
   hashWithSalt _salt ListDeviceIdentifiers' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` startToken
       `Prelude.hashWithSalt` networkArn

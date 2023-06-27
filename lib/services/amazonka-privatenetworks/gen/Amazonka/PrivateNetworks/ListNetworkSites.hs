@@ -140,22 +140,22 @@ instance Core.AWSPager ListNetworkSites where
     | Core.stop
         ( rs
             Lens.^? listNetworkSitesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listNetworkSitesResponse_networkSites
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listNetworkSites_startToken
           Lens..~ rs
           Lens.^? listNetworkSitesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNetworkSites where
   type
@@ -174,7 +174,8 @@ instance Core.AWSRequest ListNetworkSites where
 
 instance Prelude.Hashable ListNetworkSites where
   hashWithSalt _salt ListNetworkSites' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` startToken
       `Prelude.hashWithSalt` networkArn

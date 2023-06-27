@@ -28,6 +28,7 @@ import Amazonka.PrivateNetworks.Types.NameValuePair
 import Amazonka.PrivateNetworks.Types.NetworkResourceStatus
 import Amazonka.PrivateNetworks.Types.NetworkResourceType
 import Amazonka.PrivateNetworks.Types.Position
+import Amazonka.PrivateNetworks.Types.ReturnInformation
 
 -- | Information about a network resource.
 --
@@ -56,6 +57,8 @@ data NetworkResource = NetworkResource'
     orderArn :: Prelude.Maybe Prelude.Text,
     -- | The position of the network resource.
     position :: Prelude.Maybe Position,
+    -- | Information about a request to return the network resource.
+    returnInformation :: Prelude.Maybe ReturnInformation,
     -- | The serial number of the network resource.
     serialNumber :: Prelude.Maybe Prelude.Text,
     -- | The status of the network resource.
@@ -67,7 +70,7 @@ data NetworkResource = NetworkResource'
     -- | The vendor of the network resource.
     vendor :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkResource' with all optional fields omitted.
@@ -100,6 +103,8 @@ data NetworkResource = NetworkResource'
 --
 -- 'position', 'networkResource_position' - The position of the network resource.
 --
+-- 'returnInformation', 'networkResource_returnInformation' - Information about a request to return the network resource.
+--
 -- 'serialNumber', 'networkResource_serialNumber' - The serial number of the network resource.
 --
 -- 'status', 'networkResource_status' - The status of the network resource.
@@ -123,6 +128,7 @@ newNetworkResource =
       networkSiteArn = Prelude.Nothing,
       orderArn = Prelude.Nothing,
       position = Prelude.Nothing,
+      returnInformation = Prelude.Nothing,
       serialNumber = Prelude.Nothing,
       status = Prelude.Nothing,
       statusReason = Prelude.Nothing,
@@ -173,6 +179,10 @@ networkResource_orderArn = Lens.lens (\NetworkResource' {orderArn} -> orderArn) 
 networkResource_position :: Lens.Lens' NetworkResource (Prelude.Maybe Position)
 networkResource_position = Lens.lens (\NetworkResource' {position} -> position) (\s@NetworkResource' {} a -> s {position = a} :: NetworkResource)
 
+-- | Information about a request to return the network resource.
+networkResource_returnInformation :: Lens.Lens' NetworkResource (Prelude.Maybe ReturnInformation)
+networkResource_returnInformation = Lens.lens (\NetworkResource' {returnInformation} -> returnInformation) (\s@NetworkResource' {} a -> s {returnInformation = a} :: NetworkResource)
+
 -- | The serial number of the network resource.
 networkResource_serialNumber :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
 networkResource_serialNumber = Lens.lens (\NetworkResource' {serialNumber} -> serialNumber) (\s@NetworkResource' {} a -> s {serialNumber = a} :: NetworkResource)
@@ -209,6 +219,7 @@ instance Data.FromJSON NetworkResource where
             Prelude.<*> (x Data..:? "networkSiteArn")
             Prelude.<*> (x Data..:? "orderArn")
             Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "returnInformation")
             Prelude.<*> (x Data..:? "serialNumber")
             Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "statusReason")
@@ -218,7 +229,8 @@ instance Data.FromJSON NetworkResource where
 
 instance Prelude.Hashable NetworkResource where
   hashWithSalt _salt NetworkResource' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` health
@@ -228,6 +240,7 @@ instance Prelude.Hashable NetworkResource where
       `Prelude.hashWithSalt` networkSiteArn
       `Prelude.hashWithSalt` orderArn
       `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` returnInformation
       `Prelude.hashWithSalt` serialNumber
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusReason
@@ -246,6 +259,7 @@ instance Prelude.NFData NetworkResource where
       `Prelude.seq` Prelude.rnf networkSiteArn
       `Prelude.seq` Prelude.rnf orderArn
       `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf returnInformation
       `Prelude.seq` Prelude.rnf serialNumber
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusReason

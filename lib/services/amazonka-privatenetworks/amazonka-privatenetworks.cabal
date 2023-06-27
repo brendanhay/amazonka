@@ -66,6 +66,7 @@ library
     Amazonka.PrivateNetworks.ListOrders
     Amazonka.PrivateNetworks.ListTagsForResource
     Amazonka.PrivateNetworks.Ping
+    Amazonka.PrivateNetworks.StartNetworkResourceUpdate
     Amazonka.PrivateNetworks.TagResource
     Amazonka.PrivateNetworks.Types
     Amazonka.PrivateNetworks.Types.AcknowledgmentStatus
@@ -92,9 +93,11 @@ library
     Amazonka.PrivateNetworks.Types.Order
     Amazonka.PrivateNetworks.Types.OrderFilterKeys
     Amazonka.PrivateNetworks.Types.Position
+    Amazonka.PrivateNetworks.Types.ReturnInformation
     Amazonka.PrivateNetworks.Types.SitePlan
     Amazonka.PrivateNetworks.Types.TrackingInformation
     Amazonka.PrivateNetworks.Types.UpdateNetworkSiteResponse
+    Amazonka.PrivateNetworks.Types.UpdateType
     Amazonka.PrivateNetworks.UntagResource
     Amazonka.PrivateNetworks.UpdateNetworkSite
     Amazonka.PrivateNetworks.UpdateNetworkSitePlan

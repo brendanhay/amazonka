@@ -173,6 +173,12 @@ module Amazonka.PrivateNetworks
     PingResponse (PingResponse'),
     newPingResponse,
 
+    -- ** StartNetworkResourceUpdate
+    StartNetworkResourceUpdate (StartNetworkResourceUpdate'),
+    newStartNetworkResourceUpdate,
+    StartNetworkResourceUpdateResponse (StartNetworkResourceUpdateResponse'),
+    newStartNetworkResourceUpdateResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -244,6 +250,9 @@ module Amazonka.PrivateNetworks
     -- ** OrderFilterKeys
     OrderFilterKeys (..),
 
+    -- ** UpdateType
+    UpdateType (..),
+
     -- ** Address
     Address (Address'),
     newAddress,
@@ -279,6 +288,10 @@ module Amazonka.PrivateNetworks
     -- ** Position
     Position (Position'),
     newPosition,
+
+    -- ** ReturnInformation
+    ReturnInformation (ReturnInformation'),
+    newReturnInformation,
 
     -- ** SitePlan
     SitePlan (SitePlan'),
@@ -316,6 +329,7 @@ import Amazonka.PrivateNetworks.ListNetworks
 import Amazonka.PrivateNetworks.ListOrders
 import Amazonka.PrivateNetworks.ListTagsForResource
 import Amazonka.PrivateNetworks.Ping
+import Amazonka.PrivateNetworks.StartNetworkResourceUpdate
 import Amazonka.PrivateNetworks.TagResource
 import Amazonka.PrivateNetworks.Types
 import Amazonka.PrivateNetworks.UntagResource

@@ -90,6 +90,9 @@ import Test.Tasty
 --         , requestPing $
 --             newPing
 --
+--         , requestStartNetworkResourceUpdate $
+--             newStartNetworkResourceUpdate
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -167,6 +170,9 @@ import Test.Tasty
 --
 --         , responsePing $
 --             newPingResponse
+--
+--         , responseStartNetworkResourceUpdate $
+--             newStartNetworkResourceUpdateResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -310,6 +316,12 @@ requestPing =
   req
     "Ping"
     "fixture/Ping.yaml"
+
+requestStartNetworkResourceUpdate :: StartNetworkResourceUpdate -> TestTree
+requestStartNetworkResourceUpdate =
+  req
+    "StartNetworkResourceUpdate"
+    "fixture/StartNetworkResourceUpdate.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -504,6 +516,14 @@ responsePing =
     "fixture/PingResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy Ping)
+
+responseStartNetworkResourceUpdate :: StartNetworkResourceUpdateResponse -> TestTree
+responseStartNetworkResourceUpdate =
+  res
+    "StartNetworkResourceUpdateResponse"
+    "fixture/StartNetworkResourceUpdateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartNetworkResourceUpdate)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

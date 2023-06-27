@@ -70,6 +70,9 @@ module Amazonka.PrivateNetworks.Types
     -- * OrderFilterKeys
     OrderFilterKeys (..),
 
+    -- * UpdateType
+    UpdateType (..),
+
     -- * Address
     Address (..),
     newAddress,
@@ -126,6 +129,7 @@ module Amazonka.PrivateNetworks.Types
     networkResource_networkSiteArn,
     networkResource_orderArn,
     networkResource_position,
+    networkResource_returnInformation,
     networkResource_serialNumber,
     networkResource_status,
     networkResource_statusReason,
@@ -174,6 +178,14 @@ module Amazonka.PrivateNetworks.Types
     position_latitude,
     position_longitude,
 
+    -- * ReturnInformation
+    ReturnInformation (..),
+    newReturnInformation,
+    returnInformation_replacementOrderArn,
+    returnInformation_returnReason,
+    returnInformation_shippingAddress,
+    returnInformation_shippingLabel,
+
     -- * SitePlan
     SitePlan (..),
     newSitePlan,
@@ -220,9 +232,11 @@ import Amazonka.PrivateNetworks.Types.NetworkStatus
 import Amazonka.PrivateNetworks.Types.Order
 import Amazonka.PrivateNetworks.Types.OrderFilterKeys
 import Amazonka.PrivateNetworks.Types.Position
+import Amazonka.PrivateNetworks.Types.ReturnInformation
 import Amazonka.PrivateNetworks.Types.SitePlan
 import Amazonka.PrivateNetworks.Types.TrackingInformation
 import Amazonka.PrivateNetworks.Types.UpdateNetworkSiteResponse
+import Amazonka.PrivateNetworks.Types.UpdateType
 import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2021-12-03@ of the Amazon Private 5G SDK configuration.
@@ -251,52 +265,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have permission to perform this operation.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -304,7 +318,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | Information about an internal error.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -312,7 +326,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The limit was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -320,7 +334,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -328,7 +342,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -336,7 +350,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The request failed validation.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

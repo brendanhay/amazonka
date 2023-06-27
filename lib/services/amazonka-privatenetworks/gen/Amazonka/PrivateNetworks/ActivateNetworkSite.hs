@@ -122,7 +122,8 @@ instance Core.AWSRequest ActivateNetworkSite where
 
 instance Prelude.Hashable ActivateNetworkSite where
   hashWithSalt _salt ActivateNetworkSite' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` networkSiteArn
       `Prelude.hashWithSalt` shippingAddress
 

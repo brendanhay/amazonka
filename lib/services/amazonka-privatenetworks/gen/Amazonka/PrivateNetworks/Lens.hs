@@ -166,6 +166,14 @@ module Amazonka.PrivateNetworks.Lens
     pingResponse_status,
     pingResponse_httpStatus,
 
+    -- ** StartNetworkResourceUpdate
+    startNetworkResourceUpdate_returnReason,
+    startNetworkResourceUpdate_shippingAddress,
+    startNetworkResourceUpdate_networkResourceArn,
+    startNetworkResourceUpdate_updateType,
+    startNetworkResourceUpdateResponse_networkResource,
+    startNetworkResourceUpdateResponse_httpStatus,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
@@ -238,6 +246,7 @@ module Amazonka.PrivateNetworks.Lens
     networkResource_networkSiteArn,
     networkResource_orderArn,
     networkResource_position,
+    networkResource_returnInformation,
     networkResource_serialNumber,
     networkResource_status,
     networkResource_statusReason,
@@ -278,6 +287,12 @@ module Amazonka.PrivateNetworks.Lens
     position_latitude,
     position_longitude,
 
+    -- ** ReturnInformation
+    returnInformation_replacementOrderArn,
+    returnInformation_returnReason,
+    returnInformation_shippingAddress,
+    returnInformation_shippingLabel,
+
     -- ** SitePlan
     sitePlan_options,
     sitePlan_resourceDefinitions,
@@ -312,6 +327,7 @@ import Amazonka.PrivateNetworks.ListNetworks
 import Amazonka.PrivateNetworks.ListOrders
 import Amazonka.PrivateNetworks.ListTagsForResource
 import Amazonka.PrivateNetworks.Ping
+import Amazonka.PrivateNetworks.StartNetworkResourceUpdate
 import Amazonka.PrivateNetworks.TagResource
 import Amazonka.PrivateNetworks.Types.Address
 import Amazonka.PrivateNetworks.Types.DeviceIdentifier
@@ -322,6 +338,7 @@ import Amazonka.PrivateNetworks.Types.NetworkResourceDefinition
 import Amazonka.PrivateNetworks.Types.NetworkSite
 import Amazonka.PrivateNetworks.Types.Order
 import Amazonka.PrivateNetworks.Types.Position
+import Amazonka.PrivateNetworks.Types.ReturnInformation
 import Amazonka.PrivateNetworks.Types.SitePlan
 import Amazonka.PrivateNetworks.Types.TrackingInformation
 import Amazonka.PrivateNetworks.Types.UpdateNetworkSiteResponse

@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteNetwork where
 
 instance Prelude.Hashable DeleteNetwork where
   hashWithSalt _salt DeleteNetwork' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` networkArn
 
 instance Prelude.NFData DeleteNetwork where

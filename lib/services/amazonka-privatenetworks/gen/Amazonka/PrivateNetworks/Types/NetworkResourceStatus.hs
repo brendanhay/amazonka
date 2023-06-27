@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.NetworkResourceStatus
   ( NetworkResourceStatus
       ( ..,
         NetworkResourceStatus_AVAILABLE,
+        NetworkResourceStatus_CREATING_SHIPPING_LABEL,
         NetworkResourceStatus_DELETED,
         NetworkResourceStatus_DELETING,
         NetworkResourceStatus_PENDING,
@@ -67,6 +68,9 @@ newtype NetworkResourceStatus = NetworkResourceStatus'
 pattern NetworkResourceStatus_AVAILABLE :: NetworkResourceStatus
 pattern NetworkResourceStatus_AVAILABLE = NetworkResourceStatus' "AVAILABLE"
 
+pattern NetworkResourceStatus_CREATING_SHIPPING_LABEL :: NetworkResourceStatus
+pattern NetworkResourceStatus_CREATING_SHIPPING_LABEL = NetworkResourceStatus' "CREATING_SHIPPING_LABEL"
+
 pattern NetworkResourceStatus_DELETED :: NetworkResourceStatus
 pattern NetworkResourceStatus_DELETED = NetworkResourceStatus' "DELETED"
 
@@ -90,6 +94,7 @@ pattern NetworkResourceStatus_SHIPPED = NetworkResourceStatus' "SHIPPED"
 
 {-# COMPLETE
   NetworkResourceStatus_AVAILABLE,
+  NetworkResourceStatus_CREATING_SHIPPING_LABEL,
   NetworkResourceStatus_DELETED,
   NetworkResourceStatus_DELETING,
   NetworkResourceStatus_PENDING,

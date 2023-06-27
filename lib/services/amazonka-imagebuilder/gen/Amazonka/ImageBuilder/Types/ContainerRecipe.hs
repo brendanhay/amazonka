@@ -48,7 +48,9 @@ data ContainerRecipe = ContainerRecipe'
     -- 3.  Build version ARNs have all four nodes, and point to a specific
     --     build for a specific version of an object.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Components for build and test that are included in the container recipe.
+    -- | Build and test components that are included in the container recipe.
+    -- Recipes require a minimum of one build component, and can have a maximum
+    -- of 20 build and test components in any combination.
     components :: Prelude.Maybe (Prelude.NonEmpty ComponentConfiguration),
     -- | Specifies the type of container, such as Docker.
     containerType :: Prelude.Maybe ContainerType,
@@ -132,7 +134,9 @@ data ContainerRecipe = ContainerRecipe'
 -- 3.  Build version ARNs have all four nodes, and point to a specific
 --     build for a specific version of an object.
 --
--- 'components', 'containerRecipe_components' - Components for build and test that are included in the container recipe.
+-- 'components', 'containerRecipe_components' - Build and test components that are included in the container recipe.
+-- Recipes require a minimum of one build component, and can have a maximum
+-- of 20 build and test components in any combination.
 --
 -- 'containerType', 'containerRecipe_containerType' - Specifies the type of container, such as Docker.
 --
@@ -229,7 +233,9 @@ newContainerRecipe =
 containerRecipe_arn :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
 containerRecipe_arn = Lens.lens (\ContainerRecipe' {arn} -> arn) (\s@ContainerRecipe' {} a -> s {arn = a} :: ContainerRecipe)
 
--- | Components for build and test that are included in the container recipe.
+-- | Build and test components that are included in the container recipe.
+-- Recipes require a minimum of one build component, and can have a maximum
+-- of 20 build and test components in any combination.
 containerRecipe_components :: Lens.Lens' ContainerRecipe (Prelude.Maybe (Prelude.NonEmpty ComponentConfiguration))
 containerRecipe_components = Lens.lens (\ContainerRecipe' {components} -> components) (\s@ContainerRecipe' {} a -> s {components = a} :: ContainerRecipe) Prelude.. Lens.mapping Lens.coerced
 
@@ -346,7 +352,8 @@ instance Data.FromJSON ContainerRecipe where
 
 instance Prelude.Hashable ContainerRecipe where
   hashWithSalt _salt ContainerRecipe' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` components
       `Prelude.hashWithSalt` containerType
       `Prelude.hashWithSalt` dateCreated

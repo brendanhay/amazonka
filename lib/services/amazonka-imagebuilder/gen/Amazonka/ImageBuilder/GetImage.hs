@@ -50,7 +50,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetImage' smart constructor.
 data GetImage = GetImage'
-  { -- | The Amazon Resource Name (ARN) of the image that you want to retrieve.
+  { -- | The Amazon Resource Name (ARN) of the image that you want to get.
     imageBuildVersionArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data GetImage = GetImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageBuildVersionArn', 'getImage_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image that you want to retrieve.
+-- 'imageBuildVersionArn', 'getImage_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image that you want to get.
 newGetImage ::
   -- | 'imageBuildVersionArn'
   Prelude.Text ->
@@ -74,7 +74,7 @@ newGetImage pImageBuildVersionArn_ =
         pImageBuildVersionArn_
     }
 
--- | The Amazon Resource Name (ARN) of the image that you want to retrieve.
+-- | The Amazon Resource Name (ARN) of the image that you want to get.
 getImage_imageBuildVersionArn :: Lens.Lens' GetImage Prelude.Text
 getImage_imageBuildVersionArn = Lens.lens (\GetImage' {imageBuildVersionArn} -> imageBuildVersionArn) (\s@GetImage' {} a -> s {imageBuildVersionArn = a} :: GetImage)
 

@@ -90,7 +90,7 @@ data CreateImageRecipe = CreateImageRecipe'
     -- you might choose a software version pattern, such as 1.0.0, or a date,
     -- such as 2021.01.01.
     semanticVersion :: Prelude.Text,
-    -- | The components of the image recipe.
+    -- | The components included in the image recipe.
     components :: Prelude.NonEmpty ComponentConfiguration,
     -- | The base image of the image recipe. The value of the string can be the
     -- ARN of the base image or an AMI ID. The format for the ARN follows this
@@ -143,7 +143,7 @@ data CreateImageRecipe = CreateImageRecipe'
 -- you might choose a software version pattern, such as 1.0.0, or a date,
 -- such as 2021.01.01.
 --
--- 'components', 'createImageRecipe_components' - The components of the image recipe.
+-- 'components', 'createImageRecipe_components' - The components included in the image recipe.
 --
 -- 'parentImage', 'createImageRecipe_parentImage' - The base image of the image recipe. The value of the string can be the
 -- ARN of the base image or an AMI ID. The format for the ARN follows this
@@ -230,7 +230,7 @@ createImageRecipe_name = Lens.lens (\CreateImageRecipe' {name} -> name) (\s@Crea
 createImageRecipe_semanticVersion :: Lens.Lens' CreateImageRecipe Prelude.Text
 createImageRecipe_semanticVersion = Lens.lens (\CreateImageRecipe' {semanticVersion} -> semanticVersion) (\s@CreateImageRecipe' {} a -> s {semanticVersion = a} :: CreateImageRecipe)
 
--- | The components of the image recipe.
+-- | The components included in the image recipe.
 createImageRecipe_components :: Lens.Lens' CreateImageRecipe (Prelude.NonEmpty ComponentConfiguration)
 createImageRecipe_components = Lens.lens (\CreateImageRecipe' {components} -> components) (\s@CreateImageRecipe' {} a -> s {components = a} :: CreateImageRecipe) Prelude.. Lens.coerced
 

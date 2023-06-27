@@ -77,6 +77,7 @@ module Amazonka.ImageBuilder.Lens
     createImage_distributionConfigurationArn,
     createImage_enhancedImageMetadataEnabled,
     createImage_imageRecipeArn,
+    createImage_imageScanningConfiguration,
     createImage_imageTestsConfiguration,
     createImage_tags,
     createImage_infrastructureConfigurationArn,
@@ -92,6 +93,7 @@ module Amazonka.ImageBuilder.Lens
     createImagePipeline_distributionConfigurationArn,
     createImagePipeline_enhancedImageMetadataEnabled,
     createImagePipeline_imageRecipeArn,
+    createImagePipeline_imageScanningConfiguration,
     createImagePipeline_imageTestsConfiguration,
     createImagePipeline_schedule,
     createImagePipeline_status,
@@ -248,6 +250,44 @@ module Amazonka.ImageBuilder.Lens
     getInfrastructureConfigurationResponse_requestId,
     getInfrastructureConfigurationResponse_httpStatus,
 
+    -- ** GetWorkflowExecution
+    getWorkflowExecution_workflowExecutionId,
+    getWorkflowExecutionResponse_endTime,
+    getWorkflowExecutionResponse_imageBuildVersionArn,
+    getWorkflowExecutionResponse_message,
+    getWorkflowExecutionResponse_requestId,
+    getWorkflowExecutionResponse_startTime,
+    getWorkflowExecutionResponse_status,
+    getWorkflowExecutionResponse_totalStepCount,
+    getWorkflowExecutionResponse_totalStepsFailed,
+    getWorkflowExecutionResponse_totalStepsSkipped,
+    getWorkflowExecutionResponse_totalStepsSucceeded,
+    getWorkflowExecutionResponse_type,
+    getWorkflowExecutionResponse_workflowBuildVersionArn,
+    getWorkflowExecutionResponse_workflowExecutionId,
+    getWorkflowExecutionResponse_httpStatus,
+
+    -- ** GetWorkflowStepExecution
+    getWorkflowStepExecution_stepExecutionId,
+    getWorkflowStepExecutionResponse_action,
+    getWorkflowStepExecutionResponse_description,
+    getWorkflowStepExecutionResponse_endTime,
+    getWorkflowStepExecutionResponse_imageBuildVersionArn,
+    getWorkflowStepExecutionResponse_inputs,
+    getWorkflowStepExecutionResponse_message,
+    getWorkflowStepExecutionResponse_name,
+    getWorkflowStepExecutionResponse_onFailure,
+    getWorkflowStepExecutionResponse_outputs,
+    getWorkflowStepExecutionResponse_requestId,
+    getWorkflowStepExecutionResponse_rollbackStatus,
+    getWorkflowStepExecutionResponse_startTime,
+    getWorkflowStepExecutionResponse_status,
+    getWorkflowStepExecutionResponse_stepExecutionId,
+    getWorkflowStepExecutionResponse_timeoutSeconds,
+    getWorkflowStepExecutionResponse_workflowBuildVersionArn,
+    getWorkflowStepExecutionResponse_workflowExecutionId,
+    getWorkflowStepExecutionResponse_httpStatus,
+
     -- ** ImportComponent
     importComponent_changeDescription,
     importComponent_data,
@@ -367,6 +407,24 @@ module Amazonka.ImageBuilder.Lens
     listImageRecipesResponse_requestId,
     listImageRecipesResponse_httpStatus,
 
+    -- ** ListImageScanFindingAggregations
+    listImageScanFindingAggregations_filter,
+    listImageScanFindingAggregations_nextToken,
+    listImageScanFindingAggregationsResponse_aggregationType,
+    listImageScanFindingAggregationsResponse_nextToken,
+    listImageScanFindingAggregationsResponse_requestId,
+    listImageScanFindingAggregationsResponse_responses,
+    listImageScanFindingAggregationsResponse_httpStatus,
+
+    -- ** ListImageScanFindings
+    listImageScanFindings_filters,
+    listImageScanFindings_maxResults,
+    listImageScanFindings_nextToken,
+    listImageScanFindingsResponse_findings,
+    listImageScanFindingsResponse_nextToken,
+    listImageScanFindingsResponse_requestId,
+    listImageScanFindingsResponse_httpStatus,
+
     -- ** ListImages
     listImages_byName,
     listImages_filters,
@@ -392,6 +450,30 @@ module Amazonka.ImageBuilder.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** ListWorkflowExecutions
+    listWorkflowExecutions_maxResults,
+    listWorkflowExecutions_nextToken,
+    listWorkflowExecutions_imageBuildVersionArn,
+    listWorkflowExecutionsResponse_imageBuildVersionArn,
+    listWorkflowExecutionsResponse_message,
+    listWorkflowExecutionsResponse_nextToken,
+    listWorkflowExecutionsResponse_requestId,
+    listWorkflowExecutionsResponse_workflowExecutions,
+    listWorkflowExecutionsResponse_httpStatus,
+
+    -- ** ListWorkflowStepExecutions
+    listWorkflowStepExecutions_maxResults,
+    listWorkflowStepExecutions_nextToken,
+    listWorkflowStepExecutions_workflowExecutionId,
+    listWorkflowStepExecutionsResponse_imageBuildVersionArn,
+    listWorkflowStepExecutionsResponse_message,
+    listWorkflowStepExecutionsResponse_nextToken,
+    listWorkflowStepExecutionsResponse_requestId,
+    listWorkflowStepExecutionsResponse_steps,
+    listWorkflowStepExecutionsResponse_workflowBuildVersionArn,
+    listWorkflowStepExecutionsResponse_workflowExecutionId,
+    listWorkflowStepExecutionsResponse_httpStatus,
 
     -- ** PutComponentPolicy
     putComponentPolicy_componentArn,
@@ -455,6 +537,7 @@ module Amazonka.ImageBuilder.Lens
     updateImagePipeline_distributionConfigurationArn,
     updateImagePipeline_enhancedImageMetadataEnabled,
     updateImagePipeline_imageRecipeArn,
+    updateImagePipeline_imageScanningConfiguration,
     updateImagePipeline_imageTestsConfiguration,
     updateImagePipeline_schedule,
     updateImagePipeline_status,
@@ -487,6 +570,10 @@ module Amazonka.ImageBuilder.Lens
 
     -- * Types
 
+    -- ** AccountAggregation
+    accountAggregation_accountId,
+    accountAggregation_severityCounts,
+
     -- ** AdditionalInstanceConfiguration
     additionalInstanceConfiguration_systemsManagerAgent,
     additionalInstanceConfiguration_userDataOverride,
@@ -516,9 +603,11 @@ module Amazonka.ImageBuilder.Lens
     component_encrypted,
     component_kmsKeyId,
     component_name,
+    component_obfuscate,
     component_owner,
     component_parameters,
     component_platform,
+    component_publisher,
     component_state,
     component_supportedOsVersions,
     component_tags,
@@ -549,8 +638,10 @@ module Amazonka.ImageBuilder.Lens
     componentSummary_dateCreated,
     componentSummary_description,
     componentSummary_name,
+    componentSummary_obfuscate,
     componentSummary_owner,
     componentSummary_platform,
+    componentSummary_publisher,
     componentSummary_state,
     componentSummary_supportedOsVersions,
     componentSummary_tags,
@@ -606,6 +697,24 @@ module Amazonka.ImageBuilder.Lens
     containerRecipeSummary_platform,
     containerRecipeSummary_tags,
 
+    -- ** CvssScore
+    cvssScore_baseScore,
+    cvssScore_scoringVector,
+    cvssScore_source,
+    cvssScore_version,
+
+    -- ** CvssScoreAdjustment
+    cvssScoreAdjustment_metric,
+    cvssScoreAdjustment_reason,
+
+    -- ** CvssScoreDetails
+    cvssScoreDetails_adjustments,
+    cvssScoreDetails_cvssSource,
+    cvssScoreDetails_score,
+    cvssScoreDetails_scoreSource,
+    cvssScoreDetails_scoringVector,
+    cvssScoreDetails_version,
+
     -- ** Distribution
     distribution_amiDistributionConfiguration,
     distribution_containerDistributionConfiguration,
@@ -644,6 +753,10 @@ module Amazonka.ImageBuilder.Lens
     ebsInstanceBlockDeviceSpecification_volumeSize,
     ebsInstanceBlockDeviceSpecification_volumeType,
 
+    -- ** EcrConfiguration
+    ecrConfiguration_containerTags,
+    ecrConfiguration_repositoryName,
+
     -- ** FastLaunchConfiguration
     fastLaunchConfiguration_accountId,
     fastLaunchConfiguration_launchTemplate,
@@ -671,18 +784,25 @@ module Amazonka.ImageBuilder.Lens
     image_distributionConfiguration,
     image_enhancedImageMetadataEnabled,
     image_imageRecipe,
+    image_imageScanningConfiguration,
+    image_imageSource,
     image_imageTestsConfiguration,
     image_infrastructureConfiguration,
     image_name,
     image_osVersion,
     image_outputResources,
     image_platform,
+    image_scanState,
     image_sourcePipelineArn,
     image_sourcePipelineName,
     image_state,
     image_tags,
     image_type,
     image_version,
+
+    -- ** ImageAggregation
+    imageAggregation_imageBuildVersionArn,
+    imageAggregation_severityCounts,
 
     -- ** ImagePackage
     imagePackage_packageName,
@@ -699,6 +819,7 @@ module Amazonka.ImageBuilder.Lens
     imagePipeline_distributionConfigurationArn,
     imagePipeline_enhancedImageMetadataEnabled,
     imagePipeline_imageRecipeArn,
+    imagePipeline_imageScanningConfiguration,
     imagePipeline_imageTestsConfiguration,
     imagePipeline_infrastructureConfigurationArn,
     imagePipeline_name,
@@ -706,6 +827,10 @@ module Amazonka.ImageBuilder.Lens
     imagePipeline_schedule,
     imagePipeline_status,
     imagePipeline_tags,
+
+    -- ** ImagePipelineAggregation
+    imagePipelineAggregation_imagePipelineArn,
+    imagePipelineAggregation_severityCounts,
 
     -- ** ImageRecipe
     imageRecipe_additionalInstanceConfiguration,
@@ -732,6 +857,40 @@ module Amazonka.ImageBuilder.Lens
     imageRecipeSummary_platform,
     imageRecipeSummary_tags,
 
+    -- ** ImageScanFinding
+    imageScanFinding_awsAccountId,
+    imageScanFinding_description,
+    imageScanFinding_firstObservedAt,
+    imageScanFinding_fixAvailable,
+    imageScanFinding_imageBuildVersionArn,
+    imageScanFinding_imagePipelineArn,
+    imageScanFinding_inspectorScore,
+    imageScanFinding_inspectorScoreDetails,
+    imageScanFinding_packageVulnerabilityDetails,
+    imageScanFinding_remediation,
+    imageScanFinding_severity,
+    imageScanFinding_title,
+    imageScanFinding_type,
+    imageScanFinding_updatedAt,
+
+    -- ** ImageScanFindingAggregation
+    imageScanFindingAggregation_accountAggregation,
+    imageScanFindingAggregation_imageAggregation,
+    imageScanFindingAggregation_imagePipelineAggregation,
+    imageScanFindingAggregation_vulnerabilityIdAggregation,
+
+    -- ** ImageScanFindingsFilter
+    imageScanFindingsFilter_name,
+    imageScanFindingsFilter_values,
+
+    -- ** ImageScanState
+    imageScanState_reason,
+    imageScanState_status,
+
+    -- ** ImageScanningConfiguration
+    imageScanningConfiguration_ecrConfiguration,
+    imageScanningConfiguration_imageScanningEnabled,
+
     -- ** ImageState
     imageState_reason,
     imageState_status,
@@ -740,6 +899,7 @@ module Amazonka.ImageBuilder.Lens
     imageSummary_arn,
     imageSummary_buildType,
     imageSummary_dateCreated,
+    imageSummary_imageSource,
     imageSummary_name,
     imageSummary_osVersion,
     imageSummary_outputResources,
@@ -758,6 +918,7 @@ module Amazonka.ImageBuilder.Lens
     imageVersion_arn,
     imageVersion_buildType,
     imageVersion_dateCreated,
+    imageVersion_imageSource,
     imageVersion_name,
     imageVersion_osVersion,
     imageVersion_owner,
@@ -794,6 +955,9 @@ module Amazonka.ImageBuilder.Lens
     infrastructureConfigurationSummary_resourceTags,
     infrastructureConfigurationSummary_tags,
 
+    -- ** InspectorScoreDetails
+    inspectorScoreDetails_adjustedCvss,
+
     -- ** InstanceBlockDeviceMapping
     instanceBlockDeviceMapping_deviceName,
     instanceBlockDeviceMapping_ebs,
@@ -826,6 +990,25 @@ module Amazonka.ImageBuilder.Lens
     outputResources_amis,
     outputResources_containers,
 
+    -- ** PackageVulnerabilityDetails
+    packageVulnerabilityDetails_cvss,
+    packageVulnerabilityDetails_referenceUrls,
+    packageVulnerabilityDetails_relatedVulnerabilities,
+    packageVulnerabilityDetails_source,
+    packageVulnerabilityDetails_sourceUrl,
+    packageVulnerabilityDetails_vendorCreatedAt,
+    packageVulnerabilityDetails_vendorSeverity,
+    packageVulnerabilityDetails_vendorUpdatedAt,
+    packageVulnerabilityDetails_vulnerablePackages,
+    packageVulnerabilityDetails_vulnerabilityId,
+
+    -- ** Remediation
+    remediation_recommendation,
+
+    -- ** RemediationRecommendation
+    remediationRecommendation_text,
+    remediationRecommendation_url,
+
     -- ** S3ExportConfiguration
     s3ExportConfiguration_s3Prefix,
     s3ExportConfiguration_roleName,
@@ -841,12 +1024,60 @@ module Amazonka.ImageBuilder.Lens
     schedule_scheduleExpression,
     schedule_timezone,
 
+    -- ** SeverityCounts
+    severityCounts_all,
+    severityCounts_critical,
+    severityCounts_high,
+    severityCounts_medium,
+
     -- ** SystemsManagerAgent
     systemsManagerAgent_uninstallAfterBuild,
 
     -- ** TargetContainerRepository
     targetContainerRepository_service,
     targetContainerRepository_repositoryName,
+
+    -- ** VulnerabilityIdAggregation
+    vulnerabilityIdAggregation_severityCounts,
+    vulnerabilityIdAggregation_vulnerabilityId,
+
+    -- ** VulnerablePackage
+    vulnerablePackage_arch,
+    vulnerablePackage_epoch,
+    vulnerablePackage_filePath,
+    vulnerablePackage_fixedInVersion,
+    vulnerablePackage_name,
+    vulnerablePackage_packageManager,
+    vulnerablePackage_release,
+    vulnerablePackage_remediation,
+    vulnerablePackage_sourceLayerHash,
+    vulnerablePackage_version,
+
+    -- ** WorkflowExecutionMetadata
+    workflowExecutionMetadata_endTime,
+    workflowExecutionMetadata_message,
+    workflowExecutionMetadata_startTime,
+    workflowExecutionMetadata_status,
+    workflowExecutionMetadata_totalStepCount,
+    workflowExecutionMetadata_totalStepsFailed,
+    workflowExecutionMetadata_totalStepsSkipped,
+    workflowExecutionMetadata_totalStepsSucceeded,
+    workflowExecutionMetadata_type,
+    workflowExecutionMetadata_workflowBuildVersionArn,
+    workflowExecutionMetadata_workflowExecutionId,
+
+    -- ** WorkflowStepMetadata
+    workflowStepMetadata_action,
+    workflowStepMetadata_description,
+    workflowStepMetadata_endTime,
+    workflowStepMetadata_inputs,
+    workflowStepMetadata_message,
+    workflowStepMetadata_name,
+    workflowStepMetadata_outputs,
+    workflowStepMetadata_rollbackStatus,
+    workflowStepMetadata_startTime,
+    workflowStepMetadata_status,
+    workflowStepMetadata_stepExecutionId,
   )
 where
 
@@ -876,6 +1107,8 @@ import Amazonka.ImageBuilder.GetImagePolicy
 import Amazonka.ImageBuilder.GetImageRecipe
 import Amazonka.ImageBuilder.GetImageRecipePolicy
 import Amazonka.ImageBuilder.GetInfrastructureConfiguration
+import Amazonka.ImageBuilder.GetWorkflowExecution
+import Amazonka.ImageBuilder.GetWorkflowStepExecution
 import Amazonka.ImageBuilder.ImportComponent
 import Amazonka.ImageBuilder.ImportVmImage
 import Amazonka.ImageBuilder.ListComponentBuildVersions
@@ -887,15 +1120,20 @@ import Amazonka.ImageBuilder.ListImagePackages
 import Amazonka.ImageBuilder.ListImagePipelineImages
 import Amazonka.ImageBuilder.ListImagePipelines
 import Amazonka.ImageBuilder.ListImageRecipes
+import Amazonka.ImageBuilder.ListImageScanFindingAggregations
+import Amazonka.ImageBuilder.ListImageScanFindings
 import Amazonka.ImageBuilder.ListImages
 import Amazonka.ImageBuilder.ListInfrastructureConfigurations
 import Amazonka.ImageBuilder.ListTagsForResource
+import Amazonka.ImageBuilder.ListWorkflowExecutions
+import Amazonka.ImageBuilder.ListWorkflowStepExecutions
 import Amazonka.ImageBuilder.PutComponentPolicy
 import Amazonka.ImageBuilder.PutContainerRecipePolicy
 import Amazonka.ImageBuilder.PutImagePolicy
 import Amazonka.ImageBuilder.PutImageRecipePolicy
 import Amazonka.ImageBuilder.StartImagePipelineExecution
 import Amazonka.ImageBuilder.TagResource
+import Amazonka.ImageBuilder.Types.AccountAggregation
 import Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
 import Amazonka.ImageBuilder.Types.Ami
 import Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
@@ -910,25 +1148,37 @@ import Amazonka.ImageBuilder.Types.Container
 import Amazonka.ImageBuilder.Types.ContainerDistributionConfiguration
 import Amazonka.ImageBuilder.Types.ContainerRecipe
 import Amazonka.ImageBuilder.Types.ContainerRecipeSummary
+import Amazonka.ImageBuilder.Types.CvssScore
+import Amazonka.ImageBuilder.Types.CvssScoreAdjustment
+import Amazonka.ImageBuilder.Types.CvssScoreDetails
 import Amazonka.ImageBuilder.Types.Distribution
 import Amazonka.ImageBuilder.Types.DistributionConfiguration
 import Amazonka.ImageBuilder.Types.DistributionConfigurationSummary
 import Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
+import Amazonka.ImageBuilder.Types.EcrConfiguration
 import Amazonka.ImageBuilder.Types.FastLaunchConfiguration
 import Amazonka.ImageBuilder.Types.FastLaunchLaunchTemplateSpecification
 import Amazonka.ImageBuilder.Types.FastLaunchSnapshotConfiguration
 import Amazonka.ImageBuilder.Types.Filter
 import Amazonka.ImageBuilder.Types.Image
+import Amazonka.ImageBuilder.Types.ImageAggregation
 import Amazonka.ImageBuilder.Types.ImagePackage
 import Amazonka.ImageBuilder.Types.ImagePipeline
+import Amazonka.ImageBuilder.Types.ImagePipelineAggregation
 import Amazonka.ImageBuilder.Types.ImageRecipe
 import Amazonka.ImageBuilder.Types.ImageRecipeSummary
+import Amazonka.ImageBuilder.Types.ImageScanFinding
+import Amazonka.ImageBuilder.Types.ImageScanFindingAggregation
+import Amazonka.ImageBuilder.Types.ImageScanFindingsFilter
+import Amazonka.ImageBuilder.Types.ImageScanState
+import Amazonka.ImageBuilder.Types.ImageScanningConfiguration
 import Amazonka.ImageBuilder.Types.ImageState
 import Amazonka.ImageBuilder.Types.ImageSummary
 import Amazonka.ImageBuilder.Types.ImageTestsConfiguration
 import Amazonka.ImageBuilder.Types.ImageVersion
 import Amazonka.ImageBuilder.Types.InfrastructureConfiguration
 import Amazonka.ImageBuilder.Types.InfrastructureConfigurationSummary
+import Amazonka.ImageBuilder.Types.InspectorScoreDetails
 import Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
 import Amazonka.ImageBuilder.Types.InstanceConfiguration
 import Amazonka.ImageBuilder.Types.InstanceMetadataOptions
@@ -936,11 +1186,19 @@ import Amazonka.ImageBuilder.Types.LaunchPermissionConfiguration
 import Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration
 import Amazonka.ImageBuilder.Types.Logging
 import Amazonka.ImageBuilder.Types.OutputResources
+import Amazonka.ImageBuilder.Types.PackageVulnerabilityDetails
+import Amazonka.ImageBuilder.Types.Remediation
+import Amazonka.ImageBuilder.Types.RemediationRecommendation
 import Amazonka.ImageBuilder.Types.S3ExportConfiguration
 import Amazonka.ImageBuilder.Types.S3Logs
 import Amazonka.ImageBuilder.Types.Schedule
+import Amazonka.ImageBuilder.Types.SeverityCounts
 import Amazonka.ImageBuilder.Types.SystemsManagerAgent
 import Amazonka.ImageBuilder.Types.TargetContainerRepository
+import Amazonka.ImageBuilder.Types.VulnerabilityIdAggregation
+import Amazonka.ImageBuilder.Types.VulnerablePackage
+import Amazonka.ImageBuilder.Types.WorkflowExecutionMetadata
+import Amazonka.ImageBuilder.Types.WorkflowStepMetadata
 import Amazonka.ImageBuilder.UntagResource
 import Amazonka.ImageBuilder.UpdateDistributionConfiguration
 import Amazonka.ImageBuilder.UpdateImagePipeline

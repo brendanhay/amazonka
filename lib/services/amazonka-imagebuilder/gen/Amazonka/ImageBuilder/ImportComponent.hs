@@ -62,9 +62,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportComponent' smart constructor.
 data ImportComponent = ImportComponent'
-  { -- | The change description of the component. Describes what change has been
-    -- made in this version, or what makes this version different from other
-    -- versions of this component.
+  { -- | The change description of the component. This description indicates the
+    -- change that has been made in this version, or what makes this version
+    -- different from other versions of this component.
     changeDescription :: Prelude.Maybe Prelude.Text,
     -- | The data of the component. Used to specify the data inline. Either
     -- @data@ or @uri@ can be used to specify the data within the component.
@@ -116,9 +116,9 @@ data ImportComponent = ImportComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'changeDescription', 'importComponent_changeDescription' - The change description of the component. Describes what change has been
--- made in this version, or what makes this version different from other
--- versions of this component.
+-- 'changeDescription', 'importComponent_changeDescription' - The change description of the component. This description indicates the
+-- change that has been made in this version, or what makes this version
+-- different from other versions of this component.
 --
 -- 'data'', 'importComponent_data' - The data of the component. Used to specify the data inline. Either
 -- @data@ or @uri@ can be used to specify the data within the component.
@@ -195,9 +195,9 @@ newImportComponent
         clientToken = pClientToken_
       }
 
--- | The change description of the component. Describes what change has been
--- made in this version, or what makes this version different from other
--- versions of this component.
+-- | The change description of the component. This description indicates the
+-- change that has been made in this version, or what makes this version
+-- different from other versions of this component.
 importComponent_changeDescription :: Lens.Lens' ImportComponent (Prelude.Maybe Prelude.Text)
 importComponent_changeDescription = Lens.lens (\ImportComponent' {changeDescription} -> changeDescription) (\s@ImportComponent' {} a -> s {changeDescription = a} :: ImportComponent)
 
@@ -280,7 +280,8 @@ instance Core.AWSRequest ImportComponent where
 
 instance Prelude.Hashable ImportComponent where
   hashWithSalt _salt ImportComponent' {..} =
-    _salt `Prelude.hashWithSalt` changeDescription
+    _salt
+      `Prelude.hashWithSalt` changeDescription
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId

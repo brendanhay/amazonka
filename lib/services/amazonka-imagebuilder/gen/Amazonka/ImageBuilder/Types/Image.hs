@@ -26,6 +26,9 @@ import Amazonka.ImageBuilder.Types.BuildType
 import Amazonka.ImageBuilder.Types.ContainerRecipe
 import Amazonka.ImageBuilder.Types.DistributionConfiguration
 import Amazonka.ImageBuilder.Types.ImageRecipe
+import Amazonka.ImageBuilder.Types.ImageScanState
+import Amazonka.ImageBuilder.Types.ImageScanningConfiguration
+import Amazonka.ImageBuilder.Types.ImageSource
 import Amazonka.ImageBuilder.Types.ImageState
 import Amazonka.ImageBuilder.Types.ImageTestsConfiguration
 import Amazonka.ImageBuilder.Types.ImageType
@@ -67,32 +70,42 @@ data Image = Image'
     -- -   __IMPORT__ – A VM import created the image to use as the base image
     --     for the recipe.
     buildType :: Prelude.Maybe BuildType,
-    -- | The recipe that is used to create an Image Builder container image.
+    -- | For container images, this is the container recipe that Image Builder
+    -- used to create the image. For images that distribute an AMI, this is
+    -- empty.
     containerRecipe :: Prelude.Maybe ContainerRecipe,
-    -- | The date on which this image was created.
+    -- | The date on which Image Builder created this image.
     dateCreated :: Prelude.Maybe Prelude.Text,
-    -- | The distribution configuration used when creating this image.
+    -- | The distribution configuration that Image Builder used to create this
+    -- image.
     distributionConfiguration :: Prelude.Maybe DistributionConfiguration,
-    -- | Collects additional information about the image being created, including
-    -- the operating system (OS) version and package list. This information is
-    -- used to enhance the overall experience of using EC2 Image Builder.
-    -- Enabled by default.
+    -- | Indicates whether Image Builder collects additional information about
+    -- the image, such as the operating system (OS) version and package list.
     enhancedImageMetadataEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The image recipe used when creating the image.
+    -- | For images that distribute an AMI, this is the image recipe that Image
+    -- Builder used to create the image. For container images, this is empty.
     imageRecipe :: Prelude.Maybe ImageRecipe,
-    -- | The image tests configuration used when creating this image.
+    -- | Contains settings for vulnerability scans.
+    imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
+    -- | The origin of the base image that Image Builder used to build this
+    -- image.
+    imageSource :: Prelude.Maybe ImageSource,
+    -- | The image tests that ran when that Image Builder created this image.
     imageTestsConfiguration :: Prelude.Maybe ImageTestsConfiguration,
-    -- | The infrastructure used when creating this image.
+    -- | The infrastructure that Image Builder used to create this image.
     infrastructureConfiguration :: Prelude.Maybe InfrastructureConfiguration,
     -- | The name of the image.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The operating system version of the instance. For example, Amazon Linux
-    -- 2, Ubuntu 18, or Microsoft Windows Server 2019.
+    -- | The operating system version for instances that launch from this image.
+    -- For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server
+    -- 2019.
     osVersion :: Prelude.Maybe Prelude.Text,
-    -- | The output resources produced when creating this image.
+    -- | The output resources that Image Builder produces for this image.
     outputResources :: Prelude.Maybe OutputResources,
-    -- | The platform of the image.
+    -- | The image operating system platform, such as Linux or Windows.
     platform :: Prelude.Maybe Platform,
+    -- | Contains information about the current state of scans for this image.
+    scanState :: Prelude.Maybe ImageScanState,
     -- | The Amazon Resource Name (ARN) of the image pipeline that created this
     -- image.
     sourcePipelineArn :: Prelude.Maybe Prelude.Text,
@@ -100,9 +113,9 @@ data Image = Image'
     sourcePipelineName :: Prelude.Maybe Prelude.Text,
     -- | The state of the image.
     state :: Prelude.Maybe ImageState,
-    -- | The tags of the image.
+    -- | The tags that apply to this image.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies whether this is an AMI or container image.
+    -- | Specifies whether this image produces an AMI or a container image.
     type' :: Prelude.Maybe ImageType,
     -- | The semantic version of the image.
     --
@@ -163,31 +176,41 @@ data Image = Image'
 -- -   __IMPORT__ – A VM import created the image to use as the base image
 --     for the recipe.
 --
--- 'containerRecipe', 'image_containerRecipe' - The recipe that is used to create an Image Builder container image.
+-- 'containerRecipe', 'image_containerRecipe' - For container images, this is the container recipe that Image Builder
+-- used to create the image. For images that distribute an AMI, this is
+-- empty.
 --
--- 'dateCreated', 'image_dateCreated' - The date on which this image was created.
+-- 'dateCreated', 'image_dateCreated' - The date on which Image Builder created this image.
 --
--- 'distributionConfiguration', 'image_distributionConfiguration' - The distribution configuration used when creating this image.
+-- 'distributionConfiguration', 'image_distributionConfiguration' - The distribution configuration that Image Builder used to create this
+-- image.
 --
--- 'enhancedImageMetadataEnabled', 'image_enhancedImageMetadataEnabled' - Collects additional information about the image being created, including
--- the operating system (OS) version and package list. This information is
--- used to enhance the overall experience of using EC2 Image Builder.
--- Enabled by default.
+-- 'enhancedImageMetadataEnabled', 'image_enhancedImageMetadataEnabled' - Indicates whether Image Builder collects additional information about
+-- the image, such as the operating system (OS) version and package list.
 --
--- 'imageRecipe', 'image_imageRecipe' - The image recipe used when creating the image.
+-- 'imageRecipe', 'image_imageRecipe' - For images that distribute an AMI, this is the image recipe that Image
+-- Builder used to create the image. For container images, this is empty.
 --
--- 'imageTestsConfiguration', 'image_imageTestsConfiguration' - The image tests configuration used when creating this image.
+-- 'imageScanningConfiguration', 'image_imageScanningConfiguration' - Contains settings for vulnerability scans.
 --
--- 'infrastructureConfiguration', 'image_infrastructureConfiguration' - The infrastructure used when creating this image.
+-- 'imageSource', 'image_imageSource' - The origin of the base image that Image Builder used to build this
+-- image.
+--
+-- 'imageTestsConfiguration', 'image_imageTestsConfiguration' - The image tests that ran when that Image Builder created this image.
+--
+-- 'infrastructureConfiguration', 'image_infrastructureConfiguration' - The infrastructure that Image Builder used to create this image.
 --
 -- 'name', 'image_name' - The name of the image.
 --
--- 'osVersion', 'image_osVersion' - The operating system version of the instance. For example, Amazon Linux
--- 2, Ubuntu 18, or Microsoft Windows Server 2019.
+-- 'osVersion', 'image_osVersion' - The operating system version for instances that launch from this image.
+-- For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server
+-- 2019.
 --
--- 'outputResources', 'image_outputResources' - The output resources produced when creating this image.
+-- 'outputResources', 'image_outputResources' - The output resources that Image Builder produces for this image.
 --
--- 'platform', 'image_platform' - The platform of the image.
+-- 'platform', 'image_platform' - The image operating system platform, such as Linux or Windows.
+--
+-- 'scanState', 'image_scanState' - Contains information about the current state of scans for this image.
 --
 -- 'sourcePipelineArn', 'image_sourcePipelineArn' - The Amazon Resource Name (ARN) of the image pipeline that created this
 -- image.
@@ -196,9 +219,9 @@ data Image = Image'
 --
 -- 'state', 'image_state' - The state of the image.
 --
--- 'tags', 'image_tags' - The tags of the image.
+-- 'tags', 'image_tags' - The tags that apply to this image.
 --
--- 'type'', 'image_type' - Specifies whether this is an AMI or container image.
+-- 'type'', 'image_type' - Specifies whether this image produces an AMI or a container image.
 --
 -- 'version', 'image_version' - The semantic version of the image.
 --
@@ -232,12 +255,15 @@ newImage =
       distributionConfiguration = Prelude.Nothing,
       enhancedImageMetadataEnabled = Prelude.Nothing,
       imageRecipe = Prelude.Nothing,
+      imageScanningConfiguration = Prelude.Nothing,
+      imageSource = Prelude.Nothing,
       imageTestsConfiguration = Prelude.Nothing,
       infrastructureConfiguration = Prelude.Nothing,
       name = Prelude.Nothing,
       osVersion = Prelude.Nothing,
       outputResources = Prelude.Nothing,
       platform = Prelude.Nothing,
+      scanState = Prelude.Nothing,
       sourcePipelineArn = Prelude.Nothing,
       sourcePipelineName = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -276,34 +302,45 @@ image_arn = Lens.lens (\Image' {arn} -> arn) (\s@Image' {} a -> s {arn = a} :: I
 image_buildType :: Lens.Lens' Image (Prelude.Maybe BuildType)
 image_buildType = Lens.lens (\Image' {buildType} -> buildType) (\s@Image' {} a -> s {buildType = a} :: Image)
 
--- | The recipe that is used to create an Image Builder container image.
+-- | For container images, this is the container recipe that Image Builder
+-- used to create the image. For images that distribute an AMI, this is
+-- empty.
 image_containerRecipe :: Lens.Lens' Image (Prelude.Maybe ContainerRecipe)
 image_containerRecipe = Lens.lens (\Image' {containerRecipe} -> containerRecipe) (\s@Image' {} a -> s {containerRecipe = a} :: Image)
 
--- | The date on which this image was created.
+-- | The date on which Image Builder created this image.
 image_dateCreated :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_dateCreated = Lens.lens (\Image' {dateCreated} -> dateCreated) (\s@Image' {} a -> s {dateCreated = a} :: Image)
 
--- | The distribution configuration used when creating this image.
+-- | The distribution configuration that Image Builder used to create this
+-- image.
 image_distributionConfiguration :: Lens.Lens' Image (Prelude.Maybe DistributionConfiguration)
 image_distributionConfiguration = Lens.lens (\Image' {distributionConfiguration} -> distributionConfiguration) (\s@Image' {} a -> s {distributionConfiguration = a} :: Image)
 
--- | Collects additional information about the image being created, including
--- the operating system (OS) version and package list. This information is
--- used to enhance the overall experience of using EC2 Image Builder.
--- Enabled by default.
+-- | Indicates whether Image Builder collects additional information about
+-- the image, such as the operating system (OS) version and package list.
 image_enhancedImageMetadataEnabled :: Lens.Lens' Image (Prelude.Maybe Prelude.Bool)
 image_enhancedImageMetadataEnabled = Lens.lens (\Image' {enhancedImageMetadataEnabled} -> enhancedImageMetadataEnabled) (\s@Image' {} a -> s {enhancedImageMetadataEnabled = a} :: Image)
 
--- | The image recipe used when creating the image.
+-- | For images that distribute an AMI, this is the image recipe that Image
+-- Builder used to create the image. For container images, this is empty.
 image_imageRecipe :: Lens.Lens' Image (Prelude.Maybe ImageRecipe)
 image_imageRecipe = Lens.lens (\Image' {imageRecipe} -> imageRecipe) (\s@Image' {} a -> s {imageRecipe = a} :: Image)
 
--- | The image tests configuration used when creating this image.
+-- | Contains settings for vulnerability scans.
+image_imageScanningConfiguration :: Lens.Lens' Image (Prelude.Maybe ImageScanningConfiguration)
+image_imageScanningConfiguration = Lens.lens (\Image' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@Image' {} a -> s {imageScanningConfiguration = a} :: Image)
+
+-- | The origin of the base image that Image Builder used to build this
+-- image.
+image_imageSource :: Lens.Lens' Image (Prelude.Maybe ImageSource)
+image_imageSource = Lens.lens (\Image' {imageSource} -> imageSource) (\s@Image' {} a -> s {imageSource = a} :: Image)
+
+-- | The image tests that ran when that Image Builder created this image.
 image_imageTestsConfiguration :: Lens.Lens' Image (Prelude.Maybe ImageTestsConfiguration)
 image_imageTestsConfiguration = Lens.lens (\Image' {imageTestsConfiguration} -> imageTestsConfiguration) (\s@Image' {} a -> s {imageTestsConfiguration = a} :: Image)
 
--- | The infrastructure used when creating this image.
+-- | The infrastructure that Image Builder used to create this image.
 image_infrastructureConfiguration :: Lens.Lens' Image (Prelude.Maybe InfrastructureConfiguration)
 image_infrastructureConfiguration = Lens.lens (\Image' {infrastructureConfiguration} -> infrastructureConfiguration) (\s@Image' {} a -> s {infrastructureConfiguration = a} :: Image)
 
@@ -311,18 +348,23 @@ image_infrastructureConfiguration = Lens.lens (\Image' {infrastructureConfigurat
 image_name :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_name = Lens.lens (\Image' {name} -> name) (\s@Image' {} a -> s {name = a} :: Image)
 
--- | The operating system version of the instance. For example, Amazon Linux
--- 2, Ubuntu 18, or Microsoft Windows Server 2019.
+-- | The operating system version for instances that launch from this image.
+-- For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server
+-- 2019.
 image_osVersion :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_osVersion = Lens.lens (\Image' {osVersion} -> osVersion) (\s@Image' {} a -> s {osVersion = a} :: Image)
 
--- | The output resources produced when creating this image.
+-- | The output resources that Image Builder produces for this image.
 image_outputResources :: Lens.Lens' Image (Prelude.Maybe OutputResources)
 image_outputResources = Lens.lens (\Image' {outputResources} -> outputResources) (\s@Image' {} a -> s {outputResources = a} :: Image)
 
--- | The platform of the image.
+-- | The image operating system platform, such as Linux or Windows.
 image_platform :: Lens.Lens' Image (Prelude.Maybe Platform)
 image_platform = Lens.lens (\Image' {platform} -> platform) (\s@Image' {} a -> s {platform = a} :: Image)
+
+-- | Contains information about the current state of scans for this image.
+image_scanState :: Lens.Lens' Image (Prelude.Maybe ImageScanState)
+image_scanState = Lens.lens (\Image' {scanState} -> scanState) (\s@Image' {} a -> s {scanState = a} :: Image)
 
 -- | The Amazon Resource Name (ARN) of the image pipeline that created this
 -- image.
@@ -337,11 +379,11 @@ image_sourcePipelineName = Lens.lens (\Image' {sourcePipelineName} -> sourcePipe
 image_state :: Lens.Lens' Image (Prelude.Maybe ImageState)
 image_state = Lens.lens (\Image' {state} -> state) (\s@Image' {} a -> s {state = a} :: Image)
 
--- | The tags of the image.
+-- | The tags that apply to this image.
 image_tags :: Lens.Lens' Image (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 image_tags = Lens.lens (\Image' {tags} -> tags) (\s@Image' {} a -> s {tags = a} :: Image) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether this is an AMI or container image.
+-- | Specifies whether this image produces an AMI or a container image.
 image_type :: Lens.Lens' Image (Prelude.Maybe ImageType)
 image_type = Lens.lens (\Image' {type'} -> type') (\s@Image' {} a -> s {type' = a} :: Image)
 
@@ -382,12 +424,15 @@ instance Data.FromJSON Image where
             Prelude.<*> (x Data..:? "distributionConfiguration")
             Prelude.<*> (x Data..:? "enhancedImageMetadataEnabled")
             Prelude.<*> (x Data..:? "imageRecipe")
+            Prelude.<*> (x Data..:? "imageScanningConfiguration")
+            Prelude.<*> (x Data..:? "imageSource")
             Prelude.<*> (x Data..:? "imageTestsConfiguration")
             Prelude.<*> (x Data..:? "infrastructureConfiguration")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "osVersion")
             Prelude.<*> (x Data..:? "outputResources")
             Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "scanState")
             Prelude.<*> (x Data..:? "sourcePipelineArn")
             Prelude.<*> (x Data..:? "sourcePipelineName")
             Prelude.<*> (x Data..:? "state")
@@ -398,19 +443,23 @@ instance Data.FromJSON Image where
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` containerRecipe
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` distributionConfiguration
       `Prelude.hashWithSalt` enhancedImageMetadataEnabled
       `Prelude.hashWithSalt` imageRecipe
+      `Prelude.hashWithSalt` imageScanningConfiguration
+      `Prelude.hashWithSalt` imageSource
       `Prelude.hashWithSalt` imageTestsConfiguration
       `Prelude.hashWithSalt` infrastructureConfiguration
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` osVersion
       `Prelude.hashWithSalt` outputResources
       `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` scanState
       `Prelude.hashWithSalt` sourcePipelineArn
       `Prelude.hashWithSalt` sourcePipelineName
       `Prelude.hashWithSalt` state
@@ -427,12 +476,15 @@ instance Prelude.NFData Image where
       `Prelude.seq` Prelude.rnf distributionConfiguration
       `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
       `Prelude.seq` Prelude.rnf imageRecipe
+      `Prelude.seq` Prelude.rnf imageScanningConfiguration
+      `Prelude.seq` Prelude.rnf imageSource
       `Prelude.seq` Prelude.rnf imageTestsConfiguration
       `Prelude.seq` Prelude.rnf infrastructureConfiguration
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf osVersion
       `Prelude.seq` Prelude.rnf outputResources
       `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf scanState
       `Prelude.seq` Prelude.rnf sourcePipelineArn
       `Prelude.seq` Prelude.rnf sourcePipelineName
       `Prelude.seq` Prelude.rnf state

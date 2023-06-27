@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.BuildType
+import Amazonka.ImageBuilder.Types.ImageSource
 import Amazonka.ImageBuilder.Types.ImageType
 import Amazonka.ImageBuilder.Types.Platform
 import qualified Amazonka.Prelude as Prelude
@@ -62,6 +63,9 @@ data ImageVersion = ImageVersion'
     -- | The date on which this specific version of the Image Builder image was
     -- created.
     dateCreated :: Prelude.Maybe Prelude.Text,
+    -- | The origin of the base image that Image Builder used to build this
+    -- image.
+    imageSource :: Prelude.Maybe ImageSource,
     -- | The name of this specific version of an Image Builder image.
     name :: Prelude.Maybe Prelude.Text,
     -- | The operating system version of the Amazon EC2 build instance. For
@@ -69,9 +73,10 @@ data ImageVersion = ImageVersion'
     osVersion :: Prelude.Maybe Prelude.Text,
     -- | The owner of the image version.
     owner :: Prelude.Maybe Prelude.Text,
-    -- | The platform of the image version, for example \"Windows\" or \"Linux\".
+    -- | The operating system platform of the image version, for example
+    -- \"Windows\" or \"Linux\".
     platform :: Prelude.Maybe Platform,
-    -- | Specifies whether this image is an AMI or a container image.
+    -- | Specifies whether this image produces an AMI or a container image.
     type' :: Prelude.Maybe ImageType,
     -- | Details for a specific version of an Image Builder image. This version
     -- follows the semantic version syntax.
@@ -137,6 +142,9 @@ data ImageVersion = ImageVersion'
 -- 'dateCreated', 'imageVersion_dateCreated' - The date on which this specific version of the Image Builder image was
 -- created.
 --
+-- 'imageSource', 'imageVersion_imageSource' - The origin of the base image that Image Builder used to build this
+-- image.
+--
 -- 'name', 'imageVersion_name' - The name of this specific version of an Image Builder image.
 --
 -- 'osVersion', 'imageVersion_osVersion' - The operating system version of the Amazon EC2 build instance. For
@@ -144,9 +152,10 @@ data ImageVersion = ImageVersion'
 --
 -- 'owner', 'imageVersion_owner' - The owner of the image version.
 --
--- 'platform', 'imageVersion_platform' - The platform of the image version, for example \"Windows\" or \"Linux\".
+-- 'platform', 'imageVersion_platform' - The operating system platform of the image version, for example
+-- \"Windows\" or \"Linux\".
 --
--- 'type'', 'imageVersion_type' - Specifies whether this image is an AMI or a container image.
+-- 'type'', 'imageVersion_type' - Specifies whether this image produces an AMI or a container image.
 --
 -- 'version', 'imageVersion_version' - Details for a specific version of an Image Builder image. This version
 -- follows the semantic version syntax.
@@ -177,6 +186,7 @@ newImageVersion =
     { arn = Prelude.Nothing,
       buildType = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
+      imageSource = Prelude.Nothing,
       name = Prelude.Nothing,
       osVersion = Prelude.Nothing,
       owner = Prelude.Nothing,
@@ -221,6 +231,11 @@ imageVersion_buildType = Lens.lens (\ImageVersion' {buildType} -> buildType) (\s
 imageVersion_dateCreated :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
 imageVersion_dateCreated = Lens.lens (\ImageVersion' {dateCreated} -> dateCreated) (\s@ImageVersion' {} a -> s {dateCreated = a} :: ImageVersion)
 
+-- | The origin of the base image that Image Builder used to build this
+-- image.
+imageVersion_imageSource :: Lens.Lens' ImageVersion (Prelude.Maybe ImageSource)
+imageVersion_imageSource = Lens.lens (\ImageVersion' {imageSource} -> imageSource) (\s@ImageVersion' {} a -> s {imageSource = a} :: ImageVersion)
+
 -- | The name of this specific version of an Image Builder image.
 imageVersion_name :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
 imageVersion_name = Lens.lens (\ImageVersion' {name} -> name) (\s@ImageVersion' {} a -> s {name = a} :: ImageVersion)
@@ -234,11 +249,12 @@ imageVersion_osVersion = Lens.lens (\ImageVersion' {osVersion} -> osVersion) (\s
 imageVersion_owner :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
 imageVersion_owner = Lens.lens (\ImageVersion' {owner} -> owner) (\s@ImageVersion' {} a -> s {owner = a} :: ImageVersion)
 
--- | The platform of the image version, for example \"Windows\" or \"Linux\".
+-- | The operating system platform of the image version, for example
+-- \"Windows\" or \"Linux\".
 imageVersion_platform :: Lens.Lens' ImageVersion (Prelude.Maybe Platform)
 imageVersion_platform = Lens.lens (\ImageVersion' {platform} -> platform) (\s@ImageVersion' {} a -> s {platform = a} :: ImageVersion)
 
--- | Specifies whether this image is an AMI or a container image.
+-- | Specifies whether this image produces an AMI or a container image.
 imageVersion_type :: Lens.Lens' ImageVersion (Prelude.Maybe ImageType)
 imageVersion_type = Lens.lens (\ImageVersion' {type'} -> type') (\s@ImageVersion' {} a -> s {type' = a} :: ImageVersion)
 
@@ -276,6 +292,7 @@ instance Data.FromJSON ImageVersion where
             Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "buildType")
             Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "imageSource")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "osVersion")
             Prelude.<*> (x Data..:? "owner")
@@ -286,9 +303,11 @@ instance Data.FromJSON ImageVersion where
 
 instance Prelude.Hashable ImageVersion where
   hashWithSalt _salt ImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` imageSource
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` osVersion
       `Prelude.hashWithSalt` owner
@@ -301,6 +320,7 @@ instance Prelude.NFData ImageVersion where
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf buildType
       `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf imageSource
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf osVersion
       `Prelude.seq` Prelude.rnf owner

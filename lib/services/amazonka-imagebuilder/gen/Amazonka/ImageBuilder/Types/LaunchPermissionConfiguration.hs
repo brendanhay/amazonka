@@ -120,7 +120,8 @@ instance
     LaunchPermissionConfiguration
   where
   hashWithSalt _salt LaunchPermissionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` organizationArns
+    _salt
+      `Prelude.hashWithSalt` organizationArns
       `Prelude.hashWithSalt` organizationalUnitArns
       `Prelude.hashWithSalt` userGroups
       `Prelude.hashWithSalt` userIds

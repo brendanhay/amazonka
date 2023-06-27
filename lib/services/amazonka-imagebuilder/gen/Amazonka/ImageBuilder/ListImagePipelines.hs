@@ -145,7 +145,8 @@ instance Core.AWSRequest ListImagePipelines where
     Response.receiveJSON
       ( \s h x ->
           ListImagePipelinesResponse'
-            Prelude.<$> ( x Data..?> "imagePipelineList"
+            Prelude.<$> ( x
+                            Data..?> "imagePipelineList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -155,7 +156,8 @@ instance Core.AWSRequest ListImagePipelines where
 
 instance Prelude.Hashable ListImagePipelines where
   hashWithSalt _salt ListImagePipelines' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
@@ -196,10 +198,10 @@ instance Data.ToQuery ListImagePipelines where
 data ListImagePipelinesResponse = ListImagePipelinesResponse'
   { -- | The list of image pipelines.
     imagePipelineList :: Prelude.Maybe [ImagePipeline],
-    -- | The next token used for paginated responses. When this is not empty,
-    -- there are additional elements that the service has not included in this
-    -- request. Use this token with the next request to retrieve additional
-    -- objects.
+    -- | The next token used for paginated responses. When this field isn\'t
+    -- empty, there are additional elements that the service has\'ot included
+    -- in this request. Use this token with the next request to retrieve
+    -- additional objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -218,10 +220,10 @@ data ListImagePipelinesResponse = ListImagePipelinesResponse'
 --
 -- 'imagePipelineList', 'listImagePipelinesResponse_imagePipelineList' - The list of image pipelines.
 --
--- 'nextToken', 'listImagePipelinesResponse_nextToken' - The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- 'nextToken', 'listImagePipelinesResponse_nextToken' - The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 --
 -- 'requestId', 'listImagePipelinesResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -243,10 +245,10 @@ newListImagePipelinesResponse pHttpStatus_ =
 listImagePipelinesResponse_imagePipelineList :: Lens.Lens' ListImagePipelinesResponse (Prelude.Maybe [ImagePipeline])
 listImagePipelinesResponse_imagePipelineList = Lens.lens (\ListImagePipelinesResponse' {imagePipelineList} -> imagePipelineList) (\s@ListImagePipelinesResponse' {} a -> s {imagePipelineList = a} :: ListImagePipelinesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- | The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 listImagePipelinesResponse_nextToken :: Lens.Lens' ListImagePipelinesResponse (Prelude.Maybe Prelude.Text)
 listImagePipelinesResponse_nextToken = Lens.lens (\ListImagePipelinesResponse' {nextToken} -> nextToken) (\s@ListImagePipelinesResponse' {} a -> s {nextToken = a} :: ListImagePipelinesResponse)
 

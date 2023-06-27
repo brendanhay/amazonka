@@ -34,6 +34,7 @@ module Amazonka.ImageBuilder.CreateImage
     createImage_distributionConfigurationArn,
     createImage_enhancedImageMetadataEnabled,
     createImage_imageRecipeArn,
+    createImage_imageScanningConfiguration,
     createImage_imageTestsConfiguration,
     createImage_tags,
     createImage_infrastructureConfigurationArn,
@@ -75,6 +76,8 @@ data CreateImage = CreateImage'
     -- | The Amazon Resource Name (ARN) of the image recipe that defines how
     -- images are configured, tested, and assessed.
     imageRecipeArn :: Prelude.Maybe Prelude.Text,
+    -- | Contains settings for vulnerability scans.
+    imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
     -- | The image tests configuration of the image.
     imageTestsConfiguration :: Prelude.Maybe ImageTestsConfiguration,
     -- | The tags of the image.
@@ -109,6 +112,8 @@ data CreateImage = CreateImage'
 -- 'imageRecipeArn', 'createImage_imageRecipeArn' - The Amazon Resource Name (ARN) of the image recipe that defines how
 -- images are configured, tested, and assessed.
 --
+-- 'imageScanningConfiguration', 'createImage_imageScanningConfiguration' - Contains settings for vulnerability scans.
+--
 -- 'imageTestsConfiguration', 'createImage_imageTestsConfiguration' - The image tests configuration of the image.
 --
 -- 'tags', 'createImage_tags' - The tags of the image.
@@ -131,6 +136,7 @@ newCreateImage
         distributionConfigurationArn = Prelude.Nothing,
         enhancedImageMetadataEnabled = Prelude.Nothing,
         imageRecipeArn = Prelude.Nothing,
+        imageScanningConfiguration = Prelude.Nothing,
         imageTestsConfiguration = Prelude.Nothing,
         tags = Prelude.Nothing,
         infrastructureConfigurationArn =
@@ -159,6 +165,10 @@ createImage_enhancedImageMetadataEnabled = Lens.lens (\CreateImage' {enhancedIma
 -- images are configured, tested, and assessed.
 createImage_imageRecipeArn :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Text)
 createImage_imageRecipeArn = Lens.lens (\CreateImage' {imageRecipeArn} -> imageRecipeArn) (\s@CreateImage' {} a -> s {imageRecipeArn = a} :: CreateImage)
+
+-- | Contains settings for vulnerability scans.
+createImage_imageScanningConfiguration :: Lens.Lens' CreateImage (Prelude.Maybe ImageScanningConfiguration)
+createImage_imageScanningConfiguration = Lens.lens (\CreateImage' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@CreateImage' {} a -> s {imageScanningConfiguration = a} :: CreateImage)
 
 -- | The image tests configuration of the image.
 createImage_imageTestsConfiguration :: Lens.Lens' CreateImage (Prelude.Maybe ImageTestsConfiguration)
@@ -193,10 +203,12 @@ instance Core.AWSRequest CreateImage where
 
 instance Prelude.Hashable CreateImage where
   hashWithSalt _salt CreateImage' {..} =
-    _salt `Prelude.hashWithSalt` containerRecipeArn
+    _salt
+      `Prelude.hashWithSalt` containerRecipeArn
       `Prelude.hashWithSalt` distributionConfigurationArn
       `Prelude.hashWithSalt` enhancedImageMetadataEnabled
       `Prelude.hashWithSalt` imageRecipeArn
+      `Prelude.hashWithSalt` imageScanningConfiguration
       `Prelude.hashWithSalt` imageTestsConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` infrastructureConfigurationArn
@@ -208,6 +220,7 @@ instance Prelude.NFData CreateImage where
       `Prelude.seq` Prelude.rnf distributionConfigurationArn
       `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
       `Prelude.seq` Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf imageScanningConfiguration
       `Prelude.seq` Prelude.rnf imageTestsConfiguration
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
@@ -236,6 +249,8 @@ instance Data.ToJSON CreateImage where
               Prelude.<$> enhancedImageMetadataEnabled,
             ("imageRecipeArn" Data..=)
               Prelude.<$> imageRecipeArn,
+            ("imageScanningConfiguration" Data..=)
+              Prelude.<$> imageScanningConfiguration,
             ("imageTestsConfiguration" Data..=)
               Prelude.<$> imageTestsConfiguration,
             ("tags" Data..=) Prelude.<$> tags,
@@ -257,8 +272,7 @@ instance Data.ToQuery CreateImage where
 data CreateImageResponse = CreateImageResponse'
   { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the image that was created by this
-    -- request.
+    -- | The Amazon Resource Name (ARN) of the image that this request created.
     imageBuildVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -277,8 +291,7 @@ data CreateImageResponse = CreateImageResponse'
 --
 -- 'clientToken', 'createImageResponse_clientToken' - The idempotency token used to make this request idempotent.
 --
--- 'imageBuildVersionArn', 'createImageResponse_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image that was created by this
--- request.
+-- 'imageBuildVersionArn', 'createImageResponse_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image that this request created.
 --
 -- 'requestId', 'createImageResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -299,8 +312,7 @@ newCreateImageResponse pHttpStatus_ =
 createImageResponse_clientToken :: Lens.Lens' CreateImageResponse (Prelude.Maybe Prelude.Text)
 createImageResponse_clientToken = Lens.lens (\CreateImageResponse' {clientToken} -> clientToken) (\s@CreateImageResponse' {} a -> s {clientToken = a} :: CreateImageResponse)
 
--- | The Amazon Resource Name (ARN) of the image that was created by this
--- request.
+-- | The Amazon Resource Name (ARN) of the image that this request created.
 createImageResponse_imageBuildVersionArn :: Lens.Lens' CreateImageResponse (Prelude.Maybe Prelude.Text)
 createImageResponse_imageBuildVersionArn = Lens.lens (\CreateImageResponse' {imageBuildVersionArn} -> imageBuildVersionArn) (\s@CreateImageResponse' {} a -> s {imageBuildVersionArn = a} :: CreateImageResponse)
 

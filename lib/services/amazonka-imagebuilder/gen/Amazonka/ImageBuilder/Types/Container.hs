@@ -77,7 +77,8 @@ instance Data.FromJSON Container where
 
 instance Prelude.Hashable Container where
   hashWithSalt _salt Container' {..} =
-    _salt `Prelude.hashWithSalt` imageUris
+    _salt
+      `Prelude.hashWithSalt` imageUris
       `Prelude.hashWithSalt` region
 
 instance Prelude.NFData Container where

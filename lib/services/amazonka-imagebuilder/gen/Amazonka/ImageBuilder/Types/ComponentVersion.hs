@@ -255,7 +255,8 @@ instance Data.FromJSON ComponentVersion where
 
 instance Prelude.Hashable ComponentVersion where
   hashWithSalt _salt ComponentVersion' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

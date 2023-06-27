@@ -22,7 +22,8 @@ module Amazonka.ImageBuilder.Types.Ownership
       ( ..,
         Ownership_Amazon,
         Ownership_Self,
-        Ownership_Shared
+        Ownership_Shared,
+        Ownership_ThirdParty
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern Ownership_Self = Ownership' "Self"
 pattern Ownership_Shared :: Ownership
 pattern Ownership_Shared = Ownership' "Shared"
 
+pattern Ownership_ThirdParty :: Ownership
+pattern Ownership_ThirdParty = Ownership' "ThirdParty"
+
 {-# COMPLETE
   Ownership_Amazon,
   Ownership_Self,
   Ownership_Shared,
+  Ownership_ThirdParty,
   Ownership'
   #-}

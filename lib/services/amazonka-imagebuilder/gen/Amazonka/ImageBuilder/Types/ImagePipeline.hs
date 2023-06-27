@@ -22,6 +22,7 @@ module Amazonka.ImageBuilder.Types.ImagePipeline where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.ImageBuilder.Types.ImageScanningConfiguration
 import Amazonka.ImageBuilder.Types.ImageTestsConfiguration
 import Amazonka.ImageBuilder.Types.PipelineStatus
 import Amazonka.ImageBuilder.Types.Platform
@@ -39,9 +40,9 @@ data ImagePipeline = ImagePipeline'
     containerRecipeArn :: Prelude.Maybe Prelude.Text,
     -- | The date on which this image pipeline was created.
     dateCreated :: Prelude.Maybe Prelude.Text,
-    -- | The date on which this image pipeline was last run.
+    -- | This is no longer supported, and does not return a value.
     dateLastRun :: Prelude.Maybe Prelude.Text,
-    -- | The date on which this image pipeline will next be run.
+    -- | The next date when the pipeline is scheduled to run.
     dateNextRun :: Prelude.Maybe Prelude.Text,
     -- | The date on which this image pipeline was last updated.
     dateUpdated :: Prelude.Maybe Prelude.Text,
@@ -58,6 +59,8 @@ data ImagePipeline = ImagePipeline'
     -- | The Amazon Resource Name (ARN) of the image recipe associated with this
     -- image pipeline.
     imageRecipeArn :: Prelude.Maybe Prelude.Text,
+    -- | Contains settings for vulnerability scans.
+    imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
     -- | The image tests configuration of the image pipeline.
     imageTestsConfiguration :: Prelude.Maybe ImageTestsConfiguration,
     -- | The Amazon Resource Name (ARN) of the infrastructure configuration
@@ -91,9 +94,9 @@ data ImagePipeline = ImagePipeline'
 --
 -- 'dateCreated', 'imagePipeline_dateCreated' - The date on which this image pipeline was created.
 --
--- 'dateLastRun', 'imagePipeline_dateLastRun' - The date on which this image pipeline was last run.
+-- 'dateLastRun', 'imagePipeline_dateLastRun' - This is no longer supported, and does not return a value.
 --
--- 'dateNextRun', 'imagePipeline_dateNextRun' - The date on which this image pipeline will next be run.
+-- 'dateNextRun', 'imagePipeline_dateNextRun' - The next date when the pipeline is scheduled to run.
 --
 -- 'dateUpdated', 'imagePipeline_dateUpdated' - The date on which this image pipeline was last updated.
 --
@@ -109,6 +112,8 @@ data ImagePipeline = ImagePipeline'
 --
 -- 'imageRecipeArn', 'imagePipeline_imageRecipeArn' - The Amazon Resource Name (ARN) of the image recipe associated with this
 -- image pipeline.
+--
+-- 'imageScanningConfiguration', 'imagePipeline_imageScanningConfiguration' - Contains settings for vulnerability scans.
 --
 -- 'imageTestsConfiguration', 'imagePipeline_imageTestsConfiguration' - The image tests configuration of the image pipeline.
 --
@@ -138,6 +143,7 @@ newImagePipeline =
       distributionConfigurationArn = Prelude.Nothing,
       enhancedImageMetadataEnabled = Prelude.Nothing,
       imageRecipeArn = Prelude.Nothing,
+      imageScanningConfiguration = Prelude.Nothing,
       imageTestsConfiguration = Prelude.Nothing,
       infrastructureConfigurationArn = Prelude.Nothing,
       name = Prelude.Nothing,
@@ -160,11 +166,11 @@ imagePipeline_containerRecipeArn = Lens.lens (\ImagePipeline' {containerRecipeAr
 imagePipeline_dateCreated :: Lens.Lens' ImagePipeline (Prelude.Maybe Prelude.Text)
 imagePipeline_dateCreated = Lens.lens (\ImagePipeline' {dateCreated} -> dateCreated) (\s@ImagePipeline' {} a -> s {dateCreated = a} :: ImagePipeline)
 
--- | The date on which this image pipeline was last run.
+-- | This is no longer supported, and does not return a value.
 imagePipeline_dateLastRun :: Lens.Lens' ImagePipeline (Prelude.Maybe Prelude.Text)
 imagePipeline_dateLastRun = Lens.lens (\ImagePipeline' {dateLastRun} -> dateLastRun) (\s@ImagePipeline' {} a -> s {dateLastRun = a} :: ImagePipeline)
 
--- | The date on which this image pipeline will next be run.
+-- | The next date when the pipeline is scheduled to run.
 imagePipeline_dateNextRun :: Lens.Lens' ImagePipeline (Prelude.Maybe Prelude.Text)
 imagePipeline_dateNextRun = Lens.lens (\ImagePipeline' {dateNextRun} -> dateNextRun) (\s@ImagePipeline' {} a -> s {dateNextRun = a} :: ImagePipeline)
 
@@ -192,6 +198,10 @@ imagePipeline_enhancedImageMetadataEnabled = Lens.lens (\ImagePipeline' {enhance
 -- image pipeline.
 imagePipeline_imageRecipeArn :: Lens.Lens' ImagePipeline (Prelude.Maybe Prelude.Text)
 imagePipeline_imageRecipeArn = Lens.lens (\ImagePipeline' {imageRecipeArn} -> imageRecipeArn) (\s@ImagePipeline' {} a -> s {imageRecipeArn = a} :: ImagePipeline)
+
+-- | Contains settings for vulnerability scans.
+imagePipeline_imageScanningConfiguration :: Lens.Lens' ImagePipeline (Prelude.Maybe ImageScanningConfiguration)
+imagePipeline_imageScanningConfiguration = Lens.lens (\ImagePipeline' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@ImagePipeline' {} a -> s {imageScanningConfiguration = a} :: ImagePipeline)
 
 -- | The image tests configuration of the image pipeline.
 imagePipeline_imageTestsConfiguration :: Lens.Lens' ImagePipeline (Prelude.Maybe ImageTestsConfiguration)
@@ -238,6 +248,7 @@ instance Data.FromJSON ImagePipeline where
             Prelude.<*> (x Data..:? "distributionConfigurationArn")
             Prelude.<*> (x Data..:? "enhancedImageMetadataEnabled")
             Prelude.<*> (x Data..:? "imageRecipeArn")
+            Prelude.<*> (x Data..:? "imageScanningConfiguration")
             Prelude.<*> (x Data..:? "imageTestsConfiguration")
             Prelude.<*> (x Data..:? "infrastructureConfigurationArn")
             Prelude.<*> (x Data..:? "name")
@@ -249,7 +260,8 @@ instance Data.FromJSON ImagePipeline where
 
 instance Prelude.Hashable ImagePipeline where
   hashWithSalt _salt ImagePipeline' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` containerRecipeArn
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateLastRun
@@ -259,6 +271,7 @@ instance Prelude.Hashable ImagePipeline where
       `Prelude.hashWithSalt` distributionConfigurationArn
       `Prelude.hashWithSalt` enhancedImageMetadataEnabled
       `Prelude.hashWithSalt` imageRecipeArn
+      `Prelude.hashWithSalt` imageScanningConfiguration
       `Prelude.hashWithSalt` imageTestsConfiguration
       `Prelude.hashWithSalt` infrastructureConfigurationArn
       `Prelude.hashWithSalt` name
@@ -279,6 +292,7 @@ instance Prelude.NFData ImagePipeline where
       `Prelude.seq` Prelude.rnf distributionConfigurationArn
       `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
       `Prelude.seq` Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf imageScanningConfiguration
       `Prelude.seq` Prelude.rnf imageTestsConfiguration
       `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
       `Prelude.seq` Prelude.rnf name

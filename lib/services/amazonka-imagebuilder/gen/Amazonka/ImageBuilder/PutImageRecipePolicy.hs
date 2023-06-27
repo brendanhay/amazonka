@@ -117,7 +117,8 @@ instance Core.AWSRequest PutImageRecipePolicy where
 
 instance Prelude.Hashable PutImageRecipePolicy where
   hashWithSalt _salt PutImageRecipePolicy' {..} =
-    _salt `Prelude.hashWithSalt` imageRecipeArn
+    _salt
+      `Prelude.hashWithSalt` imageRecipeArn
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutImageRecipePolicy where

@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the list of component build versions for the specified semantic
--- version.
+-- Returns the list of components that can be filtered by name, or by using
+-- the listed @filters@ to streamline results. Newly created components can
+-- take up to two minutes to appear in the ListComponents API Results.
 --
 -- The semantic version has four nodes:
 -- \<major>.\<minor>.\<patch>\/\<build>. You can assign values for the
@@ -66,7 +67,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListComponents' smart constructor.
 data ListComponents = ListComponents'
-  { -- | Returns the list of component build versions for the specified name.
+  { -- | Returns the list of components for the specified name.
     byName :: Prelude.Maybe Prelude.Bool,
     -- | Use the following filters to streamline results:
     --
@@ -87,11 +88,11 @@ data ListComponents = ListComponents'
     -- | A token to specify where to start paginating. This is the NextToken from
     -- a previously truncated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The owner defines which components you want to list. By default, this
-    -- request will only show components owned by your account. You can use
-    -- this field to specify if you want to view components owned by yourself,
-    -- by Amazon, or those components that have been shared with you by other
-    -- customers.
+    -- | Filters results based on the type of owner for the component. By
+    -- default, this request returns a list of components that your account
+    -- owns. To see results for other types of owners, you can specify
+    -- components that Amazon manages, third party components, or components
+    -- that other accounts have shared with you.
     owner :: Prelude.Maybe Ownership
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -104,7 +105,7 @@ data ListComponents = ListComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'byName', 'listComponents_byName' - Returns the list of component build versions for the specified name.
+-- 'byName', 'listComponents_byName' - Returns the list of components for the specified name.
 --
 -- 'filters', 'listComponents_filters' - Use the following filters to streamline results:
 --
@@ -125,11 +126,11 @@ data ListComponents = ListComponents'
 -- 'nextToken', 'listComponents_nextToken' - A token to specify where to start paginating. This is the NextToken from
 -- a previously truncated response.
 --
--- 'owner', 'listComponents_owner' - The owner defines which components you want to list. By default, this
--- request will only show components owned by your account. You can use
--- this field to specify if you want to view components owned by yourself,
--- by Amazon, or those components that have been shared with you by other
--- customers.
+-- 'owner', 'listComponents_owner' - Filters results based on the type of owner for the component. By
+-- default, this request returns a list of components that your account
+-- owns. To see results for other types of owners, you can specify
+-- components that Amazon manages, third party components, or components
+-- that other accounts have shared with you.
 newListComponents ::
   ListComponents
 newListComponents =
@@ -141,7 +142,7 @@ newListComponents =
       owner = Prelude.Nothing
     }
 
--- | Returns the list of component build versions for the specified name.
+-- | Returns the list of components for the specified name.
 listComponents_byName :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Bool)
 listComponents_byName = Lens.lens (\ListComponents' {byName} -> byName) (\s@ListComponents' {} a -> s {byName = a} :: ListComponents)
 
@@ -170,11 +171,11 @@ listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResul
 listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
 listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
--- | The owner defines which components you want to list. By default, this
--- request will only show components owned by your account. You can use
--- this field to specify if you want to view components owned by yourself,
--- by Amazon, or those components that have been shared with you by other
--- customers.
+-- | Filters results based on the type of owner for the component. By
+-- default, this request returns a list of components that your account
+-- owns. To see results for other types of owners, you can specify
+-- components that Amazon manages, third party components, or components
+-- that other accounts have shared with you.
 listComponents_owner :: Lens.Lens' ListComponents (Prelude.Maybe Ownership)
 listComponents_owner = Lens.lens (\ListComponents' {owner} -> owner) (\s@ListComponents' {} a -> s {owner = a} :: ListComponents)
 
@@ -188,7 +189,8 @@ instance Core.AWSRequest ListComponents where
     Response.receiveJSON
       ( \s h x ->
           ListComponentsResponse'
-            Prelude.<$> ( x Data..?> "componentVersionList"
+            Prelude.<$> ( x
+                            Data..?> "componentVersionList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -198,7 +200,8 @@ instance Core.AWSRequest ListComponents where
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` byName
+    _salt
+      `Prelude.hashWithSalt` byName
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -249,10 +252,10 @@ data ListComponentsResponse = ListComponentsResponse'
     -- \<major>.\<minor>.\<patch>\/\<build>. You can assign values for the
     -- first three, and can filter on all of them.
     componentVersionList :: Prelude.Maybe [ComponentVersion],
-    -- | The next token used for paginated responses. When this is not empty,
-    -- there are additional elements that the service has not included in this
-    -- request. Use this token with the next request to retrieve additional
-    -- objects.
+    -- | The next token used for paginated responses. When this field isn\'t
+    -- empty, there are additional elements that the service has\'ot included
+    -- in this request. Use this token with the next request to retrieve
+    -- additional objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -275,10 +278,10 @@ data ListComponentsResponse = ListComponentsResponse'
 -- \<major>.\<minor>.\<patch>\/\<build>. You can assign values for the
 -- first three, and can filter on all of them.
 --
--- 'nextToken', 'listComponentsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- 'nextToken', 'listComponentsResponse_nextToken' - The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 --
 -- 'requestId', 'listComponentsResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -304,10 +307,10 @@ newListComponentsResponse pHttpStatus_ =
 listComponentsResponse_componentVersionList :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [ComponentVersion])
 listComponentsResponse_componentVersionList = Lens.lens (\ListComponentsResponse' {componentVersionList} -> componentVersionList) (\s@ListComponentsResponse' {} a -> s {componentVersionList = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- | The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
 listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
 

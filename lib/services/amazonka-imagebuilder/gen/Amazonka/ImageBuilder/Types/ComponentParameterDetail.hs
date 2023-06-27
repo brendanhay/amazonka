@@ -103,7 +103,8 @@ instance Data.FromJSON ComponentParameterDetail where
 
 instance Prelude.Hashable ComponentParameterDetail where
   hashWithSalt _salt ComponentParameterDetail' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

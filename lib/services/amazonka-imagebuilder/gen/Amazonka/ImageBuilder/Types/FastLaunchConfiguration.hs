@@ -127,7 +127,8 @@ instance Data.FromJSON FastLaunchConfiguration where
 
 instance Prelude.Hashable FastLaunchConfiguration where
   hashWithSalt _salt FastLaunchConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` maxParallelLaunches
       `Prelude.hashWithSalt` snapshotConfiguration

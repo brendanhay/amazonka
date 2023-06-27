@@ -44,7 +44,9 @@ data ImageRecipe = ImageRecipe'
     -- | The block device mappings to apply when creating images from this
     -- recipe.
     blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMapping],
-    -- | The components of the image recipe.
+    -- | The components that are included in the image recipe. Recipes require a
+    -- minimum of one build component, and can have a maximum of 20 build and
+    -- test components in any combination.
     components :: Prelude.Maybe (Prelude.NonEmpty ComponentConfiguration),
     -- | The date on which this image recipe was created.
     dateCreated :: Prelude.Maybe Prelude.Text,
@@ -89,7 +91,9 @@ data ImageRecipe = ImageRecipe'
 -- 'blockDeviceMappings', 'imageRecipe_blockDeviceMappings' - The block device mappings to apply when creating images from this
 -- recipe.
 --
--- 'components', 'imageRecipe_components' - The components of the image recipe.
+-- 'components', 'imageRecipe_components' - The components that are included in the image recipe. Recipes require a
+-- minimum of one build component, and can have a maximum of 20 build and
+-- test components in any combination.
 --
 -- 'dateCreated', 'imageRecipe_dateCreated' - The date on which this image recipe was created.
 --
@@ -149,7 +153,9 @@ imageRecipe_arn = Lens.lens (\ImageRecipe' {arn} -> arn) (\s@ImageRecipe' {} a -
 imageRecipe_blockDeviceMappings :: Lens.Lens' ImageRecipe (Prelude.Maybe [InstanceBlockDeviceMapping])
 imageRecipe_blockDeviceMappings = Lens.lens (\ImageRecipe' {blockDeviceMappings} -> blockDeviceMappings) (\s@ImageRecipe' {} a -> s {blockDeviceMappings = a} :: ImageRecipe) Prelude.. Lens.mapping Lens.coerced
 
--- | The components of the image recipe.
+-- | The components that are included in the image recipe. Recipes require a
+-- minimum of one build component, and can have a maximum of 20 build and
+-- test components in any combination.
 imageRecipe_components :: Lens.Lens' ImageRecipe (Prelude.Maybe (Prelude.NonEmpty ComponentConfiguration))
 imageRecipe_components = Lens.lens (\ImageRecipe' {components} -> components) (\s@ImageRecipe' {} a -> s {components = a} :: ImageRecipe) Prelude.. Lens.mapping Lens.coerced
 
@@ -202,7 +208,8 @@ instance Data.FromJSON ImageRecipe where
           ImageRecipe'
             Prelude.<$> (x Data..:? "additionalInstanceConfiguration")
             Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> ( x Data..:? "blockDeviceMappings"
+            Prelude.<*> ( x
+                            Data..:? "blockDeviceMappings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "components")

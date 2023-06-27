@@ -60,6 +60,12 @@ module Amazonka.ImageBuilder.Types
     -- * EbsVolumeType
     EbsVolumeType (..),
 
+    -- * ImageScanStatus
+    ImageScanStatus (..),
+
+    -- * ImageSource
+    ImageSource (..),
+
     -- * ImageStatus
     ImageStatus (..),
 
@@ -77,6 +83,24 @@ module Amazonka.ImageBuilder.Types
 
     -- * Platform
     Platform (..),
+
+    -- * WorkflowExecutionStatus
+    WorkflowExecutionStatus (..),
+
+    -- * WorkflowStepExecutionRollbackStatus
+    WorkflowStepExecutionRollbackStatus (..),
+
+    -- * WorkflowStepExecutionStatus
+    WorkflowStepExecutionStatus (..),
+
+    -- * WorkflowType
+    WorkflowType (..),
+
+    -- * AccountAggregation
+    AccountAggregation (..),
+    newAccountAggregation,
+    accountAggregation_accountId,
+    accountAggregation_severityCounts,
 
     -- * AdditionalInstanceConfiguration
     AdditionalInstanceConfiguration (..),
@@ -115,9 +139,11 @@ module Amazonka.ImageBuilder.Types
     component_encrypted,
     component_kmsKeyId,
     component_name,
+    component_obfuscate,
     component_owner,
     component_parameters,
     component_platform,
+    component_publisher,
     component_state,
     component_supportedOsVersions,
     component_tags,
@@ -158,8 +184,10 @@ module Amazonka.ImageBuilder.Types
     componentSummary_dateCreated,
     componentSummary_description,
     componentSummary_name,
+    componentSummary_obfuscate,
     componentSummary_owner,
     componentSummary_platform,
+    componentSummary_publisher,
     componentSummary_state,
     componentSummary_supportedOsVersions,
     componentSummary_tags,
@@ -225,6 +253,30 @@ module Amazonka.ImageBuilder.Types
     containerRecipeSummary_platform,
     containerRecipeSummary_tags,
 
+    -- * CvssScore
+    CvssScore (..),
+    newCvssScore,
+    cvssScore_baseScore,
+    cvssScore_scoringVector,
+    cvssScore_source,
+    cvssScore_version,
+
+    -- * CvssScoreAdjustment
+    CvssScoreAdjustment (..),
+    newCvssScoreAdjustment,
+    cvssScoreAdjustment_metric,
+    cvssScoreAdjustment_reason,
+
+    -- * CvssScoreDetails
+    CvssScoreDetails (..),
+    newCvssScoreDetails,
+    cvssScoreDetails_adjustments,
+    cvssScoreDetails_cvssSource,
+    cvssScoreDetails_score,
+    cvssScoreDetails_scoreSource,
+    cvssScoreDetails_scoringVector,
+    cvssScoreDetails_version,
+
     -- * Distribution
     Distribution (..),
     newDistribution,
@@ -271,6 +323,12 @@ module Amazonka.ImageBuilder.Types
     ebsInstanceBlockDeviceSpecification_volumeSize,
     ebsInstanceBlockDeviceSpecification_volumeType,
 
+    -- * EcrConfiguration
+    EcrConfiguration (..),
+    newEcrConfiguration,
+    ecrConfiguration_containerTags,
+    ecrConfiguration_repositoryName,
+
     -- * FastLaunchConfiguration
     FastLaunchConfiguration (..),
     newFastLaunchConfiguration,
@@ -308,18 +366,27 @@ module Amazonka.ImageBuilder.Types
     image_distributionConfiguration,
     image_enhancedImageMetadataEnabled,
     image_imageRecipe,
+    image_imageScanningConfiguration,
+    image_imageSource,
     image_imageTestsConfiguration,
     image_infrastructureConfiguration,
     image_name,
     image_osVersion,
     image_outputResources,
     image_platform,
+    image_scanState,
     image_sourcePipelineArn,
     image_sourcePipelineName,
     image_state,
     image_tags,
     image_type,
     image_version,
+
+    -- * ImageAggregation
+    ImageAggregation (..),
+    newImageAggregation,
+    imageAggregation_imageBuildVersionArn,
+    imageAggregation_severityCounts,
 
     -- * ImagePackage
     ImagePackage (..),
@@ -340,6 +407,7 @@ module Amazonka.ImageBuilder.Types
     imagePipeline_distributionConfigurationArn,
     imagePipeline_enhancedImageMetadataEnabled,
     imagePipeline_imageRecipeArn,
+    imagePipeline_imageScanningConfiguration,
     imagePipeline_imageTestsConfiguration,
     imagePipeline_infrastructureConfigurationArn,
     imagePipeline_name,
@@ -347,6 +415,12 @@ module Amazonka.ImageBuilder.Types
     imagePipeline_schedule,
     imagePipeline_status,
     imagePipeline_tags,
+
+    -- * ImagePipelineAggregation
+    ImagePipelineAggregation (..),
+    newImagePipelineAggregation,
+    imagePipelineAggregation_imagePipelineArn,
+    imagePipelineAggregation_severityCounts,
 
     -- * ImageRecipe
     ImageRecipe (..),
@@ -377,6 +451,50 @@ module Amazonka.ImageBuilder.Types
     imageRecipeSummary_platform,
     imageRecipeSummary_tags,
 
+    -- * ImageScanFinding
+    ImageScanFinding (..),
+    newImageScanFinding,
+    imageScanFinding_awsAccountId,
+    imageScanFinding_description,
+    imageScanFinding_firstObservedAt,
+    imageScanFinding_fixAvailable,
+    imageScanFinding_imageBuildVersionArn,
+    imageScanFinding_imagePipelineArn,
+    imageScanFinding_inspectorScore,
+    imageScanFinding_inspectorScoreDetails,
+    imageScanFinding_packageVulnerabilityDetails,
+    imageScanFinding_remediation,
+    imageScanFinding_severity,
+    imageScanFinding_title,
+    imageScanFinding_type,
+    imageScanFinding_updatedAt,
+
+    -- * ImageScanFindingAggregation
+    ImageScanFindingAggregation (..),
+    newImageScanFindingAggregation,
+    imageScanFindingAggregation_accountAggregation,
+    imageScanFindingAggregation_imageAggregation,
+    imageScanFindingAggregation_imagePipelineAggregation,
+    imageScanFindingAggregation_vulnerabilityIdAggregation,
+
+    -- * ImageScanFindingsFilter
+    ImageScanFindingsFilter (..),
+    newImageScanFindingsFilter,
+    imageScanFindingsFilter_name,
+    imageScanFindingsFilter_values,
+
+    -- * ImageScanState
+    ImageScanState (..),
+    newImageScanState,
+    imageScanState_reason,
+    imageScanState_status,
+
+    -- * ImageScanningConfiguration
+    ImageScanningConfiguration (..),
+    newImageScanningConfiguration,
+    imageScanningConfiguration_ecrConfiguration,
+    imageScanningConfiguration_imageScanningEnabled,
+
     -- * ImageState
     ImageState (..),
     newImageState,
@@ -389,6 +507,7 @@ module Amazonka.ImageBuilder.Types
     imageSummary_arn,
     imageSummary_buildType,
     imageSummary_dateCreated,
+    imageSummary_imageSource,
     imageSummary_name,
     imageSummary_osVersion,
     imageSummary_outputResources,
@@ -411,6 +530,7 @@ module Amazonka.ImageBuilder.Types
     imageVersion_arn,
     imageVersion_buildType,
     imageVersion_dateCreated,
+    imageVersion_imageSource,
     imageVersion_name,
     imageVersion_osVersion,
     imageVersion_owner,
@@ -450,6 +570,11 @@ module Amazonka.ImageBuilder.Types
     infrastructureConfigurationSummary_name,
     infrastructureConfigurationSummary_resourceTags,
     infrastructureConfigurationSummary_tags,
+
+    -- * InspectorScoreDetails
+    InspectorScoreDetails (..),
+    newInspectorScoreDetails,
+    inspectorScoreDetails_adjustedCvss,
 
     -- * InstanceBlockDeviceMapping
     InstanceBlockDeviceMapping (..),
@@ -497,6 +622,31 @@ module Amazonka.ImageBuilder.Types
     outputResources_amis,
     outputResources_containers,
 
+    -- * PackageVulnerabilityDetails
+    PackageVulnerabilityDetails (..),
+    newPackageVulnerabilityDetails,
+    packageVulnerabilityDetails_cvss,
+    packageVulnerabilityDetails_referenceUrls,
+    packageVulnerabilityDetails_relatedVulnerabilities,
+    packageVulnerabilityDetails_source,
+    packageVulnerabilityDetails_sourceUrl,
+    packageVulnerabilityDetails_vendorCreatedAt,
+    packageVulnerabilityDetails_vendorSeverity,
+    packageVulnerabilityDetails_vendorUpdatedAt,
+    packageVulnerabilityDetails_vulnerablePackages,
+    packageVulnerabilityDetails_vulnerabilityId,
+
+    -- * Remediation
+    Remediation (..),
+    newRemediation,
+    remediation_recommendation,
+
+    -- * RemediationRecommendation
+    RemediationRecommendation (..),
+    newRemediationRecommendation,
+    remediationRecommendation_text,
+    remediationRecommendation_url,
+
     -- * S3ExportConfiguration
     S3ExportConfiguration (..),
     newS3ExportConfiguration,
@@ -518,6 +668,14 @@ module Amazonka.ImageBuilder.Types
     schedule_scheduleExpression,
     schedule_timezone,
 
+    -- * SeverityCounts
+    SeverityCounts (..),
+    newSeverityCounts,
+    severityCounts_all,
+    severityCounts_critical,
+    severityCounts_high,
+    severityCounts_medium,
+
     -- * SystemsManagerAgent
     SystemsManagerAgent (..),
     newSystemsManagerAgent,
@@ -528,11 +686,62 @@ module Amazonka.ImageBuilder.Types
     newTargetContainerRepository,
     targetContainerRepository_service,
     targetContainerRepository_repositoryName,
+
+    -- * VulnerabilityIdAggregation
+    VulnerabilityIdAggregation (..),
+    newVulnerabilityIdAggregation,
+    vulnerabilityIdAggregation_severityCounts,
+    vulnerabilityIdAggregation_vulnerabilityId,
+
+    -- * VulnerablePackage
+    VulnerablePackage (..),
+    newVulnerablePackage,
+    vulnerablePackage_arch,
+    vulnerablePackage_epoch,
+    vulnerablePackage_filePath,
+    vulnerablePackage_fixedInVersion,
+    vulnerablePackage_name,
+    vulnerablePackage_packageManager,
+    vulnerablePackage_release,
+    vulnerablePackage_remediation,
+    vulnerablePackage_sourceLayerHash,
+    vulnerablePackage_version,
+
+    -- * WorkflowExecutionMetadata
+    WorkflowExecutionMetadata (..),
+    newWorkflowExecutionMetadata,
+    workflowExecutionMetadata_endTime,
+    workflowExecutionMetadata_message,
+    workflowExecutionMetadata_startTime,
+    workflowExecutionMetadata_status,
+    workflowExecutionMetadata_totalStepCount,
+    workflowExecutionMetadata_totalStepsFailed,
+    workflowExecutionMetadata_totalStepsSkipped,
+    workflowExecutionMetadata_totalStepsSucceeded,
+    workflowExecutionMetadata_type,
+    workflowExecutionMetadata_workflowBuildVersionArn,
+    workflowExecutionMetadata_workflowExecutionId,
+
+    -- * WorkflowStepMetadata
+    WorkflowStepMetadata (..),
+    newWorkflowStepMetadata,
+    workflowStepMetadata_action,
+    workflowStepMetadata_description,
+    workflowStepMetadata_endTime,
+    workflowStepMetadata_inputs,
+    workflowStepMetadata_message,
+    workflowStepMetadata_name,
+    workflowStepMetadata_outputs,
+    workflowStepMetadata_rollbackStatus,
+    workflowStepMetadata_startTime,
+    workflowStepMetadata_status,
+    workflowStepMetadata_stepExecutionId,
   )
 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.ImageBuilder.Types.AccountAggregation
 import Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
 import Amazonka.ImageBuilder.Types.Ami
 import Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
@@ -553,21 +762,34 @@ import Amazonka.ImageBuilder.Types.ContainerRecipe
 import Amazonka.ImageBuilder.Types.ContainerRecipeSummary
 import Amazonka.ImageBuilder.Types.ContainerRepositoryService
 import Amazonka.ImageBuilder.Types.ContainerType
+import Amazonka.ImageBuilder.Types.CvssScore
+import Amazonka.ImageBuilder.Types.CvssScoreAdjustment
+import Amazonka.ImageBuilder.Types.CvssScoreDetails
 import Amazonka.ImageBuilder.Types.DiskImageFormat
 import Amazonka.ImageBuilder.Types.Distribution
 import Amazonka.ImageBuilder.Types.DistributionConfiguration
 import Amazonka.ImageBuilder.Types.DistributionConfigurationSummary
 import Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
 import Amazonka.ImageBuilder.Types.EbsVolumeType
+import Amazonka.ImageBuilder.Types.EcrConfiguration
 import Amazonka.ImageBuilder.Types.FastLaunchConfiguration
 import Amazonka.ImageBuilder.Types.FastLaunchLaunchTemplateSpecification
 import Amazonka.ImageBuilder.Types.FastLaunchSnapshotConfiguration
 import Amazonka.ImageBuilder.Types.Filter
 import Amazonka.ImageBuilder.Types.Image
+import Amazonka.ImageBuilder.Types.ImageAggregation
 import Amazonka.ImageBuilder.Types.ImagePackage
 import Amazonka.ImageBuilder.Types.ImagePipeline
+import Amazonka.ImageBuilder.Types.ImagePipelineAggregation
 import Amazonka.ImageBuilder.Types.ImageRecipe
 import Amazonka.ImageBuilder.Types.ImageRecipeSummary
+import Amazonka.ImageBuilder.Types.ImageScanFinding
+import Amazonka.ImageBuilder.Types.ImageScanFindingAggregation
+import Amazonka.ImageBuilder.Types.ImageScanFindingsFilter
+import Amazonka.ImageBuilder.Types.ImageScanState
+import Amazonka.ImageBuilder.Types.ImageScanStatus
+import Amazonka.ImageBuilder.Types.ImageScanningConfiguration
+import Amazonka.ImageBuilder.Types.ImageSource
 import Amazonka.ImageBuilder.Types.ImageState
 import Amazonka.ImageBuilder.Types.ImageStatus
 import Amazonka.ImageBuilder.Types.ImageSummary
@@ -576,6 +798,7 @@ import Amazonka.ImageBuilder.Types.ImageType
 import Amazonka.ImageBuilder.Types.ImageVersion
 import Amazonka.ImageBuilder.Types.InfrastructureConfiguration
 import Amazonka.ImageBuilder.Types.InfrastructureConfigurationSummary
+import Amazonka.ImageBuilder.Types.InspectorScoreDetails
 import Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
 import Amazonka.ImageBuilder.Types.InstanceConfiguration
 import Amazonka.ImageBuilder.Types.InstanceMetadataOptions
@@ -584,14 +807,26 @@ import Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration
 import Amazonka.ImageBuilder.Types.Logging
 import Amazonka.ImageBuilder.Types.OutputResources
 import Amazonka.ImageBuilder.Types.Ownership
+import Amazonka.ImageBuilder.Types.PackageVulnerabilityDetails
 import Amazonka.ImageBuilder.Types.PipelineExecutionStartCondition
 import Amazonka.ImageBuilder.Types.PipelineStatus
 import Amazonka.ImageBuilder.Types.Platform
+import Amazonka.ImageBuilder.Types.Remediation
+import Amazonka.ImageBuilder.Types.RemediationRecommendation
 import Amazonka.ImageBuilder.Types.S3ExportConfiguration
 import Amazonka.ImageBuilder.Types.S3Logs
 import Amazonka.ImageBuilder.Types.Schedule
+import Amazonka.ImageBuilder.Types.SeverityCounts
 import Amazonka.ImageBuilder.Types.SystemsManagerAgent
 import Amazonka.ImageBuilder.Types.TargetContainerRepository
+import Amazonka.ImageBuilder.Types.VulnerabilityIdAggregation
+import Amazonka.ImageBuilder.Types.VulnerablePackage
+import Amazonka.ImageBuilder.Types.WorkflowExecutionMetadata
+import Amazonka.ImageBuilder.Types.WorkflowExecutionStatus
+import Amazonka.ImageBuilder.Types.WorkflowStepExecutionRollbackStatus
+import Amazonka.ImageBuilder.Types.WorkflowStepExecutionStatus
+import Amazonka.ImageBuilder.Types.WorkflowStepMetadata
+import Amazonka.ImageBuilder.Types.WorkflowType
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -621,52 +856,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You have exceeded the permitted request rate for the specific operation.
-_CallRateLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CallRateLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CallRateLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -677,7 +912,7 @@ _CallRateLimitExceededException =
 -- action or resource on behalf of a user that doesn\'t have permissions to
 -- use the action or resource, or specifying an invalid resource
 -- identifier.
-_ClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ClientException =
   Core._MatchServiceError
     defaultService
@@ -685,7 +920,7 @@ _ClientException =
     Prelude.. Core.hasStatus 400
 
 -- | You are not authorized to perform the requested operation.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -695,7 +930,7 @@ _ForbiddenException =
 -- | You have specified a client token for an operation using parameter
 -- values that differ from a previous request that used the same client
 -- token.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IdempotentParameterMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
@@ -703,7 +938,7 @@ _IdempotentParameterMismatchException =
     Prelude.. Core.hasStatus 400
 
 -- | You have provided an invalid pagination token in your request.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPaginationTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPaginationTokenException =
   Core._MatchServiceError
     defaultService
@@ -712,7 +947,7 @@ _InvalidPaginationTokenException =
 
 -- | You have specified two or more mutually exclusive parameters. Review the
 -- error message for details.
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterCombinationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterCombinationException =
   Core._MatchServiceError
     defaultService
@@ -721,7 +956,7 @@ _InvalidParameterCombinationException =
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -729,16 +964,15 @@ _InvalidParameterException =
     Prelude.. Core.hasStatus 400
 
 -- | The value that you provided for the specified parameter is invalid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterValueException"
     Prelude.. Core.hasStatus 400
 
--- | You have made a request for an action that is not supported by the
--- service.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | You have requested an action that that the service doesn\'t support.
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -747,7 +981,7 @@ _InvalidRequestException =
 
 -- | Your version number is out of bounds or does not follow the required
 -- syntax.
-_InvalidVersionNumberException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidVersionNumberException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidVersionNumberException =
   Core._MatchServiceError
     defaultService
@@ -755,7 +989,7 @@ _InvalidVersionNumberException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource that you are trying to create already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -764,7 +998,7 @@ _ResourceAlreadyExistsException =
 
 -- | You have attempted to mutate or delete a resource with a dependency that
 -- prohibits this action. See the error message for more details.
-_ResourceDependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceDependencyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceDependencyException =
   Core._MatchServiceError
     defaultService
@@ -773,7 +1007,7 @@ _ResourceDependencyException =
 
 -- | The resource that you are trying to operate on is currently in use.
 -- Review the message details and retry later.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -781,7 +1015,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 400
 
 -- | At least one of the resources referenced by your request does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -790,7 +1024,7 @@ _ResourceNotFoundException =
 
 -- | This exception is thrown when the service encounters an unrecoverable
 -- exception.
-_ServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceException =
   Core._MatchServiceError
     defaultService
@@ -800,7 +1034,7 @@ _ServiceException =
 -- | You have exceeded the number of permitted resources or operations for
 -- this service. For service quotas, see
 -- <https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder EC2 Image Builder endpoints and quotas>.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -808,7 +1042,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The service is unable to process your request at this time.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService

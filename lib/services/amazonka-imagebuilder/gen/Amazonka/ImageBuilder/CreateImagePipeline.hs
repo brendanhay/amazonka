@@ -33,6 +33,7 @@ module Amazonka.ImageBuilder.CreateImagePipeline
     createImagePipeline_distributionConfigurationArn,
     createImagePipeline_enhancedImageMetadataEnabled,
     createImagePipeline_imageRecipeArn,
+    createImagePipeline_imageScanningConfiguration,
     createImagePipeline_imageTestsConfiguration,
     createImagePipeline_schedule,
     createImagePipeline_status,
@@ -80,6 +81,8 @@ data CreateImagePipeline = CreateImagePipeline'
     -- | The Amazon Resource Name (ARN) of the image recipe that will be used to
     -- configure images created by this image pipeline.
     imageRecipeArn :: Prelude.Maybe Prelude.Text,
+    -- | Contains settings for vulnerability scans.
+    imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
     -- | The image test configuration of the image pipeline.
     imageTestsConfiguration :: Prelude.Maybe ImageTestsConfiguration,
     -- | The schedule of the image pipeline.
@@ -123,6 +126,8 @@ data CreateImagePipeline = CreateImagePipeline'
 -- 'imageRecipeArn', 'createImagePipeline_imageRecipeArn' - The Amazon Resource Name (ARN) of the image recipe that will be used to
 -- configure images created by this image pipeline.
 --
+-- 'imageScanningConfiguration', 'createImagePipeline_imageScanningConfiguration' - Contains settings for vulnerability scans.
+--
 -- 'imageTestsConfiguration', 'createImagePipeline_imageTestsConfiguration' - The image test configuration of the image pipeline.
 --
 -- 'schedule', 'createImagePipeline_schedule' - The schedule of the image pipeline.
@@ -156,6 +161,7 @@ newCreateImagePipeline
         distributionConfigurationArn = Prelude.Nothing,
         enhancedImageMetadataEnabled = Prelude.Nothing,
         imageRecipeArn = Prelude.Nothing,
+        imageScanningConfiguration = Prelude.Nothing,
         imageTestsConfiguration = Prelude.Nothing,
         schedule = Prelude.Nothing,
         status = Prelude.Nothing,
@@ -192,6 +198,10 @@ createImagePipeline_enhancedImageMetadataEnabled = Lens.lens (\CreateImagePipeli
 -- configure images created by this image pipeline.
 createImagePipeline_imageRecipeArn :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Prelude.Text)
 createImagePipeline_imageRecipeArn = Lens.lens (\CreateImagePipeline' {imageRecipeArn} -> imageRecipeArn) (\s@CreateImagePipeline' {} a -> s {imageRecipeArn = a} :: CreateImagePipeline)
+
+-- | Contains settings for vulnerability scans.
+createImagePipeline_imageScanningConfiguration :: Lens.Lens' CreateImagePipeline (Prelude.Maybe ImageScanningConfiguration)
+createImagePipeline_imageScanningConfiguration = Lens.lens (\CreateImagePipeline' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@CreateImagePipeline' {} a -> s {imageScanningConfiguration = a} :: CreateImagePipeline)
 
 -- | The image test configuration of the image pipeline.
 createImagePipeline_imageTestsConfiguration :: Lens.Lens' CreateImagePipeline (Prelude.Maybe ImageTestsConfiguration)
@@ -240,11 +250,13 @@ instance Core.AWSRequest CreateImagePipeline where
 
 instance Prelude.Hashable CreateImagePipeline where
   hashWithSalt _salt CreateImagePipeline' {..} =
-    _salt `Prelude.hashWithSalt` containerRecipeArn
+    _salt
+      `Prelude.hashWithSalt` containerRecipeArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` distributionConfigurationArn
       `Prelude.hashWithSalt` enhancedImageMetadataEnabled
       `Prelude.hashWithSalt` imageRecipeArn
+      `Prelude.hashWithSalt` imageScanningConfiguration
       `Prelude.hashWithSalt` imageTestsConfiguration
       `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` status
@@ -260,6 +272,7 @@ instance Prelude.NFData CreateImagePipeline where
       `Prelude.seq` Prelude.rnf distributionConfigurationArn
       `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
       `Prelude.seq` Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf imageScanningConfiguration
       `Prelude.seq` Prelude.rnf imageTestsConfiguration
       `Prelude.seq` Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf status
@@ -292,6 +305,8 @@ instance Data.ToJSON CreateImagePipeline where
               Prelude.<$> enhancedImageMetadataEnabled,
             ("imageRecipeArn" Data..=)
               Prelude.<$> imageRecipeArn,
+            ("imageScanningConfiguration" Data..=)
+              Prelude.<$> imageScanningConfiguration,
             ("imageTestsConfiguration" Data..=)
               Prelude.<$> imageTestsConfiguration,
             ("schedule" Data..=) Prelude.<$> schedule,

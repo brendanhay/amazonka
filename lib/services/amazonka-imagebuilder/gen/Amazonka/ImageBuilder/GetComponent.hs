@@ -50,8 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetComponent' smart constructor.
 data GetComponent = GetComponent'
-  { -- | The Amazon Resource Name (ARN) of the component that you want to
-    -- retrieve. Regex requires \"\/\\d+$\" suffix.
+  { -- | The Amazon Resource Name (ARN) of the component that you want to get.
+    -- Regex requires the suffix @\/\\d+$@.
     componentBuildVersionArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,8 +64,8 @@ data GetComponent = GetComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'componentBuildVersionArn', 'getComponent_componentBuildVersionArn' - The Amazon Resource Name (ARN) of the component that you want to
--- retrieve. Regex requires \"\/\\d+$\" suffix.
+-- 'componentBuildVersionArn', 'getComponent_componentBuildVersionArn' - The Amazon Resource Name (ARN) of the component that you want to get.
+-- Regex requires the suffix @\/\\d+$@.
 newGetComponent ::
   -- | 'componentBuildVersionArn'
   Prelude.Text ->
@@ -76,8 +76,8 @@ newGetComponent pComponentBuildVersionArn_ =
         pComponentBuildVersionArn_
     }
 
--- | The Amazon Resource Name (ARN) of the component that you want to
--- retrieve. Regex requires \"\/\\d+$\" suffix.
+-- | The Amazon Resource Name (ARN) of the component that you want to get.
+-- Regex requires the suffix @\/\\d+$@.
 getComponent_componentBuildVersionArn :: Lens.Lens' GetComponent Prelude.Text
 getComponent_componentBuildVersionArn = Lens.lens (\GetComponent' {componentBuildVersionArn} -> componentBuildVersionArn) (\s@GetComponent' {} a -> s {componentBuildVersionArn = a} :: GetComponent)
 

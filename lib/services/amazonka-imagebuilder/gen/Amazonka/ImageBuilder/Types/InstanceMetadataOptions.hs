@@ -35,7 +35,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInstanceMetadataOptions' smart constructor.
 data InstanceMetadataOptions = InstanceMetadataOptions'
   { -- | Limit the number of hops that an instance metadata request can traverse
-    -- to reach its destination.
+    -- to reach its destination. The default is one hop. However, if HTTP
+    -- tokens are required, container image builds need a minimum of two hops.
     httpPutResponseHopLimit :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether a signed token header is required for instance
     -- metadata retrieval requests. The values affect the response as follows:
@@ -62,7 +63,8 @@ data InstanceMetadataOptions = InstanceMetadataOptions'
 -- for backwards compatibility:
 --
 -- 'httpPutResponseHopLimit', 'instanceMetadataOptions_httpPutResponseHopLimit' - Limit the number of hops that an instance metadata request can traverse
--- to reach its destination.
+-- to reach its destination. The default is one hop. However, if HTTP
+-- tokens are required, container image builds need a minimum of two hops.
 --
 -- 'httpTokens', 'instanceMetadataOptions_httpTokens' - Indicates whether a signed token header is required for instance
 -- metadata retrieval requests. The values affect the response as follows:
@@ -86,7 +88,8 @@ newInstanceMetadataOptions =
     }
 
 -- | Limit the number of hops that an instance metadata request can traverse
--- to reach its destination.
+-- to reach its destination. The default is one hop. However, if HTTP
+-- tokens are required, container image builds need a minimum of two hops.
 instanceMetadataOptions_httpPutResponseHopLimit :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe Prelude.Natural)
 instanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\InstanceMetadataOptions' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@InstanceMetadataOptions' {} a -> s {httpPutResponseHopLimit = a} :: InstanceMetadataOptions)
 

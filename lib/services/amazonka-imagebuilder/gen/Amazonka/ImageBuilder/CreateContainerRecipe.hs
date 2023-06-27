@@ -110,6 +110,8 @@ data CreateContainerRecipe = CreateContainerRecipe'
     -- such as 2021.01.01.
     semanticVersion :: Prelude.Text,
     -- | Components for build and test that are included in the container recipe.
+    -- Recipes require a minimum of one build component, and can have a maximum
+    -- of 20 build and test components in any combination.
     components :: Prelude.NonEmpty ComponentConfiguration,
     -- | The base image for the container recipe.
     parentImage :: Prelude.Text,
@@ -171,6 +173,8 @@ data CreateContainerRecipe = CreateContainerRecipe'
 -- such as 2021.01.01.
 --
 -- 'components', 'createContainerRecipe_components' - Components for build and test that are included in the container recipe.
+-- Recipes require a minimum of one build component, and can have a maximum
+-- of 20 build and test components in any combination.
 --
 -- 'parentImage', 'createContainerRecipe_parentImage' - The base image for the container recipe.
 --
@@ -288,6 +292,8 @@ createContainerRecipe_semanticVersion :: Lens.Lens' CreateContainerRecipe Prelud
 createContainerRecipe_semanticVersion = Lens.lens (\CreateContainerRecipe' {semanticVersion} -> semanticVersion) (\s@CreateContainerRecipe' {} a -> s {semanticVersion = a} :: CreateContainerRecipe)
 
 -- | Components for build and test that are included in the container recipe.
+-- Recipes require a minimum of one build component, and can have a maximum
+-- of 20 build and test components in any combination.
 createContainerRecipe_components :: Lens.Lens' CreateContainerRecipe (Prelude.NonEmpty ComponentConfiguration)
 createContainerRecipe_components = Lens.lens (\CreateContainerRecipe' {components} -> components) (\s@CreateContainerRecipe' {} a -> s {components = a} :: CreateContainerRecipe) Prelude.. Lens.coerced
 
@@ -321,7 +327,8 @@ instance Core.AWSRequest CreateContainerRecipe where
 
 instance Prelude.Hashable CreateContainerRecipe where
   hashWithSalt _salt CreateContainerRecipe' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dockerfileTemplateData
       `Prelude.hashWithSalt` dockerfileTemplateUri
       `Prelude.hashWithSalt` imageOsVersionOverride

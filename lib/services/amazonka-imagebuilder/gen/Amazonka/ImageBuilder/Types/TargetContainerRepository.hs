@@ -84,7 +84,8 @@ instance Data.FromJSON TargetContainerRepository where
 
 instance Prelude.Hashable TargetContainerRepository where
   hashWithSalt _salt TargetContainerRepository' {..} =
-    _salt `Prelude.hashWithSalt` service
+    _salt
+      `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData TargetContainerRepository where

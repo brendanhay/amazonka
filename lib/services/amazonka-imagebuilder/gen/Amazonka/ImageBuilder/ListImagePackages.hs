@@ -55,8 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListImagePackages' smart constructor.
 data ListImagePackages = ListImagePackages'
-  { -- | The maxiumum number of results to return from the ListImagePackages
-    -- request.
+  { -- | The maximum items to return in a request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A token to specify where to start paginating. This is the NextToken from
     -- a previously truncated response.
@@ -75,8 +74,7 @@ data ListImagePackages = ListImagePackages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listImagePackages_maxResults' - The maxiumum number of results to return from the ListImagePackages
--- request.
+-- 'maxResults', 'listImagePackages_maxResults' - The maximum items to return in a request.
 --
 -- 'nextToken', 'listImagePackages_nextToken' - A token to specify where to start paginating. This is the NextToken from
 -- a previously truncated response.
@@ -94,8 +92,7 @@ newListImagePackages pImageBuildVersionArn_ =
       imageBuildVersionArn = pImageBuildVersionArn_
     }
 
--- | The maxiumum number of results to return from the ListImagePackages
--- request.
+-- | The maximum items to return in a request.
 listImagePackages_maxResults :: Lens.Lens' ListImagePackages (Prelude.Maybe Prelude.Natural)
 listImagePackages_maxResults = Lens.lens (\ListImagePackages' {maxResults} -> maxResults) (\s@ListImagePackages' {} a -> s {maxResults = a} :: ListImagePackages)
 
@@ -119,7 +116,8 @@ instance Core.AWSRequest ListImagePackages where
     Response.receiveJSON
       ( \s h x ->
           ListImagePackagesResponse'
-            Prelude.<$> ( x Data..?> "imagePackageList"
+            Prelude.<$> ( x
+                            Data..?> "imagePackageList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -129,7 +127,8 @@ instance Core.AWSRequest ListImagePackages where
 
 instance Prelude.Hashable ListImagePackages where
   hashWithSalt _salt ListImagePackages' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` imageBuildVersionArn
 
@@ -173,8 +172,10 @@ instance Data.ToQuery ListImagePackages where
 data ListImagePackagesResponse = ListImagePackagesResponse'
   { -- | The list of Image Packages returned in the response.
     imagePackageList :: Prelude.Maybe [ImagePackage],
-    -- | A token to specify where to start paginating. This is the NextToken from
-    -- a previously truncated response.
+    -- | The next token used for paginated responses. When this field isn\'t
+    -- empty, there are additional elements that the service has\'ot included
+    -- in this request. Use this token with the next request to retrieve
+    -- additional objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -193,8 +194,10 @@ data ListImagePackagesResponse = ListImagePackagesResponse'
 --
 -- 'imagePackageList', 'listImagePackagesResponse_imagePackageList' - The list of Image Packages returned in the response.
 --
--- 'nextToken', 'listImagePackagesResponse_nextToken' - A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
+-- 'nextToken', 'listImagePackagesResponse_nextToken' - The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 --
 -- 'requestId', 'listImagePackagesResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -216,8 +219,10 @@ newListImagePackagesResponse pHttpStatus_ =
 listImagePackagesResponse_imagePackageList :: Lens.Lens' ListImagePackagesResponse (Prelude.Maybe [ImagePackage])
 listImagePackagesResponse_imagePackageList = Lens.lens (\ListImagePackagesResponse' {imagePackageList} -> imagePackageList) (\s@ListImagePackagesResponse' {} a -> s {imagePackageList = a} :: ListImagePackagesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
+-- | The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 listImagePackagesResponse_nextToken :: Lens.Lens' ListImagePackagesResponse (Prelude.Maybe Prelude.Text)
 listImagePackagesResponse_nextToken = Lens.lens (\ListImagePackagesResponse' {nextToken} -> nextToken) (\s@ListImagePackagesResponse' {} a -> s {nextToken = a} :: ListImagePackagesResponse)
 

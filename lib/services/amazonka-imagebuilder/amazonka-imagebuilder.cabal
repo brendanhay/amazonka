@@ -70,6 +70,8 @@ library
     Amazonka.ImageBuilder.GetImageRecipe
     Amazonka.ImageBuilder.GetImageRecipePolicy
     Amazonka.ImageBuilder.GetInfrastructureConfiguration
+    Amazonka.ImageBuilder.GetWorkflowExecution
+    Amazonka.ImageBuilder.GetWorkflowStepExecution
     Amazonka.ImageBuilder.ImportComponent
     Amazonka.ImageBuilder.ImportVmImage
     Amazonka.ImageBuilder.Lens
@@ -83,8 +85,12 @@ library
     Amazonka.ImageBuilder.ListImagePipelines
     Amazonka.ImageBuilder.ListImageRecipes
     Amazonka.ImageBuilder.ListImages
+    Amazonka.ImageBuilder.ListImageScanFindingAggregations
+    Amazonka.ImageBuilder.ListImageScanFindings
     Amazonka.ImageBuilder.ListInfrastructureConfigurations
     Amazonka.ImageBuilder.ListTagsForResource
+    Amazonka.ImageBuilder.ListWorkflowExecutions
+    Amazonka.ImageBuilder.ListWorkflowStepExecutions
     Amazonka.ImageBuilder.PutComponentPolicy
     Amazonka.ImageBuilder.PutContainerRecipePolicy
     Amazonka.ImageBuilder.PutImagePolicy
@@ -92,6 +98,7 @@ library
     Amazonka.ImageBuilder.StartImagePipelineExecution
     Amazonka.ImageBuilder.TagResource
     Amazonka.ImageBuilder.Types
+    Amazonka.ImageBuilder.Types.AccountAggregation
     Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
     Amazonka.ImageBuilder.Types.Ami
     Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
@@ -112,21 +119,34 @@ library
     Amazonka.ImageBuilder.Types.ContainerRecipeSummary
     Amazonka.ImageBuilder.Types.ContainerRepositoryService
     Amazonka.ImageBuilder.Types.ContainerType
+    Amazonka.ImageBuilder.Types.CvssScore
+    Amazonka.ImageBuilder.Types.CvssScoreAdjustment
+    Amazonka.ImageBuilder.Types.CvssScoreDetails
     Amazonka.ImageBuilder.Types.DiskImageFormat
     Amazonka.ImageBuilder.Types.Distribution
     Amazonka.ImageBuilder.Types.DistributionConfiguration
     Amazonka.ImageBuilder.Types.DistributionConfigurationSummary
     Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
     Amazonka.ImageBuilder.Types.EbsVolumeType
+    Amazonka.ImageBuilder.Types.EcrConfiguration
     Amazonka.ImageBuilder.Types.FastLaunchConfiguration
     Amazonka.ImageBuilder.Types.FastLaunchLaunchTemplateSpecification
     Amazonka.ImageBuilder.Types.FastLaunchSnapshotConfiguration
     Amazonka.ImageBuilder.Types.Filter
     Amazonka.ImageBuilder.Types.Image
+    Amazonka.ImageBuilder.Types.ImageAggregation
     Amazonka.ImageBuilder.Types.ImagePackage
     Amazonka.ImageBuilder.Types.ImagePipeline
+    Amazonka.ImageBuilder.Types.ImagePipelineAggregation
     Amazonka.ImageBuilder.Types.ImageRecipe
     Amazonka.ImageBuilder.Types.ImageRecipeSummary
+    Amazonka.ImageBuilder.Types.ImageScanFinding
+    Amazonka.ImageBuilder.Types.ImageScanFindingAggregation
+    Amazonka.ImageBuilder.Types.ImageScanFindingsFilter
+    Amazonka.ImageBuilder.Types.ImageScanningConfiguration
+    Amazonka.ImageBuilder.Types.ImageScanState
+    Amazonka.ImageBuilder.Types.ImageScanStatus
+    Amazonka.ImageBuilder.Types.ImageSource
     Amazonka.ImageBuilder.Types.ImageState
     Amazonka.ImageBuilder.Types.ImageStatus
     Amazonka.ImageBuilder.Types.ImageSummary
@@ -135,6 +155,7 @@ library
     Amazonka.ImageBuilder.Types.ImageVersion
     Amazonka.ImageBuilder.Types.InfrastructureConfiguration
     Amazonka.ImageBuilder.Types.InfrastructureConfigurationSummary
+    Amazonka.ImageBuilder.Types.InspectorScoreDetails
     Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
     Amazonka.ImageBuilder.Types.InstanceConfiguration
     Amazonka.ImageBuilder.Types.InstanceMetadataOptions
@@ -143,14 +164,26 @@ library
     Amazonka.ImageBuilder.Types.Logging
     Amazonka.ImageBuilder.Types.OutputResources
     Amazonka.ImageBuilder.Types.Ownership
+    Amazonka.ImageBuilder.Types.PackageVulnerabilityDetails
     Amazonka.ImageBuilder.Types.PipelineExecutionStartCondition
     Amazonka.ImageBuilder.Types.PipelineStatus
     Amazonka.ImageBuilder.Types.Platform
+    Amazonka.ImageBuilder.Types.Remediation
+    Amazonka.ImageBuilder.Types.RemediationRecommendation
     Amazonka.ImageBuilder.Types.S3ExportConfiguration
     Amazonka.ImageBuilder.Types.S3Logs
     Amazonka.ImageBuilder.Types.Schedule
+    Amazonka.ImageBuilder.Types.SeverityCounts
     Amazonka.ImageBuilder.Types.SystemsManagerAgent
     Amazonka.ImageBuilder.Types.TargetContainerRepository
+    Amazonka.ImageBuilder.Types.VulnerabilityIdAggregation
+    Amazonka.ImageBuilder.Types.VulnerablePackage
+    Amazonka.ImageBuilder.Types.WorkflowExecutionMetadata
+    Amazonka.ImageBuilder.Types.WorkflowExecutionStatus
+    Amazonka.ImageBuilder.Types.WorkflowStepExecutionRollbackStatus
+    Amazonka.ImageBuilder.Types.WorkflowStepExecutionStatus
+    Amazonka.ImageBuilder.Types.WorkflowStepMetadata
+    Amazonka.ImageBuilder.Types.WorkflowType
     Amazonka.ImageBuilder.UntagResource
     Amazonka.ImageBuilder.UpdateDistributionConfiguration
     Amazonka.ImageBuilder.UpdateImagePipeline

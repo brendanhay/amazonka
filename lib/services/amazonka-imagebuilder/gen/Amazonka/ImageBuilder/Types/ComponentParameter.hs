@@ -76,7 +76,8 @@ instance Data.FromJSON ComponentParameter where
 
 instance Prelude.Hashable ComponentParameter where
   hashWithSalt _salt ComponentParameter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ComponentParameter where

@@ -76,7 +76,8 @@ instance Data.FromJSON ComponentState where
 
 instance Prelude.Hashable ComponentState where
   hashWithSalt _salt ComponentState' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ComponentState where

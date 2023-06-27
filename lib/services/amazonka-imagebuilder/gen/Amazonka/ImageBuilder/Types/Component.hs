@@ -38,7 +38,7 @@ data Component = Component'
     changeDescription :: Prelude.Maybe Prelude.Text,
     -- | Component data contains the YAML document content for the component.
     data' :: Prelude.Maybe Prelude.Text,
-    -- | The date that the component was created.
+    -- | The date that Image Builder created the component.
     dateCreated :: Prelude.Maybe Prelude.Text,
     -- | The description of the component.
     description :: Prelude.Maybe Prelude.Text,
@@ -48,24 +48,30 @@ data Component = Component'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the component.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether component source is hidden from view in the console,
+    -- and from component detail results for API, CLI, or SDK operations.
+    obfuscate :: Prelude.Maybe Prelude.Bool,
     -- | The owner of the component.
     owner :: Prelude.Maybe Prelude.Text,
-    -- | Contains parameter details for each of the parameters that are defined
-    -- for the component.
+    -- | Contains parameter details for each of the parameters that the component
+    -- document defined for the component.
     parameters :: Prelude.Maybe [ComponentParameterDetail],
-    -- | The platform of the component.
+    -- | The operating system platform of the component.
     platform :: Prelude.Maybe Platform,
+    -- | Contains the name of the publisher if this is a third-party component.
+    -- Otherwise, this property is empty.
+    publisher :: Prelude.Maybe Prelude.Text,
     -- | Describes the current status of the component. This is used for
     -- components that are no longer active.
     state :: Prelude.Maybe ComponentState,
     -- | The operating system (OS) version supported by the component. If the OS
-    -- information is available, a prefix match is performed against the base
-    -- image OS version during image recipe creation.
+    -- information is available, Image Builder performs a prefix match against
+    -- the base image OS version during image recipe creation.
     supportedOsVersions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The tags associated with the component.
+    -- | The tags that apply to the component.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The type of the component denotes whether the component is used to build
-    -- the image or only to test it.
+    -- | The component type specifies whether Image Builder uses the component to
+    -- build the image or only to test it.
     type' :: Prelude.Maybe ComponentType,
     -- | The version of the component.
     version :: Prelude.Maybe Prelude.Text
@@ -86,7 +92,7 @@ data Component = Component'
 --
 -- 'data'', 'component_data' - Component data contains the YAML document content for the component.
 --
--- 'dateCreated', 'component_dateCreated' - The date that the component was created.
+-- 'dateCreated', 'component_dateCreated' - The date that Image Builder created the component.
 --
 -- 'description', 'component_description' - The description of the component.
 --
@@ -96,24 +102,30 @@ data Component = Component'
 --
 -- 'name', 'component_name' - The name of the component.
 --
+-- 'obfuscate', 'component_obfuscate' - Indicates whether component source is hidden from view in the console,
+-- and from component detail results for API, CLI, or SDK operations.
+--
 -- 'owner', 'component_owner' - The owner of the component.
 --
--- 'parameters', 'component_parameters' - Contains parameter details for each of the parameters that are defined
--- for the component.
+-- 'parameters', 'component_parameters' - Contains parameter details for each of the parameters that the component
+-- document defined for the component.
 --
--- 'platform', 'component_platform' - The platform of the component.
+-- 'platform', 'component_platform' - The operating system platform of the component.
+--
+-- 'publisher', 'component_publisher' - Contains the name of the publisher if this is a third-party component.
+-- Otherwise, this property is empty.
 --
 -- 'state', 'component_state' - Describes the current status of the component. This is used for
 -- components that are no longer active.
 --
 -- 'supportedOsVersions', 'component_supportedOsVersions' - The operating system (OS) version supported by the component. If the OS
--- information is available, a prefix match is performed against the base
--- image OS version during image recipe creation.
+-- information is available, Image Builder performs a prefix match against
+-- the base image OS version during image recipe creation.
 --
--- 'tags', 'component_tags' - The tags associated with the component.
+-- 'tags', 'component_tags' - The tags that apply to the component.
 --
--- 'type'', 'component_type' - The type of the component denotes whether the component is used to build
--- the image or only to test it.
+-- 'type'', 'component_type' - The component type specifies whether Image Builder uses the component to
+-- build the image or only to test it.
 --
 -- 'version', 'component_version' - The version of the component.
 newComponent ::
@@ -128,9 +140,11 @@ newComponent =
       encrypted = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       name = Prelude.Nothing,
+      obfuscate = Prelude.Nothing,
       owner = Prelude.Nothing,
       parameters = Prelude.Nothing,
       platform = Prelude.Nothing,
+      publisher = Prelude.Nothing,
       state = Prelude.Nothing,
       supportedOsVersions = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -150,7 +164,7 @@ component_changeDescription = Lens.lens (\Component' {changeDescription} -> chan
 component_data :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_data = Lens.lens (\Component' {data'} -> data') (\s@Component' {} a -> s {data' = a} :: Component)
 
--- | The date that the component was created.
+-- | The date that Image Builder created the component.
 component_dateCreated :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_dateCreated = Lens.lens (\Component' {dateCreated} -> dateCreated) (\s@Component' {} a -> s {dateCreated = a} :: Component)
 
@@ -170,18 +184,28 @@ component_kmsKeyId = Lens.lens (\Component' {kmsKeyId} -> kmsKeyId) (\s@Componen
 component_name :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_name = Lens.lens (\Component' {name} -> name) (\s@Component' {} a -> s {name = a} :: Component)
 
+-- | Indicates whether component source is hidden from view in the console,
+-- and from component detail results for API, CLI, or SDK operations.
+component_obfuscate :: Lens.Lens' Component (Prelude.Maybe Prelude.Bool)
+component_obfuscate = Lens.lens (\Component' {obfuscate} -> obfuscate) (\s@Component' {} a -> s {obfuscate = a} :: Component)
+
 -- | The owner of the component.
 component_owner :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_owner = Lens.lens (\Component' {owner} -> owner) (\s@Component' {} a -> s {owner = a} :: Component)
 
--- | Contains parameter details for each of the parameters that are defined
--- for the component.
+-- | Contains parameter details for each of the parameters that the component
+-- document defined for the component.
 component_parameters :: Lens.Lens' Component (Prelude.Maybe [ComponentParameterDetail])
 component_parameters = Lens.lens (\Component' {parameters} -> parameters) (\s@Component' {} a -> s {parameters = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
--- | The platform of the component.
+-- | The operating system platform of the component.
 component_platform :: Lens.Lens' Component (Prelude.Maybe Platform)
 component_platform = Lens.lens (\Component' {platform} -> platform) (\s@Component' {} a -> s {platform = a} :: Component)
+
+-- | Contains the name of the publisher if this is a third-party component.
+-- Otherwise, this property is empty.
+component_publisher :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
+component_publisher = Lens.lens (\Component' {publisher} -> publisher) (\s@Component' {} a -> s {publisher = a} :: Component)
 
 -- | Describes the current status of the component. This is used for
 -- components that are no longer active.
@@ -189,17 +213,17 @@ component_state :: Lens.Lens' Component (Prelude.Maybe ComponentState)
 component_state = Lens.lens (\Component' {state} -> state) (\s@Component' {} a -> s {state = a} :: Component)
 
 -- | The operating system (OS) version supported by the component. If the OS
--- information is available, a prefix match is performed against the base
--- image OS version during image recipe creation.
+-- information is available, Image Builder performs a prefix match against
+-- the base image OS version during image recipe creation.
 component_supportedOsVersions :: Lens.Lens' Component (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 component_supportedOsVersions = Lens.lens (\Component' {supportedOsVersions} -> supportedOsVersions) (\s@Component' {} a -> s {supportedOsVersions = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
--- | The tags associated with the component.
+-- | The tags that apply to the component.
 component_tags :: Lens.Lens' Component (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 component_tags = Lens.lens (\Component' {tags} -> tags) (\s@Component' {} a -> s {tags = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of the component denotes whether the component is used to build
--- the image or only to test it.
+-- | The component type specifies whether Image Builder uses the component to
+-- build the image or only to test it.
 component_type :: Lens.Lens' Component (Prelude.Maybe ComponentType)
 component_type = Lens.lens (\Component' {type'} -> type') (\s@Component' {} a -> s {type' = a} :: Component)
 
@@ -221,9 +245,11 @@ instance Data.FromJSON Component where
             Prelude.<*> (x Data..:? "encrypted")
             Prelude.<*> (x Data..:? "kmsKeyId")
             Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "obfuscate")
             Prelude.<*> (x Data..:? "owner")
             Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "publisher")
             Prelude.<*> (x Data..:? "state")
             Prelude.<*> (x Data..:? "supportedOsVersions")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
@@ -233,7 +259,8 @@ instance Data.FromJSON Component where
 
 instance Prelude.Hashable Component where
   hashWithSalt _salt Component' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` changeDescription
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` dateCreated
@@ -241,9 +268,11 @@ instance Prelude.Hashable Component where
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` obfuscate
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` publisher
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` supportedOsVersions
       `Prelude.hashWithSalt` tags
@@ -260,9 +289,11 @@ instance Prelude.NFData Component where
       `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf obfuscate
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf publisher
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf supportedOsVersions
       `Prelude.seq` Prelude.rnf tags

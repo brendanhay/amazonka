@@ -35,6 +35,9 @@ data ImageTestsConfiguration = ImageTestsConfiguration'
     -- distribution.
     imageTestsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The maximum time in minutes that tests are permitted to run.
+    --
+    -- The timeoutMinutes attribute is not currently active. This value is
+    -- ignored.
     timeoutMinutes :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,6 +55,9 @@ data ImageTestsConfiguration = ImageTestsConfiguration'
 -- distribution.
 --
 -- 'timeoutMinutes', 'imageTestsConfiguration_timeoutMinutes' - The maximum time in minutes that tests are permitted to run.
+--
+-- The timeoutMinutes attribute is not currently active. This value is
+-- ignored.
 newImageTestsConfiguration ::
   ImageTestsConfiguration
 newImageTestsConfiguration =
@@ -68,6 +74,9 @@ imageTestsConfiguration_imageTestsEnabled :: Lens.Lens' ImageTestsConfiguration 
 imageTestsConfiguration_imageTestsEnabled = Lens.lens (\ImageTestsConfiguration' {imageTestsEnabled} -> imageTestsEnabled) (\s@ImageTestsConfiguration' {} a -> s {imageTestsEnabled = a} :: ImageTestsConfiguration)
 
 -- | The maximum time in minutes that tests are permitted to run.
+--
+-- The timeoutMinutes attribute is not currently active. This value is
+-- ignored.
 imageTestsConfiguration_timeoutMinutes :: Lens.Lens' ImageTestsConfiguration (Prelude.Maybe Prelude.Natural)
 imageTestsConfiguration_timeoutMinutes = Lens.lens (\ImageTestsConfiguration' {timeoutMinutes} -> timeoutMinutes) (\s@ImageTestsConfiguration' {} a -> s {timeoutMinutes = a} :: ImageTestsConfiguration)
 
@@ -83,7 +92,8 @@ instance Data.FromJSON ImageTestsConfiguration where
 
 instance Prelude.Hashable ImageTestsConfiguration where
   hashWithSalt _salt ImageTestsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` imageTestsEnabled
+    _salt
+      `Prelude.hashWithSalt` imageTestsEnabled
       `Prelude.hashWithSalt` timeoutMinutes
 
 instance Prelude.NFData ImageTestsConfiguration where

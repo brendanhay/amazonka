@@ -105,6 +105,12 @@ import Test.Tasty
 --         , requestGetInfrastructureConfiguration $
 --             newGetInfrastructureConfiguration
 --
+--         , requestGetWorkflowExecution $
+--             newGetWorkflowExecution
+--
+--         , requestGetWorkflowStepExecution $
+--             newGetWorkflowStepExecution
+--
 --         , requestImportComponent $
 --             newImportComponent
 --
@@ -138,6 +144,12 @@ import Test.Tasty
 --         , requestListImageRecipes $
 --             newListImageRecipes
 --
+--         , requestListImageScanFindingAggregations $
+--             newListImageScanFindingAggregations
+--
+--         , requestListImageScanFindings $
+--             newListImageScanFindings
+--
 --         , requestListImages $
 --             newListImages
 --
@@ -146,6 +158,12 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestListWorkflowExecutions $
+--             newListWorkflowExecutions
+--
+--         , requestListWorkflowStepExecutions $
+--             newListWorkflowStepExecutions
 --
 --         , requestPutComponentPolicy $
 --             newPutComponentPolicy
@@ -258,6 +276,12 @@ import Test.Tasty
 --         , responseGetInfrastructureConfiguration $
 --             newGetInfrastructureConfigurationResponse
 --
+--         , responseGetWorkflowExecution $
+--             newGetWorkflowExecutionResponse
+--
+--         , responseGetWorkflowStepExecution $
+--             newGetWorkflowStepExecutionResponse
+--
 --         , responseImportComponent $
 --             newImportComponentResponse
 --
@@ -291,6 +315,12 @@ import Test.Tasty
 --         , responseListImageRecipes $
 --             newListImageRecipesResponse
 --
+--         , responseListImageScanFindingAggregations $
+--             newListImageScanFindingAggregationsResponse
+--
+--         , responseListImageScanFindings $
+--             newListImageScanFindingsResponse
+--
 --         , responseListImages $
 --             newListImagesResponse
 --
@@ -299,6 +329,12 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseListWorkflowExecutions $
+--             newListWorkflowExecutionsResponse
+--
+--         , responseListWorkflowStepExecutions $
+--             newListWorkflowStepExecutionsResponse
 --
 --         , responsePutComponentPolicy $
 --             newPutComponentPolicyResponse
@@ -491,6 +527,18 @@ requestGetInfrastructureConfiguration =
     "GetInfrastructureConfiguration"
     "fixture/GetInfrastructureConfiguration.yaml"
 
+requestGetWorkflowExecution :: GetWorkflowExecution -> TestTree
+requestGetWorkflowExecution =
+  req
+    "GetWorkflowExecution"
+    "fixture/GetWorkflowExecution.yaml"
+
+requestGetWorkflowStepExecution :: GetWorkflowStepExecution -> TestTree
+requestGetWorkflowStepExecution =
+  req
+    "GetWorkflowStepExecution"
+    "fixture/GetWorkflowStepExecution.yaml"
+
 requestImportComponent :: ImportComponent -> TestTree
 requestImportComponent =
   req
@@ -557,6 +605,18 @@ requestListImageRecipes =
     "ListImageRecipes"
     "fixture/ListImageRecipes.yaml"
 
+requestListImageScanFindingAggregations :: ListImageScanFindingAggregations -> TestTree
+requestListImageScanFindingAggregations =
+  req
+    "ListImageScanFindingAggregations"
+    "fixture/ListImageScanFindingAggregations.yaml"
+
+requestListImageScanFindings :: ListImageScanFindings -> TestTree
+requestListImageScanFindings =
+  req
+    "ListImageScanFindings"
+    "fixture/ListImageScanFindings.yaml"
+
 requestListImages :: ListImages -> TestTree
 requestListImages =
   req
@@ -574,6 +634,18 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestListWorkflowExecutions :: ListWorkflowExecutions -> TestTree
+requestListWorkflowExecutions =
+  req
+    "ListWorkflowExecutions"
+    "fixture/ListWorkflowExecutions.yaml"
+
+requestListWorkflowStepExecutions :: ListWorkflowStepExecutions -> TestTree
+requestListWorkflowStepExecutions =
+  req
+    "ListWorkflowStepExecutions"
+    "fixture/ListWorkflowStepExecutions.yaml"
 
 requestPutComponentPolicy :: PutComponentPolicy -> TestTree
 requestPutComponentPolicy =
@@ -845,6 +917,22 @@ responseGetInfrastructureConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetInfrastructureConfiguration)
 
+responseGetWorkflowExecution :: GetWorkflowExecutionResponse -> TestTree
+responseGetWorkflowExecution =
+  res
+    "GetWorkflowExecutionResponse"
+    "fixture/GetWorkflowExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetWorkflowExecution)
+
+responseGetWorkflowStepExecution :: GetWorkflowStepExecutionResponse -> TestTree
+responseGetWorkflowStepExecution =
+  res
+    "GetWorkflowStepExecutionResponse"
+    "fixture/GetWorkflowStepExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetWorkflowStepExecution)
+
 responseImportComponent :: ImportComponentResponse -> TestTree
 responseImportComponent =
   res
@@ -933,6 +1021,22 @@ responseListImageRecipes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListImageRecipes)
 
+responseListImageScanFindingAggregations :: ListImageScanFindingAggregationsResponse -> TestTree
+responseListImageScanFindingAggregations =
+  res
+    "ListImageScanFindingAggregationsResponse"
+    "fixture/ListImageScanFindingAggregationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImageScanFindingAggregations)
+
+responseListImageScanFindings :: ListImageScanFindingsResponse -> TestTree
+responseListImageScanFindings =
+  res
+    "ListImageScanFindingsResponse"
+    "fixture/ListImageScanFindingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImageScanFindings)
+
 responseListImages :: ListImagesResponse -> TestTree
 responseListImages =
   res
@@ -956,6 +1060,22 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListWorkflowExecutions :: ListWorkflowExecutionsResponse -> TestTree
+responseListWorkflowExecutions =
+  res
+    "ListWorkflowExecutionsResponse"
+    "fixture/ListWorkflowExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWorkflowExecutions)
+
+responseListWorkflowStepExecutions :: ListWorkflowStepExecutionsResponse -> TestTree
+responseListWorkflowStepExecutions =
+  res
+    "ListWorkflowStepExecutionsResponse"
+    "fixture/ListWorkflowStepExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWorkflowStepExecutions)
 
 responsePutComponentPolicy :: PutComponentPolicyResponse -> TestTree
 responsePutComponentPolicy =

@@ -138,8 +138,7 @@ instance Data.ToQuery DeleteImage where
 
 -- | /See:/ 'newDeleteImageResponse' smart constructor.
 data DeleteImageResponse = DeleteImageResponse'
-  { -- | The Amazon Resource Name (ARN) of the Image Builder image resource that
-    -- was deleted.
+  { -- | The ARN of the Image Builder image resource that this request deleted.
     imageBuildVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -156,8 +155,7 @@ data DeleteImageResponse = DeleteImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageBuildVersionArn', 'deleteImageResponse_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the Image Builder image resource that
--- was deleted.
+-- 'imageBuildVersionArn', 'deleteImageResponse_imageBuildVersionArn' - The ARN of the Image Builder image resource that this request deleted.
 --
 -- 'requestId', 'deleteImageResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -174,8 +172,7 @@ newDeleteImageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the Image Builder image resource that
--- was deleted.
+-- | The ARN of the Image Builder image resource that this request deleted.
 deleteImageResponse_imageBuildVersionArn :: Lens.Lens' DeleteImageResponse (Prelude.Maybe Prelude.Text)
 deleteImageResponse_imageBuildVersionArn = Lens.lens (\DeleteImageResponse' {imageBuildVersionArn} -> imageBuildVersionArn) (\s@DeleteImageResponse' {} a -> s {imageBuildVersionArn = a} :: DeleteImageResponse)
 

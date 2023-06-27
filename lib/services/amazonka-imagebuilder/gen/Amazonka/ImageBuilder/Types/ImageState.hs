@@ -25,11 +25,11 @@ import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ImageStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Image state shows the image status and the reason for that status.
+-- | Image status and the reason for that status.
 --
 -- /See:/ 'newImageState' smart constructor.
 data ImageState = ImageState'
-  { -- | The reason for the image\'s status.
+  { -- | The reason for the status of the image.
     reason :: Prelude.Maybe Prelude.Text,
     -- | The status of the image.
     status :: Prelude.Maybe ImageStatus
@@ -44,7 +44,7 @@ data ImageState = ImageState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reason', 'imageState_reason' - The reason for the image\'s status.
+-- 'reason', 'imageState_reason' - The reason for the status of the image.
 --
 -- 'status', 'imageState_status' - The status of the image.
 newImageState ::
@@ -55,7 +55,7 @@ newImageState =
       status = Prelude.Nothing
     }
 
--- | The reason for the image\'s status.
+-- | The reason for the status of the image.
 imageState_reason :: Lens.Lens' ImageState (Prelude.Maybe Prelude.Text)
 imageState_reason = Lens.lens (\ImageState' {reason} -> reason) (\s@ImageState' {} a -> s {reason = a} :: ImageState)
 
@@ -75,7 +75,8 @@ instance Data.FromJSON ImageState where
 
 instance Prelude.Hashable ImageState where
   hashWithSalt _salt ImageState' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ImageState where

@@ -231,7 +231,8 @@ instance Data.FromJSON InfrastructureConfiguration where
             Prelude.<*> (x Data..:? "logging")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "resourceTags" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "snsTopicArn")
@@ -242,7 +243,8 @@ instance Data.FromJSON InfrastructureConfiguration where
 
 instance Prelude.Hashable InfrastructureConfiguration where
   hashWithSalt _salt InfrastructureConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateUpdated
       `Prelude.hashWithSalt` description

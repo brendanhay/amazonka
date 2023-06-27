@@ -236,6 +236,18 @@ module Amazonka.ImageBuilder
     GetInfrastructureConfigurationResponse (GetInfrastructureConfigurationResponse'),
     newGetInfrastructureConfigurationResponse,
 
+    -- ** GetWorkflowExecution
+    GetWorkflowExecution (GetWorkflowExecution'),
+    newGetWorkflowExecution,
+    GetWorkflowExecutionResponse (GetWorkflowExecutionResponse'),
+    newGetWorkflowExecutionResponse,
+
+    -- ** GetWorkflowStepExecution
+    GetWorkflowStepExecution (GetWorkflowStepExecution'),
+    newGetWorkflowStepExecution,
+    GetWorkflowStepExecutionResponse (GetWorkflowStepExecutionResponse'),
+    newGetWorkflowStepExecutionResponse,
+
     -- ** ImportComponent
     ImportComponent (ImportComponent'),
     newImportComponent,
@@ -302,6 +314,18 @@ module Amazonka.ImageBuilder
     ListImageRecipesResponse (ListImageRecipesResponse'),
     newListImageRecipesResponse,
 
+    -- ** ListImageScanFindingAggregations
+    ListImageScanFindingAggregations (ListImageScanFindingAggregations'),
+    newListImageScanFindingAggregations,
+    ListImageScanFindingAggregationsResponse (ListImageScanFindingAggregationsResponse'),
+    newListImageScanFindingAggregationsResponse,
+
+    -- ** ListImageScanFindings
+    ListImageScanFindings (ListImageScanFindings'),
+    newListImageScanFindings,
+    ListImageScanFindingsResponse (ListImageScanFindingsResponse'),
+    newListImageScanFindingsResponse,
+
     -- ** ListImages
     ListImages (ListImages'),
     newListImages,
@@ -319,6 +343,18 @@ module Amazonka.ImageBuilder
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** ListWorkflowExecutions
+    ListWorkflowExecutions (ListWorkflowExecutions'),
+    newListWorkflowExecutions,
+    ListWorkflowExecutionsResponse (ListWorkflowExecutionsResponse'),
+    newListWorkflowExecutionsResponse,
+
+    -- ** ListWorkflowStepExecutions
+    ListWorkflowStepExecutions (ListWorkflowStepExecutions'),
+    newListWorkflowStepExecutions,
+    ListWorkflowStepExecutionsResponse (ListWorkflowStepExecutionsResponse'),
+    newListWorkflowStepExecutionsResponse,
 
     -- ** PutComponentPolicy
     PutComponentPolicy (PutComponentPolicy'),
@@ -406,6 +442,12 @@ module Amazonka.ImageBuilder
     -- ** EbsVolumeType
     EbsVolumeType (..),
 
+    -- ** ImageScanStatus
+    ImageScanStatus (..),
+
+    -- ** ImageSource
+    ImageSource (..),
+
     -- ** ImageStatus
     ImageStatus (..),
 
@@ -423,6 +465,22 @@ module Amazonka.ImageBuilder
 
     -- ** Platform
     Platform (..),
+
+    -- ** WorkflowExecutionStatus
+    WorkflowExecutionStatus (..),
+
+    -- ** WorkflowStepExecutionRollbackStatus
+    WorkflowStepExecutionRollbackStatus (..),
+
+    -- ** WorkflowStepExecutionStatus
+    WorkflowStepExecutionStatus (..),
+
+    -- ** WorkflowType
+    WorkflowType (..),
+
+    -- ** AccountAggregation
+    AccountAggregation (AccountAggregation'),
+    newAccountAggregation,
 
     -- ** AdditionalInstanceConfiguration
     AdditionalInstanceConfiguration (AdditionalInstanceConfiguration'),
@@ -480,6 +538,18 @@ module Amazonka.ImageBuilder
     ContainerRecipeSummary (ContainerRecipeSummary'),
     newContainerRecipeSummary,
 
+    -- ** CvssScore
+    CvssScore (CvssScore'),
+    newCvssScore,
+
+    -- ** CvssScoreAdjustment
+    CvssScoreAdjustment (CvssScoreAdjustment'),
+    newCvssScoreAdjustment,
+
+    -- ** CvssScoreDetails
+    CvssScoreDetails (CvssScoreDetails'),
+    newCvssScoreDetails,
+
     -- ** Distribution
     Distribution (Distribution'),
     newDistribution,
@@ -495,6 +565,10 @@ module Amazonka.ImageBuilder
     -- ** EbsInstanceBlockDeviceSpecification
     EbsInstanceBlockDeviceSpecification (EbsInstanceBlockDeviceSpecification'),
     newEbsInstanceBlockDeviceSpecification,
+
+    -- ** EcrConfiguration
+    EcrConfiguration (EcrConfiguration'),
+    newEcrConfiguration,
 
     -- ** FastLaunchConfiguration
     FastLaunchConfiguration (FastLaunchConfiguration'),
@@ -516,6 +590,10 @@ module Amazonka.ImageBuilder
     Image (Image'),
     newImage,
 
+    -- ** ImageAggregation
+    ImageAggregation (ImageAggregation'),
+    newImageAggregation,
+
     -- ** ImagePackage
     ImagePackage (ImagePackage'),
     newImagePackage,
@@ -524,6 +602,10 @@ module Amazonka.ImageBuilder
     ImagePipeline (ImagePipeline'),
     newImagePipeline,
 
+    -- ** ImagePipelineAggregation
+    ImagePipelineAggregation (ImagePipelineAggregation'),
+    newImagePipelineAggregation,
+
     -- ** ImageRecipe
     ImageRecipe (ImageRecipe'),
     newImageRecipe,
@@ -531,6 +613,26 @@ module Amazonka.ImageBuilder
     -- ** ImageRecipeSummary
     ImageRecipeSummary (ImageRecipeSummary'),
     newImageRecipeSummary,
+
+    -- ** ImageScanFinding
+    ImageScanFinding (ImageScanFinding'),
+    newImageScanFinding,
+
+    -- ** ImageScanFindingAggregation
+    ImageScanFindingAggregation (ImageScanFindingAggregation'),
+    newImageScanFindingAggregation,
+
+    -- ** ImageScanFindingsFilter
+    ImageScanFindingsFilter (ImageScanFindingsFilter'),
+    newImageScanFindingsFilter,
+
+    -- ** ImageScanState
+    ImageScanState (ImageScanState'),
+    newImageScanState,
+
+    -- ** ImageScanningConfiguration
+    ImageScanningConfiguration (ImageScanningConfiguration'),
+    newImageScanningConfiguration,
 
     -- ** ImageState
     ImageState (ImageState'),
@@ -555,6 +657,10 @@ module Amazonka.ImageBuilder
     -- ** InfrastructureConfigurationSummary
     InfrastructureConfigurationSummary (InfrastructureConfigurationSummary'),
     newInfrastructureConfigurationSummary,
+
+    -- ** InspectorScoreDetails
+    InspectorScoreDetails (InspectorScoreDetails'),
+    newInspectorScoreDetails,
 
     -- ** InstanceBlockDeviceMapping
     InstanceBlockDeviceMapping (InstanceBlockDeviceMapping'),
@@ -584,6 +690,18 @@ module Amazonka.ImageBuilder
     OutputResources (OutputResources'),
     newOutputResources,
 
+    -- ** PackageVulnerabilityDetails
+    PackageVulnerabilityDetails (PackageVulnerabilityDetails'),
+    newPackageVulnerabilityDetails,
+
+    -- ** Remediation
+    Remediation (Remediation'),
+    newRemediation,
+
+    -- ** RemediationRecommendation
+    RemediationRecommendation (RemediationRecommendation'),
+    newRemediationRecommendation,
+
     -- ** S3ExportConfiguration
     S3ExportConfiguration (S3ExportConfiguration'),
     newS3ExportConfiguration,
@@ -596,6 +714,10 @@ module Amazonka.ImageBuilder
     Schedule (Schedule'),
     newSchedule,
 
+    -- ** SeverityCounts
+    SeverityCounts (SeverityCounts'),
+    newSeverityCounts,
+
     -- ** SystemsManagerAgent
     SystemsManagerAgent (SystemsManagerAgent'),
     newSystemsManagerAgent,
@@ -603,6 +725,22 @@ module Amazonka.ImageBuilder
     -- ** TargetContainerRepository
     TargetContainerRepository (TargetContainerRepository'),
     newTargetContainerRepository,
+
+    -- ** VulnerabilityIdAggregation
+    VulnerabilityIdAggregation (VulnerabilityIdAggregation'),
+    newVulnerabilityIdAggregation,
+
+    -- ** VulnerablePackage
+    VulnerablePackage (VulnerablePackage'),
+    newVulnerablePackage,
+
+    -- ** WorkflowExecutionMetadata
+    WorkflowExecutionMetadata (WorkflowExecutionMetadata'),
+    newWorkflowExecutionMetadata,
+
+    -- ** WorkflowStepMetadata
+    WorkflowStepMetadata (WorkflowStepMetadata'),
+    newWorkflowStepMetadata,
   )
 where
 
@@ -632,6 +770,8 @@ import Amazonka.ImageBuilder.GetImagePolicy
 import Amazonka.ImageBuilder.GetImageRecipe
 import Amazonka.ImageBuilder.GetImageRecipePolicy
 import Amazonka.ImageBuilder.GetInfrastructureConfiguration
+import Amazonka.ImageBuilder.GetWorkflowExecution
+import Amazonka.ImageBuilder.GetWorkflowStepExecution
 import Amazonka.ImageBuilder.ImportComponent
 import Amazonka.ImageBuilder.ImportVmImage
 import Amazonka.ImageBuilder.Lens
@@ -644,9 +784,13 @@ import Amazonka.ImageBuilder.ListImagePackages
 import Amazonka.ImageBuilder.ListImagePipelineImages
 import Amazonka.ImageBuilder.ListImagePipelines
 import Amazonka.ImageBuilder.ListImageRecipes
+import Amazonka.ImageBuilder.ListImageScanFindingAggregations
+import Amazonka.ImageBuilder.ListImageScanFindings
 import Amazonka.ImageBuilder.ListImages
 import Amazonka.ImageBuilder.ListInfrastructureConfigurations
 import Amazonka.ImageBuilder.ListTagsForResource
+import Amazonka.ImageBuilder.ListWorkflowExecutions
+import Amazonka.ImageBuilder.ListWorkflowStepExecutions
 import Amazonka.ImageBuilder.PutComponentPolicy
 import Amazonka.ImageBuilder.PutContainerRecipePolicy
 import Amazonka.ImageBuilder.PutImagePolicy

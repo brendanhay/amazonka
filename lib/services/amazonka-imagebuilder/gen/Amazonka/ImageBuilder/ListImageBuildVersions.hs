@@ -154,7 +154,8 @@ instance Core.AWSRequest ListImageBuildVersions where
     Response.receiveJSON
       ( \s h x ->
           ListImageBuildVersionsResponse'
-            Prelude.<$> ( x Data..?> "imageSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "imageSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -164,7 +165,8 @@ instance Core.AWSRequest ListImageBuildVersions where
 
 instance Prelude.Hashable ListImageBuildVersions where
   hashWithSalt _salt ListImageBuildVersions' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` imageVersionArn
@@ -209,10 +211,10 @@ instance Data.ToQuery ListImageBuildVersions where
 data ListImageBuildVersionsResponse = ListImageBuildVersionsResponse'
   { -- | The list of image build versions.
     imageSummaryList :: Prelude.Maybe [ImageSummary],
-    -- | The next token used for paginated responses. When this is not empty,
-    -- there are additional elements that the service has not included in this
-    -- request. Use this token with the next request to retrieve additional
-    -- objects.
+    -- | The next token used for paginated responses. When this field isn\'t
+    -- empty, there are additional elements that the service has\'ot included
+    -- in this request. Use this token with the next request to retrieve
+    -- additional objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -231,10 +233,10 @@ data ListImageBuildVersionsResponse = ListImageBuildVersionsResponse'
 --
 -- 'imageSummaryList', 'listImageBuildVersionsResponse_imageSummaryList' - The list of image build versions.
 --
--- 'nextToken', 'listImageBuildVersionsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- 'nextToken', 'listImageBuildVersionsResponse_nextToken' - The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 --
 -- 'requestId', 'listImageBuildVersionsResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -256,10 +258,10 @@ newListImageBuildVersionsResponse pHttpStatus_ =
 listImageBuildVersionsResponse_imageSummaryList :: Lens.Lens' ListImageBuildVersionsResponse (Prelude.Maybe [ImageSummary])
 listImageBuildVersionsResponse_imageSummaryList = Lens.lens (\ListImageBuildVersionsResponse' {imageSummaryList} -> imageSummaryList) (\s@ListImageBuildVersionsResponse' {} a -> s {imageSummaryList = a} :: ListImageBuildVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- | The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 listImageBuildVersionsResponse_nextToken :: Lens.Lens' ListImageBuildVersionsResponse (Prelude.Maybe Prelude.Text)
 listImageBuildVersionsResponse_nextToken = Lens.lens (\ListImageBuildVersionsResponse' {nextToken} -> nextToken) (\s@ListImageBuildVersionsResponse' {} a -> s {nextToken = a} :: ListImageBuildVersionsResponse)
 

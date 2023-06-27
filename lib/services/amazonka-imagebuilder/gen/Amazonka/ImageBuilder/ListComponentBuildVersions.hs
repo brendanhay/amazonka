@@ -126,7 +126,8 @@ instance Core.AWSRequest ListComponentBuildVersions where
     Response.receiveJSON
       ( \s h x ->
           ListComponentBuildVersionsResponse'
-            Prelude.<$> ( x Data..?> "componentSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "componentSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -136,7 +137,8 @@ instance Core.AWSRequest ListComponentBuildVersions where
 
 instance Prelude.Hashable ListComponentBuildVersions where
   hashWithSalt _salt ListComponentBuildVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` componentVersionArn
 
@@ -178,10 +180,10 @@ instance Data.ToQuery ListComponentBuildVersions where
 data ListComponentBuildVersionsResponse = ListComponentBuildVersionsResponse'
   { -- | The list of component summaries for the specified semantic version.
     componentSummaryList :: Prelude.Maybe [ComponentSummary],
-    -- | The next token used for paginated responses. When this is not empty,
-    -- there are additional elements that the service has not included in this
-    -- request. Use this token with the next request to retrieve additional
-    -- objects.
+    -- | The next token used for paginated responses. When this field isn\'t
+    -- empty, there are additional elements that the service has\'ot included
+    -- in this request. Use this token with the next request to retrieve
+    -- additional objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -200,10 +202,10 @@ data ListComponentBuildVersionsResponse = ListComponentBuildVersionsResponse'
 --
 -- 'componentSummaryList', 'listComponentBuildVersionsResponse_componentSummaryList' - The list of component summaries for the specified semantic version.
 --
--- 'nextToken', 'listComponentBuildVersionsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- 'nextToken', 'listComponentBuildVersionsResponse_nextToken' - The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 --
 -- 'requestId', 'listComponentBuildVersionsResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -225,10 +227,10 @@ newListComponentBuildVersionsResponse pHttpStatus_ =
 listComponentBuildVersionsResponse_componentSummaryList :: Lens.Lens' ListComponentBuildVersionsResponse (Prelude.Maybe [ComponentSummary])
 listComponentBuildVersionsResponse_componentSummaryList = Lens.lens (\ListComponentBuildVersionsResponse' {componentSummaryList} -> componentSummaryList) (\s@ListComponentBuildVersionsResponse' {} a -> s {componentSummaryList = a} :: ListComponentBuildVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- | The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 listComponentBuildVersionsResponse_nextToken :: Lens.Lens' ListComponentBuildVersionsResponse (Prelude.Maybe Prelude.Text)
 listComponentBuildVersionsResponse_nextToken = Lens.lens (\ListComponentBuildVersionsResponse' {nextToken} -> nextToken) (\s@ListComponentBuildVersionsResponse' {} a -> s {nextToken = a} :: ListComponentBuildVersionsResponse)
 

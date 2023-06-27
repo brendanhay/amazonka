@@ -125,7 +125,8 @@ instance Data.FromJSON ImageRecipeSummary where
 
 instance Prelude.Hashable ImageRecipeSummary where
   hashWithSalt _salt ImageRecipeSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` owner

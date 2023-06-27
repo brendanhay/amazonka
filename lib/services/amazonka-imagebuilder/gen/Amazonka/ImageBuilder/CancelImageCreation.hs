@@ -53,8 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCancelImageCreation' smart constructor.
 data CancelImageCreation = CancelImageCreation'
-  { -- | The Amazon Resource Name (ARN) of the image whose creation you want to
-    -- cancel.
+  { -- | The Amazon Resource Name (ARN) of the image that you want to cancel
+    -- creation for.
     imageBuildVersionArn :: Prelude.Text,
     -- | Unique, case-sensitive identifier you provide to ensure idempotency of
     -- the request. For more information, see
@@ -72,8 +72,8 @@ data CancelImageCreation = CancelImageCreation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageBuildVersionArn', 'cancelImageCreation_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image whose creation you want to
--- cancel.
+-- 'imageBuildVersionArn', 'cancelImageCreation_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image that you want to cancel
+-- creation for.
 --
 -- 'clientToken', 'cancelImageCreation_clientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of
 -- the request. For more information, see
@@ -94,8 +94,8 @@ newCancelImageCreation
         clientToken = pClientToken_
       }
 
--- | The Amazon Resource Name (ARN) of the image whose creation you want to
--- cancel.
+-- | The Amazon Resource Name (ARN) of the image that you want to cancel
+-- creation for.
 cancelImageCreation_imageBuildVersionArn :: Lens.Lens' CancelImageCreation Prelude.Text
 cancelImageCreation_imageBuildVersionArn = Lens.lens (\CancelImageCreation' {imageBuildVersionArn} -> imageBuildVersionArn) (\s@CancelImageCreation' {} a -> s {imageBuildVersionArn = a} :: CancelImageCreation)
 
@@ -124,7 +124,8 @@ instance Core.AWSRequest CancelImageCreation where
 
 instance Prelude.Hashable CancelImageCreation where
   hashWithSalt _salt CancelImageCreation' {..} =
-    _salt `Prelude.hashWithSalt` imageBuildVersionArn
+    _salt
+      `Prelude.hashWithSalt` imageBuildVersionArn
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CancelImageCreation where
@@ -165,8 +166,7 @@ instance Data.ToQuery CancelImageCreation where
 data CancelImageCreationResponse = CancelImageCreationResponse'
   { -- | The idempotency token that was used for this request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the image whose creation has been
-    -- cancelled.
+    -- | The ARN of the image whose creation this request canceled.
     imageBuildVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -185,8 +185,7 @@ data CancelImageCreationResponse = CancelImageCreationResponse'
 --
 -- 'clientToken', 'cancelImageCreationResponse_clientToken' - The idempotency token that was used for this request.
 --
--- 'imageBuildVersionArn', 'cancelImageCreationResponse_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image whose creation has been
--- cancelled.
+-- 'imageBuildVersionArn', 'cancelImageCreationResponse_imageBuildVersionArn' - The ARN of the image whose creation this request canceled.
 --
 -- 'requestId', 'cancelImageCreationResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -208,8 +207,7 @@ newCancelImageCreationResponse pHttpStatus_ =
 cancelImageCreationResponse_clientToken :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
 cancelImageCreationResponse_clientToken = Lens.lens (\CancelImageCreationResponse' {clientToken} -> clientToken) (\s@CancelImageCreationResponse' {} a -> s {clientToken = a} :: CancelImageCreationResponse)
 
--- | The Amazon Resource Name (ARN) of the image whose creation has been
--- cancelled.
+-- | The ARN of the image whose creation this request canceled.
 cancelImageCreationResponse_imageBuildVersionArn :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
 cancelImageCreationResponse_imageBuildVersionArn = Lens.lens (\CancelImageCreationResponse' {imageBuildVersionArn} -> imageBuildVersionArn) (\s@CancelImageCreationResponse' {} a -> s {imageBuildVersionArn = a} :: CancelImageCreationResponse)
 

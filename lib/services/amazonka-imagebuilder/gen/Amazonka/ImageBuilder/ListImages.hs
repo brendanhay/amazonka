@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the list of images that you have access to.
+-- Returns the list of images that you have access to. Newly created images
+-- can take up to two minutes to appear in the ListImages API Results.
 module Amazonka.ImageBuilder.ListImages
   ( -- * Creating a Request
     ListImages (..),
@@ -179,7 +180,8 @@ instance Core.AWSRequest ListImages where
     Response.receiveJSON
       ( \s h x ->
           ListImagesResponse'
-            Prelude.<$> ( x Data..?> "imageVersionList"
+            Prelude.<$> ( x
+                            Data..?> "imageVersionList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -189,7 +191,8 @@ instance Core.AWSRequest ListImages where
 
 instance Prelude.Hashable ListImages where
   hashWithSalt _salt ListImages' {..} =
-    _salt `Prelude.hashWithSalt` byName
+    _salt
+      `Prelude.hashWithSalt` byName
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includeDeprecated
       `Prelude.hashWithSalt` maxResults
@@ -250,10 +253,10 @@ data ListImagesResponse = ListImagesResponse'
     -- wildcard in any node, all nodes to the right of the first wildcard must
     -- also be wildcards.
     imageVersionList :: Prelude.Maybe [ImageVersion],
-    -- | The next token used for paginated responses. When this is not empty,
-    -- there are additional elements that the service has not included in this
-    -- request. Use this token with the next request to retrieve additional
-    -- objects.
+    -- | The next token used for paginated responses. When this field isn\'t
+    -- empty, there are additional elements that the service has\'ot included
+    -- in this request. Use this token with the next request to retrieve
+    -- additional objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -282,10 +285,10 @@ data ListImagesResponse = ListImagesResponse'
 -- wildcard in any node, all nodes to the right of the first wildcard must
 -- also be wildcards.
 --
--- 'nextToken', 'listImagesResponse_nextToken' - The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- 'nextToken', 'listImagesResponse_nextToken' - The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 --
 -- 'requestId', 'listImagesResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -317,10 +320,10 @@ newListImagesResponse pHttpStatus_ =
 listImagesResponse_imageVersionList :: Lens.Lens' ListImagesResponse (Prelude.Maybe [ImageVersion])
 listImagesResponse_imageVersionList = Lens.lens (\ListImagesResponse' {imageVersionList} -> imageVersionList) (\s@ListImagesResponse' {} a -> s {imageVersionList = a} :: ListImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- | The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 listImagesResponse_nextToken :: Lens.Lens' ListImagesResponse (Prelude.Maybe Prelude.Text)
 listImagesResponse_nextToken = Lens.lens (\ListImagesResponse' {nextToken} -> nextToken) (\s@ListImagesResponse' {} a -> s {nextToken = a} :: ListImagesResponse)
 

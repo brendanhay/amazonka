@@ -113,7 +113,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDistributionConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "distributionConfigurationSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "distributionConfigurationSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -128,7 +129,8 @@ instance
   hashWithSalt
     _salt
     ListDistributionConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 
@@ -176,10 +178,10 @@ instance Data.ToQuery ListDistributionConfigurations where
 data ListDistributionConfigurationsResponse = ListDistributionConfigurationsResponse'
   { -- | The list of distributions.
     distributionConfigurationSummaryList :: Prelude.Maybe [DistributionConfigurationSummary],
-    -- | The next token used for paginated responses. When this is not empty,
-    -- there are additional elements that the service has not included in this
-    -- request. Use this token with the next request to retrieve additional
-    -- objects.
+    -- | The next token used for paginated responses. When this field isn\'t
+    -- empty, there are additional elements that the service has\'ot included
+    -- in this request. Use this token with the next request to retrieve
+    -- additional objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -198,10 +200,10 @@ data ListDistributionConfigurationsResponse = ListDistributionConfigurationsResp
 --
 -- 'distributionConfigurationSummaryList', 'listDistributionConfigurationsResponse_distributionConfigurationSummaryList' - The list of distributions.
 --
--- 'nextToken', 'listDistributionConfigurationsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- 'nextToken', 'listDistributionConfigurationsResponse_nextToken' - The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 --
 -- 'requestId', 'listDistributionConfigurationsResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -224,10 +226,10 @@ newListDistributionConfigurationsResponse
 listDistributionConfigurationsResponse_distributionConfigurationSummaryList :: Lens.Lens' ListDistributionConfigurationsResponse (Prelude.Maybe [DistributionConfigurationSummary])
 listDistributionConfigurationsResponse_distributionConfigurationSummaryList = Lens.lens (\ListDistributionConfigurationsResponse' {distributionConfigurationSummaryList} -> distributionConfigurationSummaryList) (\s@ListDistributionConfigurationsResponse' {} a -> s {distributionConfigurationSummaryList = a} :: ListDistributionConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- | The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 listDistributionConfigurationsResponse_nextToken :: Lens.Lens' ListDistributionConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listDistributionConfigurationsResponse_nextToken = Lens.lens (\ListDistributionConfigurationsResponse' {nextToken} -> nextToken) (\s@ListDistributionConfigurationsResponse' {} a -> s {nextToken = a} :: ListDistributionConfigurationsResponse)
 

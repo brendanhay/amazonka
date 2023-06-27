@@ -113,7 +113,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListInfrastructureConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "infrastructureConfigurationSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "infrastructureConfigurationSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -128,7 +129,8 @@ instance
   hashWithSalt
     _salt
     ListInfrastructureConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 
@@ -179,10 +181,10 @@ instance
 data ListInfrastructureConfigurationsResponse = ListInfrastructureConfigurationsResponse'
   { -- | The list of infrastructure configurations.
     infrastructureConfigurationSummaryList :: Prelude.Maybe [InfrastructureConfigurationSummary],
-    -- | The next token used for paginated responses. When this is not empty,
-    -- there are additional elements that the service has not included in this
-    -- request. Use this token with the next request to retrieve additional
-    -- objects.
+    -- | The next token used for paginated responses. When this field isn\'t
+    -- empty, there are additional elements that the service has\'ot included
+    -- in this request. Use this token with the next request to retrieve
+    -- additional objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -201,10 +203,10 @@ data ListInfrastructureConfigurationsResponse = ListInfrastructureConfigurations
 --
 -- 'infrastructureConfigurationSummaryList', 'listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList' - The list of infrastructure configurations.
 --
--- 'nextToken', 'listInfrastructureConfigurationsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- 'nextToken', 'listInfrastructureConfigurationsResponse_nextToken' - The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 --
 -- 'requestId', 'listInfrastructureConfigurationsResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -227,10 +229,10 @@ newListInfrastructureConfigurationsResponse
 listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList :: Lens.Lens' ListInfrastructureConfigurationsResponse (Prelude.Maybe [InfrastructureConfigurationSummary])
 listInfrastructureConfigurationsResponse_infrastructureConfigurationSummaryList = Lens.lens (\ListInfrastructureConfigurationsResponse' {infrastructureConfigurationSummaryList} -> infrastructureConfigurationSummaryList) (\s@ListInfrastructureConfigurationsResponse' {} a -> s {infrastructureConfigurationSummaryList = a} :: ListInfrastructureConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
+-- | The next token used for paginated responses. When this field isn\'t
+-- empty, there are additional elements that the service has\'ot included
+-- in this request. Use this token with the next request to retrieve
+-- additional objects.
 listInfrastructureConfigurationsResponse_nextToken :: Lens.Lens' ListInfrastructureConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listInfrastructureConfigurationsResponse_nextToken = Lens.lens (\ListInfrastructureConfigurationsResponse' {nextToken} -> nextToken) (\s@ListInfrastructureConfigurationsResponse' {} a -> s {nextToken = a} :: ListInfrastructureConfigurationsResponse)
 

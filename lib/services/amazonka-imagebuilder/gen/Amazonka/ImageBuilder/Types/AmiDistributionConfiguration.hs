@@ -125,7 +125,8 @@ instance
     AmiDistributionConfiguration
   where
   hashWithSalt _salt AmiDistributionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` amiTags
+    _salt
+      `Prelude.hashWithSalt` amiTags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` launchPermission

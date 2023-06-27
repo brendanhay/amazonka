@@ -125,8 +125,7 @@ instance Data.ToQuery DeleteComponent where
 
 -- | /See:/ 'newDeleteComponentResponse' smart constructor.
 data DeleteComponentResponse = DeleteComponentResponse'
-  { -- | The Amazon Resource Name (ARN) of the component build version that was
-    -- deleted.
+  { -- | The ARN of the component build version that this request deleted.
     componentBuildVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -143,8 +142,7 @@ data DeleteComponentResponse = DeleteComponentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'componentBuildVersionArn', 'deleteComponentResponse_componentBuildVersionArn' - The Amazon Resource Name (ARN) of the component build version that was
--- deleted.
+-- 'componentBuildVersionArn', 'deleteComponentResponse_componentBuildVersionArn' - The ARN of the component build version that this request deleted.
 --
 -- 'requestId', 'deleteComponentResponse_requestId' - The request ID that uniquely identifies this request.
 --
@@ -161,8 +159,7 @@ newDeleteComponentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the component build version that was
--- deleted.
+-- | The ARN of the component build version that this request deleted.
 deleteComponentResponse_componentBuildVersionArn :: Lens.Lens' DeleteComponentResponse (Prelude.Maybe Prelude.Text)
 deleteComponentResponse_componentBuildVersionArn = Lens.lens (\DeleteComponentResponse' {componentBuildVersionArn} -> componentBuildVersionArn) (\s@DeleteComponentResponse' {} a -> s {componentBuildVersionArn = a} :: DeleteComponentResponse)
 

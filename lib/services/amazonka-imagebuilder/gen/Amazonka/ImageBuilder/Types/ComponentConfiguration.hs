@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentConfiguration' smart constructor.
 data ComponentConfiguration = ComponentConfiguration'
-  { -- | A group of parameter settings that are used to configure the component
-    -- for a specific recipe.
+  { -- | A group of parameter settings that Image Builder uses to configure the
+    -- component for a specific recipe.
     parameters :: Prelude.Maybe (Prelude.NonEmpty ComponentParameter),
     -- | The Amazon Resource Name (ARN) of the component.
     componentArn :: Prelude.Text
@@ -45,8 +45,8 @@ data ComponentConfiguration = ComponentConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameters', 'componentConfiguration_parameters' - A group of parameter settings that are used to configure the component
--- for a specific recipe.
+-- 'parameters', 'componentConfiguration_parameters' - A group of parameter settings that Image Builder uses to configure the
+-- component for a specific recipe.
 --
 -- 'componentArn', 'componentConfiguration_componentArn' - The Amazon Resource Name (ARN) of the component.
 newComponentConfiguration ::
@@ -60,8 +60,8 @@ newComponentConfiguration pComponentArn_ =
       componentArn = pComponentArn_
     }
 
--- | A group of parameter settings that are used to configure the component
--- for a specific recipe.
+-- | A group of parameter settings that Image Builder uses to configure the
+-- component for a specific recipe.
 componentConfiguration_parameters :: Lens.Lens' ComponentConfiguration (Prelude.Maybe (Prelude.NonEmpty ComponentParameter))
 componentConfiguration_parameters = Lens.lens (\ComponentConfiguration' {parameters} -> parameters) (\s@ComponentConfiguration' {} a -> s {parameters = a} :: ComponentConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -81,7 +81,8 @@ instance Data.FromJSON ComponentConfiguration where
 
 instance Prelude.Hashable ComponentConfiguration where
   hashWithSalt _salt ComponentConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` componentArn
 
 instance Prelude.NFData ComponentConfiguration where

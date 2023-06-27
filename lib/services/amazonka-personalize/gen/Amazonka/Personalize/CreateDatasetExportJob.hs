@@ -79,7 +79,7 @@ data CreateDatasetExportJob = CreateDatasetExportJob'
     -- The default value is @PUT@.
     ingestionMode :: Prelude.Maybe IngestionMode,
     -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the dataset export job.
     tags :: Prelude.Maybe [Tag],
     -- | The name for the dataset export job.
@@ -110,7 +110,7 @@ data CreateDatasetExportJob = CreateDatasetExportJob'
 -- The default value is @PUT@.
 --
 -- 'tags', 'createDatasetExportJob_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the dataset export job.
 --
 -- 'jobName', 'createDatasetExportJob_jobName' - The name for the dataset export job.
@@ -156,7 +156,7 @@ createDatasetExportJob_ingestionMode :: Lens.Lens' CreateDatasetExportJob (Prelu
 createDatasetExportJob_ingestionMode = Lens.lens (\CreateDatasetExportJob' {ingestionMode} -> ingestionMode) (\s@CreateDatasetExportJob' {} a -> s {ingestionMode = a} :: CreateDatasetExportJob)
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the dataset export job.
 createDatasetExportJob_tags :: Lens.Lens' CreateDatasetExportJob (Prelude.Maybe [Tag])
 createDatasetExportJob_tags = Lens.lens (\CreateDatasetExportJob' {tags} -> tags) (\s@CreateDatasetExportJob' {} a -> s {tags = a} :: CreateDatasetExportJob) Prelude.. Lens.mapping Lens.coerced
@@ -195,7 +195,8 @@ instance Core.AWSRequest CreateDatasetExportJob where
 
 instance Prelude.Hashable CreateDatasetExportJob where
   hashWithSalt _salt CreateDatasetExportJob' {..} =
-    _salt `Prelude.hashWithSalt` ingestionMode
+    _salt
+      `Prelude.hashWithSalt` ingestionMode
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` datasetArn

@@ -97,7 +97,7 @@ data CreateSolutionVersion = CreateSolutionVersion'
   { -- | The name of the solution version.
     name :: Prelude.Maybe Prelude.Text,
     -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the solution version.
     tags :: Prelude.Maybe [Tag],
     -- | The scope of training to be performed when creating the solution
@@ -132,7 +132,7 @@ data CreateSolutionVersion = CreateSolutionVersion'
 -- 'name', 'createSolutionVersion_name' - The name of the solution version.
 --
 -- 'tags', 'createSolutionVersion_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the solution version.
 --
 -- 'trainingMode', 'createSolutionVersion_trainingMode' - The scope of training to be performed when creating the solution
@@ -169,7 +169,7 @@ createSolutionVersion_name :: Lens.Lens' CreateSolutionVersion (Prelude.Maybe Pr
 createSolutionVersion_name = Lens.lens (\CreateSolutionVersion' {name} -> name) (\s@CreateSolutionVersion' {} a -> s {name = a} :: CreateSolutionVersion)
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the solution version.
 createSolutionVersion_tags :: Lens.Lens' CreateSolutionVersion (Prelude.Maybe [Tag])
 createSolutionVersion_tags = Lens.lens (\CreateSolutionVersion' {tags} -> tags) (\s@CreateSolutionVersion' {} a -> s {tags = a} :: CreateSolutionVersion) Prelude.. Lens.mapping Lens.coerced
@@ -212,7 +212,8 @@ instance Core.AWSRequest CreateSolutionVersion where
 
 instance Prelude.Hashable CreateSolutionVersion where
   hashWithSalt _salt CreateSolutionVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` trainingMode
       `Prelude.hashWithSalt` solutionArn

@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | The optional metadata that you apply to resources to help you categorize
 -- and organize them. Each tag consists of a key and an optional value,
 -- both of which you define. For more information see
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html Tagging Personalize resources>.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html Tagging Amazon Personalize recources>.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
@@ -84,7 +84,8 @@ instance Data.FromJSON Tag where
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` tagKey
+    _salt
+      `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` tagValue
 
 instance Prelude.NFData Tag where

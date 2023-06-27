@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     CategoricalHyperParameterRange' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` values
 
 instance

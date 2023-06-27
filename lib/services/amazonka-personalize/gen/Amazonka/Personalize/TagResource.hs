@@ -52,7 +52,7 @@ data TagResource = TagResource'
   { -- | The resource\'s Amazon Resource Name (ARN).
     resourceArn :: Prelude.Text,
     -- | Tags to apply to the resource. For more information see
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html Tagging Personalize resources>.
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html Tagging Amazon Personalize recources>.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data TagResource = TagResource'
 -- 'resourceArn', 'tagResource_resourceArn' - The resource\'s Amazon Resource Name (ARN).
 --
 -- 'tags', 'tagResource_tags' - Tags to apply to the resource. For more information see
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html Tagging Personalize resources>.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html Tagging Amazon Personalize recources>.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -84,7 +84,7 @@ tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | Tags to apply to the resource. For more information see
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html Tagging Personalize resources>.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html Tagging Amazon Personalize recources>.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
@@ -101,7 +101,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

@@ -44,7 +44,10 @@ data Campaign = Campaign'
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     latestCampaignUpdate :: Prelude.Maybe CampaignUpdateSummary,
     -- | Specifies the requested minimum provisioned transactions
-    -- (recommendations) per second.
+    -- (recommendations) per second. A high @minProvisionedTPS@ will increase
+    -- your bill. We recommend starting with 1 for @minProvisionedTPS@ (the
+    -- default). Track your usage using Amazon CloudWatch metrics, and increase
+    -- the @minProvisionedTPS@ as necessary.
     minProvisionedTPS :: Prelude.Maybe Prelude.Natural,
     -- | The name of the campaign.
     name :: Prelude.Maybe Prelude.Text,
@@ -82,7 +85,10 @@ data Campaign = Campaign'
 -- 'latestCampaignUpdate', 'campaign_latestCampaignUpdate' - Undocumented member.
 --
 -- 'minProvisionedTPS', 'campaign_minProvisionedTPS' - Specifies the requested minimum provisioned transactions
--- (recommendations) per second.
+-- (recommendations) per second. A high @minProvisionedTPS@ will increase
+-- your bill. We recommend starting with 1 for @minProvisionedTPS@ (the
+-- default). Track your usage using Amazon CloudWatch metrics, and increase
+-- the @minProvisionedTPS@ as necessary.
 --
 -- 'name', 'campaign_name' - The name of the campaign.
 --
@@ -136,7 +142,10 @@ campaign_latestCampaignUpdate :: Lens.Lens' Campaign (Prelude.Maybe CampaignUpda
 campaign_latestCampaignUpdate = Lens.lens (\Campaign' {latestCampaignUpdate} -> latestCampaignUpdate) (\s@Campaign' {} a -> s {latestCampaignUpdate = a} :: Campaign)
 
 -- | Specifies the requested minimum provisioned transactions
--- (recommendations) per second.
+-- (recommendations) per second. A high @minProvisionedTPS@ will increase
+-- your bill. We recommend starting with 1 for @minProvisionedTPS@ (the
+-- default). Track your usage using Amazon CloudWatch metrics, and increase
+-- the @minProvisionedTPS@ as necessary.
 campaign_minProvisionedTPS :: Lens.Lens' Campaign (Prelude.Maybe Prelude.Natural)
 campaign_minProvisionedTPS = Lens.lens (\Campaign' {minProvisionedTPS} -> minProvisionedTPS) (\s@Campaign' {} a -> s {minProvisionedTPS = a} :: Campaign)
 
@@ -178,7 +187,8 @@ instance Data.FromJSON Campaign where
 
 instance Prelude.Hashable Campaign where
   hashWithSalt _salt Campaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignArn
+    _salt
+      `Prelude.hashWithSalt` campaignArn
       `Prelude.hashWithSalt` campaignConfig
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` failureReason

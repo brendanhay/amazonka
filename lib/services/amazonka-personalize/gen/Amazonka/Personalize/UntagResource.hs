@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Remove
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- that are attached to a resource.
 module Amazonka.Personalize.UntagResource
   ( -- * Creating a Request
@@ -102,7 +102,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

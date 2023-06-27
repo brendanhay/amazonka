@@ -828,6 +828,7 @@ module Amazonka.Personalize.Lens
     -- ** RecommenderConfig
     recommenderConfig_itemExplorationConfig,
     recommenderConfig_minRecommendationRequestsPerSecond,
+    recommenderConfig_trainingDataConfig,
 
     -- ** RecommenderSummary
     recommenderSummary_creationDateTime,
@@ -872,6 +873,7 @@ module Amazonka.Personalize.Lens
     solutionConfig_featureTransformationParameters,
     solutionConfig_hpoConfig,
     solutionConfig_optimizationObjective,
+    solutionConfig_trainingDataConfig,
 
     -- ** SolutionSummary
     solutionSummary_creationDateTime,
@@ -909,6 +911,9 @@ module Amazonka.Personalize.Lens
     -- ** Tag
     tag_tagKey,
     tag_tagValue,
+
+    -- ** TrainingDataConfig
+    trainingDataConfig_excludedDatasetColumns,
 
     -- ** TunedHPOParams
     tunedHPOParams_algorithmHyperParameters,
@@ -1040,6 +1045,7 @@ import Amazonka.Personalize.Types.SolutionSummary
 import Amazonka.Personalize.Types.SolutionVersion
 import Amazonka.Personalize.Types.SolutionVersionSummary
 import Amazonka.Personalize.Types.Tag
+import Amazonka.Personalize.Types.TrainingDataConfig
 import Amazonka.Personalize.Types.TunedHPOParams
 import Amazonka.Personalize.UntagResource
 import Amazonka.Personalize.UpdateCampaign

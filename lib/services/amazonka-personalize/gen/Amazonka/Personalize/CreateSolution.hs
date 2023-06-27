@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates the configuration for training a model. A trained model is known
--- as a solution. After the configuration is created, you train the model
--- (create a solution) by calling the
+-- as a solution version. After the configuration is created, you train the
+-- model (create a solution version) by calling the
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html CreateSolutionVersion>
 -- operation. Every time you call @CreateSolutionVersion@, a new version of
 -- the solution is created.
@@ -39,9 +39,7 @@
 -- recipe. The training data comes from the dataset group that you provide
 -- in the request. A recipe specifies the training algorithm and a feature
 -- transformation. You can specify one of the predefined recipes provided
--- by Amazon Personalize. Alternatively, you can specify @performAutoML@
--- and Amazon Personalize will analyze your data and select the optimum
--- USER_PERSONALIZATION recipe for you.
+-- by Amazon Personalize.
 --
 -- Amazon Personalize doesn\'t support configuring the @hpoObjective@ for
 -- solution hyperparameter optimization at this time.
@@ -114,7 +112,12 @@ data CreateSolution = CreateSolution'
     -- If you do not provide an @eventType@, Amazon Personalize will use all
     -- interactions for training with equal weight regardless of type.
     eventType :: Prelude.Maybe Prelude.Text,
-    -- | Whether to perform automated machine learning (AutoML). The default is
+    -- | We don\'t recommend enabling automated machine learning. Instead, match
+    -- your use case to the available Amazon Personalize recipes. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html Determining your use case.>
+    --
+    -- Whether to perform automated machine learning (AutoML). The default is
     -- @false@. For this case, you must specify @recipeArn@.
     --
     -- When set to @true@, Amazon Personalize analyzes your training data and
@@ -141,7 +144,7 @@ data CreateSolution = CreateSolution'
     -- this time.
     solutionConfig :: Prelude.Maybe SolutionConfig,
     -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the solution.
     tags :: Prelude.Maybe [Tag],
     -- | The name for the solution.
@@ -167,7 +170,12 @@ data CreateSolution = CreateSolution'
 -- If you do not provide an @eventType@, Amazon Personalize will use all
 -- interactions for training with equal weight regardless of type.
 --
--- 'performAutoML', 'createSolution_performAutoML' - Whether to perform automated machine learning (AutoML). The default is
+-- 'performAutoML', 'createSolution_performAutoML' - We don\'t recommend enabling automated machine learning. Instead, match
+-- your use case to the available Amazon Personalize recipes. For more
+-- information, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html Determining your use case.>
+--
+-- Whether to perform automated machine learning (AutoML). The default is
 -- @false@. For this case, you must specify @recipeArn@.
 --
 -- When set to @true@, Amazon Personalize analyzes your training data and
@@ -194,7 +202,7 @@ data CreateSolution = CreateSolution'
 -- this time.
 --
 -- 'tags', 'createSolution_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the solution.
 --
 -- 'name', 'createSolution_name' - The name for the solution.
@@ -228,7 +236,12 @@ newCreateSolution pName_ pDatasetGroupArn_ =
 createSolution_eventType :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Text)
 createSolution_eventType = Lens.lens (\CreateSolution' {eventType} -> eventType) (\s@CreateSolution' {} a -> s {eventType = a} :: CreateSolution)
 
--- | Whether to perform automated machine learning (AutoML). The default is
+-- | We don\'t recommend enabling automated machine learning. Instead, match
+-- your use case to the available Amazon Personalize recipes. For more
+-- information, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html Determining your use case.>
+--
+-- Whether to perform automated machine learning (AutoML). The default is
 -- @false@. For this case, you must specify @recipeArn@.
 --
 -- When set to @true@, Amazon Personalize analyzes your training data and
@@ -263,7 +276,7 @@ createSolution_solutionConfig :: Lens.Lens' CreateSolution (Prelude.Maybe Soluti
 createSolution_solutionConfig = Lens.lens (\CreateSolution' {solutionConfig} -> solutionConfig) (\s@CreateSolution' {} a -> s {solutionConfig = a} :: CreateSolution)
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the solution.
 createSolution_tags :: Lens.Lens' CreateSolution (Prelude.Maybe [Tag])
 createSolution_tags = Lens.lens (\CreateSolution' {tags} -> tags) (\s@CreateSolution' {} a -> s {tags = a} :: CreateSolution) Prelude.. Lens.mapping Lens.coerced
@@ -293,7 +306,8 @@ instance Core.AWSRequest CreateSolution where
 
 instance Prelude.Hashable CreateSolution where
   hashWithSalt _salt CreateSolution' {..} =
-    _salt `Prelude.hashWithSalt` eventType
+    _salt
+      `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` performAutoML
       `Prelude.hashWithSalt` performHPO
       `Prelude.hashWithSalt` recipeArn

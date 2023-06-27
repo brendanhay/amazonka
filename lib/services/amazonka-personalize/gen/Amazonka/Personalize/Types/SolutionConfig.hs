@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.AutoMLConfig
 import Amazonka.Personalize.Types.HPOConfig
 import Amazonka.Personalize.Types.OptimizationObjective
+import Amazonka.Personalize.Types.TrainingDataConfig
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration properties for the solution.
@@ -47,7 +48,10 @@ data SolutionConfig = SolutionConfig'
     -- | Describes the additional objective for the solution, such as maximizing
     -- streaming minutes or increasing revenue. For more information see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html Optimizing a solution>.
-    optimizationObjective :: Prelude.Maybe OptimizationObjective
+    optimizationObjective :: Prelude.Maybe OptimizationObjective,
+    -- | Specifies the training data configuration to use when creating a custom
+    -- solution version (trained model).
+    trainingDataConfig :: Prelude.Maybe TrainingDataConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,6 +79,9 @@ data SolutionConfig = SolutionConfig'
 -- 'optimizationObjective', 'solutionConfig_optimizationObjective' - Describes the additional objective for the solution, such as maximizing
 -- streaming minutes or increasing revenue. For more information see
 -- <https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html Optimizing a solution>.
+--
+-- 'trainingDataConfig', 'solutionConfig_trainingDataConfig' - Specifies the training data configuration to use when creating a custom
+-- solution version (trained model).
 newSolutionConfig ::
   SolutionConfig
 newSolutionConfig =
@@ -85,7 +92,8 @@ newSolutionConfig =
       eventValueThreshold = Prelude.Nothing,
       featureTransformationParameters = Prelude.Nothing,
       hpoConfig = Prelude.Nothing,
-      optimizationObjective = Prelude.Nothing
+      optimizationObjective = Prelude.Nothing,
+      trainingDataConfig = Prelude.Nothing
     }
 
 -- | Lists the hyperparameter names and ranges.
@@ -117,22 +125,30 @@ solutionConfig_hpoConfig = Lens.lens (\SolutionConfig' {hpoConfig} -> hpoConfig)
 solutionConfig_optimizationObjective :: Lens.Lens' SolutionConfig (Prelude.Maybe OptimizationObjective)
 solutionConfig_optimizationObjective = Lens.lens (\SolutionConfig' {optimizationObjective} -> optimizationObjective) (\s@SolutionConfig' {} a -> s {optimizationObjective = a} :: SolutionConfig)
 
+-- | Specifies the training data configuration to use when creating a custom
+-- solution version (trained model).
+solutionConfig_trainingDataConfig :: Lens.Lens' SolutionConfig (Prelude.Maybe TrainingDataConfig)
+solutionConfig_trainingDataConfig = Lens.lens (\SolutionConfig' {trainingDataConfig} -> trainingDataConfig) (\s@SolutionConfig' {} a -> s {trainingDataConfig = a} :: SolutionConfig)
+
 instance Data.FromJSON SolutionConfig where
   parseJSON =
     Data.withObject
       "SolutionConfig"
       ( \x ->
           SolutionConfig'
-            Prelude.<$> ( x Data..:? "algorithmHyperParameters"
+            Prelude.<$> ( x
+                            Data..:? "algorithmHyperParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "autoMLConfig")
             Prelude.<*> (x Data..:? "eventValueThreshold")
-            Prelude.<*> ( x Data..:? "featureTransformationParameters"
+            Prelude.<*> ( x
+                            Data..:? "featureTransformationParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "hpoConfig")
             Prelude.<*> (x Data..:? "optimizationObjective")
+            Prelude.<*> (x Data..:? "trainingDataConfig")
       )
 
 instance Prelude.Hashable SolutionConfig where
@@ -144,6 +160,7 @@ instance Prelude.Hashable SolutionConfig where
       `Prelude.hashWithSalt` featureTransformationParameters
       `Prelude.hashWithSalt` hpoConfig
       `Prelude.hashWithSalt` optimizationObjective
+      `Prelude.hashWithSalt` trainingDataConfig
 
 instance Prelude.NFData SolutionConfig where
   rnf SolutionConfig' {..} =
@@ -153,6 +170,7 @@ instance Prelude.NFData SolutionConfig where
       `Prelude.seq` Prelude.rnf featureTransformationParameters
       `Prelude.seq` Prelude.rnf hpoConfig
       `Prelude.seq` Prelude.rnf optimizationObjective
+      `Prelude.seq` Prelude.rnf trainingDataConfig
 
 instance Data.ToJSON SolutionConfig where
   toJSON SolutionConfig' {..} =
@@ -167,6 +185,8 @@ instance Data.ToJSON SolutionConfig where
               Prelude.<$> featureTransformationParameters,
             ("hpoConfig" Data..=) Prelude.<$> hpoConfig,
             ("optimizationObjective" Data..=)
-              Prelude.<$> optimizationObjective
+              Prelude.<$> optimizationObjective,
+            ("trainingDataConfig" Data..=)
+              Prelude.<$> trainingDataConfig
           ]
       )

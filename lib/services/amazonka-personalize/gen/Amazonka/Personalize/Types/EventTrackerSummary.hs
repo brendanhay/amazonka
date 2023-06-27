@@ -129,7 +129,8 @@ instance Data.FromJSON EventTrackerSummary where
 
 instance Prelude.Hashable EventTrackerSummary where
   hashWithSalt _salt EventTrackerSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` eventTrackerArn
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` name

@@ -168,7 +168,8 @@ instance Data.FromJSON Recipe where
 
 instance Prelude.Hashable Recipe where
   hashWithSalt _salt Recipe' {..} =
-    _salt `Prelude.hashWithSalt` algorithmArn
+    _salt
+      `Prelude.hashWithSalt` algorithmArn
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` featureTransformationArn

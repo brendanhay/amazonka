@@ -148,7 +148,8 @@ instance Core.AWSRequest CreateMetricAttribution where
 
 instance Prelude.Hashable CreateMetricAttribution where
   hashWithSalt _salt CreateMetricAttribution' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` metrics
       `Prelude.hashWithSalt` metricsOutputConfig

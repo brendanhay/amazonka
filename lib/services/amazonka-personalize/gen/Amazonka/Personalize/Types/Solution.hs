@@ -50,7 +50,12 @@ data Solution = Solution'
     latestSolutionVersion :: Prelude.Maybe SolutionVersionSummary,
     -- | The name of the solution.
     name :: Prelude.Maybe Prelude.Text,
-    -- | When true, Amazon Personalize performs a search for the best
+    -- | We don\'t recommend enabling automated machine learning. Instead, match
+    -- your use case to the available Amazon Personalize recipes. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html Determining your use case.>
+    --
+    -- When true, Amazon Personalize performs a search for the best
     -- USER_PERSONALIZATION recipe from the list specified in the solution
     -- configuration (@recipeArn@ must not be specified). When false (the
     -- default), Amazon Personalize uses @recipeArn@ for training.
@@ -101,7 +106,12 @@ data Solution = Solution'
 --
 -- 'name', 'solution_name' - The name of the solution.
 --
--- 'performAutoML', 'solution_performAutoML' - When true, Amazon Personalize performs a search for the best
+-- 'performAutoML', 'solution_performAutoML' - We don\'t recommend enabling automated machine learning. Instead, match
+-- your use case to the available Amazon Personalize recipes. For more
+-- information, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html Determining your use case.>
+--
+-- When true, Amazon Personalize performs a search for the best
 -- USER_PERSONALIZATION recipe from the list specified in the solution
 -- configuration (@recipeArn@ must not be specified). When false (the
 -- default), Amazon Personalize uses @recipeArn@ for training.
@@ -173,7 +183,12 @@ solution_latestSolutionVersion = Lens.lens (\Solution' {latestSolutionVersion} -
 solution_name :: Lens.Lens' Solution (Prelude.Maybe Prelude.Text)
 solution_name = Lens.lens (\Solution' {name} -> name) (\s@Solution' {} a -> s {name = a} :: Solution)
 
--- | When true, Amazon Personalize performs a search for the best
+-- | We don\'t recommend enabling automated machine learning. Instead, match
+-- your use case to the available Amazon Personalize recipes. For more
+-- information, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html Determining your use case.>
+--
+-- When true, Amazon Personalize performs a search for the best
 -- USER_PERSONALIZATION recipe from the list specified in the solution
 -- configuration (@recipeArn@ must not be specified). When false (the
 -- default), Amazon Personalize uses @recipeArn@ for training.
@@ -230,7 +245,8 @@ instance Data.FromJSON Solution where
 
 instance Prelude.Hashable Solution where
   hashWithSalt _salt Solution' {..} =
-    _salt `Prelude.hashWithSalt` autoMLResult
+    _salt
+      `Prelude.hashWithSalt` autoMLResult
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` eventType

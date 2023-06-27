@@ -29,6 +29,11 @@
 --
 -- __Minimum Provisioned TPS and Auto-Scaling__
 --
+-- A high @minProvisionedTPS@ will increase your bill. We recommend
+-- starting with 1 for @minProvisionedTPS@ (the default). Track your usage
+-- using Amazon CloudWatch metrics, and increase the @minProvisionedTPS@ as
+-- necessary.
+--
 -- A transaction is a single @GetRecommendations@ or
 -- @GetPersonalizedRanking@ call. Transactions per second (TPS) is the
 -- throughput and unit of billing for Amazon Personalize. The minimum
@@ -104,10 +109,14 @@ data CreateCampaign = CreateCampaign'
   { -- | The configuration details of a campaign.
     campaignConfig :: Prelude.Maybe CampaignConfig,
     -- | Specifies the requested minimum provisioned transactions
-    -- (recommendations) per second that Amazon Personalize will support.
+    -- (recommendations) per second that Amazon Personalize will support. A
+    -- high @minProvisionedTPS@ will increase your bill. We recommend starting
+    -- with 1 for @minProvisionedTPS@ (the default). Track your usage using
+    -- Amazon CloudWatch metrics, and increase the @minProvisionedTPS@ as
+    -- necessary.
     minProvisionedTPS :: Prelude.Maybe Prelude.Natural,
     -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the campaign.
     tags :: Prelude.Maybe [Tag],
     -- | A name for the new campaign. The campaign name must be unique within
@@ -129,10 +138,14 @@ data CreateCampaign = CreateCampaign'
 -- 'campaignConfig', 'createCampaign_campaignConfig' - The configuration details of a campaign.
 --
 -- 'minProvisionedTPS', 'createCampaign_minProvisionedTPS' - Specifies the requested minimum provisioned transactions
--- (recommendations) per second that Amazon Personalize will support.
+-- (recommendations) per second that Amazon Personalize will support. A
+-- high @minProvisionedTPS@ will increase your bill. We recommend starting
+-- with 1 for @minProvisionedTPS@ (the default). Track your usage using
+-- Amazon CloudWatch metrics, and increase the @minProvisionedTPS@ as
+-- necessary.
 --
 -- 'tags', 'createCampaign_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the campaign.
 --
 -- 'name', 'createCampaign_name' - A name for the new campaign. The campaign name must be unique within
@@ -159,12 +172,16 @@ createCampaign_campaignConfig :: Lens.Lens' CreateCampaign (Prelude.Maybe Campai
 createCampaign_campaignConfig = Lens.lens (\CreateCampaign' {campaignConfig} -> campaignConfig) (\s@CreateCampaign' {} a -> s {campaignConfig = a} :: CreateCampaign)
 
 -- | Specifies the requested minimum provisioned transactions
--- (recommendations) per second that Amazon Personalize will support.
+-- (recommendations) per second that Amazon Personalize will support. A
+-- high @minProvisionedTPS@ will increase your bill. We recommend starting
+-- with 1 for @minProvisionedTPS@ (the default). Track your usage using
+-- Amazon CloudWatch metrics, and increase the @minProvisionedTPS@ as
+-- necessary.
 createCampaign_minProvisionedTPS :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.Natural)
 createCampaign_minProvisionedTPS = Lens.lens (\CreateCampaign' {minProvisionedTPS} -> minProvisionedTPS) (\s@CreateCampaign' {} a -> s {minProvisionedTPS = a} :: CreateCampaign)
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the campaign.
 createCampaign_tags :: Lens.Lens' CreateCampaign (Prelude.Maybe [Tag])
 createCampaign_tags = Lens.lens (\CreateCampaign' {tags} -> tags) (\s@CreateCampaign' {} a -> s {tags = a} :: CreateCampaign) Prelude.. Lens.mapping Lens.coerced
@@ -194,7 +211,8 @@ instance Core.AWSRequest CreateCampaign where
 
 instance Prelude.Hashable CreateCampaign where
   hashWithSalt _salt CreateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignConfig
+    _salt
+      `Prelude.hashWithSalt` campaignConfig
       `Prelude.hashWithSalt` minProvisionedTPS
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

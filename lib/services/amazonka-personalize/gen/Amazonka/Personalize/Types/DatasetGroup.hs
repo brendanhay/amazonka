@@ -179,7 +179,8 @@ instance Data.FromJSON DatasetGroup where
 
 instance Prelude.Hashable DatasetGroup where
   hashWithSalt _salt DatasetGroup' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` failureReason

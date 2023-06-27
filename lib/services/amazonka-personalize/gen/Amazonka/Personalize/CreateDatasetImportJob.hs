@@ -103,7 +103,7 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
     -- for this import job to Amazon S3
     publishAttributionMetricsToS3 :: Prelude.Maybe Prelude.Bool,
     -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the dataset import job.
     tags :: Prelude.Maybe [Tag],
     -- | The name for the dataset import job.
@@ -141,7 +141,7 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 -- for this import job to Amazon S3
 --
 -- 'tags', 'createDatasetImportJob_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the dataset import job.
 --
 -- 'jobName', 'createDatasetImportJob_jobName' - The name for the dataset import job.
@@ -197,7 +197,7 @@ createDatasetImportJob_publishAttributionMetricsToS3 :: Lens.Lens' CreateDataset
 createDatasetImportJob_publishAttributionMetricsToS3 = Lens.lens (\CreateDatasetImportJob' {publishAttributionMetricsToS3} -> publishAttributionMetricsToS3) (\s@CreateDatasetImportJob' {} a -> s {publishAttributionMetricsToS3 = a} :: CreateDatasetImportJob)
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the dataset import job.
 createDatasetImportJob_tags :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe [Tag])
 createDatasetImportJob_tags = Lens.lens (\CreateDatasetImportJob' {tags} -> tags) (\s@CreateDatasetImportJob' {} a -> s {tags = a} :: CreateDatasetImportJob) Prelude.. Lens.mapping Lens.coerced
@@ -235,7 +235,8 @@ instance Core.AWSRequest CreateDatasetImportJob where
 
 instance Prelude.Hashable CreateDatasetImportJob where
   hashWithSalt _salt CreateDatasetImportJob' {..} =
-    _salt `Prelude.hashWithSalt` importMode
+    _salt
+      `Prelude.hashWithSalt` importMode
       `Prelude.hashWithSalt` publishAttributionMetricsToS3
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobName

@@ -78,7 +78,8 @@ instance Data.FromJSON AutoMLConfig where
 
 instance Prelude.Hashable AutoMLConfig where
   hashWithSalt _salt AutoMLConfig' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` recipeList
 
 instance Prelude.NFData AutoMLConfig where

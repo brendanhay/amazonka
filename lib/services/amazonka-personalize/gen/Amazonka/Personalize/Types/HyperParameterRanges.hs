@@ -82,13 +82,16 @@ instance Data.FromJSON HyperParameterRanges where
       "HyperParameterRanges"
       ( \x ->
           HyperParameterRanges'
-            Prelude.<$> ( x Data..:? "categoricalHyperParameterRanges"
+            Prelude.<$> ( x
+                            Data..:? "categoricalHyperParameterRanges"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "continuousHyperParameterRanges"
+            Prelude.<*> ( x
+                            Data..:? "continuousHyperParameterRanges"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "integerHyperParameterRanges"
+            Prelude.<*> ( x
+                            Data..:? "integerHyperParameterRanges"
                             Data..!= Prelude.mempty
                         )
       )

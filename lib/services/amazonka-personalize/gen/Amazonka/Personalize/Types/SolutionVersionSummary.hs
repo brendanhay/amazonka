@@ -126,7 +126,8 @@ instance Data.FromJSON SolutionVersionSummary where
 
 instance Prelude.Hashable SolutionVersionSummary where
   hashWithSalt _salt SolutionVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` solutionVersionArn

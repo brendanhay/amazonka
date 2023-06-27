@@ -121,7 +121,8 @@ instance Data.FromJSON RecipeSummary where
 
 instance Prelude.Hashable RecipeSummary where
   hashWithSalt _salt RecipeSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` name

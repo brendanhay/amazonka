@@ -119,7 +119,7 @@ data CreateDatasetGroup = CreateDatasetGroup'
     -- IAM role is only valid when also specifying a KMS key.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the dataset group.
     tags :: Prelude.Maybe [Tag],
     -- | The name for the new dataset group.
@@ -149,7 +149,7 @@ data CreateDatasetGroup = CreateDatasetGroup'
 -- IAM role is only valid when also specifying a KMS key.
 --
 -- 'tags', 'createDatasetGroup_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the dataset group.
 --
 -- 'name', 'createDatasetGroup_name' - The name for the new dataset group.
@@ -186,7 +186,7 @@ createDatasetGroup_roleArn :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe Prelu
 createDatasetGroup_roleArn = Lens.lens (\CreateDatasetGroup' {roleArn} -> roleArn) (\s@CreateDatasetGroup' {} a -> s {roleArn = a} :: CreateDatasetGroup)
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the dataset group.
 createDatasetGroup_tags :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe [Tag])
 createDatasetGroup_tags = Lens.lens (\CreateDatasetGroup' {tags} -> tags) (\s@CreateDatasetGroup' {} a -> s {tags = a} :: CreateDatasetGroup) Prelude.. Lens.mapping Lens.coerced
@@ -212,7 +212,8 @@ instance Core.AWSRequest CreateDatasetGroup where
 
 instance Prelude.Hashable CreateDatasetGroup where
   hashWithSalt _salt CreateDatasetGroup' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` tags

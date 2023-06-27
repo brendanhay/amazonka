@@ -87,7 +87,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateEventTracker' smart constructor.
 data CreateEventTracker = CreateEventTracker'
   { -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the event tracker.
     tags :: Prelude.Maybe [Tag],
     -- | The name for the event tracker.
@@ -107,7 +107,7 @@ data CreateEventTracker = CreateEventTracker'
 -- for backwards compatibility:
 --
 -- 'tags', 'createEventTracker_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the event tracker.
 --
 -- 'name', 'createEventTracker_name' - The name for the event tracker.
@@ -128,7 +128,7 @@ newCreateEventTracker pName_ pDatasetGroupArn_ =
     }
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the event tracker.
 createEventTracker_tags :: Lens.Lens' CreateEventTracker (Prelude.Maybe [Tag])
 createEventTracker_tags = Lens.lens (\CreateEventTracker' {tags} -> tags) (\s@CreateEventTracker' {} a -> s {tags = a} :: CreateEventTracker) Prelude.. Lens.mapping Lens.coerced
@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateEventTracker where
 
 instance Prelude.Hashable CreateEventTracker where
   hashWithSalt _salt CreateEventTracker' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn
 

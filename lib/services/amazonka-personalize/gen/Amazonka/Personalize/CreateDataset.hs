@@ -87,7 +87,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateDataset' smart constructor.
 data CreateDataset = CreateDataset'
   { -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the dataset.
     tags :: Prelude.Maybe [Tag],
     -- | The name for the dataset.
@@ -120,7 +120,7 @@ data CreateDataset = CreateDataset'
 -- for backwards compatibility:
 --
 -- 'tags', 'createDataset_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the dataset.
 --
 -- 'name', 'createDataset_name' - The name for the dataset.
@@ -164,7 +164,7 @@ newCreateDataset
       }
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the dataset.
 createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe [Tag])
 createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
@@ -211,7 +211,8 @@ instance Core.AWSRequest CreateDataset where
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` datasetGroupArn

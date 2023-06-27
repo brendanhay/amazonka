@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Get a list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- attached to a resource.
 module Amazonka.Personalize.ListTagsForResource
   ( -- * Creating a Request

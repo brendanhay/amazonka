@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateMetricAttribution where
 
 instance Prelude.Hashable UpdateMetricAttribution where
   hashWithSalt _salt UpdateMetricAttribution' {..} =
-    _salt `Prelude.hashWithSalt` addMetrics
+    _salt
+      `Prelude.hashWithSalt` addMetrics
       `Prelude.hashWithSalt` metricAttributionArn
       `Prelude.hashWithSalt` metricsOutputConfig
       `Prelude.hashWithSalt` removeMetrics

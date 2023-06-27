@@ -28,6 +28,11 @@
 --
 -- __Minimum recommendation requests per second__
 --
+-- A high @minRecommendationRequestsPerSecond@ will increase your bill. We
+-- recommend starting with 1 for @minRecommendationRequestsPerSecond@ (the
+-- default). Track your usage using Amazon CloudWatch metrics, and increase
+-- the @minRecommendationRequestsPerSecond@ as necessary.
+--
 -- When you create a recommender, you can configure the recommender\'s
 -- minimum recommendation requests per second. The minimum recommendation
 -- requests per second (@minRecommendationRequestsPerSecond@) specifies the
@@ -113,7 +118,7 @@ data CreateRecommender = CreateRecommender'
   { -- | The configuration details of the recommender.
     recommenderConfig :: Prelude.Maybe RecommenderConfig,
     -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the recommender.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the recommender.
@@ -141,7 +146,7 @@ data CreateRecommender = CreateRecommender'
 -- 'recommenderConfig', 'createRecommender_recommenderConfig' - The configuration details of the recommender.
 --
 -- 'tags', 'createRecommender_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the recommender.
 --
 -- 'name', 'createRecommender_name' - The name of the recommender.
@@ -180,7 +185,7 @@ createRecommender_recommenderConfig :: Lens.Lens' CreateRecommender (Prelude.May
 createRecommender_recommenderConfig = Lens.lens (\CreateRecommender' {recommenderConfig} -> recommenderConfig) (\s@CreateRecommender' {} a -> s {recommenderConfig = a} :: CreateRecommender)
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the recommender.
 createRecommender_tags :: Lens.Lens' CreateRecommender (Prelude.Maybe [Tag])
 createRecommender_tags = Lens.lens (\CreateRecommender' {tags} -> tags) (\s@CreateRecommender' {} a -> s {tags = a} :: CreateRecommender) Prelude.. Lens.mapping Lens.coerced
@@ -218,7 +223,8 @@ instance Core.AWSRequest CreateRecommender where
 
 instance Prelude.Hashable CreateRecommender where
   hashWithSalt _salt CreateRecommender' {..} =
-    _salt `Prelude.hashWithSalt` recommenderConfig
+    _salt
+      `Prelude.hashWithSalt` recommenderConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn

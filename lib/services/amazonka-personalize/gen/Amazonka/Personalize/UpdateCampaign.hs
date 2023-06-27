@@ -69,7 +69,11 @@ data UpdateCampaign = UpdateCampaign'
   { -- | The configuration details of a campaign.
     campaignConfig :: Prelude.Maybe CampaignConfig,
     -- | Specifies the requested minimum provisioned transactions
-    -- (recommendations) per second that Amazon Personalize will support.
+    -- (recommendations) per second that Amazon Personalize will support. A
+    -- high @minProvisionedTPS@ will increase your bill. We recommend starting
+    -- with 1 for @minProvisionedTPS@ (the default). Track your usage using
+    -- Amazon CloudWatch metrics, and increase the @minProvisionedTPS@ as
+    -- necessary.
     minProvisionedTPS :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of a new solution version to deploy.
     solutionVersionArn :: Prelude.Maybe Prelude.Text,
@@ -89,7 +93,11 @@ data UpdateCampaign = UpdateCampaign'
 -- 'campaignConfig', 'updateCampaign_campaignConfig' - The configuration details of a campaign.
 --
 -- 'minProvisionedTPS', 'updateCampaign_minProvisionedTPS' - Specifies the requested minimum provisioned transactions
--- (recommendations) per second that Amazon Personalize will support.
+-- (recommendations) per second that Amazon Personalize will support. A
+-- high @minProvisionedTPS@ will increase your bill. We recommend starting
+-- with 1 for @minProvisionedTPS@ (the default). Track your usage using
+-- Amazon CloudWatch metrics, and increase the @minProvisionedTPS@ as
+-- necessary.
 --
 -- 'solutionVersionArn', 'updateCampaign_solutionVersionArn' - The ARN of a new solution version to deploy.
 --
@@ -111,7 +119,11 @@ updateCampaign_campaignConfig :: Lens.Lens' UpdateCampaign (Prelude.Maybe Campai
 updateCampaign_campaignConfig = Lens.lens (\UpdateCampaign' {campaignConfig} -> campaignConfig) (\s@UpdateCampaign' {} a -> s {campaignConfig = a} :: UpdateCampaign)
 
 -- | Specifies the requested minimum provisioned transactions
--- (recommendations) per second that Amazon Personalize will support.
+-- (recommendations) per second that Amazon Personalize will support. A
+-- high @minProvisionedTPS@ will increase your bill. We recommend starting
+-- with 1 for @minProvisionedTPS@ (the default). Track your usage using
+-- Amazon CloudWatch metrics, and increase the @minProvisionedTPS@ as
+-- necessary.
 updateCampaign_minProvisionedTPS :: Lens.Lens' UpdateCampaign (Prelude.Maybe Prelude.Natural)
 updateCampaign_minProvisionedTPS = Lens.lens (\UpdateCampaign' {minProvisionedTPS} -> minProvisionedTPS) (\s@UpdateCampaign' {} a -> s {minProvisionedTPS = a} :: UpdateCampaign)
 
@@ -139,7 +151,8 @@ instance Core.AWSRequest UpdateCampaign where
 
 instance Prelude.Hashable UpdateCampaign where
   hashWithSalt _salt UpdateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignConfig
+    _salt
+      `Prelude.hashWithSalt` campaignConfig
       `Prelude.hashWithSalt` minProvisionedTPS
       `Prelude.hashWithSalt` solutionVersionArn
       `Prelude.hashWithSalt` campaignArn

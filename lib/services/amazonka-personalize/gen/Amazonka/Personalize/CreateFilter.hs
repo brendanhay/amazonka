@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateFilter' smart constructor.
 data CreateFilter = CreateFilter'
   { -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the filter.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the filter to create.
@@ -78,7 +78,7 @@ data CreateFilter = CreateFilter'
 -- for backwards compatibility:
 --
 -- 'tags', 'createFilter_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the filter.
 --
 -- 'name', 'createFilter_name' - The name of the filter to create.
@@ -110,7 +110,7 @@ newCreateFilter
       }
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the filter.
 createFilter_tags :: Lens.Lens' CreateFilter (Prelude.Maybe [Tag])
 createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' {} a -> s {tags = a} :: CreateFilter) Prelude.. Lens.mapping Lens.coerced
@@ -144,7 +144,8 @@ instance Core.AWSRequest CreateFilter where
 
 instance Prelude.Hashable CreateFilter where
   hashWithSalt _salt CreateFilter' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` filterExpression

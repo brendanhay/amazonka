@@ -718,6 +718,10 @@ module Amazonka.Personalize
     Tag (Tag'),
     newTag,
 
+    -- ** TrainingDataConfig
+    TrainingDataConfig (TrainingDataConfig'),
+    newTrainingDataConfig,
+
     -- ** TunedHPOParams
     TunedHPOParams (TunedHPOParams'),
     newTunedHPOParams,

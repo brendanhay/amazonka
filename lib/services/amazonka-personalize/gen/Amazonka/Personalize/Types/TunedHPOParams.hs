@@ -61,7 +61,8 @@ instance Data.FromJSON TunedHPOParams where
       "TunedHPOParams"
       ( \x ->
           TunedHPOParams'
-            Prelude.<$> ( x Data..:? "algorithmHyperParameters"
+            Prelude.<$> ( x
+                            Data..:? "algorithmHyperParameters"
                             Data..!= Prelude.mempty
                         )
       )

@@ -136,7 +136,8 @@ instance Data.FromJSON SolutionSummary where
 
 instance Prelude.Hashable SolutionSummary where
   hashWithSalt _salt SolutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recipeArn

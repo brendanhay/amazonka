@@ -176,6 +176,7 @@ library
     Amazonka.Personalize.Types.SolutionVersion
     Amazonka.Personalize.Types.SolutionVersionSummary
     Amazonka.Personalize.Types.Tag
+    Amazonka.Personalize.Types.TrainingDataConfig
     Amazonka.Personalize.Types.TrainingMode
     Amazonka.Personalize.Types.TunedHPOParams
     Amazonka.Personalize.UntagResource

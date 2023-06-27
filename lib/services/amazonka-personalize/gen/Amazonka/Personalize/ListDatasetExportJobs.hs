@@ -116,22 +116,22 @@ instance Core.AWSPager ListDatasetExportJobs where
     | Core.stop
         ( rs
             Lens.^? listDatasetExportJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDatasetExportJobsResponse_datasetExportJobs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDatasetExportJobs_nextToken
           Lens..~ rs
           Lens.^? listDatasetExportJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatasetExportJobs where
   type
@@ -143,7 +143,8 @@ instance Core.AWSRequest ListDatasetExportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetExportJobsResponse'
-            Prelude.<$> ( x Data..?> "datasetExportJobs"
+            Prelude.<$> ( x
+                            Data..?> "datasetExportJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -152,7 +153,8 @@ instance Core.AWSRequest ListDatasetExportJobs where
 
 instance Prelude.Hashable ListDatasetExportJobs where
   hashWithSalt _salt ListDatasetExportJobs' {..} =
-    _salt `Prelude.hashWithSalt` datasetArn
+    _salt
+      `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

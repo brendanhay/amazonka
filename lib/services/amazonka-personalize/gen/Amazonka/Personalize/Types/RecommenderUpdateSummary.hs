@@ -142,7 +142,8 @@ instance Data.FromJSON RecommenderUpdateSummary where
 
 instance Prelude.Hashable RecommenderUpdateSummary where
   hashWithSalt _salt RecommenderUpdateSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` recommenderConfig

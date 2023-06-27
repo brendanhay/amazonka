@@ -69,7 +69,7 @@ data CreateBatchInferenceJob = CreateBatchInferenceJob'
     -- | The number of recommendations to retrieve.
     numResults :: Prelude.Maybe Prelude.Int,
     -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
     -- to apply to the batch inference job.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the batch inference job to create.
@@ -106,7 +106,7 @@ data CreateBatchInferenceJob = CreateBatchInferenceJob'
 -- 'numResults', 'createBatchInferenceJob_numResults' - The number of recommendations to retrieve.
 --
 -- 'tags', 'createBatchInferenceJob_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the batch inference job.
 --
 -- 'jobName', 'createBatchInferenceJob_jobName' - The name of the batch inference job to create.
@@ -168,7 +168,7 @@ createBatchInferenceJob_numResults :: Lens.Lens' CreateBatchInferenceJob (Prelud
 createBatchInferenceJob_numResults = Lens.lens (\CreateBatchInferenceJob' {numResults} -> numResults) (\s@CreateBatchInferenceJob' {} a -> s {numResults = a} :: CreateBatchInferenceJob)
 
 -- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- <https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html tags>
 -- to apply to the batch inference job.
 createBatchInferenceJob_tags :: Lens.Lens' CreateBatchInferenceJob (Prelude.Maybe [Tag])
 createBatchInferenceJob_tags = Lens.lens (\CreateBatchInferenceJob' {tags} -> tags) (\s@CreateBatchInferenceJob' {} a -> s {tags = a} :: CreateBatchInferenceJob) Prelude.. Lens.mapping Lens.coerced

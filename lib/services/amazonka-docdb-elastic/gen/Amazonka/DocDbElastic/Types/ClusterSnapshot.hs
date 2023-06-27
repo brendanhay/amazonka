@@ -183,14 +183,16 @@ instance Data.FromJSON ClusterSnapshot where
             Prelude.<*> (x Data..: "snapshotName")
             Prelude.<*> (x Data..: "status")
             Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "vpcSecurityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "vpcSecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ClusterSnapshot where
   hashWithSalt _salt ClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` adminUserName
+    _salt
+      `Prelude.hashWithSalt` adminUserName
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` clusterCreationTime
       `Prelude.hashWithSalt` kmsKeyId

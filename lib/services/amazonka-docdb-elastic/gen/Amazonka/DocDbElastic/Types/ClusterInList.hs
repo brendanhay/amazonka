@@ -91,7 +91,8 @@ instance Data.FromJSON ClusterInList where
 
 instance Prelude.Hashable ClusterInList where
   hashWithSalt _salt ClusterInList' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` status
 

@@ -123,7 +123,8 @@ instance Data.FromJSON ClusterSnapshotInList where
 
 instance Prelude.Hashable ClusterSnapshotInList where
   hashWithSalt _salt ClusterSnapshotInList' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` snapshotArn
       `Prelude.hashWithSalt` snapshotCreationTime
       `Prelude.hashWithSalt` snapshotName

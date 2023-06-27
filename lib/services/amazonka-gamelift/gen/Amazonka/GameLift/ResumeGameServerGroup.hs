@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
 -- Reinstates activity on a game server group after it has been suspended.
 -- A game server group might be suspended by the
@@ -39,7 +39,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.ResumeGameServerGroup
   ( -- * Creating a Request
     ResumeGameServerGroup (..),
@@ -129,7 +129,8 @@ instance Core.AWSRequest ResumeGameServerGroup where
 
 instance Prelude.Hashable ResumeGameServerGroup where
   hashWithSalt _salt ResumeGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupName
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` resumeActions
 
 instance Prelude.NFData ResumeGameServerGroup where

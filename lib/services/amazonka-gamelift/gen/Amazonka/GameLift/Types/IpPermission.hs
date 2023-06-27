@@ -29,22 +29,26 @@ import qualified Amazonka.Prelude as Prelude
 -- connect to server processes on an instance in a fleet. New game sessions
 -- are assigned an IP address\/port number combination, which must fall
 -- into the fleet\'s allowed ranges. Fleets with custom game builds must
--- have permissions explicitly set. For Realtime Servers fleets, GameLift
--- automatically opens two port ranges, one for TCP messaging and one for
--- UDP.
+-- have permissions explicitly set. For Realtime Servers fleets, Amazon
+-- GameLift automatically opens two port ranges, one for TCP messaging and
+-- one for UDP.
 --
 -- /See:/ 'newIpPermission' smart constructor.
 data IpPermission = IpPermission'
   { -- | A starting value for a range of allowed port numbers.
     --
-    -- For fleets using Windows and Linux builds, only ports 1026-60000 are
+    -- For fleets using Linux builds, only ports @22@ and @1026-60000@ are
     -- valid.
+    --
+    -- For fleets using Windows builds, only ports @1026-60000@ are valid.
     fromPort :: Prelude.Natural,
     -- | An ending value for a range of allowed port numbers. Port numbers are
-    -- end-inclusive. This value must be higher than @FromPort@.
+    -- end-inclusive. This value must be equal to or greater than @FromPort@.
     --
-    -- For fleets using Windows and Linux builds, only ports 1026-60000 are
+    -- For fleets using Linux builds, only ports @22@ and @1026-60000@ are
     -- valid.
+    --
+    -- For fleets using Windows builds, only ports @1026-60000@ are valid.
     toPort :: Prelude.Natural,
     -- | A range of allowed IP addresses. This value must be expressed in CIDR
     -- notation. Example: \"@000.000.000.000\/[subnet mask]@\" or optionally
@@ -65,14 +69,18 @@ data IpPermission = IpPermission'
 --
 -- 'fromPort', 'ipPermission_fromPort' - A starting value for a range of allowed port numbers.
 --
--- For fleets using Windows and Linux builds, only ports 1026-60000 are
+-- For fleets using Linux builds, only ports @22@ and @1026-60000@ are
 -- valid.
+--
+-- For fleets using Windows builds, only ports @1026-60000@ are valid.
 --
 -- 'toPort', 'ipPermission_toPort' - An ending value for a range of allowed port numbers. Port numbers are
--- end-inclusive. This value must be higher than @FromPort@.
+-- end-inclusive. This value must be equal to or greater than @FromPort@.
 --
--- For fleets using Windows and Linux builds, only ports 1026-60000 are
+-- For fleets using Linux builds, only ports @22@ and @1026-60000@ are
 -- valid.
+--
+-- For fleets using Windows builds, only ports @1026-60000@ are valid.
 --
 -- 'ipRange', 'ipPermission_ipRange' - A range of allowed IP addresses. This value must be expressed in CIDR
 -- notation. Example: \"@000.000.000.000\/[subnet mask]@\" or optionally
@@ -103,16 +111,20 @@ newIpPermission
 
 -- | A starting value for a range of allowed port numbers.
 --
--- For fleets using Windows and Linux builds, only ports 1026-60000 are
+-- For fleets using Linux builds, only ports @22@ and @1026-60000@ are
 -- valid.
+--
+-- For fleets using Windows builds, only ports @1026-60000@ are valid.
 ipPermission_fromPort :: Lens.Lens' IpPermission Prelude.Natural
 ipPermission_fromPort = Lens.lens (\IpPermission' {fromPort} -> fromPort) (\s@IpPermission' {} a -> s {fromPort = a} :: IpPermission)
 
 -- | An ending value for a range of allowed port numbers. Port numbers are
--- end-inclusive. This value must be higher than @FromPort@.
+-- end-inclusive. This value must be equal to or greater than @FromPort@.
 --
--- For fleets using Windows and Linux builds, only ports 1026-60000 are
+-- For fleets using Linux builds, only ports @22@ and @1026-60000@ are
 -- valid.
+--
+-- For fleets using Windows builds, only ports @1026-60000@ are valid.
 ipPermission_toPort :: Lens.Lens' IpPermission Prelude.Natural
 ipPermission_toPort = Lens.lens (\IpPermission' {toPort} -> toPort) (\s@IpPermission' {} a -> s {toPort = a} :: IpPermission)
 
@@ -140,7 +152,8 @@ instance Data.FromJSON IpPermission where
 
 instance Prelude.Hashable IpPermission where
   hashWithSalt _salt IpPermission' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` toPort
       `Prelude.hashWithSalt` ipRange
       `Prelude.hashWithSalt` protocol

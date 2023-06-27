@@ -36,7 +36,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift Fleets>
 module Amazonka.GameLift.DeleteFleet
   ( -- * Creating a Request
     DeleteFleet (..),

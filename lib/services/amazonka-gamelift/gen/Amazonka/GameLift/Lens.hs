@@ -21,6 +21,7 @@ module Amazonka.GameLift.Lens
     acceptMatchResponse_httpStatus,
 
     -- ** ClaimGameServer
+    claimGameServer_filterOption,
     claimGameServer_gameServerData,
     claimGameServer_gameServerId,
     claimGameServer_gameServerGroupName,
@@ -870,6 +871,9 @@ module Amazonka.GameLift.Lens
     -- ** CertificateConfiguration
     certificateConfiguration_certificateType,
 
+    -- ** ClaimFilterOption
+    claimFilterOption_instanceStatuses,
+
     -- ** Compute
     compute_computeArn,
     compute_computeName,
@@ -1375,6 +1379,7 @@ import Amazonka.GameLift.Types.AttributeValue
 import Amazonka.GameLift.Types.AwsCredentials
 import Amazonka.GameLift.Types.Build
 import Amazonka.GameLift.Types.CertificateConfiguration
+import Amazonka.GameLift.Types.ClaimFilterOption
 import Amazonka.GameLift.Types.Compute
 import Amazonka.GameLift.Types.DesiredPlayerSession
 import Amazonka.GameLift.Types.EC2InstanceCounts

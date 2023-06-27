@@ -77,7 +77,7 @@ data GameSessionPlacement = GameSessionPlacement'
     -- request is running. This value is set once the new game session is
     -- placed (placement status is @FULFILLED@).
     gameSessionRegion :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of the game session. To connect to a GameLift game
+    -- | The IP address of the game session. To connect to a Amazon GameLift game
     -- server, an app needs both the IP address and port number. This value is
     -- set once the new game session is placed (placement status is
     -- @FULFILLED@).
@@ -104,9 +104,9 @@ data GameSessionPlacement = GameSessionPlacement'
     -- latency that a player experiences when connected to Amazon Web Services
     -- Regions.
     playerLatencies :: Prelude.Maybe [PlayerLatency],
-    -- | The port number for the game session. To connect to a GameLift game
-    -- server, an app needs both the IP address and port number. This value is
-    -- set once the new game session is placed (placement status is
+    -- | The port number for the game session. To connect to a Amazon GameLift
+    -- game server, an app needs both the IP address and port number. This
+    -- value is set once the new game session is placed (placement status is
     -- @FULFILLED@).
     port :: Prelude.Maybe Prelude.Natural,
     -- | Time stamp indicating when this request was placed in the queue. Format
@@ -128,7 +128,7 @@ data GameSessionPlacement = GameSessionPlacement'
     --     before the time limit expired. You can resubmit the placement
     --     request as needed.
     --
-    -- -   __FAILED__ -- GameLift is not able to complete the process of
+    -- -   __FAILED__ -- Amazon GameLift is not able to complete the process of
     --     placing the game session. Common reasons are the game session
     --     terminated before the placement process was completed, or an
     --     unexpected internal error.
@@ -188,7 +188,7 @@ data GameSessionPlacement = GameSessionPlacement'
 -- request is running. This value is set once the new game session is
 -- placed (placement status is @FULFILLED@).
 --
--- 'ipAddress', 'gameSessionPlacement_ipAddress' - The IP address of the game session. To connect to a GameLift game
+-- 'ipAddress', 'gameSessionPlacement_ipAddress' - The IP address of the game session. To connect to a Amazon GameLift game
 -- server, an app needs both the IP address and port number. This value is
 -- set once the new game session is placed (placement status is
 -- @FULFILLED@).
@@ -215,9 +215,9 @@ data GameSessionPlacement = GameSessionPlacement'
 -- latency that a player experiences when connected to Amazon Web Services
 -- Regions.
 --
--- 'port', 'gameSessionPlacement_port' - The port number for the game session. To connect to a GameLift game
--- server, an app needs both the IP address and port number. This value is
--- set once the new game session is placed (placement status is
+-- 'port', 'gameSessionPlacement_port' - The port number for the game session. To connect to a Amazon GameLift
+-- game server, an app needs both the IP address and port number. This
+-- value is set once the new game session is placed (placement status is
 -- @FULFILLED@).
 --
 -- 'startTime', 'gameSessionPlacement_startTime' - Time stamp indicating when this request was placed in the queue. Format
@@ -239,7 +239,7 @@ data GameSessionPlacement = GameSessionPlacement'
 --     before the time limit expired. You can resubmit the placement
 --     request as needed.
 --
--- -   __FAILED__ -- GameLift is not able to complete the process of
+-- -   __FAILED__ -- Amazon GameLift is not able to complete the process of
 --     placing the game session. Common reasons are the game session
 --     terminated before the placement process was completed, or an
 --     unexpected internal error.
@@ -329,7 +329,7 @@ gameSessionPlacement_gameSessionQueueName = Lens.lens (\GameSessionPlacement' {g
 gameSessionPlacement_gameSessionRegion :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
 gameSessionPlacement_gameSessionRegion = Lens.lens (\GameSessionPlacement' {gameSessionRegion} -> gameSessionRegion) (\s@GameSessionPlacement' {} a -> s {gameSessionRegion = a} :: GameSessionPlacement)
 
--- | The IP address of the game session. To connect to a GameLift game
+-- | The IP address of the game session. To connect to a Amazon GameLift game
 -- server, an app needs both the IP address and port number. This value is
 -- set once the new game session is placed (placement status is
 -- @FULFILLED@).
@@ -368,9 +368,9 @@ gameSessionPlacement_placementId = Lens.lens (\GameSessionPlacement' {placementI
 gameSessionPlacement_playerLatencies :: Lens.Lens' GameSessionPlacement (Prelude.Maybe [PlayerLatency])
 gameSessionPlacement_playerLatencies = Lens.lens (\GameSessionPlacement' {playerLatencies} -> playerLatencies) (\s@GameSessionPlacement' {} a -> s {playerLatencies = a} :: GameSessionPlacement) Prelude.. Lens.mapping Lens.coerced
 
--- | The port number for the game session. To connect to a GameLift game
--- server, an app needs both the IP address and port number. This value is
--- set once the new game session is placed (placement status is
+-- | The port number for the game session. To connect to a Amazon GameLift
+-- game server, an app needs both the IP address and port number. This
+-- value is set once the new game session is placed (placement status is
 -- @FULFILLED@).
 gameSessionPlacement_port :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Natural)
 gameSessionPlacement_port = Lens.lens (\GameSessionPlacement' {port} -> port) (\s@GameSessionPlacement' {} a -> s {port = a} :: GameSessionPlacement)
@@ -396,7 +396,7 @@ gameSessionPlacement_startTime = Lens.lens (\GameSessionPlacement' {startTime} -
 --     before the time limit expired. You can resubmit the placement
 --     request as needed.
 --
--- -   __FAILED__ -- GameLift is not able to complete the process of
+-- -   __FAILED__ -- Amazon GameLift is not able to complete the process of
 --     placing the game session. Common reasons are the game session
 --     terminated before the placement process was completed, or an
 --     unexpected internal error.
@@ -421,11 +421,13 @@ instance Data.FromJSON GameSessionPlacement where
             Prelude.<*> (x Data..:? "IpAddress")
             Prelude.<*> (x Data..:? "MatchmakerData")
             Prelude.<*> (x Data..:? "MaximumPlayerSessionCount")
-            Prelude.<*> ( x Data..:? "PlacedPlayerSessions"
+            Prelude.<*> ( x
+                            Data..:? "PlacedPlayerSessions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PlacementId")
-            Prelude.<*> ( x Data..:? "PlayerLatencies"
+            Prelude.<*> ( x
+                            Data..:? "PlayerLatencies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Port")
@@ -435,7 +437,8 @@ instance Data.FromJSON GameSessionPlacement where
 
 instance Prelude.Hashable GameSessionPlacement where
   hashWithSalt _salt GameSessionPlacement' {..} =
-    _salt `Prelude.hashWithSalt` dnsName
+    _salt
+      `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` gameProperties
       `Prelude.hashWithSalt` gameSessionArn

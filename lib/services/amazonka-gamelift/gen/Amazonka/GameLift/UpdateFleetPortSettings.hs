@@ -37,7 +37,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift fleets>
 module Amazonka.GameLift.UpdateFleetPortSettings
   ( -- * Creating a Request
     UpdateFleetPortSettings (..),
@@ -183,8 +183,8 @@ instance Data.ToQuery UpdateFleetPortSettings where
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet that was updated.
@@ -204,8 +204,8 @@ data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
 --
 -- 'fleetArn', 'updateFleetPortSettingsResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'updateFleetPortSettingsResponse_fleetId' - A unique identifier for the fleet that was updated.
@@ -225,8 +225,8 @@ newUpdateFleetPortSettingsResponse pHttpStatus_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 updateFleetPortSettingsResponse_fleetArn :: Lens.Lens' UpdateFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
 updateFleetPortSettingsResponse_fleetArn = Lens.lens (\UpdateFleetPortSettingsResponse' {fleetArn} -> fleetArn) (\s@UpdateFleetPortSettingsResponse' {} a -> s {fleetArn = a} :: UpdateFleetPortSettingsResponse)

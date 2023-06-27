@@ -24,14 +24,15 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | GameLift Anywhere configuration options for your Anywhere fleets.
+-- | Amazon GameLift Anywhere configuration options for your Anywhere fleets.
 --
 -- /See:/ 'newAnywhereConfiguration' smart constructor.
 data AnywhereConfiguration = AnywhereConfiguration'
-  { -- | The cost to run your fleet per hour. GameLift uses the provided cost of
-    -- your fleet to balance usage in queues. For more information about
-    -- queues, see
-    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html Setting up queues>.
+  { -- | The cost to run your fleet per hour. Amazon GameLift uses the provided
+    -- cost of your fleet to balance usage in queues. For more information
+    -- about queues, see
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html Setting up queues>
+    -- in the /Amazon GameLift Developer Guide/.
     cost :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,10 +45,11 @@ data AnywhereConfiguration = AnywhereConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cost', 'anywhereConfiguration_cost' - The cost to run your fleet per hour. GameLift uses the provided cost of
--- your fleet to balance usage in queues. For more information about
--- queues, see
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html Setting up queues>.
+-- 'cost', 'anywhereConfiguration_cost' - The cost to run your fleet per hour. Amazon GameLift uses the provided
+-- cost of your fleet to balance usage in queues. For more information
+-- about queues, see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html Setting up queues>
+-- in the /Amazon GameLift Developer Guide/.
 newAnywhereConfiguration ::
   -- | 'cost'
   Prelude.Text ->
@@ -55,10 +57,11 @@ newAnywhereConfiguration ::
 newAnywhereConfiguration pCost_ =
   AnywhereConfiguration' {cost = pCost_}
 
--- | The cost to run your fleet per hour. GameLift uses the provided cost of
--- your fleet to balance usage in queues. For more information about
--- queues, see
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html Setting up queues>.
+-- | The cost to run your fleet per hour. Amazon GameLift uses the provided
+-- cost of your fleet to balance usage in queues. For more information
+-- about queues, see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html Setting up queues>
+-- in the /Amazon GameLift Developer Guide/.
 anywhereConfiguration_cost :: Lens.Lens' AnywhereConfiguration Prelude.Text
 anywhereConfiguration_cost = Lens.lens (\AnywhereConfiguration' {cost} -> cost) (\s@AnywhereConfiguration' {} a -> s {cost = a} :: AnywhereConfiguration)
 

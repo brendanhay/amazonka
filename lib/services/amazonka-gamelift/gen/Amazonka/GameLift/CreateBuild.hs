@@ -24,30 +24,30 @@
 -- files. Combine game server binaries into a zip file for use with Amazon
 -- GameLift.
 --
--- When setting up a new game build for GameLift, we recommend using the
--- CLI command
+-- When setting up a new game build for Amazon GameLift, we recommend using
+-- the CLI command
 -- __<https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html upload-build>__
 -- . This helper command combines two tasks: (1) it uploads your build
--- files from a file directory to a GameLift Amazon S3 location, and (2) it
--- creates a new build resource.
+-- files from a file directory to an Amazon GameLift Amazon S3 location,
+-- and (2) it creates a new build resource.
 --
--- You can use the operation in the following scenarios:
+-- You can use the @CreateBuild@ operation in the following scenarios:
 --
--- -   To create a new game build with build files that are in an Amazon S3
+-- -   Create a new game build with build files that are in an Amazon S3
 --     location under an Amazon Web Services account that you control. To
 --     use this option, you give Amazon GameLift access to the Amazon S3
 --     bucket. With permissions in place, specify a build name, operating
 --     system, and the Amazon S3 storage location of your game build.
 --
--- -   To directly upload your build files to a GameLift Amazon S3
---     location. To use this option, specify a build name and operating
---     system. This operation creates a new build resource and also returns
---     an Amazon S3 location with temporary access credentials. Use the
---     credentials to manually upload your build files to the specified
---     Amazon S3 location. For more information, see
+-- -   Upload your build files to a Amazon GameLift Amazon S3 location. To
+--     use this option, specify a build name and operating system. This
+--     operation creates a new build resource and also returns an Amazon S3
+--     location with temporary access credentials. Use the credentials to
+--     manually upload your build files to the specified Amazon S3
+--     location. For more information, see
 --     <https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html Uploading Objects>
 --     in the /Amazon S3 Developer Guide/. After you upload build files to
---     the GameLift Amazon S3 location, you can\'t update them.
+--     the Amazon GameLift Amazon S3 location, you can\'t update them.
 --
 -- If successful, this operation creates a new build resource with a unique
 -- build ID and places it in @INITIALIZED@ status. A build must be in
@@ -95,19 +95,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateBuild' smart constructor.
 data CreateBuild = CreateBuild'
-  { -- | A descriptive label associated with a build. Build names do not need to
+  { -- | A descriptive label associated with a build. Build names don\'t need to
     -- be unique. You can change this value later.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The operating system that you built the game server binaries to run on.
-    -- This value determines the type of fleet resources that you can use for
-    -- this build. If your game build contains multiple executables, they all
-    -- must run on the same operating system. If an operating system is not
-    -- specified when creating a build, GameLift uses the default value
-    -- (WINDOWS_2012). This value cannot be changed later.
+    -- | The operating system that your game server binaries run on. This value
+    -- determines the type of fleet resources that you use for this build. If
+    -- your game build contains multiple executables, they all must run on the
+    -- same operating system. You must specify a valid operating system in this
+    -- request. There is no default value. You can\'t change a build\'s
+    -- operating system later.
+    --
+    -- If you have active fleets using the Windows Server 2012 operating
+    -- system, you can continue to create new builds using this OS until
+    -- October 10, 2023, when Microsoft ends its support. All others must use
+    -- Windows Server 2016 when creating new Windows-based builds.
     operatingSystem :: Prelude.Maybe OperatingSystem,
     -- | A server SDK version you used when integrating your game server build
-    -- with GameLift. For more information see
+    -- with Amazon GameLift. For more information see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html Integrate games with custom game servers>.
+    -- By default Amazon GameLift sets this value to @4.0.2@.
     serverSdkVersion :: Prelude.Maybe Prelude.Text,
     -- | Information indicating where your game build files are stored. Use this
     -- parameter only when creating a build with files stored in an Amazon S3
@@ -136,7 +142,7 @@ data CreateBuild = CreateBuild'
     -- limits.
     tags :: Prelude.Maybe [Tag],
     -- | Version information associated with a build or script. Version strings
-    -- do not need to be unique. You can change this value later.
+    -- don\'t need to be unique. You can change this value later.
     version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -149,19 +155,25 @@ data CreateBuild = CreateBuild'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createBuild_name' - A descriptive label associated with a build. Build names do not need to
+-- 'name', 'createBuild_name' - A descriptive label associated with a build. Build names don\'t need to
 -- be unique. You can change this value later.
 --
--- 'operatingSystem', 'createBuild_operatingSystem' - The operating system that you built the game server binaries to run on.
--- This value determines the type of fleet resources that you can use for
--- this build. If your game build contains multiple executables, they all
--- must run on the same operating system. If an operating system is not
--- specified when creating a build, GameLift uses the default value
--- (WINDOWS_2012). This value cannot be changed later.
+-- 'operatingSystem', 'createBuild_operatingSystem' - The operating system that your game server binaries run on. This value
+-- determines the type of fleet resources that you use for this build. If
+-- your game build contains multiple executables, they all must run on the
+-- same operating system. You must specify a valid operating system in this
+-- request. There is no default value. You can\'t change a build\'s
+-- operating system later.
+--
+-- If you have active fleets using the Windows Server 2012 operating
+-- system, you can continue to create new builds using this OS until
+-- October 10, 2023, when Microsoft ends its support. All others must use
+-- Windows Server 2016 when creating new Windows-based builds.
 --
 -- 'serverSdkVersion', 'createBuild_serverSdkVersion' - A server SDK version you used when integrating your game server build
--- with GameLift. For more information see
+-- with Amazon GameLift. For more information see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html Integrate games with custom game servers>.
+-- By default Amazon GameLift sets this value to @4.0.2@.
 --
 -- 'storageLocation', 'createBuild_storageLocation' - Information indicating where your game build files are stored. Use this
 -- parameter only when creating a build with files stored in an Amazon S3
@@ -190,7 +202,7 @@ data CreateBuild = CreateBuild'
 -- limits.
 --
 -- 'version', 'createBuild_version' - Version information associated with a build or script. Version strings
--- do not need to be unique. You can change this value later.
+-- don\'t need to be unique. You can change this value later.
 newCreateBuild ::
   CreateBuild
 newCreateBuild =
@@ -203,23 +215,29 @@ newCreateBuild =
       version = Prelude.Nothing
     }
 
--- | A descriptive label associated with a build. Build names do not need to
+-- | A descriptive label associated with a build. Build names don\'t need to
 -- be unique. You can change this value later.
 createBuild_name :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
 createBuild_name = Lens.lens (\CreateBuild' {name} -> name) (\s@CreateBuild' {} a -> s {name = a} :: CreateBuild)
 
--- | The operating system that you built the game server binaries to run on.
--- This value determines the type of fleet resources that you can use for
--- this build. If your game build contains multiple executables, they all
--- must run on the same operating system. If an operating system is not
--- specified when creating a build, GameLift uses the default value
--- (WINDOWS_2012). This value cannot be changed later.
+-- | The operating system that your game server binaries run on. This value
+-- determines the type of fleet resources that you use for this build. If
+-- your game build contains multiple executables, they all must run on the
+-- same operating system. You must specify a valid operating system in this
+-- request. There is no default value. You can\'t change a build\'s
+-- operating system later.
+--
+-- If you have active fleets using the Windows Server 2012 operating
+-- system, you can continue to create new builds using this OS until
+-- October 10, 2023, when Microsoft ends its support. All others must use
+-- Windows Server 2016 when creating new Windows-based builds.
 createBuild_operatingSystem :: Lens.Lens' CreateBuild (Prelude.Maybe OperatingSystem)
 createBuild_operatingSystem = Lens.lens (\CreateBuild' {operatingSystem} -> operatingSystem) (\s@CreateBuild' {} a -> s {operatingSystem = a} :: CreateBuild)
 
 -- | A server SDK version you used when integrating your game server build
--- with GameLift. For more information see
+-- with Amazon GameLift. For more information see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html Integrate games with custom game servers>.
+-- By default Amazon GameLift sets this value to @4.0.2@.
 createBuild_serverSdkVersion :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
 createBuild_serverSdkVersion = Lens.lens (\CreateBuild' {serverSdkVersion} -> serverSdkVersion) (\s@CreateBuild' {} a -> s {serverSdkVersion = a} :: CreateBuild)
 
@@ -254,7 +272,7 @@ createBuild_tags :: Lens.Lens' CreateBuild (Prelude.Maybe [Tag])
 createBuild_tags = Lens.lens (\CreateBuild' {tags} -> tags) (\s@CreateBuild' {} a -> s {tags = a} :: CreateBuild) Prelude.. Lens.mapping Lens.coerced
 
 -- | Version information associated with a build or script. Version strings
--- do not need to be unique. You can change this value later.
+-- don\'t need to be unique. You can change this value later.
 createBuild_version :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
 createBuild_version = Lens.lens (\CreateBuild' {version} -> version) (\s@CreateBuild' {} a -> s {version = a} :: CreateBuild)
 
@@ -274,7 +292,8 @@ instance Core.AWSRequest CreateBuild where
 
 instance Prelude.Hashable CreateBuild where
   hashWithSalt _salt CreateBuild' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` serverSdkVersion
       `Prelude.hashWithSalt` storageLocation

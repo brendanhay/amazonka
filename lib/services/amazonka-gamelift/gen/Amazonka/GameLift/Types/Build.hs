@@ -34,8 +34,8 @@ import qualified Amazonka.Prelude as Prelude
 data Build = Build'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- assigned to a GameLift build resource and uniquely identifies it. ARNs
-    -- are unique across all Regions. Format is
+    -- assigned to a Amazon GameLift build resource and uniquely identifies it.
+    -- ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::build\/build-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     -- In a GameLift build ARN, the resource ID matches the /BuildId/ value.
     buildArn :: Prelude.Maybe Prelude.Text,
@@ -45,7 +45,7 @@ data Build = Build'
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | A descriptive label associated with a build. Build names do not need to
+    -- | A descriptive label associated with a build. Build names don\'t need to
     -- be unique. It can be set using
     -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html CreateBuild>
     -- or
@@ -55,7 +55,7 @@ data Build = Build'
     -- value determines the type of fleet resources that you can use for this
     -- build.
     operatingSystem :: Prelude.Maybe OperatingSystem,
-    -- | The GameLift Server SDK version used to develop your game server.
+    -- | The Amazon GameLift Server SDK version used to develop your game server.
     serverSdkVersion :: Prelude.Maybe Prelude.Text,
     -- | File size of the uploaded game build, expressed in bytes. When the build
     -- status is @INITIALIZED@ or when using a custom Amazon S3 storage
@@ -77,7 +77,7 @@ data Build = Build'
     --     fleets for this build.
     status :: Prelude.Maybe BuildStatus,
     -- | Version information associated with a build or script. Version strings
-    -- do not need to be unique.
+    -- don\'t need to be unique.
     version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,8 +92,8 @@ data Build = Build'
 --
 -- 'buildArn', 'build_buildArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- assigned to a GameLift build resource and uniquely identifies it. ARNs
--- are unique across all Regions. Format is
+-- assigned to a Amazon GameLift build resource and uniquely identifies it.
+-- ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::build\/build-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 -- In a GameLift build ARN, the resource ID matches the /BuildId/ value.
 --
@@ -103,7 +103,7 @@ data Build = Build'
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 --
--- 'name', 'build_name' - A descriptive label associated with a build. Build names do not need to
+-- 'name', 'build_name' - A descriptive label associated with a build. Build names don\'t need to
 -- be unique. It can be set using
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html CreateBuild>
 -- or
@@ -113,7 +113,7 @@ data Build = Build'
 -- value determines the type of fleet resources that you can use for this
 -- build.
 --
--- 'serverSdkVersion', 'build_serverSdkVersion' - The GameLift Server SDK version used to develop your game server.
+-- 'serverSdkVersion', 'build_serverSdkVersion' - The Amazon GameLift Server SDK version used to develop your game server.
 --
 -- 'sizeOnDisk', 'build_sizeOnDisk' - File size of the uploaded game build, expressed in bytes. When the build
 -- status is @INITIALIZED@ or when using a custom Amazon S3 storage
@@ -135,7 +135,7 @@ data Build = Build'
 --     fleets for this build.
 --
 -- 'version', 'build_version' - Version information associated with a build or script. Version strings
--- do not need to be unique.
+-- don\'t need to be unique.
 newBuild ::
   Build
 newBuild =
@@ -153,8 +153,8 @@ newBuild =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- assigned to a GameLift build resource and uniquely identifies it. ARNs
--- are unique across all Regions. Format is
+-- assigned to a Amazon GameLift build resource and uniquely identifies it.
+-- ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::build\/build-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 -- In a GameLift build ARN, the resource ID matches the /BuildId/ value.
 build_buildArn :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
@@ -170,7 +170,7 @@ build_buildId = Lens.lens (\Build' {buildId} -> buildId) (\s@Build' {} a -> s {b
 build_creationTime :: Lens.Lens' Build (Prelude.Maybe Prelude.UTCTime)
 build_creationTime = Lens.lens (\Build' {creationTime} -> creationTime) (\s@Build' {} a -> s {creationTime = a} :: Build) Prelude.. Lens.mapping Data._Time
 
--- | A descriptive label associated with a build. Build names do not need to
+-- | A descriptive label associated with a build. Build names don\'t need to
 -- be unique. It can be set using
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html CreateBuild>
 -- or
@@ -184,7 +184,7 @@ build_name = Lens.lens (\Build' {name} -> name) (\s@Build' {} a -> s {name = a} 
 build_operatingSystem :: Lens.Lens' Build (Prelude.Maybe OperatingSystem)
 build_operatingSystem = Lens.lens (\Build' {operatingSystem} -> operatingSystem) (\s@Build' {} a -> s {operatingSystem = a} :: Build)
 
--- | The GameLift Server SDK version used to develop your game server.
+-- | The Amazon GameLift Server SDK version used to develop your game server.
 build_serverSdkVersion :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_serverSdkVersion = Lens.lens (\Build' {serverSdkVersion} -> serverSdkVersion) (\s@Build' {} a -> s {serverSdkVersion = a} :: Build)
 
@@ -212,7 +212,7 @@ build_status :: Lens.Lens' Build (Prelude.Maybe BuildStatus)
 build_status = Lens.lens (\Build' {status} -> status) (\s@Build' {} a -> s {status = a} :: Build)
 
 -- | Version information associated with a build or script. Version strings
--- do not need to be unique.
+-- don\'t need to be unique.
 build_version :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_version = Lens.lens (\Build' {version} -> version) (\s@Build' {} a -> s {version = a} :: Build)
 
@@ -235,7 +235,8 @@ instance Data.FromJSON Build where
 
 instance Prelude.Hashable Build where
   hashWithSalt _salt Build' {..} =
-    _salt `Prelude.hashWithSalt` buildArn
+    _salt
+      `Prelude.hashWithSalt` buildArn
       `Prelude.hashWithSalt` buildId
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` name

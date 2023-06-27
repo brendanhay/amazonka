@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- feature must be enabled when creating the fleet. All instances in a
 -- fleet share the same certificate. The certificate can be retrieved by
 -- calling the
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html GameLift Server SDK>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html Amazon GameLift Server SDK>
 -- operation @GetInstanceCertificate@.
 --
 -- /See:/ 'newCertificateConfiguration' smart constructor.

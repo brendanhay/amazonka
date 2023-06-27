@@ -20,22 +20,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
 -- Locates an available game server and temporarily reserves it to host
 -- gameplay and players. This operation is called from a game client or
 -- client service (such as a matchmaker) to request hosting resources for a
--- new game session. In response, GameLift FleetIQ locates an available
--- game server, places it in @CLAIMED@ status for 60 seconds, and returns
--- connection information that players can use to connect to the game
--- server.
+-- new game session. In response, Amazon GameLift FleetIQ locates an
+-- available game server, places it in @CLAIMED@ status for 60 seconds, and
+-- returns connection information that players can use to connect to the
+-- game server.
 --
 -- To claim a game server, identify a game server group. You can also
--- specify a game server ID, although this approach bypasses GameLift
--- FleetIQ placement optimization. Optionally, include game data to pass to
--- the game server at the start of a game session, such as a game map or
--- player information.
+-- specify a game server ID, although this approach bypasses Amazon
+-- GameLift FleetIQ placement optimization. Optionally, include game data
+-- to pass to the game server at the start of a game session, such as a
+-- game map or player information. Filter options may be included to
+-- further restrict how a game server is chosen, such as only allowing game
+-- servers on @ACTIVE@ instances to be claimed.
 --
 -- When a game server is successfully claimed, connection information is
 -- returned. A claimed game server\'s utilization status remains
@@ -53,21 +55,20 @@
 --
 -- -   If the game server claim status is @CLAIMED@.
 --
--- When claiming a specific game server, this request will succeed even if
--- the game server is running on an instance in @DRAINING@ status. To avoid
--- this, first check the instance status by calling
--- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameServerInstances.html DescribeGameServerInstances>
--- .
+-- -   If the game server is running on an instance in @DRAINING@ status
+--     and provided filter option does not allow placing on @DRAINING@
+--     instances.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.ClaimGameServer
   ( -- * Creating a Request
     ClaimGameServer (..),
     newClaimGameServer,
 
     -- * Request Lenses
+    claimGameServer_filterOption,
     claimGameServer_gameServerData,
     claimGameServer_gameServerId,
     claimGameServer_gameServerGroupName,
@@ -92,18 +93,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newClaimGameServer' smart constructor.
 data ClaimGameServer = ClaimGameServer'
-  { -- | A set of custom game server properties, formatted as a single string
+  { -- | Object that restricts how a claimed game server is chosen.
+    filterOption :: Prelude.Maybe ClaimFilterOption,
+    -- | A set of custom game server properties, formatted as a single string
     -- value. This data is passed to a game client or service when it requests
     -- information on game servers.
     gameServerData :: Prelude.Maybe Prelude.Text,
     -- | A custom string that uniquely identifies the game server to claim. If
-    -- this parameter is left empty, GameLift FleetIQ searches for an available
-    -- game server in the specified game server group.
+    -- this parameter is left empty, Amazon GameLift FleetIQ searches for an
+    -- available game server in the specified game server group.
     gameServerId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the game server group where the game server is
     -- running. If you are not specifying a game server to claim, this value
-    -- identifies where you want GameLift FleetIQ to look for an available game
-    -- server to claim.
+    -- identifies where you want Amazon GameLift FleetIQ to look for an
+    -- available game server to claim.
     gameServerGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -116,28 +119,35 @@ data ClaimGameServer = ClaimGameServer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filterOption', 'claimGameServer_filterOption' - Object that restricts how a claimed game server is chosen.
+--
 -- 'gameServerData', 'claimGameServer_gameServerData' - A set of custom game server properties, formatted as a single string
 -- value. This data is passed to a game client or service when it requests
 -- information on game servers.
 --
 -- 'gameServerId', 'claimGameServer_gameServerId' - A custom string that uniquely identifies the game server to claim. If
--- this parameter is left empty, GameLift FleetIQ searches for an available
--- game server in the specified game server group.
+-- this parameter is left empty, Amazon GameLift FleetIQ searches for an
+-- available game server in the specified game server group.
 --
 -- 'gameServerGroupName', 'claimGameServer_gameServerGroupName' - A unique identifier for the game server group where the game server is
 -- running. If you are not specifying a game server to claim, this value
--- identifies where you want GameLift FleetIQ to look for an available game
--- server to claim.
+-- identifies where you want Amazon GameLift FleetIQ to look for an
+-- available game server to claim.
 newClaimGameServer ::
   -- | 'gameServerGroupName'
   Prelude.Text ->
   ClaimGameServer
 newClaimGameServer pGameServerGroupName_ =
   ClaimGameServer'
-    { gameServerData = Prelude.Nothing,
+    { filterOption = Prelude.Nothing,
+      gameServerData = Prelude.Nothing,
       gameServerId = Prelude.Nothing,
       gameServerGroupName = pGameServerGroupName_
     }
+
+-- | Object that restricts how a claimed game server is chosen.
+claimGameServer_filterOption :: Lens.Lens' ClaimGameServer (Prelude.Maybe ClaimFilterOption)
+claimGameServer_filterOption = Lens.lens (\ClaimGameServer' {filterOption} -> filterOption) (\s@ClaimGameServer' {} a -> s {filterOption = a} :: ClaimGameServer)
 
 -- | A set of custom game server properties, formatted as a single string
 -- value. This data is passed to a game client or service when it requests
@@ -146,15 +156,15 @@ claimGameServer_gameServerData :: Lens.Lens' ClaimGameServer (Prelude.Maybe Prel
 claimGameServer_gameServerData = Lens.lens (\ClaimGameServer' {gameServerData} -> gameServerData) (\s@ClaimGameServer' {} a -> s {gameServerData = a} :: ClaimGameServer)
 
 -- | A custom string that uniquely identifies the game server to claim. If
--- this parameter is left empty, GameLift FleetIQ searches for an available
--- game server in the specified game server group.
+-- this parameter is left empty, Amazon GameLift FleetIQ searches for an
+-- available game server in the specified game server group.
 claimGameServer_gameServerId :: Lens.Lens' ClaimGameServer (Prelude.Maybe Prelude.Text)
 claimGameServer_gameServerId = Lens.lens (\ClaimGameServer' {gameServerId} -> gameServerId) (\s@ClaimGameServer' {} a -> s {gameServerId = a} :: ClaimGameServer)
 
 -- | A unique identifier for the game server group where the game server is
 -- running. If you are not specifying a game server to claim, this value
--- identifies where you want GameLift FleetIQ to look for an available game
--- server to claim.
+-- identifies where you want Amazon GameLift FleetIQ to look for an
+-- available game server to claim.
 claimGameServer_gameServerGroupName :: Lens.Lens' ClaimGameServer Prelude.Text
 claimGameServer_gameServerGroupName = Lens.lens (\ClaimGameServer' {gameServerGroupName} -> gameServerGroupName) (\s@ClaimGameServer' {} a -> s {gameServerGroupName = a} :: ClaimGameServer)
 
@@ -174,13 +184,16 @@ instance Core.AWSRequest ClaimGameServer where
 
 instance Prelude.Hashable ClaimGameServer where
   hashWithSalt _salt ClaimGameServer' {..} =
-    _salt `Prelude.hashWithSalt` gameServerData
+    _salt
+      `Prelude.hashWithSalt` filterOption
+      `Prelude.hashWithSalt` gameServerData
       `Prelude.hashWithSalt` gameServerId
       `Prelude.hashWithSalt` gameServerGroupName
 
 instance Prelude.NFData ClaimGameServer where
   rnf ClaimGameServer' {..} =
-    Prelude.rnf gameServerData
+    Prelude.rnf filterOption
+      `Prelude.seq` Prelude.rnf gameServerData
       `Prelude.seq` Prelude.rnf gameServerId
       `Prelude.seq` Prelude.rnf gameServerGroupName
 
@@ -201,7 +214,8 @@ instance Data.ToJSON ClaimGameServer where
   toJSON ClaimGameServer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GameServerData" Data..=)
+          [ ("FilterOption" Data..=) Prelude.<$> filterOption,
+            ("GameServerData" Data..=)
               Prelude.<$> gameServerData,
             ("GameServerId" Data..=) Prelude.<$> gameServerId,
             Prelude.Just

@@ -11,19 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.GameLift.Types.OperatingSystem
+-- Module      : Amazonka.GameLift.Types.FilterInstanceStatus
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.GameLift.Types.OperatingSystem
-  ( OperatingSystem
+module Amazonka.GameLift.Types.FilterInstanceStatus
+  ( FilterInstanceStatus
       ( ..,
-        OperatingSystem_AMAZON_LINUX,
-        OperatingSystem_AMAZON_LINUX_2,
-        OperatingSystem_WINDOWS_2012,
-        OperatingSystem_WINDOWS_2016
+        FilterInstanceStatus_ACTIVE,
+        FilterInstanceStatus_DRAINING
       ),
   )
 where
@@ -32,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype OperatingSystem = OperatingSystem'
-  { fromOperatingSystem ::
+newtype FilterInstanceStatus = FilterInstanceStatus'
+  { fromFilterInstanceStatus ::
       Data.Text
   }
   deriving stock
@@ -60,22 +58,14 @@ newtype OperatingSystem = OperatingSystem'
       Data.ToXML
     )
 
-pattern OperatingSystem_AMAZON_LINUX :: OperatingSystem
-pattern OperatingSystem_AMAZON_LINUX = OperatingSystem' "AMAZON_LINUX"
+pattern FilterInstanceStatus_ACTIVE :: FilterInstanceStatus
+pattern FilterInstanceStatus_ACTIVE = FilterInstanceStatus' "ACTIVE"
 
-pattern OperatingSystem_AMAZON_LINUX_2 :: OperatingSystem
-pattern OperatingSystem_AMAZON_LINUX_2 = OperatingSystem' "AMAZON_LINUX_2"
-
-pattern OperatingSystem_WINDOWS_2012 :: OperatingSystem
-pattern OperatingSystem_WINDOWS_2012 = OperatingSystem' "WINDOWS_2012"
-
-pattern OperatingSystem_WINDOWS_2016 :: OperatingSystem
-pattern OperatingSystem_WINDOWS_2016 = OperatingSystem' "WINDOWS_2016"
+pattern FilterInstanceStatus_DRAINING :: FilterInstanceStatus
+pattern FilterInstanceStatus_DRAINING = FilterInstanceStatus' "DRAINING"
 
 {-# COMPLETE
-  OperatingSystem_AMAZON_LINUX,
-  OperatingSystem_AMAZON_LINUX_2,
-  OperatingSystem_WINDOWS_2012,
-  OperatingSystem_WINDOWS_2016,
-  OperatingSystem'
+  FilterInstanceStatus_ACTIVE,
+  FilterInstanceStatus_DRAINING,
+  FilterInstanceStatus'
   #-}

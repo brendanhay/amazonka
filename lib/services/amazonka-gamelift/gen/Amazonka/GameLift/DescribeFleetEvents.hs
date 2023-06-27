@@ -33,7 +33,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift fleets>
 --
 -- This operation returns paginated results.
 module Amazonka.GameLift.DescribeFleetEvents
@@ -167,22 +167,22 @@ instance Core.AWSPager DescribeFleetEvents where
     | Core.stop
         ( rs
             Lens.^? describeFleetEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFleetEventsResponse_events
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFleetEvents_nextToken
           Lens..~ rs
           Lens.^? describeFleetEventsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFleetEvents where
   type
@@ -201,7 +201,8 @@ instance Core.AWSRequest DescribeFleetEvents where
 
 instance Prelude.Hashable DescribeFleetEvents where
   hashWithSalt _salt DescribeFleetEvents' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTime

@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- game property might specify a game mode, level, or map. Game properties
 -- are passed to the game server process when initiating a new game
 -- session. For more information, see the
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create GameLift Developer Guide>.
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create Amazon GameLift Developer Guide>.
 --
 -- /See:/ 'newGameProperty' smart constructor.
 data GameProperty = GameProperty'
@@ -75,12 +75,14 @@ instance Data.FromJSON GameProperty where
       "GameProperty"
       ( \x ->
           GameProperty'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable GameProperty where
   hashWithSalt _salt GameProperty' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData GameProperty where

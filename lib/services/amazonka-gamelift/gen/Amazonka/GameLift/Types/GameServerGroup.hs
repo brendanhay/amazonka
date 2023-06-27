@@ -29,8 +29,8 @@ import Amazonka.GameLift.Types.GameServerProtectionPolicy
 import Amazonka.GameLift.Types.InstanceDefinition
 import qualified Amazonka.Prelude as Prelude
 
--- | __This data type is used with the GameLift FleetIQ and game server
--- groups.__
+-- | __This data type is used with the Amazon GameLift FleetIQ and game
+-- server groups.__
 --
 -- Properties that describe a game server group resource. A game server
 -- group manages certain properties related to a corresponding Amazon EC2
@@ -47,9 +47,9 @@ data GameServerGroup = GameServerGroup'
   { -- | A generated unique ID for the Amazon EC2 Auto Scaling group that is
     -- associated with this game server group.
     autoScalingGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
-    -- On-Demand Instances in the game server group. Method options include the
-    -- following:
+    -- | Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances
+    -- and On-Demand Instances in the game server group. Method options include
+    -- the following:
     --
     -- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.
     --     If Spot Instances are unavailable or not viable for game hosting,
@@ -87,9 +87,9 @@ data GameServerGroup = GameServerGroup'
     -- this is with Spot Instances, which can be terminated by Amazon Web
     -- Services regardless of protection status.
     gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
-    -- | The set of Amazon EC2 instance types that GameLift FleetIQ can use when
-    -- balancing and automatically scaling instances in the corresponding Auto
-    -- Scaling group.
+    -- | The set of Amazon EC2 instance types that Amazon GameLift FleetIQ can
+    -- use when balancing and automatically scaling instances in the
+    -- corresponding Auto Scaling group.
     instanceDefinitions :: Prelude.Maybe (Prelude.NonEmpty InstanceDefinition),
     -- | A timestamp that indicates when this game server group was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
@@ -100,22 +100,22 @@ data GameServerGroup = GameServerGroup'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the game server group. Possible statuses include:
     --
-    -- -   @NEW@ - GameLift FleetIQ has validated the @CreateGameServerGroup()@
-    --     request.
+    -- -   @NEW@ - Amazon GameLift FleetIQ has validated the
+    --     @CreateGameServerGroup()@ request.
     --
-    -- -   @ACTIVATING@ - GameLift FleetIQ is setting up a game server group,
-    --     which includes creating an Auto Scaling group in your Amazon Web
-    --     Services account.
+    -- -   @ACTIVATING@ - Amazon GameLift FleetIQ is setting up a game server
+    --     group, which includes creating an Auto Scaling group in your Amazon
+    --     Web Services account.
     --
     -- -   @ACTIVE@ - The game server group has been successfully created.
     --
     -- -   @DELETE_SCHEDULED@ - A request to delete the game server group has
     --     been received.
     --
-    -- -   @DELETING@ - GameLift FleetIQ has received a valid
-    --     @DeleteGameServerGroup()@ request and is processing it. GameLift
-    --     FleetIQ must first complete and release hosts before it deletes the
-    --     Auto Scaling group and the game server group.
+    -- -   @DELETING@ - Amazon GameLift FleetIQ has received a valid
+    --     @DeleteGameServerGroup()@ request and is processing it. Amazon
+    --     GameLift FleetIQ must first complete and release hosts before it
+    --     deletes the Auto Scaling group and the game server group.
     --
     -- -   @DELETED@ - The game server group has been successfully deleted.
     --
@@ -143,9 +143,9 @@ data GameServerGroup = GameServerGroup'
 -- 'autoScalingGroupArn', 'gameServerGroup_autoScalingGroupArn' - A generated unique ID for the Amazon EC2 Auto Scaling group that is
 -- associated with this game server group.
 --
--- 'balancingStrategy', 'gameServerGroup_balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and
--- On-Demand Instances in the game server group. Method options include the
--- following:
+-- 'balancingStrategy', 'gameServerGroup_balancingStrategy' - Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances
+-- and On-Demand Instances in the game server group. Method options include
+-- the following:
 --
 -- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.
 --     If Spot Instances are unavailable or not viable for game hosting,
@@ -183,9 +183,9 @@ data GameServerGroup = GameServerGroup'
 -- this is with Spot Instances, which can be terminated by Amazon Web
 -- Services regardless of protection status.
 --
--- 'instanceDefinitions', 'gameServerGroup_instanceDefinitions' - The set of Amazon EC2 instance types that GameLift FleetIQ can use when
--- balancing and automatically scaling instances in the corresponding Auto
--- Scaling group.
+-- 'instanceDefinitions', 'gameServerGroup_instanceDefinitions' - The set of Amazon EC2 instance types that Amazon GameLift FleetIQ can
+-- use when balancing and automatically scaling instances in the
+-- corresponding Auto Scaling group.
 --
 -- 'lastUpdatedTime', 'gameServerGroup_lastUpdatedTime' - A timestamp that indicates when this game server group was last updated.
 --
@@ -196,22 +196,22 @@ data GameServerGroup = GameServerGroup'
 --
 -- 'status', 'gameServerGroup_status' - The current status of the game server group. Possible statuses include:
 --
--- -   @NEW@ - GameLift FleetIQ has validated the @CreateGameServerGroup()@
---     request.
+-- -   @NEW@ - Amazon GameLift FleetIQ has validated the
+--     @CreateGameServerGroup()@ request.
 --
--- -   @ACTIVATING@ - GameLift FleetIQ is setting up a game server group,
---     which includes creating an Auto Scaling group in your Amazon Web
---     Services account.
+-- -   @ACTIVATING@ - Amazon GameLift FleetIQ is setting up a game server
+--     group, which includes creating an Auto Scaling group in your Amazon
+--     Web Services account.
 --
 -- -   @ACTIVE@ - The game server group has been successfully created.
 --
 -- -   @DELETE_SCHEDULED@ - A request to delete the game server group has
 --     been received.
 --
--- -   @DELETING@ - GameLift FleetIQ has received a valid
---     @DeleteGameServerGroup()@ request and is processing it. GameLift
---     FleetIQ must first complete and release hosts before it deletes the
---     Auto Scaling group and the game server group.
+-- -   @DELETING@ - Amazon GameLift FleetIQ has received a valid
+--     @DeleteGameServerGroup()@ request and is processing it. Amazon
+--     GameLift FleetIQ must first complete and release hosts before it
+--     deletes the Auto Scaling group and the game server group.
 --
 -- -   @DELETED@ - The game server group has been successfully deleted.
 --
@@ -248,9 +248,9 @@ newGameServerGroup =
 gameServerGroup_autoScalingGroupArn :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
 gameServerGroup_autoScalingGroupArn = Lens.lens (\GameServerGroup' {autoScalingGroupArn} -> autoScalingGroupArn) (\s@GameServerGroup' {} a -> s {autoScalingGroupArn = a} :: GameServerGroup)
 
--- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
--- On-Demand Instances in the game server group. Method options include the
--- following:
+-- | Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances
+-- and On-Demand Instances in the game server group. Method options include
+-- the following:
 --
 -- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.
 --     If Spot Instances are unavailable or not viable for game hosting,
@@ -298,9 +298,9 @@ gameServerGroup_gameServerGroupName = Lens.lens (\GameServerGroup' {gameServerGr
 gameServerGroup_gameServerProtectionPolicy :: Lens.Lens' GameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
 gameServerGroup_gameServerProtectionPolicy = Lens.lens (\GameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@GameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: GameServerGroup)
 
--- | The set of Amazon EC2 instance types that GameLift FleetIQ can use when
--- balancing and automatically scaling instances in the corresponding Auto
--- Scaling group.
+-- | The set of Amazon EC2 instance types that Amazon GameLift FleetIQ can
+-- use when balancing and automatically scaling instances in the
+-- corresponding Auto Scaling group.
 gameServerGroup_instanceDefinitions :: Lens.Lens' GameServerGroup (Prelude.Maybe (Prelude.NonEmpty InstanceDefinition))
 gameServerGroup_instanceDefinitions = Lens.lens (\GameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@GameServerGroup' {} a -> s {instanceDefinitions = a} :: GameServerGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -317,22 +317,22 @@ gameServerGroup_roleArn = Lens.lens (\GameServerGroup' {roleArn} -> roleArn) (\s
 
 -- | The current status of the game server group. Possible statuses include:
 --
--- -   @NEW@ - GameLift FleetIQ has validated the @CreateGameServerGroup()@
---     request.
+-- -   @NEW@ - Amazon GameLift FleetIQ has validated the
+--     @CreateGameServerGroup()@ request.
 --
--- -   @ACTIVATING@ - GameLift FleetIQ is setting up a game server group,
---     which includes creating an Auto Scaling group in your Amazon Web
---     Services account.
+-- -   @ACTIVATING@ - Amazon GameLift FleetIQ is setting up a game server
+--     group, which includes creating an Auto Scaling group in your Amazon
+--     Web Services account.
 --
 -- -   @ACTIVE@ - The game server group has been successfully created.
 --
 -- -   @DELETE_SCHEDULED@ - A request to delete the game server group has
 --     been received.
 --
--- -   @DELETING@ - GameLift FleetIQ has received a valid
---     @DeleteGameServerGroup()@ request and is processing it. GameLift
---     FleetIQ must first complete and release hosts before it deletes the
---     Auto Scaling group and the game server group.
+-- -   @DELETING@ - Amazon GameLift FleetIQ has received a valid
+--     @DeleteGameServerGroup()@ request and is processing it. Amazon
+--     GameLift FleetIQ must first complete and release hosts before it
+--     deletes the Auto Scaling group and the game server group.
 --
 -- -   @DELETED@ - The game server group has been successfully deleted.
 --
@@ -374,7 +374,8 @@ instance Data.FromJSON GameServerGroup where
 
 instance Prelude.Hashable GameServerGroup where
   hashWithSalt _salt GameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupArn
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupArn
       `Prelude.hashWithSalt` balancingStrategy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` gameServerGroupArn

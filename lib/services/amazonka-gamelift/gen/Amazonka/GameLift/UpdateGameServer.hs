@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
--- Updates information about a registered game server to help GameLift
--- FleetIQ to track game server availability. This operation is called by a
--- game server process that is running on an instance in a game server
--- group.
+-- Updates information about a registered game server to help Amazon
+-- GameLift FleetIQ to track game server availability. This operation is
+-- called by a game server process that is running on an instance in a game
+-- server group.
 --
 -- Use this operation to update the following types of game server
 -- information. You can make all three types of updates in the same
@@ -52,7 +52,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.UpdateGameServer
   ( -- * Creating a Request
     UpdateGameServer (..),
@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateGameServer where
 
 instance Prelude.Hashable UpdateGameServer where
   hashWithSalt _salt UpdateGameServer' {..} =
-    _salt `Prelude.hashWithSalt` gameServerData
+    _salt
+      `Prelude.hashWithSalt` gameServerData
       `Prelude.hashWithSalt` healthCheck
       `Prelude.hashWithSalt` utilizationStatus
       `Prelude.hashWithSalt` gameServerGroupName

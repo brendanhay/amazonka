@@ -103,7 +103,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeVpcPeeringConnectionsResponse'
-            Prelude.<$> ( x Data..?> "VpcPeeringConnections"
+            Prelude.<$> ( x
+                            Data..?> "VpcPeeringConnections"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

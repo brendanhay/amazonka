@@ -100,7 +100,7 @@ data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
     -- | A description for the matchmaking configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether this matchmaking configuration is being used with
-    -- GameLift hosting or as a standalone matchmaking solution.
+    -- Amazon GameLift hosting or as a standalone matchmaking solution.
     --
     -- -   __STANDALONE__ - FlexMatch forms matches and returns match
     --     information, including players and team assignments, in a
@@ -108,7 +108,7 @@ data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
     --     event.
     --
     -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
-    --     GameLift queue to start a game session for the match.
+    --     Amazon GameLift queue to start a game session for the match.
     flexMatchMode :: Prelude.Maybe FlexMatchMode,
     -- | A set of custom properties for a game session, formatted as key:value
     -- pairs. These properties are passed to a game server process with a
@@ -128,10 +128,10 @@ data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
     gameSessionData :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift game session queue resource and uniquely
-    -- identifies it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift game session queue resource and
+    -- uniquely identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
-    -- can be located in any Region. Queues are used to start new
+    -- can be located in any Region. Queues are used to start new Amazon
     -- GameLift-hosted game sessions for matches that are created with this
     -- matchmaking configuration. If @FlexMatchMode@ is set to @STANDALONE@, do
     -- not set this parameter.
@@ -195,7 +195,7 @@ data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
 -- 'description', 'updateMatchmakingConfiguration_description' - A description for the matchmaking configuration.
 --
 -- 'flexMatchMode', 'updateMatchmakingConfiguration_flexMatchMode' - Indicates whether this matchmaking configuration is being used with
--- GameLift hosting or as a standalone matchmaking solution.
+-- Amazon GameLift hosting or as a standalone matchmaking solution.
 --
 -- -   __STANDALONE__ - FlexMatch forms matches and returns match
 --     information, including players and team assignments, in a
@@ -203,7 +203,7 @@ data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
 --     event.
 --
 -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
---     GameLift queue to start a game session for the match.
+--     Amazon GameLift queue to start a game session for the match.
 --
 -- 'gameProperties', 'updateMatchmakingConfiguration_gameProperties' - A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process with a
@@ -223,10 +223,10 @@ data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
 --
 -- 'gameSessionQueueArns', 'updateMatchmakingConfiguration_gameSessionQueueArns' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift game session queue resource and
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
--- can be located in any Region. Queues are used to start new
+-- can be located in any Region. Queues are used to start new Amazon
 -- GameLift-hosted game sessions for matches that are created with this
 -- matchmaking configuration. If @FlexMatchMode@ is set to @STANDALONE@, do
 -- not set this parameter.
@@ -313,7 +313,7 @@ updateMatchmakingConfiguration_description :: Lens.Lens' UpdateMatchmakingConfig
 updateMatchmakingConfiguration_description = Lens.lens (\UpdateMatchmakingConfiguration' {description} -> description) (\s@UpdateMatchmakingConfiguration' {} a -> s {description = a} :: UpdateMatchmakingConfiguration)
 
 -- | Indicates whether this matchmaking configuration is being used with
--- GameLift hosting or as a standalone matchmaking solution.
+-- Amazon GameLift hosting or as a standalone matchmaking solution.
 --
 -- -   __STANDALONE__ - FlexMatch forms matches and returns match
 --     information, including players and team assignments, in a
@@ -321,7 +321,7 @@ updateMatchmakingConfiguration_description = Lens.lens (\UpdateMatchmakingConfig
 --     event.
 --
 -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
---     GameLift queue to start a game session for the match.
+--     Amazon GameLift queue to start a game session for the match.
 updateMatchmakingConfiguration_flexMatchMode :: Lens.Lens' UpdateMatchmakingConfiguration (Prelude.Maybe FlexMatchMode)
 updateMatchmakingConfiguration_flexMatchMode = Lens.lens (\UpdateMatchmakingConfiguration' {flexMatchMode} -> flexMatchMode) (\s@UpdateMatchmakingConfiguration' {} a -> s {flexMatchMode = a} :: UpdateMatchmakingConfiguration)
 
@@ -347,10 +347,10 @@ updateMatchmakingConfiguration_gameSessionData = Lens.lens (\UpdateMatchmakingCo
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift game session queue resource and
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
--- can be located in any Region. Queues are used to start new
+-- can be located in any Region. Queues are used to start new Amazon
 -- GameLift-hosted game sessions for matches that are created with this
 -- matchmaking configuration. If @FlexMatchMode@ is set to @STANDALONE@, do
 -- not set this parameter.
@@ -406,7 +406,8 @@ instance
   hashWithSalt
     _salt
     UpdateMatchmakingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` acceptanceRequired
+      _salt
+        `Prelude.hashWithSalt` acceptanceRequired
         `Prelude.hashWithSalt` acceptanceTimeoutSeconds
         `Prelude.hashWithSalt` additionalPlayerCount
         `Prelude.hashWithSalt` backfillMode

@@ -25,14 +25,14 @@
 -- time.
 --
 -- To remotely access an instance, you need credentials that match the
--- operating system of the instance. For a Windows instance, GameLift
--- returns a user name and password as strings for use with a Windows
--- Remote Desktop client. For a Linux instance, GameLift returns a user
--- name and RSA private key, also as strings, for use with an SSH client.
--- The private key must be saved in the proper format to a @.pem@ file
--- before using. If you\'re making this request using the CLI, saving the
--- secret can be handled as part of the @GetInstanceAccess@ request, as
--- shown in one of the examples for this operation.
+-- operating system of the instance. For a Windows instance, Amazon
+-- GameLift returns a user name and password as strings for use with a
+-- Windows Remote Desktop client. For a Linux instance, Amazon GameLift
+-- returns a user name and RSA private key, also as strings, for use with
+-- an SSH client. The private key must be saved in the proper format to a
+-- @.pem@ file before using. If you\'re making this request using the CLI,
+-- saving the secret can be handled as part of the @GetInstanceAccess@
+-- request, as shown in one of the examples for this operation.
 --
 -- To request access to a specific instance, specify the IDs of both the
 -- instance and the fleet it belongs to. You can retrieve a fleet\'s
@@ -146,7 +146,8 @@ instance Core.AWSRequest GetInstanceAccess where
 
 instance Prelude.Hashable GetInstanceAccess where
   hashWithSalt _salt GetInstanceAccess' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData GetInstanceAccess where

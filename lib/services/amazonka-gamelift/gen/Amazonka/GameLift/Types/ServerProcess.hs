@@ -124,7 +124,8 @@ instance Data.FromJSON ServerProcess where
 
 instance Prelude.Hashable ServerProcess where
   hashWithSalt _salt ServerProcess' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` launchPath
       `Prelude.hashWithSalt` concurrentExecutions
 

@@ -37,14 +37,14 @@ data Script = Script'
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | A descriptive label that is associated with a script. Script names do
-    -- not need to be unique.
+    -- | A descriptive label that is associated with a script. Script names
+    -- don\'t need to be unique.
     name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift script resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. In a GameLift script ARN, the
-    -- resource ID matches the /ScriptId/ value.
+    -- that is assigned to a Amazon GameLift script resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. In a GameLift script
+    -- ARN, the resource ID matches the /ScriptId/ value.
     scriptArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the Realtime script
     scriptId :: Prelude.Maybe Prelude.Text,
@@ -61,7 +61,7 @@ data Script = Script'
     -- @ObjectVersion@ parameter to specify an earlier version.
     storageLocation :: Prelude.Maybe S3Location,
     -- | Version information associated with a build or script. Version strings
-    -- do not need to be unique.
+    -- don\'t need to be unique.
     version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,14 +78,14 @@ data Script = Script'
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 --
--- 'name', 'script_name' - A descriptive label that is associated with a script. Script names do
--- not need to be unique.
+-- 'name', 'script_name' - A descriptive label that is associated with a script. Script names
+-- don\'t need to be unique.
 --
 -- 'scriptArn', 'script_scriptArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift script resource and uniquely identifies
--- it. ARNs are unique across all Regions. In a GameLift script ARN, the
--- resource ID matches the /ScriptId/ value.
+-- that is assigned to a Amazon GameLift script resource and uniquely
+-- identifies it. ARNs are unique across all Regions. In a GameLift script
+-- ARN, the resource ID matches the /ScriptId/ value.
 --
 -- 'scriptId', 'script_scriptId' - A unique identifier for the Realtime script
 --
@@ -102,7 +102,7 @@ data Script = Script'
 -- @ObjectVersion@ parameter to specify an earlier version.
 --
 -- 'version', 'script_version' - Version information associated with a build or script. Version strings
--- do not need to be unique.
+-- don\'t need to be unique.
 newScript ::
   Script
 newScript =
@@ -122,16 +122,16 @@ newScript =
 script_creationTime :: Lens.Lens' Script (Prelude.Maybe Prelude.UTCTime)
 script_creationTime = Lens.lens (\Script' {creationTime} -> creationTime) (\s@Script' {} a -> s {creationTime = a} :: Script) Prelude.. Lens.mapping Data._Time
 
--- | A descriptive label that is associated with a script. Script names do
--- not need to be unique.
+-- | A descriptive label that is associated with a script. Script names
+-- don\'t need to be unique.
 script_name :: Lens.Lens' Script (Prelude.Maybe Prelude.Text)
 script_name = Lens.lens (\Script' {name} -> name) (\s@Script' {} a -> s {name = a} :: Script)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift script resource and uniquely identifies
--- it. ARNs are unique across all Regions. In a GameLift script ARN, the
--- resource ID matches the /ScriptId/ value.
+-- that is assigned to a Amazon GameLift script resource and uniquely
+-- identifies it. ARNs are unique across all Regions. In a GameLift script
+-- ARN, the resource ID matches the /ScriptId/ value.
 script_scriptArn :: Lens.Lens' Script (Prelude.Maybe Prelude.Text)
 script_scriptArn = Lens.lens (\Script' {scriptArn} -> scriptArn) (\s@Script' {} a -> s {scriptArn = a} :: Script)
 
@@ -156,7 +156,7 @@ script_storageLocation :: Lens.Lens' Script (Prelude.Maybe S3Location)
 script_storageLocation = Lens.lens (\Script' {storageLocation} -> storageLocation) (\s@Script' {} a -> s {storageLocation = a} :: Script)
 
 -- | Version information associated with a build or script. Version strings
--- do not need to be unique.
+-- don\'t need to be unique.
 script_version :: Lens.Lens' Script (Prelude.Maybe Prelude.Text)
 script_version = Lens.lens (\Script' {version} -> version) (\s@Script' {} a -> s {version = a} :: Script)
 
@@ -177,7 +177,8 @@ instance Data.FromJSON Script where
 
 instance Prelude.Hashable Script where
   hashWithSalt _salt Script' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scriptArn
       `Prelude.hashWithSalt` scriptId

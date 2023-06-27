@@ -53,11 +53,11 @@ data VpcPeeringConnection = VpcPeeringConnection'
     -- created.
     ipV4CidrBlock :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a VPC with resources to be accessed by your
-    -- GameLift fleet. The VPC must be in the same Region as your fleet. To
-    -- look up a VPC ID, use the
+    -- Amazon GameLift fleet. The VPC must be in the same Region as your fleet.
+    -- To look up a VPC ID, use the
     -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
     -- Services Management Console. Learn more about VPC peering in
-    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
     peerVpcId :: Prelude.Maybe Prelude.Text,
     -- | The status information about the connection. Status indicates if a
     -- connection is pending, successful, or failed.
@@ -94,11 +94,11 @@ data VpcPeeringConnection = VpcPeeringConnection'
 -- created.
 --
 -- 'peerVpcId', 'vpcPeeringConnection_peerVpcId' - A unique identifier for a VPC with resources to be accessed by your
--- GameLift fleet. The VPC must be in the same Region as your fleet. To
--- look up a VPC ID, use the
+-- Amazon GameLift fleet. The VPC must be in the same Region as your fleet.
+-- To look up a VPC ID, use the
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
 -- Services Management Console. Learn more about VPC peering in
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 --
 -- 'status', 'vpcPeeringConnection_status' - The status information about the connection. Status indicates if a
 -- connection is pending, successful, or failed.
@@ -144,11 +144,11 @@ vpcPeeringConnection_ipV4CidrBlock :: Lens.Lens' VpcPeeringConnection (Prelude.M
 vpcPeeringConnection_ipV4CidrBlock = Lens.lens (\VpcPeeringConnection' {ipV4CidrBlock} -> ipV4CidrBlock) (\s@VpcPeeringConnection' {} a -> s {ipV4CidrBlock = a} :: VpcPeeringConnection)
 
 -- | A unique identifier for a VPC with resources to be accessed by your
--- GameLift fleet. The VPC must be in the same Region as your fleet. To
--- look up a VPC ID, use the
+-- Amazon GameLift fleet. The VPC must be in the same Region as your fleet.
+-- To look up a VPC ID, use the
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
 -- Services Management Console. Learn more about VPC peering in
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 vpcPeeringConnection_peerVpcId :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.Text)
 vpcPeeringConnection_peerVpcId = Lens.lens (\VpcPeeringConnection' {peerVpcId} -> peerVpcId) (\s@VpcPeeringConnection' {} a -> s {peerVpcId = a} :: VpcPeeringConnection)
 
@@ -180,7 +180,8 @@ instance Data.FromJSON VpcPeeringConnection where
 
 instance Prelude.Hashable VpcPeeringConnection where
   hashWithSalt _salt VpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` fleetArn
+    _salt
+      `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` gameLiftVpcId
       `Prelude.hashWithSalt` ipV4CidrBlock

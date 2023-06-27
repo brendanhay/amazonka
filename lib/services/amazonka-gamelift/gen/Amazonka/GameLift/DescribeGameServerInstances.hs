@@ -20,12 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
 -- Retrieves status information about the Amazon EC2 instances associated
--- with a GameLift FleetIQ game server group. Use this operation to detect
--- when instances are active or not available to host new game servers.
+-- with a Amazon GameLift FleetIQ game server group. Use this operation to
+-- detect when instances are active or not available to host new game
+-- servers.
 --
 -- To request status for all instances in the game server group, provide a
 -- game server group ID only. To request status for specific instances,
@@ -40,7 +41,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 --
 -- This operation returns paginated results.
 module Amazonka.GameLift.DescribeGameServerInstances
@@ -156,22 +157,22 @@ instance Core.AWSPager DescribeGameServerInstances where
     | Core.stop
         ( rs
             Lens.^? describeGameServerInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeGameServerInstancesResponse_gameServerInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeGameServerInstances_nextToken
           Lens..~ rs
           Lens.^? describeGameServerInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGameServerInstances where
   type
@@ -183,7 +184,8 @@ instance Core.AWSRequest DescribeGameServerInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameServerInstancesResponse'
-            Prelude.<$> ( x Data..?> "GameServerInstances"
+            Prelude.<$> ( x
+                            Data..?> "GameServerInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -192,7 +194,8 @@ instance Core.AWSRequest DescribeGameServerInstances where
 
 instance Prelude.Hashable DescribeGameServerInstances where
   hashWithSalt _salt DescribeGameServerInstances' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` gameServerGroupName

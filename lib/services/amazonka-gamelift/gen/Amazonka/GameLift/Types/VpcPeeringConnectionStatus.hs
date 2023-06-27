@@ -77,7 +77,8 @@ instance Data.FromJSON VpcPeeringConnectionStatus where
 
 instance Prelude.Hashable VpcPeeringConnectionStatus where
   hashWithSalt _salt VpcPeeringConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData VpcPeeringConnectionStatus where

@@ -27,9 +27,9 @@
 -- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>.
 -- The information returned includes the maximum number of instances
 -- allowed and your account\'s current usage across all fleets. This
--- information can affect your ability to scale your GameLift fleets. You
--- can request a limit increase for your account by using the __Service
--- limits__ page in the GameLift console.
+-- information can affect your ability to scale your Amazon GameLift
+-- fleets. You can request a limit increase for your account by using the
+-- __Service limits__ page in the Amazon GameLift console.
 --
 -- Instance limits differ based on whether the instances are deployed in a
 -- fleet\'s home Region or in a remote location. For remote locations,
@@ -73,7 +73,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift fleets>
 module Amazonka.GameLift.DescribeEC2InstanceLimits
   ( -- * Creating a Request
     DescribeEC2InstanceLimits (..),
@@ -103,11 +103,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeEC2InstanceLimits' smart constructor.
 data DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
-  { -- | Name of an Amazon EC2 instance type that is supported in GameLift. A
-    -- fleet instance type determines the computing resources of each instance
-    -- in the fleet, including CPU, memory, storage, and networking capacity.
-    -- Do not specify a value for this parameter to retrieve limits for all
-    -- instance types.
+  { -- | Name of an Amazon EC2 instance type that is supported in Amazon
+    -- GameLift. A fleet instance type determines the computing resources of
+    -- each instance in the fleet, including CPU, memory, storage, and
+    -- networking capacity. Do not specify a value for this parameter to
+    -- retrieve limits for all instance types.
     eC2InstanceType :: Prelude.Maybe EC2InstanceType,
     -- | The name of a remote location to request instance limits for, in the
     -- form of an Amazon Web Services Region code such as @us-west-2@.
@@ -123,11 +123,11 @@ data DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eC2InstanceType', 'describeEC2InstanceLimits_eC2InstanceType' - Name of an Amazon EC2 instance type that is supported in GameLift. A
--- fleet instance type determines the computing resources of each instance
--- in the fleet, including CPU, memory, storage, and networking capacity.
--- Do not specify a value for this parameter to retrieve limits for all
--- instance types.
+-- 'eC2InstanceType', 'describeEC2InstanceLimits_eC2InstanceType' - Name of an Amazon EC2 instance type that is supported in Amazon
+-- GameLift. A fleet instance type determines the computing resources of
+-- each instance in the fleet, including CPU, memory, storage, and
+-- networking capacity. Do not specify a value for this parameter to
+-- retrieve limits for all instance types.
 --
 -- 'location', 'describeEC2InstanceLimits_location' - The name of a remote location to request instance limits for, in the
 -- form of an Amazon Web Services Region code such as @us-west-2@.
@@ -140,11 +140,11 @@ newDescribeEC2InstanceLimits =
       location = Prelude.Nothing
     }
 
--- | Name of an Amazon EC2 instance type that is supported in GameLift. A
--- fleet instance type determines the computing resources of each instance
--- in the fleet, including CPU, memory, storage, and networking capacity.
--- Do not specify a value for this parameter to retrieve limits for all
--- instance types.
+-- | Name of an Amazon EC2 instance type that is supported in Amazon
+-- GameLift. A fleet instance type determines the computing resources of
+-- each instance in the fleet, including CPU, memory, storage, and
+-- networking capacity. Do not specify a value for this parameter to
+-- retrieve limits for all instance types.
 describeEC2InstanceLimits_eC2InstanceType :: Lens.Lens' DescribeEC2InstanceLimits (Prelude.Maybe EC2InstanceType)
 describeEC2InstanceLimits_eC2InstanceType = Lens.lens (\DescribeEC2InstanceLimits' {eC2InstanceType} -> eC2InstanceType) (\s@DescribeEC2InstanceLimits' {} a -> s {eC2InstanceType = a} :: DescribeEC2InstanceLimits)
 
@@ -163,7 +163,8 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeEC2InstanceLimitsResponse'
-            Prelude.<$> ( x Data..?> "EC2InstanceLimits"
+            Prelude.<$> ( x
+                            Data..?> "EC2InstanceLimits"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,7 +172,8 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
 
 instance Prelude.Hashable DescribeEC2InstanceLimits where
   hashWithSalt _salt DescribeEC2InstanceLimits' {..} =
-    _salt `Prelude.hashWithSalt` eC2InstanceType
+    _salt
+      `Prelude.hashWithSalt` eC2InstanceType
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData DescribeEC2InstanceLimits where

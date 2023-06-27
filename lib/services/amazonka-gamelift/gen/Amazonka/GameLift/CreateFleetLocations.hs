@@ -33,9 +33,9 @@
 -- list of one or more locations.
 --
 -- If successful, this operation returns the list of added locations with
--- their status set to @NEW@. GameLift initiates the process of starting an
--- instance in each added location. You can track the status of each new
--- location by monitoring location creation events using
+-- their status set to @NEW@. Amazon GameLift initiates the process of
+-- starting an instance in each added location. You can track the status of
+-- each new location by monitoring location creation events using
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html DescribeFleetEvents>.
 --
 -- __Learn more__
@@ -78,9 +78,9 @@ data CreateFleetLocations = CreateFleetLocations'
     -- either the fleet ID or ARN value.
     fleetId :: Prelude.Text,
     -- | A list of locations to deploy additional instances to and manage as part
-    -- of the fleet. You can add any GameLift-supported Amazon Web Services
-    -- Region as a remote location, in the form of an Amazon Web Services
-    -- Region code such as @us-west-2@.
+    -- of the fleet. You can add any Amazon GameLift-supported Amazon Web
+    -- Services Region as a remote location, in the form of an Amazon Web
+    -- Services Region code such as @us-west-2@.
     locations :: Prelude.NonEmpty LocationConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,9 +97,9 @@ data CreateFleetLocations = CreateFleetLocations'
 -- either the fleet ID or ARN value.
 --
 -- 'locations', 'createFleetLocations_locations' - A list of locations to deploy additional instances to and manage as part
--- of the fleet. You can add any GameLift-supported Amazon Web Services
--- Region as a remote location, in the form of an Amazon Web Services
--- Region code such as @us-west-2@.
+-- of the fleet. You can add any Amazon GameLift-supported Amazon Web
+-- Services Region as a remote location, in the form of an Amazon Web
+-- Services Region code such as @us-west-2@.
 newCreateFleetLocations ::
   -- | 'fleetId'
   Prelude.Text ->
@@ -118,9 +118,9 @@ createFleetLocations_fleetId :: Lens.Lens' CreateFleetLocations Prelude.Text
 createFleetLocations_fleetId = Lens.lens (\CreateFleetLocations' {fleetId} -> fleetId) (\s@CreateFleetLocations' {} a -> s {fleetId = a} :: CreateFleetLocations)
 
 -- | A list of locations to deploy additional instances to and manage as part
--- of the fleet. You can add any GameLift-supported Amazon Web Services
--- Region as a remote location, in the form of an Amazon Web Services
--- Region code such as @us-west-2@.
+-- of the fleet. You can add any Amazon GameLift-supported Amazon Web
+-- Services Region as a remote location, in the form of an Amazon Web
+-- Services Region code such as @us-west-2@.
 createFleetLocations_locations :: Lens.Lens' CreateFleetLocations (Prelude.NonEmpty LocationConfiguration)
 createFleetLocations_locations = Lens.lens (\CreateFleetLocations' {locations} -> locations) (\s@CreateFleetLocations' {} a -> s {locations = a} :: CreateFleetLocations) Prelude.. Lens.coerced
 
@@ -142,7 +142,8 @@ instance Core.AWSRequest CreateFleetLocations where
 
 instance Prelude.Hashable CreateFleetLocations where
   hashWithSalt _salt CreateFleetLocations' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` locations
 
 instance Prelude.NFData CreateFleetLocations where
@@ -184,18 +185,18 @@ instance Data.ToQuery CreateFleetLocations where
 data CreateFleetLocationsResponse = CreateFleetLocationsResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet that was updated with new locations.
     fleetId :: Prelude.Maybe Prelude.Text,
     -- | The remote locations that are being added to the fleet, and the
     -- life-cycle status of each location. For new locations, the status is set
-    -- to @NEW@. During location creation, GameLift updates each location\'s
-    -- status as instances are deployed there and prepared for game hosting.
-    -- This list does not include the fleet home Region or any remote locations
-    -- that were already added to the fleet.
+    -- to @NEW@. During location creation, Amazon GameLift updates each
+    -- location\'s status as instances are deployed there and prepared for game
+    -- hosting. This list does not include the fleet home Region or any remote
+    -- locations that were already added to the fleet.
     locationStates :: Prelude.Maybe [LocationState],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -212,18 +213,18 @@ data CreateFleetLocationsResponse = CreateFleetLocationsResponse'
 --
 -- 'fleetArn', 'createFleetLocationsResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'createFleetLocationsResponse_fleetId' - A unique identifier for the fleet that was updated with new locations.
 --
 -- 'locationStates', 'createFleetLocationsResponse_locationStates' - The remote locations that are being added to the fleet, and the
 -- life-cycle status of each location. For new locations, the status is set
--- to @NEW@. During location creation, GameLift updates each location\'s
--- status as instances are deployed there and prepared for game hosting.
--- This list does not include the fleet home Region or any remote locations
--- that were already added to the fleet.
+-- to @NEW@. During location creation, Amazon GameLift updates each
+-- location\'s status as instances are deployed there and prepared for game
+-- hosting. This list does not include the fleet home Region or any remote
+-- locations that were already added to the fleet.
 --
 -- 'httpStatus', 'createFleetLocationsResponse_httpStatus' - The response's http status code.
 newCreateFleetLocationsResponse ::
@@ -241,8 +242,8 @@ newCreateFleetLocationsResponse pHttpStatus_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 createFleetLocationsResponse_fleetArn :: Lens.Lens' CreateFleetLocationsResponse (Prelude.Maybe Prelude.Text)
 createFleetLocationsResponse_fleetArn = Lens.lens (\CreateFleetLocationsResponse' {fleetArn} -> fleetArn) (\s@CreateFleetLocationsResponse' {} a -> s {fleetArn = a} :: CreateFleetLocationsResponse)
@@ -253,10 +254,10 @@ createFleetLocationsResponse_fleetId = Lens.lens (\CreateFleetLocationsResponse'
 
 -- | The remote locations that are being added to the fleet, and the
 -- life-cycle status of each location. For new locations, the status is set
--- to @NEW@. During location creation, GameLift updates each location\'s
--- status as instances are deployed there and prepared for game hosting.
--- This list does not include the fleet home Region or any remote locations
--- that were already added to the fleet.
+-- to @NEW@. During location creation, Amazon GameLift updates each
+-- location\'s status as instances are deployed there and prepared for game
+-- hosting. This list does not include the fleet home Region or any remote
+-- locations that were already added to the fleet.
 createFleetLocationsResponse_locationStates :: Lens.Lens' CreateFleetLocationsResponse (Prelude.Maybe [LocationState])
 createFleetLocationsResponse_locationStates = Lens.lens (\CreateFleetLocationsResponse' {locationStates} -> locationStates) (\s@CreateFleetLocationsResponse' {} a -> s {locationStates = a} :: CreateFleetLocationsResponse) Prelude.. Lens.mapping Lens.coerced
 

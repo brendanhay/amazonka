@@ -329,7 +329,8 @@ instance Data.FromJSON MatchmakingTicket where
 
 instance Prelude.Hashable MatchmakingTicket where
   hashWithSalt _salt MatchmakingTicket' {..} =
-    _salt `Prelude.hashWithSalt` configurationArn
+    _salt
+      `Prelude.hashWithSalt` configurationArn
       `Prelude.hashWithSalt` configurationName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` estimatedWaitTime

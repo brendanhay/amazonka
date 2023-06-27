@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A label that can be assigned to a GameLift resource.
+-- | A label that you can assign to a Amazon GameLift resource.
 --
 -- __Learn more__
 --
@@ -39,10 +39,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The key for a developer-defined key:value pair for tagging an Amazon Web
+  { -- | The key for a developer-defined key value pair for tagging an Amazon Web
     -- Services resource.
     key :: Prelude.Text,
-    -- | The value for a developer-defined key:value pair for tagging an Amazon
+    -- | The value for a developer-defined key value pair for tagging an Amazon
     -- Web Services resource.
     value :: Prelude.Text
   }
@@ -56,10 +56,10 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The key for a developer-defined key:value pair for tagging an Amazon Web
+-- 'key', 'tag_key' - The key for a developer-defined key value pair for tagging an Amazon Web
 -- Services resource.
 --
--- 'value', 'tag_value' - The value for a developer-defined key:value pair for tagging an Amazon
+-- 'value', 'tag_value' - The value for a developer-defined key value pair for tagging an Amazon
 -- Web Services resource.
 newTag ::
   -- | 'key'
@@ -70,12 +70,12 @@ newTag ::
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
--- | The key for a developer-defined key:value pair for tagging an Amazon Web
+-- | The key for a developer-defined key value pair for tagging an Amazon Web
 -- Services resource.
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | The value for a developer-defined key:value pair for tagging an Amazon
+-- | The value for a developer-defined key value pair for tagging an Amazon
 -- Web Services resource.
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
@@ -86,12 +86,14 @@ instance Data.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where

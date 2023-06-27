@@ -67,7 +67,7 @@ data ListScripts = ListScripts'
     limit :: Prelude.Maybe Prelude.Natural,
     -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
-    -- To start at the beginning of the result set, do not specify a value.
+    -- To start at the beginning of the result set, don\'t specify a value.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,7 +85,7 @@ data ListScripts = ListScripts'
 --
 -- 'nextToken', 'listScripts_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
+-- To start at the beginning of the result set, don\'t specify a value.
 newListScripts ::
   ListScripts
 newListScripts =
@@ -101,7 +101,7 @@ listScripts_limit = Lens.lens (\ListScripts' {limit} -> limit) (\s@ListScripts' 
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
+-- To start at the beginning of the result set, don\'t specify a value.
 listScripts_nextToken :: Lens.Lens' ListScripts (Prelude.Maybe Prelude.Text)
 listScripts_nextToken = Lens.lens (\ListScripts' {nextToken} -> nextToken) (\s@ListScripts' {} a -> s {nextToken = a} :: ListScripts)
 
@@ -109,20 +109,23 @@ instance Core.AWSPager ListScripts where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listScriptsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listScriptsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listScriptsResponse_scripts Prelude.. Lens._Just
+            Lens.^? listScriptsResponse_scripts
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listScripts_nextToken
           Lens..~ rs
-          Lens.^? listScriptsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listScriptsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListScripts where
   type AWSResponse ListScripts = ListScriptsResponse
@@ -139,7 +142,8 @@ instance Core.AWSRequest ListScripts where
 
 instance Prelude.Hashable ListScripts where
   hashWithSalt _salt ListScripts' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListScripts where

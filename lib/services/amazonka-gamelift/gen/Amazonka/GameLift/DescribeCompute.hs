@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves properties for a compute resource. To request a compute
--- resource specify the fleet ID and compute name. If successful, GameLift
--- returns an object containing the build properties.
+-- resource specify the fleet ID and compute name. If successful, Amazon
+-- GameLift returns an object containing the build properties.
 module Amazonka.GameLift.DescribeCompute
   ( -- * Creating a Request
     DescribeCompute (..),
@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeCompute where
 
 instance Prelude.Hashable DescribeCompute where
   hashWithSalt _salt DescribeCompute' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` computeName
 
 instance Prelude.NFData DescribeCompute where

@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
 -- Retrieves information on a game server group. This operation returns
--- only properties related to GameLift FleetIQ. To view or update
+-- only properties related to Amazon GameLift FleetIQ. To view or update
 -- properties for the corresponding Auto Scaling group, such as launch
 -- template, auto scaling policies, and maximum\/minimum group size, access
 -- the Auto Scaling group directly.
@@ -34,7 +34,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.DescribeGameServerGroup
   ( -- * Creating a Request
     DescribeGameServerGroup (..),

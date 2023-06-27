@@ -79,7 +79,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeVpcPeeringAuthorizationsResponse'
-            Prelude.<$> ( x Data..?> "VpcPeeringAuthorizations"
+            Prelude.<$> ( x
+                            Data..?> "VpcPeeringAuthorizations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

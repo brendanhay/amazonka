@@ -22,9 +22,9 @@
 --
 -- Registers your compute resources in a fleet you previously created.
 -- After you register a compute to your fleet, you can monitor and manage
--- your compute using GameLift. The operation returns the compute resource
--- containing SDK endpoint you can use to connect your game server to
--- GameLift.
+-- your compute using Amazon GameLift. The operation returns the compute
+-- resource containing SDK endpoint you can use to connect your game server
+-- to Amazon GameLift.
 --
 -- __Learn more__
 --
@@ -65,13 +65,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newRegisterCompute' smart constructor.
 data RegisterCompute = RegisterCompute'
   { -- | The path to the TLS certificate on your compute resource. The path and
-    -- certificate are not validated by GameLift.
+    -- certificate are not validated by Amazon GameLift.
     certificatePath :: Prelude.Maybe Prelude.Text,
-    -- | The DNS name of the compute resource. GameLift requires the DNS name or
-    -- IP address to manage your compute resource.
+    -- | The DNS name of the compute resource. Amazon GameLift requires the DNS
+    -- name or IP address to manage your compute resource.
     dnsName :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of the compute resource. GameLift requires the DNS name
-    -- or IP address to manage your compute resource.
+    -- | The IP address of the compute resource. Amazon GameLift requires the DNS
+    -- name or IP address to manage your compute resource.
     ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom location you added to the fleet you are
     -- registering this compute resource to.
@@ -94,13 +94,13 @@ data RegisterCompute = RegisterCompute'
 -- for backwards compatibility:
 --
 -- 'certificatePath', 'registerCompute_certificatePath' - The path to the TLS certificate on your compute resource. The path and
--- certificate are not validated by GameLift.
+-- certificate are not validated by Amazon GameLift.
 --
--- 'dnsName', 'registerCompute_dnsName' - The DNS name of the compute resource. GameLift requires the DNS name or
--- IP address to manage your compute resource.
+-- 'dnsName', 'registerCompute_dnsName' - The DNS name of the compute resource. Amazon GameLift requires the DNS
+-- name or IP address to manage your compute resource.
 --
--- 'ipAddress', 'registerCompute_ipAddress' - The IP address of the compute resource. GameLift requires the DNS name
--- or IP address to manage your compute resource.
+-- 'ipAddress', 'registerCompute_ipAddress' - The IP address of the compute resource. Amazon GameLift requires the DNS
+-- name or IP address to manage your compute resource.
 --
 -- 'location', 'registerCompute_location' - The name of the custom location you added to the fleet you are
 -- registering this compute resource to.
@@ -127,17 +127,17 @@ newRegisterCompute pFleetId_ pComputeName_ =
     }
 
 -- | The path to the TLS certificate on your compute resource. The path and
--- certificate are not validated by GameLift.
+-- certificate are not validated by Amazon GameLift.
 registerCompute_certificatePath :: Lens.Lens' RegisterCompute (Prelude.Maybe Prelude.Text)
 registerCompute_certificatePath = Lens.lens (\RegisterCompute' {certificatePath} -> certificatePath) (\s@RegisterCompute' {} a -> s {certificatePath = a} :: RegisterCompute)
 
--- | The DNS name of the compute resource. GameLift requires the DNS name or
--- IP address to manage your compute resource.
+-- | The DNS name of the compute resource. Amazon GameLift requires the DNS
+-- name or IP address to manage your compute resource.
 registerCompute_dnsName :: Lens.Lens' RegisterCompute (Prelude.Maybe Prelude.Text)
 registerCompute_dnsName = Lens.lens (\RegisterCompute' {dnsName} -> dnsName) (\s@RegisterCompute' {} a -> s {dnsName = a} :: RegisterCompute)
 
--- | The IP address of the compute resource. GameLift requires the DNS name
--- or IP address to manage your compute resource.
+-- | The IP address of the compute resource. Amazon GameLift requires the DNS
+-- name or IP address to manage your compute resource.
 registerCompute_ipAddress :: Lens.Lens' RegisterCompute (Prelude.Maybe Prelude.Text)
 registerCompute_ipAddress = Lens.lens (\RegisterCompute' {ipAddress} -> ipAddress) (\s@RegisterCompute' {} a -> s {ipAddress = a} :: RegisterCompute)
 
@@ -172,7 +172,8 @@ instance Core.AWSRequest RegisterCompute where
 
 instance Prelude.Hashable RegisterCompute where
   hashWithSalt _salt RegisterCompute' {..} =
-    _salt `Prelude.hashWithSalt` certificatePath
+    _salt
+      `Prelude.hashWithSalt` certificatePath
       `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` location

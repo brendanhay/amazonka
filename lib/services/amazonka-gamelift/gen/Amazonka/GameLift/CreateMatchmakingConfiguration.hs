@@ -21,22 +21,22 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Defines a new matchmaking configuration for use with FlexMatch. Whether
--- your are using FlexMatch with GameLift hosting or as a standalone
+-- your are using FlexMatch with Amazon GameLift hosting or as a standalone
 -- matchmaking service, the matchmaking configuration sets out rules for
--- matching players and forming teams. If you\'re also using GameLift
--- hosting, it defines how to start game sessions for each match. Your
--- matchmaking system can use multiple configurations to handle different
--- game scenarios. All matchmaking requests identify the matchmaking
--- configuration to use and provide player attributes consistent with that
--- configuration.
+-- matching players and forming teams. If you\'re also using Amazon
+-- GameLift hosting, it defines how to start game sessions for each match.
+-- Your matchmaking system can use multiple configurations to handle
+-- different game scenarios. All matchmaking requests identify the
+-- matchmaking configuration to use and provide player attributes
+-- consistent with that configuration.
 --
 -- To create a matchmaking configuration, you must provide the following:
--- configuration name and FlexMatch mode (with or without GameLift
+-- configuration name and FlexMatch mode (with or without Amazon GameLift
 -- hosting); a rule set that specifies how to evaluate players and find
 -- acceptable matches; whether player acceptance is required; and the
 -- maximum time allowed for a matchmaking attempt. When using FlexMatch
--- with GameLift hosting, you also need to identify the game session queue
--- to use when starting a game session for the match.
+-- with Amazon GameLift hosting, you also need to identify the game session
+-- queue to use when starting a game session for the match.
 --
 -- In addition, you must set up an Amazon Simple Notification Service topic
 -- to receive matchmaking notifications. Provide the topic ARN in the
@@ -101,9 +101,9 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- | The method used to backfill game sessions that are created with this
     -- matchmaking configuration. Specify @MANUAL@ when your game manages
     -- backfill requests manually or does not use the match backfill feature.
-    -- Specify @AUTOMATIC@ to have GameLift create a backfill request whenever
-    -- a game session has one or more open slots. Learn more about manual and
-    -- automatic backfill in
+    -- Specify @AUTOMATIC@ to have Amazon GameLift create a backfill request
+    -- whenever a game session has one or more open slots. Learn more about
+    -- manual and automatic backfill in
     -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill Existing Games with FlexMatch>.
     -- Automatic backfill is not available when @FlexMatchMode@ is set to
     -- @STANDALONE@.
@@ -114,7 +114,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- | A human-readable description of the matchmaking configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether this matchmaking configuration is being used with
-    -- GameLift hosting or as a standalone matchmaking solution.
+    -- Amazon GameLift hosting or as a standalone matchmaking solution.
     --
     -- -   __STANDALONE__ - FlexMatch forms matches and returns match
     --     information, including players and team assignments, in a
@@ -122,7 +122,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     --     event.
     --
     -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
-    --     GameLift queue to start a game session for the match.
+    --     Amazon GameLift queue to start a game session for the match.
     flexMatchMode :: Prelude.Maybe FlexMatchMode,
     -- | A set of custom properties for a game session, formatted as key:value
     -- pairs. These properties are passed to a game server process with a
@@ -142,10 +142,10 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     gameSessionData :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift game session queue resource and uniquely
-    -- identifies it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift game session queue resource and
+    -- uniquely identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
-    -- can be located in any Region. Queues are used to start new
+    -- can be located in any Region. Queues are used to start new Amazon
     -- GameLift-hosted game sessions for matches that are created with this
     -- matchmaking configuration. If @FlexMatchMode@ is set to @STANDALONE@, do
     -- not set this parameter.
@@ -204,9 +204,9 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 -- 'backfillMode', 'createMatchmakingConfiguration_backfillMode' - The method used to backfill game sessions that are created with this
 -- matchmaking configuration. Specify @MANUAL@ when your game manages
 -- backfill requests manually or does not use the match backfill feature.
--- Specify @AUTOMATIC@ to have GameLift create a backfill request whenever
--- a game session has one or more open slots. Learn more about manual and
--- automatic backfill in
+-- Specify @AUTOMATIC@ to have Amazon GameLift create a backfill request
+-- whenever a game session has one or more open slots. Learn more about
+-- manual and automatic backfill in
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill Existing Games with FlexMatch>.
 -- Automatic backfill is not available when @FlexMatchMode@ is set to
 -- @STANDALONE@.
@@ -217,7 +217,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 -- 'description', 'createMatchmakingConfiguration_description' - A human-readable description of the matchmaking configuration.
 --
 -- 'flexMatchMode', 'createMatchmakingConfiguration_flexMatchMode' - Indicates whether this matchmaking configuration is being used with
--- GameLift hosting or as a standalone matchmaking solution.
+-- Amazon GameLift hosting or as a standalone matchmaking solution.
 --
 -- -   __STANDALONE__ - FlexMatch forms matches and returns match
 --     information, including players and team assignments, in a
@@ -225,7 +225,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 --     event.
 --
 -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
---     GameLift queue to start a game session for the match.
+--     Amazon GameLift queue to start a game session for the match.
 --
 -- 'gameProperties', 'createMatchmakingConfiguration_gameProperties' - A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process with a
@@ -245,10 +245,10 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 --
 -- 'gameSessionQueueArns', 'createMatchmakingConfiguration_gameSessionQueueArns' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift game session queue resource and
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
--- can be located in any Region. Queues are used to start new
+-- can be located in any Region. Queues are used to start new Amazon
 -- GameLift-hosted game sessions for matches that are created with this
 -- matchmaking configuration. If @FlexMatchMode@ is set to @STANDALONE@, do
 -- not set this parameter.
@@ -334,9 +334,9 @@ createMatchmakingConfiguration_additionalPlayerCount = Lens.lens (\CreateMatchma
 -- | The method used to backfill game sessions that are created with this
 -- matchmaking configuration. Specify @MANUAL@ when your game manages
 -- backfill requests manually or does not use the match backfill feature.
--- Specify @AUTOMATIC@ to have GameLift create a backfill request whenever
--- a game session has one or more open slots. Learn more about manual and
--- automatic backfill in
+-- Specify @AUTOMATIC@ to have Amazon GameLift create a backfill request
+-- whenever a game session has one or more open slots. Learn more about
+-- manual and automatic backfill in
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill Existing Games with FlexMatch>.
 -- Automatic backfill is not available when @FlexMatchMode@ is set to
 -- @STANDALONE@.
@@ -353,7 +353,7 @@ createMatchmakingConfiguration_description :: Lens.Lens' CreateMatchmakingConfig
 createMatchmakingConfiguration_description = Lens.lens (\CreateMatchmakingConfiguration' {description} -> description) (\s@CreateMatchmakingConfiguration' {} a -> s {description = a} :: CreateMatchmakingConfiguration)
 
 -- | Indicates whether this matchmaking configuration is being used with
--- GameLift hosting or as a standalone matchmaking solution.
+-- Amazon GameLift hosting or as a standalone matchmaking solution.
 --
 -- -   __STANDALONE__ - FlexMatch forms matches and returns match
 --     information, including players and team assignments, in a
@@ -361,7 +361,7 @@ createMatchmakingConfiguration_description = Lens.lens (\CreateMatchmakingConfig
 --     event.
 --
 -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
---     GameLift queue to start a game session for the match.
+--     Amazon GameLift queue to start a game session for the match.
 createMatchmakingConfiguration_flexMatchMode :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe FlexMatchMode)
 createMatchmakingConfiguration_flexMatchMode = Lens.lens (\CreateMatchmakingConfiguration' {flexMatchMode} -> flexMatchMode) (\s@CreateMatchmakingConfiguration' {} a -> s {flexMatchMode = a} :: CreateMatchmakingConfiguration)
 
@@ -387,10 +387,10 @@ createMatchmakingConfiguration_gameSessionData = Lens.lens (\CreateMatchmakingCo
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift game session queue resource and
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
--- can be located in any Region. Queues are used to start new
+-- can be located in any Region. Queues are used to start new Amazon
 -- GameLift-hosted game sessions for matches that are created with this
 -- matchmaking configuration. If @FlexMatchMode@ is set to @STANDALONE@, do
 -- not set this parameter.

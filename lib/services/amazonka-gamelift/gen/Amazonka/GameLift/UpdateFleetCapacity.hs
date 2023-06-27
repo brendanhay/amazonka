@@ -27,9 +27,9 @@
 -- configuration. Use this operation to set the following fleet capacity
 -- properties:
 --
--- -   Minimum\/maximum size: Set hard limits on fleet capacity. GameLift
---     cannot set the fleet\'s capacity to a value outside of this range,
---     whether the capacity is changed manually or through automatic
+-- -   Minimum\/maximum size: Set hard limits on fleet capacity. Amazon
+--     GameLift cannot set the fleet\'s capacity to a value outside of this
+--     range, whether the capacity is changed manually or through automatic
 --     scaling.
 --
 -- -   Desired capacity: Manually set the number of Amazon EC2 instances to
@@ -51,7 +51,7 @@
 --     must be in @ACTIVE@ status.
 --
 -- If successful, capacity settings are updated immediately. In response a
--- change in desired capacity, GameLift initiates steps to start new
+-- change in desired capacity, Amazon GameLift initiates steps to start new
 -- instances or terminate existing instances in the requested fleet
 -- location. This continues until the location\'s active instance count
 -- matches the new desired instance count. You can track a fleet\'s current
@@ -199,7 +199,8 @@ instance Core.AWSRequest UpdateFleetCapacity where
 
 instance Prelude.Hashable UpdateFleetCapacity where
   hashWithSalt _salt UpdateFleetCapacity' {..} =
-    _salt `Prelude.hashWithSalt` desiredInstances
+    _salt
+      `Prelude.hashWithSalt` desiredInstances
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` maxSize
       `Prelude.hashWithSalt` minSize
@@ -251,8 +252,8 @@ instance Data.ToQuery UpdateFleetCapacity where
 data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet that was updated.
@@ -275,8 +276,8 @@ data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
 --
 -- 'fleetArn', 'updateFleetCapacityResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'updateFleetCapacityResponse_fleetId' - A unique identifier for the fleet that was updated.
@@ -300,8 +301,8 @@ newUpdateFleetCapacityResponse pHttpStatus_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 updateFleetCapacityResponse_fleetArn :: Lens.Lens' UpdateFleetCapacityResponse (Prelude.Maybe Prelude.Text)
 updateFleetCapacityResponse_fleetArn = Lens.lens (\UpdateFleetCapacityResponse' {fleetArn} -> fleetArn) (\s@UpdateFleetCapacityResponse' {} a -> s {fleetArn = a} :: UpdateFleetCapacityResponse)

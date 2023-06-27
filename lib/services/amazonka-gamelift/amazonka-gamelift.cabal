@@ -147,6 +147,7 @@ library
     Amazonka.GameLift.Types.BuildStatus
     Amazonka.GameLift.Types.CertificateConfiguration
     Amazonka.GameLift.Types.CertificateType
+    Amazonka.GameLift.Types.ClaimFilterOption
     Amazonka.GameLift.Types.ComparisonOperatorType
     Amazonka.GameLift.Types.Compute
     Amazonka.GameLift.Types.ComputeStatus
@@ -158,6 +159,7 @@ library
     Amazonka.GameLift.Types.Event
     Amazonka.GameLift.Types.EventCode
     Amazonka.GameLift.Types.FilterConfiguration
+    Amazonka.GameLift.Types.FilterInstanceStatus
     Amazonka.GameLift.Types.FleetAction
     Amazonka.GameLift.Types.FleetAttributes
     Amazonka.GameLift.Types.FleetCapacity

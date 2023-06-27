@@ -30,7 +30,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift fleets>
 module Amazonka.GameLift.UpdateFleetAttributes
   ( -- * Creating a Request
     UpdateFleetAttributes (..),
@@ -66,7 +66,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFleetAttributes' smart constructor.
 data UpdateFleetAttributes = UpdateFleetAttributes'
-  { -- | GameLift Anywhere configuration options.
+  { -- | Amazon GameLift Anywhere configuration options.
     anywhereConfiguration :: Prelude.Maybe AnywhereConfiguration,
     -- | A human-readable description of a fleet.
     description :: Prelude.Maybe Prelude.Text,
@@ -107,7 +107,7 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'anywhereConfiguration', 'updateFleetAttributes_anywhereConfiguration' - GameLift Anywhere configuration options.
+-- 'anywhereConfiguration', 'updateFleetAttributes_anywhereConfiguration' - Amazon GameLift Anywhere configuration options.
 --
 -- 'description', 'updateFleetAttributes_description' - A human-readable description of a fleet.
 --
@@ -152,7 +152,7 @@ newUpdateFleetAttributes pFleetId_ =
       fleetId = pFleetId_
     }
 
--- | GameLift Anywhere configuration options.
+-- | Amazon GameLift Anywhere configuration options.
 updateFleetAttributes_anywhereConfiguration :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe AnywhereConfiguration)
 updateFleetAttributes_anywhereConfiguration = Lens.lens (\UpdateFleetAttributes' {anywhereConfiguration} -> anywhereConfiguration) (\s@UpdateFleetAttributes' {} a -> s {anywhereConfiguration = a} :: UpdateFleetAttributes)
 
@@ -213,7 +213,8 @@ instance Core.AWSRequest UpdateFleetAttributes where
 
 instance Prelude.Hashable UpdateFleetAttributes where
   hashWithSalt _salt UpdateFleetAttributes' {..} =
-    _salt `Prelude.hashWithSalt` anywhereConfiguration
+    _salt
+      `Prelude.hashWithSalt` anywhereConfiguration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` metricGroups
       `Prelude.hashWithSalt` name
@@ -273,8 +274,8 @@ instance Data.ToQuery UpdateFleetAttributes where
 data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet that was updated.
@@ -294,8 +295,8 @@ data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
 --
 -- 'fleetArn', 'updateFleetAttributesResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'updateFleetAttributesResponse_fleetId' - A unique identifier for the fleet that was updated.
@@ -315,8 +316,8 @@ newUpdateFleetAttributesResponse pHttpStatus_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 updateFleetAttributesResponse_fleetArn :: Lens.Lens' UpdateFleetAttributesResponse (Prelude.Maybe Prelude.Text)
 updateFleetAttributesResponse_fleetArn = Lens.lens (\UpdateFleetAttributesResponse' {fleetArn} -> fleetArn) (\s@UpdateFleetAttributesResponse' {} a -> s {fleetArn = a} :: UpdateFleetAttributesResponse)

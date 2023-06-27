@@ -25,12 +25,12 @@ import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.EC2InstanceType
 import qualified Amazonka.Prelude as Prelude
 
--- | The GameLift service limits for an Amazon EC2 instance type and current
--- utilization. GameLift allows Amazon Web Services accounts a maximum
--- number of instances, per instance type, per Amazon Web Services Region
--- or location, for use with GameLift. You can request an limit increase
--- for your account by using the __Service limits__ page in the GameLift
--- console.
+-- | The Amazon GameLift service limits for an Amazon EC2 instance type and
+-- current utilization. Amazon GameLift allows Amazon Web Services accounts
+-- a maximum number of instances, per instance type, per Amazon Web
+-- Services Region or location, for use with Amazon GameLift. You can
+-- request an limit increase for your account by using the __Service
+-- limits__ page in the Amazon GameLift console.
 --
 -- /See:/ 'newEC2InstanceLimit' smart constructor.
 data EC2InstanceLimit = EC2InstanceLimit'
@@ -113,7 +113,8 @@ instance Data.FromJSON EC2InstanceLimit where
 
 instance Prelude.Hashable EC2InstanceLimit where
   hashWithSalt _salt EC2InstanceLimit' {..} =
-    _salt `Prelude.hashWithSalt` currentInstances
+    _salt
+      `Prelude.hashWithSalt` currentInstances
       `Prelude.hashWithSalt` eC2InstanceType
       `Prelude.hashWithSalt` instanceLimit
       `Prelude.hashWithSalt` location

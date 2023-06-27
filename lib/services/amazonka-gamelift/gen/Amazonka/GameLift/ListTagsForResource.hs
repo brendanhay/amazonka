@@ -20,24 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves all tags that are assigned to a GameLift resource. Resource
--- tags are used to organize Amazon Web Services resources for a range of
--- purposes. This operation handles the permissions necessary to manage
--- tags for the following GameLift resource types:
---
--- -   Build
---
--- -   Script
---
--- -   Fleet
---
--- -   Alias
---
--- -   GameSessionQueue
---
--- -   MatchmakingConfiguration
---
--- -   MatchmakingRuleSet
+-- Retrieves all tags assigned to a Amazon GameLift resource. Use resource
+-- tags to organize Amazon Web Services resources for a range of purposes.
+-- This operation handles the permissions necessary to manage tags for
+-- Amazon GameLift resources that support tagging.
 --
 -- To list tags for a resource, specify the unique ARN value for the
 -- resource.
@@ -82,10 +68,10 @@ import qualified Amazonka.Response as Response
 data ListTagsForResource = ListTagsForResource'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to and uniquely identifies the GameLift resource that
-    -- you want to retrieve tags for. GameLift resource ARNs are included in
-    -- the data object for the resource, which can be retrieved by calling a
-    -- List or Describe operation for the resource type.
+    -- that uniquely identifies the Amazon GameLift resource that you want to
+    -- retrieve tags for. Amazon GameLift includes resource ARNs in the data
+    -- object for the resource. You can retrieve the ARN by calling a @List@ or
+    -- @Describe@ operation for the resource type.
     resourceARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -100,10 +86,10 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- 'resourceARN', 'listTagsForResource_resourceARN' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to and uniquely identifies the GameLift resource that
--- you want to retrieve tags for. GameLift resource ARNs are included in
--- the data object for the resource, which can be retrieved by calling a
--- List or Describe operation for the resource type.
+-- that uniquely identifies the Amazon GameLift resource that you want to
+-- retrieve tags for. Amazon GameLift includes resource ARNs in the data
+-- object for the resource. You can retrieve the ARN by calling a @List@ or
+-- @Describe@ operation for the resource type.
 newListTagsForResource ::
   -- | 'resourceARN'
   Prelude.Text ->
@@ -113,10 +99,10 @@ newListTagsForResource pResourceARN_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to and uniquely identifies the GameLift resource that
--- you want to retrieve tags for. GameLift resource ARNs are included in
--- the data object for the resource, which can be retrieved by calling a
--- List or Describe operation for the resource type.
+-- that uniquely identifies the Amazon GameLift resource that you want to
+-- retrieve tags for. Amazon GameLift includes resource ARNs in the data
+-- object for the resource. You can retrieve the ARN by calling a @List@ or
+-- @Describe@ operation for the resource type.
 listTagsForResource_resourceARN :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceARN = Lens.lens (\ListTagsForResource' {resourceARN} -> resourceARN) (\s@ListTagsForResource' {} a -> s {resourceARN = a} :: ListTagsForResource)
 
@@ -172,8 +158,7 @@ instance Data.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | The collection of tags that have been assigned to the specified
-    -- resource.
+  { -- | The collection of tags assigned to the resource.
     tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -188,8 +173,7 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourceResponse_tags' - The collection of tags that have been assigned to the specified
--- resource.
+-- 'tags', 'listTagsForResourceResponse_tags' - The collection of tags assigned to the resource.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -203,8 +187,7 @@ newListTagsForResourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The collection of tags that have been assigned to the specified
--- resource.
+-- | The collection of tags assigned to the resource.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 

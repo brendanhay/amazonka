@@ -67,7 +67,7 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
     creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift matchmaking rule set resource and
+    -- that is assigned to a Amazon GameLift matchmaking rule set resource and
     -- uniquely identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
     -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
@@ -94,7 +94,7 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
 --
 -- 'ruleSetArn', 'matchmakingRuleSet_ruleSetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift matchmaking rule set resource and
+-- that is assigned to a Amazon GameLift matchmaking rule set resource and
 -- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
 -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
@@ -123,7 +123,7 @@ matchmakingRuleSet_creationTime = Lens.lens (\MatchmakingRuleSet' {creationTime}
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift matchmaking rule set resource and
+-- that is assigned to a Amazon GameLift matchmaking rule set resource and
 -- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
 -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
@@ -153,7 +153,8 @@ instance Data.FromJSON MatchmakingRuleSet where
 
 instance Prelude.Hashable MatchmakingRuleSet where
   hashWithSalt _salt MatchmakingRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` ruleSetArn
       `Prelude.hashWithSalt` ruleSetName
       `Prelude.hashWithSalt` ruleSetBody

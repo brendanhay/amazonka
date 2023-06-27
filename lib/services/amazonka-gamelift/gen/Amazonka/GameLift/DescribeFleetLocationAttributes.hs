@@ -43,7 +43,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift fleets>
 module Amazonka.GameLift.DescribeFleetLocationAttributes
   ( -- * Creating a Request
     DescribeFleetLocationAttributes (..),
@@ -166,7 +166,8 @@ instance
           DescribeFleetLocationAttributesResponse'
             Prelude.<$> (x Data..?> "FleetArn")
             Prelude.<*> (x Data..?> "FleetId")
-            Prelude.<*> ( x Data..?> "LocationAttributes"
+            Prelude.<*> ( x
+                            Data..?> "LocationAttributes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -180,7 +181,8 @@ instance
   hashWithSalt
     _salt
     DescribeFleetLocationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` locations
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` fleetId
@@ -234,8 +236,8 @@ instance Data.ToQuery DescribeFleetLocationAttributes where
 data DescribeFleetLocationAttributesResponse = DescribeFleetLocationAttributesResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet that location attributes were
@@ -263,8 +265,8 @@ data DescribeFleetLocationAttributesResponse = DescribeFleetLocationAttributesRe
 --
 -- 'fleetArn', 'describeFleetLocationAttributesResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'describeFleetLocationAttributesResponse_fleetId' - A unique identifier for the fleet that location attributes were
@@ -296,8 +298,8 @@ newDescribeFleetLocationAttributesResponse
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 describeFleetLocationAttributesResponse_fleetArn :: Lens.Lens' DescribeFleetLocationAttributesResponse (Prelude.Maybe Prelude.Text)
 describeFleetLocationAttributesResponse_fleetArn = Lens.lens (\DescribeFleetLocationAttributesResponse' {fleetArn} -> fleetArn) (\s@DescribeFleetLocationAttributesResponse' {} a -> s {fleetArn = a} :: DescribeFleetLocationAttributesResponse)

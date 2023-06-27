@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A remote location where a multi-location fleet can deploy EC2 instances
+-- | A remote location where a multi-location fleet can deploy game servers
 -- for game hosting.
 --
 -- /See:/ 'newLocationConfiguration' smart constructor.

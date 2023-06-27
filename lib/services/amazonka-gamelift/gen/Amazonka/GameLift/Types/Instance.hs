@@ -28,8 +28,8 @@ import Amazonka.GameLift.Types.OperatingSystem
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an EC2 instance of virtual computing resources that hosts one
--- or more game servers. In GameLift, a fleet can contain zero or more
--- instances.
+-- or more game servers. In Amazon GameLift, a fleet can contain zero or
+-- more instances.
 --
 -- __Related actions__
 --
@@ -54,8 +54,8 @@ data Instance = Instance'
     dnsName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet that the instance is in.
@@ -77,8 +77,8 @@ data Instance = Instance'
     --
     -- -   __ACTIVE__ -- The instance has been successfully created and at
     --     least one server process has successfully launched and reported back
-    --     to GameLift that it is ready to host a game session. The instance is
-    --     now considered ready to host game sessions.
+    --     to Amazon GameLift that it is ready to host a game session. The
+    --     instance is now considered ready to host game sessions.
     --
     -- -   __TERMINATING__ -- The instance is in the process of shutting down.
     --     This may happen to reduce capacity during a scaling down event or to
@@ -117,8 +117,8 @@ data Instance = Instance'
 --
 -- 'fleetArn', 'instance_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'instance_fleetId' - A unique identifier for the fleet that the instance is in.
@@ -140,8 +140,8 @@ data Instance = Instance'
 --
 -- -   __ACTIVE__ -- The instance has been successfully created and at
 --     least one server process has successfully launched and reported back
---     to GameLift that it is ready to host a game session. The instance is
---     now considered ready to host game sessions.
+--     to Amazon GameLift that it is ready to host a game session. The
+--     instance is now considered ready to host game sessions.
 --
 -- -   __TERMINATING__ -- The instance is in the process of shutting down.
 --     This may happen to reduce capacity during a scaling down event or to
@@ -188,8 +188,8 @@ instance_dnsName = Lens.lens (\Instance' {dnsName} -> dnsName) (\s@Instance' {} 
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 instance_fleetArn :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_fleetArn = Lens.lens (\Instance' {fleetArn} -> fleetArn) (\s@Instance' {} a -> s {fleetArn = a} :: Instance)
@@ -223,8 +223,8 @@ instance_operatingSystem = Lens.lens (\Instance' {operatingSystem} -> operatingS
 --
 -- -   __ACTIVE__ -- The instance has been successfully created and at
 --     least one server process has successfully launched and reported back
---     to GameLift that it is ready to host a game session. The instance is
---     now considered ready to host game sessions.
+--     to Amazon GameLift that it is ready to host a game session. The
+--     instance is now considered ready to host game sessions.
 --
 -- -   __TERMINATING__ -- The instance is in the process of shutting down.
 --     This may happen to reduce capacity during a scaling down event or to
@@ -257,7 +257,8 @@ instance Data.FromJSON Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` fleetId

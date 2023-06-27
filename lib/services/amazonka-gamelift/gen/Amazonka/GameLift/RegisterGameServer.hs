@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
--- Creates a new game server resource and notifies GameLift FleetIQ that
--- the game server is ready to host gameplay and players. This operation is
--- called by a game server process that is running on an instance in a game
--- server group. Registering game servers enables GameLift FleetIQ to track
--- available game servers and enables game clients and services to claim a
--- game server for a new game session.
+-- Creates a new game server resource and notifies Amazon GameLift FleetIQ
+-- that the game server is ready to host gameplay and players. This
+-- operation is called by a game server process that is running on an
+-- instance in a game server group. Registering game servers enables Amazon
+-- GameLift FleetIQ to track available game servers and enables game
+-- clients and services to claim a game server for a new game session.
 --
 -- To register a game server, identify the game server group and instance
 -- where the game server is running, and provide a unique identifier for
@@ -41,7 +41,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.RegisterGameServer
   ( -- * Creating a Request
     RegisterGameServer (..),
@@ -188,7 +188,8 @@ instance Core.AWSRequest RegisterGameServer where
 
 instance Prelude.Hashable RegisterGameServer where
   hashWithSalt _salt RegisterGameServer' {..} =
-    _salt `Prelude.hashWithSalt` connectionInfo
+    _salt
+      `Prelude.hashWithSalt` connectionInfo
       `Prelude.hashWithSalt` gameServerData
       `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` gameServerId

@@ -84,7 +84,7 @@ data GameSession = GameSession'
     -- following format:
     -- @arn:aws:gamelift:\<region>::gamesession\/\<fleet ID>\/\<custom ID string or idempotency token>@.
     gameSessionId :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of the game session. To connect to a GameLift game
+    -- | The IP address of the game session. To connect to a Amazon GameLift game
     -- server, an app needs both the IP address and port number.
     ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The fleet location where the game session is running. This value might
@@ -109,8 +109,8 @@ data GameSession = GameSession'
     name :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether or not the game session is accepting new players.
     playerSessionCreationPolicy :: Prelude.Maybe PlayerSessionCreationPolicy,
-    -- | The port number for the game session. To connect to a GameLift game
-    -- server, an app needs both the IP address and port number.
+    -- | The port number for the game session. To connect to a Amazon GameLift
+    -- game server, an app needs both the IP address and port number.
     port :: Prelude.Maybe Prelude.Natural,
     -- | Current status of the game session. A game session must have an @ACTIVE@
     -- status to have player sessions.
@@ -177,7 +177,7 @@ data GameSession = GameSession'
 -- following format:
 -- @arn:aws:gamelift:\<region>::gamesession\/\<fleet ID>\/\<custom ID string or idempotency token>@.
 --
--- 'ipAddress', 'gameSession_ipAddress' - The IP address of the game session. To connect to a GameLift game
+-- 'ipAddress', 'gameSession_ipAddress' - The IP address of the game session. To connect to a Amazon GameLift game
 -- server, an app needs both the IP address and port number.
 --
 -- 'location', 'gameSession_location' - The fleet location where the game session is running. This value might
@@ -202,8 +202,8 @@ data GameSession = GameSession'
 --
 -- 'playerSessionCreationPolicy', 'gameSession_playerSessionCreationPolicy' - Indicates whether or not the game session is accepting new players.
 --
--- 'port', 'gameSession_port' - The port number for the game session. To connect to a GameLift game
--- server, an app needs both the IP address and port number.
+-- 'port', 'gameSession_port' - The port number for the game session. To connect to a Amazon GameLift
+-- game server, an app needs both the IP address and port number.
 --
 -- 'status', 'gameSession_status' - Current status of the game session. A game session must have an @ACTIVE@
 -- status to have player sessions.
@@ -301,7 +301,7 @@ gameSession_gameSessionData = Lens.lens (\GameSession' {gameSessionData} -> game
 gameSession_gameSessionId :: Lens.Lens' GameSession (Prelude.Maybe Prelude.Text)
 gameSession_gameSessionId = Lens.lens (\GameSession' {gameSessionId} -> gameSessionId) (\s@GameSession' {} a -> s {gameSessionId = a} :: GameSession)
 
--- | The IP address of the game session. To connect to a GameLift game
+-- | The IP address of the game session. To connect to a Amazon GameLift game
 -- server, an app needs both the IP address and port number.
 gameSession_ipAddress :: Lens.Lens' GameSession (Prelude.Maybe Prelude.Text)
 gameSession_ipAddress = Lens.lens (\GameSession' {ipAddress} -> ipAddress) (\s@GameSession' {} a -> s {ipAddress = a} :: GameSession)
@@ -338,8 +338,8 @@ gameSession_name = Lens.lens (\GameSession' {name} -> name) (\s@GameSession' {} 
 gameSession_playerSessionCreationPolicy :: Lens.Lens' GameSession (Prelude.Maybe PlayerSessionCreationPolicy)
 gameSession_playerSessionCreationPolicy = Lens.lens (\GameSession' {playerSessionCreationPolicy} -> playerSessionCreationPolicy) (\s@GameSession' {} a -> s {playerSessionCreationPolicy = a} :: GameSession)
 
--- | The port number for the game session. To connect to a GameLift game
--- server, an app needs both the IP address and port number.
+-- | The port number for the game session. To connect to a Amazon GameLift
+-- game server, an app needs both the IP address and port number.
 gameSession_port :: Lens.Lens' GameSession (Prelude.Maybe Prelude.Natural)
 gameSession_port = Lens.lens (\GameSession' {port} -> port) (\s@GameSession' {} a -> s {port = a} :: GameSession)
 
@@ -389,7 +389,8 @@ instance Data.FromJSON GameSession where
 
 instance Prelude.Hashable GameSession where
   hashWithSalt _salt GameSession' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` creatorId
       `Prelude.hashWithSalt` currentPlayerSessionCount
       `Prelude.hashWithSalt` dnsName

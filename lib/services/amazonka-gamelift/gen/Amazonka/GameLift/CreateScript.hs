@@ -88,8 +88,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateScript' smart constructor.
 data CreateScript = CreateScript'
-  { -- | A descriptive label that is associated with a script. Script names do
-    -- not need to be unique. You can use
+  { -- | A descriptive label that is associated with a script. Script names
+    -- don\'t need to be unique. You can use
     -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
     -- to change this value later.
     name :: Prelude.Maybe Prelude.Text,
@@ -118,7 +118,7 @@ data CreateScript = CreateScript'
     -- limits.
     tags :: Prelude.Maybe [Tag],
     -- | Version information associated with a build or script. Version strings
-    -- do not need to be unique. You can use
+    -- don\'t need to be unique. You can use
     -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
     -- to change this value later.
     version :: Prelude.Maybe Prelude.Text,
@@ -142,8 +142,8 @@ data CreateScript = CreateScript'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createScript_name' - A descriptive label that is associated with a script. Script names do
--- not need to be unique. You can use
+-- 'name', 'createScript_name' - A descriptive label that is associated with a script. Script names
+-- don\'t need to be unique. You can use
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
 -- to change this value later.
 --
@@ -172,7 +172,7 @@ data CreateScript = CreateScript'
 -- limits.
 --
 -- 'version', 'createScript_version' - Version information associated with a build or script. Version strings
--- do not need to be unique. You can use
+-- don\'t need to be unique. You can use
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
 -- to change this value later.
 --
@@ -199,8 +199,8 @@ newCreateScript =
       zipFile = Prelude.Nothing
     }
 
--- | A descriptive label that is associated with a script. Script names do
--- not need to be unique. You can use
+-- | A descriptive label that is associated with a script. Script names
+-- don\'t need to be unique. You can use
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
 -- to change this value later.
 createScript_name :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.Text)
@@ -235,7 +235,7 @@ createScript_tags :: Lens.Lens' CreateScript (Prelude.Maybe [Tag])
 createScript_tags = Lens.lens (\CreateScript' {tags} -> tags) (\s@CreateScript' {} a -> s {tags = a} :: CreateScript) Prelude.. Lens.mapping Lens.coerced
 
 -- | Version information associated with a build or script. Version strings
--- do not need to be unique. You can use
+-- don\'t need to be unique. You can use
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
 -- to change this value later.
 createScript_version :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.Text)
@@ -270,7 +270,8 @@ instance Core.AWSRequest CreateScript where
 
 instance Prelude.Hashable CreateScript where
   hashWithSalt _salt CreateScript' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` storageLocation
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` version

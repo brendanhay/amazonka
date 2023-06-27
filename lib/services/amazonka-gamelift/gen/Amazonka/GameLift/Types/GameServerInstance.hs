@@ -25,8 +25,8 @@ import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.GameServerInstanceStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | __This data type is used with the GameLift FleetIQ and game server
--- groups.__
+-- | __This data type is used with the Amazon GameLift FleetIQ and game
+-- server groups.__
 --
 -- Additional properties, including status, that describe an EC2 instance
 -- in a game server group. Instance configurations are set with game server
@@ -120,7 +120,8 @@ instance Data.FromJSON GameServerInstance where
 
 instance Prelude.Hashable GameServerInstance where
   hashWithSalt _salt GameServerInstance' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupArn
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupArn
       `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` instanceStatus

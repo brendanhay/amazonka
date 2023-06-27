@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
 -- Terminates a game server group and permanently deletes the game server
 -- group record. You have several options for how these resources are
@@ -42,15 +42,15 @@
 -- off. The game server group status is changed to @DELETE_SCHEDULED@,
 -- which prevents new game servers from being registered and stops
 -- automatic scaling activity. Once all game servers in the game server
--- group are deregistered, GameLift FleetIQ can begin deleting resources.
--- If any of the delete operations fail, the game server group is placed in
--- @ERROR@ status.
+-- group are deregistered, Amazon GameLift FleetIQ can begin deleting
+-- resources. If any of the delete operations fail, the game server group
+-- is placed in @ERROR@ status.
 --
--- GameLift FleetIQ emits delete events to Amazon CloudWatch.
+-- Amazon GameLift FleetIQ emits delete events to Amazon CloudWatch.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.DeleteGameServerGroup
   ( -- * Creating a Request
     DeleteGameServerGroup (..),
@@ -169,7 +169,8 @@ instance Core.AWSRequest DeleteGameServerGroup where
 
 instance Prelude.Hashable DeleteGameServerGroup where
   hashWithSalt _salt DeleteGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` deleteOption
+    _salt
+      `Prelude.hashWithSalt` deleteOption
       `Prelude.hashWithSalt` gameServerGroupName
 
 instance Prelude.NFData DeleteGameServerGroup where

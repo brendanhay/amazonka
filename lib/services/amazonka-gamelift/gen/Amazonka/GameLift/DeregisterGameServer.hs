@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
 -- Removes the game server from a game server group. As a result of this
 -- operation, the deregistered game server can no longer be claimed and
@@ -33,7 +33,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.DeregisterGameServer
   ( -- * Creating a Request
     DeregisterGameServer (..),
@@ -114,7 +114,8 @@ instance Core.AWSRequest DeregisterGameServer where
 
 instance Prelude.Hashable DeregisterGameServer where
   hashWithSalt _salt DeregisterGameServer' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupName
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` gameServerId
 
 instance Prelude.NFData DeregisterGameServer where

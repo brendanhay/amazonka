@@ -34,8 +34,8 @@
 -- a new @PlayerSessions@ object is returned with a player session ID. The
 -- player references the player session ID when sending a connection
 -- request to the game session, and the game server can use it to validate
--- the player reservation with the GameLift service. Player sessions cannot
--- be updated.
+-- the player reservation with the Amazon GameLift service. Player sessions
+-- cannot be updated.
 --
 -- The maximum number of players per game session is 200. It is not
 -- adjustable.
@@ -73,8 +73,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePlayerSession' smart constructor.
 data CreatePlayerSession = CreatePlayerSession'
-  { -- | Developer-defined information related to a player. GameLift does not use
-    -- this data, so it can be formatted as needed for use in the game.
+  { -- | Developer-defined information related to a player. Amazon GameLift does
+    -- not use this data, so it can be formatted as needed for use in the game.
     playerData :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the game session to add a player to.
     gameSessionId :: Prelude.Text,
@@ -91,8 +91,8 @@ data CreatePlayerSession = CreatePlayerSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playerData', 'createPlayerSession_playerData' - Developer-defined information related to a player. GameLift does not use
--- this data, so it can be formatted as needed for use in the game.
+-- 'playerData', 'createPlayerSession_playerData' - Developer-defined information related to a player. Amazon GameLift does
+-- not use this data, so it can be formatted as needed for use in the game.
 --
 -- 'gameSessionId', 'createPlayerSession_gameSessionId' - A unique identifier for the game session to add a player to.
 --
@@ -110,8 +110,8 @@ newCreatePlayerSession pGameSessionId_ pPlayerId_ =
       playerId = pPlayerId_
     }
 
--- | Developer-defined information related to a player. GameLift does not use
--- this data, so it can be formatted as needed for use in the game.
+-- | Developer-defined information related to a player. Amazon GameLift does
+-- not use this data, so it can be formatted as needed for use in the game.
 createPlayerSession_playerData :: Lens.Lens' CreatePlayerSession (Prelude.Maybe Prelude.Text)
 createPlayerSession_playerData = Lens.lens (\CreatePlayerSession' {playerData} -> playerData) (\s@CreatePlayerSession' {} a -> s {playerData = a} :: CreatePlayerSession)
 
@@ -139,7 +139,8 @@ instance Core.AWSRequest CreatePlayerSession where
 
 instance Prelude.Hashable CreatePlayerSession where
   hashWithSalt _salt CreatePlayerSession' {..} =
-    _salt `Prelude.hashWithSalt` playerData
+    _salt
+      `Prelude.hashWithSalt` playerData
       `Prelude.hashWithSalt` gameSessionId
       `Prelude.hashWithSalt` playerId
 

@@ -36,13 +36,13 @@
 --     locations, provide a fleet ID, a location name, and the type of
 --     actions to resume.
 --
--- If successful, GameLift once again initiates scaling events as triggered
--- by the fleet\'s scaling policies. If actions on the fleet location were
--- never stopped, this operation will have no effect.
+-- If successful, Amazon GameLift once again initiates scaling events as
+-- triggered by the fleet\'s scaling policies. If actions on the fleet
+-- location were never stopped, this operation will have no effect.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift fleets>
 module Amazonka.GameLift.StartFleetActions
   ( -- * Creating a Request
     StartFleetActions (..),
@@ -144,7 +144,8 @@ instance Core.AWSRequest StartFleetActions where
 
 instance Prelude.Hashable StartFleetActions where
   hashWithSalt _salt StartFleetActions' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` actions
 
@@ -187,8 +188,8 @@ instance Data.ToQuery StartFleetActions where
 data StartFleetActionsResponse = StartFleetActionsResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet to restart actions on.
@@ -208,8 +209,8 @@ data StartFleetActionsResponse = StartFleetActionsResponse'
 --
 -- 'fleetArn', 'startFleetActionsResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'startFleetActionsResponse_fleetId' - A unique identifier for the fleet to restart actions on.
@@ -229,8 +230,8 @@ newStartFleetActionsResponse pHttpStatus_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 startFleetActionsResponse_fleetArn :: Lens.Lens' StartFleetActionsResponse (Prelude.Maybe Prelude.Text)
 startFleetActionsResponse_fleetArn = Lens.lens (\StartFleetActionsResponse' {fleetArn} -> fleetArn) (\s@StartFleetActionsResponse' {} a -> s {fleetArn = a} :: StartFleetActionsResponse)

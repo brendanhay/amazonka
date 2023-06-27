@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a fleet\'s runtime configuration settings. The runtime
--- configuration tells GameLift which server processes to run (and how) on
--- each instance in the fleet.
+-- configuration tells Amazon GameLift which server processes to run (and
+-- how) on each instance in the fleet.
 --
 -- To get the runtime configuration that is currently in forces for a
 -- fleet, provide the fleet ID.
@@ -33,7 +33,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift fleets>
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html Running multiple processes on a fleet>
 module Amazonka.GameLift.DescribeRuntimeConfiguration

@@ -20,23 +20,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
--- Updates GameLift FleetIQ-specific properties for a game server group.
--- Many Auto Scaling group properties are updated on the Auto Scaling group
--- directly, including the launch template, Auto Scaling policies, and
--- maximum\/minimum\/desired instance counts.
+-- Updates Amazon GameLift FleetIQ-specific properties for a game server
+-- group. Many Auto Scaling group properties are updated on the Auto
+-- Scaling group directly, including the launch template, Auto Scaling
+-- policies, and maximum\/minimum\/desired instance counts.
 --
 -- To update the game server group, specify the game server group ID and
 -- provide the updated values. Before applying the updates, the new values
--- are validated to ensure that GameLift FleetIQ can continue to perform
--- instance balancing activity. If successful, a @GameServerGroup@ object
--- is returned.
+-- are validated to ensure that Amazon GameLift FleetIQ can continue to
+-- perform instance balancing activity. If successful, a @GameServerGroup@
+-- object is returned.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.UpdateGameServerGroup
   ( -- * Creating a Request
     UpdateGameServerGroup (..),
@@ -69,9 +69,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGameServerGroup' smart constructor.
 data UpdateGameServerGroup = UpdateGameServerGroup'
-  { -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
-    -- On-Demand Instances in the game server group. Method options include the
-    -- following:
+  { -- | Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances
+    -- and On-Demand Instances in the game server group. Method options include
+    -- the following:
     --
     -- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.
     --     If Spot Instances are unavailable or not viable for game hosting,
@@ -103,9 +103,9 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
     gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
     -- | An updated list of Amazon EC2 instance types to use in the Auto Scaling
     -- group. The instance definitions must specify at least two different
-    -- instance types that are supported by GameLift FleetIQ. This updated list
-    -- replaces the entire current list of instance definitions for the game
-    -- server group. For more information on instance types, see
+    -- instance types that are supported by Amazon GameLift FleetIQ. This
+    -- updated list replaces the entire current list of instance definitions
+    -- for the game server group. For more information on instance types, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
     -- in the /Amazon EC2 User Guide/. You can optionally specify capacity
     -- weighting for each instance type. If no weight value is specified for an
@@ -133,9 +133,9 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'balancingStrategy', 'updateGameServerGroup_balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and
--- On-Demand Instances in the game server group. Method options include the
--- following:
+-- 'balancingStrategy', 'updateGameServerGroup_balancingStrategy' - Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances
+-- and On-Demand Instances in the game server group. Method options include
+-- the following:
 --
 -- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.
 --     If Spot Instances are unavailable or not viable for game hosting,
@@ -167,9 +167,9 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
 --
 -- 'instanceDefinitions', 'updateGameServerGroup_instanceDefinitions' - An updated list of Amazon EC2 instance types to use in the Auto Scaling
 -- group. The instance definitions must specify at least two different
--- instance types that are supported by GameLift FleetIQ. This updated list
--- replaces the entire current list of instance definitions for the game
--- server group. For more information on instance types, see
+-- instance types that are supported by Amazon GameLift FleetIQ. This
+-- updated list replaces the entire current list of instance definitions
+-- for the game server group. For more information on instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
 -- in the /Amazon EC2 User Guide/. You can optionally specify capacity
 -- weighting for each instance type. If no weight value is specified for an
@@ -199,9 +199,9 @@ newUpdateGameServerGroup pGameServerGroupName_ =
       gameServerGroupName = pGameServerGroupName_
     }
 
--- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
--- On-Demand Instances in the game server group. Method options include the
--- following:
+-- | Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances
+-- and On-Demand Instances in the game server group. Method options include
+-- the following:
 --
 -- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.
 --     If Spot Instances are unavailable or not viable for game hosting,
@@ -237,9 +237,9 @@ updateGameServerGroup_gameServerProtectionPolicy = Lens.lens (\UpdateGameServerG
 
 -- | An updated list of Amazon EC2 instance types to use in the Auto Scaling
 -- group. The instance definitions must specify at least two different
--- instance types that are supported by GameLift FleetIQ. This updated list
--- replaces the entire current list of instance definitions for the game
--- server group. For more information on instance types, see
+-- instance types that are supported by Amazon GameLift FleetIQ. This
+-- updated list replaces the entire current list of instance definitions
+-- for the game server group. For more information on instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
 -- in the /Amazon EC2 User Guide/. You can optionally specify capacity
 -- weighting for each instance type. If no weight value is specified for an
@@ -278,7 +278,8 @@ instance Core.AWSRequest UpdateGameServerGroup where
 
 instance Prelude.Hashable UpdateGameServerGroup where
   hashWithSalt _salt UpdateGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` balancingStrategy
+    _salt
+      `Prelude.hashWithSalt` balancingStrategy
       `Prelude.hashWithSalt` gameServerProtectionPolicy
       `Prelude.hashWithSalt` instanceDefinitions
       `Prelude.hashWithSalt` roleArn

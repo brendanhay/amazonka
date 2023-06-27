@@ -93,7 +93,8 @@ instance Data.FromJSON PlayerLatency where
 
 instance Prelude.Hashable PlayerLatency where
   hashWithSalt _salt PlayerLatency' {..} =
-    _salt `Prelude.hashWithSalt` latencyInMilliseconds
+    _salt
+      `Prelude.hashWithSalt` latencyInMilliseconds
       `Prelude.hashWithSalt` playerId
       `Prelude.hashWithSalt` regionIdentifier
 

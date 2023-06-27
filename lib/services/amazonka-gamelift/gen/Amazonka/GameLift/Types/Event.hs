@@ -25,10 +25,10 @@ import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.EventCode
 import qualified Amazonka.Prelude as Prelude
 
--- | Log entry describing an event that involves GameLift resources (such as
--- a fleet). In addition to tracking activity, event codes and messages can
--- provide additional information for troubleshooting and debugging
--- problems.
+-- | Log entry describing an event that involves Amazon GameLift resources
+-- (such as a fleet). In addition to tracking activity, event codes and
+-- messages can provide additional information for troubleshooting and
+-- debugging problems.
 --
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
@@ -44,17 +44,17 @@ data Event = Event'
     --     fleet instance for installation.
     --
     -- -   FLEET_STATE_VALIDATING -- Fleet status changed from @DOWNLOADING@ to
-    --     @VALIDATING@. GameLift has successfully downloaded the build and is
-    --     now validating the build files.
+    --     @VALIDATING@. Amazon GameLift has successfully downloaded the build
+    --     and is now validating the build files.
     --
     -- -   FLEET_STATE_BUILDING -- Fleet status changed from @VALIDATING@ to
-    --     @BUILDING@. GameLift has successfully verified the build files and
-    --     is now running the installation scripts.
+    --     @BUILDING@. Amazon GameLift has successfully verified the build
+    --     files and is now running the installation scripts.
     --
     -- -   FLEET_STATE_ACTIVATING -- Fleet status changed from @BUILDING@ to
-    --     @ACTIVATING@. GameLift is trying to launch an instance and test the
-    --     connectivity between the build and the GameLift Service via the
-    --     Server SDK.
+    --     @ACTIVATING@. Amazon GameLift is trying to launch an instance and
+    --     test the connectivity between the build and the Amazon GameLift
+    --     Service via the Server SDK.
     --
     -- -   FLEET_STATE_ACTIVE -- The fleet\'s status changed from @ACTIVATING@
     --     to @ACTIVE@. The fleet is now ready to host game sessions.
@@ -85,12 +85,12 @@ data Event = Event'
     -- -   FLEET_CREATION_VALIDATING_RUNTIME_CONFIG -- The build process was
     --     successful, and the GameLift is now verifying that the game server
     --     launch paths, which are specified in the fleet\'s runtime
-    --     configuration, exist. If any listed launch path exists, GameLift
-    --     tries to launch a game server process and waits for the process to
-    --     report ready. Failures in this stage prevent a fleet from moving to
-    --     @ACTIVE@ status. Logs for this stage list the launch paths in the
-    --     runtime configuration and indicate whether each is found. Access the
-    --     logs by using the URL in /PreSignedLogUrl/.
+    --     configuration, exist. If any listed launch path exists, Amazon
+    --     GameLift tries to launch a game server process and waits for the
+    --     process to report ready. Failures in this stage prevent a fleet from
+    --     moving to @ACTIVE@ status. Logs for this stage list the launch paths
+    --     in the runtime configuration and indicate whether each is found.
+    --     Access the logs by using the URL in /PreSignedLogUrl/.
     --
     -- -   FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND -- Validation of the runtime
     --     configuration failed because the executable specified in a launch
@@ -121,8 +121,8 @@ data Event = Event'
     -- __VPC peering events:__
     --
     -- -   FLEET_VPC_PEERING_SUCCEEDED -- A VPC peering connection has been
-    --     established between the VPC for an GameLift fleet and a VPC in your
-    --     Amazon Web Services account.
+    --     established between the VPC for an Amazon GameLift fleet and a VPC
+    --     in your Amazon Web Services account.
     --
     -- -   FLEET_VPC_PEERING_FAILED -- A requested VPC peering connection has
     --     failed. Event details and status information provide additional
@@ -205,8 +205,8 @@ data Event = Event'
     message :: Prelude.Maybe Prelude.Text,
     -- | Location of stored logs with additional detail that is related to the
     -- event. This is useful for debugging issues. The URL is valid for 15
-    -- minutes. You can also access fleet creation logs through the GameLift
-    -- console.
+    -- minutes. You can also access fleet creation logs through the Amazon
+    -- GameLift console.
     preSignedLogUrl :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for an event resource, such as a fleet ID.
     resourceId :: Prelude.Maybe Prelude.Text
@@ -233,17 +233,17 @@ data Event = Event'
 --     fleet instance for installation.
 --
 -- -   FLEET_STATE_VALIDATING -- Fleet status changed from @DOWNLOADING@ to
---     @VALIDATING@. GameLift has successfully downloaded the build and is
---     now validating the build files.
+--     @VALIDATING@. Amazon GameLift has successfully downloaded the build
+--     and is now validating the build files.
 --
 -- -   FLEET_STATE_BUILDING -- Fleet status changed from @VALIDATING@ to
---     @BUILDING@. GameLift has successfully verified the build files and
---     is now running the installation scripts.
+--     @BUILDING@. Amazon GameLift has successfully verified the build
+--     files and is now running the installation scripts.
 --
 -- -   FLEET_STATE_ACTIVATING -- Fleet status changed from @BUILDING@ to
---     @ACTIVATING@. GameLift is trying to launch an instance and test the
---     connectivity between the build and the GameLift Service via the
---     Server SDK.
+--     @ACTIVATING@. Amazon GameLift is trying to launch an instance and
+--     test the connectivity between the build and the Amazon GameLift
+--     Service via the Server SDK.
 --
 -- -   FLEET_STATE_ACTIVE -- The fleet\'s status changed from @ACTIVATING@
 --     to @ACTIVE@. The fleet is now ready to host game sessions.
@@ -274,12 +274,12 @@ data Event = Event'
 -- -   FLEET_CREATION_VALIDATING_RUNTIME_CONFIG -- The build process was
 --     successful, and the GameLift is now verifying that the game server
 --     launch paths, which are specified in the fleet\'s runtime
---     configuration, exist. If any listed launch path exists, GameLift
---     tries to launch a game server process and waits for the process to
---     report ready. Failures in this stage prevent a fleet from moving to
---     @ACTIVE@ status. Logs for this stage list the launch paths in the
---     runtime configuration and indicate whether each is found. Access the
---     logs by using the URL in /PreSignedLogUrl/.
+--     configuration, exist. If any listed launch path exists, Amazon
+--     GameLift tries to launch a game server process and waits for the
+--     process to report ready. Failures in this stage prevent a fleet from
+--     moving to @ACTIVE@ status. Logs for this stage list the launch paths
+--     in the runtime configuration and indicate whether each is found.
+--     Access the logs by using the URL in /PreSignedLogUrl/.
 --
 -- -   FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND -- Validation of the runtime
 --     configuration failed because the executable specified in a launch
@@ -310,8 +310,8 @@ data Event = Event'
 -- __VPC peering events:__
 --
 -- -   FLEET_VPC_PEERING_SUCCEEDED -- A VPC peering connection has been
---     established between the VPC for an GameLift fleet and a VPC in your
---     Amazon Web Services account.
+--     established between the VPC for an Amazon GameLift fleet and a VPC
+--     in your Amazon Web Services account.
 --
 -- -   FLEET_VPC_PEERING_FAILED -- A requested VPC peering connection has
 --     failed. Event details and status information provide additional
@@ -394,8 +394,8 @@ data Event = Event'
 --
 -- 'preSignedLogUrl', 'event_preSignedLogUrl' - Location of stored logs with additional detail that is related to the
 -- event. This is useful for debugging issues. The URL is valid for 15
--- minutes. You can also access fleet creation logs through the GameLift
--- console.
+-- minutes. You can also access fleet creation logs through the Amazon
+-- GameLift console.
 --
 -- 'resourceId', 'event_resourceId' - A unique identifier for an event resource, such as a fleet ID.
 newEvent ::
@@ -422,17 +422,17 @@ newEvent =
 --     fleet instance for installation.
 --
 -- -   FLEET_STATE_VALIDATING -- Fleet status changed from @DOWNLOADING@ to
---     @VALIDATING@. GameLift has successfully downloaded the build and is
---     now validating the build files.
+--     @VALIDATING@. Amazon GameLift has successfully downloaded the build
+--     and is now validating the build files.
 --
 -- -   FLEET_STATE_BUILDING -- Fleet status changed from @VALIDATING@ to
---     @BUILDING@. GameLift has successfully verified the build files and
---     is now running the installation scripts.
+--     @BUILDING@. Amazon GameLift has successfully verified the build
+--     files and is now running the installation scripts.
 --
 -- -   FLEET_STATE_ACTIVATING -- Fleet status changed from @BUILDING@ to
---     @ACTIVATING@. GameLift is trying to launch an instance and test the
---     connectivity between the build and the GameLift Service via the
---     Server SDK.
+--     @ACTIVATING@. Amazon GameLift is trying to launch an instance and
+--     test the connectivity between the build and the Amazon GameLift
+--     Service via the Server SDK.
 --
 -- -   FLEET_STATE_ACTIVE -- The fleet\'s status changed from @ACTIVATING@
 --     to @ACTIVE@. The fleet is now ready to host game sessions.
@@ -463,12 +463,12 @@ newEvent =
 -- -   FLEET_CREATION_VALIDATING_RUNTIME_CONFIG -- The build process was
 --     successful, and the GameLift is now verifying that the game server
 --     launch paths, which are specified in the fleet\'s runtime
---     configuration, exist. If any listed launch path exists, GameLift
---     tries to launch a game server process and waits for the process to
---     report ready. Failures in this stage prevent a fleet from moving to
---     @ACTIVE@ status. Logs for this stage list the launch paths in the
---     runtime configuration and indicate whether each is found. Access the
---     logs by using the URL in /PreSignedLogUrl/.
+--     configuration, exist. If any listed launch path exists, Amazon
+--     GameLift tries to launch a game server process and waits for the
+--     process to report ready. Failures in this stage prevent a fleet from
+--     moving to @ACTIVE@ status. Logs for this stage list the launch paths
+--     in the runtime configuration and indicate whether each is found.
+--     Access the logs by using the URL in /PreSignedLogUrl/.
 --
 -- -   FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND -- Validation of the runtime
 --     configuration failed because the executable specified in a launch
@@ -499,8 +499,8 @@ newEvent =
 -- __VPC peering events:__
 --
 -- -   FLEET_VPC_PEERING_SUCCEEDED -- A VPC peering connection has been
---     established between the VPC for an GameLift fleet and a VPC in your
---     Amazon Web Services account.
+--     established between the VPC for an Amazon GameLift fleet and a VPC
+--     in your Amazon Web Services account.
 --
 -- -   FLEET_VPC_PEERING_FAILED -- A requested VPC peering connection has
 --     failed. Event details and status information provide additional
@@ -591,8 +591,8 @@ event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {m
 
 -- | Location of stored logs with additional detail that is related to the
 -- event. This is useful for debugging issues. The URL is valid for 15
--- minutes. You can also access fleet creation logs through the GameLift
--- console.
+-- minutes. You can also access fleet creation logs through the Amazon
+-- GameLift console.
 event_preSignedLogUrl :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_preSignedLogUrl = Lens.lens (\Event' {preSignedLogUrl} -> preSignedLogUrl) (\s@Event' {} a -> s {preSignedLogUrl = a} :: Event)
 
@@ -616,7 +616,8 @@ instance Data.FromJSON Event where
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` eventCode
+    _salt
+      `Prelude.hashWithSalt` eventCode
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` message

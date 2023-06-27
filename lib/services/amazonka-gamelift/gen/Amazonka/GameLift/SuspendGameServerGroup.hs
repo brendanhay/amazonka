@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
 -- Temporarily stops activity on a game server group without terminating
 -- instances or the game server group. You can restart activity by calling
@@ -44,7 +44,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.SuspendGameServerGroup
   ( -- * Creating a Request
     SuspendGameServerGroup (..),
@@ -135,7 +135,8 @@ instance Core.AWSRequest SuspendGameServerGroup where
 
 instance Prelude.Hashable SuspendGameServerGroup where
   hashWithSalt _salt SuspendGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupName
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` suspendActions
 
 instance Prelude.NFData SuspendGameServerGroup where

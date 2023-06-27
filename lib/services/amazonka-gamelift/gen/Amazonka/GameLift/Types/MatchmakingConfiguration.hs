@@ -60,11 +60,12 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
     backfillMode :: Prelude.Maybe BackfillMode,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift matchmaking configuration resource and
-    -- uniquely identifies it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift matchmaking configuration resource
+    -- and uniquely identifies it. ARNs are unique across all Regions. Format
+    -- is
     -- @arn:aws:gamelift:\<region>::matchmakingconfiguration\/\<matchmaking configuration name>@.
-    -- In a GameLift configuration ARN, the resource ID matches the /Name/
-    -- value.
+    -- In a Amazon GameLift configuration ARN, the resource ID matches the
+    -- /Name/ value.
     configurationArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
@@ -76,7 +77,7 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
     -- | A descriptive label that is associated with matchmaking configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether this matchmaking configuration is being used with
-    -- GameLift hosting or as a standalone matchmaking solution.
+    -- Amazon GameLift hosting or as a standalone matchmaking solution.
     --
     -- -   __STANDALONE__ - FlexMatch forms matches and returns match
     --     information, including players and team assignments, in a
@@ -84,7 +85,7 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
     --     event.
     --
     -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
-    --     GameLift queue to start a game session for the match.
+    --     Amazon GameLift queue to start a game session for the match.
     flexMatchMode :: Prelude.Maybe FlexMatchMode,
     -- | A set of custom properties for a game session, formatted as key:value
     -- pairs. These properties are passed to a game server process with a
@@ -104,10 +105,10 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
     gameSessionData :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift game session queue resource and uniquely
-    -- identifies it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift game session queue resource and
+    -- uniquely identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
-    -- can be located in any Region. Queues are used to start new
+    -- can be located in any Region. Queues are used to start new Amazon
     -- GameLift-hosted game sessions for matches that are created with this
     -- matchmaking configuration. This property is not set when @FlexMatchMode@
     -- is set to @STANDALONE@.
@@ -170,11 +171,12 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
 --
 -- 'configurationArn', 'matchmakingConfiguration_configurationArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift matchmaking configuration resource and
--- uniquely identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift matchmaking configuration resource
+-- and uniquely identifies it. ARNs are unique across all Regions. Format
+-- is
 -- @arn:aws:gamelift:\<region>::matchmakingconfiguration\/\<matchmaking configuration name>@.
--- In a GameLift configuration ARN, the resource ID matches the /Name/
--- value.
+-- In a Amazon GameLift configuration ARN, the resource ID matches the
+-- /Name/ value.
 --
 -- 'creationTime', 'matchmakingConfiguration_creationTime' - A time stamp indicating when this data object was created. Format is a
 -- number expressed in Unix time as milliseconds (for example
@@ -186,7 +188,7 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
 -- 'description', 'matchmakingConfiguration_description' - A descriptive label that is associated with matchmaking configuration.
 --
 -- 'flexMatchMode', 'matchmakingConfiguration_flexMatchMode' - Indicates whether this matchmaking configuration is being used with
--- GameLift hosting or as a standalone matchmaking solution.
+-- Amazon GameLift hosting or as a standalone matchmaking solution.
 --
 -- -   __STANDALONE__ - FlexMatch forms matches and returns match
 --     information, including players and team assignments, in a
@@ -194,7 +196,7 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
 --     event.
 --
 -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
---     GameLift queue to start a game session for the match.
+--     Amazon GameLift queue to start a game session for the match.
 --
 -- 'gameProperties', 'matchmakingConfiguration_gameProperties' - A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process with a
@@ -214,10 +216,10 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
 --
 -- 'gameSessionQueueArns', 'matchmakingConfiguration_gameSessionQueueArns' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift game session queue resource and
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
--- can be located in any Region. Queues are used to start new
+-- can be located in any Region. Queues are used to start new Amazon
 -- GameLift-hosted game sessions for matches that are created with this
 -- matchmaking configuration. This property is not set when @FlexMatchMode@
 -- is set to @STANDALONE@.
@@ -300,11 +302,12 @@ matchmakingConfiguration_backfillMode = Lens.lens (\MatchmakingConfiguration' {b
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift matchmaking configuration resource and
--- uniquely identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift matchmaking configuration resource
+-- and uniquely identifies it. ARNs are unique across all Regions. Format
+-- is
 -- @arn:aws:gamelift:\<region>::matchmakingconfiguration\/\<matchmaking configuration name>@.
--- In a GameLift configuration ARN, the resource ID matches the /Name/
--- value.
+-- In a Amazon GameLift configuration ARN, the resource ID matches the
+-- /Name/ value.
 matchmakingConfiguration_configurationArn :: Lens.Lens' MatchmakingConfiguration (Prelude.Maybe Prelude.Text)
 matchmakingConfiguration_configurationArn = Lens.lens (\MatchmakingConfiguration' {configurationArn} -> configurationArn) (\s@MatchmakingConfiguration' {} a -> s {configurationArn = a} :: MatchmakingConfiguration)
 
@@ -324,7 +327,7 @@ matchmakingConfiguration_description :: Lens.Lens' MatchmakingConfiguration (Pre
 matchmakingConfiguration_description = Lens.lens (\MatchmakingConfiguration' {description} -> description) (\s@MatchmakingConfiguration' {} a -> s {description = a} :: MatchmakingConfiguration)
 
 -- | Indicates whether this matchmaking configuration is being used with
--- GameLift hosting or as a standalone matchmaking solution.
+-- Amazon GameLift hosting or as a standalone matchmaking solution.
 --
 -- -   __STANDALONE__ - FlexMatch forms matches and returns match
 --     information, including players and team assignments, in a
@@ -332,7 +335,7 @@ matchmakingConfiguration_description = Lens.lens (\MatchmakingConfiguration' {de
 --     event.
 --
 -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
---     GameLift queue to start a game session for the match.
+--     Amazon GameLift queue to start a game session for the match.
 matchmakingConfiguration_flexMatchMode :: Lens.Lens' MatchmakingConfiguration (Prelude.Maybe FlexMatchMode)
 matchmakingConfiguration_flexMatchMode = Lens.lens (\MatchmakingConfiguration' {flexMatchMode} -> flexMatchMode) (\s@MatchmakingConfiguration' {} a -> s {flexMatchMode = a} :: MatchmakingConfiguration)
 
@@ -358,10 +361,10 @@ matchmakingConfiguration_gameSessionData = Lens.lens (\MatchmakingConfiguration'
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift game session queue resource and
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
--- can be located in any Region. Queues are used to start new
+-- can be located in any Region. Queues are used to start new Amazon
 -- GameLift-hosted game sessions for matches that are created with this
 -- matchmaking configuration. This property is not set when @FlexMatchMode@
 -- is set to @STANDALONE@.
@@ -414,7 +417,8 @@ instance Data.FromJSON MatchmakingConfiguration where
             Prelude.<*> (x Data..:? "FlexMatchMode")
             Prelude.<*> (x Data..:? "GameProperties" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "GameSessionData")
-            Prelude.<*> ( x Data..:? "GameSessionQueueArns"
+            Prelude.<*> ( x
+                            Data..:? "GameSessionQueueArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")
@@ -426,7 +430,8 @@ instance Data.FromJSON MatchmakingConfiguration where
 
 instance Prelude.Hashable MatchmakingConfiguration where
   hashWithSalt _salt MatchmakingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` acceptanceRequired
+    _salt
+      `Prelude.hashWithSalt` acceptanceRequired
       `Prelude.hashWithSalt` acceptanceTimeoutSeconds
       `Prelude.hashWithSalt` additionalPlayerCount
       `Prelude.hashWithSalt` backfillMode

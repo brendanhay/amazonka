@@ -146,7 +146,8 @@ instance Core.AWSRequest AcceptMatch where
 
 instance Prelude.Hashable AcceptMatch where
   hashWithSalt _salt AcceptMatch' {..} =
-    _salt `Prelude.hashWithSalt` ticketId
+    _salt
+      `Prelude.hashWithSalt` ticketId
       `Prelude.hashWithSalt` playerIds
       `Prelude.hashWithSalt` acceptanceType
 

@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a fleet scaling policy. Once deleted, the policy is no longer in
--- force and GameLift removes all record of it. To delete a scaling policy,
--- specify both the scaling policy name and the fleet ID it is associated
--- with.
+-- force and Amazon GameLift removes all record of it. To delete a scaling
+-- policy, specify both the scaling policy name and the fleet ID it is
+-- associated with.
 --
 -- To temporarily suspend scaling policies, use
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html StopFleetActions>.
@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteScalingPolicy where
 
 instance Prelude.Hashable DeleteScalingPolicy where
   hashWithSalt _salt DeleteScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData DeleteScalingPolicy where

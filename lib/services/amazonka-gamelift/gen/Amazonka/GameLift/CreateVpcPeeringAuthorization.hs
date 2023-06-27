@@ -86,15 +86,15 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateVpcPeeringAuthorization' smart constructor.
 data CreateVpcPeeringAuthorization = CreateVpcPeeringAuthorization'
   { -- | A unique identifier for the Amazon Web Services account that you use to
-    -- manage your GameLift fleet. You can find your Account ID in the Amazon
-    -- Web Services Management Console under account settings.
+    -- manage your Amazon GameLift fleet. You can find your Account ID in the
+    -- Amazon Web Services Management Console under account settings.
     gameLiftAwsAccountId :: Prelude.Text,
     -- | A unique identifier for a VPC with resources to be accessed by your
-    -- GameLift fleet. The VPC must be in the same Region as your fleet. To
-    -- look up a VPC ID, use the
+    -- Amazon GameLift fleet. The VPC must be in the same Region as your fleet.
+    -- To look up a VPC ID, use the
     -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
     -- Services Management Console. Learn more about VPC peering in
-    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
     peerVpcId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -108,15 +108,15 @@ data CreateVpcPeeringAuthorization = CreateVpcPeeringAuthorization'
 -- for backwards compatibility:
 --
 -- 'gameLiftAwsAccountId', 'createVpcPeeringAuthorization_gameLiftAwsAccountId' - A unique identifier for the Amazon Web Services account that you use to
--- manage your GameLift fleet. You can find your Account ID in the Amazon
--- Web Services Management Console under account settings.
+-- manage your Amazon GameLift fleet. You can find your Account ID in the
+-- Amazon Web Services Management Console under account settings.
 --
 -- 'peerVpcId', 'createVpcPeeringAuthorization_peerVpcId' - A unique identifier for a VPC with resources to be accessed by your
--- GameLift fleet. The VPC must be in the same Region as your fleet. To
--- look up a VPC ID, use the
+-- Amazon GameLift fleet. The VPC must be in the same Region as your fleet.
+-- To look up a VPC ID, use the
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
 -- Services Management Console. Learn more about VPC peering in
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 newCreateVpcPeeringAuthorization ::
   -- | 'gameLiftAwsAccountId'
   Prelude.Text ->
@@ -133,17 +133,17 @@ newCreateVpcPeeringAuthorization
       }
 
 -- | A unique identifier for the Amazon Web Services account that you use to
--- manage your GameLift fleet. You can find your Account ID in the Amazon
--- Web Services Management Console under account settings.
+-- manage your Amazon GameLift fleet. You can find your Account ID in the
+-- Amazon Web Services Management Console under account settings.
 createVpcPeeringAuthorization_gameLiftAwsAccountId :: Lens.Lens' CreateVpcPeeringAuthorization Prelude.Text
 createVpcPeeringAuthorization_gameLiftAwsAccountId = Lens.lens (\CreateVpcPeeringAuthorization' {gameLiftAwsAccountId} -> gameLiftAwsAccountId) (\s@CreateVpcPeeringAuthorization' {} a -> s {gameLiftAwsAccountId = a} :: CreateVpcPeeringAuthorization)
 
 -- | A unique identifier for a VPC with resources to be accessed by your
--- GameLift fleet. The VPC must be in the same Region as your fleet. To
--- look up a VPC ID, use the
+-- Amazon GameLift fleet. The VPC must be in the same Region as your fleet.
+-- To look up a VPC ID, use the
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
 -- Services Management Console. Learn more about VPC peering in
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 createVpcPeeringAuthorization_peerVpcId :: Lens.Lens' CreateVpcPeeringAuthorization Prelude.Text
 createVpcPeeringAuthorization_peerVpcId = Lens.lens (\CreateVpcPeeringAuthorization' {peerVpcId} -> peerVpcId) (\s@CreateVpcPeeringAuthorization' {} a -> s {peerVpcId = a} :: CreateVpcPeeringAuthorization)
 
@@ -169,7 +169,8 @@ instance
     CreateVpcPeeringAuthorization
   where
   hashWithSalt _salt CreateVpcPeeringAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` gameLiftAwsAccountId
+    _salt
+      `Prelude.hashWithSalt` gameLiftAwsAccountId
       `Prelude.hashWithSalt` peerVpcId
 
 instance Prelude.NFData CreateVpcPeeringAuthorization where

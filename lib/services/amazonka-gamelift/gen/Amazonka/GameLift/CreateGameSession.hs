@@ -23,8 +23,8 @@
 -- Creates a multiplayer game session for players in a specific fleet
 -- location. This operation prompts an available server process to start a
 -- game session and retrieves connection information for the new game
--- session. As an alternative, consider using the GameLift game session
--- placement feature with
+-- session. As an alternative, consider using the Amazon GameLift game
+-- session placement feature with
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html StartGameSessionPlacement>
 -- , which uses FleetIQ algorithms and queues to optimize the placement
 -- process.
@@ -107,11 +107,18 @@ data CreateGameSession = CreateGameSession'
     -- request must reference either a fleet ID or alias ID, but not both.
     aliasId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a player or entity creating the game session.
-    -- This parameter is required when requesting a new game session on a fleet
-    -- with a resource creation limit policy. This type of policy limits the
-    -- number of concurrent active game sessions that one player can create
-    -- within a certain time span. GameLift uses the CreatorId to evaluate the
-    -- new request against the policy.
+    --
+    -- If you add a resource creation limit policy to a fleet, the
+    -- @CreateGameSession@ operation requires a @CreatorId@. Amazon GameLift
+    -- limits the number of game session creation requests with the same
+    -- @CreatorId@ in a specified time period.
+    --
+    -- If you your fleet doesn\'t have a resource creation limit policy and you
+    -- provide a @CreatorId@ in your @CreateGameSession@ requests, Amazon
+    -- GameLift limits requests to one request per @CreatorId@ per second.
+    --
+    -- To not limit @CreateGameSession@ requests with the same @CreatorId@,
+    -- don\'t provide a @CreatorId@ in your @CreateGameSession@ request.
     creatorId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet to create a game session in. You can
     -- use either the fleet ID or ARN value. Each request must reference either
@@ -172,11 +179,18 @@ data CreateGameSession = CreateGameSession'
 -- request must reference either a fleet ID or alias ID, but not both.
 --
 -- 'creatorId', 'createGameSession_creatorId' - A unique identifier for a player or entity creating the game session.
--- This parameter is required when requesting a new game session on a fleet
--- with a resource creation limit policy. This type of policy limits the
--- number of concurrent active game sessions that one player can create
--- within a certain time span. GameLift uses the CreatorId to evaluate the
--- new request against the policy.
+--
+-- If you add a resource creation limit policy to a fleet, the
+-- @CreateGameSession@ operation requires a @CreatorId@. Amazon GameLift
+-- limits the number of game session creation requests with the same
+-- @CreatorId@ in a specified time period.
+--
+-- If you your fleet doesn\'t have a resource creation limit policy and you
+-- provide a @CreatorId@ in your @CreateGameSession@ requests, Amazon
+-- GameLift limits requests to one request per @CreatorId@ per second.
+--
+-- To not limit @CreateGameSession@ requests with the same @CreatorId@,
+-- don\'t provide a @CreatorId@ in your @CreateGameSession@ request.
 --
 -- 'fleetId', 'createGameSession_fleetId' - A unique identifier for the fleet to create a game session in. You can
 -- use either the fleet ID or ARN value. Each request must reference either
@@ -246,11 +260,18 @@ createGameSession_aliasId :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude
 createGameSession_aliasId = Lens.lens (\CreateGameSession' {aliasId} -> aliasId) (\s@CreateGameSession' {} a -> s {aliasId = a} :: CreateGameSession)
 
 -- | A unique identifier for a player or entity creating the game session.
--- This parameter is required when requesting a new game session on a fleet
--- with a resource creation limit policy. This type of policy limits the
--- number of concurrent active game sessions that one player can create
--- within a certain time span. GameLift uses the CreatorId to evaluate the
--- new request against the policy.
+--
+-- If you add a resource creation limit policy to a fleet, the
+-- @CreateGameSession@ operation requires a @CreatorId@. Amazon GameLift
+-- limits the number of game session creation requests with the same
+-- @CreatorId@ in a specified time period.
+--
+-- If you your fleet doesn\'t have a resource creation limit policy and you
+-- provide a @CreatorId@ in your @CreateGameSession@ requests, Amazon
+-- GameLift limits requests to one request per @CreatorId@ per second.
+--
+-- To not limit @CreateGameSession@ requests with the same @CreatorId@,
+-- don\'t provide a @CreatorId@ in your @CreateGameSession@ request.
 createGameSession_creatorId :: Lens.Lens' CreateGameSession (Prelude.Maybe Prelude.Text)
 createGameSession_creatorId = Lens.lens (\CreateGameSession' {creatorId} -> creatorId) (\s@CreateGameSession' {} a -> s {creatorId = a} :: CreateGameSession)
 
@@ -329,7 +350,8 @@ instance Core.AWSRequest CreateGameSession where
 
 instance Prelude.Hashable CreateGameSession where
   hashWithSalt _salt CreateGameSession' {..} =
-    _salt `Prelude.hashWithSalt` aliasId
+    _salt
+      `Prelude.hashWithSalt` aliasId
       `Prelude.hashWithSalt` creatorId
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` gameProperties

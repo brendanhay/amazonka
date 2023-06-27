@@ -28,15 +28,16 @@
 -- information to select new players so that backfilled match continues to
 -- meet the original match requirements.
 --
--- When using FlexMatch with GameLift managed hosting, you can request a
--- backfill match from a client service by calling this operation with a
--- @GameSessions@ ID. You also have the option of making backfill requests
--- directly from your game server. In response to a request, FlexMatch
--- creates player sessions for the new players, updates the @GameSession@
--- resource, and sends updated matchmaking data to the game server. You can
--- request a backfill match at any point after a game session is started.
--- Each game session can have only one active backfill request at a time; a
--- subsequent request automatically replaces the earlier request.
+-- When using FlexMatch with Amazon GameLift managed hosting, you can
+-- request a backfill match from a client service by calling this operation
+-- with a @GameSessions@ ID. You also have the option of making backfill
+-- requests directly from your game server. In response to a request,
+-- FlexMatch creates player sessions for the new players, updates the
+-- @GameSession@ resource, and sends updated matchmaking data to the game
+-- server. You can request a backfill match at any point after a game
+-- session is started. Each game session can have only one active backfill
+-- request at a time; a subsequent request automatically replaces the
+-- earlier request.
 --
 -- When using FlexMatch as a standalone component, request a backfill match
 -- by calling this operation without a game session identifier. As with
@@ -61,7 +62,7 @@
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html Matchmaking events>
 -- (reference)
 --
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html How GameLift FlexMatch works>
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html How Amazon GameLift FlexMatch works>
 module Amazonka.GameLift.StartMatchBackfill
   ( -- * Creating a Request
     StartMatchBackfill (..),
@@ -242,7 +243,8 @@ instance Core.AWSRequest StartMatchBackfill where
 
 instance Prelude.Hashable StartMatchBackfill where
   hashWithSalt _salt StartMatchBackfill' {..} =
-    _salt `Prelude.hashWithSalt` gameSessionArn
+    _salt
+      `Prelude.hashWithSalt` gameSessionArn
       `Prelude.hashWithSalt` ticketId
       `Prelude.hashWithSalt` configurationName
       `Prelude.hashWithSalt` players

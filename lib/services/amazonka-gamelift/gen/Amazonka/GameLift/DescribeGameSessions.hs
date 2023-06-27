@@ -211,22 +211,22 @@ instance Core.AWSPager DescribeGameSessions where
     | Core.stop
         ( rs
             Lens.^? describeGameSessionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeGameSessionsResponse_gameSessions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeGameSessions_nextToken
           Lens..~ rs
           Lens.^? describeGameSessionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGameSessions where
   type
@@ -245,7 +245,8 @@ instance Core.AWSRequest DescribeGameSessions where
 
 instance Prelude.Hashable DescribeGameSessions where
   hashWithSalt _salt DescribeGameSessions' {..} =
-    _salt `Prelude.hashWithSalt` aliasId
+    _salt
+      `Prelude.hashWithSalt` aliasId
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` gameSessionId
       `Prelude.hashWithSalt` limit

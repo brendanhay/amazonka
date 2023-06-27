@@ -20,29 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a tag that is assigned to a GameLift resource. Resource tags are
--- used to organize Amazon Web Services resources for a range of purposes.
--- This operation handles the permissions necessary to manage tags for the
--- following GameLift resource types:
---
--- -   Build
---
--- -   Script
---
--- -   Fleet
---
--- -   Alias
---
--- -   GameSessionQueue
---
--- -   MatchmakingConfiguration
---
--- -   MatchmakingRuleSet
+-- Removes a tag assigned to a Amazon GameLift resource. You can use
+-- resource tags to organize Amazon Web Services resources for a range of
+-- purposes. This operation handles the permissions necessary to manage
+-- tags for Amazon GameLift resources that support tagging.
 --
 -- To remove a tag from a resource, specify the unique ARN value for the
--- resource and provide a string list containing one or more tags to be
--- removed. This operation succeeds even if the list includes tags that are
--- not currently assigned to the specified resource.
+-- resource and provide a string list containing one or more tags to
+-- remove. This operation succeeds even if the list includes tags that
+-- aren\'t assigned to the resource.
 --
 -- __Learn more__
 --
@@ -84,15 +70,13 @@ import qualified Amazonka.Response as Response
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to and uniquely identifies the GameLift resource that
-    -- you want to remove tags from. GameLift resource ARNs are included in the
-    -- data object for the resource, which can be retrieved by calling a List
-    -- or Describe operation for the resource type.
+    -- that uniquely identifies the Amazon GameLift resource that you want to
+    -- remove tags from. Amazon GameLift includes resource ARNs in the data
+    -- object for the resource. You can retrieve the ARN by calling a @List@ or
+    -- @Describe@ operation for the resource type.
     resourceARN :: Prelude.Text,
-    -- | A list of one or more tag keys to remove from the specified GameLift
-    -- resource. An Amazon Web Services resource can have only one tag with a
-    -- specific tag key, so specifying the tag key identifies which tag to
-    -- remove.
+    -- | A list of one or more tag keys to remove from the specified Amazon
+    -- GameLift resource.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -107,15 +91,13 @@ data UntagResource = UntagResource'
 --
 -- 'resourceARN', 'untagResource_resourceARN' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to and uniquely identifies the GameLift resource that
--- you want to remove tags from. GameLift resource ARNs are included in the
--- data object for the resource, which can be retrieved by calling a List
--- or Describe operation for the resource type.
+-- that uniquely identifies the Amazon GameLift resource that you want to
+-- remove tags from. Amazon GameLift includes resource ARNs in the data
+-- object for the resource. You can retrieve the ARN by calling a @List@ or
+-- @Describe@ operation for the resource type.
 --
--- 'tagKeys', 'untagResource_tagKeys' - A list of one or more tag keys to remove from the specified GameLift
--- resource. An Amazon Web Services resource can have only one tag with a
--- specific tag key, so specifying the tag key identifies which tag to
--- remove.
+-- 'tagKeys', 'untagResource_tagKeys' - A list of one or more tag keys to remove from the specified Amazon
+-- GameLift resource.
 newUntagResource ::
   -- | 'resourceARN'
   Prelude.Text ->
@@ -128,17 +110,15 @@ newUntagResource pResourceARN_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to and uniquely identifies the GameLift resource that
--- you want to remove tags from. GameLift resource ARNs are included in the
--- data object for the resource, which can be retrieved by calling a List
--- or Describe operation for the resource type.
+-- that uniquely identifies the Amazon GameLift resource that you want to
+-- remove tags from. Amazon GameLift includes resource ARNs in the data
+-- object for the resource. You can retrieve the ARN by calling a @List@ or
+-- @Describe@ operation for the resource type.
 untagResource_resourceARN :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceARN = Lens.lens (\UntagResource' {resourceARN} -> resourceARN) (\s@UntagResource' {} a -> s {resourceARN = a} :: UntagResource)
 
--- | A list of one or more tag keys to remove from the specified GameLift
--- resource. An Amazon Web Services resource can have only one tag with a
--- specific tag key, so specifying the tag key identifies which tag to
--- remove.
+-- | A list of one or more tag keys to remove from the specified Amazon
+-- GameLift resource.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
@@ -157,7 +137,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

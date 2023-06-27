@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests an authorization token from GameLift. The authorization token
--- is used by your game server to authenticate with GameLift. Each
--- authentication token has an expiration token. To continue using the
--- compute resource to host your game server, regularly retrieve a new
--- authorization token.
+-- Requests an authentication token from Amazon GameLift. The
+-- authentication token is used by your game server to authenticate with
+-- Amazon GameLift. Each authentication token has an expiration time. To
+-- continue using the compute resource to host your game server, regularly
+-- retrieve a new authorization token.
 module Amazonka.GameLift.GetComputeAuthToken
   ( -- * Creating a Request
     GetComputeAuthToken (..),
@@ -61,7 +61,7 @@ import qualified Amazonka.Response as Response
 data GetComputeAuthToken = GetComputeAuthToken'
   { -- | A unique identifier for the fleet that the compute is registered to.
     fleetId :: Prelude.Text,
-    -- | The name of the compute resource you are requesting the authorization
+    -- | The name of the compute resource you are requesting the authentication
     -- token for.
     computeName :: Prelude.Text
   }
@@ -77,7 +77,7 @@ data GetComputeAuthToken = GetComputeAuthToken'
 --
 -- 'fleetId', 'getComputeAuthToken_fleetId' - A unique identifier for the fleet that the compute is registered to.
 --
--- 'computeName', 'getComputeAuthToken_computeName' - The name of the compute resource you are requesting the authorization
+-- 'computeName', 'getComputeAuthToken_computeName' - The name of the compute resource you are requesting the authentication
 -- token for.
 newGetComputeAuthToken ::
   -- | 'fleetId'
@@ -95,7 +95,7 @@ newGetComputeAuthToken pFleetId_ pComputeName_ =
 getComputeAuthToken_fleetId :: Lens.Lens' GetComputeAuthToken Prelude.Text
 getComputeAuthToken_fleetId = Lens.lens (\GetComputeAuthToken' {fleetId} -> fleetId) (\s@GetComputeAuthToken' {} a -> s {fleetId = a} :: GetComputeAuthToken)
 
--- | The name of the compute resource you are requesting the authorization
+-- | The name of the compute resource you are requesting the authentication
 -- token for.
 getComputeAuthToken_computeName :: Lens.Lens' GetComputeAuthToken Prelude.Text
 getComputeAuthToken_computeName = Lens.lens (\GetComputeAuthToken' {computeName} -> computeName) (\s@GetComputeAuthToken' {} a -> s {computeName = a} :: GetComputeAuthToken)
@@ -121,7 +121,8 @@ instance Core.AWSRequest GetComputeAuthToken where
 
 instance Prelude.Hashable GetComputeAuthToken where
   hashWithSalt _salt GetComputeAuthToken' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` computeName
 
 instance Prelude.NFData GetComputeAuthToken where
@@ -161,26 +162,26 @@ instance Data.ToQuery GetComputeAuthToken where
 
 -- | /See:/ 'newGetComputeAuthTokenResponse' smart constructor.
 data GetComputeAuthTokenResponse = GetComputeAuthTokenResponse'
-  { -- | The authorization token that your game server uses to authenticate with
-    -- GameLift.
+  { -- | The authentication token that your game server uses to authenticate with
+    -- Amazon GameLift.
     authToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift compute resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift compute resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::compute\/compute-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@
     computeArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the compute resource you are requesting the authorization
+    -- | The name of the compute resource you are requesting the authentication
     -- token for.
     computeName :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time until the authorization token is no longer valid. To
+    -- | The amount of time until the authentication token is no longer valid. To
     -- continue using the compute resource for game server hosting, renew the
-    -- authorization token by using this operation again.
+    -- authentication token by using this operation again.
     expirationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet that the compute is registered to.
@@ -198,26 +199,26 @@ data GetComputeAuthTokenResponse = GetComputeAuthTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authToken', 'getComputeAuthTokenResponse_authToken' - The authorization token that your game server uses to authenticate with
--- GameLift.
+-- 'authToken', 'getComputeAuthTokenResponse_authToken' - The authentication token that your game server uses to authenticate with
+-- Amazon GameLift.
 --
 -- 'computeArn', 'getComputeAuthTokenResponse_computeArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift compute resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift compute resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::compute\/compute-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@
 --
--- 'computeName', 'getComputeAuthTokenResponse_computeName' - The name of the compute resource you are requesting the authorization
+-- 'computeName', 'getComputeAuthTokenResponse_computeName' - The name of the compute resource you are requesting the authentication
 -- token for.
 --
--- 'expirationTimestamp', 'getComputeAuthTokenResponse_expirationTimestamp' - The amount of time until the authorization token is no longer valid. To
+-- 'expirationTimestamp', 'getComputeAuthTokenResponse_expirationTimestamp' - The amount of time until the authentication token is no longer valid. To
 -- continue using the compute resource for game server hosting, renew the
--- authorization token by using this operation again.
+-- authentication token by using this operation again.
 --
 -- 'fleetArn', 'getComputeAuthTokenResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'getComputeAuthTokenResponse_fleetId' - A unique identifier for the fleet that the compute is registered to.
@@ -239,34 +240,34 @@ newGetComputeAuthTokenResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The authorization token that your game server uses to authenticate with
--- GameLift.
+-- | The authentication token that your game server uses to authenticate with
+-- Amazon GameLift.
 getComputeAuthTokenResponse_authToken :: Lens.Lens' GetComputeAuthTokenResponse (Prelude.Maybe Prelude.Text)
 getComputeAuthTokenResponse_authToken = Lens.lens (\GetComputeAuthTokenResponse' {authToken} -> authToken) (\s@GetComputeAuthTokenResponse' {} a -> s {authToken = a} :: GetComputeAuthTokenResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift compute resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift compute resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::compute\/compute-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@
 getComputeAuthTokenResponse_computeArn :: Lens.Lens' GetComputeAuthTokenResponse (Prelude.Maybe Prelude.Text)
 getComputeAuthTokenResponse_computeArn = Lens.lens (\GetComputeAuthTokenResponse' {computeArn} -> computeArn) (\s@GetComputeAuthTokenResponse' {} a -> s {computeArn = a} :: GetComputeAuthTokenResponse)
 
--- | The name of the compute resource you are requesting the authorization
+-- | The name of the compute resource you are requesting the authentication
 -- token for.
 getComputeAuthTokenResponse_computeName :: Lens.Lens' GetComputeAuthTokenResponse (Prelude.Maybe Prelude.Text)
 getComputeAuthTokenResponse_computeName = Lens.lens (\GetComputeAuthTokenResponse' {computeName} -> computeName) (\s@GetComputeAuthTokenResponse' {} a -> s {computeName = a} :: GetComputeAuthTokenResponse)
 
--- | The amount of time until the authorization token is no longer valid. To
+-- | The amount of time until the authentication token is no longer valid. To
 -- continue using the compute resource for game server hosting, renew the
--- authorization token by using this operation again.
+-- authentication token by using this operation again.
 getComputeAuthTokenResponse_expirationTimestamp :: Lens.Lens' GetComputeAuthTokenResponse (Prelude.Maybe Prelude.UTCTime)
 getComputeAuthTokenResponse_expirationTimestamp = Lens.lens (\GetComputeAuthTokenResponse' {expirationTimestamp} -> expirationTimestamp) (\s@GetComputeAuthTokenResponse' {} a -> s {expirationTimestamp = a} :: GetComputeAuthTokenResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 getComputeAuthTokenResponse_fleetArn :: Lens.Lens' GetComputeAuthTokenResponse (Prelude.Maybe Prelude.Text)
 getComputeAuthTokenResponse_fleetArn = Lens.lens (\GetComputeAuthTokenResponse' {fleetArn} -> fleetArn) (\s@GetComputeAuthTokenResponse' {} a -> s {fleetArn = a} :: GetComputeAuthTokenResponse)

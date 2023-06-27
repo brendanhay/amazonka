@@ -43,8 +43,8 @@ data FleetUtilization = FleetUtilization'
     currentPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet associated with the location.
@@ -77,8 +77,8 @@ data FleetUtilization = FleetUtilization'
 --
 -- 'fleetArn', 'fleetUtilization_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'fleetUtilization_fleetId' - A unique identifier for the fleet associated with the location.
@@ -119,8 +119,8 @@ fleetUtilization_currentPlayerSessionCount = Lens.lens (\FleetUtilization' {curr
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 fleetUtilization_fleetArn :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Text)
 fleetUtilization_fleetArn = Lens.lens (\FleetUtilization' {fleetArn} -> fleetArn) (\s@FleetUtilization' {} a -> s {fleetArn = a} :: FleetUtilization)
@@ -156,7 +156,8 @@ instance Data.FromJSON FleetUtilization where
 
 instance Prelude.Hashable FleetUtilization where
   hashWithSalt _salt FleetUtilization' {..} =
-    _salt `Prelude.hashWithSalt` activeGameSessionCount
+    _salt
+      `Prelude.hashWithSalt` activeGameSessionCount
       `Prelude.hashWithSalt` activeServerProcessCount
       `Prelude.hashWithSalt` currentPlayerSessionCount
       `Prelude.hashWithSalt` fleetArn

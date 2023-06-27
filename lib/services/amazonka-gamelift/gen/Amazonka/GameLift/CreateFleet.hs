@@ -20,18 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a fleet of Amazon Elastic Compute Cloud (Amazon Elastic Compute
--- Cloud) instances to host your custom game server or Realtime Servers.
--- Use this operation to configure the computing resources for your fleet
--- and provide instructions for running game servers on each instance.
+-- Creates a fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances
+-- to host your custom game server or Realtime Servers. Use this operation
+-- to configure the computing resources for your fleet and provide
+-- instructions for running game servers on each instance.
 --
--- Most GameLift fleets can deploy instances to multiple locations,
+-- Most Amazon GameLift fleets can deploy instances to multiple locations,
 -- including the home Region (where the fleet is created) and an optional
 -- set of remote locations. Fleets that are created in the following Amazon
 -- Web Services Regions support multiple locations: us-east-1 (N.
 -- Virginia), us-west-2 (Oregon), eu-central-1 (Frankfurt), eu-west-1
 -- (Ireland), ap-southeast-2 (Sydney), ap-northeast-1 (Tokyo), and
--- ap-northeast-2 (Seoul). Fleets that are created in other GameLift
+-- ap-northeast-2 (Seoul). Fleets that are created in other Amazon GameLift
 -- Regions can deploy instances in the fleet\'s home Region only. All fleet
 -- instances use the same configuration regardless of location; however,
 -- you can adjust capacity settings and turn auto-scaling on\/off for each
@@ -39,10 +39,11 @@
 --
 -- To create a fleet, choose the hardware for your instances, specify a
 -- game server build or Realtime script to deploy, and provide a runtime
--- configuration to direct GameLift how to start and run game servers on
--- each instance in the fleet. Set permissions for inbound traffic to your
--- game servers, and enable optional features as needed. When creating a
--- multi-location fleet, provide a list of additional remote locations.
+-- configuration to direct Amazon GameLift how to start and run game
+-- servers on each instance in the fleet. Set permissions for inbound
+-- traffic to your game servers, and enable optional features as needed.
+-- When creating a multi-location fleet, provide a list of additional
+-- remote locations.
 --
 -- If you need to debug your fleet, fetch logs, view performance metrics or
 -- other actions on the fleet, create the development fleet with port
@@ -50,8 +51,8 @@
 -- access only when you need them and closing them when you\'re finished.
 --
 -- If successful, this operation creates a new Fleet resource and places it
--- in @NEW@ status, which prompts GameLift to initiate the
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creation-workflow.html fleet creation workflow>.
+-- in @NEW@ status, which prompts Amazon GameLift to initiate the
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow fleet creation workflow>.
 --
 -- __Learn more__
 --
@@ -110,18 +111,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFleet' smart constructor.
 data CreateFleet = CreateFleet'
-  { -- | GameLift Anywhere configuration options.
+  { -- | Amazon GameLift Anywhere configuration options.
     anywhereConfiguration :: Prelude.Maybe AnywhereConfiguration,
     -- | The unique identifier for a custom game server build to be deployed on
     -- fleet instances. You can use either the build ID or ARN. The build must
-    -- be uploaded to GameLift and in @READY@ status. This fleet property
-    -- cannot be changed later.
+    -- be uploaded to Amazon GameLift and in @READY@ status. This fleet
+    -- property cannot be changed later.
     buildId :: Prelude.Maybe Prelude.Text,
-    -- | Prompts GameLift to generate a TLS\/SSL certificate for the fleet.
-    -- GameLift uses the certificates to encrypt traffic between game clients
-    -- and the game servers running on GameLift. By default, the
-    -- @CertificateConfiguration@ is @DISABLED@. You can\'t change this
-    -- property after you create the fleet.
+    -- | Prompts Amazon GameLift to generate a TLS\/SSL certificate for the
+    -- fleet. Amazon GameLift uses the certificates to encrypt traffic between
+    -- game clients and the game servers running on Amazon GameLift. By
+    -- default, the @CertificateConfiguration@ is @DISABLED@. You can\'t change
+    -- this property after you create the fleet.
     --
     -- Certificate Manager (ACM) certificates expire after 13 months.
     -- Certificate expiration can cause fleets to fail, preventing players from
@@ -136,21 +137,22 @@ data CreateFleet = CreateFleet'
     -- in the /Certificate Manager User Guide/.
     certificateConfiguration :: Prelude.Maybe CertificateConfiguration,
     -- | The type of compute resource used to host your game servers. You can use
-    -- your own compute resources with GameLift Anywhere or use Amazon EC2
-    -- instances with managed GameLift.
+    -- your own compute resources with Amazon GameLift Anywhere or use Amazon
+    -- EC2 instances with managed Amazon GameLift. By default, this property is
+    -- set to @EC2@.
     computeType :: Prelude.Maybe ComputeType,
     -- | A description for the fleet.
     description :: Prelude.Maybe Prelude.Text,
     -- | The allowed IP address ranges and port settings that allow inbound
     -- traffic to access game sessions on this fleet. If the fleet is hosting a
     -- custom game build, this property must be set before players can connect
-    -- to game sessions. For Realtime Servers fleets, GameLift automatically
-    -- sets TCP and UDP ranges.
+    -- to game sessions. For Realtime Servers fleets, Amazon GameLift
+    -- automatically sets TCP and UDP ranges.
     eC2InboundPermissions :: Prelude.Maybe [IpPermission],
-    -- | The GameLift-supported Amazon EC2 instance type to use for all fleet
-    -- instances. Instance type determines the computing resources that will be
-    -- used to host your game servers, including CPU, memory, storage, and
-    -- networking capacity. See
+    -- | The Amazon GameLift-supported Amazon EC2 instance type to use for all
+    -- fleet instances. Instance type determines the computing resources that
+    -- will be used to host your game servers, including CPU, memory, storage,
+    -- and networking capacity. See
     -- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
     -- for detailed descriptions of Amazon EC2 instance types.
     eC2InstanceType :: Prelude.Maybe EC2InstanceType,
@@ -174,17 +176,20 @@ data CreateFleet = CreateFleet'
     -- | A set of remote locations to deploy additional instances to and manage
     -- as part of the fleet. This parameter can only be used when creating
     -- fleets in Amazon Web Services Regions that support multiple locations.
-    -- You can add any GameLift-supported Amazon Web Services Region as a
-    -- remote location, in the form of an Amazon Web Services Region code such
-    -- as @us-west-2@. To create a fleet with instances in the home Region
-    -- only, omit this parameter.
+    -- You can add any Amazon GameLift-supported Amazon Web Services Region as
+    -- a remote location, in the form of an Amazon Web Services Region code
+    -- such as @us-west-2@. To create a fleet with instances in the home Region
+    -- only, don\'t use this parameter.
+    --
+    -- To use this parameter, Amazon GameLift requires you to use your home
+    -- location in the request.
     locations :: Prelude.Maybe (Prelude.NonEmpty LocationConfiguration),
-    -- | __This parameter is no longer used.__ To specify where GameLift should
-    -- store log files once a server process shuts down, use the GameLift
-    -- server API @ProcessReady()@ and specify one or more directory paths in
-    -- @logParameters@. For more information, see
+    -- | __This parameter is no longer used.__ To specify where Amazon GameLift
+    -- should store log files once a server process shuts down, use the Amazon
+    -- GameLift server API @ProcessReady()@ and specify one or more directory
+    -- paths in @logParameters@. For more information, see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-initialize Initialize the server process>
-    -- in the /GameLift Developer Guide/.
+    -- in the /Amazon GameLift Developer Guide/.
     logPaths :: Prelude.Maybe [Prelude.Text],
     -- | The name of an Amazon Web Services CloudWatch metric group to add this
     -- fleet to. A metric group is used to aggregate the metrics for multiple
@@ -203,17 +208,17 @@ data CreateFleet = CreateFleet'
     -- -   __FullProtection__ - Game sessions in @ACTIVE@ status cannot be
     --     terminated during a scale-down event.
     newGameSessionProtectionPolicy' :: Prelude.Maybe ProtectionPolicy,
-    -- | Used when peering your GameLift fleet with a VPC, the unique identifier
-    -- for the Amazon Web Services account that owns the VPC. You can find your
-    -- account ID in the Amazon Web Services Management Console under account
-    -- settings.
+    -- | Used when peering your Amazon GameLift fleet with a VPC, the unique
+    -- identifier for the Amazon Web Services account that owns the VPC. You
+    -- can find your account ID in the Amazon Web Services Management Console
+    -- under account settings.
     peerVpcAwsAccountId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a VPC with resources to be accessed by your
-    -- GameLift fleet. The VPC must be in the same Region as your fleet. To
-    -- look up a VPC ID, use the
+    -- Amazon GameLift fleet. The VPC must be in the same Region as your fleet.
+    -- To look up a VPC ID, use the
     -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
     -- Services Management Console. Learn more about VPC peering in
-    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
     peerVpcId :: Prelude.Maybe Prelude.Text,
     -- | A policy that limits the number of game sessions that an individual
     -- player can create on instances in this fleet within a specified span of
@@ -232,8 +237,8 @@ data CreateFleet = CreateFleet'
     runtimeConfiguration :: Prelude.Maybe RuntimeConfiguration,
     -- | The unique identifier for a Realtime configuration script to be deployed
     -- on fleet instances. You can use either the script ID or ARN. Scripts
-    -- must be uploaded to GameLift prior to creating the fleet. This fleet
-    -- property cannot be changed later.
+    -- must be uploaded to Amazon GameLift prior to creating the fleet. This
+    -- fleet property cannot be changed later.
     scriptId :: Prelude.Maybe Prelude.Text,
     -- | __This parameter is no longer used.__ Specify server launch parameters
     -- using the @RuntimeConfiguration@ parameter. Requests that use this
@@ -264,18 +269,18 @@ data CreateFleet = CreateFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'anywhereConfiguration', 'createFleet_anywhereConfiguration' - GameLift Anywhere configuration options.
+-- 'anywhereConfiguration', 'createFleet_anywhereConfiguration' - Amazon GameLift Anywhere configuration options.
 --
 -- 'buildId', 'createFleet_buildId' - The unique identifier for a custom game server build to be deployed on
 -- fleet instances. You can use either the build ID or ARN. The build must
--- be uploaded to GameLift and in @READY@ status. This fleet property
--- cannot be changed later.
+-- be uploaded to Amazon GameLift and in @READY@ status. This fleet
+-- property cannot be changed later.
 --
--- 'certificateConfiguration', 'createFleet_certificateConfiguration' - Prompts GameLift to generate a TLS\/SSL certificate for the fleet.
--- GameLift uses the certificates to encrypt traffic between game clients
--- and the game servers running on GameLift. By default, the
--- @CertificateConfiguration@ is @DISABLED@. You can\'t change this
--- property after you create the fleet.
+-- 'certificateConfiguration', 'createFleet_certificateConfiguration' - Prompts Amazon GameLift to generate a TLS\/SSL certificate for the
+-- fleet. Amazon GameLift uses the certificates to encrypt traffic between
+-- game clients and the game servers running on Amazon GameLift. By
+-- default, the @CertificateConfiguration@ is @DISABLED@. You can\'t change
+-- this property after you create the fleet.
 --
 -- Certificate Manager (ACM) certificates expire after 13 months.
 -- Certificate expiration can cause fleets to fail, preventing players from
@@ -290,21 +295,22 @@ data CreateFleet = CreateFleet'
 -- in the /Certificate Manager User Guide/.
 --
 -- 'computeType', 'createFleet_computeType' - The type of compute resource used to host your game servers. You can use
--- your own compute resources with GameLift Anywhere or use Amazon EC2
--- instances with managed GameLift.
+-- your own compute resources with Amazon GameLift Anywhere or use Amazon
+-- EC2 instances with managed Amazon GameLift. By default, this property is
+-- set to @EC2@.
 --
 -- 'description', 'createFleet_description' - A description for the fleet.
 --
 -- 'eC2InboundPermissions', 'createFleet_eC2InboundPermissions' - The allowed IP address ranges and port settings that allow inbound
 -- traffic to access game sessions on this fleet. If the fleet is hosting a
 -- custom game build, this property must be set before players can connect
--- to game sessions. For Realtime Servers fleets, GameLift automatically
--- sets TCP and UDP ranges.
+-- to game sessions. For Realtime Servers fleets, Amazon GameLift
+-- automatically sets TCP and UDP ranges.
 --
--- 'eC2InstanceType', 'createFleet_eC2InstanceType' - The GameLift-supported Amazon EC2 instance type to use for all fleet
--- instances. Instance type determines the computing resources that will be
--- used to host your game servers, including CPU, memory, storage, and
--- networking capacity. See
+-- 'eC2InstanceType', 'createFleet_eC2InstanceType' - The Amazon GameLift-supported Amazon EC2 instance type to use for all
+-- fleet instances. Instance type determines the computing resources that
+-- will be used to host your game servers, including CPU, memory, storage,
+-- and networking capacity. See
 -- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
 -- for detailed descriptions of Amazon EC2 instance types.
 --
@@ -328,17 +334,20 @@ data CreateFleet = CreateFleet'
 -- 'locations', 'createFleet_locations' - A set of remote locations to deploy additional instances to and manage
 -- as part of the fleet. This parameter can only be used when creating
 -- fleets in Amazon Web Services Regions that support multiple locations.
--- You can add any GameLift-supported Amazon Web Services Region as a
--- remote location, in the form of an Amazon Web Services Region code such
--- as @us-west-2@. To create a fleet with instances in the home Region
--- only, omit this parameter.
+-- You can add any Amazon GameLift-supported Amazon Web Services Region as
+-- a remote location, in the form of an Amazon Web Services Region code
+-- such as @us-west-2@. To create a fleet with instances in the home Region
+-- only, don\'t use this parameter.
 --
--- 'logPaths', 'createFleet_logPaths' - __This parameter is no longer used.__ To specify where GameLift should
--- store log files once a server process shuts down, use the GameLift
--- server API @ProcessReady()@ and specify one or more directory paths in
--- @logParameters@. For more information, see
+-- To use this parameter, Amazon GameLift requires you to use your home
+-- location in the request.
+--
+-- 'logPaths', 'createFleet_logPaths' - __This parameter is no longer used.__ To specify where Amazon GameLift
+-- should store log files once a server process shuts down, use the Amazon
+-- GameLift server API @ProcessReady()@ and specify one or more directory
+-- paths in @logParameters@. For more information, see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-initialize Initialize the server process>
--- in the /GameLift Developer Guide/.
+-- in the /Amazon GameLift Developer Guide/.
 --
 -- 'metricGroups', 'createFleet_metricGroups' - The name of an Amazon Web Services CloudWatch metric group to add this
 -- fleet to. A metric group is used to aggregate the metrics for multiple
@@ -357,17 +366,17 @@ data CreateFleet = CreateFleet'
 -- -   __FullProtection__ - Game sessions in @ACTIVE@ status cannot be
 --     terminated during a scale-down event.
 --
--- 'peerVpcAwsAccountId', 'createFleet_peerVpcAwsAccountId' - Used when peering your GameLift fleet with a VPC, the unique identifier
--- for the Amazon Web Services account that owns the VPC. You can find your
--- account ID in the Amazon Web Services Management Console under account
--- settings.
+-- 'peerVpcAwsAccountId', 'createFleet_peerVpcAwsAccountId' - Used when peering your Amazon GameLift fleet with a VPC, the unique
+-- identifier for the Amazon Web Services account that owns the VPC. You
+-- can find your account ID in the Amazon Web Services Management Console
+-- under account settings.
 --
 -- 'peerVpcId', 'createFleet_peerVpcId' - A unique identifier for a VPC with resources to be accessed by your
--- GameLift fleet. The VPC must be in the same Region as your fleet. To
--- look up a VPC ID, use the
+-- Amazon GameLift fleet. The VPC must be in the same Region as your fleet.
+-- To look up a VPC ID, use the
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
 -- Services Management Console. Learn more about VPC peering in
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 --
 -- 'resourceCreationLimitPolicy', 'createFleet_resourceCreationLimitPolicy' - A policy that limits the number of game sessions that an individual
 -- player can create on instances in this fleet within a specified span of
@@ -386,8 +395,8 @@ data CreateFleet = CreateFleet'
 --
 -- 'scriptId', 'createFleet_scriptId' - The unique identifier for a Realtime configuration script to be deployed
 -- on fleet instances. You can use either the script ID or ARN. Scripts
--- must be uploaded to GameLift prior to creating the fleet. This fleet
--- property cannot be changed later.
+-- must be uploaded to Amazon GameLift prior to creating the fleet. This
+-- fleet property cannot be changed later.
 --
 -- 'serverLaunchParameters', 'createFleet_serverLaunchParameters' - __This parameter is no longer used.__ Specify server launch parameters
 -- using the @RuntimeConfiguration@ parameter. Requests that use this
@@ -437,22 +446,22 @@ newCreateFleet pName_ =
       name = pName_
     }
 
--- | GameLift Anywhere configuration options.
+-- | Amazon GameLift Anywhere configuration options.
 createFleet_anywhereConfiguration :: Lens.Lens' CreateFleet (Prelude.Maybe AnywhereConfiguration)
 createFleet_anywhereConfiguration = Lens.lens (\CreateFleet' {anywhereConfiguration} -> anywhereConfiguration) (\s@CreateFleet' {} a -> s {anywhereConfiguration = a} :: CreateFleet)
 
 -- | The unique identifier for a custom game server build to be deployed on
 -- fleet instances. You can use either the build ID or ARN. The build must
--- be uploaded to GameLift and in @READY@ status. This fleet property
--- cannot be changed later.
+-- be uploaded to Amazon GameLift and in @READY@ status. This fleet
+-- property cannot be changed later.
 createFleet_buildId :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
 createFleet_buildId = Lens.lens (\CreateFleet' {buildId} -> buildId) (\s@CreateFleet' {} a -> s {buildId = a} :: CreateFleet)
 
--- | Prompts GameLift to generate a TLS\/SSL certificate for the fleet.
--- GameLift uses the certificates to encrypt traffic between game clients
--- and the game servers running on GameLift. By default, the
--- @CertificateConfiguration@ is @DISABLED@. You can\'t change this
--- property after you create the fleet.
+-- | Prompts Amazon GameLift to generate a TLS\/SSL certificate for the
+-- fleet. Amazon GameLift uses the certificates to encrypt traffic between
+-- game clients and the game servers running on Amazon GameLift. By
+-- default, the @CertificateConfiguration@ is @DISABLED@. You can\'t change
+-- this property after you create the fleet.
 --
 -- Certificate Manager (ACM) certificates expire after 13 months.
 -- Certificate expiration can cause fleets to fail, preventing players from
@@ -469,8 +478,9 @@ createFleet_certificateConfiguration :: Lens.Lens' CreateFleet (Prelude.Maybe Ce
 createFleet_certificateConfiguration = Lens.lens (\CreateFleet' {certificateConfiguration} -> certificateConfiguration) (\s@CreateFleet' {} a -> s {certificateConfiguration = a} :: CreateFleet)
 
 -- | The type of compute resource used to host your game servers. You can use
--- your own compute resources with GameLift Anywhere or use Amazon EC2
--- instances with managed GameLift.
+-- your own compute resources with Amazon GameLift Anywhere or use Amazon
+-- EC2 instances with managed Amazon GameLift. By default, this property is
+-- set to @EC2@.
 createFleet_computeType :: Lens.Lens' CreateFleet (Prelude.Maybe ComputeType)
 createFleet_computeType = Lens.lens (\CreateFleet' {computeType} -> computeType) (\s@CreateFleet' {} a -> s {computeType = a} :: CreateFleet)
 
@@ -481,15 +491,15 @@ createFleet_description = Lens.lens (\CreateFleet' {description} -> description)
 -- | The allowed IP address ranges and port settings that allow inbound
 -- traffic to access game sessions on this fleet. If the fleet is hosting a
 -- custom game build, this property must be set before players can connect
--- to game sessions. For Realtime Servers fleets, GameLift automatically
--- sets TCP and UDP ranges.
+-- to game sessions. For Realtime Servers fleets, Amazon GameLift
+-- automatically sets TCP and UDP ranges.
 createFleet_eC2InboundPermissions :: Lens.Lens' CreateFleet (Prelude.Maybe [IpPermission])
 createFleet_eC2InboundPermissions = Lens.lens (\CreateFleet' {eC2InboundPermissions} -> eC2InboundPermissions) (\s@CreateFleet' {} a -> s {eC2InboundPermissions = a} :: CreateFleet) Prelude.. Lens.mapping Lens.coerced
 
--- | The GameLift-supported Amazon EC2 instance type to use for all fleet
--- instances. Instance type determines the computing resources that will be
--- used to host your game servers, including CPU, memory, storage, and
--- networking capacity. See
+-- | The Amazon GameLift-supported Amazon EC2 instance type to use for all
+-- fleet instances. Instance type determines the computing resources that
+-- will be used to host your game servers, including CPU, memory, storage,
+-- and networking capacity. See
 -- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
 -- for detailed descriptions of Amazon EC2 instance types.
 createFleet_eC2InstanceType :: Lens.Lens' CreateFleet (Prelude.Maybe EC2InstanceType)
@@ -519,19 +529,22 @@ createFleet_instanceRoleArn = Lens.lens (\CreateFleet' {instanceRoleArn} -> inst
 -- | A set of remote locations to deploy additional instances to and manage
 -- as part of the fleet. This parameter can only be used when creating
 -- fleets in Amazon Web Services Regions that support multiple locations.
--- You can add any GameLift-supported Amazon Web Services Region as a
--- remote location, in the form of an Amazon Web Services Region code such
--- as @us-west-2@. To create a fleet with instances in the home Region
--- only, omit this parameter.
+-- You can add any Amazon GameLift-supported Amazon Web Services Region as
+-- a remote location, in the form of an Amazon Web Services Region code
+-- such as @us-west-2@. To create a fleet with instances in the home Region
+-- only, don\'t use this parameter.
+--
+-- To use this parameter, Amazon GameLift requires you to use your home
+-- location in the request.
 createFleet_locations :: Lens.Lens' CreateFleet (Prelude.Maybe (Prelude.NonEmpty LocationConfiguration))
 createFleet_locations = Lens.lens (\CreateFleet' {locations} -> locations) (\s@CreateFleet' {} a -> s {locations = a} :: CreateFleet) Prelude.. Lens.mapping Lens.coerced
 
--- | __This parameter is no longer used.__ To specify where GameLift should
--- store log files once a server process shuts down, use the GameLift
--- server API @ProcessReady()@ and specify one or more directory paths in
--- @logParameters@. For more information, see
+-- | __This parameter is no longer used.__ To specify where Amazon GameLift
+-- should store log files once a server process shuts down, use the Amazon
+-- GameLift server API @ProcessReady()@ and specify one or more directory
+-- paths in @logParameters@. For more information, see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-initialize Initialize the server process>
--- in the /GameLift Developer Guide/.
+-- in the /Amazon GameLift Developer Guide/.
 createFleet_logPaths :: Lens.Lens' CreateFleet (Prelude.Maybe [Prelude.Text])
 createFleet_logPaths = Lens.lens (\CreateFleet' {logPaths} -> logPaths) (\s@CreateFleet' {} a -> s {logPaths = a} :: CreateFleet) Prelude.. Lens.mapping Lens.coerced
 
@@ -556,19 +569,19 @@ createFleet_metricGroups = Lens.lens (\CreateFleet' {metricGroups} -> metricGrou
 createFleet_newGameSessionProtectionPolicy :: Lens.Lens' CreateFleet (Prelude.Maybe ProtectionPolicy)
 createFleet_newGameSessionProtectionPolicy = Lens.lens (\CreateFleet' {newGameSessionProtectionPolicy'} -> newGameSessionProtectionPolicy') (\s@CreateFleet' {} a -> s {newGameSessionProtectionPolicy' = a} :: CreateFleet)
 
--- | Used when peering your GameLift fleet with a VPC, the unique identifier
--- for the Amazon Web Services account that owns the VPC. You can find your
--- account ID in the Amazon Web Services Management Console under account
--- settings.
+-- | Used when peering your Amazon GameLift fleet with a VPC, the unique
+-- identifier for the Amazon Web Services account that owns the VPC. You
+-- can find your account ID in the Amazon Web Services Management Console
+-- under account settings.
 createFleet_peerVpcAwsAccountId :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
 createFleet_peerVpcAwsAccountId = Lens.lens (\CreateFleet' {peerVpcAwsAccountId} -> peerVpcAwsAccountId) (\s@CreateFleet' {} a -> s {peerVpcAwsAccountId = a} :: CreateFleet)
 
 -- | A unique identifier for a VPC with resources to be accessed by your
--- GameLift fleet. The VPC must be in the same Region as your fleet. To
--- look up a VPC ID, use the
+-- Amazon GameLift fleet. The VPC must be in the same Region as your fleet.
+-- To look up a VPC ID, use the
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
 -- Services Management Console. Learn more about VPC peering in
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 createFleet_peerVpcId :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
 createFleet_peerVpcId = Lens.lens (\CreateFleet' {peerVpcId} -> peerVpcId) (\s@CreateFleet' {} a -> s {peerVpcId = a} :: CreateFleet)
 
@@ -593,8 +606,8 @@ createFleet_runtimeConfiguration = Lens.lens (\CreateFleet' {runtimeConfiguratio
 
 -- | The unique identifier for a Realtime configuration script to be deployed
 -- on fleet instances. You can use either the script ID or ARN. Scripts
--- must be uploaded to GameLift prior to creating the fleet. This fleet
--- property cannot be changed later.
+-- must be uploaded to Amazon GameLift prior to creating the fleet. This
+-- fleet property cannot be changed later.
 createFleet_scriptId :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
 createFleet_scriptId = Lens.lens (\CreateFleet' {scriptId} -> scriptId) (\s@CreateFleet' {} a -> s {scriptId = a} :: CreateFleet)
 
@@ -639,7 +652,8 @@ instance Core.AWSRequest CreateFleet where
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =
-    _salt `Prelude.hashWithSalt` anywhereConfiguration
+    _salt
+      `Prelude.hashWithSalt` anywhereConfiguration
       `Prelude.hashWithSalt` buildId
       `Prelude.hashWithSalt` certificateConfiguration
       `Prelude.hashWithSalt` computeType
@@ -755,7 +769,7 @@ data CreateFleetResponse = CreateFleetResponse'
     fleetAttributes :: Prelude.Maybe FleetAttributes,
     -- | The fleet\'s locations and life-cycle status of each location. For new
     -- fleets, the status of all locations is set to @NEW@. During fleet
-    -- creation, GameLift updates each location status as instances are
+    -- creation, Amazon GameLift updates each location status as instances are
     -- deployed there and prepared for game hosting. This list includes an
     -- entry for the fleet\'s home Region. For fleets with no remote locations,
     -- only one entry, representing the home Region, is returned.
@@ -778,7 +792,7 @@ data CreateFleetResponse = CreateFleetResponse'
 --
 -- 'locationStates', 'createFleetResponse_locationStates' - The fleet\'s locations and life-cycle status of each location. For new
 -- fleets, the status of all locations is set to @NEW@. During fleet
--- creation, GameLift updates each location status as instances are
+-- creation, Amazon GameLift updates each location status as instances are
 -- deployed there and prepared for game hosting. This list includes an
 -- entry for the fleet\'s home Region. For fleets with no remote locations,
 -- only one entry, representing the home Region, is returned.
@@ -803,7 +817,7 @@ createFleetResponse_fleetAttributes = Lens.lens (\CreateFleetResponse' {fleetAtt
 
 -- | The fleet\'s locations and life-cycle status of each location. For new
 -- fleets, the status of all locations is set to @NEW@. During fleet
--- creation, GameLift updates each location status as instances are
+-- creation, Amazon GameLift updates each location status as instances are
 -- deployed there and prepared for game hosting. This list includes an
 -- entry for the fleet\'s home Region. For fleets with no remote locations,
 -- only one entry, representing the home Region, is returned.

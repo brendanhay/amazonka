@@ -24,13 +24,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | __This data type is used with the GameLift FleetIQ and game server
--- groups.__
+-- | __This data type is used with the Amazon GameLift FleetIQ and game
+-- server groups.__
 --
 -- Settings for a target-based scaling policy as part of a
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameServerGroupAutoScalingPolicy.html GameServerGroupAutoScalingPolicy>
 -- . These settings are used to create a target-based policy that tracks
--- the GameLift FleetIQ metric @\"PercentUtilizedGameServers\"@ and
+-- the Amazon GameLift FleetIQ metric @\"PercentUtilizedGameServers\"@ and
 -- specifies a target value for the metric. As player usage changes, the
 -- policy triggers to adjust the game server group capacity so that the
 -- metric returns to the target value.

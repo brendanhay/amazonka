@@ -117,7 +117,8 @@ instance Core.AWSRequest CreateLocation where
 
 instance Prelude.Hashable CreateLocation where
   hashWithSalt _salt CreateLocation' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` locationName
 
 instance Prelude.NFData CreateLocation where

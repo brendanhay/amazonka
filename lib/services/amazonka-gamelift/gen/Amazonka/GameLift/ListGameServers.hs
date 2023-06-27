@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
 -- Retrieves information on all game servers that are currently active in a
 -- specified game server group. You can opt to sort the list by game server
@@ -30,7 +30,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 --
 -- This operation returns paginated results.
 module Amazonka.GameLift.ListGameServers
@@ -148,22 +148,22 @@ instance Core.AWSPager ListGameServers where
     | Core.stop
         ( rs
             Lens.^? listGameServersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGameServersResponse_gameServers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGameServers_nextToken
           Lens..~ rs
           Lens.^? listGameServersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGameServers where
   type
@@ -182,7 +182,8 @@ instance Core.AWSRequest ListGameServers where
 
 instance Prelude.Hashable ListGameServers where
   hashWithSalt _salt ListGameServers' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` gameServerGroupName

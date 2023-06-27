@@ -42,8 +42,8 @@ import qualified Amazonka.Prelude as Prelude
 data FleetCapacity = FleetCapacity'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet associated with the location.
@@ -71,8 +71,8 @@ data FleetCapacity = FleetCapacity'
 --
 -- 'fleetArn', 'fleetCapacity_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'fleetCapacity_fleetId' - A unique identifier for the fleet associated with the location.
@@ -100,8 +100,8 @@ newFleetCapacity =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 fleetCapacity_fleetArn :: Lens.Lens' FleetCapacity (Prelude.Maybe Prelude.Text)
 fleetCapacity_fleetArn = Lens.lens (\FleetCapacity' {fleetArn} -> fleetArn) (\s@FleetCapacity' {} a -> s {fleetArn = a} :: FleetCapacity)
@@ -142,7 +142,8 @@ instance Data.FromJSON FleetCapacity where
 
 instance Prelude.Hashable FleetCapacity where
   hashWithSalt _salt FleetCapacity' {..} =
-    _salt `Prelude.hashWithSalt` fleetArn
+    _salt
+      `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` instanceCounts
       `Prelude.hashWithSalt` instanceType

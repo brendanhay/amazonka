@@ -139,7 +139,8 @@ instance Data.FromJSON EC2InstanceCounts where
 
 instance Prelude.Hashable EC2InstanceCounts where
   hashWithSalt _salt EC2InstanceCounts' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` desired
       `Prelude.hashWithSalt` idle
       `Prelude.hashWithSalt` maximum

@@ -44,8 +44,8 @@ data ScalingPolicy = ScalingPolicy'
     evaluationPeriods :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet that is associated with this scaling
@@ -167,8 +167,8 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- 'fleetArn', 'scalingPolicy_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'scalingPolicy_fleetId' - A unique identifier for the fleet that is associated with this scaling
@@ -303,8 +303,8 @@ scalingPolicy_evaluationPeriods = Lens.lens (\ScalingPolicy' {evaluationPeriods}
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 scalingPolicy_fleetArn :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
 scalingPolicy_fleetArn = Lens.lens (\ScalingPolicy' {fleetArn} -> fleetArn) (\s@ScalingPolicy' {} a -> s {fleetArn = a} :: ScalingPolicy)
@@ -455,7 +455,8 @@ instance Data.FromJSON ScalingPolicy where
 
 instance Prelude.Hashable ScalingPolicy where
   hashWithSalt _salt ScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` evaluationPeriods
       `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` fleetId

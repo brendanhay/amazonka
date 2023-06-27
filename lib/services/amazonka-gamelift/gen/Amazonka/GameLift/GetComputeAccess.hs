@@ -25,14 +25,14 @@
 -- time.
 --
 -- To remotely access an instance, you need credentials that match the
--- operating system of the instance. For a Windows instance, GameLift
--- returns a user name and password as strings for use with a Windows
--- Remote Desktop client. For a Linux instance, GameLift returns a user
--- name and RSA private key, also as strings, for use with an SSH client.
--- The private key must be saved in the proper format to a @.pem@ file
--- before using. If you\'re making this request using the CLI, saving the
--- secret can be handled as part of the @GetInstanceAccess@ request, as
--- shown in one of the examples for this operation.
+-- operating system of the instance. For a Windows instance, Amazon
+-- GameLift returns a user name and password as strings for use with a
+-- Windows Remote Desktop client. For a Linux instance, Amazon GameLift
+-- returns a user name and RSA private key, also as strings, for use with
+-- an SSH client. The private key must be saved in the proper format to a
+-- @.pem@ file before using. If you\'re making this request using the CLI,
+-- saving the secret can be handled as part of the @GetInstanceAccess@
+-- request, as shown in one of the examples for this operation.
 --
 -- To request access to a specific instance, specify the IDs of both the
 -- instance and the fleet it belongs to.
@@ -136,7 +136,8 @@ instance Core.AWSRequest GetComputeAccess where
 
 instance Prelude.Hashable GetComputeAccess where
   hashWithSalt _salt GetComputeAccess' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
+    _salt
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` computeName
 
 instance Prelude.NFData GetComputeAccess where
@@ -176,8 +177,8 @@ instance Data.ToQuery GetComputeAccess where
 data GetComputeAccessResponse = GetComputeAccessResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift compute resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift compute resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::compute\/compute-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     computeArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the compute resource you requested credentials for.
@@ -186,8 +187,8 @@ data GetComputeAccessResponse = GetComputeAccessResponse'
     credentials :: Prelude.Maybe (Data.Sensitive AwsCredentials),
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
     -- | The fleet ID of compute resource.
@@ -207,8 +208,8 @@ data GetComputeAccessResponse = GetComputeAccessResponse'
 --
 -- 'computeArn', 'getComputeAccessResponse_computeArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift compute resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift compute resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::compute\/compute-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'computeName', 'getComputeAccessResponse_computeName' - The name of the compute resource you requested credentials for.
@@ -217,8 +218,8 @@ data GetComputeAccessResponse = GetComputeAccessResponse'
 --
 -- 'fleetArn', 'getComputeAccessResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'fleetId', 'getComputeAccessResponse_fleetId' - The fleet ID of compute resource.
@@ -241,8 +242,8 @@ newGetComputeAccessResponse pHttpStatus_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift compute resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift compute resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::compute\/compute-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 getComputeAccessResponse_computeArn :: Lens.Lens' GetComputeAccessResponse (Prelude.Maybe Prelude.Text)
 getComputeAccessResponse_computeArn = Lens.lens (\GetComputeAccessResponse' {computeArn} -> computeArn) (\s@GetComputeAccessResponse' {} a -> s {computeArn = a} :: GetComputeAccessResponse)
@@ -257,8 +258,8 @@ getComputeAccessResponse_credentials = Lens.lens (\GetComputeAccessResponse' {cr
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 getComputeAccessResponse_fleetArn :: Lens.Lens' GetComputeAccessResponse (Prelude.Maybe Prelude.Text)
 getComputeAccessResponse_fleetArn = Lens.lens (\GetComputeAccessResponse' {fleetArn} -> fleetArn) (\s@GetComputeAccessResponse' {} a -> s {fleetArn = a} :: GetComputeAccessResponse)

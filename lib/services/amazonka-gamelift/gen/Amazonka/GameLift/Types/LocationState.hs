@@ -34,9 +34,9 @@ import qualified Amazonka.Prelude as Prelude
 -- -   __NEW__ -- A new fleet location has been defined and desired
 --     instances is set to 1.
 --
--- -   __DOWNLOADING\/VALIDATING\/BUILDING\/ACTIVATING__ -- GameLift is
---     setting up the new fleet location, creating new instances with the
---     game build or Realtime script and starting server processes.
+-- -   __DOWNLOADING\/VALIDATING\/BUILDING\/ACTIVATING__ -- Amazon GameLift
+--     is setting up the new fleet location, creating new instances with
+--     the game build or Realtime script and starting server processes.
 --
 -- -   __ACTIVE__ -- Hosts can now accept game sessions.
 --
@@ -102,7 +102,8 @@ instance Data.FromJSON LocationState where
 
 instance Prelude.Hashable LocationState where
   hashWithSalt _salt LocationState' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData LocationState where

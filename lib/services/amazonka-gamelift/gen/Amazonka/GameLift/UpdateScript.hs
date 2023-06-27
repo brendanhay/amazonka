@@ -74,8 +74,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateScript' smart constructor.
 data UpdateScript = UpdateScript'
-  { -- | A descriptive label that is associated with a script. Script names do
-    -- not need to be unique.
+  { -- | A descriptive label that is associated with a script. Script names
+    -- don\'t need to be unique.
     name :: Prelude.Maybe Prelude.Text,
     -- | The location of the Amazon S3 bucket where a zipped file containing your
     -- Realtime scripts is stored. The storage location must specify the Amazon
@@ -87,7 +87,7 @@ data UpdateScript = UpdateScript'
     -- @ObjectVersion@ parameter to specify an earlier version.
     storageLocation :: Prelude.Maybe S3Location,
     -- | Version information associated with a build or script. Version strings
-    -- do not need to be unique.
+    -- don\'t need to be unique.
     version :: Prelude.Maybe Prelude.Text,
     -- | A data object containing your Realtime scripts and dependencies as a zip
     -- file. The zip file can have one or multiple files. Maximum size of a zip
@@ -112,8 +112,8 @@ data UpdateScript = UpdateScript'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateScript_name' - A descriptive label that is associated with a script. Script names do
--- not need to be unique.
+-- 'name', 'updateScript_name' - A descriptive label that is associated with a script. Script names
+-- don\'t need to be unique.
 --
 -- 'storageLocation', 'updateScript_storageLocation' - The location of the Amazon S3 bucket where a zipped file containing your
 -- Realtime scripts is stored. The storage location must specify the Amazon
@@ -125,7 +125,7 @@ data UpdateScript = UpdateScript'
 -- @ObjectVersion@ parameter to specify an earlier version.
 --
 -- 'version', 'updateScript_version' - Version information associated with a build or script. Version strings
--- do not need to be unique.
+-- don\'t need to be unique.
 --
 -- 'zipFile', 'updateScript_zipFile' - A data object containing your Realtime scripts and dependencies as a zip
 -- file. The zip file can have one or multiple files. Maximum size of a zip
@@ -155,8 +155,8 @@ newUpdateScript pScriptId_ =
       scriptId = pScriptId_
     }
 
--- | A descriptive label that is associated with a script. Script names do
--- not need to be unique.
+-- | A descriptive label that is associated with a script. Script names
+-- don\'t need to be unique.
 updateScript_name :: Lens.Lens' UpdateScript (Prelude.Maybe Prelude.Text)
 updateScript_name = Lens.lens (\UpdateScript' {name} -> name) (\s@UpdateScript' {} a -> s {name = a} :: UpdateScript)
 
@@ -172,7 +172,7 @@ updateScript_storageLocation :: Lens.Lens' UpdateScript (Prelude.Maybe S3Locatio
 updateScript_storageLocation = Lens.lens (\UpdateScript' {storageLocation} -> storageLocation) (\s@UpdateScript' {} a -> s {storageLocation = a} :: UpdateScript)
 
 -- | Version information associated with a build or script. Version strings
--- do not need to be unique.
+-- don\'t need to be unique.
 updateScript_version :: Lens.Lens' UpdateScript (Prelude.Maybe Prelude.Text)
 updateScript_version = Lens.lens (\UpdateScript' {version} -> version) (\s@UpdateScript' {} a -> s {version = a} :: UpdateScript)
 
@@ -210,7 +210,8 @@ instance Core.AWSRequest UpdateScript where
 
 instance Prelude.Hashable UpdateScript where
   hashWithSalt _salt UpdateScript' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` storageLocation
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` zipFile

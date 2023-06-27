@@ -25,21 +25,22 @@ import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.GameServerGroupInstanceType
 import qualified Amazonka.Prelude as Prelude
 
--- | __This data type is used with the GameLift FleetIQ and game server
--- groups.__
+-- | __This data type is used with the Amazon GameLift FleetIQ and game
+-- server groups.__
 --
 -- An allowed instance type for a game server group. All game server groups
--- must have at least two instance types defined for it. GameLift FleetIQ
--- periodically evaluates each defined instance type for viability. It then
--- updates the Auto Scaling group with the list of viable instance types.
+-- must have at least two instance types defined for it. Amazon GameLift
+-- FleetIQ periodically evaluates each defined instance type for viability.
+-- It then updates the Auto Scaling group with the list of viable instance
+-- types.
 --
 -- /See:/ 'newInstanceDefinition' smart constructor.
 data InstanceDefinition = InstanceDefinition'
   { -- | Instance weighting that indicates how much this instance type
     -- contributes to the total capacity of a game server group. Instance
-    -- weights are used by GameLift FleetIQ to calculate the instance type\'s
-    -- cost per unit hour and better identify the most cost-effective options.
-    -- For detailed information on weighting instance capacity, see
+    -- weights are used by Amazon GameLift FleetIQ to calculate the instance
+    -- type\'s cost per unit hour and better identify the most cost-effective
+    -- options. For detailed information on weighting instance capacity, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
     -- in the /Amazon Elastic Compute Cloud Auto Scaling User Guide/. Default
     -- value is \"1\".
@@ -59,9 +60,9 @@ data InstanceDefinition = InstanceDefinition'
 --
 -- 'weightedCapacity', 'instanceDefinition_weightedCapacity' - Instance weighting that indicates how much this instance type
 -- contributes to the total capacity of a game server group. Instance
--- weights are used by GameLift FleetIQ to calculate the instance type\'s
--- cost per unit hour and better identify the most cost-effective options.
--- For detailed information on weighting instance capacity, see
+-- weights are used by Amazon GameLift FleetIQ to calculate the instance
+-- type\'s cost per unit hour and better identify the most cost-effective
+-- options. For detailed information on weighting instance capacity, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
 -- in the /Amazon Elastic Compute Cloud Auto Scaling User Guide/. Default
 -- value is \"1\".
@@ -80,9 +81,9 @@ newInstanceDefinition pInstanceType_ =
 
 -- | Instance weighting that indicates how much this instance type
 -- contributes to the total capacity of a game server group. Instance
--- weights are used by GameLift FleetIQ to calculate the instance type\'s
--- cost per unit hour and better identify the most cost-effective options.
--- For detailed information on weighting instance capacity, see
+-- weights are used by Amazon GameLift FleetIQ to calculate the instance
+-- type\'s cost per unit hour and better identify the most cost-effective
+-- options. For detailed information on weighting instance capacity, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
 -- in the /Amazon Elastic Compute Cloud Auto Scaling User Guide/. Default
 -- value is \"1\".
@@ -105,7 +106,8 @@ instance Data.FromJSON InstanceDefinition where
 
 instance Prelude.Hashable InstanceDefinition where
   hashWithSalt _salt InstanceDefinition' {..} =
-    _salt `Prelude.hashWithSalt` weightedCapacity
+    _salt
+      `Prelude.hashWithSalt` weightedCapacity
       `Prelude.hashWithSalt` instanceType
 
 instance Prelude.NFData InstanceDefinition where

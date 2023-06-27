@@ -95,7 +95,8 @@ instance Data.FromJSON GameSessionDetail where
 
 instance Prelude.Hashable GameSessionDetail where
   hashWithSalt _salt GameSessionDetail' {..} =
-    _salt `Prelude.hashWithSalt` gameSession
+    _salt
+      `Prelude.hashWithSalt` gameSession
       `Prelude.hashWithSalt` protectionPolicy
 
 instance Prelude.NFData GameSessionDetail where

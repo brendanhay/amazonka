@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data S3Location = S3Location'
   { -- | An Amazon S3 bucket identifier. Thename of the S3 bucket.
     --
-    -- GameLift doesn\'t support uploading from Amazon S3 buckets with names
-    -- that contain a dot (.).
+    -- Amazon GameLift doesn\'t support uploading from Amazon S3 buckets with
+    -- names that contain a dot (.).
     bucket :: Prelude.Maybe Prelude.Text,
     -- | The name of the zip file that contains the build files or script files.
     key :: Prelude.Maybe Prelude.Text,
@@ -59,8 +59,8 @@ data S3Location = S3Location'
 --
 -- 'bucket', 's3Location_bucket' - An Amazon S3 bucket identifier. Thename of the S3 bucket.
 --
--- GameLift doesn\'t support uploading from Amazon S3 buckets with names
--- that contain a dot (.).
+-- Amazon GameLift doesn\'t support uploading from Amazon S3 buckets with
+-- names that contain a dot (.).
 --
 -- 'key', 's3Location_key' - The name of the zip file that contains the build files or script files.
 --
@@ -85,8 +85,8 @@ newS3Location =
 
 -- | An Amazon S3 bucket identifier. Thename of the S3 bucket.
 --
--- GameLift doesn\'t support uploading from Amazon S3 buckets with names
--- that contain a dot (.).
+-- Amazon GameLift doesn\'t support uploading from Amazon S3 buckets with
+-- names that contain a dot (.).
 s3Location_bucket :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
 
@@ -122,7 +122,8 @@ instance Data.FromJSON S3Location where
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` objectVersion
       `Prelude.hashWithSalt` roleArn

@@ -49,11 +49,11 @@ data GameSessionQueue = GameSessionQueue'
     filterConfiguration :: Prelude.Maybe FilterConfiguration,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift game session queue resource and uniquely
-    -- identifies it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift game session queue resource and
+    -- uniquely identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. In a
-    -- GameLift game session queue ARN, the resource ID matches the /Name/
-    -- value.
+    -- Amazon GameLift game session queue ARN, the resource ID matches the
+    -- /Name/ value.
     gameSessionQueueArn :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with game session queue. Queue
     -- names must be unique within each Region.
@@ -76,7 +76,8 @@ data GameSessionQueue = GameSessionQueue'
     priorityConfiguration :: Prelude.Maybe PriorityConfiguration,
     -- | The maximum time, in seconds, that a new game session placement request
     -- remains in the queue. When a request exceeds this time, the game session
-    -- placement changes to a @TIMED_OUT@ status.
+    -- placement changes to a @TIMED_OUT@ status. By default, this property is
+    -- set to @600@.
     timeoutInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -104,11 +105,11 @@ data GameSessionQueue = GameSessionQueue'
 --
 -- 'gameSessionQueueArn', 'gameSessionQueue_gameSessionQueueArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift game session queue resource and
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. In a
--- GameLift game session queue ARN, the resource ID matches the /Name/
--- value.
+-- Amazon GameLift game session queue ARN, the resource ID matches the
+-- /Name/ value.
 --
 -- 'name', 'gameSessionQueue_name' - A descriptive label that is associated with game session queue. Queue
 -- names must be unique within each Region.
@@ -131,7 +132,8 @@ data GameSessionQueue = GameSessionQueue'
 --
 -- 'timeoutInSeconds', 'gameSessionQueue_timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
--- placement changes to a @TIMED_OUT@ status.
+-- placement changes to a @TIMED_OUT@ status. By default, this property is
+-- set to @600@.
 newGameSessionQueue ::
   GameSessionQueue
 newGameSessionQueue =
@@ -169,11 +171,11 @@ gameSessionQueue_filterConfiguration = Lens.lens (\GameSessionQueue' {filterConf
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift game session queue resource and
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. In a
--- GameLift game session queue ARN, the resource ID matches the /Name/
--- value.
+-- Amazon GameLift game session queue ARN, the resource ID matches the
+-- /Name/ value.
 gameSessionQueue_gameSessionQueueArn :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
 gameSessionQueue_gameSessionQueueArn = Lens.lens (\GameSessionQueue' {gameSessionQueueArn} -> gameSessionQueueArn) (\s@GameSessionQueue' {} a -> s {gameSessionQueueArn = a} :: GameSessionQueue)
 
@@ -206,7 +208,8 @@ gameSessionQueue_priorityConfiguration = Lens.lens (\GameSessionQueue' {priority
 
 -- | The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
--- placement changes to a @TIMED_OUT@ status.
+-- placement changes to a @TIMED_OUT@ status. By default, this property is
+-- set to @600@.
 gameSessionQueue_timeoutInSeconds :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Natural)
 gameSessionQueue_timeoutInSeconds = Lens.lens (\GameSessionQueue' {timeoutInSeconds} -> timeoutInSeconds) (\s@GameSessionQueue' {} a -> s {timeoutInSeconds = a} :: GameSessionQueue)
 
@@ -222,7 +225,8 @@ instance Data.FromJSON GameSessionQueue where
             Prelude.<*> (x Data..:? "GameSessionQueueArn")
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "NotificationTarget")
-            Prelude.<*> ( x Data..:? "PlayerLatencyPolicies"
+            Prelude.<*> ( x
+                            Data..:? "PlayerLatencyPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PriorityConfiguration")
@@ -231,7 +235,8 @@ instance Data.FromJSON GameSessionQueue where
 
 instance Prelude.Hashable GameSessionQueue where
   hashWithSalt _salt GameSessionQueue' {..} =
-    _salt `Prelude.hashWithSalt` customEventData
+    _salt
+      `Prelude.hashWithSalt` customEventData
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` filterConfiguration
       `Prelude.hashWithSalt` gameSessionQueueArn

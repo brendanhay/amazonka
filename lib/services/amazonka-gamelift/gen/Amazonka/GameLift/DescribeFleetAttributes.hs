@@ -42,7 +42,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift fleets>
 --
 -- This operation returns paginated results.
 module Amazonka.GameLift.DescribeFleetAttributes
@@ -149,22 +149,22 @@ instance Core.AWSPager DescribeFleetAttributes where
     | Core.stop
         ( rs
             Lens.^? describeFleetAttributesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFleetAttributesResponse_fleetAttributes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFleetAttributes_nextToken
           Lens..~ rs
           Lens.^? describeFleetAttributesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFleetAttributes where
   type
@@ -176,7 +176,8 @@ instance Core.AWSRequest DescribeFleetAttributes where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetAttributesResponse'
-            Prelude.<$> ( x Data..?> "FleetAttributes"
+            Prelude.<$> ( x
+                            Data..?> "FleetAttributes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -185,7 +186,8 @@ instance Core.AWSRequest DescribeFleetAttributes where
 
 instance Prelude.Hashable DescribeFleetAttributes where
   hashWithSalt _salt DescribeFleetAttributes' {..} =
-    _salt `Prelude.hashWithSalt` fleetIds
+    _salt
+      `Prelude.hashWithSalt` fleetIds
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
 

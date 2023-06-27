@@ -60,11 +60,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateBuild' smart constructor.
 data UpdateBuild = UpdateBuild'
-  { -- | A descriptive label associated with a build. Build names do not need to
+  { -- | A descriptive label associated with a build. Build names don\'t need to
     -- be unique.
     name :: Prelude.Maybe Prelude.Text,
     -- | Version information associated with a build or script. Version strings
-    -- do not need to be unique.
+    -- don\'t need to be unique.
     version :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the build to update. You can use either the
     -- build ID or ARN value.
@@ -80,11 +80,11 @@ data UpdateBuild = UpdateBuild'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateBuild_name' - A descriptive label associated with a build. Build names do not need to
+-- 'name', 'updateBuild_name' - A descriptive label associated with a build. Build names don\'t need to
 -- be unique.
 --
 -- 'version', 'updateBuild_version' - Version information associated with a build or script. Version strings
--- do not need to be unique.
+-- don\'t need to be unique.
 --
 -- 'buildId', 'updateBuild_buildId' - A unique identifier for the build to update. You can use either the
 -- build ID or ARN value.
@@ -99,13 +99,13 @@ newUpdateBuild pBuildId_ =
       buildId = pBuildId_
     }
 
--- | A descriptive label associated with a build. Build names do not need to
+-- | A descriptive label associated with a build. Build names don\'t need to
 -- be unique.
 updateBuild_name :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
 updateBuild_name = Lens.lens (\UpdateBuild' {name} -> name) (\s@UpdateBuild' {} a -> s {name = a} :: UpdateBuild)
 
 -- | Version information associated with a build or script. Version strings
--- do not need to be unique.
+-- don\'t need to be unique.
 updateBuild_version :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
 updateBuild_version = Lens.lens (\UpdateBuild' {version} -> version) (\s@UpdateBuild' {} a -> s {version = a} :: UpdateBuild)
 
@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateBuild where
 
 instance Prelude.Hashable UpdateBuild where
   hashWithSalt _salt UpdateBuild' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` buildId
 

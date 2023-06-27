@@ -69,11 +69,11 @@ data PlayerSession = PlayerSession'
     -- | A unique identifier for the game session that the player session is
     -- connected to.
     gameSessionId :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of the game session. To connect to a GameLift game
+    -- | The IP address of the game session. To connect to a Amazon GameLift game
     -- server, an app needs both the IP address and port number.
     ipAddress :: Prelude.Maybe Prelude.Text,
-    -- | Developer-defined information related to a player. GameLift does not use
-    -- this data, so it can be formatted as needed for use in the game.
+    -- | Developer-defined information related to a player. Amazon GameLift does
+    -- not use this data, so it can be formatted as needed for use in the game.
     playerData :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a player that is associated with this player
     -- session.
@@ -143,11 +143,11 @@ data PlayerSession = PlayerSession'
 -- 'gameSessionId', 'playerSession_gameSessionId' - A unique identifier for the game session that the player session is
 -- connected to.
 --
--- 'ipAddress', 'playerSession_ipAddress' - The IP address of the game session. To connect to a GameLift game
+-- 'ipAddress', 'playerSession_ipAddress' - The IP address of the game session. To connect to a Amazon GameLift game
 -- server, an app needs both the IP address and port number.
 --
--- 'playerData', 'playerSession_playerData' - Developer-defined information related to a player. GameLift does not use
--- this data, so it can be formatted as needed for use in the game.
+-- 'playerData', 'playerSession_playerData' - Developer-defined information related to a player. Amazon GameLift does
+-- not use this data, so it can be formatted as needed for use in the game.
 --
 -- 'playerId', 'playerSession_playerId' - A unique identifier for a player that is associated with this player
 -- session.
@@ -233,13 +233,13 @@ playerSession_fleetId = Lens.lens (\PlayerSession' {fleetId} -> fleetId) (\s@Pla
 playerSession_gameSessionId :: Lens.Lens' PlayerSession (Prelude.Maybe Prelude.Text)
 playerSession_gameSessionId = Lens.lens (\PlayerSession' {gameSessionId} -> gameSessionId) (\s@PlayerSession' {} a -> s {gameSessionId = a} :: PlayerSession)
 
--- | The IP address of the game session. To connect to a GameLift game
+-- | The IP address of the game session. To connect to a Amazon GameLift game
 -- server, an app needs both the IP address and port number.
 playerSession_ipAddress :: Lens.Lens' PlayerSession (Prelude.Maybe Prelude.Text)
 playerSession_ipAddress = Lens.lens (\PlayerSession' {ipAddress} -> ipAddress) (\s@PlayerSession' {} a -> s {ipAddress = a} :: PlayerSession)
 
--- | Developer-defined information related to a player. GameLift does not use
--- this data, so it can be formatted as needed for use in the game.
+-- | Developer-defined information related to a player. Amazon GameLift does
+-- not use this data, so it can be formatted as needed for use in the game.
 playerSession_playerData :: Lens.Lens' PlayerSession (Prelude.Maybe Prelude.Text)
 playerSession_playerData = Lens.lens (\PlayerSession' {playerData} -> playerData) (\s@PlayerSession' {} a -> s {playerData = a} :: PlayerSession)
 
@@ -304,7 +304,8 @@ instance Data.FromJSON PlayerSession where
 
 instance Prelude.Hashable PlayerSession where
   hashWithSalt _salt PlayerSession' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` fleetId

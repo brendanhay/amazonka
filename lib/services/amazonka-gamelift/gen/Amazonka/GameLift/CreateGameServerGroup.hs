@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
--- Creates a GameLift FleetIQ game server group for managing game hosting
--- on a collection of Amazon Elastic Compute Cloud instances for game
--- hosting. This operation creates the game server group, creates an Auto
--- Scaling group in your Amazon Web Services account, and establishes a
--- link between the two groups. You can view the status of your game server
--- groups in the GameLift console. Game server group metrics and events are
--- emitted to Amazon CloudWatch.
+-- Creates a Amazon GameLift FleetIQ game server group for managing game
+-- hosting on a collection of Amazon Elastic Compute Cloud instances for
+-- game hosting. This operation creates the game server group, creates an
+-- Auto Scaling group in your Amazon Web Services account, and establishes
+-- a link between the two groups. You can view the status of your game
+-- server groups in the Amazon GameLift console. Game server group metrics
+-- and events are emitted to Amazon CloudWatch.
 --
 -- Before creating a new game server group, you must have the following:
 --
@@ -40,17 +40,17 @@
 --     in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- -   An IAM role that extends limited access to your Amazon Web Services
---     account to allow GameLift FleetIQ to create and interact with the
---     Auto Scaling group. For more information, see
+--     account to allow Amazon GameLift FleetIQ to create and interact with
+--     the Auto Scaling group. For more information, see
 --     <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html Create IAM roles for cross-service interaction>
---     in the /GameLift FleetIQ Developer Guide/.
+--     in the /Amazon GameLift FleetIQ Developer Guide/.
 --
 -- To create a new game server group, specify a unique group name, IAM role
 -- and Amazon Elastic Compute Cloud launch template, and provide a list of
 -- instance types that can be used in the group. You must also set initial
 -- maximum and minimum limits on the group\'s instance count. You can
 -- optionally set an Auto Scaling policy with target tracking based on a
--- GameLift FleetIQ metric.
+-- Amazon GameLift FleetIQ metric.
 --
 -- Once the game server group and corresponding Auto Scaling group are
 -- created, you have full access to change the Auto Scaling group\'s
@@ -58,12 +58,12 @@
 -- game server group, including maximum\/minimum size and auto-scaling
 -- policy settings, must be updated directly in the Auto Scaling group.
 -- Keep in mind that some Auto Scaling group properties are periodically
--- updated by GameLift FleetIQ as part of its balancing activities to
--- optimize for availability and cost.
+-- updated by Amazon GameLift FleetIQ as part of its balancing activities
+-- to optimize for availability and cost.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.CreateGameServerGroup
   ( -- * Creating a Request
     CreateGameServerGroup (..),
@@ -109,9 +109,9 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- After the Auto Scaling group is created, update this value directly in
     -- the Auto Scaling group using the Amazon Web Services console or APIs.
     autoScalingPolicy :: Prelude.Maybe GameServerGroupAutoScalingPolicy,
-    -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
-    -- On-Demand Instances in the game server group. Method options include the
-    -- following:
+    -- | Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances
+    -- and On-Demand Instances in the game server group. Method options include
+    -- the following:
     --
     -- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.
     --     If Spot Instances are unavailable or not viable for game hosting,
@@ -149,7 +149,7 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- in the /Amazon Web Services General Reference/.
     tags :: Prelude.Maybe [Tag],
     -- | A list of virtual private cloud (VPC) subnets to use with instances in
-    -- the game server group. By default, all GameLift FleetIQ-supported
+    -- the game server group. By default, all Amazon GameLift FleetIQ-supported
     -- Availability Zones are used. You can use this parameter to specify VPCs
     -- that you\'ve set up. This property cannot be updated after the game
     -- server group is created, and the corresponding Auto Scaling group will
@@ -158,8 +158,8 @@ data CreateGameServerGroup = CreateGameServerGroup'
     vpcSubnets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | An identifier for the new game server group. This value is used to
     -- generate unique ARN identifiers for the Amazon EC2 Auto Scaling group
-    -- and the GameLift FleetIQ game server group. The name must be unique per
-    -- Region per Amazon Web Services account.
+    -- and the Amazon GameLift FleetIQ game server group. The name must be
+    -- unique per Region per Amazon Web Services account.
     gameServerGroupName :: Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -167,17 +167,17 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- Auto Scaling groups.
     roleArn :: Prelude.Text,
     -- | The minimum number of instances allowed in the Amazon EC2 Auto Scaling
-    -- group. During automatic scaling events, GameLift FleetIQ and Amazon EC2
-    -- do not scale down the group below this minimum. In production, this
-    -- value should be set to at least 1. After the Auto Scaling group is
-    -- created, update this value directly in the Auto Scaling group using the
-    -- Amazon Web Services console or APIs.
+    -- group. During automatic scaling events, Amazon GameLift FleetIQ and
+    -- Amazon EC2 do not scale down the group below this minimum. In
+    -- production, this value should be set to at least 1. After the Auto
+    -- Scaling group is created, update this value directly in the Auto Scaling
+    -- group using the Amazon Web Services console or APIs.
     minSize :: Prelude.Natural,
     -- | The maximum number of instances allowed in the Amazon EC2 Auto Scaling
-    -- group. During automatic scaling events, GameLift FleetIQ and EC2 do not
-    -- scale up the group above this maximum. After the Auto Scaling group is
-    -- created, update this value directly in the Auto Scaling group using the
-    -- Amazon Web Services console or APIs.
+    -- group. During automatic scaling events, Amazon GameLift FleetIQ and EC2
+    -- do not scale up the group above this maximum. After the Auto Scaling
+    -- group is created, update this value directly in the Auto Scaling group
+    -- using the Amazon Web Services console or APIs.
     maxSize :: Prelude.Natural,
     -- | The Amazon EC2 launch template that contains configuration settings and
     -- game server code to be deployed to all instances in the game server
@@ -190,12 +190,12 @@ data CreateGameServerGroup = CreateGameServerGroup'
     --
     -- If you specify network interfaces in your launch template, you must
     -- explicitly set the property @AssociatePublicIpAddress@ to \"true\". If
-    -- no network interface is specified in the launch template, GameLift
-    -- FleetIQ uses your account\'s default VPC.
+    -- no network interface is specified in the launch template, Amazon
+    -- GameLift FleetIQ uses your account\'s default VPC.
     launchTemplate :: LaunchTemplateSpecification,
     -- | The Amazon EC2 instance types and sizes to use in the Auto Scaling
     -- group. The instance definitions must specify at least two different
-    -- instance types that are supported by GameLift FleetIQ. For more
+    -- instance types that are supported by Amazon GameLift FleetIQ. For more
     -- information on instance types, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
     -- in the /Amazon Elastic Compute Cloud User Guide/. You can optionally
@@ -223,9 +223,9 @@ data CreateGameServerGroup = CreateGameServerGroup'
 -- After the Auto Scaling group is created, update this value directly in
 -- the Auto Scaling group using the Amazon Web Services console or APIs.
 --
--- 'balancingStrategy', 'createGameServerGroup_balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and
--- On-Demand Instances in the game server group. Method options include the
--- following:
+-- 'balancingStrategy', 'createGameServerGroup_balancingStrategy' - Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances
+-- and On-Demand Instances in the game server group. Method options include
+-- the following:
 --
 -- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.
 --     If Spot Instances are unavailable or not viable for game hosting,
@@ -263,7 +263,7 @@ data CreateGameServerGroup = CreateGameServerGroup'
 -- in the /Amazon Web Services General Reference/.
 --
 -- 'vpcSubnets', 'createGameServerGroup_vpcSubnets' - A list of virtual private cloud (VPC) subnets to use with instances in
--- the game server group. By default, all GameLift FleetIQ-supported
+-- the game server group. By default, all Amazon GameLift FleetIQ-supported
 -- Availability Zones are used. You can use this parameter to specify VPCs
 -- that you\'ve set up. This property cannot be updated after the game
 -- server group is created, and the corresponding Auto Scaling group will
@@ -272,8 +272,8 @@ data CreateGameServerGroup = CreateGameServerGroup'
 --
 -- 'gameServerGroupName', 'createGameServerGroup_gameServerGroupName' - An identifier for the new game server group. This value is used to
 -- generate unique ARN identifiers for the Amazon EC2 Auto Scaling group
--- and the GameLift FleetIQ game server group. The name must be unique per
--- Region per Amazon Web Services account.
+-- and the Amazon GameLift FleetIQ game server group. The name must be
+-- unique per Region per Amazon Web Services account.
 --
 -- 'roleArn', 'createGameServerGroup_roleArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -281,17 +281,17 @@ data CreateGameServerGroup = CreateGameServerGroup'
 -- Auto Scaling groups.
 --
 -- 'minSize', 'createGameServerGroup_minSize' - The minimum number of instances allowed in the Amazon EC2 Auto Scaling
--- group. During automatic scaling events, GameLift FleetIQ and Amazon EC2
--- do not scale down the group below this minimum. In production, this
--- value should be set to at least 1. After the Auto Scaling group is
--- created, update this value directly in the Auto Scaling group using the
--- Amazon Web Services console or APIs.
+-- group. During automatic scaling events, Amazon GameLift FleetIQ and
+-- Amazon EC2 do not scale down the group below this minimum. In
+-- production, this value should be set to at least 1. After the Auto
+-- Scaling group is created, update this value directly in the Auto Scaling
+-- group using the Amazon Web Services console or APIs.
 --
 -- 'maxSize', 'createGameServerGroup_maxSize' - The maximum number of instances allowed in the Amazon EC2 Auto Scaling
--- group. During automatic scaling events, GameLift FleetIQ and EC2 do not
--- scale up the group above this maximum. After the Auto Scaling group is
--- created, update this value directly in the Auto Scaling group using the
--- Amazon Web Services console or APIs.
+-- group. During automatic scaling events, Amazon GameLift FleetIQ and EC2
+-- do not scale up the group above this maximum. After the Auto Scaling
+-- group is created, update this value directly in the Auto Scaling group
+-- using the Amazon Web Services console or APIs.
 --
 -- 'launchTemplate', 'createGameServerGroup_launchTemplate' - The Amazon EC2 launch template that contains configuration settings and
 -- game server code to be deployed to all instances in the game server
@@ -304,12 +304,12 @@ data CreateGameServerGroup = CreateGameServerGroup'
 --
 -- If you specify network interfaces in your launch template, you must
 -- explicitly set the property @AssociatePublicIpAddress@ to \"true\". If
--- no network interface is specified in the launch template, GameLift
--- FleetIQ uses your account\'s default VPC.
+-- no network interface is specified in the launch template, Amazon
+-- GameLift FleetIQ uses your account\'s default VPC.
 --
 -- 'instanceDefinitions', 'createGameServerGroup_instanceDefinitions' - The Amazon EC2 instance types and sizes to use in the Auto Scaling
 -- group. The instance definitions must specify at least two different
--- instance types that are supported by GameLift FleetIQ. For more
+-- instance types that are supported by Amazon GameLift FleetIQ. For more
 -- information on instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/. You can optionally
@@ -364,9 +364,9 @@ newCreateGameServerGroup
 createGameServerGroup_autoScalingPolicy :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe GameServerGroupAutoScalingPolicy)
 createGameServerGroup_autoScalingPolicy = Lens.lens (\CreateGameServerGroup' {autoScalingPolicy} -> autoScalingPolicy) (\s@CreateGameServerGroup' {} a -> s {autoScalingPolicy = a} :: CreateGameServerGroup)
 
--- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
--- On-Demand Instances in the game server group. Method options include the
--- following:
+-- | Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances
+-- and On-Demand Instances in the game server group. Method options include
+-- the following:
 --
 -- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.
 --     If Spot Instances are unavailable or not viable for game hosting,
@@ -410,7 +410,7 @@ createGameServerGroup_tags :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe [T
 createGameServerGroup_tags = Lens.lens (\CreateGameServerGroup' {tags} -> tags) (\s@CreateGameServerGroup' {} a -> s {tags = a} :: CreateGameServerGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of virtual private cloud (VPC) subnets to use with instances in
--- the game server group. By default, all GameLift FleetIQ-supported
+-- the game server group. By default, all Amazon GameLift FleetIQ-supported
 -- Availability Zones are used. You can use this parameter to specify VPCs
 -- that you\'ve set up. This property cannot be updated after the game
 -- server group is created, and the corresponding Auto Scaling group will
@@ -421,8 +421,8 @@ createGameServerGroup_vpcSubnets = Lens.lens (\CreateGameServerGroup' {vpcSubnet
 
 -- | An identifier for the new game server group. This value is used to
 -- generate unique ARN identifiers for the Amazon EC2 Auto Scaling group
--- and the GameLift FleetIQ game server group. The name must be unique per
--- Region per Amazon Web Services account.
+-- and the Amazon GameLift FleetIQ game server group. The name must be
+-- unique per Region per Amazon Web Services account.
 createGameServerGroup_gameServerGroupName :: Lens.Lens' CreateGameServerGroup Prelude.Text
 createGameServerGroup_gameServerGroupName = Lens.lens (\CreateGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@CreateGameServerGroup' {} a -> s {gameServerGroupName = a} :: CreateGameServerGroup)
 
@@ -434,19 +434,19 @@ createGameServerGroup_roleArn :: Lens.Lens' CreateGameServerGroup Prelude.Text
 createGameServerGroup_roleArn = Lens.lens (\CreateGameServerGroup' {roleArn} -> roleArn) (\s@CreateGameServerGroup' {} a -> s {roleArn = a} :: CreateGameServerGroup)
 
 -- | The minimum number of instances allowed in the Amazon EC2 Auto Scaling
--- group. During automatic scaling events, GameLift FleetIQ and Amazon EC2
--- do not scale down the group below this minimum. In production, this
--- value should be set to at least 1. After the Auto Scaling group is
--- created, update this value directly in the Auto Scaling group using the
--- Amazon Web Services console or APIs.
+-- group. During automatic scaling events, Amazon GameLift FleetIQ and
+-- Amazon EC2 do not scale down the group below this minimum. In
+-- production, this value should be set to at least 1. After the Auto
+-- Scaling group is created, update this value directly in the Auto Scaling
+-- group using the Amazon Web Services console or APIs.
 createGameServerGroup_minSize :: Lens.Lens' CreateGameServerGroup Prelude.Natural
 createGameServerGroup_minSize = Lens.lens (\CreateGameServerGroup' {minSize} -> minSize) (\s@CreateGameServerGroup' {} a -> s {minSize = a} :: CreateGameServerGroup)
 
 -- | The maximum number of instances allowed in the Amazon EC2 Auto Scaling
--- group. During automatic scaling events, GameLift FleetIQ and EC2 do not
--- scale up the group above this maximum. After the Auto Scaling group is
--- created, update this value directly in the Auto Scaling group using the
--- Amazon Web Services console or APIs.
+-- group. During automatic scaling events, Amazon GameLift FleetIQ and EC2
+-- do not scale up the group above this maximum. After the Auto Scaling
+-- group is created, update this value directly in the Auto Scaling group
+-- using the Amazon Web Services console or APIs.
 createGameServerGroup_maxSize :: Lens.Lens' CreateGameServerGroup Prelude.Natural
 createGameServerGroup_maxSize = Lens.lens (\CreateGameServerGroup' {maxSize} -> maxSize) (\s@CreateGameServerGroup' {} a -> s {maxSize = a} :: CreateGameServerGroup)
 
@@ -461,14 +461,14 @@ createGameServerGroup_maxSize = Lens.lens (\CreateGameServerGroup' {maxSize} -> 
 --
 -- If you specify network interfaces in your launch template, you must
 -- explicitly set the property @AssociatePublicIpAddress@ to \"true\". If
--- no network interface is specified in the launch template, GameLift
--- FleetIQ uses your account\'s default VPC.
+-- no network interface is specified in the launch template, Amazon
+-- GameLift FleetIQ uses your account\'s default VPC.
 createGameServerGroup_launchTemplate :: Lens.Lens' CreateGameServerGroup LaunchTemplateSpecification
 createGameServerGroup_launchTemplate = Lens.lens (\CreateGameServerGroup' {launchTemplate} -> launchTemplate) (\s@CreateGameServerGroup' {} a -> s {launchTemplate = a} :: CreateGameServerGroup)
 
 -- | The Amazon EC2 instance types and sizes to use in the Auto Scaling
 -- group. The instance definitions must specify at least two different
--- instance types that are supported by GameLift FleetIQ. For more
+-- instance types that are supported by Amazon GameLift FleetIQ. For more
 -- information on instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/. You can optionally
@@ -496,7 +496,8 @@ instance Core.AWSRequest CreateGameServerGroup where
 
 instance Prelude.Hashable CreateGameServerGroup where
   hashWithSalt _salt CreateGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingPolicy
+    _salt
+      `Prelude.hashWithSalt` autoScalingPolicy
       `Prelude.hashWithSalt` balancingStrategy
       `Prelude.hashWithSalt` gameServerProtectionPolicy
       `Prelude.hashWithSalt` tags
@@ -570,10 +571,10 @@ instance Data.ToQuery CreateGameServerGroup where
 -- | /See:/ 'newCreateGameServerGroupResponse' smart constructor.
 data CreateGameServerGroupResponse = CreateGameServerGroupResponse'
   { -- | The newly created game server group object, including the new ARN value
-    -- for the GameLift FleetIQ game server group and the object\'s status. The
-    -- Amazon EC2 Auto Scaling group ARN is initially null, since the group has
-    -- not yet been created. This value is added once the game server group
-    -- status reaches @ACTIVE@.
+    -- for the Amazon GameLift FleetIQ game server group and the object\'s
+    -- status. The Amazon EC2 Auto Scaling group ARN is initially null, since
+    -- the group has not yet been created. This value is added once the game
+    -- server group status reaches @ACTIVE@.
     gameServerGroup :: Prelude.Maybe GameServerGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -589,10 +590,10 @@ data CreateGameServerGroupResponse = CreateGameServerGroupResponse'
 -- for backwards compatibility:
 --
 -- 'gameServerGroup', 'createGameServerGroupResponse_gameServerGroup' - The newly created game server group object, including the new ARN value
--- for the GameLift FleetIQ game server group and the object\'s status. The
--- Amazon EC2 Auto Scaling group ARN is initially null, since the group has
--- not yet been created. This value is added once the game server group
--- status reaches @ACTIVE@.
+-- for the Amazon GameLift FleetIQ game server group and the object\'s
+-- status. The Amazon EC2 Auto Scaling group ARN is initially null, since
+-- the group has not yet been created. This value is added once the game
+-- server group status reaches @ACTIVE@.
 --
 -- 'httpStatus', 'createGameServerGroupResponse_httpStatus' - The response's http status code.
 newCreateGameServerGroupResponse ::
@@ -607,10 +608,10 @@ newCreateGameServerGroupResponse pHttpStatus_ =
     }
 
 -- | The newly created game server group object, including the new ARN value
--- for the GameLift FleetIQ game server group and the object\'s status. The
--- Amazon EC2 Auto Scaling group ARN is initially null, since the group has
--- not yet been created. This value is added once the game server group
--- status reaches @ACTIVE@.
+-- for the Amazon GameLift FleetIQ game server group and the object\'s
+-- status. The Amazon EC2 Auto Scaling group ARN is initially null, since
+-- the group has not yet been created. This value is added once the game
+-- server group status reaches @ACTIVE@.
 createGameServerGroupResponse_gameServerGroup :: Lens.Lens' CreateGameServerGroupResponse (Prelude.Maybe GameServerGroup)
 createGameServerGroupResponse_gameServerGroup = Lens.lens (\CreateGameServerGroupResponse' {gameServerGroup} -> gameServerGroup) (\s@CreateGameServerGroupResponse' {} a -> s {gameServerGroup = a} :: CreateGameServerGroupResponse)
 

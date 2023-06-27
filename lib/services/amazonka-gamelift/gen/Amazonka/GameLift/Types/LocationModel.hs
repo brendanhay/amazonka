@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data LocationModel = LocationModel'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift location resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift location resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::location\/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     locationArn :: Prelude.Maybe Prelude.Text,
     -- | The location\'s name.
@@ -49,8 +49,8 @@ data LocationModel = LocationModel'
 --
 -- 'locationArn', 'locationModel_locationArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift location resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift location resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::location\/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'locationName', 'locationModel_locationName' - The location\'s name.
@@ -64,8 +64,8 @@ newLocationModel =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift location resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift location resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::location\/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 locationModel_locationArn :: Lens.Lens' LocationModel (Prelude.Maybe Prelude.Text)
 locationModel_locationArn = Lens.lens (\LocationModel' {locationArn} -> locationArn) (\s@LocationModel' {} a -> s {locationArn = a} :: LocationModel)
@@ -86,7 +86,8 @@ instance Data.FromJSON LocationModel where
 
 instance Prelude.Hashable LocationModel where
   hashWithSalt _salt LocationModel' {..} =
-    _salt `Prelude.hashWithSalt` locationArn
+    _salt
+      `Prelude.hashWithSalt` locationArn
       `Prelude.hashWithSalt` locationName
 
 instance Prelude.NFData LocationModel where

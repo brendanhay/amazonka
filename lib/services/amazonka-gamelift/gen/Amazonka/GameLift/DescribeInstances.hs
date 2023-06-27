@@ -170,22 +170,22 @@ instance Core.AWSPager DescribeInstances where
     | Core.stop
         ( rs
             Lens.^? describeInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstancesResponse_instances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstances_nextToken
           Lens..~ rs
           Lens.^? describeInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstances where
   type
@@ -204,7 +204,8 @@ instance Core.AWSRequest DescribeInstances where
 
 instance Prelude.Hashable DescribeInstances where
   hashWithSalt _salt DescribeInstances' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` nextToken

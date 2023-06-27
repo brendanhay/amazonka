@@ -33,7 +33,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up Amazon GameLift fleets>
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet GameLift metrics for fleets>
 module Amazonka.GameLift.DescribeFleetLocationUtilization
@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     DescribeFleetLocationUtilization' {..} =
-      _salt `Prelude.hashWithSalt` fleetId
+      _salt
+        `Prelude.hashWithSalt` fleetId
         `Prelude.hashWithSalt` location
 
 instance

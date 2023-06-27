@@ -33,8 +33,8 @@
 -- and new @PlayerSession@ objects are returned with player session IDs.
 -- Each player references their player session ID when sending a connection
 -- request to the game session, and the game server can use it to validate
--- the player reservation with the GameLift service. Player sessions cannot
--- be updated.
+-- the player reservation with the Amazon GameLift service. Player sessions
+-- cannot be updated.
 --
 -- The maximum number of players per game session is 200. It is not
 -- adjustable.
@@ -148,7 +148,8 @@ instance Core.AWSRequest CreatePlayerSessions where
 
 instance Prelude.Hashable CreatePlayerSessions where
   hashWithSalt _salt CreatePlayerSessions' {..} =
-    _salt `Prelude.hashWithSalt` playerDataMap
+    _salt
+      `Prelude.hashWithSalt` playerDataMap
       `Prelude.hashWithSalt` gameSessionId
       `Prelude.hashWithSalt` playerIds
 

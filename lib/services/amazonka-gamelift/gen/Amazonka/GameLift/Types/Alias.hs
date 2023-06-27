@@ -35,8 +35,8 @@ import qualified Amazonka.Prelude as Prelude
 data Alias = Alias'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift alias resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift alias resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::alias\/alias-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     -- In a GameLift alias ARN, the resource ID matches the alias ID value.
     aliasArn :: Prelude.Maybe Prelude.Text,
@@ -71,8 +71,8 @@ data Alias = Alias'
 --
 -- 'aliasArn', 'alias_aliasArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift alias resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift alias resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::alias\/alias-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 -- In a GameLift alias ARN, the resource ID matches the alias ID value.
 --
@@ -108,8 +108,8 @@ newAlias =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift alias resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift alias resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::alias\/alias-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 -- In a GameLift alias ARN, the resource ID matches the alias ID value.
 alias_aliasArn :: Lens.Lens' Alias (Prelude.Maybe Prelude.Text)
@@ -162,7 +162,8 @@ instance Data.FromJSON Alias where
 
 instance Prelude.Hashable Alias where
   hashWithSalt _salt Alias' {..} =
-    _salt `Prelude.hashWithSalt` aliasArn
+    _salt
+      `Prelude.hashWithSalt` aliasArn
       `Prelude.hashWithSalt` aliasId
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description

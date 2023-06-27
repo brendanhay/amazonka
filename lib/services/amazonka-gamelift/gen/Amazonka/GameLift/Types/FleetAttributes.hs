@@ -34,7 +34,7 @@ import Amazonka.GameLift.Types.ProtectionPolicy
 import Amazonka.GameLift.Types.ResourceCreationLimitPolicy
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a GameLift fleet of game hosting resources.
+-- | Describes a Amazon GameLift fleet of game hosting resources.
 --
 -- __Related actions__
 --
@@ -43,7 +43,7 @@ data FleetAttributes = FleetAttributes'
   { anywhereConfiguration :: Prelude.Maybe AnywhereConfiguration,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- associated with the GameLift build resource that is deployed on
+    -- associated with the Amazon GameLift build resource that is deployed on
     -- instances in this fleet. In a GameLift build ARN, the resource ID
     -- matches the @BuildId@ value.
     buildArn :: Prelude.Maybe Prelude.Text,
@@ -52,8 +52,8 @@ data FleetAttributes = FleetAttributes'
     buildId :: Prelude.Maybe Prelude.Text,
     certificateConfiguration :: Prelude.Maybe CertificateConfiguration,
     -- | The type of compute resource used to host your game servers. You can use
-    -- your own compute resources with GameLift Anywhere or use Amazon EC2
-    -- instances with managed GameLift.
+    -- your own compute resources with Amazon GameLift Anywhere or use Amazon
+    -- EC2 instances with managed Amazon GameLift.
     computeType :: Prelude.Maybe ComputeType,
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
@@ -63,8 +63,8 @@ data FleetAttributes = FleetAttributes'
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
+    -- that is assigned to a Amazon GameLift fleet resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     -- In a GameLift fleet ARN, the resource ID matches the @FleetId@ value.
     fleetArn :: Prelude.Maybe Prelude.Text,
@@ -93,8 +93,8 @@ data FleetAttributes = FleetAttributes'
     -- for detailed descriptions.
     instanceType :: Prelude.Maybe EC2InstanceType,
     -- | __This parameter is no longer used.__ Game session log paths are now
-    -- defined using the GameLift server API @ProcessReady()@ @logParameters@.
-    -- See more information in the
+    -- defined using the Amazon GameLift server API @ProcessReady()@
+    -- @logParameters@. See more information in the
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference>.
     logPaths :: Prelude.Maybe [Prelude.Text],
     -- | Name of a metric group that metrics for this fleet are added to. In
@@ -143,9 +143,9 @@ data FleetAttributes = FleetAttributes'
     -- -   __NEW__ -- A new fleet has been defined and desired instances is set
     --     to 1.
     --
-    -- -   __DOWNLOADING\/VALIDATING\/BUILDING\/ACTIVATING__ -- GameLift is
-    --     setting up the new fleet, creating new instances with the game build
-    --     or Realtime script and starting server processes.
+    -- -   __DOWNLOADING\/VALIDATING\/BUILDING\/ACTIVATING__ -- Amazon GameLift
+    --     is setting up the new fleet, creating new instances with the game
+    --     build or Realtime script and starting server processes.
     --
     -- -   __ACTIVE__ -- Hosts can now accept game sessions.
     --
@@ -179,7 +179,7 @@ data FleetAttributes = FleetAttributes'
 --
 -- 'buildArn', 'fleetAttributes_buildArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- associated with the GameLift build resource that is deployed on
+-- associated with the Amazon GameLift build resource that is deployed on
 -- instances in this fleet. In a GameLift build ARN, the resource ID
 -- matches the @BuildId@ value.
 --
@@ -189,8 +189,8 @@ data FleetAttributes = FleetAttributes'
 -- 'certificateConfiguration', 'fleetAttributes_certificateConfiguration' - Undocumented member.
 --
 -- 'computeType', 'fleetAttributes_computeType' - The type of compute resource used to host your game servers. You can use
--- your own compute resources with GameLift Anywhere or use Amazon EC2
--- instances with managed GameLift.
+-- your own compute resources with Amazon GameLift Anywhere or use Amazon
+-- EC2 instances with managed Amazon GameLift.
 --
 -- 'creationTime', 'fleetAttributes_creationTime' - A time stamp indicating when this data object was created. Format is a
 -- number expressed in Unix time as milliseconds (for example
@@ -200,8 +200,8 @@ data FleetAttributes = FleetAttributes'
 --
 -- 'fleetArn', 'fleetAttributes_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 -- In a GameLift fleet ARN, the resource ID matches the @FleetId@ value.
 --
@@ -230,8 +230,8 @@ data FleetAttributes = FleetAttributes'
 -- for detailed descriptions.
 --
 -- 'logPaths', 'fleetAttributes_logPaths' - __This parameter is no longer used.__ Game session log paths are now
--- defined using the GameLift server API @ProcessReady()@ @logParameters@.
--- See more information in the
+-- defined using the Amazon GameLift server API @ProcessReady()@
+-- @logParameters@. See more information in the
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference>.
 --
 -- 'metricGroups', 'fleetAttributes_metricGroups' - Name of a metric group that metrics for this fleet are added to. In
@@ -281,9 +281,9 @@ data FleetAttributes = FleetAttributes'
 -- -   __NEW__ -- A new fleet has been defined and desired instances is set
 --     to 1.
 --
--- -   __DOWNLOADING\/VALIDATING\/BUILDING\/ACTIVATING__ -- GameLift is
---     setting up the new fleet, creating new instances with the game build
---     or Realtime script and starting server processes.
+-- -   __DOWNLOADING\/VALIDATING\/BUILDING\/ACTIVATING__ -- Amazon GameLift
+--     is setting up the new fleet, creating new instances with the game
+--     build or Realtime script and starting server processes.
 --
 -- -   __ACTIVE__ -- Hosts can now accept game sessions.
 --
@@ -339,7 +339,7 @@ fleetAttributes_anywhereConfiguration = Lens.lens (\FleetAttributes' {anywhereCo
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- associated with the GameLift build resource that is deployed on
+-- associated with the Amazon GameLift build resource that is deployed on
 -- instances in this fleet. In a GameLift build ARN, the resource ID
 -- matches the @BuildId@ value.
 fleetAttributes_buildArn :: Lens.Lens' FleetAttributes (Prelude.Maybe Prelude.Text)
@@ -355,8 +355,8 @@ fleetAttributes_certificateConfiguration :: Lens.Lens' FleetAttributes (Prelude.
 fleetAttributes_certificateConfiguration = Lens.lens (\FleetAttributes' {certificateConfiguration} -> certificateConfiguration) (\s@FleetAttributes' {} a -> s {certificateConfiguration = a} :: FleetAttributes)
 
 -- | The type of compute resource used to host your game servers. You can use
--- your own compute resources with GameLift Anywhere or use Amazon EC2
--- instances with managed GameLift.
+-- your own compute resources with Amazon GameLift Anywhere or use Amazon
+-- EC2 instances with managed Amazon GameLift.
 fleetAttributes_computeType :: Lens.Lens' FleetAttributes (Prelude.Maybe ComputeType)
 fleetAttributes_computeType = Lens.lens (\FleetAttributes' {computeType} -> computeType) (\s@FleetAttributes' {} a -> s {computeType = a} :: FleetAttributes)
 
@@ -372,8 +372,8 @@ fleetAttributes_description = Lens.lens (\FleetAttributes' {description} -> desc
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
+-- that is assigned to a Amazon GameLift fleet resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 -- In a GameLift fleet ARN, the resource ID matches the @FleetId@ value.
 fleetAttributes_fleetArn :: Lens.Lens' FleetAttributes (Prelude.Maybe Prelude.Text)
@@ -412,8 +412,8 @@ fleetAttributes_instanceType :: Lens.Lens' FleetAttributes (Prelude.Maybe EC2Ins
 fleetAttributes_instanceType = Lens.lens (\FleetAttributes' {instanceType} -> instanceType) (\s@FleetAttributes' {} a -> s {instanceType = a} :: FleetAttributes)
 
 -- | __This parameter is no longer used.__ Game session log paths are now
--- defined using the GameLift server API @ProcessReady()@ @logParameters@.
--- See more information in the
+-- defined using the Amazon GameLift server API @ProcessReady()@
+-- @logParameters@. See more information in the
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference>.
 fleetAttributes_logPaths :: Lens.Lens' FleetAttributes (Prelude.Maybe [Prelude.Text])
 fleetAttributes_logPaths = Lens.lens (\FleetAttributes' {logPaths} -> logPaths) (\s@FleetAttributes' {} a -> s {logPaths = a} :: FleetAttributes) Prelude.. Lens.mapping Lens.coerced
@@ -483,9 +483,9 @@ fleetAttributes_serverLaunchPath = Lens.lens (\FleetAttributes' {serverLaunchPat
 -- -   __NEW__ -- A new fleet has been defined and desired instances is set
 --     to 1.
 --
--- -   __DOWNLOADING\/VALIDATING\/BUILDING\/ACTIVATING__ -- GameLift is
---     setting up the new fleet, creating new instances with the game build
---     or Realtime script and starting server processes.
+-- -   __DOWNLOADING\/VALIDATING\/BUILDING\/ACTIVATING__ -- Amazon GameLift
+--     is setting up the new fleet, creating new instances with the game
+--     build or Realtime script and starting server processes.
 --
 -- -   __ACTIVE__ -- Hosts can now accept game sessions.
 --
@@ -545,7 +545,8 @@ instance Data.FromJSON FleetAttributes where
 
 instance Prelude.Hashable FleetAttributes where
   hashWithSalt _salt FleetAttributes' {..} =
-    _salt `Prelude.hashWithSalt` anywhereConfiguration
+    _salt
+      `Prelude.hashWithSalt` anywhereConfiguration
       `Prelude.hashWithSalt` buildArn
       `Prelude.hashWithSalt` buildId
       `Prelude.hashWithSalt` certificateConfiguration

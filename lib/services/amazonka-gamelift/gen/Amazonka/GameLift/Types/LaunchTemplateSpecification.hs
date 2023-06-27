@@ -24,8 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | __This data type is used with the GameLift FleetIQ and game server
--- groups.__
+-- | __This data type is used with the Amazon GameLift FleetIQ and game
+-- server groups.__
 --
 -- An Amazon Elastic Compute Cloud launch template that contains
 -- configuration settings and game server code to be deployed to all
@@ -89,7 +89,8 @@ launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {
 
 instance Prelude.Hashable LaunchTemplateSpecification where
   hashWithSalt _salt LaunchTemplateSpecification' {..} =
-    _salt `Prelude.hashWithSalt` launchTemplateId
+    _salt
+      `Prelude.hashWithSalt` launchTemplateId
       `Prelude.hashWithSalt` launchTemplateName
       `Prelude.hashWithSalt` version
 

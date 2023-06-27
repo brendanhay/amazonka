@@ -80,7 +80,8 @@ instance Data.FromJSON InstanceCredentials where
 
 instance Prelude.Hashable InstanceCredentials where
   hashWithSalt _salt InstanceCredentials' {..} =
-    _salt `Prelude.hashWithSalt` secret
+    _salt
+      `Prelude.hashWithSalt` secret
       `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData InstanceCredentials where

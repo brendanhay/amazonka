@@ -70,7 +70,7 @@ data ListBuilds = ListBuilds'
     limit :: Prelude.Maybe Prelude.Natural,
     -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
-    -- To start at the beginning of the result set, do not specify a value.
+    -- To start at the beginning of the result set, don\'t specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Build status to filter results by. To retrieve all builds, leave this
     -- parameter empty.
@@ -104,7 +104,7 @@ data ListBuilds = ListBuilds'
 --
 -- 'nextToken', 'listBuilds_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
+-- To start at the beginning of the result set, don\'t specify a value.
 --
 -- 'status', 'listBuilds_status' - Build status to filter results by. To retrieve all builds, leave this
 -- parameter empty.
@@ -137,7 +137,7 @@ listBuilds_limit = Lens.lens (\ListBuilds' {limit} -> limit) (\s@ListBuilds' {} 
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
+-- To start at the beginning of the result set, don\'t specify a value.
 listBuilds_nextToken :: Lens.Lens' ListBuilds (Prelude.Maybe Prelude.Text)
 listBuilds_nextToken = Lens.lens (\ListBuilds' {nextToken} -> nextToken) (\s@ListBuilds' {} a -> s {nextToken = a} :: ListBuilds)
 
@@ -163,20 +163,23 @@ instance Core.AWSPager ListBuilds where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listBuildsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listBuildsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBuildsResponse_builds Prelude.. Lens._Just
+            Lens.^? listBuildsResponse_builds
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBuilds_nextToken
           Lens..~ rs
-          Lens.^? listBuildsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listBuildsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBuilds where
   type AWSResponse ListBuilds = ListBuildsResponse
@@ -193,7 +196,8 @@ instance Core.AWSRequest ListBuilds where
 
 instance Prelude.Hashable ListBuilds where
   hashWithSalt _salt ListBuilds' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
 

@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDesiredPlayerSession' smart constructor.
 data DesiredPlayerSession = DesiredPlayerSession'
-  { -- | Developer-defined information related to a player. GameLift does not use
-    -- this data, so it can be formatted as needed for use in the game.
+  { -- | Developer-defined information related to a player. Amazon GameLift does
+    -- not use this data, so it can be formatted as needed for use in the game.
     playerData :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a player to associate with the player session.
     playerId :: Prelude.Maybe Prelude.Text
@@ -45,8 +45,8 @@ data DesiredPlayerSession = DesiredPlayerSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playerData', 'desiredPlayerSession_playerData' - Developer-defined information related to a player. GameLift does not use
--- this data, so it can be formatted as needed for use in the game.
+-- 'playerData', 'desiredPlayerSession_playerData' - Developer-defined information related to a player. Amazon GameLift does
+-- not use this data, so it can be formatted as needed for use in the game.
 --
 -- 'playerId', 'desiredPlayerSession_playerId' - A unique identifier for a player to associate with the player session.
 newDesiredPlayerSession ::
@@ -57,8 +57,8 @@ newDesiredPlayerSession =
       playerId = Prelude.Nothing
     }
 
--- | Developer-defined information related to a player. GameLift does not use
--- this data, so it can be formatted as needed for use in the game.
+-- | Developer-defined information related to a player. Amazon GameLift does
+-- not use this data, so it can be formatted as needed for use in the game.
 desiredPlayerSession_playerData :: Lens.Lens' DesiredPlayerSession (Prelude.Maybe Prelude.Text)
 desiredPlayerSession_playerData = Lens.lens (\DesiredPlayerSession' {playerData} -> playerData) (\s@DesiredPlayerSession' {} a -> s {playerData = a} :: DesiredPlayerSession)
 
@@ -68,7 +68,8 @@ desiredPlayerSession_playerId = Lens.lens (\DesiredPlayerSession' {playerId} -> 
 
 instance Prelude.Hashable DesiredPlayerSession where
   hashWithSalt _salt DesiredPlayerSession' {..} =
-    _salt `Prelude.hashWithSalt` playerData
+    _salt
+      `Prelude.hashWithSalt` playerData
       `Prelude.hashWithSalt` playerId
 
 instance Prelude.NFData DesiredPlayerSession where

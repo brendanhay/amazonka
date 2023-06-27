@@ -98,7 +98,8 @@ data UpdateGameSessionQueue = UpdateGameSessionQueue'
     priorityConfiguration :: Prelude.Maybe PriorityConfiguration,
     -- | The maximum time, in seconds, that a new game session placement request
     -- remains in the queue. When a request exceeds this time, the game session
-    -- placement changes to a @TIMED_OUT@ status.
+    -- placement changes to a @TIMED_OUT@ status. By default, this property is
+    -- set to @600@.
     timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A descriptive label that is associated with game session queue. Queue
     -- names must be unique within each Region. You can use either the queue ID
@@ -150,7 +151,8 @@ data UpdateGameSessionQueue = UpdateGameSessionQueue'
 --
 -- 'timeoutInSeconds', 'updateGameSessionQueue_timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
--- placement changes to a @TIMED_OUT@ status.
+-- placement changes to a @TIMED_OUT@ status. By default, this property is
+-- set to @600@.
 --
 -- 'name', 'updateGameSessionQueue_name' - A descriptive label that is associated with game session queue. Queue
 -- names must be unique within each Region. You can use either the queue ID
@@ -219,7 +221,8 @@ updateGameSessionQueue_priorityConfiguration = Lens.lens (\UpdateGameSessionQueu
 
 -- | The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
--- placement changes to a @TIMED_OUT@ status.
+-- placement changes to a @TIMED_OUT@ status. By default, this property is
+-- set to @600@.
 updateGameSessionQueue_timeoutInSeconds :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe Prelude.Natural)
 updateGameSessionQueue_timeoutInSeconds = Lens.lens (\UpdateGameSessionQueue' {timeoutInSeconds} -> timeoutInSeconds) (\s@UpdateGameSessionQueue' {} a -> s {timeoutInSeconds = a} :: UpdateGameSessionQueue)
 
@@ -245,7 +248,8 @@ instance Core.AWSRequest UpdateGameSessionQueue where
 
 instance Prelude.Hashable UpdateGameSessionQueue where
   hashWithSalt _salt UpdateGameSessionQueue' {..} =
-    _salt `Prelude.hashWithSalt` customEventData
+    _salt
+      `Prelude.hashWithSalt` customEventData
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` filterConfiguration
       `Prelude.hashWithSalt` notificationTarget

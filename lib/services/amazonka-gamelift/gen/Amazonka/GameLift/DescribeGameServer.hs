@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and
+-- game server groups.__
 --
 -- Retrieves information for a registered game server. Information includes
 -- game server status, health check info, and the instance that the game
@@ -32,7 +32,7 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html Amazon GameLift FleetIQ Guide>
 module Amazonka.GameLift.DescribeGameServer
   ( -- * Creating a Request
     DescribeGameServer (..),
@@ -125,7 +125,8 @@ instance Core.AWSRequest DescribeGameServer where
 
 instance Prelude.Hashable DescribeGameServer where
   hashWithSalt _salt DescribeGameServer' {..} =
-    _salt `Prelude.hashWithSalt` gameServerGroupName
+    _salt
+      `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` gameServerId
 
 instance Prelude.NFData DescribeGameServer where

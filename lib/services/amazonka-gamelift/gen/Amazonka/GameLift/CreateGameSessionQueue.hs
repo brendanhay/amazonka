@@ -25,13 +25,13 @@
 -- locations and find an available game server there, then prompts the game
 -- server process to start a new game session.
 --
--- A game session queue is configured with a set of destinations (GameLift
--- fleets or aliases), which determine the locations where the queue can
--- place new game sessions. These destinations can span multiple fleet
--- types (Spot and On-Demand), instance types, and Amazon Web Services
--- Regions. If the queue includes multi-location fleets, the queue is able
--- to place game sessions in all of a fleet\'s remote locations. You can
--- opt to filter out individual locations if needed.
+-- A game session queue is configured with a set of destinations (Amazon
+-- GameLift fleets or aliases), which determine the locations where the
+-- queue can place new game sessions. These destinations can span multiple
+-- fleet types (Spot and On-Demand), instance types, and Amazon Web
+-- Services Regions. If the queue includes multi-location fleets, the queue
+-- is able to place game sessions in all of a fleet\'s remote locations.
+-- You can opt to filter out individual locations if needed.
 --
 -- The queue configuration also determines how FleetIQ selects the best
 -- available placement for a new game session. Before searching for an
@@ -147,7 +147,8 @@ data CreateGameSessionQueue = CreateGameSessionQueue'
     tags :: Prelude.Maybe [Tag],
     -- | The maximum time, in seconds, that a new game session placement request
     -- remains in the queue. When a request exceeds this time, the game session
-    -- placement changes to a @TIMED_OUT@ status.
+    -- placement changes to a @TIMED_OUT@ status. By default, this property is
+    -- set to @600@.
     timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A descriptive label that is associated with game session queue. Queue
     -- names must be unique within each Region.
@@ -201,7 +202,8 @@ data CreateGameSessionQueue = CreateGameSessionQueue'
 --
 -- 'timeoutInSeconds', 'createGameSessionQueue_timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
--- placement changes to a @TIMED_OUT@ status.
+-- placement changes to a @TIMED_OUT@ status. By default, this property is
+-- set to @600@.
 --
 -- 'name', 'createGameSessionQueue_name' - A descriptive label that is associated with game session queue. Queue
 -- names must be unique within each Region.
@@ -275,7 +277,8 @@ createGameSessionQueue_tags = Lens.lens (\CreateGameSessionQueue' {tags} -> tags
 
 -- | The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
--- placement changes to a @TIMED_OUT@ status.
+-- placement changes to a @TIMED_OUT@ status. By default, this property is
+-- set to @600@.
 createGameSessionQueue_timeoutInSeconds :: Lens.Lens' CreateGameSessionQueue (Prelude.Maybe Prelude.Natural)
 createGameSessionQueue_timeoutInSeconds = Lens.lens (\CreateGameSessionQueue' {timeoutInSeconds} -> timeoutInSeconds) (\s@CreateGameSessionQueue' {} a -> s {timeoutInSeconds = a} :: CreateGameSessionQueue)
 
@@ -300,7 +303,8 @@ instance Core.AWSRequest CreateGameSessionQueue where
 
 instance Prelude.Hashable CreateGameSessionQueue where
   hashWithSalt _salt CreateGameSessionQueue' {..} =
-    _salt `Prelude.hashWithSalt` customEventData
+    _salt
+      `Prelude.hashWithSalt` customEventData
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` filterConfiguration
       `Prelude.hashWithSalt` notificationTarget

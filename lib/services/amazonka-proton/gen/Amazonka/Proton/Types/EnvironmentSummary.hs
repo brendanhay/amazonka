@@ -286,7 +286,8 @@ instance Data.FromJSON EnvironmentSummary where
 
 instance Prelude.Hashable EnvironmentSummary where
   hashWithSalt _salt EnvironmentSummary' {..} =
-    _salt `Prelude.hashWithSalt` componentRoleArn
+    _salt
+      `Prelude.hashWithSalt` componentRoleArn
       `Prelude.hashWithSalt` deploymentStatusMessage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentAccountConnectionId

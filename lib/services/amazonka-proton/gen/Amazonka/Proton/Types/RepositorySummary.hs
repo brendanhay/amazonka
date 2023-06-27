@@ -32,6 +32,9 @@ import Amazonka.Proton.Types.RepositoryProvider
 data RepositorySummary = RepositorySummary'
   { -- | The Amazon Resource Name (ARN) of the linked repository.
     arn :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the of your connection that connects
+    -- Proton to your repository.
+    connectionArn :: Prelude.Text,
     -- | The repository name.
     name :: Prelude.Text,
     -- | The repository provider.
@@ -49,27 +52,42 @@ data RepositorySummary = RepositorySummary'
 --
 -- 'arn', 'repositorySummary_arn' - The Amazon Resource Name (ARN) of the linked repository.
 --
+-- 'connectionArn', 'repositorySummary_connectionArn' - The Amazon Resource Name (ARN) of the of your connection that connects
+-- Proton to your repository.
+--
 -- 'name', 'repositorySummary_name' - The repository name.
 --
 -- 'provider', 'repositorySummary_provider' - The repository provider.
 newRepositorySummary ::
   -- | 'arn'
   Prelude.Text ->
+  -- | 'connectionArn'
+  Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
   -- | 'provider'
   RepositoryProvider ->
   RepositorySummary
-newRepositorySummary pArn_ pName_ pProvider_ =
-  RepositorySummary'
-    { arn = pArn_,
-      name = pName_,
-      provider = pProvider_
-    }
+newRepositorySummary
+  pArn_
+  pConnectionArn_
+  pName_
+  pProvider_ =
+    RepositorySummary'
+      { arn = pArn_,
+        connectionArn = pConnectionArn_,
+        name = pName_,
+        provider = pProvider_
+      }
 
 -- | The Amazon Resource Name (ARN) of the linked repository.
 repositorySummary_arn :: Lens.Lens' RepositorySummary Prelude.Text
 repositorySummary_arn = Lens.lens (\RepositorySummary' {arn} -> arn) (\s@RepositorySummary' {} a -> s {arn = a} :: RepositorySummary)
+
+-- | The Amazon Resource Name (ARN) of the of your connection that connects
+-- Proton to your repository.
+repositorySummary_connectionArn :: Lens.Lens' RepositorySummary Prelude.Text
+repositorySummary_connectionArn = Lens.lens (\RepositorySummary' {connectionArn} -> connectionArn) (\s@RepositorySummary' {} a -> s {connectionArn = a} :: RepositorySummary)
 
 -- | The repository name.
 repositorySummary_name :: Lens.Lens' RepositorySummary Prelude.Text
@@ -86,18 +104,22 @@ instance Data.FromJSON RepositorySummary where
       ( \x ->
           RepositorySummary'
             Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "connectionArn")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "provider")
       )
 
 instance Prelude.Hashable RepositorySummary where
   hashWithSalt _salt RepositorySummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` provider
 
 instance Prelude.NFData RepositorySummary where
   rnf RepositorySummary' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf connectionArn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf provider

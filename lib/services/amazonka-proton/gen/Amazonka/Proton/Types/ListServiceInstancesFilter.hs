@@ -81,7 +81,8 @@ listServiceInstancesFilter_value = Lens.lens (\ListServiceInstancesFilter' {valu
 
 instance Prelude.Hashable ListServiceInstancesFilter where
   hashWithSalt _salt ListServiceInstancesFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ListServiceInstancesFilter where

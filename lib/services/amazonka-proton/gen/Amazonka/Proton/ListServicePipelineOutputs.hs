@@ -98,21 +98,21 @@ instance Core.AWSPager ListServicePipelineOutputs where
     | Core.stop
         ( rs
             Lens.^? listServicePipelineOutputsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listServicePipelineOutputsResponse_outputs
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listServicePipelineOutputs_nextToken
           Lens..~ rs
           Lens.^? listServicePipelineOutputsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServicePipelineOutputs where
   type
@@ -131,7 +131,8 @@ instance Core.AWSRequest ListServicePipelineOutputs where
 
 instance Prelude.Hashable ListServicePipelineOutputs where
   hashWithSalt _salt ListServicePipelineOutputs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData ListServicePipelineOutputs where

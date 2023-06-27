@@ -26,6 +26,12 @@ module Amazonka.Proton.Types
     _ThrottlingException,
     _ValidationException,
 
+    -- * BlockerStatus
+    BlockerStatus (..),
+
+    -- * BlockerType
+    BlockerType (..),
+
     -- * ComponentDeploymentUpdateType
     ComponentDeploymentUpdateType (..),
 
@@ -107,6 +113,7 @@ module Amazonka.Proton.Types
     newComponent,
     component_deploymentStatusMessage,
     component_description,
+    component_lastClientRequestToken,
     component_lastDeploymentAttemptedAt,
     component_lastDeploymentSucceededAt,
     component_serviceInstanceName,
@@ -133,6 +140,17 @@ module Amazonka.Proton.Types
     componentSummary_environmentName,
     componentSummary_lastModifiedAt,
     componentSummary_name,
+
+    -- * CountsSummary
+    CountsSummary (..),
+    newCountsSummary,
+    countsSummary_components,
+    countsSummary_environmentTemplates,
+    countsSummary_environments,
+    countsSummary_pipelines,
+    countsSummary_serviceInstances,
+    countsSummary_serviceTemplates,
+    countsSummary_services,
 
     -- * Environment
     Environment (..),
@@ -313,6 +331,7 @@ module Amazonka.Proton.Types
     RepositorySummary (..),
     newRepositorySummary,
     repositorySummary_arn,
+    repositorySummary_connectionArn,
     repositorySummary_name,
     repositorySummary_provider,
 
@@ -338,6 +357,15 @@ module Amazonka.Proton.Types
     repositorySyncEvent_event,
     repositorySyncEvent_time,
     repositorySyncEvent_type,
+
+    -- * ResourceCountsSummary
+    ResourceCountsSummary (..),
+    newResourceCountsSummary,
+    resourceCountsSummary_behindMajor,
+    resourceCountsSummary_behindMinor,
+    resourceCountsSummary_failed,
+    resourceCountsSummary_upToDate,
+    resourceCountsSummary_total,
 
     -- * ResourceSyncAttempt
     ResourceSyncAttempt (..),
@@ -393,6 +421,7 @@ module Amazonka.Proton.Types
     ServiceInstance (..),
     newServiceInstance,
     serviceInstance_deploymentStatusMessage,
+    serviceInstance_lastClientRequestToken,
     serviceInstance_spec,
     serviceInstance_arn,
     serviceInstance_createdAt,
@@ -447,6 +476,22 @@ module Amazonka.Proton.Types
     serviceSummary_name,
     serviceSummary_status,
     serviceSummary_templateName,
+
+    -- * ServiceSyncBlockerSummary
+    ServiceSyncBlockerSummary (..),
+    newServiceSyncBlockerSummary,
+    serviceSyncBlockerSummary_latestBlockers,
+    serviceSyncBlockerSummary_serviceInstanceName,
+    serviceSyncBlockerSummary_serviceName,
+
+    -- * ServiceSyncConfig
+    ServiceSyncConfig (..),
+    newServiceSyncConfig,
+    serviceSyncConfig_branch,
+    serviceSyncConfig_filePath,
+    serviceSyncConfig_repositoryName,
+    serviceSyncConfig_repositoryProvider,
+    serviceSyncConfig_serviceName,
 
     -- * ServiceTemplate
     ServiceTemplate (..),
@@ -504,6 +549,24 @@ module Amazonka.Proton.Types
     serviceTemplateVersionSummary_status,
     serviceTemplateVersionSummary_templateName,
 
+    -- * SyncBlocker
+    SyncBlocker (..),
+    newSyncBlocker,
+    syncBlocker_contexts,
+    syncBlocker_resolvedAt,
+    syncBlocker_resolvedReason,
+    syncBlocker_createdAt,
+    syncBlocker_createdReason,
+    syncBlocker_id,
+    syncBlocker_status,
+    syncBlocker_type,
+
+    -- * SyncBlockerContext
+    SyncBlockerContext (..),
+    newSyncBlockerContext,
+    syncBlockerContext_key,
+    syncBlockerContext_value,
+
     -- * Tag
     Tag (..),
     newTag,
@@ -531,11 +594,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.AccountSettings
+import Amazonka.Proton.Types.BlockerStatus
+import Amazonka.Proton.Types.BlockerType
 import Amazonka.Proton.Types.CompatibleEnvironmentTemplate
 import Amazonka.Proton.Types.CompatibleEnvironmentTemplateInput
 import Amazonka.Proton.Types.Component
 import Amazonka.Proton.Types.ComponentDeploymentUpdateType
 import Amazonka.Proton.Types.ComponentSummary
+import Amazonka.Proton.Types.CountsSummary
 import Amazonka.Proton.Types.DeploymentStatus
 import Amazonka.Proton.Types.DeploymentUpdateType
 import Amazonka.Proton.Types.Environment
@@ -565,6 +631,7 @@ import Amazonka.Proton.Types.RepositorySyncAttempt
 import Amazonka.Proton.Types.RepositorySyncDefinition
 import Amazonka.Proton.Types.RepositorySyncEvent
 import Amazonka.Proton.Types.RepositorySyncStatus
+import Amazonka.Proton.Types.ResourceCountsSummary
 import Amazonka.Proton.Types.ResourceDeploymentStatus
 import Amazonka.Proton.Types.ResourceSyncAttempt
 import Amazonka.Proton.Types.ResourceSyncEvent
@@ -577,12 +644,16 @@ import Amazonka.Proton.Types.ServiceInstanceSummary
 import Amazonka.Proton.Types.ServicePipeline
 import Amazonka.Proton.Types.ServiceStatus
 import Amazonka.Proton.Types.ServiceSummary
+import Amazonka.Proton.Types.ServiceSyncBlockerSummary
+import Amazonka.Proton.Types.ServiceSyncConfig
 import Amazonka.Proton.Types.ServiceTemplate
 import Amazonka.Proton.Types.ServiceTemplateSummary
 import Amazonka.Proton.Types.ServiceTemplateSupportedComponentSourceType
 import Amazonka.Proton.Types.ServiceTemplateVersion
 import Amazonka.Proton.Types.ServiceTemplateVersionSummary
 import Amazonka.Proton.Types.SortOrder
+import Amazonka.Proton.Types.SyncBlocker
+import Amazonka.Proton.Types.SyncBlockerContext
 import Amazonka.Proton.Types.SyncType
 import Amazonka.Proton.Types.Tag
 import Amazonka.Proton.Types.TemplateSyncConfig
@@ -617,52 +688,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | There /isn\'t/ sufficient access for performing this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -670,21 +741,21 @@ _AccessDeniedException =
 
 -- | The request /couldn\'t/ be made due to a conflicting operation or
 -- resource.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | The request failed to register with the service.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
 
 -- | The requested resource /wasn\'t/ found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -693,14 +764,14 @@ _ResourceNotFoundException =
 -- | A quota was exceeded. For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html Proton Quotas>
 -- in the /Proton User Guide/.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
     "ServiceQuotaExceededException"
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -708,7 +779,7 @@ _ThrottlingException =
 
 -- | The input is invalid or an out-of-range value was supplied for the input
 -- parameter.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

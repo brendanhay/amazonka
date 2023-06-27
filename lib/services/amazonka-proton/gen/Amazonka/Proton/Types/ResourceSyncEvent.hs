@@ -100,7 +100,8 @@ instance Data.FromJSON ResourceSyncEvent where
 
 instance Prelude.Hashable ResourceSyncEvent where
   hashWithSalt _salt ResourceSyncEvent' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` time
       `Prelude.hashWithSalt` type'

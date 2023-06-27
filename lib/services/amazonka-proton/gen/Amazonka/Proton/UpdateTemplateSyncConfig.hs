@@ -163,7 +163,8 @@ instance Core.AWSRequest UpdateTemplateSyncConfig where
 
 instance Prelude.Hashable UpdateTemplateSyncConfig where
   hashWithSalt _salt UpdateTemplateSyncConfig' {..} =
-    _salt `Prelude.hashWithSalt` subdirectory
+    _salt
+      `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` repositoryProvider

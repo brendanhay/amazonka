@@ -123,7 +123,8 @@ instance Data.FromJSON Revision where
 
 instance Prelude.Hashable Revision where
   hashWithSalt _salt Revision' {..} =
-    _salt `Prelude.hashWithSalt` branch
+    _salt
+      `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` directory
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` repositoryProvider

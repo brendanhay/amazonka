@@ -108,21 +108,21 @@ instance
     | Core.stop
         ( rs
             Lens.^? listComponentProvisionedResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listComponentProvisionedResourcesResponse_provisionedResources
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listComponentProvisionedResources_nextToken
           Lens..~ rs
           Lens.^? listComponentProvisionedResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -138,10 +138,11 @@ instance
       ( \s h x ->
           ListComponentProvisionedResourcesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..?> "provisionedResources"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "provisionedResources"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -151,7 +152,8 @@ instance
   hashWithSalt
     _salt
     ListComponentProvisionedResources' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` componentName
 
 instance

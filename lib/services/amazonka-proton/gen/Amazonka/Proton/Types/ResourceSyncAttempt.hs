@@ -133,7 +133,8 @@ instance Data.FromJSON ResourceSyncAttempt where
 
 instance Prelude.Hashable ResourceSyncAttempt where
   hashWithSalt _salt ResourceSyncAttempt' {..} =
-    _salt `Prelude.hashWithSalt` events
+    _salt
+      `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` initialRevision
       `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` status

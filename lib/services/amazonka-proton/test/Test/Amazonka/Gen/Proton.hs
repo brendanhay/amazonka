@@ -63,6 +63,12 @@ import Test.Tasty
 --         , requestCreateService $
 --             newCreateService
 --
+--         , requestCreateServiceInstance $
+--             newCreateServiceInstance
+--
+--         , requestCreateServiceSyncConfig $
+--             newCreateServiceSyncConfig
+--
 --         , requestCreateServiceTemplate $
 --             newCreateServiceTemplate
 --
@@ -92,6 +98,9 @@ import Test.Tasty
 --
 --         , requestDeleteService $
 --             newDeleteService
+--
+--         , requestDeleteServiceSyncConfig $
+--             newDeleteServiceSyncConfig
 --
 --         , requestDeleteServiceTemplate $
 --             newDeleteServiceTemplate
@@ -126,11 +135,23 @@ import Test.Tasty
 --         , requestGetRepositorySyncStatus $
 --             newGetRepositorySyncStatus
 --
+--         , requestGetResourcesSummary $
+--             newGetResourcesSummary
+--
 --         , requestGetService $
 --             newGetService
 --
 --         , requestGetServiceInstance $
 --             newGetServiceInstance
+--
+--         , requestGetServiceInstanceSyncStatus $
+--             newGetServiceInstanceSyncStatus
+--
+--         , requestGetServiceSyncBlockerSummary $
+--             newGetServiceSyncBlockerSummary
+--
+--         , requestGetServiceSyncConfig $
+--             newGetServiceSyncConfig
 --
 --         , requestGetServiceTemplate $
 --             newGetServiceTemplate
@@ -243,6 +264,12 @@ import Test.Tasty
 --         , requestUpdateServicePipeline $
 --             newUpdateServicePipeline
 --
+--         , requestUpdateServiceSyncBlocker $
+--             newUpdateServiceSyncBlocker
+--
+--         , requestUpdateServiceSyncConfig $
+--             newUpdateServiceSyncConfig
+--
 --         , requestUpdateServiceTemplate $
 --             newUpdateServiceTemplate
 --
@@ -291,6 +318,12 @@ import Test.Tasty
 --         , responseCreateService $
 --             newCreateServiceResponse
 --
+--         , responseCreateServiceInstance $
+--             newCreateServiceInstanceResponse
+--
+--         , responseCreateServiceSyncConfig $
+--             newCreateServiceSyncConfigResponse
+--
 --         , responseCreateServiceTemplate $
 --             newCreateServiceTemplateResponse
 --
@@ -320,6 +353,9 @@ import Test.Tasty
 --
 --         , responseDeleteService $
 --             newDeleteServiceResponse
+--
+--         , responseDeleteServiceSyncConfig $
+--             newDeleteServiceSyncConfigResponse
 --
 --         , responseDeleteServiceTemplate $
 --             newDeleteServiceTemplateResponse
@@ -354,11 +390,23 @@ import Test.Tasty
 --         , responseGetRepositorySyncStatus $
 --             newGetRepositorySyncStatusResponse
 --
+--         , responseGetResourcesSummary $
+--             newGetResourcesSummaryResponse
+--
 --         , responseGetService $
 --             newGetServiceResponse
 --
 --         , responseGetServiceInstance $
 --             newGetServiceInstanceResponse
+--
+--         , responseGetServiceInstanceSyncStatus $
+--             newGetServiceInstanceSyncStatusResponse
+--
+--         , responseGetServiceSyncBlockerSummary $
+--             newGetServiceSyncBlockerSummaryResponse
+--
+--         , responseGetServiceSyncConfig $
+--             newGetServiceSyncConfigResponse
 --
 --         , responseGetServiceTemplate $
 --             newGetServiceTemplateResponse
@@ -471,6 +519,12 @@ import Test.Tasty
 --         , responseUpdateServicePipeline $
 --             newUpdateServicePipelineResponse
 --
+--         , responseUpdateServiceSyncBlocker $
+--             newUpdateServiceSyncBlockerResponse
+--
+--         , responseUpdateServiceSyncConfig $
+--             newUpdateServiceSyncConfigResponse
+--
 --         , responseUpdateServiceTemplate $
 --             newUpdateServiceTemplateResponse
 --
@@ -557,6 +611,18 @@ requestCreateService =
     "CreateService"
     "fixture/CreateService.yaml"
 
+requestCreateServiceInstance :: CreateServiceInstance -> TestTree
+requestCreateServiceInstance =
+  req
+    "CreateServiceInstance"
+    "fixture/CreateServiceInstance.yaml"
+
+requestCreateServiceSyncConfig :: CreateServiceSyncConfig -> TestTree
+requestCreateServiceSyncConfig =
+  req
+    "CreateServiceSyncConfig"
+    "fixture/CreateServiceSyncConfig.yaml"
+
 requestCreateServiceTemplate :: CreateServiceTemplate -> TestTree
 requestCreateServiceTemplate =
   req
@@ -616,6 +682,12 @@ requestDeleteService =
   req
     "DeleteService"
     "fixture/DeleteService.yaml"
+
+requestDeleteServiceSyncConfig :: DeleteServiceSyncConfig -> TestTree
+requestDeleteServiceSyncConfig =
+  req
+    "DeleteServiceSyncConfig"
+    "fixture/DeleteServiceSyncConfig.yaml"
 
 requestDeleteServiceTemplate :: DeleteServiceTemplate -> TestTree
 requestDeleteServiceTemplate =
@@ -683,6 +755,12 @@ requestGetRepositorySyncStatus =
     "GetRepositorySyncStatus"
     "fixture/GetRepositorySyncStatus.yaml"
 
+requestGetResourcesSummary :: GetResourcesSummary -> TestTree
+requestGetResourcesSummary =
+  req
+    "GetResourcesSummary"
+    "fixture/GetResourcesSummary.yaml"
+
 requestGetService :: GetService -> TestTree
 requestGetService =
   req
@@ -694,6 +772,24 @@ requestGetServiceInstance =
   req
     "GetServiceInstance"
     "fixture/GetServiceInstance.yaml"
+
+requestGetServiceInstanceSyncStatus :: GetServiceInstanceSyncStatus -> TestTree
+requestGetServiceInstanceSyncStatus =
+  req
+    "GetServiceInstanceSyncStatus"
+    "fixture/GetServiceInstanceSyncStatus.yaml"
+
+requestGetServiceSyncBlockerSummary :: GetServiceSyncBlockerSummary -> TestTree
+requestGetServiceSyncBlockerSummary =
+  req
+    "GetServiceSyncBlockerSummary"
+    "fixture/GetServiceSyncBlockerSummary.yaml"
+
+requestGetServiceSyncConfig :: GetServiceSyncConfig -> TestTree
+requestGetServiceSyncConfig =
+  req
+    "GetServiceSyncConfig"
+    "fixture/GetServiceSyncConfig.yaml"
 
 requestGetServiceTemplate :: GetServiceTemplate -> TestTree
 requestGetServiceTemplate =
@@ -917,6 +1013,18 @@ requestUpdateServicePipeline =
     "UpdateServicePipeline"
     "fixture/UpdateServicePipeline.yaml"
 
+requestUpdateServiceSyncBlocker :: UpdateServiceSyncBlocker -> TestTree
+requestUpdateServiceSyncBlocker =
+  req
+    "UpdateServiceSyncBlocker"
+    "fixture/UpdateServiceSyncBlocker.yaml"
+
+requestUpdateServiceSyncConfig :: UpdateServiceSyncConfig -> TestTree
+requestUpdateServiceSyncConfig =
+  req
+    "UpdateServiceSyncConfig"
+    "fixture/UpdateServiceSyncConfig.yaml"
+
 requestUpdateServiceTemplate :: UpdateServiceTemplate -> TestTree
 requestUpdateServiceTemplate =
   req
@@ -1033,6 +1141,22 @@ responseCreateService =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateService)
 
+responseCreateServiceInstance :: CreateServiceInstanceResponse -> TestTree
+responseCreateServiceInstance =
+  res
+    "CreateServiceInstanceResponse"
+    "fixture/CreateServiceInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateServiceInstance)
+
+responseCreateServiceSyncConfig :: CreateServiceSyncConfigResponse -> TestTree
+responseCreateServiceSyncConfig =
+  res
+    "CreateServiceSyncConfigResponse"
+    "fixture/CreateServiceSyncConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateServiceSyncConfig)
+
 responseCreateServiceTemplate :: CreateServiceTemplateResponse -> TestTree
 responseCreateServiceTemplate =
   res
@@ -1112,6 +1236,14 @@ responseDeleteService =
     "fixture/DeleteServiceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteService)
+
+responseDeleteServiceSyncConfig :: DeleteServiceSyncConfigResponse -> TestTree
+responseDeleteServiceSyncConfig =
+  res
+    "DeleteServiceSyncConfigResponse"
+    "fixture/DeleteServiceSyncConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteServiceSyncConfig)
 
 responseDeleteServiceTemplate :: DeleteServiceTemplateResponse -> TestTree
 responseDeleteServiceTemplate =
@@ -1201,6 +1333,14 @@ responseGetRepositorySyncStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRepositorySyncStatus)
 
+responseGetResourcesSummary :: GetResourcesSummaryResponse -> TestTree
+responseGetResourcesSummary =
+  res
+    "GetResourcesSummaryResponse"
+    "fixture/GetResourcesSummaryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourcesSummary)
+
 responseGetService :: GetServiceResponse -> TestTree
 responseGetService =
   res
@@ -1216,6 +1356,30 @@ responseGetServiceInstance =
     "fixture/GetServiceInstanceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetServiceInstance)
+
+responseGetServiceInstanceSyncStatus :: GetServiceInstanceSyncStatusResponse -> TestTree
+responseGetServiceInstanceSyncStatus =
+  res
+    "GetServiceInstanceSyncStatusResponse"
+    "fixture/GetServiceInstanceSyncStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetServiceInstanceSyncStatus)
+
+responseGetServiceSyncBlockerSummary :: GetServiceSyncBlockerSummaryResponse -> TestTree
+responseGetServiceSyncBlockerSummary =
+  res
+    "GetServiceSyncBlockerSummaryResponse"
+    "fixture/GetServiceSyncBlockerSummaryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetServiceSyncBlockerSummary)
+
+responseGetServiceSyncConfig :: GetServiceSyncConfigResponse -> TestTree
+responseGetServiceSyncConfig =
+  res
+    "GetServiceSyncConfigResponse"
+    "fixture/GetServiceSyncConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetServiceSyncConfig)
 
 responseGetServiceTemplate :: GetServiceTemplateResponse -> TestTree
 responseGetServiceTemplate =
@@ -1512,6 +1676,22 @@ responseUpdateServicePipeline =
     "fixture/UpdateServicePipelineResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateServicePipeline)
+
+responseUpdateServiceSyncBlocker :: UpdateServiceSyncBlockerResponse -> TestTree
+responseUpdateServiceSyncBlocker =
+  res
+    "UpdateServiceSyncBlockerResponse"
+    "fixture/UpdateServiceSyncBlockerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceSyncBlocker)
+
+responseUpdateServiceSyncConfig :: UpdateServiceSyncConfigResponse -> TestTree
+responseUpdateServiceSyncConfig =
+  res
+    "UpdateServiceSyncConfigResponse"
+    "fixture/UpdateServiceSyncConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceSyncConfig)
 
 responseUpdateServiceTemplate :: UpdateServiceTemplateResponse -> TestTree
 responseUpdateServiceTemplate =

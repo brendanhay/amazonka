@@ -38,6 +38,7 @@ module Amazonka.Proton.UpdateComponent
     newUpdateComponent,
 
     -- * Request Lenses
+    updateComponent_clientToken,
     updateComponent_description,
     updateComponent_serviceInstanceName,
     updateComponent_serviceName,
@@ -66,7 +67,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateComponent' smart constructor.
 data UpdateComponent = UpdateComponent'
-  { -- | An optional customer-provided description of the component.
+  { -- | The client token for the updated component.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional customer-provided description of the component.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the service instance that you want to attach this component
     -- to. Don\'t specify to keep the component\'s current service instance
@@ -120,6 +123,8 @@ data UpdateComponent = UpdateComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'updateComponent_clientToken' - The client token for the updated component.
+--
 -- 'description', 'updateComponent_description' - An optional customer-provided description of the component.
 --
 -- 'serviceInstanceName', 'updateComponent_serviceInstanceName' - The name of the service instance that you want to attach this component
@@ -170,7 +175,8 @@ newUpdateComponent ::
   UpdateComponent
 newUpdateComponent pDeploymentType_ pName_ =
   UpdateComponent'
-    { description = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      description = Prelude.Nothing,
       serviceInstanceName = Prelude.Nothing,
       serviceName = Prelude.Nothing,
       serviceSpec = Prelude.Nothing,
@@ -178,6 +184,10 @@ newUpdateComponent pDeploymentType_ pName_ =
       deploymentType = pDeploymentType_,
       name = pName_
     }
+
+-- | The client token for the updated component.
+updateComponent_clientToken :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
+updateComponent_clientToken = Lens.lens (\UpdateComponent' {clientToken} -> clientToken) (\s@UpdateComponent' {} a -> s {clientToken = a} :: UpdateComponent)
 
 -- | An optional customer-provided description of the component.
 updateComponent_description :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
@@ -252,7 +262,9 @@ instance Core.AWSRequest UpdateComponent where
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` serviceInstanceName
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` serviceSpec
@@ -262,7 +274,8 @@ instance Prelude.Hashable UpdateComponent where
 
 instance Prelude.NFData UpdateComponent where
   rnf UpdateComponent' {..} =
-    Prelude.rnf description
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf serviceInstanceName
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf serviceSpec
@@ -289,7 +302,8 @@ instance Data.ToJSON UpdateComponent where
   toJSON UpdateComponent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
             ("serviceInstanceName" Data..=)
               Prelude.<$> serviceInstanceName,
             ("serviceName" Data..=) Prelude.<$> serviceName,

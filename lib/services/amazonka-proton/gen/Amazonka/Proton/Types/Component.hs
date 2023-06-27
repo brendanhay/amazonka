@@ -37,6 +37,8 @@ data Component = Component'
     deploymentStatusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description of the component.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The last token the client requested.
+    lastClientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The time when a deployment of the component was last attempted.
     lastDeploymentAttemptedAt :: Prelude.Maybe Data.POSIX,
     -- | The time when the component was last deployed successfully.
@@ -77,6 +79,8 @@ data Component = Component'
 -- 'deploymentStatusMessage', 'component_deploymentStatusMessage' - The message associated with the component deployment status.
 --
 -- 'description', 'component_description' - A description of the component.
+--
+-- 'lastClientRequestToken', 'component_lastClientRequestToken' - The last token the client requested.
 --
 -- 'lastDeploymentAttemptedAt', 'component_lastDeploymentAttemptedAt' - The time when a deployment of the component was last attempted.
 --
@@ -128,6 +132,7 @@ newComponent
       { deploymentStatusMessage =
           Prelude.Nothing,
         description = Prelude.Nothing,
+        lastClientRequestToken = Prelude.Nothing,
         lastDeploymentAttemptedAt = Prelude.Nothing,
         lastDeploymentSucceededAt = Prelude.Nothing,
         serviceInstanceName = Prelude.Nothing,
@@ -148,6 +153,10 @@ component_deploymentStatusMessage = Lens.lens (\Component' {deploymentStatusMess
 -- | A description of the component.
 component_description :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_description = Lens.lens (\Component' {description} -> description) (\s@Component' {} a -> s {description = a} :: Component) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The last token the client requested.
+component_lastClientRequestToken :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
+component_lastClientRequestToken = Lens.lens (\Component' {lastClientRequestToken} -> lastClientRequestToken) (\s@Component' {} a -> s {lastClientRequestToken = a} :: Component)
 
 -- | The time when a deployment of the component was last attempted.
 component_lastDeploymentAttemptedAt :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
@@ -205,6 +214,7 @@ instance Data.FromJSON Component where
           Component'
             Prelude.<$> (x Data..:? "deploymentStatusMessage")
             Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastClientRequestToken")
             Prelude.<*> (x Data..:? "lastDeploymentAttemptedAt")
             Prelude.<*> (x Data..:? "lastDeploymentSucceededAt")
             Prelude.<*> (x Data..:? "serviceInstanceName")
@@ -223,6 +233,7 @@ instance Prelude.Hashable Component where
     _salt
       `Prelude.hashWithSalt` deploymentStatusMessage
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastClientRequestToken
       `Prelude.hashWithSalt` lastDeploymentAttemptedAt
       `Prelude.hashWithSalt` lastDeploymentSucceededAt
       `Prelude.hashWithSalt` serviceInstanceName
@@ -239,6 +250,7 @@ instance Prelude.NFData Component where
   rnf Component' {..} =
     Prelude.rnf deploymentStatusMessage
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastClientRequestToken
       `Prelude.seq` Prelude.rnf lastDeploymentAttemptedAt
       `Prelude.seq` Prelude.rnf lastDeploymentSucceededAt
       `Prelude.seq` Prelude.rnf serviceInstanceName

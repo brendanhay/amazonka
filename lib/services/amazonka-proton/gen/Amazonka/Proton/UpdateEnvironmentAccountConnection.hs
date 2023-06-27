@@ -171,7 +171,7 @@ instance
       ( \s h x ->
           UpdateEnvironmentAccountConnectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "environmentAccountConnection")
+            Prelude.<*> (x Data..:> "environmentAccountConnection")
       )
 
 instance
@@ -181,7 +181,8 @@ instance
   hashWithSalt
     _salt
     UpdateEnvironmentAccountConnection' {..} =
-      _salt `Prelude.hashWithSalt` codebuildRoleArn
+      _salt
+        `Prelude.hashWithSalt` codebuildRoleArn
         `Prelude.hashWithSalt` componentRoleArn
         `Prelude.hashWithSalt` roleArn
         `Prelude.hashWithSalt` id

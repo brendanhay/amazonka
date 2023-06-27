@@ -124,7 +124,8 @@ instance Core.AWSRequest GetTemplateSyncStatus where
 
 instance Prelude.Hashable GetTemplateSyncStatus where
   hashWithSalt _salt GetTemplateSyncStatus' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateType
       `Prelude.hashWithSalt` templateVersion
 

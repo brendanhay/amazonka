@@ -66,7 +66,8 @@ data Environment = Environment'
     -- | The linked repository that you use to host your rendered infrastructure
     -- templates for self-managed provisioning. A linked repository is a
     -- repository that has been registered with Proton. For more information,
-    -- see CreateRepository.
+    -- see
+    -- <https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateRepository.html CreateRepository>.
     provisioningRepository :: Prelude.Maybe RepositoryBranch,
     -- | The environment spec.
     spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -133,7 +134,8 @@ data Environment = Environment'
 -- 'provisioningRepository', 'environment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
 -- templates for self-managed provisioning. A linked repository is a
 -- repository that has been registered with Proton. For more information,
--- see CreateRepository.
+-- see
+-- <https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateRepository.html CreateRepository>.
 --
 -- 'spec', 'environment_spec' - The environment spec.
 --
@@ -258,7 +260,8 @@ environment_provisioning = Lens.lens (\Environment' {provisioning} -> provisioni
 -- | The linked repository that you use to host your rendered infrastructure
 -- templates for self-managed provisioning. A linked repository is a
 -- repository that has been registered with Proton. For more information,
--- see CreateRepository.
+-- see
+-- <https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateRepository.html CreateRepository>.
 environment_provisioningRepository :: Lens.Lens' Environment (Prelude.Maybe RepositoryBranch)
 environment_provisioningRepository = Lens.lens (\Environment' {provisioningRepository} -> provisioningRepository) (\s@Environment' {} a -> s {provisioningRepository = a} :: Environment)
 
@@ -331,7 +334,8 @@ instance Data.FromJSON Environment where
 
 instance Prelude.Hashable Environment where
   hashWithSalt _salt Environment' {..} =
-    _salt `Prelude.hashWithSalt` codebuildRoleArn
+    _salt
+      `Prelude.hashWithSalt` codebuildRoleArn
       `Prelude.hashWithSalt` componentRoleArn
       `Prelude.hashWithSalt` deploymentStatusMessage
       `Prelude.hashWithSalt` description

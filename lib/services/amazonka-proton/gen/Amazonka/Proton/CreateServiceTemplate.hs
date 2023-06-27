@@ -184,7 +184,8 @@ instance Core.AWSRequest CreateServiceTemplate where
 
 instance Prelude.Hashable CreateServiceTemplate where
   hashWithSalt _salt CreateServiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` pipelineProvisioning

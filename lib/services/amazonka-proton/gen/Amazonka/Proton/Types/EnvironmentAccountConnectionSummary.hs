@@ -240,7 +240,8 @@ instance
   hashWithSalt
     _salt
     EnvironmentAccountConnectionSummary' {..} =
-      _salt `Prelude.hashWithSalt` componentRoleArn
+      _salt
+        `Prelude.hashWithSalt` componentRoleArn
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` environmentAccountId
         `Prelude.hashWithSalt` environmentName

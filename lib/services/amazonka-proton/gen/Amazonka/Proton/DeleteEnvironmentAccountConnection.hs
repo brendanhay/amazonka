@@ -99,7 +99,7 @@ instance
       ( \s h x ->
           DeleteEnvironmentAccountConnectionResponse'
             Prelude.<$> (x Data..?> "environmentAccountConnection")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

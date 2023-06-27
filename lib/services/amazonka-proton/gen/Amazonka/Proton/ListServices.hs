@@ -94,18 +94,20 @@ instance Core.AWSPager ListServices where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listServicesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listServicesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listServicesResponse_services) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listServices_nextToken
           Lens..~ rs
-          Lens.^? listServicesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listServicesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServices where
   type AWSResponse ListServices = ListServicesResponse
@@ -122,7 +124,8 @@ instance Core.AWSRequest ListServices where
 
 instance Prelude.Hashable ListServices where
   hashWithSalt _salt ListServices' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListServices where

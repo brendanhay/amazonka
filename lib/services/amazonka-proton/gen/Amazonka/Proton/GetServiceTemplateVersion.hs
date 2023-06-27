@@ -129,7 +129,8 @@ instance Core.AWSRequest GetServiceTemplateVersion where
 
 instance Prelude.Hashable GetServiceTemplateVersion where
   hashWithSalt _salt GetServiceTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` majorVersion
+    _salt
+      `Prelude.hashWithSalt` majorVersion
       `Prelude.hashWithSalt` minorVersion
       `Prelude.hashWithSalt` templateName
 

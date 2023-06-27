@@ -220,11 +220,13 @@ instance Data.FromJSON ServiceTemplateVersion where
             Prelude.<*> (x Data..:? "recommendedMinorVersion")
             Prelude.<*> (x Data..:? "schema")
             Prelude.<*> (x Data..:? "statusMessage")
-            Prelude.<*> ( x Data..:? "supportedComponentSources"
+            Prelude.<*> ( x
+                            Data..:? "supportedComponentSources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "arn")
-            Prelude.<*> ( x Data..:? "compatibleEnvironmentTemplates"
+            Prelude.<*> ( x
+                            Data..:? "compatibleEnvironmentTemplates"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "createdAt")
@@ -237,7 +239,8 @@ instance Data.FromJSON ServiceTemplateVersion where
 
 instance Prelude.Hashable ServiceTemplateVersion where
   hashWithSalt _salt ServiceTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` recommendedMinorVersion
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` statusMessage

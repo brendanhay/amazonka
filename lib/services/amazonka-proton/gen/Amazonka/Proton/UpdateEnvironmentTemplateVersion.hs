@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     UpdateEnvironmentTemplateVersion' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` majorVersion
         `Prelude.hashWithSalt` minorVersion

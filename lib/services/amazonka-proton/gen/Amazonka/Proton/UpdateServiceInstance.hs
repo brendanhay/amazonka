@@ -37,6 +37,7 @@ module Amazonka.Proton.UpdateServiceInstance
     newUpdateServiceInstance,
 
     -- * Request Lenses
+    updateServiceInstance_clientToken,
     updateServiceInstance_spec,
     updateServiceInstance_templateMajorVersion,
     updateServiceInstance_templateMinorVersion,
@@ -64,7 +65,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateServiceInstance' smart constructor.
 data UpdateServiceInstance = UpdateServiceInstance'
-  { -- | The formatted specification that defines the service instance update.
+  { -- | The client token of the service instance to update.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The formatted specification that defines the service instance update.
     spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The major version of the service template to update.
     templateMajorVersion :: Prelude.Maybe Prelude.Text,
@@ -118,6 +121,8 @@ data UpdateServiceInstance = UpdateServiceInstance'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'updateServiceInstance_clientToken' - The client token of the service instance to update.
 --
 -- 'spec', 'updateServiceInstance_spec' - The formatted specification that defines the service instance update.
 --
@@ -175,13 +180,19 @@ newUpdateServiceInstance
   pName_
   pServiceName_ =
     UpdateServiceInstance'
-      { spec = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
+        spec = Prelude.Nothing,
         templateMajorVersion = Prelude.Nothing,
         templateMinorVersion = Prelude.Nothing,
         deploymentType = pDeploymentType_,
         name = pName_,
         serviceName = pServiceName_
       }
+
+-- | The client token of the service instance to update.
+updateServiceInstance_clientToken :: Lens.Lens' UpdateServiceInstance (Prelude.Maybe Prelude.Text)
+updateServiceInstance_clientToken = Lens.lens (\UpdateServiceInstance' {clientToken} -> clientToken) (\s@UpdateServiceInstance' {} a -> s {clientToken = a} :: UpdateServiceInstance)
 
 -- | The formatted specification that defines the service instance update.
 updateServiceInstance_spec :: Lens.Lens' UpdateServiceInstance (Prelude.Maybe Prelude.Text)
@@ -255,7 +266,9 @@ instance Core.AWSRequest UpdateServiceInstance where
 
 instance Prelude.Hashable UpdateServiceInstance where
   hashWithSalt _salt UpdateServiceInstance' {..} =
-    _salt `Prelude.hashWithSalt` spec
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` templateMajorVersion
       `Prelude.hashWithSalt` templateMinorVersion
       `Prelude.hashWithSalt` deploymentType
@@ -264,7 +277,8 @@ instance Prelude.Hashable UpdateServiceInstance where
 
 instance Prelude.NFData UpdateServiceInstance where
   rnf UpdateServiceInstance' {..} =
-    Prelude.rnf spec
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf templateMajorVersion
       `Prelude.seq` Prelude.rnf templateMinorVersion
       `Prelude.seq` Prelude.rnf deploymentType
@@ -290,7 +304,8 @@ instance Data.ToJSON UpdateServiceInstance where
   toJSON UpdateServiceInstance' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("spec" Data..=) Prelude.<$> spec,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("spec" Data..=) Prelude.<$> spec,
             ("templateMajorVersion" Data..=)
               Prelude.<$> templateMajorVersion,
             ("templateMinorVersion" Data..=)

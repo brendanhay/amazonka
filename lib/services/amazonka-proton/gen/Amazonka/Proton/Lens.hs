@@ -41,6 +41,7 @@ module Amazonka.Proton.Lens
     cancelServicePipelineDeploymentResponse_pipeline,
 
     -- ** CreateComponent
+    createComponent_clientToken,
     createComponent_description,
     createComponent_environmentName,
     createComponent_serviceInstanceName,
@@ -123,6 +124,26 @@ module Amazonka.Proton.Lens
     createServiceResponse_httpStatus,
     createServiceResponse_service,
 
+    -- ** CreateServiceInstance
+    createServiceInstance_clientToken,
+    createServiceInstance_tags,
+    createServiceInstance_templateMajorVersion,
+    createServiceInstance_templateMinorVersion,
+    createServiceInstance_name,
+    createServiceInstance_serviceName,
+    createServiceInstance_spec,
+    createServiceInstanceResponse_httpStatus,
+    createServiceInstanceResponse_serviceInstance,
+
+    -- ** CreateServiceSyncConfig
+    createServiceSyncConfig_branch,
+    createServiceSyncConfig_filePath,
+    createServiceSyncConfig_repositoryName,
+    createServiceSyncConfig_repositoryProvider,
+    createServiceSyncConfig_serviceName,
+    createServiceSyncConfigResponse_serviceSyncConfig,
+    createServiceSyncConfigResponse_httpStatus,
+
     -- ** CreateServiceTemplate
     createServiceTemplate_description,
     createServiceTemplate_displayName,
@@ -193,6 +214,11 @@ module Amazonka.Proton.Lens
     deleteServiceResponse_service,
     deleteServiceResponse_httpStatus,
 
+    -- ** DeleteServiceSyncConfig
+    deleteServiceSyncConfig_serviceName,
+    deleteServiceSyncConfigResponse_serviceSyncConfig,
+    deleteServiceSyncConfigResponse_httpStatus,
+
     -- ** DeleteServiceTemplate
     deleteServiceTemplate_name,
     deleteServiceTemplateResponse_serviceTemplate,
@@ -256,6 +282,10 @@ module Amazonka.Proton.Lens
     getRepositorySyncStatusResponse_latestSync,
     getRepositorySyncStatusResponse_httpStatus,
 
+    -- ** GetResourcesSummary
+    getResourcesSummaryResponse_httpStatus,
+    getResourcesSummaryResponse_counts,
+
     -- ** GetService
     getService_name,
     getServiceResponse_service,
@@ -266,6 +296,25 @@ module Amazonka.Proton.Lens
     getServiceInstance_serviceName,
     getServiceInstanceResponse_httpStatus,
     getServiceInstanceResponse_serviceInstance,
+
+    -- ** GetServiceInstanceSyncStatus
+    getServiceInstanceSyncStatus_serviceInstanceName,
+    getServiceInstanceSyncStatus_serviceName,
+    getServiceInstanceSyncStatusResponse_desiredState,
+    getServiceInstanceSyncStatusResponse_latestSuccessfulSync,
+    getServiceInstanceSyncStatusResponse_latestSync,
+    getServiceInstanceSyncStatusResponse_httpStatus,
+
+    -- ** GetServiceSyncBlockerSummary
+    getServiceSyncBlockerSummary_serviceInstanceName,
+    getServiceSyncBlockerSummary_serviceName,
+    getServiceSyncBlockerSummaryResponse_serviceSyncBlockerSummary,
+    getServiceSyncBlockerSummaryResponse_httpStatus,
+
+    -- ** GetServiceSyncConfig
+    getServiceSyncConfig_serviceName,
+    getServiceSyncConfigResponse_serviceSyncConfig,
+    getServiceSyncConfigResponse_httpStatus,
 
     -- ** GetServiceTemplate
     getServiceTemplate_name,
@@ -486,6 +535,7 @@ module Amazonka.Proton.Lens
     updateAccountSettingsResponse_accountSettings,
 
     -- ** UpdateComponent
+    updateComponent_clientToken,
     updateComponent_description,
     updateComponent_serviceInstanceName,
     updateComponent_serviceName,
@@ -543,6 +593,7 @@ module Amazonka.Proton.Lens
     updateServiceResponse_service,
 
     -- ** UpdateServiceInstance
+    updateServiceInstance_clientToken,
     updateServiceInstance_spec,
     updateServiceInstance_templateMajorVersion,
     updateServiceInstance_templateMinorVersion,
@@ -560,6 +611,23 @@ module Amazonka.Proton.Lens
     updateServicePipeline_spec,
     updateServicePipelineResponse_httpStatus,
     updateServicePipelineResponse_pipeline,
+
+    -- ** UpdateServiceSyncBlocker
+    updateServiceSyncBlocker_id,
+    updateServiceSyncBlocker_resolvedReason,
+    updateServiceSyncBlockerResponse_serviceInstanceName,
+    updateServiceSyncBlockerResponse_httpStatus,
+    updateServiceSyncBlockerResponse_serviceName,
+    updateServiceSyncBlockerResponse_serviceSyncBlocker,
+
+    -- ** UpdateServiceSyncConfig
+    updateServiceSyncConfig_branch,
+    updateServiceSyncConfig_filePath,
+    updateServiceSyncConfig_repositoryName,
+    updateServiceSyncConfig_repositoryProvider,
+    updateServiceSyncConfig_serviceName,
+    updateServiceSyncConfigResponse_serviceSyncConfig,
+    updateServiceSyncConfigResponse_httpStatus,
 
     -- ** UpdateServiceTemplate
     updateServiceTemplate_description,
@@ -607,6 +675,7 @@ module Amazonka.Proton.Lens
     -- ** Component
     component_deploymentStatusMessage,
     component_description,
+    component_lastClientRequestToken,
     component_lastDeploymentAttemptedAt,
     component_lastDeploymentSucceededAt,
     component_serviceInstanceName,
@@ -631,6 +700,15 @@ module Amazonka.Proton.Lens
     componentSummary_environmentName,
     componentSummary_lastModifiedAt,
     componentSummary_name,
+
+    -- ** CountsSummary
+    countsSummary_components,
+    countsSummary_environmentTemplates,
+    countsSummary_environments,
+    countsSummary_pipelines,
+    countsSummary_serviceInstances,
+    countsSummary_serviceTemplates,
+    countsSummary_services,
 
     -- ** Environment
     environment_codebuildRoleArn,
@@ -779,6 +857,7 @@ module Amazonka.Proton.Lens
 
     -- ** RepositorySummary
     repositorySummary_arn,
+    repositorySummary_connectionArn,
     repositorySummary_name,
     repositorySummary_provider,
 
@@ -798,6 +877,13 @@ module Amazonka.Proton.Lens
     repositorySyncEvent_event,
     repositorySyncEvent_time,
     repositorySyncEvent_type,
+
+    -- ** ResourceCountsSummary
+    resourceCountsSummary_behindMajor,
+    resourceCountsSummary_behindMinor,
+    resourceCountsSummary_failed,
+    resourceCountsSummary_upToDate,
+    resourceCountsSummary_total,
 
     -- ** ResourceSyncAttempt
     resourceSyncAttempt_events,
@@ -841,6 +927,7 @@ module Amazonka.Proton.Lens
 
     -- ** ServiceInstance
     serviceInstance_deploymentStatusMessage,
+    serviceInstance_lastClientRequestToken,
     serviceInstance_spec,
     serviceInstance_arn,
     serviceInstance_createdAt,
@@ -890,6 +977,18 @@ module Amazonka.Proton.Lens
     serviceSummary_status,
     serviceSummary_templateName,
 
+    -- ** ServiceSyncBlockerSummary
+    serviceSyncBlockerSummary_latestBlockers,
+    serviceSyncBlockerSummary_serviceInstanceName,
+    serviceSyncBlockerSummary_serviceName,
+
+    -- ** ServiceSyncConfig
+    serviceSyncConfig_branch,
+    serviceSyncConfig_filePath,
+    serviceSyncConfig_repositoryName,
+    serviceSyncConfig_repositoryProvider,
+    serviceSyncConfig_serviceName,
+
     -- ** ServiceTemplate
     serviceTemplate_description,
     serviceTemplate_displayName,
@@ -938,6 +1037,20 @@ module Amazonka.Proton.Lens
     serviceTemplateVersionSummary_status,
     serviceTemplateVersionSummary_templateName,
 
+    -- ** SyncBlocker
+    syncBlocker_contexts,
+    syncBlocker_resolvedAt,
+    syncBlocker_resolvedReason,
+    syncBlocker_createdAt,
+    syncBlocker_createdReason,
+    syncBlocker_id,
+    syncBlocker_status,
+    syncBlocker_type,
+
+    -- ** SyncBlockerContext
+    syncBlockerContext_key,
+    syncBlockerContext_value,
+
     -- ** Tag
     tag_key,
     tag_value,
@@ -967,6 +1080,8 @@ import Amazonka.Proton.CreateEnvironmentTemplate
 import Amazonka.Proton.CreateEnvironmentTemplateVersion
 import Amazonka.Proton.CreateRepository
 import Amazonka.Proton.CreateService
+import Amazonka.Proton.CreateServiceInstance
+import Amazonka.Proton.CreateServiceSyncConfig
 import Amazonka.Proton.CreateServiceTemplate
 import Amazonka.Proton.CreateServiceTemplateVersion
 import Amazonka.Proton.CreateTemplateSyncConfig
@@ -977,6 +1092,7 @@ import Amazonka.Proton.DeleteEnvironmentTemplate
 import Amazonka.Proton.DeleteEnvironmentTemplateVersion
 import Amazonka.Proton.DeleteRepository
 import Amazonka.Proton.DeleteService
+import Amazonka.Proton.DeleteServiceSyncConfig
 import Amazonka.Proton.DeleteServiceTemplate
 import Amazonka.Proton.DeleteServiceTemplateVersion
 import Amazonka.Proton.DeleteTemplateSyncConfig
@@ -988,8 +1104,12 @@ import Amazonka.Proton.GetEnvironmentTemplate
 import Amazonka.Proton.GetEnvironmentTemplateVersion
 import Amazonka.Proton.GetRepository
 import Amazonka.Proton.GetRepositorySyncStatus
+import Amazonka.Proton.GetResourcesSummary
 import Amazonka.Proton.GetService
 import Amazonka.Proton.GetServiceInstance
+import Amazonka.Proton.GetServiceInstanceSyncStatus
+import Amazonka.Proton.GetServiceSyncBlockerSummary
+import Amazonka.Proton.GetServiceSyncConfig
 import Amazonka.Proton.GetServiceTemplate
 import Amazonka.Proton.GetServiceTemplateVersion
 import Amazonka.Proton.GetTemplateSyncConfig
@@ -1022,6 +1142,7 @@ import Amazonka.Proton.Types.CompatibleEnvironmentTemplate
 import Amazonka.Proton.Types.CompatibleEnvironmentTemplateInput
 import Amazonka.Proton.Types.Component
 import Amazonka.Proton.Types.ComponentSummary
+import Amazonka.Proton.Types.CountsSummary
 import Amazonka.Proton.Types.Environment
 import Amazonka.Proton.Types.EnvironmentAccountConnection
 import Amazonka.Proton.Types.EnvironmentAccountConnectionSummary
@@ -1041,6 +1162,7 @@ import Amazonka.Proton.Types.RepositorySummary
 import Amazonka.Proton.Types.RepositorySyncAttempt
 import Amazonka.Proton.Types.RepositorySyncDefinition
 import Amazonka.Proton.Types.RepositorySyncEvent
+import Amazonka.Proton.Types.ResourceCountsSummary
 import Amazonka.Proton.Types.ResourceSyncAttempt
 import Amazonka.Proton.Types.ResourceSyncEvent
 import Amazonka.Proton.Types.Revision
@@ -1050,10 +1172,14 @@ import Amazonka.Proton.Types.ServiceInstance
 import Amazonka.Proton.Types.ServiceInstanceSummary
 import Amazonka.Proton.Types.ServicePipeline
 import Amazonka.Proton.Types.ServiceSummary
+import Amazonka.Proton.Types.ServiceSyncBlockerSummary
+import Amazonka.Proton.Types.ServiceSyncConfig
 import Amazonka.Proton.Types.ServiceTemplate
 import Amazonka.Proton.Types.ServiceTemplateSummary
 import Amazonka.Proton.Types.ServiceTemplateVersion
 import Amazonka.Proton.Types.ServiceTemplateVersionSummary
+import Amazonka.Proton.Types.SyncBlocker
+import Amazonka.Proton.Types.SyncBlockerContext
 import Amazonka.Proton.Types.Tag
 import Amazonka.Proton.Types.TemplateSyncConfig
 import Amazonka.Proton.Types.TemplateVersionSourceInput
@@ -1067,6 +1193,8 @@ import Amazonka.Proton.UpdateEnvironmentTemplateVersion
 import Amazonka.Proton.UpdateService
 import Amazonka.Proton.UpdateServiceInstance
 import Amazonka.Proton.UpdateServicePipeline
+import Amazonka.Proton.UpdateServiceSyncBlocker
+import Amazonka.Proton.UpdateServiceSyncConfig
 import Amazonka.Proton.UpdateServiceTemplate
 import Amazonka.Proton.UpdateServiceTemplateVersion
 import Amazonka.Proton.UpdateTemplateSyncConfig

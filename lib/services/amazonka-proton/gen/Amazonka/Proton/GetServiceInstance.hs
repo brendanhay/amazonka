@@ -54,7 +54,7 @@ data GetServiceInstance = GetServiceInstance'
   { -- | The name of a service instance that you want to get the detailed data
     -- for.
     name :: Prelude.Text,
-    -- | The name of the service that the service instance belongs to.
+    -- | The name of the service that you want the service instance input for.
     serviceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +70,7 @@ data GetServiceInstance = GetServiceInstance'
 -- 'name', 'getServiceInstance_name' - The name of a service instance that you want to get the detailed data
 -- for.
 --
--- 'serviceName', 'getServiceInstance_serviceName' - The name of the service that the service instance belongs to.
+-- 'serviceName', 'getServiceInstance_serviceName' - The name of the service that you want the service instance input for.
 newGetServiceInstance ::
   -- | 'name'
   Prelude.Text ->
@@ -88,7 +88,7 @@ newGetServiceInstance pName_ pServiceName_ =
 getServiceInstance_name :: Lens.Lens' GetServiceInstance Prelude.Text
 getServiceInstance_name = Lens.lens (\GetServiceInstance' {name} -> name) (\s@GetServiceInstance' {} a -> s {name = a} :: GetServiceInstance)
 
--- | The name of the service that the service instance belongs to.
+-- | The name of the service that you want the service instance input for.
 getServiceInstance_serviceName :: Lens.Lens' GetServiceInstance Prelude.Text
 getServiceInstance_serviceName = Lens.lens (\GetServiceInstance' {serviceName} -> serviceName) (\s@GetServiceInstance' {} a -> s {serviceName = a} :: GetServiceInstance)
 
@@ -108,7 +108,8 @@ instance Core.AWSRequest GetServiceInstance where
 
 instance Prelude.Hashable GetServiceInstance where
   hashWithSalt _salt GetServiceInstance' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData GetServiceInstance where

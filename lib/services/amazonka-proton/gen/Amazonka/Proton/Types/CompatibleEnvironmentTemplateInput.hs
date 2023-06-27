@@ -76,7 +76,8 @@ instance
   hashWithSalt
     _salt
     CompatibleEnvironmentTemplateInput' {..} =
-      _salt `Prelude.hashWithSalt` majorVersion
+      _salt
+        `Prelude.hashWithSalt` majorVersion
         `Prelude.hashWithSalt` templateName
 
 instance

@@ -65,7 +65,8 @@ s3ObjectSource_key = Lens.lens (\S3ObjectSource' {key} -> key) (\s@S3ObjectSourc
 
 instance Prelude.Hashable S3ObjectSource where
   hashWithSalt _salt S3ObjectSource' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData S3ObjectSource where

@@ -31,6 +31,8 @@ import Amazonka.Proton.Types.DeploymentStatus
 data ServiceInstance = ServiceInstance'
   { -- | The message associated with the service instance deployment status.
     deploymentStatusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The last client request token received.
+    lastClientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The service spec that was used to create the service instance.
     spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the service instance.
@@ -70,6 +72,8 @@ data ServiceInstance = ServiceInstance'
 -- for backwards compatibility:
 --
 -- 'deploymentStatusMessage', 'serviceInstance_deploymentStatusMessage' - The message associated with the service instance deployment status.
+--
+-- 'lastClientRequestToken', 'serviceInstance_lastClientRequestToken' - The last client request token received.
 --
 -- 'spec', 'serviceInstance_spec' - The service spec that was used to create the service instance.
 --
@@ -136,6 +140,7 @@ newServiceInstance
     ServiceInstance'
       { deploymentStatusMessage =
           Prelude.Nothing,
+        lastClientRequestToken = Prelude.Nothing,
         spec = Prelude.Nothing,
         arn = pArn_,
         createdAt = Data._Time Lens.# pCreatedAt_,
@@ -155,6 +160,10 @@ newServiceInstance
 -- | The message associated with the service instance deployment status.
 serviceInstance_deploymentStatusMessage :: Lens.Lens' ServiceInstance (Prelude.Maybe Prelude.Text)
 serviceInstance_deploymentStatusMessage = Lens.lens (\ServiceInstance' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@ServiceInstance' {} a -> s {deploymentStatusMessage = a} :: ServiceInstance) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The last client request token received.
+serviceInstance_lastClientRequestToken :: Lens.Lens' ServiceInstance (Prelude.Maybe Prelude.Text)
+serviceInstance_lastClientRequestToken = Lens.lens (\ServiceInstance' {lastClientRequestToken} -> lastClientRequestToken) (\s@ServiceInstance' {} a -> s {lastClientRequestToken = a} :: ServiceInstance)
 
 -- | The service spec that was used to create the service instance.
 serviceInstance_spec :: Lens.Lens' ServiceInstance (Prelude.Maybe Prelude.Text)
@@ -214,6 +223,7 @@ instance Data.FromJSON ServiceInstance where
       ( \x ->
           ServiceInstance'
             Prelude.<$> (x Data..:? "deploymentStatusMessage")
+            Prelude.<*> (x Data..:? "lastClientRequestToken")
             Prelude.<*> (x Data..:? "spec")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdAt")
@@ -232,6 +242,7 @@ instance Prelude.Hashable ServiceInstance where
   hashWithSalt _salt ServiceInstance' {..} =
     _salt
       `Prelude.hashWithSalt` deploymentStatusMessage
+      `Prelude.hashWithSalt` lastClientRequestToken
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
@@ -248,6 +259,7 @@ instance Prelude.Hashable ServiceInstance where
 instance Prelude.NFData ServiceInstance where
   rnf ServiceInstance' {..} =
     Prelude.rnf deploymentStatusMessage
+      `Prelude.seq` Prelude.rnf lastClientRequestToken
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt

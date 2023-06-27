@@ -20,6 +20,7 @@
 module Amazonka.Proton.Types.SyncType
   ( SyncType
       ( ..,
+        SyncType_SERVICE_SYNC,
         SyncType_TEMPLATE_SYNC
       ),
   )
@@ -57,10 +58,14 @@ newtype SyncType = SyncType'
       Data.ToXML
     )
 
+pattern SyncType_SERVICE_SYNC :: SyncType
+pattern SyncType_SERVICE_SYNC = SyncType' "SERVICE_SYNC"
+
 pattern SyncType_TEMPLATE_SYNC :: SyncType
 pattern SyncType_TEMPLATE_SYNC = SyncType' "TEMPLATE_SYNC"
 
 {-# COMPLETE
+  SyncType_SERVICE_SYNC,
   SyncType_TEMPLATE_SYNC,
   SyncType'
   #-}

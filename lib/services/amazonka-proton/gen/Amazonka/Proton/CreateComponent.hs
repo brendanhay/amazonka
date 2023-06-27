@@ -32,6 +32,7 @@ module Amazonka.Proton.CreateComponent
     newCreateComponent,
 
     -- * Request Lenses
+    createComponent_clientToken,
     createComponent_description,
     createComponent_environmentName,
     createComponent_serviceInstanceName,
@@ -62,7 +63,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateComponent' smart constructor.
 data CreateComponent = CreateComponent'
-  { -- | An optional customer-provided description of the component.
+  { -- | The client token for the created component.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional customer-provided description of the component.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the Proton environment that you want to associate this
     -- component with. You must specify this when you don\'t specify
@@ -112,6 +115,8 @@ data CreateComponent = CreateComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createComponent_clientToken' - The client token for the created component.
+--
 -- 'description', 'createComponent_description' - An optional customer-provided description of the component.
 --
 -- 'environmentName', 'createComponent_environmentName' - The name of the Proton environment that you want to associate this
@@ -160,7 +165,8 @@ newCreateComponent ::
   CreateComponent
 newCreateComponent pManifest_ pName_ pTemplateFile_ =
   CreateComponent'
-    { description = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      description = Prelude.Nothing,
       environmentName = Prelude.Nothing,
       serviceInstanceName = Prelude.Nothing,
       serviceName = Prelude.Nothing,
@@ -170,6 +176,10 @@ newCreateComponent pManifest_ pName_ pTemplateFile_ =
       name = pName_,
       templateFile = Data._Sensitive Lens.# pTemplateFile_
     }
+
+-- | The client token for the created component.
+createComponent_clientToken :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
+createComponent_clientToken = Lens.lens (\CreateComponent' {clientToken} -> clientToken) (\s@CreateComponent' {} a -> s {clientToken = a} :: CreateComponent)
 
 -- | An optional customer-provided description of the component.
 createComponent_description :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
@@ -244,7 +254,9 @@ instance Core.AWSRequest CreateComponent where
 
 instance Prelude.Hashable CreateComponent where
   hashWithSalt _salt CreateComponent' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` serviceInstanceName
       `Prelude.hashWithSalt` serviceName
@@ -256,7 +268,8 @@ instance Prelude.Hashable CreateComponent where
 
 instance Prelude.NFData CreateComponent where
   rnf CreateComponent' {..} =
-    Prelude.rnf description
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf serviceInstanceName
       `Prelude.seq` Prelude.rnf serviceName
@@ -285,7 +298,8 @@ instance Data.ToJSON CreateComponent where
   toJSON CreateComponent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
             ("environmentName" Data..=)
               Prelude.<$> environmentName,
             ("serviceInstanceName" Data..=)

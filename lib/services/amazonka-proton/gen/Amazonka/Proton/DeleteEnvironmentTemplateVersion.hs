@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     DeleteEnvironmentTemplateVersion' {..} =
-      _salt `Prelude.hashWithSalt` majorVersion
+      _salt
+        `Prelude.hashWithSalt` majorVersion
         `Prelude.hashWithSalt` minorVersion
         `Prelude.hashWithSalt` templateName
 

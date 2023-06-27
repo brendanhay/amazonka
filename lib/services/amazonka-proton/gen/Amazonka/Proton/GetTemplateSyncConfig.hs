@@ -107,7 +107,8 @@ instance Core.AWSRequest GetTemplateSyncConfig where
 
 instance Prelude.Hashable GetTemplateSyncConfig where
   hashWithSalt _salt GetTemplateSyncConfig' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateType
 
 instance Prelude.NFData GetTemplateSyncConfig where

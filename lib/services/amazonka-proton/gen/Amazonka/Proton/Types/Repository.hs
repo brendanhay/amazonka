@@ -117,7 +117,8 @@ instance Data.FromJSON Repository where
 
 instance Prelude.Hashable Repository where
   hashWithSalt _salt Repository' {..} =
-    _salt `Prelude.hashWithSalt` encryptionKey
+    _salt
+      `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` name

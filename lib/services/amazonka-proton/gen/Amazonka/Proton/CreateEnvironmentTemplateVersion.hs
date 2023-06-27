@@ -194,7 +194,8 @@ instance
   hashWithSalt
     _salt
     CreateEnvironmentTemplateVersion' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` majorVersion
         `Prelude.hashWithSalt` tags

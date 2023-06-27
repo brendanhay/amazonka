@@ -158,7 +158,8 @@ instance Core.AWSRequest ListObjects where
 
 instance Prelude.Hashable ListObjects where
   hashWithSalt _salt ListObjects' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

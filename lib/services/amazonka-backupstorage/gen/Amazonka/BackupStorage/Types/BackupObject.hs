@@ -127,7 +127,8 @@ instance Data.FromJSON BackupObject where
 
 instance Prelude.Hashable BackupObject where
   hashWithSalt _salt BackupObject' {..} =
-    _salt `Prelude.hashWithSalt` chunksCount
+    _salt
+      `Prelude.hashWithSalt` chunksCount
       `Prelude.hashWithSalt` metadataString
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` objectChecksum

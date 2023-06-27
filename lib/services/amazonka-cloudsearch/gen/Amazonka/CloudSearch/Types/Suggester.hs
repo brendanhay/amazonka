@@ -79,7 +79,8 @@ instance Data.FromXML Suggester where
 
 instance Prelude.Hashable Suggester where
   hashWithSalt _salt Suggester' {..} =
-    _salt `Prelude.hashWithSalt` suggesterName
+    _salt
+      `Prelude.hashWithSalt` suggesterName
       `Prelude.hashWithSalt` documentSuggesterOptions
 
 instance Prelude.NFData Suggester where

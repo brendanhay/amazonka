@@ -181,7 +181,8 @@ instance Data.FromXML AnalysisOptions where
 
 instance Prelude.Hashable AnalysisOptions where
   hashWithSalt _salt AnalysisOptions' {..} =
-    _salt `Prelude.hashWithSalt` algorithmicStemming
+    _salt
+      `Prelude.hashWithSalt` algorithmicStemming
       `Prelude.hashWithSalt` japaneseTokenizationDictionary
       `Prelude.hashWithSalt` stemmingDictionary
       `Prelude.hashWithSalt` stopwords

@@ -116,7 +116,8 @@ instance Core.AWSRequest DefineIndexField where
 
 instance Prelude.Hashable DefineIndexField where
   hashWithSalt _salt DefineIndexField' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` indexField
 
 instance Prelude.NFData DefineIndexField where

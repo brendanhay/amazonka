@@ -105,7 +105,8 @@ instance Data.FromXML DoubleArrayOptions where
 
 instance Prelude.Hashable DoubleArrayOptions where
   hashWithSalt _salt DoubleArrayOptions' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` facetEnabled
       `Prelude.hashWithSalt` returnEnabled
       `Prelude.hashWithSalt` searchEnabled

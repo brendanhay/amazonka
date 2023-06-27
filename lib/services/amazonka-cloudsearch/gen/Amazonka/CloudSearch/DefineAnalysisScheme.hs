@@ -111,7 +111,8 @@ instance Core.AWSRequest DefineAnalysisScheme where
 
 instance Prelude.Hashable DefineAnalysisScheme where
   hashWithSalt _salt DefineAnalysisScheme' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` analysisScheme
 
 instance Prelude.NFData DefineAnalysisScheme where

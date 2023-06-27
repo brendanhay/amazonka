@@ -124,7 +124,8 @@ instance Core.AWSRequest UpdateAvailabilityOptions where
 
 instance Prelude.Hashable UpdateAvailabilityOptions where
   hashWithSalt _salt UpdateAvailabilityOptions' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` multiAZ
 
 instance Prelude.NFData UpdateAvailabilityOptions where

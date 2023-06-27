@@ -126,14 +126,17 @@ instance Core.AWSRequest DescribeExpressions where
       ( \s h x ->
           DescribeExpressionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Expressions" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Expressions"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable DescribeExpressions where
   hashWithSalt _salt DescribeExpressions' {..} =
-    _salt `Prelude.hashWithSalt` deployed
+    _salt
+      `Prelude.hashWithSalt` deployed
       `Prelude.hashWithSalt` expressionNames
       `Prelude.hashWithSalt` domainName
 

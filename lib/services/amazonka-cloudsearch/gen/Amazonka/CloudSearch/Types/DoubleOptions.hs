@@ -118,7 +118,8 @@ instance Data.FromXML DoubleOptions where
 
 instance Prelude.Hashable DoubleOptions where
   hashWithSalt _salt DoubleOptions' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` facetEnabled
       `Prelude.hashWithSalt` returnEnabled
       `Prelude.hashWithSalt` searchEnabled

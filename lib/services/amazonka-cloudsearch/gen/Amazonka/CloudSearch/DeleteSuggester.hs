@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteSuggester where
 
 instance Prelude.Hashable DeleteSuggester where
   hashWithSalt _salt DeleteSuggester' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` suggesterName
 
 instance Prelude.NFData DeleteSuggester where

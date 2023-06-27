@@ -74,7 +74,8 @@ instance Data.FromXML SuggesterStatus where
 
 instance Prelude.Hashable SuggesterStatus where
   hashWithSalt _salt SuggesterStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SuggesterStatus where

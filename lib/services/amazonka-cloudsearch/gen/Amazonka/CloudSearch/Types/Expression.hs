@@ -74,7 +74,8 @@ instance Data.FromXML Expression where
 
 instance Prelude.Hashable Expression where
   hashWithSalt _salt Expression' {..} =
-    _salt `Prelude.hashWithSalt` expressionName
+    _salt
+      `Prelude.hashWithSalt` expressionName
       `Prelude.hashWithSalt` expressionValue
 
 instance Prelude.NFData Expression where

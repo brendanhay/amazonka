@@ -74,7 +74,8 @@ instance Data.FromXML AnalysisSchemeStatus where
 
 instance Prelude.Hashable AnalysisSchemeStatus where
   hashWithSalt _salt AnalysisSchemeStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AnalysisSchemeStatus where

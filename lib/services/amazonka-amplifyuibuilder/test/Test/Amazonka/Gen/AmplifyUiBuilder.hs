@@ -57,6 +57,9 @@ import Test.Tasty
 --         , requestExportThemes $
 --             newExportThemes
 --
+--         , requestGetCodegenJob $
+--             newGetCodegenJob
+--
 --         , requestGetComponent $
 --             newGetComponent
 --
@@ -68,6 +71,9 @@ import Test.Tasty
 --
 --         , requestGetTheme $
 --             newGetTheme
+--
+--         , requestListCodegenJobs $
+--             newListCodegenJobs
 --
 --         , requestListComponents $
 --             newListComponents
@@ -83,6 +89,9 @@ import Test.Tasty
 --
 --         , requestRefreshToken $
 --             newRefreshToken
+--
+--         , requestStartCodegenJob $
+--             newStartCodegenJob
 --
 --         , requestUpdateComponent $
 --             newUpdateComponent
@@ -126,6 +135,9 @@ import Test.Tasty
 --         , responseExportThemes $
 --             newExportThemesResponse
 --
+--         , responseGetCodegenJob $
+--             newGetCodegenJobResponse
+--
 --         , responseGetComponent $
 --             newGetComponentResponse
 --
@@ -137,6 +149,9 @@ import Test.Tasty
 --
 --         , responseGetTheme $
 --             newGetThemeResponse
+--
+--         , responseListCodegenJobs $
+--             newListCodegenJobsResponse
 --
 --         , responseListComponents $
 --             newListComponentsResponse
@@ -152,6 +167,9 @@ import Test.Tasty
 --
 --         , responseRefreshToken $
 --             newRefreshTokenResponse
+--
+--         , responseStartCodegenJob $
+--             newStartCodegenJobResponse
 --
 --         , responseUpdateComponent $
 --             newUpdateComponentResponse
@@ -227,6 +245,12 @@ requestExportThemes =
     "ExportThemes"
     "fixture/ExportThemes.yaml"
 
+requestGetCodegenJob :: GetCodegenJob -> TestTree
+requestGetCodegenJob =
+  req
+    "GetCodegenJob"
+    "fixture/GetCodegenJob.yaml"
+
 requestGetComponent :: GetComponent -> TestTree
 requestGetComponent =
   req
@@ -250,6 +274,12 @@ requestGetTheme =
   req
     "GetTheme"
     "fixture/GetTheme.yaml"
+
+requestListCodegenJobs :: ListCodegenJobs -> TestTree
+requestListCodegenJobs =
+  req
+    "ListCodegenJobs"
+    "fixture/ListCodegenJobs.yaml"
 
 requestListComponents :: ListComponents -> TestTree
 requestListComponents =
@@ -280,6 +310,12 @@ requestRefreshToken =
   req
     "RefreshToken"
     "fixture/RefreshToken.yaml"
+
+requestStartCodegenJob :: StartCodegenJob -> TestTree
+requestStartCodegenJob =
+  req
+    "StartCodegenJob"
+    "fixture/StartCodegenJob.yaml"
 
 requestUpdateComponent :: UpdateComponent -> TestTree
 requestUpdateComponent =
@@ -381,6 +417,14 @@ responseExportThemes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ExportThemes)
 
+responseGetCodegenJob :: GetCodegenJobResponse -> TestTree
+responseGetCodegenJob =
+  res
+    "GetCodegenJobResponse"
+    "fixture/GetCodegenJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCodegenJob)
+
 responseGetComponent :: GetComponentResponse -> TestTree
 responseGetComponent =
   res
@@ -412,6 +456,14 @@ responseGetTheme =
     "fixture/GetThemeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTheme)
+
+responseListCodegenJobs :: ListCodegenJobsResponse -> TestTree
+responseListCodegenJobs =
+  res
+    "ListCodegenJobsResponse"
+    "fixture/ListCodegenJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCodegenJobs)
 
 responseListComponents :: ListComponentsResponse -> TestTree
 responseListComponents =
@@ -452,6 +504,14 @@ responseRefreshToken =
     "fixture/RefreshTokenResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RefreshToken)
+
+responseStartCodegenJob :: StartCodegenJobResponse -> TestTree
+responseStartCodegenJob =
+  res
+    "StartCodegenJobResponse"
+    "fixture/StartCodegenJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartCodegenJob)
 
 responseUpdateComponent :: UpdateComponentResponse -> TestTree
 responseUpdateComponent =

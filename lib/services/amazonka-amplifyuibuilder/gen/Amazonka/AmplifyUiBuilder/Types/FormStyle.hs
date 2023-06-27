@@ -85,7 +85,8 @@ instance Data.FromJSON FormStyle where
 
 instance Prelude.Hashable FormStyle where
   hashWithSalt _salt FormStyle' {..} =
-    _salt `Prelude.hashWithSalt` horizontalGap
+    _salt
+      `Prelude.hashWithSalt` horizontalGap
       `Prelude.hashWithSalt` outerPadding
       `Prelude.hashWithSalt` verticalGap
 

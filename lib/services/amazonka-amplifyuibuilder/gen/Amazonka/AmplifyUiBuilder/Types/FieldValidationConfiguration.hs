@@ -34,7 +34,7 @@ data FieldValidationConfiguration = FieldValidationConfiguration'
     strValues :: Prelude.Maybe [Prelude.Text],
     -- | The validation message to display.
     validationMessage :: Prelude.Maybe Prelude.Text,
-    -- | The validation to perform on an object type.@@
+    -- | The validation to perform on an object type.
     type' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,7 +53,7 @@ data FieldValidationConfiguration = FieldValidationConfiguration'
 --
 -- 'validationMessage', 'fieldValidationConfiguration_validationMessage' - The validation message to display.
 --
--- 'type'', 'fieldValidationConfiguration_type' - The validation to perform on an object type.@@
+-- 'type'', 'fieldValidationConfiguration_type' - The validation to perform on an object type.
 newFieldValidationConfiguration ::
   -- | 'type''
   Prelude.Text ->
@@ -79,7 +79,7 @@ fieldValidationConfiguration_strValues = Lens.lens (\FieldValidationConfiguratio
 fieldValidationConfiguration_validationMessage :: Lens.Lens' FieldValidationConfiguration (Prelude.Maybe Prelude.Text)
 fieldValidationConfiguration_validationMessage = Lens.lens (\FieldValidationConfiguration' {validationMessage} -> validationMessage) (\s@FieldValidationConfiguration' {} a -> s {validationMessage = a} :: FieldValidationConfiguration)
 
--- | The validation to perform on an object type.@@
+-- | The validation to perform on an object type.
 fieldValidationConfiguration_type :: Lens.Lens' FieldValidationConfiguration Prelude.Text
 fieldValidationConfiguration_type = Lens.lens (\FieldValidationConfiguration' {type'} -> type') (\s@FieldValidationConfiguration' {} a -> s {type' = a} :: FieldValidationConfiguration)
 
@@ -100,7 +100,8 @@ instance
     FieldValidationConfiguration
   where
   hashWithSalt _salt FieldValidationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` numValues
+    _salt
+      `Prelude.hashWithSalt` numValues
       `Prelude.hashWithSalt` strValues
       `Prelude.hashWithSalt` validationMessage
       `Prelude.hashWithSalt` type'

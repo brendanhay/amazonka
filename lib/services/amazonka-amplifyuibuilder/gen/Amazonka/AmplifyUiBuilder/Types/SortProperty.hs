@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSortProperty' smart constructor.
 data SortProperty = SortProperty'
-  { -- | The direction of the sort, either ascending or descending.
-    direction :: SortDirection,
-    -- | The field to perform the sort on.
-    field :: Prelude.Text
+  { -- | The field to perform the sort on.
+    field :: Prelude.Text,
+    -- | The direction of the sort, either ascending or descending.
+    direction :: SortDirection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,28 @@ data SortProperty = SortProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'direction', 'sortProperty_direction' - The direction of the sort, either ascending or descending.
---
 -- 'field', 'sortProperty_field' - The field to perform the sort on.
+--
+-- 'direction', 'sortProperty_direction' - The direction of the sort, either ascending or descending.
 newSortProperty ::
-  -- | 'direction'
-  SortDirection ->
   -- | 'field'
   Prelude.Text ->
+  -- | 'direction'
+  SortDirection ->
   SortProperty
-newSortProperty pDirection_ pField_ =
+newSortProperty pField_ pDirection_ =
   SortProperty'
-    { direction = pDirection_,
-      field = pField_
+    { field = pField_,
+      direction = pDirection_
     }
-
--- | The direction of the sort, either ascending or descending.
-sortProperty_direction :: Lens.Lens' SortProperty SortDirection
-sortProperty_direction = Lens.lens (\SortProperty' {direction} -> direction) (\s@SortProperty' {} a -> s {direction = a} :: SortProperty)
 
 -- | The field to perform the sort on.
 sortProperty_field :: Lens.Lens' SortProperty Prelude.Text
 sortProperty_field = Lens.lens (\SortProperty' {field} -> field) (\s@SortProperty' {} a -> s {field = a} :: SortProperty)
+
+-- | The direction of the sort, either ascending or descending.
+sortProperty_direction :: Lens.Lens' SortProperty SortDirection
+sortProperty_direction = Lens.lens (\SortProperty' {direction} -> direction) (\s@SortProperty' {} a -> s {direction = a} :: SortProperty)
 
 instance Data.FromJSON SortProperty where
   parseJSON =
@@ -73,25 +73,26 @@ instance Data.FromJSON SortProperty where
       "SortProperty"
       ( \x ->
           SortProperty'
-            Prelude.<$> (x Data..: "direction")
-            Prelude.<*> (x Data..: "field")
+            Prelude.<$> (x Data..: "field")
+            Prelude.<*> (x Data..: "direction")
       )
 
 instance Prelude.Hashable SortProperty where
   hashWithSalt _salt SortProperty' {..} =
-    _salt `Prelude.hashWithSalt` direction
+    _salt
       `Prelude.hashWithSalt` field
+      `Prelude.hashWithSalt` direction
 
 instance Prelude.NFData SortProperty where
   rnf SortProperty' {..} =
-    Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf field
+    Prelude.rnf field
+      `Prelude.seq` Prelude.rnf direction
 
 instance Data.ToJSON SortProperty where
   toJSON SortProperty' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("direction" Data..= direction),
-            Prelude.Just ("field" Data..= field)
+          [ Prelude.Just ("field" Data..= field),
+            Prelude.Just ("direction" Data..= direction)
           ]
       )

@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRefreshTokenRequestBody' smart constructor.
 data RefreshTokenRequestBody = RefreshTokenRequestBody'
-  { -- | The token to use to refresh a previously issued access token that might
+  { -- | The ID of the client to request the token from.
+    clientId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The token to use to refresh a previously issued access token that might
     -- have expired.
     token :: Data.Sensitive Prelude.Text
   }
@@ -42,6 +44,8 @@ data RefreshTokenRequestBody = RefreshTokenRequestBody'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientId', 'refreshTokenRequestBody_clientId' - The ID of the client to request the token from.
+--
 -- 'token', 'refreshTokenRequestBody_token' - The token to use to refresh a previously issued access token that might
 -- have expired.
 newRefreshTokenRequestBody ::
@@ -50,9 +54,14 @@ newRefreshTokenRequestBody ::
   RefreshTokenRequestBody
 newRefreshTokenRequestBody pToken_ =
   RefreshTokenRequestBody'
-    { token =
-        Data._Sensitive Lens.# pToken_
+    { clientId =
+        Prelude.Nothing,
+      token = Data._Sensitive Lens.# pToken_
     }
+
+-- | The ID of the client to request the token from.
+refreshTokenRequestBody_clientId :: Lens.Lens' RefreshTokenRequestBody (Prelude.Maybe Prelude.Text)
+refreshTokenRequestBody_clientId = Lens.lens (\RefreshTokenRequestBody' {clientId} -> clientId) (\s@RefreshTokenRequestBody' {} a -> s {clientId = a} :: RefreshTokenRequestBody) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The token to use to refresh a previously issued access token that might
 -- have expired.
@@ -61,14 +70,20 @@ refreshTokenRequestBody_token = Lens.lens (\RefreshTokenRequestBody' {token} -> 
 
 instance Prelude.Hashable RefreshTokenRequestBody where
   hashWithSalt _salt RefreshTokenRequestBody' {..} =
-    _salt `Prelude.hashWithSalt` token
+    _salt
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` token
 
 instance Prelude.NFData RefreshTokenRequestBody where
-  rnf RefreshTokenRequestBody' {..} = Prelude.rnf token
+  rnf RefreshTokenRequestBody' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf token
 
 instance Data.ToJSON RefreshTokenRequestBody where
   toJSON RefreshTokenRequestBody' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("token" Data..= token)]
+          [ ("clientId" Data..=) Prelude.<$> clientId,
+            Prelude.Just ("token" Data..= token)
+          ]
       )

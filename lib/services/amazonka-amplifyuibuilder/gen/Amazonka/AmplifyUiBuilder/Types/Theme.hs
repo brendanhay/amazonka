@@ -38,14 +38,14 @@ data Theme = Theme'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique ID for the Amplify app associated with the theme.
     appId :: Prelude.Text,
-    -- | The time that the theme was created.
-    createdAt :: Data.ISO8601,
     -- | The name of the backend environment that is a part of the Amplify app.
     environmentName :: Prelude.Text,
     -- | The ID for the theme.
     id :: Prelude.Text,
     -- | The name of the theme.
     name :: Prelude.Text,
+    -- | The time that the theme was created.
+    createdAt :: Data.ISO8601,
     -- | A list of key-value pairs that defines the properties of the theme.
     values :: [ThemeValues]
   }
@@ -67,42 +67,42 @@ data Theme = Theme'
 --
 -- 'appId', 'theme_appId' - The unique ID for the Amplify app associated with the theme.
 --
--- 'createdAt', 'theme_createdAt' - The time that the theme was created.
---
 -- 'environmentName', 'theme_environmentName' - The name of the backend environment that is a part of the Amplify app.
 --
 -- 'id', 'theme_id' - The ID for the theme.
 --
 -- 'name', 'theme_name' - The name of the theme.
 --
+-- 'createdAt', 'theme_createdAt' - The time that the theme was created.
+--
 -- 'values', 'theme_values' - A list of key-value pairs that defines the properties of the theme.
 newTheme ::
   -- | 'appId'
   Prelude.Text ->
-  -- | 'createdAt'
-  Prelude.UTCTime ->
   -- | 'environmentName'
   Prelude.Text ->
   -- | 'id'
   Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
+  -- | 'createdAt'
+  Prelude.UTCTime ->
   Theme
 newTheme
   pAppId_
-  pCreatedAt_
   pEnvironmentName_
   pId_
-  pName_ =
+  pName_
+  pCreatedAt_ =
     Theme'
       { modifiedAt = Prelude.Nothing,
         overrides = Prelude.Nothing,
         tags = Prelude.Nothing,
         appId = pAppId_,
-        createdAt = Data._Time Lens.# pCreatedAt_,
         environmentName = pEnvironmentName_,
         id = pId_,
         name = pName_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         values = Prelude.mempty
       }
 
@@ -122,10 +122,6 @@ theme_tags = Lens.lens (\Theme' {tags} -> tags) (\s@Theme' {} a -> s {tags = a} 
 theme_appId :: Lens.Lens' Theme Prelude.Text
 theme_appId = Lens.lens (\Theme' {appId} -> appId) (\s@Theme' {} a -> s {appId = a} :: Theme)
 
--- | The time that the theme was created.
-theme_createdAt :: Lens.Lens' Theme Prelude.UTCTime
-theme_createdAt = Lens.lens (\Theme' {createdAt} -> createdAt) (\s@Theme' {} a -> s {createdAt = a} :: Theme) Prelude.. Data._Time
-
 -- | The name of the backend environment that is a part of the Amplify app.
 theme_environmentName :: Lens.Lens' Theme Prelude.Text
 theme_environmentName = Lens.lens (\Theme' {environmentName} -> environmentName) (\s@Theme' {} a -> s {environmentName = a} :: Theme)
@@ -137,6 +133,10 @@ theme_id = Lens.lens (\Theme' {id} -> id) (\s@Theme' {} a -> s {id = a} :: Theme
 -- | The name of the theme.
 theme_name :: Lens.Lens' Theme Prelude.Text
 theme_name = Lens.lens (\Theme' {name} -> name) (\s@Theme' {} a -> s {name = a} :: Theme)
+
+-- | The time that the theme was created.
+theme_createdAt :: Lens.Lens' Theme Prelude.UTCTime
+theme_createdAt = Lens.lens (\Theme' {createdAt} -> createdAt) (\s@Theme' {} a -> s {createdAt = a} :: Theme) Prelude.. Data._Time
 
 -- | A list of key-value pairs that defines the properties of the theme.
 theme_values :: Lens.Lens' Theme [ThemeValues]
@@ -152,23 +152,24 @@ instance Data.FromJSON Theme where
             Prelude.<*> (x Data..:? "overrides" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "appId")
-            Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "environmentName")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Theme where
   hashWithSalt _salt Theme' {..} =
-    _salt `Prelude.hashWithSalt` modifiedAt
+    _salt
+      `Prelude.hashWithSalt` modifiedAt
       `Prelude.hashWithSalt` overrides
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appId
-      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Theme where
@@ -177,8 +178,8 @@ instance Prelude.NFData Theme where
       `Prelude.seq` Prelude.rnf overrides
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf values

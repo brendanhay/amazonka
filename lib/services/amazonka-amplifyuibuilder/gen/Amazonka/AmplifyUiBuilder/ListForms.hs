@@ -116,17 +116,19 @@ instance Core.AWSPager ListForms where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listFormsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listFormsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. listFormsResponse_entities) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listForms_nextToken
           Lens..~ rs
-          Lens.^? listFormsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listFormsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListForms where
   type AWSResponse ListForms = ListFormsResponse
@@ -143,7 +145,8 @@ instance Core.AWSRequest ListForms where
 
 instance Prelude.Hashable ListForms where
   hashWithSalt _salt ListForms' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName

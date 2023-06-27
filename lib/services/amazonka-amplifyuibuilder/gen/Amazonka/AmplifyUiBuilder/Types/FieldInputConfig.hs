@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AmplifyUiBuilder.Types.FieldInputConfig where
 
+import Amazonka.AmplifyUiBuilder.Types.FileUploaderFieldConfig
 import Amazonka.AmplifyUiBuilder.Types.ValueMappings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
@@ -38,6 +39,8 @@ data FieldInputConfig = FieldInputConfig'
     defaultValue :: Prelude.Maybe Prelude.Text,
     -- | The text to display to describe the field.
     descriptiveText :: Prelude.Maybe Prelude.Text,
+    -- | The configuration for the file uploader field.
+    fileUploaderConfig :: Prelude.Maybe FileUploaderFieldConfig,
     -- | Specifies whether to render the field as an array. This property is
     -- ignored if the @dataSourceType@ for the form is a Data Store.
     isArray :: Prelude.Maybe Prelude.Bool,
@@ -81,6 +84,8 @@ data FieldInputConfig = FieldInputConfig'
 --
 -- 'descriptiveText', 'fieldInputConfig_descriptiveText' - The text to display to describe the field.
 --
+-- 'fileUploaderConfig', 'fieldInputConfig_fileUploaderConfig' - The configuration for the file uploader field.
+--
 -- 'isArray', 'fieldInputConfig_isArray' - Specifies whether to render the field as an array. This property is
 -- ignored if the @dataSourceType@ for the form is a Data Store.
 --
@@ -114,6 +119,7 @@ newFieldInputConfig pType_ =
       defaultCountryCode = Prelude.Nothing,
       defaultValue = Prelude.Nothing,
       descriptiveText = Prelude.Nothing,
+      fileUploaderConfig = Prelude.Nothing,
       isArray = Prelude.Nothing,
       maxValue = Prelude.Nothing,
       minValue = Prelude.Nothing,
@@ -142,6 +148,10 @@ fieldInputConfig_defaultValue = Lens.lens (\FieldInputConfig' {defaultValue} -> 
 -- | The text to display to describe the field.
 fieldInputConfig_descriptiveText :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
 fieldInputConfig_descriptiveText = Lens.lens (\FieldInputConfig' {descriptiveText} -> descriptiveText) (\s@FieldInputConfig' {} a -> s {descriptiveText = a} :: FieldInputConfig)
+
+-- | The configuration for the file uploader field.
+fieldInputConfig_fileUploaderConfig :: Lens.Lens' FieldInputConfig (Prelude.Maybe FileUploaderFieldConfig)
+fieldInputConfig_fileUploaderConfig = Lens.lens (\FieldInputConfig' {fileUploaderConfig} -> fileUploaderConfig) (\s@FieldInputConfig' {} a -> s {fileUploaderConfig = a} :: FieldInputConfig)
 
 -- | Specifies whether to render the field as an array. This property is
 -- ignored if the @dataSourceType@ for the form is a Data Store.
@@ -199,6 +209,7 @@ instance Data.FromJSON FieldInputConfig where
             Prelude.<*> (x Data..:? "defaultCountryCode")
             Prelude.<*> (x Data..:? "defaultValue")
             Prelude.<*> (x Data..:? "descriptiveText")
+            Prelude.<*> (x Data..:? "fileUploaderConfig")
             Prelude.<*> (x Data..:? "isArray")
             Prelude.<*> (x Data..:? "maxValue")
             Prelude.<*> (x Data..:? "minValue")
@@ -214,10 +225,12 @@ instance Data.FromJSON FieldInputConfig where
 
 instance Prelude.Hashable FieldInputConfig where
   hashWithSalt _salt FieldInputConfig' {..} =
-    _salt `Prelude.hashWithSalt` defaultChecked
+    _salt
+      `Prelude.hashWithSalt` defaultChecked
       `Prelude.hashWithSalt` defaultCountryCode
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` descriptiveText
+      `Prelude.hashWithSalt` fileUploaderConfig
       `Prelude.hashWithSalt` isArray
       `Prelude.hashWithSalt` maxValue
       `Prelude.hashWithSalt` minValue
@@ -236,6 +249,7 @@ instance Prelude.NFData FieldInputConfig where
       `Prelude.seq` Prelude.rnf defaultCountryCode
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf descriptiveText
+      `Prelude.seq` Prelude.rnf fileUploaderConfig
       `Prelude.seq` Prelude.rnf isArray
       `Prelude.seq` Prelude.rnf maxValue
       `Prelude.seq` Prelude.rnf minValue
@@ -259,6 +273,8 @@ instance Data.ToJSON FieldInputConfig where
             ("defaultValue" Data..=) Prelude.<$> defaultValue,
             ("descriptiveText" Data..=)
               Prelude.<$> descriptiveText,
+            ("fileUploaderConfig" Data..=)
+              Prelude.<$> fileUploaderConfig,
             ("isArray" Data..=) Prelude.<$> isArray,
             ("maxValue" Data..=) Prelude.<$> maxValue,
             ("minValue" Data..=) Prelude.<$> minValue,

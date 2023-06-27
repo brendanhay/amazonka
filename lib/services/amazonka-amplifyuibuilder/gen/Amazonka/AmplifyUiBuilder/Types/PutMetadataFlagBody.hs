@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Stores the metadata information about a feature on a form or view.
+-- | Stores the metadata information about a feature on a form.
 --
 -- /See:/ 'newPutMetadataFlagBody' smart constructor.
 data PutMetadataFlagBody = PutMetadataFlagBody'

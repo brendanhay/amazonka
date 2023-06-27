@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateForm where
 
 instance Prelude.Hashable UpdateForm where
   hashWithSalt _salt UpdateForm' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id

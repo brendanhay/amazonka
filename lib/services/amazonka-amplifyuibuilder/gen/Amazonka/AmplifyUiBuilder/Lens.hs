@@ -17,8 +17,8 @@ module Amazonka.AmplifyUiBuilder.Lens
     -- ** CreateComponent
     createComponent_clientToken,
     createComponent_appId,
-    createComponent_componentToCreate,
     createComponent_environmentName,
+    createComponent_componentToCreate,
     createComponentResponse_entity,
     createComponentResponse_httpStatus,
 
@@ -85,6 +85,13 @@ module Amazonka.AmplifyUiBuilder.Lens
     exportThemesResponse_httpStatus,
     exportThemesResponse_entities,
 
+    -- ** GetCodegenJob
+    getCodegenJob_appId,
+    getCodegenJob_environmentName,
+    getCodegenJob_id,
+    getCodegenJobResponse_job,
+    getCodegenJobResponse_httpStatus,
+
     -- ** GetComponent
     getComponent_appId,
     getComponent_environmentName,
@@ -111,6 +118,15 @@ module Amazonka.AmplifyUiBuilder.Lens
     getTheme_id,
     getThemeResponse_theme,
     getThemeResponse_httpStatus,
+
+    -- ** ListCodegenJobs
+    listCodegenJobs_maxResults,
+    listCodegenJobs_nextToken,
+    listCodegenJobs_appId,
+    listCodegenJobs_environmentName,
+    listCodegenJobsResponse_nextToken,
+    listCodegenJobsResponse_httpStatus,
+    listCodegenJobsResponse_entities,
 
     -- ** ListComponents
     listComponents_maxResults,
@@ -141,9 +157,9 @@ module Amazonka.AmplifyUiBuilder.Lens
 
     -- ** PutMetadataFlag
     putMetadataFlag_appId,
-    putMetadataFlag_body,
     putMetadataFlag_environmentName,
     putMetadataFlag_featureName,
+    putMetadataFlag_body,
 
     -- ** RefreshToken
     refreshToken_provider,
@@ -151,6 +167,14 @@ module Amazonka.AmplifyUiBuilder.Lens
     refreshTokenResponse_httpStatus,
     refreshTokenResponse_accessToken,
     refreshTokenResponse_expiresIn,
+
+    -- ** StartCodegenJob
+    startCodegenJob_clientToken,
+    startCodegenJob_appId,
+    startCodegenJob_environmentName,
+    startCodegenJob_codegenJobToCreate,
+    startCodegenJobResponse_entity,
+    startCodegenJobResponse_httpStatus,
 
     -- ** UpdateComponent
     updateComponent_clientToken,
@@ -192,6 +216,74 @@ module Amazonka.AmplifyUiBuilder.Lens
     actionParameters_type,
     actionParameters_url,
 
+    -- ** CodegenFeatureFlags
+    codegenFeatureFlags_isNonModelSupported,
+    codegenFeatureFlags_isRelationshipSupported,
+
+    -- ** CodegenGenericDataEnum
+    codegenGenericDataEnum_values,
+
+    -- ** CodegenGenericDataField
+    codegenGenericDataField_relationship,
+    codegenGenericDataField_dataType,
+    codegenGenericDataField_dataTypeValue,
+    codegenGenericDataField_required,
+    codegenGenericDataField_readOnly,
+    codegenGenericDataField_isArray,
+
+    -- ** CodegenGenericDataModel
+    codegenGenericDataModel_isJoinTable,
+    codegenGenericDataModel_fields,
+    codegenGenericDataModel_primaryKeys,
+
+    -- ** CodegenGenericDataNonModel
+    codegenGenericDataNonModel_fields,
+
+    -- ** CodegenGenericDataRelationshipType
+    codegenGenericDataRelationshipType_associatedFields,
+    codegenGenericDataRelationshipType_belongsToFieldOnRelatedModel,
+    codegenGenericDataRelationshipType_canUnlinkAssociatedModel,
+    codegenGenericDataRelationshipType_isHasManyIndex,
+    codegenGenericDataRelationshipType_relatedJoinFieldName,
+    codegenGenericDataRelationshipType_relatedJoinTableName,
+    codegenGenericDataRelationshipType_relatedModelFields,
+    codegenGenericDataRelationshipType_type,
+    codegenGenericDataRelationshipType_relatedModelName,
+
+    -- ** CodegenJob
+    codegenJob_asset,
+    codegenJob_autoGenerateForms,
+    codegenJob_createdAt,
+    codegenJob_features,
+    codegenJob_genericDataSchema,
+    codegenJob_modifiedAt,
+    codegenJob_renderConfig,
+    codegenJob_status,
+    codegenJob_statusMessage,
+    codegenJob_tags,
+    codegenJob_id,
+    codegenJob_appId,
+    codegenJob_environmentName,
+
+    -- ** CodegenJobAsset
+    codegenJobAsset_downloadUrl,
+
+    -- ** CodegenJobGenericDataSchema
+    codegenJobGenericDataSchema_dataSourceType,
+    codegenJobGenericDataSchema_models,
+    codegenJobGenericDataSchema_enums,
+    codegenJobGenericDataSchema_nonModels,
+
+    -- ** CodegenJobRenderConfig
+    codegenJobRenderConfig_react,
+
+    -- ** CodegenJobSummary
+    codegenJobSummary_createdAt,
+    codegenJobSummary_modifiedAt,
+    codegenJobSummary_appId,
+    codegenJobSummary_environmentName,
+    codegenJobSummary_id,
+
     -- ** Component
     component_children,
     component_collectionProperties,
@@ -201,15 +293,15 @@ module Amazonka.AmplifyUiBuilder.Lens
     component_sourceId,
     component_tags,
     component_appId,
-    component_bindingProperties,
-    component_componentType,
-    component_createdAt,
     component_environmentName,
     component_id,
     component_name,
-    component_overrides,
+    component_componentType,
     component_properties,
     component_variants,
+    component_overrides,
+    component_bindingProperties,
+    component_createdAt,
 
     -- ** ComponentBindingPropertiesValue
     componentBindingPropertiesValue_bindingProperties,
@@ -277,10 +369,10 @@ module Amazonka.AmplifyUiBuilder.Lens
 
     -- ** ComponentSummary
     componentSummary_appId,
-    componentSummary_componentType,
     componentSummary_environmentName,
     componentSummary_id,
     componentSummary_name,
+    componentSummary_componentType,
 
     -- ** ComponentVariant
     componentVariant_overrides,
@@ -293,23 +385,24 @@ module Amazonka.AmplifyUiBuilder.Lens
     createComponentData_schemaVersion,
     createComponentData_sourceId,
     createComponentData_tags,
-    createComponentData_bindingProperties,
-    createComponentData_componentType,
     createComponentData_name,
-    createComponentData_overrides,
+    createComponentData_componentType,
     createComponentData_properties,
     createComponentData_variants,
+    createComponentData_overrides,
+    createComponentData_bindingProperties,
 
     -- ** CreateFormData
     createFormData_cta,
+    createFormData_labelDecorator,
     createFormData_tags,
-    createFormData_dataType,
-    createFormData_fields,
-    createFormData_formActionType,
     createFormData_name,
-    createFormData_schemaVersion,
-    createFormData_sectionalElements,
+    createFormData_dataType,
+    createFormData_formActionType,
+    createFormData_fields,
     createFormData_style,
+    createFormData_sectionalElements,
+    createFormData_schemaVersion,
 
     -- ** CreateThemeData
     createThemeData_overrides,
@@ -318,6 +411,7 @@ module Amazonka.AmplifyUiBuilder.Lens
     createThemeData_values,
 
     -- ** ExchangeCodeForTokenRequestBody
+    exchangeCodeForTokenRequestBody_clientId,
     exchangeCodeForTokenRequestBody_code,
     exchangeCodeForTokenRequestBody_redirectUri,
 
@@ -333,6 +427,7 @@ module Amazonka.AmplifyUiBuilder.Lens
     fieldInputConfig_defaultCountryCode,
     fieldInputConfig_defaultValue,
     fieldInputConfig_descriptiveText,
+    fieldInputConfig_fileUploaderConfig,
     fieldInputConfig_isArray,
     fieldInputConfig_maxValue,
     fieldInputConfig_minValue,
@@ -356,19 +451,28 @@ module Amazonka.AmplifyUiBuilder.Lens
     fieldValidationConfiguration_validationMessage,
     fieldValidationConfiguration_type,
 
+    -- ** FileUploaderFieldConfig
+    fileUploaderFieldConfig_isResumable,
+    fileUploaderFieldConfig_maxFileCount,
+    fileUploaderFieldConfig_maxSize,
+    fileUploaderFieldConfig_showThumbnails,
+    fileUploaderFieldConfig_accessLevel,
+    fileUploaderFieldConfig_acceptedFileTypes,
+
     -- ** Form
     form_cta,
+    form_labelDecorator,
     form_tags,
     form_appId,
-    form_dataType,
     form_environmentName,
-    form_fields,
-    form_formActionType,
     form_id,
     form_name,
-    form_schemaVersion,
-    form_sectionalElements,
+    form_formActionType,
     form_style,
+    form_dataType,
+    form_fields,
+    form_sectionalElements,
+    form_schemaVersion,
 
     -- ** FormBindingElement
     formBindingElement_element,
@@ -389,8 +493,21 @@ module Amazonka.AmplifyUiBuilder.Lens
     formDataTypeConfig_dataSourceType,
     formDataTypeConfig_dataTypeName,
 
+    -- ** FormInputBindingPropertiesValue
+    formInputBindingPropertiesValue_bindingProperties,
+    formInputBindingPropertiesValue_type,
+
+    -- ** FormInputBindingPropertiesValueProperties
+    formInputBindingPropertiesValueProperties_model,
+
     -- ** FormInputValueProperty
+    formInputValueProperty_bindingProperties,
+    formInputValueProperty_concat,
     formInputValueProperty_value,
+
+    -- ** FormInputValuePropertyBindingProperties
+    formInputValuePropertyBindingProperties_field,
+    formInputValuePropertyBindingProperties_property,
 
     -- ** FormStyle
     formStyle_horizontalGap,
@@ -418,16 +535,26 @@ module Amazonka.AmplifyUiBuilder.Lens
     predicate_and,
     predicate_field,
     predicate_operand,
+    predicate_operandType,
     predicate_operator,
     predicate_or,
 
     -- ** PutMetadataFlagBody
     putMetadataFlagBody_newValue,
 
+    -- ** ReactStartCodegenJobData
+    reactStartCodegenJobData_inlineSourceMap,
+    reactStartCodegenJobData_module,
+    reactStartCodegenJobData_renderTypeDeclarations,
+    reactStartCodegenJobData_script,
+    reactStartCodegenJobData_target,
+
     -- ** RefreshTokenRequestBody
+    refreshTokenRequestBody_clientId,
     refreshTokenRequestBody_token,
 
     -- ** SectionalElement
+    sectionalElement_excluded,
     sectionalElement_level,
     sectionalElement_orientation,
     sectionalElement_position,
@@ -435,18 +562,25 @@ module Amazonka.AmplifyUiBuilder.Lens
     sectionalElement_type,
 
     -- ** SortProperty
-    sortProperty_direction,
     sortProperty_field,
+    sortProperty_direction,
+
+    -- ** StartCodegenJobData
+    startCodegenJobData_autoGenerateForms,
+    startCodegenJobData_features,
+    startCodegenJobData_genericDataSchema,
+    startCodegenJobData_tags,
+    startCodegenJobData_renderConfig,
 
     -- ** Theme
     theme_modifiedAt,
     theme_overrides,
     theme_tags,
     theme_appId,
-    theme_createdAt,
     theme_environmentName,
     theme_id,
     theme_name,
+    theme_createdAt,
     theme_values,
 
     -- ** ThemeSummary
@@ -482,6 +616,7 @@ module Amazonka.AmplifyUiBuilder.Lens
     updateFormData_dataType,
     updateFormData_fields,
     updateFormData_formActionType,
+    updateFormData_labelDecorator,
     updateFormData_name,
     updateFormData_schemaVersion,
     updateFormData_sectionalElements,
@@ -498,6 +633,7 @@ module Amazonka.AmplifyUiBuilder.Lens
     valueMapping_value,
 
     -- ** ValueMappings
+    valueMappings_bindingProperties,
     valueMappings_values,
   )
 where
@@ -512,16 +648,30 @@ import Amazonka.AmplifyUiBuilder.ExchangeCodeForToken
 import Amazonka.AmplifyUiBuilder.ExportComponents
 import Amazonka.AmplifyUiBuilder.ExportForms
 import Amazonka.AmplifyUiBuilder.ExportThemes
+import Amazonka.AmplifyUiBuilder.GetCodegenJob
 import Amazonka.AmplifyUiBuilder.GetComponent
 import Amazonka.AmplifyUiBuilder.GetForm
 import Amazonka.AmplifyUiBuilder.GetMetadata
 import Amazonka.AmplifyUiBuilder.GetTheme
+import Amazonka.AmplifyUiBuilder.ListCodegenJobs
 import Amazonka.AmplifyUiBuilder.ListComponents
 import Amazonka.AmplifyUiBuilder.ListForms
 import Amazonka.AmplifyUiBuilder.ListThemes
 import Amazonka.AmplifyUiBuilder.PutMetadataFlag
 import Amazonka.AmplifyUiBuilder.RefreshToken
+import Amazonka.AmplifyUiBuilder.StartCodegenJob
 import Amazonka.AmplifyUiBuilder.Types.ActionParameters
+import Amazonka.AmplifyUiBuilder.Types.CodegenFeatureFlags
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataEnum
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataField
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataModel
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataNonModel
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataRelationshipType
+import Amazonka.AmplifyUiBuilder.Types.CodegenJob
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobAsset
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobGenericDataSchema
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobRenderConfig
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobSummary
 import Amazonka.AmplifyUiBuilder.Types.Component
 import Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValue
 import Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValueProperties
@@ -541,21 +691,27 @@ import Amazonka.AmplifyUiBuilder.Types.FieldConfig
 import Amazonka.AmplifyUiBuilder.Types.FieldInputConfig
 import Amazonka.AmplifyUiBuilder.Types.FieldPosition
 import Amazonka.AmplifyUiBuilder.Types.FieldValidationConfiguration
+import Amazonka.AmplifyUiBuilder.Types.FileUploaderFieldConfig
 import Amazonka.AmplifyUiBuilder.Types.Form
 import Amazonka.AmplifyUiBuilder.Types.FormBindingElement
 import Amazonka.AmplifyUiBuilder.Types.FormButton
 import Amazonka.AmplifyUiBuilder.Types.FormCTA
 import Amazonka.AmplifyUiBuilder.Types.FormDataTypeConfig
+import Amazonka.AmplifyUiBuilder.Types.FormInputBindingPropertiesValue
+import Amazonka.AmplifyUiBuilder.Types.FormInputBindingPropertiesValueProperties
 import Amazonka.AmplifyUiBuilder.Types.FormInputValueProperty
+import Amazonka.AmplifyUiBuilder.Types.FormInputValuePropertyBindingProperties
 import Amazonka.AmplifyUiBuilder.Types.FormStyle
 import Amazonka.AmplifyUiBuilder.Types.FormStyleConfig
 import Amazonka.AmplifyUiBuilder.Types.FormSummary
 import Amazonka.AmplifyUiBuilder.Types.MutationActionSetStateParameter
 import Amazonka.AmplifyUiBuilder.Types.Predicate
 import Amazonka.AmplifyUiBuilder.Types.PutMetadataFlagBody
+import Amazonka.AmplifyUiBuilder.Types.ReactStartCodegenJobData
 import Amazonka.AmplifyUiBuilder.Types.RefreshTokenRequestBody
 import Amazonka.AmplifyUiBuilder.Types.SectionalElement
 import Amazonka.AmplifyUiBuilder.Types.SortProperty
+import Amazonka.AmplifyUiBuilder.Types.StartCodegenJobData
 import Amazonka.AmplifyUiBuilder.Types.Theme
 import Amazonka.AmplifyUiBuilder.Types.ThemeSummary
 import Amazonka.AmplifyUiBuilder.Types.ThemeValue

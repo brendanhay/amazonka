@@ -54,18 +54,35 @@ library
     Amazonka.AmplifyUiBuilder.ExportComponents
     Amazonka.AmplifyUiBuilder.ExportForms
     Amazonka.AmplifyUiBuilder.ExportThemes
+    Amazonka.AmplifyUiBuilder.GetCodegenJob
     Amazonka.AmplifyUiBuilder.GetComponent
     Amazonka.AmplifyUiBuilder.GetForm
     Amazonka.AmplifyUiBuilder.GetMetadata
     Amazonka.AmplifyUiBuilder.GetTheme
     Amazonka.AmplifyUiBuilder.Lens
+    Amazonka.AmplifyUiBuilder.ListCodegenJobs
     Amazonka.AmplifyUiBuilder.ListComponents
     Amazonka.AmplifyUiBuilder.ListForms
     Amazonka.AmplifyUiBuilder.ListThemes
     Amazonka.AmplifyUiBuilder.PutMetadataFlag
     Amazonka.AmplifyUiBuilder.RefreshToken
+    Amazonka.AmplifyUiBuilder.StartCodegenJob
     Amazonka.AmplifyUiBuilder.Types
     Amazonka.AmplifyUiBuilder.Types.ActionParameters
+    Amazonka.AmplifyUiBuilder.Types.CodegenFeatureFlags
+    Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataEnum
+    Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataField
+    Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataFieldDataType
+    Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataModel
+    Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataNonModel
+    Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataRelationshipType
+    Amazonka.AmplifyUiBuilder.Types.CodegenJob
+    Amazonka.AmplifyUiBuilder.Types.CodegenJobAsset
+    Amazonka.AmplifyUiBuilder.Types.CodegenJobGenericDataSchema
+    Amazonka.AmplifyUiBuilder.Types.CodegenJobGenericDataSourceType
+    Amazonka.AmplifyUiBuilder.Types.CodegenJobRenderConfig
+    Amazonka.AmplifyUiBuilder.Types.CodegenJobStatus
+    Amazonka.AmplifyUiBuilder.Types.CodegenJobSummary
     Amazonka.AmplifyUiBuilder.Types.Component
     Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValue
     Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValueProperties
@@ -85,6 +102,7 @@ library
     Amazonka.AmplifyUiBuilder.Types.FieldInputConfig
     Amazonka.AmplifyUiBuilder.Types.FieldPosition
     Amazonka.AmplifyUiBuilder.Types.FieldValidationConfiguration
+    Amazonka.AmplifyUiBuilder.Types.FileUploaderFieldConfig
     Amazonka.AmplifyUiBuilder.Types.FixedPosition
     Amazonka.AmplifyUiBuilder.Types.Form
     Amazonka.AmplifyUiBuilder.Types.FormActionType
@@ -94,17 +112,28 @@ library
     Amazonka.AmplifyUiBuilder.Types.FormCTA
     Amazonka.AmplifyUiBuilder.Types.FormDataSourceType
     Amazonka.AmplifyUiBuilder.Types.FormDataTypeConfig
+    Amazonka.AmplifyUiBuilder.Types.FormInputBindingPropertiesValue
+    Amazonka.AmplifyUiBuilder.Types.FormInputBindingPropertiesValueProperties
     Amazonka.AmplifyUiBuilder.Types.FormInputValueProperty
+    Amazonka.AmplifyUiBuilder.Types.FormInputValuePropertyBindingProperties
     Amazonka.AmplifyUiBuilder.Types.FormStyle
     Amazonka.AmplifyUiBuilder.Types.FormStyleConfig
     Amazonka.AmplifyUiBuilder.Types.FormSummary
+    Amazonka.AmplifyUiBuilder.Types.GenericDataRelationshipType
+    Amazonka.AmplifyUiBuilder.Types.JSModule
+    Amazonka.AmplifyUiBuilder.Types.JSScript
+    Amazonka.AmplifyUiBuilder.Types.JSTarget
+    Amazonka.AmplifyUiBuilder.Types.LabelDecorator
     Amazonka.AmplifyUiBuilder.Types.MutationActionSetStateParameter
     Amazonka.AmplifyUiBuilder.Types.Predicate
     Amazonka.AmplifyUiBuilder.Types.PutMetadataFlagBody
+    Amazonka.AmplifyUiBuilder.Types.ReactStartCodegenJobData
     Amazonka.AmplifyUiBuilder.Types.RefreshTokenRequestBody
     Amazonka.AmplifyUiBuilder.Types.SectionalElement
     Amazonka.AmplifyUiBuilder.Types.SortDirection
     Amazonka.AmplifyUiBuilder.Types.SortProperty
+    Amazonka.AmplifyUiBuilder.Types.StartCodegenJobData
+    Amazonka.AmplifyUiBuilder.Types.StorageAccessLevel
     Amazonka.AmplifyUiBuilder.Types.Theme
     Amazonka.AmplifyUiBuilder.Types.ThemeSummary
     Amazonka.AmplifyUiBuilder.Types.ThemeValue

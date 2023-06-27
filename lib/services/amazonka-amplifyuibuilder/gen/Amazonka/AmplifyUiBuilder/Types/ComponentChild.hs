@@ -132,7 +132,8 @@ instance Data.FromJSON ComponentChild where
 
 instance Prelude.Hashable ComponentChild where
   hashWithSalt _salt ComponentChild' {..} =
-    _salt `Prelude.hashWithSalt` children
+    _salt
+      `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` componentType

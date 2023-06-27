@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stores the metadata information about a feature on a form or view.
+-- Stores the metadata information about a feature on a form.
 module Amazonka.AmplifyUiBuilder.PutMetadataFlag
   ( -- * Creating a Request
     PutMetadataFlag (..),
@@ -28,9 +28,9 @@ module Amazonka.AmplifyUiBuilder.PutMetadataFlag
 
     -- * Request Lenses
     putMetadataFlag_appId,
-    putMetadataFlag_body,
     putMetadataFlag_environmentName,
     putMetadataFlag_featureName,
+    putMetadataFlag_body,
 
     -- * Destructuring the Response
     PutMetadataFlagResponse (..),
@@ -50,12 +50,12 @@ import qualified Amazonka.Response as Response
 data PutMetadataFlag = PutMetadataFlag'
   { -- | The unique ID for the Amplify app.
     appId :: Prelude.Text,
-    -- | The metadata information to store.
-    body :: PutMetadataFlagBody,
     -- | The name of the backend environment that is part of the Amplify app.
     environmentName :: Prelude.Text,
     -- | The name of the feature associated with the metadata.
-    featureName :: Prelude.Text
+    featureName :: Prelude.Text,
+    -- | The metadata information to store.
+    body :: PutMetadataFlagBody
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,40 +69,36 @@ data PutMetadataFlag = PutMetadataFlag'
 --
 -- 'appId', 'putMetadataFlag_appId' - The unique ID for the Amplify app.
 --
--- 'body', 'putMetadataFlag_body' - The metadata information to store.
---
 -- 'environmentName', 'putMetadataFlag_environmentName' - The name of the backend environment that is part of the Amplify app.
 --
 -- 'featureName', 'putMetadataFlag_featureName' - The name of the feature associated with the metadata.
+--
+-- 'body', 'putMetadataFlag_body' - The metadata information to store.
 newPutMetadataFlag ::
   -- | 'appId'
   Prelude.Text ->
-  -- | 'body'
-  PutMetadataFlagBody ->
   -- | 'environmentName'
   Prelude.Text ->
   -- | 'featureName'
   Prelude.Text ->
+  -- | 'body'
+  PutMetadataFlagBody ->
   PutMetadataFlag
 newPutMetadataFlag
   pAppId_
-  pBody_
   pEnvironmentName_
-  pFeatureName_ =
+  pFeatureName_
+  pBody_ =
     PutMetadataFlag'
       { appId = pAppId_,
-        body = pBody_,
         environmentName = pEnvironmentName_,
-        featureName = pFeatureName_
+        featureName = pFeatureName_,
+        body = pBody_
       }
 
 -- | The unique ID for the Amplify app.
 putMetadataFlag_appId :: Lens.Lens' PutMetadataFlag Prelude.Text
 putMetadataFlag_appId = Lens.lens (\PutMetadataFlag' {appId} -> appId) (\s@PutMetadataFlag' {} a -> s {appId = a} :: PutMetadataFlag)
-
--- | The metadata information to store.
-putMetadataFlag_body :: Lens.Lens' PutMetadataFlag PutMetadataFlagBody
-putMetadataFlag_body = Lens.lens (\PutMetadataFlag' {body} -> body) (\s@PutMetadataFlag' {} a -> s {body = a} :: PutMetadataFlag)
 
 -- | The name of the backend environment that is part of the Amplify app.
 putMetadataFlag_environmentName :: Lens.Lens' PutMetadataFlag Prelude.Text
@@ -111,6 +107,10 @@ putMetadataFlag_environmentName = Lens.lens (\PutMetadataFlag' {environmentName}
 -- | The name of the feature associated with the metadata.
 putMetadataFlag_featureName :: Lens.Lens' PutMetadataFlag Prelude.Text
 putMetadataFlag_featureName = Lens.lens (\PutMetadataFlag' {featureName} -> featureName) (\s@PutMetadataFlag' {} a -> s {featureName = a} :: PutMetadataFlag)
+
+-- | The metadata information to store.
+putMetadataFlag_body :: Lens.Lens' PutMetadataFlag PutMetadataFlagBody
+putMetadataFlag_body = Lens.lens (\PutMetadataFlag' {body} -> body) (\s@PutMetadataFlag' {} a -> s {body = a} :: PutMetadataFlag)
 
 instance Core.AWSRequest PutMetadataFlag where
   type
@@ -123,17 +123,18 @@ instance Core.AWSRequest PutMetadataFlag where
 
 instance Prelude.Hashable PutMetadataFlag where
   hashWithSalt _salt PutMetadataFlag' {..} =
-    _salt `Prelude.hashWithSalt` appId
-      `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` featureName
+      `Prelude.hashWithSalt` body
 
 instance Prelude.NFData PutMetadataFlag where
   rnf PutMetadataFlag' {..} =
     Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf body
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf featureName
+      `Prelude.seq` Prelude.rnf body
 
 instance Data.ToHeaders PutMetadataFlag where
   toHeaders =

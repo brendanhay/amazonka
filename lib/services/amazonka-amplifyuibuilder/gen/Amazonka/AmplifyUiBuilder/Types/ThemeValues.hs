@@ -69,12 +69,14 @@ instance Data.FromJSON ThemeValues where
       "ThemeValues"
       ( \x ->
           ThemeValues'
-            Prelude.<$> (x Data..:? "key") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ThemeValues where
   hashWithSalt _salt ThemeValues' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ThemeValues where

@@ -23,7 +23,17 @@ module Amazonka.AmplifyUiBuilder.Types
     _ResourceConflictException,
     _ResourceNotFoundException,
     _ServiceQuotaExceededException,
+    _ThrottlingException,
     _UnauthorizedException,
+
+    -- * CodegenGenericDataFieldDataType
+    CodegenGenericDataFieldDataType (..),
+
+    -- * CodegenJobGenericDataSourceType
+    CodegenJobGenericDataSourceType (..),
+
+    -- * CodegenJobStatus
+    CodegenJobStatus (..),
 
     -- * FixedPosition
     FixedPosition (..),
@@ -37,8 +47,26 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * FormDataSourceType
     FormDataSourceType (..),
 
+    -- * GenericDataRelationshipType
+    GenericDataRelationshipType (..),
+
+    -- * JSModule
+    JSModule (..),
+
+    -- * JSScript
+    JSScript (..),
+
+    -- * JSTarget
+    JSTarget (..),
+
+    -- * LabelDecorator
+    LabelDecorator (..),
+
     -- * SortDirection
     SortDirection (..),
+
+    -- * StorageAccessLevel
+    StorageAccessLevel (..),
 
     -- * TokenProviders
     TokenProviders (..),
@@ -56,6 +84,96 @@ module Amazonka.AmplifyUiBuilder.Types
     actionParameters_type,
     actionParameters_url,
 
+    -- * CodegenFeatureFlags
+    CodegenFeatureFlags (..),
+    newCodegenFeatureFlags,
+    codegenFeatureFlags_isNonModelSupported,
+    codegenFeatureFlags_isRelationshipSupported,
+
+    -- * CodegenGenericDataEnum
+    CodegenGenericDataEnum (..),
+    newCodegenGenericDataEnum,
+    codegenGenericDataEnum_values,
+
+    -- * CodegenGenericDataField
+    CodegenGenericDataField (..),
+    newCodegenGenericDataField,
+    codegenGenericDataField_relationship,
+    codegenGenericDataField_dataType,
+    codegenGenericDataField_dataTypeValue,
+    codegenGenericDataField_required,
+    codegenGenericDataField_readOnly,
+    codegenGenericDataField_isArray,
+
+    -- * CodegenGenericDataModel
+    CodegenGenericDataModel (..),
+    newCodegenGenericDataModel,
+    codegenGenericDataModel_isJoinTable,
+    codegenGenericDataModel_fields,
+    codegenGenericDataModel_primaryKeys,
+
+    -- * CodegenGenericDataNonModel
+    CodegenGenericDataNonModel (..),
+    newCodegenGenericDataNonModel,
+    codegenGenericDataNonModel_fields,
+
+    -- * CodegenGenericDataRelationshipType
+    CodegenGenericDataRelationshipType (..),
+    newCodegenGenericDataRelationshipType,
+    codegenGenericDataRelationshipType_associatedFields,
+    codegenGenericDataRelationshipType_belongsToFieldOnRelatedModel,
+    codegenGenericDataRelationshipType_canUnlinkAssociatedModel,
+    codegenGenericDataRelationshipType_isHasManyIndex,
+    codegenGenericDataRelationshipType_relatedJoinFieldName,
+    codegenGenericDataRelationshipType_relatedJoinTableName,
+    codegenGenericDataRelationshipType_relatedModelFields,
+    codegenGenericDataRelationshipType_type,
+    codegenGenericDataRelationshipType_relatedModelName,
+
+    -- * CodegenJob
+    CodegenJob (..),
+    newCodegenJob,
+    codegenJob_asset,
+    codegenJob_autoGenerateForms,
+    codegenJob_createdAt,
+    codegenJob_features,
+    codegenJob_genericDataSchema,
+    codegenJob_modifiedAt,
+    codegenJob_renderConfig,
+    codegenJob_status,
+    codegenJob_statusMessage,
+    codegenJob_tags,
+    codegenJob_id,
+    codegenJob_appId,
+    codegenJob_environmentName,
+
+    -- * CodegenJobAsset
+    CodegenJobAsset (..),
+    newCodegenJobAsset,
+    codegenJobAsset_downloadUrl,
+
+    -- * CodegenJobGenericDataSchema
+    CodegenJobGenericDataSchema (..),
+    newCodegenJobGenericDataSchema,
+    codegenJobGenericDataSchema_dataSourceType,
+    codegenJobGenericDataSchema_models,
+    codegenJobGenericDataSchema_enums,
+    codegenJobGenericDataSchema_nonModels,
+
+    -- * CodegenJobRenderConfig
+    CodegenJobRenderConfig (..),
+    newCodegenJobRenderConfig,
+    codegenJobRenderConfig_react,
+
+    -- * CodegenJobSummary
+    CodegenJobSummary (..),
+    newCodegenJobSummary,
+    codegenJobSummary_createdAt,
+    codegenJobSummary_modifiedAt,
+    codegenJobSummary_appId,
+    codegenJobSummary_environmentName,
+    codegenJobSummary_id,
+
     -- * Component
     Component (..),
     newComponent,
@@ -67,15 +185,15 @@ module Amazonka.AmplifyUiBuilder.Types
     component_sourceId,
     component_tags,
     component_appId,
-    component_bindingProperties,
-    component_componentType,
-    component_createdAt,
     component_environmentName,
     component_id,
     component_name,
-    component_overrides,
+    component_componentType,
     component_properties,
     component_variants,
+    component_overrides,
+    component_bindingProperties,
+    component_createdAt,
 
     -- * ComponentBindingPropertiesValue
     ComponentBindingPropertiesValue (..),
@@ -161,10 +279,10 @@ module Amazonka.AmplifyUiBuilder.Types
     ComponentSummary (..),
     newComponentSummary,
     componentSummary_appId,
-    componentSummary_componentType,
     componentSummary_environmentName,
     componentSummary_id,
     componentSummary_name,
+    componentSummary_componentType,
 
     -- * ComponentVariant
     ComponentVariant (..),
@@ -181,25 +299,26 @@ module Amazonka.AmplifyUiBuilder.Types
     createComponentData_schemaVersion,
     createComponentData_sourceId,
     createComponentData_tags,
-    createComponentData_bindingProperties,
-    createComponentData_componentType,
     createComponentData_name,
-    createComponentData_overrides,
+    createComponentData_componentType,
     createComponentData_properties,
     createComponentData_variants,
+    createComponentData_overrides,
+    createComponentData_bindingProperties,
 
     -- * CreateFormData
     CreateFormData (..),
     newCreateFormData,
     createFormData_cta,
+    createFormData_labelDecorator,
     createFormData_tags,
-    createFormData_dataType,
-    createFormData_fields,
-    createFormData_formActionType,
     createFormData_name,
-    createFormData_schemaVersion,
-    createFormData_sectionalElements,
+    createFormData_dataType,
+    createFormData_formActionType,
+    createFormData_fields,
     createFormData_style,
+    createFormData_sectionalElements,
+    createFormData_schemaVersion,
 
     -- * CreateThemeData
     CreateThemeData (..),
@@ -212,6 +331,7 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * ExchangeCodeForTokenRequestBody
     ExchangeCodeForTokenRequestBody (..),
     newExchangeCodeForTokenRequestBody,
+    exchangeCodeForTokenRequestBody_clientId,
     exchangeCodeForTokenRequestBody_code,
     exchangeCodeForTokenRequestBody_redirectUri,
 
@@ -231,6 +351,7 @@ module Amazonka.AmplifyUiBuilder.Types
     fieldInputConfig_defaultCountryCode,
     fieldInputConfig_defaultValue,
     fieldInputConfig_descriptiveText,
+    fieldInputConfig_fileUploaderConfig,
     fieldInputConfig_isArray,
     fieldInputConfig_maxValue,
     fieldInputConfig_minValue,
@@ -258,21 +379,32 @@ module Amazonka.AmplifyUiBuilder.Types
     fieldValidationConfiguration_validationMessage,
     fieldValidationConfiguration_type,
 
+    -- * FileUploaderFieldConfig
+    FileUploaderFieldConfig (..),
+    newFileUploaderFieldConfig,
+    fileUploaderFieldConfig_isResumable,
+    fileUploaderFieldConfig_maxFileCount,
+    fileUploaderFieldConfig_maxSize,
+    fileUploaderFieldConfig_showThumbnails,
+    fileUploaderFieldConfig_accessLevel,
+    fileUploaderFieldConfig_acceptedFileTypes,
+
     -- * Form
     Form (..),
     newForm,
     form_cta,
+    form_labelDecorator,
     form_tags,
     form_appId,
-    form_dataType,
     form_environmentName,
-    form_fields,
-    form_formActionType,
     form_id,
     form_name,
-    form_schemaVersion,
-    form_sectionalElements,
+    form_formActionType,
     form_style,
+    form_dataType,
+    form_fields,
+    form_sectionalElements,
+    form_schemaVersion,
 
     -- * FormBindingElement
     FormBindingElement (..),
@@ -301,10 +433,29 @@ module Amazonka.AmplifyUiBuilder.Types
     formDataTypeConfig_dataSourceType,
     formDataTypeConfig_dataTypeName,
 
+    -- * FormInputBindingPropertiesValue
+    FormInputBindingPropertiesValue (..),
+    newFormInputBindingPropertiesValue,
+    formInputBindingPropertiesValue_bindingProperties,
+    formInputBindingPropertiesValue_type,
+
+    -- * FormInputBindingPropertiesValueProperties
+    FormInputBindingPropertiesValueProperties (..),
+    newFormInputBindingPropertiesValueProperties,
+    formInputBindingPropertiesValueProperties_model,
+
     -- * FormInputValueProperty
     FormInputValueProperty (..),
     newFormInputValueProperty,
+    formInputValueProperty_bindingProperties,
+    formInputValueProperty_concat,
     formInputValueProperty_value,
+
+    -- * FormInputValuePropertyBindingProperties
+    FormInputValuePropertyBindingProperties (..),
+    newFormInputValuePropertyBindingProperties,
+    formInputValuePropertyBindingProperties_field,
+    formInputValuePropertyBindingProperties_property,
 
     -- * FormStyle
     FormStyle (..),
@@ -342,6 +493,7 @@ module Amazonka.AmplifyUiBuilder.Types
     predicate_and,
     predicate_field,
     predicate_operand,
+    predicate_operandType,
     predicate_operator,
     predicate_or,
 
@@ -350,14 +502,25 @@ module Amazonka.AmplifyUiBuilder.Types
     newPutMetadataFlagBody,
     putMetadataFlagBody_newValue,
 
+    -- * ReactStartCodegenJobData
+    ReactStartCodegenJobData (..),
+    newReactStartCodegenJobData,
+    reactStartCodegenJobData_inlineSourceMap,
+    reactStartCodegenJobData_module,
+    reactStartCodegenJobData_renderTypeDeclarations,
+    reactStartCodegenJobData_script,
+    reactStartCodegenJobData_target,
+
     -- * RefreshTokenRequestBody
     RefreshTokenRequestBody (..),
     newRefreshTokenRequestBody,
+    refreshTokenRequestBody_clientId,
     refreshTokenRequestBody_token,
 
     -- * SectionalElement
     SectionalElement (..),
     newSectionalElement,
+    sectionalElement_excluded,
     sectionalElement_level,
     sectionalElement_orientation,
     sectionalElement_position,
@@ -367,8 +530,17 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * SortProperty
     SortProperty (..),
     newSortProperty,
-    sortProperty_direction,
     sortProperty_field,
+    sortProperty_direction,
+
+    -- * StartCodegenJobData
+    StartCodegenJobData (..),
+    newStartCodegenJobData,
+    startCodegenJobData_autoGenerateForms,
+    startCodegenJobData_features,
+    startCodegenJobData_genericDataSchema,
+    startCodegenJobData_tags,
+    startCodegenJobData_renderConfig,
 
     -- * Theme
     Theme (..),
@@ -377,10 +549,10 @@ module Amazonka.AmplifyUiBuilder.Types
     theme_overrides,
     theme_tags,
     theme_appId,
-    theme_createdAt,
     theme_environmentName,
     theme_id,
     theme_name,
+    theme_createdAt,
     theme_values,
 
     -- * ThemeSummary
@@ -426,6 +598,7 @@ module Amazonka.AmplifyUiBuilder.Types
     updateFormData_dataType,
     updateFormData_fields,
     updateFormData_formActionType,
+    updateFormData_labelDecorator,
     updateFormData_name,
     updateFormData_schemaVersion,
     updateFormData_sectionalElements,
@@ -448,11 +621,26 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * ValueMappings
     ValueMappings (..),
     newValueMappings,
+    valueMappings_bindingProperties,
     valueMappings_values,
   )
 where
 
 import Amazonka.AmplifyUiBuilder.Types.ActionParameters
+import Amazonka.AmplifyUiBuilder.Types.CodegenFeatureFlags
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataEnum
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataField
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataFieldDataType
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataModel
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataNonModel
+import Amazonka.AmplifyUiBuilder.Types.CodegenGenericDataRelationshipType
+import Amazonka.AmplifyUiBuilder.Types.CodegenJob
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobAsset
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobGenericDataSchema
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobGenericDataSourceType
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobRenderConfig
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobStatus
+import Amazonka.AmplifyUiBuilder.Types.CodegenJobSummary
 import Amazonka.AmplifyUiBuilder.Types.Component
 import Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValue
 import Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValueProperties
@@ -472,6 +660,7 @@ import Amazonka.AmplifyUiBuilder.Types.FieldConfig
 import Amazonka.AmplifyUiBuilder.Types.FieldInputConfig
 import Amazonka.AmplifyUiBuilder.Types.FieldPosition
 import Amazonka.AmplifyUiBuilder.Types.FieldValidationConfiguration
+import Amazonka.AmplifyUiBuilder.Types.FileUploaderFieldConfig
 import Amazonka.AmplifyUiBuilder.Types.FixedPosition
 import Amazonka.AmplifyUiBuilder.Types.Form
 import Amazonka.AmplifyUiBuilder.Types.FormActionType
@@ -481,17 +670,28 @@ import Amazonka.AmplifyUiBuilder.Types.FormButtonsPosition
 import Amazonka.AmplifyUiBuilder.Types.FormCTA
 import Amazonka.AmplifyUiBuilder.Types.FormDataSourceType
 import Amazonka.AmplifyUiBuilder.Types.FormDataTypeConfig
+import Amazonka.AmplifyUiBuilder.Types.FormInputBindingPropertiesValue
+import Amazonka.AmplifyUiBuilder.Types.FormInputBindingPropertiesValueProperties
 import Amazonka.AmplifyUiBuilder.Types.FormInputValueProperty
+import Amazonka.AmplifyUiBuilder.Types.FormInputValuePropertyBindingProperties
 import Amazonka.AmplifyUiBuilder.Types.FormStyle
 import Amazonka.AmplifyUiBuilder.Types.FormStyleConfig
 import Amazonka.AmplifyUiBuilder.Types.FormSummary
+import Amazonka.AmplifyUiBuilder.Types.GenericDataRelationshipType
+import Amazonka.AmplifyUiBuilder.Types.JSModule
+import Amazonka.AmplifyUiBuilder.Types.JSScript
+import Amazonka.AmplifyUiBuilder.Types.JSTarget
+import Amazonka.AmplifyUiBuilder.Types.LabelDecorator
 import Amazonka.AmplifyUiBuilder.Types.MutationActionSetStateParameter
 import Amazonka.AmplifyUiBuilder.Types.Predicate
 import Amazonka.AmplifyUiBuilder.Types.PutMetadataFlagBody
+import Amazonka.AmplifyUiBuilder.Types.ReactStartCodegenJobData
 import Amazonka.AmplifyUiBuilder.Types.RefreshTokenRequestBody
 import Amazonka.AmplifyUiBuilder.Types.SectionalElement
 import Amazonka.AmplifyUiBuilder.Types.SortDirection
 import Amazonka.AmplifyUiBuilder.Types.SortProperty
+import Amazonka.AmplifyUiBuilder.Types.StartCodegenJobData
+import Amazonka.AmplifyUiBuilder.Types.StorageAccessLevel
 import Amazonka.AmplifyUiBuilder.Types.Theme
 import Amazonka.AmplifyUiBuilder.Types.ThemeSummary
 import Amazonka.AmplifyUiBuilder.Types.ThemeValue
@@ -533,52 +733,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An internal error has occurred. Please retry your request.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -586,7 +786,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | An invalid or out-of-range value was supplied for the input parameter.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -595,7 +795,7 @@ _InvalidParameterException =
 
 -- | The resource specified in the request conflicts with an existing
 -- resource.
-_ResourceConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceConflictException =
   Core._MatchServiceError
     defaultService
@@ -603,7 +803,7 @@ _ResourceConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The requested resource does not exist, or access was denied.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -613,15 +813,23 @@ _ResourceNotFoundException =
 -- | You exceeded your service quota. Service quotas, also referred to as
 -- limits, are the maximum number of service resources or operations for
 -- your Amazon Web Services account.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
+-- | The request was denied due to request throttling.
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
 -- | You don\'t have permission to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

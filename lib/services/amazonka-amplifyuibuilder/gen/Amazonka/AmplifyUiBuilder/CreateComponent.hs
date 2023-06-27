@@ -29,8 +29,8 @@ module Amazonka.AmplifyUiBuilder.CreateComponent
     -- * Request Lenses
     createComponent_clientToken,
     createComponent_appId,
-    createComponent_componentToCreate,
     createComponent_environmentName,
+    createComponent_componentToCreate,
 
     -- * Destructuring the Response
     CreateComponentResponse (..),
@@ -56,10 +56,10 @@ data CreateComponent = CreateComponent'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the Amplify app to associate with the component.
     appId :: Prelude.Text,
-    -- | Represents the configuration of the component to create.
-    componentToCreate :: CreateComponentData,
     -- | The name of the backend environment that is a part of the Amplify app.
-    environmentName :: Prelude.Text
+    environmentName :: Prelude.Text,
+    -- | Represents the configuration of the component to create.
+    componentToCreate :: CreateComponentData
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,26 +75,26 @@ data CreateComponent = CreateComponent'
 --
 -- 'appId', 'createComponent_appId' - The unique ID of the Amplify app to associate with the component.
 --
--- 'componentToCreate', 'createComponent_componentToCreate' - Represents the configuration of the component to create.
---
 -- 'environmentName', 'createComponent_environmentName' - The name of the backend environment that is a part of the Amplify app.
+--
+-- 'componentToCreate', 'createComponent_componentToCreate' - Represents the configuration of the component to create.
 newCreateComponent ::
   -- | 'appId'
   Prelude.Text ->
-  -- | 'componentToCreate'
-  CreateComponentData ->
   -- | 'environmentName'
   Prelude.Text ->
+  -- | 'componentToCreate'
+  CreateComponentData ->
   CreateComponent
 newCreateComponent
   pAppId_
-  pComponentToCreate_
-  pEnvironmentName_ =
+  pEnvironmentName_
+  pComponentToCreate_ =
     CreateComponent'
       { clientToken = Prelude.Nothing,
         appId = pAppId_,
-        componentToCreate = pComponentToCreate_,
-        environmentName = pEnvironmentName_
+        environmentName = pEnvironmentName_,
+        componentToCreate = pComponentToCreate_
       }
 
 -- | The unique client token.
@@ -105,13 +105,13 @@ createComponent_clientToken = Lens.lens (\CreateComponent' {clientToken} -> clie
 createComponent_appId :: Lens.Lens' CreateComponent Prelude.Text
 createComponent_appId = Lens.lens (\CreateComponent' {appId} -> appId) (\s@CreateComponent' {} a -> s {appId = a} :: CreateComponent)
 
--- | Represents the configuration of the component to create.
-createComponent_componentToCreate :: Lens.Lens' CreateComponent CreateComponentData
-createComponent_componentToCreate = Lens.lens (\CreateComponent' {componentToCreate} -> componentToCreate) (\s@CreateComponent' {} a -> s {componentToCreate = a} :: CreateComponent)
-
 -- | The name of the backend environment that is a part of the Amplify app.
 createComponent_environmentName :: Lens.Lens' CreateComponent Prelude.Text
 createComponent_environmentName = Lens.lens (\CreateComponent' {environmentName} -> environmentName) (\s@CreateComponent' {} a -> s {environmentName = a} :: CreateComponent)
+
+-- | Represents the configuration of the component to create.
+createComponent_componentToCreate :: Lens.Lens' CreateComponent CreateComponentData
+createComponent_componentToCreate = Lens.lens (\CreateComponent' {componentToCreate} -> componentToCreate) (\s@CreateComponent' {} a -> s {componentToCreate = a} :: CreateComponent)
 
 instance Core.AWSRequest CreateComponent where
   type
@@ -129,17 +129,18 @@ instance Core.AWSRequest CreateComponent where
 
 instance Prelude.Hashable CreateComponent where
   hashWithSalt _salt CreateComponent' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` appId
-      `Prelude.hashWithSalt` componentToCreate
       `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` componentToCreate
 
 instance Prelude.NFData CreateComponent where
   rnf CreateComponent' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf componentToCreate
       `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf componentToCreate
 
 instance Data.ToHeaders CreateComponent where
   toHeaders =

@@ -114,7 +114,8 @@ instance Core.AWSRequest GetTheme where
 
 instance Prelude.Hashable GetTheme where
   hashWithSalt _salt GetTheme' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
 

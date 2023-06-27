@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteTheme where
 
 instance Prelude.Hashable DeleteTheme where
   hashWithSalt _salt DeleteTheme' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
 

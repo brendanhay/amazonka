@@ -106,17 +106,19 @@ instance Core.AWSPager ExportForms where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? exportFormsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? exportFormsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. exportFormsResponse_entities) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& exportForms_nextToken
           Lens..~ rs
-          Lens.^? exportFormsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? exportFormsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ExportForms where
   type AWSResponse ExportForms = ExportFormsResponse
@@ -133,7 +135,8 @@ instance Core.AWSRequest ExportForms where
 
 instance Prelude.Hashable ExportForms where
   hashWithSalt _salt ExportForms' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
 

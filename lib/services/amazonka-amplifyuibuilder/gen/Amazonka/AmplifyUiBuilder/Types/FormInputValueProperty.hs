@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AmplifyUiBuilder.Types.FormInputValueProperty where
 
+import Amazonka.AmplifyUiBuilder.Types.FormInputValuePropertyBindingProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -30,7 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFormInputValueProperty' smart constructor.
 data FormInputValueProperty = FormInputValueProperty'
-  { -- | The value to assign to the input field.
+  { -- | The information to bind fields to data at runtime.
+    bindingProperties :: Prelude.Maybe FormInputValuePropertyBindingProperties,
+    -- | A list of form properties to concatenate to create the value to assign
+    -- to this field property.
+    concat :: Prelude.Maybe [FormInputValueProperty],
+    -- | The value to assign to the input field.
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,11 +49,30 @@ data FormInputValueProperty = FormInputValueProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bindingProperties', 'formInputValueProperty_bindingProperties' - The information to bind fields to data at runtime.
+--
+-- 'concat', 'formInputValueProperty_concat' - A list of form properties to concatenate to create the value to assign
+-- to this field property.
+--
 -- 'value', 'formInputValueProperty_value' - The value to assign to the input field.
 newFormInputValueProperty ::
   FormInputValueProperty
 newFormInputValueProperty =
-  FormInputValueProperty' {value = Prelude.Nothing}
+  FormInputValueProperty'
+    { bindingProperties =
+        Prelude.Nothing,
+      concat = Prelude.Nothing,
+      value = Prelude.Nothing
+    }
+
+-- | The information to bind fields to data at runtime.
+formInputValueProperty_bindingProperties :: Lens.Lens' FormInputValueProperty (Prelude.Maybe FormInputValuePropertyBindingProperties)
+formInputValueProperty_bindingProperties = Lens.lens (\FormInputValueProperty' {bindingProperties} -> bindingProperties) (\s@FormInputValueProperty' {} a -> s {bindingProperties = a} :: FormInputValueProperty)
+
+-- | A list of form properties to concatenate to create the value to assign
+-- to this field property.
+formInputValueProperty_concat :: Lens.Lens' FormInputValueProperty (Prelude.Maybe [FormInputValueProperty])
+formInputValueProperty_concat = Lens.lens (\FormInputValueProperty' {concat} -> concat) (\s@FormInputValueProperty' {} a -> s {concat = a} :: FormInputValueProperty) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value to assign to the input field.
 formInputValueProperty_value :: Lens.Lens' FormInputValueProperty (Prelude.Maybe Prelude.Text)
@@ -59,19 +84,31 @@ instance Data.FromJSON FormInputValueProperty where
       "FormInputValueProperty"
       ( \x ->
           FormInputValueProperty'
-            Prelude.<$> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "bindingProperties")
+            Prelude.<*> (x Data..:? "concat" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable FormInputValueProperty where
   hashWithSalt _salt FormInputValueProperty' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` bindingProperties
+      `Prelude.hashWithSalt` concat
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData FormInputValueProperty where
-  rnf FormInputValueProperty' {..} = Prelude.rnf value
+  rnf FormInputValueProperty' {..} =
+    Prelude.rnf bindingProperties
+      `Prelude.seq` Prelude.rnf concat
+      `Prelude.seq` Prelude.rnf value
 
 instance Data.ToJSON FormInputValueProperty where
   toJSON FormInputValueProperty' {..} =
     Data.object
       ( Prelude.catMaybes
-          [("value" Data..=) Prelude.<$> value]
+          [ ("bindingProperties" Data..=)
+              Prelude.<$> bindingProperties,
+            ("concat" Data..=) Prelude.<$> concat,
+            ("value" Data..=) Prelude.<$> value
+          ]
       )

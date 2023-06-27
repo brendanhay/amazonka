@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 data ComponentSummary = ComponentSummary'
   { -- | The unique ID of the Amplify app associated with the component.
     appId :: Prelude.Text,
-    -- | The component type.
-    componentType :: Prelude.Text,
     -- | The name of the backend environment that is a part of the Amplify app.
     environmentName :: Prelude.Text,
     -- | The unique ID of the component.
     id :: Prelude.Text,
     -- | The name of the component.
-    name :: Prelude.Text
+    name :: Prelude.Text,
+    -- | The component type.
+    componentType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,17 +52,15 @@ data ComponentSummary = ComponentSummary'
 --
 -- 'appId', 'componentSummary_appId' - The unique ID of the Amplify app associated with the component.
 --
--- 'componentType', 'componentSummary_componentType' - The component type.
---
 -- 'environmentName', 'componentSummary_environmentName' - The name of the backend environment that is a part of the Amplify app.
 --
 -- 'id', 'componentSummary_id' - The unique ID of the component.
 --
 -- 'name', 'componentSummary_name' - The name of the component.
+--
+-- 'componentType', 'componentSummary_componentType' - The component type.
 newComponentSummary ::
   -- | 'appId'
-  Prelude.Text ->
-  -- | 'componentType'
   Prelude.Text ->
   -- | 'environmentName'
   Prelude.Text ->
@@ -70,28 +68,26 @@ newComponentSummary ::
   Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
+  -- | 'componentType'
+  Prelude.Text ->
   ComponentSummary
 newComponentSummary
   pAppId_
-  pComponentType_
   pEnvironmentName_
   pId_
-  pName_ =
+  pName_
+  pComponentType_ =
     ComponentSummary'
       { appId = pAppId_,
-        componentType = pComponentType_,
         environmentName = pEnvironmentName_,
         id = pId_,
-        name = pName_
+        name = pName_,
+        componentType = pComponentType_
       }
 
 -- | The unique ID of the Amplify app associated with the component.
 componentSummary_appId :: Lens.Lens' ComponentSummary Prelude.Text
 componentSummary_appId = Lens.lens (\ComponentSummary' {appId} -> appId) (\s@ComponentSummary' {} a -> s {appId = a} :: ComponentSummary)
-
--- | The component type.
-componentSummary_componentType :: Lens.Lens' ComponentSummary Prelude.Text
-componentSummary_componentType = Lens.lens (\ComponentSummary' {componentType} -> componentType) (\s@ComponentSummary' {} a -> s {componentType = a} :: ComponentSummary)
 
 -- | The name of the backend environment that is a part of the Amplify app.
 componentSummary_environmentName :: Lens.Lens' ComponentSummary Prelude.Text
@@ -105,6 +101,10 @@ componentSummary_id = Lens.lens (\ComponentSummary' {id} -> id) (\s@ComponentSum
 componentSummary_name :: Lens.Lens' ComponentSummary Prelude.Text
 componentSummary_name = Lens.lens (\ComponentSummary' {name} -> name) (\s@ComponentSummary' {} a -> s {name = a} :: ComponentSummary)
 
+-- | The component type.
+componentSummary_componentType :: Lens.Lens' ComponentSummary Prelude.Text
+componentSummary_componentType = Lens.lens (\ComponentSummary' {componentType} -> componentType) (\s@ComponentSummary' {} a -> s {componentType = a} :: ComponentSummary)
+
 instance Data.FromJSON ComponentSummary where
   parseJSON =
     Data.withObject
@@ -112,24 +112,25 @@ instance Data.FromJSON ComponentSummary where
       ( \x ->
           ComponentSummary'
             Prelude.<$> (x Data..: "appId")
-            Prelude.<*> (x Data..: "componentType")
             Prelude.<*> (x Data..: "environmentName")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "componentType")
       )
 
 instance Prelude.Hashable ComponentSummary where
   hashWithSalt _salt ComponentSummary' {..} =
-    _salt `Prelude.hashWithSalt` appId
-      `Prelude.hashWithSalt` componentType
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` componentType
 
 instance Prelude.NFData ComponentSummary where
   rnf ComponentSummary' {..} =
     Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf componentType
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf componentType

@@ -59,30 +59,30 @@ data Component = Component'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique ID of the Amplify app associated with the component.
     appId :: Prelude.Text,
-    -- | The information to connect a component\'s properties to data at runtime.
-    -- You can\'t specify @tags@ as a valid property for @bindingProperties@.
-    bindingProperties :: Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue,
-    -- | The type of the component. This can be an Amplify custom UI component or
-    -- another custom component.
-    componentType :: Prelude.Text,
-    -- | The time that the component was created.
-    createdAt :: Data.ISO8601,
     -- | The name of the backend environment that is a part of the Amplify app.
     environmentName :: Prelude.Text,
     -- | The unique ID of the component.
     id :: Prelude.Text,
     -- | The name of the component.
     name :: Prelude.Text,
-    -- | Describes the component\'s properties that can be overriden in a
-    -- customized instance of the component. You can\'t specify @tags@ as a
-    -- valid property for @overrides@.
-    overrides :: Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The type of the component. This can be an Amplify custom UI component or
+    -- another custom component.
+    componentType :: Prelude.Text,
     -- | Describes the component\'s properties. You can\'t specify @tags@ as a
     -- valid property for @properties@.
     properties :: Prelude.HashMap Prelude.Text ComponentProperty,
     -- | A list of the component\'s variants. A variant is a unique style
     -- configuration of a main component.
-    variants :: [ComponentVariant]
+    variants :: [ComponentVariant],
+    -- | Describes the component\'s properties that can be overriden in a
+    -- customized instance of the component. You can\'t specify @tags@ as a
+    -- valid property for @overrides@.
+    overrides :: Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The information to connect a component\'s properties to data at runtime.
+    -- You can\'t specify @tags@ as a valid property for @bindingProperties@.
+    bindingProperties :: Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue,
+    -- | The time that the component was created.
+    createdAt :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,50 +115,50 @@ data Component = Component'
 --
 -- 'appId', 'component_appId' - The unique ID of the Amplify app associated with the component.
 --
--- 'bindingProperties', 'component_bindingProperties' - The information to connect a component\'s properties to data at runtime.
--- You can\'t specify @tags@ as a valid property for @bindingProperties@.
---
--- 'componentType', 'component_componentType' - The type of the component. This can be an Amplify custom UI component or
--- another custom component.
---
--- 'createdAt', 'component_createdAt' - The time that the component was created.
---
 -- 'environmentName', 'component_environmentName' - The name of the backend environment that is a part of the Amplify app.
 --
 -- 'id', 'component_id' - The unique ID of the component.
 --
 -- 'name', 'component_name' - The name of the component.
 --
--- 'overrides', 'component_overrides' - Describes the component\'s properties that can be overriden in a
--- customized instance of the component. You can\'t specify @tags@ as a
--- valid property for @overrides@.
+-- 'componentType', 'component_componentType' - The type of the component. This can be an Amplify custom UI component or
+-- another custom component.
 --
 -- 'properties', 'component_properties' - Describes the component\'s properties. You can\'t specify @tags@ as a
 -- valid property for @properties@.
 --
 -- 'variants', 'component_variants' - A list of the component\'s variants. A variant is a unique style
 -- configuration of a main component.
+--
+-- 'overrides', 'component_overrides' - Describes the component\'s properties that can be overriden in a
+-- customized instance of the component. You can\'t specify @tags@ as a
+-- valid property for @overrides@.
+--
+-- 'bindingProperties', 'component_bindingProperties' - The information to connect a component\'s properties to data at runtime.
+-- You can\'t specify @tags@ as a valid property for @bindingProperties@.
+--
+-- 'createdAt', 'component_createdAt' - The time that the component was created.
 newComponent ::
   -- | 'appId'
   Prelude.Text ->
-  -- | 'componentType'
-  Prelude.Text ->
-  -- | 'createdAt'
-  Prelude.UTCTime ->
   -- | 'environmentName'
   Prelude.Text ->
   -- | 'id'
   Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
+  -- | 'componentType'
+  Prelude.Text ->
+  -- | 'createdAt'
+  Prelude.UTCTime ->
   Component
 newComponent
   pAppId_
-  pComponentType_
-  pCreatedAt_
   pEnvironmentName_
   pId_
-  pName_ =
+  pName_
+  pComponentType_
+  pCreatedAt_ =
     Component'
       { children = Prelude.Nothing,
         collectionProperties = Prelude.Nothing,
@@ -168,15 +168,15 @@ newComponent
         sourceId = Prelude.Nothing,
         tags = Prelude.Nothing,
         appId = pAppId_,
-        bindingProperties = Prelude.mempty,
-        componentType = pComponentType_,
-        createdAt = Data._Time Lens.# pCreatedAt_,
         environmentName = pEnvironmentName_,
         id = pId_,
         name = pName_,
-        overrides = Prelude.mempty,
+        componentType = pComponentType_,
         properties = Prelude.mempty,
-        variants = Prelude.mempty
+        variants = Prelude.mempty,
+        overrides = Prelude.mempty,
+        bindingProperties = Prelude.mempty,
+        createdAt = Data._Time Lens.# pCreatedAt_
       }
 
 -- | A list of the component\'s @ComponentChild@ instances.
@@ -216,20 +216,6 @@ component_tags = Lens.lens (\Component' {tags} -> tags) (\s@Component' {} a -> s
 component_appId :: Lens.Lens' Component Prelude.Text
 component_appId = Lens.lens (\Component' {appId} -> appId) (\s@Component' {} a -> s {appId = a} :: Component)
 
--- | The information to connect a component\'s properties to data at runtime.
--- You can\'t specify @tags@ as a valid property for @bindingProperties@.
-component_bindingProperties :: Lens.Lens' Component (Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue)
-component_bindingProperties = Lens.lens (\Component' {bindingProperties} -> bindingProperties) (\s@Component' {} a -> s {bindingProperties = a} :: Component) Prelude.. Lens.coerced
-
--- | The type of the component. This can be an Amplify custom UI component or
--- another custom component.
-component_componentType :: Lens.Lens' Component Prelude.Text
-component_componentType = Lens.lens (\Component' {componentType} -> componentType) (\s@Component' {} a -> s {componentType = a} :: Component)
-
--- | The time that the component was created.
-component_createdAt :: Lens.Lens' Component Prelude.UTCTime
-component_createdAt = Lens.lens (\Component' {createdAt} -> createdAt) (\s@Component' {} a -> s {createdAt = a} :: Component) Prelude.. Data._Time
-
 -- | The name of the backend environment that is a part of the Amplify app.
 component_environmentName :: Lens.Lens' Component Prelude.Text
 component_environmentName = Lens.lens (\Component' {environmentName} -> environmentName) (\s@Component' {} a -> s {environmentName = a} :: Component)
@@ -242,11 +228,10 @@ component_id = Lens.lens (\Component' {id} -> id) (\s@Component' {} a -> s {id =
 component_name :: Lens.Lens' Component Prelude.Text
 component_name = Lens.lens (\Component' {name} -> name) (\s@Component' {} a -> s {name = a} :: Component)
 
--- | Describes the component\'s properties that can be overriden in a
--- customized instance of the component. You can\'t specify @tags@ as a
--- valid property for @overrides@.
-component_overrides :: Lens.Lens' Component (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text))
-component_overrides = Lens.lens (\Component' {overrides} -> overrides) (\s@Component' {} a -> s {overrides = a} :: Component) Prelude.. Lens.coerced
+-- | The type of the component. This can be an Amplify custom UI component or
+-- another custom component.
+component_componentType :: Lens.Lens' Component Prelude.Text
+component_componentType = Lens.lens (\Component' {componentType} -> componentType) (\s@Component' {} a -> s {componentType = a} :: Component)
 
 -- | Describes the component\'s properties. You can\'t specify @tags@ as a
 -- valid property for @properties@.
@@ -258,6 +243,21 @@ component_properties = Lens.lens (\Component' {properties} -> properties) (\s@Co
 component_variants :: Lens.Lens' Component [ComponentVariant]
 component_variants = Lens.lens (\Component' {variants} -> variants) (\s@Component' {} a -> s {variants = a} :: Component) Prelude.. Lens.coerced
 
+-- | Describes the component\'s properties that can be overriden in a
+-- customized instance of the component. You can\'t specify @tags@ as a
+-- valid property for @overrides@.
+component_overrides :: Lens.Lens' Component (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text))
+component_overrides = Lens.lens (\Component' {overrides} -> overrides) (\s@Component' {} a -> s {overrides = a} :: Component) Prelude.. Lens.coerced
+
+-- | The information to connect a component\'s properties to data at runtime.
+-- You can\'t specify @tags@ as a valid property for @bindingProperties@.
+component_bindingProperties :: Lens.Lens' Component (Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue)
+component_bindingProperties = Lens.lens (\Component' {bindingProperties} -> bindingProperties) (\s@Component' {} a -> s {bindingProperties = a} :: Component) Prelude.. Lens.coerced
+
+-- | The time that the component was created.
+component_createdAt :: Lens.Lens' Component Prelude.UTCTime
+component_createdAt = Lens.lens (\Component' {createdAt} -> createdAt) (\s@Component' {} a -> s {createdAt = a} :: Component) Prelude.. Data._Time
+
 instance Data.FromJSON Component where
   parseJSON =
     Data.withObject
@@ -265,7 +265,8 @@ instance Data.FromJSON Component where
       ( \x ->
           Component'
             Prelude.<$> (x Data..:? "children" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "collectionProperties"
+            Prelude.<*> ( x
+                            Data..:? "collectionProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
@@ -274,22 +275,24 @@ instance Data.FromJSON Component where
             Prelude.<*> (x Data..:? "sourceId")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "appId")
-            Prelude.<*> ( x Data..:? "bindingProperties"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..: "componentType")
-            Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "environmentName")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "name")
-            Prelude.<*> (x Data..:? "overrides" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "componentType")
             Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "variants" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "overrides" Data..!= Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..:? "bindingProperties"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..: "createdAt")
       )
 
 instance Prelude.Hashable Component where
   hashWithSalt _salt Component' {..} =
-    _salt `Prelude.hashWithSalt` children
+    _salt
+      `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` collectionProperties
       `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` modifiedAt
@@ -297,15 +300,15 @@ instance Prelude.Hashable Component where
       `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appId
-      `Prelude.hashWithSalt` bindingProperties
-      `Prelude.hashWithSalt` componentType
-      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` variants
+      `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` bindingProperties
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData Component where
   rnf Component' {..} =
@@ -317,12 +320,12 @@ instance Prelude.NFData Component where
       `Prelude.seq` Prelude.rnf sourceId
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf bindingProperties
-      `Prelude.seq` Prelude.rnf componentType
-      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf componentType
       `Prelude.seq` Prelude.rnf properties
       `Prelude.seq` Prelude.rnf variants
+      `Prelude.seq` Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf bindingProperties
+      `Prelude.seq` Prelude.rnf createdAt

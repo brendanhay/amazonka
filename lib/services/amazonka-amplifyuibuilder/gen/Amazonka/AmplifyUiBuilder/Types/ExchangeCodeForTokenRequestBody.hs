@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExchangeCodeForTokenRequestBody' smart constructor.
 data ExchangeCodeForTokenRequestBody = ExchangeCodeForTokenRequestBody'
-  { -- | The access code to send in the request.
+  { -- | The ID of the client to request the token from.
+    clientId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The access code to send in the request.
     code :: Data.Sensitive Prelude.Text,
     -- | The location of the application that will receive the access code.
     redirectUri :: Prelude.Text
@@ -44,6 +46,8 @@ data ExchangeCodeForTokenRequestBody = ExchangeCodeForTokenRequestBody'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientId', 'exchangeCodeForTokenRequestBody_clientId' - The ID of the client to request the token from.
+--
 -- 'code', 'exchangeCodeForTokenRequestBody_code' - The access code to send in the request.
 --
 -- 'redirectUri', 'exchangeCodeForTokenRequestBody_redirectUri' - The location of the application that will receive the access code.
@@ -57,10 +61,15 @@ newExchangeCodeForTokenRequestBody
   pCode_
   pRedirectUri_ =
     ExchangeCodeForTokenRequestBody'
-      { code =
-          Data._Sensitive Lens.# pCode_,
+      { clientId =
+          Prelude.Nothing,
+        code = Data._Sensitive Lens.# pCode_,
         redirectUri = pRedirectUri_
       }
+
+-- | The ID of the client to request the token from.
+exchangeCodeForTokenRequestBody_clientId :: Lens.Lens' ExchangeCodeForTokenRequestBody (Prelude.Maybe Prelude.Text)
+exchangeCodeForTokenRequestBody_clientId = Lens.lens (\ExchangeCodeForTokenRequestBody' {clientId} -> clientId) (\s@ExchangeCodeForTokenRequestBody' {} a -> s {clientId = a} :: ExchangeCodeForTokenRequestBody) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The access code to send in the request.
 exchangeCodeForTokenRequestBody_code :: Lens.Lens' ExchangeCodeForTokenRequestBody Prelude.Text
@@ -77,7 +86,9 @@ instance
   hashWithSalt
     _salt
     ExchangeCodeForTokenRequestBody' {..} =
-      _salt `Prelude.hashWithSalt` code
+      _salt
+        `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` code
         `Prelude.hashWithSalt` redirectUri
 
 instance
@@ -85,14 +96,16 @@ instance
     ExchangeCodeForTokenRequestBody
   where
   rnf ExchangeCodeForTokenRequestBody' {..} =
-    Prelude.rnf code
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf code
       `Prelude.seq` Prelude.rnf redirectUri
 
 instance Data.ToJSON ExchangeCodeForTokenRequestBody where
   toJSON ExchangeCodeForTokenRequestBody' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("code" Data..= code),
+          [ ("clientId" Data..=) Prelude.<$> clientId,
+            Prelude.Just ("code" Data..= code),
             Prelude.Just ("redirectUri" Data..= redirectUri)
           ]
       )

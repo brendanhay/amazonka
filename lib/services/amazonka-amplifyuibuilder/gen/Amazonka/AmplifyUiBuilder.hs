@@ -49,6 +49,9 @@ module Amazonka.AmplifyUiBuilder
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
+    -- ** ThrottlingException
+    _ThrottlingException,
+
     -- ** UnauthorizedException
     _UnauthorizedException,
 
@@ -118,6 +121,12 @@ module Amazonka.AmplifyUiBuilder
     ExportThemesResponse (ExportThemesResponse'),
     newExportThemesResponse,
 
+    -- ** GetCodegenJob
+    GetCodegenJob (GetCodegenJob'),
+    newGetCodegenJob,
+    GetCodegenJobResponse (GetCodegenJobResponse'),
+    newGetCodegenJobResponse,
+
     -- ** GetComponent
     GetComponent (GetComponent'),
     newGetComponent,
@@ -141,6 +150,12 @@ module Amazonka.AmplifyUiBuilder
     newGetTheme,
     GetThemeResponse (GetThemeResponse'),
     newGetThemeResponse,
+
+    -- ** ListCodegenJobs (Paginated)
+    ListCodegenJobs (ListCodegenJobs'),
+    newListCodegenJobs,
+    ListCodegenJobsResponse (ListCodegenJobsResponse'),
+    newListCodegenJobsResponse,
 
     -- ** ListComponents (Paginated)
     ListComponents (ListComponents'),
@@ -172,6 +187,12 @@ module Amazonka.AmplifyUiBuilder
     RefreshTokenResponse (RefreshTokenResponse'),
     newRefreshTokenResponse,
 
+    -- ** StartCodegenJob
+    StartCodegenJob (StartCodegenJob'),
+    newStartCodegenJob,
+    StartCodegenJobResponse (StartCodegenJobResponse'),
+    newStartCodegenJobResponse,
+
     -- ** UpdateComponent
     UpdateComponent (UpdateComponent'),
     newUpdateComponent,
@@ -192,6 +213,15 @@ module Amazonka.AmplifyUiBuilder
 
     -- * Types
 
+    -- ** CodegenGenericDataFieldDataType
+    CodegenGenericDataFieldDataType (..),
+
+    -- ** CodegenJobGenericDataSourceType
+    CodegenJobGenericDataSourceType (..),
+
+    -- ** CodegenJobStatus
+    CodegenJobStatus (..),
+
     -- ** FixedPosition
     FixedPosition (..),
 
@@ -204,8 +234,26 @@ module Amazonka.AmplifyUiBuilder
     -- ** FormDataSourceType
     FormDataSourceType (..),
 
+    -- ** GenericDataRelationshipType
+    GenericDataRelationshipType (..),
+
+    -- ** JSModule
+    JSModule (..),
+
+    -- ** JSScript
+    JSScript (..),
+
+    -- ** JSTarget
+    JSTarget (..),
+
+    -- ** LabelDecorator
+    LabelDecorator (..),
+
     -- ** SortDirection
     SortDirection (..),
+
+    -- ** StorageAccessLevel
+    StorageAccessLevel (..),
 
     -- ** TokenProviders
     TokenProviders (..),
@@ -213,6 +261,50 @@ module Amazonka.AmplifyUiBuilder
     -- ** ActionParameters
     ActionParameters (ActionParameters'),
     newActionParameters,
+
+    -- ** CodegenFeatureFlags
+    CodegenFeatureFlags (CodegenFeatureFlags'),
+    newCodegenFeatureFlags,
+
+    -- ** CodegenGenericDataEnum
+    CodegenGenericDataEnum (CodegenGenericDataEnum'),
+    newCodegenGenericDataEnum,
+
+    -- ** CodegenGenericDataField
+    CodegenGenericDataField (CodegenGenericDataField'),
+    newCodegenGenericDataField,
+
+    -- ** CodegenGenericDataModel
+    CodegenGenericDataModel (CodegenGenericDataModel'),
+    newCodegenGenericDataModel,
+
+    -- ** CodegenGenericDataNonModel
+    CodegenGenericDataNonModel (CodegenGenericDataNonModel'),
+    newCodegenGenericDataNonModel,
+
+    -- ** CodegenGenericDataRelationshipType
+    CodegenGenericDataRelationshipType (CodegenGenericDataRelationshipType'),
+    newCodegenGenericDataRelationshipType,
+
+    -- ** CodegenJob
+    CodegenJob (CodegenJob'),
+    newCodegenJob,
+
+    -- ** CodegenJobAsset
+    CodegenJobAsset (CodegenJobAsset'),
+    newCodegenJobAsset,
+
+    -- ** CodegenJobGenericDataSchema
+    CodegenJobGenericDataSchema (CodegenJobGenericDataSchema'),
+    newCodegenJobGenericDataSchema,
+
+    -- ** CodegenJobRenderConfig
+    CodegenJobRenderConfig (CodegenJobRenderConfig'),
+    newCodegenJobRenderConfig,
+
+    -- ** CodegenJobSummary
+    CodegenJobSummary (CodegenJobSummary'),
+    newCodegenJobSummary,
 
     -- ** Component
     Component (Component'),
@@ -290,6 +382,10 @@ module Amazonka.AmplifyUiBuilder
     FieldValidationConfiguration (FieldValidationConfiguration'),
     newFieldValidationConfiguration,
 
+    -- ** FileUploaderFieldConfig
+    FileUploaderFieldConfig (FileUploaderFieldConfig'),
+    newFileUploaderFieldConfig,
+
     -- ** Form
     Form (Form'),
     newForm,
@@ -310,9 +406,21 @@ module Amazonka.AmplifyUiBuilder
     FormDataTypeConfig (FormDataTypeConfig'),
     newFormDataTypeConfig,
 
+    -- ** FormInputBindingPropertiesValue
+    FormInputBindingPropertiesValue (FormInputBindingPropertiesValue'),
+    newFormInputBindingPropertiesValue,
+
+    -- ** FormInputBindingPropertiesValueProperties
+    FormInputBindingPropertiesValueProperties (FormInputBindingPropertiesValueProperties'),
+    newFormInputBindingPropertiesValueProperties,
+
     -- ** FormInputValueProperty
     FormInputValueProperty (FormInputValueProperty'),
     newFormInputValueProperty,
+
+    -- ** FormInputValuePropertyBindingProperties
+    FormInputValuePropertyBindingProperties (FormInputValuePropertyBindingProperties'),
+    newFormInputValuePropertyBindingProperties,
 
     -- ** FormStyle
     FormStyle (FormStyle'),
@@ -338,6 +446,10 @@ module Amazonka.AmplifyUiBuilder
     PutMetadataFlagBody (PutMetadataFlagBody'),
     newPutMetadataFlagBody,
 
+    -- ** ReactStartCodegenJobData
+    ReactStartCodegenJobData (ReactStartCodegenJobData'),
+    newReactStartCodegenJobData,
+
     -- ** RefreshTokenRequestBody
     RefreshTokenRequestBody (RefreshTokenRequestBody'),
     newRefreshTokenRequestBody,
@@ -349,6 +461,10 @@ module Amazonka.AmplifyUiBuilder
     -- ** SortProperty
     SortProperty (SortProperty'),
     newSortProperty,
+
+    -- ** StartCodegenJobData
+    StartCodegenJobData (StartCodegenJobData'),
+    newStartCodegenJobData,
 
     -- ** Theme
     Theme (Theme'),
@@ -398,16 +514,19 @@ import Amazonka.AmplifyUiBuilder.ExchangeCodeForToken
 import Amazonka.AmplifyUiBuilder.ExportComponents
 import Amazonka.AmplifyUiBuilder.ExportForms
 import Amazonka.AmplifyUiBuilder.ExportThemes
+import Amazonka.AmplifyUiBuilder.GetCodegenJob
 import Amazonka.AmplifyUiBuilder.GetComponent
 import Amazonka.AmplifyUiBuilder.GetForm
 import Amazonka.AmplifyUiBuilder.GetMetadata
 import Amazonka.AmplifyUiBuilder.GetTheme
 import Amazonka.AmplifyUiBuilder.Lens
+import Amazonka.AmplifyUiBuilder.ListCodegenJobs
 import Amazonka.AmplifyUiBuilder.ListComponents
 import Amazonka.AmplifyUiBuilder.ListForms
 import Amazonka.AmplifyUiBuilder.ListThemes
 import Amazonka.AmplifyUiBuilder.PutMetadataFlag
 import Amazonka.AmplifyUiBuilder.RefreshToken
+import Amazonka.AmplifyUiBuilder.StartCodegenJob
 import Amazonka.AmplifyUiBuilder.Types
 import Amazonka.AmplifyUiBuilder.UpdateComponent
 import Amazonka.AmplifyUiBuilder.UpdateForm

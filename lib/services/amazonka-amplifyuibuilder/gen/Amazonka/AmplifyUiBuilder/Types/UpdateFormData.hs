@@ -24,6 +24,7 @@ import Amazonka.AmplifyUiBuilder.Types.FormActionType
 import Amazonka.AmplifyUiBuilder.Types.FormCTA
 import Amazonka.AmplifyUiBuilder.Types.FormDataTypeConfig
 import Amazonka.AmplifyUiBuilder.Types.FormStyle
+import Amazonka.AmplifyUiBuilder.Types.LabelDecorator
 import Amazonka.AmplifyUiBuilder.Types.SectionalElement
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
@@ -43,6 +44,8 @@ data UpdateFormData = UpdateFormData'
     fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text FieldConfig),
     -- | Specifies whether to perform a create or update action on the form.
     formActionType :: Prelude.Maybe FormActionType,
+    -- | Specifies an icon or decoration to display on the form.
+    labelDecorator :: Prelude.Maybe LabelDecorator,
     -- | The name of the form.
     name :: Prelude.Maybe Prelude.Text,
     -- | The schema version of the form.
@@ -72,6 +75,8 @@ data UpdateFormData = UpdateFormData'
 --
 -- 'formActionType', 'updateFormData_formActionType' - Specifies whether to perform a create or update action on the form.
 --
+-- 'labelDecorator', 'updateFormData_labelDecorator' - Specifies an icon or decoration to display on the form.
+--
 -- 'name', 'updateFormData_name' - The name of the form.
 --
 -- 'schemaVersion', 'updateFormData_schemaVersion' - The schema version of the form.
@@ -88,6 +93,7 @@ newUpdateFormData =
       dataType = Prelude.Nothing,
       fields = Prelude.Nothing,
       formActionType = Prelude.Nothing,
+      labelDecorator = Prelude.Nothing,
       name = Prelude.Nothing,
       schemaVersion = Prelude.Nothing,
       sectionalElements = Prelude.Nothing,
@@ -111,6 +117,10 @@ updateFormData_fields = Lens.lens (\UpdateFormData' {fields} -> fields) (\s@Upda
 updateFormData_formActionType :: Lens.Lens' UpdateFormData (Prelude.Maybe FormActionType)
 updateFormData_formActionType = Lens.lens (\UpdateFormData' {formActionType} -> formActionType) (\s@UpdateFormData' {} a -> s {formActionType = a} :: UpdateFormData)
 
+-- | Specifies an icon or decoration to display on the form.
+updateFormData_labelDecorator :: Lens.Lens' UpdateFormData (Prelude.Maybe LabelDecorator)
+updateFormData_labelDecorator = Lens.lens (\UpdateFormData' {labelDecorator} -> labelDecorator) (\s@UpdateFormData' {} a -> s {labelDecorator = a} :: UpdateFormData)
+
 -- | The name of the form.
 updateFormData_name :: Lens.Lens' UpdateFormData (Prelude.Maybe Prelude.Text)
 updateFormData_name = Lens.lens (\UpdateFormData' {name} -> name) (\s@UpdateFormData' {} a -> s {name = a} :: UpdateFormData)
@@ -130,10 +140,12 @@ updateFormData_style = Lens.lens (\UpdateFormData' {style} -> style) (\s@UpdateF
 
 instance Prelude.Hashable UpdateFormData where
   hashWithSalt _salt UpdateFormData' {..} =
-    _salt `Prelude.hashWithSalt` cta
+    _salt
+      `Prelude.hashWithSalt` cta
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` formActionType
+      `Prelude.hashWithSalt` labelDecorator
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` sectionalElements
@@ -145,6 +157,7 @@ instance Prelude.NFData UpdateFormData where
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf formActionType
+      `Prelude.seq` Prelude.rnf labelDecorator
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf schemaVersion
       `Prelude.seq` Prelude.rnf sectionalElements
@@ -159,6 +172,8 @@ instance Data.ToJSON UpdateFormData where
             ("fields" Data..=) Prelude.<$> fields,
             ("formActionType" Data..=)
               Prelude.<$> formActionType,
+            ("labelDecorator" Data..=)
+              Prelude.<$> labelDecorator,
             ("name" Data..=) Prelude.<$> name,
             ("schemaVersion" Data..=) Prelude.<$> schemaVersion,
             ("sectionalElements" Data..=)

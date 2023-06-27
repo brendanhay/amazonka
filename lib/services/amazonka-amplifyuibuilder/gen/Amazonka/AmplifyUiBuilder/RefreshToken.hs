@@ -104,7 +104,8 @@ instance Core.AWSRequest RefreshToken where
 
 instance Prelude.Hashable RefreshToken where
   hashWithSalt _salt RefreshToken' {..} =
-    _salt `Prelude.hashWithSalt` provider
+    _salt
+      `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` refreshTokenBody
 
 instance Prelude.NFData RefreshToken where

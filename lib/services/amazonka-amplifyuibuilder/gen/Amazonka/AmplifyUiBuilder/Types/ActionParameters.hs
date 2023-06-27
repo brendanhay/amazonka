@@ -174,7 +174,8 @@ instance Data.FromJSON ActionParameters where
 
 instance Prelude.Hashable ActionParameters where
   hashWithSalt _salt ActionParameters' {..} =
-    _salt `Prelude.hashWithSalt` anchor
+    _salt
+      `Prelude.hashWithSalt` anchor
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` global
       `Prelude.hashWithSalt` id

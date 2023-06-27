@@ -88,7 +88,8 @@ instance Data.FromJSON FieldPosition where
 
 instance Prelude.Hashable FieldPosition where
   hashWithSalt _salt FieldPosition' {..} =
-    _salt `Prelude.hashWithSalt` below
+    _salt
+      `Prelude.hashWithSalt` below
       `Prelude.hashWithSalt` fixed
       `Prelude.hashWithSalt` rightOf
 

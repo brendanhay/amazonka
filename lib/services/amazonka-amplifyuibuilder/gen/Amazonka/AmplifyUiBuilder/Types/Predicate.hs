@@ -35,6 +35,8 @@ data Predicate = Predicate'
     field :: Prelude.Maybe Prelude.Text,
     -- | The value to use when performing the evaluation.
     operand :: Prelude.Maybe Prelude.Text,
+    -- | The type of value to use when performing the evaluation.
+    operandType :: Prelude.Maybe Prelude.Text,
     -- | The operator to use to perform the evaluation.
     operator :: Prelude.Maybe Prelude.Text,
     -- | A list of predicates to combine logically.
@@ -56,6 +58,8 @@ data Predicate = Predicate'
 --
 -- 'operand', 'predicate_operand' - The value to use when performing the evaluation.
 --
+-- 'operandType', 'predicate_operandType' - The type of value to use when performing the evaluation.
+--
 -- 'operator', 'predicate_operator' - The operator to use to perform the evaluation.
 --
 -- 'or', 'predicate_or' - A list of predicates to combine logically.
@@ -66,6 +70,7 @@ newPredicate =
     { and = Prelude.Nothing,
       field = Prelude.Nothing,
       operand = Prelude.Nothing,
+      operandType = Prelude.Nothing,
       operator = Prelude.Nothing,
       or = Prelude.Nothing
     }
@@ -81,6 +86,10 @@ predicate_field = Lens.lens (\Predicate' {field} -> field) (\s@Predicate' {} a -
 -- | The value to use when performing the evaluation.
 predicate_operand :: Lens.Lens' Predicate (Prelude.Maybe Prelude.Text)
 predicate_operand = Lens.lens (\Predicate' {operand} -> operand) (\s@Predicate' {} a -> s {operand = a} :: Predicate)
+
+-- | The type of value to use when performing the evaluation.
+predicate_operandType :: Lens.Lens' Predicate (Prelude.Maybe Prelude.Text)
+predicate_operandType = Lens.lens (\Predicate' {operandType} -> operandType) (\s@Predicate' {} a -> s {operandType = a} :: Predicate)
 
 -- | The operator to use to perform the evaluation.
 predicate_operator :: Lens.Lens' Predicate (Prelude.Maybe Prelude.Text)
@@ -99,15 +108,18 @@ instance Data.FromJSON Predicate where
             Prelude.<$> (x Data..:? "and" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "field")
             Prelude.<*> (x Data..:? "operand")
+            Prelude.<*> (x Data..:? "operandType")
             Prelude.<*> (x Data..:? "operator")
             Prelude.<*> (x Data..:? "or" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Predicate where
   hashWithSalt _salt Predicate' {..} =
-    _salt `Prelude.hashWithSalt` and
+    _salt
+      `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` operand
+      `Prelude.hashWithSalt` operandType
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` or
 
@@ -116,6 +128,7 @@ instance Prelude.NFData Predicate where
     Prelude.rnf and
       `Prelude.seq` Prelude.rnf field
       `Prelude.seq` Prelude.rnf operand
+      `Prelude.seq` Prelude.rnf operandType
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf or
 
@@ -126,6 +139,7 @@ instance Data.ToJSON Predicate where
           [ ("and" Data..=) Prelude.<$> and,
             ("field" Data..=) Prelude.<$> field,
             ("operand" Data..=) Prelude.<$> operand,
+            ("operandType" Data..=) Prelude.<$> operandType,
             ("operator" Data..=) Prelude.<$> operator,
             ("or" Data..=) Prelude.<$> or
           ]

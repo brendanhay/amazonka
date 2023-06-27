@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     ComponentBindingPropertiesValue' {..} =
-      _salt `Prelude.hashWithSalt` bindingProperties
+      _salt
+        `Prelude.hashWithSalt` bindingProperties
         `Prelude.hashWithSalt` defaultValue
         `Prelude.hashWithSalt` type'
 

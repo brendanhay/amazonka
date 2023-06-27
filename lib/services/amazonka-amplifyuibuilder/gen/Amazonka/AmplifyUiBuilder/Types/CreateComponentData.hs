@@ -51,20 +51,20 @@ data CreateComponentData = CreateComponentData'
     sourceId :: Prelude.Maybe Prelude.Text,
     -- | One or more key-value pairs to use when tagging the component data.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The data binding information for the component\'s properties.
-    bindingProperties :: Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue,
+    -- | The name of the component
+    name :: Prelude.Text,
     -- | The component type. This can be an Amplify custom UI component or
     -- another custom component.
     componentType :: Prelude.Text,
-    -- | The name of the component
-    name :: Prelude.Text,
-    -- | Describes the component properties that can be overriden to customize an
-    -- instance of the component.
-    overrides :: Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Describes the component\'s properties.
     properties :: Prelude.HashMap Prelude.Text ComponentProperty,
     -- | A list of the unique variants of this component.
-    variants :: [ComponentVariant]
+    variants :: [ComponentVariant],
+    -- | Describes the component properties that can be overriden to customize an
+    -- instance of the component.
+    overrides :: Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The data binding information for the component\'s properties.
+    bindingProperties :: Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,26 +92,26 @@ data CreateComponentData = CreateComponentData'
 --
 -- 'tags', 'createComponentData_tags' - One or more key-value pairs to use when tagging the component data.
 --
--- 'bindingProperties', 'createComponentData_bindingProperties' - The data binding information for the component\'s properties.
+-- 'name', 'createComponentData_name' - The name of the component
 --
 -- 'componentType', 'createComponentData_componentType' - The component type. This can be an Amplify custom UI component or
 -- another custom component.
 --
--- 'name', 'createComponentData_name' - The name of the component
+-- 'properties', 'createComponentData_properties' - Describes the component\'s properties.
+--
+-- 'variants', 'createComponentData_variants' - A list of the unique variants of this component.
 --
 -- 'overrides', 'createComponentData_overrides' - Describes the component properties that can be overriden to customize an
 -- instance of the component.
 --
--- 'properties', 'createComponentData_properties' - Describes the component\'s properties.
---
--- 'variants', 'createComponentData_variants' - A list of the unique variants of this component.
+-- 'bindingProperties', 'createComponentData_bindingProperties' - The data binding information for the component\'s properties.
 newCreateComponentData ::
-  -- | 'componentType'
-  Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
+  -- | 'componentType'
+  Prelude.Text ->
   CreateComponentData
-newCreateComponentData pComponentType_ pName_ =
+newCreateComponentData pName_ pComponentType_ =
   CreateComponentData'
     { children = Prelude.Nothing,
       collectionProperties = Prelude.Nothing,
@@ -119,12 +119,12 @@ newCreateComponentData pComponentType_ pName_ =
       schemaVersion = Prelude.Nothing,
       sourceId = Prelude.Nothing,
       tags = Prelude.Nothing,
-      bindingProperties = Prelude.mempty,
-      componentType = pComponentType_,
       name = pName_,
-      overrides = Prelude.mempty,
+      componentType = pComponentType_,
       properties = Prelude.mempty,
-      variants = Prelude.mempty
+      variants = Prelude.mempty,
+      overrides = Prelude.mempty,
+      bindingProperties = Prelude.mempty
     }
 
 -- | A list of child components that are instances of the main component.
@@ -155,23 +155,14 @@ createComponentData_sourceId = Lens.lens (\CreateComponentData' {sourceId} -> so
 createComponentData_tags :: Lens.Lens' CreateComponentData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createComponentData_tags = Lens.lens (\CreateComponentData' {tags} -> tags) (\s@CreateComponentData' {} a -> s {tags = a} :: CreateComponentData) Prelude.. Lens.mapping Lens.coerced
 
--- | The data binding information for the component\'s properties.
-createComponentData_bindingProperties :: Lens.Lens' CreateComponentData (Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue)
-createComponentData_bindingProperties = Lens.lens (\CreateComponentData' {bindingProperties} -> bindingProperties) (\s@CreateComponentData' {} a -> s {bindingProperties = a} :: CreateComponentData) Prelude.. Lens.coerced
+-- | The name of the component
+createComponentData_name :: Lens.Lens' CreateComponentData Prelude.Text
+createComponentData_name = Lens.lens (\CreateComponentData' {name} -> name) (\s@CreateComponentData' {} a -> s {name = a} :: CreateComponentData)
 
 -- | The component type. This can be an Amplify custom UI component or
 -- another custom component.
 createComponentData_componentType :: Lens.Lens' CreateComponentData Prelude.Text
 createComponentData_componentType = Lens.lens (\CreateComponentData' {componentType} -> componentType) (\s@CreateComponentData' {} a -> s {componentType = a} :: CreateComponentData)
-
--- | The name of the component
-createComponentData_name :: Lens.Lens' CreateComponentData Prelude.Text
-createComponentData_name = Lens.lens (\CreateComponentData' {name} -> name) (\s@CreateComponentData' {} a -> s {name = a} :: CreateComponentData)
-
--- | Describes the component properties that can be overriden to customize an
--- instance of the component.
-createComponentData_overrides :: Lens.Lens' CreateComponentData (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text))
-createComponentData_overrides = Lens.lens (\CreateComponentData' {overrides} -> overrides) (\s@CreateComponentData' {} a -> s {overrides = a} :: CreateComponentData) Prelude.. Lens.coerced
 
 -- | Describes the component\'s properties.
 createComponentData_properties :: Lens.Lens' CreateComponentData (Prelude.HashMap Prelude.Text ComponentProperty)
@@ -181,20 +172,30 @@ createComponentData_properties = Lens.lens (\CreateComponentData' {properties} -
 createComponentData_variants :: Lens.Lens' CreateComponentData [ComponentVariant]
 createComponentData_variants = Lens.lens (\CreateComponentData' {variants} -> variants) (\s@CreateComponentData' {} a -> s {variants = a} :: CreateComponentData) Prelude.. Lens.coerced
 
+-- | Describes the component properties that can be overriden to customize an
+-- instance of the component.
+createComponentData_overrides :: Lens.Lens' CreateComponentData (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text))
+createComponentData_overrides = Lens.lens (\CreateComponentData' {overrides} -> overrides) (\s@CreateComponentData' {} a -> s {overrides = a} :: CreateComponentData) Prelude.. Lens.coerced
+
+-- | The data binding information for the component\'s properties.
+createComponentData_bindingProperties :: Lens.Lens' CreateComponentData (Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue)
+createComponentData_bindingProperties = Lens.lens (\CreateComponentData' {bindingProperties} -> bindingProperties) (\s@CreateComponentData' {} a -> s {bindingProperties = a} :: CreateComponentData) Prelude.. Lens.coerced
+
 instance Prelude.Hashable CreateComponentData where
   hashWithSalt _salt CreateComponentData' {..} =
-    _salt `Prelude.hashWithSalt` children
+    _salt
+      `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` collectionProperties
       `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` bindingProperties
-      `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` variants
+      `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` bindingProperties
 
 instance Prelude.NFData CreateComponentData where
   rnf CreateComponentData' {..} =
@@ -204,12 +205,12 @@ instance Prelude.NFData CreateComponentData where
       `Prelude.seq` Prelude.rnf schemaVersion
       `Prelude.seq` Prelude.rnf sourceId
       `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf bindingProperties
-      `Prelude.seq` Prelude.rnf componentType
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf componentType
       `Prelude.seq` Prelude.rnf properties
       `Prelude.seq` Prelude.rnf variants
+      `Prelude.seq` Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf bindingProperties
 
 instance Data.ToJSON CreateComponentData where
   toJSON CreateComponentData' {..} =
@@ -222,12 +223,12 @@ instance Data.ToJSON CreateComponentData where
             ("schemaVersion" Data..=) Prelude.<$> schemaVersion,
             ("sourceId" Data..=) Prelude.<$> sourceId,
             ("tags" Data..=) Prelude.<$> tags,
-            Prelude.Just
-              ("bindingProperties" Data..= bindingProperties),
-            Prelude.Just ("componentType" Data..= componentType),
             Prelude.Just ("name" Data..= name),
-            Prelude.Just ("overrides" Data..= overrides),
+            Prelude.Just ("componentType" Data..= componentType),
             Prelude.Just ("properties" Data..= properties),
-            Prelude.Just ("variants" Data..= variants)
+            Prelude.Just ("variants" Data..= variants),
+            Prelude.Just ("overrides" Data..= overrides),
+            Prelude.Just
+              ("bindingProperties" Data..= bindingProperties)
           ]
       )

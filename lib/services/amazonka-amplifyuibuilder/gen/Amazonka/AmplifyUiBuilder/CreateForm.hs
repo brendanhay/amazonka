@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new form for an Amplify app.
+-- Creates a new form for an Amplify.
 module Amazonka.AmplifyUiBuilder.CreateForm
   ( -- * Creating a Request
     CreateForm (..),
@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateForm where
 
 instance Prelude.Hashable CreateForm where
   hashWithSalt _salt CreateForm' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` formToCreate

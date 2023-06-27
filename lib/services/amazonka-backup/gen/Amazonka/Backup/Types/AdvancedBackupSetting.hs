@@ -138,7 +138,8 @@ instance Data.FromJSON AdvancedBackupSetting where
 
 instance Prelude.Hashable AdvancedBackupSetting where
   hashWithSalt _salt AdvancedBackupSetting' {..} =
-    _salt `Prelude.hashWithSalt` backupOptions
+    _salt
+      `Prelude.hashWithSalt` backupOptions
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData AdvancedBackupSetting where

@@ -27,8 +27,11 @@
 -- vault. If specified, Vault Lock enforces a minimum and maximum retention
 -- period for future backup and copy jobs that target a backup vault.
 --
--- Backup Vault Lock has yet to receive a third-party assessment for SEC
--- 17a-4(f) and CFTC.
+-- Backup Vault Lock has been assessed by Cohasset Associates for use in
+-- environments that are subject to SEC 17a-4, CFTC, and FINRA regulations.
+-- For more information about how Backup Vault Lock relates to these
+-- regulations, see the
+-- <samples/cohassetreport.zip Cohasset Associates Compliance Assessment.>
 module Amazonka.Backup.PutBackupVaultLockConfiguration
   ( -- * Creating a Request
     PutBackupVaultLockConfiguration (..),
@@ -281,7 +284,8 @@ instance
   hashWithSalt
     _salt
     PutBackupVaultLockConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` changeableForDays
+      _salt
+        `Prelude.hashWithSalt` changeableForDays
         `Prelude.hashWithSalt` maxRetentionDays
         `Prelude.hashWithSalt` minRetentionDays
         `Prelude.hashWithSalt` backupVaultName

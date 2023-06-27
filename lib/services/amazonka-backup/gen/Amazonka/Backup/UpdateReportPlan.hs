@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateReportPlan where
 
 instance Prelude.Hashable UpdateReportPlan where
   hashWithSalt _salt UpdateReportPlan' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
+    _salt
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` reportDeliveryChannel
       `Prelude.hashWithSalt` reportPlanDescription
       `Prelude.hashWithSalt` reportSetting

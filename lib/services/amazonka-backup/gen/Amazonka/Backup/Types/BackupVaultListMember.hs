@@ -314,7 +314,8 @@ instance Data.FromJSON BackupVaultListMember where
 
 instance Prelude.Hashable BackupVaultListMember where
   hashWithSalt _salt BackupVaultListMember' {..} =
-    _salt `Prelude.hashWithSalt` backupVaultArn
+    _salt
+      `Prelude.hashWithSalt` backupVaultArn
       `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` creatorRequestId

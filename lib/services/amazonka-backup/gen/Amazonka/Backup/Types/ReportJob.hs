@@ -193,7 +193,8 @@ instance Data.FromJSON ReportJob where
 
 instance Prelude.Hashable ReportJob where
   hashWithSalt _salt ReportJob' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` reportDestination
       `Prelude.hashWithSalt` reportJobId

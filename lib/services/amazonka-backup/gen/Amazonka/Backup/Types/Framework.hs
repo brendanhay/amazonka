@@ -143,7 +143,8 @@ instance Data.FromJSON Framework where
 
 instance Prelude.Hashable Framework where
   hashWithSalt _salt Framework' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` deploymentStatus
       `Prelude.hashWithSalt` frameworkArn
       `Prelude.hashWithSalt` frameworkDescription

@@ -111,7 +111,8 @@ instance Core.AWSRequest StartReportJob where
 
 instance Prelude.Hashable StartReportJob where
   hashWithSalt _salt StartReportJob' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
+    _salt
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` reportPlanName
 
 instance Prelude.NFData StartReportJob where

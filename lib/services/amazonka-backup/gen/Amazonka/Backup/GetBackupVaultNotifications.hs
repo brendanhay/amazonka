@@ -100,7 +100,8 @@ instance Core.AWSRequest GetBackupVaultNotifications where
       ( \s h x ->
           GetBackupVaultNotificationsResponse'
             Prelude.<$> (x Data..?> "BackupVaultArn")
-            Prelude.<*> ( x Data..?> "BackupVaultEvents"
+            Prelude.<*> ( x
+                            Data..?> "BackupVaultEvents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "BackupVaultName")

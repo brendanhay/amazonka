@@ -143,6 +143,7 @@ module Amazonka.Backup.Lens
     describeBackupJobResponse_percentDone,
     describeBackupJobResponse_recoveryPointArn,
     describeBackupJobResponse_resourceArn,
+    describeBackupJobResponse_resourceName,
     describeBackupJobResponse_resourceType,
     describeBackupJobResponse_startBy,
     describeBackupJobResponse_state,
@@ -189,6 +190,7 @@ module Amazonka.Backup.Lens
     describeProtectedResource_resourceArn,
     describeProtectedResourceResponse_lastBackupTime,
     describeProtectedResourceResponse_resourceArn,
+    describeProtectedResourceResponse_resourceName,
     describeProtectedResourceResponse_resourceType,
     describeProtectedResourceResponse_httpStatus,
 
@@ -212,6 +214,7 @@ module Amazonka.Backup.Lens
     describeRecoveryPointResponse_parentRecoveryPointArn,
     describeRecoveryPointResponse_recoveryPointArn,
     describeRecoveryPointResponse_resourceArn,
+    describeRecoveryPointResponse_resourceName,
     describeRecoveryPointResponse_resourceType,
     describeRecoveryPointResponse_sourceBackupVaultArn,
     describeRecoveryPointResponse_status,
@@ -551,6 +554,7 @@ module Amazonka.Backup.Lens
     startReportJobResponse_httpStatus,
 
     -- ** StartRestoreJob
+    startRestoreJob_copySourceTagsToRestoredResource,
     startRestoreJob_iamRoleArn,
     startRestoreJob_idempotencyToken,
     startRestoreJob_resourceType,
@@ -643,6 +647,7 @@ module Amazonka.Backup.Lens
     backupJob_percentDone,
     backupJob_recoveryPointArn,
     backupJob_resourceArn,
+    backupJob_resourceName,
     backupJob_resourceType,
     backupJob_startBy,
     backupJob_state,
@@ -772,6 +777,7 @@ module Amazonka.Backup.Lens
     copyJob_numberOfChildJobs,
     copyJob_parentJobId,
     copyJob_resourceArn,
+    copyJob_resourceName,
     copyJob_resourceType,
     copyJob_sourceBackupVaultArn,
     copyJob_sourceRecoveryPointArn,
@@ -811,6 +817,7 @@ module Amazonka.Backup.Lens
     -- ** ProtectedResource
     protectedResource_lastBackupTime,
     protectedResource_resourceArn,
+    protectedResource_resourceName,
     protectedResource_resourceType,
 
     -- ** RecoveryPointByBackupVault
@@ -831,6 +838,7 @@ module Amazonka.Backup.Lens
     recoveryPointByBackupVault_parentRecoveryPointArn,
     recoveryPointByBackupVault_recoveryPointArn,
     recoveryPointByBackupVault_resourceArn,
+    recoveryPointByBackupVault_resourceName,
     recoveryPointByBackupVault_resourceType,
     recoveryPointByBackupVault_sourceBackupVaultArn,
     recoveryPointByBackupVault_status,
@@ -844,6 +852,7 @@ module Amazonka.Backup.Lens
     recoveryPointByResource_isParent,
     recoveryPointByResource_parentRecoveryPointArn,
     recoveryPointByResource_recoveryPointArn,
+    recoveryPointByResource_resourceName,
     recoveryPointByResource_status,
     recoveryPointByResource_statusMessage,
 
@@ -854,7 +863,10 @@ module Amazonka.Backup.Lens
     recoveryPointCreator_backupRuleId,
 
     -- ** RecoveryPointMember
+    recoveryPointMember_backupVaultName,
     recoveryPointMember_recoveryPointArn,
+    recoveryPointMember_resourceArn,
+    recoveryPointMember_resourceType,
 
     -- ** RecoveryPointSelection
     recoveryPointSelection_dateRange,

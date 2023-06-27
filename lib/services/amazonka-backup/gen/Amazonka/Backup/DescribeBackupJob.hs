@@ -54,6 +54,7 @@ module Amazonka.Backup.DescribeBackupJob
     describeBackupJobResponse_percentDone,
     describeBackupJobResponse_recoveryPointArn,
     describeBackupJobResponse_resourceArn,
+    describeBackupJobResponse_resourceName,
     describeBackupJobResponse_resourceType,
     describeBackupJobResponse_startBy,
     describeBackupJobResponse_state,
@@ -115,7 +116,8 @@ instance Core.AWSRequest DescribeBackupJob where
             Prelude.<*> (x Data..?> "BackupVaultArn")
             Prelude.<*> (x Data..?> "BackupVaultName")
             Prelude.<*> (x Data..?> "BytesTransferred")
-            Prelude.<*> ( x Data..?> "ChildJobsInState"
+            Prelude.<*> ( x
+                            Data..?> "ChildJobsInState"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CompletionDate")
@@ -129,6 +131,7 @@ instance Core.AWSRequest DescribeBackupJob where
             Prelude.<*> (x Data..?> "PercentDone")
             Prelude.<*> (x Data..?> "RecoveryPointArn")
             Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "ResourceName")
             Prelude.<*> (x Data..?> "ResourceType")
             Prelude.<*> (x Data..?> "StartBy")
             Prelude.<*> (x Data..?> "State")
@@ -230,6 +233,9 @@ data DescribeBackupJobResponse = DescribeBackupJobResponse'
     -- | An ARN that uniquely identifies a saved resource. The format of the ARN
     -- depends on the resource type.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | This is the non-unique name of the resource that belongs to the
+    -- specified backup.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of Amazon Web Services resource to be backed up; for example,
     -- an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
     -- Relational Database Service (Amazon RDS) database.
@@ -326,6 +332,9 @@ data DescribeBackupJobResponse = DescribeBackupJobResponse'
 -- 'resourceArn', 'describeBackupJobResponse_resourceArn' - An ARN that uniquely identifies a saved resource. The format of the ARN
 -- depends on the resource type.
 --
+-- 'resourceName', 'describeBackupJobResponse_resourceName' - This is the non-unique name of the resource that belongs to the
+-- specified backup.
+--
 -- 'resourceType', 'describeBackupJobResponse_resourceType' - The type of Amazon Web Services resource to be backed up; for example,
 -- an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
 -- Relational Database Service (Amazon RDS) database.
@@ -371,6 +380,7 @@ newDescribeBackupJobResponse pHttpStatus_ =
       percentDone = Prelude.Nothing,
       recoveryPointArn = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       startBy = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -484,6 +494,11 @@ describeBackupJobResponse_recoveryPointArn = Lens.lens (\DescribeBackupJobRespon
 describeBackupJobResponse_resourceArn :: Lens.Lens' DescribeBackupJobResponse (Prelude.Maybe Prelude.Text)
 describeBackupJobResponse_resourceArn = Lens.lens (\DescribeBackupJobResponse' {resourceArn} -> resourceArn) (\s@DescribeBackupJobResponse' {} a -> s {resourceArn = a} :: DescribeBackupJobResponse)
 
+-- | This is the non-unique name of the resource that belongs to the
+-- specified backup.
+describeBackupJobResponse_resourceName :: Lens.Lens' DescribeBackupJobResponse (Prelude.Maybe Prelude.Text)
+describeBackupJobResponse_resourceName = Lens.lens (\DescribeBackupJobResponse' {resourceName} -> resourceName) (\s@DescribeBackupJobResponse' {} a -> s {resourceName = a} :: DescribeBackupJobResponse)
+
 -- | The type of Amazon Web Services resource to be backed up; for example,
 -- an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
 -- Relational Database Service (Amazon RDS) database.
@@ -535,6 +550,7 @@ instance Prelude.NFData DescribeBackupJobResponse where
       `Prelude.seq` Prelude.rnf percentDone
       `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf startBy
       `Prelude.seq` Prelude.rnf state

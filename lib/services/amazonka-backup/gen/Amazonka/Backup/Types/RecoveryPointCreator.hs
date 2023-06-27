@@ -108,7 +108,8 @@ instance Data.FromJSON RecoveryPointCreator where
 
 instance Prelude.Hashable RecoveryPointCreator where
   hashWithSalt _salt RecoveryPointCreator' {..} =
-    _salt `Prelude.hashWithSalt` backupPlanArn
+    _salt
+      `Prelude.hashWithSalt` backupPlanArn
       `Prelude.hashWithSalt` backupPlanId
       `Prelude.hashWithSalt` backupPlanVersion
       `Prelude.hashWithSalt` backupRuleId

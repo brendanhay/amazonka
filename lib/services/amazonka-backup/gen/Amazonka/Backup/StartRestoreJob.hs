@@ -27,6 +27,7 @@ module Amazonka.Backup.StartRestoreJob
     newStartRestoreJob,
 
     -- * Request Lenses
+    startRestoreJob_copySourceTagsToRestoredResource,
     startRestoreJob_iamRoleArn,
     startRestoreJob_idempotencyToken,
     startRestoreJob_resourceType,
@@ -53,7 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartRestoreJob' smart constructor.
 data StartRestoreJob = StartRestoreJob'
-  { -- | The Amazon Resource Name (ARN) of the IAM role that Backup uses to
+  { -- | This is an optional parameter. If this equals @True@, tags included in
+    -- the backup will be copied to the restored resource.
+    --
+    -- This can only be applied to backups created through Backup.
+    copySourceTagsToRestoredResource :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the IAM role that Backup uses to
     -- create the target resource; for example:
     -- @arn:aws:iam::123456789012:role\/S3Access@.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
@@ -69,6 +75,8 @@ data StartRestoreJob = StartRestoreJob'
     --
     -- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
     --
+    -- -   @CloudFormation@ for CloudFormation
+    --
     -- -   @DynamoDB@ for Amazon DynamoDB
     --
     -- -   @EBS@ for Amazon Elastic Block Store
@@ -83,9 +91,13 @@ data StartRestoreJob = StartRestoreJob'
     --
     -- -   @RDS@ for Amazon Relational Database Service
     --
+    -- -   @Redshift@ for Amazon Redshift
+    --
     -- -   @Storage Gateway@ for Storage Gateway
     --
     -- -   @S3@ for Amazon S3
+    --
+    -- -   @Timestream@ for Amazon Timestream
     --
     -- -   @VirtualMachine@ for virtual machines
     resourceType :: Prelude.Maybe Prelude.Text,
@@ -140,6 +152,11 @@ data StartRestoreJob = StartRestoreJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'copySourceTagsToRestoredResource', 'startRestoreJob_copySourceTagsToRestoredResource' - This is an optional parameter. If this equals @True@, tags included in
+-- the backup will be copied to the restored resource.
+--
+-- This can only be applied to backups created through Backup.
+--
 -- 'iamRoleArn', 'startRestoreJob_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role that Backup uses to
 -- create the target resource; for example:
 -- @arn:aws:iam::123456789012:role\/S3Access@.
@@ -156,6 +173,8 @@ data StartRestoreJob = StartRestoreJob'
 --
 -- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
 --
+-- -   @CloudFormation@ for CloudFormation
+--
 -- -   @DynamoDB@ for Amazon DynamoDB
 --
 -- -   @EBS@ for Amazon Elastic Block Store
@@ -170,9 +189,13 @@ data StartRestoreJob = StartRestoreJob'
 --
 -- -   @RDS@ for Amazon Relational Database Service
 --
+-- -   @Redshift@ for Amazon Redshift
+--
 -- -   @Storage Gateway@ for Storage Gateway
 --
 -- -   @S3@ for Amazon S3
+--
+-- -   @Timestream@ for Amazon Timestream
 --
 -- -   @VirtualMachine@ for virtual machines
 --
@@ -221,12 +244,21 @@ newStartRestoreJob ::
   StartRestoreJob
 newStartRestoreJob pRecoveryPointArn_ =
   StartRestoreJob'
-    { iamRoleArn = Prelude.Nothing,
+    { copySourceTagsToRestoredResource =
+        Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
       idempotencyToken = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       recoveryPointArn = pRecoveryPointArn_,
       metadata = Prelude.mempty
     }
+
+-- | This is an optional parameter. If this equals @True@, tags included in
+-- the backup will be copied to the restored resource.
+--
+-- This can only be applied to backups created through Backup.
+startRestoreJob_copySourceTagsToRestoredResource :: Lens.Lens' StartRestoreJob (Prelude.Maybe Prelude.Bool)
+startRestoreJob_copySourceTagsToRestoredResource = Lens.lens (\StartRestoreJob' {copySourceTagsToRestoredResource} -> copySourceTagsToRestoredResource) (\s@StartRestoreJob' {} a -> s {copySourceTagsToRestoredResource = a} :: StartRestoreJob)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Backup uses to
 -- create the target resource; for example:
@@ -248,6 +280,8 @@ startRestoreJob_idempotencyToken = Lens.lens (\StartRestoreJob' {idempotencyToke
 --
 -- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
 --
+-- -   @CloudFormation@ for CloudFormation
+--
 -- -   @DynamoDB@ for Amazon DynamoDB
 --
 -- -   @EBS@ for Amazon Elastic Block Store
@@ -262,9 +296,13 @@ startRestoreJob_idempotencyToken = Lens.lens (\StartRestoreJob' {idempotencyToke
 --
 -- -   @RDS@ for Amazon Relational Database Service
 --
+-- -   @Redshift@ for Amazon Redshift
+--
 -- -   @Storage Gateway@ for Storage Gateway
 --
 -- -   @S3@ for Amazon S3
+--
+-- -   @Timestream@ for Amazon Timestream
 --
 -- -   @VirtualMachine@ for virtual machines
 startRestoreJob_resourceType :: Lens.Lens' StartRestoreJob (Prelude.Maybe Prelude.Text)
@@ -330,7 +368,9 @@ instance Core.AWSRequest StartRestoreJob where
 
 instance Prelude.Hashable StartRestoreJob where
   hashWithSalt _salt StartRestoreJob' {..} =
-    _salt `Prelude.hashWithSalt` iamRoleArn
+    _salt
+      `Prelude.hashWithSalt` copySourceTagsToRestoredResource
+      `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` recoveryPointArn
@@ -338,7 +378,8 @@ instance Prelude.Hashable StartRestoreJob where
 
 instance Prelude.NFData StartRestoreJob where
   rnf StartRestoreJob' {..} =
-    Prelude.rnf iamRoleArn
+    Prelude.rnf copySourceTagsToRestoredResource
+      `Prelude.seq` Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf recoveryPointArn
@@ -359,7 +400,9 @@ instance Data.ToJSON StartRestoreJob where
   toJSON StartRestoreJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+          [ ("CopySourceTagsToRestoredResource" Data..=)
+              Prelude.<$> copySourceTagsToRestoredResource,
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
             ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
             ("ResourceType" Data..=) Prelude.<$> resourceType,

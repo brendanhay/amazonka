@@ -145,7 +145,8 @@ instance Data.FromJSON BackupSelectionsListMember where
 
 instance Prelude.Hashable BackupSelectionsListMember where
   hashWithSalt _salt BackupSelectionsListMember' {..} =
-    _salt `Prelude.hashWithSalt` backupPlanId
+    _salt
+      `Prelude.hashWithSalt` backupPlanId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` iamRoleArn

@@ -74,6 +74,15 @@ data BackupRule = BackupRule'
     -- | A value in minutes after a backup is scheduled before a job will be
     -- canceled if it doesn\'t start successfully. This value is optional. If
     -- this value is included, it must be at least 60 minutes to avoid errors.
+    --
+    -- During the start window, the backup job status remains in @CREATED@
+    -- status until it has successfully begun or until the start window time
+    -- has run out. If within the start window time Backup receives an error
+    -- that allows the job to be retried, Backup will automatically retry to
+    -- begin the job at least every 10 minutes until the backup successfully
+    -- begins (the job status changes to @RUNNING@) or until the job status
+    -- changes to @EXPIRED@ (which is expected to occur when the start window
+    -- time is over).
     startWindowMinutes :: Prelude.Maybe Prelude.Integer,
     -- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
     -- \'-_.\' characters.
@@ -138,6 +147,15 @@ data BackupRule = BackupRule'
 -- 'startWindowMinutes', 'backupRule_startWindowMinutes' - A value in minutes after a backup is scheduled before a job will be
 -- canceled if it doesn\'t start successfully. This value is optional. If
 -- this value is included, it must be at least 60 minutes to avoid errors.
+--
+-- During the start window, the backup job status remains in @CREATED@
+-- status until it has successfully begun or until the start window time
+-- has run out. If within the start window time Backup receives an error
+-- that allows the job to be retried, Backup will automatically retry to
+-- begin the job at least every 10 minutes until the backup successfully
+-- begins (the job status changes to @RUNNING@) or until the job status
+-- changes to @EXPIRED@ (which is expected to occur when the start window
+-- time is over).
 --
 -- 'ruleName', 'backupRule_ruleName' - A display name for a backup rule. Must contain 1 to 50 alphanumeric or
 -- \'-_.\' characters.
@@ -225,6 +243,15 @@ backupRule_scheduleExpression = Lens.lens (\BackupRule' {scheduleExpression} -> 
 -- | A value in minutes after a backup is scheduled before a job will be
 -- canceled if it doesn\'t start successfully. This value is optional. If
 -- this value is included, it must be at least 60 minutes to avoid errors.
+--
+-- During the start window, the backup job status remains in @CREATED@
+-- status until it has successfully begun or until the start window time
+-- has run out. If within the start window time Backup receives an error
+-- that allows the job to be retried, Backup will automatically retry to
+-- begin the job at least every 10 minutes until the backup successfully
+-- begins (the job status changes to @RUNNING@) or until the job status
+-- changes to @EXPIRED@ (which is expected to occur when the start window
+-- time is over).
 backupRule_startWindowMinutes :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Integer)
 backupRule_startWindowMinutes = Lens.lens (\BackupRule' {startWindowMinutes} -> startWindowMinutes) (\s@BackupRule' {} a -> s {startWindowMinutes = a} :: BackupRule)
 
@@ -250,7 +277,8 @@ instance Data.FromJSON BackupRule where
             Prelude.<*> (x Data..:? "CopyActions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "EnableContinuousBackup")
             Prelude.<*> (x Data..:? "Lifecycle")
-            Prelude.<*> ( x Data..:? "RecoveryPointTags"
+            Prelude.<*> ( x
+                            Data..:? "RecoveryPointTags"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RuleId")

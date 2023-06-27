@@ -99,6 +99,9 @@ data BackupJob = BackupJob'
     -- | An ARN that uniquely identifies a resource. The format of the ARN
     -- depends on the resource type.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | This is the non-unique name of the resource that belongs to the
+    -- specified backup.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of Amazon Web Services resource to be backed up; for example,
     -- an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
     -- Relational Database Service (Amazon RDS) database. For Windows Volume
@@ -198,6 +201,9 @@ data BackupJob = BackupJob'
 -- 'resourceArn', 'backupJob_resourceArn' - An ARN that uniquely identifies a resource. The format of the ARN
 -- depends on the resource type.
 --
+-- 'resourceName', 'backupJob_resourceName' - This is the non-unique name of the resource that belongs to the
+-- specified backup.
+--
 -- 'resourceType', 'backupJob_resourceType' - The type of Amazon Web Services resource to be backed up; for example,
 -- an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
 -- Relational Database Service (Amazon RDS) database. For Windows Volume
@@ -238,6 +244,7 @@ newBackupJob =
       percentDone = Prelude.Nothing,
       recoveryPointArn = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       startBy = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -349,6 +356,11 @@ backupJob_recoveryPointArn = Lens.lens (\BackupJob' {recoveryPointArn} -> recove
 backupJob_resourceArn :: Lens.Lens' BackupJob (Prelude.Maybe Prelude.Text)
 backupJob_resourceArn = Lens.lens (\BackupJob' {resourceArn} -> resourceArn) (\s@BackupJob' {} a -> s {resourceArn = a} :: BackupJob)
 
+-- | This is the non-unique name of the resource that belongs to the
+-- specified backup.
+backupJob_resourceName :: Lens.Lens' BackupJob (Prelude.Maybe Prelude.Text)
+backupJob_resourceName = Lens.lens (\BackupJob' {resourceName} -> resourceName) (\s@BackupJob' {} a -> s {resourceName = a} :: BackupJob)
+
 -- | The type of Amazon Web Services resource to be backed up; for example,
 -- an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
 -- Relational Database Service (Amazon RDS) database. For Windows Volume
@@ -400,6 +412,7 @@ instance Data.FromJSON BackupJob where
             Prelude.<*> (x Data..:? "PercentDone")
             Prelude.<*> (x Data..:? "RecoveryPointArn")
             Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ResourceName")
             Prelude.<*> (x Data..:? "ResourceType")
             Prelude.<*> (x Data..:? "StartBy")
             Prelude.<*> (x Data..:? "State")
@@ -408,7 +421,8 @@ instance Data.FromJSON BackupJob where
 
 instance Prelude.Hashable BackupJob where
   hashWithSalt _salt BackupJob' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` backupJobId
       `Prelude.hashWithSalt` backupOptions
       `Prelude.hashWithSalt` backupSizeInBytes
@@ -426,6 +440,7 @@ instance Prelude.Hashable BackupJob where
       `Prelude.hashWithSalt` percentDone
       `Prelude.hashWithSalt` recoveryPointArn
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` startBy
       `Prelude.hashWithSalt` state
@@ -451,7 +466,9 @@ instance Prelude.NFData BackupJob where
       `Prelude.seq` Prelude.rnf percentDone
       `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf startBy
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf
+        statusMessage

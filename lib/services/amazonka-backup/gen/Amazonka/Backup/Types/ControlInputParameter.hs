@@ -79,7 +79,8 @@ instance Data.FromJSON ControlInputParameter where
 
 instance Prelude.Hashable ControlInputParameter where
   hashWithSalt _salt ControlInputParameter' {..} =
-    _salt `Prelude.hashWithSalt` parameterName
+    _salt
+      `Prelude.hashWithSalt` parameterName
       `Prelude.hashWithSalt` parameterValue
 
 instance Prelude.NFData ControlInputParameter where

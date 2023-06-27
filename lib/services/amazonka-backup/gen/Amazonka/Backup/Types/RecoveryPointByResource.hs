@@ -55,6 +55,9 @@ data RecoveryPointByResource = RecoveryPointByResource'
     -- for example,
     -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
     recoveryPointArn :: Prelude.Maybe Prelude.Text,
+    -- | This is the non-unique name of the resource that belongs to the
+    -- specified backup.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | A status code specifying the state of the recovery point.
     status :: Prelude.Maybe RecoveryPointStatus,
     -- | A message explaining the reason of the recovery point deletion failure.
@@ -96,6 +99,9 @@ data RecoveryPointByResource = RecoveryPointByResource'
 -- for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
 --
+-- 'resourceName', 'recoveryPointByResource_resourceName' - This is the non-unique name of the resource that belongs to the
+-- specified backup.
+--
 -- 'status', 'recoveryPointByResource_status' - A status code specifying the state of the recovery point.
 --
 -- 'statusMessage', 'recoveryPointByResource_statusMessage' - A message explaining the reason of the recovery point deletion failure.
@@ -111,6 +117,7 @@ newRecoveryPointByResource =
       isParent = Prelude.Nothing,
       parentRecoveryPointArn = Prelude.Nothing,
       recoveryPointArn = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       status = Prelude.Nothing,
       statusMessage = Prelude.Nothing
     }
@@ -155,6 +162,11 @@ recoveryPointByResource_parentRecoveryPointArn = Lens.lens (\RecoveryPointByReso
 recoveryPointByResource_recoveryPointArn :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
 recoveryPointByResource_recoveryPointArn = Lens.lens (\RecoveryPointByResource' {recoveryPointArn} -> recoveryPointArn) (\s@RecoveryPointByResource' {} a -> s {recoveryPointArn = a} :: RecoveryPointByResource)
 
+-- | This is the non-unique name of the resource that belongs to the
+-- specified backup.
+recoveryPointByResource_resourceName :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
+recoveryPointByResource_resourceName = Lens.lens (\RecoveryPointByResource' {resourceName} -> resourceName) (\s@RecoveryPointByResource' {} a -> s {resourceName = a} :: RecoveryPointByResource)
+
 -- | A status code specifying the state of the recovery point.
 recoveryPointByResource_status :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe RecoveryPointStatus)
 recoveryPointByResource_status = Lens.lens (\RecoveryPointByResource' {status} -> status) (\s@RecoveryPointByResource' {} a -> s {status = a} :: RecoveryPointByResource)
@@ -176,19 +188,22 @@ instance Data.FromJSON RecoveryPointByResource where
             Prelude.<*> (x Data..:? "IsParent")
             Prelude.<*> (x Data..:? "ParentRecoveryPointArn")
             Prelude.<*> (x Data..:? "RecoveryPointArn")
+            Prelude.<*> (x Data..:? "ResourceName")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable RecoveryPointByResource where
   hashWithSalt _salt RecoveryPointByResource' {..} =
-    _salt `Prelude.hashWithSalt` backupSizeBytes
+    _salt
+      `Prelude.hashWithSalt` backupSizeBytes
       `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` encryptionKeyArn
       `Prelude.hashWithSalt` isParent
       `Prelude.hashWithSalt` parentRecoveryPointArn
       `Prelude.hashWithSalt` recoveryPointArn
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
 
@@ -201,5 +216,6 @@ instance Prelude.NFData RecoveryPointByResource where
       `Prelude.seq` Prelude.rnf isParent
       `Prelude.seq` Prelude.rnf parentRecoveryPointArn
       `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage

@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdateFramework where
 
 instance Prelude.Hashable UpdateFramework where
   hashWithSalt _salt UpdateFramework' {..} =
-    _salt `Prelude.hashWithSalt` frameworkControls
+    _salt
+      `Prelude.hashWithSalt` frameworkControls
       `Prelude.hashWithSalt` frameworkDescription
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` frameworkName

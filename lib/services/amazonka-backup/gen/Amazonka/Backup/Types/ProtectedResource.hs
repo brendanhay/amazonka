@@ -36,6 +36,9 @@ data ProtectedResource = ProtectedResource'
     -- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
     -- format of the ARN depends on the resource type.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | This is the non-unique name of the resource that belongs to the
+    -- specified backup.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of Amazon Web Services resource; for example, an Amazon Elastic
     -- Block Store (Amazon EBS) volume or an Amazon Relational Database Service
     -- (Amazon RDS) database. For Windows Volume Shadow Copy Service (VSS)
@@ -60,6 +63,9 @@ data ProtectedResource = ProtectedResource'
 -- 'resourceArn', 'protectedResource_resourceArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The
 -- format of the ARN depends on the resource type.
 --
+-- 'resourceName', 'protectedResource_resourceName' - This is the non-unique name of the resource that belongs to the
+-- specified backup.
+--
 -- 'resourceType', 'protectedResource_resourceType' - The type of Amazon Web Services resource; for example, an Amazon Elastic
 -- Block Store (Amazon EBS) volume or an Amazon Relational Database Service
 -- (Amazon RDS) database. For Windows Volume Shadow Copy Service (VSS)
@@ -71,6 +77,7 @@ newProtectedResource =
     { lastBackupTime =
         Prelude.Nothing,
       resourceArn = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       resourceType = Prelude.Nothing
     }
 
@@ -85,6 +92,11 @@ protectedResource_lastBackupTime = Lens.lens (\ProtectedResource' {lastBackupTim
 -- format of the ARN depends on the resource type.
 protectedResource_resourceArn :: Lens.Lens' ProtectedResource (Prelude.Maybe Prelude.Text)
 protectedResource_resourceArn = Lens.lens (\ProtectedResource' {resourceArn} -> resourceArn) (\s@ProtectedResource' {} a -> s {resourceArn = a} :: ProtectedResource)
+
+-- | This is the non-unique name of the resource that belongs to the
+-- specified backup.
+protectedResource_resourceName :: Lens.Lens' ProtectedResource (Prelude.Maybe Prelude.Text)
+protectedResource_resourceName = Lens.lens (\ProtectedResource' {resourceName} -> resourceName) (\s@ProtectedResource' {} a -> s {resourceName = a} :: ProtectedResource)
 
 -- | The type of Amazon Web Services resource; for example, an Amazon Elastic
 -- Block Store (Amazon EBS) volume or an Amazon Relational Database Service
@@ -101,17 +113,21 @@ instance Data.FromJSON ProtectedResource where
           ProtectedResource'
             Prelude.<$> (x Data..:? "LastBackupTime")
             Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ResourceName")
             Prelude.<*> (x Data..:? "ResourceType")
       )
 
 instance Prelude.Hashable ProtectedResource where
   hashWithSalt _salt ProtectedResource' {..} =
-    _salt `Prelude.hashWithSalt` lastBackupTime
+    _salt
+      `Prelude.hashWithSalt` lastBackupTime
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ProtectedResource where
   rnf ProtectedResource' {..} =
     Prelude.rnf lastBackupTime
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf resourceType

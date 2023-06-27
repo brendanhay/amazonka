@@ -78,6 +78,9 @@ data CopyJob = CopyJob'
     -- Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database
     -- Service (Amazon RDS) database.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | This is the non-unique name of the resource that belongs to the
+    -- specified backup.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of Amazon Web Services resource to be copied; for example, an
     -- Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational
     -- Database Service (Amazon RDS) database.
@@ -153,6 +156,9 @@ data CopyJob = CopyJob'
 -- Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database
 -- Service (Amazon RDS) database.
 --
+-- 'resourceName', 'copyJob_resourceName' - This is the non-unique name of the resource that belongs to the
+-- specified backup.
+--
 -- 'resourceType', 'copyJob_resourceType' - The type of Amazon Web Services resource to be copied; for example, an
 -- Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational
 -- Database Service (Amazon RDS) database.
@@ -186,6 +192,7 @@ newCopyJob =
       numberOfChildJobs = Prelude.Nothing,
       parentJobId = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       sourceBackupVaultArn = Prelude.Nothing,
       sourceRecoveryPointArn = Prelude.Nothing,
@@ -272,6 +279,11 @@ copyJob_parentJobId = Lens.lens (\CopyJob' {parentJobId} -> parentJobId) (\s@Cop
 copyJob_resourceArn :: Lens.Lens' CopyJob (Prelude.Maybe Prelude.Text)
 copyJob_resourceArn = Lens.lens (\CopyJob' {resourceArn} -> resourceArn) (\s@CopyJob' {} a -> s {resourceArn = a} :: CopyJob)
 
+-- | This is the non-unique name of the resource that belongs to the
+-- specified backup.
+copyJob_resourceName :: Lens.Lens' CopyJob (Prelude.Maybe Prelude.Text)
+copyJob_resourceName = Lens.lens (\CopyJob' {resourceName} -> resourceName) (\s@CopyJob' {} a -> s {resourceName = a} :: CopyJob)
+
 -- | The type of Amazon Web Services resource to be copied; for example, an
 -- Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational
 -- Database Service (Amazon RDS) database.
@@ -305,7 +317,8 @@ instance Data.FromJSON CopyJob where
           CopyJob'
             Prelude.<$> (x Data..:? "AccountId")
             Prelude.<*> (x Data..:? "BackupSizeInBytes")
-            Prelude.<*> ( x Data..:? "ChildJobsInState"
+            Prelude.<*> ( x
+                            Data..:? "ChildJobsInState"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CompletionDate")
@@ -320,6 +333,7 @@ instance Data.FromJSON CopyJob where
             Prelude.<*> (x Data..:? "NumberOfChildJobs")
             Prelude.<*> (x Data..:? "ParentJobId")
             Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ResourceName")
             Prelude.<*> (x Data..:? "ResourceType")
             Prelude.<*> (x Data..:? "SourceBackupVaultArn")
             Prelude.<*> (x Data..:? "SourceRecoveryPointArn")
@@ -329,7 +343,8 @@ instance Data.FromJSON CopyJob where
 
 instance Prelude.Hashable CopyJob where
   hashWithSalt _salt CopyJob' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` backupSizeInBytes
       `Prelude.hashWithSalt` childJobsInState
       `Prelude.hashWithSalt` completionDate
@@ -344,6 +359,7 @@ instance Prelude.Hashable CopyJob where
       `Prelude.hashWithSalt` numberOfChildJobs
       `Prelude.hashWithSalt` parentJobId
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` sourceBackupVaultArn
       `Prelude.hashWithSalt` sourceRecoveryPointArn
@@ -367,8 +383,10 @@ instance Prelude.NFData CopyJob where
       `Prelude.seq` Prelude.rnf numberOfChildJobs
       `Prelude.seq` Prelude.rnf parentJobId
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf sourceBackupVaultArn
-      `Prelude.seq` Prelude.rnf sourceRecoveryPointArn
+      `Prelude.seq` Prelude.rnf
+        sourceRecoveryPointArn
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf statusMessage

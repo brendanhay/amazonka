@@ -92,7 +92,8 @@ backupPlanInput_rules = Lens.lens (\BackupPlanInput' {rules} -> rules) (\s@Backu
 
 instance Prelude.Hashable BackupPlanInput where
   hashWithSalt _salt BackupPlanInput' {..} =
-    _salt `Prelude.hashWithSalt` advancedBackupSettings
+    _salt
+      `Prelude.hashWithSalt` advancedBackupSettings
       `Prelude.hashWithSalt` backupPlanName
       `Prelude.hashWithSalt` rules
 

@@ -53,6 +53,7 @@ module Amazonka.Backup.DescribeRecoveryPoint
     describeRecoveryPointResponse_parentRecoveryPointArn,
     describeRecoveryPointResponse_recoveryPointArn,
     describeRecoveryPointResponse_resourceArn,
+    describeRecoveryPointResponse_resourceName,
     describeRecoveryPointResponse_resourceType,
     describeRecoveryPointResponse_sourceBackupVaultArn,
     describeRecoveryPointResponse_status,
@@ -155,6 +156,7 @@ instance Core.AWSRequest DescribeRecoveryPoint where
             Prelude.<*> (x Data..?> "ParentRecoveryPointArn")
             Prelude.<*> (x Data..?> "RecoveryPointArn")
             Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "ResourceName")
             Prelude.<*> (x Data..?> "ResourceType")
             Prelude.<*> (x Data..?> "SourceBackupVaultArn")
             Prelude.<*> (x Data..?> "Status")
@@ -165,7 +167,8 @@ instance Core.AWSRequest DescribeRecoveryPoint where
 
 instance Prelude.Hashable DescribeRecoveryPoint where
   hashWithSalt _salt DescribeRecoveryPoint' {..} =
-    _salt `Prelude.hashWithSalt` backupVaultName
+    _salt
+      `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` recoveryPointArn
 
 instance Prelude.NFData DescribeRecoveryPoint where
@@ -274,6 +277,9 @@ data DescribeRecoveryPointResponse = DescribeRecoveryPointResponse'
     -- | An ARN that uniquely identifies a saved resource. The format of the ARN
     -- depends on the resource type.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | This is the non-unique name of the resource that belongs to the
+    -- specified backup.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of Amazon Web Services resource to save as a recovery point;
     -- for example, an Amazon Elastic Block Store (Amazon EBS) volume or an
     -- Amazon Relational Database Service (Amazon RDS) database.
@@ -310,9 +316,13 @@ data DescribeRecoveryPointResponse = DescribeRecoveryPointResponse'
     -- conditions are met, the next instance of a backup rule running will
     -- result in a new continuous recovery point being created. The recovery
     -- points with STOPPED status do not need to be deleted.
+    --
+    -- For SAP HANA on Amazon EC2 @STOPPED@ status occurs due to user action,
+    -- application misconfiguration, or backup failure. To ensure that future
+    -- continuous backups succeed, refer to the recovery point status and check
+    -- SAP HANA for details.
     status :: Prelude.Maybe RecoveryPointStatus,
-    -- | A status message explaining the reason for the recovery point deletion
-    -- failure.
+    -- | A status message explaining the status of the recovery point.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | Specifies the storage class of the recovery point. Valid values are
     -- @WARM@ or @COLD@.
@@ -406,6 +416,9 @@ data DescribeRecoveryPointResponse = DescribeRecoveryPointResponse'
 -- 'resourceArn', 'describeRecoveryPointResponse_resourceArn' - An ARN that uniquely identifies a saved resource. The format of the ARN
 -- depends on the resource type.
 --
+-- 'resourceName', 'describeRecoveryPointResponse_resourceName' - This is the non-unique name of the resource that belongs to the
+-- specified backup.
+--
 -- 'resourceType', 'describeRecoveryPointResponse_resourceType' - The type of Amazon Web Services resource to save as a recovery point;
 -- for example, an Amazon Elastic Block Store (Amazon EBS) volume or an
 -- Amazon Relational Database Service (Amazon RDS) database.
@@ -443,8 +456,12 @@ data DescribeRecoveryPointResponse = DescribeRecoveryPointResponse'
 -- result in a new continuous recovery point being created. The recovery
 -- points with STOPPED status do not need to be deleted.
 --
--- 'statusMessage', 'describeRecoveryPointResponse_statusMessage' - A status message explaining the reason for the recovery point deletion
--- failure.
+-- For SAP HANA on Amazon EC2 @STOPPED@ status occurs due to user action,
+-- application misconfiguration, or backup failure. To ensure that future
+-- continuous backups succeed, refer to the recovery point status and check
+-- SAP HANA for details.
+--
+-- 'statusMessage', 'describeRecoveryPointResponse_statusMessage' - A status message explaining the status of the recovery point.
 --
 -- 'storageClass', 'describeRecoveryPointResponse_storageClass' - Specifies the storage class of the recovery point. Valid values are
 -- @WARM@ or @COLD@.
@@ -474,6 +491,7 @@ newDescribeRecoveryPointResponse pHttpStatus_ =
       parentRecoveryPointArn = Prelude.Nothing,
       recoveryPointArn = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       sourceBackupVaultArn = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -592,6 +610,11 @@ describeRecoveryPointResponse_recoveryPointArn = Lens.lens (\DescribeRecoveryPoi
 describeRecoveryPointResponse_resourceArn :: Lens.Lens' DescribeRecoveryPointResponse (Prelude.Maybe Prelude.Text)
 describeRecoveryPointResponse_resourceArn = Lens.lens (\DescribeRecoveryPointResponse' {resourceArn} -> resourceArn) (\s@DescribeRecoveryPointResponse' {} a -> s {resourceArn = a} :: DescribeRecoveryPointResponse)
 
+-- | This is the non-unique name of the resource that belongs to the
+-- specified backup.
+describeRecoveryPointResponse_resourceName :: Lens.Lens' DescribeRecoveryPointResponse (Prelude.Maybe Prelude.Text)
+describeRecoveryPointResponse_resourceName = Lens.lens (\DescribeRecoveryPointResponse' {resourceName} -> resourceName) (\s@DescribeRecoveryPointResponse' {} a -> s {resourceName = a} :: DescribeRecoveryPointResponse)
+
 -- | The type of Amazon Web Services resource to save as a recovery point;
 -- for example, an Amazon Elastic Block Store (Amazon EBS) volume or an
 -- Amazon Relational Database Service (Amazon RDS) database.
@@ -632,11 +655,15 @@ describeRecoveryPointResponse_sourceBackupVaultArn = Lens.lens (\DescribeRecover
 -- conditions are met, the next instance of a backup rule running will
 -- result in a new continuous recovery point being created. The recovery
 -- points with STOPPED status do not need to be deleted.
+--
+-- For SAP HANA on Amazon EC2 @STOPPED@ status occurs due to user action,
+-- application misconfiguration, or backup failure. To ensure that future
+-- continuous backups succeed, refer to the recovery point status and check
+-- SAP HANA for details.
 describeRecoveryPointResponse_status :: Lens.Lens' DescribeRecoveryPointResponse (Prelude.Maybe RecoveryPointStatus)
 describeRecoveryPointResponse_status = Lens.lens (\DescribeRecoveryPointResponse' {status} -> status) (\s@DescribeRecoveryPointResponse' {} a -> s {status = a} :: DescribeRecoveryPointResponse)
 
--- | A status message explaining the reason for the recovery point deletion
--- failure.
+-- | A status message explaining the status of the recovery point.
 describeRecoveryPointResponse_statusMessage :: Lens.Lens' DescribeRecoveryPointResponse (Prelude.Maybe Prelude.Text)
 describeRecoveryPointResponse_statusMessage = Lens.lens (\DescribeRecoveryPointResponse' {statusMessage} -> statusMessage) (\s@DescribeRecoveryPointResponse' {} a -> s {statusMessage = a} :: DescribeRecoveryPointResponse)
 
@@ -668,8 +695,10 @@ instance Prelude.NFData DescribeRecoveryPointResponse where
       `Prelude.seq` Prelude.rnf parentRecoveryPointArn
       `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
+      `Prelude.seq` Prelude.rnf
+        sourceBackupVaultArn
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf storageClass

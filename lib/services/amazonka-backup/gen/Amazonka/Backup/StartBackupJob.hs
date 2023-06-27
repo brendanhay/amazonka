@@ -101,6 +101,15 @@ data StartBackupJob = StartBackupJob'
     -- canceled if it doesn\'t start successfully. This value is optional, and
     -- the default is 8 hours. If this value is included, it must be at least
     -- 60 minutes to avoid errors.
+    --
+    -- During the start window, the backup job status remains in @CREATED@
+    -- status until it has successfully begun or until the start window time
+    -- has run out. If within the start window time Backup receives an error
+    -- that allows the job to be retried, Backup will automatically retry to
+    -- begin the job at least every 10 minutes until the backup successfully
+    -- begins (the job status changes to @RUNNING@) or until the job status
+    -- changes to @EXPIRED@ (which is expected to occur when the start window
+    -- time is over).
     startWindowMinutes :: Prelude.Maybe Prelude.Integer,
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
@@ -165,6 +174,15 @@ data StartBackupJob = StartBackupJob'
 -- canceled if it doesn\'t start successfully. This value is optional, and
 -- the default is 8 hours. If this value is included, it must be at least
 -- 60 minutes to avoid errors.
+--
+-- During the start window, the backup job status remains in @CREATED@
+-- status until it has successfully begun or until the start window time
+-- has run out. If within the start window time Backup receives an error
+-- that allows the job to be retried, Backup will automatically retry to
+-- begin the job at least every 10 minutes until the backup successfully
+-- begins (the job status changes to @RUNNING@) or until the job status
+-- changes to @EXPIRED@ (which is expected to occur when the start window
+-- time is over).
 --
 -- 'backupVaultName', 'startBackupJob_backupVaultName' - The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -251,6 +269,15 @@ startBackupJob_recoveryPointTags = Lens.lens (\StartBackupJob' {recoveryPointTag
 -- canceled if it doesn\'t start successfully. This value is optional, and
 -- the default is 8 hours. If this value is included, it must be at least
 -- 60 minutes to avoid errors.
+--
+-- During the start window, the backup job status remains in @CREATED@
+-- status until it has successfully begun or until the start window time
+-- has run out. If within the start window time Backup receives an error
+-- that allows the job to be retried, Backup will automatically retry to
+-- begin the job at least every 10 minutes until the backup successfully
+-- begins (the job status changes to @RUNNING@) or until the job status
+-- changes to @EXPIRED@ (which is expected to occur when the start window
+-- time is over).
 startBackupJob_startWindowMinutes :: Lens.Lens' StartBackupJob (Prelude.Maybe Prelude.Integer)
 startBackupJob_startWindowMinutes = Lens.lens (\StartBackupJob' {startWindowMinutes} -> startWindowMinutes) (\s@StartBackupJob' {} a -> s {startWindowMinutes = a} :: StartBackupJob)
 
@@ -290,7 +317,8 @@ instance Core.AWSRequest StartBackupJob where
 
 instance Prelude.Hashable StartBackupJob where
   hashWithSalt _salt StartBackupJob' {..} =
-    _salt `Prelude.hashWithSalt` backupOptions
+    _salt
+      `Prelude.hashWithSalt` backupOptions
       `Prelude.hashWithSalt` completeWindowMinutes
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` lifecycle
@@ -362,7 +390,10 @@ data StartBackupJobResponse = StartBackupJobResponse'
     -- | This is a returned boolean value indicating this is a parent (composite)
     -- backup job.
     isParent :: Prelude.Maybe Prelude.Bool,
-    -- | An ARN that uniquely identifies a recovery point; for example,
+    -- | /Note: This field is only returned for Amazon EFS and Advanced DynamoDB
+    -- resources./
+    --
+    -- An ARN that uniquely identifies a recovery point; for example,
     -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
     recoveryPointArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -388,7 +419,10 @@ data StartBackupJobResponse = StartBackupJobResponse'
 -- 'isParent', 'startBackupJobResponse_isParent' - This is a returned boolean value indicating this is a parent (composite)
 -- backup job.
 --
--- 'recoveryPointArn', 'startBackupJobResponse_recoveryPointArn' - An ARN that uniquely identifies a recovery point; for example,
+-- 'recoveryPointArn', 'startBackupJobResponse_recoveryPointArn' - /Note: This field is only returned for Amazon EFS and Advanced DynamoDB
+-- resources./
+--
+-- An ARN that uniquely identifies a recovery point; for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
 --
 -- 'httpStatus', 'startBackupJobResponse_httpStatus' - The response's http status code.
@@ -422,7 +456,10 @@ startBackupJobResponse_creationDate = Lens.lens (\StartBackupJobResponse' {creat
 startBackupJobResponse_isParent :: Lens.Lens' StartBackupJobResponse (Prelude.Maybe Prelude.Bool)
 startBackupJobResponse_isParent = Lens.lens (\StartBackupJobResponse' {isParent} -> isParent) (\s@StartBackupJobResponse' {} a -> s {isParent = a} :: StartBackupJobResponse)
 
--- | An ARN that uniquely identifies a recovery point; for example,
+-- | /Note: This field is only returned for Amazon EFS and Advanced DynamoDB
+-- resources./
+--
+-- An ARN that uniquely identifies a recovery point; for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
 startBackupJobResponse_recoveryPointArn :: Lens.Lens' StartBackupJobResponse (Prelude.Maybe Prelude.Text)
 startBackupJobResponse_recoveryPointArn = Lens.lens (\StartBackupJobResponse' {recoveryPointArn} -> recoveryPointArn) (\s@StartBackupJobResponse' {} a -> s {recoveryPointArn = a} :: StartBackupJobResponse)

@@ -116,22 +116,22 @@ instance Core.AWSPager ListBackupPlanVersions where
     | Core.stop
         ( rs
             Lens.^? listBackupPlanVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBackupPlanVersionsResponse_backupPlanVersionsList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBackupPlanVersions_nextToken
           Lens..~ rs
           Lens.^? listBackupPlanVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupPlanVersions where
   type
@@ -143,7 +143,8 @@ instance Core.AWSRequest ListBackupPlanVersions where
     Response.receiveJSON
       ( \s h x ->
           ListBackupPlanVersionsResponse'
-            Prelude.<$> ( x Data..?> "BackupPlanVersionsList"
+            Prelude.<$> ( x
+                            Data..?> "BackupPlanVersionsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -152,7 +153,8 @@ instance Core.AWSRequest ListBackupPlanVersions where
 
 instance Prelude.Hashable ListBackupPlanVersions where
   hashWithSalt _salt ListBackupPlanVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` backupPlanId
 

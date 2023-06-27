@@ -73,10 +73,12 @@ instance Core.AWSRequest DescribeRegionSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeRegionSettingsResponse'
-            Prelude.<$> ( x Data..?> "ResourceTypeManagementPreference"
+            Prelude.<$> ( x
+                            Data..?> "ResourceTypeManagementPreference"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ResourceTypeOptInPreference"
+            Prelude.<*> ( x
+                            Data..?> "ResourceTypeOptInPreference"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

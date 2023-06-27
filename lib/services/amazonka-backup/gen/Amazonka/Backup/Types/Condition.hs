@@ -120,7 +120,8 @@ instance Data.FromJSON Condition where
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` conditionType
+    _salt
+      `Prelude.hashWithSalt` conditionType
       `Prelude.hashWithSalt` conditionKey
       `Prelude.hashWithSalt` conditionValue
 

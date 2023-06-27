@@ -103,22 +103,22 @@ instance Core.AWSPager ListBackupPlanTemplates where
     | Core.stop
         ( rs
             Lens.^? listBackupPlanTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBackupPlanTemplatesResponse_backupPlanTemplatesList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBackupPlanTemplates_nextToken
           Lens..~ rs
           Lens.^? listBackupPlanTemplatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupPlanTemplates where
   type
@@ -130,7 +130,8 @@ instance Core.AWSRequest ListBackupPlanTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListBackupPlanTemplatesResponse'
-            Prelude.<$> ( x Data..?> "BackupPlanTemplatesList"
+            Prelude.<$> ( x
+                            Data..?> "BackupPlanTemplatesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -139,7 +140,8 @@ instance Core.AWSRequest ListBackupPlanTemplates where
 
 instance Prelude.Hashable ListBackupPlanTemplates where
   hashWithSalt _salt ListBackupPlanTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBackupPlanTemplates where

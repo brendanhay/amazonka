@@ -109,7 +109,8 @@ instance Core.AWSRequest GetBackupPlan where
     Response.receiveJSON
       ( \s h x ->
           GetBackupPlanResponse'
-            Prelude.<$> ( x Data..?> "AdvancedBackupSettings"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedBackupSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "BackupPlan")
@@ -125,7 +126,8 @@ instance Core.AWSRequest GetBackupPlan where
 
 instance Prelude.Hashable GetBackupPlan where
   hashWithSalt _salt GetBackupPlan' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` backupPlanId
 
 instance Prelude.NFData GetBackupPlan where

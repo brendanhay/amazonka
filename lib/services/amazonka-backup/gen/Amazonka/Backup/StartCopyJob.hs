@@ -189,7 +189,8 @@ instance Core.AWSRequest StartCopyJob where
 
 instance Prelude.Hashable StartCopyJob where
   hashWithSalt _salt StartCopyJob' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
+    _salt
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` recoveryPointArn
       `Prelude.hashWithSalt` sourceBackupVaultName

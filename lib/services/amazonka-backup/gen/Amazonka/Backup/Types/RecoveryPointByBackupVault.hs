@@ -109,6 +109,9 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
     -- | An ARN that uniquely identifies a resource. The format of the ARN
     -- depends on the resource type.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | This is the non-unique name of the resource that belongs to the
+    -- specified backup.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of Amazon Web Services resource saved as a recovery point; for
     -- example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
     -- Relational Database Service (Amazon RDS) database. For Windows Volume
@@ -210,6 +213,9 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
 -- 'resourceArn', 'recoveryPointByBackupVault_resourceArn' - An ARN that uniquely identifies a resource. The format of the ARN
 -- depends on the resource type.
 --
+-- 'resourceName', 'recoveryPointByBackupVault_resourceName' - This is the non-unique name of the resource that belongs to the
+-- specified backup.
+--
 -- 'resourceType', 'recoveryPointByBackupVault_resourceType' - The type of Amazon Web Services resource saved as a recovery point; for
 -- example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
 -- Relational Database Service (Amazon RDS) database. For Windows Volume
@@ -245,6 +251,7 @@ newRecoveryPointByBackupVault =
       parentRecoveryPointArn = Prelude.Nothing,
       recoveryPointArn = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       sourceBackupVaultArn = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -361,6 +368,11 @@ recoveryPointByBackupVault_recoveryPointArn = Lens.lens (\RecoveryPointByBackupV
 recoveryPointByBackupVault_resourceArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
 recoveryPointByBackupVault_resourceArn = Lens.lens (\RecoveryPointByBackupVault' {resourceArn} -> resourceArn) (\s@RecoveryPointByBackupVault' {} a -> s {resourceArn = a} :: RecoveryPointByBackupVault)
 
+-- | This is the non-unique name of the resource that belongs to the
+-- specified backup.
+recoveryPointByBackupVault_resourceName :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
+recoveryPointByBackupVault_resourceName = Lens.lens (\RecoveryPointByBackupVault' {resourceName} -> resourceName) (\s@RecoveryPointByBackupVault' {} a -> s {resourceName = a} :: RecoveryPointByBackupVault)
+
 -- | The type of Amazon Web Services resource saved as a recovery point; for
 -- example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
 -- Relational Database Service (Amazon RDS) database. For Windows Volume
@@ -406,6 +418,7 @@ instance Data.FromJSON RecoveryPointByBackupVault where
             Prelude.<*> (x Data..:? "ParentRecoveryPointArn")
             Prelude.<*> (x Data..:? "RecoveryPointArn")
             Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ResourceName")
             Prelude.<*> (x Data..:? "ResourceType")
             Prelude.<*> (x Data..:? "SourceBackupVaultArn")
             Prelude.<*> (x Data..:? "Status")
@@ -414,7 +427,8 @@ instance Data.FromJSON RecoveryPointByBackupVault where
 
 instance Prelude.Hashable RecoveryPointByBackupVault where
   hashWithSalt _salt RecoveryPointByBackupVault' {..} =
-    _salt `Prelude.hashWithSalt` backupSizeInBytes
+    _salt
+      `Prelude.hashWithSalt` backupSizeInBytes
       `Prelude.hashWithSalt` backupVaultArn
       `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` calculatedLifecycle
@@ -431,6 +445,7 @@ instance Prelude.Hashable RecoveryPointByBackupVault where
       `Prelude.hashWithSalt` parentRecoveryPointArn
       `Prelude.hashWithSalt` recoveryPointArn
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` sourceBackupVaultArn
       `Prelude.hashWithSalt` status
@@ -455,7 +470,9 @@ instance Prelude.NFData RecoveryPointByBackupVault where
       `Prelude.seq` Prelude.rnf parentRecoveryPointArn
       `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
+      `Prelude.seq` Prelude.rnf
+        sourceBackupVaultArn
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage

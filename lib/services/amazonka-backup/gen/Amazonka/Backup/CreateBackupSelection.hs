@@ -144,7 +144,8 @@ instance Core.AWSRequest CreateBackupSelection where
 
 instance Prelude.Hashable CreateBackupSelection where
   hashWithSalt _salt CreateBackupSelection' {..} =
-    _salt `Prelude.hashWithSalt` creatorRequestId
+    _salt
+      `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` backupPlanId
       `Prelude.hashWithSalt` backupSelection
 

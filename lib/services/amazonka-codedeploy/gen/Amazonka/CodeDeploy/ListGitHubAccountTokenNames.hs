@@ -88,22 +88,22 @@ instance Core.AWSPager ListGitHubAccountTokenNames where
     | Core.stop
         ( rs
             Lens.^? listGitHubAccountTokenNamesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGitHubAccountTokenNamesResponse_tokenNameList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGitHubAccountTokenNames_nextToken
           Lens..~ rs
           Lens.^? listGitHubAccountTokenNamesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGitHubAccountTokenNames where
   type

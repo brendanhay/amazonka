@@ -103,7 +103,8 @@ instance Core.AWSRequest BatchGetDeploymentGroups where
     Response.receiveJSON
       ( \s h x ->
           BatchGetDeploymentGroupsResponse'
-            Prelude.<$> ( x Data..?> "deploymentGroupsInfo"
+            Prelude.<$> ( x
+                            Data..?> "deploymentGroupsInfo"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "errorMessage")
@@ -112,7 +113,8 @@ instance Core.AWSRequest BatchGetDeploymentGroups where
 
 instance Prelude.Hashable BatchGetDeploymentGroups where
   hashWithSalt _salt BatchGetDeploymentGroups' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` deploymentGroupNames
 
 instance Prelude.NFData BatchGetDeploymentGroups where

@@ -108,7 +108,8 @@ instance Core.AWSRequest ContinueDeployment where
 
 instance Prelude.Hashable ContinueDeployment where
   hashWithSalt _salt ContinueDeployment' {..} =
-    _salt `Prelude.hashWithSalt` deploymentId
+    _salt
+      `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` deploymentWaitType
 
 instance Prelude.NFData ContinueDeployment where

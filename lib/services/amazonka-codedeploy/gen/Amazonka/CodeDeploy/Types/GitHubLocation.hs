@@ -90,7 +90,8 @@ instance Data.FromJSON GitHubLocation where
 
 instance Prelude.Hashable GitHubLocation where
   hashWithSalt _salt GitHubLocation' {..} =
-    _salt `Prelude.hashWithSalt` commitId
+    _salt
+      `Prelude.hashWithSalt` commitId
       `Prelude.hashWithSalt` repository
 
 instance Prelude.NFData GitHubLocation where

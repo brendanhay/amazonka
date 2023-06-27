@@ -122,7 +122,8 @@ instance
     BatchGetApplicationRevisions
   where
   hashWithSalt _salt BatchGetApplicationRevisions' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` revisions
 
 instance Prelude.NFData BatchGetApplicationRevisions where

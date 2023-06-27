@@ -135,7 +135,7 @@ instance
       ( \s h x ->
           PutLifecycleEventHookExecutionStatusResponse'
             Prelude.<$> (x Data..?> "lifecycleEventHookExecutionId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     PutLifecycleEventHookExecutionStatus' {..} =
-      _salt `Prelude.hashWithSalt` deploymentId
+      _salt
+        `Prelude.hashWithSalt` deploymentId
         `Prelude.hashWithSalt` lifecycleEventHookExecutionId
         `Prelude.hashWithSalt` status
 

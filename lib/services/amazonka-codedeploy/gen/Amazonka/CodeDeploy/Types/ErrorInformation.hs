@@ -210,7 +210,8 @@ instance Data.FromJSON ErrorInformation where
 
 instance Prelude.Hashable ErrorInformation where
   hashWithSalt _salt ErrorInformation' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ErrorInformation where

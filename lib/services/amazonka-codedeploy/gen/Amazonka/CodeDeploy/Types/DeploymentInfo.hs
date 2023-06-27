@@ -541,7 +541,8 @@ instance Data.FromJSON DeploymentInfo where
             Prelude.<*> (x Data..:? "deploymentGroupName")
             Prelude.<*> (x Data..:? "deploymentId")
             Prelude.<*> (x Data..:? "deploymentOverview")
-            Prelude.<*> ( x Data..:? "deploymentStatusMessages"
+            Prelude.<*> ( x
+                            Data..:? "deploymentStatusMessages"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "deploymentStyle")

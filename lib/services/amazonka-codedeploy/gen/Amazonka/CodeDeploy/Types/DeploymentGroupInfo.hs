@@ -358,7 +358,8 @@ instance Data.FromJSON DeploymentGroupInfo where
             Prelude.<$> (x Data..:? "alarmConfiguration")
             Prelude.<*> (x Data..:? "applicationName")
             Prelude.<*> (x Data..:? "autoRollbackConfiguration")
-            Prelude.<*> ( x Data..:? "autoScalingGroups"
+            Prelude.<*> ( x
+                            Data..:? "autoScalingGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "blueGreenDeploymentConfiguration")
@@ -373,21 +374,24 @@ instance Data.FromJSON DeploymentGroupInfo where
             Prelude.<*> (x Data..:? "lastAttemptedDeployment")
             Prelude.<*> (x Data..:? "lastSuccessfulDeployment")
             Prelude.<*> (x Data..:? "loadBalancerInfo")
-            Prelude.<*> ( x Data..:? "onPremisesInstanceTagFilters"
+            Prelude.<*> ( x
+                            Data..:? "onPremisesInstanceTagFilters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "onPremisesTagSet")
             Prelude.<*> (x Data..:? "outdatedInstancesStrategy")
             Prelude.<*> (x Data..:? "serviceRoleArn")
             Prelude.<*> (x Data..:? "targetRevision")
-            Prelude.<*> ( x Data..:? "triggerConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "triggerConfigurations"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DeploymentGroupInfo where
   hashWithSalt _salt DeploymentGroupInfo' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` autoRollbackConfiguration
       `Prelude.hashWithSalt` autoScalingGroups

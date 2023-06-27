@@ -103,7 +103,8 @@ instance Data.FromJSON EC2TagFilter where
 
 instance Prelude.Hashable EC2TagFilter where
   hashWithSalt _salt EC2TagFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 

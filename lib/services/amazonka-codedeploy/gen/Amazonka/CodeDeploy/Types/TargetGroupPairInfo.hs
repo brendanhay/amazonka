@@ -103,7 +103,8 @@ instance Data.FromJSON TargetGroupPairInfo where
 
 instance Prelude.Hashable TargetGroupPairInfo where
   hashWithSalt _salt TargetGroupPairInfo' {..} =
-    _salt `Prelude.hashWithSalt` prodTrafficRoute
+    _salt
+      `Prelude.hashWithSalt` prodTrafficRoute
       `Prelude.hashWithSalt` targetGroups
       `Prelude.hashWithSalt` testTrafficRoute
 

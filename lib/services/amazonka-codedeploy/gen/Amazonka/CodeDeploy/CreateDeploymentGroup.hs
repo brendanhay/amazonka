@@ -407,7 +407,8 @@ instance Core.AWSRequest CreateDeploymentGroup where
 
 instance Prelude.Hashable CreateDeploymentGroup where
   hashWithSalt _salt CreateDeploymentGroup' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` autoRollbackConfiguration
       `Prelude.hashWithSalt` autoScalingGroups
       `Prelude.hashWithSalt` blueGreenDeploymentConfiguration

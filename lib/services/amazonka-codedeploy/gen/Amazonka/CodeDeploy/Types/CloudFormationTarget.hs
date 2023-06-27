@@ -135,7 +135,8 @@ instance Data.FromJSON CloudFormationTarget where
           CloudFormationTarget'
             Prelude.<$> (x Data..:? "deploymentId")
             Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> ( x Data..:? "lifecycleEvents"
+            Prelude.<*> ( x
+                            Data..:? "lifecycleEvents"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "resourceType")
@@ -146,7 +147,8 @@ instance Data.FromJSON CloudFormationTarget where
 
 instance Prelude.Hashable CloudFormationTarget where
   hashWithSalt _salt CloudFormationTarget' {..} =
-    _salt `Prelude.hashWithSalt` deploymentId
+    _salt
+      `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` lifecycleEvents
       `Prelude.hashWithSalt` resourceType

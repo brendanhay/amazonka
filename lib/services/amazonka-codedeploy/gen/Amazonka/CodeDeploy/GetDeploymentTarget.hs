@@ -101,7 +101,8 @@ instance Core.AWSRequest GetDeploymentTarget where
 
 instance Prelude.Hashable GetDeploymentTarget where
   hashWithSalt _salt GetDeploymentTarget' {..} =
-    _salt `Prelude.hashWithSalt` deploymentId
+    _salt
+      `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` targetId
 
 instance Prelude.NFData GetDeploymentTarget where

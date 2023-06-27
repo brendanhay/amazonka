@@ -108,7 +108,8 @@ instance
     AddTagsToOnPremisesInstances
   where
   hashWithSalt _salt AddTagsToOnPremisesInstances' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceNames
 
 instance Prelude.NFData AddTagsToOnPremisesInstances where

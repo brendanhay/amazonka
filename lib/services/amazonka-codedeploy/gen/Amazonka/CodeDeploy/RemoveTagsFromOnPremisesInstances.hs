@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     RemoveTagsFromOnPremisesInstances' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` instanceNames
 
 instance

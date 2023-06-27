@@ -102,7 +102,8 @@ instance Data.FromJSON LastDeploymentInfo where
 
 instance Prelude.Hashable LastDeploymentInfo where
   hashWithSalt _salt LastDeploymentInfo' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` status

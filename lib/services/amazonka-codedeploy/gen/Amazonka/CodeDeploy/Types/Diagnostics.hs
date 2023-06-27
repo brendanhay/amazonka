@@ -153,7 +153,8 @@ instance Data.FromJSON Diagnostics where
 
 instance Prelude.Hashable Diagnostics where
   hashWithSalt _salt Diagnostics' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` logTail
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` scriptName

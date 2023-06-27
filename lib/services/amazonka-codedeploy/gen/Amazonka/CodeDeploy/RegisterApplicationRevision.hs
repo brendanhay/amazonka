@@ -117,7 +117,8 @@ instance Core.AWSRequest RegisterApplicationRevision where
 
 instance Prelude.Hashable RegisterApplicationRevision where
   hashWithSalt _salt RegisterApplicationRevision' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` revision
 

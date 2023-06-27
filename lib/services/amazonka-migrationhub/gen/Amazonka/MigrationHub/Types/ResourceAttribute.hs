@@ -88,12 +88,14 @@ instance Data.FromJSON ResourceAttribute where
       "ResourceAttribute"
       ( \x ->
           ResourceAttribute'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable ResourceAttribute where
   hashWithSalt _salt ResourceAttribute' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ResourceAttribute where

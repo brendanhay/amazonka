@@ -116,22 +116,22 @@ instance Core.AWSPager ListMigrationTasks where
     | Core.stop
         ( rs
             Lens.^? listMigrationTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listMigrationTasksResponse_migrationTaskSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMigrationTasks_nextToken
           Lens..~ rs
           Lens.^? listMigrationTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMigrationTasks where
   type
@@ -143,7 +143,8 @@ instance Core.AWSRequest ListMigrationTasks where
     Response.receiveJSON
       ( \s h x ->
           ListMigrationTasksResponse'
-            Prelude.<$> ( x Data..?> "MigrationTaskSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "MigrationTaskSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -152,7 +153,8 @@ instance Core.AWSRequest ListMigrationTasks where
 
 instance Prelude.Hashable ListMigrationTasks where
   hashWithSalt _salt ListMigrationTasks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceName
 

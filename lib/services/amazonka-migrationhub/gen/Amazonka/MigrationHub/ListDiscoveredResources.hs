@@ -128,22 +128,22 @@ instance Core.AWSPager ListDiscoveredResources where
     | Core.stop
         ( rs
             Lens.^? listDiscoveredResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDiscoveredResourcesResponse_discoveredResourceList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDiscoveredResources_nextToken
           Lens..~ rs
           Lens.^? listDiscoveredResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDiscoveredResources where
   type
@@ -155,7 +155,8 @@ instance Core.AWSRequest ListDiscoveredResources where
     Response.receiveJSON
       ( \s h x ->
           ListDiscoveredResourcesResponse'
-            Prelude.<$> ( x Data..?> "DiscoveredResourceList"
+            Prelude.<$> ( x
+                            Data..?> "DiscoveredResourceList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -164,7 +165,8 @@ instance Core.AWSRequest ListDiscoveredResources where
 
 instance Prelude.Hashable ListDiscoveredResources where
   hashWithSalt _salt ListDiscoveredResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` migrationTaskName

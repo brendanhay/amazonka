@@ -111,7 +111,8 @@ instance Core.AWSRequest DescribeMigrationTask where
 
 instance Prelude.Hashable DescribeMigrationTask where
   hashWithSalt _salt DescribeMigrationTask' {..} =
-    _salt `Prelude.hashWithSalt` progressUpdateStream
+    _salt
+      `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` migrationTaskName
 
 instance Prelude.NFData DescribeMigrationTask where

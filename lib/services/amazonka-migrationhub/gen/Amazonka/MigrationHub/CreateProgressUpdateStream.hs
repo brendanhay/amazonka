@@ -114,7 +114,8 @@ instance Core.AWSRequest CreateProgressUpdateStream where
 
 instance Prelude.Hashable CreateProgressUpdateStream where
   hashWithSalt _salt CreateProgressUpdateStream' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` progressUpdateStreamName
 
 instance Prelude.NFData CreateProgressUpdateStream where

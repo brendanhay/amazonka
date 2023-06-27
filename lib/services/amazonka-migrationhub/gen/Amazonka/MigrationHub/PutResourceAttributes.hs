@@ -210,7 +210,8 @@ instance Core.AWSRequest PutResourceAttributes where
 
 instance Prelude.Hashable PutResourceAttributes where
   hashWithSalt _salt PutResourceAttributes' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` progressUpdateStream
       `Prelude.hashWithSalt` migrationTaskName
       `Prelude.hashWithSalt` resourceAttributeList

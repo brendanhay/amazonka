@@ -131,7 +131,8 @@ instance Core.AWSRequest NotifyApplicationState where
 
 instance Prelude.Hashable NotifyApplicationState where
   hashWithSalt _salt NotifyApplicationState' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` updateDateTime
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` status

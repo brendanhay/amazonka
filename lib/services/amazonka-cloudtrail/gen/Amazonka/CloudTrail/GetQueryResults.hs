@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets event data results of a query. You must specify the @QueryID@ value
--- returned by the @StartQuery@ operation, and an ARN for @EventDataStore@.
+-- returned by the @StartQuery@ operation.
 module Amazonka.CloudTrail.GetQueryResults
   ( -- * Creating a Request
     GetQueryResults (..),
@@ -126,7 +126,8 @@ instance Core.AWSRequest GetQueryResults where
           GetQueryResultsResponse'
             Prelude.<$> (x Data..?> "ErrorMessage")
             Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "QueryResultRows"
+            Prelude.<*> ( x
+                            Data..?> "QueryResultRows"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "QueryStatistics")
@@ -136,7 +137,8 @@ instance Core.AWSRequest GetQueryResults where
 
 instance Prelude.Hashable GetQueryResults where
   hashWithSalt _salt GetQueryResults' {..} =
-    _salt `Prelude.hashWithSalt` eventDataStore
+    _salt
+      `Prelude.hashWithSalt` eventDataStore
       `Prelude.hashWithSalt` maxQueryResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryId

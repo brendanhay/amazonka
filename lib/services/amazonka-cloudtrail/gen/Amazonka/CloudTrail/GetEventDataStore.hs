@@ -101,7 +101,8 @@ instance Core.AWSRequest GetEventDataStore where
     Response.receiveJSON
       ( \s h x ->
           GetEventDataStoreResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CreatedTimestamp")
@@ -169,8 +170,8 @@ data GetEventDataStoreResponse = GetEventDataStoreResponse'
     --
     -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the event data store includes events from all regions,
-    -- or only from the region in which it was created.
+    -- | Indicates whether the event data store includes events from all Regions,
+    -- or only from the Region in which it was created.
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the event data store.
     name :: Prelude.Maybe Prelude.Text,
@@ -179,8 +180,7 @@ data GetEventDataStoreResponse = GetEventDataStoreResponse'
     organizationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The retention period of the event data store, in days.
     retentionPeriod :: Prelude.Maybe Prelude.Natural,
-    -- | The status of an event data store. Values can be @ENABLED@ and
-    -- @PENDING_DELETION@.
+    -- | The status of an event data store.
     status :: Prelude.Maybe EventDataStoreStatus,
     -- | Indicates that termination protection is enabled.
     terminationProtectionEnabled :: Prelude.Maybe Prelude.Bool,
@@ -213,8 +213,8 @@ data GetEventDataStoreResponse = GetEventDataStoreResponse'
 --
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 --
--- 'multiRegionEnabled', 'getEventDataStoreResponse_multiRegionEnabled' - Indicates whether the event data store includes events from all regions,
--- or only from the region in which it was created.
+-- 'multiRegionEnabled', 'getEventDataStoreResponse_multiRegionEnabled' - Indicates whether the event data store includes events from all Regions,
+-- or only from the Region in which it was created.
 --
 -- 'name', 'getEventDataStoreResponse_name' - The name of the event data store.
 --
@@ -223,8 +223,7 @@ data GetEventDataStoreResponse = GetEventDataStoreResponse'
 --
 -- 'retentionPeriod', 'getEventDataStoreResponse_retentionPeriod' - The retention period of the event data store, in days.
 --
--- 'status', 'getEventDataStoreResponse_status' - The status of an event data store. Values can be @ENABLED@ and
--- @PENDING_DELETION@.
+-- 'status', 'getEventDataStoreResponse_status' - The status of an event data store.
 --
 -- 'terminationProtectionEnabled', 'getEventDataStoreResponse_terminationProtectionEnabled' - Indicates that termination protection is enabled.
 --
@@ -274,8 +273,8 @@ getEventDataStoreResponse_eventDataStoreArn = Lens.lens (\GetEventDataStoreRespo
 getEventDataStoreResponse_kmsKeyId :: Lens.Lens' GetEventDataStoreResponse (Prelude.Maybe Prelude.Text)
 getEventDataStoreResponse_kmsKeyId = Lens.lens (\GetEventDataStoreResponse' {kmsKeyId} -> kmsKeyId) (\s@GetEventDataStoreResponse' {} a -> s {kmsKeyId = a} :: GetEventDataStoreResponse)
 
--- | Indicates whether the event data store includes events from all regions,
--- or only from the region in which it was created.
+-- | Indicates whether the event data store includes events from all Regions,
+-- or only from the Region in which it was created.
 getEventDataStoreResponse_multiRegionEnabled :: Lens.Lens' GetEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
 getEventDataStoreResponse_multiRegionEnabled = Lens.lens (\GetEventDataStoreResponse' {multiRegionEnabled} -> multiRegionEnabled) (\s@GetEventDataStoreResponse' {} a -> s {multiRegionEnabled = a} :: GetEventDataStoreResponse)
 
@@ -292,8 +291,7 @@ getEventDataStoreResponse_organizationEnabled = Lens.lens (\GetEventDataStoreRes
 getEventDataStoreResponse_retentionPeriod :: Lens.Lens' GetEventDataStoreResponse (Prelude.Maybe Prelude.Natural)
 getEventDataStoreResponse_retentionPeriod = Lens.lens (\GetEventDataStoreResponse' {retentionPeriod} -> retentionPeriod) (\s@GetEventDataStoreResponse' {} a -> s {retentionPeriod = a} :: GetEventDataStoreResponse)
 
--- | The status of an event data store. Values can be @ENABLED@ and
--- @PENDING_DELETION@.
+-- | The status of an event data store.
 getEventDataStoreResponse_status :: Lens.Lens' GetEventDataStoreResponse (Prelude.Maybe EventDataStoreStatus)
 getEventDataStoreResponse_status = Lens.lens (\GetEventDataStoreResponse' {status} -> status) (\s@GetEventDataStoreResponse' {} a -> s {status = a} :: GetEventDataStoreResponse)
 

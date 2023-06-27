@@ -104,7 +104,8 @@ instance Core.AWSRequest RestoreEventDataStore where
     Response.receiveJSON
       ( \s h x ->
           RestoreEventDataStoreResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CreatedTimestamp")
@@ -173,7 +174,7 @@ data RestoreEventDataStoreResponse = RestoreEventDataStoreResponse'
     -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the event data store is collecting events from all
-    -- regions, or only from the region in which the event data store was
+    -- Regions, or only from the Region in which the event data store was
     -- created.
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the event data store.
@@ -218,7 +219,7 @@ data RestoreEventDataStoreResponse = RestoreEventDataStoreResponse'
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 --
 -- 'multiRegionEnabled', 'restoreEventDataStoreResponse_multiRegionEnabled' - Indicates whether the event data store is collecting events from all
--- regions, or only from the region in which the event data store was
+-- Regions, or only from the Region in which the event data store was
 -- created.
 --
 -- 'name', 'restoreEventDataStoreResponse_name' - The name of the event data store.
@@ -281,7 +282,7 @@ restoreEventDataStoreResponse_kmsKeyId :: Lens.Lens' RestoreEventDataStoreRespon
 restoreEventDataStoreResponse_kmsKeyId = Lens.lens (\RestoreEventDataStoreResponse' {kmsKeyId} -> kmsKeyId) (\s@RestoreEventDataStoreResponse' {} a -> s {kmsKeyId = a} :: RestoreEventDataStoreResponse)
 
 -- | Indicates whether the event data store is collecting events from all
--- regions, or only from the region in which the event data store was
+-- Regions, or only from the Region in which the event data store was
 -- created.
 restoreEventDataStoreResponse_multiRegionEnabled :: Lens.Lens' RestoreEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
 restoreEventDataStoreResponse_multiRegionEnabled = Lens.lens (\RestoreEventDataStoreResponse' {multiRegionEnabled} -> multiRegionEnabled) (\s@RestoreEventDataStoreResponse' {} a -> s {multiRegionEnabled = a} :: RestoreEventDataStoreResponse)

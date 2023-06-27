@@ -25,10 +25,15 @@
 -- least one optional parameter must be specified, or CloudTrail throws an
 -- error. @RetentionPeriod@ is in days, and valid values are integers
 -- between 90 and 2557. By default, @TerminationProtection@ is enabled.
--- @AdvancedEventSelectors@ includes or excludes management and data events
--- in your event data store; for more information about
--- @AdvancedEventSelectors@, see
--- PutEventSelectorsRequest$AdvancedEventSelectors.
+--
+-- For event data stores for CloudTrail events, @AdvancedEventSelectors@
+-- includes or excludes management and data events in your event data
+-- store. For more information about @AdvancedEventSelectors@, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html AdvancedEventSelectors>.
+--
+-- For event data stores for Config configuration items, Audit Manager
+-- evidence, or non-Amazon Web Services events, @AdvancedEventSelectors@
+-- includes events of that type in your event data store.
 module Amazonka.CloudTrail.UpdateEventDataStore
   ( -- * Creating a Request
     UpdateEventDataStore (..),
@@ -106,8 +111,8 @@ data UpdateEventDataStore = UpdateEventDataStore'
     --
     -- -   @12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether an event data store collects events from all regions,
-    -- or only from the region in which it was created.
+    -- | Specifies whether an event data store collects events from all Regions,
+    -- or only from the Region in which it was created.
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The event data store name.
     name :: Prelude.Maybe Prelude.Text,
@@ -165,8 +170,8 @@ data UpdateEventDataStore = UpdateEventDataStore'
 --
 -- -   @12345678-1234-1234-1234-123456789012@
 --
--- 'multiRegionEnabled', 'updateEventDataStore_multiRegionEnabled' - Specifies whether an event data store collects events from all regions,
--- or only from the region in which it was created.
+-- 'multiRegionEnabled', 'updateEventDataStore_multiRegionEnabled' - Specifies whether an event data store collects events from all Regions,
+-- or only from the Region in which it was created.
 --
 -- 'name', 'updateEventDataStore_name' - The event data store name.
 --
@@ -233,8 +238,8 @@ updateEventDataStore_advancedEventSelectors = Lens.lens (\UpdateEventDataStore' 
 updateEventDataStore_kmsKeyId :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Text)
 updateEventDataStore_kmsKeyId = Lens.lens (\UpdateEventDataStore' {kmsKeyId} -> kmsKeyId) (\s@UpdateEventDataStore' {} a -> s {kmsKeyId = a} :: UpdateEventDataStore)
 
--- | Specifies whether an event data store collects events from all regions,
--- or only from the region in which it was created.
+-- | Specifies whether an event data store collects events from all Regions,
+-- or only from the Region in which it was created.
 updateEventDataStore_multiRegionEnabled :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Bool)
 updateEventDataStore_multiRegionEnabled = Lens.lens (\UpdateEventDataStore' {multiRegionEnabled} -> multiRegionEnabled) (\s@UpdateEventDataStore' {} a -> s {multiRegionEnabled = a} :: UpdateEventDataStore)
 
@@ -271,7 +276,8 @@ instance Core.AWSRequest UpdateEventDataStore where
     Response.receiveJSON
       ( \s h x ->
           UpdateEventDataStoreResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CreatedTimestamp")
@@ -289,7 +295,8 @@ instance Core.AWSRequest UpdateEventDataStore where
 
 instance Prelude.Hashable UpdateEventDataStore where
   hashWithSalt _salt UpdateEventDataStore' {..} =
-    _salt `Prelude.hashWithSalt` advancedEventSelectors
+    _salt
+      `Prelude.hashWithSalt` advancedEventSelectors
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` multiRegionEnabled
       `Prelude.hashWithSalt` name
@@ -365,8 +372,8 @@ data UpdateEventDataStoreResponse = UpdateEventDataStoreResponse'
     --
     -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the event data store includes events from all regions,
-    -- or only from the region in which it was created.
+    -- | Indicates whether the event data store includes events from all Regions,
+    -- or only from the Region in which it was created.
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the event data store.
     name :: Prelude.Maybe Prelude.Text,
@@ -375,8 +382,7 @@ data UpdateEventDataStoreResponse = UpdateEventDataStoreResponse'
     organizationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The retention period, in days.
     retentionPeriod :: Prelude.Maybe Prelude.Natural,
-    -- | The status of an event data store. Values can be @ENABLED@ and
-    -- @PENDING_DELETION@.
+    -- | The status of an event data store.
     status :: Prelude.Maybe EventDataStoreStatus,
     -- | Indicates whether termination protection is enabled for the event data
     -- store.
@@ -410,8 +416,8 @@ data UpdateEventDataStoreResponse = UpdateEventDataStoreResponse'
 --
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 --
--- 'multiRegionEnabled', 'updateEventDataStoreResponse_multiRegionEnabled' - Indicates whether the event data store includes events from all regions,
--- or only from the region in which it was created.
+-- 'multiRegionEnabled', 'updateEventDataStoreResponse_multiRegionEnabled' - Indicates whether the event data store includes events from all Regions,
+-- or only from the Region in which it was created.
 --
 -- 'name', 'updateEventDataStoreResponse_name' - The name of the event data store.
 --
@@ -420,8 +426,7 @@ data UpdateEventDataStoreResponse = UpdateEventDataStoreResponse'
 --
 -- 'retentionPeriod', 'updateEventDataStoreResponse_retentionPeriod' - The retention period, in days.
 --
--- 'status', 'updateEventDataStoreResponse_status' - The status of an event data store. Values can be @ENABLED@ and
--- @PENDING_DELETION@.
+-- 'status', 'updateEventDataStoreResponse_status' - The status of an event data store.
 --
 -- 'terminationProtectionEnabled', 'updateEventDataStoreResponse_terminationProtectionEnabled' - Indicates whether termination protection is enabled for the event data
 -- store.
@@ -473,8 +478,8 @@ updateEventDataStoreResponse_eventDataStoreArn = Lens.lens (\UpdateEventDataStor
 updateEventDataStoreResponse_kmsKeyId :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Text)
 updateEventDataStoreResponse_kmsKeyId = Lens.lens (\UpdateEventDataStoreResponse' {kmsKeyId} -> kmsKeyId) (\s@UpdateEventDataStoreResponse' {} a -> s {kmsKeyId = a} :: UpdateEventDataStoreResponse)
 
--- | Indicates whether the event data store includes events from all regions,
--- or only from the region in which it was created.
+-- | Indicates whether the event data store includes events from all Regions,
+-- or only from the Region in which it was created.
 updateEventDataStoreResponse_multiRegionEnabled :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
 updateEventDataStoreResponse_multiRegionEnabled = Lens.lens (\UpdateEventDataStoreResponse' {multiRegionEnabled} -> multiRegionEnabled) (\s@UpdateEventDataStoreResponse' {} a -> s {multiRegionEnabled = a} :: UpdateEventDataStoreResponse)
 
@@ -491,8 +496,7 @@ updateEventDataStoreResponse_organizationEnabled = Lens.lens (\UpdateEventDataSt
 updateEventDataStoreResponse_retentionPeriod :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Natural)
 updateEventDataStoreResponse_retentionPeriod = Lens.lens (\UpdateEventDataStoreResponse' {retentionPeriod} -> retentionPeriod) (\s@UpdateEventDataStoreResponse' {} a -> s {retentionPeriod = a} :: UpdateEventDataStoreResponse)
 
--- | The status of an event data store. Values can be @ENABLED@ and
--- @PENDING_DELETION@.
+-- | The status of an event data store.
 updateEventDataStoreResponse_status :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe EventDataStoreStatus)
 updateEventDataStoreResponse_status = Lens.lens (\UpdateEventDataStoreResponse' {status} -> status) (\s@UpdateEventDataStoreResponse' {} a -> s {status = a} :: UpdateEventDataStoreResponse)
 

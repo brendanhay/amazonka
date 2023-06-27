@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- The total number of allowed data resources is 250. This number can be
 -- distributed between 1 and 5 event selectors, but the total cannot exceed
--- 250 across all selectors.
+-- 250 across all selectors for the trail.
 --
 -- If you are using advanced event selectors, the maximum total number of
 -- values for all conditions, across all advanced event selectors for the
@@ -82,31 +82,49 @@ data DataResource = DataResource'
   { -- | The resource type in which you want to log data events. You can specify
     -- the following /basic/ event selector resource types:
     --
-    -- -   @AWS::S3::Object@
+    -- -   @AWS::DynamoDB::Table@
     --
     -- -   @AWS::Lambda::Function@
     --
-    -- -   @AWS::DynamoDB::Table@
+    -- -   @AWS::S3::Object@
     --
     -- The following resource types are also available through /advanced/ event
     -- selectors. Basic event selector resource types are valid in advanced
     -- event selectors, but advanced event selector resource types are not
     -- valid in basic event selectors. For more information, see
-    -- AdvancedFieldSelector$Field.
+    -- <https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html AdvancedFieldSelector>.
     --
-    -- -   @AWS::S3Outposts::Object@
+    -- -   @AWS::CloudTrail::Channel@
     --
-    -- -   @AWS::ManagedBlockchain::Node@
+    -- -   @AWS::CodeWhisperer::Profile@
     --
-    -- -   @AWS::S3ObjectLambda::AccessPoint@
-    --
-    -- -   @AWS::EC2::Snapshot@
-    --
-    -- -   @AWS::S3::AccessPoint@
+    -- -   @AWS::Cognito::IdentityPool@
     --
     -- -   @AWS::DynamoDB::Stream@
     --
+    -- -   @AWS::EC2::Snapshot@
+    --
+    -- -   @AWS::EMRWAL::Workspace@
+    --
+    -- -   @AWS::FinSpace::Environment@
+    --
     -- -   @AWS::Glue::Table@
+    --
+    -- -   @AWS::GuardDuty::Detector@
+    --
+    -- -   @AWS::KendraRanking::ExecutionPlan@
+    --
+    -- -   @AWS::ManagedBlockchain::Node@
+    --
+    -- -   @AWS::SageMaker::ExperimentTrialComponent@
+    --
+    -- -   @AWS::SageMaker::FeatureGroup@
+    --
+    -- -   @AWS::S3::AccessPoint@
+    --
+    -- -   @AWS::S3ObjectLambda::AccessPoint@
+    --
+    -- -   @AWS::S3Outposts::Object@
     type' :: Prelude.Maybe Prelude.Text,
     -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings
     -- for the specified objects.
@@ -164,31 +182,49 @@ data DataResource = DataResource'
 -- 'type'', 'dataResource_type' - The resource type in which you want to log data events. You can specify
 -- the following /basic/ event selector resource types:
 --
--- -   @AWS::S3::Object@
+-- -   @AWS::DynamoDB::Table@
 --
 -- -   @AWS::Lambda::Function@
 --
--- -   @AWS::DynamoDB::Table@
+-- -   @AWS::S3::Object@
 --
 -- The following resource types are also available through /advanced/ event
 -- selectors. Basic event selector resource types are valid in advanced
 -- event selectors, but advanced event selector resource types are not
 -- valid in basic event selectors. For more information, see
--- AdvancedFieldSelector$Field.
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html AdvancedFieldSelector>.
 --
--- -   @AWS::S3Outposts::Object@
+-- -   @AWS::CloudTrail::Channel@
 --
--- -   @AWS::ManagedBlockchain::Node@
+-- -   @AWS::CodeWhisperer::Profile@
 --
--- -   @AWS::S3ObjectLambda::AccessPoint@
---
--- -   @AWS::EC2::Snapshot@
---
--- -   @AWS::S3::AccessPoint@
+-- -   @AWS::Cognito::IdentityPool@
 --
 -- -   @AWS::DynamoDB::Stream@
 --
+-- -   @AWS::EC2::Snapshot@
+--
+-- -   @AWS::EMRWAL::Workspace@
+--
+-- -   @AWS::FinSpace::Environment@
+--
 -- -   @AWS::Glue::Table@
+--
+-- -   @AWS::GuardDuty::Detector@
+--
+-- -   @AWS::KendraRanking::ExecutionPlan@
+--
+-- -   @AWS::ManagedBlockchain::Node@
+--
+-- -   @AWS::SageMaker::ExperimentTrialComponent@
+--
+-- -   @AWS::SageMaker::FeatureGroup@
+--
+-- -   @AWS::S3::AccessPoint@
+--
+-- -   @AWS::S3ObjectLambda::AccessPoint@
+--
+-- -   @AWS::S3Outposts::Object@
 --
 -- 'values', 'dataResource_values' - An array of Amazon Resource Name (ARN) strings or partial ARN strings
 -- for the specified objects.
@@ -242,31 +278,49 @@ newDataResource =
 -- | The resource type in which you want to log data events. You can specify
 -- the following /basic/ event selector resource types:
 --
--- -   @AWS::S3::Object@
+-- -   @AWS::DynamoDB::Table@
 --
 -- -   @AWS::Lambda::Function@
 --
--- -   @AWS::DynamoDB::Table@
+-- -   @AWS::S3::Object@
 --
 -- The following resource types are also available through /advanced/ event
 -- selectors. Basic event selector resource types are valid in advanced
 -- event selectors, but advanced event selector resource types are not
 -- valid in basic event selectors. For more information, see
--- AdvancedFieldSelector$Field.
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html AdvancedFieldSelector>.
 --
--- -   @AWS::S3Outposts::Object@
+-- -   @AWS::CloudTrail::Channel@
 --
--- -   @AWS::ManagedBlockchain::Node@
+-- -   @AWS::CodeWhisperer::Profile@
 --
--- -   @AWS::S3ObjectLambda::AccessPoint@
---
--- -   @AWS::EC2::Snapshot@
---
--- -   @AWS::S3::AccessPoint@
+-- -   @AWS::Cognito::IdentityPool@
 --
 -- -   @AWS::DynamoDB::Stream@
 --
+-- -   @AWS::EC2::Snapshot@
+--
+-- -   @AWS::EMRWAL::Workspace@
+--
+-- -   @AWS::FinSpace::Environment@
+--
 -- -   @AWS::Glue::Table@
+--
+-- -   @AWS::GuardDuty::Detector@
+--
+-- -   @AWS::KendraRanking::ExecutionPlan@
+--
+-- -   @AWS::ManagedBlockchain::Node@
+--
+-- -   @AWS::SageMaker::ExperimentTrialComponent@
+--
+-- -   @AWS::SageMaker::FeatureGroup@
+--
+-- -   @AWS::S3::AccessPoint@
+--
+-- -   @AWS::S3ObjectLambda::AccessPoint@
+--
+-- -   @AWS::S3Outposts::Object@
 dataResource_type :: Lens.Lens' DataResource (Prelude.Maybe Prelude.Text)
 dataResource_type = Lens.lens (\DataResource' {type'} -> type') (\s@DataResource' {} a -> s {type' = a} :: DataResource)
 
@@ -326,7 +380,8 @@ instance Data.FromJSON DataResource where
 
 instance Prelude.Hashable DataResource where
   hashWithSalt _salt DataResource' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData DataResource where

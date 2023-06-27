@@ -22,7 +22,10 @@ module Amazonka.CloudTrail.Types.EventDataStoreStatus
       ( ..,
         EventDataStoreStatus_CREATED,
         EventDataStoreStatus_ENABLED,
-        EventDataStoreStatus_PENDING_DELETION
+        EventDataStoreStatus_PENDING_DELETION,
+        EventDataStoreStatus_STARTING_INGESTION,
+        EventDataStoreStatus_STOPPED_INGESTION,
+        EventDataStoreStatus_STOPPING_INGESTION
       ),
   )
 where
@@ -68,9 +71,21 @@ pattern EventDataStoreStatus_ENABLED = EventDataStoreStatus' "ENABLED"
 pattern EventDataStoreStatus_PENDING_DELETION :: EventDataStoreStatus
 pattern EventDataStoreStatus_PENDING_DELETION = EventDataStoreStatus' "PENDING_DELETION"
 
+pattern EventDataStoreStatus_STARTING_INGESTION :: EventDataStoreStatus
+pattern EventDataStoreStatus_STARTING_INGESTION = EventDataStoreStatus' "STARTING_INGESTION"
+
+pattern EventDataStoreStatus_STOPPED_INGESTION :: EventDataStoreStatus
+pattern EventDataStoreStatus_STOPPED_INGESTION = EventDataStoreStatus' "STOPPED_INGESTION"
+
+pattern EventDataStoreStatus_STOPPING_INGESTION :: EventDataStoreStatus
+pattern EventDataStoreStatus_STOPPING_INGESTION = EventDataStoreStatus' "STOPPING_INGESTION"
+
 {-# COMPLETE
   EventDataStoreStatus_CREATED,
   EventDataStoreStatus_ENABLED,
   EventDataStoreStatus_PENDING_DELETION,
+  EventDataStoreStatus_STARTING_INGESTION,
+  EventDataStoreStatus_STOPPED_INGESTION,
+  EventDataStoreStatus_STOPPING_INGESTION,
   EventDataStoreStatus'
   #-}

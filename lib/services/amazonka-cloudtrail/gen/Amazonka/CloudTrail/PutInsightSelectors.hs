@@ -25,6 +25,12 @@
 -- @PutInsightSelectors@ to turn off Insights event logging, by passing an
 -- empty list of insight types. The valid Insights event types in this
 -- release are @ApiErrorRateInsight@ and @ApiCallRateInsight@.
+--
+-- To log CloudTrail Insights events on API call volume, the trail must log
+-- @write@ management events. To log CloudTrail Insights events on API
+-- error rate, the trail must log @read@ or @write@ management events. You
+-- can call @GetEventSelectors@ on a trail to check whether the trail logs
+-- management events.
 module Amazonka.CloudTrail.PutInsightSelectors
   ( -- * Creating a Request
     PutInsightSelectors (..),
@@ -59,8 +65,16 @@ data PutInsightSelectors = PutInsightSelectors'
     -- Insights selectors.
     trailName :: Prelude.Text,
     -- | A JSON string that contains the insight types you want to log on a
-    -- trail. @ApiCallRateInsight@ and @ApiErrorRateInsight@ are valid insight
+    -- trail. @ApiCallRateInsight@ and @ApiErrorRateInsight@ are valid Insight
     -- types.
+    --
+    -- The @ApiCallRateInsight@ Insights type analyzes write-only management
+    -- API calls that are aggregated per minute against a baseline API call
+    -- volume.
+    --
+    -- The @ApiErrorRateInsight@ Insights type analyzes management API calls
+    -- that result in error codes. The error is shown if the API call is
+    -- unsuccessful.
     insightSelectors :: [InsightSelector]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,8 +91,16 @@ data PutInsightSelectors = PutInsightSelectors'
 -- Insights selectors.
 --
 -- 'insightSelectors', 'putInsightSelectors_insightSelectors' - A JSON string that contains the insight types you want to log on a
--- trail. @ApiCallRateInsight@ and @ApiErrorRateInsight@ are valid insight
+-- trail. @ApiCallRateInsight@ and @ApiErrorRateInsight@ are valid Insight
 -- types.
+--
+-- The @ApiCallRateInsight@ Insights type analyzes write-only management
+-- API calls that are aggregated per minute against a baseline API call
+-- volume.
+--
+-- The @ApiErrorRateInsight@ Insights type analyzes management API calls
+-- that result in error codes. The error is shown if the API call is
+-- unsuccessful.
 newPutInsightSelectors ::
   -- | 'trailName'
   Prelude.Text ->
@@ -95,8 +117,16 @@ putInsightSelectors_trailName :: Lens.Lens' PutInsightSelectors Prelude.Text
 putInsightSelectors_trailName = Lens.lens (\PutInsightSelectors' {trailName} -> trailName) (\s@PutInsightSelectors' {} a -> s {trailName = a} :: PutInsightSelectors)
 
 -- | A JSON string that contains the insight types you want to log on a
--- trail. @ApiCallRateInsight@ and @ApiErrorRateInsight@ are valid insight
+-- trail. @ApiCallRateInsight@ and @ApiErrorRateInsight@ are valid Insight
 -- types.
+--
+-- The @ApiCallRateInsight@ Insights type analyzes write-only management
+-- API calls that are aggregated per minute against a baseline API call
+-- volume.
+--
+-- The @ApiErrorRateInsight@ Insights type analyzes management API calls
+-- that result in error codes. The error is shown if the API call is
+-- unsuccessful.
 putInsightSelectors_insightSelectors :: Lens.Lens' PutInsightSelectors [InsightSelector]
 putInsightSelectors_insightSelectors = Lens.lens (\PutInsightSelectors' {insightSelectors} -> insightSelectors) (\s@PutInsightSelectors' {} a -> s {insightSelectors = a} :: PutInsightSelectors) Prelude.. Lens.coerced
 
@@ -110,7 +140,8 @@ instance Core.AWSRequest PutInsightSelectors where
     Response.receiveJSON
       ( \s h x ->
           PutInsightSelectorsResponse'
-            Prelude.<$> ( x Data..?> "InsightSelectors"
+            Prelude.<$> ( x
+                            Data..?> "InsightSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "TrailARN")
@@ -119,7 +150,8 @@ instance Core.AWSRequest PutInsightSelectors where
 
 instance Prelude.Hashable PutInsightSelectors where
   hashWithSalt _salt PutInsightSelectors' {..} =
-    _salt `Prelude.hashWithSalt` trailName
+    _salt
+      `Prelude.hashWithSalt` trailName
       `Prelude.hashWithSalt` insightSelectors
 
 instance Prelude.NFData PutInsightSelectors where

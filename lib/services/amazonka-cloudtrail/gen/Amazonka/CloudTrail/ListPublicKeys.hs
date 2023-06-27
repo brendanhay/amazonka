@@ -25,10 +25,10 @@
 -- validate digest files that were signed with its corresponding private
 -- key.
 --
--- CloudTrail uses different private and public key pairs per region. Each
--- digest file is signed with a private key unique to its region. When you
--- validate a digest file from a specific region, you must look in the same
--- region for its corresponding public key.
+-- CloudTrail uses different private and public key pairs per Region. Each
+-- digest file is signed with a private key unique to its Region. When you
+-- validate a digest file from a specific Region, you must look in the same
+-- Region for its corresponding public key.
 --
 -- This operation returns paginated results.
 module Amazonka.CloudTrail.ListPublicKeys
@@ -124,21 +124,22 @@ instance Core.AWSPager ListPublicKeys where
     | Core.stop
         ( rs
             Lens.^? listPublicKeysResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPublicKeysResponse_publicKeyList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPublicKeys_nextToken
           Lens..~ rs
-          Lens.^? listPublicKeysResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPublicKeysResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPublicKeys where
   type
@@ -157,7 +158,8 @@ instance Core.AWSRequest ListPublicKeys where
 
 instance Prelude.Hashable ListPublicKeys where
   hashWithSalt _salt ListPublicKeys' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTime
 

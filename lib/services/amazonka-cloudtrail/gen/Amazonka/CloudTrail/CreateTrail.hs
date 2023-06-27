@@ -77,10 +77,12 @@ import qualified Amazonka.Response as Response
 data CreateTrail = CreateTrail'
   { -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
     -- identifier that represents the log group to which CloudTrail logs will
-    -- be delivered. Not required unless you specify @CloudWatchLogsRoleArn@.
+    -- be delivered. You must use a log group that exists in your account.
+    --
+    -- Not required unless you specify @CloudWatchLogsRoleArn@.
     cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
-    -- to a user\'s log group.
+    -- to a user\'s log group. You must use a role that exists in your account.
     cloudWatchLogsRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether log file integrity validation is enabled. The default
     -- is false.
@@ -98,16 +100,17 @@ data CreateTrail = CreateTrail'
     -- | Specifies whether the trail is publishing events from global services
     -- such as IAM to the log files.
     includeGlobalServiceEvents :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the trail is created in the current region or in all
-    -- regions. The default is false, which creates a trail only in the region
+    -- | Specifies whether the trail is created in the current Region or in all
+    -- Regions. The default is false, which creates a trail only in the Region
     -- where you are signed in. As a best practice, consider creating trails
-    -- that log events in all regions.
+    -- that log events in all Regions.
     isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the trail is created for all accounts in an
     -- organization in Organizations, or only for the current Amazon Web
     -- Services account. The default is false, and cannot be true unless the
     -- call is made on behalf of an Amazon Web Services account that is the
-    -- management account for an organization in Organizations.
+    -- management account or delegated administrator account for an
+    -- organization in Organizations.
     isOrganizationTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the KMS key ID to use to encrypt the logs delivered by
     -- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
@@ -171,10 +174,12 @@ data CreateTrail = CreateTrail'
 --
 -- 'cloudWatchLogsLogGroupArn', 'createTrail_cloudWatchLogsLogGroupArn' - Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs will
--- be delivered. Not required unless you specify @CloudWatchLogsRoleArn@.
+-- be delivered. You must use a log group that exists in your account.
+--
+-- Not required unless you specify @CloudWatchLogsRoleArn@.
 --
 -- 'cloudWatchLogsRoleArn', 'createTrail_cloudWatchLogsRoleArn' - Specifies the role for the CloudWatch Logs endpoint to assume to write
--- to a user\'s log group.
+-- to a user\'s log group. You must use a role that exists in your account.
 --
 -- 'enableLogFileValidation', 'createTrail_enableLogFileValidation' - Specifies whether log file integrity validation is enabled. The default
 -- is false.
@@ -192,16 +197,17 @@ data CreateTrail = CreateTrail'
 -- 'includeGlobalServiceEvents', 'createTrail_includeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services
 -- such as IAM to the log files.
 --
--- 'isMultiRegionTrail', 'createTrail_isMultiRegionTrail' - Specifies whether the trail is created in the current region or in all
--- regions. The default is false, which creates a trail only in the region
+-- 'isMultiRegionTrail', 'createTrail_isMultiRegionTrail' - Specifies whether the trail is created in the current Region or in all
+-- Regions. The default is false, which creates a trail only in the Region
 -- where you are signed in. As a best practice, consider creating trails
--- that log events in all regions.
+-- that log events in all Regions.
 --
 -- 'isOrganizationTrail', 'createTrail_isOrganizationTrail' - Specifies whether the trail is created for all accounts in an
 -- organization in Organizations, or only for the current Amazon Web
 -- Services account. The default is false, and cannot be true unless the
 -- call is made on behalf of an Amazon Web Services account that is the
--- management account for an organization in Organizations.
+-- management account or delegated administrator account for an
+-- organization in Organizations.
 --
 -- 'kmsKeyId', 'createTrail_kmsKeyId' - Specifies the KMS key ID to use to encrypt the logs delivered by
 -- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
@@ -277,12 +283,14 @@ newCreateTrail pName_ pS3BucketName_ =
 
 -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs will
--- be delivered. Not required unless you specify @CloudWatchLogsRoleArn@.
+-- be delivered. You must use a log group that exists in your account.
+--
+-- Not required unless you specify @CloudWatchLogsRoleArn@.
 createTrail_cloudWatchLogsLogGroupArn :: Lens.Lens' CreateTrail (Prelude.Maybe Prelude.Text)
 createTrail_cloudWatchLogsLogGroupArn = Lens.lens (\CreateTrail' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@CreateTrail' {} a -> s {cloudWatchLogsLogGroupArn = a} :: CreateTrail)
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
--- to a user\'s log group.
+-- to a user\'s log group. You must use a role that exists in your account.
 createTrail_cloudWatchLogsRoleArn :: Lens.Lens' CreateTrail (Prelude.Maybe Prelude.Text)
 createTrail_cloudWatchLogsRoleArn = Lens.lens (\CreateTrail' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@CreateTrail' {} a -> s {cloudWatchLogsRoleArn = a} :: CreateTrail)
 
@@ -306,10 +314,10 @@ createTrail_enableLogFileValidation = Lens.lens (\CreateTrail' {enableLogFileVal
 createTrail_includeGlobalServiceEvents :: Lens.Lens' CreateTrail (Prelude.Maybe Prelude.Bool)
 createTrail_includeGlobalServiceEvents = Lens.lens (\CreateTrail' {includeGlobalServiceEvents} -> includeGlobalServiceEvents) (\s@CreateTrail' {} a -> s {includeGlobalServiceEvents = a} :: CreateTrail)
 
--- | Specifies whether the trail is created in the current region or in all
--- regions. The default is false, which creates a trail only in the region
+-- | Specifies whether the trail is created in the current Region or in all
+-- Regions. The default is false, which creates a trail only in the Region
 -- where you are signed in. As a best practice, consider creating trails
--- that log events in all regions.
+-- that log events in all Regions.
 createTrail_isMultiRegionTrail :: Lens.Lens' CreateTrail (Prelude.Maybe Prelude.Bool)
 createTrail_isMultiRegionTrail = Lens.lens (\CreateTrail' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@CreateTrail' {} a -> s {isMultiRegionTrail = a} :: CreateTrail)
 
@@ -317,7 +325,8 @@ createTrail_isMultiRegionTrail = Lens.lens (\CreateTrail' {isMultiRegionTrail} -
 -- organization in Organizations, or only for the current Amazon Web
 -- Services account. The default is false, and cannot be true unless the
 -- call is made on behalf of an Amazon Web Services account that is the
--- management account for an organization in Organizations.
+-- management account or delegated administrator account for an
+-- organization in Organizations.
 createTrail_isOrganizationTrail :: Lens.Lens' CreateTrail (Prelude.Maybe Prelude.Bool)
 createTrail_isOrganizationTrail = Lens.lens (\CreateTrail' {isOrganizationTrail} -> isOrganizationTrail) (\s@CreateTrail' {} a -> s {isOrganizationTrail = a} :: CreateTrail)
 
@@ -498,7 +507,7 @@ data CreateTrailResponse = CreateTrailResponse'
     -- | Specifies whether the trail is publishing events from global services
     -- such as IAM to the log files.
     includeGlobalServiceEvents :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the trail exists in one region or in all regions.
+    -- | Specifies whether the trail exists in one Region or in all Regions.
     isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the trail is an organization trail.
     isOrganizationTrail :: Prelude.Maybe Prelude.Bool,
@@ -526,7 +535,7 @@ data CreateTrailResponse = CreateTrailResponse'
     --
     -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
     snsTopicARN :: Prelude.Maybe Prelude.Text,
-    -- | This field is no longer in use. Use SnsTopicARN.
+    -- | This field is no longer in use. Use @SnsTopicARN@.
     snsTopicName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the ARN of the trail that was created. The format of a trail
     -- ARN is:
@@ -555,7 +564,7 @@ data CreateTrailResponse = CreateTrailResponse'
 -- 'includeGlobalServiceEvents', 'createTrailResponse_includeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services
 -- such as IAM to the log files.
 --
--- 'isMultiRegionTrail', 'createTrailResponse_isMultiRegionTrail' - Specifies whether the trail exists in one region or in all regions.
+-- 'isMultiRegionTrail', 'createTrailResponse_isMultiRegionTrail' - Specifies whether the trail exists in one Region or in all Regions.
 --
 -- 'isOrganizationTrail', 'createTrailResponse_isOrganizationTrail' - Specifies whether the trail is an organization trail.
 --
@@ -583,7 +592,7 @@ data CreateTrailResponse = CreateTrailResponse'
 --
 -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
 --
--- 'snsTopicName', 'createTrailResponse_snsTopicName' - This field is no longer in use. Use SnsTopicARN.
+-- 'snsTopicName', 'createTrailResponse_snsTopicName' - This field is no longer in use. Use @SnsTopicARN@.
 --
 -- 'trailARN', 'createTrailResponse_trailARN' - Specifies the ARN of the trail that was created. The format of a trail
 -- ARN is:
@@ -629,7 +638,7 @@ createTrailResponse_cloudWatchLogsRoleArn = Lens.lens (\CreateTrailResponse' {cl
 createTrailResponse_includeGlobalServiceEvents :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Bool)
 createTrailResponse_includeGlobalServiceEvents = Lens.lens (\CreateTrailResponse' {includeGlobalServiceEvents} -> includeGlobalServiceEvents) (\s@CreateTrailResponse' {} a -> s {includeGlobalServiceEvents = a} :: CreateTrailResponse)
 
--- | Specifies whether the trail exists in one region or in all regions.
+-- | Specifies whether the trail exists in one Region or in all Regions.
 createTrailResponse_isMultiRegionTrail :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Bool)
 createTrailResponse_isMultiRegionTrail = Lens.lens (\CreateTrailResponse' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@CreateTrailResponse' {} a -> s {isMultiRegionTrail = a} :: CreateTrailResponse)
 
@@ -673,7 +682,7 @@ createTrailResponse_s3KeyPrefix = Lens.lens (\CreateTrailResponse' {s3KeyPrefix}
 createTrailResponse_snsTopicARN :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Text)
 createTrailResponse_snsTopicARN = Lens.lens (\CreateTrailResponse' {snsTopicARN} -> snsTopicARN) (\s@CreateTrailResponse' {} a -> s {snsTopicARN = a} :: CreateTrailResponse)
 
--- | This field is no longer in use. Use SnsTopicARN.
+-- | This field is no longer in use. Use @SnsTopicARN@.
 createTrailResponse_snsTopicName :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Text)
 createTrailResponse_snsTopicName = Lens.lens (\CreateTrailResponse' {snsTopicName} -> snsTopicName) (\s@CreateTrailResponse' {} a -> s {snsTopicName = a} :: CreateTrailResponse)
 

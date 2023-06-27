@@ -48,9 +48,18 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
     -- | An operator that includes events that match the first few characters of
     -- the event record field specified as the value of @Field@.
     startsWith :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A field in an event record on which to filter events to be logged.
-    -- Supported fields include @readOnly@, @eventCategory@, @eventSource@ (for
-    -- management events), @eventName@, @resources.type@, and @resources.ARN@.
+    -- | A field in a CloudTrail event record on which to filter events to be
+    -- logged. For event data stores for Config configuration items, Audit
+    -- Manager evidence, or non-Amazon Web Services events, the field is used
+    -- only for selecting events as filtering is not supported.
+    --
+    -- For CloudTrail event records, supported fields include @readOnly@,
+    -- @eventCategory@, @eventSource@ (for management events), @eventName@,
+    -- @resources.type@, and @resources.ARN@.
+    --
+    -- For event data stores for Config configuration items, Audit Manager
+    -- evidence, or non-Amazon Web Services events, the only supported field is
+    -- @eventCategory@.
     --
     -- -   __@readOnly@__ - Optional. Can be set to @Equals@ a value of @true@
     --     or @false@. If you do not add this field, CloudTrail logs both
@@ -65,32 +74,60 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
     --     @PutBucket@ or @GetSnapshotBlock@. You can have multiple values for
     --     this ﬁeld, separated by commas.
     --
-    -- -   __@eventCategory@__ - This is required. It must be set to @Equals@,
-    --     and the value must be @Management@ or @Data@.
+    -- -   __@eventCategory@__ - This is required and must be set to @Equals@.
     --
-    -- -   __@resources.type@__ - This ﬁeld is required. @resources.type@ can
-    --     only use the @Equals@ operator, and the value can be one of the
-    --     following:
+    --     -   For CloudTrail event records, the value must be @Management@ or
+    --         @Data@.
     --
-    --     -   @AWS::S3::Object@
+    --     -   For Config configuration items, the value must be
+    --         @ConfigurationItem@.
     --
-    --     -   @AWS::Lambda::Function@
+    --     -   For Audit Manager evidence, the value must be @Evidence@.
+    --
+    --     -   For non-Amazon Web Services events, the value must be
+    --         @ActivityAuditLog@.
+    --
+    -- -   __@resources.type@__ - This ﬁeld is required for CloudTrail data
+    --     events. @resources.type@ can only use the @Equals@ operator, and the
+    --     value can be one of the following:
     --
     --     -   @AWS::DynamoDB::Table@
     --
-    --     -   @AWS::S3Outposts::Object@
+    --     -   @AWS::Lambda::Function@
     --
-    --     -   @AWS::ManagedBlockchain::Node@
+    --     -   @AWS::S3::Object@
     --
-    --     -   @AWS::S3ObjectLambda::AccessPoint@
+    --     -   @AWS::CloudTrail::Channel@
     --
-    --     -   @AWS::EC2::Snapshot@
+    --     -   @AWS::CodeWhisperer::Profile@
     --
-    --     -   @AWS::S3::AccessPoint@
+    --     -   @AWS::Cognito::IdentityPool@
     --
     --     -   @AWS::DynamoDB::Stream@
     --
+    --     -   @AWS::EC2::Snapshot@
+    --
+    --     -   @AWS::EMRWAL::Workspace@
+    --
+    --     -   @AWS::FinSpace::Environment@
+    --
     --     -   @AWS::Glue::Table@
+    --
+    --     -   @AWS::GuardDuty::Detector@
+    --
+    --     -   @AWS::KendraRanking::ExecutionPlan@
+    --
+    --     -   @AWS::ManagedBlockchain::Node@
+    --
+    --     -   @AWS::SageMaker::ExperimentTrialComponent@
+    --
+    --     -   @AWS::SageMaker::FeatureGroup@
+    --
+    --     -   @AWS::S3::AccessPoint@
+    --
+    --     -   @AWS::S3ObjectLambda::AccessPoint@
+    --
+    --     -   @AWS::S3Outposts::Object@
     --
     --     You can have only one @resources.type@ ﬁeld per selector. To log
     --     data events on more than one resource type, add another selector.
@@ -112,6 +149,96 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
     --
     --     -   @arn:\<partition>:s3:::\<bucket_name>\/\<object_path>\/@
     --
+    --     When resources.type equals @AWS::DynamoDB::Table@, and the operator
+    --     is set to @Equals@ or @NotEquals@, the ARN must be in the following
+    --     format:
+    --
+    --     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>@
+    --
+    --     When resources.type equals @AWS::Lambda::Function@, and the operator
+    --     is set to @Equals@ or @NotEquals@, the ARN must be in the following
+    --     format:
+    --
+    --     -   @arn:\<partition>:lambda:\<region>:\<account_ID>:function:\<function_name>@
+    --
+    --     When resources.type equals @AWS::CloudTrail::Channel@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:cloudtrail:\<region>:\<account_ID>:channel\/\<channel_UUID>@
+    --
+    --     When resources.type equals @AWS::CodeWhisperer::Profile@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:codewhisperer:\<region>:\<account_ID>:profile\/\<profile_ID>@
+    --
+    --     When resources.type equals @AWS::Cognito::IdentityPool@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:cognito-identity:\<region>:\<account_ID>:identitypool\/\<identity_pool_ID>@
+    --
+    --     When @resources.type@ equals @AWS::DynamoDB::Stream@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>\/stream\/\<date_time>@
+    --
+    --     When @resources.type@ equals @AWS::EC2::Snapshot@, and the operator
+    --     is set to @Equals@ or @NotEquals@, the ARN must be in the following
+    --     format:
+    --
+    --     -   @arn:\<partition>:ec2:\<region>::snapshot\/\<snapshot_ID>@
+    --
+    --     When @resources.type@ equals @AWS::EMRWAL::Workspace@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:emrwal:\<region>::workspace\/\<workspace_name>@
+    --
+    --     When @resources.type@ equals @AWS::FinSpace::Environment@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:finspace:\<region>:\<account_ID>:environment\/\<environment_ID>@
+    --
+    --     When @resources.type@ equals @AWS::Glue::Table@, and the operator is
+    --     set to @Equals@ or @NotEquals@, the ARN must be in the following
+    --     format:
+    --
+    --     -   @arn:\<partition>:glue:\<region>:\<account_ID>:table\/\<database_name>\/\<table_name>@
+    --
+    --     When @resources.type@ equals @AWS::GuardDuty::Detector@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:guardduty:\<region>:\<account_ID>:detector\/\<detector_ID>@
+    --
+    --     When @resources.type@ equals @AWS::KendraRanking::ExecutionPlan@,
+    --     and the operator is set to @Equals@ or @NotEquals@, the ARN must be
+    --     in the following format:
+    --
+    --     -   @arn:\<partition>:kendra-ranking:\<region>:\<account_ID>:rescore-execution-plan\/\<rescore_execution_plan_ID>@
+    --
+    --     When @resources.type@ equals @AWS::ManagedBlockchain::Node@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:managedblockchain:\<region>:\<account_ID>:nodes\/\<node_ID>@
+    --
+    --     When @resources.type@ equals
+    --     @AWS::SageMaker::ExperimentTrialComponent@, and the operator is set
+    --     to @Equals@ or @NotEquals@, the ARN must be in the following format:
+    --
+    --     -   @arn:\<partition>:sagemaker:\<region>:\<account_ID>:experiment-trial-component\/\<experiment_trial_component_name>@
+    --
+    --     When @resources.type@ equals @AWS::SageMaker::FeatureGroup@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:sagemaker:\<region>:\<account_ID>:feature-group\/\<feature_group_name>@
+    --
     --     When @resources.type@ equals @AWS::S3::AccessPoint@, and the
     --     operator is set to @Equals@ or @NotEquals@, the ARN must be in one
     --     of the following formats. To log events on all objects in an S3
@@ -123,53 +250,17 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
     --
     --     -   @arn:\<partition>:s3:\<region>:\<account_ID>:accesspoint\/\<access_point_name>\/object\/\<object_path>@
     --
-    --     When resources.type equals @AWS::Lambda::Function@, and the operator
-    --     is set to @Equals@ or @NotEquals@, the ARN must be in the following
-    --     format:
-    --
-    --     -   @arn:\<partition>:lambda:\<region>:\<account_ID>:function:\<function_name>@
-    --
-    --     When resources.type equals @AWS::DynamoDB::Table@, and the operator
-    --     is set to @Equals@ or @NotEquals@, the ARN must be in the following
-    --     format:
-    --
-    --     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>@
-    --
-    --     When @resources.type@ equals @AWS::S3Outposts::Object@, and the
-    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
-    --     following format:
-    --
-    --     -   @arn:\<partition>:s3-outposts:\<region>:\<account_ID>:\<object_path>@
-    --
-    --     When @resources.type@ equals @AWS::ManagedBlockchain::Node@, and the
-    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
-    --     following format:
-    --
-    --     -   @arn:\<partition>:managedblockchain:\<region>:\<account_ID>:nodes\/\<node_ID>@
-    --
     --     When @resources.type@ equals @AWS::S3ObjectLambda::AccessPoint@, and
     --     the operator is set to @Equals@ or @NotEquals@, the ARN must be in
     --     the following format:
     --
     --     -   @arn:\<partition>:s3-object-lambda:\<region>:\<account_ID>:accesspoint\/\<access_point_name>@
     --
-    --     When @resources.type@ equals @AWS::EC2::Snapshot@, and the operator
-    --     is set to @Equals@ or @NotEquals@, the ARN must be in the following
-    --     format:
-    --
-    --     -   @arn:\<partition>:ec2:\<region>::snapshot\/\<snapshot_ID>@
-    --
-    --     When @resources.type@ equals @AWS::DynamoDB::Stream@, and the
+    --     When @resources.type@ equals @AWS::S3Outposts::Object@, and the
     --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
     --     following format:
     --
-    --     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>\/stream\/\<date_time>@
-    --
-    --     When @resources.type@ equals @AWS::Glue::Table@, and the operator is
-    --     set to @Equals@ or @NotEquals@, the ARN must be in the following
-    --     format:
-    --
-    --     -   @arn:\<partition>:glue:\<region>:\<account_ID>:table\/\<database_name>\/\<table_name>@
+    --     -   @arn:\<partition>:s3-outposts:\<region>:\<account_ID>:\<object_path>@
     field :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -202,9 +293,18 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 -- 'startsWith', 'advancedFieldSelector_startsWith' - An operator that includes events that match the first few characters of
 -- the event record field specified as the value of @Field@.
 --
--- 'field', 'advancedFieldSelector_field' - A field in an event record on which to filter events to be logged.
--- Supported fields include @readOnly@, @eventCategory@, @eventSource@ (for
--- management events), @eventName@, @resources.type@, and @resources.ARN@.
+-- 'field', 'advancedFieldSelector_field' - A field in a CloudTrail event record on which to filter events to be
+-- logged. For event data stores for Config configuration items, Audit
+-- Manager evidence, or non-Amazon Web Services events, the field is used
+-- only for selecting events as filtering is not supported.
+--
+-- For CloudTrail event records, supported fields include @readOnly@,
+-- @eventCategory@, @eventSource@ (for management events), @eventName@,
+-- @resources.type@, and @resources.ARN@.
+--
+-- For event data stores for Config configuration items, Audit Manager
+-- evidence, or non-Amazon Web Services events, the only supported field is
+-- @eventCategory@.
 --
 -- -   __@readOnly@__ - Optional. Can be set to @Equals@ a value of @true@
 --     or @false@. If you do not add this field, CloudTrail logs both
@@ -219,32 +319,60 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 --     @PutBucket@ or @GetSnapshotBlock@. You can have multiple values for
 --     this ﬁeld, separated by commas.
 --
--- -   __@eventCategory@__ - This is required. It must be set to @Equals@,
---     and the value must be @Management@ or @Data@.
+-- -   __@eventCategory@__ - This is required and must be set to @Equals@.
 --
--- -   __@resources.type@__ - This ﬁeld is required. @resources.type@ can
---     only use the @Equals@ operator, and the value can be one of the
---     following:
+--     -   For CloudTrail event records, the value must be @Management@ or
+--         @Data@.
 --
---     -   @AWS::S3::Object@
+--     -   For Config configuration items, the value must be
+--         @ConfigurationItem@.
 --
---     -   @AWS::Lambda::Function@
+--     -   For Audit Manager evidence, the value must be @Evidence@.
+--
+--     -   For non-Amazon Web Services events, the value must be
+--         @ActivityAuditLog@.
+--
+-- -   __@resources.type@__ - This ﬁeld is required for CloudTrail data
+--     events. @resources.type@ can only use the @Equals@ operator, and the
+--     value can be one of the following:
 --
 --     -   @AWS::DynamoDB::Table@
 --
---     -   @AWS::S3Outposts::Object@
+--     -   @AWS::Lambda::Function@
 --
---     -   @AWS::ManagedBlockchain::Node@
+--     -   @AWS::S3::Object@
 --
---     -   @AWS::S3ObjectLambda::AccessPoint@
+--     -   @AWS::CloudTrail::Channel@
 --
---     -   @AWS::EC2::Snapshot@
+--     -   @AWS::CodeWhisperer::Profile@
 --
---     -   @AWS::S3::AccessPoint@
+--     -   @AWS::Cognito::IdentityPool@
 --
 --     -   @AWS::DynamoDB::Stream@
 --
+--     -   @AWS::EC2::Snapshot@
+--
+--     -   @AWS::EMRWAL::Workspace@
+--
+--     -   @AWS::FinSpace::Environment@
+--
 --     -   @AWS::Glue::Table@
+--
+--     -   @AWS::GuardDuty::Detector@
+--
+--     -   @AWS::KendraRanking::ExecutionPlan@
+--
+--     -   @AWS::ManagedBlockchain::Node@
+--
+--     -   @AWS::SageMaker::ExperimentTrialComponent@
+--
+--     -   @AWS::SageMaker::FeatureGroup@
+--
+--     -   @AWS::S3::AccessPoint@
+--
+--     -   @AWS::S3ObjectLambda::AccessPoint@
+--
+--     -   @AWS::S3Outposts::Object@
 --
 --     You can have only one @resources.type@ ﬁeld per selector. To log
 --     data events on more than one resource type, add another selector.
@@ -266,6 +394,96 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 --
 --     -   @arn:\<partition>:s3:::\<bucket_name>\/\<object_path>\/@
 --
+--     When resources.type equals @AWS::DynamoDB::Table@, and the operator
+--     is set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>@
+--
+--     When resources.type equals @AWS::Lambda::Function@, and the operator
+--     is set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:lambda:\<region>:\<account_ID>:function:\<function_name>@
+--
+--     When resources.type equals @AWS::CloudTrail::Channel@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:cloudtrail:\<region>:\<account_ID>:channel\/\<channel_UUID>@
+--
+--     When resources.type equals @AWS::CodeWhisperer::Profile@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:codewhisperer:\<region>:\<account_ID>:profile\/\<profile_ID>@
+--
+--     When resources.type equals @AWS::Cognito::IdentityPool@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:cognito-identity:\<region>:\<account_ID>:identitypool\/\<identity_pool_ID>@
+--
+--     When @resources.type@ equals @AWS::DynamoDB::Stream@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>\/stream\/\<date_time>@
+--
+--     When @resources.type@ equals @AWS::EC2::Snapshot@, and the operator
+--     is set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:ec2:\<region>::snapshot\/\<snapshot_ID>@
+--
+--     When @resources.type@ equals @AWS::EMRWAL::Workspace@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:emrwal:\<region>::workspace\/\<workspace_name>@
+--
+--     When @resources.type@ equals @AWS::FinSpace::Environment@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:finspace:\<region>:\<account_ID>:environment\/\<environment_ID>@
+--
+--     When @resources.type@ equals @AWS::Glue::Table@, and the operator is
+--     set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:glue:\<region>:\<account_ID>:table\/\<database_name>\/\<table_name>@
+--
+--     When @resources.type@ equals @AWS::GuardDuty::Detector@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:guardduty:\<region>:\<account_ID>:detector\/\<detector_ID>@
+--
+--     When @resources.type@ equals @AWS::KendraRanking::ExecutionPlan@,
+--     and the operator is set to @Equals@ or @NotEquals@, the ARN must be
+--     in the following format:
+--
+--     -   @arn:\<partition>:kendra-ranking:\<region>:\<account_ID>:rescore-execution-plan\/\<rescore_execution_plan_ID>@
+--
+--     When @resources.type@ equals @AWS::ManagedBlockchain::Node@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:managedblockchain:\<region>:\<account_ID>:nodes\/\<node_ID>@
+--
+--     When @resources.type@ equals
+--     @AWS::SageMaker::ExperimentTrialComponent@, and the operator is set
+--     to @Equals@ or @NotEquals@, the ARN must be in the following format:
+--
+--     -   @arn:\<partition>:sagemaker:\<region>:\<account_ID>:experiment-trial-component\/\<experiment_trial_component_name>@
+--
+--     When @resources.type@ equals @AWS::SageMaker::FeatureGroup@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:sagemaker:\<region>:\<account_ID>:feature-group\/\<feature_group_name>@
+--
 --     When @resources.type@ equals @AWS::S3::AccessPoint@, and the
 --     operator is set to @Equals@ or @NotEquals@, the ARN must be in one
 --     of the following formats. To log events on all objects in an S3
@@ -277,53 +495,17 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 --
 --     -   @arn:\<partition>:s3:\<region>:\<account_ID>:accesspoint\/\<access_point_name>\/object\/\<object_path>@
 --
---     When resources.type equals @AWS::Lambda::Function@, and the operator
---     is set to @Equals@ or @NotEquals@, the ARN must be in the following
---     format:
---
---     -   @arn:\<partition>:lambda:\<region>:\<account_ID>:function:\<function_name>@
---
---     When resources.type equals @AWS::DynamoDB::Table@, and the operator
---     is set to @Equals@ or @NotEquals@, the ARN must be in the following
---     format:
---
---     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>@
---
---     When @resources.type@ equals @AWS::S3Outposts::Object@, and the
---     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
---     following format:
---
---     -   @arn:\<partition>:s3-outposts:\<region>:\<account_ID>:\<object_path>@
---
---     When @resources.type@ equals @AWS::ManagedBlockchain::Node@, and the
---     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
---     following format:
---
---     -   @arn:\<partition>:managedblockchain:\<region>:\<account_ID>:nodes\/\<node_ID>@
---
 --     When @resources.type@ equals @AWS::S3ObjectLambda::AccessPoint@, and
 --     the operator is set to @Equals@ or @NotEquals@, the ARN must be in
 --     the following format:
 --
 --     -   @arn:\<partition>:s3-object-lambda:\<region>:\<account_ID>:accesspoint\/\<access_point_name>@
 --
---     When @resources.type@ equals @AWS::EC2::Snapshot@, and the operator
---     is set to @Equals@ or @NotEquals@, the ARN must be in the following
---     format:
---
---     -   @arn:\<partition>:ec2:\<region>::snapshot\/\<snapshot_ID>@
---
---     When @resources.type@ equals @AWS::DynamoDB::Stream@, and the
+--     When @resources.type@ equals @AWS::S3Outposts::Object@, and the
 --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
 --     following format:
 --
---     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>\/stream\/\<date_time>@
---
---     When @resources.type@ equals @AWS::Glue::Table@, and the operator is
---     set to @Equals@ or @NotEquals@, the ARN must be in the following
---     format:
---
---     -   @arn:\<partition>:glue:\<region>:\<account_ID>:table\/\<database_name>\/\<table_name>@
+--     -   @arn:\<partition>:s3-outposts:\<region>:\<account_ID>:\<object_path>@
 newAdvancedFieldSelector ::
   -- | 'field'
   Prelude.Text ->
@@ -371,9 +553,18 @@ advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notSta
 advancedFieldSelector_startsWith :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 advancedFieldSelector_startsWith = Lens.lens (\AdvancedFieldSelector' {startsWith} -> startsWith) (\s@AdvancedFieldSelector' {} a -> s {startsWith = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
 
--- | A field in an event record on which to filter events to be logged.
--- Supported fields include @readOnly@, @eventCategory@, @eventSource@ (for
--- management events), @eventName@, @resources.type@, and @resources.ARN@.
+-- | A field in a CloudTrail event record on which to filter events to be
+-- logged. For event data stores for Config configuration items, Audit
+-- Manager evidence, or non-Amazon Web Services events, the field is used
+-- only for selecting events as filtering is not supported.
+--
+-- For CloudTrail event records, supported fields include @readOnly@,
+-- @eventCategory@, @eventSource@ (for management events), @eventName@,
+-- @resources.type@, and @resources.ARN@.
+--
+-- For event data stores for Config configuration items, Audit Manager
+-- evidence, or non-Amazon Web Services events, the only supported field is
+-- @eventCategory@.
 --
 -- -   __@readOnly@__ - Optional. Can be set to @Equals@ a value of @true@
 --     or @false@. If you do not add this field, CloudTrail logs both
@@ -388,32 +579,60 @@ advancedFieldSelector_startsWith = Lens.lens (\AdvancedFieldSelector' {startsWit
 --     @PutBucket@ or @GetSnapshotBlock@. You can have multiple values for
 --     this ﬁeld, separated by commas.
 --
--- -   __@eventCategory@__ - This is required. It must be set to @Equals@,
---     and the value must be @Management@ or @Data@.
+-- -   __@eventCategory@__ - This is required and must be set to @Equals@.
 --
--- -   __@resources.type@__ - This ﬁeld is required. @resources.type@ can
---     only use the @Equals@ operator, and the value can be one of the
---     following:
+--     -   For CloudTrail event records, the value must be @Management@ or
+--         @Data@.
 --
---     -   @AWS::S3::Object@
+--     -   For Config configuration items, the value must be
+--         @ConfigurationItem@.
 --
---     -   @AWS::Lambda::Function@
+--     -   For Audit Manager evidence, the value must be @Evidence@.
+--
+--     -   For non-Amazon Web Services events, the value must be
+--         @ActivityAuditLog@.
+--
+-- -   __@resources.type@__ - This ﬁeld is required for CloudTrail data
+--     events. @resources.type@ can only use the @Equals@ operator, and the
+--     value can be one of the following:
 --
 --     -   @AWS::DynamoDB::Table@
 --
---     -   @AWS::S3Outposts::Object@
+--     -   @AWS::Lambda::Function@
 --
---     -   @AWS::ManagedBlockchain::Node@
+--     -   @AWS::S3::Object@
 --
---     -   @AWS::S3ObjectLambda::AccessPoint@
+--     -   @AWS::CloudTrail::Channel@
 --
---     -   @AWS::EC2::Snapshot@
+--     -   @AWS::CodeWhisperer::Profile@
 --
---     -   @AWS::S3::AccessPoint@
+--     -   @AWS::Cognito::IdentityPool@
 --
 --     -   @AWS::DynamoDB::Stream@
 --
+--     -   @AWS::EC2::Snapshot@
+--
+--     -   @AWS::EMRWAL::Workspace@
+--
+--     -   @AWS::FinSpace::Environment@
+--
 --     -   @AWS::Glue::Table@
+--
+--     -   @AWS::GuardDuty::Detector@
+--
+--     -   @AWS::KendraRanking::ExecutionPlan@
+--
+--     -   @AWS::ManagedBlockchain::Node@
+--
+--     -   @AWS::SageMaker::ExperimentTrialComponent@
+--
+--     -   @AWS::SageMaker::FeatureGroup@
+--
+--     -   @AWS::S3::AccessPoint@
+--
+--     -   @AWS::S3ObjectLambda::AccessPoint@
+--
+--     -   @AWS::S3Outposts::Object@
 --
 --     You can have only one @resources.type@ ﬁeld per selector. To log
 --     data events on more than one resource type, add another selector.
@@ -435,6 +654,96 @@ advancedFieldSelector_startsWith = Lens.lens (\AdvancedFieldSelector' {startsWit
 --
 --     -   @arn:\<partition>:s3:::\<bucket_name>\/\<object_path>\/@
 --
+--     When resources.type equals @AWS::DynamoDB::Table@, and the operator
+--     is set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>@
+--
+--     When resources.type equals @AWS::Lambda::Function@, and the operator
+--     is set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:lambda:\<region>:\<account_ID>:function:\<function_name>@
+--
+--     When resources.type equals @AWS::CloudTrail::Channel@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:cloudtrail:\<region>:\<account_ID>:channel\/\<channel_UUID>@
+--
+--     When resources.type equals @AWS::CodeWhisperer::Profile@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:codewhisperer:\<region>:\<account_ID>:profile\/\<profile_ID>@
+--
+--     When resources.type equals @AWS::Cognito::IdentityPool@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:cognito-identity:\<region>:\<account_ID>:identitypool\/\<identity_pool_ID>@
+--
+--     When @resources.type@ equals @AWS::DynamoDB::Stream@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>\/stream\/\<date_time>@
+--
+--     When @resources.type@ equals @AWS::EC2::Snapshot@, and the operator
+--     is set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:ec2:\<region>::snapshot\/\<snapshot_ID>@
+--
+--     When @resources.type@ equals @AWS::EMRWAL::Workspace@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:emrwal:\<region>::workspace\/\<workspace_name>@
+--
+--     When @resources.type@ equals @AWS::FinSpace::Environment@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:finspace:\<region>:\<account_ID>:environment\/\<environment_ID>@
+--
+--     When @resources.type@ equals @AWS::Glue::Table@, and the operator is
+--     set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:glue:\<region>:\<account_ID>:table\/\<database_name>\/\<table_name>@
+--
+--     When @resources.type@ equals @AWS::GuardDuty::Detector@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:guardduty:\<region>:\<account_ID>:detector\/\<detector_ID>@
+--
+--     When @resources.type@ equals @AWS::KendraRanking::ExecutionPlan@,
+--     and the operator is set to @Equals@ or @NotEquals@, the ARN must be
+--     in the following format:
+--
+--     -   @arn:\<partition>:kendra-ranking:\<region>:\<account_ID>:rescore-execution-plan\/\<rescore_execution_plan_ID>@
+--
+--     When @resources.type@ equals @AWS::ManagedBlockchain::Node@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:managedblockchain:\<region>:\<account_ID>:nodes\/\<node_ID>@
+--
+--     When @resources.type@ equals
+--     @AWS::SageMaker::ExperimentTrialComponent@, and the operator is set
+--     to @Equals@ or @NotEquals@, the ARN must be in the following format:
+--
+--     -   @arn:\<partition>:sagemaker:\<region>:\<account_ID>:experiment-trial-component\/\<experiment_trial_component_name>@
+--
+--     When @resources.type@ equals @AWS::SageMaker::FeatureGroup@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:sagemaker:\<region>:\<account_ID>:feature-group\/\<feature_group_name>@
+--
 --     When @resources.type@ equals @AWS::S3::AccessPoint@, and the
 --     operator is set to @Equals@ or @NotEquals@, the ARN must be in one
 --     of the following formats. To log events on all objects in an S3
@@ -446,53 +755,17 @@ advancedFieldSelector_startsWith = Lens.lens (\AdvancedFieldSelector' {startsWit
 --
 --     -   @arn:\<partition>:s3:\<region>:\<account_ID>:accesspoint\/\<access_point_name>\/object\/\<object_path>@
 --
---     When resources.type equals @AWS::Lambda::Function@, and the operator
---     is set to @Equals@ or @NotEquals@, the ARN must be in the following
---     format:
---
---     -   @arn:\<partition>:lambda:\<region>:\<account_ID>:function:\<function_name>@
---
---     When resources.type equals @AWS::DynamoDB::Table@, and the operator
---     is set to @Equals@ or @NotEquals@, the ARN must be in the following
---     format:
---
---     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>@
---
---     When @resources.type@ equals @AWS::S3Outposts::Object@, and the
---     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
---     following format:
---
---     -   @arn:\<partition>:s3-outposts:\<region>:\<account_ID>:\<object_path>@
---
---     When @resources.type@ equals @AWS::ManagedBlockchain::Node@, and the
---     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
---     following format:
---
---     -   @arn:\<partition>:managedblockchain:\<region>:\<account_ID>:nodes\/\<node_ID>@
---
 --     When @resources.type@ equals @AWS::S3ObjectLambda::AccessPoint@, and
 --     the operator is set to @Equals@ or @NotEquals@, the ARN must be in
 --     the following format:
 --
 --     -   @arn:\<partition>:s3-object-lambda:\<region>:\<account_ID>:accesspoint\/\<access_point_name>@
 --
---     When @resources.type@ equals @AWS::EC2::Snapshot@, and the operator
---     is set to @Equals@ or @NotEquals@, the ARN must be in the following
---     format:
---
---     -   @arn:\<partition>:ec2:\<region>::snapshot\/\<snapshot_ID>@
---
---     When @resources.type@ equals @AWS::DynamoDB::Stream@, and the
+--     When @resources.type@ equals @AWS::S3Outposts::Object@, and the
 --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
 --     following format:
 --
---     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>\/stream\/\<date_time>@
---
---     When @resources.type@ equals @AWS::Glue::Table@, and the operator is
---     set to @Equals@ or @NotEquals@, the ARN must be in the following
---     format:
---
---     -   @arn:\<partition>:glue:\<region>:\<account_ID>:table\/\<database_name>\/\<table_name>@
+--     -   @arn:\<partition>:s3-outposts:\<region>:\<account_ID>:\<object_path>@
 advancedFieldSelector_field :: Lens.Lens' AdvancedFieldSelector Prelude.Text
 advancedFieldSelector_field = Lens.lens (\AdvancedFieldSelector' {field} -> field) (\s@AdvancedFieldSelector' {} a -> s {field = a} :: AdvancedFieldSelector)
 
@@ -513,7 +786,8 @@ instance Data.FromJSON AdvancedFieldSelector where
 
 instance Prelude.Hashable AdvancedFieldSelector where
   hashWithSalt _salt AdvancedFieldSelector' {..} =
-    _salt `Prelude.hashWithSalt` endsWith
+    _salt
+      `Prelude.hashWithSalt` endsWith
       `Prelude.hashWithSalt` equals
       `Prelude.hashWithSalt` notEndsWith
       `Prelude.hashWithSalt` notEquals

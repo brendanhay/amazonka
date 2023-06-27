@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags for the trail or event data store in the current region.
+-- Lists the tags for the specified trails, event data stores, or channels
+-- in the current Region.
 --
 -- This operation returns paginated results.
 module Amazonka.CloudTrail.ListTags
@@ -57,8 +58,17 @@ import qualified Amazonka.Response as Response
 data ListTags = ListTags'
   { -- | Reserved for future use.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies a list of trail and event data store ARNs whose tags will be
-    -- listed. The list has a limit of 20 ARNs.
+    -- | Specifies a list of trail, event data store, or channel ARNs whose tags
+    -- will be listed. The list has a limit of 20 ARNs.
+    --
+    -- Example trail ARN format:
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+    --
+    -- Example event data store ARN format:
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+    --
+    -- Example channel ARN format:
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:channel\/01234567890@
     resourceIdList :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,8 +83,17 @@ data ListTags = ListTags'
 --
 -- 'nextToken', 'listTags_nextToken' - Reserved for future use.
 --
--- 'resourceIdList', 'listTags_resourceIdList' - Specifies a list of trail and event data store ARNs whose tags will be
--- listed. The list has a limit of 20 ARNs.
+-- 'resourceIdList', 'listTags_resourceIdList' - Specifies a list of trail, event data store, or channel ARNs whose tags
+-- will be listed. The list has a limit of 20 ARNs.
+--
+-- Example trail ARN format:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+--
+-- Example event data store ARN format:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+--
+-- Example channel ARN format:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:channel\/01234567890@
 newListTags ::
   ListTags
 newListTags =
@@ -87,8 +106,17 @@ newListTags =
 listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
 listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
--- | Specifies a list of trail and event data store ARNs whose tags will be
--- listed. The list has a limit of 20 ARNs.
+-- | Specifies a list of trail, event data store, or channel ARNs whose tags
+-- will be listed. The list has a limit of 20 ARNs.
+--
+-- Example trail ARN format:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+--
+-- Example event data store ARN format:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+--
+-- Example channel ARN format:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:channel\/01234567890@
 listTags_resourceIdList :: Lens.Lens' ListTags [Prelude.Text]
 listTags_resourceIdList = Lens.lens (\ListTags' {resourceIdList} -> resourceIdList) (\s@ListTags' {} a -> s {resourceIdList = a} :: ListTags) Prelude.. Lens.coerced
 
@@ -96,21 +124,23 @@ instance Core.AWSPager ListTags where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTagsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTagsResponse_resourceTagList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTags_nextToken
           Lens..~ rs
-          Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTagsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTags where
   type AWSResponse ListTags = ListTagsResponse
@@ -121,7 +151,8 @@ instance Core.AWSRequest ListTags where
       ( \s h x ->
           ListTagsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ResourceTagList"
+            Prelude.<*> ( x
+                            Data..?> "ResourceTagList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,7 +160,8 @@ instance Core.AWSRequest ListTags where
 
 instance Prelude.Hashable ListTags where
   hashWithSalt _salt ListTags' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceIdList
 
 instance Prelude.NFData ListTags where

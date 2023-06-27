@@ -25,7 +25,7 @@
 -- or
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events CloudTrail Insights events>
 -- that are captured by CloudTrail. You can look up events that occurred in
--- a region within the last 90 days. Lookup supports the following
+-- a Region within the last 90 days. Lookup supports the following
 -- attributes for management events:
 --
 -- -   Amazon Web Services access key
@@ -57,7 +57,7 @@
 -- you can use to get the next page of results.
 --
 -- The rate of lookup requests is limited to two per second, per account,
--- per region. If this limit is exceeded, a throttling error occurs.
+-- per Region. If this limit is exceeded, a throttling error occurs.
 --
 -- This operation returns paginated results.
 module Amazonka.CloudTrail.LookupEvents
@@ -209,20 +209,23 @@ instance Core.AWSPager LookupEvents where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? lookupEventsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? lookupEventsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? lookupEventsResponse_events Prelude.. Lens._Just
+            Lens.^? lookupEventsResponse_events
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& lookupEvents_nextToken
           Lens..~ rs
-          Lens.^? lookupEventsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? lookupEventsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest LookupEvents where
   type AWSResponse LookupEvents = LookupEventsResponse
@@ -239,7 +242,8 @@ instance Core.AWSRequest LookupEvents where
 
 instance Prelude.Hashable LookupEvents where
   hashWithSalt _salt LookupEvents' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` eventCategory
       `Prelude.hashWithSalt` lookupAttributes
       `Prelude.hashWithSalt` maxResults

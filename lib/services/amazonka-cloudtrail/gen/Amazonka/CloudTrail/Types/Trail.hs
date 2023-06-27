@@ -39,13 +39,13 @@ data Trail = Trail'
     -- | Specifies whether a trail has insight types specified in an
     -- @InsightSelector@ list.
     hasInsightSelectors :: Prelude.Maybe Prelude.Bool,
-    -- | The region in which the trail was created.
+    -- | The Region in which the trail was created.
     homeRegion :: Prelude.Maybe Prelude.Text,
     -- | Set to __True__ to include Amazon Web Services API calls from Amazon Web
     -- Services global services such as IAM. Otherwise, __False__.
     includeGlobalServiceEvents :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the trail exists only in one region or exists in all
-    -- regions.
+    -- | Specifies whether the trail exists only in one Region or exists in all
+    -- Regions.
     isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the trail is an organization trail.
     isOrganizationTrail :: Prelude.Maybe Prelude.Bool,
@@ -75,7 +75,7 @@ data Trail = Trail'
     --
     -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
     snsTopicARN :: Prelude.Maybe Prelude.Text,
-    -- | This field is no longer in use. Use SnsTopicARN.
+    -- | This field is no longer in use. Use @SnsTopicARN@.
     snsTopicName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the ARN of the trail. The following is the format of a trail
     -- ARN.
@@ -104,13 +104,13 @@ data Trail = Trail'
 -- 'hasInsightSelectors', 'trail_hasInsightSelectors' - Specifies whether a trail has insight types specified in an
 -- @InsightSelector@ list.
 --
--- 'homeRegion', 'trail_homeRegion' - The region in which the trail was created.
+-- 'homeRegion', 'trail_homeRegion' - The Region in which the trail was created.
 --
 -- 'includeGlobalServiceEvents', 'trail_includeGlobalServiceEvents' - Set to __True__ to include Amazon Web Services API calls from Amazon Web
 -- Services global services such as IAM. Otherwise, __False__.
 --
--- 'isMultiRegionTrail', 'trail_isMultiRegionTrail' - Specifies whether the trail exists only in one region or exists in all
--- regions.
+-- 'isMultiRegionTrail', 'trail_isMultiRegionTrail' - Specifies whether the trail exists only in one Region or exists in all
+-- Regions.
 --
 -- 'isOrganizationTrail', 'trail_isOrganizationTrail' - Specifies whether the trail is an organization trail.
 --
@@ -140,7 +140,7 @@ data Trail = Trail'
 --
 -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
 --
--- 'snsTopicName', 'trail_snsTopicName' - This field is no longer in use. Use SnsTopicARN.
+-- 'snsTopicName', 'trail_snsTopicName' - This field is no longer in use. Use @SnsTopicARN@.
 --
 -- 'trailARN', 'trail_trailARN' - Specifies the ARN of the trail. The following is the format of a trail
 -- ARN.
@@ -187,7 +187,7 @@ trail_hasCustomEventSelectors = Lens.lens (\Trail' {hasCustomEventSelectors} -> 
 trail_hasInsightSelectors :: Lens.Lens' Trail (Prelude.Maybe Prelude.Bool)
 trail_hasInsightSelectors = Lens.lens (\Trail' {hasInsightSelectors} -> hasInsightSelectors) (\s@Trail' {} a -> s {hasInsightSelectors = a} :: Trail)
 
--- | The region in which the trail was created.
+-- | The Region in which the trail was created.
 trail_homeRegion :: Lens.Lens' Trail (Prelude.Maybe Prelude.Text)
 trail_homeRegion = Lens.lens (\Trail' {homeRegion} -> homeRegion) (\s@Trail' {} a -> s {homeRegion = a} :: Trail)
 
@@ -196,8 +196,8 @@ trail_homeRegion = Lens.lens (\Trail' {homeRegion} -> homeRegion) (\s@Trail' {} 
 trail_includeGlobalServiceEvents :: Lens.Lens' Trail (Prelude.Maybe Prelude.Bool)
 trail_includeGlobalServiceEvents = Lens.lens (\Trail' {includeGlobalServiceEvents} -> includeGlobalServiceEvents) (\s@Trail' {} a -> s {includeGlobalServiceEvents = a} :: Trail)
 
--- | Specifies whether the trail exists only in one region or exists in all
--- regions.
+-- | Specifies whether the trail exists only in one Region or exists in all
+-- Regions.
 trail_isMultiRegionTrail :: Lens.Lens' Trail (Prelude.Maybe Prelude.Bool)
 trail_isMultiRegionTrail = Lens.lens (\Trail' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@Trail' {} a -> s {isMultiRegionTrail = a} :: Trail)
 
@@ -243,7 +243,7 @@ trail_s3KeyPrefix = Lens.lens (\Trail' {s3KeyPrefix} -> s3KeyPrefix) (\s@Trail' 
 trail_snsTopicARN :: Lens.Lens' Trail (Prelude.Maybe Prelude.Text)
 trail_snsTopicARN = Lens.lens (\Trail' {snsTopicARN} -> snsTopicARN) (\s@Trail' {} a -> s {snsTopicARN = a} :: Trail)
 
--- | This field is no longer in use. Use SnsTopicARN.
+-- | This field is no longer in use. Use @SnsTopicARN@.
 trail_snsTopicName :: Lens.Lens' Trail (Prelude.Maybe Prelude.Text)
 trail_snsTopicName = Lens.lens (\Trail' {snsTopicName} -> snsTopicName) (\s@Trail' {} a -> s {snsTopicName = a} :: Trail)
 

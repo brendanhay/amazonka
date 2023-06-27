@@ -33,14 +33,23 @@ import Test.Tasty
 --         , requestCancelQuery $
 --             newCancelQuery
 --
+--         , requestCreateChannel $
+--             newCreateChannel
+--
 --         , requestCreateEventDataStore $
 --             newCreateEventDataStore
 --
 --         , requestCreateTrail $
 --             newCreateTrail
 --
+--         , requestDeleteChannel $
+--             newDeleteChannel
+--
 --         , requestDeleteEventDataStore $
 --             newDeleteEventDataStore
+--
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
 --
 --         , requestDeleteTrail $
 --             newDeleteTrail
@@ -71,6 +80,9 @@ import Test.Tasty
 --
 --         , requestGetQueryResults $
 --             newGetQueryResults
+--
+--         , requestGetResourcePolicy $
+--             newGetResourcePolicy
 --
 --         , requestGetTrail $
 --             newGetTrail
@@ -111,6 +123,9 @@ import Test.Tasty
 --         , requestPutInsightSelectors $
 --             newPutInsightSelectors
 --
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
+--
 --         , requestRegisterOrganizationDelegatedAdmin $
 --             newRegisterOrganizationDelegatedAdmin
 --
@@ -119,6 +134,9 @@ import Test.Tasty
 --
 --         , requestRestoreEventDataStore $
 --             newRestoreEventDataStore
+--
+--         , requestStartEventDataStoreIngestion $
+--             newStartEventDataStoreIngestion
 --
 --         , requestStartImport $
 --             newStartImport
@@ -129,11 +147,17 @@ import Test.Tasty
 --         , requestStartQuery $
 --             newStartQuery
 --
+--         , requestStopEventDataStoreIngestion $
+--             newStopEventDataStoreIngestion
+--
 --         , requestStopImport $
 --             newStopImport
 --
 --         , requestStopLogging $
 --             newStopLogging
+--
+--         , requestUpdateChannel $
+--             newUpdateChannel
 --
 --         , requestUpdateEventDataStore $
 --             newUpdateEventDataStore
@@ -150,14 +174,23 @@ import Test.Tasty
 --         , responseCancelQuery $
 --             newCancelQueryResponse
 --
+--         , responseCreateChannel $
+--             newCreateChannelResponse
+--
 --         , responseCreateEventDataStore $
 --             newCreateEventDataStoreResponse
 --
 --         , responseCreateTrail $
 --             newCreateTrailResponse
 --
+--         , responseDeleteChannel $
+--             newDeleteChannelResponse
+--
 --         , responseDeleteEventDataStore $
 --             newDeleteEventDataStoreResponse
+--
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
 --
 --         , responseDeleteTrail $
 --             newDeleteTrailResponse
@@ -188,6 +221,9 @@ import Test.Tasty
 --
 --         , responseGetQueryResults $
 --             newGetQueryResultsResponse
+--
+--         , responseGetResourcePolicy $
+--             newGetResourcePolicyResponse
 --
 --         , responseGetTrail $
 --             newGetTrailResponse
@@ -228,6 +264,9 @@ import Test.Tasty
 --         , responsePutInsightSelectors $
 --             newPutInsightSelectorsResponse
 --
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
+--
 --         , responseRegisterOrganizationDelegatedAdmin $
 --             newRegisterOrganizationDelegatedAdminResponse
 --
@@ -236,6 +275,9 @@ import Test.Tasty
 --
 --         , responseRestoreEventDataStore $
 --             newRestoreEventDataStoreResponse
+--
+--         , responseStartEventDataStoreIngestion $
+--             newStartEventDataStoreIngestionResponse
 --
 --         , responseStartImport $
 --             newStartImportResponse
@@ -246,11 +288,17 @@ import Test.Tasty
 --         , responseStartQuery $
 --             newStartQueryResponse
 --
+--         , responseStopEventDataStoreIngestion $
+--             newStopEventDataStoreIngestionResponse
+--
 --         , responseStopImport $
 --             newStopImportResponse
 --
 --         , responseStopLogging $
 --             newStopLoggingResponse
+--
+--         , responseUpdateChannel $
+--             newUpdateChannelResponse
 --
 --         , responseUpdateEventDataStore $
 --             newUpdateEventDataStoreResponse
@@ -275,6 +323,12 @@ requestCancelQuery =
     "CancelQuery"
     "fixture/CancelQuery.yaml"
 
+requestCreateChannel :: CreateChannel -> TestTree
+requestCreateChannel =
+  req
+    "CreateChannel"
+    "fixture/CreateChannel.yaml"
+
 requestCreateEventDataStore :: CreateEventDataStore -> TestTree
 requestCreateEventDataStore =
   req
@@ -287,11 +341,23 @@ requestCreateTrail =
     "CreateTrail"
     "fixture/CreateTrail.yaml"
 
+requestDeleteChannel :: DeleteChannel -> TestTree
+requestDeleteChannel =
+  req
+    "DeleteChannel"
+    "fixture/DeleteChannel.yaml"
+
 requestDeleteEventDataStore :: DeleteEventDataStore -> TestTree
 requestDeleteEventDataStore =
   req
     "DeleteEventDataStore"
     "fixture/DeleteEventDataStore.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
 
 requestDeleteTrail :: DeleteTrail -> TestTree
 requestDeleteTrail =
@@ -352,6 +418,12 @@ requestGetQueryResults =
   req
     "GetQueryResults"
     "fixture/GetQueryResults.yaml"
+
+requestGetResourcePolicy :: GetResourcePolicy -> TestTree
+requestGetResourcePolicy =
+  req
+    "GetResourcePolicy"
+    "fixture/GetResourcePolicy.yaml"
 
 requestGetTrail :: GetTrail -> TestTree
 requestGetTrail =
@@ -431,6 +503,12 @@ requestPutInsightSelectors =
     "PutInsightSelectors"
     "fixture/PutInsightSelectors.yaml"
 
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
 requestRegisterOrganizationDelegatedAdmin :: RegisterOrganizationDelegatedAdmin -> TestTree
 requestRegisterOrganizationDelegatedAdmin =
   req
@@ -448,6 +526,12 @@ requestRestoreEventDataStore =
   req
     "RestoreEventDataStore"
     "fixture/RestoreEventDataStore.yaml"
+
+requestStartEventDataStoreIngestion :: StartEventDataStoreIngestion -> TestTree
+requestStartEventDataStoreIngestion =
+  req
+    "StartEventDataStoreIngestion"
+    "fixture/StartEventDataStoreIngestion.yaml"
 
 requestStartImport :: StartImport -> TestTree
 requestStartImport =
@@ -467,6 +551,12 @@ requestStartQuery =
     "StartQuery"
     "fixture/StartQuery.yaml"
 
+requestStopEventDataStoreIngestion :: StopEventDataStoreIngestion -> TestTree
+requestStopEventDataStoreIngestion =
+  req
+    "StopEventDataStoreIngestion"
+    "fixture/StopEventDataStoreIngestion.yaml"
+
 requestStopImport :: StopImport -> TestTree
 requestStopImport =
   req
@@ -478,6 +568,12 @@ requestStopLogging =
   req
     "StopLogging"
     "fixture/StopLogging.yaml"
+
+requestUpdateChannel :: UpdateChannel -> TestTree
+requestUpdateChannel =
+  req
+    "UpdateChannel"
+    "fixture/UpdateChannel.yaml"
 
 requestUpdateEventDataStore :: UpdateEventDataStore -> TestTree
 requestUpdateEventDataStore =
@@ -509,6 +605,14 @@ responseCancelQuery =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelQuery)
 
+responseCreateChannel :: CreateChannelResponse -> TestTree
+responseCreateChannel =
+  res
+    "CreateChannelResponse"
+    "fixture/CreateChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
+
 responseCreateEventDataStore :: CreateEventDataStoreResponse -> TestTree
 responseCreateEventDataStore =
   res
@@ -525,6 +629,14 @@ responseCreateTrail =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateTrail)
 
+responseDeleteChannel :: DeleteChannelResponse -> TestTree
+responseDeleteChannel =
+  res
+    "DeleteChannelResponse"
+    "fixture/DeleteChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
+
 responseDeleteEventDataStore :: DeleteEventDataStoreResponse -> TestTree
 responseDeleteEventDataStore =
   res
@@ -532,6 +644,14 @@ responseDeleteEventDataStore =
     "fixture/DeleteEventDataStoreResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteEventDataStore)
+
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
 responseDeleteTrail :: DeleteTrailResponse -> TestTree
 responseDeleteTrail =
@@ -612,6 +732,14 @@ responseGetQueryResults =
     "fixture/GetQueryResultsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetQueryResults)
+
+responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
+responseGetResourcePolicy =
+  res
+    "GetResourcePolicyResponse"
+    "fixture/GetResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicy)
 
 responseGetTrail :: GetTrailResponse -> TestTree
 responseGetTrail =
@@ -717,6 +845,14 @@ responsePutInsightSelectors =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutInsightSelectors)
 
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
+
 responseRegisterOrganizationDelegatedAdmin :: RegisterOrganizationDelegatedAdminResponse -> TestTree
 responseRegisterOrganizationDelegatedAdmin =
   res
@@ -740,6 +876,14 @@ responseRestoreEventDataStore =
     "fixture/RestoreEventDataStoreResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RestoreEventDataStore)
+
+responseStartEventDataStoreIngestion :: StartEventDataStoreIngestionResponse -> TestTree
+responseStartEventDataStoreIngestion =
+  res
+    "StartEventDataStoreIngestionResponse"
+    "fixture/StartEventDataStoreIngestionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartEventDataStoreIngestion)
 
 responseStartImport :: StartImportResponse -> TestTree
 responseStartImport =
@@ -765,6 +909,14 @@ responseStartQuery =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartQuery)
 
+responseStopEventDataStoreIngestion :: StopEventDataStoreIngestionResponse -> TestTree
+responseStopEventDataStoreIngestion =
+  res
+    "StopEventDataStoreIngestionResponse"
+    "fixture/StopEventDataStoreIngestionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopEventDataStoreIngestion)
+
 responseStopImport :: StopImportResponse -> TestTree
 responseStopImport =
   res
@@ -780,6 +932,14 @@ responseStopLogging =
     "fixture/StopLoggingResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopLogging)
+
+responseUpdateChannel :: UpdateChannelResponse -> TestTree
+responseUpdateChannel =
+  res
+    "UpdateChannelResponse"
+    "fixture/UpdateChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
 
 responseUpdateEventDataStore :: UpdateEventDataStoreResponse -> TestTree
 responseUpdateEventDataStore =

@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data SourceConfig = SourceConfig'
   { -- | The advanced event selectors that are configured for the channel.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
-    -- | Specifies whether the channel applies to a single region or to all
-    -- regions.
+    -- | Specifies whether the channel applies to a single Region or to all
+    -- Regions.
     applyToAllRegions :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,8 +47,8 @@ data SourceConfig = SourceConfig'
 --
 -- 'advancedEventSelectors', 'sourceConfig_advancedEventSelectors' - The advanced event selectors that are configured for the channel.
 --
--- 'applyToAllRegions', 'sourceConfig_applyToAllRegions' - Specifies whether the channel applies to a single region or to all
--- regions.
+-- 'applyToAllRegions', 'sourceConfig_applyToAllRegions' - Specifies whether the channel applies to a single Region or to all
+-- Regions.
 newSourceConfig ::
   SourceConfig
 newSourceConfig =
@@ -62,8 +62,8 @@ newSourceConfig =
 sourceConfig_advancedEventSelectors :: Lens.Lens' SourceConfig (Prelude.Maybe [AdvancedEventSelector])
 sourceConfig_advancedEventSelectors = Lens.lens (\SourceConfig' {advancedEventSelectors} -> advancedEventSelectors) (\s@SourceConfig' {} a -> s {advancedEventSelectors = a} :: SourceConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether the channel applies to a single region or to all
--- regions.
+-- | Specifies whether the channel applies to a single Region or to all
+-- Regions.
 sourceConfig_applyToAllRegions :: Lens.Lens' SourceConfig (Prelude.Maybe Prelude.Bool)
 sourceConfig_applyToAllRegions = Lens.lens (\SourceConfig' {applyToAllRegions} -> applyToAllRegions) (\s@SourceConfig' {} a -> s {applyToAllRegions = a} :: SourceConfig)
 
@@ -73,7 +73,8 @@ instance Data.FromJSON SourceConfig where
       "SourceConfig"
       ( \x ->
           SourceConfig'
-            Prelude.<$> ( x Data..:? "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..:? "AdvancedEventSelectors"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ApplyToAllRegions")
@@ -81,7 +82,8 @@ instance Data.FromJSON SourceConfig where
 
 instance Prelude.Hashable SourceConfig where
   hashWithSalt _salt SourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` advancedEventSelectors
+    _salt
+      `Prelude.hashWithSalt` advancedEventSelectors
       `Prelude.hashWithSalt` applyToAllRegions
 
 instance Prelude.NFData SourceConfig where

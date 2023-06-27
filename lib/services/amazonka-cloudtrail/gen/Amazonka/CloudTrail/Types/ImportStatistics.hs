@@ -109,7 +109,8 @@ instance Data.FromJSON ImportStatistics where
 
 instance Prelude.Hashable ImportStatistics where
   hashWithSalt _salt ImportStatistics' {..} =
-    _salt `Prelude.hashWithSalt` eventsCompleted
+    _salt
+      `Prelude.hashWithSalt` eventsCompleted
       `Prelude.hashWithSalt` failedEntries
       `Prelude.hashWithSalt` filesCompleted
       `Prelude.hashWithSalt` prefixesCompleted

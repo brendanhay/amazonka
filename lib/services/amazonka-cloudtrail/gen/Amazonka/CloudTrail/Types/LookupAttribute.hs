@@ -69,7 +69,8 @@ lookupAttribute_attributeValue = Lens.lens (\LookupAttribute' {attributeValue} -
 
 instance Prelude.Hashable LookupAttribute where
   hashWithSalt _salt LookupAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributeKey
+    _salt
+      `Prelude.hashWithSalt` attributeKey
       `Prelude.hashWithSalt` attributeValue
 
 instance Prelude.NFData LookupAttribute where

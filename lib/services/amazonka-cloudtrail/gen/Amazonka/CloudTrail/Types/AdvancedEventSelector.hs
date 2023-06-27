@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- following CloudTrail event record ﬁelds. They help you control costs by
 -- logging only those events that are important to you. For more
 -- information about advanced event selectors, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events>
 -- in the /CloudTrail User Guide/.
 --
 -- -   @readOnly@
@@ -101,7 +101,8 @@ instance Data.FromJSON AdvancedEventSelector where
 
 instance Prelude.Hashable AdvancedEventSelector where
   hashWithSalt _salt AdvancedEventSelector' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fieldSelectors
 
 instance Prelude.NFData AdvancedEventSelector where

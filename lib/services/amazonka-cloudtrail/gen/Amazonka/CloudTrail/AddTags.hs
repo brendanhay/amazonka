@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more tags to a trail or event data store, up to a limit of
--- 50. Overwrites an existing tag\'s value when a new value is specified
--- for an existing tag key. Tag key names must be unique for a trail; you
+-- Adds one or more tags to a trail, event data store, or channel, up to a
+-- limit of 50. Overwrites an existing tag\'s value when a new value is
+-- specified for an existing tag key. Tag key names must be unique; you
 -- cannot have two keys with the same name but different values. If you
 -- specify a key without a value, the tag will be created with the
 -- specified key and a value of null. You can tag a trail or event data
 -- store that applies to all Amazon Web Services Regions only from the
 -- Region in which the trail or event data store was created (also known as
--- its home region).
+-- its home Region).
 module Amazonka.CloudTrail.AddTags
   ( -- * Creating a Request
     AddTags (..),
@@ -55,14 +55,21 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Specifies the tags to add to a trail or event data store.
+-- | Specifies the tags to add to a trail, event data store, or channel.
 --
 -- /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
-  { -- | Specifies the ARN of the trail or event data store to which one or more
-    -- tags will be added. The format of a trail ARN is:
+  { -- | Specifies the ARN of the trail, event data store, or channel to which
+    -- one or more tags will be added.
     --
+    -- The format of a trail ARN is:
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+    --
+    -- The format of an event data store ARN is:
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+    --
+    -- The format of a channel ARN is:
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:channel\/01234567890@
     resourceId :: Prelude.Text,
     -- | Contains a list of tags, up to a limit of 50
     tagsList :: [Tag]
@@ -77,10 +84,17 @@ data AddTags = AddTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'addTags_resourceId' - Specifies the ARN of the trail or event data store to which one or more
--- tags will be added. The format of a trail ARN is:
+-- 'resourceId', 'addTags_resourceId' - Specifies the ARN of the trail, event data store, or channel to which
+-- one or more tags will be added.
 --
+-- The format of a trail ARN is:
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+--
+-- The format of an event data store ARN is:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+--
+-- The format of a channel ARN is:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:channel\/01234567890@
 --
 -- 'tagsList', 'addTags_tagsList' - Contains a list of tags, up to a limit of 50
 newAddTags ::
@@ -93,10 +107,17 @@ newAddTags pResourceId_ =
       tagsList = Prelude.mempty
     }
 
--- | Specifies the ARN of the trail or event data store to which one or more
--- tags will be added. The format of a trail ARN is:
+-- | Specifies the ARN of the trail, event data store, or channel to which
+-- one or more tags will be added.
 --
+-- The format of a trail ARN is:
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+--
+-- The format of an event data store ARN is:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+--
+-- The format of a channel ARN is:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:channel\/01234567890@
 addTags_resourceId :: Lens.Lens' AddTags Prelude.Text
 addTags_resourceId = Lens.lens (\AddTags' {resourceId} -> resourceId) (\s@AddTags' {} a -> s {resourceId = a} :: AddTags)
 
@@ -117,7 +138,8 @@ instance Core.AWSRequest AddTags where
 
 instance Prelude.Hashable AddTags where
   hashWithSalt _salt AddTags' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` tagsList
 
 instance Prelude.NFData AddTags where

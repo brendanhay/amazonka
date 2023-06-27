@@ -36,9 +36,9 @@
 -- For more information about logging management and data events, see the
 -- following topics in the /CloudTrail User Guide/:
 --
--- -   <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html Logging management events for trails>
+-- -   <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html Logging management events>
 --
--- -   <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
+-- -   <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events>
 module Amazonka.CloudTrail.GetEventSelectors
   ( -- * Creating a Request
     GetEventSelectors (..),
@@ -155,7 +155,8 @@ instance Core.AWSRequest GetEventSelectors where
     Response.receiveJSON
       ( \s h x ->
           GetEventSelectorsResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EventSelectors" Core..!@ Prelude.mempty)

@@ -34,34 +34,30 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventDataStore' smart constructor.
 data EventDataStore = EventDataStore'
-  { -- | This field is being deprecated. The advanced event selectors that were
-    -- used to select events for the data store.
+  { -- | The advanced event selectors that were used to select events for the
+    -- data store.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
-    -- | This field is being deprecated. The timestamp of the event data store\'s
-    -- creation.
+    -- | The timestamp of the event data store\'s creation.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the event data store.
     eventDataStoreArn :: Prelude.Maybe Prelude.Text,
-    -- | This field is being deprecated. Indicates whether the event data store
-    -- includes events from all regions, or only from the region in which it
-    -- was created.
+    -- | Indicates whether the event data store includes events from all Regions,
+    -- or only from the Region in which it was created.
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the event data store.
     name :: Prelude.Maybe Prelude.Text,
-    -- | This field is being deprecated. Indicates that an event data store is
-    -- collecting logged events for an organization.
+    -- | Indicates that an event data store is collecting logged events for an
+    -- organization.
     organizationEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | This field is being deprecated. The retention period, in days.
+    -- | The retention period, in days.
     retentionPeriod :: Prelude.Maybe Prelude.Natural,
-    -- | This field is being deprecated. The status of an event data store.
-    -- Values are @ENABLED@ and @PENDING_DELETION@.
+    -- | The status of an event data store.
     status :: Prelude.Maybe EventDataStoreStatus,
-    -- | This field is being deprecated. Indicates whether the event data store
-    -- is protected from termination.
+    -- | Indicates whether the event data store is protected from termination.
     terminationProtectionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | This field is being deprecated. The timestamp showing when an event data
-    -- store was updated, if applicable. @UpdatedTimestamp@ is always either
-    -- the same or newer than the time shown in @CreatedTimestamp@.
+    -- | The timestamp showing when an event data store was updated, if
+    -- applicable. @UpdatedTimestamp@ is always either the same or newer than
+    -- the time shown in @CreatedTimestamp@.
     updatedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,34 +70,30 @@ data EventDataStore = EventDataStore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'advancedEventSelectors', 'eventDataStore_advancedEventSelectors' - This field is being deprecated. The advanced event selectors that were
--- used to select events for the data store.
+-- 'advancedEventSelectors', 'eventDataStore_advancedEventSelectors' - The advanced event selectors that were used to select events for the
+-- data store.
 --
--- 'createdTimestamp', 'eventDataStore_createdTimestamp' - This field is being deprecated. The timestamp of the event data store\'s
--- creation.
+-- 'createdTimestamp', 'eventDataStore_createdTimestamp' - The timestamp of the event data store\'s creation.
 --
 -- 'eventDataStoreArn', 'eventDataStore_eventDataStoreArn' - The ARN of the event data store.
 --
--- 'multiRegionEnabled', 'eventDataStore_multiRegionEnabled' - This field is being deprecated. Indicates whether the event data store
--- includes events from all regions, or only from the region in which it
--- was created.
+-- 'multiRegionEnabled', 'eventDataStore_multiRegionEnabled' - Indicates whether the event data store includes events from all Regions,
+-- or only from the Region in which it was created.
 --
 -- 'name', 'eventDataStore_name' - The name of the event data store.
 --
--- 'organizationEnabled', 'eventDataStore_organizationEnabled' - This field is being deprecated. Indicates that an event data store is
--- collecting logged events for an organization.
+-- 'organizationEnabled', 'eventDataStore_organizationEnabled' - Indicates that an event data store is collecting logged events for an
+-- organization.
 --
--- 'retentionPeriod', 'eventDataStore_retentionPeriod' - This field is being deprecated. The retention period, in days.
+-- 'retentionPeriod', 'eventDataStore_retentionPeriod' - The retention period, in days.
 --
--- 'status', 'eventDataStore_status' - This field is being deprecated. The status of an event data store.
--- Values are @ENABLED@ and @PENDING_DELETION@.
+-- 'status', 'eventDataStore_status' - The status of an event data store.
 --
--- 'terminationProtectionEnabled', 'eventDataStore_terminationProtectionEnabled' - This field is being deprecated. Indicates whether the event data store
--- is protected from termination.
+-- 'terminationProtectionEnabled', 'eventDataStore_terminationProtectionEnabled' - Indicates whether the event data store is protected from termination.
 --
--- 'updatedTimestamp', 'eventDataStore_updatedTimestamp' - This field is being deprecated. The timestamp showing when an event data
--- store was updated, if applicable. @UpdatedTimestamp@ is always either
--- the same or newer than the time shown in @CreatedTimestamp@.
+-- 'updatedTimestamp', 'eventDataStore_updatedTimestamp' - The timestamp showing when an event data store was updated, if
+-- applicable. @UpdatedTimestamp@ is always either the same or newer than
+-- the time shown in @CreatedTimestamp@.
 newEventDataStore ::
   EventDataStore
 newEventDataStore =
@@ -119,13 +111,12 @@ newEventDataStore =
       updatedTimestamp = Prelude.Nothing
     }
 
--- | This field is being deprecated. The advanced event selectors that were
--- used to select events for the data store.
+-- | The advanced event selectors that were used to select events for the
+-- data store.
 eventDataStore_advancedEventSelectors :: Lens.Lens' EventDataStore (Prelude.Maybe [AdvancedEventSelector])
 eventDataStore_advancedEventSelectors = Lens.lens (\EventDataStore' {advancedEventSelectors} -> advancedEventSelectors) (\s@EventDataStore' {} a -> s {advancedEventSelectors = a} :: EventDataStore) Prelude.. Lens.mapping Lens.coerced
 
--- | This field is being deprecated. The timestamp of the event data store\'s
--- creation.
+-- | The timestamp of the event data store\'s creation.
 eventDataStore_createdTimestamp :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.UTCTime)
 eventDataStore_createdTimestamp = Lens.lens (\EventDataStore' {createdTimestamp} -> createdTimestamp) (\s@EventDataStore' {} a -> s {createdTimestamp = a} :: EventDataStore) Prelude.. Lens.mapping Data._Time
 
@@ -133,9 +124,8 @@ eventDataStore_createdTimestamp = Lens.lens (\EventDataStore' {createdTimestamp}
 eventDataStore_eventDataStoreArn :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.Text)
 eventDataStore_eventDataStoreArn = Lens.lens (\EventDataStore' {eventDataStoreArn} -> eventDataStoreArn) (\s@EventDataStore' {} a -> s {eventDataStoreArn = a} :: EventDataStore)
 
--- | This field is being deprecated. Indicates whether the event data store
--- includes events from all regions, or only from the region in which it
--- was created.
+-- | Indicates whether the event data store includes events from all Regions,
+-- or only from the Region in which it was created.
 eventDataStore_multiRegionEnabled :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.Bool)
 eventDataStore_multiRegionEnabled = Lens.lens (\EventDataStore' {multiRegionEnabled} -> multiRegionEnabled) (\s@EventDataStore' {} a -> s {multiRegionEnabled = a} :: EventDataStore)
 
@@ -143,28 +133,26 @@ eventDataStore_multiRegionEnabled = Lens.lens (\EventDataStore' {multiRegionEnab
 eventDataStore_name :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.Text)
 eventDataStore_name = Lens.lens (\EventDataStore' {name} -> name) (\s@EventDataStore' {} a -> s {name = a} :: EventDataStore)
 
--- | This field is being deprecated. Indicates that an event data store is
--- collecting logged events for an organization.
+-- | Indicates that an event data store is collecting logged events for an
+-- organization.
 eventDataStore_organizationEnabled :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.Bool)
 eventDataStore_organizationEnabled = Lens.lens (\EventDataStore' {organizationEnabled} -> organizationEnabled) (\s@EventDataStore' {} a -> s {organizationEnabled = a} :: EventDataStore)
 
--- | This field is being deprecated. The retention period, in days.
+-- | The retention period, in days.
 eventDataStore_retentionPeriod :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.Natural)
 eventDataStore_retentionPeriod = Lens.lens (\EventDataStore' {retentionPeriod} -> retentionPeriod) (\s@EventDataStore' {} a -> s {retentionPeriod = a} :: EventDataStore)
 
--- | This field is being deprecated. The status of an event data store.
--- Values are @ENABLED@ and @PENDING_DELETION@.
+-- | The status of an event data store.
 eventDataStore_status :: Lens.Lens' EventDataStore (Prelude.Maybe EventDataStoreStatus)
 eventDataStore_status = Lens.lens (\EventDataStore' {status} -> status) (\s@EventDataStore' {} a -> s {status = a} :: EventDataStore)
 
--- | This field is being deprecated. Indicates whether the event data store
--- is protected from termination.
+-- | Indicates whether the event data store is protected from termination.
 eventDataStore_terminationProtectionEnabled :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.Bool)
 eventDataStore_terminationProtectionEnabled = Lens.lens (\EventDataStore' {terminationProtectionEnabled} -> terminationProtectionEnabled) (\s@EventDataStore' {} a -> s {terminationProtectionEnabled = a} :: EventDataStore)
 
--- | This field is being deprecated. The timestamp showing when an event data
--- store was updated, if applicable. @UpdatedTimestamp@ is always either
--- the same or newer than the time shown in @CreatedTimestamp@.
+-- | The timestamp showing when an event data store was updated, if
+-- applicable. @UpdatedTimestamp@ is always either the same or newer than
+-- the time shown in @CreatedTimestamp@.
 eventDataStore_updatedTimestamp :: Lens.Lens' EventDataStore (Prelude.Maybe Prelude.UTCTime)
 eventDataStore_updatedTimestamp = Lens.lens (\EventDataStore' {updatedTimestamp} -> updatedTimestamp) (\s@EventDataStore' {} a -> s {updatedTimestamp = a} :: EventDataStore) Prelude.. Lens.mapping Data._Time
 
@@ -174,7 +162,8 @@ instance Data.FromJSON EventDataStore where
       "EventDataStore"
       ( \x ->
           EventDataStore'
-            Prelude.<$> ( x Data..:? "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..:? "AdvancedEventSelectors"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedTimestamp")
@@ -190,7 +179,8 @@ instance Data.FromJSON EventDataStore where
 
 instance Prelude.Hashable EventDataStore where
   hashWithSalt _salt EventDataStore' {..} =
-    _salt `Prelude.hashWithSalt` advancedEventSelectors
+    _salt
+      `Prelude.hashWithSalt` advancedEventSelectors
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` eventDataStoreArn
       `Prelude.hashWithSalt` multiRegionEnabled

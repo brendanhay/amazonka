@@ -21,10 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the channels in the current account, and their source names.
--- Amazon Web Services services create service-linked channels get
--- information about CloudTrail events on your behalf. For more information
--- about service-linked channels, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html Viewing service-linked channels for CloudTrail by using the CLI>.
 module Amazonka.CloudTrail.ListChannels
   ( -- * Creating a Request
     ListChannels (..),
@@ -116,7 +112,8 @@ instance Core.AWSRequest ListChannels where
 
 instance Prelude.Hashable ListChannels where
   hashWithSalt _salt ListChannels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListChannels where

@@ -32,6 +32,7 @@ module Amazonka.CloudTrail.CreateEventDataStore
     createEventDataStore_multiRegionEnabled,
     createEventDataStore_organizationEnabled,
     createEventDataStore_retentionPeriod,
+    createEventDataStore_startIngestion,
     createEventDataStore_tagsList,
     createEventDataStore_terminationProtectionEnabled,
     createEventDataStore_name,
@@ -68,9 +69,22 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateEventDataStore' smart constructor.
 data CreateEventDataStore = CreateEventDataStore'
   { -- | The advanced event selectors to use to select the events for the data
-    -- store. For more information about how to use advanced event selectors,
-    -- see
+    -- store. You can configure up to five advanced event selectors for each
+    -- event data store.
+    --
+    -- For more information about how to use advanced event selectors to log
+    -- CloudTrail events, see
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced Log events by using advanced event selectors>
+    -- in the CloudTrail User Guide.
+    --
+    -- For more information about how to use advanced event selectors to
+    -- include Config configuration items in your event data store, see
+    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-eds-config Create an event data store for Config configuration items>
+    -- in the CloudTrail User Guide.
+    --
+    -- For more information about how to use advanced event selectors to
+    -- include non-Amazon Web Services events in your event data store, see
+    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-integration Create an integration to log events from outside Amazon Web Services>
     -- in the CloudTrail User Guide.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
     -- | Specifies the KMS key ID to use to encrypt the events delivered by
@@ -101,8 +115,8 @@ data CreateEventDataStore = CreateEventDataStore'
     --
     -- -   @12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the event data store includes events from all regions,
-    -- or only from the region in which the event data store is created.
+    -- | Specifies whether the event data store includes events from all Regions,
+    -- or only from the Region in which the event data store is created.
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether an event data store collects events logged for an
     -- organization in Organizations.
@@ -110,6 +124,9 @@ data CreateEventDataStore = CreateEventDataStore'
     -- | The retention period of the event data store, in days. You can set a
     -- retention period of up to 2557 days, the equivalent of seven years.
     retentionPeriod :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies whether the event data store should start ingesting live
+    -- events. The default is true.
+    startIngestion :: Prelude.Maybe Prelude.Bool,
     tagsList :: Prelude.Maybe [Tag],
     -- | Specifies whether termination protection is enabled for the event data
     -- store. If termination protection is enabled, you cannot delete the event
@@ -129,9 +146,22 @@ data CreateEventDataStore = CreateEventDataStore'
 -- for backwards compatibility:
 --
 -- 'advancedEventSelectors', 'createEventDataStore_advancedEventSelectors' - The advanced event selectors to use to select the events for the data
--- store. For more information about how to use advanced event selectors,
--- see
+-- store. You can configure up to five advanced event selectors for each
+-- event data store.
+--
+-- For more information about how to use advanced event selectors to log
+-- CloudTrail events, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced Log events by using advanced event selectors>
+-- in the CloudTrail User Guide.
+--
+-- For more information about how to use advanced event selectors to
+-- include Config configuration items in your event data store, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-eds-config Create an event data store for Config configuration items>
+-- in the CloudTrail User Guide.
+--
+-- For more information about how to use advanced event selectors to
+-- include non-Amazon Web Services events in your event data store, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-integration Create an integration to log events from outside Amazon Web Services>
 -- in the CloudTrail User Guide.
 --
 -- 'kmsKeyId', 'createEventDataStore_kmsKeyId' - Specifies the KMS key ID to use to encrypt the events delivered by
@@ -162,14 +192,17 @@ data CreateEventDataStore = CreateEventDataStore'
 --
 -- -   @12345678-1234-1234-1234-123456789012@
 --
--- 'multiRegionEnabled', 'createEventDataStore_multiRegionEnabled' - Specifies whether the event data store includes events from all regions,
--- or only from the region in which the event data store is created.
+-- 'multiRegionEnabled', 'createEventDataStore_multiRegionEnabled' - Specifies whether the event data store includes events from all Regions,
+-- or only from the Region in which the event data store is created.
 --
 -- 'organizationEnabled', 'createEventDataStore_organizationEnabled' - Specifies whether an event data store collects events logged for an
 -- organization in Organizations.
 --
 -- 'retentionPeriod', 'createEventDataStore_retentionPeriod' - The retention period of the event data store, in days. You can set a
 -- retention period of up to 2557 days, the equivalent of seven years.
+--
+-- 'startIngestion', 'createEventDataStore_startIngestion' - Specifies whether the event data store should start ingesting live
+-- events. The default is true.
 --
 -- 'tagsList', 'createEventDataStore_tagsList' - Undocumented member.
 --
@@ -190,15 +223,29 @@ newCreateEventDataStore pName_ =
       multiRegionEnabled = Prelude.Nothing,
       organizationEnabled = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
+      startIngestion = Prelude.Nothing,
       tagsList = Prelude.Nothing,
       terminationProtectionEnabled = Prelude.Nothing,
       name = pName_
     }
 
 -- | The advanced event selectors to use to select the events for the data
--- store. For more information about how to use advanced event selectors,
--- see
+-- store. You can configure up to five advanced event selectors for each
+-- event data store.
+--
+-- For more information about how to use advanced event selectors to log
+-- CloudTrail events, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced Log events by using advanced event selectors>
+-- in the CloudTrail User Guide.
+--
+-- For more information about how to use advanced event selectors to
+-- include Config configuration items in your event data store, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-eds-config Create an event data store for Config configuration items>
+-- in the CloudTrail User Guide.
+--
+-- For more information about how to use advanced event selectors to
+-- include non-Amazon Web Services events in your event data store, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-integration Create an integration to log events from outside Amazon Web Services>
 -- in the CloudTrail User Guide.
 createEventDataStore_advancedEventSelectors :: Lens.Lens' CreateEventDataStore (Prelude.Maybe [AdvancedEventSelector])
 createEventDataStore_advancedEventSelectors = Lens.lens (\CreateEventDataStore' {advancedEventSelectors} -> advancedEventSelectors) (\s@CreateEventDataStore' {} a -> s {advancedEventSelectors = a} :: CreateEventDataStore) Prelude.. Lens.mapping Lens.coerced
@@ -233,8 +280,8 @@ createEventDataStore_advancedEventSelectors = Lens.lens (\CreateEventDataStore' 
 createEventDataStore_kmsKeyId :: Lens.Lens' CreateEventDataStore (Prelude.Maybe Prelude.Text)
 createEventDataStore_kmsKeyId = Lens.lens (\CreateEventDataStore' {kmsKeyId} -> kmsKeyId) (\s@CreateEventDataStore' {} a -> s {kmsKeyId = a} :: CreateEventDataStore)
 
--- | Specifies whether the event data store includes events from all regions,
--- or only from the region in which the event data store is created.
+-- | Specifies whether the event data store includes events from all Regions,
+-- or only from the Region in which the event data store is created.
 createEventDataStore_multiRegionEnabled :: Lens.Lens' CreateEventDataStore (Prelude.Maybe Prelude.Bool)
 createEventDataStore_multiRegionEnabled = Lens.lens (\CreateEventDataStore' {multiRegionEnabled} -> multiRegionEnabled) (\s@CreateEventDataStore' {} a -> s {multiRegionEnabled = a} :: CreateEventDataStore)
 
@@ -247,6 +294,11 @@ createEventDataStore_organizationEnabled = Lens.lens (\CreateEventDataStore' {or
 -- retention period of up to 2557 days, the equivalent of seven years.
 createEventDataStore_retentionPeriod :: Lens.Lens' CreateEventDataStore (Prelude.Maybe Prelude.Natural)
 createEventDataStore_retentionPeriod = Lens.lens (\CreateEventDataStore' {retentionPeriod} -> retentionPeriod) (\s@CreateEventDataStore' {} a -> s {retentionPeriod = a} :: CreateEventDataStore)
+
+-- | Specifies whether the event data store should start ingesting live
+-- events. The default is true.
+createEventDataStore_startIngestion :: Lens.Lens' CreateEventDataStore (Prelude.Maybe Prelude.Bool)
+createEventDataStore_startIngestion = Lens.lens (\CreateEventDataStore' {startIngestion} -> startIngestion) (\s@CreateEventDataStore' {} a -> s {startIngestion = a} :: CreateEventDataStore)
 
 -- | Undocumented member.
 createEventDataStore_tagsList :: Lens.Lens' CreateEventDataStore (Prelude.Maybe [Tag])
@@ -272,7 +324,8 @@ instance Core.AWSRequest CreateEventDataStore where
     Response.receiveJSON
       ( \s h x ->
           CreateEventDataStoreResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CreatedTimestamp")
@@ -291,11 +344,13 @@ instance Core.AWSRequest CreateEventDataStore where
 
 instance Prelude.Hashable CreateEventDataStore where
   hashWithSalt _salt CreateEventDataStore' {..} =
-    _salt `Prelude.hashWithSalt` advancedEventSelectors
+    _salt
+      `Prelude.hashWithSalt` advancedEventSelectors
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` multiRegionEnabled
       `Prelude.hashWithSalt` organizationEnabled
       `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` startIngestion
       `Prelude.hashWithSalt` tagsList
       `Prelude.hashWithSalt` terminationProtectionEnabled
       `Prelude.hashWithSalt` name
@@ -307,6 +362,7 @@ instance Prelude.NFData CreateEventDataStore where
       `Prelude.seq` Prelude.rnf multiRegionEnabled
       `Prelude.seq` Prelude.rnf organizationEnabled
       `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf startIngestion
       `Prelude.seq` Prelude.rnf tagsList
       `Prelude.seq` Prelude.rnf terminationProtectionEnabled
       `Prelude.seq` Prelude.rnf name
@@ -339,6 +395,8 @@ instance Data.ToJSON CreateEventDataStore where
               Prelude.<$> organizationEnabled,
             ("RetentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
+            ("StartIngestion" Data..=)
+              Prelude.<$> startIngestion,
             ("TagsList" Data..=) Prelude.<$> tagsList,
             ("TerminationProtectionEnabled" Data..=)
               Prelude.<$> terminationProtectionEnabled,
@@ -367,8 +425,8 @@ data CreateEventDataStoreResponse = CreateEventDataStoreResponse'
     --
     -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the event data store collects events from all regions,
-    -- or only from the region in which it was created.
+    -- | Indicates whether the event data store collects events from all Regions,
+    -- or only from the Region in which it was created.
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the event data store.
     name :: Prelude.Maybe Prelude.Text,
@@ -413,8 +471,8 @@ data CreateEventDataStoreResponse = CreateEventDataStoreResponse'
 --
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 --
--- 'multiRegionEnabled', 'createEventDataStoreResponse_multiRegionEnabled' - Indicates whether the event data store collects events from all regions,
--- or only from the region in which it was created.
+-- 'multiRegionEnabled', 'createEventDataStoreResponse_multiRegionEnabled' - Indicates whether the event data store collects events from all Regions,
+-- or only from the Region in which it was created.
 --
 -- 'name', 'createEventDataStoreResponse_name' - The name of the event data store.
 --
@@ -479,8 +537,8 @@ createEventDataStoreResponse_eventDataStoreArn = Lens.lens (\CreateEventDataStor
 createEventDataStoreResponse_kmsKeyId :: Lens.Lens' CreateEventDataStoreResponse (Prelude.Maybe Prelude.Text)
 createEventDataStoreResponse_kmsKeyId = Lens.lens (\CreateEventDataStoreResponse' {kmsKeyId} -> kmsKeyId) (\s@CreateEventDataStoreResponse' {} a -> s {kmsKeyId = a} :: CreateEventDataStoreResponse)
 
--- | Indicates whether the event data store collects events from all regions,
--- or only from the region in which it was created.
+-- | Indicates whether the event data store collects events from all Regions,
+-- or only from the Region in which it was created.
 createEventDataStoreResponse_multiRegionEnabled :: Lens.Lens' CreateEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
 createEventDataStoreResponse_multiRegionEnabled = Lens.lens (\CreateEventDataStoreResponse' {multiRegionEnabled} -> multiRegionEnabled) (\s@CreateEventDataStoreResponse' {} a -> s {multiRegionEnabled = a} :: CreateEventDataStoreResponse)
 

@@ -91,20 +91,23 @@ instance Core.AWSPager ListTrails where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTrailsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTrailsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTrailsResponse_trails Prelude.. Lens._Just
+            Lens.^? listTrailsResponse_trails
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTrails_nextToken
           Lens..~ rs
-          Lens.^? listTrailsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTrailsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrails where
   type AWSResponse ListTrails = ListTrailsResponse
@@ -163,7 +166,7 @@ data ListTrailsResponse = ListTrailsResponse'
     -- \'Username\' with a value of \'root\', the call with NextToken should
     -- include those same parameters.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns the name, ARN, and home region of trails in the current account.
+    -- | Returns the name, ARN, and home Region of trails in the current account.
     trails :: Prelude.Maybe [TrailInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -185,7 +188,7 @@ data ListTrailsResponse = ListTrailsResponse'
 -- \'Username\' with a value of \'root\', the call with NextToken should
 -- include those same parameters.
 --
--- 'trails', 'listTrailsResponse_trails' - Returns the name, ARN, and home region of trails in the current account.
+-- 'trails', 'listTrailsResponse_trails' - Returns the name, ARN, and home Region of trails in the current account.
 --
 -- 'httpStatus', 'listTrailsResponse_httpStatus' - The response's http status code.
 newListTrailsResponse ::
@@ -208,7 +211,7 @@ newListTrailsResponse pHttpStatus_ =
 listTrailsResponse_nextToken :: Lens.Lens' ListTrailsResponse (Prelude.Maybe Prelude.Text)
 listTrailsResponse_nextToken = Lens.lens (\ListTrailsResponse' {nextToken} -> nextToken) (\s@ListTrailsResponse' {} a -> s {nextToken = a} :: ListTrailsResponse)
 
--- | Returns the name, ARN, and home region of trails in the current account.
+-- | Returns the name, ARN, and home Region of trails in the current account.
 listTrailsResponse_trails :: Lens.Lens' ListTrailsResponse (Prelude.Maybe [TrailInfo])
 listTrailsResponse_trails = Lens.lens (\ListTrailsResponse' {trails} -> trails) (\s@ListTrailsResponse' {} a -> s {trails = a} :: ListTrailsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -112,7 +112,8 @@ instance Core.AWSRequest CancelQuery where
 
 instance Prelude.Hashable CancelQuery where
   hashWithSalt _salt CancelQuery' {..} =
-    _salt `Prelude.hashWithSalt` eventDataStore
+    _salt
+      `Prelude.hashWithSalt` eventDataStore
       `Prelude.hashWithSalt` queryId
 
 instance Prelude.NFData CancelQuery where

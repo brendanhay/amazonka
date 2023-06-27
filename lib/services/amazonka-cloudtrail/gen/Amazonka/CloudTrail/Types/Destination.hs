@@ -25,14 +25,17 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information about the service where CloudTrail delivers events.
+-- | Contains information about the destination receiving events.
 --
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
-  { -- | The type of destination for events arriving from a channel. For
-    -- service-linked channels, the value is @AWS_SERVICE@.
+  { -- | The type of destination for events arriving from a channel. For channels
+    -- used for a CloudTrail Lake integration, the value is @EventDataStore@.
+    -- For service-linked channels, the value is @AWS_SERVICE@.
     type' :: DestinationType,
-    -- | For service-linked channels, the value is the name of the Amazon Web
+    -- | For channels used for a CloudTrail Lake integration, the location is the
+    -- ARN of an event data store that receives events from a channel. For
+    -- service-linked channels, the location is the name of the Amazon Web
     -- Services service.
     location :: Prelude.Text
   }
@@ -46,10 +49,13 @@ data Destination = Destination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'destination_type' - The type of destination for events arriving from a channel. For
--- service-linked channels, the value is @AWS_SERVICE@.
+-- 'type'', 'destination_type' - The type of destination for events arriving from a channel. For channels
+-- used for a CloudTrail Lake integration, the value is @EventDataStore@.
+-- For service-linked channels, the value is @AWS_SERVICE@.
 --
--- 'location', 'destination_location' - For service-linked channels, the value is the name of the Amazon Web
+-- 'location', 'destination_location' - For channels used for a CloudTrail Lake integration, the location is the
+-- ARN of an event data store that receives events from a channel. For
+-- service-linked channels, the location is the name of the Amazon Web
 -- Services service.
 newDestination ::
   -- | 'type''
@@ -60,12 +66,15 @@ newDestination ::
 newDestination pType_ pLocation_ =
   Destination' {type' = pType_, location = pLocation_}
 
--- | The type of destination for events arriving from a channel. For
--- service-linked channels, the value is @AWS_SERVICE@.
+-- | The type of destination for events arriving from a channel. For channels
+-- used for a CloudTrail Lake integration, the value is @EventDataStore@.
+-- For service-linked channels, the value is @AWS_SERVICE@.
 destination_type :: Lens.Lens' Destination DestinationType
 destination_type = Lens.lens (\Destination' {type'} -> type') (\s@Destination' {} a -> s {type' = a} :: Destination)
 
--- | For service-linked channels, the value is the name of the Amazon Web
+-- | For channels used for a CloudTrail Lake integration, the location is the
+-- ARN of an event data store that receives events from a channel. For
+-- service-linked channels, the location is the name of the Amazon Web
 -- Services service.
 destination_location :: Lens.Lens' Destination Prelude.Text
 destination_location = Lens.lens (\Destination' {location} -> location) (\s@Destination' {} a -> s {location = a} :: Destination)
@@ -82,10 +91,20 @@ instance Data.FromJSON Destination where
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf location
+
+instance Data.ToJSON Destination where
+  toJSON Destination' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Location" Data..= location)
+          ]
+      )

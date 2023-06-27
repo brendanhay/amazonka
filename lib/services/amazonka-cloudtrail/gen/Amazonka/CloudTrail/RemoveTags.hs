@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified tags from a trail or event data store.
+-- Removes the specified tags from a trail, event data store, or channel.
 module Amazonka.CloudTrail.RemoveTags
   ( -- * Creating a Request
     RemoveTags (..),
@@ -47,18 +47,21 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Specifies the tags to remove from a trail or event data store.
+-- | Specifies the tags to remove from a trail, event data store, or channel.
 --
 -- /See:/ 'newRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { -- | Specifies the ARN of the trail or event data store from which tags
-    -- should be removed.
+  { -- | Specifies the ARN of the trail, event data store, or channel from which
+    -- tags should be removed.
     --
     -- Example trail ARN format:
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
     --
     -- Example event data store ARN format:
-    -- @arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+    --
+    -- Example channel ARN format:
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:channel\/01234567890@
     resourceId :: Prelude.Text,
     -- | Specifies a list of tags to be removed.
     tagsList :: [Tag]
@@ -73,14 +76,17 @@ data RemoveTags = RemoveTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'removeTags_resourceId' - Specifies the ARN of the trail or event data store from which tags
--- should be removed.
+-- 'resourceId', 'removeTags_resourceId' - Specifies the ARN of the trail, event data store, or channel from which
+-- tags should be removed.
 --
 -- Example trail ARN format:
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 --
 -- Example event data store ARN format:
--- @arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+-- @arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+--
+-- Example channel ARN format:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:channel\/01234567890@
 --
 -- 'tagsList', 'removeTags_tagsList' - Specifies a list of tags to be removed.
 newRemoveTags ::
@@ -93,14 +99,17 @@ newRemoveTags pResourceId_ =
       tagsList = Prelude.mempty
     }
 
--- | Specifies the ARN of the trail or event data store from which tags
--- should be removed.
+-- | Specifies the ARN of the trail, event data store, or channel from which
+-- tags should be removed.
 --
 -- Example trail ARN format:
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 --
 -- Example event data store ARN format:
--- @arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+-- @arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore\/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE@
+--
+-- Example channel ARN format:
+-- @arn:aws:cloudtrail:us-east-2:123456789012:channel\/01234567890@
 removeTags_resourceId :: Lens.Lens' RemoveTags Prelude.Text
 removeTags_resourceId = Lens.lens (\RemoveTags' {resourceId} -> resourceId) (\s@RemoveTags' {} a -> s {resourceId = a} :: RemoveTags)
 
@@ -121,7 +130,8 @@ instance Core.AWSRequest RemoveTags where
 
 instance Prelude.Hashable RemoveTags where
   hashWithSalt _salt RemoveTags' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` tagsList
 
 instance Prelude.NFData RemoveTags where

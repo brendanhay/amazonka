@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom key-value pair associated with a resource such as a CloudTrail
--- trail.
+-- trail, event data store, or channel.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
@@ -77,12 +77,14 @@ instance Data.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Data..:? "Value") Prelude.<*> (x Data..: "Key")
+            Prelude.<$> (x Data..:? "Value")
+            Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData Tag where

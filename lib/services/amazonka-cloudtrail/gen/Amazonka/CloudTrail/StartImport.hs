@@ -37,6 +37,10 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling ownership of objects and disabling ACLs for your bucket>.
 --
 -- When you retry an import, the @ImportID@ parameter is required.
+--
+-- If the destination event data store is for an organization, you must use
+-- the management account to import trail events. You cannot use the
+-- delegated administrator account for the organization.
 module Amazonka.CloudTrail.StartImport
   ( -- * Creating a Request
     StartImport (..),
@@ -197,7 +201,8 @@ instance Core.AWSRequest StartImport where
 
 instance Prelude.Hashable StartImport where
   hashWithSalt _salt StartImport' {..} =
-    _salt `Prelude.hashWithSalt` destinations
+    _salt
+      `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` endEventTime
       `Prelude.hashWithSalt` importId
       `Prelude.hashWithSalt` importSource

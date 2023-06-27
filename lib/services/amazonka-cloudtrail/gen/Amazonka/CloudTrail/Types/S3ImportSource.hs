@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data S3ImportSource = S3ImportSource'
   { -- | The URI for the source S3 bucket.
     s3LocationUri :: Prelude.Text,
-    -- | The region associated with the source S3 bucket.
+    -- | The Region associated with the source S3 bucket.
     s3BucketRegion :: Prelude.Text,
     -- | The IAM ARN role used to access the source S3 bucket.
     s3BucketAccessRoleArn :: Prelude.Text
@@ -47,7 +47,7 @@ data S3ImportSource = S3ImportSource'
 --
 -- 's3LocationUri', 's3ImportSource_s3LocationUri' - The URI for the source S3 bucket.
 --
--- 's3BucketRegion', 's3ImportSource_s3BucketRegion' - The region associated with the source S3 bucket.
+-- 's3BucketRegion', 's3ImportSource_s3BucketRegion' - The Region associated with the source S3 bucket.
 --
 -- 's3BucketAccessRoleArn', 's3ImportSource_s3BucketAccessRoleArn' - The IAM ARN role used to access the source S3 bucket.
 newS3ImportSource ::
@@ -72,7 +72,7 @@ newS3ImportSource
 s3ImportSource_s3LocationUri :: Lens.Lens' S3ImportSource Prelude.Text
 s3ImportSource_s3LocationUri = Lens.lens (\S3ImportSource' {s3LocationUri} -> s3LocationUri) (\s@S3ImportSource' {} a -> s {s3LocationUri = a} :: S3ImportSource)
 
--- | The region associated with the source S3 bucket.
+-- | The Region associated with the source S3 bucket.
 s3ImportSource_s3BucketRegion :: Lens.Lens' S3ImportSource Prelude.Text
 s3ImportSource_s3BucketRegion = Lens.lens (\S3ImportSource' {s3BucketRegion} -> s3BucketRegion) (\s@S3ImportSource' {} a -> s {s3BucketRegion = a} :: S3ImportSource)
 
@@ -93,7 +93,8 @@ instance Data.FromJSON S3ImportSource where
 
 instance Prelude.Hashable S3ImportSource where
   hashWithSalt _salt S3ImportSource' {..} =
-    _salt `Prelude.hashWithSalt` s3LocationUri
+    _salt
+      `Prelude.hashWithSalt` s3LocationUri
       `Prelude.hashWithSalt` s3BucketRegion
       `Prelude.hashWithSalt` s3BucketAccessRoleArn
 

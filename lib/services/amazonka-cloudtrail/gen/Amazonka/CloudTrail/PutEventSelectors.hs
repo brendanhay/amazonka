@@ -22,9 +22,14 @@
 --
 -- Configures an event selector or advanced event selectors for your trail.
 -- Use event selectors or advanced event selectors to specify management
--- and data event settings for your trail. By default, trails created
--- without specific event selectors are configured to log all read and
--- write management events, and no data events.
+-- and data event settings for your trail. If you want your trail to log
+-- Insights events, be sure the event selector enables logging of the
+-- Insights event types you want configured for your trail. For more
+-- information about logging Insights events, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html Logging Insights events for trails>
+-- in the /CloudTrail User Guide/. By default, trails created without
+-- specific event selectors are configured to log all read and write
+-- management events, and no data events.
 --
 -- When an event occurs in your account, CloudTrail evaluates the event
 -- selectors or advanced event selectors in all trails. For each trail, if
@@ -48,16 +53,15 @@
 -- 5.  The @GetConsoleOutput@ is a read-only event that doesn\'t match your
 --     event selector. The trail doesn\'t log the event.
 --
--- The @PutEventSelectors@ operation must be called from the region in
+-- The @PutEventSelectors@ operation must be called from the Region in
 -- which the trail was created; otherwise, an @InvalidHomeRegionException@
 -- exception is thrown.
 --
 -- You can configure up to five event selectors for each trail. For more
 -- information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html Logging management events for trails>
--- ,
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
--- , and
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html Logging management events>,
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events>,
+-- and
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Quotas in CloudTrail>
 -- in the /CloudTrail User Guide/.
 --
@@ -67,7 +71,7 @@
 -- @EventSelectors@, but not both. If you apply @AdvancedEventSelectors@ to
 -- a trail, any existing @EventSelectors@ are overwritten. For more
 -- information about advanced event selectors, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events>
 -- in the /CloudTrail User Guide/.
 module Amazonka.CloudTrail.PutEventSelectors
   ( -- * Creating a Request
@@ -108,7 +112,7 @@ data PutEventSelectors = PutEventSelectors'
     -- @EventSelectors@, but not both. If you apply @AdvancedEventSelectors@ to
     -- a trail, any existing @EventSelectors@ are overwritten. For more
     -- information about advanced event selectors, see
-    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
+    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events>
     -- in the /CloudTrail User Guide/.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
     -- | Specifies the settings for your event selectors. You can configure up to
@@ -154,7 +158,7 @@ data PutEventSelectors = PutEventSelectors'
 -- @EventSelectors@, but not both. If you apply @AdvancedEventSelectors@ to
 -- a trail, any existing @EventSelectors@ are overwritten. For more
 -- information about advanced event selectors, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events>
 -- in the /CloudTrail User Guide/.
 --
 -- 'eventSelectors', 'putEventSelectors_eventSelectors' - Specifies the settings for your event selectors. You can configure up to
@@ -200,7 +204,7 @@ newPutEventSelectors pTrailName_ =
 -- @EventSelectors@, but not both. If you apply @AdvancedEventSelectors@ to
 -- a trail, any existing @EventSelectors@ are overwritten. For more
 -- information about advanced event selectors, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events>
 -- in the /CloudTrail User Guide/.
 putEventSelectors_advancedEventSelectors :: Lens.Lens' PutEventSelectors (Prelude.Maybe [AdvancedEventSelector])
 putEventSelectors_advancedEventSelectors = Lens.lens (\PutEventSelectors' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectors' {} a -> s {advancedEventSelectors = a} :: PutEventSelectors) Prelude.. Lens.mapping Lens.coerced
@@ -244,7 +248,8 @@ instance Core.AWSRequest PutEventSelectors where
     Response.receiveJSON
       ( \s h x ->
           PutEventSelectorsResponse'
-            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EventSelectors" Core..!@ Prelude.mempty)
@@ -254,7 +259,8 @@ instance Core.AWSRequest PutEventSelectors where
 
 instance Prelude.Hashable PutEventSelectors where
   hashWithSalt _salt PutEventSelectors' {..} =
-    _salt `Prelude.hashWithSalt` advancedEventSelectors
+    _salt
+      `Prelude.hashWithSalt` advancedEventSelectors
       `Prelude.hashWithSalt` eventSelectors
       `Prelude.hashWithSalt` trailName
 

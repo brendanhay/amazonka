@@ -25,7 +25,7 @@
 -- CloudTrail service. Use this action to designate an existing bucket for
 -- log delivery. If the existing bucket has previously been a target for
 -- CloudTrail log files, an IAM policy exists for the bucket. @UpdateTrail@
--- must be called from the region in which the trail was created;
+-- must be called from the Region in which the trail was created;
 -- otherwise, an @InvalidHomeRegionException@ is thrown.
 module Amazonka.CloudTrail.UpdateTrail
   ( -- * Creating a Request
@@ -81,10 +81,12 @@ import qualified Amazonka.Response as Response
 data UpdateTrail = UpdateTrail'
   { -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
     -- identifier that represents the log group to which CloudTrail logs are
-    -- delivered. Not required unless you specify @CloudWatchLogsRoleArn@.
+    -- delivered. You must use a log group that exists in your account.
+    --
+    -- Not required unless you specify @CloudWatchLogsRoleArn@.
     cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
-    -- to a user\'s log group.
+    -- to a user\'s log group. You must use a role that exists in your account.
     cloudWatchLogsRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether log file validation is enabled. The default is false.
     --
@@ -101,25 +103,26 @@ data UpdateTrail = UpdateTrail'
     -- | Specifies whether the trail is publishing events from global services
     -- such as IAM to the log files.
     includeGlobalServiceEvents :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the trail applies only to the current region or to all
-    -- regions. The default is false. If the trail exists only in the current
-    -- region and this value is set to true, shadow trails (replications of the
-    -- trail) will be created in the other regions. If the trail exists in all
-    -- regions and this value is set to false, the trail will remain in the
-    -- region where it was created, and its shadow trails in other regions will
+    -- | Specifies whether the trail applies only to the current Region or to all
+    -- Regions. The default is false. If the trail exists only in the current
+    -- Region and this value is set to true, shadow trails (replications of the
+    -- trail) will be created in the other Regions. If the trail exists in all
+    -- Regions and this value is set to false, the trail will remain in the
+    -- Region where it was created, and its shadow trails in other Regions will
     -- be deleted. As a best practice, consider using trails that log events in
-    -- all regions.
+    -- all Regions.
     isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the trail is applied to all accounts in an
     -- organization in Organizations, or only for the current Amazon Web
     -- Services account. The default is false, and cannot be true unless the
     -- call is made on behalf of an Amazon Web Services account that is the
-    -- management account for an organization in Organizations. If the trail is
-    -- not an organization trail and this is set to @true@, the trail will be
-    -- created in all Amazon Web Services accounts that belong to the
-    -- organization. If the trail is an organization trail and this is set to
-    -- @false@, the trail will remain in the current Amazon Web Services
-    -- account but be deleted from all member accounts in the organization.
+    -- management account or delegated administrator account for an
+    -- organization in Organizations. If the trail is not an organization trail
+    -- and this is set to @true@, the trail will be created in all Amazon Web
+    -- Services accounts that belong to the organization. If the trail is an
+    -- organization trail and this is set to @false@, the trail will remain in
+    -- the current Amazon Web Services account but be deleted from all member
+    -- accounts in the organization.
     isOrganizationTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the KMS key ID to use to encrypt the logs delivered by
     -- CloudTrail. The value can be an alias name prefixed by \"alias\/\", a
@@ -186,10 +189,12 @@ data UpdateTrail = UpdateTrail'
 --
 -- 'cloudWatchLogsLogGroupArn', 'updateTrail_cloudWatchLogsLogGroupArn' - Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs are
--- delivered. Not required unless you specify @CloudWatchLogsRoleArn@.
+-- delivered. You must use a log group that exists in your account.
+--
+-- Not required unless you specify @CloudWatchLogsRoleArn@.
 --
 -- 'cloudWatchLogsRoleArn', 'updateTrail_cloudWatchLogsRoleArn' - Specifies the role for the CloudWatch Logs endpoint to assume to write
--- to a user\'s log group.
+-- to a user\'s log group. You must use a role that exists in your account.
 --
 -- 'enableLogFileValidation', 'updateTrail_enableLogFileValidation' - Specifies whether log file validation is enabled. The default is false.
 --
@@ -206,25 +211,26 @@ data UpdateTrail = UpdateTrail'
 -- 'includeGlobalServiceEvents', 'updateTrail_includeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services
 -- such as IAM to the log files.
 --
--- 'isMultiRegionTrail', 'updateTrail_isMultiRegionTrail' - Specifies whether the trail applies only to the current region or to all
--- regions. The default is false. If the trail exists only in the current
--- region and this value is set to true, shadow trails (replications of the
--- trail) will be created in the other regions. If the trail exists in all
--- regions and this value is set to false, the trail will remain in the
--- region where it was created, and its shadow trails in other regions will
+-- 'isMultiRegionTrail', 'updateTrail_isMultiRegionTrail' - Specifies whether the trail applies only to the current Region or to all
+-- Regions. The default is false. If the trail exists only in the current
+-- Region and this value is set to true, shadow trails (replications of the
+-- trail) will be created in the other Regions. If the trail exists in all
+-- Regions and this value is set to false, the trail will remain in the
+-- Region where it was created, and its shadow trails in other Regions will
 -- be deleted. As a best practice, consider using trails that log events in
--- all regions.
+-- all Regions.
 --
 -- 'isOrganizationTrail', 'updateTrail_isOrganizationTrail' - Specifies whether the trail is applied to all accounts in an
 -- organization in Organizations, or only for the current Amazon Web
 -- Services account. The default is false, and cannot be true unless the
 -- call is made on behalf of an Amazon Web Services account that is the
--- management account for an organization in Organizations. If the trail is
--- not an organization trail and this is set to @true@, the trail will be
--- created in all Amazon Web Services accounts that belong to the
--- organization. If the trail is an organization trail and this is set to
--- @false@, the trail will remain in the current Amazon Web Services
--- account but be deleted from all member accounts in the organization.
+-- management account or delegated administrator account for an
+-- organization in Organizations. If the trail is not an organization trail
+-- and this is set to @true@, the trail will be created in all Amazon Web
+-- Services accounts that belong to the organization. If the trail is an
+-- organization trail and this is set to @false@, the trail will remain in
+-- the current Amazon Web Services account but be deleted from all member
+-- accounts in the organization.
 --
 -- 'kmsKeyId', 'updateTrail_kmsKeyId' - Specifies the KMS key ID to use to encrypt the logs delivered by
 -- CloudTrail. The value can be an alias name prefixed by \"alias\/\", a
@@ -299,12 +305,14 @@ newUpdateTrail pName_ =
 
 -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs are
--- delivered. Not required unless you specify @CloudWatchLogsRoleArn@.
+-- delivered. You must use a log group that exists in your account.
+--
+-- Not required unless you specify @CloudWatchLogsRoleArn@.
 updateTrail_cloudWatchLogsLogGroupArn :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Text)
 updateTrail_cloudWatchLogsLogGroupArn = Lens.lens (\UpdateTrail' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@UpdateTrail' {} a -> s {cloudWatchLogsLogGroupArn = a} :: UpdateTrail)
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
--- to a user\'s log group.
+-- to a user\'s log group. You must use a role that exists in your account.
 updateTrail_cloudWatchLogsRoleArn :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Text)
 updateTrail_cloudWatchLogsRoleArn = Lens.lens (\UpdateTrail' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@UpdateTrail' {} a -> s {cloudWatchLogsRoleArn = a} :: UpdateTrail)
 
@@ -327,14 +335,14 @@ updateTrail_enableLogFileValidation = Lens.lens (\UpdateTrail' {enableLogFileVal
 updateTrail_includeGlobalServiceEvents :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Bool)
 updateTrail_includeGlobalServiceEvents = Lens.lens (\UpdateTrail' {includeGlobalServiceEvents} -> includeGlobalServiceEvents) (\s@UpdateTrail' {} a -> s {includeGlobalServiceEvents = a} :: UpdateTrail)
 
--- | Specifies whether the trail applies only to the current region or to all
--- regions. The default is false. If the trail exists only in the current
--- region and this value is set to true, shadow trails (replications of the
--- trail) will be created in the other regions. If the trail exists in all
--- regions and this value is set to false, the trail will remain in the
--- region where it was created, and its shadow trails in other regions will
+-- | Specifies whether the trail applies only to the current Region or to all
+-- Regions. The default is false. If the trail exists only in the current
+-- Region and this value is set to true, shadow trails (replications of the
+-- trail) will be created in the other Regions. If the trail exists in all
+-- Regions and this value is set to false, the trail will remain in the
+-- Region where it was created, and its shadow trails in other Regions will
 -- be deleted. As a best practice, consider using trails that log events in
--- all regions.
+-- all Regions.
 updateTrail_isMultiRegionTrail :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Bool)
 updateTrail_isMultiRegionTrail = Lens.lens (\UpdateTrail' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@UpdateTrail' {} a -> s {isMultiRegionTrail = a} :: UpdateTrail)
 
@@ -342,12 +350,13 @@ updateTrail_isMultiRegionTrail = Lens.lens (\UpdateTrail' {isMultiRegionTrail} -
 -- organization in Organizations, or only for the current Amazon Web
 -- Services account. The default is false, and cannot be true unless the
 -- call is made on behalf of an Amazon Web Services account that is the
--- management account for an organization in Organizations. If the trail is
--- not an organization trail and this is set to @true@, the trail will be
--- created in all Amazon Web Services accounts that belong to the
--- organization. If the trail is an organization trail and this is set to
--- @false@, the trail will remain in the current Amazon Web Services
--- account but be deleted from all member accounts in the organization.
+-- management account or delegated administrator account for an
+-- organization in Organizations. If the trail is not an organization trail
+-- and this is set to @true@, the trail will be created in all Amazon Web
+-- Services accounts that belong to the organization. If the trail is an
+-- organization trail and this is set to @false@, the trail will remain in
+-- the current Amazon Web Services account but be deleted from all member
+-- accounts in the organization.
 updateTrail_isOrganizationTrail :: Lens.Lens' UpdateTrail (Prelude.Maybe Prelude.Bool)
 updateTrail_isOrganizationTrail = Lens.lens (\UpdateTrail' {isOrganizationTrail} -> isOrganizationTrail) (\s@UpdateTrail' {} a -> s {isOrganizationTrail = a} :: UpdateTrail)
 
@@ -525,7 +534,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
     -- | Specifies whether the trail is publishing events from global services
     -- such as IAM to the log files.
     includeGlobalServiceEvents :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the trail exists in one region or in all regions.
+    -- | Specifies whether the trail exists in one Region or in all Regions.
     isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the trail is an organization trail.
     isOrganizationTrail :: Prelude.Maybe Prelude.Bool,
@@ -552,7 +561,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
     --
     -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
     snsTopicARN :: Prelude.Maybe Prelude.Text,
-    -- | This field is no longer in use. Use UpdateTrailResponse$SnsTopicARN.
+    -- | This field is no longer in use. Use @SnsTopicARN@.
     snsTopicName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the ARN of the trail that was updated. The following is the
     -- format of a trail ARN.
@@ -581,7 +590,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
 -- 'includeGlobalServiceEvents', 'updateTrailResponse_includeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services
 -- such as IAM to the log files.
 --
--- 'isMultiRegionTrail', 'updateTrailResponse_isMultiRegionTrail' - Specifies whether the trail exists in one region or in all regions.
+-- 'isMultiRegionTrail', 'updateTrailResponse_isMultiRegionTrail' - Specifies whether the trail exists in one Region or in all Regions.
 --
 -- 'isOrganizationTrail', 'updateTrailResponse_isOrganizationTrail' - Specifies whether the trail is an organization trail.
 --
@@ -608,7 +617,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
 --
 -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
 --
--- 'snsTopicName', 'updateTrailResponse_snsTopicName' - This field is no longer in use. Use UpdateTrailResponse$SnsTopicARN.
+-- 'snsTopicName', 'updateTrailResponse_snsTopicName' - This field is no longer in use. Use @SnsTopicARN@.
 --
 -- 'trailARN', 'updateTrailResponse_trailARN' - Specifies the ARN of the trail that was updated. The following is the
 -- format of a trail ARN.
@@ -654,7 +663,7 @@ updateTrailResponse_cloudWatchLogsRoleArn = Lens.lens (\UpdateTrailResponse' {cl
 updateTrailResponse_includeGlobalServiceEvents :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Bool)
 updateTrailResponse_includeGlobalServiceEvents = Lens.lens (\UpdateTrailResponse' {includeGlobalServiceEvents} -> includeGlobalServiceEvents) (\s@UpdateTrailResponse' {} a -> s {includeGlobalServiceEvents = a} :: UpdateTrailResponse)
 
--- | Specifies whether the trail exists in one region or in all regions.
+-- | Specifies whether the trail exists in one Region or in all Regions.
 updateTrailResponse_isMultiRegionTrail :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Bool)
 updateTrailResponse_isMultiRegionTrail = Lens.lens (\UpdateTrailResponse' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@UpdateTrailResponse' {} a -> s {isMultiRegionTrail = a} :: UpdateTrailResponse)
 
@@ -697,7 +706,7 @@ updateTrailResponse_s3KeyPrefix = Lens.lens (\UpdateTrailResponse' {s3KeyPrefix}
 updateTrailResponse_snsTopicARN :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
 updateTrailResponse_snsTopicARN = Lens.lens (\UpdateTrailResponse' {snsTopicARN} -> snsTopicARN) (\s@UpdateTrailResponse' {} a -> s {snsTopicARN = a} :: UpdateTrailResponse)
 
--- | This field is no longer in use. Use UpdateTrailResponse$SnsTopicARN.
+-- | This field is no longer in use. Use @SnsTopicARN@.
 updateTrailResponse_snsTopicName :: Lens.Lens' UpdateTrailResponse (Prelude.Maybe Prelude.Text)
 updateTrailResponse_snsTopicName = Lens.lens (\UpdateTrailResponse' {snsTopicName} -> snsTopicName) (\s@UpdateTrailResponse' {} a -> s {snsTopicName = a} :: UpdateTrailResponse)
 

@@ -61,7 +61,7 @@ data EventSelector = EventSelector'
     -- Service or Amazon RDS Data API events by containing @kms.amazonaws.com@
     -- or @rdsdata.amazonaws.com@. By default, @ExcludeManagementEventSources@
     -- is empty, and KMS and Amazon RDS Data API events are logged to your
-    -- trail. You can exclude management event sources only in regions that
+    -- trail. You can exclude management event sources only in Regions that
     -- support the event source.
     excludeManagementEventSources :: Prelude.Maybe [Prelude.Text],
     -- | Specify if you want your event selector to include management events for
@@ -75,7 +75,7 @@ data EventSelector = EventSelector'
     --
     -- The first copy of management events is free. You are charged for
     -- additional copies of management events that you are logging on any
-    -- subsequent trail in the same region. For more information about
+    -- subsequent trail in the same Region. For more information about
     -- CloudTrail pricing, see
     -- <http://aws.amazon.com/cloudtrail/pricing/ CloudTrail Pricing>.
     includeManagementEvents :: Prelude.Maybe Prelude.Bool,
@@ -115,7 +115,7 @@ data EventSelector = EventSelector'
 -- Service or Amazon RDS Data API events by containing @kms.amazonaws.com@
 -- or @rdsdata.amazonaws.com@. By default, @ExcludeManagementEventSources@
 -- is empty, and KMS and Amazon RDS Data API events are logged to your
--- trail. You can exclude management event sources only in regions that
+-- trail. You can exclude management event sources only in Regions that
 -- support the event source.
 --
 -- 'includeManagementEvents', 'eventSelector_includeManagementEvents' - Specify if you want your event selector to include management events for
@@ -129,7 +129,7 @@ data EventSelector = EventSelector'
 --
 -- The first copy of management events is free. You are charged for
 -- additional copies of management events that you are logging on any
--- subsequent trail in the same region. For more information about
+-- subsequent trail in the same Region. For more information about
 -- CloudTrail pricing, see
 -- <http://aws.amazon.com/cloudtrail/pricing/ CloudTrail Pricing>.
 --
@@ -169,7 +169,7 @@ eventSelector_dataResources = Lens.lens (\EventSelector' {dataResources} -> data
 -- Service or Amazon RDS Data API events by containing @kms.amazonaws.com@
 -- or @rdsdata.amazonaws.com@. By default, @ExcludeManagementEventSources@
 -- is empty, and KMS and Amazon RDS Data API events are logged to your
--- trail. You can exclude management event sources only in regions that
+-- trail. You can exclude management event sources only in Regions that
 -- support the event source.
 eventSelector_excludeManagementEventSources :: Lens.Lens' EventSelector (Prelude.Maybe [Prelude.Text])
 eventSelector_excludeManagementEventSources = Lens.lens (\EventSelector' {excludeManagementEventSources} -> excludeManagementEventSources) (\s@EventSelector' {} a -> s {excludeManagementEventSources = a} :: EventSelector) Prelude.. Lens.mapping Lens.coerced
@@ -185,7 +185,7 @@ eventSelector_excludeManagementEventSources = Lens.lens (\EventSelector' {exclud
 --
 -- The first copy of management events is free. You are charged for
 -- additional copies of management events that you are logging on any
--- subsequent trail in the same region. For more information about
+-- subsequent trail in the same Region. For more information about
 -- CloudTrail pricing, see
 -- <http://aws.amazon.com/cloudtrail/pricing/ CloudTrail Pricing>.
 eventSelector_includeManagementEvents :: Lens.Lens' EventSelector (Prelude.Maybe Prelude.Bool)
@@ -206,7 +206,8 @@ instance Data.FromJSON EventSelector where
       ( \x ->
           EventSelector'
             Prelude.<$> (x Data..:? "DataResources" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ExcludeManagementEventSources"
+            Prelude.<*> ( x
+                            Data..:? "ExcludeManagementEventSources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IncludeManagementEvents")
@@ -215,7 +216,8 @@ instance Data.FromJSON EventSelector where
 
 instance Prelude.Hashable EventSelector where
   hashWithSalt _salt EventSelector' {..} =
-    _salt `Prelude.hashWithSalt` dataResources
+    _salt
+      `Prelude.hashWithSalt` dataResources
       `Prelude.hashWithSalt` excludeManagementEventSources
       `Prelude.hashWithSalt` includeManagementEvents
       `Prelude.hashWithSalt` readWriteType

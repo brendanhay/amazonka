@@ -107,7 +107,8 @@ instance Data.FromJSON ImportsListItem where
 
 instance Prelude.Hashable ImportsListItem where
   hashWithSalt _salt ImportsListItem' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` importId
       `Prelude.hashWithSalt` importStatus

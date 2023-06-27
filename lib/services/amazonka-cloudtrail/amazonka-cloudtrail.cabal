@@ -46,9 +46,12 @@ library
     Amazonka.CloudTrail
     Amazonka.CloudTrail.AddTags
     Amazonka.CloudTrail.CancelQuery
+    Amazonka.CloudTrail.CreateChannel
     Amazonka.CloudTrail.CreateEventDataStore
     Amazonka.CloudTrail.CreateTrail
+    Amazonka.CloudTrail.DeleteChannel
     Amazonka.CloudTrail.DeleteEventDataStore
+    Amazonka.CloudTrail.DeleteResourcePolicy
     Amazonka.CloudTrail.DeleteTrail
     Amazonka.CloudTrail.DeregisterOrganizationDelegatedAdmin
     Amazonka.CloudTrail.DescribeQuery
@@ -59,6 +62,7 @@ library
     Amazonka.CloudTrail.GetImport
     Amazonka.CloudTrail.GetInsightSelectors
     Amazonka.CloudTrail.GetQueryResults
+    Amazonka.CloudTrail.GetResourcePolicy
     Amazonka.CloudTrail.GetTrail
     Amazonka.CloudTrail.GetTrailStatus
     Amazonka.CloudTrail.Lens
@@ -73,12 +77,15 @@ library
     Amazonka.CloudTrail.LookupEvents
     Amazonka.CloudTrail.PutEventSelectors
     Amazonka.CloudTrail.PutInsightSelectors
+    Amazonka.CloudTrail.PutResourcePolicy
     Amazonka.CloudTrail.RegisterOrganizationDelegatedAdmin
     Amazonka.CloudTrail.RemoveTags
     Amazonka.CloudTrail.RestoreEventDataStore
+    Amazonka.CloudTrail.StartEventDataStoreIngestion
     Amazonka.CloudTrail.StartImport
     Amazonka.CloudTrail.StartLogging
     Amazonka.CloudTrail.StartQuery
+    Amazonka.CloudTrail.StopEventDataStoreIngestion
     Amazonka.CloudTrail.StopImport
     Amazonka.CloudTrail.StopLogging
     Amazonka.CloudTrail.Types
@@ -100,6 +107,7 @@ library
     Amazonka.CloudTrail.Types.ImportSource
     Amazonka.CloudTrail.Types.ImportStatistics
     Amazonka.CloudTrail.Types.ImportStatus
+    Amazonka.CloudTrail.Types.IngestionStatus
     Amazonka.CloudTrail.Types.InsightSelector
     Amazonka.CloudTrail.Types.InsightType
     Amazonka.CloudTrail.Types.LookupAttribute
@@ -117,6 +125,7 @@ library
     Amazonka.CloudTrail.Types.Tag
     Amazonka.CloudTrail.Types.Trail
     Amazonka.CloudTrail.Types.TrailInfo
+    Amazonka.CloudTrail.UpdateChannel
     Amazonka.CloudTrail.UpdateEventDataStore
     Amazonka.CloudTrail.UpdateTrail
     Amazonka.CloudTrail.Waiters

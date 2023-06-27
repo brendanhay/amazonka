@@ -25,13 +25,21 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A JSON string that contains a list of insight types that are logged on a
--- trail.
+-- | A JSON string that contains a list of Insights types that are logged on
+-- a trail.
 --
 -- /See:/ 'newInsightSelector' smart constructor.
 data InsightSelector = InsightSelector'
-  { -- | The type of insights to log on a trail. @ApiCallRateInsight@ and
-    -- @ApiErrorRateInsight@ are valid insight types.
+  { -- | The type of Insights events to log on a trail. @ApiCallRateInsight@ and
+    -- @ApiErrorRateInsight@ are valid Insight types.
+    --
+    -- The @ApiCallRateInsight@ Insights type analyzes write-only management
+    -- API calls that are aggregated per minute against a baseline API call
+    -- volume.
+    --
+    -- The @ApiErrorRateInsight@ Insights type analyzes management API calls
+    -- that result in error codes. The error is shown if the API call is
+    -- unsuccessful.
     insightType :: Prelude.Maybe InsightType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,15 +52,31 @@ data InsightSelector = InsightSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'insightType', 'insightSelector_insightType' - The type of insights to log on a trail. @ApiCallRateInsight@ and
--- @ApiErrorRateInsight@ are valid insight types.
+-- 'insightType', 'insightSelector_insightType' - The type of Insights events to log on a trail. @ApiCallRateInsight@ and
+-- @ApiErrorRateInsight@ are valid Insight types.
+--
+-- The @ApiCallRateInsight@ Insights type analyzes write-only management
+-- API calls that are aggregated per minute against a baseline API call
+-- volume.
+--
+-- The @ApiErrorRateInsight@ Insights type analyzes management API calls
+-- that result in error codes. The error is shown if the API call is
+-- unsuccessful.
 newInsightSelector ::
   InsightSelector
 newInsightSelector =
   InsightSelector' {insightType = Prelude.Nothing}
 
--- | The type of insights to log on a trail. @ApiCallRateInsight@ and
--- @ApiErrorRateInsight@ are valid insight types.
+-- | The type of Insights events to log on a trail. @ApiCallRateInsight@ and
+-- @ApiErrorRateInsight@ are valid Insight types.
+--
+-- The @ApiCallRateInsight@ Insights type analyzes write-only management
+-- API calls that are aggregated per minute against a baseline API call
+-- volume.
+--
+-- The @ApiErrorRateInsight@ Insights type analyzes management API calls
+-- that result in error codes. The error is shown if the API call is
+-- unsuccessful.
 insightSelector_insightType :: Lens.Lens' InsightSelector (Prelude.Maybe InsightType)
 insightSelector_insightType = Lens.lens (\InsightSelector' {insightType} -> insightType) (\s@InsightSelector' {} a -> s {insightType = a} :: InsightSelector)
 

@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a trail. This operation must be called from the region in which
+-- Deletes a trail. This operation must be called from the Region in which
 -- the trail was created. @DeleteTrail@ cannot be called on the shadow
--- trails (replicated trails in other regions) of a trail that is enabled
--- in all regions.
+-- trails (replicated trails in other Regions) of a trail that is enabled
+-- in all Regions.
 module Amazonka.CloudTrail.DeleteTrail
   ( -- * Creating a Request
     DeleteTrail (..),

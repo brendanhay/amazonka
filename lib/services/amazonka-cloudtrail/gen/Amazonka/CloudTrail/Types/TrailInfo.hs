@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a CloudTrail trail, including the trail\'s name, home
--- region, and Amazon Resource Name (ARN).
+-- Region, and Amazon Resource Name (ARN).
 --
 -- /See:/ 'newTrailInfo' smart constructor.
 data TrailInfo = TrailInfo'
@@ -85,7 +85,8 @@ instance Data.FromJSON TrailInfo where
 
 instance Prelude.Hashable TrailInfo where
   hashWithSalt _salt TrailInfo' {..} =
-    _salt `Prelude.hashWithSalt` homeRegion
+    _salt
+      `Prelude.hashWithSalt` homeRegion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` trailARN
 

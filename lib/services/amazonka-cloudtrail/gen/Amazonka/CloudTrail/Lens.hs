@@ -26,12 +26,25 @@ module Amazonka.CloudTrail.Lens
     cancelQueryResponse_queryId,
     cancelQueryResponse_queryStatus,
 
+    -- ** CreateChannel
+    createChannel_tags,
+    createChannel_name,
+    createChannel_source,
+    createChannel_destinations,
+    createChannelResponse_channelArn,
+    createChannelResponse_destinations,
+    createChannelResponse_name,
+    createChannelResponse_source,
+    createChannelResponse_tags,
+    createChannelResponse_httpStatus,
+
     -- ** CreateEventDataStore
     createEventDataStore_advancedEventSelectors,
     createEventDataStore_kmsKeyId,
     createEventDataStore_multiRegionEnabled,
     createEventDataStore_organizationEnabled,
     createEventDataStore_retentionPeriod,
+    createEventDataStore_startIngestion,
     createEventDataStore_tagsList,
     createEventDataStore_terminationProtectionEnabled,
     createEventDataStore_name,
@@ -77,9 +90,17 @@ module Amazonka.CloudTrail.Lens
     createTrailResponse_trailARN,
     createTrailResponse_httpStatus,
 
+    -- ** DeleteChannel
+    deleteChannel_channel,
+    deleteChannelResponse_httpStatus,
+
     -- ** DeleteEventDataStore
     deleteEventDataStore_eventDataStore,
     deleteEventDataStoreResponse_httpStatus,
+
+    -- ** DeleteResourcePolicy
+    deleteResourcePolicy_resourceArn,
+    deleteResourcePolicyResponse_httpStatus,
 
     -- ** DeleteTrail
     deleteTrail_name,
@@ -91,6 +112,7 @@ module Amazonka.CloudTrail.Lens
 
     -- ** DescribeQuery
     describeQuery_eventDataStore,
+    describeQuery_queryAlias,
     describeQuery_queryId,
     describeQueryResponse_deliveryS3Uri,
     describeQueryResponse_deliveryStatus,
@@ -111,6 +133,7 @@ module Amazonka.CloudTrail.Lens
     getChannel_channel,
     getChannelResponse_channelArn,
     getChannelResponse_destinations,
+    getChannelResponse_ingestionStatus,
     getChannelResponse_name,
     getChannelResponse_source,
     getChannelResponse_sourceConfig,
@@ -168,6 +191,12 @@ module Amazonka.CloudTrail.Lens
     getQueryResultsResponse_queryStatistics,
     getQueryResultsResponse_queryStatus,
     getQueryResultsResponse_httpStatus,
+
+    -- ** GetResourcePolicy
+    getResourcePolicy_resourceArn,
+    getResourcePolicyResponse_resourceArn,
+    getResourcePolicyResponse_resourcePolicy,
+    getResourcePolicyResponse_httpStatus,
 
     -- ** GetTrail
     getTrail_name,
@@ -285,6 +314,13 @@ module Amazonka.CloudTrail.Lens
     putInsightSelectorsResponse_trailARN,
     putInsightSelectorsResponse_httpStatus,
 
+    -- ** PutResourcePolicy
+    putResourcePolicy_resourceArn,
+    putResourcePolicy_resourcePolicy,
+    putResourcePolicyResponse_resourceArn,
+    putResourcePolicyResponse_resourcePolicy,
+    putResourcePolicyResponse_httpStatus,
+
     -- ** RegisterOrganizationDelegatedAdmin
     registerOrganizationDelegatedAdmin_memberAccountId,
     registerOrganizationDelegatedAdminResponse_httpStatus,
@@ -309,6 +345,10 @@ module Amazonka.CloudTrail.Lens
     restoreEventDataStoreResponse_updatedTimestamp,
     restoreEventDataStoreResponse_httpStatus,
 
+    -- ** StartEventDataStoreIngestion
+    startEventDataStoreIngestion_eventDataStore,
+    startEventDataStoreIngestionResponse_httpStatus,
+
     -- ** StartImport
     startImport_destinations,
     startImport_endEventTime,
@@ -331,9 +371,15 @@ module Amazonka.CloudTrail.Lens
 
     -- ** StartQuery
     startQuery_deliveryS3Uri,
+    startQuery_queryAlias,
+    startQuery_queryParameters,
     startQuery_queryStatement,
     startQueryResponse_queryId,
     startQueryResponse_httpStatus,
+
+    -- ** StopEventDataStoreIngestion
+    stopEventDataStoreIngestion_eventDataStore,
+    stopEventDataStoreIngestionResponse_httpStatus,
 
     -- ** StopImport
     stopImport_importId,
@@ -351,6 +397,16 @@ module Amazonka.CloudTrail.Lens
     -- ** StopLogging
     stopLogging_name,
     stopLoggingResponse_httpStatus,
+
+    -- ** UpdateChannel
+    updateChannel_destinations,
+    updateChannel_name,
+    updateChannel_channel,
+    updateChannelResponse_channelArn,
+    updateChannelResponse_destinations,
+    updateChannelResponse_name,
+    updateChannelResponse_source,
+    updateChannelResponse_httpStatus,
 
     -- ** UpdateEventDataStore
     updateEventDataStore_advancedEventSelectors,
@@ -481,6 +537,13 @@ module Amazonka.CloudTrail.Lens
     importsListItem_importStatus,
     importsListItem_updatedTimestamp,
 
+    -- ** IngestionStatus
+    ingestionStatus_latestIngestionAttemptEventID,
+    ingestionStatus_latestIngestionAttemptTime,
+    ingestionStatus_latestIngestionErrorCode,
+    ingestionStatus_latestIngestionSuccessEventID,
+    ingestionStatus_latestIngestionSuccessTime,
+
     -- ** InsightSelector
     insightSelector_insightType,
 
@@ -559,9 +622,12 @@ where
 
 import Amazonka.CloudTrail.AddTags
 import Amazonka.CloudTrail.CancelQuery
+import Amazonka.CloudTrail.CreateChannel
 import Amazonka.CloudTrail.CreateEventDataStore
 import Amazonka.CloudTrail.CreateTrail
+import Amazonka.CloudTrail.DeleteChannel
 import Amazonka.CloudTrail.DeleteEventDataStore
+import Amazonka.CloudTrail.DeleteResourcePolicy
 import Amazonka.CloudTrail.DeleteTrail
 import Amazonka.CloudTrail.DeregisterOrganizationDelegatedAdmin
 import Amazonka.CloudTrail.DescribeQuery
@@ -572,6 +638,7 @@ import Amazonka.CloudTrail.GetEventSelectors
 import Amazonka.CloudTrail.GetImport
 import Amazonka.CloudTrail.GetInsightSelectors
 import Amazonka.CloudTrail.GetQueryResults
+import Amazonka.CloudTrail.GetResourcePolicy
 import Amazonka.CloudTrail.GetTrail
 import Amazonka.CloudTrail.GetTrailStatus
 import Amazonka.CloudTrail.ListChannels
@@ -585,12 +652,15 @@ import Amazonka.CloudTrail.ListTrails
 import Amazonka.CloudTrail.LookupEvents
 import Amazonka.CloudTrail.PutEventSelectors
 import Amazonka.CloudTrail.PutInsightSelectors
+import Amazonka.CloudTrail.PutResourcePolicy
 import Amazonka.CloudTrail.RegisterOrganizationDelegatedAdmin
 import Amazonka.CloudTrail.RemoveTags
 import Amazonka.CloudTrail.RestoreEventDataStore
+import Amazonka.CloudTrail.StartEventDataStoreIngestion
 import Amazonka.CloudTrail.StartImport
 import Amazonka.CloudTrail.StartLogging
 import Amazonka.CloudTrail.StartQuery
+import Amazonka.CloudTrail.StopEventDataStoreIngestion
 import Amazonka.CloudTrail.StopImport
 import Amazonka.CloudTrail.StopLogging
 import Amazonka.CloudTrail.Types.AdvancedEventSelector
@@ -605,6 +675,7 @@ import Amazonka.CloudTrail.Types.ImportFailureListItem
 import Amazonka.CloudTrail.Types.ImportSource
 import Amazonka.CloudTrail.Types.ImportStatistics
 import Amazonka.CloudTrail.Types.ImportsListItem
+import Amazonka.CloudTrail.Types.IngestionStatus
 import Amazonka.CloudTrail.Types.InsightSelector
 import Amazonka.CloudTrail.Types.LookupAttribute
 import Amazonka.CloudTrail.Types.PublicKey
@@ -618,5 +689,6 @@ import Amazonka.CloudTrail.Types.SourceConfig
 import Amazonka.CloudTrail.Types.Tag
 import Amazonka.CloudTrail.Types.Trail
 import Amazonka.CloudTrail.Types.TrailInfo
+import Amazonka.CloudTrail.UpdateChannel
 import Amazonka.CloudTrail.UpdateEventDataStore
 import Amazonka.CloudTrail.UpdateTrail

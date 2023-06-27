@@ -21,8 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns metadata about a query, including query run time in
--- milliseconds, number of events scanned and matched, and query status.
--- You must specify an ARN for @EventDataStore@, and a value for @QueryID@.
+-- milliseconds, number of events scanned and matched, and query status. If
+-- the query results were delivered to an S3 bucket, the response also
+-- provides the S3 URI and the delivery status.
+--
+-- You must specify either a @QueryID@ or a @QueryAlias@. Specifying the
+-- @QueryAlias@ parameter returns information about the last query run for
+-- the alias.
 module Amazonka.CloudTrail.DescribeQuery
   ( -- * Creating a Request
     DescribeQuery (..),
@@ -30,6 +35,7 @@ module Amazonka.CloudTrail.DescribeQuery
 
     -- * Request Lenses
     describeQuery_eventDataStore,
+    describeQuery_queryAlias,
     describeQuery_queryId,
 
     -- * Destructuring the Response
@@ -61,8 +67,10 @@ data DescribeQuery = DescribeQuery'
   { -- | The ARN (or the ID suffix of the ARN) of an event data store on which
     -- the specified query was run.
     eventDataStore :: Prelude.Maybe Prelude.Text,
+    -- | The alias that identifies a query template.
+    queryAlias :: Prelude.Maybe Prelude.Text,
     -- | The query ID.
-    queryId :: Prelude.Text
+    queryId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,15 +85,16 @@ data DescribeQuery = DescribeQuery'
 -- 'eventDataStore', 'describeQuery_eventDataStore' - The ARN (or the ID suffix of the ARN) of an event data store on which
 -- the specified query was run.
 --
+-- 'queryAlias', 'describeQuery_queryAlias' - The alias that identifies a query template.
+--
 -- 'queryId', 'describeQuery_queryId' - The query ID.
 newDescribeQuery ::
-  -- | 'queryId'
-  Prelude.Text ->
   DescribeQuery
-newDescribeQuery pQueryId_ =
+newDescribeQuery =
   DescribeQuery'
     { eventDataStore = Prelude.Nothing,
-      queryId = pQueryId_
+      queryAlias = Prelude.Nothing,
+      queryId = Prelude.Nothing
     }
 
 -- | The ARN (or the ID suffix of the ARN) of an event data store on which
@@ -93,8 +102,12 @@ newDescribeQuery pQueryId_ =
 describeQuery_eventDataStore :: Lens.Lens' DescribeQuery (Prelude.Maybe Prelude.Text)
 describeQuery_eventDataStore = Lens.lens (\DescribeQuery' {eventDataStore} -> eventDataStore) (\s@DescribeQuery' {} a -> s {eventDataStore = a} :: DescribeQuery)
 
+-- | The alias that identifies a query template.
+describeQuery_queryAlias :: Lens.Lens' DescribeQuery (Prelude.Maybe Prelude.Text)
+describeQuery_queryAlias = Lens.lens (\DescribeQuery' {queryAlias} -> queryAlias) (\s@DescribeQuery' {} a -> s {queryAlias = a} :: DescribeQuery)
+
 -- | The query ID.
-describeQuery_queryId :: Lens.Lens' DescribeQuery Prelude.Text
+describeQuery_queryId :: Lens.Lens' DescribeQuery (Prelude.Maybe Prelude.Text)
 describeQuery_queryId = Lens.lens (\DescribeQuery' {queryId} -> queryId) (\s@DescribeQuery' {} a -> s {queryId = a} :: DescribeQuery)
 
 instance Core.AWSRequest DescribeQuery where
@@ -119,12 +132,15 @@ instance Core.AWSRequest DescribeQuery where
 
 instance Prelude.Hashable DescribeQuery where
   hashWithSalt _salt DescribeQuery' {..} =
-    _salt `Prelude.hashWithSalt` eventDataStore
+    _salt
+      `Prelude.hashWithSalt` eventDataStore
+      `Prelude.hashWithSalt` queryAlias
       `Prelude.hashWithSalt` queryId
 
 instance Prelude.NFData DescribeQuery where
   rnf DescribeQuery' {..} =
     Prelude.rnf eventDataStore
+      `Prelude.seq` Prelude.rnf queryAlias
       `Prelude.seq` Prelude.rnf queryId
 
 instance Data.ToHeaders DescribeQuery where
@@ -148,7 +164,8 @@ instance Data.ToJSON DescribeQuery where
       ( Prelude.catMaybes
           [ ("EventDataStore" Data..=)
               Prelude.<$> eventDataStore,
-            Prelude.Just ("QueryId" Data..= queryId)
+            ("QueryAlias" Data..=) Prelude.<$> queryAlias,
+            ("QueryId" Data..=) Prelude.<$> queryId
           ]
       )
 

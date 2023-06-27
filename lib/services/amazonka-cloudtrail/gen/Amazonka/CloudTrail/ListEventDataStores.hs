@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about all event data stores in the account, in the
--- current region.
+-- current Region.
 module Amazonka.CloudTrail.ListEventDataStores
   ( -- * Creating a Request
     ListEventDataStores (..),
@@ -96,7 +96,8 @@ instance Core.AWSRequest ListEventDataStores where
     Response.receiveJSON
       ( \s h x ->
           ListEventDataStoresResponse'
-            Prelude.<$> ( x Data..?> "EventDataStores"
+            Prelude.<$> ( x
+                            Data..?> "EventDataStores"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -105,7 +106,8 @@ instance Core.AWSRequest ListEventDataStores where
 
 instance Prelude.Hashable ListEventDataStores where
   hashWithSalt _salt ListEventDataStores' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEventDataStores where
@@ -146,7 +148,7 @@ instance Data.ToQuery ListEventDataStores where
 -- | /See:/ 'newListEventDataStoresResponse' smart constructor.
 data ListEventDataStoresResponse = ListEventDataStoresResponse'
   { -- | Contains information about event data stores in the account, in the
-    -- current region.
+    -- current Region.
     eventDataStores :: Prelude.Maybe [EventDataStore],
     -- | A token you can use to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -164,7 +166,7 @@ data ListEventDataStoresResponse = ListEventDataStoresResponse'
 -- for backwards compatibility:
 --
 -- 'eventDataStores', 'listEventDataStoresResponse_eventDataStores' - Contains information about event data stores in the account, in the
--- current region.
+-- current Region.
 --
 -- 'nextToken', 'listEventDataStoresResponse_nextToken' - A token you can use to get the next page of results.
 --
@@ -182,7 +184,7 @@ newListEventDataStoresResponse pHttpStatus_ =
     }
 
 -- | Contains information about event data stores in the account, in the
--- current region.
+-- current Region.
 listEventDataStoresResponse_eventDataStores :: Lens.Lens' ListEventDataStoresResponse (Prelude.Maybe [EventDataStore])
 listEventDataStoresResponse_eventDataStores = Lens.lens (\ListEventDataStoresResponse' {eventDataStores} -> eventDataStores) (\s@ListEventDataStoresResponse' {} a -> s {eventDataStores = a} :: ListEventDataStoresResponse) Prelude.. Lens.mapping Lens.coerced
 

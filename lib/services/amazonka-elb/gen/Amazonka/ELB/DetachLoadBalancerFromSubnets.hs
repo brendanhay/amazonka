@@ -109,7 +109,9 @@ instance
       "DetachLoadBalancerFromSubnetsResult"
       ( \s h x ->
           DetachLoadBalancerFromSubnetsResponse'
-            Prelude.<$> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Subnets"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -120,7 +122,8 @@ instance
     DetachLoadBalancerFromSubnets
   where
   hashWithSalt _salt DetachLoadBalancerFromSubnets' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData DetachLoadBalancerFromSubnets where

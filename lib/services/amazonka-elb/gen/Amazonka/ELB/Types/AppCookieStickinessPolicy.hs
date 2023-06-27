@@ -76,7 +76,8 @@ instance Data.FromXML AppCookieStickinessPolicy where
 
 instance Prelude.Hashable AppCookieStickinessPolicy where
   hashWithSalt _salt AppCookieStickinessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` cookieName
+    _salt
+      `Prelude.hashWithSalt` cookieName
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData AppCookieStickinessPolicy where

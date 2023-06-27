@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     SetLoadBalancerPoliciesForBackendServer' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerName
+      _salt
+        `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` instancePort
         `Prelude.hashWithSalt` policyNames
 

@@ -77,7 +77,8 @@ policyDescription_policyTypeName = Lens.lens (\PolicyDescription' {policyTypeNam
 instance Data.FromXML PolicyDescription where
   parseXML x =
     PolicyDescription'
-      Prelude.<$> ( x Data..@? "PolicyAttributeDescriptions"
+      Prelude.<$> ( x
+                      Data..@? "PolicyAttributeDescriptions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )

@@ -143,7 +143,8 @@ instance
   hashWithSalt
     _salt
     SetLoadBalancerPoliciesOfListener' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerName
+      _salt
+        `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` loadBalancerPort
         `Prelude.hashWithSalt` policyNames
 

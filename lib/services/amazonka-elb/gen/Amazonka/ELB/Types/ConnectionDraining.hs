@@ -76,7 +76,8 @@ instance Data.FromXML ConnectionDraining where
 
 instance Prelude.Hashable ConnectionDraining where
   hashWithSalt _salt ConnectionDraining' {..} =
-    _salt `Prelude.hashWithSalt` timeout
+    _salt
+      `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData ConnectionDraining where

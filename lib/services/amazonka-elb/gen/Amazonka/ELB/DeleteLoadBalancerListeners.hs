@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteLoadBalancerListeners where
 
 instance Prelude.Hashable DeleteLoadBalancerListeners where
   hashWithSalt _salt DeleteLoadBalancerListeners' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` loadBalancerPorts
 
 instance Prelude.NFData DeleteLoadBalancerListeners where

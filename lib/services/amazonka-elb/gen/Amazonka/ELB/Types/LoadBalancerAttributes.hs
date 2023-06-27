@@ -172,7 +172,8 @@ instance Data.FromXML LoadBalancerAttributes where
   parseXML x =
     LoadBalancerAttributes'
       Prelude.<$> (x Data..@? "AccessLog")
-      Prelude.<*> ( x Data..@? "AdditionalAttributes"
+      Prelude.<*> ( x
+                      Data..@? "AdditionalAttributes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -182,7 +183,8 @@ instance Data.FromXML LoadBalancerAttributes where
 
 instance Prelude.Hashable LoadBalancerAttributes where
   hashWithSalt _salt LoadBalancerAttributes' {..} =
-    _salt `Prelude.hashWithSalt` accessLog
+    _salt
+      `Prelude.hashWithSalt` accessLog
       `Prelude.hashWithSalt` additionalAttributes
       `Prelude.hashWithSalt` connectionDraining
       `Prelude.hashWithSalt` connectionSettings

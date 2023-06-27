@@ -181,7 +181,8 @@ instance Data.FromXML InstanceState where
 
 instance Prelude.Hashable InstanceState where
   hashWithSalt _salt InstanceState' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` reasonCode
       `Prelude.hashWithSalt` state

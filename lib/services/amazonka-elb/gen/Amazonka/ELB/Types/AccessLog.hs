@@ -108,7 +108,8 @@ instance Data.FromXML AccessLog where
 
 instance Prelude.Hashable AccessLog where
   hashWithSalt _salt AccessLog' {..} =
-    _salt `Prelude.hashWithSalt` emitInterval
+    _salt
+      `Prelude.hashWithSalt` emitInterval
       `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` s3BucketPrefix
       `Prelude.hashWithSalt` enabled

@@ -65,11 +65,13 @@ tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 instance Data.FromXML Tag where
   parseXML x =
     Tag'
-      Prelude.<$> (x Data..@? "Value") Prelude.<*> (x Data..@ "Key")
+      Prelude.<$> (x Data..@? "Value")
+      Prelude.<*> (x Data..@ "Key")
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData Tag where

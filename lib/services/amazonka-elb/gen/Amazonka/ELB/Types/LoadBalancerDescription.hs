@@ -241,11 +241,13 @@ loadBalancerDescription_vPCId = Lens.lens (\LoadBalancerDescription' {vPCId} -> 
 instance Data.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
-      Prelude.<$> ( x Data..@? "AvailabilityZones"
+      Prelude.<$> ( x
+                      Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "BackendServerDescriptions"
+      Prelude.<*> ( x
+                      Data..@? "BackendServerDescriptions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -254,28 +256,36 @@ instance Data.FromXML LoadBalancerDescription where
       Prelude.<*> (x Data..@? "CreatedTime")
       Prelude.<*> (x Data..@? "DNSName")
       Prelude.<*> (x Data..@? "HealthCheck")
-      Prelude.<*> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Instances"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "ListenerDescriptions"
+      Prelude.<*> ( x
+                      Data..@? "ListenerDescriptions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "LoadBalancerName")
       Prelude.<*> (x Data..@? "Policies")
       Prelude.<*> (x Data..@? "Scheme")
-      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "SecurityGroups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "SourceSecurityGroup")
-      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Subnets"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "VPCId")
 
 instance Prelude.Hashable LoadBalancerDescription where
   hashWithSalt _salt LoadBalancerDescription' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` backendServerDescriptions
       `Prelude.hashWithSalt` canonicalHostedZoneName
       `Prelude.hashWithSalt` canonicalHostedZoneNameID

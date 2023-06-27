@@ -142,7 +142,8 @@ instance Core.AWSRequest CreateLoadBalancerPolicy where
 
 instance Prelude.Hashable CreateLoadBalancerPolicy where
   hashWithSalt _salt CreateLoadBalancerPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyAttributes
+    _salt
+      `Prelude.hashWithSalt` policyAttributes
       `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyTypeName

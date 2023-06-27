@@ -163,7 +163,8 @@ instance Data.FromXML Listener where
 
 instance Prelude.Hashable Listener where
   hashWithSalt _salt Listener' {..} =
-    _salt `Prelude.hashWithSalt` instanceProtocol
+    _salt
+      `Prelude.hashWithSalt` instanceProtocol
       `Prelude.hashWithSalt` sSLCertificateId
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` loadBalancerPort

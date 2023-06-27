@@ -137,7 +137,8 @@ instance
   hashWithSalt
     _salt
     PolicyAttributeTypeDescription' {..} =
-      _salt `Prelude.hashWithSalt` attributeName
+      _salt
+        `Prelude.hashWithSalt` attributeName
         `Prelude.hashWithSalt` attributeType
         `Prelude.hashWithSalt` cardinality
         `Prelude.hashWithSalt` defaultValue

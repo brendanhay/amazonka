@@ -71,7 +71,8 @@ instance Data.FromXML SourceSecurityGroup where
 
 instance Prelude.Hashable SourceSecurityGroup where
   hashWithSalt _salt SourceSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` ownerAlias
 
 instance Prelude.NFData SourceSecurityGroup where

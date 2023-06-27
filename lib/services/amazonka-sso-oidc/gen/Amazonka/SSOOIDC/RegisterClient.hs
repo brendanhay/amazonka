@@ -132,7 +132,8 @@ instance Core.AWSRequest RegisterClient where
 
 instance Prelude.Hashable RegisterClient where
   hashWithSalt _salt RegisterClient' {..} =
-    _salt `Prelude.hashWithSalt` scopes
+    _salt
+      `Prelude.hashWithSalt` scopes
       `Prelude.hashWithSalt` clientName
       `Prelude.hashWithSalt` clientType
 

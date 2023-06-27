@@ -73,7 +73,8 @@ optionSpecification_resourceName = Lens.lens (\OptionSpecification' {resourceNam
 
 instance Prelude.Hashable OptionSpecification where
   hashWithSalt _salt OptionSpecification' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` optionName
       `Prelude.hashWithSalt` resourceName
 

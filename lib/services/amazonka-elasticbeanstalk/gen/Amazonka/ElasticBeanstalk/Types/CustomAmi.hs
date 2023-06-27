@@ -70,7 +70,8 @@ instance Data.FromXML CustomAmi where
 
 instance Prelude.Hashable CustomAmi where
   hashWithSalt _salt CustomAmi' {..} =
-    _salt `Prelude.hashWithSalt` imageId
+    _salt
+      `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` virtualizationType
 
 instance Prelude.NFData CustomAmi where

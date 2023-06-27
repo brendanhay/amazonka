@@ -104,7 +104,8 @@ instance Data.FromXML StatusCodes where
 
 instance Prelude.Hashable StatusCodes where
   hashWithSalt _salt StatusCodes' {..} =
-    _salt `Prelude.hashWithSalt` status2xx
+    _salt
+      `Prelude.hashWithSalt` status2xx
       `Prelude.hashWithSalt` status3xx
       `Prelude.hashWithSalt` status4xx
       `Prelude.hashWithSalt` status5xx

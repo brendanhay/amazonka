@@ -226,7 +226,8 @@ instance
     ApplicationVersionDescription
   where
   hashWithSalt _salt ApplicationVersionDescription' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` applicationVersionArn
       `Prelude.hashWithSalt` buildArn
       `Prelude.hashWithSalt` dateCreated

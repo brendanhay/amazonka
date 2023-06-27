@@ -103,7 +103,8 @@ instance Data.FromXML ResourceQuotas where
 
 instance Prelude.Hashable ResourceQuotas where
   hashWithSalt _salt ResourceQuotas' {..} =
-    _salt `Prelude.hashWithSalt` applicationQuota
+    _salt
+      `Prelude.hashWithSalt` applicationQuota
       `Prelude.hashWithSalt` applicationVersionQuota
       `Prelude.hashWithSalt` configurationTemplateQuota
       `Prelude.hashWithSalt` customPlatformQuota

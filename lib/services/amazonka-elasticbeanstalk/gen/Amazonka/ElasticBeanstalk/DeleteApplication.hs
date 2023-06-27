@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteApplication where
 
 instance Prelude.Hashable DeleteApplication where
   hashWithSalt _salt DeleteApplication' {..} =
-    _salt `Prelude.hashWithSalt` terminateEnvByForce
+    _salt
+      `Prelude.hashWithSalt` terminateEnvByForce
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData DeleteApplication where

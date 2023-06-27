@@ -142,7 +142,8 @@ instance Data.FromXML SourceBuildInformation where
 
 instance Prelude.Hashable SourceBuildInformation where
   hashWithSalt _salt SourceBuildInformation' {..} =
-    _salt `Prelude.hashWithSalt` sourceType
+    _salt
+      `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` sourceRepository
       `Prelude.hashWithSalt` sourceLocation
 

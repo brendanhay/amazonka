@@ -222,7 +222,8 @@ instance Core.AWSRequest ListPlatformBranches where
       ( \s h x ->
           ListPlatformBranchesResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "PlatformBranchSummaryList"
+            Prelude.<*> ( x
+                            Data..@? "PlatformBranchSummaryList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -231,7 +232,8 @@ instance Core.AWSRequest ListPlatformBranches where
 
 instance Prelude.Hashable ListPlatformBranches where
   hashWithSalt _salt ListPlatformBranches' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
 

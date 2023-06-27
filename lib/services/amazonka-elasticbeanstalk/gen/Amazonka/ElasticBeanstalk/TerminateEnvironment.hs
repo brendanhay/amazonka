@@ -211,7 +211,8 @@ instance Core.AWSRequest TerminateEnvironment where
 
 instance Prelude.Hashable TerminateEnvironment where
   hashWithSalt _salt TerminateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` environmentId
+    _salt
+      `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` forceTerminate
       `Prelude.hashWithSalt` terminateResources

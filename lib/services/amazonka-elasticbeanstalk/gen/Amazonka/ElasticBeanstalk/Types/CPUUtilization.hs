@@ -190,7 +190,8 @@ instance Data.FromXML CPUUtilization where
 
 instance Prelude.Hashable CPUUtilization where
   hashWithSalt _salt CPUUtilization' {..} =
-    _salt `Prelude.hashWithSalt` iOWait
+    _salt
+      `Prelude.hashWithSalt` iOWait
       `Prelude.hashWithSalt` irq
       `Prelude.hashWithSalt` idle
       `Prelude.hashWithSalt` nice

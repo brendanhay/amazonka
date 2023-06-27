@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     DeleteEnvironmentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` environmentName
 
 instance

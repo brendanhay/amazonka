@@ -104,7 +104,8 @@ instance Data.FromXML EnvironmentInfoDescription where
 
 instance Prelude.Hashable EnvironmentInfoDescription where
   hashWithSalt _salt EnvironmentInfoDescription' {..} =
-    _salt `Prelude.hashWithSalt` ec2InstanceId
+    _salt
+      `Prelude.hashWithSalt` ec2InstanceId
       `Prelude.hashWithSalt` infoType
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` sampleTimestamp

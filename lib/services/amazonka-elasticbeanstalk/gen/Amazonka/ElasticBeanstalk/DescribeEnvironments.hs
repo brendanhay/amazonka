@@ -208,22 +208,22 @@ instance Core.AWSPager DescribeEnvironments where
     | Core.stop
         ( rs
             Lens.^? environmentDescriptionsMessage_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? environmentDescriptionsMessage_environments
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEnvironments_nextToken
           Lens..~ rs
           Lens.^? environmentDescriptionsMessage_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEnvironments where
   type
@@ -238,7 +238,8 @@ instance Core.AWSRequest DescribeEnvironments where
 
 instance Prelude.Hashable DescribeEnvironments where
   hashWithSalt _salt DescribeEnvironments' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` environmentIds
       `Prelude.hashWithSalt` environmentNames
       `Prelude.hashWithSalt` includeDeleted

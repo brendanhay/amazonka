@@ -197,7 +197,9 @@ instance
       Prelude.<*> (x Data..@? "DeploymentStatus")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "EnvironmentName")
-      Prelude.<*> ( x Data..@? "OptionSettings" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "OptionSettings"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "PlatformArn")
@@ -211,7 +213,8 @@ instance
   hashWithSalt
     _salt
     ConfigurationSettingsDescription' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` dateCreated
         `Prelude.hashWithSalt` dateUpdated
         `Prelude.hashWithSalt` deploymentStatus

@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     ApplicationVersionLifecycleConfig' {..} =
-      _salt `Prelude.hashWithSalt` maxAgeRule
+      _salt
+        `Prelude.hashWithSalt` maxAgeRule
         `Prelude.hashWithSalt` maxCountRule
 
 instance

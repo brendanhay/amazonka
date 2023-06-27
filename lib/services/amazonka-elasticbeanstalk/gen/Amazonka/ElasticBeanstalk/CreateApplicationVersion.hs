@@ -284,7 +284,8 @@ instance Core.AWSRequest CreateApplicationVersion where
 
 instance Prelude.Hashable CreateApplicationVersion where
   hashWithSalt _salt CreateApplicationVersion' {..} =
-    _salt `Prelude.hashWithSalt` autoCreateApplication
+    _salt
+      `Prelude.hashWithSalt` autoCreateApplication
       `Prelude.hashWithSalt` buildConfiguration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` process

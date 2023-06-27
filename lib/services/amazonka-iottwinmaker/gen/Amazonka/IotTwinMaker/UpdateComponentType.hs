@@ -75,7 +75,7 @@ data UpdateComponentType = UpdateComponentType'
     -- | An object that maps strings to the property definitions in the component
     -- type. Each string in the mapping must be unique to this object.
     propertyDefinitions :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest),
-    -- | The property groups
+    -- | The property groups.
     propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest),
     -- | The ID of the workspace.
     workspaceId :: Prelude.Text,
@@ -107,7 +107,7 @@ data UpdateComponentType = UpdateComponentType'
 -- 'propertyDefinitions', 'updateComponentType_propertyDefinitions' - An object that maps strings to the property definitions in the component
 -- type. Each string in the mapping must be unique to this object.
 --
--- 'propertyGroups', 'updateComponentType_propertyGroups' - The property groups
+-- 'propertyGroups', 'updateComponentType_propertyGroups' - The property groups.
 --
 -- 'workspaceId', 'updateComponentType_workspaceId' - The ID of the workspace.
 --
@@ -161,7 +161,7 @@ updateComponentType_isSingleton = Lens.lens (\UpdateComponentType' {isSingleton}
 updateComponentType_propertyDefinitions :: Lens.Lens' UpdateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest))
 updateComponentType_propertyDefinitions = Lens.lens (\UpdateComponentType' {propertyDefinitions} -> propertyDefinitions) (\s@UpdateComponentType' {} a -> s {propertyDefinitions = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
 
--- | The property groups
+-- | The property groups.
 updateComponentType_propertyGroups :: Lens.Lens' UpdateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest))
 updateComponentType_propertyGroups = Lens.lens (\UpdateComponentType' {propertyGroups} -> propertyGroups) (\s@UpdateComponentType' {} a -> s {propertyGroups = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
 
@@ -192,7 +192,8 @@ instance Core.AWSRequest UpdateComponentType where
 
 instance Prelude.Hashable UpdateComponentType where
   hashWithSalt _salt UpdateComponentType' {..} =
-    _salt `Prelude.hashWithSalt` componentTypeName
+    _salt
+      `Prelude.hashWithSalt` componentTypeName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` extendsFrom
       `Prelude.hashWithSalt` functions

@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data PropertyLatestValue = PropertyLatestValue'
   { -- | The value of the property.
     propertyValue :: Prelude.Maybe DataValue,
-    -- | An object that specifies information about a property.>
+    -- | An object that specifies information about a property.
     propertyReference :: EntityPropertyReference
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data PropertyLatestValue = PropertyLatestValue'
 --
 -- 'propertyValue', 'propertyLatestValue_propertyValue' - The value of the property.
 --
--- 'propertyReference', 'propertyLatestValue_propertyReference' - An object that specifies information about a property.>
+-- 'propertyReference', 'propertyLatestValue_propertyReference' - An object that specifies information about a property.
 newPropertyLatestValue ::
   -- | 'propertyReference'
   EntityPropertyReference ->
@@ -63,7 +63,7 @@ newPropertyLatestValue pPropertyReference_ =
 propertyLatestValue_propertyValue :: Lens.Lens' PropertyLatestValue (Prelude.Maybe DataValue)
 propertyLatestValue_propertyValue = Lens.lens (\PropertyLatestValue' {propertyValue} -> propertyValue) (\s@PropertyLatestValue' {} a -> s {propertyValue = a} :: PropertyLatestValue)
 
--- | An object that specifies information about a property.>
+-- | An object that specifies information about a property.
 propertyLatestValue_propertyReference :: Lens.Lens' PropertyLatestValue EntityPropertyReference
 propertyLatestValue_propertyReference = Lens.lens (\PropertyLatestValue' {propertyReference} -> propertyReference) (\s@PropertyLatestValue' {} a -> s {propertyReference = a} :: PropertyLatestValue)
 
@@ -79,7 +79,8 @@ instance Data.FromJSON PropertyLatestValue where
 
 instance Prelude.Hashable PropertyLatestValue where
   hashWithSalt _salt PropertyLatestValue' {..} =
-    _salt `Prelude.hashWithSalt` propertyValue
+    _salt
+      `Prelude.hashWithSalt` propertyValue
       `Prelude.hashWithSalt` propertyReference
 
 instance Prelude.NFData PropertyLatestValue where

@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.PricingTier
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about pricing bundle.
+-- | Information about the pricing bundle.
 --
 -- /See:/ 'newBundleInformation' smart constructor.
 data BundleInformation = BundleInformation'
@@ -77,7 +77,8 @@ instance Data.FromJSON BundleInformation where
 
 instance Prelude.Hashable BundleInformation where
   hashWithSalt _salt BundleInformation' {..} =
-    _salt `Prelude.hashWithSalt` pricingTier
+    _salt
+      `Prelude.hashWithSalt` pricingTier
       `Prelude.hashWithSalt` bundleNames
 
 instance Prelude.NFData BundleInformation where

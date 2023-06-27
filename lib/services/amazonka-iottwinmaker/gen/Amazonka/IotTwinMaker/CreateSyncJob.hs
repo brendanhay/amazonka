@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 data CreateSyncJob = CreateSyncJob'
   { -- | The SyncJob tags.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The workspace Id.
+    -- | The workspace ID.
     workspaceId :: Prelude.Text,
     -- | The sync source.
     --
-    -- Currently the only supported syncSoucre is @SITEWISE @.
+    -- Currently the only supported syncSoource is @SITEWISE @.
     syncSource :: Prelude.Text,
-    -- | The SyncJob IAM role. This IAM role is used by the sync job to read from
-    -- the syncSource, and create, update or delete the corresponding
+    -- | The SyncJob IAM role. This IAM role is used by the SyncJob to read from
+    -- the syncSource, and create, update, or delete the corresponding
     -- resources.
     syncRole :: Prelude.Text
   }
@@ -79,14 +79,14 @@ data CreateSyncJob = CreateSyncJob'
 --
 -- 'tags', 'createSyncJob_tags' - The SyncJob tags.
 --
--- 'workspaceId', 'createSyncJob_workspaceId' - The workspace Id.
+-- 'workspaceId', 'createSyncJob_workspaceId' - The workspace ID.
 --
 -- 'syncSource', 'createSyncJob_syncSource' - The sync source.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSoource is @SITEWISE @.
 --
--- 'syncRole', 'createSyncJob_syncRole' - The SyncJob IAM role. This IAM role is used by the sync job to read from
--- the syncSource, and create, update or delete the corresponding
+-- 'syncRole', 'createSyncJob_syncRole' - The SyncJob IAM role. This IAM role is used by the SyncJob to read from
+-- the syncSource, and create, update, or delete the corresponding
 -- resources.
 newCreateSyncJob ::
   -- | 'workspaceId'
@@ -111,18 +111,18 @@ newCreateSyncJob
 createSyncJob_tags :: Lens.Lens' CreateSyncJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSyncJob_tags = Lens.lens (\CreateSyncJob' {tags} -> tags) (\s@CreateSyncJob' {} a -> s {tags = a} :: CreateSyncJob) Prelude.. Lens.mapping Lens.coerced
 
--- | The workspace Id.
+-- | The workspace ID.
 createSyncJob_workspaceId :: Lens.Lens' CreateSyncJob Prelude.Text
 createSyncJob_workspaceId = Lens.lens (\CreateSyncJob' {workspaceId} -> workspaceId) (\s@CreateSyncJob' {} a -> s {workspaceId = a} :: CreateSyncJob)
 
 -- | The sync source.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSoource is @SITEWISE @.
 createSyncJob_syncSource :: Lens.Lens' CreateSyncJob Prelude.Text
 createSyncJob_syncSource = Lens.lens (\CreateSyncJob' {syncSource} -> syncSource) (\s@CreateSyncJob' {} a -> s {syncSource = a} :: CreateSyncJob)
 
--- | The SyncJob IAM role. This IAM role is used by the sync job to read from
--- the syncSource, and create, update or delete the corresponding
+-- | The SyncJob IAM role. This IAM role is used by the SyncJob to read from
+-- the syncSource, and create, update, or delete the corresponding
 -- resources.
 createSyncJob_syncRole :: Lens.Lens' CreateSyncJob Prelude.Text
 createSyncJob_syncRole = Lens.lens (\CreateSyncJob' {syncRole} -> syncRole) (\s@CreateSyncJob' {} a -> s {syncRole = a} :: CreateSyncJob)
@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateSyncJob where
 
 instance Prelude.Hashable CreateSyncJob where
   hashWithSalt _salt CreateSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` syncSource
       `Prelude.hashWithSalt` syncRole

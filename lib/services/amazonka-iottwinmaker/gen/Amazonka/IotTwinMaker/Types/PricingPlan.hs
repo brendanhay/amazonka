@@ -41,7 +41,7 @@ data PricingPlan = PricingPlan'
     pricingMode :: PricingMode,
     -- | The set date and time for updating a pricing plan.
     updateDateTime :: Data.POSIX,
-    -- | The update reason, for changing a pricing plan.
+    -- | The update reason for changing a pricing plan.
     updateReason :: UpdateReason
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +64,7 @@ data PricingPlan = PricingPlan'
 --
 -- 'updateDateTime', 'pricingPlan_updateDateTime' - The set date and time for updating a pricing plan.
 --
--- 'updateReason', 'pricingPlan_updateReason' - The update reason, for changing a pricing plan.
+-- 'updateReason', 'pricingPlan_updateReason' - The update reason for changing a pricing plan.
 newPricingPlan ::
   -- | 'effectiveDateTime'
   Prelude.UTCTime ->
@@ -110,7 +110,7 @@ pricingPlan_pricingMode = Lens.lens (\PricingPlan' {pricingMode} -> pricingMode)
 pricingPlan_updateDateTime :: Lens.Lens' PricingPlan Prelude.UTCTime
 pricingPlan_updateDateTime = Lens.lens (\PricingPlan' {updateDateTime} -> updateDateTime) (\s@PricingPlan' {} a -> s {updateDateTime = a} :: PricingPlan) Prelude.. Data._Time
 
--- | The update reason, for changing a pricing plan.
+-- | The update reason for changing a pricing plan.
 pricingPlan_updateReason :: Lens.Lens' PricingPlan UpdateReason
 pricingPlan_updateReason = Lens.lens (\PricingPlan' {updateReason} -> updateReason) (\s@PricingPlan' {} a -> s {updateReason = a} :: PricingPlan)
 
@@ -130,7 +130,8 @@ instance Data.FromJSON PricingPlan where
 
 instance Prelude.Hashable PricingPlan where
   hashWithSalt _salt PricingPlan' {..} =
-    _salt `Prelude.hashWithSalt` billableEntityCount
+    _salt
+      `Prelude.hashWithSalt` billableEntityCount
       `Prelude.hashWithSalt` bundleInformation
       `Prelude.hashWithSalt` effectiveDateTime
       `Prelude.hashWithSalt` pricingMode

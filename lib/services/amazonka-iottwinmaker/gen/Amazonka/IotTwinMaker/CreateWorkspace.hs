@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateWorkspace where
 
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` s3Location

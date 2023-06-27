@@ -188,7 +188,8 @@ instance Core.AWSRequest GetPropertyValue where
           GetPropertyValueResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "propertyValues" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "tabularPropertyValues"
+            Prelude.<*> ( x
+                            Data..?> "tabularPropertyValues"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -196,7 +197,8 @@ instance Core.AWSRequest GetPropertyValue where
 
 instance Prelude.Hashable GetPropertyValue where
   hashWithSalt _salt GetPropertyValue' {..} =
-    _salt `Prelude.hashWithSalt` componentName
+    _salt
+      `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` maxResults

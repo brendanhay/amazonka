@@ -50,11 +50,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSyncJob' smart constructor.
 data DeleteSyncJob = DeleteSyncJob'
-  { -- | The workspace Id.
+  { -- | The workspace ID.
     workspaceId :: Prelude.Text,
     -- | The sync source.
     --
-    -- Currently the only supported syncSoucre is @SITEWISE @.
+    -- Currently the only supported syncSource is @SITEWISE @.
     syncSource :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,11 +67,11 @@ data DeleteSyncJob = DeleteSyncJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workspaceId', 'deleteSyncJob_workspaceId' - The workspace Id.
+-- 'workspaceId', 'deleteSyncJob_workspaceId' - The workspace ID.
 --
 -- 'syncSource', 'deleteSyncJob_syncSource' - The sync source.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSource is @SITEWISE @.
 newDeleteSyncJob ::
   -- | 'workspaceId'
   Prelude.Text ->
@@ -84,13 +84,13 @@ newDeleteSyncJob pWorkspaceId_ pSyncSource_ =
       syncSource = pSyncSource_
     }
 
--- | The workspace Id.
+-- | The workspace ID.
 deleteSyncJob_workspaceId :: Lens.Lens' DeleteSyncJob Prelude.Text
 deleteSyncJob_workspaceId = Lens.lens (\DeleteSyncJob' {workspaceId} -> workspaceId) (\s@DeleteSyncJob' {} a -> s {workspaceId = a} :: DeleteSyncJob)
 
 -- | The sync source.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSource is @SITEWISE @.
 deleteSyncJob_syncSource :: Lens.Lens' DeleteSyncJob Prelude.Text
 deleteSyncJob_syncSource = Lens.lens (\DeleteSyncJob' {syncSource} -> syncSource) (\s@DeleteSyncJob' {} a -> s {syncSource = a} :: DeleteSyncJob)
 
@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteSyncJob where
 
 instance Prelude.Hashable DeleteSyncJob where
   hashWithSalt _salt DeleteSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` syncSource
 
 instance Prelude.NFData DeleteSyncJob where

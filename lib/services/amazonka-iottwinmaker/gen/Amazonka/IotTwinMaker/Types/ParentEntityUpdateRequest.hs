@@ -68,7 +68,8 @@ parentEntityUpdateRequest_updateType = Lens.lens (\ParentEntityUpdateRequest' {u
 
 instance Prelude.Hashable ParentEntityUpdateRequest where
   hashWithSalt _salt ParentEntityUpdateRequest' {..} =
-    _salt `Prelude.hashWithSalt` parentEntityId
+    _salt
+      `Prelude.hashWithSalt` parentEntityId
       `Prelude.hashWithSalt` updateType
 
 instance Prelude.NFData ParentEntityUpdateRequest where

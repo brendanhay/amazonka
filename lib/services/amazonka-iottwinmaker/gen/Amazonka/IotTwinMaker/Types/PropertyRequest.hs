@@ -76,7 +76,8 @@ propertyRequest_value = Lens.lens (\PropertyRequest' {value} -> value) (\s@Prope
 
 instance Prelude.Hashable PropertyRequest where
   hashWithSalt _salt PropertyRequest' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` updateType
       `Prelude.hashWithSalt` value
 

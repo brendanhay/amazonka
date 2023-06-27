@@ -26,7 +26,7 @@ import Amazonka.IotTwinMaker.Types.GroupType
 import Amazonka.IotTwinMaker.Types.PropertyGroupUpdateType
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The component property group request.
 --
 -- /See:/ 'newComponentPropertyGroupRequest' smart constructor.
 data ComponentPropertyGroupRequest = ComponentPropertyGroupRequest'
@@ -79,7 +79,8 @@ instance
     ComponentPropertyGroupRequest
   where
   hashWithSalt _salt ComponentPropertyGroupRequest' {..} =
-    _salt `Prelude.hashWithSalt` groupType
+    _salt
+      `Prelude.hashWithSalt` groupType
       `Prelude.hashWithSalt` propertyNames
       `Prelude.hashWithSalt` updateType
 

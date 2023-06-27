@@ -68,7 +68,8 @@ orderBy_propertyName = Lens.lens (\OrderBy' {propertyName} -> propertyName) (\s@
 
 instance Prelude.Hashable OrderBy where
   hashWithSalt _salt OrderBy' {..} =
-    _salt `Prelude.hashWithSalt` order
+    _salt
+      `Prelude.hashWithSalt` order
       `Prelude.hashWithSalt` propertyName
 
 instance Prelude.NFData OrderBy where

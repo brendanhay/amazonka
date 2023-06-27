@@ -77,7 +77,8 @@ listEntitiesFilter_parentEntityId = Lens.lens (\ListEntitiesFilter' {parentEntit
 
 instance Prelude.Hashable ListEntitiesFilter where
   hashWithSalt _salt ListEntitiesFilter' {..} =
-    _salt `Prelude.hashWithSalt` componentTypeId
+    _salt
+      `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` parentEntityId
 

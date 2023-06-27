@@ -29,6 +29,7 @@ module Amazonka.IotTwinMaker.CreateScene
     -- * Request Lenses
     createScene_capabilities,
     createScene_description,
+    createScene_sceneMetadata,
     createScene_tags,
     createScene_workspaceId,
     createScene_sceneId,
@@ -59,6 +60,8 @@ data CreateScene = CreateScene'
     capabilities :: Prelude.Maybe [Prelude.Text],
     -- | The description for this scene.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The request metadata.
+    sceneMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Metadata that you can use to manage the scene.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the workspace that contains the scene.
@@ -83,6 +86,8 @@ data CreateScene = CreateScene'
 --
 -- 'description', 'createScene_description' - The description for this scene.
 --
+-- 'sceneMetadata', 'createScene_sceneMetadata' - The request metadata.
+--
 -- 'tags', 'createScene_tags' - Metadata that you can use to manage the scene.
 --
 -- 'workspaceId', 'createScene_workspaceId' - The ID of the workspace that contains the scene.
@@ -106,6 +111,7 @@ newCreateScene
     CreateScene'
       { capabilities = Prelude.Nothing,
         description = Prelude.Nothing,
+        sceneMetadata = Prelude.Nothing,
         tags = Prelude.Nothing,
         workspaceId = pWorkspaceId_,
         sceneId = pSceneId_,
@@ -119,6 +125,10 @@ createScene_capabilities = Lens.lens (\CreateScene' {capabilities} -> capabiliti
 -- | The description for this scene.
 createScene_description :: Lens.Lens' CreateScene (Prelude.Maybe Prelude.Text)
 createScene_description = Lens.lens (\CreateScene' {description} -> description) (\s@CreateScene' {} a -> s {description = a} :: CreateScene)
+
+-- | The request metadata.
+createScene_sceneMetadata :: Lens.Lens' CreateScene (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createScene_sceneMetadata = Lens.lens (\CreateScene' {sceneMetadata} -> sceneMetadata) (\s@CreateScene' {} a -> s {sceneMetadata = a} :: CreateScene) Prelude.. Lens.mapping Lens.coerced
 
 -- | Metadata that you can use to manage the scene.
 createScene_tags :: Lens.Lens' CreateScene (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -152,8 +162,10 @@ instance Core.AWSRequest CreateScene where
 
 instance Prelude.Hashable CreateScene where
   hashWithSalt _salt CreateScene' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sceneMetadata
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` sceneId
@@ -163,6 +175,7 @@ instance Prelude.NFData CreateScene where
   rnf CreateScene' {..} =
     Prelude.rnf capabilities
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sceneMetadata
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf sceneId
@@ -185,6 +198,7 @@ instance Data.ToJSON CreateScene where
       ( Prelude.catMaybes
           [ ("capabilities" Data..=) Prelude.<$> capabilities,
             ("description" Data..=) Prelude.<$> description,
+            ("sceneMetadata" Data..=) Prelude.<$> sceneMetadata,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("sceneId" Data..= sceneId),
             Prelude.Just

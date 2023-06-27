@@ -53,6 +53,7 @@ module Amazonka.IotTwinMaker.Lens
     -- ** CreateScene
     createScene_capabilities,
     createScene_description,
+    createScene_sceneMetadata,
     createScene_tags,
     createScene_workspaceId,
     createScene_sceneId,
@@ -201,6 +202,9 @@ module Amazonka.IotTwinMaker.Lens
     getScene_sceneId,
     getSceneResponse_capabilities,
     getSceneResponse_description,
+    getSceneResponse_error,
+    getSceneResponse_generatedSceneMetadata,
+    getSceneResponse_sceneMetadata,
     getSceneResponse_httpStatus,
     getSceneResponse_workspaceId,
     getSceneResponse_sceneId,
@@ -341,6 +345,7 @@ module Amazonka.IotTwinMaker.Lens
     updateScene_capabilities,
     updateScene_contentLocation,
     updateScene_description,
+    updateScene_sceneMetadata,
     updateScene_workspaceId,
     updateScene_sceneId,
     updateSceneResponse_httpStatus,
@@ -576,6 +581,10 @@ module Amazonka.IotTwinMaker.Lens
     -- ** Row
     row_rowData,
 
+    -- ** SceneError
+    sceneError_code,
+    sceneError_message,
+
     -- ** SceneSummary
     sceneSummary_description,
     sceneSummary_sceneId,
@@ -698,6 +707,7 @@ import Amazonka.IotTwinMaker.Types.QueryResultValue
 import Amazonka.IotTwinMaker.Types.Relationship
 import Amazonka.IotTwinMaker.Types.RelationshipValue
 import Amazonka.IotTwinMaker.Types.Row
+import Amazonka.IotTwinMaker.Types.SceneError
 import Amazonka.IotTwinMaker.Types.SceneSummary
 import Amazonka.IotTwinMaker.Types.Status
 import Amazonka.IotTwinMaker.Types.SyncJobStatus

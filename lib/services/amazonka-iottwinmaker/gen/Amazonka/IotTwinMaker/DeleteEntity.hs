@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteEntity where
 
 instance Prelude.Hashable DeleteEntity where
   hashWithSalt _salt DeleteEntity' {..} =
-    _salt `Prelude.hashWithSalt` isRecursive
+    _salt
+      `Prelude.hashWithSalt` isRecursive
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` entityId
 

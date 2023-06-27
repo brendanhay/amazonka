@@ -65,7 +65,8 @@ propertyGroupRequest_propertyNames = Lens.lens (\PropertyGroupRequest' {property
 
 instance Prelude.Hashable PropertyGroupRequest where
   hashWithSalt _salt PropertyGroupRequest' {..} =
-    _salt `Prelude.hashWithSalt` groupType
+    _salt
+      `Prelude.hashWithSalt` groupType
       `Prelude.hashWithSalt` propertyNames
 
 instance Prelude.NFData PropertyGroupRequest where

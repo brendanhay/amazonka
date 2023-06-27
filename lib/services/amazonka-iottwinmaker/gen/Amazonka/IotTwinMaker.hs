@@ -11,7 +11,7 @@
 --
 -- Derived from API version @2021-11-29@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- IoT TwinMaker is a service that enables you to build operational digital
+-- IoT TwinMaker is a service with which you can build operational digital
 -- twins of physical systems. IoT TwinMaker overlays measurements and
 -- analysis from real-world sensors, cameras, and enterprise applications
 -- so you can create data visualizations to monitor your physical factory,
@@ -305,6 +305,9 @@ module Amazonka.IotTwinMaker
     -- ** PropertyUpdateType
     PropertyUpdateType (..),
 
+    -- ** SceneErrorCode
+    SceneErrorCode (..),
+
     -- ** Scope
     Scope (..),
 
@@ -485,6 +488,10 @@ module Amazonka.IotTwinMaker
     -- ** Row
     Row (Row'),
     newRow,
+
+    -- ** SceneError
+    SceneError (SceneError'),
+    newSceneError,
 
     -- ** SceneSummary
     SceneSummary (SceneSummary'),

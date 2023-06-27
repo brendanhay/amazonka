@@ -30,6 +30,7 @@ module Amazonka.IotTwinMaker.UpdateScene
     updateScene_capabilities,
     updateScene_contentLocation,
     updateScene_description,
+    updateScene_sceneMetadata,
     updateScene_workspaceId,
     updateScene_sceneId,
 
@@ -60,6 +61,8 @@ data UpdateScene = UpdateScene'
     contentLocation :: Prelude.Maybe Prelude.Text,
     -- | The description of this scene.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The scene metadata.
+    sceneMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the workspace that contains the scene.
     workspaceId :: Prelude.Text,
     -- | The ID of the scene.
@@ -82,6 +85,8 @@ data UpdateScene = UpdateScene'
 --
 -- 'description', 'updateScene_description' - The description of this scene.
 --
+-- 'sceneMetadata', 'updateScene_sceneMetadata' - The scene metadata.
+--
 -- 'workspaceId', 'updateScene_workspaceId' - The ID of the workspace that contains the scene.
 --
 -- 'sceneId', 'updateScene_sceneId' - The ID of the scene.
@@ -96,6 +101,7 @@ newUpdateScene pWorkspaceId_ pSceneId_ =
     { capabilities = Prelude.Nothing,
       contentLocation = Prelude.Nothing,
       description = Prelude.Nothing,
+      sceneMetadata = Prelude.Nothing,
       workspaceId = pWorkspaceId_,
       sceneId = pSceneId_
     }
@@ -112,6 +118,10 @@ updateScene_contentLocation = Lens.lens (\UpdateScene' {contentLocation} -> cont
 -- | The description of this scene.
 updateScene_description :: Lens.Lens' UpdateScene (Prelude.Maybe Prelude.Text)
 updateScene_description = Lens.lens (\UpdateScene' {description} -> description) (\s@UpdateScene' {} a -> s {description = a} :: UpdateScene)
+
+-- | The scene metadata.
+updateScene_sceneMetadata :: Lens.Lens' UpdateScene (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateScene_sceneMetadata = Lens.lens (\UpdateScene' {sceneMetadata} -> sceneMetadata) (\s@UpdateScene' {} a -> s {sceneMetadata = a} :: UpdateScene) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the workspace that contains the scene.
 updateScene_workspaceId :: Lens.Lens' UpdateScene Prelude.Text
@@ -135,9 +145,11 @@ instance Core.AWSRequest UpdateScene where
 
 instance Prelude.Hashable UpdateScene where
   hashWithSalt _salt UpdateScene' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` contentLocation
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sceneMetadata
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` sceneId
 
@@ -146,6 +158,7 @@ instance Prelude.NFData UpdateScene where
     Prelude.rnf capabilities
       `Prelude.seq` Prelude.rnf contentLocation
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sceneMetadata
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf sceneId
 
@@ -167,7 +180,8 @@ instance Data.ToJSON UpdateScene where
           [ ("capabilities" Data..=) Prelude.<$> capabilities,
             ("contentLocation" Data..=)
               Prelude.<$> contentLocation,
-            ("description" Data..=) Prelude.<$> description
+            ("description" Data..=) Prelude.<$> description,
+            ("sceneMetadata" Data..=) Prelude.<$> sceneMetadata
           ]
       )
 

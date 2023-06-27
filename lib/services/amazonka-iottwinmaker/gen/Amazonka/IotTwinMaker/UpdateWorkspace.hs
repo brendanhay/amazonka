@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateWorkspace where
 
 instance Prelude.Hashable UpdateWorkspace where
   hashWithSalt _salt UpdateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` workspaceId
 

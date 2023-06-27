@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSyncResourceFilter' smart constructor.
 data SyncResourceFilter = SyncResourceFilter'
-  { -- | The external Id.
+  { -- | The external ID.
     externalId :: Prelude.Maybe Prelude.Text,
-    -- | The sync resource filter resource Id.
+    -- | The sync resource filter resource ID.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The sync resource filter resoucre type
+    -- | The sync resource filter resource type
     resourceType :: Prelude.Maybe SyncResourceType,
     -- | The sync resource filter\'s state.
     state :: Prelude.Maybe SyncResourceState
@@ -49,11 +49,11 @@ data SyncResourceFilter = SyncResourceFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'externalId', 'syncResourceFilter_externalId' - The external Id.
+-- 'externalId', 'syncResourceFilter_externalId' - The external ID.
 --
--- 'resourceId', 'syncResourceFilter_resourceId' - The sync resource filter resource Id.
+-- 'resourceId', 'syncResourceFilter_resourceId' - The sync resource filter resource ID.
 --
--- 'resourceType', 'syncResourceFilter_resourceType' - The sync resource filter resoucre type
+-- 'resourceType', 'syncResourceFilter_resourceType' - The sync resource filter resource type
 --
 -- 'state', 'syncResourceFilter_state' - The sync resource filter\'s state.
 newSyncResourceFilter ::
@@ -66,15 +66,15 @@ newSyncResourceFilter =
       state = Prelude.Nothing
     }
 
--- | The external Id.
+-- | The external ID.
 syncResourceFilter_externalId :: Lens.Lens' SyncResourceFilter (Prelude.Maybe Prelude.Text)
 syncResourceFilter_externalId = Lens.lens (\SyncResourceFilter' {externalId} -> externalId) (\s@SyncResourceFilter' {} a -> s {externalId = a} :: SyncResourceFilter)
 
--- | The sync resource filter resource Id.
+-- | The sync resource filter resource ID.
 syncResourceFilter_resourceId :: Lens.Lens' SyncResourceFilter (Prelude.Maybe Prelude.Text)
 syncResourceFilter_resourceId = Lens.lens (\SyncResourceFilter' {resourceId} -> resourceId) (\s@SyncResourceFilter' {} a -> s {resourceId = a} :: SyncResourceFilter)
 
--- | The sync resource filter resoucre type
+-- | The sync resource filter resource type
 syncResourceFilter_resourceType :: Lens.Lens' SyncResourceFilter (Prelude.Maybe SyncResourceType)
 syncResourceFilter_resourceType = Lens.lens (\SyncResourceFilter' {resourceType} -> resourceType) (\s@SyncResourceFilter' {} a -> s {resourceType = a} :: SyncResourceFilter)
 
@@ -84,7 +84,8 @@ syncResourceFilter_state = Lens.lens (\SyncResourceFilter' {state} -> state) (\s
 
 instance Prelude.Hashable SyncResourceFilter where
   hashWithSalt _salt SyncResourceFilter' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` state

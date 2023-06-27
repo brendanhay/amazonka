@@ -163,7 +163,8 @@ instance Data.FromJSON PropertyValue where
 
 instance Prelude.Hashable PropertyValue where
   hashWithSalt _salt PropertyValue' {..} =
-    _salt `Prelude.hashWithSalt` time
+    _salt
+      `Prelude.hashWithSalt` time
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` value
 

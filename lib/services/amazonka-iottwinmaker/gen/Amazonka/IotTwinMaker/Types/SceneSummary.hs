@@ -133,7 +133,8 @@ instance Data.FromJSON SceneSummary where
 
 instance Prelude.Hashable SceneSummary where
   hashWithSalt _salt SceneSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` sceneId
       `Prelude.hashWithSalt` contentLocation
       `Prelude.hashWithSalt` arn

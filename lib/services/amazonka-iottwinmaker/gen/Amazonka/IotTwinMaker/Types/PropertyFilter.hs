@@ -74,7 +74,8 @@ propertyFilter_value = Lens.lens (\PropertyFilter' {value} -> value) (\s@Propert
 
 instance Prelude.Hashable PropertyFilter where
   hashWithSalt _salt PropertyFilter' {..} =
-    _salt `Prelude.hashWithSalt` operator
+    _salt
+      `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` propertyName
       `Prelude.hashWithSalt` value
 

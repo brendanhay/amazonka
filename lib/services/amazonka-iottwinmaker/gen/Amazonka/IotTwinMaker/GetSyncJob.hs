@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSyncJob' smart constructor.
 data GetSyncJob = GetSyncJob'
-  { -- | The workspace Id.
+  { -- | The workspace ID.
     workspaceId :: Prelude.Maybe Prelude.Text,
-    -- | The sync soucre.
+    -- | The sync source.
     --
-    -- Currently the only supported syncSoucre is @SITEWISE @.
+    -- Currently the only supported syncSource is @SITEWISE @.
     syncSource :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,11 +73,11 @@ data GetSyncJob = GetSyncJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workspaceId', 'getSyncJob_workspaceId' - The workspace Id.
+-- 'workspaceId', 'getSyncJob_workspaceId' - The workspace ID.
 --
--- 'syncSource', 'getSyncJob_syncSource' - The sync soucre.
+-- 'syncSource', 'getSyncJob_syncSource' - The sync source.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSource is @SITEWISE @.
 newGetSyncJob ::
   -- | 'syncSource'
   Prelude.Text ->
@@ -88,13 +88,13 @@ newGetSyncJob pSyncSource_ =
       syncSource = pSyncSource_
     }
 
--- | The workspace Id.
+-- | The workspace ID.
 getSyncJob_workspaceId :: Lens.Lens' GetSyncJob (Prelude.Maybe Prelude.Text)
 getSyncJob_workspaceId = Lens.lens (\GetSyncJob' {workspaceId} -> workspaceId) (\s@GetSyncJob' {} a -> s {workspaceId = a} :: GetSyncJob)
 
--- | The sync soucre.
+-- | The sync source.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSource is @SITEWISE @.
 getSyncJob_syncSource :: Lens.Lens' GetSyncJob Prelude.Text
 getSyncJob_syncSource = Lens.lens (\GetSyncJob' {syncSource} -> syncSource) (\s@GetSyncJob' {} a -> s {syncSource = a} :: GetSyncJob)
 
@@ -118,7 +118,8 @@ instance Core.AWSRequest GetSyncJob where
 
 instance Prelude.Hashable GetSyncJob where
   hashWithSalt _salt GetSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` syncSource
 
 instance Prelude.NFData GetSyncJob where
@@ -156,7 +157,7 @@ data GetSyncJobResponse = GetSyncJobResponse'
     workspaceId :: Prelude.Text,
     -- | The sync soucre.
     --
-    -- Currently the only supported syncSoucre is @SITEWISE @.
+    -- Currently the only supported syncSource is @SITEWISE @.
     syncSource :: Prelude.Text,
     -- | The sync IAM role.
     syncRole :: Prelude.Text,
@@ -185,7 +186,7 @@ data GetSyncJobResponse = GetSyncJobResponse'
 --
 -- 'syncSource', 'getSyncJobResponse_syncSource' - The sync soucre.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSource is @SITEWISE @.
 --
 -- 'syncRole', 'getSyncJobResponse_syncRole' - The sync IAM role.
 --
@@ -247,7 +248,7 @@ getSyncJobResponse_workspaceId = Lens.lens (\GetSyncJobResponse' {workspaceId} -
 
 -- | The sync soucre.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSource is @SITEWISE @.
 getSyncJobResponse_syncSource :: Lens.Lens' GetSyncJobResponse Prelude.Text
 getSyncJobResponse_syncSource = Lens.lens (\GetSyncJobResponse' {syncSource} -> syncSource) (\s@GetSyncJobResponse' {} a -> s {syncSource = a} :: GetSyncJobResponse)
 

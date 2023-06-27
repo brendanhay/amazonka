@@ -117,7 +117,8 @@ instance Data.FromJSON WorkspaceSummary where
 
 instance Prelude.Hashable WorkspaceSummary where
   hashWithSalt _salt WorkspaceSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDateTime

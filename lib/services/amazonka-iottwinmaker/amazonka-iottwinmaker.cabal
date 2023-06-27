@@ -126,6 +126,8 @@ library
     Amazonka.IotTwinMaker.Types.Relationship
     Amazonka.IotTwinMaker.Types.RelationshipValue
     Amazonka.IotTwinMaker.Types.Row
+    Amazonka.IotTwinMaker.Types.SceneError
+    Amazonka.IotTwinMaker.Types.SceneErrorCode
     Amazonka.IotTwinMaker.Types.SceneSummary
     Amazonka.IotTwinMaker.Types.Scope
     Amazonka.IotTwinMaker.Types.State

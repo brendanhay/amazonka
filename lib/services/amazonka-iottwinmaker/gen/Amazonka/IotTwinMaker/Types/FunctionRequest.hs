@@ -75,7 +75,8 @@ functionRequest_scope = Lens.lens (\FunctionRequest' {scope} -> scope) (\s@Funct
 
 instance Prelude.Hashable FunctionRequest where
   hashWithSalt _salt FunctionRequest' {..} =
-    _salt `Prelude.hashWithSalt` implementedBy
+    _salt
+      `Prelude.hashWithSalt` implementedBy
       `Prelude.hashWithSalt` requiredProperties
       `Prelude.hashWithSalt` scope
 

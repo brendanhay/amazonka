@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSyncResourceSummary' smart constructor.
 data SyncResourceSummary = SyncResourceSummary'
-  { -- | The external Id.
+  { -- | The external ID.
     externalId :: Prelude.Maybe Prelude.Text,
-    -- | The resource Id.
+    -- | The resource ID.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The resource type.
     resourceType :: Prelude.Maybe SyncResourceType,
@@ -51,9 +51,9 @@ data SyncResourceSummary = SyncResourceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'externalId', 'syncResourceSummary_externalId' - The external Id.
+-- 'externalId', 'syncResourceSummary_externalId' - The external ID.
 --
--- 'resourceId', 'syncResourceSummary_resourceId' - The resource Id.
+-- 'resourceId', 'syncResourceSummary_resourceId' - The resource ID.
 --
 -- 'resourceType', 'syncResourceSummary_resourceType' - The resource type.
 --
@@ -71,11 +71,11 @@ newSyncResourceSummary =
       updateDateTime = Prelude.Nothing
     }
 
--- | The external Id.
+-- | The external ID.
 syncResourceSummary_externalId :: Lens.Lens' SyncResourceSummary (Prelude.Maybe Prelude.Text)
 syncResourceSummary_externalId = Lens.lens (\SyncResourceSummary' {externalId} -> externalId) (\s@SyncResourceSummary' {} a -> s {externalId = a} :: SyncResourceSummary)
 
--- | The resource Id.
+-- | The resource ID.
 syncResourceSummary_resourceId :: Lens.Lens' SyncResourceSummary (Prelude.Maybe Prelude.Text)
 syncResourceSummary_resourceId = Lens.lens (\SyncResourceSummary' {resourceId} -> resourceId) (\s@SyncResourceSummary' {} a -> s {resourceId = a} :: SyncResourceSummary)
 
@@ -106,7 +106,8 @@ instance Data.FromJSON SyncResourceSummary where
 
 instance Prelude.Hashable SyncResourceSummary where
   hashWithSalt _salt SyncResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` status

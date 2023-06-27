@@ -37,6 +37,9 @@ module Amazonka.IotTwinMaker.GetScene
     -- * Response Lenses
     getSceneResponse_capabilities,
     getSceneResponse_description,
+    getSceneResponse_error,
+    getSceneResponse_generatedSceneMetadata,
+    getSceneResponse_sceneMetadata,
     getSceneResponse_httpStatus,
     getSceneResponse_workspaceId,
     getSceneResponse_sceneId,
@@ -105,6 +108,12 @@ instance Core.AWSRequest GetScene where
           GetSceneResponse'
             Prelude.<$> (x Data..?> "capabilities" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> ( x
+                            Data..?> "generatedSceneMetadata"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "sceneMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "workspaceId")
             Prelude.<*> (x Data..:> "sceneId")
@@ -116,7 +125,8 @@ instance Core.AWSRequest GetScene where
 
 instance Prelude.Hashable GetScene where
   hashWithSalt _salt GetScene' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` sceneId
 
 instance Prelude.NFData GetScene where
@@ -153,6 +163,12 @@ data GetSceneResponse = GetSceneResponse'
     capabilities :: Prelude.Maybe [Prelude.Text],
     -- | The description of the scene.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The SceneResponse error.
+    error :: Prelude.Maybe SceneError,
+    -- | The generated scene metadata.
+    generatedSceneMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response metadata.
+    sceneMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the workspace that contains the scene.
@@ -182,6 +198,12 @@ data GetSceneResponse = GetSceneResponse'
 -- 'capabilities', 'getSceneResponse_capabilities' - A list of capabilities that the scene uses to render.
 --
 -- 'description', 'getSceneResponse_description' - The description of the scene.
+--
+-- 'error', 'getSceneResponse_error' - The SceneResponse error.
+--
+-- 'generatedSceneMetadata', 'getSceneResponse_generatedSceneMetadata' - The generated scene metadata.
+--
+-- 'sceneMetadata', 'getSceneResponse_sceneMetadata' - The response metadata.
 --
 -- 'httpStatus', 'getSceneResponse_httpStatus' - The response's http status code.
 --
@@ -224,6 +246,9 @@ newGetSceneResponse
     GetSceneResponse'
       { capabilities = Prelude.Nothing,
         description = Prelude.Nothing,
+        error = Prelude.Nothing,
+        generatedSceneMetadata = Prelude.Nothing,
+        sceneMetadata = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         workspaceId = pWorkspaceId_,
         sceneId = pSceneId_,
@@ -241,6 +266,18 @@ getSceneResponse_capabilities = Lens.lens (\GetSceneResponse' {capabilities} -> 
 -- | The description of the scene.
 getSceneResponse_description :: Lens.Lens' GetSceneResponse (Prelude.Maybe Prelude.Text)
 getSceneResponse_description = Lens.lens (\GetSceneResponse' {description} -> description) (\s@GetSceneResponse' {} a -> s {description = a} :: GetSceneResponse)
+
+-- | The SceneResponse error.
+getSceneResponse_error :: Lens.Lens' GetSceneResponse (Prelude.Maybe SceneError)
+getSceneResponse_error = Lens.lens (\GetSceneResponse' {error} -> error) (\s@GetSceneResponse' {} a -> s {error = a} :: GetSceneResponse)
+
+-- | The generated scene metadata.
+getSceneResponse_generatedSceneMetadata :: Lens.Lens' GetSceneResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getSceneResponse_generatedSceneMetadata = Lens.lens (\GetSceneResponse' {generatedSceneMetadata} -> generatedSceneMetadata) (\s@GetSceneResponse' {} a -> s {generatedSceneMetadata = a} :: GetSceneResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The response metadata.
+getSceneResponse_sceneMetadata :: Lens.Lens' GetSceneResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getSceneResponse_sceneMetadata = Lens.lens (\GetSceneResponse' {sceneMetadata} -> sceneMetadata) (\s@GetSceneResponse' {} a -> s {sceneMetadata = a} :: GetSceneResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSceneResponse_httpStatus :: Lens.Lens' GetSceneResponse Prelude.Int
@@ -275,6 +312,9 @@ instance Prelude.NFData GetSceneResponse where
   rnf GetSceneResponse' {..} =
     Prelude.rnf capabilities
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf generatedSceneMetadata
+      `Prelude.seq` Prelude.rnf sceneMetadata
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf sceneId

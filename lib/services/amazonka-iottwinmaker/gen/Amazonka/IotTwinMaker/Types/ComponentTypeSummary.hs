@@ -139,7 +139,8 @@ instance Data.FromJSON ComponentTypeSummary where
 
 instance Prelude.Hashable ComponentTypeSummary where
   hashWithSalt _salt ComponentTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` componentTypeName
+    _salt
+      `Prelude.hashWithSalt` componentTypeName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` arn

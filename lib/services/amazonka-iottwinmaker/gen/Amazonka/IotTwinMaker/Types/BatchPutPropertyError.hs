@@ -97,7 +97,8 @@ instance Data.FromJSON BatchPutPropertyError where
 
 instance Prelude.Hashable BatchPutPropertyError where
   hashWithSalt _salt BatchPutPropertyError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` entry
 

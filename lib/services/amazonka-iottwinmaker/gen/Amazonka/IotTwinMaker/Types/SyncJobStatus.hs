@@ -76,7 +76,8 @@ instance Data.FromJSON SyncJobStatus where
 
 instance Prelude.Hashable SyncJobStatus where
   hashWithSalt _salt SyncJobStatus' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData SyncJobStatus where

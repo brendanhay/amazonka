@@ -55,6 +55,14 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListSyncResources' smart constructor.
 data ListSyncResources = ListSyncResources'
   { -- | A list of objects that filter the request.
+    --
+    -- The following filter combinations are supported:
+    --
+    -- -   Filter with state
+    --
+    -- -   Filter with ResourceType and ResourceId
+    --
+    -- -   Filter with ResourceType and ExternalId
     filters :: Prelude.Maybe [SyncResourceFilter],
     -- | The maximum number of results to return at one time. The default is 50.
     --
@@ -64,9 +72,9 @@ data ListSyncResources = ListSyncResources'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the workspace that contains the sync job.
     workspaceId :: Prelude.Text,
-    -- | The sync soucre.
+    -- | The sync source.
     --
-    -- Currently the only supported syncSoucre is @SITEWISE @.
+    -- Currently the only supported syncSource is @SITEWISE @.
     syncSource :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,6 +89,14 @@ data ListSyncResources = ListSyncResources'
 --
 -- 'filters', 'listSyncResources_filters' - A list of objects that filter the request.
 --
+-- The following filter combinations are supported:
+--
+-- -   Filter with state
+--
+-- -   Filter with ResourceType and ResourceId
+--
+-- -   Filter with ResourceType and ExternalId
+--
 -- 'maxResults', 'listSyncResources_maxResults' - The maximum number of results to return at one time. The default is 50.
 --
 -- Valid Range: Minimum value of 0. Maximum value of 200.
@@ -89,9 +105,9 @@ data ListSyncResources = ListSyncResources'
 --
 -- 'workspaceId', 'listSyncResources_workspaceId' - The ID of the workspace that contains the sync job.
 --
--- 'syncSource', 'listSyncResources_syncSource' - The sync soucre.
+-- 'syncSource', 'listSyncResources_syncSource' - The sync source.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSource is @SITEWISE @.
 newListSyncResources ::
   -- | 'workspaceId'
   Prelude.Text ->
@@ -108,6 +124,14 @@ newListSyncResources pWorkspaceId_ pSyncSource_ =
     }
 
 -- | A list of objects that filter the request.
+--
+-- The following filter combinations are supported:
+--
+-- -   Filter with state
+--
+-- -   Filter with ResourceType and ResourceId
+--
+-- -   Filter with ResourceType and ExternalId
 listSyncResources_filters :: Lens.Lens' ListSyncResources (Prelude.Maybe [SyncResourceFilter])
 listSyncResources_filters = Lens.lens (\ListSyncResources' {filters} -> filters) (\s@ListSyncResources' {} a -> s {filters = a} :: ListSyncResources) Prelude.. Lens.mapping Lens.coerced
 
@@ -125,9 +149,9 @@ listSyncResources_nextToken = Lens.lens (\ListSyncResources' {nextToken} -> next
 listSyncResources_workspaceId :: Lens.Lens' ListSyncResources Prelude.Text
 listSyncResources_workspaceId = Lens.lens (\ListSyncResources' {workspaceId} -> workspaceId) (\s@ListSyncResources' {} a -> s {workspaceId = a} :: ListSyncResources)
 
--- | The sync soucre.
+-- | The sync source.
 --
--- Currently the only supported syncSoucre is @SITEWISE @.
+-- Currently the only supported syncSource is @SITEWISE @.
 listSyncResources_syncSource :: Lens.Lens' ListSyncResources Prelude.Text
 listSyncResources_syncSource = Lens.lens (\ListSyncResources' {syncSource} -> syncSource) (\s@ListSyncResources' {} a -> s {syncSource = a} :: ListSyncResources)
 
@@ -148,7 +172,8 @@ instance Core.AWSRequest ListSyncResources where
 
 instance Prelude.Hashable ListSyncResources where
   hashWithSalt _salt ListSyncResources' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workspaceId

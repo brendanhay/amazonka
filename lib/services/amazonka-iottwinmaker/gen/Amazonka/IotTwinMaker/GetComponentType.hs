@@ -120,7 +120,8 @@ instance Core.AWSRequest GetComponentType where
             Prelude.<*> (x Data..?> "isAbstract")
             Prelude.<*> (x Data..?> "isSchemaInitialized")
             Prelude.<*> (x Data..?> "isSingleton")
-            Prelude.<*> ( x Data..?> "propertyDefinitions"
+            Prelude.<*> ( x
+                            Data..?> "propertyDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "propertyGroups" Core..!@ Prelude.mempty)
@@ -136,7 +137,8 @@ instance Core.AWSRequest GetComponentType where
 
 instance Prelude.Hashable GetComponentType where
   hashWithSalt _salt GetComponentType' {..} =
-    _salt `Prelude.hashWithSalt` workspaceId
+    _salt
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData GetComponentType where
@@ -195,8 +197,7 @@ data GetComponentTypeResponse = GetComponentTypeResponse'
     propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupResponse),
     -- | The current status of the component type.
     status :: Prelude.Maybe Status,
-    -- | The syncSource of the sync job, if this entity was created by a sync
-    -- job.
+    -- | The syncSource of the SyncJob, if this entity was created by a SyncJob.
     syncSource :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -247,8 +248,7 @@ data GetComponentTypeResponse = GetComponentTypeResponse'
 --
 -- 'status', 'getComponentTypeResponse_status' - The current status of the component type.
 --
--- 'syncSource', 'getComponentTypeResponse_syncSource' - The syncSource of the sync job, if this entity was created by a sync
--- job.
+-- 'syncSource', 'getComponentTypeResponse_syncSource' - The syncSource of the SyncJob, if this entity was created by a SyncJob.
 --
 -- 'httpStatus', 'getComponentTypeResponse_httpStatus' - The response's http status code.
 --
@@ -351,8 +351,7 @@ getComponentTypeResponse_propertyGroups = Lens.lens (\GetComponentTypeResponse' 
 getComponentTypeResponse_status :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Status)
 getComponentTypeResponse_status = Lens.lens (\GetComponentTypeResponse' {status} -> status) (\s@GetComponentTypeResponse' {} a -> s {status = a} :: GetComponentTypeResponse)
 
--- | The syncSource of the sync job, if this entity was created by a sync
--- job.
+-- | The syncSource of the SyncJob, if this entity was created by a SyncJob.
 getComponentTypeResponse_syncSource :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Text)
 getComponentTypeResponse_syncSource = Lens.lens (\GetComponentTypeResponse' {syncSource} -> syncSource) (\s@GetComponentTypeResponse' {} a -> s {syncSource = a} :: GetComponentTypeResponse)
 

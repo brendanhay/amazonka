@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | An object that describes the image tag details returned by a
+-- | An object that describes the image tag details that are returned by a
 -- DescribeImageTags action.
 --
 -- /See:/ 'newReferencedImageDetail' smart constructor.
@@ -35,18 +35,18 @@ data ReferencedImageDetail = ReferencedImageDetail'
     imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The media type of the image manifest.
     imageManifestMediaType :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, expressed in standard JavaScript date format, at
-    -- which the current image tag was pushed to the repository.
+    -- | The date and time, expressed in standard JavaScript date format, which
+    -- the current image tag was pushed to the repository at.
     imagePushedAt :: Prelude.Maybe Data.POSIX,
     -- | The size, in bytes, of the image in the repository.
     --
-    -- If the image is a manifest list, this will be the max size of all
-    -- manifests in the list.
+    -- If the image is a manifest list, this is the max size of all manifests
+    -- in the list.
     --
     -- Beginning with Docker version 1.9, the Docker client compresses image
     -- layers before pushing them to a V2 Docker registry. The output of the
-    -- @docker images@ command shows the uncompressed image size, so it may
-    -- return a larger image size than the image sizes returned by
+    -- @docker images@ command shows the uncompressed image size, so it might
+    -- return a larger image size than the image sizes that are returned by
     -- DescribeImages.
     imageSizeInBytes :: Prelude.Maybe Prelude.Integer
   }
@@ -66,18 +66,18 @@ data ReferencedImageDetail = ReferencedImageDetail'
 --
 -- 'imageManifestMediaType', 'referencedImageDetail_imageManifestMediaType' - The media type of the image manifest.
 --
--- 'imagePushedAt', 'referencedImageDetail_imagePushedAt' - The date and time, expressed in standard JavaScript date format, at
--- which the current image tag was pushed to the repository.
+-- 'imagePushedAt', 'referencedImageDetail_imagePushedAt' - The date and time, expressed in standard JavaScript date format, which
+-- the current image tag was pushed to the repository at.
 --
 -- 'imageSizeInBytes', 'referencedImageDetail_imageSizeInBytes' - The size, in bytes, of the image in the repository.
 --
--- If the image is a manifest list, this will be the max size of all
--- manifests in the list.
+-- If the image is a manifest list, this is the max size of all manifests
+-- in the list.
 --
 -- Beginning with Docker version 1.9, the Docker client compresses image
 -- layers before pushing them to a V2 Docker registry. The output of the
--- @docker images@ command shows the uncompressed image size, so it may
--- return a larger image size than the image sizes returned by
+-- @docker images@ command shows the uncompressed image size, so it might
+-- return a larger image size than the image sizes that are returned by
 -- DescribeImages.
 newReferencedImageDetail ::
   ReferencedImageDetail
@@ -103,20 +103,20 @@ referencedImageDetail_imageDigest = Lens.lens (\ReferencedImageDetail' {imageDig
 referencedImageDetail_imageManifestMediaType :: Lens.Lens' ReferencedImageDetail (Prelude.Maybe Prelude.Text)
 referencedImageDetail_imageManifestMediaType = Lens.lens (\ReferencedImageDetail' {imageManifestMediaType} -> imageManifestMediaType) (\s@ReferencedImageDetail' {} a -> s {imageManifestMediaType = a} :: ReferencedImageDetail)
 
--- | The date and time, expressed in standard JavaScript date format, at
--- which the current image tag was pushed to the repository.
+-- | The date and time, expressed in standard JavaScript date format, which
+-- the current image tag was pushed to the repository at.
 referencedImageDetail_imagePushedAt :: Lens.Lens' ReferencedImageDetail (Prelude.Maybe Prelude.UTCTime)
 referencedImageDetail_imagePushedAt = Lens.lens (\ReferencedImageDetail' {imagePushedAt} -> imagePushedAt) (\s@ReferencedImageDetail' {} a -> s {imagePushedAt = a} :: ReferencedImageDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The size, in bytes, of the image in the repository.
 --
--- If the image is a manifest list, this will be the max size of all
--- manifests in the list.
+-- If the image is a manifest list, this is the max size of all manifests
+-- in the list.
 --
 -- Beginning with Docker version 1.9, the Docker client compresses image
 -- layers before pushing them to a V2 Docker registry. The output of the
--- @docker images@ command shows the uncompressed image size, so it may
--- return a larger image size than the image sizes returned by
+-- @docker images@ command shows the uncompressed image size, so it might
+-- return a larger image size than the image sizes that are returned by
 -- DescribeImages.
 referencedImageDetail_imageSizeInBytes :: Lens.Lens' ReferencedImageDetail (Prelude.Maybe Prelude.Integer)
 referencedImageDetail_imageSizeInBytes = Lens.lens (\ReferencedImageDetail' {imageSizeInBytes} -> imageSizeInBytes) (\s@ReferencedImageDetail' {} a -> s {imageSizeInBytes = a} :: ReferencedImageDetail)
@@ -136,7 +136,8 @@ instance Data.FromJSON ReferencedImageDetail where
 
 instance Prelude.Hashable ReferencedImageDetail where
   hashWithSalt _salt ReferencedImageDetail' {..} =
-    _salt `Prelude.hashWithSalt` artifactMediaType
+    _salt
+      `Prelude.hashWithSalt` artifactMediaType
       `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imageManifestMediaType
       `Prelude.hashWithSalt` imagePushedAt

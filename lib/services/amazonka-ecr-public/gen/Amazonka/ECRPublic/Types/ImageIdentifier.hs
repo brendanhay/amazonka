@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data ImageIdentifier = ImageIdentifier'
   { -- | The @sha256@ digest of the image manifest.
     imageDigest :: Prelude.Maybe Prelude.Text,
-    -- | The tag used for the image.
+    -- | The tag that\'s used for the image.
     imageTag :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data ImageIdentifier = ImageIdentifier'
 --
 -- 'imageDigest', 'imageIdentifier_imageDigest' - The @sha256@ digest of the image manifest.
 --
--- 'imageTag', 'imageIdentifier_imageTag' - The tag used for the image.
+-- 'imageTag', 'imageIdentifier_imageTag' - The tag that\'s used for the image.
 newImageIdentifier ::
   ImageIdentifier
 newImageIdentifier =
@@ -58,7 +58,7 @@ newImageIdentifier =
 imageIdentifier_imageDigest :: Lens.Lens' ImageIdentifier (Prelude.Maybe Prelude.Text)
 imageIdentifier_imageDigest = Lens.lens (\ImageIdentifier' {imageDigest} -> imageDigest) (\s@ImageIdentifier' {} a -> s {imageDigest = a} :: ImageIdentifier)
 
--- | The tag used for the image.
+-- | The tag that\'s used for the image.
 imageIdentifier_imageTag :: Lens.Lens' ImageIdentifier (Prelude.Maybe Prelude.Text)
 imageIdentifier_imageTag = Lens.lens (\ImageIdentifier' {imageTag} -> imageTag) (\s@ImageIdentifier' {} a -> s {imageTag = a} :: ImageIdentifier)
 
@@ -74,7 +74,8 @@ instance Data.FromJSON ImageIdentifier where
 
 instance Prelude.Hashable ImageIdentifier where
   hashWithSalt _salt ImageIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` imageDigest
+    _salt
+      `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imageTag
 
 instance Prelude.NFData ImageIdentifier where

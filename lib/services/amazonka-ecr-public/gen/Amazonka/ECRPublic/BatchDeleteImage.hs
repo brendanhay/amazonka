@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a list of specified images within a repository in a public
--- registry. Images are specified with either an @imageTag@ or
+-- Deletes a list of specified images that are within a repository in a
+-- public registry. Images are specified with either an @imageTag@ or
 -- @imageDigest@.
 --
 -- You can remove a tag from an image by specifying the image\'s tag in
@@ -29,7 +29,7 @@
 -- deleted from your repository.
 --
 -- You can completely delete an image (and all of its tags) by specifying
--- the image\'s digest in your request.
+-- the digest of the image in your request.
 module Amazonka.ECRPublic.BatchDeleteImage
   ( -- * Creating a Request
     BatchDeleteImage (..),
@@ -61,9 +61,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDeleteImage' smart constructor.
 data BatchDeleteImage = BatchDeleteImage'
-  { -- | The AWS account ID associated with the registry that contains the image
-    -- to delete. If you do not specify a registry, the default public registry
-    -- is assumed.
+  { -- | The Amazon Web Services account ID, or registry alias, that\'s
+    -- associated with the registry that contains the image to delete. If you
+    -- do not specify a registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository in a public registry that contains the image to delete.
     repositoryName :: Prelude.Text,
@@ -82,9 +82,9 @@ data BatchDeleteImage = BatchDeleteImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'batchDeleteImage_registryId' - The AWS account ID associated with the registry that contains the image
--- to delete. If you do not specify a registry, the default public registry
--- is assumed.
+-- 'registryId', 'batchDeleteImage_registryId' - The Amazon Web Services account ID, or registry alias, that\'s
+-- associated with the registry that contains the image to delete. If you
+-- do not specify a registry, the default public registry is assumed.
 --
 -- 'repositoryName', 'batchDeleteImage_repositoryName' - The repository in a public registry that contains the image to delete.
 --
@@ -104,9 +104,9 @@ newBatchDeleteImage pRepositoryName_ pImageIds_ =
       imageIds = Lens.coerced Lens.# pImageIds_
     }
 
--- | The AWS account ID associated with the registry that contains the image
--- to delete. If you do not specify a registry, the default public registry
--- is assumed.
+-- | The Amazon Web Services account ID, or registry alias, that\'s
+-- associated with the registry that contains the image to delete. If you
+-- do not specify a registry, the default public registry is assumed.
 batchDeleteImage_registryId :: Lens.Lens' BatchDeleteImage (Prelude.Maybe Prelude.Text)
 batchDeleteImage_registryId = Lens.lens (\BatchDeleteImage' {registryId} -> registryId) (\s@BatchDeleteImage' {} a -> s {registryId = a} :: BatchDeleteImage)
 
@@ -137,7 +137,8 @@ instance Core.AWSRequest BatchDeleteImage where
 
 instance Prelude.Hashable BatchDeleteImage where
   hashWithSalt _salt BatchDeleteImage' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageIds
 

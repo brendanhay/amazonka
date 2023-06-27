@@ -20,13 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns metadata about the images in a repository in a public registry.
+-- Returns metadata that\'s related to the images in a repository in a
+-- public registry.
 --
 -- Beginning with Docker version 1.9, the Docker client compresses image
 -- layers before pushing them to a V2 Docker registry. The output of the
--- @docker images@ command shows the uncompressed image size, so it may
--- return a larger image size than the image sizes returned by
--- DescribeImages.
+-- @docker images@ command shows the uncompressed image size. Therefore, it
+-- might return a larger image size than the image sizes that are returned
+-- by DescribeImages.
 --
 -- This operation returns paginated results.
 module Amazonka.ECRPublic.DescribeImages
@@ -64,26 +65,26 @@ import qualified Amazonka.Response as Response
 data DescribeImages = DescribeImages'
   { -- | The list of image IDs for the requested repository.
     imageIds :: Prelude.Maybe (Prelude.NonEmpty ImageIdentifier),
-    -- | The maximum number of repository results returned by @DescribeImages@ in
-    -- paginated output. When this parameter is used, @DescribeImages@ only
-    -- returns @maxResults@ results in a single page along with a @nextToken@
-    -- response element. The remaining results of the initial request can be
-    -- seen by sending another @DescribeImages@ request with the returned
-    -- @nextToken@ value. This value can be between 1 and 1000. If this
-    -- parameter is not used, then @DescribeImages@ returns up to 100 results
-    -- and a @nextToken@ value, if applicable. This option cannot be used when
-    -- you specify images with @imageIds@.
+    -- | The maximum number of repository results that\'s returned by
+    -- @DescribeImages@ in paginated output. When this parameter is used,
+    -- @DescribeImages@ only returns @maxResults@ results in a single page
+    -- along with a @nextToken@ response element. You can see the remaining
+    -- results of the initial request by sending another @DescribeImages@
+    -- request with the returned @nextToken@ value. This value can be between 1
+    -- and 1000. If this parameter isn\'t used, then @DescribeImages@ returns
+    -- up to 100 results and a @nextToken@ value, if applicable. If you specify
+    -- images with @imageIds@, you can\'t use this option.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The @nextToken@ value returned from a previous paginated
+    -- | The @nextToken@ value that\'s returned from a previous paginated
     -- @DescribeImages@ request where @maxResults@ was used and the results
     -- exceeded the value of that parameter. Pagination continues from the end
-    -- of the previous results that returned the @nextToken@ value. This value
-    -- is @null@ when there are no more results to return. This option cannot
-    -- be used when you specify images with @imageIds@.
+    -- of the previous results that returned the @nextToken@ value. If there
+    -- are no more results to return, this value is @null@. If you specify
+    -- images with @imageIds@, you can\'t use this option.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID associated with the public registry that contains the
-    -- repository in which to describe images. If you do not specify a
-    -- registry, the default public registry is assumed.
+    -- | The Amazon Web Services account ID that\'s associated with the public
+    -- registry that contains the repository where images are described. If you
+    -- do not specify a registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository that contains the images to describe.
     repositoryName :: Prelude.Text
@@ -100,26 +101,26 @@ data DescribeImages = DescribeImages'
 --
 -- 'imageIds', 'describeImages_imageIds' - The list of image IDs for the requested repository.
 --
--- 'maxResults', 'describeImages_maxResults' - The maximum number of repository results returned by @DescribeImages@ in
--- paginated output. When this parameter is used, @DescribeImages@ only
--- returns @maxResults@ results in a single page along with a @nextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another @DescribeImages@ request with the returned
--- @nextToken@ value. This value can be between 1 and 1000. If this
--- parameter is not used, then @DescribeImages@ returns up to 100 results
--- and a @nextToken@ value, if applicable. This option cannot be used when
--- you specify images with @imageIds@.
+-- 'maxResults', 'describeImages_maxResults' - The maximum number of repository results that\'s returned by
+-- @DescribeImages@ in paginated output. When this parameter is used,
+-- @DescribeImages@ only returns @maxResults@ results in a single page
+-- along with a @nextToken@ response element. You can see the remaining
+-- results of the initial request by sending another @DescribeImages@
+-- request with the returned @nextToken@ value. This value can be between 1
+-- and 1000. If this parameter isn\'t used, then @DescribeImages@ returns
+-- up to 100 results and a @nextToken@ value, if applicable. If you specify
+-- images with @imageIds@, you can\'t use this option.
 --
--- 'nextToken', 'describeImages_nextToken' - The @nextToken@ value returned from a previous paginated
+-- 'nextToken', 'describeImages_nextToken' - The @nextToken@ value that\'s returned from a previous paginated
 -- @DescribeImages@ request where @maxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value. This value
--- is @null@ when there are no more results to return. This option cannot
--- be used when you specify images with @imageIds@.
+-- of the previous results that returned the @nextToken@ value. If there
+-- are no more results to return, this value is @null@. If you specify
+-- images with @imageIds@, you can\'t use this option.
 --
--- 'registryId', 'describeImages_registryId' - The AWS account ID associated with the public registry that contains the
--- repository in which to describe images. If you do not specify a
--- registry, the default public registry is assumed.
+-- 'registryId', 'describeImages_registryId' - The Amazon Web Services account ID that\'s associated with the public
+-- registry that contains the repository where images are described. If you
+-- do not specify a registry, the default public registry is assumed.
 --
 -- 'repositoryName', 'describeImages_repositoryName' - The repository that contains the images to describe.
 newDescribeImages ::
@@ -139,30 +140,30 @@ newDescribeImages pRepositoryName_ =
 describeImages_imageIds :: Lens.Lens' DescribeImages (Prelude.Maybe (Prelude.NonEmpty ImageIdentifier))
 describeImages_imageIds = Lens.lens (\DescribeImages' {imageIds} -> imageIds) (\s@DescribeImages' {} a -> s {imageIds = a} :: DescribeImages) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of repository results returned by @DescribeImages@ in
--- paginated output. When this parameter is used, @DescribeImages@ only
--- returns @maxResults@ results in a single page along with a @nextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another @DescribeImages@ request with the returned
--- @nextToken@ value. This value can be between 1 and 1000. If this
--- parameter is not used, then @DescribeImages@ returns up to 100 results
--- and a @nextToken@ value, if applicable. This option cannot be used when
--- you specify images with @imageIds@.
+-- | The maximum number of repository results that\'s returned by
+-- @DescribeImages@ in paginated output. When this parameter is used,
+-- @DescribeImages@ only returns @maxResults@ results in a single page
+-- along with a @nextToken@ response element. You can see the remaining
+-- results of the initial request by sending another @DescribeImages@
+-- request with the returned @nextToken@ value. This value can be between 1
+-- and 1000. If this parameter isn\'t used, then @DescribeImages@ returns
+-- up to 100 results and a @nextToken@ value, if applicable. If you specify
+-- images with @imageIds@, you can\'t use this option.
 describeImages_maxResults :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Natural)
 describeImages_maxResults = Lens.lens (\DescribeImages' {maxResults} -> maxResults) (\s@DescribeImages' {} a -> s {maxResults = a} :: DescribeImages)
 
--- | The @nextToken@ value returned from a previous paginated
+-- | The @nextToken@ value that\'s returned from a previous paginated
 -- @DescribeImages@ request where @maxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value. This value
--- is @null@ when there are no more results to return. This option cannot
--- be used when you specify images with @imageIds@.
+-- of the previous results that returned the @nextToken@ value. If there
+-- are no more results to return, this value is @null@. If you specify
+-- images with @imageIds@, you can\'t use this option.
 describeImages_nextToken :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Text)
 describeImages_nextToken = Lens.lens (\DescribeImages' {nextToken} -> nextToken) (\s@DescribeImages' {} a -> s {nextToken = a} :: DescribeImages)
 
--- | The AWS account ID associated with the public registry that contains the
--- repository in which to describe images. If you do not specify a
--- registry, the default public registry is assumed.
+-- | The Amazon Web Services account ID that\'s associated with the public
+-- registry that contains the repository where images are described. If you
+-- do not specify a registry, the default public registry is assumed.
 describeImages_registryId :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Text)
 describeImages_registryId = Lens.lens (\DescribeImages' {registryId} -> registryId) (\s@DescribeImages' {} a -> s {registryId = a} :: DescribeImages)
 
@@ -175,21 +176,22 @@ instance Core.AWSPager DescribeImages where
     | Core.stop
         ( rs
             Lens.^? describeImagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeImagesResponse_imageDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeImages_nextToken
           Lens..~ rs
-          Lens.^? describeImagesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeImagesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImages where
   type
@@ -208,7 +210,8 @@ instance Core.AWSRequest DescribeImages where
 
 instance Prelude.Hashable DescribeImages where
   hashWithSalt _salt DescribeImages' {..} =
-    _salt `Prelude.hashWithSalt` imageIds
+    _salt
+      `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryId
@@ -261,9 +264,9 @@ data DescribeImagesResponse = DescribeImagesResponse'
   { -- | A list of ImageDetail objects that contain data about the image.
     imageDetails :: Prelude.Maybe [ImageDetail],
     -- | The @nextToken@ value to include in a future @DescribeImages@ request.
-    -- When the results of a @DescribeImages@ request exceed @maxResults@, this
-    -- value can be used to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- When the results of a @DescribeImages@ request exceed @maxResults@, you
+    -- can use this value to retrieve the next page of results. If there are no
+    -- more results to return, this value is @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -281,9 +284,9 @@ data DescribeImagesResponse = DescribeImagesResponse'
 -- 'imageDetails', 'describeImagesResponse_imageDetails' - A list of ImageDetail objects that contain data about the image.
 --
 -- 'nextToken', 'describeImagesResponse_nextToken' - The @nextToken@ value to include in a future @DescribeImages@ request.
--- When the results of a @DescribeImages@ request exceed @maxResults@, this
--- value can be used to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- When the results of a @DescribeImages@ request exceed @maxResults@, you
+-- can use this value to retrieve the next page of results. If there are no
+-- more results to return, this value is @null@.
 --
 -- 'httpStatus', 'describeImagesResponse_httpStatus' - The response's http status code.
 newDescribeImagesResponse ::
@@ -303,9 +306,9 @@ describeImagesResponse_imageDetails :: Lens.Lens' DescribeImagesResponse (Prelud
 describeImagesResponse_imageDetails = Lens.lens (\DescribeImagesResponse' {imageDetails} -> imageDetails) (\s@DescribeImagesResponse' {} a -> s {imageDetails = a} :: DescribeImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value to include in a future @DescribeImages@ request.
--- When the results of a @DescribeImages@ request exceed @maxResults@, this
--- value can be used to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- When the results of a @DescribeImages@ request exceed @maxResults@, you
+-- can use this value to retrieve the next page of results. If there are no
+-- more results to return, this value is @null@.
 describeImagesResponse_nextToken :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe Prelude.Text)
 describeImagesResponse_nextToken = Lens.lens (\DescribeImagesResponse' {nextToken} -> nextToken) (\s@DescribeImagesResponse' {} a -> s {nextToken = a} :: DescribeImagesResponse)
 

@@ -25,20 +25,21 @@ import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types.ImageIdentifier
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing an Amazon ECR image.
+-- | An object that represents an Amazon ECR image.
 --
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
-  { -- | An object containing the image tag and image digest associated with an
-    -- image.
+  { -- | An object that contains the image tag and image digest associated with
+    -- an image.
     imageId :: Prelude.Maybe ImageIdentifier,
-    -- | The image manifest associated with the image.
+    -- | The image manifest that\'s associated with the image.
     imageManifest :: Prelude.Maybe Prelude.Text,
     -- | The manifest media type of the image.
     imageManifestMediaType :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID associated with the registry containing the image.
+    -- | The Amazon Web Services account ID that\'s associated with the registry
+    -- containing the image.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository associated with the image.
+    -- | The name of the repository that\'s associated with the image.
     repositoryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,16 +52,17 @@ data Image = Image'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageId', 'image_imageId' - An object containing the image tag and image digest associated with an
--- image.
+-- 'imageId', 'image_imageId' - An object that contains the image tag and image digest associated with
+-- an image.
 --
--- 'imageManifest', 'image_imageManifest' - The image manifest associated with the image.
+-- 'imageManifest', 'image_imageManifest' - The image manifest that\'s associated with the image.
 --
 -- 'imageManifestMediaType', 'image_imageManifestMediaType' - The manifest media type of the image.
 --
--- 'registryId', 'image_registryId' - The AWS account ID associated with the registry containing the image.
+-- 'registryId', 'image_registryId' - The Amazon Web Services account ID that\'s associated with the registry
+-- containing the image.
 --
--- 'repositoryName', 'image_repositoryName' - The name of the repository associated with the image.
+-- 'repositoryName', 'image_repositoryName' - The name of the repository that\'s associated with the image.
 newImage ::
   Image
 newImage =
@@ -72,12 +74,12 @@ newImage =
       repositoryName = Prelude.Nothing
     }
 
--- | An object containing the image tag and image digest associated with an
--- image.
+-- | An object that contains the image tag and image digest associated with
+-- an image.
 image_imageId :: Lens.Lens' Image (Prelude.Maybe ImageIdentifier)
 image_imageId = Lens.lens (\Image' {imageId} -> imageId) (\s@Image' {} a -> s {imageId = a} :: Image)
 
--- | The image manifest associated with the image.
+-- | The image manifest that\'s associated with the image.
 image_imageManifest :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_imageManifest = Lens.lens (\Image' {imageManifest} -> imageManifest) (\s@Image' {} a -> s {imageManifest = a} :: Image)
 
@@ -85,11 +87,12 @@ image_imageManifest = Lens.lens (\Image' {imageManifest} -> imageManifest) (\s@I
 image_imageManifestMediaType :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_imageManifestMediaType = Lens.lens (\Image' {imageManifestMediaType} -> imageManifestMediaType) (\s@Image' {} a -> s {imageManifestMediaType = a} :: Image)
 
--- | The AWS account ID associated with the registry containing the image.
+-- | The Amazon Web Services account ID that\'s associated with the registry
+-- containing the image.
 image_registryId :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_registryId = Lens.lens (\Image' {registryId} -> registryId) (\s@Image' {} a -> s {registryId = a} :: Image)
 
--- | The name of the repository associated with the image.
+-- | The name of the repository that\'s associated with the image.
 image_repositoryName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_repositoryName = Lens.lens (\Image' {repositoryName} -> repositoryName) (\s@Image' {} a -> s {repositoryName = a} :: Image)
 
@@ -108,7 +111,8 @@ instance Data.FromJSON Image where
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` imageId
+    _salt
+      `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` imageManifest
       `Prelude.hashWithSalt` imageManifestMediaType
       `Prelude.hashWithSalt` registryId

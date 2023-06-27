@@ -39,9 +39,10 @@ data RepositoryCatalogData = RepositoryCatalogData'
     architectures :: Prelude.Maybe [Prelude.Text],
     -- | The short description of the repository.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The URL containing the logo associated with the repository.
+    -- | The URL that contains the logo that\'s associated with the repository.
     logoUrl :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not the repository is certified by AWS Marketplace.
+    -- | Indicates whether the repository is certified by Amazon Web Services
+    -- Marketplace.
     marketplaceCertified :: Prelude.Maybe Prelude.Bool,
     -- | The operating system tags that are associated with the repository.
     --
@@ -72,9 +73,10 @@ data RepositoryCatalogData = RepositoryCatalogData'
 --
 -- 'description', 'repositoryCatalogData_description' - The short description of the repository.
 --
--- 'logoUrl', 'repositoryCatalogData_logoUrl' - The URL containing the logo associated with the repository.
+-- 'logoUrl', 'repositoryCatalogData_logoUrl' - The URL that contains the logo that\'s associated with the repository.
 --
--- 'marketplaceCertified', 'repositoryCatalogData_marketplaceCertified' - Whether or not the repository is certified by AWS Marketplace.
+-- 'marketplaceCertified', 'repositoryCatalogData_marketplaceCertified' - Indicates whether the repository is certified by Amazon Web Services
+-- Marketplace.
 --
 -- 'operatingSystems', 'repositoryCatalogData_operatingSystems' - The operating system tags that are associated with the repository.
 --
@@ -112,11 +114,12 @@ repositoryCatalogData_architectures = Lens.lens (\RepositoryCatalogData' {archit
 repositoryCatalogData_description :: Lens.Lens' RepositoryCatalogData (Prelude.Maybe Prelude.Text)
 repositoryCatalogData_description = Lens.lens (\RepositoryCatalogData' {description} -> description) (\s@RepositoryCatalogData' {} a -> s {description = a} :: RepositoryCatalogData)
 
--- | The URL containing the logo associated with the repository.
+-- | The URL that contains the logo that\'s associated with the repository.
 repositoryCatalogData_logoUrl :: Lens.Lens' RepositoryCatalogData (Prelude.Maybe Prelude.Text)
 repositoryCatalogData_logoUrl = Lens.lens (\RepositoryCatalogData' {logoUrl} -> logoUrl) (\s@RepositoryCatalogData' {} a -> s {logoUrl = a} :: RepositoryCatalogData)
 
--- | Whether or not the repository is certified by AWS Marketplace.
+-- | Indicates whether the repository is certified by Amazon Web Services
+-- Marketplace.
 repositoryCatalogData_marketplaceCertified :: Lens.Lens' RepositoryCatalogData (Prelude.Maybe Prelude.Bool)
 repositoryCatalogData_marketplaceCertified = Lens.lens (\RepositoryCatalogData' {marketplaceCertified} -> marketplaceCertified) (\s@RepositoryCatalogData' {} a -> s {marketplaceCertified = a} :: RepositoryCatalogData)
 
@@ -143,7 +146,8 @@ instance Data.FromJSON RepositoryCatalogData where
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "logoUrl")
             Prelude.<*> (x Data..:? "marketplaceCertified")
-            Prelude.<*> ( x Data..:? "operatingSystems"
+            Prelude.<*> ( x
+                            Data..:? "operatingSystems"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "usageText")
@@ -151,7 +155,8 @@ instance Data.FromJSON RepositoryCatalogData where
 
 instance Prelude.Hashable RepositoryCatalogData where
   hashWithSalt _salt RepositoryCatalogData' {..} =
-    _salt `Prelude.hashWithSalt` aboutText
+    _salt
+      `Prelude.hashWithSalt` aboutText
       `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` logoUrl

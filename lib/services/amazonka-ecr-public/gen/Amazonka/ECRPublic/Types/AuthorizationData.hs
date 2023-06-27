@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAuthorizationData' smart constructor.
 data AuthorizationData = AuthorizationData'
   { -- | A base64-encoded string that contains authorization data for a public
-    -- Amazon ECR registry. When the string is decoded, it is presented in the
+    -- Amazon ECR registry. When the string is decoded, it\'s presented in the
     -- format @user:password@ for public registry authentication using
     -- @docker login@.
     authorizationToken :: Prelude.Maybe Prelude.Text,
@@ -49,7 +49,7 @@ data AuthorizationData = AuthorizationData'
 -- for backwards compatibility:
 --
 -- 'authorizationToken', 'authorizationData_authorizationToken' - A base64-encoded string that contains authorization data for a public
--- Amazon ECR registry. When the string is decoded, it is presented in the
+-- Amazon ECR registry. When the string is decoded, it\'s presented in the
 -- format @user:password@ for public registry authentication using
 -- @docker login@.
 --
@@ -65,7 +65,7 @@ newAuthorizationData =
     }
 
 -- | A base64-encoded string that contains authorization data for a public
--- Amazon ECR registry. When the string is decoded, it is presented in the
+-- Amazon ECR registry. When the string is decoded, it\'s presented in the
 -- format @user:password@ for public registry authentication using
 -- @docker login@.
 authorizationData_authorizationToken :: Lens.Lens' AuthorizationData (Prelude.Maybe Prelude.Text)
@@ -88,7 +88,8 @@ instance Data.FromJSON AuthorizationData where
 
 instance Prelude.Hashable AuthorizationData where
   hashWithSalt _salt AuthorizationData' {..} =
-    _salt `Prelude.hashWithSalt` authorizationToken
+    _salt
+      `Prelude.hashWithSalt` authorizationToken
       `Prelude.hashWithSalt` expiresAt
 
 instance Prelude.NFData AuthorizationData where

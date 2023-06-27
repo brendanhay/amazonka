@@ -57,16 +57,16 @@ data CreateRepository = CreateRepository'
   { -- | The details about the repository that are publicly visible in the Amazon
     -- ECR Public Gallery.
     catalogData :: Prelude.Maybe RepositoryCatalogDataInput,
-    -- | The metadata that you apply to the repository to help you categorize and
-    -- organize them. Each tag consists of a key and an optional value, both of
-    -- which you define. Tag keys can have a maximum character length of 128
-    -- characters, and tag values can have a maximum length of 256 characters.
+    -- | The metadata that you apply to each repository to help categorize and
+    -- organize your repositories. Each tag consists of a key and an optional
+    -- value. You define both of them. Tag keys can have a maximum character
+    -- length of 128 characters, and tag values can have a maximum length of
+    -- 256 characters.
     tags :: Prelude.Maybe [Tag],
     -- | The name to use for the repository. This appears publicly in the Amazon
-    -- ECR Public Gallery. The repository name may be specified on its own
-    -- (such as @nginx-web-app@) or it can be prepended with a namespace to
-    -- group the repository into a category (such as
-    -- @project-a\/nginx-web-app@).
+    -- ECR Public Gallery. The repository name can be specified on its own (for
+    -- example @nginx-web-app@) or prepended with a namespace to group the
+    -- repository into a category (for example @project-a\/nginx-web-app@).
     repositoryName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,16 +82,16 @@ data CreateRepository = CreateRepository'
 -- 'catalogData', 'createRepository_catalogData' - The details about the repository that are publicly visible in the Amazon
 -- ECR Public Gallery.
 --
--- 'tags', 'createRepository_tags' - The metadata that you apply to the repository to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define. Tag keys can have a maximum character length of 128
--- characters, and tag values can have a maximum length of 256 characters.
+-- 'tags', 'createRepository_tags' - The metadata that you apply to each repository to help categorize and
+-- organize your repositories. Each tag consists of a key and an optional
+-- value. You define both of them. Tag keys can have a maximum character
+-- length of 128 characters, and tag values can have a maximum length of
+-- 256 characters.
 --
 -- 'repositoryName', 'createRepository_repositoryName' - The name to use for the repository. This appears publicly in the Amazon
--- ECR Public Gallery. The repository name may be specified on its own
--- (such as @nginx-web-app@) or it can be prepended with a namespace to
--- group the repository into a category (such as
--- @project-a\/nginx-web-app@).
+-- ECR Public Gallery. The repository name can be specified on its own (for
+-- example @nginx-web-app@) or prepended with a namespace to group the
+-- repository into a category (for example @project-a\/nginx-web-app@).
 newCreateRepository ::
   -- | 'repositoryName'
   Prelude.Text ->
@@ -108,18 +108,18 @@ newCreateRepository pRepositoryName_ =
 createRepository_catalogData :: Lens.Lens' CreateRepository (Prelude.Maybe RepositoryCatalogDataInput)
 createRepository_catalogData = Lens.lens (\CreateRepository' {catalogData} -> catalogData) (\s@CreateRepository' {} a -> s {catalogData = a} :: CreateRepository)
 
--- | The metadata that you apply to the repository to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define. Tag keys can have a maximum character length of 128
--- characters, and tag values can have a maximum length of 256 characters.
+-- | The metadata that you apply to each repository to help categorize and
+-- organize your repositories. Each tag consists of a key and an optional
+-- value. You define both of them. Tag keys can have a maximum character
+-- length of 128 characters, and tag values can have a maximum length of
+-- 256 characters.
 createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe [Tag])
 createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name to use for the repository. This appears publicly in the Amazon
--- ECR Public Gallery. The repository name may be specified on its own
--- (such as @nginx-web-app@) or it can be prepended with a namespace to
--- group the repository into a category (such as
--- @project-a\/nginx-web-app@).
+-- ECR Public Gallery. The repository name can be specified on its own (for
+-- example @nginx-web-app@) or prepended with a namespace to group the
+-- repository into a category (for example @project-a\/nginx-web-app@).
 createRepository_repositoryName :: Lens.Lens' CreateRepository Prelude.Text
 createRepository_repositoryName = Lens.lens (\CreateRepository' {repositoryName} -> repositoryName) (\s@CreateRepository' {} a -> s {repositoryName = a} :: CreateRepository)
 
@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateRepository where
 
 instance Prelude.Hashable CreateRepository where
   hashWithSalt _salt CreateRepository' {..} =
-    _salt `Prelude.hashWithSalt` catalogData
+    _salt
+      `Prelude.hashWithSalt` catalogData
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` repositoryName
 

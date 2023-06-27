@@ -20,11 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates the image manifest and tags associated with an image.
+-- Creates or updates the image manifest and tags that are associated with
+-- an image.
 --
 -- When an image is pushed and all new image layers have been uploaded, the
 -- PutImage API is called once to create or update the image manifest and
--- the tags associated with the image.
+-- the tags that are associated with the image.
 --
 -- This operation is used by the Amazon ECR proxy and is not generally used
 -- by customers for pulling and pushing images. In most cases, you should
@@ -62,23 +63,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutImage' smart constructor.
 data PutImage = PutImage'
-  { -- | The image digest of the image manifest corresponding to the image.
+  { -- | The image digest of the image manifest that corresponds to the image.
     imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The media type of the image manifest. If you push an image manifest that
-    -- does not contain the @mediaType@ field, you must specify the
+    -- doesn\'t contain the @mediaType@ field, you must specify the
     -- @imageManifestMediaType@ in the request.
     imageManifestMediaType :: Prelude.Maybe Prelude.Text,
     -- | The tag to associate with the image. This parameter is required for
     -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
     -- Initiative (OCI) formats.
     imageTag :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID associated with the public registry that contains the
-    -- repository in which to put the image. If you do not specify a registry,
-    -- the default public registry is assumed.
+    -- | The Amazon Web Services account ID, or registry alias, that\'s
+    -- associated with the public registry that contains the repository where
+    -- the image is put. If you do not specify a registry, the default public
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository in which to put the image.
+    -- | The name of the repository where the image is put.
     repositoryName :: Prelude.Text,
-    -- | The image manifest corresponding to the image to be uploaded.
+    -- | The image manifest that corresponds to the image to be uploaded.
     imageManifest :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,23 +93,24 @@ data PutImage = PutImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageDigest', 'putImage_imageDigest' - The image digest of the image manifest corresponding to the image.
+-- 'imageDigest', 'putImage_imageDigest' - The image digest of the image manifest that corresponds to the image.
 --
 -- 'imageManifestMediaType', 'putImage_imageManifestMediaType' - The media type of the image manifest. If you push an image manifest that
--- does not contain the @mediaType@ field, you must specify the
+-- doesn\'t contain the @mediaType@ field, you must specify the
 -- @imageManifestMediaType@ in the request.
 --
 -- 'imageTag', 'putImage_imageTag' - The tag to associate with the image. This parameter is required for
 -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
 -- Initiative (OCI) formats.
 --
--- 'registryId', 'putImage_registryId' - The AWS account ID associated with the public registry that contains the
--- repository in which to put the image. If you do not specify a registry,
--- the default public registry is assumed.
+-- 'registryId', 'putImage_registryId' - The Amazon Web Services account ID, or registry alias, that\'s
+-- associated with the public registry that contains the repository where
+-- the image is put. If you do not specify a registry, the default public
+-- registry is assumed.
 --
--- 'repositoryName', 'putImage_repositoryName' - The name of the repository in which to put the image.
+-- 'repositoryName', 'putImage_repositoryName' - The name of the repository where the image is put.
 --
--- 'imageManifest', 'putImage_imageManifest' - The image manifest corresponding to the image to be uploaded.
+-- 'imageManifest', 'putImage_imageManifest' - The image manifest that corresponds to the image to be uploaded.
 newPutImage ::
   -- | 'repositoryName'
   Prelude.Text ->
@@ -124,12 +127,12 @@ newPutImage pRepositoryName_ pImageManifest_ =
       imageManifest = pImageManifest_
     }
 
--- | The image digest of the image manifest corresponding to the image.
+-- | The image digest of the image manifest that corresponds to the image.
 putImage_imageDigest :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_imageDigest = Lens.lens (\PutImage' {imageDigest} -> imageDigest) (\s@PutImage' {} a -> s {imageDigest = a} :: PutImage)
 
 -- | The media type of the image manifest. If you push an image manifest that
--- does not contain the @mediaType@ field, you must specify the
+-- doesn\'t contain the @mediaType@ field, you must specify the
 -- @imageManifestMediaType@ in the request.
 putImage_imageManifestMediaType :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_imageManifestMediaType = Lens.lens (\PutImage' {imageManifestMediaType} -> imageManifestMediaType) (\s@PutImage' {} a -> s {imageManifestMediaType = a} :: PutImage)
@@ -140,17 +143,18 @@ putImage_imageManifestMediaType = Lens.lens (\PutImage' {imageManifestMediaType}
 putImage_imageTag :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_imageTag = Lens.lens (\PutImage' {imageTag} -> imageTag) (\s@PutImage' {} a -> s {imageTag = a} :: PutImage)
 
--- | The AWS account ID associated with the public registry that contains the
--- repository in which to put the image. If you do not specify a registry,
--- the default public registry is assumed.
+-- | The Amazon Web Services account ID, or registry alias, that\'s
+-- associated with the public registry that contains the repository where
+-- the image is put. If you do not specify a registry, the default public
+-- registry is assumed.
 putImage_registryId :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_registryId = Lens.lens (\PutImage' {registryId} -> registryId) (\s@PutImage' {} a -> s {registryId = a} :: PutImage)
 
--- | The name of the repository in which to put the image.
+-- | The name of the repository where the image is put.
 putImage_repositoryName :: Lens.Lens' PutImage Prelude.Text
 putImage_repositoryName = Lens.lens (\PutImage' {repositoryName} -> repositoryName) (\s@PutImage' {} a -> s {repositoryName = a} :: PutImage)
 
--- | The image manifest corresponding to the image to be uploaded.
+-- | The image manifest that corresponds to the image to be uploaded.
 putImage_imageManifest :: Lens.Lens' PutImage Prelude.Text
 putImage_imageManifest = Lens.lens (\PutImage' {imageManifest} -> imageManifest) (\s@PutImage' {} a -> s {imageManifest = a} :: PutImage)
 
@@ -168,7 +172,8 @@ instance Core.AWSRequest PutImage where
 
 instance Prelude.Hashable PutImage where
   hashWithSalt _salt PutImage' {..} =
-    _salt `Prelude.hashWithSalt` imageDigest
+    _salt
+      `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imageManifestMediaType
       `Prelude.hashWithSalt` imageTag
       `Prelude.hashWithSalt` registryId

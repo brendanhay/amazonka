@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSetRepositoryPolicy' smart constructor.
 data SetRepositoryPolicy = SetRepositoryPolicy'
-  { -- | If the policy you are attempting to set on a repository policy would
-    -- prevent you from setting another policy in the future, you must force
-    -- the SetRepositoryPolicy operation. This is intended to prevent
-    -- accidental repository lock outs.
+  { -- | If the policy that you want to set on a repository policy would prevent
+    -- you from setting another policy in the future, you must force the
+    -- SetRepositoryPolicy operation. This prevents accidental repository
+    -- lockouts.
     force :: Prelude.Maybe Prelude.Bool,
-    -- | The AWS account ID associated with the registry that contains the
-    -- repository. If you do not specify a registry, the default public
-    -- registry is assumed.
+    -- | The Amazon Web Services account ID that\'s associated with the registry
+    -- that contains the repository. If you do not specify a registry, the
+    -- default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to receive the policy.
     repositoryName :: Prelude.Text,
@@ -84,14 +84,14 @@ data SetRepositoryPolicy = SetRepositoryPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'force', 'setRepositoryPolicy_force' - If the policy you are attempting to set on a repository policy would
--- prevent you from setting another policy in the future, you must force
--- the SetRepositoryPolicy operation. This is intended to prevent
--- accidental repository lock outs.
+-- 'force', 'setRepositoryPolicy_force' - If the policy that you want to set on a repository policy would prevent
+-- you from setting another policy in the future, you must force the
+-- SetRepositoryPolicy operation. This prevents accidental repository
+-- lockouts.
 --
--- 'registryId', 'setRepositoryPolicy_registryId' - The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default public
--- registry is assumed.
+-- 'registryId', 'setRepositoryPolicy_registryId' - The Amazon Web Services account ID that\'s associated with the registry
+-- that contains the repository. If you do not specify a registry, the
+-- default public registry is assumed.
 --
 -- 'repositoryName', 'setRepositoryPolicy_repositoryName' - The name of the repository to receive the policy.
 --
@@ -113,16 +113,16 @@ newSetRepositoryPolicy pRepositoryName_ pPolicyText_ =
       policyText = pPolicyText_
     }
 
--- | If the policy you are attempting to set on a repository policy would
--- prevent you from setting another policy in the future, you must force
--- the SetRepositoryPolicy operation. This is intended to prevent
--- accidental repository lock outs.
+-- | If the policy that you want to set on a repository policy would prevent
+-- you from setting another policy in the future, you must force the
+-- SetRepositoryPolicy operation. This prevents accidental repository
+-- lockouts.
 setRepositoryPolicy_force :: Lens.Lens' SetRepositoryPolicy (Prelude.Maybe Prelude.Bool)
 setRepositoryPolicy_force = Lens.lens (\SetRepositoryPolicy' {force} -> force) (\s@SetRepositoryPolicy' {} a -> s {force = a} :: SetRepositoryPolicy)
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default public
--- registry is assumed.
+-- | The Amazon Web Services account ID that\'s associated with the registry
+-- that contains the repository. If you do not specify a registry, the
+-- default public registry is assumed.
 setRepositoryPolicy_registryId :: Lens.Lens' SetRepositoryPolicy (Prelude.Maybe Prelude.Text)
 setRepositoryPolicy_registryId = Lens.lens (\SetRepositoryPolicy' {registryId} -> registryId) (\s@SetRepositoryPolicy' {} a -> s {registryId = a} :: SetRepositoryPolicy)
 
@@ -155,7 +155,8 @@ instance Core.AWSRequest SetRepositoryPolicy where
 
 instance Prelude.Hashable SetRepositoryPolicy where
   hashWithSalt _salt SetRepositoryPolicy' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` policyText
@@ -202,11 +203,11 @@ instance Data.ToQuery SetRepositoryPolicy where
 
 -- | /See:/ 'newSetRepositoryPolicyResponse' smart constructor.
 data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
-  { -- | The JSON repository policy text applied to the repository.
+  { -- | The JSON repository policy text that\'s applied to the repository.
     policyText :: Prelude.Maybe Prelude.Text,
-    -- | The registry ID associated with the request.
+    -- | The registry ID that\'s associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
+    -- | The repository name that\'s associated with the request.
     repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -221,11 +222,11 @@ data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyText', 'setRepositoryPolicyResponse_policyText' - The JSON repository policy text applied to the repository.
+-- 'policyText', 'setRepositoryPolicyResponse_policyText' - The JSON repository policy text that\'s applied to the repository.
 --
--- 'registryId', 'setRepositoryPolicyResponse_registryId' - The registry ID associated with the request.
+-- 'registryId', 'setRepositoryPolicyResponse_registryId' - The registry ID that\'s associated with the request.
 --
--- 'repositoryName', 'setRepositoryPolicyResponse_repositoryName' - The repository name associated with the request.
+-- 'repositoryName', 'setRepositoryPolicyResponse_repositoryName' - The repository name that\'s associated with the request.
 --
 -- 'httpStatus', 'setRepositoryPolicyResponse_httpStatus' - The response's http status code.
 newSetRepositoryPolicyResponse ::
@@ -241,15 +242,15 @@ newSetRepositoryPolicyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The JSON repository policy text applied to the repository.
+-- | The JSON repository policy text that\'s applied to the repository.
 setRepositoryPolicyResponse_policyText :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 setRepositoryPolicyResponse_policyText = Lens.lens (\SetRepositoryPolicyResponse' {policyText} -> policyText) (\s@SetRepositoryPolicyResponse' {} a -> s {policyText = a} :: SetRepositoryPolicyResponse)
 
--- | The registry ID associated with the request.
+-- | The registry ID that\'s associated with the request.
 setRepositoryPolicyResponse_registryId :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 setRepositoryPolicyResponse_registryId = Lens.lens (\SetRepositoryPolicyResponse' {registryId} -> registryId) (\s@SetRepositoryPolicyResponse' {} a -> s {registryId = a} :: SetRepositoryPolicyResponse)
 
--- | The repository name associated with the request.
+-- | The repository name that\'s associated with the request.
 setRepositoryPolicyResponse_repositoryName :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 setRepositoryPolicyResponse_repositoryName = Lens.lens (\SetRepositoryPolicyResponse' {repositoryName} -> repositoryName) (\s@SetRepositoryPolicyResponse' {} a -> s {repositoryName = a} :: SetRepositoryPolicyResponse)
 

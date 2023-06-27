@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutRepositoryCatalogData' smart constructor.
 data PutRepositoryCatalogData = PutRepositoryCatalogData'
-  { -- | The AWS account ID associated with the public registry the repository is
-    -- in. If you do not specify a registry, the default public registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID that\'s associated with the public
+    -- registry the repository is in. If you do not specify a registry, the
+    -- default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to create or update the catalog data for.
     repositoryName :: Prelude.Text,
@@ -72,9 +72,9 @@ data PutRepositoryCatalogData = PutRepositoryCatalogData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'putRepositoryCatalogData_registryId' - The AWS account ID associated with the public registry the repository is
--- in. If you do not specify a registry, the default public registry is
--- assumed.
+-- 'registryId', 'putRepositoryCatalogData_registryId' - The Amazon Web Services account ID that\'s associated with the public
+-- registry the repository is in. If you do not specify a registry, the
+-- default public registry is assumed.
 --
 -- 'repositoryName', 'putRepositoryCatalogData_repositoryName' - The name of the repository to create or update the catalog data for.
 --
@@ -96,9 +96,9 @@ newPutRepositoryCatalogData
         catalogData = pCatalogData_
       }
 
--- | The AWS account ID associated with the public registry the repository is
--- in. If you do not specify a registry, the default public registry is
--- assumed.
+-- | The Amazon Web Services account ID that\'s associated with the public
+-- registry the repository is in. If you do not specify a registry, the
+-- default public registry is assumed.
 putRepositoryCatalogData_registryId :: Lens.Lens' PutRepositoryCatalogData (Prelude.Maybe Prelude.Text)
 putRepositoryCatalogData_registryId = Lens.lens (\PutRepositoryCatalogData' {registryId} -> registryId) (\s@PutRepositoryCatalogData' {} a -> s {registryId = a} :: PutRepositoryCatalogData)
 
@@ -127,7 +127,8 @@ instance Core.AWSRequest PutRepositoryCatalogData where
 
 instance Prelude.Hashable PutRepositoryCatalogData where
   hashWithSalt _salt PutRepositoryCatalogData' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` catalogData
 

@@ -25,15 +25,15 @@ import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types.ReferencedImageDetail
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the image tag details for an image.
+-- | An object that represents the image tag details for an image.
 --
 -- /See:/ 'newImageTagDetail' smart constructor.
 data ImageTagDetail = ImageTagDetail'
-  { -- | The time stamp indicating when the image tag was created.
+  { -- | The time stamp that indicates when the image tag was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | An object that describes the details of an image.
     imageDetail :: Prelude.Maybe ReferencedImageDetail,
-    -- | The tag associated with the image.
+    -- | The tag that\'s associated with the image.
     imageTag :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,11 +46,11 @@ data ImageTagDetail = ImageTagDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'imageTagDetail_createdAt' - The time stamp indicating when the image tag was created.
+-- 'createdAt', 'imageTagDetail_createdAt' - The time stamp that indicates when the image tag was created.
 --
 -- 'imageDetail', 'imageTagDetail_imageDetail' - An object that describes the details of an image.
 --
--- 'imageTag', 'imageTagDetail_imageTag' - The tag associated with the image.
+-- 'imageTag', 'imageTagDetail_imageTag' - The tag that\'s associated with the image.
 newImageTagDetail ::
   ImageTagDetail
 newImageTagDetail =
@@ -60,7 +60,7 @@ newImageTagDetail =
       imageTag = Prelude.Nothing
     }
 
--- | The time stamp indicating when the image tag was created.
+-- | The time stamp that indicates when the image tag was created.
 imageTagDetail_createdAt :: Lens.Lens' ImageTagDetail (Prelude.Maybe Prelude.UTCTime)
 imageTagDetail_createdAt = Lens.lens (\ImageTagDetail' {createdAt} -> createdAt) (\s@ImageTagDetail' {} a -> s {createdAt = a} :: ImageTagDetail) Prelude.. Lens.mapping Data._Time
 
@@ -68,7 +68,7 @@ imageTagDetail_createdAt = Lens.lens (\ImageTagDetail' {createdAt} -> createdAt)
 imageTagDetail_imageDetail :: Lens.Lens' ImageTagDetail (Prelude.Maybe ReferencedImageDetail)
 imageTagDetail_imageDetail = Lens.lens (\ImageTagDetail' {imageDetail} -> imageDetail) (\s@ImageTagDetail' {} a -> s {imageDetail = a} :: ImageTagDetail)
 
--- | The tag associated with the image.
+-- | The tag that\'s associated with the image.
 imageTagDetail_imageTag :: Lens.Lens' ImageTagDetail (Prelude.Maybe Prelude.Text)
 imageTagDetail_imageTag = Lens.lens (\ImageTagDetail' {imageTag} -> imageTag) (\s@ImageTagDetail' {} a -> s {imageTag = a} :: ImageTagDetail)
 
@@ -85,7 +85,8 @@ instance Data.FromJSON ImageTagDetail where
 
 instance Prelude.Hashable ImageTagDetail where
   hashWithSalt _salt ImageTagDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` imageDetail
       `Prelude.hashWithSalt` imageTag
 

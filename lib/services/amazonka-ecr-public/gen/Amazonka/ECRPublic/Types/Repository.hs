@@ -31,13 +31,13 @@ data Repository = Repository'
   { -- | The date and time, in JavaScript date format, when the repository was
     -- created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The AWS account ID associated with the public registry that contains the
-    -- repository.
+    -- | The Amazon Web Services account ID that\'s associated with the public
+    -- registry that contains the repository.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN
     -- contains the @arn:aws:ecr@ namespace, followed by the region of the
-    -- repository, AWS account ID of the repository owner, repository
-    -- namespace, and repository name. For example,
+    -- repository, Amazon Web Services account ID of the repository owner,
+    -- repository namespace, and repository name. For example,
     -- @arn:aws:ecr:region:012345678910:repository\/test@.
     repositoryArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository.
@@ -59,13 +59,13 @@ data Repository = Repository'
 -- 'createdAt', 'repository_createdAt' - The date and time, in JavaScript date format, when the repository was
 -- created.
 --
--- 'registryId', 'repository_registryId' - The AWS account ID associated with the public registry that contains the
--- repository.
+-- 'registryId', 'repository_registryId' - The Amazon Web Services account ID that\'s associated with the public
+-- registry that contains the repository.
 --
 -- 'repositoryArn', 'repository_repositoryArn' - The Amazon Resource Name (ARN) that identifies the repository. The ARN
 -- contains the @arn:aws:ecr@ namespace, followed by the region of the
--- repository, AWS account ID of the repository owner, repository
--- namespace, and repository name. For example,
+-- repository, Amazon Web Services account ID of the repository owner,
+-- repository namespace, and repository name. For example,
 -- @arn:aws:ecr:region:012345678910:repository\/test@.
 --
 -- 'repositoryName', 'repository_repositoryName' - The name of the repository.
@@ -88,15 +88,15 @@ newRepository =
 repository_createdAt :: Lens.Lens' Repository (Prelude.Maybe Prelude.UTCTime)
 repository_createdAt = Lens.lens (\Repository' {createdAt} -> createdAt) (\s@Repository' {} a -> s {createdAt = a} :: Repository) Prelude.. Lens.mapping Data._Time
 
--- | The AWS account ID associated with the public registry that contains the
--- repository.
+-- | The Amazon Web Services account ID that\'s associated with the public
+-- registry that contains the repository.
 repository_registryId :: Lens.Lens' Repository (Prelude.Maybe Prelude.Text)
 repository_registryId = Lens.lens (\Repository' {registryId} -> registryId) (\s@Repository' {} a -> s {registryId = a} :: Repository)
 
 -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN
 -- contains the @arn:aws:ecr@ namespace, followed by the region of the
--- repository, AWS account ID of the repository owner, repository
--- namespace, and repository name. For example,
+-- repository, Amazon Web Services account ID of the repository owner,
+-- repository namespace, and repository name. For example,
 -- @arn:aws:ecr:region:012345678910:repository\/test@.
 repository_repositoryArn :: Lens.Lens' Repository (Prelude.Maybe Prelude.Text)
 repository_repositoryArn = Lens.lens (\Repository' {repositoryArn} -> repositoryArn) (\s@Repository' {} a -> s {repositoryArn = a} :: Repository)
@@ -125,7 +125,8 @@ instance Data.FromJSON Repository where
 
 instance Prelude.Hashable Repository where
   hashWithSalt _salt Repository' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryArn
       `Prelude.hashWithSalt` repositoryName

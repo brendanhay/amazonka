@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | An object that describes an image returned by a DescribeImages
+-- | An object that describes an image that\'s returned by a DescribeImages
 -- operation.
 --
 -- /See:/ 'newImageDetail' smart constructor.
@@ -35,26 +35,26 @@ data ImageDetail = ImageDetail'
     imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The media type of the image manifest.
     imageManifestMediaType :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, expressed in standard JavaScript date format, at
-    -- which the current image was pushed to the repository.
+    -- | The date and time, expressed in standard JavaScript date format, that
+    -- the current image was pushed to the repository at.
     imagePushedAt :: Prelude.Maybe Data.POSIX,
     -- | The size, in bytes, of the image in the repository.
     --
-    -- If the image is a manifest list, this will be the max size of all
-    -- manifests in the list.
+    -- If the image is a manifest list, this is the max size of all manifests
+    -- in the list.
     --
     -- Beginning with Docker version 1.9, the Docker client compresses image
     -- layers before pushing them to a V2 Docker registry. The output of the
-    -- @docker images@ command shows the uncompressed image size, so it may
-    -- return a larger image size than the image sizes returned by
+    -- @docker images@ command shows the uncompressed image size, so it might
+    -- return a larger image size than the image sizes that are returned by
     -- DescribeImages.
     imageSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The list of tags associated with this image.
+    -- | The list of tags that\'s associated with this image.
     imageTags :: Prelude.Maybe [Prelude.Text],
-    -- | The AWS account ID associated with the public registry to which this
-    -- image belongs.
+    -- | The Amazon Web Services account ID that\'s associated with the public
+    -- registry where this image belongs.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository to which this image belongs.
+    -- | The name of the repository where this image belongs.
     repositoryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,26 +73,26 @@ data ImageDetail = ImageDetail'
 --
 -- 'imageManifestMediaType', 'imageDetail_imageManifestMediaType' - The media type of the image manifest.
 --
--- 'imagePushedAt', 'imageDetail_imagePushedAt' - The date and time, expressed in standard JavaScript date format, at
--- which the current image was pushed to the repository.
+-- 'imagePushedAt', 'imageDetail_imagePushedAt' - The date and time, expressed in standard JavaScript date format, that
+-- the current image was pushed to the repository at.
 --
 -- 'imageSizeInBytes', 'imageDetail_imageSizeInBytes' - The size, in bytes, of the image in the repository.
 --
--- If the image is a manifest list, this will be the max size of all
--- manifests in the list.
+-- If the image is a manifest list, this is the max size of all manifests
+-- in the list.
 --
 -- Beginning with Docker version 1.9, the Docker client compresses image
 -- layers before pushing them to a V2 Docker registry. The output of the
--- @docker images@ command shows the uncompressed image size, so it may
--- return a larger image size than the image sizes returned by
+-- @docker images@ command shows the uncompressed image size, so it might
+-- return a larger image size than the image sizes that are returned by
 -- DescribeImages.
 --
--- 'imageTags', 'imageDetail_imageTags' - The list of tags associated with this image.
+-- 'imageTags', 'imageDetail_imageTags' - The list of tags that\'s associated with this image.
 --
--- 'registryId', 'imageDetail_registryId' - The AWS account ID associated with the public registry to which this
--- image belongs.
+-- 'registryId', 'imageDetail_registryId' - The Amazon Web Services account ID that\'s associated with the public
+-- registry where this image belongs.
 --
--- 'repositoryName', 'imageDetail_repositoryName' - The name of the repository to which this image belongs.
+-- 'repositoryName', 'imageDetail_repositoryName' - The name of the repository where this image belongs.
 newImageDetail ::
   ImageDetail
 newImageDetail =
@@ -119,34 +119,34 @@ imageDetail_imageDigest = Lens.lens (\ImageDetail' {imageDigest} -> imageDigest)
 imageDetail_imageManifestMediaType :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
 imageDetail_imageManifestMediaType = Lens.lens (\ImageDetail' {imageManifestMediaType} -> imageManifestMediaType) (\s@ImageDetail' {} a -> s {imageManifestMediaType = a} :: ImageDetail)
 
--- | The date and time, expressed in standard JavaScript date format, at
--- which the current image was pushed to the repository.
+-- | The date and time, expressed in standard JavaScript date format, that
+-- the current image was pushed to the repository at.
 imageDetail_imagePushedAt :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.UTCTime)
 imageDetail_imagePushedAt = Lens.lens (\ImageDetail' {imagePushedAt} -> imagePushedAt) (\s@ImageDetail' {} a -> s {imagePushedAt = a} :: ImageDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The size, in bytes, of the image in the repository.
 --
--- If the image is a manifest list, this will be the max size of all
--- manifests in the list.
+-- If the image is a manifest list, this is the max size of all manifests
+-- in the list.
 --
 -- Beginning with Docker version 1.9, the Docker client compresses image
 -- layers before pushing them to a V2 Docker registry. The output of the
--- @docker images@ command shows the uncompressed image size, so it may
--- return a larger image size than the image sizes returned by
+-- @docker images@ command shows the uncompressed image size, so it might
+-- return a larger image size than the image sizes that are returned by
 -- DescribeImages.
 imageDetail_imageSizeInBytes :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Integer)
 imageDetail_imageSizeInBytes = Lens.lens (\ImageDetail' {imageSizeInBytes} -> imageSizeInBytes) (\s@ImageDetail' {} a -> s {imageSizeInBytes = a} :: ImageDetail)
 
--- | The list of tags associated with this image.
+-- | The list of tags that\'s associated with this image.
 imageDetail_imageTags :: Lens.Lens' ImageDetail (Prelude.Maybe [Prelude.Text])
 imageDetail_imageTags = Lens.lens (\ImageDetail' {imageTags} -> imageTags) (\s@ImageDetail' {} a -> s {imageTags = a} :: ImageDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The AWS account ID associated with the public registry to which this
--- image belongs.
+-- | The Amazon Web Services account ID that\'s associated with the public
+-- registry where this image belongs.
 imageDetail_registryId :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
 imageDetail_registryId = Lens.lens (\ImageDetail' {registryId} -> registryId) (\s@ImageDetail' {} a -> s {registryId = a} :: ImageDetail)
 
--- | The name of the repository to which this image belongs.
+-- | The name of the repository where this image belongs.
 imageDetail_repositoryName :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
 imageDetail_repositoryName = Lens.lens (\ImageDetail' {repositoryName} -> repositoryName) (\s@ImageDetail' {} a -> s {repositoryName = a} :: ImageDetail)
 
@@ -168,7 +168,8 @@ instance Data.FromJSON ImageDetail where
 
 instance Prelude.Hashable ImageDetail where
   hashWithSalt _salt ImageDetail' {..} =
-    _salt `Prelude.hashWithSalt` artifactMediaType
+    _salt
+      `Prelude.hashWithSalt` artifactMediaType
       `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imageManifestMediaType
       `Prelude.hashWithSalt` imagePushedAt

@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Checks the availability of one or more image layers within a repository
--- in a public registry. When an image is pushed to a repository, each
--- image layer is checked to verify if it has been uploaded before. If it
--- has been uploaded, then the image layer is skipped.
+-- Checks the availability of one or more image layers that are within a
+-- repository in a public registry. When an image is pushed to a
+-- repository, each image layer is checked to verify if it has been
+-- uploaded before. If it has been uploaded, then the image layer is
+-- skipped.
 --
 -- This operation is used by the Amazon ECR proxy and is not generally used
 -- by customers for pulling and pushing images. In most cases, you should
@@ -59,11 +60,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchCheckLayerAvailability' smart constructor.
 data BatchCheckLayerAvailability = BatchCheckLayerAvailability'
-  { -- | The AWS account ID associated with the public registry that contains the
-    -- image layers to check. If you do not specify a registry, the default
-    -- public registry is assumed.
+  { -- | The Amazon Web Services account ID, or registry alias, associated with
+    -- the public registry that contains the image layers to check. If you do
+    -- not specify a registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository that is associated with the image layers to
+    -- | The name of the repository that\'s associated with the image layers to
     -- check.
     repositoryName :: Prelude.Text,
     -- | The digests of the image layers to check.
@@ -79,11 +80,11 @@ data BatchCheckLayerAvailability = BatchCheckLayerAvailability'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'batchCheckLayerAvailability_registryId' - The AWS account ID associated with the public registry that contains the
--- image layers to check. If you do not specify a registry, the default
--- public registry is assumed.
+-- 'registryId', 'batchCheckLayerAvailability_registryId' - The Amazon Web Services account ID, or registry alias, associated with
+-- the public registry that contains the image layers to check. If you do
+-- not specify a registry, the default public registry is assumed.
 --
--- 'repositoryName', 'batchCheckLayerAvailability_repositoryName' - The name of the repository that is associated with the image layers to
+-- 'repositoryName', 'batchCheckLayerAvailability_repositoryName' - The name of the repository that\'s associated with the image layers to
 -- check.
 --
 -- 'layerDigests', 'batchCheckLayerAvailability_layerDigests' - The digests of the image layers to check.
@@ -104,13 +105,13 @@ newBatchCheckLayerAvailability
           Lens.coerced Lens.# pLayerDigests_
       }
 
--- | The AWS account ID associated with the public registry that contains the
--- image layers to check. If you do not specify a registry, the default
--- public registry is assumed.
+-- | The Amazon Web Services account ID, or registry alias, associated with
+-- the public registry that contains the image layers to check. If you do
+-- not specify a registry, the default public registry is assumed.
 batchCheckLayerAvailability_registryId :: Lens.Lens' BatchCheckLayerAvailability (Prelude.Maybe Prelude.Text)
 batchCheckLayerAvailability_registryId = Lens.lens (\BatchCheckLayerAvailability' {registryId} -> registryId) (\s@BatchCheckLayerAvailability' {} a -> s {registryId = a} :: BatchCheckLayerAvailability)
 
--- | The name of the repository that is associated with the image layers to
+-- | The name of the repository that\'s associated with the image layers to
 -- check.
 batchCheckLayerAvailability_repositoryName :: Lens.Lens' BatchCheckLayerAvailability Prelude.Text
 batchCheckLayerAvailability_repositoryName = Lens.lens (\BatchCheckLayerAvailability' {repositoryName} -> repositoryName) (\s@BatchCheckLayerAvailability' {} a -> s {repositoryName = a} :: BatchCheckLayerAvailability)
@@ -136,7 +137,8 @@ instance Core.AWSRequest BatchCheckLayerAvailability where
 
 instance Prelude.Hashable BatchCheckLayerAvailability where
   hashWithSalt _salt BatchCheckLayerAvailability' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` layerDigests
 
@@ -182,7 +184,7 @@ instance Data.ToQuery BatchCheckLayerAvailability where
 data BatchCheckLayerAvailabilityResponse = BatchCheckLayerAvailabilityResponse'
   { -- | Any failures associated with the call.
     failures :: Prelude.Maybe [LayerFailure],
-    -- | A list of image layer objects corresponding to the image layer
+    -- | A list of image layer objects that correspond to the image layer
     -- references in the request.
     layers :: Prelude.Maybe [Layer],
     -- | The response's http status code.
@@ -200,7 +202,7 @@ data BatchCheckLayerAvailabilityResponse = BatchCheckLayerAvailabilityResponse'
 --
 -- 'failures', 'batchCheckLayerAvailabilityResponse_failures' - Any failures associated with the call.
 --
--- 'layers', 'batchCheckLayerAvailabilityResponse_layers' - A list of image layer objects corresponding to the image layer
+-- 'layers', 'batchCheckLayerAvailabilityResponse_layers' - A list of image layer objects that correspond to the image layer
 -- references in the request.
 --
 -- 'httpStatus', 'batchCheckLayerAvailabilityResponse_httpStatus' - The response's http status code.
@@ -220,7 +222,7 @@ newBatchCheckLayerAvailabilityResponse pHttpStatus_ =
 batchCheckLayerAvailabilityResponse_failures :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Prelude.Maybe [LayerFailure])
 batchCheckLayerAvailabilityResponse_failures = Lens.lens (\BatchCheckLayerAvailabilityResponse' {failures} -> failures) (\s@BatchCheckLayerAvailabilityResponse' {} a -> s {failures = a} :: BatchCheckLayerAvailabilityResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of image layer objects corresponding to the image layer
+-- | A list of image layer objects that correspond to the image layer
 -- references in the request.
 batchCheckLayerAvailabilityResponse_layers :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Prelude.Maybe [Layer])
 batchCheckLayerAvailabilityResponse_layers = Lens.lens (\BatchCheckLayerAvailabilityResponse' {layers} -> layers) (\s@BatchCheckLayerAvailabilityResponse' {} a -> s {layers = a} :: BatchCheckLayerAvailabilityResponse) Prelude.. Lens.mapping Lens.coerced

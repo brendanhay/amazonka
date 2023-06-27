@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes repositories in a public registry.
+-- Describes repositories that are in a public registry.
 --
 -- This operation returns paginated results.
 module Amazonka.ECRPublic.DescribeRepositories
@@ -55,32 +55,31 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRepositories' smart constructor.
 data DescribeRepositories = DescribeRepositories'
-  { -- | The maximum number of repository results returned by
+  { -- | The maximum number of repository results that\'s returned by
     -- @DescribeRepositories@ in paginated output. When this parameter is used,
     -- @DescribeRepositories@ only returns @maxResults@ results in a single
-    -- page along with a @nextToken@ response element. The remaining results of
-    -- the initial request can be seen by sending another
+    -- page along with a @nextToken@ response element. You can see the
+    -- remaining results of the initial request by sending another
     -- @DescribeRepositories@ request with the returned @nextToken@ value. This
-    -- value can be between 1 and 1000. If this parameter is not used, then
+    -- value can be between 1 and 1000. If this parameter isn\'t used, then
     -- @DescribeRepositories@ returns up to 100 results and a @nextToken@
-    -- value, if applicable. This option cannot be used when you specify
-    -- repositories with @repositoryNames@.
+    -- value, if applicable. If you specify repositories with
+    -- @repositoryNames@, you can\'t use this option.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The @nextToken@ value returned from a previous paginated
+    -- | The @nextToken@ value that\'s returned from a previous paginated
     -- @DescribeRepositories@ request where @maxResults@ was used and the
     -- results exceeded the value of that parameter. Pagination continues from
-    -- the end of the previous results that returned the @nextToken@ value.
-    -- This value is @null@ when there are no more results to return. This
-    -- option cannot be used when you specify repositories with
-    -- @repositoryNames@.
+    -- the end of the previous results that returned the @nextToken@ value. If
+    -- there are no more results to return, this value is @null@. If you
+    -- specify repositories with @repositoryNames@, you can\'t use this option.
     --
     -- This token should be treated as an opaque identifier that is only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID associated with the registry that contains the
-    -- repositories to be described. If you do not specify a registry, the
-    -- default public registry is assumed.
+    -- | The Amazon Web Services account ID that\'s associated with the registry
+    -- that contains the repositories to be described. If you do not specify a
+    -- registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | A list of repositories to describe. If this parameter is omitted, then
     -- all repositories in a registry are described.
@@ -96,32 +95,31 @@ data DescribeRepositories = DescribeRepositories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'describeRepositories_maxResults' - The maximum number of repository results returned by
+-- 'maxResults', 'describeRepositories_maxResults' - The maximum number of repository results that\'s returned by
 -- @DescribeRepositories@ in paginated output. When this parameter is used,
 -- @DescribeRepositories@ only returns @maxResults@ results in a single
--- page along with a @nextToken@ response element. The remaining results of
--- the initial request can be seen by sending another
+-- page along with a @nextToken@ response element. You can see the
+-- remaining results of the initial request by sending another
 -- @DescribeRepositories@ request with the returned @nextToken@ value. This
--- value can be between 1 and 1000. If this parameter is not used, then
+-- value can be between 1 and 1000. If this parameter isn\'t used, then
 -- @DescribeRepositories@ returns up to 100 results and a @nextToken@
--- value, if applicable. This option cannot be used when you specify
--- repositories with @repositoryNames@.
+-- value, if applicable. If you specify repositories with
+-- @repositoryNames@, you can\'t use this option.
 --
--- 'nextToken', 'describeRepositories_nextToken' - The @nextToken@ value returned from a previous paginated
+-- 'nextToken', 'describeRepositories_nextToken' - The @nextToken@ value that\'s returned from a previous paginated
 -- @DescribeRepositories@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @nextToken@ value.
--- This value is @null@ when there are no more results to return. This
--- option cannot be used when you specify repositories with
--- @repositoryNames@.
+-- the end of the previous results that returned the @nextToken@ value. If
+-- there are no more results to return, this value is @null@. If you
+-- specify repositories with @repositoryNames@, you can\'t use this option.
 --
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
--- 'registryId', 'describeRepositories_registryId' - The AWS account ID associated with the registry that contains the
--- repositories to be described. If you do not specify a registry, the
--- default public registry is assumed.
+-- 'registryId', 'describeRepositories_registryId' - The Amazon Web Services account ID that\'s associated with the registry
+-- that contains the repositories to be described. If you do not specify a
+-- registry, the default public registry is assumed.
 --
 -- 'repositoryNames', 'describeRepositories_repositoryNames' - A list of repositories to describe. If this parameter is omitted, then
 -- all repositories in a registry are described.
@@ -135,26 +133,25 @@ newDescribeRepositories =
       repositoryNames = Prelude.Nothing
     }
 
--- | The maximum number of repository results returned by
+-- | The maximum number of repository results that\'s returned by
 -- @DescribeRepositories@ in paginated output. When this parameter is used,
 -- @DescribeRepositories@ only returns @maxResults@ results in a single
--- page along with a @nextToken@ response element. The remaining results of
--- the initial request can be seen by sending another
+-- page along with a @nextToken@ response element. You can see the
+-- remaining results of the initial request by sending another
 -- @DescribeRepositories@ request with the returned @nextToken@ value. This
--- value can be between 1 and 1000. If this parameter is not used, then
+-- value can be between 1 and 1000. If this parameter isn\'t used, then
 -- @DescribeRepositories@ returns up to 100 results and a @nextToken@
--- value, if applicable. This option cannot be used when you specify
--- repositories with @repositoryNames@.
+-- value, if applicable. If you specify repositories with
+-- @repositoryNames@, you can\'t use this option.
 describeRepositories_maxResults :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Natural)
 describeRepositories_maxResults = Lens.lens (\DescribeRepositories' {maxResults} -> maxResults) (\s@DescribeRepositories' {} a -> s {maxResults = a} :: DescribeRepositories)
 
--- | The @nextToken@ value returned from a previous paginated
+-- | The @nextToken@ value that\'s returned from a previous paginated
 -- @DescribeRepositories@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @nextToken@ value.
--- This value is @null@ when there are no more results to return. This
--- option cannot be used when you specify repositories with
--- @repositoryNames@.
+-- the end of the previous results that returned the @nextToken@ value. If
+-- there are no more results to return, this value is @null@. If you
+-- specify repositories with @repositoryNames@, you can\'t use this option.
 --
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
@@ -162,9 +159,9 @@ describeRepositories_maxResults = Lens.lens (\DescribeRepositories' {maxResults}
 describeRepositories_nextToken :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Text)
 describeRepositories_nextToken = Lens.lens (\DescribeRepositories' {nextToken} -> nextToken) (\s@DescribeRepositories' {} a -> s {nextToken = a} :: DescribeRepositories)
 
--- | The AWS account ID associated with the registry that contains the
--- repositories to be described. If you do not specify a registry, the
--- default public registry is assumed.
+-- | The Amazon Web Services account ID that\'s associated with the registry
+-- that contains the repositories to be described. If you do not specify a
+-- registry, the default public registry is assumed.
 describeRepositories_registryId :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Text)
 describeRepositories_registryId = Lens.lens (\DescribeRepositories' {registryId} -> registryId) (\s@DescribeRepositories' {} a -> s {registryId = a} :: DescribeRepositories)
 
@@ -178,22 +175,22 @@ instance Core.AWSPager DescribeRepositories where
     | Core.stop
         ( rs
             Lens.^? describeRepositoriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeRepositoriesResponse_repositories
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeRepositories_nextToken
           Lens..~ rs
           Lens.^? describeRepositoriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRepositories where
   type
@@ -212,7 +209,8 @@ instance Core.AWSRequest DescribeRepositories where
 
 instance Prelude.Hashable DescribeRepositories where
   hashWithSalt _salt DescribeRepositories' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryNames
@@ -262,7 +260,7 @@ data DescribeRepositoriesResponse = DescribeRepositoriesResponse'
   { -- | The @nextToken@ value to include in a future @DescribeRepositories@
     -- request. When the results of a @DescribeRepositories@ request exceed
     -- @maxResults@, this value can be used to retrieve the next page of
-    -- results. This value is @null@ when there are no more results to return.
+    -- results. If there are no more results to return, this value is @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of repository objects corresponding to valid repositories.
     repositories :: Prelude.Maybe [Repository],
@@ -282,7 +280,7 @@ data DescribeRepositoriesResponse = DescribeRepositoriesResponse'
 -- 'nextToken', 'describeRepositoriesResponse_nextToken' - The @nextToken@ value to include in a future @DescribeRepositories@
 -- request. When the results of a @DescribeRepositories@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
--- results. This value is @null@ when there are no more results to return.
+-- results. If there are no more results to return, this value is @null@.
 --
 -- 'repositories', 'describeRepositoriesResponse_repositories' - A list of repository objects corresponding to valid repositories.
 --
@@ -302,7 +300,7 @@ newDescribeRepositoriesResponse pHttpStatus_ =
 -- | The @nextToken@ value to include in a future @DescribeRepositories@
 -- request. When the results of a @DescribeRepositories@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
--- results. This value is @null@ when there are no more results to return.
+-- results. If there are no more results to return, this value is @null@.
 describeRepositoriesResponse_nextToken :: Lens.Lens' DescribeRepositoriesResponse (Prelude.Maybe Prelude.Text)
 describeRepositoriesResponse_nextToken = Lens.lens (\DescribeRepositoriesResponse' {nextToken} -> nextToken) (\s@DescribeRepositoriesResponse' {} a -> s {nextToken = a} :: DescribeRepositoriesResponse)
 

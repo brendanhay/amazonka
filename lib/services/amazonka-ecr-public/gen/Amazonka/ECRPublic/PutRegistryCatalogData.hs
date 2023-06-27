@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create or updates the catalog data for a public registry.
+-- Create or update the catalog data for a public registry.
 module Amazonka.ECRPublic.PutRegistryCatalogData
   ( -- * Creating a Request
     PutRegistryCatalogData (..),

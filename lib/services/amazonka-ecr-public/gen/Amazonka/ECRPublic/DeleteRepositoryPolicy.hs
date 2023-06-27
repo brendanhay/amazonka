@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the repository policy associated with the specified repository.
+-- Deletes the repository policy that\'s associated with the specified
+-- repository.
 module Amazonka.ECRPublic.DeleteRepositoryPolicy
   ( -- * Creating a Request
     DeleteRepositoryPolicy (..),
@@ -52,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRepositoryPolicy' smart constructor.
 data DeleteRepositoryPolicy = DeleteRepositoryPolicy'
-  { -- | The AWS account ID associated with the public registry that contains the
-    -- repository policy to delete. If you do not specify a registry, the
-    -- default public registry is assumed.
+  { -- | The Amazon Web Services account ID that\'s associated with the public
+    -- registry that contains the repository policy to delete. If you do not
+    -- specify a registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository that is associated with the repository policy
+    -- | The name of the repository that\'s associated with the repository policy
     -- to delete.
     repositoryName :: Prelude.Text
   }
@@ -70,11 +71,11 @@ data DeleteRepositoryPolicy = DeleteRepositoryPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'deleteRepositoryPolicy_registryId' - The AWS account ID associated with the public registry that contains the
--- repository policy to delete. If you do not specify a registry, the
--- default public registry is assumed.
+-- 'registryId', 'deleteRepositoryPolicy_registryId' - The Amazon Web Services account ID that\'s associated with the public
+-- registry that contains the repository policy to delete. If you do not
+-- specify a registry, the default public registry is assumed.
 --
--- 'repositoryName', 'deleteRepositoryPolicy_repositoryName' - The name of the repository that is associated with the repository policy
+-- 'repositoryName', 'deleteRepositoryPolicy_repositoryName' - The name of the repository that\'s associated with the repository policy
 -- to delete.
 newDeleteRepositoryPolicy ::
   -- | 'repositoryName'
@@ -87,13 +88,13 @@ newDeleteRepositoryPolicy pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the public registry that contains the
--- repository policy to delete. If you do not specify a registry, the
--- default public registry is assumed.
+-- | The Amazon Web Services account ID that\'s associated with the public
+-- registry that contains the repository policy to delete. If you do not
+-- specify a registry, the default public registry is assumed.
 deleteRepositoryPolicy_registryId :: Lens.Lens' DeleteRepositoryPolicy (Prelude.Maybe Prelude.Text)
 deleteRepositoryPolicy_registryId = Lens.lens (\DeleteRepositoryPolicy' {registryId} -> registryId) (\s@DeleteRepositoryPolicy' {} a -> s {registryId = a} :: DeleteRepositoryPolicy)
 
--- | The name of the repository that is associated with the repository policy
+-- | The name of the repository that\'s associated with the repository policy
 -- to delete.
 deleteRepositoryPolicy_repositoryName :: Lens.Lens' DeleteRepositoryPolicy Prelude.Text
 deleteRepositoryPolicy_repositoryName = Lens.lens (\DeleteRepositoryPolicy' {repositoryName} -> repositoryName) (\s@DeleteRepositoryPolicy' {} a -> s {repositoryName = a} :: DeleteRepositoryPolicy)
@@ -116,7 +117,8 @@ instance Core.AWSRequest DeleteRepositoryPolicy where
 
 instance Prelude.Hashable DeleteRepositoryPolicy where
   hashWithSalt _salt DeleteRepositoryPolicy' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData DeleteRepositoryPolicy where
@@ -159,9 +161,9 @@ instance Data.ToQuery DeleteRepositoryPolicy where
 data DeleteRepositoryPolicyResponse = DeleteRepositoryPolicyResponse'
   { -- | The JSON repository policy that was deleted from the repository.
     policyText :: Prelude.Maybe Prelude.Text,
-    -- | The registry ID associated with the request.
+    -- | The registry ID that\'s associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
+    -- | The repository name that\'s associated with the request.
     repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -178,9 +180,9 @@ data DeleteRepositoryPolicyResponse = DeleteRepositoryPolicyResponse'
 --
 -- 'policyText', 'deleteRepositoryPolicyResponse_policyText' - The JSON repository policy that was deleted from the repository.
 --
--- 'registryId', 'deleteRepositoryPolicyResponse_registryId' - The registry ID associated with the request.
+-- 'registryId', 'deleteRepositoryPolicyResponse_registryId' - The registry ID that\'s associated with the request.
 --
--- 'repositoryName', 'deleteRepositoryPolicyResponse_repositoryName' - The repository name associated with the request.
+-- 'repositoryName', 'deleteRepositoryPolicyResponse_repositoryName' - The repository name that\'s associated with the request.
 --
 -- 'httpStatus', 'deleteRepositoryPolicyResponse_httpStatus' - The response's http status code.
 newDeleteRepositoryPolicyResponse ::
@@ -200,11 +202,11 @@ newDeleteRepositoryPolicyResponse pHttpStatus_ =
 deleteRepositoryPolicyResponse_policyText :: Lens.Lens' DeleteRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 deleteRepositoryPolicyResponse_policyText = Lens.lens (\DeleteRepositoryPolicyResponse' {policyText} -> policyText) (\s@DeleteRepositoryPolicyResponse' {} a -> s {policyText = a} :: DeleteRepositoryPolicyResponse)
 
--- | The registry ID associated with the request.
+-- | The registry ID that\'s associated with the request.
 deleteRepositoryPolicyResponse_registryId :: Lens.Lens' DeleteRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 deleteRepositoryPolicyResponse_registryId = Lens.lens (\DeleteRepositoryPolicyResponse' {registryId} -> registryId) (\s@DeleteRepositoryPolicyResponse' {} a -> s {registryId = a} :: DeleteRepositoryPolicyResponse)
 
--- | The repository name associated with the request.
+-- | The repository name that\'s associated with the request.
 deleteRepositoryPolicyResponse_repositoryName :: Lens.Lens' DeleteRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 deleteRepositoryPolicyResponse_repositoryName = Lens.lens (\DeleteRepositoryPolicyResponse' {repositoryName} -> repositoryName) (\s@DeleteRepositoryPolicyResponse' {} a -> s {repositoryName = a} :: DeleteRepositoryPolicyResponse)
 

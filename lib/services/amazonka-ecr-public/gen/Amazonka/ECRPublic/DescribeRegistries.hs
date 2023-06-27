@@ -53,20 +53,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRegistries' smart constructor.
 data DescribeRegistries = DescribeRegistries'
-  { -- | The maximum number of repository results returned by
+  { -- | The maximum number of repository results that\'s returned by
     -- @DescribeRegistries@ in paginated output. When this parameter is used,
     -- @DescribeRegistries@ only returns @maxResults@ results in a single page
     -- along with a @nextToken@ response element. The remaining results of the
     -- initial request can be seen by sending another @DescribeRegistries@
     -- request with the returned @nextToken@ value. This value can be between 1
-    -- and 1000. If this parameter is not used, then @DescribeRegistries@
+    -- and 1000. If this parameter isn\'t used, then @DescribeRegistries@
     -- returns up to 100 results and a @nextToken@ value, if applicable.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The @nextToken@ value returned from a previous paginated
+    -- | The @nextToken@ value that\'s returned from a previous paginated
     -- @DescribeRegistries@ request where @maxResults@ was used and the results
     -- exceeded the value of that parameter. Pagination continues from the end
-    -- of the previous results that returned the @nextToken@ value. This value
-    -- is @null@ when there are no more results to return.
+    -- of the previous results that returned the @nextToken@ value. If there
+    -- are no more results to return, this value is @null@.
     --
     -- This token should be treated as an opaque identifier that is only used
     -- to retrieve the next items in a list and not for other programmatic
@@ -83,20 +83,20 @@ data DescribeRegistries = DescribeRegistries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'describeRegistries_maxResults' - The maximum number of repository results returned by
+-- 'maxResults', 'describeRegistries_maxResults' - The maximum number of repository results that\'s returned by
 -- @DescribeRegistries@ in paginated output. When this parameter is used,
 -- @DescribeRegistries@ only returns @maxResults@ results in a single page
 -- along with a @nextToken@ response element. The remaining results of the
 -- initial request can be seen by sending another @DescribeRegistries@
 -- request with the returned @nextToken@ value. This value can be between 1
--- and 1000. If this parameter is not used, then @DescribeRegistries@
+-- and 1000. If this parameter isn\'t used, then @DescribeRegistries@
 -- returns up to 100 results and a @nextToken@ value, if applicable.
 --
--- 'nextToken', 'describeRegistries_nextToken' - The @nextToken@ value returned from a previous paginated
+-- 'nextToken', 'describeRegistries_nextToken' - The @nextToken@ value that\'s returned from a previous paginated
 -- @DescribeRegistries@ request where @maxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value. This value
--- is @null@ when there are no more results to return.
+-- of the previous results that returned the @nextToken@ value. If there
+-- are no more results to return, this value is @null@.
 --
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
@@ -109,22 +109,22 @@ newDescribeRegistries =
       nextToken = Prelude.Nothing
     }
 
--- | The maximum number of repository results returned by
+-- | The maximum number of repository results that\'s returned by
 -- @DescribeRegistries@ in paginated output. When this parameter is used,
 -- @DescribeRegistries@ only returns @maxResults@ results in a single page
 -- along with a @nextToken@ response element. The remaining results of the
 -- initial request can be seen by sending another @DescribeRegistries@
 -- request with the returned @nextToken@ value. This value can be between 1
--- and 1000. If this parameter is not used, then @DescribeRegistries@
+-- and 1000. If this parameter isn\'t used, then @DescribeRegistries@
 -- returns up to 100 results and a @nextToken@ value, if applicable.
 describeRegistries_maxResults :: Lens.Lens' DescribeRegistries (Prelude.Maybe Prelude.Natural)
 describeRegistries_maxResults = Lens.lens (\DescribeRegistries' {maxResults} -> maxResults) (\s@DescribeRegistries' {} a -> s {maxResults = a} :: DescribeRegistries)
 
--- | The @nextToken@ value returned from a previous paginated
+-- | The @nextToken@ value that\'s returned from a previous paginated
 -- @DescribeRegistries@ request where @maxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value. This value
--- is @null@ when there are no more results to return.
+-- of the previous results that returned the @nextToken@ value. If there
+-- are no more results to return, this value is @null@.
 --
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
@@ -137,19 +137,19 @@ instance Core.AWSPager DescribeRegistries where
     | Core.stop
         ( rs
             Lens.^? describeRegistriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. describeRegistriesResponse_registries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeRegistries_nextToken
           Lens..~ rs
           Lens.^? describeRegistriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRegistries where
   type
@@ -168,7 +168,8 @@ instance Core.AWSRequest DescribeRegistries where
 
 instance Prelude.Hashable DescribeRegistries where
   hashWithSalt _salt DescribeRegistries' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeRegistries where
@@ -209,13 +210,13 @@ instance Data.ToQuery DescribeRegistries where
 -- | /See:/ 'newDescribeRegistriesResponse' smart constructor.
 data DescribeRegistriesResponse = DescribeRegistriesResponse'
   { -- | The @nextToken@ value to include in a future @DescribeRepositories@
-    -- request. When the results of a @DescribeRepositories@ request exceed
-    -- @maxResults@, this value can be used to retrieve the next page of
-    -- results. This value is @null@ when there are no more results to return.
+    -- request. If the results of a @DescribeRepositories@ request exceed
+    -- @maxResults@, you can use this value to retrieve the next page of
+    -- results. If there are no more results, this value is @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | An object containing the details for a public registry.
+    -- | An object that contains the details for a public registry.
     registries :: [Registry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -229,13 +230,13 @@ data DescribeRegistriesResponse = DescribeRegistriesResponse'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'describeRegistriesResponse_nextToken' - The @nextToken@ value to include in a future @DescribeRepositories@
--- request. When the results of a @DescribeRepositories@ request exceed
--- @maxResults@, this value can be used to retrieve the next page of
--- results. This value is @null@ when there are no more results to return.
+-- request. If the results of a @DescribeRepositories@ request exceed
+-- @maxResults@, you can use this value to retrieve the next page of
+-- results. If there are no more results, this value is @null@.
 --
 -- 'httpStatus', 'describeRegistriesResponse_httpStatus' - The response's http status code.
 --
--- 'registries', 'describeRegistriesResponse_registries' - An object containing the details for a public registry.
+-- 'registries', 'describeRegistriesResponse_registries' - An object that contains the details for a public registry.
 newDescribeRegistriesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -249,9 +250,9 @@ newDescribeRegistriesResponse pHttpStatus_ =
     }
 
 -- | The @nextToken@ value to include in a future @DescribeRepositories@
--- request. When the results of a @DescribeRepositories@ request exceed
--- @maxResults@, this value can be used to retrieve the next page of
--- results. This value is @null@ when there are no more results to return.
+-- request. If the results of a @DescribeRepositories@ request exceed
+-- @maxResults@, you can use this value to retrieve the next page of
+-- results. If there are no more results, this value is @null@.
 describeRegistriesResponse_nextToken :: Lens.Lens' DescribeRegistriesResponse (Prelude.Maybe Prelude.Text)
 describeRegistriesResponse_nextToken = Lens.lens (\DescribeRegistriesResponse' {nextToken} -> nextToken) (\s@DescribeRegistriesResponse' {} a -> s {nextToken = a} :: DescribeRegistriesResponse)
 
@@ -259,7 +260,7 @@ describeRegistriesResponse_nextToken = Lens.lens (\DescribeRegistriesResponse' {
 describeRegistriesResponse_httpStatus :: Lens.Lens' DescribeRegistriesResponse Prelude.Int
 describeRegistriesResponse_httpStatus = Lens.lens (\DescribeRegistriesResponse' {httpStatus} -> httpStatus) (\s@DescribeRegistriesResponse' {} a -> s {httpStatus = a} :: DescribeRegistriesResponse)
 
--- | An object containing the details for a public registry.
+-- | An object that contains the details for a public registry.
 describeRegistriesResponse_registries :: Lens.Lens' DescribeRegistriesResponse [Registry]
 describeRegistriesResponse_registries = Lens.lens (\DescribeRegistriesResponse' {registries} -> registries) (\s@DescribeRegistriesResponse' {} a -> s {registries = a} :: DescribeRegistriesResponse) Prelude.. Lens.coerced
 

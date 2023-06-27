@@ -25,8 +25,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata that you apply to a resource to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define. Tag keys can have a maximum character length of 128
+-- organize them. Each tag consists of a key and an optional value. You
+-- define both. Tag keys can have a maximum character length of 128
 -- characters, and tag values can have a maximum length of 256 characters.
 --
 -- /See:/ 'newTag' smart constructor.
@@ -77,12 +77,14 @@ instance Data.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where

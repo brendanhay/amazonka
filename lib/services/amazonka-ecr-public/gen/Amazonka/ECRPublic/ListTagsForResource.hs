@@ -49,8 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) that identifies the resource for which to
-    -- list the tags. Currently, the supported resource is an Amazon ECR Public
+  { -- | The Amazon Resource Name (ARN) that identifies the resource to list the
+    -- tags for. Currently, the supported resource is an Amazon ECR Public
     -- repository.
     resourceArn :: Prelude.Text
   }
@@ -64,8 +64,8 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resource is an Amazon ECR Public
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource to list the
+-- tags for. Currently, the supported resource is an Amazon ECR Public
 -- repository.
 newListTagsForResource ::
   -- | 'resourceArn'
@@ -74,8 +74,8 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resource is an Amazon ECR Public
+-- | The Amazon Resource Name (ARN) that identifies the resource to list the
+-- tags for. Currently, the supported resource is an Amazon ECR Public
 -- repository.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)

@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRepositoryCatalogData' smart constructor.
 data GetRepositoryCatalogData = GetRepositoryCatalogData'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repositories to be described. If you do not specify a registry, the
-    -- default public registry is assumed.
+  { -- | The Amazon Web Services account ID that\'s associated with the registry
+    -- that contains the repositories to be described. If you do not specify a
+    -- registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to retrieve the catalog metadata for.
     repositoryName :: Prelude.Text
@@ -68,9 +68,9 @@ data GetRepositoryCatalogData = GetRepositoryCatalogData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'getRepositoryCatalogData_registryId' - The AWS account ID associated with the registry that contains the
--- repositories to be described. If you do not specify a registry, the
--- default public registry is assumed.
+-- 'registryId', 'getRepositoryCatalogData_registryId' - The Amazon Web Services account ID that\'s associated with the registry
+-- that contains the repositories to be described. If you do not specify a
+-- registry, the default public registry is assumed.
 --
 -- 'repositoryName', 'getRepositoryCatalogData_repositoryName' - The name of the repository to retrieve the catalog metadata for.
 newGetRepositoryCatalogData ::
@@ -84,9 +84,9 @@ newGetRepositoryCatalogData pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repositories to be described. If you do not specify a registry, the
--- default public registry is assumed.
+-- | The Amazon Web Services account ID that\'s associated with the registry
+-- that contains the repositories to be described. If you do not specify a
+-- registry, the default public registry is assumed.
 getRepositoryCatalogData_registryId :: Lens.Lens' GetRepositoryCatalogData (Prelude.Maybe Prelude.Text)
 getRepositoryCatalogData_registryId = Lens.lens (\GetRepositoryCatalogData' {registryId} -> registryId) (\s@GetRepositoryCatalogData' {} a -> s {registryId = a} :: GetRepositoryCatalogData)
 
@@ -110,7 +110,8 @@ instance Core.AWSRequest GetRepositoryCatalogData where
 
 instance Prelude.Hashable GetRepositoryCatalogData where
   hashWithSalt _salt GetRepositoryCatalogData' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData GetRepositoryCatalogData where

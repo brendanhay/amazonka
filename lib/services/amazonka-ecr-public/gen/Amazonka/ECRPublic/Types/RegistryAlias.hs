@@ -26,8 +26,8 @@ import Amazonka.ECRPublic.Types.RegistryAliasStatus
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the aliases for a public registry. A public
--- registry is given an alias upon creation but a custom alias can be set
--- using the Amazon ECR console. For more information, see
+-- registry is given an alias when it\'s created. However, a custom alias
+-- can be set using the Amazon ECR console. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html Registries>
 -- in the /Amazon Elastic Container Registry User Guide/.
 --
@@ -37,17 +37,17 @@ data RegistryAlias = RegistryAlias'
     name :: Prelude.Text,
     -- | The status of the registry alias.
     status :: RegistryAliasStatus,
-    -- | Whether or not the registry alias is the primary alias for the registry.
-    -- If true, the alias is the primary registry alias and is displayed in
-    -- both the repository URL and the image URI used in the @docker pull@
-    -- commands on the Amazon ECR Public Gallery.
+    -- | Indicates whether the registry alias is the primary alias for the
+    -- registry. If true, the alias is the primary registry alias and is
+    -- displayed in both the repository URL and the image URI used in the
+    -- @docker pull@ commands on the Amazon ECR Public Gallery.
     --
-    -- A registry alias that is not the primary registry alias can be used in
+    -- A registry alias that isn\'t the primary registry alias can be used in
     -- the repository URI in a @docker pull@ command.
     primaryRegistryAlias :: Prelude.Bool,
-    -- | Whether or not the registry alias is the default alias for the registry.
-    -- When the first public repository is created, your public registry is
-    -- assigned a default registry alias.
+    -- | Indicates whether the registry alias is the default alias for the
+    -- registry. When the first public repository is created, your public
+    -- registry is assigned a default registry alias.
     defaultRegistryAlias :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,17 +64,17 @@ data RegistryAlias = RegistryAlias'
 --
 -- 'status', 'registryAlias_status' - The status of the registry alias.
 --
--- 'primaryRegistryAlias', 'registryAlias_primaryRegistryAlias' - Whether or not the registry alias is the primary alias for the registry.
--- If true, the alias is the primary registry alias and is displayed in
--- both the repository URL and the image URI used in the @docker pull@
--- commands on the Amazon ECR Public Gallery.
+-- 'primaryRegistryAlias', 'registryAlias_primaryRegistryAlias' - Indicates whether the registry alias is the primary alias for the
+-- registry. If true, the alias is the primary registry alias and is
+-- displayed in both the repository URL and the image URI used in the
+-- @docker pull@ commands on the Amazon ECR Public Gallery.
 --
--- A registry alias that is not the primary registry alias can be used in
+-- A registry alias that isn\'t the primary registry alias can be used in
 -- the repository URI in a @docker pull@ command.
 --
--- 'defaultRegistryAlias', 'registryAlias_defaultRegistryAlias' - Whether or not the registry alias is the default alias for the registry.
--- When the first public repository is created, your public registry is
--- assigned a default registry alias.
+-- 'defaultRegistryAlias', 'registryAlias_defaultRegistryAlias' - Indicates whether the registry alias is the default alias for the
+-- registry. When the first public repository is created, your public
+-- registry is assigned a default registry alias.
 newRegistryAlias ::
   -- | 'name'
   Prelude.Text ->
@@ -105,19 +105,19 @@ registryAlias_name = Lens.lens (\RegistryAlias' {name} -> name) (\s@RegistryAlia
 registryAlias_status :: Lens.Lens' RegistryAlias RegistryAliasStatus
 registryAlias_status = Lens.lens (\RegistryAlias' {status} -> status) (\s@RegistryAlias' {} a -> s {status = a} :: RegistryAlias)
 
--- | Whether or not the registry alias is the primary alias for the registry.
--- If true, the alias is the primary registry alias and is displayed in
--- both the repository URL and the image URI used in the @docker pull@
--- commands on the Amazon ECR Public Gallery.
+-- | Indicates whether the registry alias is the primary alias for the
+-- registry. If true, the alias is the primary registry alias and is
+-- displayed in both the repository URL and the image URI used in the
+-- @docker pull@ commands on the Amazon ECR Public Gallery.
 --
--- A registry alias that is not the primary registry alias can be used in
+-- A registry alias that isn\'t the primary registry alias can be used in
 -- the repository URI in a @docker pull@ command.
 registryAlias_primaryRegistryAlias :: Lens.Lens' RegistryAlias Prelude.Bool
 registryAlias_primaryRegistryAlias = Lens.lens (\RegistryAlias' {primaryRegistryAlias} -> primaryRegistryAlias) (\s@RegistryAlias' {} a -> s {primaryRegistryAlias = a} :: RegistryAlias)
 
--- | Whether or not the registry alias is the default alias for the registry.
--- When the first public repository is created, your public registry is
--- assigned a default registry alias.
+-- | Indicates whether the registry alias is the default alias for the
+-- registry. When the first public repository is created, your public
+-- registry is assigned a default registry alias.
 registryAlias_defaultRegistryAlias :: Lens.Lens' RegistryAlias Prelude.Bool
 registryAlias_defaultRegistryAlias = Lens.lens (\RegistryAlias' {defaultRegistryAlias} -> defaultRegistryAlias) (\s@RegistryAlias' {} a -> s {defaultRegistryAlias = a} :: RegistryAlias)
 
@@ -135,7 +135,8 @@ instance Data.FromJSON RegistryAlias where
 
 instance Prelude.Hashable RegistryAlias where
   hashWithSalt _salt RegistryAlias' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` primaryRegistryAlias
       `Prelude.hashWithSalt` defaultRegistryAlias

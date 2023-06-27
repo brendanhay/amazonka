@@ -49,9 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource from which to delete
-    -- tags. Currently, the supported resource is an Amazon ECR Public
-    -- repository.
+  { -- | The Amazon Resource Name (ARN) of the resource to delete tags from.
+    -- Currently, the supported resource is an Amazon ECR Public repository.
     resourceArn :: Prelude.Text,
     -- | The keys of the tags to be removed.
     tagKeys :: [Prelude.Text]
@@ -66,9 +65,8 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource from which to delete
--- tags. Currently, the supported resource is an Amazon ECR Public
--- repository.
+-- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to delete tags from.
+-- Currently, the supported resource is an Amazon ECR Public repository.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags to be removed.
 newUntagResource ::
@@ -81,9 +79,8 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource from which to delete
--- tags. Currently, the supported resource is an Amazon ECR Public
--- repository.
+-- | The Amazon Resource Name (ARN) of the resource to delete tags from.
+-- Currently, the supported resource is an Amazon ECR Public repository.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
@@ -106,7 +103,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

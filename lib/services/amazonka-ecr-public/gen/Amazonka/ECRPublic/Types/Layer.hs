@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types.LayerAvailability
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing an Amazon ECR image layer.
+-- | An object that represents an Amazon ECR image layer.
 --
 -- /See:/ 'newLayer' smart constructor.
 data Layer = Layer'
@@ -101,7 +101,8 @@ instance Data.FromJSON Layer where
 
 instance Prelude.Hashable Layer where
   hashWithSalt _salt Layer' {..} =
-    _salt `Prelude.hashWithSalt` layerAvailability
+    _salt
+      `Prelude.hashWithSalt` layerAvailability
       `Prelude.hashWithSalt` layerDigest
       `Prelude.hashWithSalt` layerSize
       `Prelude.hashWithSalt` mediaType

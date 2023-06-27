@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Informs Amazon ECR that the image layer upload has completed for a
+-- Informs Amazon ECR that the image layer upload is complete for a
 -- specified public registry, repository name, and upload ID. You can
 -- optionally provide a @sha256@ digest of the image layer for data
 -- validation purposes.
 --
--- When an image is pushed, the CompleteLayerUpload API is called once per
--- each new image layer to verify that the upload has completed.
+-- When an image is pushed, the CompleteLayerUpload API is called once for
+-- each new image layer to verify that the upload is complete.
 --
 -- This operation is used by the Amazon ECR proxy and is not generally used
 -- by customers for pulling and pushing images. In most cases, you should
@@ -65,9 +65,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCompleteLayerUpload' smart constructor.
 data CompleteLayerUpload = CompleteLayerUpload'
-  { -- | The AWS account ID associated with the registry to which to upload
-    -- layers. If you do not specify a registry, the default public registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID, or registry alias, associated with
+    -- the registry where layers are uploaded. If you do not specify a
+    -- registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository in a public registry to associate with the
     -- image layer.
@@ -88,9 +88,9 @@ data CompleteLayerUpload = CompleteLayerUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'completeLayerUpload_registryId' - The AWS account ID associated with the registry to which to upload
--- layers. If you do not specify a registry, the default public registry is
--- assumed.
+-- 'registryId', 'completeLayerUpload_registryId' - The Amazon Web Services account ID, or registry alias, associated with
+-- the registry where layers are uploaded. If you do not specify a
+-- registry, the default public registry is assumed.
 --
 -- 'repositoryName', 'completeLayerUpload_repositoryName' - The name of the repository in a public registry to associate with the
 -- image layer.
@@ -118,9 +118,9 @@ newCompleteLayerUpload
         layerDigests = Lens.coerced Lens.# pLayerDigests_
       }
 
--- | The AWS account ID associated with the registry to which to upload
--- layers. If you do not specify a registry, the default public registry is
--- assumed.
+-- | The Amazon Web Services account ID, or registry alias, associated with
+-- the registry where layers are uploaded. If you do not specify a
+-- registry, the default public registry is assumed.
 completeLayerUpload_registryId :: Lens.Lens' CompleteLayerUpload (Prelude.Maybe Prelude.Text)
 completeLayerUpload_registryId = Lens.lens (\CompleteLayerUpload' {registryId} -> registryId) (\s@CompleteLayerUpload' {} a -> s {registryId = a} :: CompleteLayerUpload)
 
@@ -157,7 +157,8 @@ instance Core.AWSRequest CompleteLayerUpload where
 
 instance Prelude.Hashable CompleteLayerUpload where
   hashWithSalt _salt CompleteLayerUpload' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` uploadId
       `Prelude.hashWithSalt` layerDigests
@@ -206,11 +207,11 @@ instance Data.ToQuery CompleteLayerUpload where
 data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
   { -- | The @sha256@ digest of the image layer.
     layerDigest :: Prelude.Maybe Prelude.Text,
-    -- | The public registry ID associated with the request.
+    -- | The public registry ID that\'s associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
+    -- | The repository name that\'s associated with the request.
     repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The upload ID associated with the layer.
+    -- | The upload ID that\'s associated with the layer.
     uploadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -227,11 +228,11 @@ data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
 --
 -- 'layerDigest', 'completeLayerUploadResponse_layerDigest' - The @sha256@ digest of the image layer.
 --
--- 'registryId', 'completeLayerUploadResponse_registryId' - The public registry ID associated with the request.
+-- 'registryId', 'completeLayerUploadResponse_registryId' - The public registry ID that\'s associated with the request.
 --
--- 'repositoryName', 'completeLayerUploadResponse_repositoryName' - The repository name associated with the request.
+-- 'repositoryName', 'completeLayerUploadResponse_repositoryName' - The repository name that\'s associated with the request.
 --
--- 'uploadId', 'completeLayerUploadResponse_uploadId' - The upload ID associated with the layer.
+-- 'uploadId', 'completeLayerUploadResponse_uploadId' - The upload ID that\'s associated with the layer.
 --
 -- 'httpStatus', 'completeLayerUploadResponse_httpStatus' - The response's http status code.
 newCompleteLayerUploadResponse ::
@@ -252,15 +253,15 @@ newCompleteLayerUploadResponse pHttpStatus_ =
 completeLayerUploadResponse_layerDigest :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
 completeLayerUploadResponse_layerDigest = Lens.lens (\CompleteLayerUploadResponse' {layerDigest} -> layerDigest) (\s@CompleteLayerUploadResponse' {} a -> s {layerDigest = a} :: CompleteLayerUploadResponse)
 
--- | The public registry ID associated with the request.
+-- | The public registry ID that\'s associated with the request.
 completeLayerUploadResponse_registryId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
 completeLayerUploadResponse_registryId = Lens.lens (\CompleteLayerUploadResponse' {registryId} -> registryId) (\s@CompleteLayerUploadResponse' {} a -> s {registryId = a} :: CompleteLayerUploadResponse)
 
--- | The repository name associated with the request.
+-- | The repository name that\'s associated with the request.
 completeLayerUploadResponse_repositoryName :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
 completeLayerUploadResponse_repositoryName = Lens.lens (\CompleteLayerUploadResponse' {repositoryName} -> repositoryName) (\s@CompleteLayerUploadResponse' {} a -> s {repositoryName = a} :: CompleteLayerUploadResponse)
 
--- | The upload ID associated with the layer.
+-- | The upload ID that\'s associated with the layer.
 completeLayerUploadResponse_uploadId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
 completeLayerUploadResponse_uploadId = Lens.lens (\CompleteLayerUploadResponse' {uploadId} -> uploadId) (\s@CompleteLayerUploadResponse' {} a -> s {uploadId = a} :: CompleteLayerUploadResponse)
 

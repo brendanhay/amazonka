@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates the specified tags to a resource with the specified
--- @resourceArn@. If existing tags on a resource are not specified in the
--- request parameters, they are not changed. When a resource is deleted,
--- the tags associated with that resource are deleted as well.
+-- @resourceArn@. If existing tags on a resource aren\'t specified in the
+-- request parameters, they aren\'t changed. When a resource is deleted,
+-- the tags associated with that resource are also deleted.
 module Amazonka.ECRPublic.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource to which to add tags.
+  { -- | The Amazon Resource Name (ARN) of the resource to add tags to.
     -- Currently, the supported resource is an Amazon ECR Public repository.
     resourceArn :: Prelude.Text,
     -- | The tags to add to the resource. A tag is an array of key-value pairs.
@@ -70,7 +70,7 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to which to add tags.
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to add tags to.
 -- Currently, the supported resource is an Amazon ECR Public repository.
 --
 -- 'tags', 'tagResource_tags' - The tags to add to the resource. A tag is an array of key-value pairs.
@@ -86,7 +86,7 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource to which to add tags.
+-- | The Amazon Resource Name (ARN) of the resource to add tags to.
 -- Currently, the supported resource is an Amazon ECR Public repository.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
@@ -110,7 +110,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

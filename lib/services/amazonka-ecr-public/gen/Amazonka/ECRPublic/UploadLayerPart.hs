@@ -23,8 +23,8 @@
 -- Uploads an image layer part to Amazon ECR.
 --
 -- When an image is pushed, each new image layer is uploaded in parts. The
--- maximum size of each image layer part can be 20971520 bytes (or about
--- 20MB). The UploadLayerPart API is called once per each new image layer
+-- maximum size of each image layer part can be 20971520 bytes (about
+-- 20MB). The UploadLayerPart API is called once for each new image layer
 -- part.
 --
 -- This operation is used by the Amazon ECR proxy and is not generally used
@@ -66,11 +66,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUploadLayerPart' smart constructor.
 data UploadLayerPart = UploadLayerPart'
-  { -- | The AWS account ID associated with the registry to which you are
-    -- uploading layer parts. If you do not specify a registry, the default
-    -- public registry is assumed.
+  { -- | The Amazon Web Services account ID, or registry alias, that\'s
+    -- associated with the registry that you\'re uploading layer parts to. If
+    -- you do not specify a registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository to which you are uploading layer parts.
+    -- | The name of the repository that you\'re uploading layer parts to.
     repositoryName :: Prelude.Text,
     -- | The upload ID from a previous InitiateLayerUpload operation to associate
     -- with the layer part upload.
@@ -94,11 +94,11 @@ data UploadLayerPart = UploadLayerPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'uploadLayerPart_registryId' - The AWS account ID associated with the registry to which you are
--- uploading layer parts. If you do not specify a registry, the default
--- public registry is assumed.
+-- 'registryId', 'uploadLayerPart_registryId' - The Amazon Web Services account ID, or registry alias, that\'s
+-- associated with the registry that you\'re uploading layer parts to. If
+-- you do not specify a registry, the default public registry is assumed.
 --
--- 'repositoryName', 'uploadLayerPart_repositoryName' - The name of the repository to which you are uploading layer parts.
+-- 'repositoryName', 'uploadLayerPart_repositoryName' - The name of the repository that you\'re uploading layer parts to.
 --
 -- 'uploadId', 'uploadLayerPart_uploadId' - The upload ID from a previous InitiateLayerUpload operation to associate
 -- with the layer part upload.
@@ -141,13 +141,13 @@ newUploadLayerPart
         layerPartBlob = Data._Base64 Lens.# pLayerPartBlob_
       }
 
--- | The AWS account ID associated with the registry to which you are
--- uploading layer parts. If you do not specify a registry, the default
--- public registry is assumed.
+-- | The Amazon Web Services account ID, or registry alias, that\'s
+-- associated with the registry that you\'re uploading layer parts to. If
+-- you do not specify a registry, the default public registry is assumed.
 uploadLayerPart_registryId :: Lens.Lens' UploadLayerPart (Prelude.Maybe Prelude.Text)
 uploadLayerPart_registryId = Lens.lens (\UploadLayerPart' {registryId} -> registryId) (\s@UploadLayerPart' {} a -> s {registryId = a} :: UploadLayerPart)
 
--- | The name of the repository to which you are uploading layer parts.
+-- | The name of the repository that you\'re uploading layer parts to.
 uploadLayerPart_repositoryName :: Lens.Lens' UploadLayerPart Prelude.Text
 uploadLayerPart_repositoryName = Lens.lens (\UploadLayerPart' {repositoryName} -> repositoryName) (\s@UploadLayerPart' {} a -> s {repositoryName = a} :: UploadLayerPart)
 
@@ -193,7 +193,8 @@ instance Core.AWSRequest UploadLayerPart where
 
 instance Prelude.Hashable UploadLayerPart where
   hashWithSalt _salt UploadLayerPart' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` uploadId
       `Prelude.hashWithSalt` partFirstByte
@@ -247,13 +248,13 @@ instance Data.ToQuery UploadLayerPart where
 
 -- | /See:/ 'newUploadLayerPartResponse' smart constructor.
 data UploadLayerPartResponse = UploadLayerPartResponse'
-  { -- | The integer value of the last byte received in the request.
+  { -- | The integer value of the last byte that\'s received in the request.
     lastByteReceived :: Prelude.Maybe Prelude.Natural,
-    -- | The registry ID associated with the request.
+    -- | The registry ID that\'s associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
+    -- | The repository name that\'s associated with the request.
     repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The upload ID associated with the request.
+    -- | The upload ID that\'s associated with the request.
     uploadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -268,13 +269,13 @@ data UploadLayerPartResponse = UploadLayerPartResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastByteReceived', 'uploadLayerPartResponse_lastByteReceived' - The integer value of the last byte received in the request.
+-- 'lastByteReceived', 'uploadLayerPartResponse_lastByteReceived' - The integer value of the last byte that\'s received in the request.
 --
--- 'registryId', 'uploadLayerPartResponse_registryId' - The registry ID associated with the request.
+-- 'registryId', 'uploadLayerPartResponse_registryId' - The registry ID that\'s associated with the request.
 --
--- 'repositoryName', 'uploadLayerPartResponse_repositoryName' - The repository name associated with the request.
+-- 'repositoryName', 'uploadLayerPartResponse_repositoryName' - The repository name that\'s associated with the request.
 --
--- 'uploadId', 'uploadLayerPartResponse_uploadId' - The upload ID associated with the request.
+-- 'uploadId', 'uploadLayerPartResponse_uploadId' - The upload ID that\'s associated with the request.
 --
 -- 'httpStatus', 'uploadLayerPartResponse_httpStatus' - The response's http status code.
 newUploadLayerPartResponse ::
@@ -291,19 +292,19 @@ newUploadLayerPartResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The integer value of the last byte received in the request.
+-- | The integer value of the last byte that\'s received in the request.
 uploadLayerPartResponse_lastByteReceived :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Natural)
 uploadLayerPartResponse_lastByteReceived = Lens.lens (\UploadLayerPartResponse' {lastByteReceived} -> lastByteReceived) (\s@UploadLayerPartResponse' {} a -> s {lastByteReceived = a} :: UploadLayerPartResponse)
 
--- | The registry ID associated with the request.
+-- | The registry ID that\'s associated with the request.
 uploadLayerPartResponse_registryId :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
 uploadLayerPartResponse_registryId = Lens.lens (\UploadLayerPartResponse' {registryId} -> registryId) (\s@UploadLayerPartResponse' {} a -> s {registryId = a} :: UploadLayerPartResponse)
 
--- | The repository name associated with the request.
+-- | The repository name that\'s associated with the request.
 uploadLayerPartResponse_repositoryName :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
 uploadLayerPartResponse_repositoryName = Lens.lens (\UploadLayerPartResponse' {repositoryName} -> repositoryName) (\s@UploadLayerPartResponse' {} a -> s {repositoryName = a} :: UploadLayerPartResponse)
 
--- | The upload ID associated with the request.
+-- | The upload ID that\'s associated with the request.
 uploadLayerPartResponse_uploadId :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
 uploadLayerPartResponse_uploadId = Lens.lens (\UploadLayerPartResponse' {uploadId} -> uploadId) (\s@UploadLayerPartResponse' {} a -> s {uploadId = a} :: UploadLayerPartResponse)
 

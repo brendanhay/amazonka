@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRegistry' smart constructor.
 data Registry = Registry'
-  { -- | The AWS account ID associated with the registry. If you do not specify a
-    -- registry, the default public registry is assumed.
+  { -- | The Amazon Web Services account ID that\'s associated with the registry.
+    -- If you do not specify a registry, the default public registry is
+    -- assumed.
     registryId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the public registry.
     registryArn :: Prelude.Text,
     -- | The URI of a public registry. The URI contains a universal prefix and
     -- the registry alias.
     registryUri :: Prelude.Text,
-    -- | Whether the account is verified. This indicates whether the account is
-    -- an AWS Marketplace vendor. If an account is verified, each public
-    -- repository will received a verified account badge on the Amazon ECR
-    -- Public Gallery.
+    -- | Indicates whether the account is a verified Amazon Web Services
+    -- Marketplace vendor. If an account is verified, each public repository
+    -- receives a verified account badge on the Amazon ECR Public Gallery.
     verified :: Prelude.Bool,
-    -- | An array of objects representing the aliases for a public registry.
+    -- | An array of objects that represents the aliases for a public registry.
     aliases :: [RegistryAlias]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,20 +55,20 @@ data Registry = Registry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'registry_registryId' - The AWS account ID associated with the registry. If you do not specify a
--- registry, the default public registry is assumed.
+-- 'registryId', 'registry_registryId' - The Amazon Web Services account ID that\'s associated with the registry.
+-- If you do not specify a registry, the default public registry is
+-- assumed.
 --
 -- 'registryArn', 'registry_registryArn' - The Amazon Resource Name (ARN) of the public registry.
 --
 -- 'registryUri', 'registry_registryUri' - The URI of a public registry. The URI contains a universal prefix and
 -- the registry alias.
 --
--- 'verified', 'registry_verified' - Whether the account is verified. This indicates whether the account is
--- an AWS Marketplace vendor. If an account is verified, each public
--- repository will received a verified account badge on the Amazon ECR
--- Public Gallery.
+-- 'verified', 'registry_verified' - Indicates whether the account is a verified Amazon Web Services
+-- Marketplace vendor. If an account is verified, each public repository
+-- receives a verified account badge on the Amazon ECR Public Gallery.
 --
--- 'aliases', 'registry_aliases' - An array of objects representing the aliases for a public registry.
+-- 'aliases', 'registry_aliases' - An array of objects that represents the aliases for a public registry.
 newRegistry ::
   -- | 'registryId'
   Prelude.Text ->
@@ -92,8 +92,9 @@ newRegistry
         aliases = Prelude.mempty
       }
 
--- | The AWS account ID associated with the registry. If you do not specify a
--- registry, the default public registry is assumed.
+-- | The Amazon Web Services account ID that\'s associated with the registry.
+-- If you do not specify a registry, the default public registry is
+-- assumed.
 registry_registryId :: Lens.Lens' Registry Prelude.Text
 registry_registryId = Lens.lens (\Registry' {registryId} -> registryId) (\s@Registry' {} a -> s {registryId = a} :: Registry)
 
@@ -106,14 +107,13 @@ registry_registryArn = Lens.lens (\Registry' {registryArn} -> registryArn) (\s@R
 registry_registryUri :: Lens.Lens' Registry Prelude.Text
 registry_registryUri = Lens.lens (\Registry' {registryUri} -> registryUri) (\s@Registry' {} a -> s {registryUri = a} :: Registry)
 
--- | Whether the account is verified. This indicates whether the account is
--- an AWS Marketplace vendor. If an account is verified, each public
--- repository will received a verified account badge on the Amazon ECR
--- Public Gallery.
+-- | Indicates whether the account is a verified Amazon Web Services
+-- Marketplace vendor. If an account is verified, each public repository
+-- receives a verified account badge on the Amazon ECR Public Gallery.
 registry_verified :: Lens.Lens' Registry Prelude.Bool
 registry_verified = Lens.lens (\Registry' {verified} -> verified) (\s@Registry' {} a -> s {verified = a} :: Registry)
 
--- | An array of objects representing the aliases for a public registry.
+-- | An array of objects that represents the aliases for a public registry.
 registry_aliases :: Lens.Lens' Registry [RegistryAlias]
 registry_aliases = Lens.lens (\Registry' {aliases} -> aliases) (\s@Registry' {} a -> s {aliases = a} :: Registry) Prelude.. Lens.coerced
 
@@ -132,7 +132,8 @@ instance Data.FromJSON Registry where
 
 instance Prelude.Hashable Registry where
   hashWithSalt _salt Registry' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` registryArn
       `Prelude.hashWithSalt` registryUri
       `Prelude.hashWithSalt` verified

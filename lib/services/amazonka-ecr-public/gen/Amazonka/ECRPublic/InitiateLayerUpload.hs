@@ -22,10 +22,10 @@
 --
 -- Notifies Amazon ECR that you intend to upload an image layer.
 --
--- When an image is pushed, the InitiateLayerUpload API is called once per
--- image layer that has not already been uploaded. Whether or not an image
--- layer has been uploaded is determined by the BatchCheckLayerAvailability
--- API action.
+-- When an image is pushed, the InitiateLayerUpload API is called once for
+-- each image layer that hasn\'t already been uploaded. Whether an image
+-- layer uploads is determined by the BatchCheckLayerAvailability API
+-- action.
 --
 -- This operation is used by the Amazon ECR proxy and is not generally used
 -- by customers for pulling and pushing images. In most cases, you should
@@ -60,11 +60,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newInitiateLayerUpload' smart constructor.
 data InitiateLayerUpload = InitiateLayerUpload'
-  { -- | The AWS account ID associated with the registry to which you intend to
-    -- upload layers. If you do not specify a registry, the default public
-    -- registry is assumed.
+  { -- | The Amazon Web Services account ID, or registry alias, that\'s
+    -- associated with the registry to which you intend to upload layers. If
+    -- you do not specify a registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository to which you intend to upload layers.
+    -- | The name of the repository that you want to upload layers to.
     repositoryName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,11 +77,11 @@ data InitiateLayerUpload = InitiateLayerUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'initiateLayerUpload_registryId' - The AWS account ID associated with the registry to which you intend to
--- upload layers. If you do not specify a registry, the default public
--- registry is assumed.
+-- 'registryId', 'initiateLayerUpload_registryId' - The Amazon Web Services account ID, or registry alias, that\'s
+-- associated with the registry to which you intend to upload layers. If
+-- you do not specify a registry, the default public registry is assumed.
 --
--- 'repositoryName', 'initiateLayerUpload_repositoryName' - The name of the repository to which you intend to upload layers.
+-- 'repositoryName', 'initiateLayerUpload_repositoryName' - The name of the repository that you want to upload layers to.
 newInitiateLayerUpload ::
   -- | 'repositoryName'
   Prelude.Text ->
@@ -92,13 +92,13 @@ newInitiateLayerUpload pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry to which you intend to
--- upload layers. If you do not specify a registry, the default public
--- registry is assumed.
+-- | The Amazon Web Services account ID, or registry alias, that\'s
+-- associated with the registry to which you intend to upload layers. If
+-- you do not specify a registry, the default public registry is assumed.
 initiateLayerUpload_registryId :: Lens.Lens' InitiateLayerUpload (Prelude.Maybe Prelude.Text)
 initiateLayerUpload_registryId = Lens.lens (\InitiateLayerUpload' {registryId} -> registryId) (\s@InitiateLayerUpload' {} a -> s {registryId = a} :: InitiateLayerUpload)
 
--- | The name of the repository to which you intend to upload layers.
+-- | The name of the repository that you want to upload layers to.
 initiateLayerUpload_repositoryName :: Lens.Lens' InitiateLayerUpload Prelude.Text
 initiateLayerUpload_repositoryName = Lens.lens (\InitiateLayerUpload' {repositoryName} -> repositoryName) (\s@InitiateLayerUpload' {} a -> s {repositoryName = a} :: InitiateLayerUpload)
 
@@ -119,7 +119,8 @@ instance Core.AWSRequest InitiateLayerUpload where
 
 instance Prelude.Hashable InitiateLayerUpload where
   hashWithSalt _salt InitiateLayerUpload' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData InitiateLayerUpload where

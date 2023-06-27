@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a repository in a public registry. If the repository contains
--- images, you must either delete all images in the repository or use the
--- @force@ option which deletes all images on your behalf before deleting
--- the repository.
+-- images, you must either manually delete all images in the repository or
+-- use the @force@ option. This option deletes all images on your behalf
+-- before deleting the repository.
 module Amazonka.ECRPublic.DeleteRepository
   ( -- * Creating a Request
     DeleteRepository (..),
@@ -54,11 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
-  { -- | If a repository contains images, forces the deletion.
+  { -- | The force option can be used to delete a repository that contains
+    -- images. If the force option is not used, the repository must be empty
+    -- prior to deletion.
     force :: Prelude.Maybe Prelude.Bool,
-    -- | The AWS account ID associated with the public registry that contains the
-    -- repository to delete. If you do not specify a registry, the default
-    -- public registry is assumed.
+    -- | The Amazon Web Services account ID that\'s associated with the public
+    -- registry that contains the repository to delete. If you do not specify a
+    -- registry, the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to delete.
     repositoryName :: Prelude.Text
@@ -73,11 +75,13 @@ data DeleteRepository = DeleteRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'force', 'deleteRepository_force' - If a repository contains images, forces the deletion.
+-- 'force', 'deleteRepository_force' - The force option can be used to delete a repository that contains
+-- images. If the force option is not used, the repository must be empty
+-- prior to deletion.
 --
--- 'registryId', 'deleteRepository_registryId' - The AWS account ID associated with the public registry that contains the
--- repository to delete. If you do not specify a registry, the default
--- public registry is assumed.
+-- 'registryId', 'deleteRepository_registryId' - The Amazon Web Services account ID that\'s associated with the public
+-- registry that contains the repository to delete. If you do not specify a
+-- registry, the default public registry is assumed.
 --
 -- 'repositoryName', 'deleteRepository_repositoryName' - The name of the repository to delete.
 newDeleteRepository ::
@@ -91,13 +95,15 @@ newDeleteRepository pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | If a repository contains images, forces the deletion.
+-- | The force option can be used to delete a repository that contains
+-- images. If the force option is not used, the repository must be empty
+-- prior to deletion.
 deleteRepository_force :: Lens.Lens' DeleteRepository (Prelude.Maybe Prelude.Bool)
 deleteRepository_force = Lens.lens (\DeleteRepository' {force} -> force) (\s@DeleteRepository' {} a -> s {force = a} :: DeleteRepository)
 
--- | The AWS account ID associated with the public registry that contains the
--- repository to delete. If you do not specify a registry, the default
--- public registry is assumed.
+-- | The Amazon Web Services account ID that\'s associated with the public
+-- registry that contains the repository to delete. If you do not specify a
+-- registry, the default public registry is assumed.
 deleteRepository_registryId :: Lens.Lens' DeleteRepository (Prelude.Maybe Prelude.Text)
 deleteRepository_registryId = Lens.lens (\DeleteRepository' {registryId} -> registryId) (\s@DeleteRepository' {} a -> s {registryId = a} :: DeleteRepository)
 
@@ -121,7 +127,8 @@ instance Core.AWSRequest DeleteRepository where
 
 instance Prelude.Hashable DeleteRepository where
   hashWithSalt _salt DeleteRepository' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 

@@ -24,27 +24,31 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | An object containing the catalog data for a repository. This data is
+-- | An object that contains the catalog data for a repository. This data is
 -- publicly visible in the Amazon ECR Public Gallery.
 --
 -- /See:/ 'newRepositoryCatalogDataInput' smart constructor.
 data RepositoryCatalogDataInput = RepositoryCatalogDataInput'
-  { -- | A detailed description of the contents of the repository. It is publicly
+  { -- | A detailed description of the contents of the repository. It\'s publicly
     -- visible in the Amazon ECR Public Gallery. The text must be in markdown
     -- format.
     aboutText :: Prelude.Maybe Prelude.Text,
     -- | The system architecture that the images in the repository are compatible
     -- with. On the Amazon ECR Public Gallery, the following supported
-    -- architectures will appear as badges on the repository and are used as
-    -- search filters.
+    -- architectures appear as badges on the repository and are used as search
+    -- filters.
     --
-    -- -   @Linux@
+    -- If an unsupported tag is added to your repository catalog data, it\'s
+    -- associated with the repository and can be retrieved using the API but
+    -- isn\'t discoverable in the Amazon ECR Public Gallery.
     --
-    -- -   @Windows@
+    -- -   @ARM@
     --
-    -- If an unsupported tag is added to your repository catalog data, it will
-    -- be associated with the repository and can be retrieved using the API but
-    -- will not be discoverable in the Amazon ECR Public Gallery.
+    -- -   @ARM 64@
+    --
+    -- -   @x86@
+    --
+    -- -   @x86-64@
     architectures :: Prelude.Maybe [Prelude.Text],
     -- | A short description of the contents of the repository. This text appears
     -- in both the image details and also when searching for repositories on
@@ -57,23 +61,19 @@ data RepositoryCatalogDataInput = RepositoryCatalogDataInput'
     logoImageBlob :: Prelude.Maybe Data.Base64,
     -- | The operating systems that the images in the repository are compatible
     -- with. On the Amazon ECR Public Gallery, the following supported
-    -- operating systems will appear as badges on the repository and are used
-    -- as search filters.
+    -- operating systems appear as badges on the repository and are used as
+    -- search filters.
     --
-    -- -   @ARM@
+    -- If an unsupported tag is added to your repository catalog data, it\'s
+    -- associated with the repository and can be retrieved using the API but
+    -- isn\'t discoverable in the Amazon ECR Public Gallery.
     --
-    -- -   @ARM 64@
+    -- -   @Linux@
     --
-    -- -   @x86@
-    --
-    -- -   @x86-64@
-    --
-    -- If an unsupported tag is added to your repository catalog data, it will
-    -- be associated with the repository and can be retrieved using the API but
-    -- will not be discoverable in the Amazon ECR Public Gallery.
+    -- -   @Windows@
     operatingSystems :: Prelude.Maybe [Prelude.Text],
-    -- | Detailed information on how to use the contents of the repository. It is
-    -- publicly visible in the Amazon ECR Public Gallery. The usage text
+    -- | Detailed information about how to use the contents of the repository.
+    -- It\'s publicly visible in the Amazon ECR Public Gallery. The usage text
     -- provides context, support information, and additional usage details for
     -- users of the repository. The text must be in markdown format.
     usageText :: Prelude.Maybe Prelude.Text
@@ -88,22 +88,26 @@ data RepositoryCatalogDataInput = RepositoryCatalogDataInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aboutText', 'repositoryCatalogDataInput_aboutText' - A detailed description of the contents of the repository. It is publicly
+-- 'aboutText', 'repositoryCatalogDataInput_aboutText' - A detailed description of the contents of the repository. It\'s publicly
 -- visible in the Amazon ECR Public Gallery. The text must be in markdown
 -- format.
 --
 -- 'architectures', 'repositoryCatalogDataInput_architectures' - The system architecture that the images in the repository are compatible
 -- with. On the Amazon ECR Public Gallery, the following supported
--- architectures will appear as badges on the repository and are used as
--- search filters.
+-- architectures appear as badges on the repository and are used as search
+-- filters.
 --
--- -   @Linux@
+-- If an unsupported tag is added to your repository catalog data, it\'s
+-- associated with the repository and can be retrieved using the API but
+-- isn\'t discoverable in the Amazon ECR Public Gallery.
 --
--- -   @Windows@
+-- -   @ARM@
 --
--- If an unsupported tag is added to your repository catalog data, it will
--- be associated with the repository and can be retrieved using the API but
--- will not be discoverable in the Amazon ECR Public Gallery.
+-- -   @ARM 64@
+--
+-- -   @x86@
+--
+-- -   @x86-64@
 --
 -- 'description', 'repositoryCatalogDataInput_description' - A short description of the contents of the repository. This text appears
 -- in both the image details and also when searching for repositories on
@@ -120,23 +124,19 @@ data RepositoryCatalogDataInput = RepositoryCatalogDataInput'
 --
 -- 'operatingSystems', 'repositoryCatalogDataInput_operatingSystems' - The operating systems that the images in the repository are compatible
 -- with. On the Amazon ECR Public Gallery, the following supported
--- operating systems will appear as badges on the repository and are used
--- as search filters.
+-- operating systems appear as badges on the repository and are used as
+-- search filters.
 --
--- -   @ARM@
+-- If an unsupported tag is added to your repository catalog data, it\'s
+-- associated with the repository and can be retrieved using the API but
+-- isn\'t discoverable in the Amazon ECR Public Gallery.
 --
--- -   @ARM 64@
+-- -   @Linux@
 --
--- -   @x86@
+-- -   @Windows@
 --
--- -   @x86-64@
---
--- If an unsupported tag is added to your repository catalog data, it will
--- be associated with the repository and can be retrieved using the API but
--- will not be discoverable in the Amazon ECR Public Gallery.
---
--- 'usageText', 'repositoryCatalogDataInput_usageText' - Detailed information on how to use the contents of the repository. It is
--- publicly visible in the Amazon ECR Public Gallery. The usage text
+-- 'usageText', 'repositoryCatalogDataInput_usageText' - Detailed information about how to use the contents of the repository.
+-- It\'s publicly visible in the Amazon ECR Public Gallery. The usage text
 -- provides context, support information, and additional usage details for
 -- users of the repository. The text must be in markdown format.
 newRepositoryCatalogDataInput ::
@@ -152,7 +152,7 @@ newRepositoryCatalogDataInput =
       usageText = Prelude.Nothing
     }
 
--- | A detailed description of the contents of the repository. It is publicly
+-- | A detailed description of the contents of the repository. It\'s publicly
 -- visible in the Amazon ECR Public Gallery. The text must be in markdown
 -- format.
 repositoryCatalogDataInput_aboutText :: Lens.Lens' RepositoryCatalogDataInput (Prelude.Maybe Prelude.Text)
@@ -160,16 +160,20 @@ repositoryCatalogDataInput_aboutText = Lens.lens (\RepositoryCatalogDataInput' {
 
 -- | The system architecture that the images in the repository are compatible
 -- with. On the Amazon ECR Public Gallery, the following supported
--- architectures will appear as badges on the repository and are used as
--- search filters.
+-- architectures appear as badges on the repository and are used as search
+-- filters.
 --
--- -   @Linux@
+-- If an unsupported tag is added to your repository catalog data, it\'s
+-- associated with the repository and can be retrieved using the API but
+-- isn\'t discoverable in the Amazon ECR Public Gallery.
 --
--- -   @Windows@
+-- -   @ARM@
 --
--- If an unsupported tag is added to your repository catalog data, it will
--- be associated with the repository and can be retrieved using the API but
--- will not be discoverable in the Amazon ECR Public Gallery.
+-- -   @ARM 64@
+--
+-- -   @x86@
+--
+-- -   @x86-64@
 repositoryCatalogDataInput_architectures :: Lens.Lens' RepositoryCatalogDataInput (Prelude.Maybe [Prelude.Text])
 repositoryCatalogDataInput_architectures = Lens.lens (\RepositoryCatalogDataInput' {architectures} -> architectures) (\s@RepositoryCatalogDataInput' {} a -> s {architectures = a} :: RepositoryCatalogDataInput) Prelude.. Lens.mapping Lens.coerced
 
@@ -192,25 +196,21 @@ repositoryCatalogDataInput_logoImageBlob = Lens.lens (\RepositoryCatalogDataInpu
 
 -- | The operating systems that the images in the repository are compatible
 -- with. On the Amazon ECR Public Gallery, the following supported
--- operating systems will appear as badges on the repository and are used
--- as search filters.
+-- operating systems appear as badges on the repository and are used as
+-- search filters.
 --
--- -   @ARM@
+-- If an unsupported tag is added to your repository catalog data, it\'s
+-- associated with the repository and can be retrieved using the API but
+-- isn\'t discoverable in the Amazon ECR Public Gallery.
 --
--- -   @ARM 64@
+-- -   @Linux@
 --
--- -   @x86@
---
--- -   @x86-64@
---
--- If an unsupported tag is added to your repository catalog data, it will
--- be associated with the repository and can be retrieved using the API but
--- will not be discoverable in the Amazon ECR Public Gallery.
+-- -   @Windows@
 repositoryCatalogDataInput_operatingSystems :: Lens.Lens' RepositoryCatalogDataInput (Prelude.Maybe [Prelude.Text])
 repositoryCatalogDataInput_operatingSystems = Lens.lens (\RepositoryCatalogDataInput' {operatingSystems} -> operatingSystems) (\s@RepositoryCatalogDataInput' {} a -> s {operatingSystems = a} :: RepositoryCatalogDataInput) Prelude.. Lens.mapping Lens.coerced
 
--- | Detailed information on how to use the contents of the repository. It is
--- publicly visible in the Amazon ECR Public Gallery. The usage text
+-- | Detailed information about how to use the contents of the repository.
+-- It\'s publicly visible in the Amazon ECR Public Gallery. The usage text
 -- provides context, support information, and additional usage details for
 -- users of the repository. The text must be in markdown format.
 repositoryCatalogDataInput_usageText :: Lens.Lens' RepositoryCatalogDataInput (Prelude.Maybe Prelude.Text)
@@ -218,7 +218,8 @@ repositoryCatalogDataInput_usageText = Lens.lens (\RepositoryCatalogDataInput' {
 
 instance Prelude.Hashable RepositoryCatalogDataInput where
   hashWithSalt _salt RepositoryCatalogDataInput' {..} =
-    _salt `Prelude.hashWithSalt` aboutText
+    _salt
+      `Prelude.hashWithSalt` aboutText
       `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` logoImageBlob

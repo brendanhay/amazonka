@@ -99,20 +99,23 @@ instance Core.AWSPager ListBundles where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listBundlesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listBundlesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBundlesResponse_bundleList Prelude.. Lens._Just
+            Lens.^? listBundlesResponse_bundleList
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBundles_nextToken
           Lens..~ rs
-          Lens.^? listBundlesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listBundlesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBundles where
   type AWSResponse ListBundles = ListBundlesResponse
@@ -129,7 +132,8 @@ instance Core.AWSRequest ListBundles where
 
 instance Prelude.Hashable ListBundles where
   hashWithSalt _salt ListBundles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBundles where

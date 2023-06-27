@@ -116,7 +116,8 @@ instance Core.AWSRequest ExportBundle where
 
 instance Prelude.Hashable ExportBundle where
   hashWithSalt _salt ExportBundle' {..} =
-    _salt `Prelude.hashWithSalt` platform
+    _salt
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` projectId
       `Prelude.hashWithSalt` bundleId
 

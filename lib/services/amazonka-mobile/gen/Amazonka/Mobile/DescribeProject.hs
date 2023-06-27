@@ -111,7 +111,8 @@ instance Core.AWSRequest DescribeProject where
 
 instance Prelude.Hashable DescribeProject where
   hashWithSalt _salt DescribeProject' {..} =
-    _salt `Prelude.hashWithSalt` syncFromResources
+    _salt
+      `Prelude.hashWithSalt` syncFromResources
       `Prelude.hashWithSalt` projectId
 
 instance Prelude.NFData DescribeProject where

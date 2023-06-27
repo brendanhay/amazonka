@@ -37,6 +37,10 @@ data LineItem = LineItem'
     catalogItemId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the line item.
     lineItemId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the previous line item.
+    previousLineItemId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the previous order.
+    previousOrderId :: Prelude.Maybe Prelude.Text,
     -- | The quantity of the line item.
     quantity :: Prelude.Maybe Prelude.Natural,
     -- | Information about a line item shipment.
@@ -60,6 +64,10 @@ data LineItem = LineItem'
 --
 -- 'lineItemId', 'lineItem_lineItemId' - The ID of the line item.
 --
+-- 'previousLineItemId', 'lineItem_previousLineItemId' - The ID of the previous line item.
+--
+-- 'previousOrderId', 'lineItem_previousOrderId' - The ID of the previous order.
+--
 -- 'quantity', 'lineItem_quantity' - The quantity of the line item.
 --
 -- 'shipmentInformation', 'lineItem_shipmentInformation' - Information about a line item shipment.
@@ -72,6 +80,8 @@ newLineItem =
     { assetInformationList = Prelude.Nothing,
       catalogItemId = Prelude.Nothing,
       lineItemId = Prelude.Nothing,
+      previousLineItemId = Prelude.Nothing,
+      previousOrderId = Prelude.Nothing,
       quantity = Prelude.Nothing,
       shipmentInformation = Prelude.Nothing,
       status = Prelude.Nothing
@@ -88,6 +98,14 @@ lineItem_catalogItemId = Lens.lens (\LineItem' {catalogItemId} -> catalogItemId)
 -- | The ID of the line item.
 lineItem_lineItemId :: Lens.Lens' LineItem (Prelude.Maybe Prelude.Text)
 lineItem_lineItemId = Lens.lens (\LineItem' {lineItemId} -> lineItemId) (\s@LineItem' {} a -> s {lineItemId = a} :: LineItem)
+
+-- | The ID of the previous line item.
+lineItem_previousLineItemId :: Lens.Lens' LineItem (Prelude.Maybe Prelude.Text)
+lineItem_previousLineItemId = Lens.lens (\LineItem' {previousLineItemId} -> previousLineItemId) (\s@LineItem' {} a -> s {previousLineItemId = a} :: LineItem)
+
+-- | The ID of the previous order.
+lineItem_previousOrderId :: Lens.Lens' LineItem (Prelude.Maybe Prelude.Text)
+lineItem_previousOrderId = Lens.lens (\LineItem' {previousOrderId} -> previousOrderId) (\s@LineItem' {} a -> s {previousOrderId = a} :: LineItem)
 
 -- | The quantity of the line item.
 lineItem_quantity :: Lens.Lens' LineItem (Prelude.Maybe Prelude.Natural)
@@ -107,11 +125,14 @@ instance Data.FromJSON LineItem where
       "LineItem"
       ( \x ->
           LineItem'
-            Prelude.<$> ( x Data..:? "AssetInformationList"
+            Prelude.<$> ( x
+                            Data..:? "AssetInformationList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CatalogItemId")
             Prelude.<*> (x Data..:? "LineItemId")
+            Prelude.<*> (x Data..:? "PreviousLineItemId")
+            Prelude.<*> (x Data..:? "PreviousOrderId")
             Prelude.<*> (x Data..:? "Quantity")
             Prelude.<*> (x Data..:? "ShipmentInformation")
             Prelude.<*> (x Data..:? "Status")
@@ -119,9 +140,12 @@ instance Data.FromJSON LineItem where
 
 instance Prelude.Hashable LineItem where
   hashWithSalt _salt LineItem' {..} =
-    _salt `Prelude.hashWithSalt` assetInformationList
+    _salt
+      `Prelude.hashWithSalt` assetInformationList
       `Prelude.hashWithSalt` catalogItemId
       `Prelude.hashWithSalt` lineItemId
+      `Prelude.hashWithSalt` previousLineItemId
+      `Prelude.hashWithSalt` previousOrderId
       `Prelude.hashWithSalt` quantity
       `Prelude.hashWithSalt` shipmentInformation
       `Prelude.hashWithSalt` status
@@ -131,6 +155,8 @@ instance Prelude.NFData LineItem where
     Prelude.rnf assetInformationList
       `Prelude.seq` Prelude.rnf catalogItemId
       `Prelude.seq` Prelude.rnf lineItemId
+      `Prelude.seq` Prelude.rnf previousLineItemId
+      `Prelude.seq` Prelude.rnf previousOrderId
       `Prelude.seq` Prelude.rnf quantity
       `Prelude.seq` Prelude.rnf shipmentInformation
       `Prelude.seq` Prelude.rnf status

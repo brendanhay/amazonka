@@ -22,6 +22,7 @@ module Amazonka.Outposts.Types.PowerDrawKva
       ( ..,
         PowerDrawKva_POWER_10_KVA,
         PowerDrawKva_POWER_15_KVA,
+        PowerDrawKva_POWER_30_KVA,
         PowerDrawKva_POWER_5_KVA
       ),
   )
@@ -65,12 +66,16 @@ pattern PowerDrawKva_POWER_10_KVA = PowerDrawKva' "POWER_10_KVA"
 pattern PowerDrawKva_POWER_15_KVA :: PowerDrawKva
 pattern PowerDrawKva_POWER_15_KVA = PowerDrawKva' "POWER_15_KVA"
 
+pattern PowerDrawKva_POWER_30_KVA :: PowerDrawKva
+pattern PowerDrawKva_POWER_30_KVA = PowerDrawKva' "POWER_30_KVA"
+
 pattern PowerDrawKva_POWER_5_KVA :: PowerDrawKva
 pattern PowerDrawKva_POWER_5_KVA = PowerDrawKva' "POWER_5_KVA"
 
 {-# COMPLETE
   PowerDrawKva_POWER_10_KVA,
   PowerDrawKva_POWER_15_KVA,
+  PowerDrawKva_POWER_30_KVA,
   PowerDrawKva_POWER_5_KVA,
   PowerDrawKva'
   #-}

@@ -387,7 +387,8 @@ instance
   hashWithSalt
     _salt
     UpdateSiteRackPhysicalProperties' {..} =
-      _salt `Prelude.hashWithSalt` fiberOpticCableType
+      _salt
+        `Prelude.hashWithSalt` fiberOpticCableType
         `Prelude.hashWithSalt` maximumSupportedWeightLbs
         `Prelude.hashWithSalt` opticalStandard
         `Prelude.hashWithSalt` powerConnector

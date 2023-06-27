@@ -268,6 +268,8 @@ module Amazonka.Outposts.Lens
     lineItem_assetInformationList,
     lineItem_catalogItemId,
     lineItem_lineItemId,
+    lineItem_previousLineItemId,
+    lineItem_previousOrderId,
     lineItem_quantity,
     lineItem_shipmentInformation,
     lineItem_status,
@@ -285,8 +287,10 @@ module Amazonka.Outposts.Lens
     order_orderFulfilledDate,
     order_orderId,
     order_orderSubmissionDate,
+    order_orderType,
     order_outpostId,
     order_paymentOption,
+    order_paymentTerm,
     order_status,
 
     -- ** OrderSummary

@@ -135,7 +135,8 @@ instance Core.AWSRequest ListOutposts where
 
 instance Prelude.Hashable ListOutposts where
   hashWithSalt _salt ListOutposts' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneFilter
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneFilter
       `Prelude.hashWithSalt` availabilityZoneIdFilter
       `Prelude.hashWithSalt` lifeCycleStatusFilter
       `Prelude.hashWithSalt` maxResults

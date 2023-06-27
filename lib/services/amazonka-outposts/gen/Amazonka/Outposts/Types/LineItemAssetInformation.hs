@@ -70,14 +70,16 @@ instance Data.FromJSON LineItemAssetInformation where
       ( \x ->
           LineItemAssetInformation'
             Prelude.<$> (x Data..:? "AssetId")
-            Prelude.<*> ( x Data..:? "MacAddressList"
+            Prelude.<*> ( x
+                            Data..:? "MacAddressList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LineItemAssetInformation where
   hashWithSalt _salt LineItemAssetInformation' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` macAddressList
 
 instance Prelude.NFData LineItemAssetInformation where

@@ -137,7 +137,8 @@ instance Core.AWSRequest ListCatalogItems where
 
 instance Prelude.Hashable ListCatalogItems where
   hashWithSalt _salt ListCatalogItems' {..} =
-    _salt `Prelude.hashWithSalt` eC2FamilyFilter
+    _salt
+      `Prelude.hashWithSalt` eC2FamilyFilter
       `Prelude.hashWithSalt` itemClassFilter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

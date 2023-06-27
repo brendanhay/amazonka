@@ -152,7 +152,8 @@ instance Core.AWSRequest CreateOutpost where
 
 instance Prelude.Hashable CreateOutpost where
   hashWithSalt _salt CreateOutpost' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` supportedHardwareType

@@ -166,7 +166,8 @@ instance Data.FromJSON Outpost where
 
 instance Prelude.Hashable Outpost where
   hashWithSalt _salt Outpost' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lifeCycleStatus

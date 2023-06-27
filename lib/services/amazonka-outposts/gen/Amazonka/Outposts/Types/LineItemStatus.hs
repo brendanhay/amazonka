@@ -27,6 +27,7 @@ module Amazonka.Outposts.Types.LineItemStatus
         LineItemStatus_INSTALLED,
         LineItemStatus_INSTALLING,
         LineItemStatus_PREPARING,
+        LineItemStatus_REPLACED,
         LineItemStatus_SHIPPED
       ),
   )
@@ -85,6 +86,9 @@ pattern LineItemStatus_INSTALLING = LineItemStatus' "INSTALLING"
 pattern LineItemStatus_PREPARING :: LineItemStatus
 pattern LineItemStatus_PREPARING = LineItemStatus' "PREPARING"
 
+pattern LineItemStatus_REPLACED :: LineItemStatus
+pattern LineItemStatus_REPLACED = LineItemStatus' "REPLACED"
+
 pattern LineItemStatus_SHIPPED :: LineItemStatus
 pattern LineItemStatus_SHIPPED = LineItemStatus' "SHIPPED"
 
@@ -96,6 +100,7 @@ pattern LineItemStatus_SHIPPED = LineItemStatus' "SHIPPED"
   LineItemStatus_INSTALLED,
   LineItemStatus_INSTALLING,
   LineItemStatus_PREPARING,
+  LineItemStatus_REPLACED,
   LineItemStatus_SHIPPED,
   LineItemStatus'
   #-}

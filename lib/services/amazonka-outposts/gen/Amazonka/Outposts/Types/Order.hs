@@ -24,7 +24,9 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.LineItem
 import Amazonka.Outposts.Types.OrderStatus
+import Amazonka.Outposts.Types.OrderType
 import Amazonka.Outposts.Types.PaymentOption
+import Amazonka.Outposts.Types.PaymentTerm
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an order.
@@ -39,10 +41,14 @@ data Order = Order'
     orderId :: Prelude.Maybe Prelude.Text,
     -- | The submission date for the order.
     orderSubmissionDate :: Prelude.Maybe Data.POSIX,
+    -- | The type of order.
+    orderType :: Prelude.Maybe OrderType,
     -- | The ID of the Outpost in the order.
     outpostId :: Prelude.Maybe Prelude.Text,
     -- | The payment option for the order.
     paymentOption :: Prelude.Maybe PaymentOption,
+    -- | The payment term.
+    paymentTerm :: Prelude.Maybe PaymentTerm,
     -- | The status of the order.
     --
     -- -   @PREPARING@ - Order is received and being prepared.
@@ -78,9 +84,13 @@ data Order = Order'
 --
 -- 'orderSubmissionDate', 'order_orderSubmissionDate' - The submission date for the order.
 --
+-- 'orderType', 'order_orderType' - The type of order.
+--
 -- 'outpostId', 'order_outpostId' - The ID of the Outpost in the order.
 --
 -- 'paymentOption', 'order_paymentOption' - The payment option for the order.
+--
+-- 'paymentTerm', 'order_paymentTerm' - The payment term.
 --
 -- 'status', 'order_status' - The status of the order.
 --
@@ -105,8 +115,10 @@ newOrder =
       orderFulfilledDate = Prelude.Nothing,
       orderId = Prelude.Nothing,
       orderSubmissionDate = Prelude.Nothing,
+      orderType = Prelude.Nothing,
       outpostId = Prelude.Nothing,
       paymentOption = Prelude.Nothing,
+      paymentTerm = Prelude.Nothing,
       status = Prelude.Nothing
     }
 
@@ -126,6 +138,10 @@ order_orderId = Lens.lens (\Order' {orderId} -> orderId) (\s@Order' {} a -> s {o
 order_orderSubmissionDate :: Lens.Lens' Order (Prelude.Maybe Prelude.UTCTime)
 order_orderSubmissionDate = Lens.lens (\Order' {orderSubmissionDate} -> orderSubmissionDate) (\s@Order' {} a -> s {orderSubmissionDate = a} :: Order) Prelude.. Lens.mapping Data._Time
 
+-- | The type of order.
+order_orderType :: Lens.Lens' Order (Prelude.Maybe OrderType)
+order_orderType = Lens.lens (\Order' {orderType} -> orderType) (\s@Order' {} a -> s {orderType = a} :: Order)
+
 -- | The ID of the Outpost in the order.
 order_outpostId :: Lens.Lens' Order (Prelude.Maybe Prelude.Text)
 order_outpostId = Lens.lens (\Order' {outpostId} -> outpostId) (\s@Order' {} a -> s {outpostId = a} :: Order)
@@ -133,6 +149,10 @@ order_outpostId = Lens.lens (\Order' {outpostId} -> outpostId) (\s@Order' {} a -
 -- | The payment option for the order.
 order_paymentOption :: Lens.Lens' Order (Prelude.Maybe PaymentOption)
 order_paymentOption = Lens.lens (\Order' {paymentOption} -> paymentOption) (\s@Order' {} a -> s {paymentOption = a} :: Order)
+
+-- | The payment term.
+order_paymentTerm :: Lens.Lens' Order (Prelude.Maybe PaymentTerm)
+order_paymentTerm = Lens.lens (\Order' {paymentTerm} -> paymentTerm) (\s@Order' {} a -> s {paymentTerm = a} :: Order)
 
 -- | The status of the order.
 --
@@ -162,19 +182,24 @@ instance Data.FromJSON Order where
             Prelude.<*> (x Data..:? "OrderFulfilledDate")
             Prelude.<*> (x Data..:? "OrderId")
             Prelude.<*> (x Data..:? "OrderSubmissionDate")
+            Prelude.<*> (x Data..:? "OrderType")
             Prelude.<*> (x Data..:? "OutpostId")
             Prelude.<*> (x Data..:? "PaymentOption")
+            Prelude.<*> (x Data..:? "PaymentTerm")
             Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable Order where
   hashWithSalt _salt Order' {..} =
-    _salt `Prelude.hashWithSalt` lineItems
+    _salt
+      `Prelude.hashWithSalt` lineItems
       `Prelude.hashWithSalt` orderFulfilledDate
       `Prelude.hashWithSalt` orderId
       `Prelude.hashWithSalt` orderSubmissionDate
+      `Prelude.hashWithSalt` orderType
       `Prelude.hashWithSalt` outpostId
       `Prelude.hashWithSalt` paymentOption
+      `Prelude.hashWithSalt` paymentTerm
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData Order where
@@ -183,6 +208,8 @@ instance Prelude.NFData Order where
       `Prelude.seq` Prelude.rnf orderFulfilledDate
       `Prelude.seq` Prelude.rnf orderId
       `Prelude.seq` Prelude.rnf orderSubmissionDate
+      `Prelude.seq` Prelude.rnf orderType
       `Prelude.seq` Prelude.rnf outpostId
       `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf paymentTerm
       `Prelude.seq` Prelude.rnf status

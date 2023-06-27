@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateSiteAddress where
 
 instance Prelude.Hashable UpdateSiteAddress where
   hashWithSalt _salt UpdateSiteAddress' {..} =
-    _salt `Prelude.hashWithSalt` siteId
+    _salt
+      `Prelude.hashWithSalt` siteId
       `Prelude.hashWithSalt` addressType
       `Prelude.hashWithSalt` address
 

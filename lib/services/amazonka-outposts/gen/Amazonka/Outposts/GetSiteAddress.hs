@@ -108,7 +108,8 @@ instance Core.AWSRequest GetSiteAddress where
 
 instance Prelude.Hashable GetSiteAddress where
   hashWithSalt _salt GetSiteAddress' {..} =
-    _salt `Prelude.hashWithSalt` siteId
+    _salt
+      `Prelude.hashWithSalt` siteId
       `Prelude.hashWithSalt` addressType
 
 instance Prelude.NFData GetSiteAddress where

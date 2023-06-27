@@ -91,7 +91,8 @@ instance
     ApplicationComponentStrategy
   where
   hashWithSalt _salt ApplicationComponentStrategy' {..} =
-    _salt `Prelude.hashWithSalt` isPreferred
+    _salt
+      `Prelude.hashWithSalt` isPreferred
       `Prelude.hashWithSalt` recommendation
       `Prelude.hashWithSalt` status
 

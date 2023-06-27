@@ -64,7 +64,8 @@ instance Data.FromJSON Homogeneous where
       "Homogeneous"
       ( \x ->
           Homogeneous'
-            Prelude.<$> ( x Data..:? "targetDatabaseEngine"
+            Prelude.<$> ( x
+                            Data..:? "targetDatabaseEngine"
                             Data..!= Prelude.mempty
                         )
       )

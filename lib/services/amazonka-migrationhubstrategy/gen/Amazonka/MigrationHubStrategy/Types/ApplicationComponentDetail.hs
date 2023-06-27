@@ -30,6 +30,7 @@ import Amazonka.MigrationHubStrategy.Types.DatabaseConfigDetail
 import Amazonka.MigrationHubStrategy.Types.InclusionStatus
 import Amazonka.MigrationHubStrategy.Types.RecommendationSet
 import Amazonka.MigrationHubStrategy.Types.ResourceSubType
+import Amazonka.MigrationHubStrategy.Types.Result
 import Amazonka.MigrationHubStrategy.Types.RuntimeAnalysisStatus
 import Amazonka.MigrationHubStrategy.Types.S3Object
 import Amazonka.MigrationHubStrategy.Types.SourceCodeRepository
@@ -80,6 +81,8 @@ data ApplicationComponentDetail = ApplicationComponentDetail'
     recommendationSet :: Prelude.Maybe RecommendationSet,
     -- | The application component subtype.
     resourceSubType :: Prelude.Maybe ResourceSubType,
+    -- | A list of the analysis results.
+    resultList :: Prelude.Maybe [Result],
     -- | The status of the application unit.
     runtimeStatus :: Prelude.Maybe RuntimeAnalysisStatus,
     -- | The status message for the application unit.
@@ -140,6 +143,8 @@ data ApplicationComponentDetail = ApplicationComponentDetail'
 --
 -- 'resourceSubType', 'applicationComponentDetail_resourceSubType' - The application component subtype.
 --
+-- 'resultList', 'applicationComponentDetail_resultList' - A list of the analysis results.
+--
 -- 'runtimeStatus', 'applicationComponentDetail_runtimeStatus' - The status of the application unit.
 --
 -- 'runtimeStatusMessage', 'applicationComponentDetail_runtimeStatusMessage' - The status message for the application unit.
@@ -173,6 +178,7 @@ newApplicationComponentDetail =
       osVersion = Prelude.Nothing,
       recommendationSet = Prelude.Nothing,
       resourceSubType = Prelude.Nothing,
+      resultList = Prelude.Nothing,
       runtimeStatus = Prelude.Nothing,
       runtimeStatusMessage = Prelude.Nothing,
       sourceCodeRepositories = Prelude.Nothing,
@@ -255,6 +261,10 @@ applicationComponentDetail_recommendationSet = Lens.lens (\ApplicationComponentD
 applicationComponentDetail_resourceSubType :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe ResourceSubType)
 applicationComponentDetail_resourceSubType = Lens.lens (\ApplicationComponentDetail' {resourceSubType} -> resourceSubType) (\s@ApplicationComponentDetail' {} a -> s {resourceSubType = a} :: ApplicationComponentDetail)
 
+-- | A list of the analysis results.
+applicationComponentDetail_resultList :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe [Result])
+applicationComponentDetail_resultList = Lens.lens (\ApplicationComponentDetail' {resultList} -> resultList) (\s@ApplicationComponentDetail' {} a -> s {resultList = a} :: ApplicationComponentDetail) Prelude.. Lens.mapping Lens.coerced
+
 -- | The status of the application unit.
 applicationComponentDetail_runtimeStatus :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe RuntimeAnalysisStatus)
 applicationComponentDetail_runtimeStatus = Lens.lens (\ApplicationComponentDetail' {runtimeStatus} -> runtimeStatus) (\s@ApplicationComponentDetail' {} a -> s {runtimeStatus = a} :: ApplicationComponentDetail)
@@ -289,7 +299,8 @@ instance Data.FromJSON ApplicationComponentDetail where
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "inclusionStatus")
             Prelude.<*> (x Data..:? "lastAnalyzedTimestamp")
-            Prelude.<*> ( x Data..:? "listAntipatternSeveritySummary"
+            Prelude.<*> ( x
+                            Data..:? "listAntipatternSeveritySummary"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "moreServerAssociationExists")
@@ -298,9 +309,11 @@ instance Data.FromJSON ApplicationComponentDetail where
             Prelude.<*> (x Data..:? "osVersion")
             Prelude.<*> (x Data..:? "recommendationSet")
             Prelude.<*> (x Data..:? "resourceSubType")
+            Prelude.<*> (x Data..:? "resultList" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "runtimeStatus")
             Prelude.<*> (x Data..:? "runtimeStatusMessage")
-            Prelude.<*> ( x Data..:? "sourceCodeRepositories"
+            Prelude.<*> ( x
+                            Data..:? "sourceCodeRepositories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "statusMessage")
@@ -308,7 +321,8 @@ instance Data.FromJSON ApplicationComponentDetail where
 
 instance Prelude.Hashable ApplicationComponentDetail where
   hashWithSalt _salt ApplicationComponentDetail' {..} =
-    _salt `Prelude.hashWithSalt` analysisStatus
+    _salt
+      `Prelude.hashWithSalt` analysisStatus
       `Prelude.hashWithSalt` antipatternReportS3Object
       `Prelude.hashWithSalt` antipatternReportStatus
       `Prelude.hashWithSalt` antipatternReportStatusMessage
@@ -326,6 +340,7 @@ instance Prelude.Hashable ApplicationComponentDetail where
       `Prelude.hashWithSalt` osVersion
       `Prelude.hashWithSalt` recommendationSet
       `Prelude.hashWithSalt` resourceSubType
+      `Prelude.hashWithSalt` resultList
       `Prelude.hashWithSalt` runtimeStatus
       `Prelude.hashWithSalt` runtimeStatusMessage
       `Prelude.hashWithSalt` sourceCodeRepositories
@@ -351,9 +366,11 @@ instance Prelude.NFData ApplicationComponentDetail where
       `Prelude.seq` Prelude.rnf osVersion
       `Prelude.seq` Prelude.rnf recommendationSet
       `Prelude.seq` Prelude.rnf resourceSubType
+      `Prelude.seq` Prelude.rnf resultList
       `Prelude.seq` Prelude.rnf runtimeStatus
       `Prelude.seq` Prelude.rnf
         runtimeStatusMessage
       `Prelude.seq` Prelude.rnf
         sourceCodeRepositories
-      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf
+        statusMessage

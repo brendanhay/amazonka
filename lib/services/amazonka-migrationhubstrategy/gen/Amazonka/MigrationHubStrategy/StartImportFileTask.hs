@@ -165,7 +165,8 @@ instance Core.AWSRequest StartImportFileTask where
 
 instance Prelude.Hashable StartImportFileTask where
   hashWithSalt _salt StartImportFileTask' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceType
+    _salt
+      `Prelude.hashWithSalt` dataSourceType
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` s3bucketForReportData
       `Prelude.hashWithSalt` s3Bucket

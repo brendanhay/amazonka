@@ -89,7 +89,8 @@ instance Data.FromJSON AssessmentTarget where
 
 instance Prelude.Hashable AssessmentTarget where
   hashWithSalt _salt AssessmentTarget' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 

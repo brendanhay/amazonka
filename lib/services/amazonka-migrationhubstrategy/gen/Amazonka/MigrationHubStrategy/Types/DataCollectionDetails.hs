@@ -136,7 +136,8 @@ instance Data.FromJSON DataCollectionDetails where
 
 instance Prelude.Hashable DataCollectionDetails where
   hashWithSalt _salt DataCollectionDetails' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` inProgress
       `Prelude.hashWithSalt` servers

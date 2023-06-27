@@ -171,6 +171,21 @@ module Amazonka.MigrationHubStrategy.Lens
 
     -- * Types
 
+    -- ** AnalysisStatusUnion
+    analysisStatusUnion_runtimeAnalysisStatus,
+    analysisStatusUnion_srcCodeOrDbAnalysisStatus,
+
+    -- ** AnalyzerNameUnion
+    analyzerNameUnion_binaryAnalyzerName,
+    analyzerNameUnion_runTimeAnalyzerName,
+    analyzerNameUnion_sourceCodeAnalyzerName,
+
+    -- ** AntipatternReportResult
+    antipatternReportResult_analyzerName,
+    antipatternReportResult_antiPatternReportS3Object,
+    antipatternReportResult_antipatternReportStatus,
+    antipatternReportResult_antipatternReportStatusMessage,
+
     -- ** AntipatternSeveritySummary
     antipatternSeveritySummary_count,
     antipatternSeveritySummary_severity,
@@ -197,6 +212,7 @@ module Amazonka.MigrationHubStrategy.Lens
     applicationComponentDetail_osVersion,
     applicationComponentDetail_recommendationSet,
     applicationComponentDetail_resourceSubType,
+    applicationComponentDetail_resultList,
     applicationComponentDetail_runtimeStatus,
     applicationComponentDetail_runtimeStatusMessage,
     applicationComponentDetail_sourceCodeRepositories,
@@ -360,6 +376,12 @@ module Amazonka.MigrationHubStrategy.Lens
     -- ** RemoteSourceCodeAnalysisServerInfo
     remoteSourceCodeAnalysisServerInfo_remoteSourceCodeAnalysisServerConfigurationTimestamp,
 
+    -- ** Result
+    result_analysisStatus,
+    result_analysisType,
+    result_antipatternReportResultList,
+    result_statusMessage,
+
     -- ** S3Object
     s3Object_s3Bucket,
     s3Object_s3key,
@@ -462,6 +484,9 @@ import Amazonka.MigrationHubStrategy.StartAssessment
 import Amazonka.MigrationHubStrategy.StartImportFileTask
 import Amazonka.MigrationHubStrategy.StartRecommendationReportGeneration
 import Amazonka.MigrationHubStrategy.StopAssessment
+import Amazonka.MigrationHubStrategy.Types.AnalysisStatusUnion
+import Amazonka.MigrationHubStrategy.Types.AnalyzerNameUnion
+import Amazonka.MigrationHubStrategy.Types.AntipatternReportResult
 import Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary
 import Amazonka.MigrationHubStrategy.Types.AppUnitError
 import Amazonka.MigrationHubStrategy.Types.ApplicationComponentDetail
@@ -495,6 +520,7 @@ import Amazonka.MigrationHubStrategy.Types.PrioritizeBusinessGoals
 import Amazonka.MigrationHubStrategy.Types.RecommendationReportDetails
 import Amazonka.MigrationHubStrategy.Types.RecommendationSet
 import Amazonka.MigrationHubStrategy.Types.RemoteSourceCodeAnalysisServerInfo
+import Amazonka.MigrationHubStrategy.Types.Result
 import Amazonka.MigrationHubStrategy.Types.S3Object
 import Amazonka.MigrationHubStrategy.Types.SelfManageResources
 import Amazonka.MigrationHubStrategy.Types.ServerDetail

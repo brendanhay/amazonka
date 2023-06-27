@@ -107,7 +107,8 @@ instance Data.FromJSON BusinessGoals where
 
 instance Prelude.Hashable BusinessGoals where
   hashWithSalt _salt BusinessGoals' {..} =
-    _salt `Prelude.hashWithSalt` licenseCostReduction
+    _salt
+      `Prelude.hashWithSalt` licenseCostReduction
       `Prelude.hashWithSalt` modernizeInfrastructureWithCloudNativeTechnologies
       `Prelude.hashWithSalt` reduceOperationalOverheadWithManagedServices
       `Prelude.hashWithSalt` speedOfMigration

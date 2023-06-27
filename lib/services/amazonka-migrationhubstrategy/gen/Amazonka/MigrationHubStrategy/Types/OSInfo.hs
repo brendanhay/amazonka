@@ -75,7 +75,8 @@ instance Data.FromJSON OSInfo where
 
 instance Prelude.Hashable OSInfo where
   hashWithSalt _salt OSInfo' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData OSInfo where

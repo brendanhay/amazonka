@@ -65,6 +65,10 @@ library
     Amazonka.MigrationHubStrategy.StartRecommendationReportGeneration
     Amazonka.MigrationHubStrategy.StopAssessment
     Amazonka.MigrationHubStrategy.Types
+    Amazonka.MigrationHubStrategy.Types.AnalysisStatusUnion
+    Amazonka.MigrationHubStrategy.Types.AnalysisType
+    Amazonka.MigrationHubStrategy.Types.AnalyzerNameUnion
+    Amazonka.MigrationHubStrategy.Types.AntipatternReportResult
     Amazonka.MigrationHubStrategy.Types.AntipatternReportStatus
     Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary
     Amazonka.MigrationHubStrategy.Types.ApplicationComponentCriteria
@@ -84,6 +88,7 @@ library
     Amazonka.MigrationHubStrategy.Types.AuthType
     Amazonka.MigrationHubStrategy.Types.AwsManagedResources
     Amazonka.MigrationHubStrategy.Types.AwsManagedTargetDestination
+    Amazonka.MigrationHubStrategy.Types.BinaryAnalyzerName
     Amazonka.MigrationHubStrategy.Types.BusinessGoals
     Amazonka.MigrationHubStrategy.Types.Collector
     Amazonka.MigrationHubStrategy.Types.CollectorHealth
@@ -121,7 +126,9 @@ library
     Amazonka.MigrationHubStrategy.Types.RecommendationSet
     Amazonka.MigrationHubStrategy.Types.RemoteSourceCodeAnalysisServerInfo
     Amazonka.MigrationHubStrategy.Types.ResourceSubType
+    Amazonka.MigrationHubStrategy.Types.Result
     Amazonka.MigrationHubStrategy.Types.RuntimeAnalysisStatus
+    Amazonka.MigrationHubStrategy.Types.RunTimeAnalyzerName
     Amazonka.MigrationHubStrategy.Types.RunTimeAssessmentStatus
     Amazonka.MigrationHubStrategy.Types.S3Object
     Amazonka.MigrationHubStrategy.Types.SelfManageResources
@@ -137,6 +144,7 @@ library
     Amazonka.MigrationHubStrategy.Types.Severity
     Amazonka.MigrationHubStrategy.Types.SortOrder
     Amazonka.MigrationHubStrategy.Types.SourceCode
+    Amazonka.MigrationHubStrategy.Types.SourceCodeAnalyzerName
     Amazonka.MigrationHubStrategy.Types.SourceCodeRepository
     Amazonka.MigrationHubStrategy.Types.SrcCodeOrDbAnalysisStatus
     Amazonka.MigrationHubStrategy.Types.Strategy

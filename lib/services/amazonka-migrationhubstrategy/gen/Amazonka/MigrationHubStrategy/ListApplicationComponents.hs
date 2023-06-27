@@ -160,22 +160,22 @@ instance Core.AWSPager ListApplicationComponents where
     | Core.stop
         ( rs
             Lens.^? listApplicationComponentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApplicationComponentsResponse_applicationComponentInfos
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listApplicationComponents_nextToken
           Lens..~ rs
           Lens.^? listApplicationComponentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationComponents where
   type
@@ -187,7 +187,8 @@ instance Core.AWSRequest ListApplicationComponents where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationComponentsResponse'
-            Prelude.<$> ( x Data..?> "applicationComponentInfos"
+            Prelude.<$> ( x
+                            Data..?> "applicationComponentInfos"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")

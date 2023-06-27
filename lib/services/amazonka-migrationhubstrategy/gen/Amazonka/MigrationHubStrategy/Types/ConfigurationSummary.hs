@@ -101,17 +101,21 @@ instance Data.FromJSON ConfigurationSummary where
       "ConfigurationSummary"
       ( \x ->
           ConfigurationSummary'
-            Prelude.<$> ( x Data..:? "ipAddressBasedRemoteInfoList"
+            Prelude.<$> ( x
+                            Data..:? "ipAddressBasedRemoteInfoList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "pipelineInfoList"
+            Prelude.<*> ( x
+                            Data..:? "pipelineInfoList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "remoteSourceCodeAnalysisServerInfo")
-            Prelude.<*> ( x Data..:? "vcenterBasedRemoteInfoList"
+            Prelude.<*> ( x
+                            Data..:? "vcenterBasedRemoteInfoList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "versionControlInfoList"
+            Prelude.<*> ( x
+                            Data..:? "versionControlInfoList"
                             Data..!= Prelude.mempty
                         )
       )

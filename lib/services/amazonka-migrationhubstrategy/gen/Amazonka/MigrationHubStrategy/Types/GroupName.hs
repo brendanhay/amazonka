@@ -20,7 +20,8 @@
 module Amazonka.MigrationHubStrategy.Types.GroupName
   ( GroupName
       ( ..,
-        GroupName_ExternalId
+        GroupName_ExternalId,
+        GroupName_ExternalSourceType
       ),
   )
 where
@@ -60,7 +61,11 @@ newtype GroupName = GroupName'
 pattern GroupName_ExternalId :: GroupName
 pattern GroupName_ExternalId = GroupName' "ExternalId"
 
+pattern GroupName_ExternalSourceType :: GroupName
+pattern GroupName_ExternalSourceType = GroupName' "ExternalSourceType"
+
 {-# COMPLETE
   GroupName_ExternalId,
+  GroupName_ExternalSourceType,
   GroupName'
   #-}

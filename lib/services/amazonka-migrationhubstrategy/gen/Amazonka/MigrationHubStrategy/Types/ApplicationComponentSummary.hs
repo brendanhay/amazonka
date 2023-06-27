@@ -76,7 +76,8 @@ instance Data.FromJSON ApplicationComponentSummary where
 
 instance Prelude.Hashable ApplicationComponentSummary where
   hashWithSalt _salt ApplicationComponentSummary' {..} =
-    _salt `Prelude.hashWithSalt` appType
+    _salt
+      `Prelude.hashWithSalt` appType
       `Prelude.hashWithSalt` count
 
 instance Prelude.NFData ApplicationComponentSummary where

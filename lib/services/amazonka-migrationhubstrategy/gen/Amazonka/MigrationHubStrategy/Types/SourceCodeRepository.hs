@@ -95,7 +95,8 @@ instance Data.FromJSON SourceCodeRepository where
 
 instance Prelude.Hashable SourceCodeRepository where
   hashWithSalt _salt SourceCodeRepository' {..} =
-    _salt `Prelude.hashWithSalt` branch
+    _salt
+      `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` versionControlType

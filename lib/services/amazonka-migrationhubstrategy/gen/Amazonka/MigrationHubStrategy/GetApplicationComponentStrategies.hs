@@ -95,10 +95,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetApplicationComponentStrategiesResponse'
-            Prelude.<$> ( x Data..?> "applicationComponentStrategies"
+            Prelude.<$> ( x
+                            Data..?> "applicationComponentStrategies"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

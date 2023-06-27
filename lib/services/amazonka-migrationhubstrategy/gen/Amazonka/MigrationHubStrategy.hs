@@ -13,7 +13,13 @@
 --
 -- Migration Hub Strategy Recommendations
 --
--- >  <p>This API reference provides descriptions, syntax, and other details about each of the actions and data types for Migration Hub Strategy Recommendations (Strategy Recommendations). The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using. For more information, see <a href="http://aws.amazon.com/tools/#SDKs">AWS SDKs</a>.</p>
+-- This API reference provides descriptions, syntax, and other details
+-- about each of the actions and data types for Migration Hub Strategy
+-- Recommendations (Strategy Recommendations). The topic for each action
+-- shows the API request parameters and the response. Alternatively, you
+-- can use one of the AWS SDKs to access an API that is tailored to the
+-- programming language or platform that you\'re using. For more
+-- information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs>.
 module Amazonka.MigrationHubStrategy
   ( -- * Service Configuration
     defaultService,
@@ -182,6 +188,9 @@ module Amazonka.MigrationHubStrategy
 
     -- * Types
 
+    -- ** AnalysisType
+    AnalysisType (..),
+
     -- ** AntipatternReportStatus
     AntipatternReportStatus (..),
 
@@ -205,6 +214,9 @@ module Amazonka.MigrationHubStrategy
 
     -- ** AwsManagedTargetDestination
     AwsManagedTargetDestination (..),
+
+    -- ** BinaryAnalyzerName
+    BinaryAnalyzerName (..),
 
     -- ** CollectorHealth
     CollectorHealth (..),
@@ -251,6 +263,9 @@ module Amazonka.MigrationHubStrategy
     -- ** ResourceSubType
     ResourceSubType (..),
 
+    -- ** RunTimeAnalyzerName
+    RunTimeAnalyzerName (..),
+
     -- ** RunTimeAssessmentStatus
     RunTimeAssessmentStatus (..),
 
@@ -275,6 +290,9 @@ module Amazonka.MigrationHubStrategy
     -- ** SortOrder
     SortOrder (..),
 
+    -- ** SourceCodeAnalyzerName
+    SourceCodeAnalyzerName (..),
+
     -- ** SrcCodeOrDbAnalysisStatus
     SrcCodeOrDbAnalysisStatus (..),
 
@@ -298,6 +316,18 @@ module Amazonka.MigrationHubStrategy
 
     -- ** VersionControlType
     VersionControlType (..),
+
+    -- ** AnalysisStatusUnion
+    AnalysisStatusUnion (AnalysisStatusUnion'),
+    newAnalysisStatusUnion,
+
+    -- ** AnalyzerNameUnion
+    AnalyzerNameUnion (AnalyzerNameUnion'),
+    newAnalyzerNameUnion,
+
+    -- ** AntipatternReportResult
+    AntipatternReportResult (AntipatternReportResult'),
+    newAntipatternReportResult,
 
     -- ** AntipatternSeveritySummary
     AntipatternSeveritySummary (AntipatternSeveritySummary'),
@@ -430,6 +460,10 @@ module Amazonka.MigrationHubStrategy
     -- ** RemoteSourceCodeAnalysisServerInfo
     RemoteSourceCodeAnalysisServerInfo (RemoteSourceCodeAnalysisServerInfo'),
     newRemoteSourceCodeAnalysisServerInfo,
+
+    -- ** Result
+    Result (Result'),
+    newResult,
 
     -- ** S3Object
     S3Object (S3Object'),

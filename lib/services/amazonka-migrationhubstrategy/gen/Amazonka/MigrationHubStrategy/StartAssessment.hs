@@ -117,7 +117,8 @@ instance Core.AWSRequest StartAssessment where
 
 instance Prelude.Hashable StartAssessment where
   hashWithSalt _salt StartAssessment' {..} =
-    _salt `Prelude.hashWithSalt` assessmentTargets
+    _salt
+      `Prelude.hashWithSalt` assessmentTargets
       `Prelude.hashWithSalt` s3bucketForAnalysisData
       `Prelude.hashWithSalt` s3bucketForReportData
 

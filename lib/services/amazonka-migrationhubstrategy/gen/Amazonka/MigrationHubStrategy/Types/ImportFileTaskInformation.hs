@@ -172,7 +172,8 @@ instance Data.FromJSON ImportFileTaskInformation where
 
 instance Prelude.Hashable ImportFileTaskInformation where
   hashWithSalt _salt ImportFileTaskInformation' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` importName
       `Prelude.hashWithSalt` inputS3Bucket

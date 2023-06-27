@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MigrationHubStrategy.Types.DataSourceType
+-- Module      : Amazonka.MigrationHubStrategy.Types.BinaryAnalyzerName
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MigrationHubStrategy.Types.DataSourceType
-  ( DataSourceType
+module Amazonka.MigrationHubStrategy.Types.BinaryAnalyzerName
+  ( BinaryAnalyzerName
       ( ..,
-        DataSourceType_ApplicationDiscoveryService,
-        DataSourceType_Import,
-        DataSourceType_MPA
+        BinaryAnalyzerName_BYTECODE_ANALYZER,
+        BinaryAnalyzerName_DLL_ANALYZER
       ),
   )
 where
@@ -31,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype DataSourceType = DataSourceType'
-  { fromDataSourceType ::
+newtype BinaryAnalyzerName = BinaryAnalyzerName'
+  { fromBinaryAnalyzerName ::
       Data.Text
   }
   deriving stock
@@ -59,18 +58,14 @@ newtype DataSourceType = DataSourceType'
       Data.ToXML
     )
 
-pattern DataSourceType_ApplicationDiscoveryService :: DataSourceType
-pattern DataSourceType_ApplicationDiscoveryService = DataSourceType' "ApplicationDiscoveryService"
+pattern BinaryAnalyzerName_BYTECODE_ANALYZER :: BinaryAnalyzerName
+pattern BinaryAnalyzerName_BYTECODE_ANALYZER = BinaryAnalyzerName' "BYTECODE_ANALYZER"
 
-pattern DataSourceType_Import :: DataSourceType
-pattern DataSourceType_Import = DataSourceType' "Import"
-
-pattern DataSourceType_MPA :: DataSourceType
-pattern DataSourceType_MPA = DataSourceType' "MPA"
+pattern BinaryAnalyzerName_DLL_ANALYZER :: BinaryAnalyzerName
+pattern BinaryAnalyzerName_DLL_ANALYZER = BinaryAnalyzerName' "DLL_ANALYZER"
 
 {-# COMPLETE
-  DataSourceType_ApplicationDiscoveryService,
-  DataSourceType_Import,
-  DataSourceType_MPA,
-  DataSourceType'
+  BinaryAnalyzerName_BYTECODE_ANALYZER,
+  BinaryAnalyzerName_DLL_ANALYZER,
+  BinaryAnalyzerName'
   #-}

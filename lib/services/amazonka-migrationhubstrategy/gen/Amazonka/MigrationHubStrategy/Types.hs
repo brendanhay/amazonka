@@ -28,6 +28,9 @@ module Amazonka.MigrationHubStrategy.Types
     _ThrottlingException,
     _ValidationException,
 
+    -- * AnalysisType
+    AnalysisType (..),
+
     -- * AntipatternReportStatus
     AntipatternReportStatus (..),
 
@@ -51,6 +54,9 @@ module Amazonka.MigrationHubStrategy.Types
 
     -- * AwsManagedTargetDestination
     AwsManagedTargetDestination (..),
+
+    -- * BinaryAnalyzerName
+    BinaryAnalyzerName (..),
 
     -- * CollectorHealth
     CollectorHealth (..),
@@ -97,6 +103,9 @@ module Amazonka.MigrationHubStrategy.Types
     -- * ResourceSubType
     ResourceSubType (..),
 
+    -- * RunTimeAnalyzerName
+    RunTimeAnalyzerName (..),
+
     -- * RunTimeAssessmentStatus
     RunTimeAssessmentStatus (..),
 
@@ -121,6 +130,9 @@ module Amazonka.MigrationHubStrategy.Types
     -- * SortOrder
     SortOrder (..),
 
+    -- * SourceCodeAnalyzerName
+    SourceCodeAnalyzerName (..),
+
     -- * SrcCodeOrDbAnalysisStatus
     SrcCodeOrDbAnalysisStatus (..),
 
@@ -144,6 +156,27 @@ module Amazonka.MigrationHubStrategy.Types
 
     -- * VersionControlType
     VersionControlType (..),
+
+    -- * AnalysisStatusUnion
+    AnalysisStatusUnion (..),
+    newAnalysisStatusUnion,
+    analysisStatusUnion_runtimeAnalysisStatus,
+    analysisStatusUnion_srcCodeOrDbAnalysisStatus,
+
+    -- * AnalyzerNameUnion
+    AnalyzerNameUnion (..),
+    newAnalyzerNameUnion,
+    analyzerNameUnion_binaryAnalyzerName,
+    analyzerNameUnion_runTimeAnalyzerName,
+    analyzerNameUnion_sourceCodeAnalyzerName,
+
+    -- * AntipatternReportResult
+    AntipatternReportResult (..),
+    newAntipatternReportResult,
+    antipatternReportResult_analyzerName,
+    antipatternReportResult_antiPatternReportS3Object,
+    antipatternReportResult_antipatternReportStatus,
+    antipatternReportResult_antipatternReportStatusMessage,
 
     -- * AntipatternSeveritySummary
     AntipatternSeveritySummary (..),
@@ -177,6 +210,7 @@ module Amazonka.MigrationHubStrategy.Types
     applicationComponentDetail_osVersion,
     applicationComponentDetail_recommendationSet,
     applicationComponentDetail_resourceSubType,
+    applicationComponentDetail_resultList,
     applicationComponentDetail_runtimeStatus,
     applicationComponentDetail_runtimeStatusMessage,
     applicationComponentDetail_sourceCodeRepositories,
@@ -400,6 +434,14 @@ module Amazonka.MigrationHubStrategy.Types
     newRemoteSourceCodeAnalysisServerInfo,
     remoteSourceCodeAnalysisServerInfo_remoteSourceCodeAnalysisServerConfigurationTimestamp,
 
+    -- * Result
+    Result (..),
+    newResult,
+    result_analysisStatus,
+    result_analysisType,
+    result_antipatternReportResultList,
+    result_statusMessage,
+
     -- * S3Object
     S3Object (..),
     newS3Object,
@@ -515,6 +557,10 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.MigrationHubStrategy.Types.AnalysisStatusUnion
+import Amazonka.MigrationHubStrategy.Types.AnalysisType
+import Amazonka.MigrationHubStrategy.Types.AnalyzerNameUnion
+import Amazonka.MigrationHubStrategy.Types.AntipatternReportResult
 import Amazonka.MigrationHubStrategy.Types.AntipatternReportStatus
 import Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary
 import Amazonka.MigrationHubStrategy.Types.AppType
@@ -534,6 +580,7 @@ import Amazonka.MigrationHubStrategy.Types.AssociatedApplication
 import Amazonka.MigrationHubStrategy.Types.AuthType
 import Amazonka.MigrationHubStrategy.Types.AwsManagedResources
 import Amazonka.MigrationHubStrategy.Types.AwsManagedTargetDestination
+import Amazonka.MigrationHubStrategy.Types.BinaryAnalyzerName
 import Amazonka.MigrationHubStrategy.Types.BusinessGoals
 import Amazonka.MigrationHubStrategy.Types.Collector
 import Amazonka.MigrationHubStrategy.Types.CollectorHealth
@@ -571,6 +618,8 @@ import Amazonka.MigrationHubStrategy.Types.RecommendationReportStatus
 import Amazonka.MigrationHubStrategy.Types.RecommendationSet
 import Amazonka.MigrationHubStrategy.Types.RemoteSourceCodeAnalysisServerInfo
 import Amazonka.MigrationHubStrategy.Types.ResourceSubType
+import Amazonka.MigrationHubStrategy.Types.Result
+import Amazonka.MigrationHubStrategy.Types.RunTimeAnalyzerName
 import Amazonka.MigrationHubStrategy.Types.RunTimeAssessmentStatus
 import Amazonka.MigrationHubStrategy.Types.RuntimeAnalysisStatus
 import Amazonka.MigrationHubStrategy.Types.S3Object
@@ -587,6 +636,7 @@ import Amazonka.MigrationHubStrategy.Types.ServerSummary
 import Amazonka.MigrationHubStrategy.Types.Severity
 import Amazonka.MigrationHubStrategy.Types.SortOrder
 import Amazonka.MigrationHubStrategy.Types.SourceCode
+import Amazonka.MigrationHubStrategy.Types.SourceCodeAnalyzerName
 import Amazonka.MigrationHubStrategy.Types.SourceCodeRepository
 import Amazonka.MigrationHubStrategy.Types.SrcCodeOrDbAnalysisStatus
 import Amazonka.MigrationHubStrategy.Types.Strategy
@@ -632,54 +682,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The AWS user account does not have permission to perform the action.
--- Check the AWS Identity and Access Management (IAM) policy associated
--- with this account.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The user does not have permission to perform the action. Check the AWS
+-- Identity and Access Management (IAM) policy associated with this user.
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -688,7 +737,7 @@ _AccessDeniedException =
 
 -- | Exception to indicate that there is an ongoing task when a new task is
 -- created. Return when once the existing tasks are complete.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -696,7 +745,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Dependency encountered an error.
-_DependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DependencyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DependencyException =
   Core._MatchServiceError
     defaultService
@@ -704,7 +753,7 @@ _DependencyException =
     Prelude.. Core.hasStatus 500
 
 -- | The server experienced an internal error. Try again.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -712,7 +761,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The specified ID in the request is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -720,7 +769,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Exception to indicate that the service-linked role (SLR) is locked.
-_ServiceLinkedRoleLockClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceLinkedRoleLockClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceLinkedRoleLockClientException =
   Core._MatchServiceError
     defaultService
@@ -729,7 +778,7 @@ _ServiceLinkedRoleLockClientException =
 
 -- | The AWS account has reached its quota of imports. Contact AWS Support to
 -- increase the quota for this account.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -737,7 +786,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -745,7 +794,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The request body isn\'t valid.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

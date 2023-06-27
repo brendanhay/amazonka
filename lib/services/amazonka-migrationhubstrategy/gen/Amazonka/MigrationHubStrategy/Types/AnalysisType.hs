@@ -11,18 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MigrationHubStrategy.Types.DataSourceType
+-- Module      : Amazonka.MigrationHubStrategy.Types.AnalysisType
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MigrationHubStrategy.Types.DataSourceType
-  ( DataSourceType
+module Amazonka.MigrationHubStrategy.Types.AnalysisType
+  ( AnalysisType
       ( ..,
-        DataSourceType_ApplicationDiscoveryService,
-        DataSourceType_Import,
-        DataSourceType_MPA
+        AnalysisType_BINARY_ANALYSIS,
+        AnalysisType_DATABASE_ANALYSIS,
+        AnalysisType_RUNTIME_ANALYSIS,
+        AnalysisType_SOURCE_CODE_ANALYSIS
       ),
   )
 where
@@ -31,8 +32,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype DataSourceType = DataSourceType'
-  { fromDataSourceType ::
+newtype AnalysisType = AnalysisType'
+  { fromAnalysisType ::
       Data.Text
   }
   deriving stock
@@ -59,18 +60,22 @@ newtype DataSourceType = DataSourceType'
       Data.ToXML
     )
 
-pattern DataSourceType_ApplicationDiscoveryService :: DataSourceType
-pattern DataSourceType_ApplicationDiscoveryService = DataSourceType' "ApplicationDiscoveryService"
+pattern AnalysisType_BINARY_ANALYSIS :: AnalysisType
+pattern AnalysisType_BINARY_ANALYSIS = AnalysisType' "BINARY_ANALYSIS"
 
-pattern DataSourceType_Import :: DataSourceType
-pattern DataSourceType_Import = DataSourceType' "Import"
+pattern AnalysisType_DATABASE_ANALYSIS :: AnalysisType
+pattern AnalysisType_DATABASE_ANALYSIS = AnalysisType' "DATABASE_ANALYSIS"
 
-pattern DataSourceType_MPA :: DataSourceType
-pattern DataSourceType_MPA = DataSourceType' "MPA"
+pattern AnalysisType_RUNTIME_ANALYSIS :: AnalysisType
+pattern AnalysisType_RUNTIME_ANALYSIS = AnalysisType' "RUNTIME_ANALYSIS"
+
+pattern AnalysisType_SOURCE_CODE_ANALYSIS :: AnalysisType
+pattern AnalysisType_SOURCE_CODE_ANALYSIS = AnalysisType' "SOURCE_CODE_ANALYSIS"
 
 {-# COMPLETE
-  DataSourceType_ApplicationDiscoveryService,
-  DataSourceType_Import,
-  DataSourceType_MPA,
-  DataSourceType'
+  AnalysisType_BINARY_ANALYSIS,
+  AnalysisType_DATABASE_ANALYSIS,
+  AnalysisType_RUNTIME_ANALYSIS,
+  AnalysisType_SOURCE_CODE_ANALYSIS,
+  AnalysisType'
   #-}

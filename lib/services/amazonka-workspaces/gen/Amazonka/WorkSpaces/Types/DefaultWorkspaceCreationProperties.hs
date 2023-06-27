@@ -174,7 +174,8 @@ instance
   hashWithSalt
     _salt
     DefaultWorkspaceCreationProperties' {..} =
-      _salt `Prelude.hashWithSalt` customSecurityGroupId
+      _salt
+        `Prelude.hashWithSalt` customSecurityGroupId
         `Prelude.hashWithSalt` defaultOu
         `Prelude.hashWithSalt` enableInternetAccess
         `Prelude.hashWithSalt` enableMaintenanceMode

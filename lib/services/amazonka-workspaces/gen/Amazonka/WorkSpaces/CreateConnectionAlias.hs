@@ -125,7 +125,8 @@ instance Core.AWSRequest CreateConnectionAlias where
 
 instance Prelude.Hashable CreateConnectionAlias where
   hashWithSalt _salt CreateConnectionAlias' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` connectionString
 
 instance Prelude.NFData CreateConnectionAlias where

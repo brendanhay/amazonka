@@ -186,7 +186,8 @@ instance Core.AWSRequest ImportClientBranding where
 
 instance Prelude.Hashable ImportClientBranding where
   hashWithSalt _salt ImportClientBranding' {..} =
-    _salt `Prelude.hashWithSalt` deviceTypeAndroid
+    _salt
+      `Prelude.hashWithSalt` deviceTypeAndroid
       `Prelude.hashWithSalt` deviceTypeIos
       `Prelude.hashWithSalt` deviceTypeLinux
       `Prelude.hashWithSalt` deviceTypeOsx

@@ -20,11 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports the specified Windows 10 Bring Your Own License (BYOL) or
--- Windows Server 2016 BYOL image into Amazon WorkSpaces. The image must be
--- an already licensed Amazon EC2 image that is in your Amazon Web Services
--- account, and you must own the image. For more information about creating
--- BYOL images, see
+-- Imports the specified Windows 10 or 11 Bring Your Own License (BYOL)
+-- image into Amazon WorkSpaces. The image must be an already licensed
+-- Amazon EC2 image that is in your Amazon Web Services account, and you
+-- must own the image. For more information about creating BYOL images, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses>.
 module Amazonka.WorkSpaces.ImportWorkspaceImage
   ( -- * Creating a Request
@@ -60,12 +59,14 @@ import Amazonka.WorkSpaces.Types
 -- | /See:/ 'newImportWorkspaceImage' smart constructor.
 data ImportWorkspaceImage = ImportWorkspaceImage'
   { -- | If specified, the version of Microsoft Office to subscribe to. Valid
-    -- only for Windows 10 BYOL images. For more information about subscribing
-    -- to Office for BYOL images, see
+    -- only for Windows 10 and 11 BYOL images. For more information about
+    -- subscribing to Office for BYOL images, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses>.
     --
-    -- Although this parameter is an array, only one item is allowed at this
-    -- time.
+    -- -   Although this parameter is an array, only one item is allowed at
+    --     this time.
+    --
+    -- -   Windows 11 only supports @Microsoft_Office_2019@.
     applications :: Prelude.Maybe (Prelude.NonEmpty Application),
     -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
     tags :: Prelude.Maybe [Tag],
@@ -103,12 +104,14 @@ data ImportWorkspaceImage = ImportWorkspaceImage'
 -- for backwards compatibility:
 --
 -- 'applications', 'importWorkspaceImage_applications' - If specified, the version of Microsoft Office to subscribe to. Valid
--- only for Windows 10 BYOL images. For more information about subscribing
--- to Office for BYOL images, see
+-- only for Windows 10 and 11 BYOL images. For more information about
+-- subscribing to Office for BYOL images, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses>.
 --
--- Although this parameter is an array, only one item is allowed at this
--- time.
+-- -   Although this parameter is an array, only one item is allowed at
+--     this time.
+--
+-- -   Windows 11 only supports @Microsoft_Office_2019@.
 --
 -- 'tags', 'importWorkspaceImage_tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
 --
@@ -159,12 +162,14 @@ newImportWorkspaceImage
       }
 
 -- | If specified, the version of Microsoft Office to subscribe to. Valid
--- only for Windows 10 BYOL images. For more information about subscribing
--- to Office for BYOL images, see
+-- only for Windows 10 and 11 BYOL images. For more information about
+-- subscribing to Office for BYOL images, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses>.
 --
--- Although this parameter is an array, only one item is allowed at this
--- time.
+-- -   Although this parameter is an array, only one item is allowed at
+--     this time.
+--
+-- -   Windows 11 only supports @Microsoft_Office_2019@.
 importWorkspaceImage_applications :: Lens.Lens' ImportWorkspaceImage (Prelude.Maybe (Prelude.NonEmpty Application))
 importWorkspaceImage_applications = Lens.lens (\ImportWorkspaceImage' {applications} -> applications) (\s@ImportWorkspaceImage' {} a -> s {applications = a} :: ImportWorkspaceImage) Prelude.. Lens.mapping Lens.coerced
 
@@ -218,7 +223,8 @@ instance Core.AWSRequest ImportWorkspaceImage where
 
 instance Prelude.Hashable ImportWorkspaceImage where
   hashWithSalt _salt ImportWorkspaceImage' {..} =
-    _salt `Prelude.hashWithSalt` applications
+    _salt
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ec2ImageId
       `Prelude.hashWithSalt` ingestionProcess

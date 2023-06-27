@@ -111,7 +111,8 @@ instance Core.AWSRequest AssociateConnectionAlias where
 
 instance Prelude.Hashable AssociateConnectionAlias where
   hashWithSalt _salt AssociateConnectionAlias' {..} =
-    _salt `Prelude.hashWithSalt` aliasId
+    _salt
+      `Prelude.hashWithSalt` aliasId
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData AssociateConnectionAlias where

@@ -110,22 +110,22 @@ instance Core.AWSPager DescribeWorkspaceDirectories where
     | Core.stop
         ( rs
             Lens.^? describeWorkspaceDirectoriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeWorkspaceDirectoriesResponse_directories
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeWorkspaceDirectories_nextToken
           Lens..~ rs
           Lens.^? describeWorkspaceDirectoriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeWorkspaceDirectories where
   type
@@ -147,7 +147,8 @@ instance
     DescribeWorkspaceDirectories
   where
   hashWithSalt _salt DescribeWorkspaceDirectories' {..} =
-    _salt `Prelude.hashWithSalt` directoryIds
+    _salt
+      `Prelude.hashWithSalt` directoryIds
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
 

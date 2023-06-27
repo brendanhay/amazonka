@@ -239,7 +239,8 @@ instance
   hashWithSalt
     _salt
     IosImportClientBrandingAttributes' {..} =
-      _salt `Prelude.hashWithSalt` forgotPasswordLink
+      _salt
+        `Prelude.hashWithSalt` forgotPasswordLink
         `Prelude.hashWithSalt` loginMessage
         `Prelude.hashWithSalt` logo
         `Prelude.hashWithSalt` logo2x

@@ -156,7 +156,8 @@ instance Data.FromJSON WorkspaceAccessProperties where
 
 instance Prelude.Hashable WorkspaceAccessProperties where
   hashWithSalt _salt WorkspaceAccessProperties' {..} =
-    _salt `Prelude.hashWithSalt` deviceTypeAndroid
+    _salt
+      `Prelude.hashWithSalt` deviceTypeAndroid
       `Prelude.hashWithSalt` deviceTypeChromeOs
       `Prelude.hashWithSalt` deviceTypeIos
       `Prelude.hashWithSalt` deviceTypeLinux

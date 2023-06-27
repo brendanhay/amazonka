@@ -302,7 +302,8 @@ instance Data.FromJSON WorkspaceDirectory where
 
 instance Prelude.Hashable WorkspaceDirectory where
   hashWithSalt _salt WorkspaceDirectory' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` certificateBasedAuthProperties
       `Prelude.hashWithSalt` customerUserName
       `Prelude.hashWithSalt` directoryId

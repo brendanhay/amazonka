@@ -25,17 +25,17 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.Tag
 
--- | Describes a Standby WorkSpace.
+-- | Describes a standby WorkSpace.
 --
 -- /See:/ 'newStandbyWorkspace' smart constructor.
 data StandbyWorkspace = StandbyWorkspace'
-  { -- | The tags associated with the Standby WorkSpace.
+  { -- | The tags associated with the standby WorkSpace.
     tags :: Prelude.Maybe [Tag],
-    -- | The volume encryption key of the Standby WorkSpace.
+    -- | The volume encryption key of the standby WorkSpace.
     volumeEncryptionKey :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Standby WorkSpace.
+    -- | The identifier of the standby WorkSpace.
     primaryWorkspaceId :: Prelude.Text,
-    -- | The identifier of the directory for the Standby WorkSpace.
+    -- | The identifier of the directory for the standby WorkSpace.
     directoryId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,13 +48,13 @@ data StandbyWorkspace = StandbyWorkspace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'standbyWorkspace_tags' - The tags associated with the Standby WorkSpace.
+-- 'tags', 'standbyWorkspace_tags' - The tags associated with the standby WorkSpace.
 --
--- 'volumeEncryptionKey', 'standbyWorkspace_volumeEncryptionKey' - The volume encryption key of the Standby WorkSpace.
+-- 'volumeEncryptionKey', 'standbyWorkspace_volumeEncryptionKey' - The volume encryption key of the standby WorkSpace.
 --
--- 'primaryWorkspaceId', 'standbyWorkspace_primaryWorkspaceId' - The identifier of the Standby WorkSpace.
+-- 'primaryWorkspaceId', 'standbyWorkspace_primaryWorkspaceId' - The identifier of the standby WorkSpace.
 --
--- 'directoryId', 'standbyWorkspace_directoryId' - The identifier of the directory for the Standby WorkSpace.
+-- 'directoryId', 'standbyWorkspace_directoryId' - The identifier of the directory for the standby WorkSpace.
 newStandbyWorkspace ::
   -- | 'primaryWorkspaceId'
   Prelude.Text ->
@@ -71,19 +71,19 @@ newStandbyWorkspace
         directoryId = pDirectoryId_
       }
 
--- | The tags associated with the Standby WorkSpace.
+-- | The tags associated with the standby WorkSpace.
 standbyWorkspace_tags :: Lens.Lens' StandbyWorkspace (Prelude.Maybe [Tag])
 standbyWorkspace_tags = Lens.lens (\StandbyWorkspace' {tags} -> tags) (\s@StandbyWorkspace' {} a -> s {tags = a} :: StandbyWorkspace) Prelude.. Lens.mapping Lens.coerced
 
--- | The volume encryption key of the Standby WorkSpace.
+-- | The volume encryption key of the standby WorkSpace.
 standbyWorkspace_volumeEncryptionKey :: Lens.Lens' StandbyWorkspace (Prelude.Maybe Prelude.Text)
 standbyWorkspace_volumeEncryptionKey = Lens.lens (\StandbyWorkspace' {volumeEncryptionKey} -> volumeEncryptionKey) (\s@StandbyWorkspace' {} a -> s {volumeEncryptionKey = a} :: StandbyWorkspace)
 
--- | The identifier of the Standby WorkSpace.
+-- | The identifier of the standby WorkSpace.
 standbyWorkspace_primaryWorkspaceId :: Lens.Lens' StandbyWorkspace Prelude.Text
 standbyWorkspace_primaryWorkspaceId = Lens.lens (\StandbyWorkspace' {primaryWorkspaceId} -> primaryWorkspaceId) (\s@StandbyWorkspace' {} a -> s {primaryWorkspaceId = a} :: StandbyWorkspace)
 
--- | The identifier of the directory for the Standby WorkSpace.
+-- | The identifier of the directory for the standby WorkSpace.
 standbyWorkspace_directoryId :: Lens.Lens' StandbyWorkspace Prelude.Text
 standbyWorkspace_directoryId = Lens.lens (\StandbyWorkspace' {directoryId} -> directoryId) (\s@StandbyWorkspace' {} a -> s {directoryId = a} :: StandbyWorkspace)
 
@@ -101,7 +101,8 @@ instance Data.FromJSON StandbyWorkspace where
 
 instance Prelude.Hashable StandbyWorkspace where
   hashWithSalt _salt StandbyWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeEncryptionKey
       `Prelude.hashWithSalt` primaryWorkspaceId
       `Prelude.hashWithSalt` directoryId

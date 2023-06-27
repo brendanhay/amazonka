@@ -111,7 +111,8 @@ instance
     ModifySelfservicePermissions
   where
   hashWithSalt _salt ModifySelfservicePermissions' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` selfservicePermissions
 
 instance Prelude.NFData ModifySelfservicePermissions where

@@ -27,7 +27,7 @@ import Amazonka.WorkSpaces.Types.StandbyWorkspaceRelationshipType
 import Amazonka.WorkSpaces.Types.WorkspaceState
 
 -- | Describes the related WorkSpace. The related WorkSpace could be a
--- Standby WorkSpace or Primary WorkSpace related to the specified
+-- standby WorkSpace or primary WorkSpace related to the specified
 -- WorkSpace.
 --
 -- /See:/ 'newRelatedWorkspaceProperties' smart constructor.
@@ -99,7 +99,8 @@ instance Data.FromJSON RelatedWorkspaceProperties where
 
 instance Prelude.Hashable RelatedWorkspaceProperties where
   hashWithSalt _salt RelatedWorkspaceProperties' {..} =
-    _salt `Prelude.hashWithSalt` region
+    _salt
+      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` workspaceId

@@ -76,7 +76,8 @@ instance Data.FromJSON ClientPropertiesResult where
 
 instance Prelude.Hashable ClientPropertiesResult where
   hashWithSalt _salt ClientPropertiesResult' {..} =
-    _salt `Prelude.hashWithSalt` clientProperties
+    _salt
+      `Prelude.hashWithSalt` clientProperties
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ClientPropertiesResult where

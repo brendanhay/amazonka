@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteClientBranding where
 
 instance Prelude.Hashable DeleteClientBranding where
   hashWithSalt _salt DeleteClientBranding' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` platforms
 
 instance Prelude.NFData DeleteClientBranding where

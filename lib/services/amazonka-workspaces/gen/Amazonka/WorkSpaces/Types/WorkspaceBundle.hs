@@ -185,7 +185,8 @@ instance Data.FromJSON WorkspaceBundle where
 
 instance Prelude.Hashable WorkspaceBundle where
   hashWithSalt _salt WorkspaceBundle' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` bundleType
       `Prelude.hashWithSalt` computeType
       `Prelude.hashWithSalt` creationTime

@@ -225,7 +225,8 @@ instance Data.FromJSON IosClientBrandingAttributes where
 
 instance Prelude.Hashable IosClientBrandingAttributes where
   hashWithSalt _salt IosClientBrandingAttributes' {..} =
-    _salt `Prelude.hashWithSalt` forgotPasswordLink
+    _salt
+      `Prelude.hashWithSalt` forgotPasswordLink
       `Prelude.hashWithSalt` loginMessage
       `Prelude.hashWithSalt` logo2xUrl
       `Prelude.hashWithSalt` logo3xUrl

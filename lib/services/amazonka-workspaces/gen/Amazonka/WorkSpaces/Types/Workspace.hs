@@ -49,7 +49,7 @@ data Workspace = Workspace'
     ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The modification states of the WorkSpace.
     modificationStates :: Prelude.Maybe [ModificationState],
-    -- | The Standby WorkSpace or Primary WorkSpace related to the specified
+    -- | The standby WorkSpace or primary WorkSpace related to the specified
     -- WorkSpace.
     relatedWorkspaces :: Prelude.Maybe [RelatedWorkspaceProperties],
     -- | Indicates whether the data stored on the root volume is encrypted.
@@ -105,7 +105,7 @@ data Workspace = Workspace'
 --
 -- 'modificationStates', 'workspace_modificationStates' - The modification states of the WorkSpace.
 --
--- 'relatedWorkspaces', 'workspace_relatedWorkspaces' - The Standby WorkSpace or Primary WorkSpace related to the specified
+-- 'relatedWorkspaces', 'workspace_relatedWorkspaces' - The standby WorkSpace or primary WorkSpace related to the specified
 -- WorkSpace.
 --
 -- 'rootVolumeEncryptionEnabled', 'workspace_rootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
@@ -185,7 +185,7 @@ workspace_ipAddress = Lens.lens (\Workspace' {ipAddress} -> ipAddress) (\s@Works
 workspace_modificationStates :: Lens.Lens' Workspace (Prelude.Maybe [ModificationState])
 workspace_modificationStates = Lens.lens (\Workspace' {modificationStates} -> modificationStates) (\s@Workspace' {} a -> s {modificationStates = a} :: Workspace) Prelude.. Lens.mapping Lens.coerced
 
--- | The Standby WorkSpace or Primary WorkSpace related to the specified
+-- | The standby WorkSpace or primary WorkSpace related to the specified
 -- WorkSpace.
 workspace_relatedWorkspaces :: Lens.Lens' Workspace (Prelude.Maybe [RelatedWorkspaceProperties])
 workspace_relatedWorkspaces = Lens.lens (\Workspace' {relatedWorkspaces} -> relatedWorkspaces) (\s@Workspace' {} a -> s {relatedWorkspaces = a} :: Workspace) Prelude.. Lens.mapping Lens.coerced
@@ -243,10 +243,12 @@ instance Data.FromJSON Workspace where
             Prelude.<*> (x Data..:? "ErrorCode")
             Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "IpAddress")
-            Prelude.<*> ( x Data..:? "ModificationStates"
+            Prelude.<*> ( x
+                            Data..:? "ModificationStates"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "RelatedWorkspaces"
+            Prelude.<*> ( x
+                            Data..:? "RelatedWorkspaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RootVolumeEncryptionEnabled")
@@ -261,7 +263,8 @@ instance Data.FromJSON Workspace where
 
 instance Prelude.Hashable Workspace where
   hashWithSalt _salt Workspace' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` computerName
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` errorCode

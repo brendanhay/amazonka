@@ -156,7 +156,8 @@ instance Core.AWSRequest CopyWorkspaceImage where
 
 instance Prelude.Hashable CopyWorkspaceImage where
   hashWithSalt _salt CopyWorkspaceImage' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceImageId

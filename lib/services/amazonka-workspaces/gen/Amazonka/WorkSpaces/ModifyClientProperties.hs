@@ -104,7 +104,8 @@ instance Core.AWSRequest ModifyClientProperties where
 
 instance Prelude.Hashable ModifyClientProperties where
   hashWithSalt _salt ModifyClientProperties' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` clientProperties
 
 instance Prelude.NFData ModifyClientProperties where

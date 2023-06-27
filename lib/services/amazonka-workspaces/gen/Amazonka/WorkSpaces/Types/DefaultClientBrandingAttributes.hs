@@ -171,7 +171,8 @@ instance
   hashWithSalt
     _salt
     DefaultClientBrandingAttributes' {..} =
-      _salt `Prelude.hashWithSalt` forgotPasswordLink
+      _salt
+        `Prelude.hashWithSalt` forgotPasswordLink
         `Prelude.hashWithSalt` loginMessage
         `Prelude.hashWithSalt` logoUrl
         `Prelude.hashWithSalt` supportEmail

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Standby WorkSpace in a secondary region.
+-- Creates a standby WorkSpace in a secondary Region.
 module Amazonka.WorkSpaces.CreateStandbyWorkspaces
   ( -- * Creating a Request
     CreateStandbyWorkspaces (..),
@@ -53,7 +53,7 @@ import Amazonka.WorkSpaces.Types
 data CreateStandbyWorkspaces = CreateStandbyWorkspaces'
   { -- | The Region of the primary WorkSpace.
     primaryRegion :: Prelude.Text,
-    -- | Information about the Standby WorkSpace to be created.
+    -- | Information about the standby WorkSpace to be created.
     standbyWorkspaces :: [StandbyWorkspace]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data CreateStandbyWorkspaces = CreateStandbyWorkspaces'
 --
 -- 'primaryRegion', 'createStandbyWorkspaces_primaryRegion' - The Region of the primary WorkSpace.
 --
--- 'standbyWorkspaces', 'createStandbyWorkspaces_standbyWorkspaces' - Information about the Standby WorkSpace to be created.
+-- 'standbyWorkspaces', 'createStandbyWorkspaces_standbyWorkspaces' - Information about the standby WorkSpace to be created.
 newCreateStandbyWorkspaces ::
   -- | 'primaryRegion'
   Prelude.Text ->
@@ -84,7 +84,7 @@ newCreateStandbyWorkspaces pPrimaryRegion_ =
 createStandbyWorkspaces_primaryRegion :: Lens.Lens' CreateStandbyWorkspaces Prelude.Text
 createStandbyWorkspaces_primaryRegion = Lens.lens (\CreateStandbyWorkspaces' {primaryRegion} -> primaryRegion) (\s@CreateStandbyWorkspaces' {} a -> s {primaryRegion = a} :: CreateStandbyWorkspaces)
 
--- | Information about the Standby WorkSpace to be created.
+-- | Information about the standby WorkSpace to be created.
 createStandbyWorkspaces_standbyWorkspaces :: Lens.Lens' CreateStandbyWorkspaces [StandbyWorkspace]
 createStandbyWorkspaces_standbyWorkspaces = Lens.lens (\CreateStandbyWorkspaces' {standbyWorkspaces} -> standbyWorkspaces) (\s@CreateStandbyWorkspaces' {} a -> s {standbyWorkspaces = a} :: CreateStandbyWorkspaces) Prelude.. Lens.coerced
 
@@ -98,10 +98,12 @@ instance Core.AWSRequest CreateStandbyWorkspaces where
     Response.receiveJSON
       ( \s h x ->
           CreateStandbyWorkspacesResponse'
-            Prelude.<$> ( x Data..?> "FailedStandbyRequests"
+            Prelude.<$> ( x
+                            Data..?> "FailedStandbyRequests"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "PendingStandbyRequests"
+            Prelude.<*> ( x
+                            Data..?> "PendingStandbyRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -109,7 +111,8 @@ instance Core.AWSRequest CreateStandbyWorkspaces where
 
 instance Prelude.Hashable CreateStandbyWorkspaces where
   hashWithSalt _salt CreateStandbyWorkspaces' {..} =
-    _salt `Prelude.hashWithSalt` primaryRegion
+    _salt
+      `Prelude.hashWithSalt` primaryRegion
       `Prelude.hashWithSalt` standbyWorkspaces
 
 instance Prelude.NFData CreateStandbyWorkspaces where
@@ -151,9 +154,9 @@ instance Data.ToQuery CreateStandbyWorkspaces where
 
 -- | /See:/ 'newCreateStandbyWorkspacesResponse' smart constructor.
 data CreateStandbyWorkspacesResponse = CreateStandbyWorkspacesResponse'
-  { -- | Information about the Standby WorkSpace that could not be created.
+  { -- | Information about the standby WorkSpace that could not be created.
     failedStandbyRequests :: Prelude.Maybe [FailedCreateStandbyWorkspacesRequest],
-    -- | Information about the Standby WorkSpace that was created.
+    -- | Information about the standby WorkSpace that was created.
     pendingStandbyRequests :: Prelude.Maybe [PendingCreateStandbyWorkspacesRequest],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -168,9 +171,9 @@ data CreateStandbyWorkspacesResponse = CreateStandbyWorkspacesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failedStandbyRequests', 'createStandbyWorkspacesResponse_failedStandbyRequests' - Information about the Standby WorkSpace that could not be created.
+-- 'failedStandbyRequests', 'createStandbyWorkspacesResponse_failedStandbyRequests' - Information about the standby WorkSpace that could not be created.
 --
--- 'pendingStandbyRequests', 'createStandbyWorkspacesResponse_pendingStandbyRequests' - Information about the Standby WorkSpace that was created.
+-- 'pendingStandbyRequests', 'createStandbyWorkspacesResponse_pendingStandbyRequests' - Information about the standby WorkSpace that was created.
 --
 -- 'httpStatus', 'createStandbyWorkspacesResponse_httpStatus' - The response's http status code.
 newCreateStandbyWorkspacesResponse ::
@@ -185,11 +188,11 @@ newCreateStandbyWorkspacesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about the Standby WorkSpace that could not be created.
+-- | Information about the standby WorkSpace that could not be created.
 createStandbyWorkspacesResponse_failedStandbyRequests :: Lens.Lens' CreateStandbyWorkspacesResponse (Prelude.Maybe [FailedCreateStandbyWorkspacesRequest])
 createStandbyWorkspacesResponse_failedStandbyRequests = Lens.lens (\CreateStandbyWorkspacesResponse' {failedStandbyRequests} -> failedStandbyRequests) (\s@CreateStandbyWorkspacesResponse' {} a -> s {failedStandbyRequests = a} :: CreateStandbyWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about the Standby WorkSpace that was created.
+-- | Information about the standby WorkSpace that was created.
 createStandbyWorkspacesResponse_pendingStandbyRequests :: Lens.Lens' CreateStandbyWorkspacesResponse (Prelude.Maybe [PendingCreateStandbyWorkspacesRequest])
 createStandbyWorkspacesResponse_pendingStandbyRequests = Lens.lens (\CreateStandbyWorkspacesResponse' {pendingStandbyRequests} -> pendingStandbyRequests) (\s@CreateStandbyWorkspacesResponse' {} a -> s {pendingStandbyRequests = a} :: CreateStandbyWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 

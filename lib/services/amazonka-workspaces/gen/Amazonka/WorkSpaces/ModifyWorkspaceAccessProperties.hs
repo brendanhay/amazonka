@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     ModifyWorkspaceAccessProperties' {..} =
-      _salt `Prelude.hashWithSalt` resourceId
+      _salt
+        `Prelude.hashWithSalt` resourceId
         `Prelude.hashWithSalt` workspaceAccessProperties
 
 instance

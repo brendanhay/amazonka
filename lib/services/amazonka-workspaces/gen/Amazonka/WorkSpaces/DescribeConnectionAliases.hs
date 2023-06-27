@@ -128,7 +128,8 @@ instance Core.AWSRequest DescribeConnectionAliases where
 
 instance Prelude.Hashable DescribeConnectionAliases where
   hashWithSalt _salt DescribeConnectionAliases' {..} =
-    _salt `Prelude.hashWithSalt` aliasIds
+    _salt
+      `Prelude.hashWithSalt` aliasIds
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId

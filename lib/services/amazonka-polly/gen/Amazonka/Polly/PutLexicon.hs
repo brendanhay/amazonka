@@ -113,7 +113,8 @@ instance Core.AWSRequest PutLexicon where
 
 instance Prelude.Hashable PutLexicon where
   hashWithSalt _salt PutLexicon' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData PutLexicon where

@@ -31,6 +31,7 @@ module Amazonka.Polly.Types.LanguageCode
         LanguageCode_En_AU,
         LanguageCode_En_GB,
         LanguageCode_En_GB_WLS,
+        LanguageCode_En_IE,
         LanguageCode_En_IN,
         LanguageCode_En_NZ,
         LanguageCode_En_US,
@@ -125,6 +126,9 @@ pattern LanguageCode_En_GB = LanguageCode' "en-GB"
 pattern LanguageCode_En_GB_WLS :: LanguageCode
 pattern LanguageCode_En_GB_WLS = LanguageCode' "en-GB-WLS"
 
+pattern LanguageCode_En_IE :: LanguageCode
+pattern LanguageCode_En_IE = LanguageCode' "en-IE"
+
 pattern LanguageCode_En_IN :: LanguageCode
 pattern LanguageCode_En_IN = LanguageCode' "en-IN"
 
@@ -212,6 +216,7 @@ pattern LanguageCode_Yue_CN = LanguageCode' "yue-CN"
   LanguageCode_En_AU,
   LanguageCode_En_GB,
   LanguageCode_En_GB_WLS,
+  LanguageCode_En_IE,
   LanguageCode_En_IN,
   LanguageCode_En_NZ,
   LanguageCode_En_US,

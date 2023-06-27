@@ -108,22 +108,22 @@ instance Core.AWSPager ListSpeechSynthesisTasks where
     | Core.stop
         ( rs
             Lens.^? listSpeechSynthesisTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSpeechSynthesisTasksResponse_synthesisTasks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSpeechSynthesisTasks_nextToken
           Lens..~ rs
           Lens.^? listSpeechSynthesisTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpeechSynthesisTasks where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest ListSpeechSynthesisTasks where
 
 instance Prelude.Hashable ListSpeechSynthesisTasks where
   hashWithSalt _salt ListSpeechSynthesisTasks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
 

@@ -126,7 +126,8 @@ instance Data.FromJSON LexiconAttributes where
 
 instance Prelude.Hashable LexiconAttributes where
   hashWithSalt _salt LexiconAttributes' {..} =
-    _salt `Prelude.hashWithSalt` alphabet
+    _salt
+      `Prelude.hashWithSalt` alphabet
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` lexemesCount

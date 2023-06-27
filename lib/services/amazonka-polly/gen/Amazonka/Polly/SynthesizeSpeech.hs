@@ -344,7 +344,8 @@ instance Core.AWSRequest SynthesizeSpeech where
 
 instance Prelude.Hashable SynthesizeSpeech where
   hashWithSalt _salt SynthesizeSpeech' {..} =
-    _salt `Prelude.hashWithSalt` engine
+    _salt
+      `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` lexiconNames
       `Prelude.hashWithSalt` sampleRate

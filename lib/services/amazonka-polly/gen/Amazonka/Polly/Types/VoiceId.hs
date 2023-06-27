@@ -21,7 +21,9 @@ module Amazonka.Polly.Types.VoiceId
   ( VoiceId
       ( ..,
         VoiceId_Aditi,
+        VoiceId_Adriano,
         VoiceId_Amy,
+        VoiceId_Andres,
         VoiceId_Aria,
         VoiceId_Arlet,
         VoiceId_Arthur,
@@ -61,6 +63,7 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Justin,
         VoiceId_Kajal,
         VoiceId_Karl,
+        VoiceId_Kazuha,
         VoiceId_Kendra,
         VoiceId_Kevin,
         VoiceId_Kimberly,
@@ -81,20 +84,28 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Miguel,
         VoiceId_Mizuki,
         VoiceId_Naja,
+        VoiceId_Niamh,
         VoiceId_Nicole,
         VoiceId_Ola,
         VoiceId_Olivia,
         VoiceId_Pedro,
         VoiceId_Penelope,
         VoiceId_Raveena,
+        VoiceId_Remi,
         VoiceId_Ricardo,
         VoiceId_Ruben,
         VoiceId_Russell,
+        VoiceId_Ruth,
         VoiceId_Salli,
         VoiceId_Seoyeon,
+        VoiceId_Sergio,
+        VoiceId_Sofie,
+        VoiceId_Stephen,
         VoiceId_Suvi,
         VoiceId_Takumi,
         VoiceId_Tatyana,
+        VoiceId_Thiago,
+        VoiceId_Tomoko,
         VoiceId_Vicki,
         VoiceId_Vitoria,
         VoiceId_Zeina,
@@ -135,8 +146,14 @@ newtype VoiceId = VoiceId' {fromVoiceId :: Data.Text}
 pattern VoiceId_Aditi :: VoiceId
 pattern VoiceId_Aditi = VoiceId' "Aditi"
 
+pattern VoiceId_Adriano :: VoiceId
+pattern VoiceId_Adriano = VoiceId' "Adriano"
+
 pattern VoiceId_Amy :: VoiceId
 pattern VoiceId_Amy = VoiceId' "Amy"
+
+pattern VoiceId_Andres :: VoiceId
+pattern VoiceId_Andres = VoiceId' "Andres"
 
 pattern VoiceId_Aria :: VoiceId
 pattern VoiceId_Aria = VoiceId' "Aria"
@@ -255,6 +272,9 @@ pattern VoiceId_Kajal = VoiceId' "Kajal"
 pattern VoiceId_Karl :: VoiceId
 pattern VoiceId_Karl = VoiceId' "Karl"
 
+pattern VoiceId_Kazuha :: VoiceId
+pattern VoiceId_Kazuha = VoiceId' "Kazuha"
+
 pattern VoiceId_Kendra :: VoiceId
 pattern VoiceId_Kendra = VoiceId' "Kendra"
 
@@ -315,6 +335,9 @@ pattern VoiceId_Mizuki = VoiceId' "Mizuki"
 pattern VoiceId_Naja :: VoiceId
 pattern VoiceId_Naja = VoiceId' "Naja"
 
+pattern VoiceId_Niamh :: VoiceId
+pattern VoiceId_Niamh = VoiceId' "Niamh"
+
 pattern VoiceId_Nicole :: VoiceId
 pattern VoiceId_Nicole = VoiceId' "Nicole"
 
@@ -333,6 +356,9 @@ pattern VoiceId_Penelope = VoiceId' "Penelope"
 pattern VoiceId_Raveena :: VoiceId
 pattern VoiceId_Raveena = VoiceId' "Raveena"
 
+pattern VoiceId_Remi :: VoiceId
+pattern VoiceId_Remi = VoiceId' "Remi"
+
 pattern VoiceId_Ricardo :: VoiceId
 pattern VoiceId_Ricardo = VoiceId' "Ricardo"
 
@@ -342,11 +368,23 @@ pattern VoiceId_Ruben = VoiceId' "Ruben"
 pattern VoiceId_Russell :: VoiceId
 pattern VoiceId_Russell = VoiceId' "Russell"
 
+pattern VoiceId_Ruth :: VoiceId
+pattern VoiceId_Ruth = VoiceId' "Ruth"
+
 pattern VoiceId_Salli :: VoiceId
 pattern VoiceId_Salli = VoiceId' "Salli"
 
 pattern VoiceId_Seoyeon :: VoiceId
 pattern VoiceId_Seoyeon = VoiceId' "Seoyeon"
+
+pattern VoiceId_Sergio :: VoiceId
+pattern VoiceId_Sergio = VoiceId' "Sergio"
+
+pattern VoiceId_Sofie :: VoiceId
+pattern VoiceId_Sofie = VoiceId' "Sofie"
+
+pattern VoiceId_Stephen :: VoiceId
+pattern VoiceId_Stephen = VoiceId' "Stephen"
 
 pattern VoiceId_Suvi :: VoiceId
 pattern VoiceId_Suvi = VoiceId' "Suvi"
@@ -356,6 +394,12 @@ pattern VoiceId_Takumi = VoiceId' "Takumi"
 
 pattern VoiceId_Tatyana :: VoiceId
 pattern VoiceId_Tatyana = VoiceId' "Tatyana"
+
+pattern VoiceId_Thiago :: VoiceId
+pattern VoiceId_Thiago = VoiceId' "Thiago"
+
+pattern VoiceId_Tomoko :: VoiceId
+pattern VoiceId_Tomoko = VoiceId' "Tomoko"
 
 pattern VoiceId_Vicki :: VoiceId
 pattern VoiceId_Vicki = VoiceId' "Vicki"
@@ -371,7 +415,9 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
 
 {-# COMPLETE
   VoiceId_Aditi,
+  VoiceId_Adriano,
   VoiceId_Amy,
+  VoiceId_Andres,
   VoiceId_Aria,
   VoiceId_Arlet,
   VoiceId_Arthur,
@@ -411,6 +457,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Justin,
   VoiceId_Kajal,
   VoiceId_Karl,
+  VoiceId_Kazuha,
   VoiceId_Kendra,
   VoiceId_Kevin,
   VoiceId_Kimberly,
@@ -431,20 +478,28 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Miguel,
   VoiceId_Mizuki,
   VoiceId_Naja,
+  VoiceId_Niamh,
   VoiceId_Nicole,
   VoiceId_Ola,
   VoiceId_Olivia,
   VoiceId_Pedro,
   VoiceId_Penelope,
   VoiceId_Raveena,
+  VoiceId_Remi,
   VoiceId_Ricardo,
   VoiceId_Ruben,
   VoiceId_Russell,
+  VoiceId_Ruth,
   VoiceId_Salli,
   VoiceId_Seoyeon,
+  VoiceId_Sergio,
+  VoiceId_Sofie,
+  VoiceId_Stephen,
   VoiceId_Suvi,
   VoiceId_Takumi,
   VoiceId_Tatyana,
+  VoiceId_Thiago,
+  VoiceId_Tomoko,
   VoiceId_Vicki,
   VoiceId_Vitoria,
   VoiceId_Zeina,

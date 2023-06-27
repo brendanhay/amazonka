@@ -75,7 +75,8 @@ instance Data.FromJSON LexiconDescription where
 
 instance Prelude.Hashable LexiconDescription where
   hashWithSalt _salt LexiconDescription' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData LexiconDescription where

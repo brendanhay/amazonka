@@ -25,13 +25,17 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.ComponentType
 
--- |
+-- | The summary of the component.
 --
 -- /See:/ 'newComponentSummary' smart constructor.
 data ComponentSummary = ComponentSummary'
-  { applicationId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the application.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the component.
     componentId :: Prelude.Maybe Prelude.Text,
+    -- | The type of the component.
     componentType :: Prelude.Maybe ComponentType,
+    -- | The tags of the component.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,13 +48,13 @@ data ComponentSummary = ComponentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'componentSummary_applicationId' -
+-- 'applicationId', 'componentSummary_applicationId' - The ID of the application.
 --
--- 'componentId', 'componentSummary_componentId' -
+-- 'componentId', 'componentSummary_componentId' - The ID of the component.
 --
--- 'componentType', 'componentSummary_componentType' -
+-- 'componentType', 'componentSummary_componentType' - The type of the component.
 --
--- 'tags', 'componentSummary_tags' -
+-- 'tags', 'componentSummary_tags' - The tags of the component.
 newComponentSummary ::
   ComponentSummary
 newComponentSummary =
@@ -61,19 +65,19 @@ newComponentSummary =
       tags = Prelude.Nothing
     }
 
--- |
+-- | The ID of the application.
 componentSummary_applicationId :: Lens.Lens' ComponentSummary (Prelude.Maybe Prelude.Text)
 componentSummary_applicationId = Lens.lens (\ComponentSummary' {applicationId} -> applicationId) (\s@ComponentSummary' {} a -> s {applicationId = a} :: ComponentSummary)
 
--- |
+-- | The ID of the component.
 componentSummary_componentId :: Lens.Lens' ComponentSummary (Prelude.Maybe Prelude.Text)
 componentSummary_componentId = Lens.lens (\ComponentSummary' {componentId} -> componentId) (\s@ComponentSummary' {} a -> s {componentId = a} :: ComponentSummary)
 
--- |
+-- | The type of the component.
 componentSummary_componentType :: Lens.Lens' ComponentSummary (Prelude.Maybe ComponentType)
 componentSummary_componentType = Lens.lens (\ComponentSummary' {componentType} -> componentType) (\s@ComponentSummary' {} a -> s {componentType = a} :: ComponentSummary)
 
--- |
+-- | The tags of the component.
 componentSummary_tags :: Lens.Lens' ComponentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 componentSummary_tags = Lens.lens (\ComponentSummary' {tags} -> tags) (\s@ComponentSummary' {} a -> s {tags = a} :: ComponentSummary) Prelude.. Lens.mapping Lens.coerced
 
@@ -91,7 +95,8 @@ instance Data.FromJSON ComponentSummary where
 
 instance Prelude.Hashable ComponentSummary where
   hashWithSalt _salt ComponentSummary' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` tags

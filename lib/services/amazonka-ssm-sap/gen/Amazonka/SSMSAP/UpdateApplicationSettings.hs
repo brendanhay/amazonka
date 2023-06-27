@@ -19,6 +19,9 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
+-- Updates the settings of an application registered with AWS Systems
+-- Manager for SAP.
 module Amazonka.SSMSAP.UpdateApplicationSettings
   ( -- * Creating a Request
     UpdateApplicationSettings (..),
@@ -50,8 +53,11 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newUpdateApplicationSettings' smart constructor.
 data UpdateApplicationSettings = UpdateApplicationSettings'
-  { credentialsToAddOrUpdate :: Prelude.Maybe (Prelude.NonEmpty ApplicationCredential),
+  { -- | The credentials to be added or updated.
+    credentialsToAddOrUpdate :: Prelude.Maybe (Prelude.NonEmpty ApplicationCredential),
+    -- | The credentials to be removed.
     credentialsToRemove :: Prelude.Maybe (Prelude.NonEmpty ApplicationCredential),
+    -- | The ID of the application.
     applicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -64,11 +70,11 @@ data UpdateApplicationSettings = UpdateApplicationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'credentialsToAddOrUpdate', 'updateApplicationSettings_credentialsToAddOrUpdate' -
+-- 'credentialsToAddOrUpdate', 'updateApplicationSettings_credentialsToAddOrUpdate' - The credentials to be added or updated.
 --
--- 'credentialsToRemove', 'updateApplicationSettings_credentialsToRemove' -
+-- 'credentialsToRemove', 'updateApplicationSettings_credentialsToRemove' - The credentials to be removed.
 --
--- 'applicationId', 'updateApplicationSettings_applicationId' -
+-- 'applicationId', 'updateApplicationSettings_applicationId' - The ID of the application.
 newUpdateApplicationSettings ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -81,15 +87,15 @@ newUpdateApplicationSettings pApplicationId_ =
       applicationId = pApplicationId_
     }
 
--- |
+-- | The credentials to be added or updated.
 updateApplicationSettings_credentialsToAddOrUpdate :: Lens.Lens' UpdateApplicationSettings (Prelude.Maybe (Prelude.NonEmpty ApplicationCredential))
 updateApplicationSettings_credentialsToAddOrUpdate = Lens.lens (\UpdateApplicationSettings' {credentialsToAddOrUpdate} -> credentialsToAddOrUpdate) (\s@UpdateApplicationSettings' {} a -> s {credentialsToAddOrUpdate = a} :: UpdateApplicationSettings) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The credentials to be removed.
 updateApplicationSettings_credentialsToRemove :: Lens.Lens' UpdateApplicationSettings (Prelude.Maybe (Prelude.NonEmpty ApplicationCredential))
 updateApplicationSettings_credentialsToRemove = Lens.lens (\UpdateApplicationSettings' {credentialsToRemove} -> credentialsToRemove) (\s@UpdateApplicationSettings' {} a -> s {credentialsToRemove = a} :: UpdateApplicationSettings) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The ID of the application.
 updateApplicationSettings_applicationId :: Lens.Lens' UpdateApplicationSettings Prelude.Text
 updateApplicationSettings_applicationId = Lens.lens (\UpdateApplicationSettings' {applicationId} -> applicationId) (\s@UpdateApplicationSettings' {} a -> s {applicationId = a} :: UpdateApplicationSettings)
 
@@ -153,7 +159,9 @@ instance Data.ToQuery UpdateApplicationSettings where
 
 -- | /See:/ 'newUpdateApplicationSettingsResponse' smart constructor.
 data UpdateApplicationSettingsResponse = UpdateApplicationSettingsResponse'
-  { message :: Prelude.Maybe Prelude.Text,
+  { -- | The update message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the operations.
     operationIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -168,9 +176,9 @@ data UpdateApplicationSettingsResponse = UpdateApplicationSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'updateApplicationSettingsResponse_message' -
+-- 'message', 'updateApplicationSettingsResponse_message' - The update message.
 --
--- 'operationIds', 'updateApplicationSettingsResponse_operationIds' -
+-- 'operationIds', 'updateApplicationSettingsResponse_operationIds' - The IDs of the operations.
 --
 -- 'httpStatus', 'updateApplicationSettingsResponse_httpStatus' - The response's http status code.
 newUpdateApplicationSettingsResponse ::
@@ -185,11 +193,11 @@ newUpdateApplicationSettingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
+-- | The update message.
 updateApplicationSettingsResponse_message :: Lens.Lens' UpdateApplicationSettingsResponse (Prelude.Maybe Prelude.Text)
 updateApplicationSettingsResponse_message = Lens.lens (\UpdateApplicationSettingsResponse' {message} -> message) (\s@UpdateApplicationSettingsResponse' {} a -> s {message = a} :: UpdateApplicationSettingsResponse)
 
--- |
+-- | The IDs of the operations.
 updateApplicationSettingsResponse_operationIds :: Lens.Lens' UpdateApplicationSettingsResponse (Prelude.Maybe [Prelude.Text])
 updateApplicationSettingsResponse_operationIds = Lens.lens (\UpdateApplicationSettingsResponse' {operationIds} -> operationIds) (\s@UpdateApplicationSettingsResponse' {} a -> s {operationIds = a} :: UpdateApplicationSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 

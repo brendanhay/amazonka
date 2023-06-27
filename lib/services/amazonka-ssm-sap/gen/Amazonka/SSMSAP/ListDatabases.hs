@@ -56,9 +56,16 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newListDatabases' smart constructor.
 data ListDatabases = ListDatabases'
-  { applicationId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the application.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the component.
     componentId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned nextToken
+    -- value. If you do not specify a value for MaxResults, the request returns
+    -- 50 items per page by default.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,13 +78,16 @@ data ListDatabases = ListDatabases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'listDatabases_applicationId' -
+-- 'applicationId', 'listDatabases_applicationId' - The ID of the application.
 --
--- 'componentId', 'listDatabases_componentId' -
+-- 'componentId', 'listDatabases_componentId' - The ID of the component.
 --
--- 'maxResults', 'listDatabases_maxResults' -
+-- 'maxResults', 'listDatabases_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned nextToken
+-- value. If you do not specify a value for MaxResults, the request returns
+-- 50 items per page by default.
 --
--- 'nextToken', 'listDatabases_nextToken' -
+-- 'nextToken', 'listDatabases_nextToken' - The token for the next page of results.
 newListDatabases ::
   ListDatabases
 newListDatabases =
@@ -88,19 +98,22 @@ newListDatabases =
       nextToken = Prelude.Nothing
     }
 
--- |
+-- | The ID of the application.
 listDatabases_applicationId :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_applicationId = Lens.lens (\ListDatabases' {applicationId} -> applicationId) (\s@ListDatabases' {} a -> s {applicationId = a} :: ListDatabases)
 
--- |
+-- | The ID of the component.
 listDatabases_componentId :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_componentId = Lens.lens (\ListDatabases' {componentId} -> componentId) (\s@ListDatabases' {} a -> s {componentId = a} :: ListDatabases)
 
--- |
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned nextToken
+-- value. If you do not specify a value for MaxResults, the request returns
+-- 50 items per page by default.
 listDatabases_maxResults :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Natural)
 listDatabases_maxResults = Lens.lens (\ListDatabases' {maxResults} -> maxResults) (\s@ListDatabases' {} a -> s {maxResults = a} :: ListDatabases)
 
--- |
+-- | The token for the next page of results.
 listDatabases_nextToken :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (\s@ListDatabases' {} a -> s {nextToken = a} :: ListDatabases)
 
@@ -108,20 +121,23 @@ instance Core.AWSPager ListDatabases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listDatabasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDatabasesResponse_databases Prelude.. Lens._Just
+            Lens.^? listDatabasesResponse_databases
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDatabases_nextToken
           Lens..~ rs
-          Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDatabasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatabases where
   type
@@ -140,7 +156,8 @@ instance Core.AWSRequest ListDatabases where
 
 instance Prelude.Hashable ListDatabases where
   hashWithSalt _salt ListDatabases' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -182,7 +199,10 @@ instance Data.ToQuery ListDatabases where
 
 -- | /See:/ 'newListDatabasesResponse' smart constructor.
 data ListDatabasesResponse = ListDatabasesResponse'
-  { databases :: Prelude.Maybe [DatabaseSummary],
+  { -- | The SAP HANA databases of an application.
+    databases :: Prelude.Maybe [DatabaseSummary],
+    -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -197,9 +217,10 @@ data ListDatabasesResponse = ListDatabasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'databases', 'listDatabasesResponse_databases' -
+-- 'databases', 'listDatabasesResponse_databases' - The SAP HANA databases of an application.
 --
--- 'nextToken', 'listDatabasesResponse_nextToken' -
+-- 'nextToken', 'listDatabasesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'httpStatus', 'listDatabasesResponse_httpStatus' - The response's http status code.
 newListDatabasesResponse ::
@@ -213,11 +234,12 @@ newListDatabasesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
+-- | The SAP HANA databases of an application.
 listDatabasesResponse_databases :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe [DatabaseSummary])
 listDatabasesResponse_databases = Lens.lens (\ListDatabasesResponse' {databases} -> databases) (\s@ListDatabasesResponse' {} a -> s {databases = a} :: ListDatabasesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 listDatabasesResponse_nextToken :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe Prelude.Text)
 listDatabasesResponse_nextToken = Lens.lens (\ListDatabasesResponse' {nextToken} -> nextToken) (\s@ListDatabasesResponse' {} a -> s {nextToken = a} :: ListDatabasesResponse)
 

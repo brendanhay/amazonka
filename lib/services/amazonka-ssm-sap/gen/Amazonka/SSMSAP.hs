@@ -100,6 +100,12 @@ module Amazonka.SSMSAP
     ListDatabasesResponse (ListDatabasesResponse'),
     newListDatabasesResponse,
 
+    -- ** ListOperations (Paginated)
+    ListOperations (ListOperations'),
+    newListOperations,
+    ListOperationsResponse (ListOperationsResponse'),
+    newListOperationsResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -159,6 +165,9 @@ module Amazonka.SSMSAP
     -- ** DatabaseType
     DatabaseType (..),
 
+    -- ** FilterOperator
+    FilterOperator (..),
+
     -- ** HostRole
     HostRole (..),
 
@@ -196,6 +205,10 @@ module Amazonka.SSMSAP
     DatabaseSummary (DatabaseSummary'),
     newDatabaseSummary,
 
+    -- ** Filter
+    Filter (Filter'),
+    newFilter,
+
     -- ** Host
     Host (Host'),
     newHost,
@@ -217,6 +230,7 @@ import Amazonka.SSMSAP.Lens
 import Amazonka.SSMSAP.ListApplications
 import Amazonka.SSMSAP.ListComponents
 import Amazonka.SSMSAP.ListDatabases
+import Amazonka.SSMSAP.ListOperations
 import Amazonka.SSMSAP.ListTagsForResource
 import Amazonka.SSMSAP.PutResourcePermission
 import Amazonka.SSMSAP.RegisterApplication

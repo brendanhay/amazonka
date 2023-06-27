@@ -51,8 +51,11 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newDeleteResourcePermission' smart constructor.
 data DeleteResourcePermission = DeleteResourcePermission'
-  { actionType :: Prelude.Maybe PermissionActionType,
+  { -- | Delete or restore the permissions on the target database.
+    actionType :: Prelude.Maybe PermissionActionType,
+    -- | The Amazon Resource Name (ARN) of the source resource.
     sourceResourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,11 +68,11 @@ data DeleteResourcePermission = DeleteResourcePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionType', 'deleteResourcePermission_actionType' -
+-- 'actionType', 'deleteResourcePermission_actionType' - Delete or restore the permissions on the target database.
 --
--- 'sourceResourceArn', 'deleteResourcePermission_sourceResourceArn' -
+-- 'sourceResourceArn', 'deleteResourcePermission_sourceResourceArn' - The Amazon Resource Name (ARN) of the source resource.
 --
--- 'resourceArn', 'deleteResourcePermission_resourceArn' -
+-- 'resourceArn', 'deleteResourcePermission_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 newDeleteResourcePermission ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -82,15 +85,15 @@ newDeleteResourcePermission pResourceArn_ =
       resourceArn = pResourceArn_
     }
 
--- |
+-- | Delete or restore the permissions on the target database.
 deleteResourcePermission_actionType :: Lens.Lens' DeleteResourcePermission (Prelude.Maybe PermissionActionType)
 deleteResourcePermission_actionType = Lens.lens (\DeleteResourcePermission' {actionType} -> actionType) (\s@DeleteResourcePermission' {} a -> s {actionType = a} :: DeleteResourcePermission)
 
--- |
+-- | The Amazon Resource Name (ARN) of the source resource.
 deleteResourcePermission_sourceResourceArn :: Lens.Lens' DeleteResourcePermission (Prelude.Maybe Prelude.Text)
 deleteResourcePermission_sourceResourceArn = Lens.lens (\DeleteResourcePermission' {sourceResourceArn} -> sourceResourceArn) (\s@DeleteResourcePermission' {} a -> s {sourceResourceArn = a} :: DeleteResourcePermission)
 
--- |
+-- | The Amazon Resource Name (ARN) of the resource.
 deleteResourcePermission_resourceArn :: Lens.Lens' DeleteResourcePermission Prelude.Text
 deleteResourcePermission_resourceArn = Lens.lens (\DeleteResourcePermission' {resourceArn} -> resourceArn) (\s@DeleteResourcePermission' {} a -> s {resourceArn = a} :: DeleteResourcePermission)
 
@@ -110,7 +113,8 @@ instance Core.AWSRequest DeleteResourcePermission where
 
 instance Prelude.Hashable DeleteResourcePermission where
   hashWithSalt _salt DeleteResourcePermission' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` sourceResourceArn
       `Prelude.hashWithSalt` resourceArn
 
@@ -150,7 +154,8 @@ instance Data.ToQuery DeleteResourcePermission where
 
 -- | /See:/ 'newDeleteResourcePermissionResponse' smart constructor.
 data DeleteResourcePermissionResponse = DeleteResourcePermissionResponse'
-  { policy :: Prelude.Maybe Prelude.Text,
+  { -- | The policy that removes permissions on the target database.
+    policy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,7 +169,7 @@ data DeleteResourcePermissionResponse = DeleteResourcePermissionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policy', 'deleteResourcePermissionResponse_policy' -
+-- 'policy', 'deleteResourcePermissionResponse_policy' - The policy that removes permissions on the target database.
 --
 -- 'httpStatus', 'deleteResourcePermissionResponse_httpStatus' - The response's http status code.
 newDeleteResourcePermissionResponse ::
@@ -178,7 +183,7 @@ newDeleteResourcePermissionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
+-- | The policy that removes permissions on the target database.
 deleteResourcePermissionResponse_policy :: Lens.Lens' DeleteResourcePermissionResponse (Prelude.Maybe Prelude.Text)
 deleteResourcePermissionResponse_policy = Lens.lens (\DeleteResourcePermissionResponse' {policy} -> policy) (\s@DeleteResourcePermissionResponse' {} a -> s {policy = a} :: DeleteResourcePermissionResponse)
 

@@ -49,7 +49,8 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newGetOperation' smart constructor.
 data GetOperation = GetOperation'
-  { operationId :: Prelude.Text
+  { -- | The ID of the operation.
+    operationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +62,7 @@ data GetOperation = GetOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operationId', 'getOperation_operationId' -
+-- 'operationId', 'getOperation_operationId' - The ID of the operation.
 newGetOperation ::
   -- | 'operationId'
   Prelude.Text ->
@@ -69,7 +70,7 @@ newGetOperation ::
 newGetOperation pOperationId_ =
   GetOperation' {operationId = pOperationId_}
 
--- |
+-- | The ID of the operation.
 getOperation_operationId :: Lens.Lens' GetOperation Prelude.Text
 getOperation_operationId = Lens.lens (\GetOperation' {operationId} -> operationId) (\s@GetOperation' {} a -> s {operationId = a} :: GetOperation)
 
@@ -118,7 +119,8 @@ instance Data.ToQuery GetOperation where
 
 -- | /See:/ 'newGetOperationResponse' smart constructor.
 data GetOperationResponse = GetOperationResponse'
-  { operation :: Prelude.Maybe Operation,
+  { -- | Returns the details of an operation.
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -132,7 +134,7 @@ data GetOperationResponse = GetOperationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operation', 'getOperationResponse_operation' -
+-- 'operation', 'getOperationResponse_operation' - Returns the details of an operation.
 --
 -- 'httpStatus', 'getOperationResponse_httpStatus' - The response's http status code.
 newGetOperationResponse ::
@@ -145,7 +147,7 @@ newGetOperationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
+-- | Returns the details of an operation.
 getOperationResponse_operation :: Lens.Lens' GetOperationResponse (Prelude.Maybe Operation)
 getOperationResponse_operation = Lens.lens (\GetOperationResponse' {operation} -> operation) (\s@GetOperationResponse' {} a -> s {operation = a} :: GetOperationResponse)
 

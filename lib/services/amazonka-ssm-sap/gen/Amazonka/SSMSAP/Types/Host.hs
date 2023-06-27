@@ -25,13 +25,17 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.HostRole
 
--- |
+-- | Describes the properties of the Dedicated Host.
 --
 -- /See:/ 'newHost' smart constructor.
 data Host = Host'
-  { hostIp :: Prelude.Maybe Prelude.Text,
+  { -- | The IP address of the Dedicated Host.
+    hostIp :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Dedicated Host.
     hostName :: Prelude.Maybe Prelude.Text,
+    -- | The role of the Dedicated Host.
     hostRole :: Prelude.Maybe HostRole,
+    -- | The instance ID of the instance on the Dedicated Host.
     instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,13 +48,13 @@ data Host = Host'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostIp', 'host_hostIp' -
+-- 'hostIp', 'host_hostIp' - The IP address of the Dedicated Host.
 --
--- 'hostName', 'host_hostName' -
+-- 'hostName', 'host_hostName' - The name of the Dedicated Host.
 --
--- 'hostRole', 'host_hostRole' -
+-- 'hostRole', 'host_hostRole' - The role of the Dedicated Host.
 --
--- 'instanceId', 'host_instanceId' -
+-- 'instanceId', 'host_instanceId' - The instance ID of the instance on the Dedicated Host.
 newHost ::
   Host
 newHost =
@@ -61,19 +65,19 @@ newHost =
       instanceId = Prelude.Nothing
     }
 
--- |
+-- | The IP address of the Dedicated Host.
 host_hostIp :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_hostIp = Lens.lens (\Host' {hostIp} -> hostIp) (\s@Host' {} a -> s {hostIp = a} :: Host)
 
--- |
+-- | The name of the Dedicated Host.
 host_hostName :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_hostName = Lens.lens (\Host' {hostName} -> hostName) (\s@Host' {} a -> s {hostName = a} :: Host)
 
--- |
+-- | The role of the Dedicated Host.
 host_hostRole :: Lens.Lens' Host (Prelude.Maybe HostRole)
 host_hostRole = Lens.lens (\Host' {hostRole} -> hostRole) (\s@Host' {} a -> s {hostRole = a} :: Host)
 
--- |
+-- | The instance ID of the instance on the Dedicated Host.
 host_instanceId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_instanceId = Lens.lens (\Host' {instanceId} -> instanceId) (\s@Host' {} a -> s {instanceId = a} :: Host)
 
@@ -91,7 +95,8 @@ instance Data.FromJSON Host where
 
 instance Prelude.Hashable Host where
   hashWithSalt _salt Host' {..} =
-    _salt `Prelude.hashWithSalt` hostIp
+    _salt
+      `Prelude.hashWithSalt` hostIp
       `Prelude.hashWithSalt` hostName
       `Prelude.hashWithSalt` hostRole
       `Prelude.hashWithSalt` instanceId

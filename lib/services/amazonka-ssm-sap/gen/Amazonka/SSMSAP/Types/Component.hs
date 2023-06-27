@@ -27,17 +27,25 @@ import Amazonka.SSMSAP.Types.ComponentStatus
 import Amazonka.SSMSAP.Types.ComponentType
 import Amazonka.SSMSAP.Types.Host
 
--- |
+-- | The SAP component of your application.
 --
 -- /See:/ 'newComponent' smart constructor.
 data Component = Component'
-  { applicationId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the application.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the component.
     componentId :: Prelude.Maybe Prelude.Text,
+    -- | The type of the component.
     componentType :: Prelude.Maybe ComponentType,
+    -- | The SAP HANA databases of the component.
     databases :: Prelude.Maybe [Prelude.Text],
+    -- | The hosts of the component.
     hosts :: Prelude.Maybe [Host],
+    -- | The time at which the component was last updated.
     lastUpdated :: Prelude.Maybe Data.POSIX,
+    -- | The primary host of the component.
     primaryHost :: Prelude.Maybe Prelude.Text,
+    -- | The status of the component.
     status :: Prelude.Maybe ComponentStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,21 +58,21 @@ data Component = Component'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'component_applicationId' -
+-- 'applicationId', 'component_applicationId' - The ID of the application.
 --
--- 'componentId', 'component_componentId' -
+-- 'componentId', 'component_componentId' - The ID of the component.
 --
--- 'componentType', 'component_componentType' -
+-- 'componentType', 'component_componentType' - The type of the component.
 --
--- 'databases', 'component_databases' -
+-- 'databases', 'component_databases' - The SAP HANA databases of the component.
 --
--- 'hosts', 'component_hosts' -
+-- 'hosts', 'component_hosts' - The hosts of the component.
 --
--- 'lastUpdated', 'component_lastUpdated' -
+-- 'lastUpdated', 'component_lastUpdated' - The time at which the component was last updated.
 --
--- 'primaryHost', 'component_primaryHost' -
+-- 'primaryHost', 'component_primaryHost' - The primary host of the component.
 --
--- 'status', 'component_status' -
+-- 'status', 'component_status' - The status of the component.
 newComponent ::
   Component
 newComponent =
@@ -79,35 +87,35 @@ newComponent =
       status = Prelude.Nothing
     }
 
--- |
+-- | The ID of the application.
 component_applicationId :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_applicationId = Lens.lens (\Component' {applicationId} -> applicationId) (\s@Component' {} a -> s {applicationId = a} :: Component)
 
--- |
+-- | The ID of the component.
 component_componentId :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_componentId = Lens.lens (\Component' {componentId} -> componentId) (\s@Component' {} a -> s {componentId = a} :: Component)
 
--- |
+-- | The type of the component.
 component_componentType :: Lens.Lens' Component (Prelude.Maybe ComponentType)
 component_componentType = Lens.lens (\Component' {componentType} -> componentType) (\s@Component' {} a -> s {componentType = a} :: Component)
 
--- |
+-- | The SAP HANA databases of the component.
 component_databases :: Lens.Lens' Component (Prelude.Maybe [Prelude.Text])
 component_databases = Lens.lens (\Component' {databases} -> databases) (\s@Component' {} a -> s {databases = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The hosts of the component.
 component_hosts :: Lens.Lens' Component (Prelude.Maybe [Host])
 component_hosts = Lens.lens (\Component' {hosts} -> hosts) (\s@Component' {} a -> s {hosts = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The time at which the component was last updated.
 component_lastUpdated :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
 component_lastUpdated = Lens.lens (\Component' {lastUpdated} -> lastUpdated) (\s@Component' {} a -> s {lastUpdated = a} :: Component) Prelude.. Lens.mapping Data._Time
 
--- |
+-- | The primary host of the component.
 component_primaryHost :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_primaryHost = Lens.lens (\Component' {primaryHost} -> primaryHost) (\s@Component' {} a -> s {primaryHost = a} :: Component)
 
--- |
+-- | The status of the component.
 component_status :: Lens.Lens' Component (Prelude.Maybe ComponentStatus)
 component_status = Lens.lens (\Component' {status} -> status) (\s@Component' {} a -> s {status = a} :: Component)
 
@@ -129,7 +137,8 @@ instance Data.FromJSON Component where
 
 instance Prelude.Hashable Component where
   hashWithSalt _salt Component' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` databases

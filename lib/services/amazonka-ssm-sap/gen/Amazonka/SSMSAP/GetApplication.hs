@@ -28,6 +28,7 @@ module Amazonka.SSMSAP.GetApplication
     newGetApplication,
 
     -- * Request Lenses
+    getApplication_appRegistryArn,
     getApplication_applicationArn,
     getApplication_applicationId,
 
@@ -52,7 +53,11 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newGetApplication' smart constructor.
 data GetApplication = GetApplication'
-  { applicationArn :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the application registry.
+    appRegistryArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the application.
+    applicationArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the application.
     applicationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,22 +70,29 @@ data GetApplication = GetApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationArn', 'getApplication_applicationArn' -
+-- 'appRegistryArn', 'getApplication_appRegistryArn' - The Amazon Resource Name (ARN) of the application registry.
 --
--- 'applicationId', 'getApplication_applicationId' -
+-- 'applicationArn', 'getApplication_applicationArn' - The Amazon Resource Name (ARN) of the application.
+--
+-- 'applicationId', 'getApplication_applicationId' - The ID of the application.
 newGetApplication ::
   GetApplication
 newGetApplication =
   GetApplication'
-    { applicationArn = Prelude.Nothing,
+    { appRegistryArn = Prelude.Nothing,
+      applicationArn = Prelude.Nothing,
       applicationId = Prelude.Nothing
     }
 
--- |
+-- | The Amazon Resource Name (ARN) of the application registry.
+getApplication_appRegistryArn :: Lens.Lens' GetApplication (Prelude.Maybe Prelude.Text)
+getApplication_appRegistryArn = Lens.lens (\GetApplication' {appRegistryArn} -> appRegistryArn) (\s@GetApplication' {} a -> s {appRegistryArn = a} :: GetApplication)
+
+-- | The Amazon Resource Name (ARN) of the application.
 getApplication_applicationArn :: Lens.Lens' GetApplication (Prelude.Maybe Prelude.Text)
 getApplication_applicationArn = Lens.lens (\GetApplication' {applicationArn} -> applicationArn) (\s@GetApplication' {} a -> s {applicationArn = a} :: GetApplication)
 
--- |
+-- | The ID of the application.
 getApplication_applicationId :: Lens.Lens' GetApplication (Prelude.Maybe Prelude.Text)
 getApplication_applicationId = Lens.lens (\GetApplication' {applicationId} -> applicationId) (\s@GetApplication' {} a -> s {applicationId = a} :: GetApplication)
 
@@ -101,12 +113,15 @@ instance Core.AWSRequest GetApplication where
 
 instance Prelude.Hashable GetApplication where
   hashWithSalt _salt GetApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationArn
+    _salt
+      `Prelude.hashWithSalt` appRegistryArn
+      `Prelude.hashWithSalt` applicationArn
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData GetApplication where
   rnf GetApplication' {..} =
-    Prelude.rnf applicationArn
+    Prelude.rnf appRegistryArn
+      `Prelude.seq` Prelude.rnf applicationArn
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Data.ToHeaders GetApplication where
@@ -124,7 +139,9 @@ instance Data.ToJSON GetApplication where
   toJSON GetApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ApplicationArn" Data..=)
+          [ ("AppRegistryArn" Data..=)
+              Prelude.<$> appRegistryArn,
+            ("ApplicationArn" Data..=)
               Prelude.<$> applicationArn,
             ("ApplicationId" Data..=) Prelude.<$> applicationId
           ]
@@ -138,7 +155,10 @@ instance Data.ToQuery GetApplication where
 
 -- | /See:/ 'newGetApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-  { application :: Prelude.Maybe Application,
+  { -- | Returns all of the metadata of an application registered with AWS
+    -- Systems Manager for SAP.
+    application :: Prelude.Maybe Application,
+    -- | The tags of a registered application.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -153,9 +173,10 @@ data GetApplicationResponse = GetApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'application', 'getApplicationResponse_application' -
+-- 'application', 'getApplicationResponse_application' - Returns all of the metadata of an application registered with AWS
+-- Systems Manager for SAP.
 --
--- 'tags', 'getApplicationResponse_tags' -
+-- 'tags', 'getApplicationResponse_tags' - The tags of a registered application.
 --
 -- 'httpStatus', 'getApplicationResponse_httpStatus' - The response's http status code.
 newGetApplicationResponse ::
@@ -170,11 +191,12 @@ newGetApplicationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
+-- | Returns all of the metadata of an application registered with AWS
+-- Systems Manager for SAP.
 getApplicationResponse_application :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Application)
 getApplicationResponse_application = Lens.lens (\GetApplicationResponse' {application} -> application) (\s@GetApplicationResponse' {} a -> s {application = a} :: GetApplicationResponse)
 
--- |
+-- | The tags of a registered application.
 getApplicationResponse_tags :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getApplicationResponse_tags = Lens.lens (\GetApplicationResponse' {tags} -> tags) (\s@GetApplicationResponse' {} a -> s {tags = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 

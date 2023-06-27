@@ -51,7 +51,9 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newGetComponent' smart constructor.
 data GetComponent = GetComponent'
-  { applicationId :: Prelude.Text,
+  { -- | The ID of the application.
+    applicationId :: Prelude.Text,
+    -- | The ID of the component.
     componentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +66,9 @@ data GetComponent = GetComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'getComponent_applicationId' -
+-- 'applicationId', 'getComponent_applicationId' - The ID of the application.
 --
--- 'componentId', 'getComponent_componentId' -
+-- 'componentId', 'getComponent_componentId' - The ID of the component.
 newGetComponent ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -79,11 +81,11 @@ newGetComponent pApplicationId_ pComponentId_ =
       componentId = pComponentId_
     }
 
--- |
+-- | The ID of the application.
 getComponent_applicationId :: Lens.Lens' GetComponent Prelude.Text
 getComponent_applicationId = Lens.lens (\GetComponent' {applicationId} -> applicationId) (\s@GetComponent' {} a -> s {applicationId = a} :: GetComponent)
 
--- |
+-- | The ID of the component.
 getComponent_componentId :: Lens.Lens' GetComponent Prelude.Text
 getComponent_componentId = Lens.lens (\GetComponent' {componentId} -> componentId) (\s@GetComponent' {} a -> s {componentId = a} :: GetComponent)
 
@@ -101,7 +103,8 @@ instance Core.AWSRequest GetComponent where
 
 instance Prelude.Hashable GetComponent where
   hashWithSalt _salt GetComponent' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
 
 instance Prelude.NFData GetComponent where
@@ -138,7 +141,9 @@ instance Data.ToQuery GetComponent where
 
 -- | /See:/ 'newGetComponentResponse' smart constructor.
 data GetComponentResponse = GetComponentResponse'
-  { component :: Prelude.Maybe Component,
+  { -- | The component of an application registered with AWS Systems Manager for
+    -- SAP.
+    component :: Prelude.Maybe Component,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -152,7 +157,8 @@ data GetComponentResponse = GetComponentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'component', 'getComponentResponse_component' -
+-- 'component', 'getComponentResponse_component' - The component of an application registered with AWS Systems Manager for
+-- SAP.
 --
 -- 'httpStatus', 'getComponentResponse_httpStatus' - The response's http status code.
 newGetComponentResponse ::
@@ -165,7 +171,8 @@ newGetComponentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
+-- | The component of an application registered with AWS Systems Manager for
+-- SAP.
 getComponentResponse_component :: Lens.Lens' GetComponentResponse (Prelude.Maybe Component)
 getComponentResponse_component = Lens.lens (\GetComponentResponse' {component} -> component) (\s@GetComponentResponse' {} a -> s {component = a} :: GetComponentResponse)
 

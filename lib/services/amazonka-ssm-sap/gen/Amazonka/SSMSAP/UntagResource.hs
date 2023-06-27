@@ -49,7 +49,8 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { resourceArn :: Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArn :: Prelude.Text,
     -- | Adds\/updates or removes credentials for applications registered with
     -- AWS Systems Manager for SAP.
     tagKeys :: [Prelude.Text]
@@ -64,7 +65,7 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' -
+-- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - Adds\/updates or removes credentials for applications registered with
 -- AWS Systems Manager for SAP.
@@ -78,7 +79,7 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- |
+-- | The Amazon Resource Name (ARN) of the resource.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
@@ -102,7 +103,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

@@ -54,8 +54,16 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newListComponents' smart constructor.
 data ListComponents = ListComponents'
-  { applicationId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the application.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned nextToken
+    -- value.
+    --
+    -- If you do not specify a value for MaxResults, the request returns 50
+    -- items per page by default.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,11 +76,16 @@ data ListComponents = ListComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'listComponents_applicationId' -
+-- 'applicationId', 'listComponents_applicationId' - The ID of the application.
 --
--- 'maxResults', 'listComponents_maxResults' -
+-- 'maxResults', 'listComponents_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned nextToken
+-- value.
 --
--- 'nextToken', 'listComponents_nextToken' -
+-- If you do not specify a value for MaxResults, the request returns 50
+-- items per page by default.
+--
+-- 'nextToken', 'listComponents_nextToken' - The token for the next page of results.
 newListComponents ::
   ListComponents
 newListComponents =
@@ -82,15 +95,20 @@ newListComponents =
       nextToken = Prelude.Nothing
     }
 
--- |
+-- | The ID of the application.
 listComponents_applicationId :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
 listComponents_applicationId = Lens.lens (\ListComponents' {applicationId} -> applicationId) (\s@ListComponents' {} a -> s {applicationId = a} :: ListComponents)
 
--- |
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned nextToken
+-- value.
+--
+-- If you do not specify a value for MaxResults, the request returns 50
+-- items per page by default.
 listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
 listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
 
--- |
+-- | The token for the next page of results.
 listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
 listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
@@ -99,21 +117,22 @@ instance Core.AWSPager ListComponents where
     | Core.stop
         ( rs
             Lens.^? listComponentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listComponentsResponse_components
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listComponents_nextToken
           Lens..~ rs
-          Lens.^? listComponentsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listComponentsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComponents where
   type
@@ -132,7 +151,8 @@ instance Core.AWSRequest ListComponents where
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
@@ -171,7 +191,10 @@ instance Data.ToQuery ListComponents where
 
 -- | /See:/ 'newListComponentsResponse' smart constructor.
 data ListComponentsResponse = ListComponentsResponse'
-  { components :: Prelude.Maybe [ComponentSummary],
+  { -- | List of components registered with AWS System Manager for SAP.
+    components :: Prelude.Maybe [ComponentSummary],
+    -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -186,9 +209,10 @@ data ListComponentsResponse = ListComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'components', 'listComponentsResponse_components' -
+-- 'components', 'listComponentsResponse_components' - List of components registered with AWS System Manager for SAP.
 --
--- 'nextToken', 'listComponentsResponse_nextToken' -
+-- 'nextToken', 'listComponentsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'httpStatus', 'listComponentsResponse_httpStatus' - The response's http status code.
 newListComponentsResponse ::
@@ -203,11 +227,12 @@ newListComponentsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
+-- | List of components registered with AWS System Manager for SAP.
 listComponentsResponse_components :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [ComponentSummary])
 listComponentsResponse_components = Lens.lens (\ListComponentsResponse' {components} -> components) (\s@ListComponentsResponse' {} a -> s {components = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
 listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
 

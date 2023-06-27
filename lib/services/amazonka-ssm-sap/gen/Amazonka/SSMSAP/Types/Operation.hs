@@ -25,20 +25,31 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.OperationStatus
 
--- |
+-- | The operations performed by AWS Systems Manager for SAP.
 --
 -- /See:/ 'newOperation' smart constructor.
 data Operation = Operation'
-  { endTime :: Prelude.Maybe Data.POSIX,
+  { -- | The end time of the operation.
+    endTime :: Prelude.Maybe Data.POSIX,
+    -- | The ID of the operation.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the operation was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The properties of the operation.
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the operation.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The resource ID of the operation.
     resourceId :: Prelude.Maybe Prelude.Text,
+    -- | The resource type of the operation.
     resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The start time of the operation.
     startTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the operation.
     status :: Prelude.Maybe OperationStatus,
+    -- | The status message of the operation.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The type of the operation.
     type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,27 +62,27 @@ data Operation = Operation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endTime', 'operation_endTime' -
+-- 'endTime', 'operation_endTime' - The end time of the operation.
 --
--- 'id', 'operation_id' -
+-- 'id', 'operation_id' - The ID of the operation.
 --
--- 'lastUpdatedTime', 'operation_lastUpdatedTime' -
+-- 'lastUpdatedTime', 'operation_lastUpdatedTime' - The time at which the operation was last updated.
 --
--- 'properties', 'operation_properties' -
+-- 'properties', 'operation_properties' - The properties of the operation.
 --
--- 'resourceArn', 'operation_resourceArn' -
+-- 'resourceArn', 'operation_resourceArn' - The Amazon Resource Name (ARN) of the operation.
 --
--- 'resourceId', 'operation_resourceId' -
+-- 'resourceId', 'operation_resourceId' - The resource ID of the operation.
 --
--- 'resourceType', 'operation_resourceType' -
+-- 'resourceType', 'operation_resourceType' - The resource type of the operation.
 --
--- 'startTime', 'operation_startTime' -
+-- 'startTime', 'operation_startTime' - The start time of the operation.
 --
--- 'status', 'operation_status' -
+-- 'status', 'operation_status' - The status of the operation.
 --
--- 'statusMessage', 'operation_statusMessage' -
+-- 'statusMessage', 'operation_statusMessage' - The status message of the operation.
 --
--- 'type'', 'operation_type' -
+-- 'type'', 'operation_type' - The type of the operation.
 newOperation ::
   Operation
 newOperation =
@@ -89,47 +100,47 @@ newOperation =
       type' = Prelude.Nothing
     }
 
--- |
+-- | The end time of the operation.
 operation_endTime :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
 operation_endTime = Lens.lens (\Operation' {endTime} -> endTime) (\s@Operation' {} a -> s {endTime = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
--- |
+-- | The ID of the operation.
 operation_id :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_id = Lens.lens (\Operation' {id} -> id) (\s@Operation' {} a -> s {id = a} :: Operation)
 
--- |
+-- | The time at which the operation was last updated.
 operation_lastUpdatedTime :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
 operation_lastUpdatedTime = Lens.lens (\Operation' {lastUpdatedTime} -> lastUpdatedTime) (\s@Operation' {} a -> s {lastUpdatedTime = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
--- |
+-- | The properties of the operation.
 operation_properties :: Lens.Lens' Operation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 operation_properties = Lens.lens (\Operation' {properties} -> properties) (\s@Operation' {} a -> s {properties = a} :: Operation) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The Amazon Resource Name (ARN) of the operation.
 operation_resourceArn :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_resourceArn = Lens.lens (\Operation' {resourceArn} -> resourceArn) (\s@Operation' {} a -> s {resourceArn = a} :: Operation)
 
--- |
+-- | The resource ID of the operation.
 operation_resourceId :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_resourceId = Lens.lens (\Operation' {resourceId} -> resourceId) (\s@Operation' {} a -> s {resourceId = a} :: Operation)
 
--- |
+-- | The resource type of the operation.
 operation_resourceType :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_resourceType = Lens.lens (\Operation' {resourceType} -> resourceType) (\s@Operation' {} a -> s {resourceType = a} :: Operation)
 
--- |
+-- | The start time of the operation.
 operation_startTime :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
 operation_startTime = Lens.lens (\Operation' {startTime} -> startTime) (\s@Operation' {} a -> s {startTime = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
--- |
+-- | The status of the operation.
 operation_status :: Lens.Lens' Operation (Prelude.Maybe OperationStatus)
 operation_status = Lens.lens (\Operation' {status} -> status) (\s@Operation' {} a -> s {status = a} :: Operation)
 
--- |
+-- | The status message of the operation.
 operation_statusMessage :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_statusMessage = Lens.lens (\Operation' {statusMessage} -> statusMessage) (\s@Operation' {} a -> s {statusMessage = a} :: Operation)
 
--- |
+-- | The type of the operation.
 operation_type :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_type = Lens.lens (\Operation' {type'} -> type') (\s@Operation' {} a -> s {type' = a} :: Operation)
 
@@ -154,7 +165,8 @@ instance Data.FromJSON Operation where
 
 instance Prelude.Hashable Operation where
   hashWithSalt _salt Operation' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` properties

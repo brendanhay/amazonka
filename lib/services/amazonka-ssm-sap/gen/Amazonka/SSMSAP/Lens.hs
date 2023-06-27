@@ -26,6 +26,7 @@ module Amazonka.SSMSAP.Lens
     deregisterApplicationResponse_httpStatus,
 
     -- ** GetApplication
+    getApplication_appRegistryArn,
     getApplication_applicationArn,
     getApplication_applicationId,
     getApplicationResponse_application,
@@ -81,6 +82,15 @@ module Amazonka.SSMSAP.Lens
     listDatabasesResponse_databases,
     listDatabasesResponse_nextToken,
     listDatabasesResponse_httpStatus,
+
+    -- ** ListOperations
+    listOperations_filters,
+    listOperations_maxResults,
+    listOperations_nextToken,
+    listOperations_applicationId,
+    listOperationsResponse_nextToken,
+    listOperationsResponse_operations,
+    listOperationsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -184,6 +194,11 @@ module Amazonka.SSMSAP.Lens
     databaseSummary_databaseType,
     databaseSummary_tags,
 
+    -- ** Filter
+    filter_name,
+    filter_value,
+    filter_operator,
+
     -- ** Host
     host_hostIp,
     host_hostName,
@@ -215,6 +230,7 @@ import Amazonka.SSMSAP.GetResourcePermission
 import Amazonka.SSMSAP.ListApplications
 import Amazonka.SSMSAP.ListComponents
 import Amazonka.SSMSAP.ListDatabases
+import Amazonka.SSMSAP.ListOperations
 import Amazonka.SSMSAP.ListTagsForResource
 import Amazonka.SSMSAP.PutResourcePermission
 import Amazonka.SSMSAP.RegisterApplication
@@ -226,6 +242,7 @@ import Amazonka.SSMSAP.Types.Component
 import Amazonka.SSMSAP.Types.ComponentSummary
 import Amazonka.SSMSAP.Types.Database
 import Amazonka.SSMSAP.Types.DatabaseSummary
+import Amazonka.SSMSAP.Types.Filter
 import Amazonka.SSMSAP.Types.Host
 import Amazonka.SSMSAP.Types.Operation
 import Amazonka.SSMSAP.UntagResource

@@ -25,15 +25,21 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.DatabaseType
 
--- |
+-- | The summary of the database.
 --
 -- /See:/ 'newDatabaseSummary' smart constructor.
 data DatabaseSummary = DatabaseSummary'
-  { applicationId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the application.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the database.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the component.
     componentId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the database.
     databaseId :: Prelude.Maybe Prelude.Text,
+    -- | The type of the database.
     databaseType :: Prelude.Maybe DatabaseType,
+    -- | The tags of the database.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,17 +52,17 @@ data DatabaseSummary = DatabaseSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'databaseSummary_applicationId' -
+-- 'applicationId', 'databaseSummary_applicationId' - The ID of the application.
 --
--- 'arn', 'databaseSummary_arn' -
+-- 'arn', 'databaseSummary_arn' - The Amazon Resource Name (ARN) of the database.
 --
--- 'componentId', 'databaseSummary_componentId' -
+-- 'componentId', 'databaseSummary_componentId' - The ID of the component.
 --
--- 'databaseId', 'databaseSummary_databaseId' -
+-- 'databaseId', 'databaseSummary_databaseId' - The ID of the database.
 --
--- 'databaseType', 'databaseSummary_databaseType' -
+-- 'databaseType', 'databaseSummary_databaseType' - The type of the database.
 --
--- 'tags', 'databaseSummary_tags' -
+-- 'tags', 'databaseSummary_tags' - The tags of the database.
 newDatabaseSummary ::
   DatabaseSummary
 newDatabaseSummary =
@@ -69,27 +75,27 @@ newDatabaseSummary =
       tags = Prelude.Nothing
     }
 
--- |
+-- | The ID of the application.
 databaseSummary_applicationId :: Lens.Lens' DatabaseSummary (Prelude.Maybe Prelude.Text)
 databaseSummary_applicationId = Lens.lens (\DatabaseSummary' {applicationId} -> applicationId) (\s@DatabaseSummary' {} a -> s {applicationId = a} :: DatabaseSummary)
 
--- |
+-- | The Amazon Resource Name (ARN) of the database.
 databaseSummary_arn :: Lens.Lens' DatabaseSummary (Prelude.Maybe Prelude.Text)
 databaseSummary_arn = Lens.lens (\DatabaseSummary' {arn} -> arn) (\s@DatabaseSummary' {} a -> s {arn = a} :: DatabaseSummary)
 
--- |
+-- | The ID of the component.
 databaseSummary_componentId :: Lens.Lens' DatabaseSummary (Prelude.Maybe Prelude.Text)
 databaseSummary_componentId = Lens.lens (\DatabaseSummary' {componentId} -> componentId) (\s@DatabaseSummary' {} a -> s {componentId = a} :: DatabaseSummary)
 
--- |
+-- | The ID of the database.
 databaseSummary_databaseId :: Lens.Lens' DatabaseSummary (Prelude.Maybe Prelude.Text)
 databaseSummary_databaseId = Lens.lens (\DatabaseSummary' {databaseId} -> databaseId) (\s@DatabaseSummary' {} a -> s {databaseId = a} :: DatabaseSummary)
 
--- |
+-- | The type of the database.
 databaseSummary_databaseType :: Lens.Lens' DatabaseSummary (Prelude.Maybe DatabaseType)
 databaseSummary_databaseType = Lens.lens (\DatabaseSummary' {databaseType} -> databaseType) (\s@DatabaseSummary' {} a -> s {databaseType = a} :: DatabaseSummary)
 
--- |
+-- | The tags of the database.
 databaseSummary_tags :: Lens.Lens' DatabaseSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 databaseSummary_tags = Lens.lens (\DatabaseSummary' {tags} -> tags) (\s@DatabaseSummary' {} a -> s {tags = a} :: DatabaseSummary) Prelude.. Lens.mapping Lens.coerced
 
@@ -109,7 +115,8 @@ instance Data.FromJSON DatabaseSummary where
 
 instance Prelude.Hashable DatabaseSummary where
   hashWithSalt _salt DatabaseSummary' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` databaseId

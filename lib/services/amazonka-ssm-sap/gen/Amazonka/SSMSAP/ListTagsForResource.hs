@@ -50,7 +50,8 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { resourceArn :: Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,7 +63,7 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' -
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -70,7 +71,7 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- |
+-- | The Amazon Resource Name (ARN) of the resource.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
@@ -144,7 +145,6 @@ newListTagsForResourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 

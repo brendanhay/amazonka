@@ -55,6 +55,7 @@ library
     Amazonka.SSMSAP.ListApplications
     Amazonka.SSMSAP.ListComponents
     Amazonka.SSMSAP.ListDatabases
+    Amazonka.SSMSAP.ListOperations
     Amazonka.SSMSAP.ListTagsForResource
     Amazonka.SSMSAP.PutResourcePermission
     Amazonka.SSMSAP.RegisterApplication
@@ -74,6 +75,8 @@ library
     Amazonka.SSMSAP.Types.DatabaseStatus
     Amazonka.SSMSAP.Types.DatabaseSummary
     Amazonka.SSMSAP.Types.DatabaseType
+    Amazonka.SSMSAP.Types.Filter
+    Amazonka.SSMSAP.Types.FilterOperator
     Amazonka.SSMSAP.Types.Host
     Amazonka.SSMSAP.Types.HostRole
     Amazonka.SSMSAP.Types.Operation

@@ -49,7 +49,9 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { resourceArn :: Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArn :: Prelude.Text,
+    -- | The tags on a resource.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +64,9 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' -
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 --
--- 'tags', 'tagResource_tags' -
+-- 'tags', 'tagResource_tags' - The tags on a resource.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -75,11 +77,11 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- |
+-- | The Amazon Resource Name (ARN) of the resource.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- |
+-- | The tags on a resource.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
@@ -96,7 +98,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

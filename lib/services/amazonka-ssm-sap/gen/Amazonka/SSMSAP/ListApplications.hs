@@ -53,7 +53,11 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newListApplications' smart constructor.
 data ListApplications = ListApplications'
-  { maxResults :: Prelude.Maybe Prelude.Natural,
+  { -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned nextToken
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,9 +70,11 @@ data ListApplications = ListApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listApplications_maxResults' -
+-- 'maxResults', 'listApplications_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned nextToken
+-- value.
 --
--- 'nextToken', 'listApplications_nextToken' -
+-- 'nextToken', 'listApplications_nextToken' - The token for the next page of results.
 newListApplications ::
   ListApplications
 newListApplications =
@@ -77,11 +83,13 @@ newListApplications =
       nextToken = Prelude.Nothing
     }
 
--- |
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned nextToken
+-- value.
 listApplications_maxResults :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
 listApplications_maxResults = Lens.lens (\ListApplications' {maxResults} -> maxResults) (\s@ListApplications' {} a -> s {maxResults = a} :: ListApplications)
 
--- |
+-- | The token for the next page of results.
 listApplications_nextToken :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
 listApplications_nextToken = Lens.lens (\ListApplications' {nextToken} -> nextToken) (\s@ListApplications' {} a -> s {nextToken = a} :: ListApplications)
 
@@ -90,22 +98,22 @@ instance Core.AWSPager ListApplications where
     | Core.stop
         ( rs
             Lens.^? listApplicationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApplicationsResponse_applications
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listApplications_nextToken
           Lens..~ rs
           Lens.^? listApplicationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplications where
   type
@@ -124,7 +132,8 @@ instance Core.AWSRequest ListApplications where
 
 instance Prelude.Hashable ListApplications where
   hashWithSalt _salt ListApplications' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApplications where
@@ -160,7 +169,10 @@ instance Data.ToQuery ListApplications where
 
 -- | /See:/ 'newListApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
-  { applications :: Prelude.Maybe [ApplicationSummary],
+  { -- | The applications registered with AWS Systems Manager for SAP.
+    applications :: Prelude.Maybe [ApplicationSummary],
+    -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -175,9 +187,10 @@ data ListApplicationsResponse = ListApplicationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applications', 'listApplicationsResponse_applications' -
+-- 'applications', 'listApplicationsResponse_applications' - The applications registered with AWS Systems Manager for SAP.
 --
--- 'nextToken', 'listApplicationsResponse_nextToken' -
+-- 'nextToken', 'listApplicationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'httpStatus', 'listApplicationsResponse_httpStatus' - The response's http status code.
 newListApplicationsResponse ::
@@ -192,11 +205,12 @@ newListApplicationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
+-- | The applications registered with AWS Systems Manager for SAP.
 listApplicationsResponse_applications :: Lens.Lens' ListApplicationsResponse (Prelude.Maybe [ApplicationSummary])
 listApplicationsResponse_applications = Lens.lens (\ListApplicationsResponse' {applications} -> applications) (\s@ListApplicationsResponse' {} a -> s {applications = a} :: ListApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 listApplicationsResponse_nextToken :: Lens.Lens' ListApplicationsResponse (Prelude.Maybe Prelude.Text)
 listApplicationsResponse_nextToken = Lens.lens (\ListApplicationsResponse' {nextToken} -> nextToken) (\s@ListApplicationsResponse' {} a -> s {nextToken = a} :: ListApplicationsResponse)
 

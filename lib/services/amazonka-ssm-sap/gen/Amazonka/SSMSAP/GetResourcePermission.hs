@@ -51,6 +51,7 @@ import Amazonka.SSMSAP.Types
 -- | /See:/ 'newGetResourcePermission' smart constructor.
 data GetResourcePermission = GetResourcePermission'
   { actionType :: Prelude.Maybe PermissionActionType,
+    -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +66,7 @@ data GetResourcePermission = GetResourcePermission'
 --
 -- 'actionType', 'getResourcePermission_actionType' -
 --
--- 'resourceArn', 'getResourcePermission_resourceArn' -
+-- 'resourceArn', 'getResourcePermission_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 newGetResourcePermission ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -77,11 +78,10 @@ newGetResourcePermission pResourceArn_ =
       resourceArn = pResourceArn_
     }
 
--- |
 getResourcePermission_actionType :: Lens.Lens' GetResourcePermission (Prelude.Maybe PermissionActionType)
 getResourcePermission_actionType = Lens.lens (\GetResourcePermission' {actionType} -> actionType) (\s@GetResourcePermission' {} a -> s {actionType = a} :: GetResourcePermission)
 
--- |
+-- | The Amazon Resource Name (ARN) of the resource.
 getResourcePermission_resourceArn :: Lens.Lens' GetResourcePermission Prelude.Text
 getResourcePermission_resourceArn = Lens.lens (\GetResourcePermission' {resourceArn} -> resourceArn) (\s@GetResourcePermission' {} a -> s {resourceArn = a} :: GetResourcePermission)
 
@@ -101,7 +101,8 @@ instance Core.AWSRequest GetResourcePermission where
 
 instance Prelude.Hashable GetResourcePermission where
   hashWithSalt _salt GetResourcePermission' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData GetResourcePermission where
@@ -165,7 +166,6 @@ newGetResourcePermissionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getResourcePermissionResponse_policy :: Lens.Lens' GetResourcePermissionResponse (Prelude.Maybe Prelude.Text)
 getResourcePermissionResponse_policy = Lens.lens (\GetResourcePermissionResponse' {policy} -> policy) (\s@GetResourcePermissionResponse' {} a -> s {policy = a} :: GetResourcePermissionResponse)
 

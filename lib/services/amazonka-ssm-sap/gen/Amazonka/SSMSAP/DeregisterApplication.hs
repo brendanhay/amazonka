@@ -50,7 +50,8 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newDeregisterApplication' smart constructor.
 data DeregisterApplication = DeregisterApplication'
-  { applicationId :: Prelude.Text
+  { -- | The ID of the application.
+    applicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,7 +63,7 @@ data DeregisterApplication = DeregisterApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'deregisterApplication_applicationId' -
+-- 'applicationId', 'deregisterApplication_applicationId' - The ID of the application.
 newDeregisterApplication ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -73,7 +74,7 @@ newDeregisterApplication pApplicationId_ =
         pApplicationId_
     }
 
--- |
+-- | The ID of the application.
 deregisterApplication_applicationId :: Lens.Lens' DeregisterApplication Prelude.Text
 deregisterApplication_applicationId = Lens.lens (\DeregisterApplication' {applicationId} -> applicationId) (\s@DeregisterApplication' {} a -> s {applicationId = a} :: DeregisterApplication)
 

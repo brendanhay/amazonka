@@ -57,6 +57,9 @@ import Test.Tasty
 --         , requestListDatabases $
 --             newListDatabases
 --
+--         , requestListOperations $
+--             newListOperations
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
@@ -107,6 +110,9 @@ import Test.Tasty
 --
 --         , responseListDatabases $
 --             newListDatabasesResponse
+--
+--         , responseListOperations $
+--             newListOperationsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -190,6 +196,12 @@ requestListDatabases =
   req
     "ListDatabases"
     "fixture/ListDatabases.yaml"
+
+requestListOperations :: ListOperations -> TestTree
+requestListOperations =
+  req
+    "ListOperations"
+    "fixture/ListOperations.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -308,6 +320,14 @@ responseListDatabases =
     "fixture/ListDatabasesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDatabases)
+
+responseListOperations :: ListOperationsResponse -> TestTree
+responseListOperations =
+  res
+    "ListOperationsResponse"
+    "fixture/ListOperationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListOperations)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

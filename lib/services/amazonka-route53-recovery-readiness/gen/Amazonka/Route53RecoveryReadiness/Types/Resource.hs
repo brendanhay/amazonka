@@ -95,7 +95,8 @@ instance Data.FromJSON Resource where
           Resource'
             Prelude.<$> (x Data..:? "componentId")
             Prelude.<*> (x Data..:? "dnsTargetResource")
-            Prelude.<*> ( x Data..:? "readinessScopes"
+            Prelude.<*> ( x
+                            Data..:? "readinessScopes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "resourceArn")
@@ -103,7 +104,8 @@ instance Data.FromJSON Resource where
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` componentId
+    _salt
+      `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` dnsTargetResource
       `Prelude.hashWithSalt` readinessScopes
       `Prelude.hashWithSalt` resourceArn

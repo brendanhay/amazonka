@@ -119,7 +119,8 @@ instance Core.AWSRequest CreateRecoveryGroup where
 
 instance Prelude.Hashable CreateRecoveryGroup where
   hashWithSalt _salt CreateRecoveryGroup' {..} =
-    _salt `Prelude.hashWithSalt` cells
+    _salt
+      `Prelude.hashWithSalt` cells
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` recoveryGroupName
 

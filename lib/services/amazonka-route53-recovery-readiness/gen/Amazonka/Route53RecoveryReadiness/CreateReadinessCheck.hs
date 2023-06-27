@@ -125,7 +125,8 @@ instance Core.AWSRequest CreateReadinessCheck where
 
 instance Prelude.Hashable CreateReadinessCheck where
   hashWithSalt _salt CreateReadinessCheck' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceSetName
       `Prelude.hashWithSalt` readinessCheckName
 

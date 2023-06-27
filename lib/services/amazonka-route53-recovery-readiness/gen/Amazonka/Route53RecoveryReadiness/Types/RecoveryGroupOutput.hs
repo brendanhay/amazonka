@@ -101,7 +101,8 @@ instance Data.FromJSON RecoveryGroupOutput where
 
 instance Prelude.Hashable RecoveryGroupOutput where
   hashWithSalt _salt RecoveryGroupOutput' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` recoveryGroupArn
       `Prelude.hashWithSalt` recoveryGroupName
       `Prelude.hashWithSalt` cells

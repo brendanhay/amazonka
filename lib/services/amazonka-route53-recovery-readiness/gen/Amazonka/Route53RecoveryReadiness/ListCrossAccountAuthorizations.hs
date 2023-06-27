@@ -94,22 +94,22 @@ instance Core.AWSPager ListCrossAccountAuthorizations where
     | Core.stop
         ( rs
             Lens.^? listCrossAccountAuthorizationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCrossAccountAuthorizationsResponse_crossAccountAuthorizations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCrossAccountAuthorizations_nextToken
           Lens..~ rs
           Lens.^? listCrossAccountAuthorizationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -124,7 +124,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListCrossAccountAuthorizationsResponse'
-            Prelude.<$> ( x Data..?> "crossAccountAuthorizations"
+            Prelude.<$> ( x
+                            Data..?> "crossAccountAuthorizations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -138,7 +139,8 @@ instance
   hashWithSalt
     _salt
     ListCrossAccountAuthorizations' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 
 instance

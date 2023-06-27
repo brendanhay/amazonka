@@ -100,7 +100,8 @@ instance Data.FromJSON ReadinessCheckOutput where
 
 instance Prelude.Hashable ReadinessCheckOutput where
   hashWithSalt _salt ReadinessCheckOutput' {..} =
-    _salt `Prelude.hashWithSalt` readinessCheckName
+    _salt
+      `Prelude.hashWithSalt` readinessCheckName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` readinessCheckArn
       `Prelude.hashWithSalt` resourceSet

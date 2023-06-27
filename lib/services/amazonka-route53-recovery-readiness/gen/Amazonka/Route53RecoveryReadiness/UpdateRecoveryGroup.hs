@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateRecoveryGroup where
 
 instance Prelude.Hashable UpdateRecoveryGroup where
   hashWithSalt _salt UpdateRecoveryGroup' {..} =
-    _salt `Prelude.hashWithSalt` recoveryGroupName
+    _salt
+      `Prelude.hashWithSalt` recoveryGroupName
       `Prelude.hashWithSalt` cells
 
 instance Prelude.NFData UpdateRecoveryGroup where

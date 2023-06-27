@@ -74,7 +74,8 @@ instance Data.FromJSON R53ResourceRecord where
 
 instance Prelude.Hashable R53ResourceRecord where
   hashWithSalt _salt R53ResourceRecord' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` recordSetId
 
 instance Prelude.NFData R53ResourceRecord where

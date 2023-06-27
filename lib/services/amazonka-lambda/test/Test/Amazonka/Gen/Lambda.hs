@@ -123,8 +123,14 @@ import Test.Tasty
 --         , requestGetProvisionedConcurrencyConfig $
 --             newGetProvisionedConcurrencyConfig
 --
+--         , requestGetRuntimeManagementConfig $
+--             newGetRuntimeManagementConfig
+--
 --         , requestInvoke $
 --             newInvoke
+--
+--         , requestInvokeWithResponseStream $
+--             newInvokeWithResponseStream
 --
 --         , requestListAliases $
 --             newListAliases
@@ -179,6 +185,9 @@ import Test.Tasty
 --
 --         , requestPutProvisionedConcurrencyConfig $
 --             newPutProvisionedConcurrencyConfig
+--
+--         , requestPutRuntimeManagementConfig $
+--             newPutRuntimeManagementConfig
 --
 --         , requestRemoveLayerVersionPermission $
 --             newRemoveLayerVersionPermission
@@ -312,8 +321,14 @@ import Test.Tasty
 --         , responseGetProvisionedConcurrencyConfig $
 --             newGetProvisionedConcurrencyConfigResponse
 --
+--         , responseGetRuntimeManagementConfig $
+--             newGetRuntimeManagementConfigResponse
+--
 --         , responseInvoke $
 --             newInvokeResponse
+--
+--         , responseInvokeWithResponseStream $
+--             newInvokeWithResponseStreamResponse
 --
 --         , responseListAliases $
 --             newListAliasesResponse
@@ -368,6 +383,9 @@ import Test.Tasty
 --
 --         , responsePutProvisionedConcurrencyConfig $
 --             newPutProvisionedConcurrencyConfigResponse
+--
+--         , responsePutRuntimeManagementConfig $
+--             newPutRuntimeManagementConfigResponse
 --
 --         , responseRemoveLayerVersionPermission $
 --             newRemoveLayerVersionPermissionResponse
@@ -599,11 +617,23 @@ requestGetProvisionedConcurrencyConfig =
     "GetProvisionedConcurrencyConfig"
     "fixture/GetProvisionedConcurrencyConfig.yaml"
 
+requestGetRuntimeManagementConfig :: GetRuntimeManagementConfig -> TestTree
+requestGetRuntimeManagementConfig =
+  req
+    "GetRuntimeManagementConfig"
+    "fixture/GetRuntimeManagementConfig.yaml"
+
 requestInvoke :: Invoke -> TestTree
 requestInvoke =
   req
     "Invoke"
     "fixture/Invoke.yaml"
+
+requestInvokeWithResponseStream :: InvokeWithResponseStream -> TestTree
+requestInvokeWithResponseStream =
+  req
+    "InvokeWithResponseStream"
+    "fixture/InvokeWithResponseStream.yaml"
 
 requestListAliases :: ListAliases -> TestTree
 requestListAliases =
@@ -712,6 +742,12 @@ requestPutProvisionedConcurrencyConfig =
   req
     "PutProvisionedConcurrencyConfig"
     "fixture/PutProvisionedConcurrencyConfig.yaml"
+
+requestPutRuntimeManagementConfig :: PutRuntimeManagementConfig -> TestTree
+requestPutRuntimeManagementConfig =
+  req
+    "PutRuntimeManagementConfig"
+    "fixture/PutRuntimeManagementConfig.yaml"
 
 requestRemoveLayerVersionPermission :: RemoveLayerVersionPermission -> TestTree
 requestRemoveLayerVersionPermission =
@@ -1037,6 +1073,14 @@ responseGetProvisionedConcurrencyConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetProvisionedConcurrencyConfig)
 
+responseGetRuntimeManagementConfig :: GetRuntimeManagementConfigResponse -> TestTree
+responseGetRuntimeManagementConfig =
+  res
+    "GetRuntimeManagementConfigResponse"
+    "fixture/GetRuntimeManagementConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRuntimeManagementConfig)
+
 responseInvoke :: InvokeResponse -> TestTree
 responseInvoke =
   res
@@ -1044,6 +1088,14 @@ responseInvoke =
     "fixture/InvokeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy Invoke)
+
+responseInvokeWithResponseStream :: InvokeWithResponseStreamResponse -> TestTree
+responseInvokeWithResponseStream =
+  res
+    "InvokeWithResponseStreamResponse"
+    "fixture/InvokeWithResponseStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy InvokeWithResponseStream)
 
 responseListAliases :: ListAliasesResponse -> TestTree
 responseListAliases =
@@ -1188,6 +1240,14 @@ responsePutProvisionedConcurrencyConfig =
     "fixture/PutProvisionedConcurrencyConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutProvisionedConcurrencyConfig)
+
+responsePutRuntimeManagementConfig :: PutRuntimeManagementConfigResponse -> TestTree
+responsePutRuntimeManagementConfig =
+  res
+    "PutRuntimeManagementConfigResponse"
+    "fixture/PutRuntimeManagementConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRuntimeManagementConfig)
 
 responseRemoveLayerVersionPermission :: RemoveLayerVersionPermissionResponse -> TestTree
 responseRemoveLayerVersionPermission =

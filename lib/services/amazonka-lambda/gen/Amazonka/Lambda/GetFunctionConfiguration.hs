@@ -64,6 +64,7 @@ module Amazonka.Lambda.GetFunctionConfiguration
     functionConfiguration_revisionId,
     functionConfiguration_role,
     functionConfiguration_runtime,
+    functionConfiguration_runtimeVersionConfig,
     functionConfiguration_signingJobArn,
     functionConfiguration_signingProfileVersionArn,
     functionConfiguration_snapStart,
@@ -181,7 +182,8 @@ instance Core.AWSRequest GetFunctionConfiguration where
 
 instance Prelude.Hashable GetFunctionConfiguration where
   hashWithSalt _salt GetFunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` qualifier
+    _salt
+      `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData GetFunctionConfiguration where

@@ -29,7 +29,8 @@
 -- The @ListFunctions@ operation returns a subset of the
 -- FunctionConfiguration fields. To get the additional fields (State,
 -- StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason,
--- LastUpdateStatusReasonCode) for a function or version, use GetFunction.
+-- LastUpdateStatusReasonCode, RuntimeVersionConfig) for a function or
+-- version, use GetFunction.
 --
 -- This operation returns paginated results.
 module Amazonka.Lambda.ListFunctions
@@ -145,20 +146,22 @@ instance Core.AWSPager ListFunctions where
     | Core.stop
         ( rs
             Lens.^? listFunctionsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listFunctionsResponse_functions Prelude.. Lens._Just
+            Lens.^? listFunctionsResponse_functions
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFunctions_marker
           Lens..~ rs
-          Lens.^? listFunctionsResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listFunctionsResponse_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFunctions where
   type
@@ -177,7 +180,8 @@ instance Core.AWSRequest ListFunctions where
 
 instance Prelude.Hashable ListFunctions where
   hashWithSalt _salt ListFunctions' {..} =
-    _salt `Prelude.hashWithSalt` functionVersion
+    _salt
+      `Prelude.hashWithSalt` functionVersion
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` masterRegion
       `Prelude.hashWithSalt` maxItems

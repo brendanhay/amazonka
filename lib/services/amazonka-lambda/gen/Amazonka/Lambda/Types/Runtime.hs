@@ -27,6 +27,7 @@ module Amazonka.Lambda.Types.Runtime
         Runtime_Dotnetcore3_1,
         Runtime_Go1_x,
         Runtime_Java11,
+        Runtime_Java17,
         Runtime_Java8,
         Runtime_Java8_al2,
         Runtime_Nodejs,
@@ -42,12 +43,14 @@ module Amazonka.Lambda.Types.Runtime
         Runtime_Provided,
         Runtime_Provided_al2,
         Runtime_Python2_7,
+        Runtime_Python3_10,
         Runtime_Python3_6,
         Runtime_Python3_7,
         Runtime_Python3_8,
         Runtime_Python3_9,
         Runtime_Ruby2_5,
-        Runtime_Ruby2_7
+        Runtime_Ruby2_7,
+        Runtime_Ruby3_2
       ),
   )
 where
@@ -102,6 +105,9 @@ pattern Runtime_Go1_x = Runtime' "go1.x"
 pattern Runtime_Java11 :: Runtime
 pattern Runtime_Java11 = Runtime' "java11"
 
+pattern Runtime_Java17 :: Runtime
+pattern Runtime_Java17 = Runtime' "java17"
+
 pattern Runtime_Java8 :: Runtime
 pattern Runtime_Java8 = Runtime' "java8"
 
@@ -147,6 +153,9 @@ pattern Runtime_Provided_al2 = Runtime' "provided.al2"
 pattern Runtime_Python2_7 :: Runtime
 pattern Runtime_Python2_7 = Runtime' "python2.7"
 
+pattern Runtime_Python3_10 :: Runtime
+pattern Runtime_Python3_10 = Runtime' "python3.10"
+
 pattern Runtime_Python3_6 :: Runtime
 pattern Runtime_Python3_6 = Runtime' "python3.6"
 
@@ -165,6 +174,9 @@ pattern Runtime_Ruby2_5 = Runtime' "ruby2.5"
 pattern Runtime_Ruby2_7 :: Runtime
 pattern Runtime_Ruby2_7 = Runtime' "ruby2.7"
 
+pattern Runtime_Ruby3_2 :: Runtime
+pattern Runtime_Ruby3_2 = Runtime' "ruby3.2"
+
 {-# COMPLETE
   Runtime_Dotnet6,
   Runtime_Dotnetcore1_0,
@@ -173,6 +185,7 @@ pattern Runtime_Ruby2_7 = Runtime' "ruby2.7"
   Runtime_Dotnetcore3_1,
   Runtime_Go1_x,
   Runtime_Java11,
+  Runtime_Java17,
   Runtime_Java8,
   Runtime_Java8_al2,
   Runtime_Nodejs,
@@ -188,11 +201,13 @@ pattern Runtime_Ruby2_7 = Runtime' "ruby2.7"
   Runtime_Provided,
   Runtime_Provided_al2,
   Runtime_Python2_7,
+  Runtime_Python3_10,
   Runtime_Python3_6,
   Runtime_Python3_7,
   Runtime_Python3_8,
   Runtime_Python3_9,
   Runtime_Ruby2_5,
   Runtime_Ruby2_7,
+  Runtime_Ruby3_2,
   Runtime'
   #-}

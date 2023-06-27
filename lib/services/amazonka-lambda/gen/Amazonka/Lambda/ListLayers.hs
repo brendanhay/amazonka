@@ -66,6 +66,10 @@ data ListLayers = ListLayers'
     -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
     compatibleArchitecture :: Prelude.Maybe Architecture,
     -- | A runtime identifier. For example, @go1.x@.
+    --
+    -- The following list includes deprecated runtimes. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
     compatibleRuntime :: Prelude.Maybe Runtime,
     -- | A pagination token returned by a previous call.
     marker :: Prelude.Maybe Prelude.Text,
@@ -87,6 +91,10 @@ data ListLayers = ListLayers'
 --
 -- 'compatibleRuntime', 'listLayers_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
 --
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
+--
 -- 'marker', 'listLayers_marker' - A pagination token returned by a previous call.
 --
 -- 'maxItems', 'listLayers_maxItems' - The maximum number of layers to return.
@@ -107,6 +115,10 @@ listLayers_compatibleArchitecture :: Lens.Lens' ListLayers (Prelude.Maybe Archit
 listLayers_compatibleArchitecture = Lens.lens (\ListLayers' {compatibleArchitecture} -> compatibleArchitecture) (\s@ListLayers' {} a -> s {compatibleArchitecture = a} :: ListLayers)
 
 -- | A runtime identifier. For example, @go1.x@.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 listLayers_compatibleRuntime :: Lens.Lens' ListLayers (Prelude.Maybe Runtime)
 listLayers_compatibleRuntime = Lens.lens (\ListLayers' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayers' {} a -> s {compatibleRuntime = a} :: ListLayers)
 
@@ -122,20 +134,23 @@ instance Core.AWSPager ListLayers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listLayersResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listLayersResponse_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listLayersResponse_layers Prelude.. Lens._Just
+            Lens.^? listLayersResponse_layers
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLayers_marker
           Lens..~ rs
-          Lens.^? listLayersResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listLayersResponse_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLayers where
   type AWSResponse ListLayers = ListLayersResponse
@@ -152,7 +167,8 @@ instance Core.AWSRequest ListLayers where
 
 instance Prelude.Hashable ListLayers where
   hashWithSalt _salt ListLayers' {..} =
-    _salt `Prelude.hashWithSalt` compatibleArchitecture
+    _salt
+      `Prelude.hashWithSalt` compatibleArchitecture
       `Prelude.hashWithSalt` compatibleRuntime
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

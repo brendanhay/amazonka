@@ -36,6 +36,7 @@ module Amazonka.Lambda.GetFunctionUrlConfig
 
     -- * Response Lenses
     getFunctionUrlConfigResponse_cors,
+    getFunctionUrlConfigResponse_invokeMode,
     getFunctionUrlConfigResponse_httpStatus,
     getFunctionUrlConfigResponse_functionUrl,
     getFunctionUrlConfigResponse_functionArn,
@@ -138,6 +139,7 @@ instance Core.AWSRequest GetFunctionUrlConfig where
       ( \s h x ->
           GetFunctionUrlConfigResponse'
             Prelude.<$> (x Data..?> "Cors")
+            Prelude.<*> (x Data..?> "InvokeMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "FunctionUrl")
             Prelude.<*> (x Data..:> "FunctionArn")
@@ -148,7 +150,8 @@ instance Core.AWSRequest GetFunctionUrlConfig where
 
 instance Prelude.Hashable GetFunctionUrlConfig where
   hashWithSalt _salt GetFunctionUrlConfig' {..} =
-    _salt `Prelude.hashWithSalt` qualifier
+    _salt
+      `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData GetFunctionUrlConfig where
@@ -177,6 +180,19 @@ data GetFunctionUrlConfigResponse = GetFunctionUrlConfigResponse'
     -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin resource sharing (CORS)>
     -- settings for your function URL.
     cors :: Prelude.Maybe Cors,
+    -- | Use one of the following options:
+    --
+    -- -   @BUFFERED@ – This is the default option. Lambda invokes your
+    --     function using the @Invoke@ API operation. Invocation results are
+    --     available when the payload is complete. The maximum payload size is
+    --     6 MB.
+    --
+    -- -   @RESPONSE_STREAM@ – Your function streams payload results as they
+    --     become available. Lambda invokes your function using the
+    --     @InvokeWithResponseStream@ API operation. The maximum response
+    --     payload size is 20 MB, however, you can
+    --     <https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html request a quota increase>.
+    invokeMode :: Prelude.Maybe InvokeMode,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The HTTP URL endpoint for your function.
@@ -184,7 +200,7 @@ data GetFunctionUrlConfigResponse = GetFunctionUrlConfigResponse'
     -- | The Amazon Resource Name (ARN) of your function.
     functionArn :: Prelude.Text,
     -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
-    -- if you want to restrict access to authenticated IAM users only. Set to
+    -- if you want to restrict access to authenticated users only. Set to
     -- @NONE@ if you want to bypass IAM authentication to create a public
     -- endpoint. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -212,6 +228,19 @@ data GetFunctionUrlConfigResponse = GetFunctionUrlConfigResponse'
 -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin resource sharing (CORS)>
 -- settings for your function URL.
 --
+-- 'invokeMode', 'getFunctionUrlConfigResponse_invokeMode' - Use one of the following options:
+--
+-- -   @BUFFERED@ – This is the default option. Lambda invokes your
+--     function using the @Invoke@ API operation. Invocation results are
+--     available when the payload is complete. The maximum payload size is
+--     6 MB.
+--
+-- -   @RESPONSE_STREAM@ – Your function streams payload results as they
+--     become available. Lambda invokes your function using the
+--     @InvokeWithResponseStream@ API operation. The maximum response
+--     payload size is 20 MB, however, you can
+--     <https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html request a quota increase>.
+--
 -- 'httpStatus', 'getFunctionUrlConfigResponse_httpStatus' - The response's http status code.
 --
 -- 'functionUrl', 'getFunctionUrlConfigResponse_functionUrl' - The HTTP URL endpoint for your function.
@@ -219,7 +248,7 @@ data GetFunctionUrlConfigResponse = GetFunctionUrlConfigResponse'
 -- 'functionArn', 'getFunctionUrlConfigResponse_functionArn' - The Amazon Resource Name (ARN) of your function.
 --
 -- 'authType', 'getFunctionUrlConfigResponse_authType' - The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated IAM users only. Set to
+-- if you want to restrict access to authenticated users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -255,6 +284,7 @@ newGetFunctionUrlConfigResponse
     GetFunctionUrlConfigResponse'
       { cors =
           Prelude.Nothing,
+        invokeMode = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         functionUrl = pFunctionUrl_,
         functionArn = pFunctionArn_,
@@ -269,6 +299,21 @@ newGetFunctionUrlConfigResponse
 getFunctionUrlConfigResponse_cors :: Lens.Lens' GetFunctionUrlConfigResponse (Prelude.Maybe Cors)
 getFunctionUrlConfigResponse_cors = Lens.lens (\GetFunctionUrlConfigResponse' {cors} -> cors) (\s@GetFunctionUrlConfigResponse' {} a -> s {cors = a} :: GetFunctionUrlConfigResponse)
 
+-- | Use one of the following options:
+--
+-- -   @BUFFERED@ – This is the default option. Lambda invokes your
+--     function using the @Invoke@ API operation. Invocation results are
+--     available when the payload is complete. The maximum payload size is
+--     6 MB.
+--
+-- -   @RESPONSE_STREAM@ – Your function streams payload results as they
+--     become available. Lambda invokes your function using the
+--     @InvokeWithResponseStream@ API operation. The maximum response
+--     payload size is 20 MB, however, you can
+--     <https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html request a quota increase>.
+getFunctionUrlConfigResponse_invokeMode :: Lens.Lens' GetFunctionUrlConfigResponse (Prelude.Maybe InvokeMode)
+getFunctionUrlConfigResponse_invokeMode = Lens.lens (\GetFunctionUrlConfigResponse' {invokeMode} -> invokeMode) (\s@GetFunctionUrlConfigResponse' {} a -> s {invokeMode = a} :: GetFunctionUrlConfigResponse)
+
 -- | The response's http status code.
 getFunctionUrlConfigResponse_httpStatus :: Lens.Lens' GetFunctionUrlConfigResponse Prelude.Int
 getFunctionUrlConfigResponse_httpStatus = Lens.lens (\GetFunctionUrlConfigResponse' {httpStatus} -> httpStatus) (\s@GetFunctionUrlConfigResponse' {} a -> s {httpStatus = a} :: GetFunctionUrlConfigResponse)
@@ -282,7 +327,7 @@ getFunctionUrlConfigResponse_functionArn :: Lens.Lens' GetFunctionUrlConfigRespo
 getFunctionUrlConfigResponse_functionArn = Lens.lens (\GetFunctionUrlConfigResponse' {functionArn} -> functionArn) (\s@GetFunctionUrlConfigResponse' {} a -> s {functionArn = a} :: GetFunctionUrlConfigResponse)
 
 -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated IAM users only. Set to
+-- if you want to restrict access to authenticated users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -304,6 +349,7 @@ getFunctionUrlConfigResponse_lastModifiedTime = Lens.lens (\GetFunctionUrlConfig
 instance Prelude.NFData GetFunctionUrlConfigResponse where
   rnf GetFunctionUrlConfigResponse' {..} =
     Prelude.rnf cors
+      `Prelude.seq` Prelude.rnf invokeMode
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf functionUrl
       `Prelude.seq` Prelude.rnf functionArn

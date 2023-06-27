@@ -35,6 +35,10 @@ data LayerVersionsListItem = LayerVersionsListItem'
     -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures>.
     compatibleArchitectures :: Prelude.Maybe [Architecture],
     -- | The layer\'s compatible runtimes.
+    --
+    -- The following list includes deprecated runtimes. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
     compatibleRuntimes :: Prelude.Maybe [Runtime],
     -- | The date that the version was created, in ISO 8601 format. For example,
     -- @2018-11-27T15:10:45.123+0000@.
@@ -62,6 +66,10 @@ data LayerVersionsListItem = LayerVersionsListItem'
 -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures>.
 --
 -- 'compatibleRuntimes', 'layerVersionsListItem_compatibleRuntimes' - The layer\'s compatible runtimes.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 --
 -- 'createdDate', 'layerVersionsListItem_createdDate' - The date that the version was created, in ISO 8601 format. For example,
 -- @2018-11-27T15:10:45.123+0000@.
@@ -93,6 +101,10 @@ layerVersionsListItem_compatibleArchitectures :: Lens.Lens' LayerVersionsListIte
 layerVersionsListItem_compatibleArchitectures = Lens.lens (\LayerVersionsListItem' {compatibleArchitectures} -> compatibleArchitectures) (\s@LayerVersionsListItem' {} a -> s {compatibleArchitectures = a} :: LayerVersionsListItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The layer\'s compatible runtimes.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 layerVersionsListItem_compatibleRuntimes :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe [Runtime])
 layerVersionsListItem_compatibleRuntimes = Lens.lens (\LayerVersionsListItem' {compatibleRuntimes} -> compatibleRuntimes) (\s@LayerVersionsListItem' {} a -> s {compatibleRuntimes = a} :: LayerVersionsListItem) Prelude.. Lens.mapping Lens.coerced
 
@@ -123,10 +135,12 @@ instance Data.FromJSON LayerVersionsListItem where
       "LayerVersionsListItem"
       ( \x ->
           LayerVersionsListItem'
-            Prelude.<$> ( x Data..:? "CompatibleArchitectures"
+            Prelude.<$> ( x
+                            Data..:? "CompatibleArchitectures"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "CompatibleRuntimes"
+            Prelude.<*> ( x
+                            Data..:? "CompatibleRuntimes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedDate")

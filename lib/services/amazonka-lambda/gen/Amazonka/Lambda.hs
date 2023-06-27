@@ -169,6 +169,9 @@ module Amazonka.Lambda
     -- ** ProvisionedConcurrencyConfigNotFoundException
     _ProvisionedConcurrencyConfigNotFoundException,
 
+    -- ** RecursiveInvocationException
+    _RecursiveInvocationException,
+
     -- ** RequestTooLargeException
     _RequestTooLargeException,
 
@@ -421,11 +424,23 @@ module Amazonka.Lambda
     GetProvisionedConcurrencyConfigResponse (GetProvisionedConcurrencyConfigResponse'),
     newGetProvisionedConcurrencyConfigResponse,
 
+    -- ** GetRuntimeManagementConfig
+    GetRuntimeManagementConfig (GetRuntimeManagementConfig'),
+    newGetRuntimeManagementConfig,
+    GetRuntimeManagementConfigResponse (GetRuntimeManagementConfigResponse'),
+    newGetRuntimeManagementConfigResponse,
+
     -- ** Invoke
     Invoke (Invoke'),
     newInvoke,
     InvokeResponse (InvokeResponse'),
     newInvokeResponse,
+
+    -- ** InvokeWithResponseStream
+    InvokeWithResponseStream (InvokeWithResponseStream'),
+    newInvokeWithResponseStream,
+    InvokeWithResponseStreamResponse (InvokeWithResponseStreamResponse'),
+    newInvokeWithResponseStreamResponse,
 
     -- ** ListAliases (Paginated)
     ListAliases (ListAliases'),
@@ -535,6 +550,12 @@ module Amazonka.Lambda
     PutProvisionedConcurrencyConfigResponse (PutProvisionedConcurrencyConfigResponse'),
     newPutProvisionedConcurrencyConfigResponse,
 
+    -- ** PutRuntimeManagementConfig
+    PutRuntimeManagementConfig (PutRuntimeManagementConfig'),
+    newPutRuntimeManagementConfig,
+    PutRuntimeManagementConfigResponse (PutRuntimeManagementConfigResponse'),
+    newPutRuntimeManagementConfigResponse,
+
     -- ** RemoveLayerVersionPermission
     RemoveLayerVersionPermission (RemoveLayerVersionPermission'),
     newRemoveLayerVersionPermission,
@@ -615,6 +636,9 @@ module Amazonka.Lambda
     -- ** EventSourcePosition
     EventSourcePosition (..),
 
+    -- ** FullDocument
+    FullDocument (..),
+
     -- ** FunctionResponseType
     FunctionResponseType (..),
 
@@ -626,6 +650,9 @@ module Amazonka.Lambda
 
     -- ** InvocationType
     InvocationType (..),
+
+    -- ** InvokeMode
+    InvokeMode (..),
 
     -- ** LastUpdateStatus
     LastUpdateStatus (..),
@@ -641,6 +668,9 @@ module Amazonka.Lambda
 
     -- ** ProvisionedConcurrencyStatusEnum
     ProvisionedConcurrencyStatusEnum (..),
+
+    -- ** ResponseStreamingInvocationType
+    ResponseStreamingInvocationType (..),
 
     -- ** Runtime
     Runtime (..),
@@ -662,6 +692,9 @@ module Amazonka.Lambda
 
     -- ** TracingMode
     TracingMode (..),
+
+    -- ** UpdateRuntimeOn
+    UpdateRuntimeOn (..),
 
     -- ** AccountLimit
     AccountLimit (AccountLimit'),
@@ -710,6 +743,10 @@ module Amazonka.Lambda
     -- ** DestinationConfig
     DestinationConfig (DestinationConfig'),
     newDestinationConfig,
+
+    -- ** DocumentDBEventSourceConfig
+    DocumentDBEventSourceConfig (DocumentDBEventSourceConfig'),
+    newDocumentDBEventSourceConfig,
 
     -- ** Environment
     Environment (Environment'),
@@ -779,6 +816,18 @@ module Amazonka.Lambda
     ImageConfigResponse (ImageConfigResponse'),
     newImageConfigResponse,
 
+    -- ** InvokeResponseStreamUpdate
+    InvokeResponseStreamUpdate (InvokeResponseStreamUpdate'),
+    newInvokeResponseStreamUpdate,
+
+    -- ** InvokeWithResponseStreamCompleteEvent
+    InvokeWithResponseStreamCompleteEvent (InvokeWithResponseStreamCompleteEvent'),
+    newInvokeWithResponseStreamCompleteEvent,
+
+    -- ** InvokeWithResponseStreamResponseEvent
+    InvokeWithResponseStreamResponseEvent (InvokeWithResponseStreamResponseEvent'),
+    newInvokeWithResponseStreamResponseEvent,
+
     -- ** Layer
     Layer (Layer'),
     newLayer,
@@ -810,6 +859,18 @@ module Amazonka.Lambda
     -- ** ProvisionedConcurrencyConfigListItem
     ProvisionedConcurrencyConfigListItem (ProvisionedConcurrencyConfigListItem'),
     newProvisionedConcurrencyConfigListItem,
+
+    -- ** RuntimeVersionConfig
+    RuntimeVersionConfig (RuntimeVersionConfig'),
+    newRuntimeVersionConfig,
+
+    -- ** RuntimeVersionError
+    RuntimeVersionError (RuntimeVersionError'),
+    newRuntimeVersionError,
+
+    -- ** ScalingConfig
+    ScalingConfig (ScalingConfig'),
+    newScalingConfig,
 
     -- ** SelfManagedEventSource
     SelfManagedEventSource (SelfManagedEventSource'),
@@ -881,7 +942,9 @@ import Amazonka.Lambda.GetLayerVersionByArn
 import Amazonka.Lambda.GetLayerVersionPolicy
 import Amazonka.Lambda.GetPolicy
 import Amazonka.Lambda.GetProvisionedConcurrencyConfig
+import Amazonka.Lambda.GetRuntimeManagementConfig
 import Amazonka.Lambda.Invoke
+import Amazonka.Lambda.InvokeWithResponseStream
 import Amazonka.Lambda.Lens
 import Amazonka.Lambda.ListAliases
 import Amazonka.Lambda.ListCodeSigningConfigs
@@ -901,6 +964,7 @@ import Amazonka.Lambda.PutFunctionCodeSigningConfig
 import Amazonka.Lambda.PutFunctionConcurrency
 import Amazonka.Lambda.PutFunctionEventInvokeConfig
 import Amazonka.Lambda.PutProvisionedConcurrencyConfig
+import Amazonka.Lambda.PutRuntimeManagementConfig
 import Amazonka.Lambda.RemoveLayerVersionPermission
 import Amazonka.Lambda.RemovePermission
 import Amazonka.Lambda.TagResource

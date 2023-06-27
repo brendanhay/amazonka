@@ -76,7 +76,8 @@ instance Data.FromJSON ImageConfigResponse where
 
 instance Prelude.Hashable ImageConfigResponse where
   hashWithSalt _salt ImageConfigResponse' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` imageConfig
 
 instance Prelude.NFData ImageConfigResponse where

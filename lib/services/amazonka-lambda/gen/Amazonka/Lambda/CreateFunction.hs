@@ -145,6 +145,7 @@ module Amazonka.Lambda.CreateFunction
     functionConfiguration_revisionId,
     functionConfiguration_role,
     functionConfiguration_runtime,
+    functionConfiguration_runtimeVersionConfig,
     functionConfiguration_signingJobArn,
     functionConfiguration_signingProfileVersionArn,
     functionConfiguration_snapStart,
@@ -203,9 +204,18 @@ data CreateFunction = CreateFunction'
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
     -- that override the values in the container image Dockerfile.
     imageConfig :: Prelude.Maybe ImageConfig,
-    -- | The ARN of the Key Management Service (KMS) key that\'s used to encrypt
-    -- your function\'s environment variables. If it\'s not provided, Lambda
-    -- uses a default service key.
+    -- | The ARN of the Key Management Service (KMS) customer managed key that\'s
+    -- used to encrypt your function\'s
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption environment variables>.
+    -- When
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html Lambda SnapStart>
+    -- is activated, Lambda also uses this key is to encrypt your function\'s
+    -- snapshot. If you deploy your function using a container image, Lambda
+    -- also uses this key to encrypt your function when it\'s deployed. Note
+    -- that this is not the same key that\'s used to protect your container
+    -- image in the Amazon Elastic Container Registry (Amazon ECR). If you
+    -- don\'t provide a customer managed key, Lambda uses a default service
+    -- key.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | A list of
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
@@ -227,6 +237,10 @@ data CreateFunction = CreateFunction'
     -- | The identifier of the function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
     -- Runtime is required if the deployment package is a .zip file archive.
+    --
+    -- The following list includes deprecated runtimes. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
     runtime :: Prelude.Maybe Runtime,
     -- | The function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html SnapStart>
@@ -315,9 +329,18 @@ data CreateFunction = CreateFunction'
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
 -- that override the values in the container image Dockerfile.
 --
--- 'kmsKeyArn', 'createFunction_kmsKeyArn' - The ARN of the Key Management Service (KMS) key that\'s used to encrypt
--- your function\'s environment variables. If it\'s not provided, Lambda
--- uses a default service key.
+-- 'kmsKeyArn', 'createFunction_kmsKeyArn' - The ARN of the Key Management Service (KMS) customer managed key that\'s
+-- used to encrypt your function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption environment variables>.
+-- When
+-- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html Lambda SnapStart>
+-- is activated, Lambda also uses this key is to encrypt your function\'s
+-- snapshot. If you deploy your function using a container image, Lambda
+-- also uses this key to encrypt your function when it\'s deployed. Note
+-- that this is not the same key that\'s used to protect your container
+-- image in the Amazon Elastic Container Registry (Amazon ECR). If you
+-- don\'t provide a customer managed key, Lambda uses a default service
+-- key.
 --
 -- 'layers', 'createFunction_layers' - A list of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
@@ -339,6 +362,10 @@ data CreateFunction = CreateFunction'
 -- 'runtime', 'createFunction_runtime' - The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
 -- Runtime is required if the deployment package is a .zip file archive.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 --
 -- 'snapStart', 'createFunction_snapStart' - The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html SnapStart>
@@ -468,9 +495,18 @@ createFunction_handler = Lens.lens (\CreateFunction' {handler} -> handler) (\s@C
 createFunction_imageConfig :: Lens.Lens' CreateFunction (Prelude.Maybe ImageConfig)
 createFunction_imageConfig = Lens.lens (\CreateFunction' {imageConfig} -> imageConfig) (\s@CreateFunction' {} a -> s {imageConfig = a} :: CreateFunction)
 
--- | The ARN of the Key Management Service (KMS) key that\'s used to encrypt
--- your function\'s environment variables. If it\'s not provided, Lambda
--- uses a default service key.
+-- | The ARN of the Key Management Service (KMS) customer managed key that\'s
+-- used to encrypt your function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption environment variables>.
+-- When
+-- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html Lambda SnapStart>
+-- is activated, Lambda also uses this key is to encrypt your function\'s
+-- snapshot. If you deploy your function using a container image, Lambda
+-- also uses this key to encrypt your function when it\'s deployed. Note
+-- that this is not the same key that\'s used to protect your container
+-- image in the Amazon Elastic Container Registry (Amazon ECR). If you
+-- don\'t provide a customer managed key, Lambda uses a default service
+-- key.
 createFunction_kmsKeyArn :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
 createFunction_kmsKeyArn = Lens.lens (\CreateFunction' {kmsKeyArn} -> kmsKeyArn) (\s@CreateFunction' {} a -> s {kmsKeyArn = a} :: CreateFunction)
 
@@ -502,6 +538,10 @@ createFunction_publish = Lens.lens (\CreateFunction' {publish} -> publish) (\s@C
 -- | The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
 -- Runtime is required if the deployment package is a .zip file archive.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 createFunction_runtime :: Lens.Lens' CreateFunction (Prelude.Maybe Runtime)
 createFunction_runtime = Lens.lens (\CreateFunction' {runtime} -> runtime) (\s@CreateFunction' {} a -> s {runtime = a} :: CreateFunction)
 
@@ -574,7 +614,8 @@ instance Core.AWSRequest CreateFunction where
 
 instance Prelude.Hashable CreateFunction where
   hashWithSalt _salt CreateFunction' {..} =
-    _salt `Prelude.hashWithSalt` architectures
+    _salt
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` codeSigningConfigArn
       `Prelude.hashWithSalt` deadLetterConfig
       `Prelude.hashWithSalt` description

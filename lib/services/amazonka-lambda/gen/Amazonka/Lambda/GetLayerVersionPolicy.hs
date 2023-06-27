@@ -108,7 +108,8 @@ instance Core.AWSRequest GetLayerVersionPolicy where
 
 instance Prelude.Hashable GetLayerVersionPolicy where
   hashWithSalt _salt GetLayerVersionPolicy' {..} =
-    _salt `Prelude.hashWithSalt` layerName
+    _salt
+      `Prelude.hashWithSalt` layerName
       `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData GetLayerVersionPolicy where

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the configuration of a Lambda function
--- <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html alias>.
 module Amazonka.Lambda.UpdateAlias
   ( -- * Creating a Request
     UpdateAlias (..),
@@ -191,7 +191,8 @@ instance Core.AWSRequest UpdateAlias where
 
 instance Prelude.Hashable UpdateAlias where
   hashWithSalt _salt UpdateAlias' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` functionVersion
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` routingConfig

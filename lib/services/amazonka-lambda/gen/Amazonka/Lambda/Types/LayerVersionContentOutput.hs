@@ -106,7 +106,8 @@ instance Data.FromJSON LayerVersionContentOutput where
 
 instance Prelude.Hashable LayerVersionContentOutput where
   hashWithSalt _salt LayerVersionContentOutput' {..} =
-    _salt `Prelude.hashWithSalt` codeSha256
+    _salt
+      `Prelude.hashWithSalt` codeSha256
       `Prelude.hashWithSalt` codeSize
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` signingJobArn

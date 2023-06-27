@@ -133,7 +133,8 @@ instance Core.AWSRequest DeleteFunctionUrlConfig where
 
 instance Prelude.Hashable DeleteFunctionUrlConfig where
   hashWithSalt _salt DeleteFunctionUrlConfig' {..} =
-    _salt `Prelude.hashWithSalt` qualifier
+    _salt
+      `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData DeleteFunctionUrlConfig where

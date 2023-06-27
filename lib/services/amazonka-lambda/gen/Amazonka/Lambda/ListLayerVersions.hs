@@ -66,6 +66,10 @@ data ListLayerVersions = ListLayerVersions'
     -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
     compatibleArchitecture :: Prelude.Maybe Architecture,
     -- | A runtime identifier. For example, @go1.x@.
+    --
+    -- The following list includes deprecated runtimes. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
     compatibleRuntime :: Prelude.Maybe Runtime,
     -- | A pagination token returned by a previous call.
     marker :: Prelude.Maybe Prelude.Text,
@@ -88,6 +92,10 @@ data ListLayerVersions = ListLayerVersions'
 -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
 --
 -- 'compatibleRuntime', 'listLayerVersions_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 --
 -- 'marker', 'listLayerVersions_marker' - A pagination token returned by a previous call.
 --
@@ -114,6 +122,10 @@ listLayerVersions_compatibleArchitecture :: Lens.Lens' ListLayerVersions (Prelud
 listLayerVersions_compatibleArchitecture = Lens.lens (\ListLayerVersions' {compatibleArchitecture} -> compatibleArchitecture) (\s@ListLayerVersions' {} a -> s {compatibleArchitecture = a} :: ListLayerVersions)
 
 -- | A runtime identifier. For example, @go1.x@.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 listLayerVersions_compatibleRuntime :: Lens.Lens' ListLayerVersions (Prelude.Maybe Runtime)
 listLayerVersions_compatibleRuntime = Lens.lens (\ListLayerVersions' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayerVersions' {} a -> s {compatibleRuntime = a} :: ListLayerVersions)
 
@@ -134,22 +146,22 @@ instance Core.AWSPager ListLayerVersions where
     | Core.stop
         ( rs
             Lens.^? listLayerVersionsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listLayerVersionsResponse_layerVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLayerVersions_marker
           Lens..~ rs
           Lens.^? listLayerVersionsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLayerVersions where
   type
@@ -168,7 +180,8 @@ instance Core.AWSRequest ListLayerVersions where
 
 instance Prelude.Hashable ListLayerVersions where
   hashWithSalt _salt ListLayerVersions' {..} =
-    _salt `Prelude.hashWithSalt` compatibleArchitecture
+    _salt
+      `Prelude.hashWithSalt` compatibleArchitecture
       `Prelude.hashWithSalt` compatibleRuntime
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

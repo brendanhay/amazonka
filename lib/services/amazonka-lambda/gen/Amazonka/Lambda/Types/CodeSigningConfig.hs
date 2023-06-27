@@ -138,7 +138,8 @@ instance Data.FromJSON CodeSigningConfig where
 
 instance Prelude.Hashable CodeSigningConfig where
   hashWithSalt _salt CodeSigningConfig' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` codeSigningConfigId
       `Prelude.hashWithSalt` codeSigningConfigArn
       `Prelude.hashWithSalt` allowedPublishers

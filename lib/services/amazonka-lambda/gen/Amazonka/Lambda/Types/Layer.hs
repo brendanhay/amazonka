@@ -95,7 +95,8 @@ instance Data.FromJSON Layer where
 
 instance Prelude.Hashable Layer where
   hashWithSalt _salt Layer' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` codeSize
       `Prelude.hashWithSalt` signingJobArn
       `Prelude.hashWithSalt` signingProfileVersionArn

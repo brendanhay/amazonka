@@ -84,9 +84,9 @@ data PutFunctionEventInvokeConfig = PutFunctionEventInvokeConfig'
     --
     -- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
     --
-    -- -   __Queue__ - The ARN of an SQS queue.
+    -- -   __Queue__ - The ARN of a standard SQS queue.
     --
-    -- -   __Topic__ - The ARN of an SNS topic.
+    -- -   __Topic__ - The ARN of a standard SNS topic.
     --
     -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
     destinationConfig :: Prelude.Maybe DestinationConfig,
@@ -131,9 +131,9 @@ data PutFunctionEventInvokeConfig = PutFunctionEventInvokeConfig'
 --
 -- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
 --
--- -   __Queue__ - The ARN of an SQS queue.
+-- -   __Queue__ - The ARN of a standard SQS queue.
 --
--- -   __Topic__ - The ARN of an SNS topic.
+-- -   __Topic__ - The ARN of a standard SNS topic.
 --
 -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
 --
@@ -180,9 +180,9 @@ newPutFunctionEventInvokeConfig pFunctionName_ =
 --
 -- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
 --
--- -   __Queue__ - The ARN of an SQS queue.
+-- -   __Queue__ - The ARN of a standard SQS queue.
 --
--- -   __Topic__ - The ARN of an SNS topic.
+-- -   __Topic__ - The ARN of a standard SNS topic.
 --
 -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
 putFunctionEventInvokeConfig_destinationConfig :: Lens.Lens' PutFunctionEventInvokeConfig (Prelude.Maybe DestinationConfig)
@@ -234,7 +234,8 @@ instance
     PutFunctionEventInvokeConfig
   where
   hashWithSalt _salt PutFunctionEventInvokeConfig' {..} =
-    _salt `Prelude.hashWithSalt` destinationConfig
+    _salt
+      `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` maximumEventAgeInSeconds
       `Prelude.hashWithSalt` maximumRetryAttempts
       `Prelude.hashWithSalt` qualifier

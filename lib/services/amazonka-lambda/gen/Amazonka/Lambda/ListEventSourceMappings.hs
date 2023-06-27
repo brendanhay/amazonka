@@ -58,31 +58,33 @@ import qualified Amazonka.Response as Response
 data ListEventSourceMappings = ListEventSourceMappings'
   { -- | The Amazon Resource Name (ARN) of the event source.
     --
-    -- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
+    -- -   __Amazon Kinesis__ – The ARN of the data stream or a stream
     --     consumer.
     --
-    -- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
+    -- -   __Amazon DynamoDB Streams__ – The ARN of the stream.
     --
-    -- -   __Amazon Simple Queue Service__ - The ARN of the queue.
+    -- -   __Amazon Simple Queue Service__ – The ARN of the queue.
     --
-    -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
+    -- -   __Amazon Managed Streaming for Apache Kafka__ – The ARN of the
     --     cluster.
     --
-    -- -   __Amazon MQ__ - The ARN of the broker.
+    -- -   __Amazon MQ__ – The ARN of the broker.
+    --
+    -- -   __Amazon DocumentDB__ – The ARN of the DocumentDB change stream.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
     --
-    -- -   __Function name__ - @MyFunction@.
+    -- -   __Function name__ – @MyFunction@.
     --
-    -- -   __Function ARN__ -
+    -- -   __Function ARN__ –
     --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
     --
-    -- -   __Version or Alias ARN__ -
+    -- -   __Version or Alias ARN__ –
     --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@.
     --
-    -- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+    -- -   __Partial ARN__ – @123456789012:function:MyFunction@.
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it\'s limited to 64 characters in length.
@@ -106,31 +108,33 @@ data ListEventSourceMappings = ListEventSourceMappings'
 --
 -- 'eventSourceArn', 'listEventSourceMappings_eventSourceArn' - The Amazon Resource Name (ARN) of the event source.
 --
--- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
+-- -   __Amazon Kinesis__ – The ARN of the data stream or a stream
 --     consumer.
 --
--- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
+-- -   __Amazon DynamoDB Streams__ – The ARN of the stream.
 --
--- -   __Amazon Simple Queue Service__ - The ARN of the queue.
+-- -   __Amazon Simple Queue Service__ – The ARN of the queue.
 --
--- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
+-- -   __Amazon Managed Streaming for Apache Kafka__ – The ARN of the
 --     cluster.
 --
--- -   __Amazon MQ__ - The ARN of the broker.
+-- -   __Amazon MQ__ – The ARN of the broker.
+--
+-- -   __Amazon DocumentDB__ – The ARN of the DocumentDB change stream.
 --
 -- 'functionName', 'listEventSourceMappings_functionName' - The name of the Lambda function.
 --
 -- __Name formats__
 --
--- -   __Function name__ - @MyFunction@.
+-- -   __Function name__ – @MyFunction@.
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
 --
--- -   __Version or Alias ARN__ -
+-- -   __Version or Alias ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@.
 --
--- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+-- -   __Partial ARN__ – @123456789012:function:MyFunction@.
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it\'s limited to 64 characters in length.
@@ -153,17 +157,19 @@ newListEventSourceMappings =
 
 -- | The Amazon Resource Name (ARN) of the event source.
 --
--- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
+-- -   __Amazon Kinesis__ – The ARN of the data stream or a stream
 --     consumer.
 --
--- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
+-- -   __Amazon DynamoDB Streams__ – The ARN of the stream.
 --
--- -   __Amazon Simple Queue Service__ - The ARN of the queue.
+-- -   __Amazon Simple Queue Service__ – The ARN of the queue.
 --
--- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
+-- -   __Amazon Managed Streaming for Apache Kafka__ – The ARN of the
 --     cluster.
 --
--- -   __Amazon MQ__ - The ARN of the broker.
+-- -   __Amazon MQ__ – The ARN of the broker.
+--
+-- -   __Amazon DocumentDB__ – The ARN of the DocumentDB change stream.
 listEventSourceMappings_eventSourceArn :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
 listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {eventSourceArn} -> eventSourceArn) (\s@ListEventSourceMappings' {} a -> s {eventSourceArn = a} :: ListEventSourceMappings)
 
@@ -171,15 +177,15 @@ listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {e
 --
 -- __Name formats__
 --
--- -   __Function name__ - @MyFunction@.
+-- -   __Function name__ – @MyFunction@.
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
 --
--- -   __Version or Alias ARN__ -
+-- -   __Version or Alias ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@.
 --
--- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+-- -   __Partial ARN__ – @123456789012:function:MyFunction@.
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it\'s limited to 64 characters in length.
@@ -201,22 +207,22 @@ instance Core.AWSPager ListEventSourceMappings where
     | Core.stop
         ( rs
             Lens.^? listEventSourceMappingsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listEventSourceMappingsResponse_eventSourceMappings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEventSourceMappings_marker
           Lens..~ rs
           Lens.^? listEventSourceMappingsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEventSourceMappings where
   type
@@ -228,7 +234,8 @@ instance Core.AWSRequest ListEventSourceMappings where
     Response.receiveJSON
       ( \s h x ->
           ListEventSourceMappingsResponse'
-            Prelude.<$> ( x Data..?> "EventSourceMappings"
+            Prelude.<$> ( x
+                            Data..?> "EventSourceMappings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -237,7 +244,8 @@ instance Core.AWSRequest ListEventSourceMappings where
 
 instance Prelude.Hashable ListEventSourceMappings where
   hashWithSalt _salt ListEventSourceMappings' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceArn
+    _salt
+      `Prelude.hashWithSalt` eventSourceArn
       `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

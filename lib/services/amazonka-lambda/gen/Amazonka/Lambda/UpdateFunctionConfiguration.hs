@@ -93,6 +93,7 @@ module Amazonka.Lambda.UpdateFunctionConfiguration
     functionConfiguration_revisionId,
     functionConfiguration_role,
     functionConfiguration_runtime,
+    functionConfiguration_runtimeVersionConfig,
     functionConfiguration_signingJobArn,
     functionConfiguration_signingProfileVersionArn,
     functionConfiguration_snapStart,
@@ -141,9 +142,18 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     -- | <https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html Container image configuration values>
     -- that override the values in the container image Docker file.
     imageConfig :: Prelude.Maybe ImageConfig,
-    -- | The ARN of the Key Management Service (KMS) key that\'s used to encrypt
-    -- your function\'s environment variables. If it\'s not provided, Lambda
-    -- uses a default service key.
+    -- | The ARN of the Key Management Service (KMS) customer managed key that\'s
+    -- used to encrypt your function\'s
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption environment variables>.
+    -- When
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html Lambda SnapStart>
+    -- is activated, Lambda also uses this key is to encrypt your function\'s
+    -- snapshot. If you deploy your function using a container image, Lambda
+    -- also uses this key to encrypt your function when it\'s deployed. Note
+    -- that this is not the same key that\'s used to protect your container
+    -- image in the Amazon Elastic Container Registry (Amazon ECR). If you
+    -- don\'t provide a customer managed key, Lambda uses a default service
+    -- key.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | A list of
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
@@ -165,6 +175,10 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     -- | The identifier of the function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
     -- Runtime is required if the deployment package is a .zip file archive.
+    --
+    -- The following list includes deprecated runtimes. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
     runtime :: Prelude.Maybe Runtime,
     -- | The function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html SnapStart>
@@ -235,9 +249,18 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- 'imageConfig', 'updateFunctionConfiguration_imageConfig' - <https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html Container image configuration values>
 -- that override the values in the container image Docker file.
 --
--- 'kmsKeyArn', 'updateFunctionConfiguration_kmsKeyArn' - The ARN of the Key Management Service (KMS) key that\'s used to encrypt
--- your function\'s environment variables. If it\'s not provided, Lambda
--- uses a default service key.
+-- 'kmsKeyArn', 'updateFunctionConfiguration_kmsKeyArn' - The ARN of the Key Management Service (KMS) customer managed key that\'s
+-- used to encrypt your function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption environment variables>.
+-- When
+-- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html Lambda SnapStart>
+-- is activated, Lambda also uses this key is to encrypt your function\'s
+-- snapshot. If you deploy your function using a container image, Lambda
+-- also uses this key to encrypt your function when it\'s deployed. Note
+-- that this is not the same key that\'s used to protect your container
+-- image in the Amazon Elastic Container Registry (Amazon ECR). If you
+-- don\'t provide a customer managed key, Lambda uses a default service
+-- key.
 --
 -- 'layers', 'updateFunctionConfiguration_layers' - A list of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
@@ -259,6 +282,10 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- 'runtime', 'updateFunctionConfiguration_runtime' - The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
 -- Runtime is required if the deployment package is a .zip file archive.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 --
 -- 'snapStart', 'updateFunctionConfiguration_snapStart' - The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html SnapStart>
@@ -358,9 +385,18 @@ updateFunctionConfiguration_handler = Lens.lens (\UpdateFunctionConfiguration' {
 updateFunctionConfiguration_imageConfig :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe ImageConfig)
 updateFunctionConfiguration_imageConfig = Lens.lens (\UpdateFunctionConfiguration' {imageConfig} -> imageConfig) (\s@UpdateFunctionConfiguration' {} a -> s {imageConfig = a} :: UpdateFunctionConfiguration)
 
--- | The ARN of the Key Management Service (KMS) key that\'s used to encrypt
--- your function\'s environment variables. If it\'s not provided, Lambda
--- uses a default service key.
+-- | The ARN of the Key Management Service (KMS) customer managed key that\'s
+-- used to encrypt your function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption environment variables>.
+-- When
+-- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html Lambda SnapStart>
+-- is activated, Lambda also uses this key is to encrypt your function\'s
+-- snapshot. If you deploy your function using a container image, Lambda
+-- also uses this key to encrypt your function when it\'s deployed. Note
+-- that this is not the same key that\'s used to protect your container
+-- image in the Amazon Elastic Container Registry (Amazon ECR). If you
+-- don\'t provide a customer managed key, Lambda uses a default service
+-- key.
 updateFunctionConfiguration_kmsKeyArn :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Prelude.Text)
 updateFunctionConfiguration_kmsKeyArn = Lens.lens (\UpdateFunctionConfiguration' {kmsKeyArn} -> kmsKeyArn) (\s@UpdateFunctionConfiguration' {} a -> s {kmsKeyArn = a} :: UpdateFunctionConfiguration)
 
@@ -392,6 +428,10 @@ updateFunctionConfiguration_role = Lens.lens (\UpdateFunctionConfiguration' {rol
 -- | The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
 -- Runtime is required if the deployment package is a .zip file archive.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 updateFunctionConfiguration_runtime :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Runtime)
 updateFunctionConfiguration_runtime = Lens.lens (\UpdateFunctionConfiguration' {runtime} -> runtime) (\s@UpdateFunctionConfiguration' {} a -> s {runtime = a} :: UpdateFunctionConfiguration)
 
@@ -450,7 +490,8 @@ instance Core.AWSRequest UpdateFunctionConfiguration where
 
 instance Prelude.Hashable UpdateFunctionConfiguration where
   hashWithSalt _salt UpdateFunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` deadLetterConfig
+    _salt
+      `Prelude.hashWithSalt` deadLetterConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` ephemeralStorage

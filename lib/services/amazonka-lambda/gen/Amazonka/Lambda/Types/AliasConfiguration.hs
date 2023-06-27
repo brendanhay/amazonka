@@ -26,7 +26,7 @@ import Amazonka.Lambda.Types.AliasRoutingConfiguration
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides configuration information about a Lambda function
--- <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html alias>.
 --
 -- /See:/ 'newAliasConfiguration' smart constructor.
 data AliasConfiguration = AliasConfiguration'
@@ -122,7 +122,8 @@ instance Data.FromJSON AliasConfiguration where
 
 instance Prelude.Hashable AliasConfiguration where
   hashWithSalt _salt AliasConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` aliasArn
+    _salt
+      `Prelude.hashWithSalt` aliasArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` functionVersion
       `Prelude.hashWithSalt` name

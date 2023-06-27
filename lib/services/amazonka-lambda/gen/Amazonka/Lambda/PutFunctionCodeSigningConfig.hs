@@ -150,7 +150,8 @@ instance
     PutFunctionCodeSigningConfig
   where
   hashWithSalt _salt PutFunctionCodeSigningConfig' {..} =
-    _salt `Prelude.hashWithSalt` codeSigningConfigArn
+    _salt
+      `Prelude.hashWithSalt` codeSigningConfigArn
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData PutFunctionCodeSigningConfig where

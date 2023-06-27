@@ -24,9 +24,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.AmazonManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.DestinationConfig
+import Amazonka.Lambda.Types.DocumentDBEventSourceConfig
 import Amazonka.Lambda.Types.EventSourcePosition
 import Amazonka.Lambda.Types.FilterCriteria
 import Amazonka.Lambda.Types.FunctionResponseType
+import Amazonka.Lambda.Types.ScalingConfig
 import Amazonka.Lambda.Types.SelfManagedEventSource
 import Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.SourceAccessConfiguration
@@ -51,12 +53,14 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     -- Related setting: When you set @BatchSize@ to a value greater than 10,
     -- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
     batchSize :: Prelude.Maybe Prelude.Natural,
-    -- | (Streams only) If the function returns an error, split the batch in two
-    -- and retry. The default value is false.
+    -- | (Kinesis and DynamoDB Streams only) If the function returns an error,
+    -- split the batch in two and retry. The default value is false.
     bisectBatchOnFunctionError :: Prelude.Maybe Prelude.Bool,
-    -- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
-    -- discarded records.
+    -- | (Kinesis and DynamoDB Streams only) An Amazon SQS queue or Amazon SNS
+    -- topic destination for discarded records.
     destinationConfig :: Prelude.Maybe DestinationConfig,
+    -- | Specific configuration settings for a DocumentDB event source.
+    documentDBEventSourceConfig :: Prelude.Maybe DocumentDBEventSourceConfig,
     -- | The Amazon Resource Name (ARN) of the event source.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
     -- | An object that defines the filter criteria that determine whether Lambda
@@ -65,8 +69,8 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     filterCriteria :: Prelude.Maybe FilterCriteria,
     -- | The ARN of the Lambda function.
     functionArn :: Prelude.Maybe Prelude.Text,
-    -- | (Streams and Amazon SQS) A list of current response type enums applied
-    -- to the event source mapping.
+    -- | (Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response
+    -- type enums applied to the event source mapping.
     functionResponseTypes :: Prelude.Maybe [FunctionResponseType],
     -- | The date that the event source mapping was last updated or that its
     -- state changed.
@@ -79,32 +83,42 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     -- seconds in increments of seconds.
     --
     -- For streams and Amazon SQS event sources, the default batching window is
-    -- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ
-    -- event sources, the default batching window is 500 ms. Note that because
-    -- you can only change @MaximumBatchingWindowInSeconds@ in increments of
-    -- seconds, you cannot revert back to the 500 ms default batching window
-    -- after you have changed it. To restore the default batching window, you
-    -- must create a new event source mapping.
+    -- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and
+    -- DocumentDB event sources, the default batching window is 500 ms. Note
+    -- that because you can only change @MaximumBatchingWindowInSeconds@ in
+    -- increments of seconds, you cannot revert back to the 500 ms default
+    -- batching window after you have changed it. To restore the default
+    -- batching window, you must create a new event source mapping.
     --
     -- Related setting: For streams and Amazon SQS event sources, when you set
     -- @BatchSize@ to a value greater than 10, you must set
     -- @MaximumBatchingWindowInSeconds@ to at least 1.
     maximumBatchingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | (Streams only) Discard records older than the specified age. The default
-    -- value is -1, which sets the maximum age to infinite. When the value is
-    -- set to infinite, Lambda never discards old records.
+    -- | (Kinesis and DynamoDB Streams only) Discard records older than the
+    -- specified age. The default value is -1, which sets the maximum age to
+    -- infinite. When the value is set to infinite, Lambda never discards old
+    -- records.
+    --
+    -- The minimum valid value for maximum record age is 60s. Although values
+    -- less than 60 and greater than -1 fall within the parameter\'s absolute
+    -- range, they are not allowed
     maximumRecordAgeInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | (Streams only) Discard records after the specified number of retries.
-    -- The default value is -1, which sets the maximum number of retries to
-    -- infinite. When MaximumRetryAttempts is infinite, Lambda retries failed
-    -- records until the record expires in the event source.
+    -- | (Kinesis and DynamoDB Streams only) Discard records after the specified
+    -- number of retries. The default value is -1, which sets the maximum
+    -- number of retries to infinite. When MaximumRetryAttempts is infinite,
+    -- Lambda retries failed records until the record expires in the event
+    -- source.
     maximumRetryAttempts :: Prelude.Maybe Prelude.Int,
-    -- | (Streams only) The number of batches to process concurrently from each
-    -- shard. The default value is 1.
+    -- | (Kinesis and DynamoDB Streams only) The number of batches to process
+    -- concurrently from each shard. The default value is 1.
     parallelizationFactor :: Prelude.Maybe Prelude.Natural,
     -- | (Amazon MQ) The name of the Amazon MQ broker destination queue to
     -- consume.
     queues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | (Amazon SQS only) The scaling configuration for the event source. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency Configuring maximum concurrency for Amazon SQS event sources>.
+    scalingConfig :: Prelude.Maybe ScalingConfig,
     -- | The self-managed Apache Kafka cluster for your event source.
     selfManagedEventSource :: Prelude.Maybe SelfManagedEventSource,
     -- | Specific configuration settings for a self-managed Apache Kafka event
@@ -115,7 +129,8 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     sourceAccessConfigurations :: Prelude.Maybe [SourceAccessConfiguration],
     -- | The position in a stream from which to start reading. Required for
     -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources.
-    -- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams.
+    -- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams and Amazon
+    -- DocumentDB.
     startingPosition :: Prelude.Maybe EventSourcePosition,
     -- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
     -- start reading.
@@ -129,8 +144,9 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     stateTransitionReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the Kafka topic.
     topics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | (Streams only) The duration in seconds of a processing window. The range
-    -- is 1–900 seconds.
+    -- | (Kinesis and DynamoDB Streams only) The duration in seconds of a
+    -- processing window for DynamoDB and Kinesis Streams event sources. A
+    -- value of 0 seconds indicates no tumbling window.
     tumblingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the event source mapping.
     uuid :: Prelude.Maybe Prelude.Text
@@ -159,11 +175,13 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 -- Related setting: When you set @BatchSize@ to a value greater than 10,
 -- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
 --
--- 'bisectBatchOnFunctionError', 'eventSourceMappingConfiguration_bisectBatchOnFunctionError' - (Streams only) If the function returns an error, split the batch in two
--- and retry. The default value is false.
+-- 'bisectBatchOnFunctionError', 'eventSourceMappingConfiguration_bisectBatchOnFunctionError' - (Kinesis and DynamoDB Streams only) If the function returns an error,
+-- split the batch in two and retry. The default value is false.
 --
--- 'destinationConfig', 'eventSourceMappingConfiguration_destinationConfig' - (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
--- discarded records.
+-- 'destinationConfig', 'eventSourceMappingConfiguration_destinationConfig' - (Kinesis and DynamoDB Streams only) An Amazon SQS queue or Amazon SNS
+-- topic destination for discarded records.
+--
+-- 'documentDBEventSourceConfig', 'eventSourceMappingConfiguration_documentDBEventSourceConfig' - Specific configuration settings for a DocumentDB event source.
 --
 -- 'eventSourceArn', 'eventSourceMappingConfiguration_eventSourceArn' - The Amazon Resource Name (ARN) of the event source.
 --
@@ -173,8 +191,8 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 --
 -- 'functionArn', 'eventSourceMappingConfiguration_functionArn' - The ARN of the Lambda function.
 --
--- 'functionResponseTypes', 'eventSourceMappingConfiguration_functionResponseTypes' - (Streams and Amazon SQS) A list of current response type enums applied
--- to the event source mapping.
+-- 'functionResponseTypes', 'eventSourceMappingConfiguration_functionResponseTypes' - (Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response
+-- type enums applied to the event source mapping.
 --
 -- 'lastModified', 'eventSourceMappingConfiguration_lastModified' - The date that the event source mapping was last updated or that its
 -- state changed.
@@ -187,31 +205,41 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 -- seconds in increments of seconds.
 --
 -- For streams and Amazon SQS event sources, the default batching window is
--- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ
--- event sources, the default batching window is 500 ms. Note that because
--- you can only change @MaximumBatchingWindowInSeconds@ in increments of
--- seconds, you cannot revert back to the 500 ms default batching window
--- after you have changed it. To restore the default batching window, you
--- must create a new event source mapping.
+-- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and
+-- DocumentDB event sources, the default batching window is 500 ms. Note
+-- that because you can only change @MaximumBatchingWindowInSeconds@ in
+-- increments of seconds, you cannot revert back to the 500 ms default
+-- batching window after you have changed it. To restore the default
+-- batching window, you must create a new event source mapping.
 --
 -- Related setting: For streams and Amazon SQS event sources, when you set
 -- @BatchSize@ to a value greater than 10, you must set
 -- @MaximumBatchingWindowInSeconds@ to at least 1.
 --
--- 'maximumRecordAgeInSeconds', 'eventSourceMappingConfiguration_maximumRecordAgeInSeconds' - (Streams only) Discard records older than the specified age. The default
--- value is -1, which sets the maximum age to infinite. When the value is
--- set to infinite, Lambda never discards old records.
+-- 'maximumRecordAgeInSeconds', 'eventSourceMappingConfiguration_maximumRecordAgeInSeconds' - (Kinesis and DynamoDB Streams only) Discard records older than the
+-- specified age. The default value is -1, which sets the maximum age to
+-- infinite. When the value is set to infinite, Lambda never discards old
+-- records.
 --
--- 'maximumRetryAttempts', 'eventSourceMappingConfiguration_maximumRetryAttempts' - (Streams only) Discard records after the specified number of retries.
--- The default value is -1, which sets the maximum number of retries to
--- infinite. When MaximumRetryAttempts is infinite, Lambda retries failed
--- records until the record expires in the event source.
+-- The minimum valid value for maximum record age is 60s. Although values
+-- less than 60 and greater than -1 fall within the parameter\'s absolute
+-- range, they are not allowed
 --
--- 'parallelizationFactor', 'eventSourceMappingConfiguration_parallelizationFactor' - (Streams only) The number of batches to process concurrently from each
--- shard. The default value is 1.
+-- 'maximumRetryAttempts', 'eventSourceMappingConfiguration_maximumRetryAttempts' - (Kinesis and DynamoDB Streams only) Discard records after the specified
+-- number of retries. The default value is -1, which sets the maximum
+-- number of retries to infinite. When MaximumRetryAttempts is infinite,
+-- Lambda retries failed records until the record expires in the event
+-- source.
+--
+-- 'parallelizationFactor', 'eventSourceMappingConfiguration_parallelizationFactor' - (Kinesis and DynamoDB Streams only) The number of batches to process
+-- concurrently from each shard. The default value is 1.
 --
 -- 'queues', 'eventSourceMappingConfiguration_queues' - (Amazon MQ) The name of the Amazon MQ broker destination queue to
 -- consume.
+--
+-- 'scalingConfig', 'eventSourceMappingConfiguration_scalingConfig' - (Amazon SQS only) The scaling configuration for the event source. For
+-- more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency Configuring maximum concurrency for Amazon SQS event sources>.
 --
 -- 'selfManagedEventSource', 'eventSourceMappingConfiguration_selfManagedEventSource' - The self-managed Apache Kafka cluster for your event source.
 --
@@ -223,7 +251,8 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 --
 -- 'startingPosition', 'eventSourceMappingConfiguration_startingPosition' - The position in a stream from which to start reading. Required for
 -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources.
--- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams.
+-- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams and Amazon
+-- DocumentDB.
 --
 -- 'startingPositionTimestamp', 'eventSourceMappingConfiguration_startingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
 -- start reading.
@@ -237,8 +266,9 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 --
 -- 'topics', 'eventSourceMappingConfiguration_topics' - The name of the Kafka topic.
 --
--- 'tumblingWindowInSeconds', 'eventSourceMappingConfiguration_tumblingWindowInSeconds' - (Streams only) The duration in seconds of a processing window. The range
--- is 1–900 seconds.
+-- 'tumblingWindowInSeconds', 'eventSourceMappingConfiguration_tumblingWindowInSeconds' - (Kinesis and DynamoDB Streams only) The duration in seconds of a
+-- processing window for DynamoDB and Kinesis Streams event sources. A
+-- value of 0 seconds indicates no tumbling window.
 --
 -- 'uuid', 'eventSourceMappingConfiguration_uuid' - The identifier of the event source mapping.
 newEventSourceMappingConfiguration ::
@@ -251,6 +281,8 @@ newEventSourceMappingConfiguration =
       bisectBatchOnFunctionError =
         Prelude.Nothing,
       destinationConfig = Prelude.Nothing,
+      documentDBEventSourceConfig =
+        Prelude.Nothing,
       eventSourceArn = Prelude.Nothing,
       filterCriteria = Prelude.Nothing,
       functionArn = Prelude.Nothing,
@@ -264,6 +296,7 @@ newEventSourceMappingConfiguration =
       maximumRetryAttempts = Prelude.Nothing,
       parallelizationFactor = Prelude.Nothing,
       queues = Prelude.Nothing,
+      scalingConfig = Prelude.Nothing,
       selfManagedEventSource = Prelude.Nothing,
       selfManagedKafkaEventSourceConfig =
         Prelude.Nothing,
@@ -297,15 +330,19 @@ eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig = Lens.lens 
 eventSourceMappingConfiguration_batchSize :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Natural)
 eventSourceMappingConfiguration_batchSize = Lens.lens (\EventSourceMappingConfiguration' {batchSize} -> batchSize) (\s@EventSourceMappingConfiguration' {} a -> s {batchSize = a} :: EventSourceMappingConfiguration)
 
--- | (Streams only) If the function returns an error, split the batch in two
--- and retry. The default value is false.
+-- | (Kinesis and DynamoDB Streams only) If the function returns an error,
+-- split the batch in two and retry. The default value is false.
 eventSourceMappingConfiguration_bisectBatchOnFunctionError :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Bool)
 eventSourceMappingConfiguration_bisectBatchOnFunctionError = Lens.lens (\EventSourceMappingConfiguration' {bisectBatchOnFunctionError} -> bisectBatchOnFunctionError) (\s@EventSourceMappingConfiguration' {} a -> s {bisectBatchOnFunctionError = a} :: EventSourceMappingConfiguration)
 
--- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
--- discarded records.
+-- | (Kinesis and DynamoDB Streams only) An Amazon SQS queue or Amazon SNS
+-- topic destination for discarded records.
 eventSourceMappingConfiguration_destinationConfig :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe DestinationConfig)
 eventSourceMappingConfiguration_destinationConfig = Lens.lens (\EventSourceMappingConfiguration' {destinationConfig} -> destinationConfig) (\s@EventSourceMappingConfiguration' {} a -> s {destinationConfig = a} :: EventSourceMappingConfiguration)
+
+-- | Specific configuration settings for a DocumentDB event source.
+eventSourceMappingConfiguration_documentDBEventSourceConfig :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe DocumentDBEventSourceConfig)
+eventSourceMappingConfiguration_documentDBEventSourceConfig = Lens.lens (\EventSourceMappingConfiguration' {documentDBEventSourceConfig} -> documentDBEventSourceConfig) (\s@EventSourceMappingConfiguration' {} a -> s {documentDBEventSourceConfig = a} :: EventSourceMappingConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the event source.
 eventSourceMappingConfiguration_eventSourceArn :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Text)
@@ -321,8 +358,8 @@ eventSourceMappingConfiguration_filterCriteria = Lens.lens (\EventSourceMappingC
 eventSourceMappingConfiguration_functionArn :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Text)
 eventSourceMappingConfiguration_functionArn = Lens.lens (\EventSourceMappingConfiguration' {functionArn} -> functionArn) (\s@EventSourceMappingConfiguration' {} a -> s {functionArn = a} :: EventSourceMappingConfiguration)
 
--- | (Streams and Amazon SQS) A list of current response type enums applied
--- to the event source mapping.
+-- | (Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response
+-- type enums applied to the event source mapping.
 eventSourceMappingConfiguration_functionResponseTypes :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe [FunctionResponseType])
 eventSourceMappingConfiguration_functionResponseTypes = Lens.lens (\EventSourceMappingConfiguration' {functionResponseTypes} -> functionResponseTypes) (\s@EventSourceMappingConfiguration' {} a -> s {functionResponseTypes = a} :: EventSourceMappingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -341,12 +378,12 @@ eventSourceMappingConfiguration_lastProcessingResult = Lens.lens (\EventSourceMa
 -- seconds in increments of seconds.
 --
 -- For streams and Amazon SQS event sources, the default batching window is
--- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ
--- event sources, the default batching window is 500 ms. Note that because
--- you can only change @MaximumBatchingWindowInSeconds@ in increments of
--- seconds, you cannot revert back to the 500 ms default batching window
--- after you have changed it. To restore the default batching window, you
--- must create a new event source mapping.
+-- 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and
+-- DocumentDB event sources, the default batching window is 500 ms. Note
+-- that because you can only change @MaximumBatchingWindowInSeconds@ in
+-- increments of seconds, you cannot revert back to the 500 ms default
+-- batching window after you have changed it. To restore the default
+-- batching window, you must create a new event source mapping.
 --
 -- Related setting: For streams and Amazon SQS event sources, when you set
 -- @BatchSize@ to a value greater than 10, you must set
@@ -354,21 +391,27 @@ eventSourceMappingConfiguration_lastProcessingResult = Lens.lens (\EventSourceMa
 eventSourceMappingConfiguration_maximumBatchingWindowInSeconds :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Natural)
 eventSourceMappingConfiguration_maximumBatchingWindowInSeconds = Lens.lens (\EventSourceMappingConfiguration' {maximumBatchingWindowInSeconds} -> maximumBatchingWindowInSeconds) (\s@EventSourceMappingConfiguration' {} a -> s {maximumBatchingWindowInSeconds = a} :: EventSourceMappingConfiguration)
 
--- | (Streams only) Discard records older than the specified age. The default
--- value is -1, which sets the maximum age to infinite. When the value is
--- set to infinite, Lambda never discards old records.
+-- | (Kinesis and DynamoDB Streams only) Discard records older than the
+-- specified age. The default value is -1, which sets the maximum age to
+-- infinite. When the value is set to infinite, Lambda never discards old
+-- records.
+--
+-- The minimum valid value for maximum record age is 60s. Although values
+-- less than 60 and greater than -1 fall within the parameter\'s absolute
+-- range, they are not allowed
 eventSourceMappingConfiguration_maximumRecordAgeInSeconds :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Int)
 eventSourceMappingConfiguration_maximumRecordAgeInSeconds = Lens.lens (\EventSourceMappingConfiguration' {maximumRecordAgeInSeconds} -> maximumRecordAgeInSeconds) (\s@EventSourceMappingConfiguration' {} a -> s {maximumRecordAgeInSeconds = a} :: EventSourceMappingConfiguration)
 
--- | (Streams only) Discard records after the specified number of retries.
--- The default value is -1, which sets the maximum number of retries to
--- infinite. When MaximumRetryAttempts is infinite, Lambda retries failed
--- records until the record expires in the event source.
+-- | (Kinesis and DynamoDB Streams only) Discard records after the specified
+-- number of retries. The default value is -1, which sets the maximum
+-- number of retries to infinite. When MaximumRetryAttempts is infinite,
+-- Lambda retries failed records until the record expires in the event
+-- source.
 eventSourceMappingConfiguration_maximumRetryAttempts :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Int)
 eventSourceMappingConfiguration_maximumRetryAttempts = Lens.lens (\EventSourceMappingConfiguration' {maximumRetryAttempts} -> maximumRetryAttempts) (\s@EventSourceMappingConfiguration' {} a -> s {maximumRetryAttempts = a} :: EventSourceMappingConfiguration)
 
--- | (Streams only) The number of batches to process concurrently from each
--- shard. The default value is 1.
+-- | (Kinesis and DynamoDB Streams only) The number of batches to process
+-- concurrently from each shard. The default value is 1.
 eventSourceMappingConfiguration_parallelizationFactor :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Natural)
 eventSourceMappingConfiguration_parallelizationFactor = Lens.lens (\EventSourceMappingConfiguration' {parallelizationFactor} -> parallelizationFactor) (\s@EventSourceMappingConfiguration' {} a -> s {parallelizationFactor = a} :: EventSourceMappingConfiguration)
 
@@ -376,6 +419,12 @@ eventSourceMappingConfiguration_parallelizationFactor = Lens.lens (\EventSourceM
 -- consume.
 eventSourceMappingConfiguration_queues :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventSourceMappingConfiguration_queues = Lens.lens (\EventSourceMappingConfiguration' {queues} -> queues) (\s@EventSourceMappingConfiguration' {} a -> s {queues = a} :: EventSourceMappingConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | (Amazon SQS only) The scaling configuration for the event source. For
+-- more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency Configuring maximum concurrency for Amazon SQS event sources>.
+eventSourceMappingConfiguration_scalingConfig :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe ScalingConfig)
+eventSourceMappingConfiguration_scalingConfig = Lens.lens (\EventSourceMappingConfiguration' {scalingConfig} -> scalingConfig) (\s@EventSourceMappingConfiguration' {} a -> s {scalingConfig = a} :: EventSourceMappingConfiguration)
 
 -- | The self-managed Apache Kafka cluster for your event source.
 eventSourceMappingConfiguration_selfManagedEventSource :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe SelfManagedEventSource)
@@ -393,7 +442,8 @@ eventSourceMappingConfiguration_sourceAccessConfigurations = Lens.lens (\EventSo
 
 -- | The position in a stream from which to start reading. Required for
 -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources.
--- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams.
+-- @AT_TIMESTAMP@ is supported only for Amazon Kinesis streams and Amazon
+-- DocumentDB.
 eventSourceMappingConfiguration_startingPosition :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe EventSourcePosition)
 eventSourceMappingConfiguration_startingPosition = Lens.lens (\EventSourceMappingConfiguration' {startingPosition} -> startingPosition) (\s@EventSourceMappingConfiguration' {} a -> s {startingPosition = a} :: EventSourceMappingConfiguration)
 
@@ -417,8 +467,9 @@ eventSourceMappingConfiguration_stateTransitionReason = Lens.lens (\EventSourceM
 eventSourceMappingConfiguration_topics :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventSourceMappingConfiguration_topics = Lens.lens (\EventSourceMappingConfiguration' {topics} -> topics) (\s@EventSourceMappingConfiguration' {} a -> s {topics = a} :: EventSourceMappingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | (Streams only) The duration in seconds of a processing window. The range
--- is 1–900 seconds.
+-- | (Kinesis and DynamoDB Streams only) The duration in seconds of a
+-- processing window for DynamoDB and Kinesis Streams event sources. A
+-- value of 0 seconds indicates no tumbling window.
 eventSourceMappingConfiguration_tumblingWindowInSeconds :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.Natural)
 eventSourceMappingConfiguration_tumblingWindowInSeconds = Lens.lens (\EventSourceMappingConfiguration' {tumblingWindowInSeconds} -> tumblingWindowInSeconds) (\s@EventSourceMappingConfiguration' {} a -> s {tumblingWindowInSeconds = a} :: EventSourceMappingConfiguration)
 
@@ -439,10 +490,12 @@ instance
             Prelude.<*> (x Data..:? "BatchSize")
             Prelude.<*> (x Data..:? "BisectBatchOnFunctionError")
             Prelude.<*> (x Data..:? "DestinationConfig")
+            Prelude.<*> (x Data..:? "DocumentDBEventSourceConfig")
             Prelude.<*> (x Data..:? "EventSourceArn")
             Prelude.<*> (x Data..:? "FilterCriteria")
             Prelude.<*> (x Data..:? "FunctionArn")
-            Prelude.<*> ( x Data..:? "FunctionResponseTypes"
+            Prelude.<*> ( x
+                            Data..:? "FunctionResponseTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LastModified")
@@ -452,9 +505,11 @@ instance
             Prelude.<*> (x Data..:? "MaximumRetryAttempts")
             Prelude.<*> (x Data..:? "ParallelizationFactor")
             Prelude.<*> (x Data..:? "Queues")
+            Prelude.<*> (x Data..:? "ScalingConfig")
             Prelude.<*> (x Data..:? "SelfManagedEventSource")
             Prelude.<*> (x Data..:? "SelfManagedKafkaEventSourceConfig")
-            Prelude.<*> ( x Data..:? "SourceAccessConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "SourceAccessConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StartingPosition")
@@ -478,6 +533,7 @@ instance
         `Prelude.hashWithSalt` batchSize
         `Prelude.hashWithSalt` bisectBatchOnFunctionError
         `Prelude.hashWithSalt` destinationConfig
+        `Prelude.hashWithSalt` documentDBEventSourceConfig
         `Prelude.hashWithSalt` eventSourceArn
         `Prelude.hashWithSalt` filterCriteria
         `Prelude.hashWithSalt` functionArn
@@ -489,6 +545,7 @@ instance
         `Prelude.hashWithSalt` maximumRetryAttempts
         `Prelude.hashWithSalt` parallelizationFactor
         `Prelude.hashWithSalt` queues
+        `Prelude.hashWithSalt` scalingConfig
         `Prelude.hashWithSalt` selfManagedEventSource
         `Prelude.hashWithSalt` selfManagedKafkaEventSourceConfig
         `Prelude.hashWithSalt` sourceAccessConfigurations
@@ -509,6 +566,7 @@ instance
       `Prelude.seq` Prelude.rnf batchSize
       `Prelude.seq` Prelude.rnf bisectBatchOnFunctionError
       `Prelude.seq` Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf documentDBEventSourceConfig
       `Prelude.seq` Prelude.rnf eventSourceArn
       `Prelude.seq` Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf functionArn
@@ -520,6 +578,7 @@ instance
       `Prelude.seq` Prelude.rnf maximumRetryAttempts
       `Prelude.seq` Prelude.rnf parallelizationFactor
       `Prelude.seq` Prelude.rnf queues
+      `Prelude.seq` Prelude.rnf scalingConfig
       `Prelude.seq` Prelude.rnf selfManagedEventSource
       `Prelude.seq` Prelude.rnf
         selfManagedKafkaEventSourceConfig

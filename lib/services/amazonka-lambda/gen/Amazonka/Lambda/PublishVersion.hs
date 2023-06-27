@@ -73,6 +73,7 @@ module Amazonka.Lambda.PublishVersion
     functionConfiguration_revisionId,
     functionConfiguration_role,
     functionConfiguration_runtime,
+    functionConfiguration_runtimeVersionConfig,
     functionConfiguration_signingJobArn,
     functionConfiguration_signingProfileVersionArn,
     functionConfiguration_snapStart,
@@ -216,7 +217,8 @@ instance Core.AWSRequest PublishVersion where
 
 instance Prelude.Hashable PublishVersion where
   hashWithSalt _salt PublishVersion' {..} =
-    _salt `Prelude.hashWithSalt` codeSha256
+    _salt
+      `Prelude.hashWithSalt` codeSha256
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` functionName

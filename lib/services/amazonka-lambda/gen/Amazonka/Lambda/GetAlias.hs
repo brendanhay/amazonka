@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns details about a Lambda function
--- <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html alias>.
 module Amazonka.Lambda.GetAlias
   ( -- * Creating a Request
     GetAlias (..),
@@ -139,7 +139,8 @@ instance Core.AWSRequest GetAlias where
 
 instance Prelude.Hashable GetAlias where
   hashWithSalt _salt GetAlias' {..} =
-    _salt `Prelude.hashWithSalt` functionName
+    _salt
+      `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetAlias where

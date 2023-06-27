@@ -98,22 +98,22 @@ instance Core.AWSPager ListCodeSigningConfigs where
     | Core.stop
         ( rs
             Lens.^? listCodeSigningConfigsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCodeSigningConfigsResponse_codeSigningConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCodeSigningConfigs_marker
           Lens..~ rs
           Lens.^? listCodeSigningConfigsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCodeSigningConfigs where
   type
@@ -125,7 +125,8 @@ instance Core.AWSRequest ListCodeSigningConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListCodeSigningConfigsResponse'
-            Prelude.<$> ( x Data..?> "CodeSigningConfigs"
+            Prelude.<$> ( x
+                            Data..?> "CodeSigningConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -134,7 +135,8 @@ instance Core.AWSRequest ListCodeSigningConfigs where
 
 instance Prelude.Hashable ListCodeSigningConfigs where
   hashWithSalt _salt ListCodeSigningConfigs' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListCodeSigningConfigs where

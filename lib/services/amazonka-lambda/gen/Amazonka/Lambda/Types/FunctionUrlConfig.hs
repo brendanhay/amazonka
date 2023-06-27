@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.Cors
 import Amazonka.Lambda.Types.FunctionUrlAuthType
+import Amazonka.Lambda.Types.InvokeMode
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a Lambda function URL.
@@ -34,6 +35,19 @@ data FunctionUrlConfig = FunctionUrlConfig'
     -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin resource sharing (CORS)>
     -- settings for your function URL.
     cors :: Prelude.Maybe Cors,
+    -- | Use one of the following options:
+    --
+    -- -   @BUFFERED@ – This is the default option. Lambda invokes your
+    --     function using the @Invoke@ API operation. Invocation results are
+    --     available when the payload is complete. The maximum payload size is
+    --     6 MB.
+    --
+    -- -   @RESPONSE_STREAM@ – Your function streams payload results as they
+    --     become available. Lambda invokes your function using the
+    --     @InvokeWithResponseStream@ API operation. The maximum response
+    --     payload size is 20 MB, however, you can
+    --     <https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html request a quota increase>.
+    invokeMode :: Prelude.Maybe InvokeMode,
     -- | The HTTP URL endpoint for your function.
     functionUrl :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of your function.
@@ -47,7 +61,7 @@ data FunctionUrlConfig = FunctionUrlConfig'
     -- (YYYY-MM-DDThh:mm:ss.sTZD).
     lastModifiedTime :: Prelude.Text,
     -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
-    -- if you want to restrict access to authenticated IAM users only. Set to
+    -- if you want to restrict access to authenticated users only. Set to
     -- @NONE@ if you want to bypass IAM authentication to create a public
     -- endpoint. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -67,6 +81,19 @@ data FunctionUrlConfig = FunctionUrlConfig'
 -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin resource sharing (CORS)>
 -- settings for your function URL.
 --
+-- 'invokeMode', 'functionUrlConfig_invokeMode' - Use one of the following options:
+--
+-- -   @BUFFERED@ – This is the default option. Lambda invokes your
+--     function using the @Invoke@ API operation. Invocation results are
+--     available when the payload is complete. The maximum payload size is
+--     6 MB.
+--
+-- -   @RESPONSE_STREAM@ – Your function streams payload results as they
+--     become available. Lambda invokes your function using the
+--     @InvokeWithResponseStream@ API operation. The maximum response
+--     payload size is 20 MB, however, you can
+--     <https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html request a quota increase>.
+--
 -- 'functionUrl', 'functionUrlConfig_functionUrl' - The HTTP URL endpoint for your function.
 --
 -- 'functionArn', 'functionUrlConfig_functionArn' - The Amazon Resource Name (ARN) of your function.
@@ -80,7 +107,7 @@ data FunctionUrlConfig = FunctionUrlConfig'
 -- (YYYY-MM-DDThh:mm:ss.sTZD).
 --
 -- 'authType', 'functionUrlConfig_authType' - The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated IAM users only. Set to
+-- if you want to restrict access to authenticated users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -104,6 +131,7 @@ newFunctionUrlConfig
   pAuthType_ =
     FunctionUrlConfig'
       { cors = Prelude.Nothing,
+        invokeMode = Prelude.Nothing,
         functionUrl = pFunctionUrl_,
         functionArn = pFunctionArn_,
         creationTime = pCreationTime_,
@@ -116,6 +144,21 @@ newFunctionUrlConfig
 -- settings for your function URL.
 functionUrlConfig_cors :: Lens.Lens' FunctionUrlConfig (Prelude.Maybe Cors)
 functionUrlConfig_cors = Lens.lens (\FunctionUrlConfig' {cors} -> cors) (\s@FunctionUrlConfig' {} a -> s {cors = a} :: FunctionUrlConfig)
+
+-- | Use one of the following options:
+--
+-- -   @BUFFERED@ – This is the default option. Lambda invokes your
+--     function using the @Invoke@ API operation. Invocation results are
+--     available when the payload is complete. The maximum payload size is
+--     6 MB.
+--
+-- -   @RESPONSE_STREAM@ – Your function streams payload results as they
+--     become available. Lambda invokes your function using the
+--     @InvokeWithResponseStream@ API operation. The maximum response
+--     payload size is 20 MB, however, you can
+--     <https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html request a quota increase>.
+functionUrlConfig_invokeMode :: Lens.Lens' FunctionUrlConfig (Prelude.Maybe InvokeMode)
+functionUrlConfig_invokeMode = Lens.lens (\FunctionUrlConfig' {invokeMode} -> invokeMode) (\s@FunctionUrlConfig' {} a -> s {invokeMode = a} :: FunctionUrlConfig)
 
 -- | The HTTP URL endpoint for your function.
 functionUrlConfig_functionUrl :: Lens.Lens' FunctionUrlConfig Prelude.Text
@@ -138,7 +181,7 @@ functionUrlConfig_lastModifiedTime :: Lens.Lens' FunctionUrlConfig Prelude.Text
 functionUrlConfig_lastModifiedTime = Lens.lens (\FunctionUrlConfig' {lastModifiedTime} -> lastModifiedTime) (\s@FunctionUrlConfig' {} a -> s {lastModifiedTime = a} :: FunctionUrlConfig)
 
 -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated IAM users only. Set to
+-- if you want to restrict access to authenticated users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -152,6 +195,7 @@ instance Data.FromJSON FunctionUrlConfig where
       ( \x ->
           FunctionUrlConfig'
             Prelude.<$> (x Data..:? "Cors")
+            Prelude.<*> (x Data..:? "InvokeMode")
             Prelude.<*> (x Data..: "FunctionUrl")
             Prelude.<*> (x Data..: "FunctionArn")
             Prelude.<*> (x Data..: "CreationTime")
@@ -161,7 +205,9 @@ instance Data.FromJSON FunctionUrlConfig where
 
 instance Prelude.Hashable FunctionUrlConfig where
   hashWithSalt _salt FunctionUrlConfig' {..} =
-    _salt `Prelude.hashWithSalt` cors
+    _salt
+      `Prelude.hashWithSalt` cors
+      `Prelude.hashWithSalt` invokeMode
       `Prelude.hashWithSalt` functionUrl
       `Prelude.hashWithSalt` functionArn
       `Prelude.hashWithSalt` creationTime
@@ -171,6 +217,7 @@ instance Prelude.Hashable FunctionUrlConfig where
 instance Prelude.NFData FunctionUrlConfig where
   rnf FunctionUrlConfig' {..} =
     Prelude.rnf cors
+      `Prelude.seq` Prelude.rnf invokeMode
       `Prelude.seq` Prelude.rnf functionUrl
       `Prelude.seq` Prelude.rnf functionArn
       `Prelude.seq` Prelude.rnf creationTime

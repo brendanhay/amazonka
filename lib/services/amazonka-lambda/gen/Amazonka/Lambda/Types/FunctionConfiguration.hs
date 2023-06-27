@@ -33,6 +33,7 @@ import Amazonka.Lambda.Types.LastUpdateStatusReasonCode
 import Amazonka.Lambda.Types.Layer
 import Amazonka.Lambda.Types.PackageType
 import Amazonka.Lambda.Types.Runtime
+import Amazonka.Lambda.Types.RuntimeVersionConfig
 import Amazonka.Lambda.Types.SnapStartResponse
 import Amazonka.Lambda.Types.State
 import Amazonka.Lambda.Types.StateReasonCode
@@ -74,9 +75,12 @@ data FunctionConfiguration = FunctionConfiguration'
     handler :: Prelude.Maybe Prelude.Text,
     -- | The function\'s image configuration values.
     imageConfigResponse :: Prelude.Maybe ImageConfigResponse,
-    -- | The KMS key that\'s used to encrypt the function\'s environment
-    -- variables. This key is returned only if you\'ve configured a customer
-    -- managed key.
+    -- | The KMS key that\'s used to encrypt the function\'s
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption environment variables>.
+    -- When
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html Lambda SnapStart>
+    -- is activated, this key is also used to encrypt the function\'s snapshot.
+    -- This key is returned only if you\'ve configured a customer managed key.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the function was last updated, in
     -- <https://www.w3.org/TR/NOTE-datetime ISO-8601 format>
@@ -103,8 +107,16 @@ data FunctionConfiguration = FunctionConfiguration'
     revisionId :: Prelude.Maybe Prelude.Text,
     -- | The function\'s execution role.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | The runtime environment for the Lambda function.
+    -- | The identifier of the function\'s
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+    -- Runtime is required if the deployment package is a .zip file archive.
+    --
+    -- The following list includes deprecated runtimes. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
     runtime :: Prelude.Maybe Runtime,
+    -- | The ARN of the runtime and any errors that occured.
+    runtimeVersionConfig :: Prelude.Maybe RuntimeVersionConfig,
     -- | The ARN of the signing job.
     signingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the signing profile version.
@@ -112,7 +124,7 @@ data FunctionConfiguration = FunctionConfiguration'
     -- | Set @ApplyOn@ to @PublishedVersions@ to create a snapshot of the
     -- initialized execution environment when you publish a function version.
     -- For more information, see
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html Reducing startup time with Lambda SnapStart>.
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html Improving startup performance with Lambda SnapStart>.
     snapStart :: Prelude.Maybe SnapStartResponse,
     -- | The current state of the function. When the state is @Inactive@, you can
     -- reactivate the function by invoking it.
@@ -172,9 +184,12 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'imageConfigResponse', 'functionConfiguration_imageConfigResponse' - The function\'s image configuration values.
 --
--- 'kmsKeyArn', 'functionConfiguration_kmsKeyArn' - The KMS key that\'s used to encrypt the function\'s environment
--- variables. This key is returned only if you\'ve configured a customer
--- managed key.
+-- 'kmsKeyArn', 'functionConfiguration_kmsKeyArn' - The KMS key that\'s used to encrypt the function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption environment variables>.
+-- When
+-- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html Lambda SnapStart>
+-- is activated, this key is also used to encrypt the function\'s snapshot.
+-- This key is returned only if you\'ve configured a customer managed key.
 --
 -- 'lastModified', 'functionConfiguration_lastModified' - The date and time that the function was last updated, in
 -- <https://www.w3.org/TR/NOTE-datetime ISO-8601 format>
@@ -201,7 +216,15 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'role'', 'functionConfiguration_role' - The function\'s execution role.
 --
--- 'runtime', 'functionConfiguration_runtime' - The runtime environment for the Lambda function.
+-- 'runtime', 'functionConfiguration_runtime' - The identifier of the function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+-- Runtime is required if the deployment package is a .zip file archive.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
+--
+-- 'runtimeVersionConfig', 'functionConfiguration_runtimeVersionConfig' - The ARN of the runtime and any errors that occured.
 --
 -- 'signingJobArn', 'functionConfiguration_signingJobArn' - The ARN of the signing job.
 --
@@ -210,7 +233,7 @@ data FunctionConfiguration = FunctionConfiguration'
 -- 'snapStart', 'functionConfiguration_snapStart' - Set @ApplyOn@ to @PublishedVersions@ to create a snapshot of the
 -- initialized execution environment when you publish a function version.
 -- For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html Reducing startup time with Lambda SnapStart>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html Improving startup performance with Lambda SnapStart>.
 --
 -- 'state', 'functionConfiguration_state' - The current state of the function. When the state is @Inactive@, you can
 -- reactivate the function by invoking it.
@@ -257,6 +280,7 @@ newFunctionConfiguration =
       revisionId = Prelude.Nothing,
       role' = Prelude.Nothing,
       runtime = Prelude.Nothing,
+      runtimeVersionConfig = Prelude.Nothing,
       signingJobArn = Prelude.Nothing,
       signingProfileVersionArn = Prelude.Nothing,
       snapStart = Prelude.Nothing,
@@ -323,9 +347,12 @@ functionConfiguration_handler = Lens.lens (\FunctionConfiguration' {handler} -> 
 functionConfiguration_imageConfigResponse :: Lens.Lens' FunctionConfiguration (Prelude.Maybe ImageConfigResponse)
 functionConfiguration_imageConfigResponse = Lens.lens (\FunctionConfiguration' {imageConfigResponse} -> imageConfigResponse) (\s@FunctionConfiguration' {} a -> s {imageConfigResponse = a} :: FunctionConfiguration)
 
--- | The KMS key that\'s used to encrypt the function\'s environment
--- variables. This key is returned only if you\'ve configured a customer
--- managed key.
+-- | The KMS key that\'s used to encrypt the function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption environment variables>.
+-- When
+-- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html Lambda SnapStart>
+-- is activated, this key is also used to encrypt the function\'s snapshot.
+-- This key is returned only if you\'ve configured a customer managed key.
 functionConfiguration_kmsKeyArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_kmsKeyArn = Lens.lens (\FunctionConfiguration' {kmsKeyArn} -> kmsKeyArn) (\s@FunctionConfiguration' {} a -> s {kmsKeyArn = a} :: FunctionConfiguration)
 
@@ -374,9 +401,19 @@ functionConfiguration_revisionId = Lens.lens (\FunctionConfiguration' {revisionI
 functionConfiguration_role :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_role = Lens.lens (\FunctionConfiguration' {role'} -> role') (\s@FunctionConfiguration' {} a -> s {role' = a} :: FunctionConfiguration)
 
--- | The runtime environment for the Lambda function.
+-- | The identifier of the function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+-- Runtime is required if the deployment package is a .zip file archive.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 functionConfiguration_runtime :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Runtime)
 functionConfiguration_runtime = Lens.lens (\FunctionConfiguration' {runtime} -> runtime) (\s@FunctionConfiguration' {} a -> s {runtime = a} :: FunctionConfiguration)
+
+-- | The ARN of the runtime and any errors that occured.
+functionConfiguration_runtimeVersionConfig :: Lens.Lens' FunctionConfiguration (Prelude.Maybe RuntimeVersionConfig)
+functionConfiguration_runtimeVersionConfig = Lens.lens (\FunctionConfiguration' {runtimeVersionConfig} -> runtimeVersionConfig) (\s@FunctionConfiguration' {} a -> s {runtimeVersionConfig = a} :: FunctionConfiguration)
 
 -- | The ARN of the signing job.
 functionConfiguration_signingJobArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
@@ -389,7 +426,7 @@ functionConfiguration_signingProfileVersionArn = Lens.lens (\FunctionConfigurati
 -- | Set @ApplyOn@ to @PublishedVersions@ to create a snapshot of the
 -- initialized execution environment when you publish a function version.
 -- For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html Reducing startup time with Lambda SnapStart>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html Improving startup performance with Lambda SnapStart>.
 functionConfiguration_snapStart :: Lens.Lens' FunctionConfiguration (Prelude.Maybe SnapStartResponse)
 functionConfiguration_snapStart = Lens.lens (\FunctionConfiguration' {snapStart} -> snapStart) (\s@FunctionConfiguration' {} a -> s {snapStart = a} :: FunctionConfiguration)
 
@@ -437,7 +474,8 @@ instance Data.FromJSON FunctionConfiguration where
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Environment")
             Prelude.<*> (x Data..:? "EphemeralStorage")
-            Prelude.<*> ( x Data..:? "FileSystemConfigs"
+            Prelude.<*> ( x
+                            Data..:? "FileSystemConfigs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FunctionArn")
@@ -456,6 +494,7 @@ instance Data.FromJSON FunctionConfiguration where
             Prelude.<*> (x Data..:? "RevisionId")
             Prelude.<*> (x Data..:? "Role")
             Prelude.<*> (x Data..:? "Runtime")
+            Prelude.<*> (x Data..:? "RuntimeVersionConfig")
             Prelude.<*> (x Data..:? "SigningJobArn")
             Prelude.<*> (x Data..:? "SigningProfileVersionArn")
             Prelude.<*> (x Data..:? "SnapStart")
@@ -470,7 +509,8 @@ instance Data.FromJSON FunctionConfiguration where
 
 instance Prelude.Hashable FunctionConfiguration where
   hashWithSalt _salt FunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` architectures
+    _salt
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` codeSha256
       `Prelude.hashWithSalt` codeSize
       `Prelude.hashWithSalt` deadLetterConfig
@@ -494,6 +534,7 @@ instance Prelude.Hashable FunctionConfiguration where
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` runtime
+      `Prelude.hashWithSalt` runtimeVersionConfig
       `Prelude.hashWithSalt` signingJobArn
       `Prelude.hashWithSalt` signingProfileVersionArn
       `Prelude.hashWithSalt` snapStart
@@ -532,6 +573,8 @@ instance Prelude.NFData FunctionConfiguration where
       `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf runtime
+      `Prelude.seq` Prelude.rnf
+        runtimeVersionConfig
       `Prelude.seq` Prelude.rnf
         signingJobArn
       `Prelude.seq` Prelude.rnf

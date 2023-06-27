@@ -91,6 +91,7 @@ module Amazonka.Lambda.UpdateFunctionCode
     functionConfiguration_revisionId,
     functionConfiguration_role,
     functionConfiguration_runtime,
+    functionConfiguration_runtimeVersionConfig,
     functionConfiguration_signingJobArn,
     functionConfiguration_signingProfileVersionArn,
     functionConfiguration_snapStart,
@@ -321,7 +322,8 @@ instance Core.AWSRequest UpdateFunctionCode where
 
 instance Prelude.Hashable UpdateFunctionCode where
   hashWithSalt _salt UpdateFunctionCode' {..} =
-    _salt `Prelude.hashWithSalt` architectures
+    _salt
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` imageUri
       `Prelude.hashWithSalt` publish

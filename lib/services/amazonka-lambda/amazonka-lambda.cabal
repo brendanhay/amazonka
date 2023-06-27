@@ -76,7 +76,9 @@ library
     Amazonka.Lambda.GetLayerVersionPolicy
     Amazonka.Lambda.GetPolicy
     Amazonka.Lambda.GetProvisionedConcurrencyConfig
+    Amazonka.Lambda.GetRuntimeManagementConfig
     Amazonka.Lambda.Invoke
+    Amazonka.Lambda.InvokeWithResponseStream
     Amazonka.Lambda.Lens
     Amazonka.Lambda.ListAliases
     Amazonka.Lambda.ListCodeSigningConfigs
@@ -96,6 +98,7 @@ library
     Amazonka.Lambda.PutFunctionConcurrency
     Amazonka.Lambda.PutFunctionEventInvokeConfig
     Amazonka.Lambda.PutProvisionedConcurrencyConfig
+    Amazonka.Lambda.PutRuntimeManagementConfig
     Amazonka.Lambda.RemoveLayerVersionPermission
     Amazonka.Lambda.RemovePermission
     Amazonka.Lambda.TagResource
@@ -114,6 +117,7 @@ library
     Amazonka.Lambda.Types.Cors
     Amazonka.Lambda.Types.DeadLetterConfig
     Amazonka.Lambda.Types.DestinationConfig
+    Amazonka.Lambda.Types.DocumentDBEventSourceConfig
     Amazonka.Lambda.Types.EndPointType
     Amazonka.Lambda.Types.Environment
     Amazonka.Lambda.Types.EnvironmentError
@@ -124,6 +128,7 @@ library
     Amazonka.Lambda.Types.FileSystemConfig
     Amazonka.Lambda.Types.Filter
     Amazonka.Lambda.Types.FilterCriteria
+    Amazonka.Lambda.Types.FullDocument
     Amazonka.Lambda.Types.FunctionCode
     Amazonka.Lambda.Types.FunctionCodeLocation
     Amazonka.Lambda.Types.FunctionConfiguration
@@ -137,6 +142,10 @@ library
     Amazonka.Lambda.Types.ImageConfigError
     Amazonka.Lambda.Types.ImageConfigResponse
     Amazonka.Lambda.Types.InvocationType
+    Amazonka.Lambda.Types.InvokeMode
+    Amazonka.Lambda.Types.InvokeResponseStreamUpdate
+    Amazonka.Lambda.Types.InvokeWithResponseStreamCompleteEvent
+    Amazonka.Lambda.Types.InvokeWithResponseStreamResponseEvent
     Amazonka.Lambda.Types.LastUpdateStatus
     Amazonka.Lambda.Types.LastUpdateStatusReasonCode
     Amazonka.Lambda.Types.Layer
@@ -150,7 +159,11 @@ library
     Amazonka.Lambda.Types.PackageType
     Amazonka.Lambda.Types.ProvisionedConcurrencyConfigListItem
     Amazonka.Lambda.Types.ProvisionedConcurrencyStatusEnum
+    Amazonka.Lambda.Types.ResponseStreamingInvocationType
     Amazonka.Lambda.Types.Runtime
+    Amazonka.Lambda.Types.RuntimeVersionConfig
+    Amazonka.Lambda.Types.RuntimeVersionError
+    Amazonka.Lambda.Types.ScalingConfig
     Amazonka.Lambda.Types.SelfManagedEventSource
     Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig
     Amazonka.Lambda.Types.SnapStart
@@ -164,6 +177,7 @@ library
     Amazonka.Lambda.Types.TracingConfig
     Amazonka.Lambda.Types.TracingConfigResponse
     Amazonka.Lambda.Types.TracingMode
+    Amazonka.Lambda.Types.UpdateRuntimeOn
     Amazonka.Lambda.Types.VpcConfig
     Amazonka.Lambda.Types.VpcConfigResponse
     Amazonka.Lambda.UntagResource

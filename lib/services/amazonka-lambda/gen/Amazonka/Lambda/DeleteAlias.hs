@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a Lambda function
--- <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html alias>.
 module Amazonka.Lambda.DeleteAlias
   ( -- * Creating a Request
     DeleteAlias (..),
@@ -129,7 +129,8 @@ instance Core.AWSRequest DeleteAlias where
 
 instance Prelude.Hashable DeleteAlias where
   hashWithSalt _salt DeleteAlias' {..} =
-    _salt `Prelude.hashWithSalt` functionName
+    _salt
+      `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteAlias where

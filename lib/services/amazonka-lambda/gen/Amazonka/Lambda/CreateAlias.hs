@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an
--- <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias>
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html alias>
 -- for a Lambda function version. Use aliases to provide clients with a
 -- function identifier that you can update to invoke a different version.
 --
@@ -186,7 +186,8 @@ instance Core.AWSRequest CreateAlias where
 
 instance Prelude.Hashable CreateAlias where
   hashWithSalt _salt CreateAlias' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` routingConfig
       `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` name

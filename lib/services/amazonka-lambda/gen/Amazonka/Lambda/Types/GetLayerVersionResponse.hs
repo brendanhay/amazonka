@@ -33,6 +33,10 @@ data GetLayerVersionResponse = GetLayerVersionResponse'
     -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures>.
     compatibleArchitectures :: Prelude.Maybe [Architecture],
     -- | The layer\'s compatible runtimes.
+    --
+    -- The following list includes deprecated runtimes. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
     compatibleRuntimes :: Prelude.Maybe [Runtime],
     -- | Details about the layer version.
     content :: Prelude.Maybe LayerVersionContentOutput,
@@ -65,6 +69,10 @@ data GetLayerVersionResponse = GetLayerVersionResponse'
 -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures>.
 --
 -- 'compatibleRuntimes', 'getLayerVersionResponse_compatibleRuntimes' - The layer\'s compatible runtimes.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 --
 -- 'content', 'getLayerVersionResponse_content' - Details about the layer version.
 --
@@ -103,6 +111,10 @@ getLayerVersionResponse_compatibleArchitectures :: Lens.Lens' GetLayerVersionRes
 getLayerVersionResponse_compatibleArchitectures = Lens.lens (\GetLayerVersionResponse' {compatibleArchitectures} -> compatibleArchitectures) (\s@GetLayerVersionResponse' {} a -> s {compatibleArchitectures = a} :: GetLayerVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The layer\'s compatible runtimes.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 getLayerVersionResponse_compatibleRuntimes :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe [Runtime])
 getLayerVersionResponse_compatibleRuntimes = Lens.lens (\GetLayerVersionResponse' {compatibleRuntimes} -> compatibleRuntimes) (\s@GetLayerVersionResponse' {} a -> s {compatibleRuntimes = a} :: GetLayerVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -142,10 +154,12 @@ instance Data.FromJSON GetLayerVersionResponse where
       "GetLayerVersionResponse"
       ( \x ->
           GetLayerVersionResponse'
-            Prelude.<$> ( x Data..:? "CompatibleArchitectures"
+            Prelude.<$> ( x
+                            Data..:? "CompatibleArchitectures"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "CompatibleRuntimes"
+            Prelude.<*> ( x
+                            Data..:? "CompatibleRuntimes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Content")

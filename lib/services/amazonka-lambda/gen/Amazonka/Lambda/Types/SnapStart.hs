@@ -25,10 +25,13 @@ import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.SnapStartApplyOn
 import qualified Amazonka.Prelude as Prelude
 
--- | The function\'s SnapStart setting. Set @ApplyOn@ to @PublishedVersions@
--- to create a snapshot of the initialized execution environment when you
--- publish a function version. For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html Reducing startup time with Lambda SnapStart>.
+-- | The function\'s Lambda SnapStart setting. Set @ApplyOn@ to
+-- @PublishedVersions@ to create a snapshot of the initialized execution
+-- environment when you publish a function version.
+--
+-- SnapStart is supported with the @java11@ runtime. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html Improving startup performance with Lambda SnapStart>.
 --
 -- /See:/ 'newSnapStart' smart constructor.
 data SnapStart = SnapStart'

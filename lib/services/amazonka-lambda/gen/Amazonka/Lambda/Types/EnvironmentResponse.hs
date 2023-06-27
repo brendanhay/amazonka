@@ -77,7 +77,8 @@ instance Data.FromJSON EnvironmentResponse where
 
 instance Prelude.Hashable EnvironmentResponse where
   hashWithSalt _salt EnvironmentResponse' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` variables
 
 instance Prelude.NFData EnvironmentResponse where

@@ -85,7 +85,8 @@ instance Data.FromJSON FileSystemConfig where
 
 instance Prelude.Hashable FileSystemConfig where
   hashWithSalt _salt FileSystemConfig' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` localMountPath
 
 instance Prelude.NFData FileSystemConfig where

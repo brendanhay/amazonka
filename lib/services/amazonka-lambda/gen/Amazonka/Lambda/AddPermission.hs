@@ -83,7 +83,7 @@ data AddPermission = AddPermission'
   { -- | For Alexa Smart Home functions, a token that the invoker must supply.
     eventSourceToken :: Prelude.Maybe Prelude.Text,
     -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
-    -- if you want to restrict access to authenticated IAM users only. Set to
+    -- if you want to restrict access to authenticated users only. Set to
     -- @NONE@ if you want to bypass IAM authentication to create a public
     -- endpoint. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -151,7 +151,7 @@ data AddPermission = AddPermission'
 -- 'eventSourceToken', 'addPermission_eventSourceToken' - For Alexa Smart Home functions, a token that the invoker must supply.
 --
 -- 'functionUrlAuthType', 'addPermission_functionUrlAuthType' - The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated IAM users only. Set to
+-- if you want to restrict access to authenticated users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -238,7 +238,7 @@ addPermission_eventSourceToken :: Lens.Lens' AddPermission (Prelude.Maybe Prelud
 addPermission_eventSourceToken = Lens.lens (\AddPermission' {eventSourceToken} -> eventSourceToken) (\s@AddPermission' {} a -> s {eventSourceToken = a} :: AddPermission)
 
 -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated IAM users only. Set to
+-- if you want to restrict access to authenticated users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -328,7 +328,8 @@ instance Core.AWSRequest AddPermission where
 
 instance Prelude.Hashable AddPermission where
   hashWithSalt _salt AddPermission' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceToken
+    _salt
+      `Prelude.hashWithSalt` eventSourceToken
       `Prelude.hashWithSalt` functionUrlAuthType
       `Prelude.hashWithSalt` principalOrgID
       `Prelude.hashWithSalt` qualifier

@@ -150,7 +150,8 @@ instance Core.AWSRequest PutFunctionConcurrency where
 
 instance Prelude.Hashable PutFunctionConcurrency where
   hashWithSalt _salt PutFunctionConcurrency' {..} =
-    _salt `Prelude.hashWithSalt` functionName
+    _salt
+      `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` reservedConcurrentExecutions
 
 instance Prelude.NFData PutFunctionConcurrency where

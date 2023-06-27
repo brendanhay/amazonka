@@ -74,6 +74,10 @@ data PublishLayerVersion = PublishLayerVersion'
     -- | A list of compatible
     -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes>.
     -- Used for filtering with ListLayers and ListLayerVersions.
+    --
+    -- The following list includes deprecated runtimes. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
     compatibleRuntimes :: Prelude.Maybe [Runtime],
     -- | The description of the version.
     description :: Prelude.Maybe Prelude.Text,
@@ -108,6 +112,10 @@ data PublishLayerVersion = PublishLayerVersion'
 -- 'compatibleRuntimes', 'publishLayerVersion_compatibleRuntimes' - A list of compatible
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes>.
 -- Used for filtering with ListLayers and ListLayerVersions.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 --
 -- 'description', 'publishLayerVersion_description' - The description of the version.
 --
@@ -149,6 +157,10 @@ publishLayerVersion_compatibleArchitectures = Lens.lens (\PublishLayerVersion' {
 -- | A list of compatible
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes>.
 -- Used for filtering with ListLayers and ListLayerVersions.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 publishLayerVersion_compatibleRuntimes :: Lens.Lens' PublishLayerVersion (Prelude.Maybe [Runtime])
 publishLayerVersion_compatibleRuntimes = Lens.lens (\PublishLayerVersion' {compatibleRuntimes} -> compatibleRuntimes) (\s@PublishLayerVersion' {} a -> s {compatibleRuntimes = a} :: PublishLayerVersion) Prelude.. Lens.mapping Lens.coerced
 
@@ -186,10 +198,12 @@ instance Core.AWSRequest PublishLayerVersion where
     Response.receiveJSON
       ( \s h x ->
           PublishLayerVersionResponse'
-            Prelude.<$> ( x Data..?> "CompatibleArchitectures"
+            Prelude.<$> ( x
+                            Data..?> "CompatibleArchitectures"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "CompatibleRuntimes"
+            Prelude.<*> ( x
+                            Data..?> "CompatibleRuntimes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Content")
@@ -255,6 +269,10 @@ data PublishLayerVersionResponse = PublishLayerVersionResponse'
     -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures>.
     compatibleArchitectures :: Prelude.Maybe [Architecture],
     -- | The layer\'s compatible runtimes.
+    --
+    -- The following list includes deprecated runtimes. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
     compatibleRuntimes :: Prelude.Maybe [Runtime],
     -- | Details about the layer version.
     content :: Prelude.Maybe LayerVersionContentOutput,
@@ -289,6 +307,10 @@ data PublishLayerVersionResponse = PublishLayerVersionResponse'
 -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures>.
 --
 -- 'compatibleRuntimes', 'publishLayerVersionResponse_compatibleRuntimes' - The layer\'s compatible runtimes.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 --
 -- 'content', 'publishLayerVersionResponse_content' - Details about the layer version.
 --
@@ -332,6 +354,10 @@ publishLayerVersionResponse_compatibleArchitectures :: Lens.Lens' PublishLayerVe
 publishLayerVersionResponse_compatibleArchitectures = Lens.lens (\PublishLayerVersionResponse' {compatibleArchitectures} -> compatibleArchitectures) (\s@PublishLayerVersionResponse' {} a -> s {compatibleArchitectures = a} :: PublishLayerVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The layer\'s compatible runtimes.
+--
+-- The following list includes deprecated runtimes. For more information,
+-- see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy Runtime deprecation policy>.
 publishLayerVersionResponse_compatibleRuntimes :: Lens.Lens' PublishLayerVersionResponse (Prelude.Maybe [Runtime])
 publishLayerVersionResponse_compatibleRuntimes = Lens.lens (\PublishLayerVersionResponse' {compatibleRuntimes} -> compatibleRuntimes) (\s@PublishLayerVersionResponse' {} a -> s {compatibleRuntimes = a} :: PublishLayerVersionResponse) Prelude.. Lens.mapping Lens.coerced
 

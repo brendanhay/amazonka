@@ -34,9 +34,9 @@ data FunctionEventInvokeConfig = FunctionEventInvokeConfig'
     --
     -- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
     --
-    -- -   __Queue__ - The ARN of an SQS queue.
+    -- -   __Queue__ - The ARN of a standard SQS queue.
     --
-    -- -   __Topic__ - The ARN of an SNS topic.
+    -- -   __Topic__ - The ARN of a standard SNS topic.
     --
     -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
     destinationConfig :: Prelude.Maybe DestinationConfig,
@@ -67,9 +67,9 @@ data FunctionEventInvokeConfig = FunctionEventInvokeConfig'
 --
 -- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
 --
--- -   __Queue__ - The ARN of an SQS queue.
+-- -   __Queue__ - The ARN of a standard SQS queue.
 --
--- -   __Topic__ - The ARN of an SNS topic.
+-- -   __Topic__ - The ARN of a standard SNS topic.
 --
 -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
 --
@@ -100,9 +100,9 @@ newFunctionEventInvokeConfig =
 --
 -- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
 --
--- -   __Queue__ - The ARN of an SQS queue.
+-- -   __Queue__ - The ARN of a standard SQS queue.
 --
--- -   __Topic__ - The ARN of an SNS topic.
+-- -   __Topic__ - The ARN of a standard SNS topic.
 --
 -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
 functionEventInvokeConfig_destinationConfig :: Lens.Lens' FunctionEventInvokeConfig (Prelude.Maybe DestinationConfig)
@@ -140,7 +140,8 @@ instance Data.FromJSON FunctionEventInvokeConfig where
 
 instance Prelude.Hashable FunctionEventInvokeConfig where
   hashWithSalt _salt FunctionEventInvokeConfig' {..} =
-    _salt `Prelude.hashWithSalt` destinationConfig
+    _salt
+      `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` functionArn
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` maximumEventAgeInSeconds

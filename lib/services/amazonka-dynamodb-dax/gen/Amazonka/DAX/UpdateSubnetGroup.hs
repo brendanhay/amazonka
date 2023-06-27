@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateSubnetGroup where
 
 instance Prelude.Hashable UpdateSubnetGroup where
   hashWithSalt _salt UpdateSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` subnetGroupName
 

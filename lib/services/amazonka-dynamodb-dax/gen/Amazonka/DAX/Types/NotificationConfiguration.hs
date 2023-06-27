@@ -83,7 +83,8 @@ instance Data.FromJSON NotificationConfiguration where
 
 instance Prelude.Hashable NotificationConfiguration where
   hashWithSalt _salt NotificationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` topicArn
+    _salt
+      `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` topicStatus
 
 instance Prelude.NFData NotificationConfiguration where

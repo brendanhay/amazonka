@@ -75,7 +75,8 @@ instance Data.FromJSON NodeTypeSpecificValue where
 
 instance Prelude.Hashable NodeTypeSpecificValue where
   hashWithSalt _salt NodeTypeSpecificValue' {..} =
-    _salt `Prelude.hashWithSalt` nodeType
+    _salt
+      `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData NodeTypeSpecificValue where

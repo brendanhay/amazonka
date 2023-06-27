@@ -416,7 +416,8 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` clusterEndpointEncryptionType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` notificationTopicArn

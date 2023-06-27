@@ -175,7 +175,8 @@ instance Core.AWSRequest UpdateCluster where
 
 instance Prelude.Hashable UpdateCluster where
   hashWithSalt _salt UpdateCluster' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` notificationTopicArn
       `Prelude.hashWithSalt` notificationTopicStatus
       `Prelude.hashWithSalt` parameterGroupName

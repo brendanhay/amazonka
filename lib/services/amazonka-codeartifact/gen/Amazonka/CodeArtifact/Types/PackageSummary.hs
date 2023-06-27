@@ -26,9 +26,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Details about a package, including its format, namespace, and name. The
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackages.html ListPackages>
--- operation returns a list of @PackageSummary@ objects.
+-- | Details about a package, including its format, namespace, and name.
 --
 -- /See:/ 'newPackageSummary' smart constructor.
 data PackageSummary = PackageSummary'
@@ -43,6 +41,8 @@ data PackageSummary = PackageSummary'
     --
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | A
     -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
@@ -76,6 +76,8 @@ data PackageSummary = PackageSummary'
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
 --
+-- -   The namespace of a generic package is its @namespace@.
+--
 -- 'originConfiguration', 'packageSummary_originConfiguration' - A
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
 -- object that contains a
@@ -107,6 +109,8 @@ packageSummary_format = Lens.lens (\PackageSummary' {format} -> format) (\s@Pack
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 packageSummary_namespace :: Lens.Lens' PackageSummary (Prelude.Maybe Prelude.Text)
 packageSummary_namespace = Lens.lens (\PackageSummary' {namespace} -> namespace) (\s@PackageSummary' {} a -> s {namespace = a} :: PackageSummary)
 
@@ -137,7 +141,8 @@ instance Data.FromJSON PackageSummary where
 
 instance Prelude.Hashable PackageSummary where
   hashWithSalt _salt PackageSummary' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` originConfiguration
       `Prelude.hashWithSalt` package

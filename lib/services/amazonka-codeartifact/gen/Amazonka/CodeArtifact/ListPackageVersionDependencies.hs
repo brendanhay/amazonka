@@ -83,6 +83,8 @@ data ListPackageVersionDependencies = ListPackageVersionDependencies'
     -- -   Python and NuGet package versions do not contain a corresponding
     --     component, package versions of those formats do not have a
     --     namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
@@ -124,6 +126,8 @@ data ListPackageVersionDependencies = ListPackageVersionDependencies'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'nextToken', 'listPackageVersionDependencies_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -185,6 +189,8 @@ listPackageVersionDependencies_domainOwner = Lens.lens (\ListPackageVersionDepen
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 listPackageVersionDependencies_namespace :: Lens.Lens' ListPackageVersionDependencies (Prelude.Maybe Prelude.Text)
 listPackageVersionDependencies_namespace = Lens.lens (\ListPackageVersionDependencies' {namespace} -> namespace) (\s@ListPackageVersionDependencies' {} a -> s {namespace = a} :: ListPackageVersionDependencies)
 
@@ -245,7 +251,8 @@ instance
   hashWithSalt
     _salt
     ListPackageVersionDependencies' {..} =
-      _salt `Prelude.hashWithSalt` domainOwner
+      _salt
+        `Prelude.hashWithSalt` domainOwner
         `Prelude.hashWithSalt` namespace
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` domain

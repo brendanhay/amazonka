@@ -85,6 +85,8 @@ data DisposePackageVersions = DisposePackageVersions'
     -- -   Python and NuGet package versions do not contain a corresponding
     --     component, package versions of those formats do not have a
     --     namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The revisions of the package versions you want to dispose.
     versionRevisions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -127,6 +129,8 @@ data DisposePackageVersions = DisposePackageVersions'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'versionRevisions', 'disposePackageVersions_versionRevisions' - The revisions of the package versions you want to dispose.
 --
@@ -189,6 +193,8 @@ disposePackageVersions_expectedStatus = Lens.lens (\DisposePackageVersions' {exp
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 disposePackageVersions_namespace :: Lens.Lens' DisposePackageVersions (Prelude.Maybe Prelude.Text)
 disposePackageVersions_namespace = Lens.lens (\DisposePackageVersions' {namespace} -> namespace) (\s@DisposePackageVersions' {} a -> s {namespace = a} :: DisposePackageVersions)
 
@@ -229,7 +235,8 @@ instance Core.AWSRequest DisposePackageVersions where
       ( \s h x ->
           DisposePackageVersionsResponse'
             Prelude.<$> (x Data..?> "failedVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "successfulVersions"
+            Prelude.<*> ( x
+                            Data..?> "successfulVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -237,7 +244,8 @@ instance Core.AWSRequest DisposePackageVersions where
 
 instance Prelude.Hashable DisposePackageVersions where
   hashWithSalt _salt DisposePackageVersions' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` expectedStatus
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` versionRevisions

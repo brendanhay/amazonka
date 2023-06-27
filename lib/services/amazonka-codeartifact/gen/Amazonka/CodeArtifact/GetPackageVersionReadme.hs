@@ -20,10 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the readme file or descriptive text for a package version. For
--- packages that do not contain a readme file, CodeArtifact extracts a
--- description from a metadata file. For example, from the @\<description>@
--- element in the @pom.xml@ file of a Maven package.
+-- Gets the readme file or descriptive text for a package version.
 --
 -- The returned text might contain formatting. For example, it might
 -- contain formatting for Markdown or reStructuredText.
@@ -73,8 +70,6 @@ data GetPackageVersionReadme = GetPackageVersionReadme'
     -- package version component that specifies its namespace depends on its
     -- type. For example:
     --
-    -- -   The namespace of a Maven package version is its @groupId@.
-    --
     -- -   The namespace of an npm package version is its @scope@.
     --
     -- -   Python and NuGet package versions do not contain a corresponding
@@ -110,8 +105,6 @@ data GetPackageVersionReadme = GetPackageVersionReadme'
 -- 'namespace', 'getPackageVersionReadme_namespace' - The namespace of the package version with the requested readme file. The
 -- package version component that specifies its namespace depends on its
 -- type. For example:
---
--- -   The namespace of a Maven package version is its @groupId@.
 --
 -- -   The namespace of an npm package version is its @scope@.
 --
@@ -168,8 +161,6 @@ getPackageVersionReadme_domainOwner = Lens.lens (\GetPackageVersionReadme' {doma
 -- package version component that specifies its namespace depends on its
 -- type. For example:
 --
--- -   The namespace of a Maven package version is its @groupId@.
---
 -- -   The namespace of an npm package version is its @scope@.
 --
 -- -   Python and NuGet package versions do not contain a corresponding
@@ -221,7 +212,8 @@ instance Core.AWSRequest GetPackageVersionReadme where
 
 instance Prelude.Hashable GetPackageVersionReadme where
   hashWithSalt _salt GetPackageVersionReadme' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository

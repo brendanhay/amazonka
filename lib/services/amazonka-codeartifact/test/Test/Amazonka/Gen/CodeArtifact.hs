@@ -45,6 +45,9 @@ import Test.Tasty
 --         , requestDeleteDomainPermissionsPolicy $
 --             newDeleteDomainPermissionsPolicy
 --
+--         , requestDeletePackage $
+--             newDeletePackage
+--
 --         , requestDeletePackageVersions $
 --             newDeletePackageVersions
 --
@@ -114,6 +117,9 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestPublishPackageVersion $
+--             newPublishPackageVersion
+--
 --         , requestPutDomainPermissionsPolicy $
 --             newPutDomainPermissionsPolicy
 --
@@ -155,6 +161,9 @@ import Test.Tasty
 --
 --         , responseDeleteDomainPermissionsPolicy $
 --             newDeleteDomainPermissionsPolicyResponse
+--
+--         , responseDeletePackage $
+--             newDeletePackageResponse
 --
 --         , responseDeletePackageVersions $
 --             newDeletePackageVersionsResponse
@@ -225,6 +234,9 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responsePublishPackageVersion $
+--             newPublishPackageVersionResponse
+--
 --         , responsePutDomainPermissionsPolicy $
 --             newPutDomainPermissionsPolicyResponse
 --
@@ -286,6 +298,12 @@ requestDeleteDomainPermissionsPolicy =
   req
     "DeleteDomainPermissionsPolicy"
     "fixture/DeleteDomainPermissionsPolicy.yaml"
+
+requestDeletePackage :: DeletePackage -> TestTree
+requestDeletePackage =
+  req
+    "DeletePackage"
+    "fixture/DeletePackage.yaml"
 
 requestDeletePackageVersions :: DeletePackageVersions -> TestTree
 requestDeletePackageVersions =
@@ -517,6 +535,14 @@ responseDeleteDomainPermissionsPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDomainPermissionsPolicy)
 
+responseDeletePackage :: DeletePackageResponse -> TestTree
+responseDeletePackage =
+  res
+    "DeletePackageResponse"
+    "fixture/DeletePackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePackage)
+
 responseDeletePackageVersions :: DeletePackageVersionsResponse -> TestTree
 responseDeletePackageVersions =
   res
@@ -692,6 +718,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePublishPackageVersion :: PublishPackageVersionResponse -> TestTree
+responsePublishPackageVersion =
+  res
+    "PublishPackageVersionResponse"
+    "fixture/PublishPackageVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PublishPackageVersion)
 
 responsePutDomainPermissionsPolicy :: PutDomainPermissionsPolicyResponse -> TestTree
 responsePutDomainPermissionsPolicy =

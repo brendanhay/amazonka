@@ -81,6 +81,8 @@ data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
     -- -   Python and NuGet package versions do not contain a corresponding
     --     component, package versions of those formats do not have a
     --     namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | A map of package versions and package version revisions. The map @key@
     -- is the package version (for example, @3.5.2@), and the map @value@ is
@@ -131,6 +133,8 @@ data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'versionRevisions', 'updatePackageVersionsStatus_versionRevisions' - A map of package versions and package version revisions. The map @key@
 -- is the package version (for example, @3.5.2@), and the map @value@ is
@@ -205,6 +209,8 @@ updatePackageVersionsStatus_expectedStatus = Lens.lens (\UpdatePackageVersionsSt
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 updatePackageVersionsStatus_namespace :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe Prelude.Text)
 updatePackageVersionsStatus_namespace = Lens.lens (\UpdatePackageVersionsStatus' {namespace} -> namespace) (\s@UpdatePackageVersionsStatus' {} a -> s {namespace = a} :: UpdatePackageVersionsStatus)
 
@@ -253,7 +259,8 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
       ( \s h x ->
           UpdatePackageVersionsStatusResponse'
             Prelude.<$> (x Data..?> "failedVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "successfulVersions"
+            Prelude.<*> ( x
+                            Data..?> "successfulVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -261,7 +268,8 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
 
 instance Prelude.Hashable UpdatePackageVersionsStatus where
   hashWithSalt _salt UpdatePackageVersionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` expectedStatus
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` versionRevisions

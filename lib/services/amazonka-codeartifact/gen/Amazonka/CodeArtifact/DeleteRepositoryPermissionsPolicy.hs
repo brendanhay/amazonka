@@ -150,7 +150,7 @@ instance
       ( \s h x ->
           DeleteRepositoryPermissionsPolicyResponse'
             Prelude.<$> (x Data..?> "policy")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -160,7 +160,8 @@ instance
   hashWithSalt
     _salt
     DeleteRepositoryPermissionsPolicy' {..} =
-      _salt `Prelude.hashWithSalt` domainOwner
+      _salt
+        `Prelude.hashWithSalt` domainOwner
         `Prelude.hashWithSalt` policyRevision
         `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` repository

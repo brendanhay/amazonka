@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdateRepository where
 
 instance Prelude.Hashable UpdateRepository where
   hashWithSalt _salt UpdateRepository' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` upstreams
       `Prelude.hashWithSalt` domain

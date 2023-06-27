@@ -25,7 +25,7 @@
 -- version from your repository and be able to restore it later, set its
 -- status to @Archived@. Archived packages cannot be downloaded from a
 -- repository and don\'t show up with list package APIs (for example,
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html ListackageVersions>),
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html ListPackageVersions>),
 -- but you can restore them using
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html UpdatePackageVersionsStatus>.
 module Amazonka.CodeArtifact.DeletePackageVersions
@@ -80,6 +80,8 @@ data DeletePackageVersions = DeletePackageVersions'
     -- -   Python and NuGet package versions do not contain a corresponding
     --     component, package versions of those formats do not have a
     --     namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the package to delete.
     domain :: Prelude.Text,
@@ -118,6 +120,8 @@ data DeletePackageVersions = DeletePackageVersions'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'domain', 'deletePackageVersions_domain' - The name of the domain that contains the package to delete.
 --
@@ -175,6 +179,8 @@ deletePackageVersions_expectedStatus = Lens.lens (\DeletePackageVersions' {expec
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 deletePackageVersions_namespace :: Lens.Lens' DeletePackageVersions (Prelude.Maybe Prelude.Text)
 deletePackageVersions_namespace = Lens.lens (\DeletePackageVersions' {namespace} -> namespace) (\s@DeletePackageVersions' {} a -> s {namespace = a} :: DeletePackageVersions)
 
@@ -209,7 +215,8 @@ instance Core.AWSRequest DeletePackageVersions where
       ( \s h x ->
           DeletePackageVersionsResponse'
             Prelude.<$> (x Data..?> "failedVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "successfulVersions"
+            Prelude.<*> ( x
+                            Data..?> "successfulVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -217,7 +224,8 @@ instance Core.AWSRequest DeletePackageVersions where
 
 instance Prelude.Hashable DeletePackageVersions where
   hashWithSalt _salt DeletePackageVersions' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` expectedStatus
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain

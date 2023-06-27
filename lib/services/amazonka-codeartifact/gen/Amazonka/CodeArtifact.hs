@@ -113,6 +113,9 @@
 -- -   @DeleteDomainPermissionsPolicy@: Deletes the resource policy that is
 --     set on a domain.
 --
+-- -   @DeletePackage@: Deletes a package and all associated package
+--     versions.
+--
 -- -   @DeletePackageVersions@: Deletes versions of a package. After a
 --     package has been deleted, it can be republished, but its assets and
 --     metadata cannot be restored because they have been permanently
@@ -193,6 +196,9 @@
 --
 -- -   @ListRepositoriesInDomain@: Returns a list of the repositories in a
 --     domain.
+--
+-- -   @PublishPackageVersion@: Creates a new package version containing
+--     one or more assets.
 --
 -- -   @PutDomainPermissionsPolicy@: Attaches a resource policy to a
 --     domain.
@@ -277,6 +283,12 @@ module Amazonka.CodeArtifact
     newDeleteDomainPermissionsPolicy,
     DeleteDomainPermissionsPolicyResponse (DeleteDomainPermissionsPolicyResponse'),
     newDeleteDomainPermissionsPolicyResponse,
+
+    -- ** DeletePackage
+    DeletePackage (DeletePackage'),
+    newDeletePackage,
+    DeletePackageResponse (DeletePackageResponse'),
+    newDeletePackageResponse,
 
     -- ** DeletePackageVersions
     DeletePackageVersions (DeletePackageVersions'),
@@ -415,6 +427,12 @@ module Amazonka.CodeArtifact
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** PublishPackageVersion
+    PublishPackageVersion (PublishPackageVersion'),
+    newPublishPackageVersion,
+    PublishPackageVersionResponse (PublishPackageVersionResponse'),
+    newPublishPackageVersionResponse,
 
     -- ** PutDomainPermissionsPolicy
     PutDomainPermissionsPolicy (PutDomainPermissionsPolicy'),
@@ -586,6 +604,7 @@ import Amazonka.CodeArtifact.CreateDomain
 import Amazonka.CodeArtifact.CreateRepository
 import Amazonka.CodeArtifact.DeleteDomain
 import Amazonka.CodeArtifact.DeleteDomainPermissionsPolicy
+import Amazonka.CodeArtifact.DeletePackage
 import Amazonka.CodeArtifact.DeletePackageVersions
 import Amazonka.CodeArtifact.DeleteRepository
 import Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
@@ -610,6 +629,7 @@ import Amazonka.CodeArtifact.ListPackages
 import Amazonka.CodeArtifact.ListRepositories
 import Amazonka.CodeArtifact.ListRepositoriesInDomain
 import Amazonka.CodeArtifact.ListTagsForResource
+import Amazonka.CodeArtifact.PublishPackageVersion
 import Amazonka.CodeArtifact.PutDomainPermissionsPolicy
 import Amazonka.CodeArtifact.PutPackageOriginConfiguration
 import Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy

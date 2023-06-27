@@ -43,6 +43,8 @@ data PackageDescription = PackageDescription'
     --
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The package origin configuration for the package.
     originConfiguration :: Prelude.Maybe PackageOriginConfiguration
@@ -70,6 +72,8 @@ data PackageDescription = PackageDescription'
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'originConfiguration', 'packageDescription_originConfiguration' - The package origin configuration for the package.
 newPackageDescription ::
@@ -99,6 +103,8 @@ packageDescription_name = Lens.lens (\PackageDescription' {name} -> name) (\s@Pa
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 packageDescription_namespace :: Lens.Lens' PackageDescription (Prelude.Maybe Prelude.Text)
 packageDescription_namespace = Lens.lens (\PackageDescription' {namespace} -> namespace) (\s@PackageDescription' {} a -> s {namespace = a} :: PackageDescription)
 
@@ -120,7 +126,8 @@ instance Data.FromJSON PackageDescription where
 
 instance Prelude.Hashable PackageDescription where
   hashWithSalt _salt PackageDescription' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` originConfiguration

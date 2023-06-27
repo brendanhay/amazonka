@@ -81,7 +81,8 @@ instance Data.FromJSON DomainEntryPoint where
 
 instance Prelude.Hashable DomainEntryPoint where
   hashWithSalt _salt DomainEntryPoint' {..} =
-    _salt `Prelude.hashWithSalt` externalConnectionName
+    _salt
+      `Prelude.hashWithSalt` externalConnectionName
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData DomainEntryPoint where

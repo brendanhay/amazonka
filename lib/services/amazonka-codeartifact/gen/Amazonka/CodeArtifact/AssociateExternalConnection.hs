@@ -68,6 +68,8 @@ data AssociateExternalConnection = AssociateExternalConnection'
     --
     -- -   @public:npmjs@ - for the npm public repository.
     --
+    -- -   @public:nuget-org@ - for the NuGet Gallery.
+    --
     -- -   @public:pypi@ - for the Python Package Index.
     --
     -- -   @public:maven-central@ - for Maven Central.
@@ -77,6 +79,8 @@ data AssociateExternalConnection = AssociateExternalConnection'
     -- -   @public:maven-gradleplugins@ - for the Gradle plugins repository.
     --
     -- -   @public:maven-commonsware@ - for the CommonsWare Android repository.
+    --
+    -- -   @public:maven-clojars@ - for the Clojars repository.
     externalConnection :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,6 +105,8 @@ data AssociateExternalConnection = AssociateExternalConnection'
 --
 -- -   @public:npmjs@ - for the npm public repository.
 --
+-- -   @public:nuget-org@ - for the NuGet Gallery.
+--
 -- -   @public:pypi@ - for the Python Package Index.
 --
 -- -   @public:maven-central@ - for Maven Central.
@@ -110,6 +116,8 @@ data AssociateExternalConnection = AssociateExternalConnection'
 -- -   @public:maven-gradleplugins@ - for the Gradle plugins repository.
 --
 -- -   @public:maven-commonsware@ - for the CommonsWare Android repository.
+--
+-- -   @public:maven-clojars@ - for the Clojars repository.
 newAssociateExternalConnection ::
   -- | 'domain'
   Prelude.Text ->
@@ -148,6 +156,8 @@ associateExternalConnection_repository = Lens.lens (\AssociateExternalConnection
 --
 -- -   @public:npmjs@ - for the npm public repository.
 --
+-- -   @public:nuget-org@ - for the NuGet Gallery.
+--
 -- -   @public:pypi@ - for the Python Package Index.
 --
 -- -   @public:maven-central@ - for Maven Central.
@@ -157,6 +167,8 @@ associateExternalConnection_repository = Lens.lens (\AssociateExternalConnection
 -- -   @public:maven-gradleplugins@ - for the Gradle plugins repository.
 --
 -- -   @public:maven-commonsware@ - for the CommonsWare Android repository.
+--
+-- -   @public:maven-clojars@ - for the Clojars repository.
 associateExternalConnection_externalConnection :: Lens.Lens' AssociateExternalConnection Prelude.Text
 associateExternalConnection_externalConnection = Lens.lens (\AssociateExternalConnection' {externalConnection} -> externalConnection) (\s@AssociateExternalConnection' {} a -> s {externalConnection = a} :: AssociateExternalConnection)
 
@@ -176,7 +188,8 @@ instance Core.AWSRequest AssociateExternalConnection where
 
 instance Prelude.Hashable AssociateExternalConnection where
   hashWithSalt _salt AssociateExternalConnection' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` externalConnection

@@ -172,7 +172,8 @@ instance
   hashWithSalt
     _salt
     PutRepositoryPermissionsPolicy' {..} =
-      _salt `Prelude.hashWithSalt` domainOwner
+      _salt
+        `Prelude.hashWithSalt` domainOwner
         `Prelude.hashWithSalt` policyRevision
         `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` repository

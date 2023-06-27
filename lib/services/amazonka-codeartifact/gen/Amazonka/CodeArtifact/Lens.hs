@@ -68,6 +68,16 @@ module Amazonka.CodeArtifact.Lens
     deleteDomainPermissionsPolicyResponse_policy,
     deleteDomainPermissionsPolicyResponse_httpStatus,
 
+    -- ** DeletePackage
+    deletePackage_domainOwner,
+    deletePackage_namespace,
+    deletePackage_domain,
+    deletePackage_repository,
+    deletePackage_format,
+    deletePackage_package,
+    deletePackageResponse_deletedPackage,
+    deletePackageResponse_httpStatus,
+
     -- ** DeletePackageVersions
     deletePackageVersions_domainOwner,
     deletePackageVersions_expectedStatus,
@@ -316,6 +326,27 @@ module Amazonka.CodeArtifact.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
+    -- ** PublishPackageVersion
+    publishPackageVersion_domainOwner,
+    publishPackageVersion_namespace,
+    publishPackageVersion_unfinished,
+    publishPackageVersion_domain,
+    publishPackageVersion_repository,
+    publishPackageVersion_format,
+    publishPackageVersion_package,
+    publishPackageVersion_packageVersion,
+    publishPackageVersion_assetName,
+    publishPackageVersion_assetSHA256,
+    publishPackageVersion_assetContent,
+    publishPackageVersionResponse_asset,
+    publishPackageVersionResponse_format,
+    publishPackageVersionResponse_namespace,
+    publishPackageVersionResponse_package,
+    publishPackageVersionResponse_status,
+    publishPackageVersionResponse_version,
+    publishPackageVersionResponse_versionRevision,
+    publishPackageVersionResponse_httpStatus,
+
     -- ** PutDomainPermissionsPolicy
     putDomainPermissionsPolicy_domainOwner,
     putDomainPermissionsPolicy_policyRevision,
@@ -469,6 +500,7 @@ module Amazonka.CodeArtifact.Lens
     -- ** RepositoryDescription
     repositoryDescription_administratorAccount,
     repositoryDescription_arn,
+    repositoryDescription_createdTime,
     repositoryDescription_description,
     repositoryDescription_domainName,
     repositoryDescription_domainOwner,
@@ -484,6 +516,7 @@ module Amazonka.CodeArtifact.Lens
     -- ** RepositorySummary
     repositorySummary_administratorAccount,
     repositorySummary_arn,
+    repositorySummary_createdTime,
     repositorySummary_description,
     repositorySummary_domainName,
     repositorySummary_domainOwner,
@@ -516,6 +549,7 @@ import Amazonka.CodeArtifact.CreateDomain
 import Amazonka.CodeArtifact.CreateRepository
 import Amazonka.CodeArtifact.DeleteDomain
 import Amazonka.CodeArtifact.DeleteDomainPermissionsPolicy
+import Amazonka.CodeArtifact.DeletePackage
 import Amazonka.CodeArtifact.DeletePackageVersions
 import Amazonka.CodeArtifact.DeleteRepository
 import Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
@@ -539,6 +573,7 @@ import Amazonka.CodeArtifact.ListPackages
 import Amazonka.CodeArtifact.ListRepositories
 import Amazonka.CodeArtifact.ListRepositoriesInDomain
 import Amazonka.CodeArtifact.ListTagsForResource
+import Amazonka.CodeArtifact.PublishPackageVersion
 import Amazonka.CodeArtifact.PutDomainPermissionsPolicy
 import Amazonka.CodeArtifact.PutPackageOriginConfiguration
 import Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy

@@ -35,6 +35,9 @@ data RepositorySummary = RepositorySummary'
     administratorAccount :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the repository.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that represents the date and time the repository was
+    -- created.
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the repository.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository.
@@ -59,6 +62,9 @@ data RepositorySummary = RepositorySummary'
 --
 -- 'arn', 'repositorySummary_arn' - The ARN of the repository.
 --
+-- 'createdTime', 'repositorySummary_createdTime' - A timestamp that represents the date and time the repository was
+-- created.
+--
 -- 'description', 'repositorySummary_description' - The description of the repository.
 --
 -- 'domainName', 'repositorySummary_domainName' - The name of the domain that contains the repository.
@@ -74,6 +80,7 @@ newRepositorySummary =
     { administratorAccount =
         Prelude.Nothing,
       arn = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
       description = Prelude.Nothing,
       domainName = Prelude.Nothing,
       domainOwner = Prelude.Nothing,
@@ -87,6 +94,11 @@ repositorySummary_administratorAccount = Lens.lens (\RepositorySummary' {adminis
 -- | The ARN of the repository.
 repositorySummary_arn :: Lens.Lens' RepositorySummary (Prelude.Maybe Prelude.Text)
 repositorySummary_arn = Lens.lens (\RepositorySummary' {arn} -> arn) (\s@RepositorySummary' {} a -> s {arn = a} :: RepositorySummary)
+
+-- | A timestamp that represents the date and time the repository was
+-- created.
+repositorySummary_createdTime :: Lens.Lens' RepositorySummary (Prelude.Maybe Prelude.UTCTime)
+repositorySummary_createdTime = Lens.lens (\RepositorySummary' {createdTime} -> createdTime) (\s@RepositorySummary' {} a -> s {createdTime = a} :: RepositorySummary) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the repository.
 repositorySummary_description :: Lens.Lens' RepositorySummary (Prelude.Maybe Prelude.Text)
@@ -113,6 +125,7 @@ instance Data.FromJSON RepositorySummary where
           RepositorySummary'
             Prelude.<$> (x Data..:? "administratorAccount")
             Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdTime")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "domainName")
             Prelude.<*> (x Data..:? "domainOwner")
@@ -121,8 +134,10 @@ instance Data.FromJSON RepositorySummary where
 
 instance Prelude.Hashable RepositorySummary where
   hashWithSalt _salt RepositorySummary' {..} =
-    _salt `Prelude.hashWithSalt` administratorAccount
+    _salt
+      `Prelude.hashWithSalt` administratorAccount
       `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` domainOwner
@@ -132,6 +147,7 @@ instance Prelude.NFData RepositorySummary where
   rnf RepositorySummary' {..} =
     Prelude.rnf administratorAccount
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf domainOwner

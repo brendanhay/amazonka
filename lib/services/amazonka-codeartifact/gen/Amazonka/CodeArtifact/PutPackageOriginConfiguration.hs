@@ -84,6 +84,8 @@ data PutPackageOriginConfiguration = PutPackageOriginConfiguration'
     --
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
     -- package.
@@ -128,6 +130,8 @@ data PutPackageOriginConfiguration = PutPackageOriginConfiguration'
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'domain', 'putPackageOriginConfiguration_domain' - The name of the domain that contains the repository that contains the
 -- package.
@@ -191,6 +195,8 @@ putPackageOriginConfiguration_domainOwner = Lens.lens (\PutPackageOriginConfigur
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 putPackageOriginConfiguration_namespace :: Lens.Lens' PutPackageOriginConfiguration (Prelude.Maybe Prelude.Text)
 putPackageOriginConfiguration_namespace = Lens.lens (\PutPackageOriginConfiguration' {namespace} -> namespace) (\s@PutPackageOriginConfiguration' {} a -> s {namespace = a} :: PutPackageOriginConfiguration)
 
@@ -246,7 +252,8 @@ instance
     PutPackageOriginConfiguration
   where
   hashWithSalt _salt PutPackageOriginConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository

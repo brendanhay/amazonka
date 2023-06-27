@@ -115,7 +115,8 @@ instance Data.FromJSON PackageVersionSummary where
 
 instance Prelude.Hashable PackageVersionSummary where
   hashWithSalt _salt PackageVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` origin
+    _salt
+      `Prelude.hashWithSalt` origin
       `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` status

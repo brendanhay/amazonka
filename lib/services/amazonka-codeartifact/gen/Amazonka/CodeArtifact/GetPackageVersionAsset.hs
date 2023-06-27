@@ -76,6 +76,8 @@ data GetPackageVersionAsset = GetPackageVersionAsset'
     -- -   Python and NuGet package versions do not contain a corresponding
     --     component, package versions of those formats do not have a
     --     namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the package version revision that contains the requested
     -- asset.
@@ -120,6 +122,8 @@ data GetPackageVersionAsset = GetPackageVersionAsset'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'packageVersionRevision', 'getPackageVersionAsset_packageVersionRevision' - The name of the package version revision that contains the requested
 -- asset.
@@ -188,6 +192,8 @@ getPackageVersionAsset_domainOwner = Lens.lens (\GetPackageVersionAsset' {domain
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 getPackageVersionAsset_namespace :: Lens.Lens' GetPackageVersionAsset (Prelude.Maybe Prelude.Text)
 getPackageVersionAsset_namespace = Lens.lens (\GetPackageVersionAsset' {namespace} -> namespace) (\s@GetPackageVersionAsset' {} a -> s {namespace = a} :: GetPackageVersionAsset)
 
@@ -242,7 +248,8 @@ instance Core.AWSRequest GetPackageVersionAsset where
 
 instance Prelude.Hashable GetPackageVersionAsset where
   hashWithSalt _salt GetPackageVersionAsset' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` packageVersionRevision
       `Prelude.hashWithSalt` domain

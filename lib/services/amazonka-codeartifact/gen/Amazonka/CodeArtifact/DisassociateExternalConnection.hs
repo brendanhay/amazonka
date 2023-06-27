@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     DisassociateExternalConnection' {..} =
-      _salt `Prelude.hashWithSalt` domainOwner
+      _salt
+        `Prelude.hashWithSalt` domainOwner
         `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` repository
         `Prelude.hashWithSalt` externalConnection

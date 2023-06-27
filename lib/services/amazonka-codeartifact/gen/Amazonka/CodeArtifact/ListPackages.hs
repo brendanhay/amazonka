@@ -71,9 +71,12 @@ data ListPackages = ListPackages'
     format :: Prelude.Maybe PackageFormat,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The namespace used to filter requested packages. Only packages with the
-    -- provided namespace will be returned. The package component that
-    -- specifies its namespace depends on its type. For example:
+    -- | The namespace prefix used to filter requested packages. Only packages
+    -- with a namespace that starts with the provided string value are
+    -- returned. Note that although this option is called @--namespace@ and not
+    -- @--namespace-prefix@, it has prefix-matching behavior.
+    --
+    -- Each package format uses namespace as follows:
     --
     -- -   The namespace of a Maven package is its @groupId@.
     --
@@ -81,6 +84,8 @@ data ListPackages = ListPackages'
     --
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
@@ -123,9 +128,12 @@ data ListPackages = ListPackages'
 --
 -- 'maxResults', 'listPackages_maxResults' - The maximum number of results to return per page.
 --
--- 'namespace', 'listPackages_namespace' - The namespace used to filter requested packages. Only packages with the
--- provided namespace will be returned. The package component that
--- specifies its namespace depends on its type. For example:
+-- 'namespace', 'listPackages_namespace' - The namespace prefix used to filter requested packages. Only packages
+-- with a namespace that starts with the provided string value are
+-- returned. Note that although this option is called @--namespace@ and not
+-- @--namespace-prefix@, it has prefix-matching behavior.
+--
+-- Each package format uses namespace as follows:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
@@ -133,6 +141,8 @@ data ListPackages = ListPackages'
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'nextToken', 'listPackages_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -189,9 +199,12 @@ listPackages_format = Lens.lens (\ListPackages' {format} -> format) (\s@ListPack
 listPackages_maxResults :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Natural)
 listPackages_maxResults = Lens.lens (\ListPackages' {maxResults} -> maxResults) (\s@ListPackages' {} a -> s {maxResults = a} :: ListPackages)
 
--- | The namespace used to filter requested packages. Only packages with the
--- provided namespace will be returned. The package component that
--- specifies its namespace depends on its type. For example:
+-- | The namespace prefix used to filter requested packages. Only packages
+-- with a namespace that starts with the provided string value are
+-- returned. Note that although this option is called @--namespace@ and not
+-- @--namespace-prefix@, it has prefix-matching behavior.
+--
+-- Each package format uses namespace as follows:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
@@ -199,6 +212,8 @@ listPackages_maxResults = Lens.lens (\ListPackages' {maxResults} -> maxResults) 
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 listPackages_namespace :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
 listPackages_namespace = Lens.lens (\ListPackages' {namespace} -> namespace) (\s@ListPackages' {} a -> s {namespace = a} :: ListPackages)
 
@@ -240,20 +255,23 @@ instance Core.AWSPager ListPackages where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPackagesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listPackagesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPackagesResponse_packages Prelude.. Lens._Just
+            Lens.^? listPackagesResponse_packages
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPackages_nextToken
           Lens..~ rs
-          Lens.^? listPackagesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPackagesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPackages where
   type AWSResponse ListPackages = ListPackagesResponse
@@ -270,7 +288,8 @@ instance Core.AWSRequest ListPackages where
 
 instance Prelude.Hashable ListPackages where
   hashWithSalt _salt ListPackages' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namespace

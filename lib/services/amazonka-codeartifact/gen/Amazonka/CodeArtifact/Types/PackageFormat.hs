@@ -20,6 +20,7 @@
 module Amazonka.CodeArtifact.Types.PackageFormat
   ( PackageFormat
       ( ..,
+        PackageFormat_Generic,
         PackageFormat_Maven,
         PackageFormat_Npm,
         PackageFormat_Nuget,
@@ -60,6 +61,9 @@ newtype PackageFormat = PackageFormat'
       Data.ToXML
     )
 
+pattern PackageFormat_Generic :: PackageFormat
+pattern PackageFormat_Generic = PackageFormat' "generic"
+
 pattern PackageFormat_Maven :: PackageFormat
 pattern PackageFormat_Maven = PackageFormat' "maven"
 
@@ -73,6 +77,7 @@ pattern PackageFormat_Pypi :: PackageFormat
 pattern PackageFormat_Pypi = PackageFormat' "pypi"
 
 {-# COMPLETE
+  PackageFormat_Generic,
   PackageFormat_Maven,
   PackageFormat_Npm,
   PackageFormat_Nuget,

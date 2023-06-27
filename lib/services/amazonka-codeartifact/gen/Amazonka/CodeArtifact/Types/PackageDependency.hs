@@ -29,8 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPackageDependency' smart constructor.
 data PackageDependency = PackageDependency'
   { -- | The type of a package dependency. The possible values depend on the
-    -- package type. Example types are @compile@, @runtime@, and @test@ for
-    -- Maven packages, and @dev@, @prod@, and @optional@ for npm packages.
+    -- package type.
+    --
+    -- -   npm: @regular@, @dev@, @peer@, @optional@
+    --
+    -- -   maven: @optional@, @parent@, @compile@, @runtime@, @test@, @system@,
+    --     @provided@.
+    --
+    --     Note that @parent@ is not a regular Maven dependency type; instead
+    --     this is extracted from the @\<parent>@ element if one is defined in
+    --     the package version\'s POM file.
+    --
+    -- -   nuget: The @dependencyType@ field is never set for NuGet packages.
+    --
+    -- -   pypi: @Requires-Dist@
     dependencyType :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the package that this package depends on. The package
     -- component that specifies its namespace depends on its type. For example:
@@ -61,8 +73,20 @@ data PackageDependency = PackageDependency'
 -- for backwards compatibility:
 --
 -- 'dependencyType', 'packageDependency_dependencyType' - The type of a package dependency. The possible values depend on the
--- package type. Example types are @compile@, @runtime@, and @test@ for
--- Maven packages, and @dev@, @prod@, and @optional@ for npm packages.
+-- package type.
+--
+-- -   npm: @regular@, @dev@, @peer@, @optional@
+--
+-- -   maven: @optional@, @parent@, @compile@, @runtime@, @test@, @system@,
+--     @provided@.
+--
+--     Note that @parent@ is not a regular Maven dependency type; instead
+--     this is extracted from the @\<parent>@ element if one is defined in
+--     the package version\'s POM file.
+--
+-- -   nuget: The @dependencyType@ field is never set for NuGet packages.
+--
+-- -   pypi: @Requires-Dist@
 --
 -- 'namespace', 'packageDependency_namespace' - The namespace of the package that this package depends on. The package
 -- component that specifies its namespace depends on its type. For example:
@@ -92,8 +116,20 @@ newPackageDependency =
     }
 
 -- | The type of a package dependency. The possible values depend on the
--- package type. Example types are @compile@, @runtime@, and @test@ for
--- Maven packages, and @dev@, @prod@, and @optional@ for npm packages.
+-- package type.
+--
+-- -   npm: @regular@, @dev@, @peer@, @optional@
+--
+-- -   maven: @optional@, @parent@, @compile@, @runtime@, @test@, @system@,
+--     @provided@.
+--
+--     Note that @parent@ is not a regular Maven dependency type; instead
+--     this is extracted from the @\<parent>@ element if one is defined in
+--     the package version\'s POM file.
+--
+-- -   nuget: The @dependencyType@ field is never set for NuGet packages.
+--
+-- -   pypi: @Requires-Dist@
 packageDependency_dependencyType :: Lens.Lens' PackageDependency (Prelude.Maybe Prelude.Text)
 packageDependency_dependencyType = Lens.lens (\PackageDependency' {dependencyType} -> dependencyType) (\s@PackageDependency' {} a -> s {dependencyType = a} :: PackageDependency)
 
@@ -134,7 +170,8 @@ instance Data.FromJSON PackageDependency where
 
 instance Prelude.Hashable PackageDependency where
   hashWithSalt _salt PackageDependency' {..} =
-    _salt `Prelude.hashWithSalt` dependencyType
+    _salt
+      `Prelude.hashWithSalt` dependencyType
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` package
       `Prelude.hashWithSalt` versionRequirement

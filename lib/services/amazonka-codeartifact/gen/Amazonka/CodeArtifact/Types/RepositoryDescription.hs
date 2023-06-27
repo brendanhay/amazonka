@@ -41,6 +41,9 @@ data RepositoryDescription = RepositoryDescription'
     administratorAccount :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the repository.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that represents the date and time the repository was
+    -- created.
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | A text description of the repository.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository.
@@ -75,6 +78,9 @@ data RepositoryDescription = RepositoryDescription'
 --
 -- 'arn', 'repositoryDescription_arn' - The Amazon Resource Name (ARN) of the repository.
 --
+-- 'createdTime', 'repositoryDescription_createdTime' - A timestamp that represents the date and time the repository was
+-- created.
+--
 -- 'description', 'repositoryDescription_description' - A text description of the repository.
 --
 -- 'domainName', 'repositoryDescription_domainName' - The name of the domain that contains the repository.
@@ -99,6 +105,7 @@ newRepositoryDescription =
     { administratorAccount =
         Prelude.Nothing,
       arn = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
       description = Prelude.Nothing,
       domainName = Prelude.Nothing,
       domainOwner = Prelude.Nothing,
@@ -115,6 +122,11 @@ repositoryDescription_administratorAccount = Lens.lens (\RepositoryDescription' 
 -- | The Amazon Resource Name (ARN) of the repository.
 repositoryDescription_arn :: Lens.Lens' RepositoryDescription (Prelude.Maybe Prelude.Text)
 repositoryDescription_arn = Lens.lens (\RepositoryDescription' {arn} -> arn) (\s@RepositoryDescription' {} a -> s {arn = a} :: RepositoryDescription)
+
+-- | A timestamp that represents the date and time the repository was
+-- created.
+repositoryDescription_createdTime :: Lens.Lens' RepositoryDescription (Prelude.Maybe Prelude.UTCTime)
+repositoryDescription_createdTime = Lens.lens (\RepositoryDescription' {createdTime} -> createdTime) (\s@RepositoryDescription' {} a -> s {createdTime = a} :: RepositoryDescription) Prelude.. Lens.mapping Data._Time
 
 -- | A text description of the repository.
 repositoryDescription_description :: Lens.Lens' RepositoryDescription (Prelude.Maybe Prelude.Text)
@@ -154,10 +166,12 @@ instance Data.FromJSON RepositoryDescription where
           RepositoryDescription'
             Prelude.<$> (x Data..:? "administratorAccount")
             Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdTime")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "domainName")
             Prelude.<*> (x Data..:? "domainOwner")
-            Prelude.<*> ( x Data..:? "externalConnections"
+            Prelude.<*> ( x
+                            Data..:? "externalConnections"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")
@@ -166,8 +180,10 @@ instance Data.FromJSON RepositoryDescription where
 
 instance Prelude.Hashable RepositoryDescription where
   hashWithSalt _salt RepositoryDescription' {..} =
-    _salt `Prelude.hashWithSalt` administratorAccount
+    _salt
+      `Prelude.hashWithSalt` administratorAccount
       `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` domainOwner
@@ -179,6 +195,7 @@ instance Prelude.NFData RepositoryDescription where
   rnf RepositoryDescription' {..} =
     Prelude.rnf administratorAccount
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf domainOwner

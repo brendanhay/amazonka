@@ -23,7 +23,8 @@
 -- Returns a list of
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html PackageVersionSummary>
 -- objects for package versions in a repository that match the request
--- parameters.
+-- parameters. Package versions of all statuses will be returned by default
+-- when calling @list-package-versions@ with no @--status@ parameter.
 --
 -- This operation returns paginated results.
 module Amazonka.CodeArtifact.ListPackageVersions
@@ -84,6 +85,8 @@ data ListPackageVersions = ListPackageVersions'
     --
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
@@ -101,7 +104,7 @@ data ListPackageVersions = ListPackageVersions'
     domain :: Prelude.Text,
     -- | The name of the repository that contains the requested package versions.
     repository :: Prelude.Text,
-    -- | The format of the returned package versions.
+    -- | The format of the package versions you want to list.
     format :: PackageFormat,
     -- | The name of the package for which you want to request package versions.
     package :: Prelude.Text
@@ -132,6 +135,8 @@ data ListPackageVersions = ListPackageVersions'
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
 --
+-- -   The namespace of a generic package is its @namespace@.
+--
 -- 'nextToken', 'listPackageVersions_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
@@ -148,7 +153,7 @@ data ListPackageVersions = ListPackageVersions'
 --
 -- 'repository', 'listPackageVersions_repository' - The name of the repository that contains the requested package versions.
 --
--- 'format', 'listPackageVersions_format' - The format of the returned package versions.
+-- 'format', 'listPackageVersions_format' - The format of the package versions you want to list.
 --
 -- 'package', 'listPackageVersions_package' - The name of the package for which you want to request package versions.
 newListPackageVersions ::
@@ -199,6 +204,8 @@ listPackageVersions_maxResults = Lens.lens (\ListPackageVersions' {maxResults} -
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 listPackageVersions_namespace :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Text)
 listPackageVersions_namespace = Lens.lens (\ListPackageVersions' {namespace} -> namespace) (\s@ListPackageVersions' {} a -> s {namespace = a} :: ListPackageVersions)
 
@@ -230,7 +237,7 @@ listPackageVersions_domain = Lens.lens (\ListPackageVersions' {domain} -> domain
 listPackageVersions_repository :: Lens.Lens' ListPackageVersions Prelude.Text
 listPackageVersions_repository = Lens.lens (\ListPackageVersions' {repository} -> repository) (\s@ListPackageVersions' {} a -> s {repository = a} :: ListPackageVersions)
 
--- | The format of the returned package versions.
+-- | The format of the package versions you want to list.
 listPackageVersions_format :: Lens.Lens' ListPackageVersions PackageFormat
 listPackageVersions_format = Lens.lens (\ListPackageVersions' {format} -> format) (\s@ListPackageVersions' {} a -> s {format = a} :: ListPackageVersions)
 
@@ -243,22 +250,22 @@ instance Core.AWSPager ListPackageVersions where
     | Core.stop
         ( rs
             Lens.^? listPackageVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPackageVersionsResponse_versions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPackageVersions_nextToken
           Lens..~ rs
           Lens.^? listPackageVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPackageVersions where
   type
@@ -281,7 +288,8 @@ instance Core.AWSRequest ListPackageVersions where
 
 instance Prelude.Hashable ListPackageVersions where
   hashWithSalt _salt ListPackageVersions' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` nextToken

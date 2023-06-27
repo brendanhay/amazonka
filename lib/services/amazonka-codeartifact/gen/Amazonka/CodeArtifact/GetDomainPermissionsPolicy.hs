@@ -111,7 +111,8 @@ instance Core.AWSRequest GetDomainPermissionsPolicy where
 
 instance Prelude.Hashable GetDomainPermissionsPolicy where
   hashWithSalt _salt GetDomainPermissionsPolicy' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
 
 instance Prelude.NFData GetDomainPermissionsPolicy where

@@ -89,6 +89,8 @@ data CopyPackageVersions = CopyPackageVersions'
     -- -   Python and NuGet package versions do not contain a corresponding
     --     component, package versions of those formats do not have a
     --     namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | A list of key-value pairs. The keys are package versions and the values
     -- are package version revisions. A @CopyPackageVersion@ operation succeeds
@@ -151,6 +153,8 @@ data CopyPackageVersions = CopyPackageVersions'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'versionRevisions', 'copyPackageVersions_versionRevisions' - A list of key-value pairs. The keys are package versions and the values
 -- are package version revisions. A @CopyPackageVersion@ operation succeeds
@@ -240,6 +244,8 @@ copyPackageVersions_includeFromUpstream = Lens.lens (\CopyPackageVersions' {incl
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 copyPackageVersions_namespace :: Lens.Lens' CopyPackageVersions (Prelude.Maybe Prelude.Text)
 copyPackageVersions_namespace = Lens.lens (\CopyPackageVersions' {namespace} -> namespace) (\s@CopyPackageVersions' {} a -> s {namespace = a} :: CopyPackageVersions)
 
@@ -293,7 +299,8 @@ instance Core.AWSRequest CopyPackageVersions where
       ( \s h x ->
           CopyPackageVersionsResponse'
             Prelude.<$> (x Data..?> "failedVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "successfulVersions"
+            Prelude.<*> ( x
+                            Data..?> "successfulVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -301,7 +308,8 @@ instance Core.AWSRequest CopyPackageVersions where
 
 instance Prelude.Hashable CopyPackageVersions where
   hashWithSalt _salt CopyPackageVersions' {..} =
-    _salt `Prelude.hashWithSalt` allowOverwrite
+    _salt
+      `Prelude.hashWithSalt` allowOverwrite
       `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` includeFromUpstream
       `Prelude.hashWithSalt` namespace

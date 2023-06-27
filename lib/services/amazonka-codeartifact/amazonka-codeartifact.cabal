@@ -50,6 +50,7 @@ library
     Amazonka.CodeArtifact.CreateRepository
     Amazonka.CodeArtifact.DeleteDomain
     Amazonka.CodeArtifact.DeleteDomainPermissionsPolicy
+    Amazonka.CodeArtifact.DeletePackage
     Amazonka.CodeArtifact.DeletePackageVersions
     Amazonka.CodeArtifact.DeleteRepository
     Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
@@ -74,6 +75,7 @@ library
     Amazonka.CodeArtifact.ListRepositories
     Amazonka.CodeArtifact.ListRepositoriesInDomain
     Amazonka.CodeArtifact.ListTagsForResource
+    Amazonka.CodeArtifact.PublishPackageVersion
     Amazonka.CodeArtifact.PutDomainPermissionsPolicy
     Amazonka.CodeArtifact.PutPackageOriginConfiguration
     Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy

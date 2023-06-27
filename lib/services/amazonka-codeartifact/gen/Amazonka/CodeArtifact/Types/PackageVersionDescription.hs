@@ -53,6 +53,8 @@ data PackageVersionDescription = PackageVersionDescription'
     -- -   Python and NuGet package versions do not contain a corresponding
     --     component, package versions of those formats do not have a
     --     namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | A
     -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html PackageVersionOrigin>
@@ -109,6 +111,8 @@ data PackageVersionDescription = PackageVersionDescription'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'origin', 'packageVersionDescription_origin' - A
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html PackageVersionOrigin>
@@ -181,6 +185,8 @@ packageVersionDescription_licenses = Lens.lens (\PackageVersionDescription' {lic
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 packageVersionDescription_namespace :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
 packageVersionDescription_namespace = Lens.lens (\PackageVersionDescription' {namespace} -> namespace) (\s@PackageVersionDescription' {} a -> s {namespace = a} :: PackageVersionDescription)
 
@@ -246,7 +252,8 @@ instance Data.FromJSON PackageVersionDescription where
 
 instance Prelude.Hashable PackageVersionDescription where
   hashWithSalt _salt PackageVersionDescription' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` homePage
       `Prelude.hashWithSalt` licenses

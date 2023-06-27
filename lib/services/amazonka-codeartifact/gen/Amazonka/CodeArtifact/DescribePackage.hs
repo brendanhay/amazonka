@@ -69,6 +69,8 @@ data DescribePackage = DescribePackage'
     --
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
     -- package.
@@ -103,6 +105,8 @@ data DescribePackage = DescribePackage'
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'domain', 'describePackage_domain' - The name of the domain that contains the repository that contains the
 -- package.
@@ -151,6 +155,8 @@ describePackage_domainOwner = Lens.lens (\DescribePackage' {domainOwner} -> doma
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 describePackage_namespace :: Lens.Lens' DescribePackage (Prelude.Maybe Prelude.Text)
 describePackage_namespace = Lens.lens (\DescribePackage' {namespace} -> namespace) (\s@DescribePackage' {} a -> s {namespace = a} :: DescribePackage)
 
@@ -187,7 +193,8 @@ instance Core.AWSRequest DescribePackage where
 
 instance Prelude.Hashable DescribePackage where
   hashWithSalt _salt DescribePackage' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository

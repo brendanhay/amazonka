@@ -83,6 +83,8 @@ data ListPackageVersionAssets = ListPackageVersionAssets'
     -- -   Python and NuGet package versions do not contain a corresponding
     --     component, package versions of those formats do not have a
     --     namespace.
+    --
+    -- -   The namespace of a generic package is its @namespace@.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
@@ -129,6 +131,8 @@ data ListPackageVersionAssets = ListPackageVersionAssets'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 --
 -- 'nextToken', 'listPackageVersionAssets_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -198,6 +202,8 @@ listPackageVersionAssets_maxResults = Lens.lens (\ListPackageVersionAssets' {max
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- -   The namespace of a generic package is its @namespace@.
 listPackageVersionAssets_namespace :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Text)
 listPackageVersionAssets_namespace = Lens.lens (\ListPackageVersionAssets' {namespace} -> namespace) (\s@ListPackageVersionAssets' {} a -> s {namespace = a} :: ListPackageVersionAssets)
 
@@ -236,22 +242,22 @@ instance Core.AWSPager ListPackageVersionAssets where
     | Core.stop
         ( rs
             Lens.^? listPackageVersionAssetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPackageVersionAssetsResponse_assets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPackageVersionAssets_nextToken
           Lens..~ rs
           Lens.^? listPackageVersionAssetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPackageVersionAssets where
   type
@@ -275,7 +281,8 @@ instance Core.AWSRequest ListPackageVersionAssets where
 
 instance Prelude.Hashable ListPackageVersionAssets where
   hashWithSalt _salt ListPackageVersionAssets' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
+    _salt
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` nextToken
